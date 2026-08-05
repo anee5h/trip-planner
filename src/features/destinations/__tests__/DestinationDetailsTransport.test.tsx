@@ -199,7 +199,7 @@ describe("DestinationDetails transport rows", () => {
     expect(text).toContain("Transport estimate unavailable");
   });
 
-  it("Ogasawara from Tokyo shows route-known ferry note, no flight, no selectable budget", async () => {
+  it("Ogasawara from Tokyo shows route-known ferry note, no flight, no generic origin transport cost", async () => {
     render("/destinations/ogasawara-islands-tokyo");
     await act(async () => {
       await flush(80);
@@ -211,5 +211,23 @@ describe("DestinationDetails transport rows", () => {
     expect(text).not.toContain("Flight");
     // No flight cost estimate may be rendered.
     expect(text).not.toContain("Flight (Air & Access)");
+    // No selectable transport mode exists and no origin transport is
+    // claimed: the budget card is the on-site budget.
+    expect(text).toContain("On-site budget (transport excluded)");
+    expect(text).not.toContain("Local transport");
+  });
+
+  it("Ogasawara from Fukuoka shows no ferry note, unavailable copy, and on-site budget", async () => {
+    storeState.homeStationCoords = { lat: 33.5902, lng: 130.4017 };
+    storeState.homeStationTransportZoneId = "mainland-kyushu";
+    render("/destinations/ogasawara-islands-tokyo");
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).toContain("Transport estimate unavailable");
+    expect(text).not.toContain("Ferry route available");
+    expect(text).toContain("On-site budget (transport excluded)");
+    expect(text).not.toContain("Local transport");
   });
 });

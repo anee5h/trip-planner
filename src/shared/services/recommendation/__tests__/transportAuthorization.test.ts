@@ -6,6 +6,12 @@ import {
   resolveDestinationTransportZone,
   resolveOriginTransportZone,
 } from "@/shared/services/transport/TransportTopologyService";
+import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
+import {
+  calculateItemizedTripCost,
+  getTransportCost,
+} from "@/shared/services/budget/BudgetService";
+import { calculateGeneratedPlanCost } from "@/shared/services/budget/GeneratedPlanCostService";
 import { resolveTransportSelection } from "@/features/home/services/TransportResolver";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { Destination } from "@/shared/types/destination";
@@ -181,7 +187,7 @@ describe("conservative failure", () => {
 
 describe("ferry connectivity is not estimability", () => {
   it("Tokyo → Naoshima never uses ground transport across water", () => {
-    const { selection, zone } = publicSelection(NAHA);
+    const { selection, zone } = publicSelection(TOKYO);
     const dest = byId.get("naoshima-art-island-kagawa")!;
     const modes = getValidModes(
       dest,
@@ -239,6 +245,138 @@ describe("ferry connectivity is not estimability", () => {
 
   it("no ferry route from Fukuoka to Ogasawara", () => {
     expect(hasFerryRoute("mainland-kyushu", "ogasawara")).toBe(false);
+  });
+});
+
+describe("flight cost and time use the origin gateway", () => {
+  it("Naha → Ishigaki time and cost both use OKA → ISG", () => {
+    const dest = byId.get("ishigaki-city")!;
+    const estimate = getFlightTransportEstimate(dest, NAHA);
+    expect(estimate?.details?.departureAirportCode).toBe("OKA");
+    expect(estimate?.details?.arrivalAirportCode).toBe("ISG");
+    // Cost derives from the OKA→ISG door-to-door estimate: avg one-way ×
+    // round trip × party size.
+    const expected = Math.floor(
+      Math.round(
+        ((estimate!.costRange[0] + estimate!.costRange[1]) / 2) * 2 * 2,
+      ),
+    );
+    expect(getTransportCost(dest, "flight", 2, NAHA)).toBe(expected);
+    // Must not silently fall back to the HND→ISG price.
+    const tokyoCost = getTransportCost(dest, "flight", 2, TOKYO);
+    expect(tokyoCost).not.toBe(expected);
+  });
+
+  it("Naha → Miyako time and cost both use OKA → MMY", () => {
+    const dest = byId.get("yonaha-maehama-beach-miyako")!;
+    const estimate = getFlightTransportEstimate(dest, NAHA);
+    expect(estimate?.details?.departureAirportCode).toBe("OKA");
+    expect(estimate?.details?.arrivalAirportCode).toBe("MMY");
+    const expected = Math.floor(
+      Math.round(
+        ((estimate!.costRange[0] + estimate!.costRange[1]) / 2) * 2 * 2,
+      ),
+    );
+    expect(getTransportCost(dest, "flight", 2, NAHA)).toBe(expected);
+    const tokyoCost = getTransportCost(dest, "flight", 2, TOKYO);
+    expect(tokyoCost).not.toBe(expected);
+  });
+});
+
+describe("no-route budget excludes origin transport", () => {
+  it("calculateItemizedTripCost with null mode never prices Train", () => {
+    const dest = byId.get("ogasawara-islands-tokyo")!;
+    const withNull = calculateItemizedTripCost(dest, { activeMode: null });
+    const withTrain = calculateItemizedTripCost(dest, { activeMode: "train" });
+    expect(withNull.transport).toBe(0);
+    // The null-mode total must be strictly less than the train-mode total
+    // (which would price an origin train that does not exist).
+    expect(withNull.partyRange[0]).toBeLessThan(withTrain.partyRange[0]);
+  });
+
+  it("generated plan costs never include origin transport", () => {
+    const plan = {
+      steps: [],
+      isUnfeasible: false,
+      totalBudgetRange: [0, 0] as [number, number],
+    };
+    const cost = calculateGeneratedPlanCost(plan as never, 2, "train", false);
+    expect(cost.originTransport.min).toBe(0);
+    expect(cost.originTransport.applicable).toBe(false);
+  });
+});
+
+describe("destination-level local access", () => {
+  const KAGOSHIMA = { lat: 31.5966, lng: 130.5571 };
+
+  it("Naha → Naha City permits local rail", () => {
+    const modes = getValidModes(
+      byId.get("naha-city")!,
+      "none",
+      ["train"],
+      NAHA,
+      undefined,
+      "okinawa-main",
+    );
+    expect(modes).toContain("train");
+  });
+
+  it("Naha → Kouri Island rejects Train", () => {
+    const modes = getValidModes(
+      byId.get("kouri-island-okinawa")!,
+      "none",
+      ["train", "shinkansen", "bus"],
+      NAHA,
+      undefined,
+      "okinawa-main",
+    );
+    expect(modes).not.toContain("train");
+    expect(modes).not.toContain("shinkansen");
+  });
+
+  it("Kagoshima → Sakurajima rejects Train as a complete mode", () => {
+    const modes = getValidModes(
+      byId.get("sakurajima-volcano-kagoshima")!,
+      "none",
+      ["train", "shinkansen", "bus", "flight"],
+      KAGOSHIMA,
+      undefined,
+      "mainland-kyushu",
+    );
+    expect(modes).not.toContain("train");
+    expect(modes).not.toContain("shinkansen");
+  });
+
+  it("Sakurajima allows only explicitly backed car/bus access", () => {
+    // The catalogue record carries train:180 only; with localAccessModes
+    // [car, my_car, bus], no mode is authorized by the zone alone.
+    const dest = byId.get("sakurajima-volcano-kagoshima")!;
+    const modes = getValidModes(
+      dest,
+      "rental",
+      ["bus"],
+      KAGOSHIMA,
+      undefined,
+      "mainland-kyushu",
+    );
+    expect(modes).toEqual([]);
+    expect(modes.some((m) => ["train", "shinkansen"].includes(m))).toBe(false);
+
+    // When the record backs a car option, car is authorized by the
+    // destination-level constraint.
+    const backed = {
+      ...dest,
+      transportOptions: { ...dest.transportOptions, car: 40 },
+    } as Destination;
+    const backedModes = getValidModes(
+      backed,
+      "rental",
+      ["bus"],
+      KAGOSHIMA,
+      undefined,
+      "mainland-kyushu",
+    );
+    expect(backedModes).toEqual(["car"]);
   });
 });
 

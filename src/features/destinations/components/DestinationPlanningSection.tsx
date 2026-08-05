@@ -10,7 +10,8 @@ interface DestinationPlanningSectionProps {
   destination: Destination;
   locale: "en" | "ja";
   partySize: number;
-  selectedTransport: string;
+  /** null = no estimable origin route; origin transport stays unavailable. */
+  selectedTransport: string | null;
   onSaveToItinerary: (plan?: DayPlan) => void;
   onPlanGenerated?: (plan: DayPlan | null) => void;
 }
@@ -50,12 +51,20 @@ export function DestinationPlanningSection({
     generatedPlan && !generatedPlan.isUnfeasible,
   );
 
+  // Local transit on-site may still be estimated, but nothing converts a
+  // null (no origin route) or "all" selection into an origin Train cost:
+  // calculateGeneratedPlanCost only prices origin transport when
+  // hasOriginInfo is true, which is never set here.
+  const localTransitMode: "car" | "train" =
+    selectedTransport === "car" || selectedTransport === "my_car"
+      ? "car"
+      : "train";
   const costBreakdown =
     hasValidGeneratedPlan && generatedPlan
       ? calculateGeneratedPlanCost(
           generatedPlan,
           activePartySize,
-          selectedTransport === "car" ? "car" : "train",
+          localTransitMode,
         )
       : undefined;
 

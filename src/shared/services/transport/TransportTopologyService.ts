@@ -14,11 +14,18 @@ import type { TransportMode } from "./types";
 // JSON modules are untyped at the import boundary; validate shape once here.
 const topologyDataTyped = topologyData as unknown as TransportTopologyData;
 const ferryRoutesDataTyped = ferryRoutesData as unknown as {
-  routes: Array<{ from: string; to: string }>;
+  routes: Array<{
+    from: string;
+    to: string;
+    passengerService: boolean;
+  }>;
 };
 const topology: TransportTopologyData = topologyDataTyped;
-const ferryRoutes: Array<{ from: string; to: string }> =
-  ferryRoutesDataTyped.routes;
+const ferryRoutes: Array<{
+  from: string;
+  to: string;
+  passengerService: boolean;
+}> = ferryRoutesDataTyped.routes;
 const airportZonesDataTyped = airportZonesData as unknown as {
   airports: Record<string, TransportZoneId>;
 };
@@ -273,7 +280,9 @@ export function hasFerryRoute(
   to: TransportZoneId,
 ): boolean {
   return ferryRoutes.some(
-    (r) => (r.from === from && r.to === to) || (r.from === to && r.to === from),
+    (r) =>
+      r.passengerService === true &&
+      ((r.from === from && r.to === to) || (r.from === to && r.to === from)),
   );
 }
 
@@ -300,7 +309,17 @@ export function getEligibleOriginModes(params: {
   const localModes: TransportMode[] = dz?.localModes ?? [];
 
   if (originZoneId === destinationZoneId) {
-    return { originZoneId, destinationZoneId, crossZoneModes: [], localModes };
+    // Destination-level constraint: when a record declares localAccessModes,
+    // only those modes reach the destination, even if the zone supports more.
+    const effectiveLocalModes = params.destination.localAccessModes?.length
+      ? (params.destination.localAccessModes as TransportMode[])
+      : localModes;
+    return {
+      originZoneId,
+      destinationZoneId,
+      crossZoneModes: [],
+      localModes: effectiveLocalModes,
+    };
   }
   if (originZoneId === "unknown" || destinationZoneId === "unknown") {
     return { originZoneId, destinationZoneId, crossZoneModes: [], localModes };

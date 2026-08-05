@@ -209,6 +209,14 @@ export interface Destination {
    */
   transportZoneId?: string;
   /**
+   * Destination-level local access constraint. Zone localModes means "this
+   * mode exists somewhere in the zone"; when a destination is not reachable
+   * by every zone-local mode (e.g. an island with no rail inside a rail
+   * zone), localAccessModes narrows same-zone authorization to the modes
+   * that actually reach this destination.
+   */
+  localAccessModes?: string[];
+  /**
    * Optional: Explicit route fares for exact budget overrides.
    * - train, bus, shinkansen: One-way ticket fare per person (JPY).
    * - car, my_car: Round-trip total estimated vehicle cost per car (rental + gas + tolls, JPY).

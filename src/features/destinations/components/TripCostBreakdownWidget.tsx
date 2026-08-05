@@ -32,7 +32,8 @@ export interface TripCostBreakdownWidgetProps {
   destination: Destination;
   locale: "en" | "ja";
   partySize?: number;
-  activeTransportMode?: string;
+  /** null = no estimable origin route; the total must not claim origin transport. */
+  activeTransportMode?: string | null;
   defaultExpanded?: boolean;
   hasGeneratedPlan?: boolean;
   planCostBreakdown?: GeneratedPlanCostResult;
@@ -42,7 +43,7 @@ export function TripCostBreakdownWidget({
   destination,
   locale,
   partySize = 2,
-  activeTransportMode = "train",
+  activeTransportMode = null,
   defaultExpanded = false,
   hasGeneratedPlan = false,
   planCostBreakdown,

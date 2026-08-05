@@ -199,6 +199,7 @@ const DETAIL_COPY = {
     parkingLabel: "Parking",
     transportUnavailable: "Transport estimate unavailable",
     ferryRouteUnestimated: "Ferry route available — time and cost unavailable",
+    onsiteBudget: "On-site budget (transport excluded)",
   },
   ja: {
     notFound: "目的地が見つかりません",
@@ -233,6 +234,7 @@ const DETAIL_COPY = {
     parkingLabel: "駐車場",
     transportUnavailable: "交通手段の見積もりが利用できません",
     ferryRouteUnestimated: "フェリー航路あり — 所要時間・料金は利用できません",
+    onsiteBudget: "現地予算（往復交通費を除く）",
   },
 } as const;
 
@@ -1346,6 +1348,7 @@ export default function DestinationDetails() {
                                     destination,
                                     "flight",
                                     partySize,
+                                    homeStationCoords ?? undefined,
                                   ) / 1000
                                 ).toFixed(1)}
                                 k
@@ -1365,7 +1368,9 @@ export default function DestinationDetails() {
                         </div>
                         <div>
                           <h4 className="font-bold text-slate-900 dark:text-white leading-tight">
-                            {budgetLabel}
+                            {availableModes.length === 0
+                              ? copy.onsiteBudget
+                              : budgetLabel}
                           </h4>
                           <div className="text-emerald-600 font-extrabold text-lg">
                             <JapaneseYen className="inline w-4 h-4" />
@@ -1920,7 +1925,7 @@ export default function DestinationDetails() {
                 destination={destination}
                 locale={locale}
                 partySize={partySize}
-                selectedTransport={selectedTransport ?? "all"}
+                selectedTransport={selectedTransport}
                 onPlanGenerated={setGeneratedPlan}
                 onSaveToItinerary={(plan) => {
                   if (plan) {

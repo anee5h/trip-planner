@@ -168,6 +168,20 @@ export const transportTopologyValidator: ValidatorModule = {
           message: `Flight route references unknown airport '${route.to}'`,
         });
       }
+      if (getAirportZone(route.from) === null) {
+        issues.push({
+          severity: "error",
+          code: "missing_departure_airport_zone",
+          message: `Flight route endpoint '${route.from}' has no airport-zone assignment`,
+        });
+      }
+      if (getAirportZone(route.to) === null) {
+        issues.push({
+          severity: "error",
+          code: "missing_arrival_airport_zone",
+          message: `Flight route endpoint '${route.to}' has no airport-zone assignment`,
+        });
+      }
       if (
         "sourceUrl" in route &&
         (typeof route.sourceUrl !== "string" ||

@@ -379,7 +379,7 @@ export interface ItemizedCostBreakdown {
 export function calculateItemizedTripCost(
   dest: Destination,
   options: {
-    activeMode?: string;
+    activeMode?: string | null;
     partySize?: number;
     budgetTier?: BudgetTier;
     totalTripHours?: number;
@@ -387,19 +387,19 @@ export function calculateItemizedTripCost(
   } = {},
 ): ItemizedCostBreakdown {
   const partySize = options.partySize ?? 2;
-  const mode = options.activeMode ?? "train";
+  // null means no estimable origin route: origin transport is excluded
+  // from the total, never defaulted to Train.
+  const mode = options.activeMode ?? null;
   const budgetTier = options.budgetTier ?? "standard";
   const totalTripHours = options.totalTripHours ?? dest.totalTripHours ?? 6;
 
   const isFreeTicket = isFreeDestination(dest);
   const breakdown = getEffectiveBudgetBreakdown(dest);
 
-  const rawTransport = getTransportCost(
-    dest,
-    mode,
-    partySize,
-    options.homeCoords,
-  );
+  const rawTransport =
+    mode === null
+      ? 0
+      : getTransportCost(dest, mode, partySize, options.homeCoords);
   const transport =
     Number.isNaN(rawTransport) || !rawTransport ? 0 : rawTransport;
   const tickets = isFreeTicket ? 0 : (breakdown.tickets || 0) * partySize;

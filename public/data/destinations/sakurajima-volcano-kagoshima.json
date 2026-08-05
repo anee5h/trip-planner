@@ -1,5 +1,6 @@
 {
   "id": "sakurajima-volcano-kagoshima",
+  "localAccessModes": ["car", "my_car", "bus"],
   "transportZoneId": "mainland-kyushu",
   "name": "Sakurajima Stratovolcano",
   "nameJa": "桜島",

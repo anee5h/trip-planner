@@ -1,5 +1,6 @@
 {
   "id": "kouri-island-okinawa",
+  "localAccessModes": ["car", "my_car", "bus"],
   "transportZoneId": "okinawa-main",
   "name": "Kouri Island & Heart Rock",
   "nameJa": "古宇利島・ハートロック",
