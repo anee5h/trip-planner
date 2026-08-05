@@ -1,6 +1,8 @@
 import { MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { resolveOriginTransportZone } from "@/shared/services/transport/TransportTopologyService";
+
 import { useState, useEffect, useMemo } from "react";
 import { OriginLocationDisplay } from "@/shared/components/OriginLocationDisplay";
 
@@ -140,6 +142,10 @@ export default function StationInput({ embedded = false }: StationInputProps) {
         label,
         coordinates: { lat: st.lat, lng: st.lng },
         source: "station",
+        transportZoneId: resolveOriginTransportZone({
+          coordinates: { lat: st.lat, lng: st.lng },
+          label,
+        }),
       });
       setIsEditing(false);
     } else if (mode === "zip" && zipCode) {
@@ -162,6 +168,10 @@ export default function StationInput({ embedded = false }: StationInputProps) {
             label: zipCode,
             coordinates: { lat, lng },
             source: "postal_code",
+            transportZoneId: resolveOriginTransportZone({
+              coordinates: { lat, lng },
+              label: zipCode,
+            }),
           });
           setIsEditing(false);
         } else {
