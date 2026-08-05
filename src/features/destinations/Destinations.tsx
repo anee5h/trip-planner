@@ -814,6 +814,8 @@ export default function Destinations() {
         setVibe={setVibe}
         tripDuration={tripDuration}
         setTripDuration={setTripDuration}
+        tripMode={tripMode}
+        setTripMode={setTripMode}
         walkingIntensity={walkingIntensity}
         setWalkingIntensity={setWalkingIntensity}
         suitabilities={suitabilities}
