@@ -10,6 +10,7 @@ import { linksValidator } from "./links";
 import { ratingsValidator } from "./ratings";
 import { visitHoursValidator } from "./visit-hours";
 import { majorCityExpansionValidator } from "./major-city-expansion";
+import { transportTopologyValidator } from "./transport-topology";
 
 // Explicit execution topology order
 export const validators: ValidatorModule[] = [
@@ -24,4 +25,5 @@ export const validators: ValidatorModule[] = [
   ratingsValidator,
   visitHoursValidator,
   majorCityExpansionValidator,
+  transportTopologyValidator,
 ];
