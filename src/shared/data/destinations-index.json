@@ -92927,5 +92927,931 @@
     },
     "officialWebsite": null,
     "municipalityId": "Saga:karatsu"
+  },
+  {
+    "id": "sasebo-city",
+    "name": "Sasebo City",
+    "nameJa": "佐世保市",
+    "kind": "city",
+    "role": "hub",
+    "importance": "notable",
+    "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "categories": ["Travel Hub", "City Hub"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Sasebo_City_view_from_Mount_Yumihari.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Sasebo_City_view_from_Mount_Yumihari.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "M K",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sasebo_City_view_from_Mount_Yumihari.jpg"
+    },
+    "description": "Port city in Nagasaki Prefecture and gateway to the Kujukushima islands. Home to Huis Ten Bosch theme park, Kujukushima Pearl Sea Resort, and a historic naval port. Famous for Sasebo burgers and maritime culture.",
+    "descriptionJa": "長崎県の港湾都市で、九十九島への玄関口。ハウステンボス、九十九島パールシーリゾート、歴史的な軍港で知られています。佐世保バーガーと海洋文化が有名です。",
+    "highlights": ["Explore Sasebo City", "Local Culture & Cuisine"],
+    "highlightsJa": ["佐世保市を探索", "地元の文化と料理"],
+    "totalTripHours": 6,
+    "budgetMin": 3500,
+    "budgetRecommended": 14250,
+    "budgetMax": 25000,
+    "budgetBreakdown": {
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
+    },
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 50,
+    "ratings": {
+      "overall": 9.5,
+      "couple": 9.3,
+      "summer": 9,
+      "winter": 9.1,
+      "rain": 9.2,
+      "food": 9.6,
+      "photography": 9.5,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 5,
+      "weekend": 8,
+      "holiday": 9
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "tags": ["Sasebo City", "Nagasaki Travel", "Regional Hub"],
+    "coordinates": {
+      "lat": 33.1799,
+      "lng": 129.7151
+    },
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "transportOptions": {
+      "train": 280
+    },
+    "reservation": "None required",
+    "parking": "Public parking available",
+    "notes": "Sasebo City travel hub in Nagasaki Prefecture, gateway to Kujukushima.",
+    "notesJa": "長崎県佐世保市のトラベルハブ、九十九島への玄関口です。",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [
+      {
+        "collectionId": "core-cities-japan",
+        "confirmed": true
+      }
+    ],
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["nagasaki-city", "karatsu-city", "fukuoka-city"]
+    },
+    "walkingIntensity": "low",
+    "recommendedVisitHours": {
+      "min": 6,
+      "max": 12
+    },
+    "municipalityId": "Nagasaki:sasebo",
+    "aliases": ["Sasebo City", "佐世保市"],
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-06",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Expansion",
+      "sources": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sasebo",
+          "title": "Sasebo",
+          "accessedAt": "2026-08-06"
+        }
+      ]
+    },
+    "openingHours": "No fixed opening hours (city area)",
+    "openingHoursJa": "営業時間の設定なし（市内エリア）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sasebo"
+    },
+    "content": {
+      "en": {
+        "name": "Sasebo City",
+        "description": "Port city in Nagasaki Prefecture and gateway to the Kujukushima islands. Home to Huis Ten Bosch theme park, Kujukushima Pearl Sea Resort, and a historic naval port. Famous for Sasebo burgers and maritime culture.",
+        "highlights": ["Explore Sasebo City", "Local Culture & Cuisine"],
+        "openingHours": "No fixed opening hours (city area)"
+      },
+      "ja": {
+        "name": "佐世保市",
+        "description": "長崎県の港湾都市で、九十九島への玄関口。ハウステンボス、九十九島パールシーリゾート、歴史的な軍港で知られています。佐世保バーガーと海洋文化が有名です。",
+        "highlights": ["佐世保市を探索", "地元の文化と料理"],
+        "openingHours": "営業時間の設定なし（市内エリア）"
+      }
+    }
+  },
+  {
+    "id": "huis-ten-bosch",
+    "name": "Huis Ten Bosch",
+    "nameJa": "ハウステンボス",
+    "aliases": ["Huis Ten Bosch", "ハウステンボス"],
+    "content": {
+      "en": {
+        "name": "Huis Ten Bosch",
+        "description": "A Dutch-themed amusement park and resort spanning 152 hectares, one of Japan's largest theme parks. Features canals, windmills, replica Dutch buildings, seasonal flower gardens, museums, attractions, and spectacular illumination events. Hours and ticket prices vary by date and season.",
+        "highlights": [
+          "Spectacular seasonal illumination events",
+          "Canal cruises through Dutch-style scenery",
+          "Seasonal flower gardens and windmill landscapes"
+        ],
+        "openingHours": "09:00–22:00 (varies by date and season, check official site)"
+      },
+      "ja": {
+        "name": "ハウステンボス",
+        "description": "152ヘクタールに広がるオランダをテーマにした日本最大級のテーマパーク。運河、風車、オランダ建築の再現、季節の花園、ミュージアム、アトラクション、壮大なイルミネーションが楽しめます。営業時間と料金は日付と季節により変動します。",
+        "highlights": [
+          "壮大な季節のイルミネーション",
+          "運河クルーズでオランダ風景を満喫",
+          "季節の花園と風車の風景"
+        ],
+        "openingHours": "09:00～22:00（日付・季節により変動、公式サイトで確認）"
+      }
+    },
+    "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "kind": "theme_park",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "sasebo-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Leisure", "Sightseeing"],
+    "tags": ["Theme Park", "Dutch", "Illumination", "Sasebo City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/42/Huis_Ten_Bosch_Nagasaki_Japan.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Kzaral",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Huis_Ten_Bosch_Nagasaki_Japan.jpg"
+    },
+    "coordinates": {
+      "lat": 33.0856,
+      "lng": 129.7914
+    },
+    "description": "A Dutch-themed amusement park and resort spanning 152 hectares, one of Japan's largest theme parks. Features canals, windmills, replica Dutch buildings, seasonal flower gardens, museums, attractions, and spectacular illumination events. Hours and ticket prices vary by date and season.",
+    "highlights": [
+      "Spectacular seasonal illumination events",
+      "Canal cruises through Dutch-style scenery",
+      "Seasonal flower gardens and windmill landscapes"
+    ],
+    "openingHours": "09:00–22:00 (varies by date and season, check official site)",
+    "openingHoursJa": "09:00～22:00（日付・季節により変動、公式サイトで確認）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://english.huistenbosch.co.jp/",
+      "hoursNote": "Hours and ticket prices vary daily — always check the official calendar"
+    },
+    "budgetMin": 5000,
+    "budgetRecommended": 15000,
+    "budgetMax": 30000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 7000,
+      "food": 2250,
+      "cafe": 500
+    },
+    "transportOptions": {
+      "train": 280,
+      "bus": 200
+    },
+    "totalTripHours": 8,
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "walkingMin": 8000,
+    "walkingIntensity": "high",
+    "walkingSunMin": 3000,
+    "walkingShadeMin": 4000,
+    "indoorPercent": 60,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 7,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9.5,
+      "summer": 8.5,
+      "winter": 8.5,
+      "rain": 7.5,
+      "food": 8,
+      "photography": 9.5,
+      "relaxation": 8,
+      "value": 7.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 5,
+      "weekend": 9,
+      "holiday": 10
+    },
+    "season": {
+      "spring": 9,
+      "summer": 9,
+      "autumn": 9,
+      "winter": 9
+    },
+    "bestMonths": [3, 4, 5, 7, 8, 11, 12],
+    "weatherDependence": "moderate",
+    "reservation": "Advance online tickets recommended; group discounts available",
+    "parking": "Paid parking available",
+    "notes": "Hours and ticket prices vary by date — always check the official online calendar before visiting.",
+    "notesJa": "営業時間と料金は日により変動 — 訪問前に必ず公式サイトのカレンダーを確認ください。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://english.huistenbosch.co.jp/",
+          "title": "Huis Ten Bosch Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Huis_Ten_Bosch_(theme_park)",
+          "title": "Huis Ten Bosch (theme park)",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Huis Ten Bosch",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://english.huistenbosch.co.jp/",
+    "municipalityId": "Nagasaki:sasebo"
+  },
+  {
+    "id": "kujukushima-pearl-sea-resort",
+    "name": "Kujukushima Pearl Sea Resort",
+    "nameJa": "九十九島パールシーリゾート",
+    "aliases": ["Kujukushima Pearl Sea Resort", "九十九島パールシーリゾート"],
+    "content": {
+      "en": {
+        "name": "Kujukushima Pearl Sea Resort",
+        "description": "Resort offering sightseeing cruises through the 208 islands of Kujukushima, plus the Kujukushima Aquarium (Umi Kirara). The Pearl Queen and pirate-themed Mirai cruise ships depart regularly. The complex includes an observation deck overlooking the island-dotted bay.",
+        "highlights": [
+          "Scenic cruises through 208 pine-clad islands",
+          "Kujukushima Aquarium with local marine life",
+          "Panoramic observation deck over the island-dotted bay"
+        ],
+        "openingHours": "Resort complex: 09:00–17:00. Cruise schedules vary by season (typically 10:00–15:00 departures)"
+      },
+      "ja": {
+        "name": "九十九島パールシーリゾート",
+        "description": "九十九島の208の島々を巡る遊覧船と九十九島水族館（海きらら）を中心としたリゾート施設。パールクイーン号と海賊船型のミライ号が定期運航。島々が点在する湾を見渡す展望台も併設されています。",
+        "highlights": [
+          "208の島々を巡る遊覧クルーズ",
+          "地元の海洋生物を展示する九十九島水族館",
+          "島が点在する湾を一望する展望台"
+        ],
+        "openingHours": "施設：09:00～17:00。遊覧船は季節により変動（通常10:00～15:00発）"
+      }
+    },
+    "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "kind": "mixed",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "sasebo-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Sightseeing", "Leisure"],
+    "tags": ["Islands", "Cruise", "Aquarium", "Sasebo City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/24/Kujukushima_Islands_Nagasaki.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kujukushima_Islands_Nagasaki.jpg"
+    },
+    "coordinates": {
+      "lat": 33.1592,
+      "lng": 129.6842
+    },
+    "description": "Resort offering sightseeing cruises through the 208 islands of Kujukushima, plus the Kujukushima Aquarium (Umi Kirara). The Pearl Queen and pirate-themed Mirai cruise ships depart regularly. The complex includes an observation deck overlooking the island-dotted bay.",
+    "highlights": [
+      "Scenic cruises through 208 pine-clad islands",
+      "Kujukushima Aquarium with local marine life",
+      "Panoramic observation deck over the island-dotted bay"
+    ],
+    "openingHours": "Resort complex: 09:00–17:00. Cruise schedules vary by season (typically 10:00–15:00 departures)",
+    "openingHoursJa": "施設：09:00～17:00。遊覧船は季節により変動（通常10:00～15:00発）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.pearlsea.jp/en/",
+      "hoursNote": "Cruise operations subject to weather and sea conditions"
+    },
+    "budgetMin": 2500,
+    "budgetRecommended": 8000,
+    "budgetMax": 15000,
+    "budgetBreakdown": {
+      "transport": 750,
+      "tickets": 1800,
+      "food": 1125,
+      "cafe": 250
+    },
+    "transportOptions": {
+      "bus": 250
+    },
+    "totalTripHours": 5,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "walkingMin": 3000,
+    "walkingIntensity": "medium",
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1000,
+    "indoorPercent": 40,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 5,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.5,
+      "winter": 7,
+      "rain": 6,
+      "food": 7,
+      "photography": 9.5,
+      "relaxation": 8.5,
+      "value": 8,
+      "uniqueness": 9.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "weatherDependence": "high",
+    "reservation": "Cruise tickets at the terminal; online booking available for peak season",
+    "parking": "Paid parking available",
+    "notes": "Cruise departures are weather-dependent — check conditions at the terminal on the day.",
+    "notesJa": "遊覧船は天候次第で運航 — 当日ターミナルで運航状況を確認ください。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.pearlsea.jp/en/",
+          "title": "Kujukushima Pearl Sea Resort Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kuj%C5%ABku_Islands",
+          "title": "Kujūku Islands",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Kujukushima Pearl Sea Resort",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.pearlsea.jp/en/",
+    "municipalityId": "Nagasaki:sasebo"
+  },
+  {
+    "id": "umi-kirara-aquarium",
+    "name": "Umi Kirara Aquarium",
+    "nameJa": "九十九島水族館 海きらら",
+    "aliases": ["Umi Kirara Aquarium", "九十九島水族館 海きらら"],
+    "content": {
+      "en": {
+        "name": "Umi Kirara Aquarium",
+        "description": "Aquarium within the Kujukushima Pearl Sea Resort showcasing the marine life of the Kujukushima waters. Features a large jellyfish tunnel, dolphin shows, interactive touch pools, and displays of local fish species. One of western Japan's leading jellyfish exhibits.",
+        "highlights": [
+          "Spectacular jellyfish tunnel and collection",
+          "Dolphin show with Kujukushima island backdrop",
+          "Interactive touch pools with local sea creatures"
+        ],
+        "openingHours": "09:00–18:00 (Mar–Oct), 09:00–17:00 (Nov–Feb)"
+      },
+      "ja": {
+        "name": "九十九島水族館 海きらら",
+        "description": "九十九島パールシーリゾート内にある九十九島の海洋生物を展示する水族館。クラゲのトンネル、イルカショー、ふれあいタッチプール、地元の魚類展示が見どころです。西日本屈指のクラゲ展示で知られています。",
+        "highlights": [
+          "幻想的なクラゲトンネルとコレクション",
+          "九十九島を背景にしたイルカショー",
+          "地元の海の生き物に触れるタッチプール"
+        ],
+        "openingHours": "09:00～18:00（3～10月）、09:00～17:00（11～2月）"
+      }
+    },
+    "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "kind": "aquarium",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "sasebo-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Aquarium", "Leisure"],
+    "tags": ["Aquarium", "Marine Life", "Family", "Sasebo City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/89/Kujukushima_aquarium_Umi_Kirara.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kujukushima_aquarium_Umi_Kirara.jpg"
+    },
+    "coordinates": {
+      "lat": 33.1608,
+      "lng": 129.6819
+    },
+    "description": "Aquarium within the Kujukushima Pearl Sea Resort showcasing the marine life of the Kujukushima waters. Features a large jellyfish tunnel, dolphin shows, interactive touch pools, and displays of local fish species. One of western Japan's leading jellyfish exhibits.",
+    "highlights": [
+      "Spectacular jellyfish tunnel and collection",
+      "Dolphin show with Kujukushima island backdrop",
+      "Interactive touch pools with local sea creatures"
+    ],
+    "openingHours": "09:00–18:00 (Mar–Oct), 09:00–17:00 (Nov–Feb)",
+    "openingHoursJa": "09:00～18:00（3～10月）、09:00～17:00（11～2月）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.pearlsea.jp/en/aquarium/",
+      "closedDays": "Open daily"
+    },
+    "budgetMin": 2000,
+    "budgetRecommended": 5000,
+    "budgetMax": 10000,
+    "budgetBreakdown": {
+      "transport": 600,
+      "tickets": 1470,
+      "food": 900,
+      "cafe": 200
+    },
+    "transportOptions": {
+      "bus": 250
+    },
+    "totalTripHours": 4,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3
+    },
+    "walkingMin": 2500,
+    "walkingIntensity": "low",
+    "walkingSunMin": 300,
+    "walkingShadeMin": 2000,
+    "indoorPercent": 85,
+    "comfort": {
+      "heatTolerance": 9,
+      "rainFriendly": 10,
+      "walkingIntensity": 2
+    },
+    "ratings": {
+      "overall": 8.5,
+      "couple": 8,
+      "summer": 8.5,
+      "winter": 8,
+      "rain": 9,
+      "food": 7,
+      "photography": 8.5,
+      "relaxation": 7.5,
+      "value": 8,
+      "uniqueness": 8.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 9,
+      "summer": 9,
+      "autumn": 8,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 7, 8, 10],
+    "weatherDependence": "low",
+    "reservation": "None required; group rates available",
+    "parking": "Shared paid parking with Pearl Sea Resort",
+    "notes": "The jellyfish tunnel is one of the largest in western Japan — a highlight for all ages.",
+    "notesJa": "クラゲトンネルは西日本最大級で、年齢問わず楽しめる最大の見どころです。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.pearlsea.jp/en/aquarium/",
+          "title": "Umi Kirara Aquarium Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kuj%C5%ABku_Islands",
+          "title": "Kujūku Islands",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Umi Kirara Aquarium",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.pearlsea.jp/en/aquarium/",
+    "municipalityId": "Nagasaki:sasebo"
+  },
+  {
+    "id": "ishidake-observatory",
+    "name": "Ishidake Observatory",
+    "nameJa": "石岳展望台",
+    "aliases": ["Ishidake Observatory", "石岳展望台"],
+    "content": {
+      "en": {
+        "name": "Ishidake Observatory",
+        "description": "The most famous observation point overlooking the Kujukushima archipelago. From this elevated viewpoint, the panorama of 208 pine-covered islands scattered across the blue waters has been featured in countless travel posters and films. Free access with a short uphill walk from the parking area.",
+        "highlights": [
+          "Most iconic panoramic view of Kujukushima",
+          "Featured in travel posters and films",
+          "Free access with short walk from parking"
+        ],
+        "openingHours": "Open access (daylight hours recommended)"
+      },
+      "ja": {
+        "name": "石岳展望台",
+        "description": "九十九島の展望スポットとして最も有名な石岳展望台。この高台からは、208の松に覆われた島々が青い海に点在するパノラマが広がり、数多くの観光ポスターや映画に登場しています。駐車場から少し坂を上がれば無料で絶景が楽しめます。",
+        "highlights": [
+          "九十九島を象徴する最も有名なパノラマ",
+          "観光ポスターや映画のロケ地",
+          "駐車場から徒歩すぐ、無料で絶景を楽しめる"
+        ],
+        "openingHours": "自由見学（日中推奨）"
+      }
+    },
+    "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "kind": "viewpoint",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "sasebo-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Sightseeing", "Nature"],
+    "tags": ["Viewpoint", "Islands", "Photography", "Sasebo City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/95/Ishidake_Observatory_View.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ishidake_Observatory_View.jpg"
+    },
+    "coordinates": {
+      "lat": 33.1522,
+      "lng": 129.6914
+    },
+    "description": "The most famous observation point overlooking the Kujukushima archipelago. From this elevated viewpoint, the panorama of 208 pine-covered islands scattered across the blue waters has been featured in countless travel posters and films. Free access with a short uphill walk from the parking area.",
+    "highlights": [
+      "Most iconic panoramic view of Kujukushima",
+      "Featured in travel posters and films",
+      "Free access with short walk from parking"
+    ],
+    "openingHours": "Open access (daylight hours recommended)",
+    "openingHoursJa": "自由見学（日中推奨）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.pearlsea.jp/en/observatory/"
+    },
+    "budgetMin": 1000,
+    "budgetRecommended": 3000,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 300,
+      "tickets": 0,
+      "food": 450,
+      "cafe": 100
+    },
+    "transportOptions": {
+      "bus": 250
+    },
+    "totalTripHours": 3,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    },
+    "walkingMin": 1500,
+    "walkingIntensity": "low",
+    "walkingSunMin": 800,
+    "walkingShadeMin": 300,
+    "indoorPercent": 5,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 4,
+      "walkingIntensity": 2
+    },
+    "ratings": {
+      "overall": 8.5,
+      "couple": 9,
+      "summer": 8.5,
+      "winter": 7.5,
+      "rain": 5,
+      "food": 4,
+      "photography": 9.5,
+      "relaxation": 8.5,
+      "value": 9.5,
+      "uniqueness": 8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 9,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "weatherDependence": "high",
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "notes": "Visit on a clear day — the view is best in the morning light when the islands cast long shadows.",
+    "notesJa": "晴れた日の午前中が最も美しく、島影が長く伸びる絶好の撮影タイミングです。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kuj%C5%ABku_Islands",
+          "title": "Kujūku Islands",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Ishidake Observatory",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": null,
+    "municipalityId": "Nagasaki:sasebo"
+  },
+  {
+    "id": "sasebo-naval-port-cruise",
+    "name": "Sasebo Naval Port Cruise",
+    "nameJa": "佐世保軍港クルーズ",
+    "aliases": ["Sasebo Naval Port Cruise", "佐世保軍港クルーズ"],
+    "content": {
+      "en": {
+        "name": "Sasebo Naval Port Cruise",
+        "description": "A 50-minute harbour cruise departing from Sasebo Port offering close-up views of Japan Maritime Self-Defense Force vessels and US Navy ships docked at the Sasebo Naval Base. Narration describes the history and role of the joint naval facilities. A rare opportunity to see active warships at close range.",
+        "highlights": [
+          "Close-up views of active naval warships",
+          "Guided narration on the port's naval history",
+          "50-minute cruise through the working harbour"
+        ],
+        "openingHours": "Cruises depart daily 10:00–16:00 (approximately hourly). Closed during bad weather and certain base events."
+      },
+      "ja": {
+        "name": "佐世保軍港クルーズ",
+        "description": "佐世保港を出港する約50分の軍港クルーズ。海上自衛隊とアメリカ海軍の艦船が停泊する佐世保基地を間近に見学できます。ガイドによる共同海軍施設の歴史と役割の解説付き。現役の艦船を間近に見られる貴重な機会です。",
+        "highlights": [
+          "現役艦船の間近見学",
+          "ガイドによる佐世保軍港の歴史解説",
+          "50分の現役港湾クルーズ"
+        ],
+        "openingHours": "毎日10:00～16:00発（約1時間毎）。荒天時・基地行事時は運休。"
+      }
+    },
+    "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "kind": "cruise",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "sasebo-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Sightseeing", "Leisure"],
+    "tags": ["Cruise", "Naval", "Port", "Sasebo City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Sasebo_Naval_Port_Cruise.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sasebo_Naval_Port_Cruise.jpg"
+    },
+    "coordinates": {
+      "lat": 33.165,
+      "lng": 129.72
+    },
+    "description": "A 50-minute harbour cruise departing from Sasebo Port offering close-up views of Japan Maritime Self-Defense Force vessels and US Navy ships docked at the Sasebo Naval Base. Narration describes the history and role of the joint naval facilities. A rare opportunity to see active warships at close range.",
+    "highlights": [
+      "Close-up views of active naval warships",
+      "Guided narration on the port's naval history",
+      "50-minute cruise through the working harbour"
+    ],
+    "openingHours": "Cruises depart daily 10:00–16:00 (approximately hourly). Closed during bad weather and certain base events.",
+    "openingHoursJa": "毎日10:00～16:00発（約1時間毎）。荒天時・基地行事時は運休。",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.sasebo99.com/en/spot/556",
+      "hoursNote": "Cruises may be cancelled due to weather or naval base operations"
+    },
+    "budgetMin": 2500,
+    "budgetRecommended": 5000,
+    "budgetMax": 8000,
+    "budgetBreakdown": {
+      "transport": 750,
+      "tickets": 1800,
+      "food": 1125,
+      "cafe": 250
+    },
+    "transportOptions": {
+      "bus": 200
+    },
+    "totalTripHours": 3,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 1500,
+    "walkingIntensity": "low",
+    "walkingSunMin": 1000,
+    "walkingShadeMin": 500,
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 5,
+      "walkingIntensity": 2
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 7,
+      "summer": 8,
+      "winter": 7,
+      "rain": 6,
+      "food": 5,
+      "photography": 8,
+      "relaxation": 7.5,
+      "value": 7.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "weatherDependence": "high",
+    "reservation": "Tickets at the port terminal; group reservations accepted by phone",
+    "parking": "Paid parking near the terminal",
+    "notes": "Cruises may be cancelled without notice during naval base operations or bad weather.",
+    "notesJa": "基地行事や荒天時は予告なく運休となることがあります。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.sasebo99.com/en/spot/556",
+          "title": "Sasebo Naval Port Cruise Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/United_States_Fleet_Activities_Sasebo",
+          "title": "United States Fleet Activities Sasebo",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Sasebo Naval Port Cruise",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.sasebo99.com/en/spot/556",
+    "municipalityId": "Nagasaki:sasebo"
   }
 ]

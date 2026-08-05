@@ -1,0 +1,159 @@
+{
+  "id": "sasebo-naval-port-cruise",
+  "name": "Sasebo Naval Port Cruise",
+  "nameJa": "佐世保軍港クルーズ",
+  "aliases": ["Sasebo Naval Port Cruise", "佐世保軍港クルーズ"],
+  "content": {
+    "en": {
+      "name": "Sasebo Naval Port Cruise",
+      "description": "A 50-minute harbour cruise departing from Sasebo Port offering close-up views of Japan Maritime Self-Defense Force vessels and US Navy ships docked at the Sasebo Naval Base. Narration describes the history and role of the joint naval facilities. A rare opportunity to see active warships at close range.",
+      "highlights": [
+        "Close-up views of active naval warships",
+        "Guided narration on the port's naval history",
+        "50-minute cruise through the working harbour"
+      ],
+      "openingHours": "Cruises depart daily 10:00–16:00 (approximately hourly). Closed during bad weather and certain base events."
+    },
+    "ja": {
+      "name": "佐世保軍港クルーズ",
+      "description": "佐世保港を出港する約50分の軍港クルーズ。海上自衛隊とアメリカ海軍の艦船が停泊する佐世保基地を間近に見学できます。ガイドによる共同海軍施設の歴史と役割の解説付き。現役の艦船を間近に見られる貴重な機会です。",
+      "highlights": [
+        "現役艦船の間近見学",
+        "ガイドによる佐世保軍港の歴史解説",
+        "50分の現役港湾クルーズ"
+      ],
+      "openingHours": "毎日10:00～16:00発（約1時間毎）。荒天時・基地行事時は運休。"
+    }
+  },
+  "prefecture": "Nagasaki",
+  "region": "Kyushu",
+  "kind": "cruise",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "sasebo-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Sightseeing", "Leisure"],
+  "tags": ["Cruise", "Naval", "Port", "Sasebo City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Sasebo_Naval_Port_Cruise.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sasebo_Naval_Port_Cruise.jpg"
+  },
+  "coordinates": {
+    "lat": 33.165,
+    "lng": 129.72
+  },
+  "description": "A 50-minute harbour cruise departing from Sasebo Port offering close-up views of Japan Maritime Self-Defense Force vessels and US Navy ships docked at the Sasebo Naval Base. Narration describes the history and role of the joint naval facilities. A rare opportunity to see active warships at close range.",
+  "highlights": [
+    "Close-up views of active naval warships",
+    "Guided narration on the port's naval history",
+    "50-minute cruise through the working harbour"
+  ],
+  "openingHours": "Cruises depart daily 10:00–16:00 (approximately hourly). Closed during bad weather and certain base events.",
+  "openingHoursJa": "毎日10:00～16:00発（約1時間毎）。荒天時・基地行事時は運休。",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-06",
+    "sourceUrl": "https://www.sasebo99.com/en/spot/556",
+    "hoursNote": "Cruises may be cancelled due to weather or naval base operations"
+  },
+  "budgetMin": 2500,
+  "budgetRecommended": 5000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 750,
+    "tickets": 1800,
+    "food": 1125,
+    "cafe": 250
+  },
+  "transportOptions": {
+    "bus": 200
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 1500,
+  "walkingIntensity": "low",
+  "walkingSunMin": 1000,
+  "walkingShadeMin": 500,
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 5,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 7,
+    "summer": 8,
+    "winter": 7,
+    "rain": 6,
+    "food": 5,
+    "photography": 8,
+    "relaxation": 7.5,
+    "value": 7.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "high",
+  "reservation": "Tickets at the port terminal; group reservations accepted by phone",
+  "parking": "Paid parking near the terminal",
+  "notes": "Cruises may be cancelled without notice during naval base operations or bad weather.",
+  "notesJa": "基地行事や荒天時は予告なく運休となることがあります。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-06",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.sasebo99.com/en/spot/556",
+        "title": "Sasebo Naval Port Cruise Official Website",
+        "accessedAt": "2026-08-06"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/United_States_Fleet_Activities_Sasebo",
+        "title": "United States Fleet Activities Sasebo",
+        "accessedAt": "2026-08-06"
+      }
+    ],
+    "checkedAt": "2026-08-06",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-06",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Sasebo Naval Port Cruise",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-06",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.sasebo99.com/en/spot/556",
+  "municipalityId": "Nagasaki:sasebo"
+}
