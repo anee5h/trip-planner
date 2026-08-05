@@ -1,0 +1,159 @@
+{
+  "id": "nijinomatsubara-pine-grove",
+  "name": "Nijinomatsubara Pine Grove",
+  "nameJa": "虹の松原",
+  "aliases": ["Nijinomatsubara Pine Grove", "虹の松原"],
+  "content": {
+    "en": {
+      "name": "Nijinomatsubara Pine Grove",
+      "description": "A 5 km arc of approximately one million black pine trees stretching along Karatsu Bay. Designated as one of Japan's three great pine groves alongside Miho no Matsubara and Kehi no Matsubara. A scenic walking and cycling path runs through the grove.",
+      "highlights": [
+        "5 km arc of one million black pine trees",
+        "Scenic walking and cycling path along the coast",
+        "Views across Karatsu Bay to Karatsu Castle"
+      ],
+      "openingHours": "Open access (no fixed hours)"
+    },
+    "ja": {
+      "name": "虹の松原",
+      "description": "唐津湾に沿って約5kmにわたる約100万本の黒松林。三保の松原、気比の松原と並ぶ日本三大松原の一つに数えられます。松原の中を歩行者・自転車道が走り、海水浴場も隣接しています。",
+      "highlights": [
+        "約100万本の黒松が連なる5kmの弧",
+        "海岸沿いの散策・サイクリング道",
+        "唐津湾越しに唐津城を望む風景"
+      ],
+      "openingHours": "開放（時間制限なし）"
+    }
+  },
+  "prefecture": "Saga",
+  "region": "Kyushu",
+  "kind": "natural",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "karatsu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature", "Sightseeing"],
+  "tags": ["Nature", "Forest", "Coastal", "Karatsu City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Niji_no_Matsubara_2018.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Niji_no_Matsubara_2018.jpg"
+  },
+  "coordinates": {
+    "lat": 33.4458,
+    "lng": 129.985
+  },
+  "description": "A 5 km arc of approximately one million black pine trees stretching along Karatsu Bay. Designated as one of Japan's three great pine groves alongside Miho no Matsubara and Kehi no Matsubara. A scenic walking and cycling path runs through the grove.",
+  "highlights": [
+    "5 km arc of one million black pine trees",
+    "Scenic walking and cycling path along the coast",
+    "Views across Karatsu Bay to Karatsu Castle"
+  ],
+  "openingHours": "Open access (no fixed hours)",
+  "openingHoursJa": "開放（時間制限なし）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-06",
+    "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/4"
+  },
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 300,
+    "tickets": 0,
+    "food": 450,
+    "cafe": 100
+  },
+  "transportOptions": {
+    "train": 250,
+    "bus": 150
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 4000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 2000,
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 5,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 8.5,
+    "summer": 8,
+    "winter": 6.5,
+    "rain": 5,
+    "food": 5,
+    "photography": 8.5,
+    "relaxation": 9,
+    "value": 9,
+    "uniqueness": 7.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 6, 9, 10],
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "notes": "The coastal cycling path is the best way to experience the full 5 km of pine grove.",
+  "notesJa": "5kmの松原全体を楽しむなら海岸沿いのサイクリングロードがおすすめです。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-06",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.karatsu-kankou.jp/en/spots/detail/4",
+        "title": "Nijinomatsubara Pine Grove Official Website",
+        "accessedAt": "2026-08-06"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Niji_no_Matsubara",
+        "title": "Niji no Matsubara",
+        "accessedAt": "2026-08-06"
+      }
+    ],
+    "checkedAt": "2026-08-06",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-06",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Nijinomatsubara Pine Grove",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-06",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.karatsu-kankou.jp/en/spots/detail/4",
+  "municipalityId": "Saga:karatsu"
+}

@@ -1,0 +1,160 @@
+{
+  "id": "karatsu-castle",
+  "name": "Karatsu Castle",
+  "nameJa": "唐津城",
+  "aliases": ["Karatsu Castle", "唐津城"],
+  "content": {
+    "en": {
+      "name": "Karatsu Castle",
+      "description": "Karatsu Castle, also known as Maizuru Castle, sits on a hill overlooking Karatsu Bay. Originally built in 1608, the current reconstructed keep houses a museum of feudal artifacts and offers panoramic views of the sea and Nijinomatsubara pine grove.",
+      "highlights": [
+        "Panoramic views of Karatsu Bay and Nijinomatsubara",
+        "Feudal-era samurai armour and artifacts",
+        "Cherry blossoms in spring around the castle grounds"
+      ],
+      "openingHours": "09:00–17:00 (last admission 16:40)"
+    },
+    "ja": {
+      "name": "唐津城",
+      "description": "唐津城（舞鶴城）は唐津湾を見下ろす丘の上に立つ城で、1608年に築城されました。現在の復興天守は資料館として武具や調度品を展示し、海と虹の松原のパノラマが楽しめます。",
+      "highlights": [
+        "唐津湾と虹の松原のパノラマ",
+        "武家の甲冑や工芸品の展示",
+        "春は城址公園の桜"
+      ],
+      "openingHours": "09:00～17:00（最終入館16:40）"
+    }
+  },
+  "prefecture": "Saga",
+  "region": "Kyushu",
+  "kind": "historic",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "karatsu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Historic", "Sightseeing"],
+  "tags": ["Castle", "Historic", "Viewpoint", "Karatsu City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Karatsu_Castle_2020.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "J o",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karatsu_Castle_2020.jpg"
+  },
+  "coordinates": {
+    "lat": 33.4544,
+    "lng": 129.9736
+  },
+  "description": "Karatsu Castle, also known as Maizuru Castle, sits on a hill overlooking Karatsu Bay. Originally built in 1608, the current reconstructed keep houses a museum of feudal artifacts and offers panoramic views of the sea and Nijinomatsubara pine grove.",
+  "highlights": [
+    "Panoramic views of Karatsu Bay and Nijinomatsubara",
+    "Feudal-era samurai armour and artifacts",
+    "Cherry blossoms in spring around the castle grounds"
+  ],
+  "openingHours": "09:00–17:00 (last admission 16:40)",
+  "openingHoursJa": "09:00～17:00（最終入館16:40）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-06",
+    "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/1",
+    "closedDays": "Open daily"
+  },
+  "budgetMin": 2000,
+  "budgetRecommended": 4500,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 600,
+    "tickets": 500,
+    "food": 900,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 250,
+    "bus": 150
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 1000,
+  "walkingShadeMin": 1500,
+  "indoorPercent": 40,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 8,
+    "summer": 7.5,
+    "winter": 7.5,
+    "rain": 6.5,
+    "food": 6,
+    "photography": 8.5,
+    "relaxation": 7,
+    "value": 8,
+    "uniqueness": 7.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "notes": "The castle keep offers the best view of Nijinomatsubara pine grove from above.",
+  "notesJa": "天守から虹の松原を一望できるのが最大の魅力です。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-06",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.karatsu-kankou.jp/en/spots/detail/1",
+        "title": "Karatsu Castle Official Website",
+        "accessedAt": "2026-08-06"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Karatsu_Castle",
+        "title": "Karatsu Castle",
+        "accessedAt": "2026-08-06"
+      }
+    ],
+    "checkedAt": "2026-08-06",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-06",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Karatsu Castle",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-06",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.karatsu-kankou.jp/en/spots/detail/1",
+  "municipalityId": "Saga:karatsu"
+}

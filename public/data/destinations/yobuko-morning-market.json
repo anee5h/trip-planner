@@ -1,0 +1,158 @@
+{
+  "id": "yobuko-morning-market",
+  "name": "Yobuko Morning Market",
+  "nameJa": "呼子朝市",
+  "aliases": ["Yobuko Morning Market", "呼子朝市"],
+  "content": {
+    "en": {
+      "name": "Yobuko Morning Market",
+      "description": "One of Japan's three great morning markets, held daily along Yobuko Port since the Edo period. Vendors sell fresh-caught squid, dried fish, local produce, and crafts. Famous for live squid sashimi served at nearby waterfront restaurants.",
+      "highlights": [
+        "Fresh seafood straight from Yobuko Port",
+        "Live squid sashimi at waterfront restaurants",
+        "Traditional market atmosphere since the Edo period"
+      ],
+      "openingHours": "07:30–12:00 (daily, best from 08:00)"
+    },
+    "ja": {
+      "name": "呼子朝市",
+      "description": "日本三大朝市の一つで、江戸時代から続く呼子港の朝市。獲れたてのイカや干物、地元の農産物や工芸品が並びます。近くの食堂で味わえる活イカの刺身が名物です。",
+      "highlights": [
+        "呼子港直送の新鮮な海産物",
+        "浜の食堂で味わう活イカ刺身",
+        "江戸時代から続く伝統的な朝市の雰囲気"
+      ],
+      "openingHours": "07:30～12:00（毎日、8時頃からが賑わいます）"
+    }
+  },
+  "prefecture": "Saga",
+  "region": "Kyushu",
+  "kind": "market",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "karatsu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Shopping", "Food"],
+  "tags": ["Market", "Seafood", "Local Food", "Karatsu City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Yobuko_morning_market.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Oshimin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yobuko_morning_market.jpg"
+  },
+  "coordinates": {
+    "lat": 33.5406,
+    "lng": 129.8908
+  },
+  "description": "One of Japan's three great morning markets, held daily along Yobuko Port since the Edo period. Vendors sell fresh-caught squid, dried fish, local produce, and crafts. Famous for live squid sashimi served at nearby waterfront restaurants.",
+  "highlights": [
+    "Fresh seafood straight from Yobuko Port",
+    "Live squid sashimi at waterfront restaurants",
+    "Traditional market atmosphere since the Edo period"
+  ],
+  "openingHours": "07:30–12:00 (daily, best from 08:00)",
+  "openingHoursJa": "07:30～12:00（毎日、8時頃からが賑わいます）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-06",
+    "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/8"
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 5000,
+  "budgetMax": 10000,
+  "budgetBreakdown": {
+    "transport": 450,
+    "tickets": 0,
+    "food": 675,
+    "cafe": 150
+  },
+  "transportOptions": {
+    "bus": 300
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2000,
+  "walkingIntensity": "low",
+  "walkingSunMin": 1000,
+  "walkingShadeMin": 500,
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 5,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 7.5,
+    "summer": 8,
+    "winter": 7,
+    "rain": 6.5,
+    "food": 9.5,
+    "photography": 8,
+    "relaxation": 6.5,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Nearby paid parking available",
+  "notes": "Arrive by 8 am for the freshest catch and the liveliest atmosphere.",
+  "notesJa": "最も新鮮な魚と活気ある雰囲気を楽しむには朝8時までに到着を。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-06",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.karatsu-kankou.jp/en/spots/detail/8",
+        "title": "Yobuko Morning Market Official Website",
+        "accessedAt": "2026-08-06"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Yobuko",
+        "title": "Yobuko",
+        "accessedAt": "2026-08-06"
+      }
+    ],
+    "checkedAt": "2026-08-06",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-06",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Yobuko Morning Market",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-06",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": "https://www.karatsu-kankou.jp/en/spots/detail/8",
+  "municipalityId": "Saga:karatsu"
+}

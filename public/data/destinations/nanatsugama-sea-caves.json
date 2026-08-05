@@ -1,0 +1,153 @@
+{
+  "id": "nanatsugama-sea-caves",
+  "name": "Nanatsugama Sea Caves",
+  "nameJa": "七ツ釜",
+  "aliases": ["Nanatsugama Sea Caves", "七ツ釜"],
+  "content": {
+    "en": {
+      "name": "Nanatsugama Sea Caves",
+      "description": "Dramatic basalt sea caves carved into the northern coastline of the Karatsu Peninsula. Seven interconnected caverns, the largest reaching 30 metres high. Viewed from cliff-top walking paths or up close by sightseeing cruise boat departing from Yobuko Port.",
+      "highlights": [
+        "Seven interconnected basalt sea caverns",
+        "Cliff-top walking paths with dramatic coastal views",
+        "Sightseeing cruise into the cave entrances from Yobuko Port"
+      ],
+      "openingHours": "Cliff paths: open access (daylight hours recommended). Sightseeing cruise: 09:30–16:00 (hourly departures, weather permitting)"
+    },
+    "ja": {
+      "name": "七ツ釜",
+      "description": "唐津半島の北岸に刻まれた玄武岩の海食洞。7つの洞窟が連なり、最大のものは高さ30mに達します。断崖上の遊歩道からの展望と、呼子港発の遊覧船での洞窟接近の両方で楽しめます。",
+      "highlights": [
+        "7つ連なる玄武岩の海食洞",
+        "断崖絶壁の遊歩道からの絶景",
+        "呼子港発の遊覧船で洞窟入り口まで接近"
+      ],
+      "openingHours": "遊歩道：自由（日中推奨）。遊覧船：09:30～16:00（毎時運航、天候による）"
+    }
+  },
+  "prefecture": "Saga",
+  "region": "Kyushu",
+  "kind": "natural",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "karatsu-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Nature", "Sightseeing"],
+  "tags": ["Nature", "Caves", "Coastal", "Cruise", "Karatsu City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Nanatsugama_sea_caves.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Oshimin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nanatsugama_sea_caves.jpg"
+  },
+  "coordinates": {
+    "lat": 33.5667,
+    "lng": 129.8547
+  },
+  "description": "Dramatic basalt sea caves carved into the northern coastline of the Karatsu Peninsula. Seven interconnected caverns, the largest reaching 30 metres high. Viewed from cliff-top walking paths or up close by sightseeing cruise boat departing from Yobuko Port.",
+  "highlights": [
+    "Seven interconnected basalt sea caverns",
+    "Cliff-top walking paths with dramatic coastal views",
+    "Sightseeing cruise into the cave entrances from Yobuko Port"
+  ],
+  "openingHours": "Cliff paths: open access (daylight hours recommended). Sightseeing cruise: 09:30–16:00 (hourly departures, weather permitting)",
+  "openingHoursJa": "遊歩道：自由（日中推奨）。遊覧船：09:30～16:00（毎時運航、天候による）",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-06",
+    "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/9",
+    "hoursNote": "Cruise departures are weather-dependent and may be cancelled in high waves"
+  },
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 9000,
+  "budgetBreakdown": {
+    "transport": 600,
+    "tickets": 1600,
+    "food": 900,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "bus": 400
+  },
+  "totalTripHours": 4,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 3000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 500,
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 4,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.5,
+    "summer": 8,
+    "winter": 6,
+    "rain": 5,
+    "food": 5,
+    "photography": 9,
+    "relaxation": 7.5,
+    "value": 8,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 5
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "weatherDependence": "high",
+  "reservation": "Cliff paths: none required. Sightseeing cruise: tickets at Yobuko Port; advance booking recommended in peak season.",
+  "parking": "Free parking at trailhead and Yobuko Port",
+  "notes": "The sightseeing cruise may be cancelled in high waves — check conditions at Yobuko Port.",
+  "notesJa": "遊覧船は高波時に欠航あり。呼子港で運航状況を確認してください。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [],
+  "addedAt": "2026-08-06",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nanatsugama",
+        "title": "Nanatsugama",
+        "accessedAt": "2026-08-06"
+      }
+    ],
+    "checkedAt": "2026-08-06",
+    "freshness": "current",
+    "changeSummary": "Kyushu-to-100 expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-06",
+        "changedBy": "Kyushu-to-100 Editorial Batch",
+        "summary": "Added bilingual curated POI: Nanatsugama Sea Caves",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-06",
+    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+  },
+  "officialWebsite": null,
+  "municipalityId": "Saga:karatsu"
+}

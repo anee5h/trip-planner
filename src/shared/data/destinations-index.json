@@ -92004,5 +92004,928 @@
     "municipalityId": "Fukuoka:kitakyushu",
     "notesJa": "ガイド付き見学と20名以上の団体は事前予約が必要です。",
     "reservationJa": "個人での自由見学は予約不要。ガイド付き見学と20名以上の団体は事前予約が必要です。"
+  },
+  {
+    "id": "karatsu-city",
+    "name": "Karatsu City",
+    "nameJa": "唐津市",
+    "kind": "city",
+    "role": "hub",
+    "importance": "notable",
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "categories": ["Travel Hub", "City Hub"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/74/Karatsu_City_View.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/74/Karatsu_City_View.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karatsu_City_View.jpg"
+    },
+    "description": "Coastal city in Saga Prefecture known for Karatsu Castle, the vibrant Yobuko morning market, the Nanatsugama sea caves, and the Nijinomatsubara pine grove. Famous for Karatsu-yaki pottery and the annual Karatsu Kunchi festival.",
+    "descriptionJa": "佐賀県の沿岸都市で、唐津城、活気あふれる呼子朝市、七ツ釜の海食洞、虹の松原で知られています。唐津焼と毎年開催される唐津くんちでも有名です。",
+    "highlights": ["Explore Karatsu City", "Local Culture & Cuisine"],
+    "highlightsJa": ["唐津市を探索", "地元の文化と料理"],
+    "totalTripHours": 6,
+    "budgetMin": 3500,
+    "budgetRecommended": 14250,
+    "budgetMax": 25000,
+    "budgetBreakdown": {
+      "transport": 3563,
+      "tickets": 1781,
+      "food": 5789,
+      "cafe": 3117
+    },
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "indoorPercent": 50,
+    "ratings": {
+      "overall": 9.5,
+      "couple": 9.3,
+      "summer": 9,
+      "winter": 9.1,
+      "rain": 9.2,
+      "food": 9.6,
+      "photography": 9.5,
+      "relaxation": 9.2,
+      "value": 9.4,
+      "uniqueness": 9.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 5,
+      "weekend": 8,
+      "holiday": 9
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "tags": ["Karatsu City", "Saga Travel", "Regional Hub"],
+    "coordinates": {
+      "lat": 33.4502,
+      "lng": 129.9681
+    },
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "transportOptions": {
+      "train": 250
+    },
+    "reservation": "None required",
+    "parking": "Public parking available",
+    "notes": "Karatsu City travel hub in Saga Prefecture, gateway to the Karatsu Peninsula.",
+    "notesJa": "佐賀県唐津市のトラベルハブ、唐津半島への玄関口です。",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [
+      {
+        "collectionId": "core-cities-japan",
+        "confirmed": true
+      }
+    ],
+    "relationships": {
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": ["fukuoka-city"]
+    },
+    "walkingIntensity": "low",
+    "recommendedVisitHours": {
+      "min": 6,
+      "max": 12
+    },
+    "municipalityId": "Saga:karatsu",
+    "aliases": ["Karatsu City", "唐津市"],
+    "editorial": {
+      "lifecycle": "published",
+      "freshness": "current",
+      "checkedAt": "2026-08-06",
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Expansion",
+      "sources": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Karatsu,_Saga",
+          "title": "Karatsu, Saga",
+          "accessedAt": "2026-08-06"
+        }
+      ]
+    },
+    "openingHours": "No fixed opening hours (city area)",
+    "openingHoursJa": "営業時間の設定なし（市内エリア）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Karatsu,_Saga"
+    },
+    "content": {
+      "en": {
+        "name": "Karatsu City",
+        "description": "Coastal city in Saga Prefecture known for Karatsu Castle, the vibrant Yobuko morning market, the Nanatsugama sea caves, and the Nijinomatsubara pine grove. Famous for Karatsu-yaki pottery and the annual Karatsu Kunchi festival.",
+        "highlights": ["Explore Karatsu City", "Local Culture & Cuisine"],
+        "openingHours": "No fixed opening hours (city area)"
+      },
+      "ja": {
+        "name": "唐津市",
+        "description": "佐賀県の沿岸都市で、唐津城、活気あふれる呼子朝市、七ツ釜の海食洞、虹の松原で知られています。唐津焼と毎年開催される唐津くんちでも有名です。",
+        "highlights": ["唐津市を探索", "地元の文化と料理"],
+        "openingHours": "営業時間の設定なし（市内エリア）"
+      }
+    }
+  },
+  {
+    "id": "karatsu-castle",
+    "name": "Karatsu Castle",
+    "nameJa": "唐津城",
+    "aliases": ["Karatsu Castle", "唐津城"],
+    "content": {
+      "en": {
+        "name": "Karatsu Castle",
+        "description": "Karatsu Castle, also known as Maizuru Castle, sits on a hill overlooking Karatsu Bay. Originally built in 1608, the current reconstructed keep houses a museum of feudal artifacts and offers panoramic views of the sea and Nijinomatsubara pine grove.",
+        "highlights": [
+          "Panoramic views of Karatsu Bay and Nijinomatsubara",
+          "Feudal-era samurai armour and artifacts",
+          "Cherry blossoms in spring around the castle grounds"
+        ],
+        "openingHours": "09:00–17:00 (last admission 16:40)"
+      },
+      "ja": {
+        "name": "唐津城",
+        "description": "唐津城（舞鶴城）は唐津湾を見下ろす丘の上に立つ城で、1608年に築城されました。現在の復興天守は資料館として武具や調度品を展示し、海と虹の松原のパノラマが楽しめます。",
+        "highlights": [
+          "唐津湾と虹の松原のパノラマ",
+          "武家の甲冑や工芸品の展示",
+          "春は城址公園の桜"
+        ],
+        "openingHours": "09:00～17:00（最終入館16:40）"
+      }
+    },
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "kind": "historic",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "karatsu-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Historic", "Sightseeing"],
+    "tags": ["Castle", "Historic", "Viewpoint", "Karatsu City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Karatsu_Castle_2020.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "J o",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karatsu_Castle_2020.jpg"
+    },
+    "coordinates": {
+      "lat": 33.4544,
+      "lng": 129.9736
+    },
+    "description": "Karatsu Castle, also known as Maizuru Castle, sits on a hill overlooking Karatsu Bay. Originally built in 1608, the current reconstructed keep houses a museum of feudal artifacts and offers panoramic views of the sea and Nijinomatsubara pine grove.",
+    "highlights": [
+      "Panoramic views of Karatsu Bay and Nijinomatsubara",
+      "Feudal-era samurai armour and artifacts",
+      "Cherry blossoms in spring around the castle grounds"
+    ],
+    "openingHours": "09:00–17:00 (last admission 16:40)",
+    "openingHoursJa": "09:00～17:00（最終入館16:40）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/1",
+      "closedDays": "Open daily"
+    },
+    "budgetMin": 2000,
+    "budgetRecommended": 4500,
+    "budgetMax": 8000,
+    "budgetBreakdown": {
+      "transport": 600,
+      "tickets": 500,
+      "food": 900,
+      "cafe": 200
+    },
+    "transportOptions": {
+      "train": 250,
+      "bus": 150
+    },
+    "totalTripHours": 3,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2500,
+    "walkingIntensity": "medium",
+    "walkingSunMin": 1000,
+    "walkingShadeMin": 1500,
+    "indoorPercent": 40,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 6,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 8,
+      "summer": 7.5,
+      "winter": 7.5,
+      "rain": 6.5,
+      "food": 6,
+      "photography": 8.5,
+      "relaxation": 7,
+      "value": 8,
+      "uniqueness": 7.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 10, 11],
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "notes": "The castle keep offers the best view of Nijinomatsubara pine grove from above.",
+    "notesJa": "天守から虹の松原を一望できるのが最大の魅力です。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.karatsu-kankou.jp/en/spots/detail/1",
+          "title": "Karatsu Castle Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Karatsu_Castle",
+          "title": "Karatsu Castle",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Karatsu Castle",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.karatsu-kankou.jp/en/spots/detail/1",
+    "municipalityId": "Saga:karatsu"
+  },
+  {
+    "id": "yobuko-morning-market",
+    "name": "Yobuko Morning Market",
+    "nameJa": "呼子朝市",
+    "aliases": ["Yobuko Morning Market", "呼子朝市"],
+    "content": {
+      "en": {
+        "name": "Yobuko Morning Market",
+        "description": "One of Japan's three great morning markets, held daily along Yobuko Port since the Edo period. Vendors sell fresh-caught squid, dried fish, local produce, and crafts. Famous for live squid sashimi served at nearby waterfront restaurants.",
+        "highlights": [
+          "Fresh seafood straight from Yobuko Port",
+          "Live squid sashimi at waterfront restaurants",
+          "Traditional market atmosphere since the Edo period"
+        ],
+        "openingHours": "07:30–12:00 (daily, best from 08:00)"
+      },
+      "ja": {
+        "name": "呼子朝市",
+        "description": "日本三大朝市の一つで、江戸時代から続く呼子港の朝市。獲れたてのイカや干物、地元の農産物や工芸品が並びます。近くの食堂で味わえる活イカの刺身が名物です。",
+        "highlights": [
+          "呼子港直送の新鮮な海産物",
+          "浜の食堂で味わう活イカ刺身",
+          "江戸時代から続く伝統的な朝市の雰囲気"
+        ],
+        "openingHours": "07:30～12:00（毎日、8時頃からが賑わいます）"
+      }
+    },
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "kind": "market",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "karatsu-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Shopping", "Food"],
+    "tags": ["Market", "Seafood", "Local Food", "Karatsu City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Yobuko_morning_market.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Oshimin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yobuko_morning_market.jpg"
+    },
+    "coordinates": {
+      "lat": 33.5406,
+      "lng": 129.8908
+    },
+    "description": "One of Japan's three great morning markets, held daily along Yobuko Port since the Edo period. Vendors sell fresh-caught squid, dried fish, local produce, and crafts. Famous for live squid sashimi served at nearby waterfront restaurants.",
+    "highlights": [
+      "Fresh seafood straight from Yobuko Port",
+      "Live squid sashimi at waterfront restaurants",
+      "Traditional market atmosphere since the Edo period"
+    ],
+    "openingHours": "07:30–12:00 (daily, best from 08:00)",
+    "openingHoursJa": "07:30～12:00（毎日、8時頃からが賑わいます）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/8"
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 5000,
+    "budgetMax": 10000,
+    "budgetBreakdown": {
+      "transport": 450,
+      "tickets": 0,
+      "food": 675,
+      "cafe": 150
+    },
+    "transportOptions": {
+      "bus": 300
+    },
+    "totalTripHours": 4,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2000,
+    "walkingIntensity": "low",
+    "walkingSunMin": 1000,
+    "walkingShadeMin": 500,
+    "indoorPercent": 20,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 5,
+      "walkingIntensity": 2
+    },
+    "ratings": {
+      "overall": 8.5,
+      "couple": 7.5,
+      "summer": 8,
+      "winter": 7,
+      "rain": 6.5,
+      "food": 9.5,
+      "photography": 8,
+      "relaxation": 6.5,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 5,
+      "weekend": 8,
+      "holiday": 9
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 6
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Nearby paid parking available",
+    "notes": "Arrive by 8 am for the freshest catch and the liveliest atmosphere.",
+    "notesJa": "最も新鮮な魚と活気ある雰囲気を楽しむには朝8時までに到着を。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.karatsu-kankou.jp/en/spots/detail/8",
+          "title": "Yobuko Morning Market Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yobuko",
+          "title": "Yobuko",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Yobuko Morning Market",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.karatsu-kankou.jp/en/spots/detail/8",
+    "municipalityId": "Saga:karatsu"
+  },
+  {
+    "id": "nijinomatsubara-pine-grove",
+    "name": "Nijinomatsubara Pine Grove",
+    "nameJa": "虹の松原",
+    "aliases": ["Nijinomatsubara Pine Grove", "虹の松原"],
+    "content": {
+      "en": {
+        "name": "Nijinomatsubara Pine Grove",
+        "description": "A 5 km arc of approximately one million black pine trees stretching along Karatsu Bay. Designated as one of Japan's three great pine groves alongside Miho no Matsubara and Kehi no Matsubara. A scenic walking and cycling path runs through the grove.",
+        "highlights": [
+          "5 km arc of one million black pine trees",
+          "Scenic walking and cycling path along the coast",
+          "Views across Karatsu Bay to Karatsu Castle"
+        ],
+        "openingHours": "Open access (no fixed hours)"
+      },
+      "ja": {
+        "name": "虹の松原",
+        "description": "唐津湾に沿って約5kmにわたる約100万本の黒松林。三保の松原、気比の松原と並ぶ日本三大松原の一つに数えられます。松原の中を歩行者・自転車道が走り、海水浴場も隣接しています。",
+        "highlights": [
+          "約100万本の黒松が連なる5kmの弧",
+          "海岸沿いの散策・サイクリング道",
+          "唐津湾越しに唐津城を望む風景"
+        ],
+        "openingHours": "開放（時間制限なし）"
+      }
+    },
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "kind": "natural",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "karatsu-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Nature", "Sightseeing"],
+    "tags": ["Nature", "Forest", "Coastal", "Karatsu City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Niji_no_Matsubara_2018.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Niji_no_Matsubara_2018.jpg"
+    },
+    "coordinates": {
+      "lat": 33.4458,
+      "lng": 129.985
+    },
+    "description": "A 5 km arc of approximately one million black pine trees stretching along Karatsu Bay. Designated as one of Japan's three great pine groves alongside Miho no Matsubara and Kehi no Matsubara. A scenic walking and cycling path runs through the grove.",
+    "highlights": [
+      "5 km arc of one million black pine trees",
+      "Scenic walking and cycling path along the coast",
+      "Views across Karatsu Bay to Karatsu Castle"
+    ],
+    "openingHours": "Open access (no fixed hours)",
+    "openingHoursJa": "開放（時間制限なし）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/4"
+    },
+    "budgetMin": 1000,
+    "budgetRecommended": 3000,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 300,
+      "tickets": 0,
+      "food": 450,
+      "cafe": 100
+    },
+    "transportOptions": {
+      "train": 250,
+      "bus": 150
+    },
+    "totalTripHours": 3,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 4000,
+    "walkingIntensity": "low",
+    "walkingSunMin": 2000,
+    "walkingShadeMin": 2000,
+    "indoorPercent": 5,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 5,
+      "walkingIntensity": 2
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 8.5,
+      "summer": 8,
+      "winter": 6.5,
+      "rain": 5,
+      "food": 5,
+      "photography": 8.5,
+      "relaxation": 9,
+      "value": 9,
+      "uniqueness": 7.5
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [3, 4, 5, 6, 9, 10],
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "notes": "The coastal cycling path is the best way to experience the full 5 km of pine grove.",
+    "notesJa": "5kmの松原全体を楽しむなら海岸沿いのサイクリングロードがおすすめです。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.karatsu-kankou.jp/en/spots/detail/4",
+          "title": "Nijinomatsubara Pine Grove Official Website",
+          "accessedAt": "2026-08-06"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Niji_no_Matsubara",
+          "title": "Niji no Matsubara",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Nijinomatsubara Pine Grove",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": "https://www.karatsu-kankou.jp/en/spots/detail/4",
+    "municipalityId": "Saga:karatsu"
+  },
+  {
+    "id": "nanatsugama-sea-caves",
+    "name": "Nanatsugama Sea Caves",
+    "nameJa": "七ツ釜",
+    "aliases": ["Nanatsugama Sea Caves", "七ツ釜"],
+    "content": {
+      "en": {
+        "name": "Nanatsugama Sea Caves",
+        "description": "Dramatic basalt sea caves carved into the northern coastline of the Karatsu Peninsula. Seven interconnected caverns, the largest reaching 30 metres high. Viewed from cliff-top walking paths or up close by sightseeing cruise boat departing from Yobuko Port.",
+        "highlights": [
+          "Seven interconnected basalt sea caverns",
+          "Cliff-top walking paths with dramatic coastal views",
+          "Sightseeing cruise into the cave entrances from Yobuko Port"
+        ],
+        "openingHours": "Cliff paths: open access (daylight hours recommended). Sightseeing cruise: 09:30–16:00 (hourly departures, weather permitting)"
+      },
+      "ja": {
+        "name": "七ツ釜",
+        "description": "唐津半島の北岸に刻まれた玄武岩の海食洞。7つの洞窟が連なり、最大のものは高さ30mに達します。断崖上の遊歩道からの展望と、呼子港発の遊覧船での洞窟接近の両方で楽しめます。",
+        "highlights": [
+          "7つ連なる玄武岩の海食洞",
+          "断崖絶壁の遊歩道からの絶景",
+          "呼子港発の遊覧船で洞窟入り口まで接近"
+        ],
+        "openingHours": "遊歩道：自由（日中推奨）。遊覧船：09:30～16:00（毎時運航、天候による）"
+      }
+    },
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "kind": "natural",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "karatsu-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Nature", "Sightseeing"],
+    "tags": ["Nature", "Caves", "Coastal", "Cruise", "Karatsu City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Nanatsugama_sea_caves.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Oshimin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nanatsugama_sea_caves.jpg"
+    },
+    "coordinates": {
+      "lat": 33.5667,
+      "lng": 129.8547
+    },
+    "description": "Dramatic basalt sea caves carved into the northern coastline of the Karatsu Peninsula. Seven interconnected caverns, the largest reaching 30 metres high. Viewed from cliff-top walking paths or up close by sightseeing cruise boat departing from Yobuko Port.",
+    "highlights": [
+      "Seven interconnected basalt sea caverns",
+      "Cliff-top walking paths with dramatic coastal views",
+      "Sightseeing cruise into the cave entrances from Yobuko Port"
+    ],
+    "openingHours": "Cliff paths: open access (daylight hours recommended). Sightseeing cruise: 09:30–16:00 (hourly departures, weather permitting)",
+    "openingHoursJa": "遊歩道：自由（日中推奨）。遊覧船：09:30～16:00（毎時運航、天候による）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/9",
+      "hoursNote": "Cruise departures are weather-dependent and may be cancelled in high waves"
+    },
+    "budgetMin": 2000,
+    "budgetRecommended": 5000,
+    "budgetMax": 9000,
+    "budgetBreakdown": {
+      "transport": 600,
+      "tickets": 1600,
+      "food": 900,
+      "cafe": 200
+    },
+    "transportOptions": {
+      "bus": 400
+    },
+    "totalTripHours": 4,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3
+    },
+    "walkingMin": 3000,
+    "walkingIntensity": "medium",
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 500,
+    "indoorPercent": 5,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 4,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.5,
+      "couple": 8.5,
+      "summer": 8,
+      "winter": 6,
+      "rain": 5,
+      "food": 5,
+      "photography": 9,
+      "relaxation": 7.5,
+      "value": 8,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 5
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "weatherDependence": "high",
+    "reservation": "Cliff paths: none required. Sightseeing cruise: tickets at Yobuko Port; advance booking recommended in peak season.",
+    "parking": "Free parking at trailhead and Yobuko Port",
+    "notes": "The sightseeing cruise may be cancelled in high waves — check conditions at Yobuko Port.",
+    "notesJa": "遊覧船は高波時に欠航あり。呼子港で運航状況を確認してください。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nanatsugama",
+          "title": "Nanatsugama",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Nanatsugama Sea Caves",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": null,
+    "municipalityId": "Saga:karatsu"
+  },
+  {
+    "id": "nagoya-castle-ruins-museum",
+    "name": "Nagoya Castle Ruins & Museum",
+    "nameJa": "名護屋城跡・佐賀県立名護屋城博物館",
+    "aliases": [
+      "Nagoya Castle Ruins & Museum",
+      "名護屋城跡・佐賀県立名護屋城博物館"
+    ],
+    "content": {
+      "en": {
+        "name": "Nagoya Castle Ruins & Museum",
+        "description": "The ruins of Nagoya Castle, the massive base built by Toyotomi Hideyoshi for his invasions of Korea (1592–98). Once one of Japan's largest castles, the stone walls and extensive foundations remain. The adjacent prefectural museum exhibits invasion-period artefacts, maps, and a reconstructed golden tea room.",
+        "highlights": [
+          "Massive stone walls of Hideyoshi's invasion headquarters",
+          "Prefectural museum with Korean campaign artefacts",
+          "Reconstructed golden tea room in the museum"
+        ],
+        "openingHours": "Castle ruins: open access (daylight hours). Museum: 09:00–17:00 (last admission 16:30, closed Mondays)"
+      },
+      "ja": {
+        "name": "名護屋城跡・佐賀県立名護屋城博物館",
+        "description": "豊臣秀吉が朝鮮出兵（文禄・慶長の役）の拠点として築いた名護屋城の城跡。かつて日本最大級だった城の石垣と広大な礎石が残ります。隣接する県立博物館では、出兵ゆかりの遺物、古地図、復元された黄金の茶室を展示しています。",
+        "highlights": [
+          "秀吉の出兵拠点の壮大な石垣群",
+          "文禄・慶長の役の遺物を展示する県立博物館",
+          "博物館内の復元黄金の茶室"
+        ],
+        "openingHours": "城跡：自由見学（日中推奨）。博物館：09:00～17:00（最終入館16:30、月曜休館）"
+      }
+    },
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "kind": "historic",
+    "role": "poi",
+    "placeType": "destination",
+    "relationships": {
+      "parentDestinationId": "karatsu-city"
+    },
+    "officialWebsiteRequirement": "optional",
+    "categories": ["Historic", "Museum & Art"],
+    "tags": ["Castle Ruins", "Museum", "History", "Karatsu City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Nagoya_Castle_ruins_Saga.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagoya_Castle_ruins_Saga.jpg"
+    },
+    "coordinates": {
+      "lat": 33.5639,
+      "lng": 129.8311
+    },
+    "description": "The ruins of Nagoya Castle, the massive base built by Toyotomi Hideyoshi for his invasions of Korea (1592–98). Once one of Japan's largest castles, the stone walls and extensive foundations remain. The adjacent prefectural museum exhibits invasion-period artefacts, maps, and a reconstructed golden tea room.",
+    "highlights": [
+      "Massive stone walls of Hideyoshi's invasion headquarters",
+      "Prefectural museum with Korean campaign artefacts",
+      "Reconstructed golden tea room in the museum"
+    ],
+    "openingHours": "Castle ruins: open access (daylight hours). Museum: 09:00–17:00 (last admission 16:30, closed Mondays)",
+    "openingHoursJa": "城跡：自由見学（日中推奨）。博物館：09:00～17:00（最終入館16:30、月曜休館）",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/7",
+      "closedDays": "Museum closed on Mondays (or Tuesday if Monday is a public holiday)"
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 450,
+      "tickets": 500,
+      "food": 675,
+      "cafe": 150
+    },
+    "transportOptions": {
+      "bus": 350
+    },
+    "totalTripHours": 4,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3
+    },
+    "walkingMin": 3500,
+    "walkingIntensity": "medium",
+    "walkingSunMin": 2000,
+    "walkingShadeMin": 1000,
+    "indoorPercent": 40,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 6,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 7.5,
+      "summer": 7,
+      "winter": 7,
+      "rain": 7.5,
+      "food": 5.5,
+      "photography": 8.5,
+      "relaxation": 7,
+      "value": 8.5,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 4,
+      "holiday": 5
+    },
+    "season": {
+      "spring": 9,
+      "summer": 7,
+      "autumn": 9,
+      "winter": 6
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "notes": "The museum is closed on Mondays — the outdoor castle ruins remain accessible every day.",
+    "notesJa": "博物館は月曜休館。屋外の城跡は毎日見学可能です。",
+    "schemaVersion": 2,
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "medium"
+    },
+    "collections": [],
+    "addedAt": "2026-08-06",
+    "editorial": {
+      "lifecycle": "published",
+      "sources": [
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nagoya_Castle_(Hizen_Province)",
+          "title": "Nagoya Castle (Hizen Province)",
+          "accessedAt": "2026-08-06"
+        }
+      ],
+      "checkedAt": "2026-08-06",
+      "freshness": "current",
+      "changeSummary": "Kyushu-to-100 expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-06",
+          "changedBy": "Kyushu-to-100 Editorial Batch",
+          "summary": "Added bilingual curated POI: Nagoya Castle Ruins & Museum",
+          "method": "assisted"
+        }
+      ],
+      "reviewedAt": "2026-08-06",
+      "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    },
+    "officialWebsite": null,
+    "municipalityId": "Saga:karatsu"
   }
 ]
