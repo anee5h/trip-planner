@@ -36,9 +36,19 @@ export function localizeRecommendationReason(
   locale: "en" | "ja",
 ) {
   const t = i18n.getFixedT(locale, "common");
+  // i18next's typed overloads require a defaultValue for non-literal keys;
+  // reason codes are template literals, so use the untyped options form.
+  const translate = (key: string, params?: Record<string, unknown>) =>
+    (t as (key: string, options?: Record<string, unknown>) => string)(
+      key,
+      params,
+    );
   return {
-    title: t(`recommendation.reasons.${reason.code}.title`, reason.params),
-    description: t(
+    title: translate(
+      `recommendation.reasons.${reason.code}.title`,
+      reason.params,
+    ),
+    description: translate(
       `recommendation.reasons.${reason.code}.description`,
       reason.params,
     ),

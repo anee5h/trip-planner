@@ -158,6 +158,10 @@
       "editorialReviewPending": {
         "title": "Being Reviewed",
         "description": "Ratings for this destination are still being verified by our team"
+      },
+      "transportFerry": {
+        "title": "Scenic Ferry Route",
+        "description": "Accessible by ferry ({{operator}})"
       }
     }
   },
