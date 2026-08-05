@@ -99,4 +99,106 @@ describe("useTripPlannerState", () => {
     });
     expect(getResult().partySize).toBe(8);
   });
+
+  describe("tripMode and accommodationAllowance", () => {
+    it("defaults tripMode to day_trip and accommodationAllowance to 15000", () => {
+      const getResult = setupHook();
+      const result = getResult();
+
+      expect(result.tripMode).toBe("day_trip");
+      expect(result.accommodationAllowance).toBe(15000);
+    });
+
+    it("setTripMode updates draft tripMode", () => {
+      const getResult = setupHook();
+
+      act(() => {
+        getResult().setTripMode("weekend_2d1n");
+      });
+
+      expect(getResult().tripMode).toBe("weekend_2d1n");
+      expect(getResult().isDirty).toBe(true);
+    });
+
+    it("setAccommodationAllowance updates draft value", () => {
+      const getResult = setupHook();
+
+      act(() => {
+        getResult().setAccommodationAllowance(20000);
+      });
+
+      expect(getResult().accommodationAllowance).toBe(20000);
+      expect(getResult().isDirty).toBe(true);
+    });
+
+    it("setAccommodationAllowance clamps invalid values to nearest bound", () => {
+      const getResult = setupHook();
+
+      act(() => {
+        getResult().setAccommodationAllowance(-500);
+      });
+      expect(getResult().accommodationAllowance).toBe(0);
+
+      act(() => {
+        getResult().setAccommodationAllowance(1000000);
+      });
+      expect(getResult().accommodationAllowance).toBe(500000);
+    });
+
+    it("weekend budget equals day budget * 2 + accommodationAllowance", () => {
+      const getResult = setupHook();
+
+      // Set weekend mode with specific allowance
+      act(() => {
+        getResult().setTripMode("weekend_2d1n");
+        getResult().setAccommodationAllowance(15000);
+      });
+
+      const weekendResolved = getResult().resolvedDraft;
+      // Day-trip: 20000 * 2 * (1.0 for fullDay) = 40000
+      // Weekend: 20000 * 2 * 2 + 15000 = 95000
+      // But tripDuration depends on initialDuration which may vary.
+      // Instead, compare weekend budget formula directly.
+      // For weekend with standard tier, partySize=2, accommodation=15000:
+      // dailyLimit = 20000, partySize = 2, multiplier = 2
+      // budget = Math.round(20000 * 2 * 2) + 15000 = 80000 + 15000 = 95000
+      expect(weekendResolved.budget).toBe(95000);
+    });
+
+    it("switching weekend to day removes accommodation from budget", () => {
+      const getResult = setupHook();
+
+      act(() => {
+        getResult().setTripMode("weekend_2d1n");
+        getResult().setAccommodationAllowance(20000);
+      });
+
+      const weekendBudget = getResult().resolvedDraft.budget;
+
+      act(() => {
+        getResult().setTripMode("day_trip");
+      });
+
+      const dayBudget = getResult().resolvedDraft.budget;
+      expect(dayBudget).toBeLessThan(weekendBudget);
+    });
+
+    it("dirty flag flips on tripMode change", () => {
+      const getResult = setupHook();
+
+      expect(getResult().isDirty).toBe(false);
+
+      act(() => {
+        getResult().setTripMode("weekend_2d1n");
+      });
+
+      expect(getResult().isDirty).toBe(true);
+
+      act(() => {
+        getResult().applyPlannerState();
+      });
+
+      expect(getResult().isDirty).toBe(false);
+    });
+  });
 });

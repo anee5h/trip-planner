@@ -10,6 +10,26 @@ import type { BudgetTier, PriceRange } from "@/shared/types/planner";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
+export const ACCOMMODATION_ALLOWANCE_PRESETS = {
+  economy: 8000,
+  standard: 15000,
+  comfortable: 25000,
+} as const;
+export type AccommodationAllowancePreset =
+  keyof typeof ACCOMMODATION_ALLOWANCE_PRESETS;
+export const MAX_ACCOMMODATION_ALLOWANCE = 500000;
+
+/**
+ * Returns true when value is a finite integer between 0 and MAX_ACCOMMODATION_ALLOWANCE inclusive.
+ */
+export function isValidAccommodationAllowance(value: number): boolean {
+  return (
+    Number.isFinite(value) &&
+    Number.isInteger(value) &&
+    value >= 0 &&
+    value <= MAX_ACCOMMODATION_ALLOWANCE
+  );
+}
 
 function formatSingleJPYValue(val: number, locale: "en" | "ja" = "en"): string {
   if (locale === "ja") {
@@ -412,6 +432,7 @@ export interface ItemizedCostBreakdown {
   partyRange: PriceRange;
   isFreeTicket: boolean;
   confidence: "high" | "medium" | "estimated";
+  accommodationAllowance: number;
 }
 
 export function calculateItemizedTripCost(
@@ -423,6 +444,7 @@ export function calculateItemizedTripCost(
     totalTripHours?: number;
     homeCoords?: { lat: number; lng: number };
     ferryTemporal?: FerryTemporalContext;
+    accommodationAllowance?: number;
   } = {},
 ): ItemizedCostBreakdown {
   const partySize = options.partySize ?? 2;
@@ -451,12 +473,13 @@ export function calculateItemizedTripCost(
   const food = getDiningFoodRange(budgetTier, totalTripHours, partySize);
   const cafe = (breakdown.cafe || 0) * partySize;
   const parking = mode === "car" || mode === "my_car" ? 1200 : 0;
+  const accommodationAllowance = options.accommodationAllowance ?? 0;
 
   const minPartyTotal = Math.round(
-    transport + tickets + food[0] + cafe + parking,
+    transport + tickets + food[0] + cafe + parking + accommodationAllowance,
   );
   const maxPartyTotal = Math.round(
-    transport + tickets + food[1] + cafe + parking,
+    transport + tickets + food[1] + cafe + parking + accommodationAllowance,
   );
 
   const perPersonMin = Math.round(minPartyTotal / partySize);
@@ -482,6 +505,7 @@ export function calculateItemizedTripCost(
     partyRange: [minPartyTotal, maxPartyTotal],
     isFreeTicket,
     confidence,
+    accommodationAllowance,
   };
 }
 
