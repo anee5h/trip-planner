@@ -217,6 +217,61 @@ export function isDestinationFerrySeasonallyUnavailable(
 }
 
 /**
+ * True when verified passenger ferry services can cover the WHOLE trip for
+ * the given travel dates: the outbound leg must operate on the first date
+ * and the return leg on the last date (same day for day trips, Day 2 for
+ * 2D1N). Directionality is respected via serviceMatchesDirection: a
+ * one-way service only serves its published direction; a bidirectional
+ * service serves both. Only candidate departure ports inside the origin
+ * catchment count, and the arrival port is the destination's nearest port.
+ */
+export function isFerryTripAvailable(
+  dest: Destination,
+  homeCoords: { lat: number; lng: number },
+  travelDates: readonly Date[],
+): boolean {
+  if (!dest.coordinates || travelDates.length === 0) return false;
+  const originZoneId = resolveOriginTransportZone({ coordinates: homeCoords });
+  if (originZoneId === "unknown") return false;
+  const destinationZoneId = resolveDestinationTransportZone(dest);
+  if (destinationZoneId === "unknown") return false;
+  const arrivalPort = findArrivalFerryPort(dest);
+  if (!arrivalPort) return false;
+
+  const depPorts = ports.filter(
+    (port) =>
+      port.zoneId === originZoneId &&
+      getDistanceKm(
+        homeCoords.lat,
+        homeCoords.lng,
+        port.coordinates.lat,
+        port.coordinates.lng,
+      ) <= ORIGIN_PORT_CATCHMENT_KM,
+  );
+
+  const outboundDate = travelDates[0];
+  const returnDate = travelDates[travelDates.length - 1];
+  for (const depPort of depPorts) {
+    if (
+      getFerryServices(depPort.id, arrivalPort.id, {
+        travelDate: outboundDate,
+      }).length === 0
+    ) {
+      continue;
+    }
+    if (
+      getFerryServices(arrivalPort.id, depPort.id, {
+        travelDate: returnDate,
+      }).length === 0
+    ) {
+      continue;
+    }
+    return true;
+  }
+  return false;
+}
+
+/**
  * The destination's arrival port: the nearest port in the destination's
  * transport zone.
  */

@@ -37,6 +37,7 @@ import {
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
+import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
 import {
   estimateTripDuration,
@@ -80,6 +81,8 @@ interface DestinationCardProps {
   weekendSummary?: WeekendCardSummary;
   /** One-line forecast/seasonal condition label for the planned date. */
   conditionLabel?: string;
+  /** Selected travel date for date-aware transport metadata. */
+  ferryTemporal?: FerryTemporalContext;
 }
 
 export default function DestinationCard({
@@ -91,6 +94,7 @@ export default function DestinationCard({
   availableTimeHours,
   weekendSummary,
   conditionLabel,
+  ferryTemporal,
 }: DestinationCardProps) {
   const { locale } = useLocale();
   const { t } = useTranslation();
@@ -188,6 +192,7 @@ export default function DestinationCard({
     partySize,
     homeStationCoords ?? undefined,
     homeStationTransportZoneId,
+    ferryTemporal,
   );
   const preferredModes = [
     ...(carMode && carMode !== "none" ? [carMode] : []),
@@ -198,6 +203,7 @@ export default function DestinationCard({
     {
       homeStationCoords: homeStationCoords ?? undefined,
       availableTimeHours,
+      ferryTemporal,
     },
     preferredModes,
   );

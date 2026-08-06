@@ -24,6 +24,7 @@ import { useWeatherContext } from "@/features/home/hooks/useWeatherContext";
 import {
   deriveTripDates,
   evaluateTravelConditions,
+  isTripDatesTransportEligible,
   travelDateToDate,
 } from "@/shared/services/recommendation/TravelConditions";
 import {
@@ -212,13 +213,10 @@ export default function Destinations() {
         setCarMode(user.user_metadata.preferences.carMode || "none");
       }
       if (!searchParams.has("mode")) {
+        // Same default mode set as Home (includes verified ferry routes) so
+        // date-aware ferry availability reaches gates, sorts and cards.
         setPublicModes(
-          user.user_metadata.preferences.publicModes || [
-            "train",
-            "shinkansen",
-            "bus",
-            "flight",
-          ],
+          user.user_metadata.preferences.publicModes || ALL_PUBLIC_MODES,
         );
       }
       if (!searchParams.has("party")) {
@@ -346,12 +344,7 @@ export default function Destinations() {
       budget: maxBudget,
       partySize,
       carMode: prefs.carMode ?? "none",
-      publicModes: prefs.publicModes ?? [
-        "train",
-        "shinkansen",
-        "bus",
-        "flight",
-      ],
+      publicModes: prefs.publicModes ?? ALL_PUBLIC_MODES,
       currentWeatherCondition: "",
       currentWeather: null,
       visitedIds: [],
@@ -359,6 +352,9 @@ export default function Destinations() {
       originZoneId: homeStationTransportZoneId,
       userRatings: destinationRatings,
       tripDuration,
+      // Selected travel date: keeps every origin-aware estimate, budget and
+      // duration read inside the explorer on the same temporal context.
+      ferryTemporal,
     };
   }, [
     user,
@@ -371,6 +367,7 @@ export default function Destinations() {
     tripDuration,
     maxBudget,
     partySize,
+    ferryTemporal,
   ]);
 
   // Reset page to 1 when filters change
@@ -615,14 +612,15 @@ export default function Destinations() {
       return evaluation;
     };
 
+    // Empty transport preference means "any public transport" everywhere in
+    // this explorer (weekend path, day-trip gate, sorts, cards) — never
+    // "ignore transport".
+    const effectivePublicModes =
+      publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
+
     // Weekend mode uses its own eligibility gate instead of duration bands.
     if (tripMode === "weekend_2d1n") {
       const hasOrigin = homeStationCoords || homeStationTransportZoneId;
-      // Empty transport preference means "any public transport", never
-      // "ignore transport": an explicit origin still requires a known
-      // origin-aware duration.
-      const effectivePublicModes =
-        publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
       result = result.filter((dest) => {
         // Origin-local destinations are never getaways (same municipality as base).
         if (isOriginLocalDestination(dest, originMunicipalityId)) return false;
@@ -641,6 +639,19 @@ export default function Destinations() {
           ferryTemporal,
         );
         if (modes.length === 0) return false;
+        // Canonical trip-date transport eligibility: a ferry-only trip must
+        // be covered on every travel day (outbound Day 1 / return Day 2).
+        if (
+          travelDates &&
+          !isTripDatesTransportEligible(
+            dest,
+            modes,
+            homeStationCoords ?? undefined,
+            travelDates,
+          )
+        ) {
+          return false;
+        }
         // No origin-aware duration → excluded from personalized matching.
         const minutes = getBestOneWayTravelMinutes(dest, catalogContext, modes);
         if (minutes === undefined) return false;
@@ -814,13 +825,26 @@ export default function Destinations() {
         const modes = getValidModes(
           dest,
           carMode,
-          publicModes,
+          effectivePublicModes,
           homeStationCoords ?? undefined,
           budgetTier,
           homeStationTransportZoneId,
           ferryTemporal,
         );
-        return modes.length > 0;
+        if (modes.length === 0) return false;
+        // Canonical trip-date transport eligibility (same authority as Home).
+        if (
+          travelDates &&
+          !isTripDatesTransportEligible(
+            dest,
+            modes,
+            homeStationCoords ?? undefined,
+            travelDates,
+          )
+        ) {
+          return false;
+        }
+        return true;
       });
     }
 
@@ -880,7 +904,7 @@ export default function Destinations() {
               ...getValidModes(
                 a,
                 carMode,
-                publicModes,
+                effectivePublicModes,
                 homeStationCoords ?? undefined,
                 budgetTier,
                 homeStationTransportZoneId,
@@ -892,6 +916,7 @@ export default function Destinations() {
                   partySize,
                   homeStationCoords ?? undefined,
                   homeStationTransportZoneId,
+                  ferryTemporal,
                 ),
               ),
             ) -
@@ -899,7 +924,7 @@ export default function Destinations() {
               ...getValidModes(
                 b,
                 carMode,
-                publicModes,
+                effectivePublicModes,
                 homeStationCoords ?? undefined,
                 budgetTier,
                 homeStationTransportZoneId,
@@ -911,16 +936,20 @@ export default function Destinations() {
                   partySize,
                   homeStationCoords ?? undefined,
                   homeStationTransportZoneId,
+                  ferryTemporal,
                 ),
               ),
             )
           );
-        case "travelTime":
+        case "travelTime": {
+          const hasOrigin = Boolean(
+            homeStationCoords || homeStationTransportZoneId,
+          );
           const getFastestTime = (dest: Destination) => {
             const modes = getValidModes(
               dest,
               carMode,
-              publicModes,
+              effectivePublicModes,
               homeStationCoords ?? undefined,
               budgetTier,
               homeStationTransportZoneId,
@@ -936,17 +965,23 @@ export default function Destinations() {
               modes,
             );
             if (minutes !== undefined) return minutes;
-            const legacyMinutes = Math.min(
-              ...modes.map(
-                (m) =>
-                  (dest.transportOptions?.[
-                    m as keyof typeof dest.transportOptions
-                  ] as number) || 999,
-              ),
-            );
-            return legacyMinutes;
+            if (!hasOrigin) {
+              const legacyMinutes = Math.min(
+                ...modes.map(
+                  (m) =>
+                    (dest.transportOptions?.[
+                      m as keyof typeof dest.transportOptions
+                    ] as number) || 999,
+                ),
+              );
+              return legacyMinutes;
+            }
+            // Selected origin without a canonical origin-aware estimate:
+            // unknown sorts last — never a legacy transportOptions fallback.
+            return 999;
           };
           return getFastestTime(a) - getFastestTime(b);
+        }
         case "nearest": {
           if (!homeStationCoords) {
             return (
@@ -1217,6 +1252,7 @@ export default function Destinations() {
                         ? localizeTravelConditionSummary(condition, locale)
                         : undefined
                     }
+                    ferryTemporal={ferryTemporal}
                     // Empty transport preference means "any public
                     // transport" — cards resolve the fastest verified mode
                     // instead of showing N/A.

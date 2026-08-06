@@ -16,6 +16,7 @@ import type { PipelineRecommendation } from "./RecommendationTypes";
 import { evaluateWeekendCandidate } from "./WeekendPolicy";
 import type { WeekendCandidateEvaluation } from "./WeekendPolicy";
 import { evaluateTravelConditions } from "./TravelConditions";
+import { isTripDatesTransportEligible } from "./TravelConditions";
 import { resolveOriginMunicipalityId } from "./OriginAreaService";
 import { consolidateTokyoWards } from "./TokyoWardsConsolidation";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
@@ -165,6 +166,19 @@ export function runRecommendationPipeline(
       context.ferryTemporal,
     );
     if (modes.length === 0) return false;
+    // Canonical trip-date transport eligibility: a ferry-only trip must be
+    // covered on every travel day (outbound Day 1 / return Day 2).
+    if (
+      context.travelDates &&
+      !isTripDatesTransportEligible(
+        destination,
+        modes,
+        context.homeStationCoords ?? undefined,
+        context.travelDates,
+      )
+    ) {
+      return false;
+    }
 
     const durationEst = estimateTripDuration(destination, context, modes);
 

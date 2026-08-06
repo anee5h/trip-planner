@@ -6,6 +6,7 @@ import { normalizeWeatherDescription } from "./RecommendationContext";
 import { evaluateWeekendWeather } from "@/shared/services/weather/WeekendWeatherScoring";
 import type { MatchReason } from "./RecommendationTypes";
 import { evaluateSeasonalSuitability } from "./SeasonalSuitabilityService";
+import { isFerryTripAvailable } from "@/shared/services/transport/FerryTransportEstimator";
 
 /**
  * One shared date-selection model for Home, Destinations, URL state,
@@ -74,6 +75,32 @@ export function normalizeTravelDateParam(
 export function travelDateToDate(iso: string): Date {
   const [year, month, day] = iso.split("-").map(Number);
   return new Date(year, month - 1, day, 12, 0, 0);
+}
+
+/**
+ * Canonical trip-date transport eligibility, shared by Home and the
+ * Destinations explorer (one authority, never two).
+ *
+ * `modes` are the actual origin-aware authorized modes from getValidModes
+ * — never static destination.transportOptions. When the trip depends on
+ * the ferry (ferry is the ONLY authorized mode), the ferry must cover
+ * every travel day: outbound on Day 1 and the return leg on Day 2 (or the
+ * same day for day trips), with directionality respected. A destination
+ * with an independently valid non-ferry mode stays eligible without the
+ * ferry. No origin means no ferry claim to enforce.
+ */
+export function isTripDatesTransportEligible(
+  dest: Destination,
+  modes: readonly string[],
+  homeCoords: { lat: number; lng: number } | undefined,
+  travelDates: TravelDateSelection,
+): boolean {
+  if (!modes.includes("ferry")) return true;
+  if (modes.length > 1) return true;
+  if (!homeCoords) return true;
+  const dates = [travelDateToDate(travelDates.day1)];
+  if (travelDates.day2) dates.push(travelDateToDate(travelDates.day2));
+  return isFerryTripAvailable(dest, homeCoords, dates);
 }
 
 /** "Aug 8" / "8/8" for a YYYY-MM-DD date. */

@@ -48,7 +48,6 @@ function resolveDateTabSelection(
 
 export function useWeatherContext(
   homeStationCoords: { lat: number; lng: number } | null,
-  initialDate?: string,
 ) {
   const [weatherContext, setWeatherContext] =
     useState<WeatherTabContext | null>(null);
@@ -61,19 +60,9 @@ export function useWeatherContext(
     fetchWeatherTabContext(lat, lng)
       .then((ctx) => {
         setWeatherContext(ctx);
-        if (initialDate) {
-          const resolved = resolveDateTabSelection(ctx, initialDate);
-          setWeatherContext((prev) =>
-            prev ? { ...prev, tabs: resolved.tabs } : prev,
-          );
-          setActiveTabId(resolved.activeTabId);
-          setCustomDate(resolved.customDate);
-        } else {
-          setActiveTabId(ctx.activeTabId);
-        }
+        setActiveTabId(ctx.activeTabId);
       })
       .catch((err) => console.error("Weather tab fetch error:", err));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [homeStationCoords]);
 
   const handleCustomDateSelect = (selectedDate: string) => {

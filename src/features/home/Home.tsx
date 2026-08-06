@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useEffect } from "react";
+import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import {
   Calendar,
@@ -83,14 +83,6 @@ export default function Home() {
   const allDestinations = getDestinationList() as Destination[];
 
   const [searchParams, setSearchParams] = useSearchParams();
-  // Stable date=YYYY-MM-DD URL parameter: restores the selected date on
-  // reload; invalid/past values normalize away safely.
-  const initialDate = useMemo(
-    () => normalizeTravelDateParam(searchParams.get("date")),
-    // Read once on mount; later changes are handled by the sync effect.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  );
   const {
     isVisited,
     favorites,
@@ -108,30 +100,118 @@ export default function Home() {
     setCustomDate,
     currentTab,
     handleCustomDateSelect,
-  } = useWeatherContext(homeStationCoords, initialDate);
+  } = useWeatherContext(homeStationCoords);
 
-  // Keep the URL's date= parameter in sync with the selection: today omits
-  // it (default), tomorrow and custom dates serialize the ISO date. Back /
-  // forward navigation restores the selection through the restore path in
-  // useWeatherContext.
   const tomorrowIso = useMemo(
     () => weatherContext?.tabs.find((tab) => tab.id === "tomorrow")?.dates?.[0],
     [weatherContext],
   );
+
+  /**
+   * Bidirectional date=YYYY-MM-DD URL synchronization.
+   *
+   * URL → state: every search-parameter change while mounted restores the
+   * selected date (back/forward included). Invalid or past dates are
+   * normalized away with replace (no history entry).
+   *
+   * state → URL: every non-restore state change is a deliberate selection
+   * (Today / Tomorrow / custom date) and pushes a history entry so
+   * back/forward restores it; the restore-in-flight and last-written
+   * guards keep URL→state restorations and in-flight writes from being
+   * overwritten or duplicated across router transition commits.
+   */
+  const restoreInFlightRef = useRef(false);
+  /** The URL date value most recently applied to state (loop guard). */
+  const lastAppliedUrlRef = useRef<string | undefined>(undefined);
+  /**
+   * The date value most recently written to the URL. Router search-param
+   * state updates can lag the committed URL (transition), so this guard
+   * stops the sync effect from writing the same value twice or mistaking
+   * its own in-flight write for a URL→state restoration.
+   */
+  const lastWrittenUrlRef = useRef<string | undefined>(undefined);
+
+  // The date serialized by the current selection: today omits the param,
+  // tomorrow and custom dates serialize the ISO date.
+  const stateDate = useMemo(() => {
+    if (customDate) return normalizeTravelDateParam(customDate) ?? undefined;
+    if (activeTabId === "tomorrow") return tomorrowIso;
+    return undefined;
+  }, [customDate, activeTabId, tomorrowIso]);
+
+  // URL → state restoration. Declared before the state→URL effect so a
+  // back/forward navigation restores state before the sync effect runs.
   useEffect(() => {
-    const params = new URLSearchParams(searchParams);
-    const dateParam = customDate
-      ? normalizeTravelDateParam(customDate)
-      : activeTabId === "tomorrow"
-        ? tomorrowIso
-        : undefined;
-    if (dateParam) params.set("date", dateParam);
-    else params.delete("date");
-    const next = params.toString();
-    if (next !== searchParams.toString()) {
-      setSearchParams(params, { replace: true });
+    if (!weatherContext) return; // state not ready; first load handled below
+    const urlDate = normalizeTravelDateParam(searchParams.get("date"));
+    const current =
+      customDate ?? (activeTabId === "tomorrow" ? tomorrowIso : undefined);
+
+    // Invalid or past date: normalize the URL safely (replace, no history),
+    // regardless of the loop guards below.
+    if (urlDate === undefined && searchParams.has("date")) {
+      lastAppliedUrlRef.current = undefined;
+      const params = new URLSearchParams(searchParams);
+      params.delete("date");
+      if (params.toString() !== searchParams.toString()) {
+        setSearchParams(params, { replace: true });
+      }
+      return;
     }
-  }, [customDate, activeTabId, tomorrowIso, searchParams, setSearchParams]);
+
+    // State already aligned with this URL value (also re-anchors the loop
+    // guard), or this URL value was already applied to state.
+    if (urlDate === current) {
+      lastAppliedUrlRef.current = urlDate;
+      return;
+    }
+    if (urlDate === lastAppliedUrlRef.current) return;
+    lastAppliedUrlRef.current = urlDate;
+
+    if (urlDate !== undefined) {
+      restoreInFlightRef.current = true;
+      handleCustomDateSelect(urlDate);
+      return;
+    }
+    if (current) {
+      // URL no longer carries a date: reset the selection to today.
+      restoreInFlightRef.current = true;
+      setWeatherContext((prev) =>
+        prev
+          ? { ...prev, tabs: prev.tabs.filter((tab) => !tab.isCustom) }
+          : prev,
+      );
+      setActiveTabId("today");
+      setCustomDate(null);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams, weatherContext]);
+
+  // state → URL synchronization. Any non-restore state change is a
+  // deliberate selection and pushes a history entry; invalid/past URL
+  // normalization is handled separately in the URL→state effect with
+  // replace and never reaches this effect.
+  useEffect(() => {
+    if (!weatherContext) return; // wait for the initial restore to settle
+    const urlDate = normalizeTravelDateParam(searchParams.get("date"));
+    if (stateDate === urlDate) return; // aligned
+    if (restoreInFlightRef.current) {
+      // URL→state restoration applied in this commit; never overwrite it.
+      // The next render aligns state with the URL.
+      restoreInFlightRef.current = false;
+      return;
+    }
+    if (stateDate === lastWrittenUrlRef.current) {
+      // Our own write is still settling through the router (transition
+      // lag); wait for the URL state to catch up instead of writing again.
+      return;
+    }
+    const params = new URLSearchParams(searchParams);
+    if (stateDate) params.set("date", stateDate);
+    else params.delete("date");
+    lastWrittenUrlRef.current = stateDate;
+    setSearchParams(params);
+  }, [weatherContext, stateDate, searchParams, setSearchParams]);
 
   const forecastSelection = useMemo(() => {
     if (activeTabId === "today") return { type: "today" } as const;

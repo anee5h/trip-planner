@@ -334,3 +334,289 @@ describe("seasonal rules", () => {
     expect(outOfSeason.eligible).toBe(false);
   });
 });
+
+import { isTripDatesTransportEligible } from "../TravelConditions";
+import { getValidModes } from "../RecommendationScorer";
+import { getBestOneWayTravelMinutes } from "../TripDurationService";
+import { getAdjustedBudget } from "@/shared/services/budget/BudgetService";
+import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
+import { runRecommendationPipeline } from "../RecommendationPipeline";
+import { travelDateToDate } from "../TravelConditions";
+
+// Wakayama city: mainland origin inside the Kada ferry catchment.
+const WAKAYAMA_COORDS = { lat: 34.2321, lng: 135.1909 };
+
+function ferryOnlyDestination(
+  overrides: Partial<Destination> = {},
+): Destination {
+  return makeDestination({
+    id: "tomogashima-test",
+    name: "Tomogashima Test",
+    coordinates: { lat: 34.2831, lng: 135.0042 },
+    role: "standalone",
+    kind: "island",
+    recommendedVisitHours: { min: 8, max: 10 },
+    transportOptions: { ferry: 30 },
+    ...overrides,
+  });
+}
+
+describe("trip-date ferry eligibility (canonical check)", () => {
+  it("Tomogashima Nov 29–30 is eligible when both legs operate", () => {
+    const dest = ferryOnlyDestination();
+    const dates = deriveTripDates("2026-11-29", "weekend_2d1n");
+    const modes = getValidModes(
+      dest,
+      "none",
+      ["ferry"],
+      WAKAYAMA_COORDS,
+      "standard",
+      undefined,
+      { travelDate: travelDateToDate("2026-11-29") },
+    );
+    expect(modes).toEqual(["ferry"]);
+    expect(
+      isTripDatesTransportEligible(dest, modes, WAKAYAMA_COORDS, dates),
+    ).toBe(true);
+  });
+
+  it("Tomogashima Nov 30–Dec 1 is ineligible because the return ferry is suspended", () => {
+    const dest = ferryOnlyDestination();
+    const dates = deriveTripDates("2026-11-30", "weekend_2d1n");
+    expect(dates.day2).toBe("2026-12-01");
+    const modes = getValidModes(
+      dest,
+      "none",
+      ["ferry"],
+      WAKAYAMA_COORDS,
+      "standard",
+      undefined,
+      { travelDate: travelDateToDate("2026-11-30") },
+    );
+    // Outbound (Day 1) is in season, so the ferry is still authorized.
+    expect(modes).toEqual(["ferry"]);
+    // ...but the return leg (Day 2) is suspended: the trip is ineligible.
+    expect(
+      isTripDatesTransportEligible(dest, modes, WAKAYAMA_COORDS, dates),
+    ).toBe(false);
+  });
+
+  it("Tomogashima Dec 1–2 is ineligible (outbound suspended)", () => {
+    const dest = ferryOnlyDestination();
+    const modes = getValidModes(
+      dest,
+      "none",
+      ["ferry"],
+      WAKAYAMA_COORDS,
+      "standard",
+      undefined,
+      { travelDate: travelDateToDate("2026-12-01") },
+    );
+    // No authorized mode at all on Day 1: the trip cannot be covered.
+    expect(modes).toEqual([]);
+    expect(modes.length > 0).toBe(false);
+  });
+
+  it("a destination with an independently valid non-ferry mode stays eligible without the ferry", () => {
+    const dest = ferryOnlyDestination();
+    const dates = deriveTripDates("2026-12-01", "weekend_2d1n");
+    expect(
+      isTripDatesTransportEligible(
+        dest,
+        ["ferry", "train"],
+        WAKAYAMA_COORDS,
+        dates,
+      ),
+    ).toBe(true);
+    expect(
+      isTripDatesTransportEligible(dest, ["train"], WAKAYAMA_COORDS, dates),
+    ).toBe(true);
+  });
+
+  it("day trips evaluate the single date: ferry must run outbound and return that day", () => {
+    const dest = ferryOnlyDestination();
+    const inSeason = deriveTripDates("2026-11-15", "day_trip");
+    const modes = getValidModes(
+      dest,
+      "none",
+      ["ferry"],
+      WAKAYAMA_COORDS,
+      "standard",
+      undefined,
+      { travelDate: travelDateToDate("2026-11-15") },
+    );
+    expect(
+      isTripDatesTransportEligible(dest, modes, WAKAYAMA_COORDS, inSeason),
+    ).toBe(true);
+    const outOfSeason = deriveTripDates("2026-12-15", "day_trip");
+    const winterModes = getValidModes(
+      dest,
+      "none",
+      ["ferry"],
+      WAKAYAMA_COORDS,
+      "standard",
+      undefined,
+      { travelDate: travelDateToDate("2026-12-15") },
+    );
+    expect(winterModes).toEqual([]);
+    expect(
+      isTripDatesTransportEligible(
+        dest,
+        ["ferry"],
+        WAKAYAMA_COORDS,
+        outOfSeason,
+      ),
+    ).toBe(false);
+  });
+});
+
+describe("trip-date ferry eligibility (pipeline enforcement)", () => {
+  function runWeekend(dest: Destination, day1: string) {
+    const travelDates = deriveTripDates(day1, "weekend_2d1n");
+    return runRecommendationPipeline([dest], {
+      vibe: "any",
+      budget: 200000,
+      carMode: "none",
+      publicModes: ["ferry"],
+      partySize: 2,
+      budgetTier: "standard",
+      weather: {},
+      visitedIds: [],
+      homeStationCoords: WAKAYAMA_COORDS,
+      tripDuration: "weekend",
+      tripMode: "weekend_2d1n",
+      accommodationAllowance: 10000,
+      ferryTemporal: { travelDate: travelDateToDate(day1) },
+      travelDates,
+      forecastMap: undefined,
+    });
+  }
+
+  it("a 2D1N ferry-only trip is rejected when Day 2 suspends the return ferry", () => {
+    const dest = ferryOnlyDestination();
+    const eligible = runWeekend(dest, "2026-11-29");
+    expect(eligible.some((r) => r.id === dest.id)).toBe(true);
+    const ineligible = runWeekend(dest, "2026-11-30");
+    expect(ineligible.some((r) => r.id === dest.id)).toBe(false);
+    const winter = runWeekend(dest, "2026-12-01");
+    expect(winter.some((r) => r.id === dest.id)).toBe(false);
+  });
+});
+
+describe("mode agreement across eligibility, travel-time, budget and card", () => {
+  it("all four surfaces see the ferry in season and none out of season", () => {
+    const dest = ferryOnlyDestination();
+    const november = { travelDate: travelDateToDate("2026-11-15") };
+    const modes = getValidModes(
+      dest,
+      "none",
+      ["ferry"],
+      WAKAYAMA_COORDS,
+      "standard",
+      undefined,
+      november,
+    );
+    expect(modes).toEqual(["ferry"]);
+    expect(
+      getBestOneWayTravelMinutes(
+        dest,
+        { homeStationCoords: WAKAYAMA_COORDS, ferryTemporal: november },
+        modes,
+      ),
+    ).toBeDefined();
+    expect(
+      getAdjustedBudget(dest, "ferry", 2, WAKAYAMA_COORDS, undefined, november),
+    ).toBeGreaterThan(0);
+    expect(
+      getFastestPreferredTransport(
+        dest,
+        "none",
+        ["ferry"],
+        2,
+        WAKAYAMA_COORDS,
+        undefined,
+        november,
+      )?.mode,
+    ).toBe("ferry");
+
+    const december = { travelDate: travelDateToDate("2026-12-15") };
+    expect(
+      getValidModes(
+        dest,
+        "none",
+        ["ferry"],
+        WAKAYAMA_COORDS,
+        "standard",
+        undefined,
+        december,
+      ),
+    ).toEqual([]);
+    expect(
+      getBestOneWayTravelMinutes(
+        dest,
+        { homeStationCoords: WAKAYAMA_COORDS, ferryTemporal: december },
+        [],
+      ),
+    ).toBeUndefined();
+    expect(
+      getFastestPreferredTransport(
+        dest,
+        "none",
+        ["ferry"],
+        2,
+        WAKAYAMA_COORDS,
+        undefined,
+        december,
+      ),
+    ).toBeNull();
+  });
+
+  it("budget honours fare validity on the selected date", () => {
+    const sado = makeDestination({
+      id: "sado-test",
+      coordinates: { lat: 38.0333, lng: 138.3833 },
+      transportOptions: { ferry: 150 },
+    });
+    const niigata = { lat: 37.9133, lng: 139.0485 };
+    const inWindow = { travelDate: travelDateToDate("2026-08-15") };
+    const afterWindow = { travelDate: travelDateToDate("2026-10-15") };
+    const withFare = getAdjustedBudget(
+      sado,
+      "ferry",
+      2,
+      niigata,
+      undefined,
+      inWindow,
+    );
+    const withoutFare = getAdjustedBudget(
+      sado,
+      "ferry",
+      2,
+      niigata,
+      undefined,
+      afterWindow,
+    );
+    // The service runs year-round, but the verified fare window expired:
+    // the in-window budget includes ferry transport, the out-of-window one
+    // cannot (cost unavailable) and must be lower.
+    expect(withFare).toBeGreaterThan(withoutFare);
+  });
+});
+
+describe("day trip vs 2D1N date count", () => {
+  it("a day trip evaluates exactly one date; 2D1N evaluates exactly two", () => {
+    const dest = makeDestination();
+    const day = evaluateTravelConditions(
+      dest,
+      deriveTripDates("2026-11-14", "day_trip"),
+      forecastMapOf([]),
+    );
+    expect(day.dates).toEqual(["2026-11-14"]);
+    const weekend = evaluateTravelConditions(
+      dest,
+      deriveTripDates("2026-11-14", "weekend_2d1n"),
+      forecastMapOf([]),
+    );
+    expect(weekend.dates).toEqual(["2026-11-14", "2026-11-15"]);
+  });
+});
