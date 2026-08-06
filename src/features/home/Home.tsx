@@ -76,6 +76,7 @@ export default function Home() {
   const {
     isVisited,
     favorites,
+    homeStation,
     homeStationCoords,
     homeStationTransportZoneId,
   } = useTripStore();
@@ -133,9 +134,12 @@ export default function Home() {
   // back/forward navigation restores state before the sync effect runs.
   useEffect(() => {
     if (!weatherContext) return; // state not ready; first load handled below
-    const urlDate = normalizeTravelDateParam(searchParams.get("date"));
-    const current =
-      customDate ?? (activeTabId === "tomorrow" ? tomorrowIso : undefined);
+    const urlDate = normalizeTravelDateParam(
+      searchParams.get("date"),
+      weatherContext.minDate,
+    );
+
+    const current = stateDate;
 
     // Invalid or past date: normalize the URL safely (replace, no history),
     // regardless of the loop guards below.
@@ -151,11 +155,18 @@ export default function Home() {
 
     // State already aligned with this URL value (also re-anchors the loop
     // guard), or this URL value was already applied to state.
-    if (urlDate === current) {
-      lastAppliedUrlRef.current = urlDate;
+    if (urlDate === lastAppliedUrlRef.current) return;
+
+    // Our own URL write is in-flight through the router transition.
+    // Wait until searchParams catches up to lastWrittenUrlRef before restoring.
+    if (lastWrittenUrlRef.current !== undefined) {
+      if (urlDate === lastWrittenUrlRef.current) {
+        lastWrittenUrlRef.current = undefined;
+        lastAppliedUrlRef.current = urlDate;
+      }
       return;
     }
-    if (urlDate === lastAppliedUrlRef.current) return;
+
     lastAppliedUrlRef.current = urlDate;
 
     if (urlDate !== undefined) {
@@ -183,7 +194,10 @@ export default function Home() {
   // replace and never reaches this effect.
   useEffect(() => {
     if (!weatherContext) return; // wait for the initial restore to settle
-    const urlDate = normalizeTravelDateParam(searchParams.get("date"));
+    const urlDate = normalizeTravelDateParam(
+      searchParams.get("date"),
+      weatherContext.minDate,
+    );
     if (stateDate === urlDate) return; // aligned
     if (restoreInFlightRef.current) {
       // URL→state restoration applied in this commit; never overwrite it.
@@ -200,6 +214,7 @@ export default function Home() {
     if (stateDate) params.set("date", stateDate);
     else params.delete("date");
     lastWrittenUrlRef.current = stateDate;
+    lastAppliedUrlRef.current = stateDate;
     setSearchParams(params);
   }, [weatherContext, stateDate, searchParams, setSearchParams]);
 
@@ -406,7 +421,7 @@ export default function Home() {
                       }
                     }}
                     forecastMap={weatherContext.forecastMap}
-                    originLabel={homeStationCoords ? "Tokyo" : undefined}
+                    originLabel={homeStation || undefined}
                     minDate={weatherContext.minDate}
                     tripMode={resolvedApplied.tripMode}
                     allowAnyDate={false}

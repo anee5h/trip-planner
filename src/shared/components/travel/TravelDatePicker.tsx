@@ -44,7 +44,11 @@ export function getOriginForecastCalendarMarker(
   if (!forecast) return undefined;
 
   const originText =
-    originLabel || (locale === "ja" ? "現在地" : "your origin");
+    originLabel && originLabel.trim() !== ""
+      ? originLabel
+      : locale === "ja"
+        ? "現在地"
+        : "your origin";
   const ariaLabel =
     locale === "ja"
       ? `${originText}付近の予報: ${forecast.desc} 最高${forecast.maxTemp}°C`
@@ -110,7 +114,7 @@ export function formatCapsuleLabel(
 export interface TravelDatePickerProps {
   value?: string;
   onChange: (date: string | undefined) => void;
-  tripMode: TripMode;
+  tripMode?: TripMode;
   forecastMap?: ReadonlyMap<string, DayForecastData>;
   allowAnyDate?: boolean;
   originLabel?: string;
@@ -123,7 +127,7 @@ export interface TravelDatePickerProps {
 export default function TravelDatePicker({
   value,
   onChange,
-  tripMode,
+  tripMode = "day_trip",
   forecastMap,
   allowAnyDate = false,
   originLabel,
@@ -162,6 +166,24 @@ export default function TravelDatePicker({
       }
     }
   }, [isOpen, value, minDateObj]);
+
+  // Focus management on open
+  useEffect(() => {
+    if (isOpen) {
+      const timer = setTimeout(() => {
+        const targetBtn =
+          popoverRef.current?.querySelector<HTMLButtonElement>(
+            'button[data-date][aria-selected="true"]',
+          ) ||
+          popoverRef.current?.querySelector<HTMLButtonElement>(
+            "button[data-date]:not([disabled])",
+          ) ||
+          popoverRef.current?.querySelector<HTMLButtonElement>("button");
+        targetBtn?.focus();
+      }, 10);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
 
   // Click outside to close
   useEffect(() => {
@@ -407,7 +429,6 @@ export default function TravelDatePicker({
           <div
             ref={popoverRef}
             role="dialog"
-            aria-modal="true"
             aria-label={t("datePicker.chooseTravelDate", {
               defaultValue: "Choose travel date",
             })}
@@ -480,10 +501,11 @@ export default function TravelDatePicker({
                 <p className="text-[11px] font-semibold text-slate-600 dark:text-slate-400">
                   {t("datePicker.forecastNearOrigin", {
                     origin:
-                      originLabel ||
-                      t("datePicker.originForecastDefault", {
-                        defaultValue: "your origin",
-                      }),
+                      originLabel && originLabel.trim() !== ""
+                        ? originLabel
+                        : t("datePicker.originForecastDefault", {
+                            defaultValue: "your origin",
+                          }),
                     defaultValue: "Forecast near {{origin}}",
                   })}
                 </p>
@@ -535,32 +557,6 @@ export default function TravelDatePicker({
                   disabled: "opacity-30 cursor-not-allowed",
                   hidden: "invisible",
                 }}
-              />
-            </div>
-
-            {/* Direct date entry input */}
-            <div className="mt-3 border-t border-slate-100 pt-2.5 dark:border-slate-800">
-              <label
-                htmlFor="travel-date-picker-input"
-                className="mb-1 block text-[11px] font-bold text-slate-500 dark:text-slate-400"
-              >
-                {t("datePicker.chooseTravelDate", {
-                  defaultValue: "Choose travel date",
-                })}
-              </label>
-              <input
-                id="travel-date-picker-input"
-                type="date"
-                min={minDateIso}
-                value={value || ""}
-                onChange={(e) => {
-                  const val = e.target.value;
-                  handleSelectDate(val || undefined);
-                }}
-                aria-label={t("datePicker.chooseTravelDate", {
-                  defaultValue: "Choose travel date",
-                })}
-                className="h-9 w-full rounded-xl border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
               />
             </div>
 

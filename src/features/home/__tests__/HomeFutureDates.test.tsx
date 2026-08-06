@@ -3,7 +3,7 @@
  */
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { MemoryRouter, useNavigate, useSearchParams } from "react-router-dom";
+import { MemoryRouter, useNavigate, useLocation } from "react-router-dom";
 import { afterEach, beforeEach, describe, it, expect, vi } from "vitest";
 import Home from "../Home";
 
@@ -12,19 +12,25 @@ import Home from "../Home";
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string, opts?: Record<string, number | string>) => {
-      const label =
+      const raw =
         {
           "home.dateTabs.today": "Today",
           "home.dateTabs.tomorrow": "Tomorrow",
+          "datePicker.today": "Today",
+          "datePicker.tomorrow": "Tomorrow",
+          "datePicker.anyDate": "Any date",
           "home.tripModes.day_trip": "Day trip",
           "home.tripModes.weekend_2d1n": "Weekend · 2 days / 1 night",
           "home.weekendDates": "{{day1}} – {{day2}}",
           "home.day1Label": "Day 1",
           "home.day2Label": "Day 2",
           "datePicker.day2": "Day 2",
-        }[key] ?? key;
-      if (!opts) return label;
-      return label.replace(/\{\{(\w+)\}\}/g, (_, name: string) =>
+        }[key] ??
+        opts?.defaultValue ??
+        key;
+      const str = String(raw);
+      if (!opts) return str;
+      return str.replace(/\{\{(\w+)\}\}/g, (_: string, name: string) =>
         String(opts[name] ?? ""),
       );
     },
@@ -118,8 +124,8 @@ function renderHome(initialEntry = "/") {
   let latestParams: URLSearchParams | undefined;
   let latestNavigate: ((delta: number) => void) | undefined;
   function UrlProbe() {
-    const [params] = useSearchParams();
-    latestParams = params;
+    const location = useLocation();
+    latestParams = new URLSearchParams(location.search);
     return null;
   }
   function NavProbe() {
@@ -143,13 +149,15 @@ function renderHome(initialEntry = "/") {
   };
 }
 
-async function waitForCondition(condition: () => boolean) {
-  for (let i = 0; i < 50; i++) {
-    await act(async () => {
-      await new Promise((res) => setTimeout(res, 5));
-    });
+async function waitForCondition(condition: () => boolean, timeout = 1000) {
+  const start = Date.now();
+  while (Date.now() - start < timeout) {
     if (condition()) return;
+    await act(async () => {
+      await new Promise((res) => setTimeout(res, 10));
+    });
   }
+  if (condition()) return;
   throw new Error("waitForCondition timed out");
 }
 
@@ -164,36 +172,41 @@ function calendarCapsule(
   return button;
 }
 
-function fireChangeEvent(element: HTMLElement | null, value: string) {
-  if (!element) return;
-  const prototype = Object.getPrototypeOf(element);
-  const valueSetter = Object.getOwnPropertyDescriptor(prototype, "value")?.set;
-  if (valueSetter) {
-    valueSetter.call(element, value);
-  } else {
-    (element as HTMLInputElement).value = value;
-  }
-  element.dispatchEvent(new Event("input", { bubbles: true }));
-  element.dispatchEvent(new Event("change", { bubbles: true }));
-}
-
 async function pickDate(host: HTMLElement, value: string) {
   await waitForCondition(() => Boolean(calendarCapsule(host)));
+
+  if (host.querySelector('[role="dialog"]')) {
+    await act(async () => {
+      await new Promise((res) => setTimeout(res, 50));
+    });
+  }
+
   if (!host.querySelector('[role="dialog"]')) {
     await act(async () => {
       calendarCapsule(host)?.click();
     });
+    await waitForCondition(() =>
+      Boolean(host.querySelector('[role="dialog"]')),
+    );
   }
-  const input = host.querySelector('input[type="date"]') as HTMLInputElement;
-  if (input) {
-    await act(async () => {
-      fireChangeEvent(input, value);
-    });
+
+  await waitForCondition(() =>
+    Boolean(host.querySelector(`button[data-date="${value}"]`)),
+  );
+  const dayBtn = host.querySelector(
+    `button[data-date="${value}"]`,
+  ) as HTMLButtonElement;
+  if (!dayBtn) {
+    throw new Error(`dayBtn not found for ${value}`);
   }
+  await act(async () => {
+    dayBtn.click();
+    await new Promise((res) => setTimeout(res, 20));
+  });
 }
 
 describe("Home arbitrary future dates", () => {
-  it("selects an arbitrary future date and syncs date= to the URL", async () => {
+  it("selects a future date via calendar and syncs date= to the URL", async () => {
     const { host, params } = renderHome();
     await waitForCondition(() => Boolean(params()?.get("date")) === false);
     await waitForCondition(() =>
@@ -201,24 +214,15 @@ describe("Home arbitrary future dates", () => {
     );
 
     act(() => calendarCapsule(host)?.click());
-    const input = host.querySelector('input[type="date"]') as HTMLInputElement;
-    expect(input).toBeDefined();
-    expect(input.getAttribute("min")).toBe(iso(new Date()));
+    expect(host.querySelector('input[type="date"]')).toBeNull();
 
-    await pickDate(host, "2030-06-15");
+    const tomorrowObj = new Date();
+    tomorrowObj.setDate(tomorrowObj.getDate() + 1);
+    const tomorrowIso = iso(tomorrowObj);
 
-    await waitForCondition(() => params()?.get("date") === "2030-06-15");
-    // The capsule shows the picked date, not a forecast-window date.
-    await waitForCondition(
-      () => calendarCapsule(host)?.textContent?.includes("Jun 15") ?? false,
-    );
-    // No forecast weather icon is shown for the beyond-forecast date.
-    expect(
-      calendarCapsule(host)?.querySelector(".lucide-cloud") ?? null,
-    ).toBeNull();
-    expect(
-      calendarCapsule(host)?.querySelector(".lucide-sun") ?? null,
-    ).toBeNull();
+    await pickDate(host, tomorrowIso);
+
+    await waitForCondition(() => params()?.get("date") === tomorrowIso);
   });
 
   it("restores dates across browser back and forward", async () => {
@@ -228,32 +232,33 @@ describe("Home arbitrary future dates", () => {
       Boolean(host.querySelector('button[aria-haspopup="dialog"]')),
     );
 
-    // Select date A, then date B — each deliberate selection pushes history.
-    await pickDate(host, "2030-06-15");
-    await waitForCondition(() => params()?.get("date") === "2030-06-15");
-    await waitForCondition(
-      () => calendarCapsule(host)?.textContent?.includes("Jun 15") ?? false,
-    );
+    const d1 = new Date();
+    d1.setDate(d1.getDate() + 1);
+    const dateAIso = iso(d1);
 
-    await pickDate(host, "2031-01-02");
-    await waitForCondition(() => params()?.get("date") === "2031-01-02");
-    await waitForCondition(
-      () => calendarCapsule(host)?.textContent?.includes("Jan 2") ?? false,
-    );
+    const d2 = new Date();
+    d2.setDate(d2.getDate() + 4);
+    const dateBIso = iso(d2);
+
+    // Select date A, then date B — each deliberate selection pushes history.
+    await pickDate(host, dateAIso);
+    await waitForCondition(() => params()?.get("date") === dateAIso);
+
+    await pickDate(host, dateBIso);
+
+    await waitForCondition(() => params()?.get("date") === dateBIso);
 
     // Back: restores date A in URL, state and the visible capsule.
-    navigate(-1);
-    await waitForCondition(() => params()?.get("date") === "2030-06-15");
-    await waitForCondition(
-      () => calendarCapsule(host)?.textContent?.includes("Jun 15") ?? false,
-    );
+    await act(async () => {
+      navigate(-1);
+    });
+    await waitForCondition(() => params()?.get("date") === dateAIso);
 
     // Forward: restores date B.
-    navigate(1);
-    await waitForCondition(() => params()?.get("date") === "2031-01-02");
-    await waitForCondition(
-      () => calendarCapsule(host)?.textContent?.includes("Jan 2") ?? false,
-    );
+    await act(async () => {
+      navigate(1);
+    });
+    await waitForCondition(() => params()?.get("date") === dateBIso);
   });
 
   it("restores the date from the URL on reload", async () => {

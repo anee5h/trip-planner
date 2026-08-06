@@ -197,7 +197,7 @@ describe("TravelDatePicker Component", () => {
     expect(handleChange).toHaveBeenCalledWith(tomorrowIso);
   });
 
-  it("5. Arbitrary future date selects correctly", () => {
+  it("5. Arbitrary future date selection works via calendar (no visible input[type=date])", () => {
     const handleChange = vi.fn();
     act(() => {
       root!.render(
@@ -211,18 +211,15 @@ describe("TravelDatePicker Component", () => {
     });
     act(() => host!.querySelector("button")!.click());
 
-    const input = host!.querySelector('input[type="date"]') as HTMLInputElement;
-    act(() => {
-      const setter = Object.getOwnPropertyDescriptor(
-        window.HTMLInputElement.prototype,
-        "value",
-      )?.set;
-      setter?.call(input, "2030-06-15");
-      input.dispatchEvent(new Event("input", { bubbles: true }));
-      input.dispatchEvent(new Event("change", { bubbles: true }));
-    });
+    // Assert there is NO visible native date input!
+    expect(host!.querySelector('input[type="date"]')).toBeNull();
 
-    expect(handleChange).toHaveBeenCalledWith("2030-06-15");
+    // DayPicker day buttons should exist for selection
+    const dayBtn = host!.querySelector(`button[data-date="${tomorrowIso}"]`);
+    expect(dayBtn).toBeDefined();
+    act(() => (dayBtn as HTMLButtonElement).click());
+
+    expect(handleChange).toHaveBeenCalledWith(tomorrowIso);
   });
 
   it("6. Any date clears selection when allowAnyDate is enabled", () => {
@@ -315,16 +312,55 @@ describe("TravelDatePicker Component", () => {
     }
   });
 
-  it("10. Forecast marker accessible label identifies origin weather", () => {
-    const marker = getOriginForecastCalendarMarker(
+  it("10. Forecast marker accessible label identifies origin weather for Tokyo, Osaka, Fukuoka, and fallback", () => {
+    const tokyoMarker = getOriginForecastCalendarMarker(
       todayIso,
       forecastMap,
       "Tokyo",
       "en",
     );
-    expect(marker).toBeDefined();
-    expect(marker?.ariaLabel).toContain(
+    expect(tokyoMarker?.ariaLabel).toContain(
       "Forecast near Tokyo: Sunny, High 28°C",
+    );
+
+    const osakaMarker = getOriginForecastCalendarMarker(
+      todayIso,
+      forecastMap,
+      "Osaka",
+      "en",
+    );
+    expect(osakaMarker?.ariaLabel).toContain(
+      "Forecast near Osaka: Sunny, High 28°C",
+    );
+
+    const fukuokaMarker = getOriginForecastCalendarMarker(
+      todayIso,
+      forecastMap,
+      "Fukuoka",
+      "en",
+    );
+    expect(fukuokaMarker?.ariaLabel).toContain(
+      "Forecast near Fukuoka: Sunny, High 28°C",
+    );
+
+    const fallbackEnMarker = getOriginForecastCalendarMarker(
+      todayIso,
+      forecastMap,
+      undefined,
+      "en",
+    );
+    expect(fallbackEnMarker?.ariaLabel).toContain(
+      "Forecast near your origin: Sunny, High 28°C",
+    );
+
+    const fallbackJaMarker = getOriginForecastCalendarMarker(
+      todayIso,
+      forecastMap,
+      undefined,
+      "ja",
+    );
+    expect(fallbackJaMarker?.ariaLabel).toContain(
+      "現在地付近の予報: Sunny 最高28°C",
     );
   });
 

@@ -111,8 +111,12 @@ export default function Destinations() {
   const filtersInitializedRef = useRef(false);
   const skipNextPageResetRef = useRef(false);
   const [filtersReady, setFiltersReady] = useState(false);
-  const { homeStationCoords, homeStationTransportZoneId, destinationRatings } =
-    useTripStore();
+  const {
+    homeStation,
+    homeStationCoords,
+    homeStationTransportZoneId,
+    destinationRatings,
+  } = useTripStore();
   const { locale } = useLocale();
   const { t } = useTranslation();
   const allDestinations = (getDestinationList("en") as Destination[]).map(
@@ -1128,6 +1132,9 @@ export default function Destinations() {
         setSeason={setSeason}
         date={date}
         setDate={setDate}
+        forecastMap={forecastMap}
+        originLabel={homeStation || undefined}
+        minDate={explorerWeatherContext?.minDate}
         sortBy={sortBy}
         setSortBy={setSortBy}
         carMode={carMode}
