@@ -15,6 +15,7 @@ import {
 import type { PipelineRecommendation } from "./RecommendationTypes";
 import { evaluateWeekendCandidate } from "./WeekendPolicy";
 import type { WeekendCandidateEvaluation } from "./WeekendPolicy";
+import { evaluateTravelConditions } from "./TravelConditions";
 import { resolveOriginMunicipalityId } from "./OriginAreaService";
 import { consolidateTokyoWards } from "./TokyoWardsConsolidation";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
@@ -236,12 +237,31 @@ export function runRecommendationPipeline(
       const weekend = isWeekend
         ? weekendEvalCache.get(candidate.id)
         : undefined;
-      const totalScore = scoreResult.score + (weekend?.scoreDelta ?? 0);
+      // Shared forecast/seasonal/unknown evaluation for explicit trip dates.
+      // Forecast-covered days keep their existing scoring paths (weekend
+      // weatherDays / ENV actual); only uncovered days contribute a delta,
+      // so existing in-window behaviour is byte-for-byte unchanged.
+      const condition = context.travelDates
+        ? evaluateTravelConditions(
+            candidate,
+            context.travelDates,
+            context.forecastMap,
+          )
+        : undefined;
+      const totalScore =
+        scoreResult.score +
+        (weekend?.scoreDelta ?? 0) +
+        (condition?.scoreDelta ?? 0);
       const match = createRecommendationMatch(candidate, context, totalScore);
 
       // Append weekend reasons
       if (weekend) {
         match.reasons.push(...weekend.reasons);
+      }
+      // Append forecast/seasonal condition reasons (labelled, never
+      // fabricated as forecast).
+      if (condition) {
+        match.reasons.push(...condition.reasons);
       }
 
       const durationEstimate = estimateTripDuration(
@@ -317,6 +337,7 @@ export function runRecommendationPipeline(
         bestTransportMode: scoreResult.bestMode,
         estimatedCostRange,
         estimatedCostTransportIncluded,
+        condition,
         weekend: weekend
           ? {
               travelFit: weekend.travelFit,

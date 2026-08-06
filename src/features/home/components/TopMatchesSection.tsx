@@ -13,6 +13,8 @@ interface TopMatchesSectionProps {
   appliedState: ResolvedPlannerState;
   /** Planned travel date (ISO) passed through to destination links. */
   travelDate?: string;
+  /** Date to serialize into the View-all link (omitted for today). */
+  viewAllDate?: string;
 }
 
 export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
@@ -20,6 +22,7 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
   hasUserApplied,
   appliedState,
   travelDate,
+  viewAllDate,
 }) => {
   const { t } = useTranslation();
   const topFive = recommendations.slice(0, 5);
@@ -53,6 +56,7 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
     publicModes: appliedState.publicModes,
     tripMode: appliedState.tripMode,
     accommodationAllowance: appliedState.accommodationAllowance,
+    date: viewAllDate,
   });
 
   const isEmpty = recommendations.length === 0;

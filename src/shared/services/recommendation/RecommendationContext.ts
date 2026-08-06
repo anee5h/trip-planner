@@ -4,6 +4,8 @@ import type {
 } from "./PersonalizationService";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
+import type { DayForecastData } from "@/shared/services/weather/WeatherTabService";
+import type { TravelDateSelection } from "./TravelConditions";
 
 export type TripDuration =
   "any" | "shortOuting" | "halfDay" | "fullDay" | "weekend";
@@ -71,6 +73,14 @@ export interface RecommendationContext {
   originZoneId?: TransportZoneId;
   /** Planned trip date/season for ferry availability; never the clock. */
   ferryTemporal?: FerryTemporalContext;
+  /**
+   * Explicit trip dates (Day 1, plus derived Day 2 for 2D1N). When set, the
+   * pipeline evaluates forecast/seasonal travel conditions per destination.
+   * Omitted means no explicit date: neutral, any-date behaviour.
+   */
+  travelDates?: TravelDateSelection;
+  /** Live forecast map (YYYY-MM-DD → forecast) for the planned origin. */
+  forecastMap?: ReadonlyMap<string, DayForecastData>;
   userRatings?: Record<string, "up" | "down">;
   tripDuration?: TripDuration;
   availableTimeHours?: number;

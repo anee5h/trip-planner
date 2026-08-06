@@ -8,6 +8,8 @@ import type {
   RecommendationWeatherDay,
 } from "@/shared/services/recommendation/RecommendationContext";
 import { normalizeWeatherDescription } from "@/shared/services/recommendation/RecommendationContext";
+import type { TravelDateSelection } from "@/shared/services/recommendation/TravelConditions";
+import type { DayForecastData } from "@/shared/services/weather/WeatherTabService";
 import type { BudgetTier } from "@/shared/types/planner";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
@@ -67,6 +69,10 @@ interface UseTripRecommendationsProps {
     | "accommodationAllowance"
   >;
   weatherDays?: RecommendationWeatherDay[];
+  /** Explicit trip dates (Day 1 + derived Day 2 for 2D1N). */
+  travelDates?: TravelDateSelection;
+  /** Live forecast map for the planned origin. */
+  forecastMap?: ReadonlyMap<string, DayForecastData>;
   tripMode: TripMode;
   accommodationAllowance: number;
 }
@@ -90,6 +96,8 @@ export function useTripRecommendations({
   tripMode,
   accommodationAllowance,
   weatherDays,
+  travelDates,
+  forecastMap,
 }: UseTripRecommendationsProps) {
   const { destinationRatings } = useTripStore();
   const visitedIds = useMemo(
@@ -125,6 +133,8 @@ export function useTripRecommendations({
       ferryTemporal,
       tripMode,
       accommodationAllowance,
+      travelDates,
+      forecastMap,
     });
   }, [
     allDestinations,
@@ -145,6 +155,8 @@ export function useTripRecommendations({
     tripMode,
     accommodationAllowance,
     weatherDays,
+    travelDates,
+    forecastMap,
   ]);
 
   const roulette = useMemo(() => {
@@ -186,6 +198,8 @@ export function useTripRecommendations({
             userRatings: destinationRatings,
             tripDuration: duration,
             ferryTemporal,
+            travelDates,
+            forecastMap,
             tripMode: constraints.tripMode,
             accommodationAllowance: constraints.accommodationAllowance,
           }),
@@ -241,6 +255,8 @@ export function useTripRecommendations({
     tripMode,
     accommodationAllowance,
     visitedIds,
+    travelDates,
+    forecastMap,
   ]);
 
   return {

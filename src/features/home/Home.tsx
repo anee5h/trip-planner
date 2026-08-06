@@ -1,4 +1,5 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
   Calendar,
   Cloud,
@@ -17,6 +18,10 @@ import {
   getForecastDaysForRange,
 } from "@/shared/services/weather/WeatherTabService";
 import { normalizeWeatherDescription } from "@/shared/services/recommendation/RecommendationContext";
+import {
+  deriveTripDates,
+  normalizeTravelDateParam,
+} from "@/shared/services/recommendation/TravelConditions";
 import RouletteModal from "@/features/home/components/RouletteModal";
 
 import { useTripPlannerState } from "@/features/home/hooks/useTripPlannerState";
@@ -77,6 +82,15 @@ export default function Home() {
   const { t, i18n } = useTranslation();
   const allDestinations = getDestinationList() as Destination[];
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  // Stable date=YYYY-MM-DD URL parameter: restores the selected date on
+  // reload; invalid/past values normalize away safely.
+  const initialDate = useMemo(
+    () => normalizeTravelDateParam(searchParams.get("date")),
+    // Read once on mount; later changes are handled by the sync effect.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  );
   const {
     isVisited,
     favorites,
@@ -94,7 +108,30 @@ export default function Home() {
     setCustomDate,
     currentTab,
     handleCustomDateSelect,
-  } = useWeatherContext(homeStationCoords);
+  } = useWeatherContext(homeStationCoords, initialDate);
+
+  // Keep the URL's date= parameter in sync with the selection: today omits
+  // it (default), tomorrow and custom dates serialize the ISO date. Back /
+  // forward navigation restores the selection through the restore path in
+  // useWeatherContext.
+  const tomorrowIso = useMemo(
+    () => weatherContext?.tabs.find((tab) => tab.id === "tomorrow")?.dates?.[0],
+    [weatherContext],
+  );
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams);
+    const dateParam = customDate
+      ? normalizeTravelDateParam(customDate)
+      : activeTabId === "tomorrow"
+        ? tomorrowIso
+        : undefined;
+    if (dateParam) params.set("date", dateParam);
+    else params.delete("date");
+    const next = params.toString();
+    if (next !== searchParams.toString()) {
+      setSearchParams(params, { replace: true });
+    }
+  }, [customDate, activeTabId, tomorrowIso, searchParams, setSearchParams]);
 
   const forecastSelection = useMemo(() => {
     if (activeTabId === "today") return { type: "today" } as const;
@@ -189,6 +226,20 @@ export default function Home() {
     );
   }, [resolvedApplied.tripMode, customDate, currentTab, weatherContext]);
 
+  const selectedDate =
+    customDate || currentTab?.dates?.[0] || weatherContext?.minDate;
+  const travelDates = useMemo(() => {
+    if (!selectedDate) return undefined;
+    return deriveTripDates(selectedDate, resolvedApplied.tripMode);
+  }, [selectedDate, resolvedApplied.tripMode]);
+  const forecastMap = useMemo(
+    () =>
+      weatherContext?.forecastMap instanceof Map
+        ? weatherContext.forecastMap
+        : undefined,
+    [weatherContext],
+  );
+
   // Recommendation engine consumes applied state + live weather context
   const { recommendedDestinations, rouletteCandidates, rouletteExpansion } =
     useTripRecommendations({
@@ -211,10 +262,16 @@ export default function Home() {
       tripMode: resolvedApplied.tripMode,
       accommodationAllowance: resolvedApplied.accommodationAllowance,
       weatherDays,
+      travelDates,
+      forecastMap,
     });
 
   const [rouletteOpen, setRouletteOpen] = useState(false);
   const [datePickerOpen, setDatePickerOpen] = useState(false);
+  const todayIso = useMemo(() => {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+  }, []);
   const forecastDates = useMemo(() => {
     if (!weatherContext) return [];
     const dates: string[] = [];
@@ -228,9 +285,6 @@ export default function Home() {
     }
     return dates;
   }, [weatherContext]);
-
-  const selectedDate =
-    customDate || currentTab?.dates?.[0] || weatherContext?.minDate;
 
   const formatForecastDate = useCallback(
     (date: string) => {
@@ -436,6 +490,42 @@ export default function Home() {
                             );
                           })}
                         </div>
+                        {/* Arbitrary future dates: the forecast grid above is
+                            live data; this native date input extends selection
+                            beyond the forecast window without any fabricated
+                            forecast. */}
+                        <div className="mt-3 border-t border-slate-100 pt-3 dark:border-slate-800">
+                          <label
+                            htmlFor="any-future-date"
+                            className="mb-1.5 block text-[11px] font-bold text-slate-500 dark:text-slate-400"
+                          >
+                            {t("home.anyFutureDate")}
+                          </label>
+                          <input
+                            id="any-future-date"
+                            type="date"
+                            min={todayIso}
+                            value={selectedDate ?? ""}
+                            onChange={(e) => {
+                              const value = e.target.value;
+                              if (!value) return;
+                              setCustomDate(value);
+                              handleCustomDateSelect(value);
+                            }}
+                            aria-label={t("home.anyFutureDate")}
+                            className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm font-bold text-slate-800 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                          />
+                          {resolvedApplied.tripMode === "weekend_2d1n" &&
+                            selectedDate && (
+                              <p className="mt-1.5 text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                                {t("home.day2Label")}:{" "}
+                                {formatCompactDate(
+                                  getNextCalendarDate(selectedDate),
+                                  i18n.language === "ja" ? "ja" : "en",
+                                )}
+                              </p>
+                            )}
+                        </div>
                       </div>
                     </>
                   )}
@@ -500,6 +590,9 @@ export default function Home() {
         hasUserApplied={hasUserApplied}
         appliedState={resolvedApplied}
         travelDate={travelDateIso}
+        viewAllDate={
+          forecastSelection.type === "today" ? undefined : travelDateIso
+        }
       />
 
       {/* Unexplored Nearby Rail — nearest unvisited destinations from home origin.

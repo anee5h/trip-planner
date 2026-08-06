@@ -1,5 +1,94 @@
 import i18n from "@/i18n";
 import type { MatchReason } from "@/shared/services/recommendation/RecommendationTypes";
+import type { TravelConditionEvaluation } from "@/shared/services/recommendation/TravelConditions";
+import {
+  formatTravelConditionParams,
+  formatTravelDateShort,
+  formatTravelMonth,
+} from "@/shared/services/recommendation/TravelConditions";
+import type { DayForecastData } from "@/shared/services/weather/WeatherTabService";
+
+export {
+  formatTravelDateShort,
+  formatTravelMonth,
+  formatTravelConditionParams,
+} from "@/shared/services/recommendation/TravelConditions";
+
+export function localizeTravelConditionReason(
+  reason: MatchReason,
+  locale: "en" | "ja",
+) {
+  const t = i18n.getFixedT(locale, "common");
+  const params = formatTravelConditionParams(reason.params, locale);
+  const translate = (key: string) =>
+    (t as (key: string, options?: Record<string, unknown>) => string)(
+      key,
+      params,
+    );
+  return {
+    title: translate(`recommendation.reasons.${reason.code}.title`),
+    description: translate(`recommendation.reasons.${reason.code}.description`),
+  };
+}
+
+/**
+ * One-line summary of a destination's condition evaluation: the first
+ * reason, or for mixed evidence the forecast label joined with the
+ * seasonal/unknown label ("Forecast for Nov 14 · Typical conditions for
+ * November").
+ */
+export function localizeTravelConditionSummary(
+  evaluation: TravelConditionEvaluation,
+  locale: "en" | "ja",
+): string {
+  if (evaluation.reasons.length === 0) return "";
+  const [first, second] = evaluation.reasons;
+  const firstLabel = localizeTravelConditionReason(first, locale).title;
+  if (evaluation.source === "mixed" && second) {
+    return `${firstLabel} · ${localizeTravelConditionReason(second, locale).title}`;
+  }
+  return firstLabel;
+}
+
+/**
+ * Date-level (destination-independent) summary of the selected dates for
+ * the Destinations explorer header: forecast label inside the forecast
+ * window, typical-conditions label beyond it, mixed when only one day of a
+ * 2D1N trip has a forecast.
+ */
+export function localizeDateConditionSummary(
+  dates: readonly string[],
+  forecastMap: ReadonlyMap<string, DayForecastData> | undefined,
+  locale: "en" | "ja",
+): string {
+  const t = i18n.getFixedT(locale, "common");
+  const translate = (key: string, params?: Record<string, unknown>) =>
+    (t as (key: string, options?: Record<string, unknown>) => string)(
+      key,
+      params,
+    );
+  const forecastDays = dates.filter((iso) => forecastMap?.has(iso) ?? false);
+  const missing = dates.filter((iso) => !(forecastMap?.has(iso) ?? false));
+
+  if (forecastDays.length === dates.length) {
+    return dates.length === 1
+      ? translate("destination.dateCondition.forecastSingle", {
+          day: formatTravelDateShort(dates[0], locale),
+        })
+      : translate("destination.dateCondition.forecastRange", {
+          day1: formatTravelDateShort(dates[0], locale),
+          day2: formatTravelDateShort(dates[1], locale),
+        });
+  }
+  const month = formatTravelMonth(missing[0].slice(0, 7), locale);
+  if (forecastDays.length === 0) {
+    return translate("destination.dateCondition.seasonal", { month });
+  }
+  return translate("destination.dateCondition.mixed", {
+    day: formatTravelDateShort(forecastDays[0], locale),
+    month,
+  });
+}
 
 const labels: Record<string, string> = {
   "Match Confidence": "マッチ度",

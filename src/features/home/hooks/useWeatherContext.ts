@@ -5,8 +5,50 @@ import {
   type WeatherTab,
 } from "@/shared/services/weather/WeatherTabService";
 
+/**
+ * Pure date-selection resolution shared by the interactive handler and the
+ * URL-restore path, so both behave identically.
+ */
+function resolveDateTabSelection(
+  ctx: WeatherTabContext,
+  selectedDate: string,
+): {
+  tabs: WeatherTab[];
+  activeTabId: string;
+  customDate: string | null;
+} {
+  const matchingPreset = ctx.tabs.find(
+    (tab) => !tab.isCustom && tab.dates.includes(selectedDate),
+  );
+  if (matchingPreset) {
+    return {
+      tabs: ctx.tabs.filter((tab) => !tab.isCustom),
+      activeTabId: matchingPreset.id,
+      customDate: null,
+    };
+  }
+  const customTabId = `custom_${selectedDate}`;
+  const [y, m, d] = selectedDate.split("-").map(Number);
+  const label = new Date(y, m - 1, d).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
+  const customTab: WeatherTab = {
+    id: customTabId,
+    label,
+    dates: [selectedDate],
+    isCustom: true,
+  };
+  return {
+    tabs: [...ctx.tabs.filter((tab) => !tab.isCustom), customTab],
+    activeTabId: customTabId,
+    customDate: selectedDate,
+  };
+}
+
 export function useWeatherContext(
   homeStationCoords: { lat: number; lng: number } | null,
+  initialDate?: string,
 ) {
   const [weatherContext, setWeatherContext] =
     useState<WeatherTabContext | null>(null);
@@ -19,48 +61,27 @@ export function useWeatherContext(
     fetchWeatherTabContext(lat, lng)
       .then((ctx) => {
         setWeatherContext(ctx);
-        setActiveTabId(ctx.activeTabId);
+        if (initialDate) {
+          const resolved = resolveDateTabSelection(ctx, initialDate);
+          setWeatherContext((prev) =>
+            prev ? { ...prev, tabs: resolved.tabs } : prev,
+          );
+          setActiveTabId(resolved.activeTabId);
+          setCustomDate(resolved.customDate);
+        } else {
+          setActiveTabId(ctx.activeTabId);
+        }
       })
       .catch((err) => console.error("Weather tab fetch error:", err));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [homeStationCoords]);
 
   const handleCustomDateSelect = (selectedDate: string) => {
     if (!weatherContext) return;
-    const matchingPreset = weatherContext.tabs.find(
-      (t) => !t.isCustom && t.dates.includes(selectedDate),
-    );
-
-    if (matchingPreset) {
-      const cleanTabs = weatherContext.tabs.filter((t) => !t.isCustom);
-      setWeatherContext({
-        ...weatherContext,
-        tabs: cleanTabs,
-      });
-      setCustomDate(null);
-      setActiveTabId(matchingPreset.id);
-    } else {
-      const customTabId = `custom_${selectedDate}`;
-      const [y, m, d] = selectedDate.split("-").map(Number);
-      const dateObj = new Date(y, m - 1, d);
-      const label = dateObj.toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-      });
-      const customTab: WeatherTab = {
-        id: customTabId,
-        label,
-        dates: [selectedDate],
-        isCustom: true,
-      };
-
-      const baseTabs = weatherContext.tabs.filter((t) => !t.isCustom);
-      setWeatherContext({
-        ...weatherContext,
-        tabs: [...baseTabs, customTab],
-      });
-      setActiveTabId(customTabId);
-      setCustomDate(selectedDate);
-    }
+    const resolved = resolveDateTabSelection(weatherContext, selectedDate);
+    setWeatherContext({ ...weatherContext, tabs: resolved.tabs });
+    setActiveTabId(resolved.activeTabId);
+    setCustomDate(resolved.customDate);
   };
 
   const currentTab = weatherContext?.tabs.find((t) => t.id === activeTabId);

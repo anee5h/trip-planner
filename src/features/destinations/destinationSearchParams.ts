@@ -9,6 +9,7 @@ import type {
   TripMode,
 } from "@/shared/services/recommendation/RecommendationContext";
 import { MAX_ACCOMMODATION_ALLOWANCE } from "@/shared/services/budget/BudgetService";
+import { normalizeTravelDateParam } from "@/shared/services/recommendation/TravelConditions";
 
 export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   searchQuery: "",
@@ -19,6 +20,8 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   selectedAreas: [] as string[],
   indoorMin: 0,
   season: "any",
+  /** YYYY-MM-DD or "" (unset = any date browsing). */
+  date: "",
   maxBudget: BUDGET_TIER_LIMITS.standard,
   sortBy: "recommended",
   carMode: "none",
@@ -94,6 +97,7 @@ export function parseDestinationSearchParams(
       Math.max(0, parseNumber(params.get("indoor"), defaults.indoorMin)),
     ),
     season: params.get("season") ?? defaults.season,
+    date: normalizeTravelDateParam(params.get("date")) ?? "",
     maxBudget: parseNumber(params.get("budget"), defaults.maxBudget),
     sortBy: params.get("sort") ?? defaults.sortBy,
     carMode: params.get("car") ?? defaults.carMode,
@@ -172,6 +176,7 @@ export function serializeDestinationSearchParams(
   appendAll("area", state.selectedAreas);
   if (state.indoorMin > 0) params.set("indoor", String(state.indoorMin));
   if (state.season !== "any") params.set("season", state.season);
+  if (state.date) params.set("date", state.date);
   params.set("budget", String(state.maxBudget));
   params.set("sort", state.sortBy);
   params.set("car", state.carMode);
@@ -208,6 +213,8 @@ export function serializePlannerSearchParams(input: {
   publicModes: string[];
   tripMode?: TripMode;
   accommodationAllowance?: number;
+  /** YYYY-MM-DD planned travel date (omitted = today/no explicit date). */
+  date?: string;
 }): string {
   const params = new URLSearchParams();
   if (input.vibe && input.vibe !== "any") params.set("vibe", input.vibe);
@@ -227,6 +234,7 @@ export function serializePlannerSearchParams(input: {
   }
   if (input.publicModes.length === 0) params.set("mode", "none");
   else input.publicModes.forEach((mode) => params.append("mode", mode));
+  if (input.date) params.set("date", input.date);
   if (input.tripMode === "weekend_2d1n") {
     params.set("tripMode", "weekend_2d1n");
     if (input.accommodationAllowance !== undefined) {

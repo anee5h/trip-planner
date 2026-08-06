@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Clock, Train, Car, Bus, Plane, TramFront } from "lucide-react";
 import type { Destination } from "@/shared/types/destination";
@@ -18,6 +18,8 @@ import {
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import type { ScoredDestination } from "@/shared/services/recommendation/RecommendationTypes";
+import type { TravelConditionEvaluation } from "@/shared/services/recommendation/TravelConditions";
+import { formatTravelConditionParams } from "@/shared/services/recommendation/TravelConditions";
 import { Sun, Cloud, CloudRain, CloudSnow, CloudLightning } from "lucide-react";
 
 interface HomeMatchCardProps {
@@ -107,6 +109,21 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
 
   // Weekend metadata
   const weekend = (destination as ScoredDestination).weekend;
+  // Forecast/seasonal/unknown evaluation for the planned trip dates
+  const condition = (destination as ScoredDestination).condition;
+
+  const conditionLine = useMemo(() => {
+    if (!condition || condition.reasons.length === 0) return undefined;
+    const labelFor = (reason: TravelConditionEvaluation["reasons"][number]) =>
+      t(`recommendation.reasons.${reason.code}.title`, {
+        ...formatTravelConditionParams(reason.params, locale),
+      });
+    const [first, second] = condition.reasons;
+    if (condition.source === "mixed" && second) {
+      return `${labelFor(first)} · ${labelFor(second)}`;
+    }
+    return labelFor(first);
+  }, [condition, locale, t]);
   // Prefer the most situation-specific weekend reason (weather > travel >
   // capacity) over the generic "weekendTripReady" headline.
   const weekendReason = weekend
@@ -258,6 +275,14 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
               {t(`recommendation.reasons.${weekendReason.code}.title`, {
                 ...(weekendReason.params ?? {}),
               })}
+            </p>
+          )}
+
+          {/* Forecast/seasonal condition line: labelled evidence for the
+              planned dates — never shown as a forecast when seasonal. */}
+          {conditionLine && (
+            <p className="line-clamp-1 text-[9px] font-semibold text-slate-500 dark:text-slate-400 mt-1">
+              {conditionLine}
             </p>
           )}
 
