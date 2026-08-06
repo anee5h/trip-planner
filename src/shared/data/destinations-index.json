@@ -4094,9 +4094,16 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.city.takahashi.lg.jp/site/bitchu-matsuyama-castle/",
-    "businessHours": "09:00 - 17:00 (Daily)",
-    "municipalityId": "Okayama:takahashi"
+    "officialWebsite": "https://www.bitchumatsuyamacastle.jp/",
+    "businessHours": "09:00 - 17:30 (Apr-Sep) / 09:00 - 16:30 (Oct-Mar)",
+    "municipalityId": "Okayama:takahashi",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.bitchumatsuyamacastle.jp/",
+      "lastAdmission": "17:00 (Apr-Sep) / 16:00 (Oct-Mar)",
+      "closedDays": "Dec 29 - Jan 3"
+    },
+    "kind": "castle"
   },
   {
     "id": "boso-no-mura",
@@ -30120,8 +30127,13 @@
       "max": 5
     },
     "officialWebsite": "https://okayama-korakuen.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
-    "municipalityId": "Okayama:okayama"
+    "businessHours": "07:30 - 18:00 (Mar 20-Sep 30) / 08:00 - 17:00 (Oct 1-Mar 19)",
+    "municipalityId": "Okayama:okayama",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-06",
+      "sourceUrl": "https://www.okayama-korakuen.jp/",
+      "lastAdmission": "17:45 (Mar 20-Sep 30) / 16:45 (Oct 1-Mar 19)"
+    }
   },
   {
     "id": "koriyama-city",
@@ -31296,7 +31308,8 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 200,
+      "shinkansen": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",

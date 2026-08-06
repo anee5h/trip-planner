@@ -111,6 +111,90 @@
       "sourceUrl": "https://www.hakodate.travel/",
       "checkedAt": "2026-08-06",
       "confidence": "verified"
+    },
+    {
+      "destinationId": "bitchu-matsuyama-castle",
+      "field": "officialWebsite",
+      "oldValue": "https://www.city.takahashi.lg.jp/site/bitchu-matsuyama-castle/",
+      "newValue": "https://www.bitchumatsuyamacastle.jp/",
+      "reason": "Current officialWebsite URL returns 404; the official castle site (Takahashi City Tourism Association) is the canonical visitor page.",
+      "sourceUrl": "https://www.city.takahashi.lg.jp/site/bichu-matsuyama/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "bitchu-matsuyama-castle",
+      "field": "businessHours",
+      "oldValue": "09:00 - 17:00 (Daily)",
+      "newValue": "09:00 - 17:30 (Apr-Sep) / 09:00 - 16:30 (Oct-Mar)",
+      "reason": "Official hours: 9:00-17:30 Apr-Sep (last entry 17:00), 9:00-16:30 Oct-Mar (last entry 16:00); closed Dec 29-Jan 3. Previous \"Daily\" claim was wrong (no winter closure, wrong close time).",
+      "sourceUrl": "https://www.bitchumatsuyamacastle.jp/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "bitchu-matsuyama-castle",
+      "field": "openingHoursMetadata",
+      "oldValue": null,
+      "newValue": {
+        "verifiedAt": "2026-08-06",
+        "sourceUrl": "https://www.bitchumatsuyamacastle.jp/",
+        "lastAdmission": "17:00 (Apr-Sep) / 16:00 (Oct-Mar)",
+        "closedDays": "Dec 29 - Jan 3"
+      },
+      "reason": "Official hours with seasonal last admission and Dec 29-Jan 3 closure recorded with provenance.",
+      "sourceUrl": "https://www.bitchumatsuyamacastle.jp/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "bitchu-matsuyama-castle",
+      "field": "kind",
+      "oldValue": null,
+      "newValue": "castle",
+      "reason": "Official Takahashi City page describes the site as a castle (現存天守12城, 天守の残る唯一の山城); kind=castle matches sibling castle records and drives scheduled opening-hours assessment.",
+      "sourceUrl": "https://www.city.takahashi.lg.jp/site/bichu-matsuyama/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "korakuen-okayama",
+      "field": "businessHours",
+      "oldValue": "09:00 - 17:00 (Daily)",
+      "newValue": "07:30 - 18:00 (Mar 20-Sep 30) / 08:00 - 17:00 (Oct 1-Mar 19)",
+      "reason": "Official Korakuen hours: 7:30-18:00 Mar 20-Sep 30 (entry until 17:45), 8:00-17:00 Oct 1-Mar 19 (entry until 16:45), plus summer evening openings. Previous \"09:00-17:00 Daily\" was wrong.",
+      "sourceUrl": "https://www.okayama-korakuen.jp/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "korakuen-okayama",
+      "field": "openingHoursMetadata",
+      "oldValue": null,
+      "newValue": {
+        "verifiedAt": "2026-08-06",
+        "sourceUrl": "https://www.okayama-korakuen.jp/",
+        "lastAdmission": "17:45 (Mar 20-Sep 30) / 16:45 (Oct 1-Mar 19)"
+      },
+      "reason": "Seasonal last-admission times recorded with provenance.",
+      "sourceUrl": "https://www.okayama-korakuen.jp/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "kurashiki-city",
+      "field": "transportOptions",
+      "oldValue": {
+        "train": 200
+      },
+      "newValue": {
+        "train": 200,
+        "shinkansen": 200
+      },
+      "reason": "Kurashiki is served by the Sanyo Shinkansen at Shin-Kurashiki Station, but shinkansen was not authorized in transportOptions, so origin-aware matching (Tokyo-Okayama shinkansen corridor in ground-routes.json) returned no estimate and cards showed \"N/A\" travel time. Value matches the sibling Okayama hub convention (okayama-city shinkansen: 200).",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sanyo_Shinkansen",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
     }
   ]
 }

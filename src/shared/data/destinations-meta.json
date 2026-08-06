@@ -496,7 +496,7 @@
     "prefecture": "Okayama",
     "region": "Chugoku",
     "role": "standalone",
-    "kind": "attraction",
+    "kind": "castle",
     "status": "verified",
     "relationships": {
       "parentDestinationId": "takahashi-city"
