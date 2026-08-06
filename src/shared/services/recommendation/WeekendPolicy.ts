@@ -7,6 +7,7 @@ import type { MatchReason } from "./RecommendationTypes";
 import { evaluateWeekendWeather } from "@/shared/services/weather/WeekendWeatherScoring";
 import { getBestOneWayTravelMinutes } from "./TripDurationService";
 import { isOriginLocalDestination } from "./OriginAreaService";
+import { isPublishedDestination } from "./WeekendAreaPolicy";
 
 // ── Travel Policy ────────────────────────────────────────────────────────────
 
@@ -73,7 +74,9 @@ export function evaluateWeekendCapacity(
 ): WeekendCapacityResult {
   const ownMinutes = (destination.recommendedVisitHours?.max ?? 0) * 60;
   const children = pool.filter(
-    (d) => d.relationships?.parentDestinationId === destination.id,
+    (d) =>
+      d.relationships?.parentDestinationId === destination.id &&
+      isPublishedDestination(d),
   );
   const childrenSum = children.reduce(
     (sum, c) => sum + (c.recommendedVisitHours?.max ?? 0) * 60,

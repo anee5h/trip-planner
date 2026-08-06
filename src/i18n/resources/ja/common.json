@@ -404,6 +404,21 @@
     "day1Label": "1\u65e5\u76ee",
     "day2Label": "2\u65e5\u76ee"
   },
+  "destination": {
+    "tripModes": {
+      "any": "すべて",
+      "day_trip": "日帰り",
+      "weekend_2d1n": "2日間・1泊"
+    },
+    "tripAreas": {
+      "summary": "旅行エリア{{areas}}件・スポット{{places}}件",
+      "show": "旅行エリア{{count}}件を表示",
+      "places": "スポット{{places}}件",
+      "plentyForTwoDays": "2日間たっぷり",
+      "readyForTwoDays": "2日間で十分",
+      "travelBy": "{{mode}}で{{time}}"
+    }
+  },
   "ui": {
     "back": "戻る",
     "cancel": "キャンセル",

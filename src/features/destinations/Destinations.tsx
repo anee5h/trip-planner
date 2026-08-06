@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
@@ -38,6 +39,7 @@ import {
 import {
   getBestOneWayTravelMinutes,
   matchesVisitDuration,
+  estimateTripDuration,
 } from "@/shared/services/recommendation/TripDurationService";
 import {
   evaluateWeekendTravelFit,
@@ -47,6 +49,10 @@ import {
   resolveOriginMunicipalityId,
   isOriginLocalDestination,
 } from "@/shared/services/recommendation/OriginAreaService";
+import {
+  consolidateWeekendAreas,
+  type WeekendAreaConsolidation,
+} from "@/shared/services/recommendation/WeekendAreaPolicy";
 import {
   tokenizeQuery,
   matchesDestination,
@@ -82,6 +88,7 @@ export default function Destinations() {
   const { homeStationCoords, homeStationTransportZoneId, destinationRatings } =
     useTripStore();
   const { locale } = useLocale();
+  const { t } = useTranslation();
   const allDestinations = (getDestinationList("en") as Destination[]).map(
     (destination) => getLocalizedPlace(destination, locale),
   );
@@ -351,12 +358,19 @@ export default function Destinations() {
     interests,
   ]);
 
-  // Filter and sort destinations
-  const filteredAndSortedDestinations = useMemo(() => {
+  // Filter and sort destinations. Weekend mode additionally consolidates the
+  // primary results to coherent trip areas and reports the same consolidated
+  // model for counts, the modal button, and the rendered cards.
+  const {
+    destinations: filteredAndSortedDestinations,
+    weekend: weekendResult,
+    weekendTravelById,
+  } = useMemo(() => {
     const originMunicipalityId = resolveOriginMunicipalityId(
       homeStationCoords ?? undefined,
       allDestinations,
     );
+    let weekendConsolidation: WeekendAreaConsolidation | null = null;
     let result = allDestinations.map((destination) =>
       buildRecommendationCandidate(destination, catalogContext),
     );
@@ -535,6 +549,13 @@ export default function Destinations() {
         if (!fit.eligible) return false;
         return evaluateWeekendCapacity(dest, allDestinations).eligible;
       });
+
+      // Hub-first: primary 2D1N results are trip areas, never isolated POIs.
+      if (result.length > 0) {
+        const consolidated = consolidateWeekendAreas(result, allDestinations);
+        weekendConsolidation = consolidated;
+        result = consolidated.areas;
+      }
     } else if (
       tripDuration !== "any" ||
       hasRestrictedTransportSelection(carMode, publicModes)
@@ -589,6 +610,30 @@ export default function Destinations() {
       result = result.filter(
         (dest) => getWalkingIntensity(dest) === walkingIntensity,
       );
+    }
+
+    // Weekend card travel claims: only with an explicit origin, and only for
+    // the consolidated primary areas.
+    const weekendTravelById = new Map<
+      string,
+      { oneWayMinutes?: number; bestMode?: string }
+    >();
+    if (weekendConsolidation && homeStationCoords) {
+      for (const area of result) {
+        const modes = getValidModes(
+          area,
+          carMode,
+          publicModes,
+          homeStationCoords ?? undefined,
+          budgetTier,
+          homeStationTransportZoneId,
+        );
+        const estimate = estimateTripDuration(area, catalogContext, modes);
+        weekendTravelById.set(area.id, {
+          oneWayMinutes: estimate?.bestTravelMinutes,
+          bestMode: estimate?.mode,
+        });
+      }
     }
 
     // 6. Sort
@@ -693,7 +738,11 @@ export default function Destinations() {
       }
     });
 
-    return result;
+    return {
+      destinations: result,
+      weekend: weekendConsolidation,
+      weekendTravelById,
+    };
   }, [
     allDestinations,
     query,
@@ -850,9 +899,15 @@ export default function Destinations() {
         className="mb-6 flex flex-wrap items-center justify-between gap-4 text-slate-600 dark:text-slate-400 font-medium scroll-mt-24"
       >
         <div className="flex items-center gap-2">
-          <span className="text-sm font-bold text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
-            {filteredAndSortedDestinations.length} destination
-            {filteredAndSortedDestinations.length === 1 ? "" : "s"} matching
+          <span className="text-sm font-bold text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-800">
+            {weekendResult
+              ? t("destination.tripAreas.summary", {
+                  areas: filteredAndSortedDestinations.length,
+                  places: weekendResult.totalPlaceCount,
+                })
+              : `${filteredAndSortedDestinations.length} destination${
+                  filteredAndSortedDestinations.length === 1 ? "" : "s"
+                } matching`}
           </span>
         </div>
       </div>
@@ -881,15 +936,31 @@ export default function Destinations() {
                 (currentPage - 1) * ITEMS_PER_PAGE,
                 currentPage * ITEMS_PER_PAGE,
               )
-              .map((dest) => (
-                <DestinationCard
-                  key={dest.id}
-                  destination={dest}
-                  partySize={partySize}
-                  carMode={carMode}
-                  publicModes={publicModes}
-                />
-              ))}
+              .map((dest) => {
+                const travel = weekendTravelById.get(dest.id);
+                return (
+                  <DestinationCard
+                    key={dest.id}
+                    destination={dest}
+                    partySize={partySize}
+                    carMode={carMode}
+                    publicModes={publicModes}
+                    weekendSummary={
+                      weekendResult
+                        ? {
+                            placeCount:
+                              weekendResult.placeCountById.get(dest.id) ?? 0,
+                            capacityMinutes:
+                              weekendResult.capacityMinutesById.get(dest.id) ??
+                              0,
+                            oneWayMinutes: travel?.oneWayMinutes,
+                            bestMode: travel?.bestMode,
+                          }
+                        : undefined
+                    }
+                  />
+                );
+              })}
           </div>
 
           {/* Pagination Controls */}

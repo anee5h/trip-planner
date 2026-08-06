@@ -7,6 +7,7 @@ import { LazyImage } from "@/shared/components/ui/LazyImage";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
+import { formatWeekendMinutes } from "@/shared/services/recommendation/WeekendAreaPolicy";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { useTranslation } from "react-i18next";
 import {
@@ -202,6 +203,31 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
         </div>
 
         <div className="mt-auto pt-2">
+          {/* Weekend trip-area line: places · capacity, travel time */}
+          {weekend && (
+            <p className="line-clamp-1 text-[9px] font-semibold text-emerald-600 dark:text-emerald-400 mt-1">
+              {(weekend.placeCount ?? 0) > 0 &&
+                `${t("home.places", { count: weekend.placeCount })} · `}
+              {weekend.capacity.activityMinutes >= 600
+                ? t("destination.tripAreas.plentyForTwoDays")
+                : t("destination.tripAreas.readyForTwoDays")}
+              {weekend.travelFit.oneWayMinutes !== undefined &&
+                bestTransport?.mode && (
+                  <span className="text-slate-500">
+                    {" "}
+                    ·{" "}
+                    {t("destination.tripAreas.travelBy", {
+                      time: formatWeekendMinutes(
+                        weekend.travelFit.oneWayMinutes,
+                        locale,
+                      ),
+                      mode: transportDisplay.label,
+                    })}
+                  </span>
+                )}
+            </p>
+          )}
+
           {/* Weekend reason line */}
           {weekendReason && (
             <p className="line-clamp-1 text-[9px] font-semibold text-emerald-600 dark:text-emerald-400 mt-1">

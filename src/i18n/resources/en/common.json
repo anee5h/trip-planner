@@ -404,6 +404,21 @@
     "day1Label": "Day 1",
     "day2Label": "Day 2"
   },
+  "destination": {
+    "tripModes": {
+      "any": "Any",
+      "day_trip": "Day trip",
+      "weekend_2d1n": "2 days / 1 night"
+    },
+    "tripAreas": {
+      "summary": "{{areas}} trip areas · {{places}} places",
+      "show": "Show {{count}} trip areas",
+      "places": "{{places}} places",
+      "plentyForTwoDays": "Plenty for 2 days",
+      "readyForTwoDays": "Ready for 2 days",
+      "travelBy": "{{time}} by {{mode}}"
+    }
+  },
   "ui": {
     "back": "Back",
     "cancel": "Cancel",

@@ -16,6 +16,10 @@ import type { PipelineRecommendation } from "./RecommendationTypes";
 import { evaluateWeekendCandidate } from "./WeekendPolicy";
 import type { WeekendCandidateEvaluation } from "./WeekendPolicy";
 import { resolveOriginMunicipalityId } from "./OriginAreaService";
+import {
+  consolidateWeekendAreas,
+  type WeekendAreaConsolidation,
+} from "./WeekendAreaPolicy";
 
 function coordinatesWithinOneKm(
   a: PipelineRecommendation,
@@ -210,92 +214,111 @@ export function runRecommendationPipeline(
     return true;
   });
 
-  const scored = eligible.map((candidate) => {
-    const scoreResult = calculateScore(candidate, context);
-    const weekend = isWeekend ? weekendEvalCache.get(candidate.id) : undefined;
-    const totalScore = scoreResult.score + (weekend?.scoreDelta ?? 0);
-    const match = createRecommendationMatch(candidate, context, totalScore);
+  // Hub-first consolidation: 2D1N primary results are coherent trip areas
+  // (hubs / standalone areas); child POIs and standalone POIs are dropped.
+  let weekendAreas: WeekendAreaConsolidation | undefined;
+  if (isWeekend) {
+    weekendAreas = consolidateWeekendAreas(eligible, candidates);
+  }
+  const weekendPrimaryIds = weekendAreas
+    ? new Set(weekendAreas.areas.map((area) => area.id))
+    : null;
 
-    // Append weekend reasons
-    if (weekend) {
-      match.reasons.push(...weekend.reasons);
-    }
+  const scored = eligible
+    .filter(
+      (candidate) =>
+        !isWeekend || (weekendPrimaryIds?.has(candidate.id) ?? false),
+    )
+    .map((candidate) => {
+      const scoreResult = calculateScore(candidate, context);
+      const weekend = isWeekend
+        ? weekendEvalCache.get(candidate.id)
+        : undefined;
+      const totalScore = scoreResult.score + (weekend?.scoreDelta ?? 0);
+      const match = createRecommendationMatch(candidate, context, totalScore);
 
-    const durationEstimate = estimateTripDuration(
-      candidate,
-      context,
-      getValidModes(
+      // Append weekend reasons
+      if (weekend) {
+        match.reasons.push(...weekend.reasons);
+      }
+
+      const durationEstimate = estimateTripDuration(
         candidate,
-        context.carMode,
-        context.publicModes,
-        context.homeStationCoords || undefined,
+        context,
+        getValidModes(
+          candidate,
+          context.carMode,
+          context.publicModes,
+          context.homeStationCoords || undefined,
+          context.budgetTier,
+          context.originZoneId,
+          context.ferryTemporal,
+        ),
+      );
+      const budgetResult = getEstimatedBudgetRange(
+        candidate,
+        scoreResult.bestMode || "train",
+        context.partySize,
         context.budgetTier,
-        context.originZoneId,
+        durationEstimate?.representativeHours,
+        context.homeStationCoords || undefined,
         context.ferryTemporal,
-      ),
-    );
-    const budgetResult = getEstimatedBudgetRange(
-      candidate,
-      scoreResult.bestMode || "train",
-      context.partySize,
-      context.budgetTier,
-      durationEstimate?.representativeHours,
-      context.homeStationCoords || undefined,
-      context.ferryTemporal,
-    );
-    const estimatedCostRange = budgetResult.range;
-    const estimatedCostTransportIncluded = budgetResult.transportIncluded;
+      );
+      const estimatedCostRange = budgetResult.range;
+      const estimatedCostTransportIncluded = budgetResult.transportIncluded;
 
-    // Append weekendTransportExcluded reason if applicable
-    if (weekend && !budgetResult.transportIncluded) {
-      match.reasons.push({
-        type: "Transport",
-        code: "weekendTransportExcluded",
-        title: "Transport Excluded",
-        description:
-          "Transport cost unavailable; total excludes origin transport",
-      });
-    }
+      // Append weekendTransportExcluded reason if applicable
+      if (weekend && !budgetResult.transportIncluded) {
+        match.reasons.push({
+          type: "Transport",
+          code: "weekendTransportExcluded",
+          title: "Transport Excluded",
+          description:
+            "Transport cost unavailable; total excludes origin transport",
+        });
+      }
 
-    // Build scoreContributions
-    const scoreContributions: Record<string, number> = {
-      total: totalScore,
-      transport: scoreResult.bestModeScore,
-    };
-    if (weekend) {
-      scoreContributions["weekendTravel"] = weekend.travelScore;
-      scoreContributions["weekendCapacity"] = weekend.capacityScore;
-      scoreContributions["weekendWeather"] = weekend.weatherScore;
-    }
+      // Build scoreContributions
+      const scoreContributions: Record<string, number> = {
+        total: totalScore,
+        transport: scoreResult.bestModeScore,
+      };
+      if (weekend) {
+        scoreContributions["weekendTravel"] = weekend.travelScore;
+        scoreContributions["weekendCapacity"] = weekend.capacityScore;
+        scoreContributions["weekendWeather"] = weekend.weatherScore;
+      }
 
-    return {
-      ...candidate,
-      score: totalScore,
-      match,
-      bestTransportMode: scoreResult.bestMode,
-      estimatedCostRange,
-      estimatedCostTransportIncluded,
-      weekend: weekend
-        ? {
-            travelFit: weekend.travelFit,
-            capacity: weekend.capacity,
-            weatherDays: weekend.weatherDays,
-            accommodationAllowance: context.accommodationAllowance,
-            estimatedCostTransportIncluded,
-          }
-        : undefined,
-      pipeline: {
-        eligible: true,
-        estimatedCost: estimatedCostRange[0],
+      return {
+        ...candidate,
+        score: totalScore,
+        match,
+        bestTransportMode: scoreResult.bestMode,
         estimatedCostRange,
         estimatedCostTransportIncluded,
-        bestTransportMode: scoreResult.bestMode,
-        scoreContributions,
-        confidence: calculateConfidence(totalScore),
-        reasons: match.reasons,
-      },
-    } as PipelineRecommendation;
-  });
+        weekend: weekend
+          ? {
+              travelFit: weekend.travelFit,
+              capacity: weekend.capacity,
+              weatherDays: weekend.weatherDays,
+              accommodationAllowance: context.accommodationAllowance,
+              estimatedCostTransportIncluded,
+              areaKind: weekendAreas?.kindById.get(candidate.id),
+              placeCount: weekendAreas?.placeCountById.get(candidate.id) ?? 0,
+            }
+          : undefined,
+        pipeline: {
+          eligible: true,
+          estimatedCost: estimatedCostRange[0],
+          estimatedCostRange,
+          estimatedCostTransportIncluded,
+          bestTransportMode: scoreResult.bestMode,
+          scoreContributions,
+          confidence: calculateConfidence(totalScore),
+          reasons: match.reasons,
+        },
+      } as PipelineRecommendation;
+    });
 
   return diversifyRecommendations(scored);
 }

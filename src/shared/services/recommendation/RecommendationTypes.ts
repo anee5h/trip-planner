@@ -1,6 +1,9 @@
 import type { ActualWeatherCondition } from "./RecommendationContext";
 import type { Destination } from "@/shared/types/destination";
 import type { PriceRange } from "@/shared/types/planner";
+import type { WeekendTravelFit } from "./WeekendPolicy";
+import type { WeekendCapacityResult } from "./WeekendPolicy";
+import type { WeekendResultKind } from "./WeekendAreaPolicy";
 
 export type MatchReasonType =
   | "Budget"
@@ -62,8 +65,8 @@ export interface RecommendationMatch {
 }
 
 export interface WeekendRecommendationMetadata {
-  travelFit: import("./WeekendPolicy").WeekendTravelFit;
-  capacity: import("./WeekendPolicy").WeekendCapacityResult;
+  travelFit: WeekendTravelFit;
+  capacity: WeekendCapacityResult;
   weatherDays: {
     date: string;
     condition: ActualWeatherCondition;
@@ -71,6 +74,10 @@ export interface WeekendRecommendationMetadata {
   }[];
   accommodationAllowance?: number;
   estimatedCostTransportIncluded: boolean;
+  /** Hub-first classification of the primary weekend result. */
+  areaKind?: WeekendResultKind;
+  /** Unique published children contained by this trip area. */
+  placeCount?: number;
 }
 
 export interface ScoredDestination extends Destination {

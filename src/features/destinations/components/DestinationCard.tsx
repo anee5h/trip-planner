@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { LazyImage } from "@/shared/components/ui/LazyImage";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPickerModal";
@@ -50,8 +51,16 @@ import {
 } from "@/shared/utils/placeLabels";
 import { localizeRecommendationReason } from "@/shared/utils/recommendationLabels";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
+import { formatWeekendMinutes } from "@/shared/services/recommendation/WeekendAreaPolicy";
 import { getCityArea } from "@/shared/data/cityAreas";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
+
+export interface WeekendCardSummary {
+  placeCount: number;
+  capacityMinutes: number;
+  oneWayMinutes?: number;
+  bestMode?: string;
+}
 
 interface DestinationCardProps {
   destination: Destination;
@@ -62,6 +71,8 @@ interface DestinationCardProps {
   carMode?: string;
   publicModes?: string[];
   availableTimeHours?: number;
+  /** 2D1N trip-area summary shown on the card's compact weekend line. */
+  weekendSummary?: WeekendCardSummary;
 }
 
 export default function DestinationCard({
@@ -71,8 +82,19 @@ export default function DestinationCard({
   carMode,
   publicModes,
   availableTimeHours,
+  weekendSummary,
 }: DestinationCardProps) {
   const { locale } = useLocale();
+  const { t } = useTranslation();
+  const modeLabels = {
+    train: t("home.transportModes.train"),
+    shinkansen: t("home.transportModes.shinkansen"),
+    bus: t("home.transportModes.bus"),
+    flight: t("home.transportModes.flight"),
+    ferry: t("home.transportModes.ferry"),
+    car: t("home.transportModes.car"),
+    my_car: t("home.transportModes.my_car"),
+  } as const;
   const localizedDestination = getLocalizedPlace(destination, locale);
   const parent =
     DestinationRelationshipService.getParentDestination(destination);
@@ -395,6 +417,40 @@ export default function DestinationCard({
                 </span>
               </div>
             </div>
+
+            {weekendSummary && (
+              <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                {weekendSummary.placeCount > 0 && (
+                  <span>
+                    {t("destination.tripAreas.places", {
+                      places: weekendSummary.placeCount,
+                    })}
+                  </span>
+                )}
+                {weekendSummary.placeCount > 0 && <span>·</span>}
+                <span>
+                  {weekendSummary.capacityMinutes >= 600
+                    ? t("destination.tripAreas.plentyForTwoDays")
+                    : t("destination.tripAreas.readyForTwoDays")}
+                </span>
+                {weekendSummary.oneWayMinutes !== undefined &&
+                  weekendSummary.bestMode && (
+                    <span className="text-slate-500">
+                      ·{" "}
+                      {t("destination.tripAreas.travelBy", {
+                        time: formatWeekendMinutes(
+                          weekendSummary.oneWayMinutes,
+                          locale,
+                        ),
+                        mode:
+                          modeLabels[
+                            weekendSummary.bestMode as keyof typeof modeLabels
+                          ] ?? weekendSummary.bestMode,
+                      })}
+                    </span>
+                  )}
+              </div>
+            )}
           </div>
         )}
       </CardContent>

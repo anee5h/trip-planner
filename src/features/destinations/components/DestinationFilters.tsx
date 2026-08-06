@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Input } from "@/shared/components/ui/input";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useLocale } from "@/shared/context/LocaleContext";
@@ -155,6 +156,7 @@ export default function DestinationFilters({
 }: DestinationFiltersProps) {
   const { user } = useAuth();
   const { locale } = useLocale();
+  const { t } = useTranslation();
   const isJa = locale === "ja";
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -1043,7 +1045,7 @@ export default function DestinationFilters({
                         : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                     }`}
                   >
-                    {isJa ? "すべて" : "Any"}
+                    {t("destination.tripModes.any")}
                   </button>
                   <button
                     type="button"
@@ -1054,7 +1056,7 @@ export default function DestinationFilters({
                         : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                     }`}
                   >
-                    {isJa ? "日帰り" : "Day trip"}
+                    {t("destination.tripModes.day_trip")}
                   </button>
                   <button
                     type="button"
@@ -1065,7 +1067,7 @@ export default function DestinationFilters({
                         : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                     }`}
                   >
-                    {isJa ? "2日間・1泊" : "2 days / 1 night"}
+                    {t("destination.tripModes.weekend_2d1n")}
                   </button>
                 </div>
 
@@ -1434,9 +1436,13 @@ export default function DestinationFilters({
                 onClick={() => setModalOpen(false)}
                 className="px-5 sm:px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs rounded-xl shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap"
               >
-                {isJa
-                  ? `${totalResultsCount}件の目的地を表示`
-                  : `Show ${totalResultsCount} destinations`}
+                {tripMode === "weekend_2d1n"
+                  ? t("destination.tripAreas.show", {
+                      count: totalResultsCount,
+                    })
+                  : isJa
+                    ? `${totalResultsCount}件の目的地を表示`
+                    : `Show ${totalResultsCount} destinations`}
               </button>
             </div>
           </div>
