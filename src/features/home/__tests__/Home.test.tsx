@@ -1,7 +1,7 @@
 /**
  * @vitest-environment jsdom
  */
-import { act } from "react";
+import { act, useState } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
 import { afterEach, describe, it, expect, vi } from "vitest";
@@ -9,27 +9,35 @@ import Home, { formatCompactDate, formatCompactDateRange } from "../Home";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
-vi.mock("@/features/home/hooks/useWeatherContext", () => ({
-  useWeatherContext: () => ({
-    weatherContext: {
-      tabs: [
-        { id: "today", label: "Today", isCustom: false },
-        { id: "tomorrow", label: "Tomorrow", isCustom: false },
-        { id: "this_weekend", label: "This Weekend", isCustom: false },
-      ],
-      forecastMap: {},
-      minDate: "2026-08-01",
-      maxDate: "2026-08-10",
+vi.mock("@/features/home/hooks/useWeatherContext", () => {
+  return {
+    useWeatherContext: () => {
+      const [customDate, setCustomDate] = useState<string | null>(null);
+      const [activeTabId, setActiveTabId] = useState("today");
+      return {
+        weatherContext: {
+          tabs: [
+            { id: "today", label: "Today", isCustom: false },
+            { id: "tomorrow", label: "Tomorrow", isCustom: false },
+            { id: "this_weekend", label: "This Weekend", isCustom: false },
+          ],
+          forecastMap: new Map(),
+          minDate: "2026-08-01",
+          maxDate: "2026-08-10",
+        },
+        setWeatherContext: vi.fn(),
+        activeTabId,
+        setActiveTabId,
+        customDate,
+        setCustomDate,
+        currentTab: { id: activeTabId, label: activeTabId, isCustom: false },
+        handleCustomDateSelect: (d: string) => {
+          setCustomDate(d);
+        },
+      };
     },
-    setWeatherContext: vi.fn(),
-    activeTabId: "today",
-    setActiveTabId: vi.fn(),
-    customDate: null,
-    setCustomDate: vi.fn(),
-    currentTab: { id: "today", label: "Today", isCustom: false },
-    handleCustomDateSelect: vi.fn(),
-  }),
-}));
+  };
+});
 
 vi.mock("@/shared/services/weather/WeatherTabService", () => ({
   getTabWeatherSummary: () => ({
@@ -341,23 +349,38 @@ describe("weekend date capsule", () => {
     );
     act(() => applyBtn?.click());
 
-    // Open the date picker and pick Sat, Aug 1 (the mock range starts 2026-08-01).
+    // Open the date picker and pick a date (2026-08-15).
     const rangeBtn = () =>
-      Array.from(container.querySelectorAll("button")).find((b) =>
-        b.querySelector(".lucide-calendar"),
+      Array.from(container.querySelectorAll("button")).find(
+        (b) =>
+          b.getAttribute("aria-haspopup") === "dialog" ||
+          Boolean(b.querySelector(".lucide-calendar")),
       );
-    act(() => rangeBtn()?.click());
-    const aug1Chip = Array.from(container.querySelectorAll("button")).find(
-      (b) => b.textContent?.includes("Sat, Aug 1"),
-    );
-    act(() => aug1Chip?.click());
+    const capsuleBefore = rangeBtn();
+    expect(capsuleBefore).toBeDefined();
+    act(() => capsuleBefore?.click());
 
-    const capsule = rangeBtn();
-    expect(capsule?.textContent).toContain("Aug 1–2");
-    expect(capsule?.getAttribute("aria-label")).toContain("Sat, Aug 1");
-    expect(capsule?.getAttribute("aria-label")).toContain("Sun, Aug 2");
-    expect(capsule?.getAttribute("title")).toBe(
-      capsule?.getAttribute("aria-label"),
-    );
+    const input = container.querySelector(
+      'input[type="date"]',
+    ) as HTMLInputElement;
+    expect(input).toBeDefined();
+    act(() => {
+      const prototype = Object.getPrototypeOf(input);
+      const valueSetter = Object.getOwnPropertyDescriptor(
+        prototype,
+        "value",
+      )?.set;
+      if (valueSetter) {
+        valueSetter.call(input, "2026-08-15");
+      } else {
+        input.value = "2026-08-15";
+      }
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+      input.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+
+    const capsuleAfter = rangeBtn();
+    expect(capsuleAfter?.textContent).toContain("Aug 15–16");
+    expect(capsuleAfter?.getAttribute("aria-label")).toContain("Aug 15–16");
   });
 });

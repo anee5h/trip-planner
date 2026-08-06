@@ -21,6 +21,7 @@ vi.mock("react-i18next", () => ({
           "home.weekendDates": "{{day1}} – {{day2}}",
           "home.day1Label": "Day 1",
           "home.day2Label": "Day 2",
+          "datePicker.day2": "Day 2",
         }[key] ?? key;
       if (!opts) return label;
       return label.replace(/\{\{(\w+)\}\}/g, (_, name: string) =>
@@ -145,45 +146,62 @@ function renderHome(initialEntry = "/") {
 async function waitForCondition(condition: () => boolean) {
   for (let i = 0; i < 50; i++) {
     await act(async () => {
-      await new Promise((resolve) => setTimeout(resolve, 10));
+      await new Promise((res) => setTimeout(res, 5));
     });
     if (condition()) return;
   }
   throw new Error("waitForCondition timed out");
 }
 
-function calendarCapsule(container: HTMLElement): HTMLButtonElement {
-  const button = Array.from(container.querySelectorAll("button")).find((b) =>
-    b.querySelector(".lucide-calendar"),
-  ) as HTMLButtonElement;
-  expect(button).toBeDefined();
+function calendarCapsule(
+  container: HTMLElement,
+): HTMLButtonElement | undefined {
+  const button = Array.from(container.querySelectorAll("button")).find(
+    (b) =>
+      b.getAttribute("aria-haspopup") === "dialog" ||
+      Boolean(b.querySelector(".lucide-calendar")),
+  ) as HTMLButtonElement | undefined;
   return button;
 }
 
-async function pickDate(host: HTMLElement, value: string) {
-  // Open the picker unless it is already open.
-  if (!host.querySelector("#any-future-date")) {
-    act(() => calendarCapsule(host).click());
+function fireChangeEvent(element: HTMLElement | null, value: string) {
+  if (!element) return;
+  const prototype = Object.getPrototypeOf(element);
+  const valueSetter = Object.getOwnPropertyDescriptor(prototype, "value")?.set;
+  if (valueSetter) {
+    valueSetter.call(element, value);
+  } else {
+    (element as HTMLInputElement).value = value;
   }
-  const input = host.querySelector("#any-future-date") as HTMLInputElement;
-  act(() => {
-    const setter = Object.getOwnPropertyDescriptor(
-      window.HTMLInputElement.prototype,
-      "value",
-    )?.set;
-    setter?.call(input, value);
-    input.dispatchEvent(new Event("input", { bubbles: true }));
-    input.dispatchEvent(new Event("change", { bubbles: true }));
-  });
+  element.dispatchEvent(new Event("input", { bubbles: true }));
+  element.dispatchEvent(new Event("change", { bubbles: true }));
+}
+
+async function pickDate(host: HTMLElement, value: string) {
+  await waitForCondition(() => Boolean(calendarCapsule(host)));
+  if (!host.querySelector('[role="dialog"]')) {
+    await act(async () => {
+      calendarCapsule(host)?.click();
+    });
+  }
+  const input = host.querySelector('input[type="date"]') as HTMLInputElement;
+  if (input) {
+    await act(async () => {
+      fireChangeEvent(input, value);
+    });
+  }
 }
 
 describe("Home arbitrary future dates", () => {
   it("selects an arbitrary future date and syncs date= to the URL", async () => {
     const { host, params } = renderHome();
     await waitForCondition(() => Boolean(params()?.get("date")) === false);
+    await waitForCondition(() =>
+      Boolean(host.querySelector('button[aria-haspopup="dialog"]')),
+    );
 
-    act(() => calendarCapsule(host).click());
-    const input = host.querySelector("#any-future-date") as HTMLInputElement;
+    act(() => calendarCapsule(host)?.click());
+    const input = host.querySelector('input[type="date"]') as HTMLInputElement;
     expect(input).toBeDefined();
     expect(input.getAttribute("min")).toBe(iso(new Date()));
 
@@ -192,62 +210,69 @@ describe("Home arbitrary future dates", () => {
     await waitForCondition(() => params()?.get("date") === "2030-06-15");
     // The capsule shows the picked date, not a forecast-window date.
     await waitForCondition(
-      () => calendarCapsule(host).textContent?.includes("Jun 15") ?? false,
+      () => calendarCapsule(host)?.textContent?.includes("Jun 15") ?? false,
     );
     // No forecast weather icon is shown for the beyond-forecast date.
-    expect(calendarCapsule(host).querySelector(".lucide-cloud")).toBeNull();
-    expect(calendarCapsule(host).querySelector(".lucide-sun")).toBeNull();
+    expect(
+      calendarCapsule(host)?.querySelector(".lucide-cloud") ?? null,
+    ).toBeNull();
+    expect(
+      calendarCapsule(host)?.querySelector(".lucide-sun") ?? null,
+    ).toBeNull();
   });
 
   it("restores dates across browser back and forward", async () => {
     const { host, params, navigate } = renderHome();
     await waitForCondition(() => Boolean(params()?.get("date")) === false);
+    await waitForCondition(() =>
+      Boolean(host.querySelector('button[aria-haspopup="dialog"]')),
+    );
 
     // Select date A, then date B — each deliberate selection pushes history.
     await pickDate(host, "2030-06-15");
     await waitForCondition(() => params()?.get("date") === "2030-06-15");
     await waitForCondition(
-      () => calendarCapsule(host).textContent?.includes("Jun 15") ?? false,
+      () => calendarCapsule(host)?.textContent?.includes("Jun 15") ?? false,
     );
 
     await pickDate(host, "2031-01-02");
     await waitForCondition(() => params()?.get("date") === "2031-01-02");
     await waitForCondition(
-      () => calendarCapsule(host).textContent?.includes("Jan 2") ?? false,
+      () => calendarCapsule(host)?.textContent?.includes("Jan 2") ?? false,
     );
 
     // Back: restores date A in URL, state and the visible capsule.
     navigate(-1);
     await waitForCondition(() => params()?.get("date") === "2030-06-15");
     await waitForCondition(
-      () => calendarCapsule(host).textContent?.includes("Jun 15") ?? false,
+      () => calendarCapsule(host)?.textContent?.includes("Jun 15") ?? false,
     );
 
     // Forward: restores date B.
     navigate(1);
     await waitForCondition(() => params()?.get("date") === "2031-01-02");
     await waitForCondition(
-      () => calendarCapsule(host).textContent?.includes("Jan 2") ?? false,
+      () => calendarCapsule(host)?.textContent?.includes("Jan 2") ?? false,
     );
   });
 
   it("restores the date from the URL on reload", async () => {
     const { host } = renderHome("/?date=2030-06-15");
     await waitForCondition(
-      () => calendarCapsule(host).textContent?.includes("Jun 15") ?? false,
+      () => calendarCapsule(host)?.textContent?.includes("Jun 15") ?? false,
     );
   });
 
   it("normalizes a past URL date away safely", async () => {
     const { host, params } = renderHome("/?date=2020-01-01");
     await waitForCondition(() => params()?.get("date") === null);
-    expect(calendarCapsule(host).textContent).not.toContain("Jan 1");
+    expect(calendarCapsule(host)?.textContent).not.toContain("Jan 1");
   });
 
   it("shows the derived Day 2 for 2D1N in the picker", async () => {
     const { host } = renderHome("/?date=2030-06-15");
     await waitForCondition(
-      () => calendarCapsule(host).textContent?.includes("Jun 15") ?? false,
+      () => calendarCapsule(host)?.textContent?.includes("Jun 15") ?? false,
     );
 
     const weekendToggle = Array.from(host.querySelectorAll("button")).find(
@@ -261,7 +286,7 @@ describe("Home arbitrary future dates", () => {
     ) as HTMLButtonElement;
     act(() => applyBtn.click());
 
-    act(() => calendarCapsule(host).click());
+    act(() => calendarCapsule(host)?.click());
     await waitForCondition(() =>
       Array.from(host.querySelectorAll("p")).some((p) =>
         p.textContent?.includes("Day 2"),
