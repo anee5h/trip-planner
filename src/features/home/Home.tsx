@@ -25,6 +25,8 @@ import UnexploredNearbyRail from "./components/UnexploredNearbyRail";
 import { useTranslation } from "react-i18next";
 import StationInput from "@/shared/components/StationInput";
 import TravelDatePicker from "@/shared/components/travel/TravelDatePicker";
+import { useLocale } from "@/shared/context/LocaleContext";
+import { getLocalizedStationLabel } from "@/shared/utils/formatOriginLocation";
 
 /**
  * Compact single-date label: "Aug 8" / "8/8".
@@ -73,14 +75,11 @@ export default function Home() {
   const allDestinations = getDestinationList() as Destination[];
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const {
-    isVisited,
-    favorites,
-    homeStation,
-    homeStationCoords,
-    homeStationTransportZoneId,
-  } = useTripStore();
   const { user } = useAuth();
+  const { homeStation, homeStationCoords, homeStationTransportZoneId } =
+    useTripStore();
+  const { locale } = useLocale();
+  const { isVisited, favorites } = useTripStore();
 
   const {
     weatherContext,
@@ -421,7 +420,7 @@ export default function Home() {
                     }}
                     hasExplicitSelection={hasExplicitSelection}
                     forecastMap={weatherContext.forecastMap}
-                    originLabel={homeStation || undefined}
+                    originLabel={getLocalizedStationLabel(homeStation, locale)}
                     tripMode={resolvedApplied.tripMode}
                     allowAnyDate={false}
                   />

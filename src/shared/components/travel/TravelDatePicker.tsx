@@ -337,7 +337,6 @@ export default function TravelDatePicker({
         modifiers: dayModifiers,
         children,
         className: btnClassName,
-        ...restProps
       } = props;
       const iso = localDateToIso(day.date);
       const marker = getOriginForecastCalendarMarker(

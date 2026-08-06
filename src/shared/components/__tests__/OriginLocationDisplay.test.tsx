@@ -62,7 +62,7 @@ describe("OriginLocationDisplay", () => {
     state.locale = "ja";
     render();
     expect(host.textContent).toContain("出発地");
-    expect(host.textContent).toContain("中山駅、神奈川県");
+    expect(host.textContent).toContain("神奈川・中山駅");
     expect(host.textContent).not.toContain("Nakayama Station");
   });
 

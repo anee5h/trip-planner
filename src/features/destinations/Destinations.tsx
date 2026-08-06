@@ -35,6 +35,7 @@ import type { TravelConditionEvaluation } from "@/shared/services/recommendation
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useLocale } from "@/shared/context/LocaleContext";
+import { getLocalizedStationLabel } from "@/shared/utils/formatOriginLocation";
 import {
   getValidModes,
   scoreForCatalog,
@@ -1133,7 +1134,7 @@ export default function Destinations() {
         date={date}
         setDate={setDate}
         forecastMap={forecastMap}
-        originLabel={homeStation || undefined}
+        originLabel={getLocalizedStationLabel(homeStation, locale)}
         sortBy={sortBy}
         setSortBy={setSortBy}
         carMode={carMode}
