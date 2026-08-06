@@ -311,7 +311,7 @@ export default function Home() {
             </div>
 
             {weatherContext && (
-              <div className="grid w-full grid-cols-2 items-center gap-1 sm:w-[450px] sm:max-w-full sm:grid-cols-[minmax(0,0.8fr)_minmax(0,0.8fr)_minmax(0,1.5fr)] sm:gap-1.5">
+              <div className="grid w-full grid-cols-2 items-center gap-1 sm:w-[450px] sm:max-w-full sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(105px,125px)] sm:gap-1.5">
                 {weatherContext.tabs
                   .filter((tab) => tab.id === "today" || tab.id === "tomorrow")
                   .map((tab) => (

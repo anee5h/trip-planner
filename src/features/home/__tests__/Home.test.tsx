@@ -96,22 +96,28 @@ vi.mock("@/shared/context/AuthModalContext", () => ({
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
-    t: (key: string) =>
-      ({
-        "home.dateTabs.today": "Today",
-        "home.dateTabs.tomorrow": "Tomorrow",
-        "home.dateTabs.this_weekend": "This Weekend",
-        "home.weatherConditions.sunny": "Sunny",
-        "origin.cancel": "Cancel",
-        "home.tripModes.day_trip": "Day trip",
-        "home.tripModes.weekend_2d1n": "Weekend · 2 days / 1 night",
-        "home.weekendMatches": "Weekend getaways",
-        "home.weekendYourMatches": "Your best weekend getaways",
-        "home.weekendDates": "{{day1}} – {{day2}}",
-        "home.weekendNoResultsTitle": "No weekend-ready destinations found",
-        "home.accommodationPresets.custom": "Custom",
-        "home.weekendBadge": "2 days / 1 night",
-      })[key] ?? key,
+    t: (key: string, opts?: Record<string, number | string>) => {
+      const label =
+        {
+          "home.dateTabs.today": "Today",
+          "home.dateTabs.tomorrow": "Tomorrow",
+          "home.dateTabs.this_weekend": "This Weekend",
+          "home.weatherConditions.sunny": "Sunny",
+          "origin.cancel": "Cancel",
+          "home.tripModes.day_trip": "Day trip",
+          "home.tripModes.weekend_2d1n": "Weekend · 2 days / 1 night",
+          "home.weekendMatches": "Weekend getaways",
+          "home.weekendYourMatches": "Your best weekend getaways",
+          "home.weekendDates": "{{day1}} – {{day2}}",
+          "home.weekendNoResultsTitle": "No weekend-ready destinations found",
+          "home.accommodationPresets.custom": "Custom",
+          "home.weekendBadge": "2 days / 1 night",
+        }[key] ?? key;
+      if (!opts) return label;
+      return label.replace(/\{\{(\w+)\}\}/g, (_, name: string) =>
+        String(opts[name] ?? ""),
+      );
+    },
     i18n: { language: "en" },
   }),
   initReactI18next: {
@@ -315,6 +321,43 @@ describe("formatCompactDateRange", () => {
     );
     expect(formatCompactDateRange("2026-12-31", "2027-01-01", "ja")).toBe(
       "12/31〜1/1",
+    );
+  });
+});
+
+describe("weekend date capsule", () => {
+  it("keeps the compact visible label and the full range in aria/title", () => {
+    const container = renderHome();
+
+    // Switch to weekend and apply it.
+    const weekendToggle = Array.from(container.querySelectorAll("button")).find(
+      (btn) =>
+        btn.textContent?.includes("Weekend") &&
+        btn.getAttribute("role") === "radio",
+    );
+    act(() => weekendToggle?.click());
+    const applyBtn = Array.from(container.querySelectorAll("button")).find(
+      (b) => /home.find|home.view|home.update/.test(b.textContent ?? ""),
+    );
+    act(() => applyBtn?.click());
+
+    // Open the date picker and pick Sat, Aug 1 (the mock range starts 2026-08-01).
+    const rangeBtn = () =>
+      Array.from(container.querySelectorAll("button")).find((b) =>
+        b.querySelector(".lucide-calendar"),
+      );
+    act(() => rangeBtn()?.click());
+    const aug1Chip = Array.from(container.querySelectorAll("button")).find(
+      (b) => b.textContent?.includes("Sat, Aug 1"),
+    );
+    act(() => aug1Chip?.click());
+
+    const capsule = rangeBtn();
+    expect(capsule?.textContent).toContain("Aug 1–2");
+    expect(capsule?.getAttribute("aria-label")).toContain("Sat, Aug 1");
+    expect(capsule?.getAttribute("aria-label")).toContain("Sun, Aug 2");
+    expect(capsule?.getAttribute("title")).toBe(
+      capsule?.getAttribute("aria-label"),
     );
   });
 });

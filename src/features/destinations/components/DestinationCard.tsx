@@ -49,6 +49,7 @@ import {
   formatPrefecture,
   localizePlaceLabel,
 } from "@/shared/utils/placeLabels";
+import { pickSemanticDestinationTag } from "@/shared/utils/semanticTags";
 import { localizeRecommendationReason } from "@/shared/utils/recommendationLabels";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
 import { formatWeekendMinutes } from "@/shared/services/recommendation/WeekendAreaPolicy";
@@ -104,6 +105,12 @@ export default function DestinationCard({
   const parent =
     DestinationRelationshipService.getParentDestination(destination);
   const localizedParent = parent ? getLocalizedPlace(parent, locale) : null;
+  const semanticTag = pickSemanticDestinationTag(
+    destination,
+    localizedDestination,
+    locale,
+    localizedParent?.name ?? null,
+  );
   const area = getCityArea(destination.areaId);
   const locationLabel = localizedParent
     ? `${area ? area.name[locale] : localizedParent.name}${area ? ` · ${localizedParent.name}` : ""}`
@@ -215,34 +222,44 @@ export default function DestinationCard({
               #{rank}
             </Badge>
           )}
-          {destination.kind && (
-            <Badge className="bg-emerald-600/90 text-white font-extrabold capitalize backdrop-blur-md border border-white/20 shadow-md">
-              {localizePlaceLabel(destination.kind, locale)}
+          {wardGroup ? (
+            <Badge className="bg-emerald-600/90 text-white font-extrabold backdrop-blur-md border border-white/20 shadow-md">
+              {t("destination.tokyoWardsBadge")}
             </Badge>
-          )}
-          {destination.tags.slice(0, 1).map((tag) => {
-            let badgeStyle =
-              "bg-slate-900/70 hover:bg-slate-900 text-white backdrop-blur-md border border-white/20";
-            if (tag === "12 Original Keeps") {
-              badgeStyle =
-                "bg-amber-500 hover:bg-amber-600 text-white border-amber-300 font-bold shadow-md";
-            } else if (tag === "World's Tallest Tower") {
-              badgeStyle =
-                "bg-sky-600 hover:bg-sky-700 text-white border-sky-300 font-bold shadow-md";
-            } else if (tag === "Top 100 Castle") {
-              badgeStyle =
-                "bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold border-amber-300 shadow-md";
-            } else if (tag === "Free Observatory") {
-              badgeStyle =
-                "bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-300 font-bold shadow-md";
-            }
+          ) : (
+            <>
+              {destination.kind && (
+                <Badge className="bg-emerald-600/90 text-white font-extrabold capitalize backdrop-blur-md border border-white/20 shadow-md">
+                  {localizePlaceLabel(destination.kind, locale)}
+                </Badge>
+              )}
+              {semanticTag &&
+                (() => {
+                  const tag = semanticTag;
+                  let badgeStyle =
+                    "bg-slate-900/70 hover:bg-slate-900 text-white backdrop-blur-md border border-white/20";
+                  if (tag === "12 Original Keeps") {
+                    badgeStyle =
+                      "bg-amber-500 hover:bg-amber-600 text-white border-amber-300 font-bold shadow-md";
+                  } else if (tag === "World's Tallest Tower") {
+                    badgeStyle =
+                      "bg-sky-600 hover:bg-sky-700 text-white border-sky-300 font-bold shadow-md";
+                  } else if (tag === "Top 100 Castle") {
+                    badgeStyle =
+                      "bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold border-amber-300 shadow-md";
+                  } else if (tag === "Free Observatory") {
+                    badgeStyle =
+                      "bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-300 font-bold shadow-md";
+                  }
 
-            return (
-              <Badge key={tag} className={badgeStyle}>
-                {localizePlaceLabel(tag, locale)}
-              </Badge>
-            );
-          })}
+                  return (
+                    <Badge key={tag} className={badgeStyle}>
+                      {localizePlaceLabel(tag, locale)}
+                    </Badge>
+                  );
+                })()}
+            </>
+          )}
         </div>
         {!wardGroup && (
           <div className="absolute right-3 top-3 z-10 flex">

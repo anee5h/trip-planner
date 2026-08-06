@@ -193,3 +193,80 @@ describe("DestinationCard responsive content", () => {
     expect(bookmark?.getAttribute("class")).toContain("text-emerald-500");
   });
 });
+
+describe("DestinationCard badges", () => {
+  function renderDest(
+    overrides: Partial<Destination> & Record<string, unknown>,
+  ) {
+    const fixture = {
+      ...destination,
+      ...overrides,
+    } as Destination;
+    act(() =>
+      root.render(
+        <MemoryRouter>
+          <DestinationCard destination={fixture} />
+        </MemoryRouter>,
+      ),
+    );
+  }
+
+  function badgeContainerText(): string {
+    const badgeArea = Array.from(host.querySelectorAll("div")).find((el) =>
+      /absolute top-3 left-3/.test(el.className),
+    );
+    return badgeArea?.textContent ?? "";
+  }
+
+  it("Osaka City does not show an Osaka City tag (only the title does)", () => {
+    renderDest({
+      id: "osaka-city",
+      name: "Osaka City",
+      kind: "city",
+      tags: ["Osaka City", "Imperial Capital"],
+    });
+    expect(badgeContainerText()).toContain("Imperial Capital");
+    expect(badgeContainerText()).not.toContain("Osaka City");
+    // The title still carries the name.
+    expect(host.textContent).toContain("Osaka City");
+  });
+
+  it("a duplicate first tag does not block a meaningful later tag", () => {
+    renderDest({
+      id: "nagoya-city",
+      name: "Nagoya City",
+      kind: "city",
+      tags: ["Nagoya City", "12 Original Keeps"],
+    });
+    expect(badgeContainerText()).toContain("12 Original Keeps");
+    expect(badgeContainerText()).not.toContain("Nagoya City");
+  });
+
+  it("a destination with no meaningful tag shows only its kind badge", () => {
+    renderDest({
+      id: "beppu-city",
+      name: "Beppu City",
+      kind: "city",
+      tags: ["Beppu City"],
+    });
+    expect(badgeContainerText()).toContain("city");
+    expect(badgeContainerText()).not.toContain("Beppu City");
+  });
+
+  it("Tokyo 23 Wards shows its group badge and inherits no member badges", () => {
+    renderDest({
+      id: "tokyo-23-wards",
+      name: "Tokyo 23 Wards",
+      kind: "ward",
+      tags: ["Shibuya Ward"],
+      wardGroup: {
+        memberCount: 23,
+        placeCount: 57,
+        memberIds: ["shibuya-city"],
+        tripMode: "weekend_2d1n",
+      } as never,
+    });
+    expect(badgeContainerText()).toContain("destination.tokyoWardsBadge");
+    expect(badgeContainerText()).not.toContain("Shibuya Ward");
+  });
+});

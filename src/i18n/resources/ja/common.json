@@ -407,6 +407,7 @@
   "destination": {
     "tokyoWardsGroup": "東京23区",
     "tokyoWardsCount": "{{count}}区",
+    "tokyoWardsBadge": "23区",
     "tripModes": {
       "any": "すべて",
       "day_trip": "日帰り",

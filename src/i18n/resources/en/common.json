@@ -407,6 +407,7 @@
   "destination": {
     "tokyoWardsGroup": "Tokyo 23 Wards",
     "tokyoWardsCount": "{{count}} wards",
+    "tokyoWardsBadge": "23 Wards",
     "tripModes": {
       "any": "Any",
       "day_trip": "Day trip",
