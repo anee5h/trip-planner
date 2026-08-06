@@ -56,7 +56,8 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 200
+    "train": 200,
+    "shinkansen": 200
   },
   "reservation": "None required",
   "parking": "Public parking available",
@@ -67,7 +68,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["bitchu-matsuyama-castle", "korakuen-okayama"],
+    "featuredDestinationIds": ["korakuen-okayama"],
     "nearbyDestinationIds": [
       "hiroshima-city",
       "onomichi-city",

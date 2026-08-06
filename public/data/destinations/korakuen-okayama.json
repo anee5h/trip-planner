@@ -91,6 +91,11 @@
     "max": 5
   },
   "officialWebsite": "https://okayama-korakuen.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Okayama:okayama"
+  "businessHours": "07:30 - 18:00 (Mar 20-Sep 30) / 08:00 - 17:00 (Oct 1-Mar 19)",
+  "municipalityId": "Okayama:okayama",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-06",
+    "sourceUrl": "https://www.okayama-korakuen.jp/",
+    "lastAdmission": "17:45 (Mar 20-Sep 30) / 16:45 (Oct 1-Mar 19)"
+  }
 }

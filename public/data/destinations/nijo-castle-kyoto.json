@@ -83,11 +83,8 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
-    "featuredDestinationIds": [
-      "nikko-toshogu-shrine-tochigi",
-      "kegon-falls-nikko"
-    ],
-    "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"],
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": [],
     "parentDestinationId": "kyoto-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/1280px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg",

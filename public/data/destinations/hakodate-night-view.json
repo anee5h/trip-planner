@@ -84,9 +84,9 @@
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
     "parentDestinationId": "hakodate-city",
-    "featuredDestinationIds": ["ashigara", "jogashima"],
-    "nearbyDestinationIds": ["shibuya-city", "chiba-city", "saitama-city"],
-    "relatedDestinationIds": ["kusatsu-town", "yufu-city"]
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": [],
+    "relatedDestinationIds": []
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg",
   "budgetBreakdown": {
