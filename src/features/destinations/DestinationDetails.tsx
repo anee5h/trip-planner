@@ -15,6 +15,7 @@ import CollectionBadge from "@/shared/components/ui/CollectionBadge";
 import { getCollectionById } from "@/shared/data/collections";
 import { sortCollections } from "@/shared/utils/collections";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationService";
+import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import {
   getEligibleOriginModes,
   hasFerryRoute,
@@ -649,6 +650,25 @@ export default function DestinationDetails() {
     ferryTemporal,
   ]);
 
+  // Origin-aware ground durations: with an explicit origin, rows show only
+  // verified estimates; without an origin they show catalogue reference
+  // values (neutral browsing makes no personalized claim).
+  const groundMinutesFor = (
+    mode: "train" | "shinkansen" | "bus" | "car" | "my_car",
+  ): number | undefined => {
+    if (homeStationCoords && destination) {
+      const estimate = getOriginAwareTransportEstimate(
+        destination,
+        { homeStationCoords },
+        [mode],
+      );
+      return estimate
+        ? Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2)
+        : undefined;
+    }
+    return destination?.transportOptions?.[mode];
+  };
+
   const formatTravelTimeMinutes = (minutes: number | undefined): string => {
     if (minutes === undefined || minutes <= 0) return "N/A";
     if (minutes < 60) return `${minutes}m`;
@@ -669,9 +689,9 @@ export default function DestinationDetails() {
       return Boolean(ferryEstimate);
     }
     if (
-      !destination?.transportOptions?.[
-        mode as keyof typeof destination.transportOptions
-      ]
+      groundMinutesFor(
+        mode as "train" | "shinkansen" | "bus" | "car" | "my_car",
+      ) === undefined
     ) {
       return false;
     }
@@ -691,16 +711,16 @@ export default function DestinationDetails() {
         continue;
       }
       if (
-        destination?.transportOptions?.[
-          mode as keyof typeof destination.transportOptions
-        ] !== undefined &&
+        groundMinutesFor(
+          mode as "train" | "shinkansen" | "bus" | "car" | "my_car",
+        ) !== undefined &&
         (!activeModes || activeModes.includes(mode))
       ) {
         modes.push(mode);
       }
     }
     return modes;
-  }, [destination, activeModes, eligibleModes]);
+  }, [destination, activeModes, eligibleModes, homeStationCoords]);
 
   const defaultMode = useMemo(() => {
     if (availableModes.length === 0) return null;
@@ -708,13 +728,13 @@ export default function DestinationDetails() {
       (mode) =>
         [
           mode,
-          destination?.transportOptions?.[
-            mode as keyof typeof destination.transportOptions
-          ] ?? 999,
+          groundMinutesFor(
+            mode as "train" | "shinkansen" | "bus" | "car" | "my_car",
+          ) ?? 999,
         ] as [string, number],
     );
     return entries.reduce((min, curr) => (curr[1] < min[1] ? curr : min))[0];
-  }, [destination, availableModes]);
+  }, [destination, availableModes, homeStationCoords]);
 
   const [selectedTransportState, setSelectedTransport] = useState<
     string | null
@@ -1233,7 +1253,7 @@ export default function DestinationDetails() {
                           </div>
                         )}
                         {isModeVisible("train") &&
-                          destination.transportOptions?.train && (
+                          groundMinutesFor("train") !== undefined && (
                             <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                               <span className="text-slate-500 flex items-center">
                                 <Train className="w-4 h-4 mr-1.5" />{" "}
@@ -1242,7 +1262,7 @@ export default function DestinationDetails() {
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
                                   {formatTravelTimeMinutes(
-                                    destination.transportOptions.train,
+                                    groundMinutesFor("train"),
                                   )}
                                 </div>
                                 <div className="text-xs text-slate-400">
@@ -1262,7 +1282,7 @@ export default function DestinationDetails() {
                             </div>
                           )}
                         {isModeVisible("shinkansen") &&
-                          destination.transportOptions?.shinkansen && (
+                          groundMinutesFor("shinkansen") !== undefined && (
                             <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                               <span className="text-slate-500 flex items-center">
                                 <TrainFront className="w-4 h-4 mr-1.5" />{" "}
@@ -1271,7 +1291,7 @@ export default function DestinationDetails() {
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
                                   {formatTravelTimeMinutes(
-                                    destination.transportOptions.shinkansen,
+                                    groundMinutesFor("shinkansen"),
                                   )}
                                 </div>
                                 <div className="text-xs text-slate-400">
@@ -1291,7 +1311,7 @@ export default function DestinationDetails() {
                             </div>
                           )}
                         {isModeVisible("bus") &&
-                          destination.transportOptions?.bus && (
+                          groundMinutesFor("bus") !== undefined && (
                             <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                               <span className="text-slate-500 flex items-center">
                                 <Bus className="w-4 h-4 mr-1.5" />{" "}
@@ -1300,7 +1320,7 @@ export default function DestinationDetails() {
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
                                   {formatTravelTimeMinutes(
-                                    destination.transportOptions.bus,
+                                    groundMinutesFor("bus"),
                                   )}
                                 </div>
                                 <div className="text-xs text-slate-400">
@@ -1320,7 +1340,7 @@ export default function DestinationDetails() {
                             </div>
                           )}
                         {isModeVisible("car") &&
-                          destination.transportOptions?.car && (
+                          groundMinutesFor("car") !== undefined && (
                             <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                               <span className="text-slate-500 flex items-center">
                                 <Car className="w-4 h-4 mr-1.5" />{" "}
@@ -1329,7 +1349,7 @@ export default function DestinationDetails() {
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
                                   {formatTravelTimeMinutes(
-                                    destination.transportOptions.car,
+                                    groundMinutesFor("car"),
                                   )}
                                 </div>
                                 <div className="text-xs text-slate-400">
@@ -1349,7 +1369,7 @@ export default function DestinationDetails() {
                             </div>
                           )}
                         {isModeVisible("my_car") &&
-                          destination.transportOptions?.my_car && (
+                          groundMinutesFor("my_car") !== undefined && (
                             <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                               <span className="text-slate-500 flex items-center">
                                 <Car className="w-4 h-4 mr-1.5" />{" "}
@@ -1358,7 +1378,7 @@ export default function DestinationDetails() {
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
                                   {formatTravelTimeMinutes(
-                                    destination.transportOptions.my_car,
+                                    groundMinutesFor("my_car"),
                                   )}
                                 </div>
                                 <div className="text-xs text-slate-400">

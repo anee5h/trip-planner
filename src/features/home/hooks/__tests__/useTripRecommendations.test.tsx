@@ -204,4 +204,23 @@ describe("useTripRecommendations", () => {
       expect(ctx.accommodationAllowance).toBe(15000);
     }
   });
+
+  it("weekend roulette does not perform adjacent day-trip duration expansion", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => root!.render(<WeekendHarness />));
+
+    const rouletteContexts = getRecommendations.mock.calls
+      .slice(1)
+      .map(([, context]) => context as { tripDuration?: string; vibe?: string })
+      .filter((context) => context.vibe === "any");
+
+    expect(rouletteContexts.length).toBeGreaterThan(0);
+    for (const ctx of rouletteContexts) {
+      // Weekend mode evaluates exactly the selected duration — never the
+      // adjacent day-trip bands.
+      expect(ctx.tripDuration).toBe("fullDay");
+    }
+  });
 });

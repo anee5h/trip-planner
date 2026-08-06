@@ -5,7 +5,7 @@ import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
 import { afterEach, describe, it, expect, vi } from "vitest";
-import Home from "../Home";
+import Home, { formatCompactDate, formatCompactDateRange } from "../Home";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -280,5 +280,41 @@ describe("Home Integration Tests", () => {
     });
     // After applying, the heading should show weekend user matches
     expect(container.textContent).toContain("Your best weekend getaways");
+  });
+});
+
+describe("formatCompactDateRange", () => {
+  it("same month renders Aug 8–9", () => {
+    expect(formatCompactDateRange("2026-08-08", "2026-08-09", "en")).toBe(
+      "Aug 8–9",
+    );
+  });
+
+  it("month rollover keeps both months", () => {
+    expect(formatCompactDateRange("2026-08-30", "2026-08-31", "en")).toBe(
+      "Aug 30–31",
+    );
+    expect(formatCompactDateRange("2026-09-30", "2026-10-01", "en")).toBe(
+      "Sep 30 – Oct 1",
+    );
+  });
+
+  it("year rollover renders Dec 31 – Jan 1", () => {
+    expect(formatCompactDateRange("2026-12-31", "2027-01-01", "en")).toBe(
+      "Dec 31 – Jan 1",
+    );
+  });
+
+  it("single date formats compactly", () => {
+    expect(formatCompactDate("2026-08-08", "en")).toBe("Aug 8");
+  });
+
+  it("Japanese range uses 8/8〜8/9", () => {
+    expect(formatCompactDateRange("2026-08-08", "2026-08-09", "ja")).toBe(
+      "8/8〜8/9",
+    );
+    expect(formatCompactDateRange("2026-12-31", "2027-01-01", "ja")).toBe(
+      "12/31〜1/1",
+    );
   });
 });
