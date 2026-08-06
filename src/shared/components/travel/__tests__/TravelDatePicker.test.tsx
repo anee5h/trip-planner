@@ -553,4 +553,84 @@ describe("TravelDatePicker Component", () => {
     expect(host!.querySelector('input[type="time"]')).toBeNull();
     expect(host!.querySelector('select[name="hour"]')).toBeNull();
   });
+
+  it("21. When forecastMap starts tomorrow, Today remains selectable without a marker and Tomorrow has a marker", () => {
+    const handleChange = vi.fn();
+    const tomorrowMap = new Map<string, DayForecastData>([
+      [
+        tomorrowIso,
+        {
+          date: tomorrowIso,
+          maxTemp: 25,
+          minTemp: 18,
+          weatherCode: 0,
+          desc: "Sunny",
+          icon: "sun",
+        },
+      ],
+    ]);
+
+    act(() => {
+      root!.render(
+        <TravelDatePicker
+          value={tomorrowIso}
+          onChange={handleChange}
+          tripMode="day_trip"
+          forecastMap={tomorrowMap}
+          locale="en"
+        />,
+      );
+    });
+
+    const trigger = host!.querySelector("button")!;
+    expect(trigger.textContent).toContain("Tomorrow");
+
+    act(() => trigger.click());
+
+    const todayDayBtn = host!.querySelector(
+      `button[data-date="${todayIso}"]`,
+    ) as HTMLButtonElement;
+    expect(todayDayBtn).not.toBeNull();
+    expect(todayDayBtn.disabled).toBe(false);
+    expect(todayDayBtn.textContent).not.toContain("°");
+
+    const tomorrowDayBtn = host!.querySelector(
+      `button[data-date="${tomorrowIso}"]`,
+    ) as HTMLButtonElement;
+    expect(tomorrowDayBtn).not.toBeNull();
+    expect(tomorrowDayBtn.textContent).toContain("25°");
+
+    act(() => todayDayBtn.click());
+    expect(handleChange).toHaveBeenCalledWith(todayIso);
+  });
+
+  it("22. Accessibility keyboard navigation: Escape closes popover and restores focus to trigger", () => {
+    const handleChange = vi.fn();
+    act(() => {
+      root!.render(
+        <TravelDatePicker
+          value={todayIso}
+          onChange={handleChange}
+          tripMode="day_trip"
+          locale="en"
+        />,
+      );
+    });
+
+    const trigger = host!.querySelector("button") as HTMLButtonElement;
+    trigger.focus();
+    act(() => trigger.click());
+
+    const dialog = host!.querySelector('[role="dialog"]');
+    expect(dialog).not.toBeNull();
+
+    act(() => {
+      dialog?.dispatchEvent(
+        new KeyboardEvent("keydown", { key: "Escape", bubbles: true }),
+      );
+    });
+
+    expect(host!.querySelector('[role="dialog"]')).toBeNull();
+    expect(document.activeElement).toBe(trigger);
+  });
 });

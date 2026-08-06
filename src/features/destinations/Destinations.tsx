@@ -1134,7 +1134,6 @@ export default function Destinations() {
         setDate={setDate}
         forecastMap={forecastMap}
         originLabel={homeStation || undefined}
-        minDate={explorerWeatherContext?.minDate}
         sortBy={sortBy}
         setSortBy={setSortBy}
         carMode={carMode}

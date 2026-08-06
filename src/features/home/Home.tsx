@@ -127,6 +127,9 @@ export default function Home() {
   const stateDate = useMemo(() => {
     if (customDate) return normalizeTravelDateParam(customDate) ?? undefined;
     if (activeTabId === "tomorrow") return tomorrowIso;
+    if (activeTabId !== "today" && activeTabId !== "tomorrow") {
+      return normalizeTravelDateParam(activeTabId) ?? undefined;
+    }
     return undefined;
   }, [customDate, activeTabId, tomorrowIso]);
 
@@ -134,11 +137,7 @@ export default function Home() {
   // back/forward navigation restores state before the sync effect runs.
   useEffect(() => {
     if (!weatherContext) return; // state not ready; first load handled below
-    const urlDate = normalizeTravelDateParam(
-      searchParams.get("date"),
-      weatherContext.minDate,
-    );
-
+    const urlDate = normalizeTravelDateParam(searchParams.get("date"));
     const current = stateDate;
 
     // Invalid or past date: normalize the URL safely (replace, no history),
@@ -153,20 +152,18 @@ export default function Home() {
       return;
     }
 
-    // State already aligned with this URL value (also re-anchors the loop
-    // guard), or this URL value was already applied to state.
-    if (urlDate === lastAppliedUrlRef.current) return;
-
-    // Our own URL write is in-flight through the router transition.
-    // Wait until searchParams catches up to lastWrittenUrlRef before restoring.
-    if (lastWrittenUrlRef.current !== undefined) {
-      if (urlDate === lastWrittenUrlRef.current) {
-        lastWrittenUrlRef.current = undefined;
-        lastAppliedUrlRef.current = urlDate;
-      }
-      return;
+    // Clear own in-flight write ref if the URL has caught up to it
+    if (urlDate === lastWrittenUrlRef.current) {
+      lastWrittenUrlRef.current = undefined;
     }
 
+    // State already aligned with this URL value (also re-anchors the loop
+    // guard), or this URL value was already applied to state.
+    if (urlDate === current) {
+      lastAppliedUrlRef.current = urlDate;
+      return;
+    }
+    if (urlDate === lastAppliedUrlRef.current) return;
     lastAppliedUrlRef.current = urlDate;
 
     if (urlDate !== undefined) {
@@ -186,7 +183,7 @@ export default function Home() {
       setCustomDate(null);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams, weatherContext]);
+  }, [searchParams, weatherContext, stateDate]);
 
   // state → URL synchronization. Any non-restore state change is a
   // deliberate selection and pushes a history entry; invalid/past URL
@@ -194,10 +191,7 @@ export default function Home() {
   // replace and never reaches this effect.
   useEffect(() => {
     if (!weatherContext) return; // wait for the initial restore to settle
-    const urlDate = normalizeTravelDateParam(
-      searchParams.get("date"),
-      weatherContext.minDate,
-    );
+    const urlDate = normalizeTravelDateParam(searchParams.get("date"));
     if (stateDate === urlDate) return; // aligned
     if (restoreInFlightRef.current) {
       // URL→state restoration applied in this commit; never overwrite it.
@@ -214,7 +208,6 @@ export default function Home() {
     if (stateDate) params.set("date", stateDate);
     else params.delete("date");
     lastWrittenUrlRef.current = stateDate;
-    lastAppliedUrlRef.current = stateDate;
     setSearchParams(params);
   }, [weatherContext, stateDate, searchParams, setSearchParams]);
 
@@ -422,7 +415,6 @@ export default function Home() {
                     }}
                     forecastMap={weatherContext.forecastMap}
                     originLabel={homeStation || undefined}
-                    minDate={weatherContext.minDate}
                     tripMode={resolvedApplied.tripMode}
                     allowAnyDate={false}
                   />

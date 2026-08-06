@@ -114,7 +114,6 @@ interface DestinationFiltersProps {
   setViewMode: (val: "grid" | "map") => void;
   forecastMap?: ReadonlyMap<string, DayForecastData>;
   originLabel?: string;
-  minDate?: string;
   totalResultsCount?: number;
   onReset: () => void;
 }
@@ -166,7 +165,6 @@ export default function DestinationFilters({
   setViewMode: _setViewMode,
   forecastMap,
   originLabel,
-  minDate,
   totalResultsCount = 0,
   onReset,
 }: DestinationFiltersProps) {
@@ -595,7 +593,6 @@ export default function DestinationFilters({
               tripMode={tripMode === "any" ? undefined : tripMode}
               forecastMap={forecastMap}
               originLabel={originLabel}
-              minDate={minDate}
               allowAnyDate={true}
             />
           </div>

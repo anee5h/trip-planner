@@ -146,7 +146,7 @@ export default function TravelDatePicker({
   const tomorrowIso = useMemo(() => getNextCalendarDate(todayIso), [todayIso]);
 
   const minDateIso = propMinDate || todayIso;
-  const minDateObj = useMemo(() => travelDateToDate(minDateIso), [minDateIso]);
+  const minDateObj = useMemo(() => travelDateToDate(todayIso), [todayIso]);
 
   const [displayedMonth, setDisplayedMonth] = useState<Date>(() => {
     if (value) return travelDateToDate(value);

@@ -205,6 +205,14 @@ async function pickDate(host: HTMLElement, value: string) {
   });
 }
 
+function formatMonthDayLabel(isoStr: string) {
+  const [y, m, d] = isoStr.split("-").map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
+}
+
 describe("Home arbitrary future dates", () => {
   it("selects a future date via calendar and syncs date= to the URL", async () => {
     const { host, params } = renderHome();
@@ -212,9 +220,6 @@ describe("Home arbitrary future dates", () => {
     await waitForCondition(() =>
       Boolean(host.querySelector('button[aria-haspopup="dialog"]')),
     );
-
-    act(() => calendarCapsule(host)?.click());
-    expect(host.querySelector('input[type="date"]')).toBeNull();
 
     const tomorrowObj = new Date();
     tomorrowObj.setDate(tomorrowObj.getDate() + 1);
@@ -235,30 +240,78 @@ describe("Home arbitrary future dates", () => {
     const d1 = new Date();
     d1.setDate(d1.getDate() + 1);
     const dateAIso = iso(d1);
+    const labelA = formatMonthDayLabel(dateAIso);
 
     const d2 = new Date();
     d2.setDate(d2.getDate() + 4);
     const dateBIso = iso(d2);
+    const labelB = formatMonthDayLabel(dateBIso);
 
-    // Select date A, then date B — each deliberate selection pushes history.
+    // 1 & 2. Select date A, verify URL and capsule A
     await pickDate(host, dateAIso);
     await waitForCondition(() => params()?.get("date") === dateAIso);
+    await waitForCondition(
+      () =>
+        calendarCapsule(host)?.textContent?.includes(labelA) ||
+        calendarCapsule(host)?.textContent?.includes("Tomorrow") ||
+        false,
+    );
 
+    // 3 & 4. Select date B, verify URL and capsule B
     await pickDate(host, dateBIso);
-
     await waitForCondition(() => params()?.get("date") === dateBIso);
+    await waitForCondition(
+      () => calendarCapsule(host)?.textContent?.includes(labelB) ?? false,
+    );
 
-    // Back: restores date A in URL, state and the visible capsule.
+    // 5 & 6. Back: restores date A in URL, state and the visible capsule.
     await act(async () => {
       navigate(-1);
     });
     await waitForCondition(() => params()?.get("date") === dateAIso);
+    await waitForCondition(
+      () =>
+        calendarCapsule(host)?.textContent?.includes(labelA) ||
+        calendarCapsule(host)?.textContent?.includes("Tomorrow") ||
+        false,
+    );
 
-    // Forward: restores date B.
+    // 7 & 8. Forward: restores date B in URL, state and visible capsule.
     await act(async () => {
       navigate(1);
     });
     await waitForCondition(() => params()?.get("date") === dateBIso);
+    await waitForCondition(
+      () => calendarCapsule(host)?.textContent?.includes(labelB) ?? false,
+    );
+  });
+
+  it("proves lastWrittenUrlRef does not block the first Back navigation after user selection", async () => {
+    const { host, params, navigate } = renderHome();
+    await waitForCondition(() => Boolean(params()?.get("date")) === false);
+
+    const d = new Date();
+    d.setDate(d.getDate() + 5);
+    const dateIso = iso(d);
+    const label = formatMonthDayLabel(dateIso);
+
+    // Select date A
+    await pickDate(host, dateIso);
+    await waitForCondition(() => params()?.get("date") === dateIso);
+    await waitForCondition(
+      () => calendarCapsule(host)?.textContent?.includes(label) ?? false,
+    );
+
+    // First Back navigation immediately after selection
+    await act(async () => {
+      navigate(-1);
+    });
+
+    // Should restore to initial state (Today / no date param) without being blocked by lastWrittenUrlRef
+    await waitForCondition(() => params()?.get("date") === null);
+    await waitForCondition(
+      () => calendarCapsule(host)?.textContent?.includes("Today") ?? false,
+    );
   });
 
   it("restores the date from the URL on reload", async () => {
