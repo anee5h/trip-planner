@@ -34,7 +34,7 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   interests: [] as string[],
   viewMode: "grid" as "grid" | "map",
   currentPage: 1,
-  tripMode: "day_trip" as TripMode,
+  tripMode: "any" as "any" | TripMode,
   accommodationAllowance: 15000,
 };
 
@@ -141,7 +141,11 @@ export function parseDestinationSearchParams(
       Math.floor(parseNumber(params.get("page"), defaults.currentPage)),
     ),
     tripMode:
-      params.get("tripMode") === "weekend_2d1n" ? "weekend_2d1n" : "day_trip",
+      params.get("tripMode") === "weekend_2d1n"
+        ? "weekend_2d1n"
+        : params.get("tripMode") === "day_trip"
+          ? "day_trip"
+          : "any",
     accommodationAllowance: (() => {
       const raw = params.get("stay");
       if (raw === null || !/^\d+$/.test(raw))
@@ -180,6 +184,7 @@ export function serializeDestinationSearchParams(
   params.set("vibe", state.vibe);
   params.set("duration", state.tripDuration);
   if (state.tripMode === "weekend_2d1n") params.set("tripMode", "weekend_2d1n");
+  else if (state.tripMode === "day_trip") params.set("tripMode", "day_trip");
   if (state.accommodationAllowance !== 15000)
     params.set("stay", String(state.accommodationAllowance));
   params.set("walking", state.walkingIntensity);
@@ -227,6 +232,8 @@ export function serializePlannerSearchParams(input: {
     if (input.accommodationAllowance !== undefined) {
       params.set("stay", String(input.accommodationAllowance));
     }
+  } else if (input.tripMode === "day_trip") {
+    params.set("tripMode", "day_trip");
   }
   return params.toString();
 }

@@ -237,13 +237,13 @@ describe("destinationSearchParams", () => {
   // Weekend tripMode & accommodation allowance (stay)
   // -------------------------------------------------------------------------
 
-  it("defaults tripMode to day_trip and accommodationAllowance to 15000", () => {
+  it("defaults tripMode to any and accommodationAllowance to 15000", () => {
     const parsed = parseDestinationSearchParams(new URLSearchParams(""));
-    expect(parsed.tripMode).toBe("day_trip");
+    expect(parsed.tripMode).toBe("any");
     expect(parsed.accommodationAllowance).toBe(15000);
   });
 
-  it("day_trip omits tripMode and stay params in serialization", () => {
+  it("any omits tripMode and stay params in serialization", () => {
     const state = { ...DEFAULT_DESTINATION_EXPLORER_STATE };
     const serialized = serializeDestinationSearchParams(state).toString();
     expect(serialized).not.toContain("tripMode=");

@@ -95,8 +95,8 @@ interface DestinationFiltersProps {
   setVibe: (val: string) => void;
   tripDuration: TripDuration;
   setTripDuration: (val: TripDuration) => void;
-  tripMode: TripMode;
-  setTripMode: (val: TripMode) => void;
+  tripMode: "any" | TripMode;
+  setTripMode: (val: "any" | TripMode) => void;
   walkingIntensity: string;
   setWalkingIntensity: (val: string) => void;
   suitabilities: string[];
@@ -1034,6 +1034,17 @@ export default function DestinationFilters({
                   </span>
                 </div>
                 <div className="flex items-center gap-0.5 p-1 bg-slate-100 dark:bg-slate-900 rounded-xl">
+                  <button
+                    type="button"
+                    onClick={() => setTripMode("any")}
+                    className={`flex-1 rounded-lg px-3 py-2 text-xs font-bold transition-all ${
+                      tripMode !== "day_trip" && tripMode !== "weekend_2d1n"
+                        ? "bg-emerald-600 text-white shadow-sm"
+                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+                    }`}
+                  >
+                    {isJa ? "すべて" : "Any"}
+                  </button>
                   <button
                     type="button"
                     onClick={() => setTripMode("day_trip")}
