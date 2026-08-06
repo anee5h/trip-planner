@@ -204,6 +204,150 @@ describe("runRecommendationPipeline — weekend mode", () => {
     expect(results.map((r) => r.id)).not.toContain("small");
   });
 
+  it("origin forecast conditions never change destination ranking (weekend)", () => {
+    const d = dest({
+      id: "origin-weather-neutral",
+      role: "hub",
+      transportOptions: { train: 90 },
+      indoorPercent: 30,
+      recommendedVisitHours: { min: 1, max: 10 },
+    });
+    const forecastFor = (desc: string) =>
+      new Map<
+        string,
+        import("@/shared/services/weather/WeatherTabService").DayForecastData
+      >([
+        [
+          "2026-08-05",
+          {
+            date: "2026-08-05",
+            maxTemp: 30,
+            minTemp: 22,
+            weatherCode: 61,
+            desc,
+            icon: "rain",
+          },
+        ],
+        [
+          "2026-08-06",
+          {
+            date: "2026-08-06",
+            maxTemp: 32,
+            minTemp: 24,
+            weatherCode: 61,
+            desc,
+            icon: "rain",
+          },
+        ],
+      ]);
+    const makeCtx = (desc: string) =>
+      ctx({
+        tripMode: "weekend_2d1n",
+        travelDates: { day1: "2026-08-05", day2: "2026-08-06" },
+        forecastMap: forecastFor(desc),
+        ferryTemporal: { travelDate: new Date(2026, 7, 5, 12) },
+        destinationWeather: { preferred: "any" },
+      });
+
+    const rainy = runRecommendationPipeline([d], makeCtx("Rainy"));
+    const clear = runRecommendationPipeline([d], makeCtx("Clear"));
+
+    expect(rainy).toHaveLength(1);
+    expect(clear).toHaveLength(1);
+    // Ranking is identical: origin conditions never score destinations.
+    expect(rainy[0].score).toBe(clear[0].score);
+    // Weekend weather score stays zero without destination forecast.
+    expect(rainy[0].pipeline.scoreContributions.weekendWeather).toBe(0);
+    expect(clear[0].pipeline.scoreContributions.weekendWeather).toBe(0);
+    // No destination weather days are stored from origin data.
+    expect(rainy[0].weekend!.weatherDays).toEqual([]);
+    // No weekendWeather* destination reason is generated from origin weather.
+    const codes = rainy[0].match.reasons.map((r) => r.code);
+    expect(codes.some((c) => c.startsWith("weekendWeather"))).toBe(false);
+    // Date-source labels (forecast/mixed/seasonal/unknown) are preserved.
+    expect(codes).toContain("conditionForecastRange");
+  });
+
+  it("origin forecast temperature never changes day-trip ranking", () => {
+    const d = dest({
+      id: "origin-temp-neutral",
+      transportOptions: { train: 40 },
+      recommendedVisitHours: { min: 8, max: 9 },
+    });
+    const forecastFor = (temp: number) =>
+      new Map<
+        string,
+        import("@/shared/services/weather/WeatherTabService").DayForecastData
+      >([
+        [
+          "2026-08-05",
+          {
+            date: "2026-08-05",
+            maxTemp: temp,
+            minTemp: 20,
+            weatherCode: 0,
+            desc: "Clear",
+            icon: "sun",
+          },
+        ],
+      ]);
+    const makeCtx = (temp: number) =>
+      ctx({
+        tripDuration: "fullDay",
+        travelDates: { day1: "2026-08-05" },
+        forecastMap: forecastFor(temp),
+      });
+
+    const cold = runRecommendationPipeline([d], makeCtx(5));
+    const hot = runRecommendationPipeline([d], makeCtx(35));
+    expect(cold[0].score).toBe(hot[0].score);
+    expect(cold[0].match.reasons.length).toBe(hot[0].match.reasons.length);
+  });
+
+  it("origin forecast rain vs clear leaves roulette-equivalent pools identical", () => {
+    const d1 = dest({
+      id: "d1",
+      transportOptions: { train: 40 },
+      recommendedVisitHours: { min: 2, max: 3 },
+      ratings: { overall: 4.5, food: 4.5, summer: 5, winter: 5 },
+    });
+    const d2 = dest({
+      id: "d2",
+      transportOptions: { train: 60 },
+      recommendedVisitHours: { min: 1, max: 2 },
+      ratings: { overall: 4.0, food: 4.0, summer: 5, winter: 5 },
+    });
+    const forecastFor = (desc: string) =>
+      new Map<
+        string,
+        import("@/shared/services/weather/WeatherTabService").DayForecastData
+      >([
+        [
+          "2026-08-05",
+          {
+            date: "2026-08-05",
+            maxTemp: 30,
+            minTemp: 22,
+            weatherCode: 61,
+            desc,
+            icon: "rain",
+          },
+        ],
+      ]);
+    const makeCtx = (desc: string) =>
+      ctx({
+        travelDates: { day1: "2026-08-05" },
+        forecastMap: forecastFor(desc),
+      });
+
+    const rainyPool = runRecommendationPipeline([d1, d2], makeCtx("Rainy"));
+    const clearPool = runRecommendationPipeline([d1, d2], makeCtx("Clear"));
+    expect(rainyPool.map((r) => r.id)).toEqual(clearPool.map((r) => r.id));
+    expect(rainyPool.map((r) => r.score)).toEqual(
+      clearPool.map((r) => r.score),
+    );
+  });
+
   it("attaches weekend metadata to results", () => {
     const d = dest({
       id: "d",
@@ -217,7 +361,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
       ctx({
         tripMode: "weekend_2d1n",
         accommodationAllowance: 20000,
-        weather: {
+        destinationWeather: {
           days: [
             { date: "2026-08-05", condition: "clear" },
             { date: "2026-08-06", condition: "cloudy" },
@@ -259,7 +403,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
       ctx({
         // weekend-specific fields
         accommodationAllowance: 15000,
-        weather: {
+        destinationWeather: {
           days: [{ date: "2026-08-05", condition: "clear" }],
         },
       }),
@@ -317,7 +461,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
 
     const clearCtx = ctx({
       tripMode: "weekend_2d1n",
-      weather: {
+      destinationWeather: {
         days: [
           { date: "2026-08-05", condition: "clear" },
           { date: "2026-08-06", condition: "cloudy" },
@@ -326,7 +470,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
     });
     const stormyCtx = ctx({
       tripMode: "weekend_2d1n",
-      weather: {
+      destinationWeather: {
         days: [
           { date: "2026-08-05", condition: "clear" },
           { date: "2026-08-06", condition: "stormy" },
@@ -363,7 +507,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
 
     const stormyCtx = ctx({
       tripMode: "weekend_2d1n",
-      weather: {
+      destinationWeather: {
         days: [
           { date: "2026-08-05", condition: "stormy" },
           { date: "2026-08-06", condition: "rainy" },
@@ -533,7 +677,7 @@ describe("weekend weather 2-day enforcement", () => {
       ctx({
         tripMode: "weekend_2d1n",
         budget: 200000,
-        weather: {
+        destinationWeather: {
           days: [
             { date: "2026-08-05", condition: "clear" },
             { date: "2026-08-06", condition: "rainy" },
@@ -546,7 +690,7 @@ describe("weekend weather 2-day enforcement", () => {
       ctx({
         tripMode: "weekend_2d1n",
         budget: 200000,
-        weather: {
+        destinationWeather: {
           days: [
             { date: "2026-08-05", condition: "clear" },
             { date: "2026-08-06", condition: "rainy" },

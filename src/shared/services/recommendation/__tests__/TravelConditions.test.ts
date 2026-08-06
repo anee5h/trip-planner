@@ -518,7 +518,6 @@ describe("trip-date ferry eligibility (pipeline enforcement)", () => {
       publicModes: ["ferry"],
       partySize: 2,
       budgetTier: "standard",
-      weather: {},
       visitedIds: [],
       homeStationCoords: WAKAYAMA_COORDS,
       tripDuration: "weekend",

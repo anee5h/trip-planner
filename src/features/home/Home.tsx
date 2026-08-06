@@ -15,9 +15,7 @@ import { useAuth } from "@/shared/hooks/useAuth";
 import {
   getTabWeatherSummary,
   getNextCalendarDate,
-  getForecastDaysForRange,
 } from "@/shared/services/weather/WeatherTabService";
-import { normalizeWeatherDescription } from "@/shared/services/recommendation/RecommendationContext";
 import {
   deriveTripDates,
   normalizeTravelDateParam,
@@ -290,22 +288,6 @@ export default function Home() {
             ? Cloud
             : Sun;
 
-  // Weekend weather forecast days derivation
-  const weatherDays = useMemo(() => {
-    if (resolvedApplied.tripMode !== "weekend_2d1n") return undefined;
-    if (!weatherContext) return undefined;
-    const day1Iso =
-      customDate ?? currentTab?.dates?.[0] ?? weatherContext.minDate;
-    if (!day1Iso) return undefined;
-    return getForecastDaysForRange(weatherContext.forecastMap, day1Iso, 2).map(
-      (d) => ({
-        date: d.date,
-        condition: normalizeWeatherDescription(d.desc),
-        temperatureC: d.maxTemp,
-      }),
-    );
-  }, [resolvedApplied.tripMode, customDate, currentTab, weatherContext]);
-
   const selectedDate =
     customDate || currentTab?.dates?.[0] || weatherContext?.minDate;
   const travelDates = useMemo(() => {
@@ -324,9 +306,8 @@ export default function Home() {
   const { recommendedDestinations, rouletteCandidates, rouletteExpansion } =
     useTripRecommendations({
       allDestinations,
-      actualWeather: currentSituation
-        ? { desc: currentSituation.desc, temperatureC: currentSituation.temp }
-        : undefined,
+      // The live origin forecast is display-only (date tabs / picker); it is
+      // never passed into destination recommendation scoring.
       vibe: resolvedApplied.vibe,
       budget: resolvedApplied.budget,
       carMode: resolvedApplied.carMode,
@@ -341,7 +322,6 @@ export default function Home() {
       rouletteConstraints: resolvedDraft,
       tripMode: resolvedApplied.tripMode,
       accommodationAllowance: resolvedApplied.accommodationAllowance,
-      weatherDays,
       travelDates,
       forecastMap,
     });

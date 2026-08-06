@@ -5,9 +5,7 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import type {
   TripDuration,
   TripMode,
-  RecommendationWeatherDay,
 } from "@/shared/services/recommendation/RecommendationContext";
-import { normalizeWeatherDescription } from "@/shared/services/recommendation/RecommendationContext";
 import type { TravelDateSelection } from "@/shared/services/recommendation/TravelConditions";
 import type { DayForecastData } from "@/shared/services/weather/WeatherTabService";
 import type { BudgetTier } from "@/shared/types/planner";
@@ -43,7 +41,11 @@ function uniqueCandidates(candidates: Destination[]): Destination[] {
 
 interface UseTripRecommendationsProps {
   allDestinations: Destination[];
-  actualWeather?: { desc: string; temperatureC: number };
+  /**
+   * User preference for weather-appropriate picks; never live weather.
+   * The live origin forecast is display-only and must not reach the
+   * recommendation context.
+   */
   preferredWeather?: "any" | "rainy" | "hot" | "cold";
   vibe: string;
   budget: number;
@@ -68,7 +70,6 @@ interface UseTripRecommendationsProps {
     | "tripMode"
     | "accommodationAllowance"
   >;
-  weatherDays?: RecommendationWeatherDay[];
   /** Explicit trip dates (Day 1 + derived Day 2 for 2D1N). */
   travelDates?: TravelDateSelection;
   /** Live forecast map for the planned origin. */
@@ -79,7 +80,6 @@ interface UseTripRecommendationsProps {
 
 export function useTripRecommendations({
   allDestinations,
-  actualWeather,
   preferredWeather = "any",
   vibe,
   budget,
@@ -95,7 +95,6 @@ export function useTripRecommendations({
   rouletteConstraints,
   tripMode,
   accommodationAllowance,
-  weatherDays,
   travelDates,
   forecastMap,
 }: UseTripRecommendationsProps) {
@@ -116,16 +115,10 @@ export function useTripRecommendations({
       publicModes,
       partySize,
       budgetTier,
-      weather: {
-        actual: actualWeather
-          ? {
-              condition: normalizeWeatherDescription(actualWeather.desc),
-              temperatureC: actualWeather.temperatureC,
-            }
-          : undefined,
-        preferred: preferredWeather,
-        days: tripMode === "weekend_2d1n" ? weatherDays : undefined,
-      },
+      // Destination weather only — never the live origin forecast. Until
+      // destination-coordinate forecasts exist this carries just the user's
+      // weather preference, so origin conditions cannot score destinations.
+      destinationWeather: { preferred: preferredWeather },
       visitedIds,
       homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
       originZoneId: homeStationTransportZoneId,
@@ -138,7 +131,6 @@ export function useTripRecommendations({
     });
   }, [
     allDestinations,
-    actualWeather,
     preferredWeather,
     vibe,
     budget,
@@ -154,7 +146,6 @@ export function useTripRecommendations({
     visitedIds,
     tripMode,
     accommodationAllowance,
-    weatherDays,
     travelDates,
     forecastMap,
   ]);
@@ -180,15 +171,9 @@ export function useTripRecommendations({
             publicModes: constraints.publicModes,
             partySize: constraints.partySize,
             budgetTier: constraints.budgetTier,
-            weather: {
-              actual: actualWeather
-                ? {
-                    condition: normalizeWeatherDescription(actualWeather.desc),
-                    temperatureC: actualWeather.temperatureC,
-                  }
-                : undefined,
-              days: tripMode === "weekend_2d1n" ? weatherDays : undefined,
-            },
+            // Roulette shares the same forecast-neutral pool: origin
+            // weather never affects candidate selection or ranking.
+            destinationWeather: { preferred: preferredWeather },
             visitedIds,
             homeStationCoords: homeStationCoords || {
               lat: 35.6812,
@@ -240,7 +225,6 @@ export function useTripRecommendations({
     };
   }, [
     allDestinations,
-    actualWeather,
     budget,
     budgetTier,
     carMode,
@@ -257,6 +241,7 @@ export function useTripRecommendations({
     visitedIds,
     travelDates,
     forecastMap,
+    preferredWeather,
   ]);
 
   return {

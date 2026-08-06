@@ -171,9 +171,9 @@ export function findNearbyCombinations(
 
     usedCategorySets.add(cat);
 
-    const isWeatherMatched = context?.weather?.actual
-      ? context.weather.actual.condition === "clear" ||
-        context.weather.actual.condition === "cloudy"
+    const isWeatherMatched = context?.destinationWeather?.actual
+      ? context.destinationWeather.actual.condition === "clear" ||
+        context.destinationWeather.actual.condition === "cloudy"
       : true;
 
     combos.push({

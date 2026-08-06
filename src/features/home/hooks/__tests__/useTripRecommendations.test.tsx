@@ -32,7 +32,6 @@ afterEach(() => {
 function Harness() {
   useTripRecommendations({
     allDestinations: [],
-    actualWeather: { desc: "Rain", temperatureC: 18 },
     vibe: "art",
     budget: 40_000,
     carMode: "none",
@@ -61,7 +60,6 @@ function Harness() {
 function FallbackHarness() {
   latestRoulette = useTripRecommendations({
     allDestinations: [],
-    actualWeather: { desc: "Rain", temperatureC: 18 },
     vibe: "art",
     budget: 40_000,
     carMode: "none",
@@ -90,7 +88,6 @@ function FallbackHarness() {
 function WeekendHarness() {
   latestRoulette = useTripRecommendations({
     allDestinations: [],
-    actualWeather: { desc: "Clear", temperatureC: 22 },
     vibe: "nature",
     budget: 95_000,
     carMode: "none",
@@ -140,8 +137,24 @@ describe("useTripRecommendations", () => {
       budgetTier: "economy",
       tripDuration: "halfDay",
       userRatings: { down: "down" },
-      weather: { actual: { condition: "rainy", temperatureC: 18 } },
+      destinationWeather: { preferred: "any" },
     });
+  });
+
+  it("origin forecast conditions never reach destination scoring contexts", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => root!.render(<Harness />));
+
+    expect(getRecommendations.mock.calls.length).toBeGreaterThan(0);
+    for (const [, context] of getRecommendations.mock.calls) {
+      const weather = (context as { destinationWeather?: object })
+        .destinationWeather;
+      expect(weather).toEqual({ preferred: "any" });
+      expect(weather).not.toHaveProperty("actual");
+      expect(weather).not.toHaveProperty("days");
+    }
   });
 
   it("expands roulette only after a small exact pool and caps the fallback pool", () => {
