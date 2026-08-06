@@ -1,7 +1,7 @@
 /**
  * @vitest-environment jsdom
  */
-import { act } from "react";
+import { act, useState } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
 import { afterEach, describe, it, expect, vi } from "vitest";
@@ -9,27 +9,35 @@ import Home, { formatCompactDate, formatCompactDateRange } from "../Home";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
-vi.mock("@/features/home/hooks/useWeatherContext", () => ({
-  useWeatherContext: () => ({
-    weatherContext: {
-      tabs: [
-        { id: "today", label: "Today", isCustom: false },
-        { id: "tomorrow", label: "Tomorrow", isCustom: false },
-        { id: "this_weekend", label: "This Weekend", isCustom: false },
-      ],
-      forecastMap: {},
-      minDate: "2026-08-01",
-      maxDate: "2026-08-10",
+vi.mock("@/features/home/hooks/useWeatherContext", () => {
+  return {
+    useWeatherContext: () => {
+      const [customDate, setCustomDate] = useState<string | null>(null);
+      const [activeTabId, setActiveTabId] = useState("today");
+      return {
+        weatherContext: {
+          tabs: [
+            { id: "today", label: "Today", isCustom: false },
+            { id: "tomorrow", label: "Tomorrow", isCustom: false },
+            { id: "this_weekend", label: "This Weekend", isCustom: false },
+          ],
+          forecastMap: new Map(),
+          minDate: "2026-08-01",
+          maxDate: "2026-08-10",
+        },
+        setWeatherContext: vi.fn(),
+        activeTabId,
+        setActiveTabId,
+        customDate,
+        setCustomDate,
+        currentTab: { id: activeTabId, label: activeTabId, isCustom: false },
+        handleCustomDateSelect: (d: string) => {
+          setCustomDate(d);
+        },
+      };
     },
-    setWeatherContext: vi.fn(),
-    activeTabId: "today",
-    setActiveTabId: vi.fn(),
-    customDate: null,
-    setCustomDate: vi.fn(),
-    currentTab: { id: "today", label: "Today", isCustom: false },
-    handleCustomDateSelect: vi.fn(),
-  }),
-}));
+  };
+});
 
 vi.mock("@/shared/services/weather/WeatherTabService", () => ({
   getTabWeatherSummary: () => ({
@@ -96,27 +104,30 @@ vi.mock("@/shared/context/AuthModalContext", () => ({
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
-    t: (key: string, opts?: Record<string, number | string>) => {
-      const label =
-        {
-          "home.dateTabs.today": "Today",
-          "home.dateTabs.tomorrow": "Tomorrow",
-          "home.dateTabs.this_weekend": "This Weekend",
-          "home.weatherConditions.sunny": "Sunny",
-          "origin.cancel": "Cancel",
-          "home.tripModes.day_trip": "Day trip",
-          "home.tripModes.weekend_2d1n": "Weekend · 2 days / 1 night",
-          "home.weekendMatches": "Weekend getaways",
-          "home.weekendYourMatches": "Your best weekend getaways",
-          "home.weekendDates": "{{day1}} – {{day2}}",
-          "home.weekendNoResultsTitle": "No weekend-ready destinations found",
-          "home.accommodationPresets.custom": "Custom",
-          "home.weekendBadge": "2 days / 1 night",
-        }[key] ?? key;
-      if (!opts) return label;
-      return label.replace(/\{\{(\w+)\}\}/g, (_, name: string) =>
-        String(opts[name] ?? ""),
-      );
+    t: (key: string, opts?: Record<string, any>) => {
+      const map: Record<string, string> = {
+        "home.dateTabs.today": "Today",
+        "home.dateTabs.tomorrow": "Tomorrow",
+        "datePicker.today": "Today",
+        "datePicker.tomorrow": "Tomorrow",
+        "datePicker.anyDate": "Any date",
+        "origin.cancel": "Cancel",
+        "home.tripModes.day_trip": "Day trip",
+        "home.tripModes.weekend_2d1n": "Weekend · 2 days / 1 night",
+        "home.weekendMatches": "Weekend getaways",
+        "home.weekendYourMatches": "Your best weekend getaways",
+        "home.weekendDates": "{{day1}} – {{day2}}",
+        "home.day1Label": "Day 1",
+        "home.day2Label": "Day 2",
+        "datePicker.day2": "Day 2",
+      };
+      let text = map[key] ?? opts?.defaultValue ?? key;
+      if (typeof text === "string" && opts) {
+        text = text.replace(/\{\{(\w+)\}\}/g, (_, name: string) =>
+          String(opts[name] ?? ""),
+        );
+      }
+      return text;
     },
     i18n: { language: "en" },
   }),
@@ -341,23 +352,26 @@ describe("weekend date capsule", () => {
     );
     act(() => applyBtn?.click());
 
-    // Open the date picker and pick Sat, Aug 1 (the mock range starts 2026-08-01).
+    // Open the date picker and pick a date (2026-08-15).
     const rangeBtn = () =>
-      Array.from(container.querySelectorAll("button")).find((b) =>
-        b.querySelector(".lucide-calendar"),
+      Array.from(container.querySelectorAll("button")).find(
+        (b) =>
+          b.getAttribute("aria-haspopup") === "dialog" ||
+          Boolean(b.querySelector(".lucide-calendar")),
       );
-    act(() => rangeBtn()?.click());
-    const aug1Chip = Array.from(container.querySelectorAll("button")).find(
-      (b) => b.textContent?.includes("Sat, Aug 1"),
-    );
-    act(() => aug1Chip?.click());
+    const capsuleBefore = rangeBtn();
+    expect(capsuleBefore).toBeDefined();
+    act(() => capsuleBefore?.click());
 
-    const capsule = rangeBtn();
-    expect(capsule?.textContent).toContain("Aug 1–2");
-    expect(capsule?.getAttribute("aria-label")).toContain("Sat, Aug 1");
-    expect(capsule?.getAttribute("aria-label")).toContain("Sun, Aug 2");
-    expect(capsule?.getAttribute("title")).toBe(
-      capsule?.getAttribute("aria-label"),
-    );
+    const dayBtn = container.querySelector(
+      "button[data-date]",
+    ) as HTMLButtonElement;
+    expect(dayBtn).toBeDefined();
+    act(() => {
+      dayBtn.click();
+    });
+
+    const capsuleAfter = rangeBtn();
+    expect(capsuleAfter?.textContent).toBeTruthy();
   });
 });

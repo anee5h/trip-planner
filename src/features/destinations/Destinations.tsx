@@ -35,6 +35,7 @@ import type { TravelConditionEvaluation } from "@/shared/services/recommendation
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useLocale } from "@/shared/context/LocaleContext";
+import { getLocalizedStationLabel } from "@/shared/utils/formatOriginLocation";
 import {
   getValidModes,
   scoreForCatalog,
@@ -111,8 +112,12 @@ export default function Destinations() {
   const filtersInitializedRef = useRef(false);
   const skipNextPageResetRef = useRef(false);
   const [filtersReady, setFiltersReady] = useState(false);
-  const { homeStationCoords, homeStationTransportZoneId, destinationRatings } =
-    useTripStore();
+  const {
+    homeStation,
+    homeStationCoords,
+    homeStationTransportZoneId,
+    destinationRatings,
+  } = useTripStore();
   const { locale } = useLocale();
   const { t } = useTranslation();
   const allDestinations = (getDestinationList("en") as Destination[]).map(
@@ -1128,6 +1133,8 @@ export default function Destinations() {
         setSeason={setSeason}
         date={date}
         setDate={setDate}
+        forecastMap={forecastMap}
+        originLabel={getLocalizedStationLabel(homeStation, locale)}
         sortBy={sortBy}
         setSortBy={setSortBy}
         carMode={carMode}

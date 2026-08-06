@@ -596,5 +596,13 @@
     "baseLocation": "Base location",
     "failedSave": "Failed to save settings",
     "settingsSaved": "Settings saved successfully!"
+  },
+  "datePicker": {
+    "selectDate": "Select date",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "chooseTravelDate": "Choose travel date",
+    "forecastNearOrigin": "Forecast near {{origin}}",
+    "day2DerivedHint": "Day 2 (derived for 2D1N trip)"
   }
 }

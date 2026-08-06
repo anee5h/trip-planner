@@ -92,7 +92,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   );
 
   const travelTimeText = bestTransport
-    ? formatTransportTime(bestTransport.timeRange)
+    ? formatTransportTime(bestTransport.timeRange, locale)
     : t("home.transportModes.travel");
   const transportDisplay = {
     train: { Icon: Train, label: t("home.transportModes.train") },
@@ -322,14 +322,18 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
           )}
 
           <div className="mt-2 flex flex-wrap items-center gap-1.5 text-[10px] font-semibold text-slate-500 dark:text-slate-400 sm:text-xs">
-            <span className="flex items-center gap-1 truncate">
-              <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400 shrink-0" />
-              <span className="truncate">{travelTimeText}</span>
-            </span>
+            {travelTimeText !== transportDisplay.label && (
+              <>
+                <span className="flex items-center gap-1 truncate">
+                  <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400 shrink-0" />
+                  <span className="truncate">{travelTimeText}</span>
+                </span>
 
-            <span className="text-slate-300 dark:text-slate-700 font-bold">
-              •
-            </span>
+                <span className="text-slate-300 dark:text-slate-700 font-bold px-1">
+                  •
+                </span>
+              </>
+            )}
 
             <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-bold uppercase text-[9px] sm:text-[10px] tracking-wide shrink-0">
               <TravelIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />

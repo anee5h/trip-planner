@@ -596,5 +596,13 @@
     "baseLocation": "出発地",
     "failedSave": "設定の保存に失敗しました",
     "settingsSaved": "設定を保存しました"
+  },
+  "datePicker": {
+    "selectDate": "日付を選択",
+    "today": "今日",
+    "tomorrow": "明日",
+    "chooseTravelDate": "旅行日を選択",
+    "forecastNearOrigin": "{{origin}}付近の予報",
+    "day2DerivedHint": "2日目（1泊2日の推測）"
   }
 }

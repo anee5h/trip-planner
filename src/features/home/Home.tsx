@@ -1,21 +1,12 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
-import {
-  Calendar,
-  Cloud,
-  CloudLightning,
-  Snowflake,
-  Sun,
-  X,
-} from "lucide-react";
+import { Cloud, CloudLightning, Snowflake, Sun } from "lucide-react";
+
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import type { Destination } from "@/shared/types/destination";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
-import {
-  getTabWeatherSummary,
-  getNextCalendarDate,
-} from "@/shared/services/weather/WeatherTabService";
+import { getTabWeatherSummary } from "@/shared/services/weather/WeatherTabService";
 import {
   deriveTripDates,
   normalizeTravelDateParam,
@@ -33,6 +24,9 @@ import CollectionsRail from "./components/CollectionsRail";
 import UnexploredNearbyRail from "./components/UnexploredNearbyRail";
 import { useTranslation } from "react-i18next";
 import StationInput from "@/shared/components/StationInput";
+import TravelDatePicker from "@/shared/components/travel/TravelDatePicker";
+import { useLocale } from "@/shared/context/LocaleContext";
+import { getLocalizedStationLabel } from "@/shared/utils/formatOriginLocation";
 
 /**
  * Compact single-date label: "Aug 8" / "8/8".
@@ -77,17 +71,15 @@ export function formatCompactDateRange(
 }
 
 export default function Home() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const allDestinations = getDestinationList() as Destination[];
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const {
-    isVisited,
-    favorites,
-    homeStationCoords,
-    homeStationTransportZoneId,
-  } = useTripStore();
   const { user } = useAuth();
+  const { homeStation, homeStationCoords, homeStationTransportZoneId } =
+    useTripStore();
+  const { locale } = useLocale();
+  const { isVisited, favorites } = useTripStore();
 
   const {
     weatherContext,
@@ -128,12 +120,18 @@ export default function Home() {
    * its own in-flight write for a URL→state restoration.
    */
   const lastWrittenUrlRef = useRef<string | undefined>(undefined);
+  const [hasExplicitSelection, setHasExplicitSelection] = useState<boolean>(
+    () => searchParams.has("date"),
+  );
 
   // The date serialized by the current selection: today omits the param,
   // tomorrow and custom dates serialize the ISO date.
   const stateDate = useMemo(() => {
     if (customDate) return normalizeTravelDateParam(customDate) ?? undefined;
     if (activeTabId === "tomorrow") return tomorrowIso;
+    if (activeTabId !== "today" && activeTabId !== "tomorrow") {
+      return normalizeTravelDateParam(activeTabId) ?? undefined;
+    }
     return undefined;
   }, [customDate, activeTabId, tomorrowIso]);
 
@@ -142,8 +140,7 @@ export default function Home() {
   useEffect(() => {
     if (!weatherContext) return; // state not ready; first load handled below
     const urlDate = normalizeTravelDateParam(searchParams.get("date"));
-    const current =
-      customDate ?? (activeTabId === "tomorrow" ? tomorrowIso : undefined);
+    const current = stateDate;
 
     // Invalid or past date: normalize the URL safely (replace, no history),
     // regardless of the loop guards below.
@@ -157,6 +154,11 @@ export default function Home() {
       return;
     }
 
+    // Clear own in-flight write ref if the URL has caught up to it
+    if (urlDate === lastWrittenUrlRef.current) {
+      lastWrittenUrlRef.current = undefined;
+    }
+
     // State already aligned with this URL value (also re-anchors the loop
     // guard), or this URL value was already applied to state.
     if (urlDate === current) {
@@ -167,12 +169,14 @@ export default function Home() {
     lastAppliedUrlRef.current = urlDate;
 
     if (urlDate !== undefined) {
+      setHasExplicitSelection(true);
       restoreInFlightRef.current = true;
       handleCustomDateSelect(urlDate);
       return;
     }
     if (current) {
       // URL no longer carries a date: reset the selection to today.
+      setHasExplicitSelection(false);
       restoreInFlightRef.current = true;
       setWeatherContext((prev) =>
         prev
@@ -183,7 +187,7 @@ export default function Home() {
       setCustomDate(null);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams, weatherContext]);
+  }, [searchParams, weatherContext, stateDate]);
 
   // state → URL synchronization. Any non-restore state change is a
   // deliberate selection and pushes a history entry; invalid/past URL
@@ -327,80 +331,6 @@ export default function Home() {
     });
 
   const [rouletteOpen, setRouletteOpen] = useState(false);
-  const [datePickerOpen, setDatePickerOpen] = useState(false);
-  const todayIso = useMemo(() => {
-    const now = new Date();
-    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
-  }, []);
-  const forecastDates = useMemo(() => {
-    if (!weatherContext) return [];
-    const dates: string[] = [];
-    const cursor = new Date(`${weatherContext.minDate}T00:00:00`);
-    const end = new Date(`${weatherContext.maxDate}T00:00:00`);
-    while (cursor <= end) {
-      dates.push(
-        `${cursor.getFullYear()}-${String(cursor.getMonth() + 1).padStart(2, "0")}-${String(cursor.getDate()).padStart(2, "0")}`,
-      );
-      cursor.setDate(cursor.getDate() + 1);
-    }
-    return dates;
-  }, [weatherContext]);
-
-  const formatForecastDate = useCallback(
-    (date: string) => {
-      const [year, month, day] = date.split("-").map(Number);
-      return new Intl.DateTimeFormat(
-        i18n.language === "ja" ? "ja-JP" : "en-US",
-        { weekday: "short", month: "short", day: "numeric" },
-      ).format(new Date(year, month - 1, day));
-    },
-    [i18n.language],
-  );
-  const selectedDateLabel = useMemo(() => {
-    if (resolvedApplied.tripMode === "weekend_2d1n" && selectedDate) {
-      const day2 = getNextCalendarDate(selectedDate);
-      return t("home.weekendDates", {
-        day1: formatForecastDate(selectedDate),
-        day2: formatForecastDate(day2),
-      });
-    }
-    if (activeTabId === "today" || activeTabId === "tomorrow") {
-      return t("home.moreDates");
-    }
-    if (!selectedDate) return t("home.moreDates");
-    const [year, month, day] = selectedDate.split("-").map(Number);
-    return new Intl.DateTimeFormat(i18n.language === "ja" ? "ja-JP" : "en-US", {
-      weekday: "short",
-      month: "short",
-      day: "numeric",
-    }).format(new Date(year, month - 1, day));
-  }, [
-    activeTabId,
-    i18n.language,
-    selectedDate,
-    t,
-    resolvedApplied.tripMode,
-    formatForecastDate,
-  ]);
-
-  /**
-   * Compact visible label for narrow screens: "Aug 8–9" / "8/8〜8/9". The
-   * full weekday/date label stays available via aria-label and title.
-   */
-  const compactDateLabel = useMemo(() => {
-    if (resolvedApplied.tripMode === "weekend_2d1n" && selectedDate) {
-      return formatCompactDateRange(
-        selectedDate,
-        getNextCalendarDate(selectedDate),
-        i18n.language === "ja" ? "ja" : "en",
-      );
-    }
-    if (!selectedDate) return t("home.moreDates");
-    return formatCompactDate(
-      selectedDate,
-      i18n.language === "ja" ? "ja" : "en",
-    );
-  }, [i18n.language, resolvedApplied.tripMode, selectedDate, t]);
 
   const handleApplyAndScroll = useCallback(() => {
     applyPlannerState();
@@ -470,128 +400,30 @@ export default function Home() {
                   ))}
 
                 <div className="relative col-span-2 min-w-0 sm:col-span-1">
-                  <button
-                    type="button"
-                    onClick={() => setDatePickerOpen((open) => !open)}
-                    aria-label={selectedDateLabel}
-                    title={selectedDateLabel}
-                    className="inline-flex h-9 w-full min-w-0 max-w-full items-center justify-center gap-1 overflow-hidden whitespace-nowrap rounded-full border border-slate-200 bg-white px-1 py-1 text-[10px] font-bold text-slate-700 shadow-sm transition-colors hover:border-emerald-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 sm:px-1.5 sm:text-[11px]"
-                    aria-expanded={datePickerOpen}
-                  >
-                    <Calendar className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                    <span className="min-w-0 truncate">{compactDateLabel}</span>
-                  </button>
-                  {datePickerOpen && (
-                    <>
-                      <button
-                        type="button"
-                        aria-label={t("home.closeForecastDayPicker")}
-                        className="fixed inset-0 z-30 bg-slate-950/60 backdrop-blur-sm sm:hidden"
-                        onClick={() => setDatePickerOpen(false)}
-                      />
-                      <div className="fixed inset-x-0 bottom-0 z-40 max-h-[85dvh] overflow-y-auto rounded-t-3xl border border-slate-200 bg-white p-4 pb-[env(safe-area-inset-bottom)] shadow-2xl dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] sm:absolute sm:right-0 sm:bottom-auto sm:top-full sm:mt-2 sm:w-[calc(100vw-2rem)] sm:max-w-sm sm:rounded-2xl">
-                        <div className="mb-3 flex items-center justify-between">
-                          <h2 className="text-base font-extrabold text-slate-900 dark:text-[hsl(var(--text-primary))]">
-                            {t("home.chooseForecastDay")}
-                          </h2>
-                          <button
-                            type="button"
-                            aria-label={t("home.closeForecastDayPicker")}
-                            onClick={() => setDatePickerOpen(false)}
-                            className="flex h-11 w-11 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-[hsl(var(--surface-raised))]"
-                          >
-                            <X className="h-5 w-5" />
-                          </button>
-                        </div>
-                        <div className="grid grid-cols-2 gap-2">
-                          {forecastDates.map((date) => {
-                            const active = date === selectedDate;
-                            const forecast =
-                              weatherContext?.forecastMap instanceof Map
-                                ? weatherContext.forecastMap.get(date)
-                                : undefined;
-                            const ForecastIcon =
-                              forecast?.icon === "rain"
-                                ? Cloud
-                                : forecast?.icon === "snow"
-                                  ? Snowflake
-                                  : forecast?.icon === "storm"
-                                    ? CloudLightning
-                                    : forecast?.icon === "cloud"
-                                      ? Cloud
-                                      : Sun;
-                            return (
-                              <button
-                                key={date}
-                                type="button"
-                                onClick={() => {
-                                  setCustomDate(date);
-                                  handleCustomDateSelect(date);
-                                  setDatePickerOpen(false);
-                                }}
-                                className={`min-h-14 rounded-xl px-3 text-left text-xs font-bold transition-colors ${
-                                  active
-                                    ? "bg-emerald-600 text-white"
-                                    : "bg-slate-50 text-slate-700 hover:bg-emerald-50 dark:bg-[hsl(var(--surface-raised))] dark:text-slate-200 dark:hover:bg-slate-700"
-                                }`}
-                              >
-                                <span className="flex items-center gap-2">
-                                  <ForecastIcon className="h-4 w-4 shrink-0" />
-                                  <span>{formatForecastDate(date)}</span>
-                                </span>
-                                {forecast && (
-                                  <span
-                                    className={`mt-1 block pl-6 text-[10px] ${active ? "text-emerald-50" : "text-slate-400"}`}
-                                  >
-                                    {forecast.maxTemp}°C
-                                  </span>
-                                )}
-                              </button>
-                            );
-                          })}
-                        </div>
-                        {/* The forecast grid is live weather at the selected
-                            origin (never destination weather); the native
-                            date input below extends selection beyond the
-                            forecast window without any fabricated forecast. */}
-                        <p className="mt-2 text-[10px] font-medium text-slate-400 dark:text-slate-500">
-                          {t("home.originForecastHint")}
-                        </p>
-                        <div className="mt-3 border-t border-slate-100 pt-3 dark:border-slate-800">
-                          <label
-                            htmlFor="any-future-date"
-                            className="mb-1.5 block text-[11px] font-bold text-slate-500 dark:text-slate-400"
-                          >
-                            {t("home.anyFutureDate")}
-                          </label>
-                          <input
-                            id="any-future-date"
-                            type="date"
-                            min={todayIso}
-                            value={selectedDate ?? ""}
-                            onChange={(e) => {
-                              const value = e.target.value;
-                              if (!value) return;
-                              setCustomDate(value);
-                              handleCustomDateSelect(value);
-                            }}
-                            aria-label={t("home.anyFutureDate")}
-                            className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm font-bold text-slate-800 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
-                          />
-                          {resolvedApplied.tripMode === "weekend_2d1n" &&
-                            selectedDate && (
-                              <p className="mt-1.5 text-[11px] font-semibold text-slate-500 dark:text-slate-400">
-                                {t("home.day2Label")}:{" "}
-                                {formatCompactDate(
-                                  getNextCalendarDate(selectedDate),
-                                  i18n.language === "ja" ? "ja" : "en",
-                                )}
-                              </p>
-                            )}
-                        </div>
-                      </div>
-                    </>
-                  )}
+                  <TravelDatePicker
+                    value={stateDate}
+                    onChange={(newDate) => {
+                      setHasExplicitSelection(true);
+                      if (newDate) {
+                        handleCustomDateSelect(newDate);
+                      } else {
+                        const cleanTabs = weatherContext.tabs.filter(
+                          (t) => !t.isCustom,
+                        );
+                        setWeatherContext({
+                          ...weatherContext,
+                          tabs: cleanTabs,
+                        });
+                        setCustomDate(null);
+                        setActiveTabId("today");
+                      }
+                    }}
+                    hasExplicitSelection={hasExplicitSelection}
+                    forecastMap={weatherContext.forecastMap}
+                    originLabel={getLocalizedStationLabel(homeStation, locale)}
+                    tripMode={resolvedApplied.tripMode}
+                    allowAnyDate={false}
+                  />
                 </div>
               </div>
             )}

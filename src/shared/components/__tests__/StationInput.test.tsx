@@ -61,6 +61,10 @@ vi.mock("@/shared/hooks/useTripStore", () => ({
   }),
 }));
 
+vi.mock("@/shared/context/LocaleContext", () => ({
+  useLocale: () => ({ locale: locale.value, setLocale: vi.fn() }),
+}));
+
 const STATIONS: Record<
   string,
   Array<{ name: string; lat: number; lng: number }>

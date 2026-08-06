@@ -59,8 +59,9 @@ import type {
   TripMode,
 } from "@/shared/services/recommendation/RecommendationContext";
 import { formatTravelDateShort } from "@/shared/utils/recommendationLabels";
-import { formatDateISO } from "@/shared/services/weather/WeatherTabService";
+import type { DayForecastData } from "@/shared/services/weather/WeatherTabService";
 import WhereLocationPicker from "./WhereLocationPicker";
+import TravelDatePicker from "@/shared/components/travel/TravelDatePicker";
 interface DestinationFiltersProps {
   searchQuery: string;
   setSearchQuery: (val: string) => void;
@@ -111,6 +112,8 @@ interface DestinationFiltersProps {
   setInterests: (val: string[] | ((prev: string[]) => string[])) => void;
   viewMode: "grid" | "map";
   setViewMode: (val: "grid" | "map") => void;
+  forecastMap?: ReadonlyMap<string, DayForecastData>;
+  originLabel?: string;
   totalResultsCount?: number;
   onReset: () => void;
 }
@@ -158,6 +161,10 @@ export default function DestinationFilters({
   setSuitabilities,
   interests: _interests,
   setInterests: _setInterests,
+  viewMode: _viewMode,
+  setViewMode: _setViewMode,
+  forecastMap,
+  originLabel,
   totalResultsCount = 0,
   onReset,
 }: DestinationFiltersProps) {
@@ -169,8 +176,6 @@ export default function DestinationFilters({
   const [modalOpen, setModalOpen] = useState(false);
   const [collectionPopoverOpen, setCollectionPopoverOpen] = useState(false);
   const collectionPopoverRef = useRef<HTMLDivElement>(null);
-  const [datePopoverOpen, setDatePopoverOpen] = useState(false);
-  const datePopoverRef = useRef<HTMLDivElement>(null);
 
   const availableCollections = getCollections();
 
@@ -194,12 +199,6 @@ export default function DestinationFilters({
         !collectionPopoverRef.current.contains(event.target as Node)
       ) {
         setCollectionPopoverOpen(false);
-      }
-      if (
-        datePopoverRef.current &&
-        !datePopoverRef.current.contains(event.target as Node)
-      ) {
-        setDatePopoverOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -584,74 +583,18 @@ export default function DestinationFilters({
             )}
           </div>
 
-          {/* 3. Date filter: any future travel date (unset = Any date). */}
-          <div
-            className="relative order-2 min-w-0 sm:order-none"
-            ref={datePopoverRef}
-          >
-            <button
-              type="button"
-              onClick={() => setDatePopoverOpen(!datePopoverOpen)}
-              aria-expanded={datePopoverOpen}
-              aria-haspopup="dialog"
-              className={`flex h-9 w-full items-center justify-between gap-1.5 rounded-xl border px-3 text-xs font-medium transition-all sm:w-auto ${
-                date
-                  ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 font-bold"
-                  : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:border-emerald-500"
-              }`}
-            >
-              <div className="flex items-center gap-1.5 min-w-0">
-                <CalendarDays className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                <span className="whitespace-nowrap">
-                  {date
-                    ? formatTravelDateShort(date, isJa ? "ja" : "en")
-                    : isJa
-                      ? "日付"
-                      : "Date"}
-                </span>
-              </div>
-              <ChevronDown className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-            </button>
-
-            {datePopoverOpen && (
-              <div className="absolute left-0 mt-2 w-64 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-50 p-3.5 space-y-2.5">
-                <div className="flex items-center justify-between pb-1 border-b border-slate-100 dark:border-slate-800">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                    {isJa ? "旅行日" : "Travel date"}
-                  </span>
-                  {date && (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setDate("");
-                        setDatePopoverOpen(false);
-                      }}
-                      className="text-[11px] font-semibold text-rose-500 hover:underline"
-                    >
-                      {isJa ? "クリア" : "Clear"}
-                    </button>
-                  )}
-                </div>
-                <input
-                  type="date"
-                  min={formatDateISO(new Date())}
-                  value={date}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    if (value) setDate(value);
-                  }}
-                  aria-label={isJa ? "旅行日" : "Travel date"}
-                  className="h-10 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 text-xs font-bold text-slate-800 dark:text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
-                />
-                {date && (
-                  <p className="text-[10px] font-medium text-slate-400 dark:text-slate-500">
-                    {isJa
-                      ? "予報外の日付は季節情報で評価します"
-                      : "Beyond the forecast window, typical seasonal conditions apply"}
-                  </p>
-                )}
-              </div>
-            )}
+          {/* 3. Date filter: shared TravelDatePicker. */}
+          <div className="order-2 min-w-0 sm:order-none">
+            <TravelDatePicker
+              value={date || undefined}
+              onChange={(newDate) => {
+                setDate(newDate || "");
+              }}
+              tripMode={tripMode === "any" ? undefined : tripMode}
+              forecastMap={forecastMap}
+              originLabel={originLabel}
+              allowAnyDate={true}
+            />
           </div>
 
           {/* 4. Recommended / Sort Dropdown */}

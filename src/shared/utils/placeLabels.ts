@@ -247,6 +247,7 @@ const japaneseLabels: Record<string, string> = {
   "Historical Park": "歴史公園",
   Underground: "地下",
   "Indoor Lawn": "屋内芝生",
+  "Indoor Park": "屋内遊園地",
   Insectarium: "昆虫館",
   Panda: "パンダ",
   "Giant Statue": "大像",

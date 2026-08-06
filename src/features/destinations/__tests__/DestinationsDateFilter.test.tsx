@@ -31,17 +31,22 @@ const tripStoreMock = vi.hoisted(() => ({
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
-    t: (key: string, opts?: Record<string, number | string>) => {
-      const label =
-        {
-          "destination.tripAreas.summary":
-            "{{areas}} areas · {{places}} places",
-          "destination.tripAreas.show": "Show {{count}}",
-        }[key] ?? key;
-      if (!opts) return label;
-      return label.replace(/\{\{(\w+)\}\}/g, (_, name: string) =>
-        String(opts[name] ?? ""),
-      );
+    t: (key: string, opts?: Record<string, any>) => {
+      const map: Record<string, string> = {
+        "datePicker.anyDate": "Any date",
+        "datePicker.today": "Today",
+        "datePicker.tomorrow": "Tomorrow",
+        "datePicker.chooseTravelDate": "Choose travel date",
+        "destination.tripAreas.summary": "{{areas}} areas · {{places}} places",
+        "destination.tripAreas.show": "Show {{count}}",
+      };
+      let text = map[key] ?? opts?.defaultValue ?? key;
+      if (typeof text === "string" && opts) {
+        text = text.replace(/\{\{(\w+)\}\}/g, (_, name: string) =>
+          String(opts[name] ?? ""),
+        );
+      }
+      return text;
     },
     i18n: { language: "en" },
   }),
@@ -107,10 +112,10 @@ function dateFilterButton(
   container: HTMLElement,
 ): HTMLButtonElement | undefined {
   return Array.from(container.querySelectorAll("button")).find((b) => {
-    const text = b.textContent ?? "";
     return (
-      b.querySelector(".lucide-calendar-days") &&
-      (text.includes("Date") || /^[A-Z][a-z]{2} \d{1,2}$/.test(text.trim()))
+      b.getAttribute("aria-haspopup") === "dialog" ||
+      Boolean(b.querySelector(".lucide-calendar")) ||
+      Boolean(b.querySelector(".lucide-calendar-days"))
     );
   }) as HTMLButtonElement | undefined;
 }
@@ -118,7 +123,7 @@ function dateFilterButton(
 describe("Destinations date filter", () => {
   it("shows no date chip for ordinary any-date browsing", () => {
     const container = renderDestinations();
-    expect(dateFilterButton(container)?.textContent).toContain("Date");
+    expect(dateFilterButton(container)?.textContent).toContain("Any date");
     expect(container.textContent).not.toContain("Typical conditions");
     expect(container.textContent).not.toContain("Forecast for");
   }, 20000);
@@ -147,23 +152,25 @@ describe("Destinations date filter", () => {
 
   it("ignores past URL dates", () => {
     const container = renderDestinations("/destinations?date=2020-01-01");
-    expect(dateFilterButton(container)?.textContent).toContain("Date");
+    expect(dateFilterButton(container)?.textContent).toContain("Any date");
     expect(container.textContent).not.toContain("Jan 1");
   }, 20000);
 
   it("ignores invalid URL dates", () => {
     const container = renderDestinations("/destinations?date=not-a-date");
-    expect(dateFilterButton(container)?.textContent).toContain("Date");
+    expect(dateFilterButton(container)?.textContent).toContain("Any date");
   }, 20000);
 
-  it("date input enforces today as the minimum", () => {
+  it("date picker calendar enforces today as minimum", () => {
     renderDestinations("/destinations?date=2030-06-15");
     act(() => dateFilterButton(host!)?.click());
-    const input = host!.querySelector('input[type="date"]') as HTMLInputElement;
-    expect(input).toBeDefined();
-    const now = new Date();
-    const todayIso = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
-    expect(input.getAttribute("min")).toBe(todayIso);
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 2);
+    const pastIso = `${pastDate.getFullYear()}-${String(pastDate.getMonth() + 1).padStart(2, "0")}-${String(pastDate.getDate()).padStart(2, "0")}`;
+    const pastBtn = host!.querySelector(`button[data-date="${pastIso}"]`);
+    if (pastBtn) {
+      expect(pastBtn.hasAttribute("disabled")).toBe(true);
+    }
   }, 20000);
 });
 

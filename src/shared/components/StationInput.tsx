@@ -5,6 +5,9 @@ import { resolveOriginTransportZone } from "@/shared/services/transport/Transpor
 
 import { useState, useEffect, useMemo } from "react";
 import { OriginLocationDisplay } from "@/shared/components/OriginLocationDisplay";
+import { useLocale } from "@/shared/context/LocaleContext";
+import { getLocalizedStationNameOnly } from "@/shared/utils/formatOriginLocation";
+import { formatPrefecture } from "@/shared/utils/placeLabels";
 
 const PREFECTURES = [
   "Hokkaido",
@@ -62,6 +65,7 @@ interface StationInputProps {
 
 export default function StationInput({ embedded = false }: StationInputProps) {
   const { t } = useTranslation();
+  const { locale } = useLocale();
   const { homeStation, setOriginLocation, canSelectOrigin } = useTripStore();
 
   type StationData = { name: string; lat: number; lng: number };
@@ -261,7 +265,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
               >
                 {PREFECTURES.map((p) => (
                   <option key={p} value={p}>
-                    {p}
+                    {formatPrefecture(p, locale)}
                   </option>
                 ))}
               </select>
@@ -275,7 +279,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
                 <option value="">{t("origin.selectStation")}</option>
                 {stations.map((st) => (
                   <option key={st.name} value={st.name}>
-                    {st.name}
+                    {getLocalizedStationNameOnly(st.name, locale)}
                   </option>
                 ))}
               </select>
