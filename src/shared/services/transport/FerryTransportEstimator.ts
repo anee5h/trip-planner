@@ -193,6 +193,30 @@ export function findPortById(portId: string): FerryPort | null {
 }
 
 /**
+ * True when verified seasonal operating periods restrict ferry access to the
+ * arrival port on the given date. Only services with published operating
+ * periods count as evidence: a port with period-less services is never
+ * claimed seasonally unavailable, and a port with no passenger services at
+ * all is not ferry-reachable (no seasonal claim either way).
+ */
+export function isDestinationFerrySeasonallyUnavailable(
+  arrPortId: string,
+  travelDate: Date,
+): boolean {
+  const servicesToPort = services.filter(
+    (service) => service.toPort === arrPortId && service.passengerService,
+  );
+  if (servicesToPort.length === 0) return false;
+  const seasonalServices = servicesToPort.filter(
+    (service) => (service.operatingPeriods?.length ?? 0) > 0,
+  );
+  if (seasonalServices.length === 0) return false;
+  return !servicesToPort.some((service) =>
+    isServiceActive(service, { travelDate }),
+  );
+}
+
+/**
  * The destination's arrival port: the nearest port in the destination's
  * transport zone.
  */

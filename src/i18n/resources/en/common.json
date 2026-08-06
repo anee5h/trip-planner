@@ -211,6 +211,46 @@
         "title": "Forecast for {{day1}}–{{day2}}",
         "description": "Live weather forecast for both days"
       },
+      "conditionSeasonalMonth": {
+        "title": "Typical conditions for {{month}}",
+        "description": "Typical seasonal conditions for {{month}}, not a live forecast"
+      },
+      "conditionSeasonalStrong": {
+        "title": "Strong {{season}} suitability",
+        "description": "Seasonal rating {{rating}}/10 for {{season}}"
+      },
+      "conditionSeasonalWeak": {
+        "title": "Weaker in {{season}}",
+        "description": "Seasonal rating {{rating}}/10 for {{season}}"
+      },
+      "conditionIndoorHeat": {
+        "title": "Mostly indoor options for midsummer heat",
+        "description": "Indoor share keeps summer heat manageable"
+      },
+      "conditionIndoorWinter": {
+        "title": "Mostly indoor options for winter cold",
+        "description": "Indoor share keeps winter cold manageable"
+      },
+      "conditionOutdoorSummer": {
+        "title": "Mostly outdoor in summer heat",
+        "description": "High weather dependence in summer"
+      },
+      "conditionOutdoorWinter": {
+        "title": "Outdoor exposure in winter",
+        "description": "High weather dependence in winter"
+      },
+      "conditionRainFriendly": {
+        "title": "Rain-friendly in the rainy season",
+        "description": "Handles rainy-season weather well"
+      },
+      "conditionRainExposed": {
+        "title": "Limited rain tolerance in the rainy season",
+        "description": "Rainy-season exposure may disrupt plans"
+      },
+      "conditionFerrySeasonal": {
+        "title": "Seasonal ferry unavailable for the selected date",
+        "description": "Verified ferry operating period excludes the selected date"
+      },
       "conditionUnknown": {
         "title": "No forecast or seasonal guidance available",
         "description": "No live forecast or catalogue seasonal evidence for the selected date"

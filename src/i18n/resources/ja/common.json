@@ -211,6 +211,46 @@
         "title": "{{day1}}〜{{day2}}の天気予報",
         "description": "両日の実際の天気予報"
       },
+      "conditionSeasonalMonth": {
+        "title": "{{month}}の平年並みの気候",
+        "description": "{{month}}の季節的な傾向（天気予報ではありません）"
+      },
+      "conditionSeasonalStrong": {
+        "title": "{{season}}の適性が高い",
+        "description": "{{season}}の季節評価 {{rating}}/10"
+      },
+      "conditionSeasonalWeak": {
+        "title": "{{season}}はやや不向き",
+        "description": "{{season}}の季節評価 {{rating}}/10"
+      },
+      "conditionIndoorHeat": {
+        "title": "盛夏の暑さは屋内中心で対応",
+        "description": "屋内比率が高く夏の暑さをしのげます"
+      },
+      "conditionIndoorWinter": {
+        "title": "冬の寒さは屋内中心で対応",
+        "description": "屋内比率が高く冬の寒さをしのげます"
+      },
+      "conditionOutdoorSummer": {
+        "title": "夏の暑さの中、屋外中心",
+        "description": "夏は天候の影響を受けやすいです"
+      },
+      "conditionOutdoorWinter": {
+        "title": "冬の屋外での滞在が中心",
+        "description": "冬は天候の影響を受けやすいです"
+      },
+      "conditionRainFriendly": {
+        "title": "梅雨でも楽しめる",
+        "description": "雨の多い時期でも楽しめます"
+      },
+      "conditionRainExposed": {
+        "title": "梅雨時の雨に弱い",
+        "description": "雨の多い時期は計画に影響が出る可能性があります"
+      },
+      "conditionFerrySeasonal": {
+        "title": "選択した日は季節運航のフェリーが運休",
+        "description": "確認済みのフェリー運航期間が選択日を含みません"
+      },
       "conditionUnknown": {
         "title": "予報・季節情報はありません",
         "description": "選択した日の天気予報・季節情報の根拠がありません"

@@ -51,6 +51,16 @@ export type RecommendationReasonCode =
   | "weekendTransportExcluded"
   | "conditionForecastDay"
   | "conditionForecastRange"
+  | "conditionSeasonalMonth"
+  | "conditionSeasonalStrong"
+  | "conditionSeasonalWeak"
+  | "conditionIndoorHeat"
+  | "conditionIndoorWinter"
+  | "conditionOutdoorSummer"
+  | "conditionOutdoorWinter"
+  | "conditionRainFriendly"
+  | "conditionRainExposed"
+  | "conditionFerrySeasonal"
   | "conditionUnknown";
 
 export interface MatchReason {

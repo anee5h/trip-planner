@@ -5,6 +5,7 @@ import type { TripMode } from "./RecommendationContext";
 import { normalizeWeatherDescription } from "./RecommendationContext";
 import { evaluateWeekendWeather } from "@/shared/services/weather/WeekendWeatherScoring";
 import type { MatchReason } from "./RecommendationTypes";
+import { evaluateSeasonalSuitability } from "./SeasonalSuitabilityService";
 
 /**
  * One shared date-selection model for Home, Destinations, URL state,
@@ -19,7 +20,8 @@ export interface TravelDateSelection {
   day2?: string;
 }
 
-export type TravelConditionSource = "forecast" | "mixed" | "unknown";
+export type TravelConditionSource =
+  "forecast" | "mixed" | "seasonal" | "unknown";
 
 export interface TravelConditionEvaluation {
   source: TravelConditionSource;
@@ -217,12 +219,22 @@ export function evaluateTravelConditions(
     return { source: "forecast", scoreDelta, reasons, dates: allDates };
   }
 
-  // Beyond-forecast dates stay neutral until seasonal evidence is applied
-  // (added in the seasonal fallback layer); never fabricate a forecast.
-  reasons.push(unknownReason(missingDates));
+  const seasonal = evaluateSeasonalSuitability(dest, missingDates);
+  const hasSeasonalEvidence = seasonal.evidence.length > 0;
+  scoreDelta += seasonal.scoreDelta;
+
+  if (hasSeasonalEvidence) {
+    reasons.push(...seasonal.reasons);
+  } else {
+    reasons.push(unknownReason(missingDates));
+  }
 
   const source: TravelConditionSource =
-    missingDates.length === allDates.length ? "unknown" : "mixed";
+    missingDates.length === allDates.length
+      ? hasSeasonalEvidence
+        ? "seasonal"
+        : "unknown"
+      : "mixed";
 
   return { source, scoreDelta, reasons, dates: allDates };
 }
