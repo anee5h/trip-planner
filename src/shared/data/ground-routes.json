@@ -1,0 +1,591 @@
+{
+  "routes": [
+    {
+      "from": "osaka",
+      "to": "kyoto",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [15, 35],
+      "sourceUrl": "https://japantravel.navitime.com/en/area/jp/depArrTimeList/00001756/00004305/00000110",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "osaka",
+      "to": "kyoto",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [28, 45],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "osaka",
+      "to": "aichi",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [35, 75],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tokaido_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "osaka",
+      "to": "hyogo",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [15, 35],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sanyo_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "osaka",
+      "to": "hyogo",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [20, 45],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "osaka",
+      "to": "fukuoka",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [150, 195],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nozomi_(train)",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "osaka",
+      "to": "hiroshima",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [65, 105],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sanyo_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "osaka",
+      "to": "okayama",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [40, 75],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sanyo_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "osaka",
+      "to": "nara",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [30, 55],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "osaka",
+      "to": "shiga",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [15, 45],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "osaka",
+      "to": "wakayama",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [60, 110],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "osaka",
+      "to": "oita",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [240, 300],
+      "sourceUrl": "https://www.japan-guide.com/e/e4705.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "osaka",
+      "to": "gunma",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [240, 300],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "osaka",
+      "to": "gifu",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [120, 170],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tokaido_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "osaka",
+      "to": "mie",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [100, 160],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "kyoto",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [135, 220],
+      "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "kyoto",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [390, 450],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "osaka",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [150, 270],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tokaido_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "aichi",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [100, 185],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tokaido_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "miyagi",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [90, 160],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tohoku_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "ishikawa",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [150, 210],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Hokuriku_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "hiroshima",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [245, 330],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tokaido_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "okayama",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [210, 300],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tokaido_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "hokkaido",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [235, 300],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Hokkaido_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "aomori",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [180, 250],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tohoku_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "akita",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [215, 250],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Akita_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "yamagata",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [160, 210],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Yamagata_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "niigata",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [95, 160],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Joetsu_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "fukushima",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [90, 140],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tohoku_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "nagano",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [90, 150],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Hokuriku_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "iwate",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [125, 180],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tohoku_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "toyama",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [125, 180],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Hokuriku_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "gifu",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [105, 180],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tokaido_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "fukuoka",
+      "to": "kyoto",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [160, 200],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nozomi_(train)",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "fukuoka",
+      "to": "osaka",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [150, 195],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nozomi_(train)",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "fukuoka",
+      "to": "hiroshima",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [60, 95],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sanyo_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "fukuoka",
+      "to": "okayama",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [110, 150],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sanyo_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "fukuoka",
+      "to": "kagoshima",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [85, 140],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Kyushu_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "fukuoka",
+      "to": "kumamoto",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [35, 60],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Kyushu_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "fukuoka",
+      "to": "nagasaki",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [90, 140],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nishi_Kyushu_Shinkansen",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "fukuoka",
+      "to": "oita",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [115, 160],
+      "sourceUrl": "https://www.japan-guide.com/e/e4705.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "kanagawa",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [50, 90],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "tochigi",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [100, 160],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "saitama",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [45, 110],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "chiba",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [60, 120],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "gunma",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [150, 210],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "nagano",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [150, 210],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "gifu",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [230, 330],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "yamanashi",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [130, 180],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "shizuoka",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [120, 170],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "ibaraki",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [110, 170],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    }
+  ],
+  "municipalityRoutes": [
+    {
+      "from": "Tokyo:shinjuku",
+      "to": "Tokyo:shibuya",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [10, 25],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "Tokyo:shinjuku",
+      "to": "Tokyo:taito",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [15, 35],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "Tokyo:chiyoda",
+      "to": "Tokyo:taito",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [10, 25],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "Tokyo:chiyoda",
+      "to": "Tokyo:shibuya",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [15, 30],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "Tokyo:shinjuku",
+      "to": "Tokyo:toshima",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [10, 25],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "Tokyo:chiyoda",
+      "to": "Tokyo:toshima",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [10, 30],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "Tokyo:shinjuku",
+      "to": "Tokyo:chiyoda",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [10, 25],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "Tokyo:chiyoda",
+      "to": "Tokyo:chuo",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [5, 15],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "Tokyo:chiyoda",
+      "to": "Tokyo:minato",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [10, 25],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "Osaka:osaka",
+      "to": "Osaka:sakai",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [20, 45],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "Osaka:osaka",
+      "to": "Osaka:ikeda",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [25, 50],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "Okinawa:naha",
+      "to": "Okinawa:naha",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [10, 25],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "Hiroshima:hiroshima",
+      "to": "Hiroshima:hatsukaichi",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [25, 50],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "Miyazaki:miyazaki",
+      "to": "Miyazaki:miyazaki",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [15, 40],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    }
+  ]
+}

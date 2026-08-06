@@ -189,23 +189,36 @@ describe("RecommendationService Unit Tests", () => {
   });
 
   it("excludes destinations exceeding strict budget limits", () => {
-    const results = getRecommendations(mockDestinations, {
-      tripType: "any",
-      budget: 20000,
-      carMode: "none",
-      publicModes: ["train", "bus", "shinkansen"],
-      partySize: 2,
-      currentWeatherCondition: "any",
-      visitedIds: [],
-      currentWeather: null,
-      homeStationCoords: homeCoords,
-    });
+    // A Hokkaido corridor is shinkansen-only and far: its verified
+    // origin-aware cost far exceeds the budget. Kanagawa is a short train
+    // corridor and stays affordable.
+    const farDest = {
+      ...mockDestinations[0],
+      id: "hokkaido-far",
+      prefecture: "Hokkaido",
+      transportOptions: { shinkansen: 300 },
+    };
+    const results = getRecommendations(
+      [farDest, mockDestinations[0], mockDestinations[1]],
+      {
+        tripType: "any",
+        budget: 40000,
+        carMode: "none",
+        publicModes: ["train", "bus", "shinkansen"],
+        partySize: 2,
+        currentWeatherCondition: "any",
+        visitedIds: [],
+        currentWeather: null,
+        homeStationCoords: homeCoords,
+      },
+    );
 
     const ids = results.map((r) => r.id);
-    expect(ids).not.toContain("fuji-climbing");
+    expect(ids).not.toContain("hokkaido-far");
+    expect(ids).toContain("kamakura-history");
     expect(
       results.every(
-        (result) => (result.estimatedCostRange?.[1] ?? Infinity) <= 20000,
+        (result) => (result.estimatedCostRange?.[1] ?? Infinity) <= 40000,
       ),
     ).toBe(true);
   });
@@ -278,6 +291,9 @@ describe("RecommendationService Unit Tests", () => {
     );
     expect(invalidModes).toEqual([]);
 
+    // Budget tiers never delete authorized modes: an economy user still
+    // gets every authorized mode for travel evaluation and per-mode
+    // affordability checks.
     const economyModes = getValidModes(
       dest,
       "none",
@@ -286,7 +302,7 @@ describe("RecommendationService Unit Tests", () => {
       "economy",
       "mainland-honshu",
     );
-    expect(economyModes).toEqual(["bus"]);
+    expect(economyModes).toEqual(["shinkansen", "bus"]);
   });
 
   it("uses origin-aware transport when scoring the catalog", () => {

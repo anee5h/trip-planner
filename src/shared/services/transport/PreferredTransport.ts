@@ -3,8 +3,7 @@ import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { FerryTemporalContext } from "./types";
 import { getAdjustedBudget } from "@/shared/services/budget/BudgetService";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
-import { getFlightTransportEstimate } from "./FlightTransportEstimator";
-import { getFerryTransportEstimate } from "./FerryTransportEstimator";
+import { getOriginAwareTransportEstimate } from "./OriginAwareTransportService";
 
 export interface PreferredTransport {
   mode: string;
@@ -13,10 +12,11 @@ export interface PreferredTransport {
 }
 
 /**
- * Finds the shortest door-to-door journey among the travel methods a visitor
- * has enabled. The returned budget always belongs to that same transport
- * mode, and eligibility is topology/route-authorized — an unauthorized Train
- * is never chosen as a fallback.
+ * Finds the fastest verified origin-aware journey among the travel methods a
+ * visitor has enabled. The returned budget always belongs to that same
+ * transport mode, and eligibility is topology/route-authorized. Without a
+ * verified origin-aware duration the candidate is not returned — cards never
+ * display unprovenanced `transportOptions` times as personalized claims.
  */
 export function getFastestPreferredTransport(
   destination: Destination,
@@ -27,7 +27,7 @@ export function getFastestPreferredTransport(
   originZoneId?: TransportZoneId,
   ferryTemporal?: FerryTemporalContext,
 ): PreferredTransport | null {
-  const candidates = getValidModes(
+  const modes = getValidModes(
     destination,
     carMode ?? "none",
     publicModes ?? [],
@@ -35,43 +35,24 @@ export function getFastestPreferredTransport(
     undefined,
     originZoneId,
     ferryTemporal,
-  )
-    .map((mode) => {
-      const timeRange =
-        mode === "flight"
-          ? getFlightTransportEstimate(destination, homeCoords)?.timeRange
-          : mode === "ferry"
-            ? getFerryTransportEstimate(destination, homeCoords, ferryTemporal)
-                ?.timeRange
-            : (() => {
-                const minutes =
-                  destination.transportOptions?.[
-                    mode as keyof typeof destination.transportOptions
-                  ];
-                return minutes === undefined
-                  ? undefined
-                  : ([minutes, minutes] as [number, number]);
-              })();
-
-      if (!timeRange) return null;
-      return {
-        mode,
-        timeRange,
-        estimatedBudget: getAdjustedBudget(
-          destination,
-          mode,
-          partySize,
-          homeCoords,
-          originZoneId,
-          ferryTemporal,
-        ),
-      };
-    })
-    .filter((candidate): candidate is PreferredTransport => candidate !== null);
-
-  if (candidates.length === 0) return null;
-
-  return candidates.reduce((fastest, candidate) =>
-    candidate.timeRange[0] < fastest.timeRange[0] ? candidate : fastest,
   );
+  const estimate = getOriginAwareTransportEstimate(
+    destination,
+    { homeStationCoords: homeCoords, ferryTemporal },
+    modes,
+  );
+  if (!estimate) return null;
+
+  return {
+    mode: estimate.mode,
+    timeRange: estimate.timeRange,
+    estimatedBudget: getAdjustedBudget(
+      destination,
+      estimate.mode,
+      partySize,
+      homeCoords,
+      originZoneId,
+      ferryTemporal,
+    ),
+  };
 }

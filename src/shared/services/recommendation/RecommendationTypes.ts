@@ -4,6 +4,7 @@ import type { PriceRange } from "@/shared/types/planner";
 import type { WeekendTravelFit } from "./WeekendPolicy";
 import type { WeekendCapacityResult } from "./WeekendPolicy";
 import type { WeekendResultKind } from "./WeekendAreaPolicy";
+import type { OriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 
 export type MatchReasonType =
   | "Budget"
@@ -86,6 +87,8 @@ export interface ScoredDestination extends Destination {
   bestTransportMode?: string;
   estimatedCostRange?: PriceRange;
   estimatedCostTransportIncluded?: boolean;
+  /** The exact origin-aware estimate used for ranking/budget/cards. */
+  transportEstimate?: OriginAwareTransportEstimate;
   weekend?: WeekendRecommendationMetadata;
 }
 

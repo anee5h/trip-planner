@@ -8,6 +8,8 @@ import type { Destination } from "@/shared/types/destination";
 
 const destination = {
   id: "miyajima",
+  prefecture: "Hiroshima",
+  municipalityId: "Hiroshima:hatsukaichi",
   totalTripHours: 4,
   recommendedVisitHours: { min: 3, max: 4 },
   coordinates: { lat: 34.2958, lng: 132.3197 },
@@ -67,7 +69,9 @@ describe("TripDurationService", () => {
       ["train"],
     );
 
-    expect(estimate?.totalRangeHours[0]).toBeCloseTo(4.6667, 2);
+    // Verified Hiroshima → Miyajima corridor [25, 50] min, midpoint 38:
+    // round trip 76 min + 20 min ferry buffer over a 3 h visit.
+    expect(estimate?.totalRangeHours[0]).toBeCloseTo(4.6, 2);
     expect(estimate?.mode).toBe("train");
     expect(estimate?.band).toBe("halfDay");
   });

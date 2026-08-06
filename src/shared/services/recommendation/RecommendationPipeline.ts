@@ -16,6 +16,7 @@ import type { PipelineRecommendation } from "./RecommendationTypes";
 import { evaluateWeekendCandidate } from "./WeekendPolicy";
 import type { WeekendCandidateEvaluation } from "./WeekendPolicy";
 import { resolveOriginMunicipalityId } from "./OriginAreaService";
+import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import {
   consolidateWeekendAreas,
   type WeekendAreaConsolidation,
@@ -255,6 +256,24 @@ export function runRecommendationPipeline(
           context.ferryTemporal,
         ),
       );
+      // The exact estimate used for ranking/budget; cards and roulette read
+      // it from the recommendation instead of recomputing transport.
+      const transportEstimate = getOriginAwareTransportEstimate(
+        candidate,
+        {
+          homeStationCoords: context.homeStationCoords ?? undefined,
+          ferryTemporal: context.ferryTemporal,
+        },
+        getValidModes(
+          candidate,
+          context.carMode,
+          context.publicModes,
+          context.homeStationCoords || undefined,
+          context.budgetTier,
+          context.originZoneId,
+          context.ferryTemporal,
+        ),
+      );
       const budgetResult = getEstimatedBudgetRange(
         candidate,
         scoreResult.bestMode || "train",
@@ -293,6 +312,7 @@ export function runRecommendationPipeline(
         ...candidate,
         score: totalScore,
         match,
+        transportEstimate,
         bestTransportMode: scoreResult.bestMode,
         estimatedCostRange,
         estimatedCostTransportIncluded,
