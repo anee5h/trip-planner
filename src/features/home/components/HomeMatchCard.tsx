@@ -114,11 +114,19 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
 
   const conditionLine = useMemo(() => {
     if (!condition || condition.reasons.length === 0) return undefined;
+    // Forecast reasons are origin weather, not destination weather: cards
+    // only surface destination-specific seasonal/unknown guidance.
+    const reasons = condition.reasons.filter(
+      (reason) =>
+        reason.code !== "conditionForecastDay" &&
+        reason.code !== "conditionForecastRange",
+    );
+    if (reasons.length === 0) return undefined;
     const labelFor = (reason: TravelConditionEvaluation["reasons"][number]) =>
       t(`recommendation.reasons.${reason.code}.title`, {
         ...formatTravelConditionParams(reason.params, locale),
       });
-    const [first, second] = condition.reasons;
+    const [first, second] = reasons;
     if (condition.source === "mixed" && second) {
       return `${labelFor(first)} · ${labelFor(second)}`;
     }

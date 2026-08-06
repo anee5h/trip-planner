@@ -18,9 +18,10 @@ import {
  *
  * No historical weather, no fabricated temperatures, no scraped averages.
  * Missing evidence never produces a penalty: unknown data stays neutral.
+ * This service never decides eligibility — the canonical trip-date
+ * transport check (isTripDatesTransportEligible) is the only authority.
  */
 export interface SeasonalSuitability {
-  eligible: boolean;
   scoreDelta: number;
   reasons: MatchReason[];
   /** Structured evidence keys that fired (e.g. "bestMonths", "season.summer"). */
@@ -46,14 +47,6 @@ export const SEASONAL_WEIGHTS = {
   FERRY_SEASONAL_PENALTY: 4,
 } as const;
 
-function ferryIsSoleTransport(dest: Destination): boolean {
-  const options = dest.transportOptions ?? {};
-  const hasNonFerry = Object.entries(options).some(
-    ([mode, value]) => mode !== "ferry" && value !== undefined,
-  );
-  return options.ferry !== undefined && !hasNonFerry;
-}
-
 /**
  * Evaluates typical seasonal suitability for the given dates. `dates` are
  * the dates WITHOUT a live forecast (the forecast path owns those); this
@@ -66,7 +59,7 @@ export function evaluateSeasonalSuitability(
   const reasons: MatchReason[] = [];
   const evidence: string[] = [];
   if (dates.length === 0) {
-    return { eligible: true, scoreDelta: 0, reasons, evidence };
+    return { scoreDelta: 0, reasons, evidence };
   }
 
   const todaySeason = getFixedSeason(new Date());
@@ -246,10 +239,10 @@ export function evaluateSeasonalSuitability(
     seasonDelta / dates.length + monthBonus + comfortDelta + ferryPenalty,
   );
 
-  // A ferry-only destination is unreachable when its verified ferry does not
-  // run on the selected date: treat the date as ineligible, mirroring the
-  // transport gate's date-aware ferry authorization.
-  const eligible = !(ferryUnavailable && ferryIsSoleTransport(dest));
-
-  return { eligible, scoreDelta, reasons, evidence };
+  // Eligibility is NOT decided here: the canonical trip-date transport check
+  // (isTripDatesTransportEligible) is the single eligibility authority.
+  // This service only contributes evidence and scoring — a verified ferry
+  // closure penalizes the season score and surfaces a reason, but never a
+  // static-transportOptions-based eligibility signal.
+  return { scoreDelta, reasons, evidence };
 }

@@ -267,8 +267,10 @@ describe("seasonal rules", () => {
     expect(result.scoreDelta).toBeGreaterThan(0);
   });
 
-  it("a seasonal ferry closure can make a ferry-only destination ineligible", () => {
+  it("a seasonal ferry closure contributes evidence and a penalty, never an eligibility signal", () => {
     // Tomogashima: the only verified seasonal ferry runs 03-01..11-30.
+    // Eligibility itself is the canonical trip-date transport check's job
+    // (isTripDatesTransportEligible) — the seasonal service only scores.
     const ferryOnly = makeDestination({
       id: "tomogashima-test",
       coordinates: { lat: 34.2833, lng: 135.0167 },
@@ -279,7 +281,6 @@ describe("seasonal rules", () => {
     expect(
       closed.reasons.some((r) => r.code === "conditionFerrySeasonal"),
     ).toBe(true);
-    expect(closed.eligible).toBe(false);
     expect(closed.scoreDelta).toBeLessThan(0);
   });
 
@@ -311,7 +312,6 @@ describe("seasonal rules", () => {
     expect(result.evidence).toEqual([]);
     expect(result.scoreDelta).toBe(0);
     expect(result.reasons).toEqual([]);
-    expect(result.eligible).toBe(true);
   });
 
   it("a verified ferry restriction respects the selected date", () => {
@@ -325,21 +325,24 @@ describe("seasonal rules", () => {
     expect(
       inSeason.reasons.some((r) => r.code === "conditionFerrySeasonal"),
     ).toBe(false);
-    expect(inSeason.eligible).toBe(true);
     // Out-of-season date: restriction applies.
     const outOfSeason = evaluateSeasonalSuitability(ferryOnly, ["2026-12-14"]);
     expect(
       outOfSeason.reasons.some((r) => r.code === "conditionFerrySeasonal"),
     ).toBe(true);
-    expect(outOfSeason.eligible).toBe(false);
   });
 });
 
 import { isTripDatesTransportEligible } from "../TravelConditions";
 import { getValidModes } from "../RecommendationScorer";
 import { getBestOneWayTravelMinutes } from "../TripDurationService";
-import { getAdjustedBudget } from "@/shared/services/budget/BudgetService";
+import {
+  getAdjustedBudget,
+  getEstimatedBudgetRange,
+  getSortableVerifiedBudget,
+} from "@/shared/services/budget/BudgetService";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
+import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import { runRecommendationPipeline } from "../RecommendationPipeline";
 import { travelDateToDate } from "../TravelConditions";
 
@@ -417,8 +420,12 @@ describe("trip-date ferry eligibility (canonical check)", () => {
     expect(modes.length > 0).toBe(false);
   });
 
-  it("a destination with an independently valid non-ferry mode stays eligible without the ferry", () => {
-    const dest = ferryOnlyDestination();
+  it("a genuinely verified non-ferry route keeps the destination eligible without the ferry", () => {
+    // Abeno Harukas (Osaka): topology plus a verified origin-aware train
+    // estimate from Wakayama. The ferry being suspended does not matter.
+    const dest = getDestinationList("en").find(
+      (d) => d.id === "abeno-harukas-300-osaka",
+    ) as Destination;
     const dates = deriveTripDates("2026-12-01", "weekend_2d1n");
     expect(
       isTripDatesTransportEligible(
@@ -430,6 +437,37 @@ describe("trip-date ferry eligibility (canonical check)", () => {
     ).toBe(true);
     expect(
       isTripDatesTransportEligible(dest, ["train"], WAKAYAMA_COORDS, dates),
+    ).toBe(true);
+  });
+
+  it("static train support without a verified route does not rescue a ferry-only trip", () => {
+    // Tomogashima advertises static train minutes, and the mode list here
+    // simulates topology/static train authorization — but no verified
+    // origin-aware train route exists, so the ferry remains the only
+    // usable mode and the suspended return leg (Dec 1) makes the trip
+    // ineligible.
+    const dest = ferryOnlyDestination({
+      transportOptions: { ferry: 30, train: 260 },
+    });
+    const dates = deriveTripDates("2026-11-30", "weekend_2d1n");
+    expect(dates.day2).toBe("2026-12-01");
+    expect(
+      isTripDatesTransportEligible(
+        dest,
+        ["ferry", "train"],
+        WAKAYAMA_COORDS,
+        dates,
+      ),
+    ).toBe(false);
+    // In season with both legs running, the same destination is eligible.
+    const openDates = deriveTripDates("2026-11-29", "weekend_2d1n");
+    expect(
+      isTripDatesTransportEligible(
+        dest,
+        ["ferry", "train"],
+        WAKAYAMA_COORDS,
+        openDates,
+      ),
     ).toBe(true);
   });
 
@@ -571,7 +609,7 @@ describe("mode agreement across eligibility, travel-time, budget and card", () =
     ).toBeNull();
   });
 
-  it("budget honours fare validity on the selected date", () => {
+  it("expired or unverified fares never rank cheaper in a budget sort", () => {
     const sado = makeDestination({
       id: "sado-test",
       coordinates: { lat: 38.0333, lng: 138.3833 },
@@ -580,26 +618,50 @@ describe("mode agreement across eligibility, travel-time, budget and card", () =
     const niigata = { lat: 37.9133, lng: 139.0485 };
     const inWindow = { travelDate: travelDateToDate("2026-08-15") };
     const afterWindow = { travelDate: travelDateToDate("2026-10-15") };
-    const withFare = getAdjustedBudget(
+    // Cost-status semantics: the fare window decides whether the ferry
+    // contributes a verified complete cost at all.
+    expect(
+      getEstimatedBudgetRange(
+        sado,
+        "ferry",
+        2,
+        "standard",
+        undefined,
+        niigata,
+        inWindow,
+      ).transportIncluded,
+    ).toBe(true);
+    expect(
+      getEstimatedBudgetRange(
+        sado,
+        "ferry",
+        2,
+        "standard",
+        undefined,
+        niigata,
+        afterWindow,
+      ).transportIncluded,
+    ).toBe(false);
+    // Sortable budget: in-window is a finite verified complete cost;
+    // out-of-window has NO verified cost and must sort after every
+    // verified-cost candidate — never as a cheaper zero-transport price.
+    const withFare = getSortableVerifiedBudget(
       sado,
-      "ferry",
+      ["ferry"],
       2,
       niigata,
-      undefined,
       inWindow,
     );
-    const withoutFare = getAdjustedBudget(
+    const withoutFare = getSortableVerifiedBudget(
       sado,
-      "ferry",
+      ["ferry"],
       2,
       niigata,
-      undefined,
       afterWindow,
     );
-    // The service runs year-round, but the verified fare window expired:
-    // the in-window budget includes ferry transport, the out-of-window one
-    // cannot (cost unavailable) and must be lower.
-    expect(withFare).toBeGreaterThan(withoutFare);
+    expect(withFare).toBeGreaterThan(0);
+    expect(withFare).toBeLessThan(Number.POSITIVE_INFINITY);
+    expect(withoutFare).toBe(Number.POSITIVE_INFINITY);
   });
 });
 

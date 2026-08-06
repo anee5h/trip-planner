@@ -2,11 +2,10 @@ import type { Destination } from "@/shared/types/destination";
 import type { DayForecastData } from "@/shared/services/weather/WeatherTabService";
 import { getNextCalendarDate } from "@/shared/services/weather/WeatherTabService";
 import type { TripMode } from "./RecommendationContext";
-import { normalizeWeatherDescription } from "./RecommendationContext";
-import { evaluateWeekendWeather } from "@/shared/services/weather/WeekendWeatherScoring";
 import type { MatchReason } from "./RecommendationTypes";
 import { evaluateSeasonalSuitability } from "./SeasonalSuitabilityService";
 import { isFerryTripAvailable } from "@/shared/services/transport/FerryTransportEstimator";
+import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 
 /**
  * One shared date-selection model for Home, Destinations, URL state,
@@ -96,7 +95,21 @@ export function isTripDatesTransportEligible(
   travelDates: TravelDateSelection,
 ): boolean {
   if (!modes.includes("ferry")) return true;
-  if (modes.length > 1) return true;
+  // A non-ferry alternative is independently valid ONLY when the canonical
+  // origin-aware transport service returns a verified estimate for one of
+  // the non-ferry modes. Static transportOptions support or a topology
+  // presence alone is not a route.
+  if (homeCoords) {
+    const nonFerryModes = modes.filter((mode) => mode !== "ferry");
+    if (nonFerryModes.length > 0) {
+      const alternative = getOriginAwareTransportEstimate(
+        dest,
+        { homeStationCoords: homeCoords },
+        nonFerryModes,
+      );
+      if (alternative) return true;
+    }
+  }
   if (!homeCoords) return true;
   const dates = [travelDateToDate(travelDates.day1)];
   if (travelDates.day2) dates.push(travelDateToDate(travelDates.day2));
@@ -194,16 +207,6 @@ function unknownReason(missingDates: readonly string[]): MatchReason {
   };
 }
 
-export interface EvaluateTravelConditionsOptions {
-  /**
-   * Score forecast-covered days with the weekend weather formula. Home owns
-   * forecast scoring through its existing paths (weather.actual ENV scoring
-   * for day trips, weekend weatherDays for 2D1N) and must NOT enable this;
-   * the Destinations explorer has no other forecast scoring path and should.
-   */
-  scoreForecastDays?: boolean;
-}
-
 /**
  * THE shared condition-evaluation entry point. Chooses between:
  *
@@ -213,6 +216,11 @@ export interface EvaluateTravelConditionsOptions {
  *  - neutral unknown      — no forecast and no seasonal evidence; zero delta,
  *                           nothing fabricated
  *
+ * The live forecast map is weather at the SELECTED ORIGIN, never destination
+ * weather: it labels the calendar and never contributes destination-specific
+ * weather scoring. Seasonal evaluation is destination-specific.
+ * ponytail: destination-coordinate forecast fetching is a follow-up.
+ *
  * For 2D1N each day is evaluated independently: a day with a forecast keeps
  * its forecast evidence while a day without one falls back to seasonal or
  * neutral, and the mixed result is labeled honestly (source "mixed").
@@ -221,7 +229,6 @@ export function evaluateTravelConditions(
   dest: Destination,
   dates: TravelDateSelection,
   forecastMap?: ReadonlyMap<string, DayForecastData>,
-  options: EvaluateTravelConditionsOptions = {},
 ): TravelConditionEvaluation {
   const allDates = allDatesOf(dates);
   const forecastDays = allDates
@@ -231,11 +238,9 @@ export function evaluateTravelConditions(
     (iso) => forecastMap?.get(iso) === undefined,
   );
 
-  // Forecast part: existing forecast scoring owns the delta in Home; the
-  // explorer opts in via scoreForecastDays.
-  let scoreDelta = options.scoreForecastDays
-    ? evaluateForecastScore(dest, forecastDays)
-    : 0;
+  // Forecast days never contribute a destination score delta: the forecast
+  // is origin weather. Only uncovered days (seasonal/unknown) do.
+  let scoreDelta = 0;
 
   const reasons: MatchReason[] = [];
   if (forecastDays.length > 0) {
@@ -264,17 +269,4 @@ export function evaluateTravelConditions(
       : "mixed";
 
   return { source, scoreDelta, reasons, dates: allDates };
-}
-
-function evaluateForecastScore(
-  dest: Destination,
-  forecastDays: readonly DayForecastData[],
-): number {
-  if (forecastDays.length === 0) return 0;
-  return evaluateWeekendWeather(
-    dest,
-    forecastDays.map((day) => ({
-      condition: normalizeWeatherDescription(day.desc),
-    })),
-  ).score;
 }

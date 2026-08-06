@@ -455,7 +455,8 @@
     "weekendNoResultsBody": "No destination met the two-day travel, content, weather and budget constraints. Try widening your budget or transport, or switch back to Day trip.",
     "day1Label": "Day 1",
     "day2Label": "Day 2",
-    "anyFutureDate": "Any future date"
+    "anyFutureDate": "Any future date",
+    "originForecastHint": "Forecast shows weather near your origin"
   },
   "destination": {
     "tokyoWardsGroup": "Tokyo 23 Wards",
@@ -475,10 +476,10 @@
       "travelBy": "{{time}} by {{mode}}"
     },
     "dateCondition": {
-      "forecastSingle": "Forecast for {{day}}",
-      "forecastRange": "Forecast for {{day1}}–{{day2}}",
+      "forecastSingle": "Origin forecast for {{day}}",
+      "forecastRange": "Origin forecast for {{day1}}–{{day2}}",
       "seasonal": "Typical conditions for {{month}}",
-      "mixed": "Forecast for {{day}} · typical conditions for {{month}}"
+      "mixed": "Origin forecast for {{day}} · typical conditions for {{month}}"
     }
   },
   "ui": {

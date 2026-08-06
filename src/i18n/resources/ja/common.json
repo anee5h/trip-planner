@@ -455,7 +455,8 @@
     "weekendNoResultsBody": "2日間の移動・コンテンツ・天気・予算の条件に合う行き先がありませんでした。予算や移動手段を広げるか、日帰りに切り替えてみてください。",
     "day1Label": "1日目",
     "day2Label": "2日目",
-    "anyFutureDate": "好きな日付を選択"
+    "anyFutureDate": "好きな日付を選択",
+    "originForecastHint": "予報は出発地付近の天気です"
   },
   "destination": {
     "tokyoWardsGroup": "東京23区",
@@ -475,10 +476,10 @@
       "travelBy": "{{mode}}で{{time}}"
     },
     "dateCondition": {
-      "forecastSingle": "{{day}}の天気予報",
-      "forecastRange": "{{day1}}〜{{day2}}の天気予報",
+      "forecastSingle": "出発地の予報 {{day}}",
+      "forecastRange": "出発地の予報 {{day1}}〜{{day2}}",
       "seasonal": "{{month}}の平年並みの気候",
-      "mixed": "{{day}}の天気予報・{{month}}の平年並みの気候"
+      "mixed": "{{day}}の出発地予報・{{month}}の平年並みの気候"
     }
   },
   "ui": {

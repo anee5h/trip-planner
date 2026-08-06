@@ -144,6 +144,41 @@ export function getEstimatedBudgetRange(
   };
 }
 
+/**
+ * Lowest verified complete trip cost across the given modes, for sorting.
+ *
+ * Estimates whose origin transport is unavailable (expired or unverified
+ * fares, no verified route) are NEVER treated as zero-cost: they are
+ * excluded entirely, and a destination with no verified estimate sorts
+ * after every verified-cost candidate (PositiveInfinity). On-site-only
+ * budgets (transport excluded) are never rewarded in a sort.
+ */
+export function getSortableVerifiedBudget(
+  dest: Destination,
+  modes: readonly string[],
+  partySize: number = 2,
+  homeCoords?: { lat: number; lng: number },
+  ferryTemporal?: FerryTemporalContext,
+  budgetTier: BudgetTier = "standard",
+): number {
+  let lowest = Number.POSITIVE_INFINITY;
+  for (const mode of modes) {
+    const estimate = getEstimatedBudgetRange(
+      dest,
+      mode,
+      partySize,
+      budgetTier,
+      undefined,
+      homeCoords,
+      ferryTemporal,
+    );
+    if (estimate.transportIncluded) {
+      lowest = Math.min(lowest, estimate.range[1]);
+    }
+  }
+  return lowest;
+}
+
 export const TRANSPORT_PRICING_CONFIG = {
   carRentalRates: {
     upTo6h: 7370,

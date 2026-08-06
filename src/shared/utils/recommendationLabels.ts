@@ -33,16 +33,22 @@ export function localizeTravelConditionReason(
 
 /**
  * One-line summary of a destination's condition evaluation: the first
- * reason, or for mixed evidence the forecast label joined with the
- * seasonal/unknown label ("Forecast for Nov 14 · Typical conditions for
- * November").
+ * non-forecast reason, or for mixed evidence the seasonal/unknown label
+ * ("Typical conditions for November"). Forecast reasons are never shown
+ * here: the live forecast is weather at the selected origin, not
+ * destination weather, so cards never claim "Forecast for …" from it.
  */
 export function localizeTravelConditionSummary(
   evaluation: TravelConditionEvaluation,
   locale: "en" | "ja",
 ): string {
-  if (evaluation.reasons.length === 0) return "";
-  const [first, second] = evaluation.reasons;
+  const reasons = evaluation.reasons.filter(
+    (reason) =>
+      reason.code !== "conditionForecastDay" &&
+      reason.code !== "conditionForecastRange",
+  );
+  if (reasons.length === 0) return "";
+  const [first, second] = reasons;
   const firstLabel = localizeTravelConditionReason(first, locale).title;
   if (evaluation.source === "mixed" && second) {
     return `${firstLabel} · ${localizeTravelConditionReason(second, locale).title}`;

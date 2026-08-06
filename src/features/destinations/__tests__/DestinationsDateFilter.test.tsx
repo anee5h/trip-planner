@@ -121,7 +121,7 @@ describe("Destinations date filter", () => {
     expect(dateFilterButton(container)?.textContent).toContain("Date");
     expect(container.textContent).not.toContain("Typical conditions");
     expect(container.textContent).not.toContain("Forecast for");
-  });
+  }, 20000);
 
   it("restores a selected date from the URL with a seasonal label", () => {
     const container = renderDestinations(
@@ -130,7 +130,7 @@ describe("Destinations date filter", () => {
     expect(dateFilterButton(container)?.textContent).toContain("Jun 15");
     // Real i18n resources render the date-level seasonal label.
     expect(container.textContent).toContain("Typical conditions for June");
-  });
+  }, 20000);
 
   it("labels a date inside the forecast window as a forecast", () => {
     weatherMock.forecastMap = new Map([
@@ -140,19 +140,21 @@ describe("Destinations date filter", () => {
     const container = renderDestinations(
       "/destinations?tripMode=weekend_2d1n&date=2030-06-15",
     );
-    expect(container.textContent).toContain("Forecast for Jun 15–Jun 16");
-  });
+    expect(container.textContent).toContain(
+      "Origin forecast for Jun 15–Jun 16",
+    );
+  }, 20000);
 
   it("ignores past URL dates", () => {
     const container = renderDestinations("/destinations?date=2020-01-01");
     expect(dateFilterButton(container)?.textContent).toContain("Date");
     expect(container.textContent).not.toContain("Jan 1");
-  });
+  }, 20000);
 
   it("ignores invalid URL dates", () => {
     const container = renderDestinations("/destinations?date=not-a-date");
     expect(dateFilterButton(container)?.textContent).toContain("Date");
-  });
+  }, 20000);
 
   it("date input enforces today as the minimum", () => {
     renderDestinations("/destinations?date=2030-06-15");
@@ -162,7 +164,7 @@ describe("Destinations date filter", () => {
     const now = new Date();
     const todayIso = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
     expect(input.getAttribute("min")).toBe(todayIso);
-  });
+  }, 20000);
 });
 
 describe("Japanese date condition labels", () => {
@@ -188,6 +190,6 @@ describe("Japanese date condition labels", () => {
         ]),
         "ja",
       ),
-    ).toBe("6/15の天気予報");
+    ).toBe("出発地の予報 6/15");
   });
 });

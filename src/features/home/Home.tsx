@@ -570,10 +570,13 @@ export default function Home() {
                             );
                           })}
                         </div>
-                        {/* Arbitrary future dates: the forecast grid above is
-                            live data; this native date input extends selection
-                            beyond the forecast window without any fabricated
-                            forecast. */}
+                        {/* The forecast grid is live weather at the selected
+                            origin (never destination weather); the native
+                            date input below extends selection beyond the
+                            forecast window without any fabricated forecast. */}
+                        <p className="mt-2 text-[10px] font-medium text-slate-400 dark:text-slate-500">
+                          {t("home.originForecastHint")}
+                        </p>
                         <div className="mt-3 border-t border-slate-100 pt-3 dark:border-slate-800">
                           <label
                             htmlFor="any-future-date"

@@ -18,7 +18,7 @@ import {
   CalendarDays,
 } from "lucide-react";
 import { getPaginationItems } from "./pagination";
-import { getAdjustedBudget } from "@/shared/utils/utils";
+import { getSortableVerifiedBudget } from "@/shared/services/budget/BudgetService";
 import StationInput from "@/shared/components/StationInput";
 import { useWeatherContext } from "@/features/home/hooks/useWeatherContext";
 import {
@@ -604,9 +604,11 @@ export default function Destinations() {
       if (!travelDates) return undefined;
       let evaluation = conditionById.get(dest.id);
       if (!evaluation) {
-        evaluation = evaluateTravelConditions(dest, travelDates, forecastMap, {
-          scoreForecastDays: true,
-        });
+        // The live forecast is weather at the SELECTED ORIGIN, never
+        // destination weather: it labels the calendar, it does not score
+        // destinations. Seasonal evaluation stays destination-specific.
+        // ponytail: destination-coordinate forecast fetching is a follow-up.
+        evaluation = evaluateTravelConditions(dest, travelDates, forecastMap);
         conditionById.set(dest.id, evaluation);
       }
       return evaluation;
@@ -898,49 +900,28 @@ export default function Destinations() {
               scoreForCatalog(a, catalogContext)) +
               (conditionFor(a)?.scoreDelta ?? 0))
           );
-        case "budget":
-          return (
-            Math.min(
-              ...getValidModes(
-                a,
+        case "budget": {
+          // Sort by the lowest VERIFIED complete cost: unknown, expired or
+          // unverified fares are never zero-cost and never rank cheaper.
+          const sortableBudget = (dest: Destination) =>
+            getSortableVerifiedBudget(
+              dest,
+              getValidModes(
+                dest,
                 carMode,
                 effectivePublicModes,
                 homeStationCoords ?? undefined,
                 budgetTier,
                 homeStationTransportZoneId,
                 ferryTemporal,
-              ).map((m) =>
-                getAdjustedBudget(
-                  a,
-                  m,
-                  partySize,
-                  homeStationCoords ?? undefined,
-                  homeStationTransportZoneId,
-                  ferryTemporal,
-                ),
               ),
-            ) -
-            Math.min(
-              ...getValidModes(
-                b,
-                carMode,
-                effectivePublicModes,
-                homeStationCoords ?? undefined,
-                budgetTier,
-                homeStationTransportZoneId,
-                ferryTemporal,
-              ).map((m) =>
-                getAdjustedBudget(
-                  b,
-                  m,
-                  partySize,
-                  homeStationCoords ?? undefined,
-                  homeStationTransportZoneId,
-                  ferryTemporal,
-                ),
-              ),
-            )
-          );
+              partySize,
+              homeStationCoords ?? undefined,
+              ferryTemporal,
+              budgetTier,
+            );
+          return sortableBudget(a) - sortableBudget(b);
+        }
         case "travelTime": {
           const hasOrigin = Boolean(
             homeStationCoords || homeStationTransportZoneId,
