@@ -15,10 +15,23 @@ import {
   Grid,
   ChevronLeft,
   ChevronRight,
+  CalendarDays,
 } from "lucide-react";
 import { getPaginationItems } from "./pagination";
-import { getAdjustedBudget } from "@/shared/utils/utils";
+import { getSortableVerifiedBudget } from "@/shared/services/budget/BudgetService";
 import StationInput from "@/shared/components/StationInput";
+import { useWeatherContext } from "@/features/home/hooks/useWeatherContext";
+import {
+  deriveTripDates,
+  evaluateTravelConditions,
+  isTripDatesTransportEligible,
+  travelDateToDate,
+} from "@/shared/services/recommendation/TravelConditions";
+import {
+  localizeDateConditionSummary,
+  localizeTravelConditionSummary,
+} from "@/shared/utils/recommendationLabels";
+import type { TravelConditionEvaluation } from "@/shared/services/recommendation/TravelConditions";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useLocale } from "@/shared/context/LocaleContext";
@@ -165,7 +178,31 @@ export default function Destinations() {
   );
   const [indoorMin, setIndoorMin] = useState(initialExplorerState.indoorMin);
   const [season, setSeason] = useState(initialExplorerState.season);
+  const [date, setDate] = useState(initialExplorerState.date);
   const query = searchQuery.toLowerCase().trim();
+
+  // Live forecast map for the planned origin: lets a selected date use real
+  // forecast data when it exists, seasonal guidance otherwise.
+  const { weatherContext: explorerWeatherContext } =
+    useWeatherContext(homeStationCoords);
+  const forecastMap = explorerWeatherContext?.forecastMap;
+
+  // Shared trip-date model: Day 1 + derived Day 2 for 2D1N. Omitted date
+  // means no explicit date — any-date browsing is never silently "today".
+  const travelDates = useMemo(() => {
+    if (!date) return undefined;
+    return deriveTripDates(
+      date,
+      tripMode === "weekend_2d1n" ? "weekend_2d1n" : "day_trip",
+    );
+  }, [date, tripMode]);
+  const ferryTemporal = useMemo(
+    () =>
+      travelDates
+        ? { travelDate: travelDateToDate(travelDates.day1) }
+        : undefined,
+    [travelDates],
+  );
 
   // Saved preferences provide defaults only when the URL has not specified one.
   useEffect(() => {
@@ -176,13 +213,10 @@ export default function Destinations() {
         setCarMode(user.user_metadata.preferences.carMode || "none");
       }
       if (!searchParams.has("mode")) {
+        // Same default mode set as Home (includes verified ferry routes) so
+        // date-aware ferry availability reaches gates, sorts and cards.
         setPublicModes(
-          user.user_metadata.preferences.publicModes || [
-            "train",
-            "shinkansen",
-            "bus",
-            "flight",
-          ],
+          user.user_metadata.preferences.publicModes || ALL_PUBLIC_MODES,
         );
       }
       if (!searchParams.has("party")) {
@@ -207,6 +241,7 @@ export default function Destinations() {
     setSelectedAreas(restored.selectedAreas);
     setIndoorMin(restored.indoorMin);
     setSeason(restored.season);
+    setDate(restored.date);
     setMaxBudget(restored.maxBudget);
     setSortBy(restored.sortBy);
     setCarMode(restored.carMode);
@@ -239,6 +274,7 @@ export default function Destinations() {
       selectedAreas,
       indoorMin,
       season,
+      date,
       maxBudget,
       sortBy,
       carMode,
@@ -271,6 +307,7 @@ export default function Destinations() {
     selectedAreas,
     indoorMin,
     season,
+    date,
     maxBudget,
     sortBy,
     carMode,
@@ -307,12 +344,7 @@ export default function Destinations() {
       budget: maxBudget,
       partySize,
       carMode: prefs.carMode ?? "none",
-      publicModes: prefs.publicModes ?? [
-        "train",
-        "shinkansen",
-        "bus",
-        "flight",
-      ],
+      publicModes: prefs.publicModes ?? ALL_PUBLIC_MODES,
       currentWeatherCondition: "",
       currentWeather: null,
       visitedIds: [],
@@ -320,6 +352,9 @@ export default function Destinations() {
       originZoneId: homeStationTransportZoneId,
       userRatings: destinationRatings,
       tripDuration,
+      // Selected travel date: keeps every origin-aware estimate, budget and
+      // duration read inside the explorer on the same temporal context.
+      ferryTemporal,
     };
   }, [
     user,
@@ -332,6 +367,7 @@ export default function Destinations() {
     tripDuration,
     maxBudget,
     partySize,
+    ferryTemporal,
   ]);
 
   // Reset page to 1 when filters change
@@ -356,6 +392,7 @@ export default function Destinations() {
     selectedAreas,
     indoorMin,
     season,
+    date,
     maxBudget,
     sortBy,
     carMode,
@@ -378,6 +415,7 @@ export default function Destinations() {
     destinations: filteredAndSortedDestinations,
     weekend: weekendResult,
     weekendTravelById,
+    conditionById,
   } = useMemo(() => {
     const originMunicipalityId = resolveOriginMunicipalityId(
       homeStationCoords ?? undefined,
@@ -559,15 +597,32 @@ export default function Destinations() {
     >();
     // Weekend-aware "recommended" scores for 2D1N (matches Home ranking).
     const weekendRecommendedScoreById = new Map<string, number>();
+    // Forecast/seasonal/unknown condition evaluation per destination for the
+    // planned dates (empty map = no explicit date selected).
+    const conditionById = new Map<string, TravelConditionEvaluation>();
+    const conditionFor = (dest: Destination) => {
+      if (!travelDates) return undefined;
+      let evaluation = conditionById.get(dest.id);
+      if (!evaluation) {
+        // The live forecast is weather at the SELECTED ORIGIN, never
+        // destination weather: it labels the calendar, it does not score
+        // destinations. Seasonal evaluation stays destination-specific.
+        // ponytail: destination-coordinate forecast fetching is a follow-up.
+        evaluation = evaluateTravelConditions(dest, travelDates, forecastMap);
+        conditionById.set(dest.id, evaluation);
+      }
+      return evaluation;
+    };
+
+    // Empty transport preference means "any public transport" everywhere in
+    // this explorer (weekend path, day-trip gate, sorts, cards) — never
+    // "ignore transport".
+    const effectivePublicModes =
+      publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
 
     // Weekend mode uses its own eligibility gate instead of duration bands.
     if (tripMode === "weekend_2d1n") {
       const hasOrigin = homeStationCoords || homeStationTransportZoneId;
-      // Empty transport preference means "any public transport", never
-      // "ignore transport": an explicit origin still requires a known
-      // origin-aware duration.
-      const effectivePublicModes =
-        publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
       result = result.filter((dest) => {
         // Origin-local destinations are never getaways (same municipality as base).
         if (isOriginLocalDestination(dest, originMunicipalityId)) return false;
@@ -583,8 +638,22 @@ export default function Destinations() {
           homeStationCoords ?? undefined,
           budgetTier,
           homeStationTransportZoneId,
+          ferryTemporal,
         );
         if (modes.length === 0) return false;
+        // Canonical trip-date transport eligibility: a ferry-only trip must
+        // be covered on every travel day (outbound Day 1 / return Day 2).
+        if (
+          travelDates &&
+          !isTripDatesTransportEligible(
+            dest,
+            modes,
+            homeStationCoords ?? undefined,
+            travelDates,
+          )
+        ) {
+          return false;
+        }
         // No origin-aware duration → excluded from personalized matching.
         const minutes = getBestOneWayTravelMinutes(dest, catalogContext, modes);
         if (minutes === undefined) return false;
@@ -608,10 +677,11 @@ export default function Destinations() {
               homeStationCoords ?? undefined,
               budgetTier,
               homeStationTransportZoneId,
+              ferryTemporal,
             );
             const estimate = getOriginAwareTransportEstimate(
               area,
-              { homeStationCoords },
+              { homeStationCoords, ferryTemporal },
               modes,
             );
             weekendTravelById.set(area.id, {
@@ -757,12 +827,26 @@ export default function Destinations() {
         const modes = getValidModes(
           dest,
           carMode,
-          publicModes,
+          effectivePublicModes,
           homeStationCoords ?? undefined,
           budgetTier,
           homeStationTransportZoneId,
+          ferryTemporal,
         );
-        return modes.length > 0;
+        if (modes.length === 0) return false;
+        // Canonical trip-date transport eligibility (same authority as Home).
+        if (
+          travelDates &&
+          !isTripDatesTransportEligible(
+            dest,
+            modes,
+            homeStationCoords ?? undefined,
+            travelDates,
+          )
+        ) {
+          return false;
+        }
+        return true;
       });
     }
 
@@ -806,60 +890,51 @@ export default function Destinations() {
           // 2D1N uses the weekend-aware score so the explorer ranks
           // consistently with the Home pipeline (and the Tokyo wards group
           // ranks as its best member, not at a plain catalog position).
+          // The forecast/seasonal condition delta for the planned dates is
+          // added for both modes when a date is selected.
           return (
             (weekendRecommendedScoreById.get(b.id) ??
-              scoreForCatalog(b, catalogContext)) -
-            (weekendRecommendedScoreById.get(a.id) ??
-              scoreForCatalog(a, catalogContext))
+              scoreForCatalog(b, catalogContext)) +
+            (conditionFor(b)?.scoreDelta ?? 0) -
+            ((weekendRecommendedScoreById.get(a.id) ??
+              scoreForCatalog(a, catalogContext)) +
+              (conditionFor(a)?.scoreDelta ?? 0))
           );
-        case "budget":
-          return (
-            Math.min(
-              ...getValidModes(
-                a,
+        case "budget": {
+          // Sort by the lowest VERIFIED complete cost: unknown, expired or
+          // unverified fares are never zero-cost and never rank cheaper.
+          const sortableBudget = (dest: Destination) =>
+            getSortableVerifiedBudget(
+              dest,
+              getValidModes(
+                dest,
                 carMode,
-                publicModes,
+                effectivePublicModes,
                 homeStationCoords ?? undefined,
                 budgetTier,
                 homeStationTransportZoneId,
-              ).map((m) =>
-                getAdjustedBudget(
-                  a,
-                  m,
-                  partySize,
-                  homeStationCoords ?? undefined,
-                  homeStationTransportZoneId,
-                ),
+                ferryTemporal,
               ),
-            ) -
-            Math.min(
-              ...getValidModes(
-                b,
-                carMode,
-                publicModes,
-                homeStationCoords ?? undefined,
-                budgetTier,
-                homeStationTransportZoneId,
-              ).map((m) =>
-                getAdjustedBudget(
-                  b,
-                  m,
-                  partySize,
-                  homeStationCoords ?? undefined,
-                  homeStationTransportZoneId,
-                ),
-              ),
-            )
+              partySize,
+              homeStationCoords ?? undefined,
+              ferryTemporal,
+              budgetTier,
+            );
+          return sortableBudget(a) - sortableBudget(b);
+        }
+        case "travelTime": {
+          const hasOrigin = Boolean(
+            homeStationCoords || homeStationTransportZoneId,
           );
-        case "travelTime":
           const getFastestTime = (dest: Destination) => {
             const modes = getValidModes(
               dest,
               carMode,
-              publicModes,
+              effectivePublicModes,
               homeStationCoords ?? undefined,
               budgetTier,
               homeStationTransportZoneId,
+              ferryTemporal,
             );
             if (modes.length === 0) return 999;
             // Origin-aware duration when an origin exists (never a false
@@ -871,17 +946,23 @@ export default function Destinations() {
               modes,
             );
             if (minutes !== undefined) return minutes;
-            const legacyMinutes = Math.min(
-              ...modes.map(
-                (m) =>
-                  (dest.transportOptions?.[
-                    m as keyof typeof dest.transportOptions
-                  ] as number) || 999,
-              ),
-            );
-            return legacyMinutes;
+            if (!hasOrigin) {
+              const legacyMinutes = Math.min(
+                ...modes.map(
+                  (m) =>
+                    (dest.transportOptions?.[
+                      m as keyof typeof dest.transportOptions
+                    ] as number) || 999,
+                ),
+              );
+              return legacyMinutes;
+            }
+            // Selected origin without a canonical origin-aware estimate:
+            // unknown sorts last — never a legacy transportOptions fallback.
+            return 999;
           };
           return getFastestTime(a) - getFastestTime(b);
+        }
         case "nearest": {
           if (!homeStationCoords) {
             return (
@@ -923,6 +1004,7 @@ export default function Destinations() {
       destinations: result,
       weekend: weekendConsolidation,
       weekendTravelById,
+      conditionById,
     };
   }, [
     allDestinations,
@@ -951,6 +1033,9 @@ export default function Destinations() {
     searchQuery,
     suitabilities,
     interests,
+    travelDates,
+    forecastMap,
+    ferryTemporal,
   ]);
 
   const resetFilters = () => {
@@ -963,6 +1048,7 @@ export default function Destinations() {
     setSelectedAreas(defaults.selectedAreas);
     setIndoorMin(defaults.indoorMin);
     setSeason(defaults.season);
+    setDate(defaults.date);
     setMaxBudget(defaults.maxBudget);
     setSortBy(defaults.sortBy);
     setCarMode(defaults.carMode);
@@ -1040,6 +1126,8 @@ export default function Destinations() {
         setIndoorMin={setIndoorMin}
         season={season}
         setSeason={setSeason}
+        date={date}
+        setDate={setDate}
         sortBy={sortBy}
         setSortBy={setSortBy}
         carMode={carMode}
@@ -1090,6 +1178,20 @@ export default function Destinations() {
                   filteredAndSortedDestinations.length === 1 ? "" : "s"
                 } matching`}
           </span>
+          {travelDates && (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700 dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-300">
+              <CalendarDays className="h-3.5 w-3.5 shrink-0" />
+              <span className="truncate">
+                {localizeDateConditionSummary(
+                  travelDates.day2
+                    ? [travelDates.day1, travelDates.day2]
+                    : [travelDates.day1],
+                  forecastMap,
+                  locale,
+                )}
+              </span>
+            </span>
+          )}
         </div>
       </div>
 
@@ -1119,12 +1221,19 @@ export default function Destinations() {
               )
               .map((dest) => {
                 const travel = weekendTravelById.get(dest.id);
+                const condition = conditionById.get(dest.id);
                 return (
                   <DestinationCard
                     key={dest.id}
                     destination={dest}
                     partySize={partySize}
                     carMode={carMode}
+                    conditionLabel={
+                      condition
+                        ? localizeTravelConditionSummary(condition, locale)
+                        : undefined
+                    }
+                    ferryTemporal={ferryTemporal}
                     // Empty transport preference means "any public
                     // transport" — cards resolve the fastest verified mode
                     // instead of showing N/A.

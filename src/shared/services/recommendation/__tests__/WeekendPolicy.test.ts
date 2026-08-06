@@ -385,7 +385,7 @@ describe("evaluateWeekendCandidate", () => {
       transportOptions: { shinkansen: 180 },
     });
     const ctx = context({
-      weather: {
+      destinationWeather: {
         days: [
           { date: "2026-08-05", condition: "clear" },
           { date: "2026-08-06", condition: "clear" },
@@ -416,7 +416,7 @@ describe("evaluateWeekendCandidate", () => {
       transportOptions: { train: 90 },
     });
     const ctx = context({
-      weather: {
+      destinationWeather: {
         days: [
           { date: "2026-08-05", condition: "stormy" },
           { date: "2026-08-06", condition: "clear" },
@@ -456,7 +456,7 @@ describe("evaluateWeekendCandidate", () => {
       transportOptions: { shinkansen: 180 },
     });
     const ctx = context({
-      weather: {
+      destinationWeather: {
         days: [
           { date: "2026-08-05", condition: "clear" },
           { date: "2026-08-06", condition: "clear" },
@@ -522,7 +522,7 @@ describe("evaluateWeekendCandidate", () => {
       transportOptions: { train: 90 },
     });
     const ctx = context({
-      weather: {
+      destinationWeather: {
         days: [
           { date: "2026-08-05", condition: "rainy" },
           { date: "2026-08-06", condition: "clear" },
@@ -548,7 +548,7 @@ describe("evaluateWeekendCandidate", () => {
       transportOptions: { train: 90 },
     });
     const ctx = context({
-      weather: {
+      destinationWeather: {
         days: [
           { date: "2026-08-05", condition: "stormy" },
           { date: "2026-08-06", condition: "rainy" },

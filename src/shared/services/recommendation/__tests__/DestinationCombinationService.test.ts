@@ -57,7 +57,7 @@ describe("DestinationCombinationService", () => {
     const combosRainy = findNearbyCombinations(
       mockDest1,
       {
-        weather: { actual: { condition: "rainy" } },
+        destinationWeather: { actual: { condition: "rainy" } },
       },
       3,
     );

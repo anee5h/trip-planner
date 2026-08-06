@@ -175,7 +175,10 @@ export function evaluateWeekendCandidate(
   modes: string[],
   originMunicipalityId?: string,
 ): WeekendCandidateEvaluation {
-  const weatherDays = (context.weather?.days ?? []).slice(0, 2);
+  // DESTINATION-specific forecast days only. The live origin forecast is
+  // never passed here, so without destination weather the weather score is
+  // zero and no weekendWeather* reason is generated.
+  const weatherDays = (context.destinationWeather?.days ?? []).slice(0, 2);
 
   const oneWayMinutes = getBestOneWayTravelMinutes(destination, context, modes);
   const travelFit = evaluateWeekendTravelFit(oneWayMinutes);

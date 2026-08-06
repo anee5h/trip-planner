@@ -48,7 +48,20 @@ export type RecommendationReasonCode =
   | "weekendWeatherDayRain"
   | "weekendWeatherPoorOutdoor"
   | "weekendStayAllowance"
-  | "weekendTransportExcluded";
+  | "weekendTransportExcluded"
+  | "conditionForecastDay"
+  | "conditionForecastRange"
+  | "conditionSeasonalMonth"
+  | "conditionSeasonalStrong"
+  | "conditionSeasonalWeak"
+  | "conditionIndoorHeat"
+  | "conditionIndoorWinter"
+  | "conditionOutdoorSummer"
+  | "conditionOutdoorWinter"
+  | "conditionRainFriendly"
+  | "conditionRainExposed"
+  | "conditionFerrySeasonal"
+  | "conditionUnknown";
 
 export interface MatchReason {
   type: MatchReasonType;
@@ -93,6 +106,11 @@ export interface ScoredDestination extends Destination {
   /** Present only on the virtual Tokyo 23 Wards super-hub result. */
   wardGroup?: TokyoWardsGroupMetadata;
   weekend?: WeekendRecommendationMetadata;
+  /**
+   * Forecast/seasonal/unknown evaluation for the planned trip dates.
+   * Present only when the context carries explicit travelDates.
+   */
+  condition?: import("./TravelConditions").TravelConditionEvaluation;
 }
 
 export interface RecommendationStageResult {

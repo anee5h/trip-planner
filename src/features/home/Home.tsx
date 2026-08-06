@@ -1,4 +1,5 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
   Calendar,
   Cloud,
@@ -14,9 +15,11 @@ import { useAuth } from "@/shared/hooks/useAuth";
 import {
   getTabWeatherSummary,
   getNextCalendarDate,
-  getForecastDaysForRange,
 } from "@/shared/services/weather/WeatherTabService";
-import { normalizeWeatherDescription } from "@/shared/services/recommendation/RecommendationContext";
+import {
+  deriveTripDates,
+  normalizeTravelDateParam,
+} from "@/shared/services/recommendation/TravelConditions";
 import RouletteModal from "@/features/home/components/RouletteModal";
 
 import { useTripPlannerState } from "@/features/home/hooks/useTripPlannerState";
@@ -77,6 +80,7 @@ export default function Home() {
   const { t, i18n } = useTranslation();
   const allDestinations = getDestinationList() as Destination[];
 
+  const [searchParams, setSearchParams] = useSearchParams();
   const {
     isVisited,
     favorites,
@@ -95,6 +99,117 @@ export default function Home() {
     currentTab,
     handleCustomDateSelect,
   } = useWeatherContext(homeStationCoords);
+
+  const tomorrowIso = useMemo(
+    () => weatherContext?.tabs.find((tab) => tab.id === "tomorrow")?.dates?.[0],
+    [weatherContext],
+  );
+
+  /**
+   * Bidirectional date=YYYY-MM-DD URL synchronization.
+   *
+   * URL → state: every search-parameter change while mounted restores the
+   * selected date (back/forward included). Invalid or past dates are
+   * normalized away with replace (no history entry).
+   *
+   * state → URL: every non-restore state change is a deliberate selection
+   * (Today / Tomorrow / custom date) and pushes a history entry so
+   * back/forward restores it; the restore-in-flight and last-written
+   * guards keep URL→state restorations and in-flight writes from being
+   * overwritten or duplicated across router transition commits.
+   */
+  const restoreInFlightRef = useRef(false);
+  /** The URL date value most recently applied to state (loop guard). */
+  const lastAppliedUrlRef = useRef<string | undefined>(undefined);
+  /**
+   * The date value most recently written to the URL. Router search-param
+   * state updates can lag the committed URL (transition), so this guard
+   * stops the sync effect from writing the same value twice or mistaking
+   * its own in-flight write for a URL→state restoration.
+   */
+  const lastWrittenUrlRef = useRef<string | undefined>(undefined);
+
+  // The date serialized by the current selection: today omits the param,
+  // tomorrow and custom dates serialize the ISO date.
+  const stateDate = useMemo(() => {
+    if (customDate) return normalizeTravelDateParam(customDate) ?? undefined;
+    if (activeTabId === "tomorrow") return tomorrowIso;
+    return undefined;
+  }, [customDate, activeTabId, tomorrowIso]);
+
+  // URL → state restoration. Declared before the state→URL effect so a
+  // back/forward navigation restores state before the sync effect runs.
+  useEffect(() => {
+    if (!weatherContext) return; // state not ready; first load handled below
+    const urlDate = normalizeTravelDateParam(searchParams.get("date"));
+    const current =
+      customDate ?? (activeTabId === "tomorrow" ? tomorrowIso : undefined);
+
+    // Invalid or past date: normalize the URL safely (replace, no history),
+    // regardless of the loop guards below.
+    if (urlDate === undefined && searchParams.has("date")) {
+      lastAppliedUrlRef.current = undefined;
+      const params = new URLSearchParams(searchParams);
+      params.delete("date");
+      if (params.toString() !== searchParams.toString()) {
+        setSearchParams(params, { replace: true });
+      }
+      return;
+    }
+
+    // State already aligned with this URL value (also re-anchors the loop
+    // guard), or this URL value was already applied to state.
+    if (urlDate === current) {
+      lastAppliedUrlRef.current = urlDate;
+      return;
+    }
+    if (urlDate === lastAppliedUrlRef.current) return;
+    lastAppliedUrlRef.current = urlDate;
+
+    if (urlDate !== undefined) {
+      restoreInFlightRef.current = true;
+      handleCustomDateSelect(urlDate);
+      return;
+    }
+    if (current) {
+      // URL no longer carries a date: reset the selection to today.
+      restoreInFlightRef.current = true;
+      setWeatherContext((prev) =>
+        prev
+          ? { ...prev, tabs: prev.tabs.filter((tab) => !tab.isCustom) }
+          : prev,
+      );
+      setActiveTabId("today");
+      setCustomDate(null);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams, weatherContext]);
+
+  // state → URL synchronization. Any non-restore state change is a
+  // deliberate selection and pushes a history entry; invalid/past URL
+  // normalization is handled separately in the URL→state effect with
+  // replace and never reaches this effect.
+  useEffect(() => {
+    if (!weatherContext) return; // wait for the initial restore to settle
+    const urlDate = normalizeTravelDateParam(searchParams.get("date"));
+    if (stateDate === urlDate) return; // aligned
+    if (restoreInFlightRef.current) {
+      // URL→state restoration applied in this commit; never overwrite it.
+      // The next render aligns state with the URL.
+      restoreInFlightRef.current = false;
+      return;
+    }
+    if (stateDate === lastWrittenUrlRef.current) {
+      // Our own write is still settling through the router (transition
+      // lag); wait for the URL state to catch up instead of writing again.
+      return;
+    }
+    const params = new URLSearchParams(searchParams);
+    if (stateDate) params.set("date", stateDate);
+    else params.delete("date");
+    lastWrittenUrlRef.current = stateDate;
+    setSearchParams(params);
+  }, [weatherContext, stateDate, searchParams, setSearchParams]);
 
   const forecastSelection = useMemo(() => {
     if (activeTabId === "today") return { type: "today" } as const;
@@ -173,29 +288,26 @@ export default function Home() {
             ? Cloud
             : Sun;
 
-  // Weekend weather forecast days derivation
-  const weatherDays = useMemo(() => {
-    if (resolvedApplied.tripMode !== "weekend_2d1n") return undefined;
-    if (!weatherContext) return undefined;
-    const day1Iso =
-      customDate ?? currentTab?.dates?.[0] ?? weatherContext.minDate;
-    if (!day1Iso) return undefined;
-    return getForecastDaysForRange(weatherContext.forecastMap, day1Iso, 2).map(
-      (d) => ({
-        date: d.date,
-        condition: normalizeWeatherDescription(d.desc),
-        temperatureC: d.maxTemp,
-      }),
-    );
-  }, [resolvedApplied.tripMode, customDate, currentTab, weatherContext]);
+  const selectedDate =
+    customDate || currentTab?.dates?.[0] || weatherContext?.minDate;
+  const travelDates = useMemo(() => {
+    if (!selectedDate) return undefined;
+    return deriveTripDates(selectedDate, resolvedApplied.tripMode);
+  }, [selectedDate, resolvedApplied.tripMode]);
+  const forecastMap = useMemo(
+    () =>
+      weatherContext?.forecastMap instanceof Map
+        ? weatherContext.forecastMap
+        : undefined,
+    [weatherContext],
+  );
 
   // Recommendation engine consumes applied state + live weather context
   const { recommendedDestinations, rouletteCandidates, rouletteExpansion } =
     useTripRecommendations({
       allDestinations,
-      actualWeather: currentSituation
-        ? { desc: currentSituation.desc, temperatureC: currentSituation.temp }
-        : undefined,
+      // The live origin forecast is display-only (date tabs / picker); it is
+      // never passed into destination recommendation scoring.
       vibe: resolvedApplied.vibe,
       budget: resolvedApplied.budget,
       carMode: resolvedApplied.carMode,
@@ -210,11 +322,16 @@ export default function Home() {
       rouletteConstraints: resolvedDraft,
       tripMode: resolvedApplied.tripMode,
       accommodationAllowance: resolvedApplied.accommodationAllowance,
-      weatherDays,
+      travelDates,
+      forecastMap,
     });
 
   const [rouletteOpen, setRouletteOpen] = useState(false);
   const [datePickerOpen, setDatePickerOpen] = useState(false);
+  const todayIso = useMemo(() => {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+  }, []);
   const forecastDates = useMemo(() => {
     if (!weatherContext) return [];
     const dates: string[] = [];
@@ -228,9 +345,6 @@ export default function Home() {
     }
     return dates;
   }, [weatherContext]);
-
-  const selectedDate =
-    customDate || currentTab?.dates?.[0] || weatherContext?.minDate;
 
   const formatForecastDate = useCallback(
     (date: string) => {
@@ -436,6 +550,45 @@ export default function Home() {
                             );
                           })}
                         </div>
+                        {/* The forecast grid is live weather at the selected
+                            origin (never destination weather); the native
+                            date input below extends selection beyond the
+                            forecast window without any fabricated forecast. */}
+                        <p className="mt-2 text-[10px] font-medium text-slate-400 dark:text-slate-500">
+                          {t("home.originForecastHint")}
+                        </p>
+                        <div className="mt-3 border-t border-slate-100 pt-3 dark:border-slate-800">
+                          <label
+                            htmlFor="any-future-date"
+                            className="mb-1.5 block text-[11px] font-bold text-slate-500 dark:text-slate-400"
+                          >
+                            {t("home.anyFutureDate")}
+                          </label>
+                          <input
+                            id="any-future-date"
+                            type="date"
+                            min={todayIso}
+                            value={selectedDate ?? ""}
+                            onChange={(e) => {
+                              const value = e.target.value;
+                              if (!value) return;
+                              setCustomDate(value);
+                              handleCustomDateSelect(value);
+                            }}
+                            aria-label={t("home.anyFutureDate")}
+                            className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm font-bold text-slate-800 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                          />
+                          {resolvedApplied.tripMode === "weekend_2d1n" &&
+                            selectedDate && (
+                              <p className="mt-1.5 text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                                {t("home.day2Label")}:{" "}
+                                {formatCompactDate(
+                                  getNextCalendarDate(selectedDate),
+                                  i18n.language === "ja" ? "ja" : "en",
+                                )}
+                              </p>
+                            )}
+                        </div>
                       </div>
                     </>
                   )}
@@ -500,6 +653,9 @@ export default function Home() {
         hasUserApplied={hasUserApplied}
         appliedState={resolvedApplied}
         travelDate={travelDateIso}
+        viewAllDate={
+          forecastSelection.type === "today" ? undefined : travelDateIso
+        }
       />
 
       {/* Unexplored Nearby Rail — nearest unvisited destinations from home origin.

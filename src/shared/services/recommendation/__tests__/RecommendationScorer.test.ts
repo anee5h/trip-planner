@@ -251,7 +251,7 @@ describe("RecommendationScorer Unit Tests", () => {
       publicModes: ["train"],
       partySize: 1,
       visitedIds: [],
-      weather: {
+      destinationWeather: {
         actual: { condition: "rainy" as const, temperatureC: 18 },
       },
     };
@@ -264,7 +264,7 @@ describe("RecommendationScorer Unit Tests", () => {
     ).score;
     const clear = calculateScore(mockDest, {
       ...base,
-      weather: { actual: { condition: "clear", temperatureC: 18 } },
+      destinationWeather: { actual: { condition: "clear", temperatureC: 18 } },
     }).score;
     expect(rainy).not.toBe(clear);
   });
@@ -285,7 +285,7 @@ describe("RecommendationScorer Unit Tests", () => {
     const neutral = calculateScore(destination, context).score;
     const actual = calculateScore(destination, {
       ...context,
-      weather: {
+      destinationWeather: {
         actual: { condition: "clear" as const, temperatureC: 35 },
       },
     }).score;

@@ -311,3 +311,50 @@ describe("destinationSearchParams", () => {
     expect(serialized).toContain("stay=8000");
   });
 });
+
+describe("destination date parameter", () => {
+  const future = "2030-06-15";
+  const past = "2020-01-01";
+
+  it("round-trips a selected date", () => {
+    const parsed = parseDestinationSearchParams(
+      new URLSearchParams(`date=${future}`),
+    );
+    expect(parsed.date).toBe(future);
+    expect(serializeDestinationSearchParams(parsed).get("date")).toBe(future);
+  });
+
+  it("omitted date stays unset (any-date browsing)", () => {
+    const parsed = parseDestinationSearchParams(new URLSearchParams(""));
+    expect(parsed.date).toBe("");
+    expect(serializeDestinationSearchParams(parsed).has("date")).toBe(false);
+  });
+
+  it("invalid dates are ignored safely", () => {
+    for (const bad of ["nope", "2030-13-01", "2030-02-30", "2030-6-1"]) {
+      const parsed = parseDestinationSearchParams(
+        new URLSearchParams(`date=${bad}`),
+      );
+      expect(parsed.date).toBe("");
+    }
+  });
+
+  it("past dates normalize safely to unset", () => {
+    const parsed = parseDestinationSearchParams(
+      new URLSearchParams(`date=${past}`),
+    );
+    expect(parsed.date).toBe("");
+  });
+
+  it("reload restores the date from the URL", () => {
+    const url = `?tripMode=weekend_2d1n&date=${future}`;
+    const parsed = parseDestinationSearchParams(new URLSearchParams(url));
+    expect(parsed.date).toBe(future);
+    expect(parsed.tripMode).toBe("weekend_2d1n");
+    const serialized = serializeDestinationSearchParams(parsed).toString();
+    expect(serialized).toContain(`date=${future}`);
+    expect(serialized).toContain("tripMode=weekend_2d1n");
+    // Day 2 is derived, never serialized.
+    expect(serialized).not.toContain("06-16");
+  });
+});

@@ -4,6 +4,8 @@ import type {
 } from "./PersonalizationService";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
+import type { DayForecastData } from "@/shared/services/weather/WeatherTabService";
+import type { TravelDateSelection } from "./TravelConditions";
 
 export type TripDuration =
   "any" | "shortOuting" | "halfDay" | "fullDay" | "weekend";
@@ -19,11 +21,18 @@ export interface RecommendationWeatherDay {
 }
 
 export interface RecommendationWeatherContext {
+  /**
+   * DESTINATION-specific weather only. Never origin weather: the live
+   * forecast is fetched for the selected origin and is display-only
+   * calendar context until destination-coordinate forecasting exists.
+   */
   actual?: {
     condition: ActualWeatherCondition;
     temperatureC?: number;
   };
+  /** DESTINATION-specific per-day weather (e.g. a 2D1N trip at the place). */
   days?: RecommendationWeatherDay[];
+  /** User preference, not weather data. */
   preferred?: "any" | "rainy" | "hot" | "cold";
 }
 
@@ -61,16 +70,31 @@ export interface RecommendationContext {
   carMode: string;
   publicModes: string[];
   partySize: number;
-  weather?: RecommendationWeatherContext;
-  /** @deprecated Use weather.actual.condition. */
+  /**
+   * DESTINATION weather context (actual conditions and per-day forecast at
+   * the destination). The live forecast fetched for the home origin is
+   * NEVER placed here: it is calendar display context only and must not
+   * reach destination scoring until destination-coordinate forecasting
+   * exists.
+   */
+  destinationWeather?: RecommendationWeatherContext;
+  /** @deprecated Use destinationWeather.actual.condition. */
   currentWeatherCondition?: string;
   visitedIds: string[];
-  /** @deprecated Use weather.actual. */
+  /** @deprecated Use destinationWeather.actual. */
   currentWeather?: { temp: number; desc: string } | null;
   homeStationCoords?: { lat: number; lng: number } | null;
   originZoneId?: TransportZoneId;
   /** Planned trip date/season for ferry availability; never the clock. */
   ferryTemporal?: FerryTemporalContext;
+  /**
+   * Explicit trip dates (Day 1, plus derived Day 2 for 2D1N). When set, the
+   * pipeline evaluates forecast/seasonal travel conditions per destination.
+   * Omitted means no explicit date: neutral, any-date behaviour.
+   */
+  travelDates?: TravelDateSelection;
+  /** Live forecast map (YYYY-MM-DD → forecast) for the planned origin. */
+  forecastMap?: ReadonlyMap<string, DayForecastData>;
   userRatings?: Record<string, "up" | "down">;
   tripDuration?: TripDuration;
   availableTimeHours?: number;
@@ -88,18 +112,19 @@ export interface TripDurationContext {
 
 export function resolveRecommendationWeather(context: RecommendationContext) {
   const condition =
-    context.weather?.actual?.condition ??
+    context.destinationWeather?.actual?.condition ??
     normalizeWeatherDescription(
       context.currentWeather?.desc ?? context.currentWeatherCondition ?? "",
     );
   const temperatureC =
-    context.weather?.actual?.temperatureC ?? context.currentWeather?.temp;
+    context.destinationWeather?.actual?.temperatureC ??
+    context.currentWeather?.temp;
 
   return {
     actual:
       condition === "unknown" && temperatureC === undefined
         ? undefined
         : { condition, temperatureC },
-    preferred: context.weather?.preferred ?? "any",
+    preferred: context.destinationWeather?.preferred ?? "any",
   } as const;
 }

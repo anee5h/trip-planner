@@ -69,7 +69,7 @@ describe("RecommendationExplainability Unit Tests", () => {
         publicModes: ["train"],
         partySize: 1,
         visitedIds: [],
-        weather: {
+        destinationWeather: {
           actual: { condition: "rainy", temperatureC: 18 },
           preferred: "rainy",
         },

@@ -181,7 +181,7 @@
       },
       "weekendTravelWeak": {
         "title": "Long Journey",
-        "description": "Travel takes most of a day \u2014 plan time carefully"
+        "description": "Travel takes most of a day — plan time carefully"
       },
       "weekendWeatherGood": {
         "title": "Good Weather Across Both Days",
@@ -197,11 +197,63 @@
       },
       "weekendStayAllowance": {
         "title": "Stay Allowance Included",
-        "description": "Estimated total includes \u00a5{{amount}} stay allowance"
+        "description": "Estimated total includes ¥{{amount}} stay allowance"
       },
       "weekendTransportExcluded": {
         "title": "Transport Excluded",
         "description": "Transport cost unavailable; total excludes origin transport"
+      },
+      "conditionForecastDay": {
+        "title": "Forecast for {{date}}",
+        "description": "Live weather forecast for {{date}}"
+      },
+      "conditionForecastRange": {
+        "title": "Forecast for {{day1}}–{{day2}}",
+        "description": "Live weather forecast for both days"
+      },
+      "conditionSeasonalMonth": {
+        "title": "Typical conditions for {{month}}",
+        "description": "Typical seasonal conditions for {{month}}, not a live forecast"
+      },
+      "conditionSeasonalStrong": {
+        "title": "Strong {{season}} suitability",
+        "description": "Seasonal rating {{rating}}/10 for {{season}}"
+      },
+      "conditionSeasonalWeak": {
+        "title": "Weaker in {{season}}",
+        "description": "Seasonal rating {{rating}}/10 for {{season}}"
+      },
+      "conditionIndoorHeat": {
+        "title": "Mostly indoor options for midsummer heat",
+        "description": "Indoor share keeps summer heat manageable"
+      },
+      "conditionIndoorWinter": {
+        "title": "Mostly indoor options for winter cold",
+        "description": "Indoor share keeps winter cold manageable"
+      },
+      "conditionOutdoorSummer": {
+        "title": "Mostly outdoor in summer heat",
+        "description": "High weather dependence in summer"
+      },
+      "conditionOutdoorWinter": {
+        "title": "Outdoor exposure in winter",
+        "description": "High weather dependence in winter"
+      },
+      "conditionRainFriendly": {
+        "title": "Rain-friendly in the rainy season",
+        "description": "Handles rainy-season weather well"
+      },
+      "conditionRainExposed": {
+        "title": "Limited rain tolerance in the rainy season",
+        "description": "Rainy-season exposure may disrupt plans"
+      },
+      "conditionFerrySeasonal": {
+        "title": "Seasonal ferry unavailable for the selected date",
+        "description": "Verified ferry operating period excludes the selected date"
+      },
+      "conditionUnknown": {
+        "title": "No forecast or seasonal guidance available",
+        "description": "No live forecast or catalogue seasonal evidence for the selected date"
       }
     }
   },
@@ -213,7 +265,7 @@
       "explanation": "Estimated budget for the whole party"
     },
     "stayAllowanceRow": "Stay allowance (1 night)",
-    "stayAllowanceNote": "User allowance \u2014 not a live hotel quote"
+    "stayAllowanceNote": "User allowance — not a live hotel quote"
   },
   "origin": {
     "from": "From",
@@ -384,16 +436,16 @@
     "tripMode": "Trip type",
     "tripModes": {
       "day_trip": "Day trip",
-      "weekend_2d1n": "Weekend \u00b7 2 days / 1 night"
+      "weekend_2d1n": "Weekend · 2 days / 1 night"
     },
     "weekendBadge": "2 days / 1 night",
-    "weekendDates": "{{day1}} \u2013 {{day2}}",
+    "weekendDates": "{{day1}} – {{day2}}",
     "accommodation": "Stay allowance (1 night)",
-    "accommodationHelp": "Total one-night allowance for the whole party \u2014 a planning estimate, not a live hotel quote.",
+    "accommodationHelp": "Total one-night allowance for the whole party — a planning estimate, not a live hotel quote.",
     "accommodationPresets": {
-      "economy": "Economy \u00b7 \u00a58,000",
-      "standard": "Standard \u00b7 \u00a515,000",
-      "comfortable": "Comfortable \u00b7 \u00a525,000",
+      "economy": "Economy · ¥8,000",
+      "standard": "Standard · ¥15,000",
+      "comfortable": "Comfortable · ¥25,000",
       "custom": "Custom"
     },
     "customStayAllowance": "Custom stay allowance",
@@ -402,7 +454,9 @@
     "weekendNoResultsTitle": "No weekend-ready destinations found",
     "weekendNoResultsBody": "No destination met the two-day travel, content, weather and budget constraints. Try widening your budget or transport, or switch back to Day trip.",
     "day1Label": "Day 1",
-    "day2Label": "Day 2"
+    "day2Label": "Day 2",
+    "anyFutureDate": "Any future date",
+    "originForecastHint": "Forecast shows weather near your origin"
   },
   "destination": {
     "tokyoWardsGroup": "Tokyo 23 Wards",
@@ -420,6 +474,12 @@
       "plentyForTwoDays": "Plenty for 2 days",
       "readyForTwoDays": "Ready for 2 days",
       "travelBy": "{{time}} by {{mode}}"
+    },
+    "dateCondition": {
+      "forecastSingle": "Origin forecast for {{day}}",
+      "forecastRange": "Origin forecast for {{day1}}–{{day2}}",
+      "seasonal": "Typical conditions for {{month}}",
+      "mixed": "Origin forecast for {{day}} · typical conditions for {{month}}"
     }
   },
   "ui": {

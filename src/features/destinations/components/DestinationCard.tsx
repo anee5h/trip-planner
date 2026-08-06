@@ -37,6 +37,7 @@ import {
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
+import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
 import {
   estimateTripDuration,
@@ -78,6 +79,10 @@ interface DestinationCardProps {
   availableTimeHours?: number;
   /** 2D1N trip-area summary shown on the card's compact weekend line. */
   weekendSummary?: WeekendCardSummary;
+  /** One-line forecast/seasonal condition label for the planned date. */
+  conditionLabel?: string;
+  /** Selected travel date for date-aware transport metadata. */
+  ferryTemporal?: FerryTemporalContext;
 }
 
 export default function DestinationCard({
@@ -88,6 +93,8 @@ export default function DestinationCard({
   publicModes,
   availableTimeHours,
   weekendSummary,
+  conditionLabel,
+  ferryTemporal,
 }: DestinationCardProps) {
   const { locale } = useLocale();
   const { t } = useTranslation();
@@ -185,6 +192,7 @@ export default function DestinationCard({
     partySize,
     homeStationCoords ?? undefined,
     homeStationTransportZoneId,
+    ferryTemporal,
   );
   const preferredModes = [
     ...(carMode && carMode !== "none" ? [carMode] : []),
@@ -195,6 +203,7 @@ export default function DestinationCard({
     {
       homeStationCoords: homeStationCoords ?? undefined,
       availableTimeHours,
+      ferryTemporal,
     },
     preferredModes,
   );
@@ -359,6 +368,13 @@ export default function DestinationCard({
         ) : (
           // STANDARD EXPLORE VIEW (Simple, elegant tags instead of raw numbers)
           <div>
+            {/* Forecast/seasonal condition label for the planned date: clearly
+                labelled evidence, never a fake forecast icon. */}
+            {conditionLabel && (
+              <p className="line-clamp-1 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 mb-1.5">
+                {conditionLabel}
+              </p>
+            )}
             <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 text-[13px] font-semibold text-slate-700 dark:text-slate-300 md:min-h-12 md:gap-x-3 md:gap-y-2 md:text-sm">
               {(() => {
                 // The Tokyo wards group shows the fastest verified gateway
