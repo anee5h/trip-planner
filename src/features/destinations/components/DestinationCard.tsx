@@ -344,7 +344,12 @@ export default function DestinationCard({
           <div>
             <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 text-[13px] font-semibold text-slate-700 dark:text-slate-300 md:min-h-12 md:gap-x-3 md:gap-y-2 md:text-sm">
               {(() => {
-                const mode = preferredTransport?.mode ?? "train";
+                // The Tokyo wards group shows the fastest verified gateway
+                // estimate across its members, not the top member's own
+                // legacy transport options.
+                const gateway = wardGroup?.gatewayEstimate;
+                const mode =
+                  gateway?.mode ?? preferredTransport?.mode ?? "train";
 
                 let Icon = Train;
                 if (mode === "car" || mode === "my_car") Icon = Car;
@@ -352,9 +357,11 @@ export default function DestinationCard({
                 if (mode === "shinkansen") Icon = TrainFront;
                 if (mode === "flight") Icon = Plane;
 
-                const formattedTime = preferredTransport
-                  ? formatTransportTime(preferredTransport.timeRange)
-                  : "N/A";
+                const formattedTime = gateway
+                  ? formatTransportTime(gateway.timeRange)
+                  : preferredTransport
+                    ? formatTransportTime(preferredTransport.timeRange)
+                    : "N/A";
 
                 const isDriving = mode === "car" || mode === "my_car";
 

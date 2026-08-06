@@ -39,11 +39,11 @@ import {
 import {
   getBestOneWayTravelMinutes,
   matchesVisitDuration,
-  estimateTripDuration,
 } from "@/shared/services/recommendation/TripDurationService";
 import {
   evaluateWeekendTravelFit,
   evaluateWeekendCapacity,
+  weekendTravelScoreDelta,
 } from "@/shared/services/recommendation/WeekendPolicy";
 import {
   resolveOriginMunicipalityId,
@@ -59,8 +59,11 @@ import {
   buildExplorerWardGroup,
   isTokyoWardHub,
   KANTO_PREFECTURES,
+  TOKYO_WARDS_DIVERSITY_BONUS_MAX,
   TOKYO_WARDS_GROUP_ID,
 } from "@/shared/services/recommendation/TokyoWardsConsolidation";
+import type { OriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import {
   tokenizeQuery,
   matchesDestination,
@@ -543,6 +546,19 @@ export default function Destinations() {
       });
     }
 
+    // Weekend card travel claims: only with an explicit origin, and only for
+    // the consolidated primary areas.
+    const weekendTravelById = new Map<
+      string,
+      {
+        oneWayMinutes?: number;
+        bestMode?: string;
+        estimate?: OriginAwareTransportEstimate;
+      }
+    >();
+    // Weekend-aware "recommended" scores for 2D1N (matches Home ranking).
+    const weekendRecommendedScoreById = new Map<string, number>();
+
     // Weekend mode uses its own eligibility gate instead of duration bands.
     if (tripMode === "weekend_2d1n") {
       const hasOrigin = homeStationCoords || homeStationTransportZoneId;
@@ -582,6 +598,57 @@ export default function Destinations() {
         weekendConsolidation = consolidated;
         result = consolidated.areas;
 
+        if (homeStationCoords) {
+          for (const area of result) {
+            const modes = getValidModes(
+              area,
+              carMode,
+              effectivePublicModes,
+              homeStationCoords ?? undefined,
+              budgetTier,
+              homeStationTransportZoneId,
+            );
+            const estimate = getOriginAwareTransportEstimate(
+              area,
+              { homeStationCoords },
+              modes,
+            );
+            weekendTravelById.set(area.id, {
+              oneWayMinutes: estimate
+                ? Math.round(
+                    (estimate.timeRange[0] + estimate.timeRange[1]) / 2,
+                  )
+                : undefined,
+              bestMode: estimate?.mode,
+              estimate: estimate ?? undefined,
+            });
+          }
+        }
+
+        // Weekend-aware "recommended" ranking (matches the Home pipeline):
+        // catalog score + weekend travel/capacity deltas. The ward group
+        // then ranks as its best member plus the bounded diversity bonus
+        // instead of being buried at a plain catalog-score position.
+        if (sortBy === "recommended") {
+          for (const area of result) {
+            const base = scoreForCatalog(area, catalogContext);
+            let delta = 0;
+            const minutes = weekendTravelById.get(area.id)?.oneWayMinutes;
+            if (minutes !== undefined) {
+              delta += weekendTravelScoreDelta(
+                evaluateWeekendTravelFit(minutes),
+              );
+            }
+            if (
+              evaluateWeekendCapacity(area, allDestinations).activityMinutes >=
+              600
+            ) {
+              delta += 3;
+            }
+            weekendRecommendedScoreById.set(area.id, base + delta);
+          }
+        }
+
         // Conditional Tokyo 23 Wards consolidation: outside Kanto, eligible
         // ward hubs collapse into one virtual super-hub card.
         const originPrefecture = originMunicipalityId
@@ -604,14 +671,48 @@ export default function Destinations() {
                 seenPlaces.add(place.id);
               }
             }
+            // Fastest verified gateway estimate across the members.
+            let gatewayEstimate: OriginAwareTransportEstimate | undefined;
+            for (const member of wardMembers) {
+              const memberEstimate = weekendTravelById.get(member.id)?.estimate;
+              if (
+                memberEstimate &&
+                (!gatewayEstimate ||
+                  memberEstimate.timeRange[0] < gatewayEstimate.timeRange[0])
+              ) {
+                gatewayEstimate = memberEstimate;
+              }
+            }
             const group = buildExplorerWardGroup({
               members: wardMembers,
               placeCount: seenPlaces.size,
               tripMode,
+              gatewayEstimate,
             });
             const memberIds = new Set(wardMembers.map((m) => m.id));
             const remaining = result.filter((d) => !memberIds.has(d.id));
             result = [group, ...remaining];
+
+            // The group ranks as its best member plus the bounded bonus.
+            if (sortBy === "recommended") {
+              let maxMemberScore = -Infinity;
+              for (const memberId of memberIds) {
+                const memberScore = weekendRecommendedScoreById.get(memberId);
+                if (memberScore !== undefined && memberScore > maxMemberScore) {
+                  maxMemberScore = memberScore;
+                }
+              }
+              if (maxMemberScore > -Infinity) {
+                weekendRecommendedScoreById.set(
+                  TOKYO_WARDS_GROUP_ID,
+                  maxMemberScore +
+                    Math.min(
+                      TOKYO_WARDS_DIVERSITY_BONUS_MAX,
+                      wardMembers.length - 1,
+                    ),
+                );
+              }
+            }
 
             weekendConsolidation = {
               areas: result,
@@ -693,37 +794,18 @@ export default function Destinations() {
       );
     }
 
-    // Weekend card travel claims: only with an explicit origin, and only for
-    // the consolidated primary areas.
-    const weekendTravelById = new Map<
-      string,
-      { oneWayMinutes?: number; bestMode?: string }
-    >();
-    if (weekendConsolidation && homeStationCoords) {
-      for (const area of result) {
-        const modes = getValidModes(
-          area,
-          carMode,
-          publicModes,
-          homeStationCoords ?? undefined,
-          budgetTier,
-          homeStationTransportZoneId,
-        );
-        const estimate = estimateTripDuration(area, catalogContext, modes);
-        weekendTravelById.set(area.id, {
-          oneWayMinutes: estimate?.bestTravelMinutes,
-          bestMode: estimate?.mode,
-        });
-      }
-    }
-
     // 6. Sort
     result = [...result].sort((a, b) => {
       switch (sortBy) {
         case "recommended":
+          // 2D1N uses the weekend-aware score so the explorer ranks
+          // consistently with the Home pipeline (and the Tokyo wards group
+          // ranks as its best member, not at a plain catalog position).
           return (
-            scoreForCatalog(b, catalogContext) -
-            scoreForCatalog(a, catalogContext)
+            (weekendRecommendedScoreById.get(b.id) ??
+              scoreForCatalog(b, catalogContext)) -
+            (weekendRecommendedScoreById.get(a.id) ??
+              scoreForCatalog(a, catalogContext))
           );
         case "budget":
           return (

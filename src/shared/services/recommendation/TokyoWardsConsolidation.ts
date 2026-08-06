@@ -207,6 +207,8 @@ export interface ExplorerWardGroupBuildInput {
   /** Unique published supporting places across members. */
   placeCount: number;
   tripMode?: TripMode;
+  /** Fastest verified origin-aware estimate across the members. */
+  gatewayEstimate?: OriginAwareTransportEstimate;
 }
 
 /**
@@ -217,7 +219,7 @@ export interface ExplorerWardGroupBuildInput {
 export function buildExplorerWardGroup(
   input: ExplorerWardGroupBuildInput,
 ): Destination {
-  const { members, placeCount, tripMode } = input;
+  const { members, placeCount, tripMode, gatewayEstimate } = input;
   const topMember = members.reduce((best, member) =>
     (member.ratings?.overall ?? 0) >= (best.ratings?.overall ?? 0)
       ? member
@@ -230,7 +232,7 @@ export function buildExplorerWardGroup(
     wardGroup: {
       memberCount: members.length,
       placeCount,
-      gatewayEstimate: undefined,
+      gatewayEstimate,
       memberIds: members.map((member) => member.id),
       tripMode,
     },
