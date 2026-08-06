@@ -127,21 +127,37 @@ function wardPool(): Destination[] {
 // ── isTokyoWardHub ───────────────────────────────────────────────────────────
 
 describe("isTokyoWardHub", () => {
-  it("exactly the 23 special-ward hubs qualify", () => {
+  it("covers every hub inside the 23 special-ward municipalities", () => {
     const catalogue = destinationsIndex as Destination[];
     const wardHubs = catalogue.filter(isTokyoWardHub);
-    expect(wardHubs).toHaveLength(23);
-    expect(wardHubs.every((d) => d.kind === "ward")).toBe(true);
+    // 23 ward hubs + ward-area hubs (Tokyo Station, Ueno, Odaiba).
+    expect(wardHubs.length).toBeGreaterThanOrEqual(23);
     expect(wardHubs.every((d) => d.role === "hub")).toBe(true);
+    const wardMunicipalities = new Set(wardHubs.map((d) => d.municipalityId));
+    expect(wardMunicipalities.size).toBe(23);
+    // Ward-area hubs are members even though their kind is not "ward".
+    expect(wardHubs.some((d) => d.id === "tokyo-station-chiyoda")).toBe(true);
+    expect(wardHubs.some((d) => d.id === "ueno-taito")).toBe(true);
+    expect(wardHubs.some((d) => d.id === "odaiba-minato")).toBe(true);
   });
 
   it("Machida and other Tokyo cities are not ward hubs", () => {
     const machida = dest({
       id: "machida",
+      role: "hub",
       kind: "city",
       municipalityId: "Tokyo:machida",
     });
     expect(isTokyoWardHub(machida)).toBe(false);
+  });
+
+  it("POIs inside wards never join the group", () => {
+    const poi = dest({
+      id: "skytree",
+      role: "poi",
+      municipalityId: "Tokyo:sumida",
+    });
+    expect(isTokyoWardHub(poi)).toBe(false);
   });
 });
 
@@ -215,7 +231,10 @@ describe("consolidateTokyoWards", () => {
 
   it("group score is highest member plus a small bounded bonus, never the sum", () => {
     const two = consolidateTokyoWards({
-      results: [wardResult("a", 100, 1), wardResult("b", 90, 1)],
+      results: [
+        wardResult("shinjuku-city", 100, 1),
+        wardResult("shibuya-city", 90, 1),
+      ],
       originPrefecture: "osaka",
       pool: [],
     }).find((r) => r.id === TOKYO_WARDS_GROUP_ID)!;
@@ -273,13 +292,13 @@ describe("consolidateTokyoWards", () => {
   });
 
   it("gateway time is the verified estimate of the best-served member", () => {
-    const slow = wardResult("a-city", 60, 1);
+    const slow = wardResult("shinjuku-city", 60, 1);
     slow.transportEstimate = {
       mode: "shinkansen",
       timeRange: [150, 270],
       source: "verified_ground_route",
     };
-    const fast = wardResult("b-city", 80, 1);
+    const fast = wardResult("shibuya-city", 80, 1);
     fast.transportEstimate = {
       mode: "flight",
       timeRange: [90, 130],

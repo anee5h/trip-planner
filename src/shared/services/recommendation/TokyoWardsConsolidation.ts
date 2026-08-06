@@ -26,14 +26,42 @@ export const KANTO_PREFECTURES: ReadonlySet<string> = new Set([
 export const TOKYO_WARDS_DIVERSITY_BONUS_MAX = 6;
 
 /**
- * The 23 special wards are the catalogue's `kind === "ward"` hubs with a
- * "Tokyo:" municipality. Other Tokyo municipalities (Machida, Hachioji,
- * …) are `kind === "city"` and never join the group.
+ * The 23 special-ward municipalities, derived from the catalogue's 23
+ * `kind === "ward"` hubs. Membership covers every hub inside these
+ * municipalities — the ward hub itself plus ward-area hubs such as
+ * `tokyo-station-chiyoda` (Chiyoda) and `ueno-taito` (Taito). Other Tokyo
+ * municipalities (Machida, Hachioji, …) are never members.
  */
+export const TOKYO_23_WARDS_MUNICIPALITIES: ReadonlySet<string> = new Set([
+  "Tokyo:adachi",
+  "Tokyo:arakawa",
+  "Tokyo:bunkyo",
+  "Tokyo:chiyoda",
+  "Tokyo:chuo",
+  "Tokyo:edogawa",
+  "Tokyo:itabashi",
+  "Tokyo:katsushika",
+  "Tokyo:kita",
+  "Tokyo:koto",
+  "Tokyo:meguro",
+  "Tokyo:minato",
+  "Tokyo:nakano",
+  "Tokyo:nerima",
+  "Tokyo:ota",
+  "Tokyo:setagaya",
+  "Tokyo:shibuya",
+  "Tokyo:shinagawa",
+  "Tokyo:shinjuku",
+  "Tokyo:suginami",
+  "Tokyo:sumida",
+  "Tokyo:taito",
+  "Tokyo:toshima",
+]);
+
 export function isTokyoWardHub(destination: Destination): boolean {
   return (
-    destination.kind === "ward" &&
-    (destination.municipalityId ?? "").startsWith("Tokyo:")
+    destination.role === "hub" &&
+    TOKYO_23_WARDS_MUNICIPALITIES.has(destination.municipalityId ?? "")
   );
 }
 
