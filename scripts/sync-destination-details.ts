@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { format, resolveConfig } from "prettier";
 import type { Destination } from "../src/shared/types/destination";
 
 const indexPath = path.join(
@@ -12,7 +13,14 @@ const metaPath = path.join(
   "src/shared/data/destinations-meta.json",
 );
 
-function main() {
+/** Format a generated JSON document with the repo's prettier config so that
+ *  regeneration is idempotent (output matches what lint-staged would commit). */
+async function formatJson(content: string): Promise<string> {
+  const config = (await resolveConfig(process.cwd())) ?? {};
+  return format(content, { ...config, parser: "json" });
+}
+
+async function main() {
   fs.mkdirSync(detailsDirectory, { recursive: true });
 
   const destinationsIndex = JSON.parse(
@@ -21,7 +29,10 @@ function main() {
 
   for (const destination of destinationsIndex) {
     const detailPath = path.join(detailsDirectory, `${destination.id}.json`);
-    fs.writeFileSync(detailPath, `${JSON.stringify(destination, null, 2)}\n`);
+    fs.writeFileSync(
+      detailPath,
+      await formatJson(`${JSON.stringify(destination, null, 2)}\n`),
+    );
   }
 
   // destinations-meta.json is a derived store file (pipeline Stage 5
@@ -40,7 +51,10 @@ function main() {
     relationships: d.relationships || {},
   }));
   metaData.sort((a, b) => a.id.localeCompare(b.id));
-  fs.writeFileSync(metaPath, `${JSON.stringify(metaData, null, 2)}\n`);
+  fs.writeFileSync(
+    metaPath,
+    await formatJson(`${JSON.stringify(metaData, null, 2)}\n`),
+  );
 
   console.log(
     `Synced ${destinationsIndex.length} destination detail files and destinations-meta.json.`,
