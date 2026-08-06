@@ -142,7 +142,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     }
   };
   const cardHref = wardGroup
-    ? buildTokyoWardsLink(wardGroup.memberIds, wardGroup.tripMode)
+    ? buildTokyoWardsLink(wardGroup.wardHubIds, wardGroup.tripMode)
     : `/destinations/${destination.id}`;
 
   return (
@@ -222,7 +222,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
               {[
                 wardGroup &&
                   t("destination.tokyoWardsCount", {
-                    count: wardGroup.memberCount,
+                    count: wardGroup.wardCount,
                   }),
                 (weekend?.placeCount ?? wardGroup?.placeCount ?? 0) > 0 &&
                   t("home.places", {

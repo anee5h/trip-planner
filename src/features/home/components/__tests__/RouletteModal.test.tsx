@@ -178,7 +178,8 @@ describe("RouletteModal weekend mode", () => {
       id: "tokyo-23-wards",
       name: "Tokyo 23 Wards",
       wardGroup: {
-        memberCount: 10,
+        memberCount: 2,
+        wardCount: 2,
         placeCount: 32,
         gatewayEstimate: {
           mode: "shinkansen",
@@ -186,6 +187,7 @@ describe("RouletteModal weekend mode", () => {
           source: "verified_ground_route" as const,
         },
         memberIds: ["shinjuku-city", "shibuya-city"],
+        wardHubIds: ["shinjuku-city", "shibuya-city"],
         tripMode: "weekend_2d1n" as const,
       },
     };

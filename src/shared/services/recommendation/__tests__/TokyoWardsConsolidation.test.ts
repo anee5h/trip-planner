@@ -5,6 +5,7 @@ import {
   consolidateTokyoWards,
   buildTokyoWardsLink,
   buildExplorerWardGroup,
+  computeTokyoWardStats,
   getWardGroup,
   TOKYO_WARDS_GROUP_ID,
   TOKYO_WARDS_DIVERSITY_BONUS_MAX,
@@ -331,6 +332,8 @@ describe("buildExplorerWardGroup", () => {
     );
     const group = buildExplorerWardGroup({
       members,
+      wardCount: 3,
+      wardHubIds: WARD_IDS.slice(0, 3),
       placeCount: 9,
       tripMode: "weekend_2d1n",
     });
@@ -338,8 +341,10 @@ describe("buildExplorerWardGroup", () => {
     expect(group.name).toBe("Tokyo 23 Wards");
     const meta = getWardGroup(group);
     expect(meta?.memberCount).toBe(3);
+    expect(meta?.wardCount).toBe(3);
     expect(meta?.placeCount).toBe(9);
     expect(meta?.memberIds).toEqual(WARD_IDS.slice(0, 3));
+    expect(meta?.wardHubIds).toEqual(WARD_IDS.slice(0, 3));
     expect(meta?.tripMode).toBe("weekend_2d1n");
   });
 
@@ -429,5 +434,158 @@ describe("runRecommendationPipeline — Tokyo wards consolidation", () => {
       tripMode: "day_trip",
     });
     expect(results.map((r) => r.id)).not.toContain(TOKYO_WARDS_GROUP_ID);
+  });
+});
+
+// ── computeTokyoWardStats ─────────────────────────────────────────────────────
+
+describe("computeTokyoWardStats", () => {
+  function wardHub(id: string): Destination {
+    return dest({
+      id,
+      role: "hub",
+      kind: "ward",
+      municipalityId: `Tokyo:${id.replace("-city", "")}`,
+    });
+  }
+
+  function areaHub(id: string, municipalityId: string): Destination {
+    return dest({ id, role: "hub", kind: "district", municipalityId });
+  }
+
+  it("26 grouped hubs across 23 municipalities report 23 wards", () => {
+    const all23 = [
+      "adachi-city",
+      "arakawa-city",
+      "bunkyo-city",
+      "chiyoda-city",
+      "chuo-city",
+      "edogawa-city",
+      "itabashi-city",
+      "katsushika-city",
+      "kita-city",
+      "koto-city",
+      "meguro-city",
+      "minato-city",
+      "nakano-city",
+      "nerima-city",
+      "ota-city",
+      "setagaya-city",
+      "shibuya-city",
+      "shinagawa-city",
+      "shinjuku-city",
+      "suginami-city",
+      "sumida-city",
+      "taito-city",
+      "toshima-city",
+    ].map(wardHub);
+    const extras = [
+      areaHub("tokyo-station-chiyoda", "Tokyo:chiyoda"),
+      areaHub("ueno-taito", "Tokyo:taito"),
+      areaHub("odaiba-minato", "Tokyo:koto"),
+    ];
+    const stats = computeTokyoWardStats([...all23, ...extras]);
+    expect(stats.memberIds).toHaveLength(26);
+    expect(stats.wardCount).toBe(23);
+    expect(stats.wardHubIds).toHaveLength(23);
+  });
+
+  it("extra area hubs are suppressed but never increase the ward count", () => {
+    const hubs = [
+      wardHub("shinjuku-city"),
+      wardHub("shibuya-city"),
+      areaHub("tokyo-station-chiyoda", "Tokyo:chiyoda"),
+      areaHub("ueno-taito", "Tokyo:taito"),
+    ];
+    const stats = computeTokyoWardStats(hubs, [
+      wardHub("chiyoda-city"),
+      wardHub("taito-city"),
+    ]);
+    expect(stats.memberIds).toHaveLength(4);
+    expect(stats.wardCount).toBe(4); // chiyoda + taito count via their area hubs
+    expect(stats.wardHubIds.sort()).toEqual(
+      ["shinjuku-city", "shibuya-city", "chiyoda-city", "taito-city"].sort(),
+    );
+  });
+
+  it("10 hubs across 8 municipalities report 8 wards", () => {
+    const hubs = [
+      wardHub("shinjuku-city"),
+      wardHub("shibuya-city"),
+      areaHub("tokyo-station-chiyoda", "Tokyo:chiyoda"),
+      wardHub("taito-city"),
+      areaHub("ueno-taito", "Tokyo:taito"),
+      wardHub("toshima-city"),
+      wardHub("chuo-city"),
+      wardHub("bunkyo-city"),
+      wardHub("koto-city"),
+      areaHub("odaiba-minato", "Tokyo:koto"),
+    ];
+    const stats = computeTokyoWardStats(hubs, [wardHub("chiyoda-city")]);
+    expect(stats.memberIds).toHaveLength(10);
+    expect(stats.wardCount).toBe(8);
+    expect(stats.wardHubIds).toHaveLength(8);
+  });
+
+  it("wardCount can never exceed 23", () => {
+    const all23 = [
+      "adachi-city",
+      "arakawa-city",
+      "bunkyo-city",
+      "chiyoda-city",
+      "chuo-city",
+      "edogawa-city",
+      "itabashi-city",
+      "katsushika-city",
+      "kita-city",
+      "koto-city",
+      "meguro-city",
+      "minato-city",
+      "nakano-city",
+      "nerima-city",
+      "ota-city",
+      "setagaya-city",
+      "shibuya-city",
+      "shinagawa-city",
+      "shinjuku-city",
+      "suginami-city",
+      "sumida-city",
+      "taito-city",
+      "toshima-city",
+    ].map(wardHub);
+    const stats = computeTokyoWardStats(all23);
+    expect(stats.wardCount).toBeLessThanOrEqual(23);
+  });
+
+  it("canonical ward hubs are unique across municipalities (no duplicate city params)", () => {
+    const hubs = [
+      wardHub("shinjuku-city"),
+      wardHub("shibuya-city"),
+      areaHub("tokyo-station-chiyoda", "Tokyo:chiyoda"),
+      areaHub("ueno-taito", "Tokyo:taito"),
+    ];
+    const stats = computeTokyoWardStats(hubs, [
+      wardHub("chiyoda-city"),
+      wardHub("taito-city"),
+    ]);
+    expect(new Set(stats.wardHubIds).size).toBe(stats.wardHubIds.length);
+    const url = buildTokyoWardsLink(stats.wardHubIds, "weekend_2d1n");
+    const cityParams = [
+      ...new URLSearchParams(url.split("?")[1]).getAll("city"),
+    ];
+    expect(cityParams).toHaveLength(stats.wardHubIds.length);
+    expect(new Set(cityParams).size).toBe(cityParams.length);
+  });
+});
+// ── Display copy ─────────────────────────────────────────────────────────────
+
+describe("Tokyo wards group count copy", () => {
+  it("EN shows '23 wards'; JA shows '23区'", async () => {
+    const en = (await import("@/i18n/resources/en/common.json")).default;
+    const ja = (await import("@/i18n/resources/ja/common.json")).default;
+    const enKey = en.destination.tokyoWardsCount as string;
+    const jaKey = ja.destination.tokyoWardsCount as string;
+    expect(enKey.replace("{{count}}", "23")).toBe("23 wards");
+    expect(jaKey.replace("{{count}}", "23")).toBe("23区");
   });
 });

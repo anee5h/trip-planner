@@ -82,14 +82,72 @@ export function getWardGroup(
 }
 
 export interface TokyoWardsGroupMetadata {
+  /** Every grouped hub — may exceed 23 (e.g. Tokyo Station, Ueno). */
   memberCount: number;
+  /** Unique special-ward municipalities among the members — never > 23. */
+  wardCount: number;
   /** Unique published supporting places across all members. */
   placeCount: number;
   /** Verified origin-aware gateway estimate of the best-served member. */
   gatewayEstimate?: OriginAwareTransportEstimate;
-  /** Member destination ids, for the filtered Destinations link. */
+  /** Every grouped hub id (may exceed 23). */
   memberIds: string[];
+  /** One canonical kind=ward hub id per matching municipality (<= 23). */
+  wardHubIds: string[];
   tripMode?: TripMode;
+}
+
+export interface TokyoWardStats {
+  wardCount: number;
+  memberIds: string[];
+  wardHubIds: string[];
+}
+
+/**
+ * Computes the group's ward statistics from its eligible members:
+ *
+ * - wardCount: unique special-ward municipalityIds among the members
+ *   (capped at 23 by TOKYO_23_WARDS_MUNICIPALITIES);
+ * - memberIds: every grouped hub, including ward-area hubs such as Tokyo
+ *   Station or Ueno that do not add a ward;
+ * - wardHubIds: one canonical `kind === "ward"` hub per matching
+ *   municipality, falling back to the pool's canonical hub when that
+ *   municipality's own ward hub was not an eligible member.
+ */
+export function computeTokyoWardStats(
+  members: readonly Destination[],
+  pool?: readonly Destination[],
+): TokyoWardStats {
+  const memberIds = members.map((member) => member.id);
+  const memberMunicipalities = new Set(
+    members
+      .map((member) => member.municipalityId)
+      .filter((id): id is string => Boolean(id)),
+  );
+  const canonicalByMuni = new Map<string, string>();
+  for (const member of members) {
+    const municipalityId = member.municipalityId;
+    if (!municipalityId) continue;
+    if (member.kind === "ward" && !canonicalByMuni.has(municipalityId)) {
+      canonicalByMuni.set(municipalityId, member.id);
+    }
+  }
+  if (pool) {
+    for (const municipalityId of memberMunicipalities) {
+      if (canonicalByMuni.has(municipalityId)) continue;
+      const canonical = pool.find(
+        (destination) =>
+          destination.kind === "ward" &&
+          destination.municipalityId === municipalityId,
+      );
+      if (canonical) canonicalByMuni.set(municipalityId, canonical.id);
+    }
+  }
+  return {
+    wardCount: memberMunicipalities.size,
+    memberIds,
+    wardHubIds: [...canonicalByMuni.values()],
+  };
 }
 
 export interface TokyoWardsConsolidationInput {
@@ -130,7 +188,10 @@ export function consolidateTokyoWards(
   const topMember = members.reduce((best, member) =>
     member.score >= best.score ? member : best,
   );
-  const memberIds = members.map((member) => member.id);
+  const { wardCount, memberIds, wardHubIds } = computeTokyoWardStats(
+    members,
+    pool,
+  );
 
   // Unique published supporting places across members (a place has a single
   // parent in the data model; dedupe defensively).
@@ -153,8 +214,7 @@ export function consolidateTokyoWards(
   }, undefined);
 
   const groupScore =
-    topMember.score +
-    Math.min(TOKYO_WARDS_DIVERSITY_BONUS_MAX, members.length - 1);
+    topMember.score + Math.min(TOKYO_WARDS_DIVERSITY_BONUS_MAX, wardCount - 1);
 
   const groupResult: PipelineRecommendation = {
     ...topMember,
@@ -170,9 +230,11 @@ export function consolidateTokyoWards(
       : undefined,
     wardGroup: {
       memberCount: members.length,
+      wardCount,
       placeCount: seenPlaceIds.size,
       gatewayEstimate,
       memberIds,
+      wardHubIds,
       tripMode,
     },
   };
@@ -204,6 +266,10 @@ export function buildTokyoWardsLink(
 
 export interface ExplorerWardGroupBuildInput {
   members: Destination[];
+  /** Unique special-ward municipalities among the members (<= 23). */
+  wardCount: number;
+  /** One canonical kind=ward hub id per matching municipality. */
+  wardHubIds: string[];
   /** Unique published supporting places across members. */
   placeCount: number;
   tripMode?: TripMode;
@@ -219,7 +285,14 @@ export interface ExplorerWardGroupBuildInput {
 export function buildExplorerWardGroup(
   input: ExplorerWardGroupBuildInput,
 ): Destination {
-  const { members, placeCount, tripMode, gatewayEstimate } = input;
+  const {
+    members,
+    wardCount,
+    wardHubIds,
+    placeCount,
+    tripMode,
+    gatewayEstimate,
+  } = input;
   const topMember = members.reduce((best, member) =>
     (member.ratings?.overall ?? 0) >= (best.ratings?.overall ?? 0)
       ? member
@@ -231,9 +304,11 @@ export function buildExplorerWardGroup(
     name: "Tokyo 23 Wards",
     wardGroup: {
       memberCount: members.length,
+      wardCount,
       placeCount,
       gatewayEstimate,
       memberIds: members.map((member) => member.id),
+      wardHubIds,
       tripMode,
     },
   } as Destination;

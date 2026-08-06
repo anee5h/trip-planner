@@ -57,6 +57,7 @@ import {
 } from "@/shared/services/recommendation/WeekendAreaPolicy";
 import {
   buildExplorerWardGroup,
+  computeTokyoWardStats,
   isTokyoWardHub,
   KANTO_PREFECTURES,
   TOKYO_WARDS_DIVERSITY_BONUS_MAX,
@@ -664,6 +665,10 @@ export default function Destinations() {
         ) {
           const wardMembers = result.filter(isTokyoWardHub);
           if (wardMembers.length >= 2) {
+            const { wardCount, memberIds, wardHubIds } = computeTokyoWardStats(
+              wardMembers,
+              allDestinations,
+            );
             // Unique published supporting places across the members.
             const seenPlaces = new Set<string>();
             for (const member of wardMembers) {
@@ -685,18 +690,21 @@ export default function Destinations() {
             }
             const group = buildExplorerWardGroup({
               members: wardMembers,
+              wardCount,
+              wardHubIds,
               placeCount: seenPlaces.size,
               tripMode,
               gatewayEstimate,
             });
-            const memberIds = new Set(wardMembers.map((m) => m.id));
-            const remaining = result.filter((d) => !memberIds.has(d.id));
+            const memberIdSet = new Set(memberIds);
+            const remaining = result.filter((d) => !memberIdSet.has(d.id));
             result = [group, ...remaining];
 
-            // The group ranks as its best member plus the bounded bonus.
+            // The group ranks as its best member plus the bounded bonus,
+            // sized by the unique ward count, never the raw hub count.
             if (sortBy === "recommended") {
               let maxMemberScore = -Infinity;
-              for (const memberId of memberIds) {
+              for (const memberId of memberIdSet) {
                 const memberScore = weekendRecommendedScoreById.get(memberId);
                 if (memberScore !== undefined && memberScore > maxMemberScore) {
                   maxMemberScore = memberScore;
@@ -706,10 +714,7 @@ export default function Destinations() {
                 weekendRecommendedScoreById.set(
                   TOKYO_WARDS_GROUP_ID,
                   maxMemberScore +
-                    Math.min(
-                      TOKYO_WARDS_DIVERSITY_BONUS_MAX,
-                      wardMembers.length - 1,
-                    ),
+                    Math.min(TOKYO_WARDS_DIVERSITY_BONUS_MAX, wardCount - 1),
                 );
               }
             }

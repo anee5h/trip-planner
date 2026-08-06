@@ -182,7 +182,7 @@ export default function RouletteModal({
       ? t("destination.tokyoWardsGroup")
       : localized?.name || displayedCandidate?.name || "";
   const detailHref = wardGroup
-    ? buildTokyoWardsLink(wardGroup.memberIds, wardGroup.tripMode)
+    ? buildTokyoWardsLink(wardGroup.wardHubIds, wardGroup.tripMode)
     : winner
       ? `/destinations/${winner.id}`
       : "/destinations";

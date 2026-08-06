@@ -260,9 +260,11 @@ describe("DestinationCard badges", () => {
       kind: "ward",
       tags: ["Shibuya Ward"],
       wardGroup: {
-        memberCount: 23,
+        memberCount: 26,
+        wardCount: 23,
         placeCount: 57,
-        memberIds: ["shibuya-city"],
+        memberIds: ["shibuya-city", "tokyo-station-chiyoda"],
+        wardHubIds: ["shibuya-city"],
         tripMode: "weekend_2d1n",
       } as never,
     });

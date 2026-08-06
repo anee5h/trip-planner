@@ -496,7 +496,7 @@ export default function DestinationCard({
         {wardGroup && (
           <span className="text-xs font-bold text-slate-500 dark:text-slate-400 px-1">
             {t("destination.tokyoWardsCount", {
-              count: wardGroup.memberCount,
+              count: wardGroup.wardCount,
             })}
           </span>
         )}
@@ -567,7 +567,7 @@ export default function DestinationCard({
         <Link
           to={
             wardGroup
-              ? buildTokyoWardsLink(wardGroup.memberIds, wardGroup.tripMode)
+              ? buildTokyoWardsLink(wardGroup.wardHubIds, wardGroup.tripMode)
               : {
                   pathname: `/destinations/${destination.id}`,
                   search: location.search,
