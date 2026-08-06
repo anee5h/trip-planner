@@ -16,6 +16,7 @@ import type { PipelineRecommendation } from "./RecommendationTypes";
 import { evaluateWeekendCandidate } from "./WeekendPolicy";
 import type { WeekendCandidateEvaluation } from "./WeekendPolicy";
 import { resolveOriginMunicipalityId } from "./OriginAreaService";
+import { consolidateTokyoWards } from "./TokyoWardsConsolidation";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import {
   consolidateWeekendAreas,
@@ -136,12 +137,12 @@ export function runRecommendationPipeline(
 ): PipelineRecommendation[] {
   const tripMode = context.tripMode ?? "day_trip";
   const isWeekend = tripMode === "weekend_2d1n";
-  const originMunicipalityId = isWeekend
-    ? resolveOriginMunicipalityId(
-        context.homeStationCoords ?? undefined,
-        destinations,
-      )
-    : undefined;
+  // Resolved for every mode: weekend uses it for the origin-local
+  // exclusion, and the Tokyo wards consolidation uses the origin region.
+  const originMunicipalityId = resolveOriginMunicipalityId(
+    context.homeStationCoords ?? undefined,
+    destinations,
+  );
 
   const candidates = destinations.map((destination) =>
     buildRecommendationCandidate(destination, context),
@@ -340,5 +341,14 @@ export function runRecommendationPipeline(
       } as PipelineRecommendation;
     });
 
-  return diversifyRecommendations(scored);
+  // Conditional Tokyo 23 Wards consolidation: outside Kanto, eligible ward
+  // hubs collapse into one virtual super-hub result.
+  const consolidated = consolidateTokyoWards({
+    results: scored,
+    originPrefecture: originMunicipalityId?.split(":")[0]?.toLowerCase(),
+    pool: destinations,
+    tripMode,
+  });
+
+  return diversifyRecommendations(consolidated);
 }

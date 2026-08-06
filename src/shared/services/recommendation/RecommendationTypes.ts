@@ -5,6 +5,7 @@ import type { WeekendTravelFit } from "./WeekendPolicy";
 import type { WeekendCapacityResult } from "./WeekendPolicy";
 import type { WeekendResultKind } from "./WeekendAreaPolicy";
 import type { OriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import type { TokyoWardsGroupMetadata } from "./TokyoWardsConsolidation";
 
 export type MatchReasonType =
   | "Budget"
@@ -89,6 +90,8 @@ export interface ScoredDestination extends Destination {
   estimatedCostTransportIncluded?: boolean;
   /** The exact origin-aware estimate used for ranking/budget/cards. */
   transportEstimate?: OriginAwareTransportEstimate;
+  /** Present only on the virtual Tokyo 23 Wards super-hub result. */
+  wardGroup?: TokyoWardsGroupMetadata;
   weekend?: WeekendRecommendationMetadata;
 }
 

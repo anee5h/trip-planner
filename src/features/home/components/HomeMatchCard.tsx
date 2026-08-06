@@ -8,6 +8,7 @@ import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
 import { formatWeekendMinutes } from "@/shared/services/recommendation/WeekendAreaPolicy";
+import { buildTokyoWardsLink } from "@/shared/services/recommendation/TokyoWardsConsolidation";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { useTranslation } from "react-i18next";
 import {
@@ -58,7 +59,12 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   const { t } = useTranslation();
   const { homeStationCoords, homeStationTransportZoneId } = useTripStore();
   const localized = getLocalizedPlace(destination, locale);
-  const { title, subtitle } = parseCleanTitle(localized.name);
+  const wardGroup = (destination as ScoredDestination).wardGroup;
+  const parsedTitle = parseCleanTitle(localized.name);
+  const title = wardGroup
+    ? t("destination.tokyoWardsGroup")
+    : parsedTitle.title;
+  const subtitle = parsedTitle.subtitle;
   const areaAndCategory = [
     formatPrefecture(destination.prefecture, locale),
     destination.categories[0] &&
@@ -135,9 +141,13 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
         return Cloud;
     }
   };
+  const cardHref = wardGroup
+    ? buildTokyoWardsLink(wardGroup.memberIds, wardGroup.tripMode)
+    : `/destinations/${destination.id}`;
+
   return (
     <Link
-      to={`/destinations/${destination.id}`}
+      to={cardHref}
       state={{
         ...(travelDate ? { travelDate } : {}),
         ...(weekend
@@ -175,19 +185,22 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
           )}
         </div>
 
-        {/* Bucket List Action - Stops Propagation */}
-        <div
-          className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10 scale-90 sm:scale-100"
-          onClick={(e) => {
-            e.stopPropagation();
-            e.preventDefault();
-          }}
-        >
-          <BucketListButton
-            destinationId={destination.id}
-            destinationName={localized.name}
-          />
-        </div>
+        {/* Bucket List Action - Stops Propagation; hidden for the virtual
+            Tokyo 23 Wards group (it is not a real catalogue destination). */}
+        {!wardGroup && (
+          <div
+            className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10 scale-90 sm:scale-100"
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+            }}
+          >
+            <BucketListButton
+              destinationId={destination.id}
+              destinationName={localized.name}
+            />
+          </div>
+        )}
       </div>
 
       <div className="flex flex-1 flex-col justify-between p-3 sm:p-4">
@@ -203,15 +216,26 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
         </div>
 
         <div className="mt-auto pt-2">
-          {/* Weekend trip-area line: places · capacity, travel time */}
-          {weekend && (
+          {/* Trip-area line: wards · places · capacity, travel time */}
+          {(weekend || wardGroup) && (
             <p className="line-clamp-1 text-[9px] font-semibold text-emerald-600 dark:text-emerald-400 mt-1">
-              {(weekend.placeCount ?? 0) > 0 &&
-                `${t("home.places", { count: weekend.placeCount })} · `}
-              {weekend.capacity.activityMinutes >= 600
-                ? t("destination.tripAreas.plentyForTwoDays")
-                : t("destination.tripAreas.readyForTwoDays")}
-              {weekend.travelFit.oneWayMinutes !== undefined &&
+              {[
+                wardGroup &&
+                  t("destination.tokyoWardsCount", {
+                    count: wardGroup.memberCount,
+                  }),
+                (weekend?.placeCount ?? wardGroup?.placeCount ?? 0) > 0 &&
+                  t("home.places", {
+                    count: weekend?.placeCount ?? wardGroup?.placeCount ?? 0,
+                  }),
+                weekend &&
+                  (weekend.capacity.activityMinutes >= 600
+                    ? t("destination.tripAreas.plentyForTwoDays")
+                    : t("destination.tripAreas.readyForTwoDays")),
+              ]
+                .filter(Boolean)
+                .join(" · ")}
+              {weekend?.travelFit.oneWayMinutes !== undefined &&
                 bestTransport?.mode && (
                   <span className="text-slate-500">
                     {" "}

@@ -405,6 +405,8 @@
     "day2Label": "Day 2"
   },
   "destination": {
+    "tokyoWardsGroup": "Tokyo 23 Wards",
+    "tokyoWardsCount": "{{count}} wards",
     "tripModes": {
       "any": "Any",
       "day_trip": "Day trip",

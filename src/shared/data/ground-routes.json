@@ -154,6 +154,15 @@
       "checkedAt": "2026-08-06"
     },
     {
+      "from": "osaka",
+      "to": "tokyo",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [390, 450],
+      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
+      "checkedAt": "2026-08-06"
+    },
+    {
       "from": "tokyo",
       "to": "osaka",
       "bidirectional": true,

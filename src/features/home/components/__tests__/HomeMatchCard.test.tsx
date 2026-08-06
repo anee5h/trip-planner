@@ -8,6 +8,7 @@ import type { Destination } from "@/shared/types/destination";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
+import { HomeMatchCard } from "../HomeMatchCard";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -116,6 +117,49 @@ describe("HomeMatchCard — origin-adjusted transport calculation (service level
 });
 
 // ── Component render test ─────────────────────────────────────────────────────
+describe("HomeMatchCard — Tokyo 23 Wards group card", () => {
+  it("renders the group title, ward/place counts, and the filtered link", async () => {
+    const groupDestination = {
+      ...seikoMuseum,
+      id: "tokyo-23-wards",
+      name: "Tokyo 23 Wards",
+      wardGroup: {
+        memberCount: 10,
+        placeCount: 32,
+        gatewayEstimate: {
+          mode: "shinkansen",
+          timeRange: [150, 270] as [number, number],
+          source: "verified_ground_route" as const,
+        },
+        memberIds: ["shinjuku-city", "shibuya-city"],
+        tripMode: "weekend_2d1n" as const,
+      },
+    };
+
+    const host = document.createElement("div");
+    document.body.appendChild(host);
+    const root = createRoot(host);
+    await act(async () => {
+      root.render(
+        <HomeMatchCard
+          destination={groupDestination as unknown as Destination}
+          rank={1}
+        />,
+      );
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("destination.tokyoWardsGroup");
+    expect(text).toContain("destination.tokyoWardsCount");
+    const link = host.querySelector("a");
+    expect(link?.getAttribute("href")).toBe(
+      "/destinations?city=shinjuku-city&city=shibuya-city&tripMode=weekend_2d1n",
+    );
+    act(() => root.unmount());
+    host.remove();
+  });
+});
+
 describe("HomeMatchCard — rendered card time with Yokohama origin", () => {
   let host: HTMLDivElement;
   let root: Root;

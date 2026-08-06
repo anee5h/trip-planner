@@ -399,6 +399,17 @@ export default function Destinations() {
       });
     }
 
+    // 0.6. Filter by City / Municipality (used by the Tokyo 23 Wards group
+    // link: individual ward hubs stay browseable).
+    if (selectedCities.length > 0) {
+      result = result.filter(
+        (dest) =>
+          selectedCities.includes(dest.id) ||
+          (dest.municipalityId !== undefined &&
+            selectedCities.includes(dest.municipalityId)),
+      );
+    }
+
     if (indoorMin > 0) {
       result = result.filter((dest) => dest.indoorPercent >= indoorMin);
     }

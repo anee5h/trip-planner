@@ -171,4 +171,52 @@ describe("RouletteModal weekend mode", () => {
     act(() => root.unmount());
     host.remove();
   });
+
+  it("Tokyo 23 Wards group shows the localized name and the filtered link", async () => {
+    const groupCandidate = {
+      ...weekendCandidate,
+      id: "tokyo-23-wards",
+      name: "Tokyo 23 Wards",
+      wardGroup: {
+        memberCount: 10,
+        placeCount: 32,
+        gatewayEstimate: {
+          mode: "shinkansen",
+          timeRange: [150, 270] as [number, number],
+          source: "verified_ground_route" as const,
+        },
+        memberIds: ["shinjuku-city", "shibuya-city"],
+        tripMode: "weekend_2d1n" as const,
+      },
+    };
+    const host = document.createElement("div");
+    document.body.appendChild(host);
+    const root = createRoot(host);
+    act(() => {
+      root.render(
+        <RouletteModal
+          isOpen
+          onClose={() => {}}
+          candidates={[groupCandidate as unknown as Destination]}
+          tripMode="weekend_2d1n"
+        />,
+      );
+    });
+    const text = host.textContent ?? "";
+    expect(text).toContain("destination.tokyoWardsGroup");
+    // The view-details link renders after the spin animation completes.
+    // Executor form: Promise.withResolvers needs lib es2024, unavailable here.
+    await act(
+      () =>
+        new Promise<void>((resolve) => {
+          setTimeout(resolve, 3200);
+        }),
+    );
+    const link = host.querySelector("a");
+    expect(link?.getAttribute("href")).toBe(
+      "/destinations?city=shinjuku-city&city=shibuya-city&tripMode=weekend_2d1n",
+    );
+    act(() => root.unmount());
+    host.remove();
+  });
 });

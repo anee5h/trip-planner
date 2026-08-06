@@ -24,6 +24,7 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useTranslation } from "react-i18next";
 import type { TripMode } from "@/shared/services/recommendation/RecommendationContext";
 import type { ScoredDestination } from "@/shared/services/recommendation/RecommendationTypes";
+import { buildTokyoWardsLink } from "@/shared/services/recommendation/TokyoWardsConsolidation";
 
 interface RouletteModalProps {
   isOpen: boolean;
@@ -175,6 +176,16 @@ export default function RouletteModal({
   const weekendPlaceCount = isWeekend
     ? (scoredCandidate?.weekend?.placeCount ?? 0)
     : 0;
+  const wardGroup = scoredCandidate?.wardGroup;
+  const displayName =
+    wardGroup !== undefined
+      ? t("destination.tokyoWardsGroup")
+      : localized?.name || displayedCandidate?.name || "";
+  const detailHref = wardGroup
+    ? buildTokyoWardsLink(wardGroup.memberIds, wardGroup.tripMode)
+    : winner
+      ? `/destinations/${winner.id}`
+      : "/destinations";
   const locationLabel = displayedCandidate
     ? [
         formatPrefecture(displayedCandidate.prefecture, locale),
@@ -184,7 +195,6 @@ export default function RouletteModal({
         .filter(Boolean)
         .join(" · ")
     : "";
-  const displayName = localized?.name || displayedCandidate?.name || "";
 
   return (
     <div
@@ -312,11 +322,7 @@ export default function RouletteModal({
                 </Button>
 
                 {winner && (
-                  <Link
-                    to={`/destinations/${winner.id}`}
-                    onClick={onClose}
-                    className="flex-1"
-                  >
+                  <Link to={detailHref} onClick={onClose} className="flex-1">
                     <Button className="w-full h-12 rounded-2xl font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/25">
                       <span>{t("home.roulette.viewDetails")}</span>
                       <ArrowRight className="w-4 h-4 ml-2" />

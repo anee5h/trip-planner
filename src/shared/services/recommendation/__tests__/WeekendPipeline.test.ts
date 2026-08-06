@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import type { Destination } from "@/shared/types/destination";
 import { runRecommendationPipeline } from "../RecommendationPipeline";
+import { TOKYO_WARDS_GROUP_ID } from "../TokyoWardsConsolidation";
 import {
   getEstimatedBudgetRange,
   getTransportCost,
@@ -665,6 +666,8 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     );
     expect(results.length).toBeGreaterThan(0);
     for (const r of results) {
+      // The virtual Tokyo 23 Wards group is not a catalogue record.
+      if (r.id === TOKYO_WARDS_GROUP_ID) continue;
       expect(byId.get(r.id)!.municipalityId).not.toBe("Osaka:osaka");
     }
     expect(results.map((r) => r.id)).toContain("kyoto-city");
@@ -803,6 +806,8 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
       expect(results.length).toBeGreaterThan(0);
       for (const r of results) {
         expect(r.weekend?.areaKind).not.toBe("poi");
+        // The virtual Tokyo 23 Wards group is not a catalogue record.
+        if (r.id === TOKYO_WARDS_GROUP_ID) continue;
         const dest = byId.get(r.id)!;
         expect(dest.role === "hub" || dest.role === "standalone").toBe(true);
       }
