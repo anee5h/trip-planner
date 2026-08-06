@@ -289,7 +289,7 @@ export default function RouletteModal({
                   <span className="inline-flex items-center gap-1">
                     <Clock className="h-3.5 w-3.5 text-emerald-500" />
                     {bestTransport
-                      ? formatTransportTime(bestTransport.timeRange)
+                      ? formatTransportTime(bestTransport.timeRange, locale)
                       : t("home.transportModes.travel")}
                   </span>
                   <span className="text-slate-300 dark:text-slate-600">·</span>

@@ -1405,7 +1405,12 @@ export default function DestinationDetails() {
                             </span>
                             <div className="text-right">
                               <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                {formatTransportTime(ferryEstimate.timeRange)}
+                                <span className="truncate">
+                                  {formatTransportTime(
+                                    ferryEstimate.timeRange,
+                                    locale,
+                                  )}
+                                </span>
                               </div>
                               <div className="text-xs text-slate-400">
                                 {ferryEstimate.costUnavailable ||
@@ -1445,7 +1450,10 @@ export default function DestinationDetails() {
                             </span>
                             <div className="text-right">
                               <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                {formatTransportTime(flightEstimate.timeRange)}
+                                {formatTransportTime(
+                                  flightEstimate.timeRange,
+                                  locale,
+                                )}
                               </div>
                               <div className="text-xs text-slate-400">
                                 {flightEstimate.costUnavailable ||

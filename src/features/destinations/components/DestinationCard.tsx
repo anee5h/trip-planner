@@ -391,9 +391,9 @@ export default function DestinationCard({
                 if (mode === "flight") Icon = Plane;
 
                 const formattedTime = gateway
-                  ? formatTransportTime(gateway.timeRange)
+                  ? formatTransportTime(gateway.timeRange, locale)
                   : preferredTransport
-                    ? formatTransportTime(preferredTransport.timeRange)
+                    ? formatTransportTime(preferredTransport.timeRange, locale)
                     : "N/A";
 
                 const isDriving = mode === "car" || mode === "my_car";
