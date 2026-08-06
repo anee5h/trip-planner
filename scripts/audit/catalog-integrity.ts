@@ -37,6 +37,8 @@ export interface AuditFinding {
 export interface AuditOptions {
   prefecture?: string;
   destinationId?: string;
+  /** Fixed timestamp for deterministic output; the CLI passes the real time. */
+  generatedAt?: string;
 }
 
 export interface AuditImpact {
@@ -48,14 +50,21 @@ export interface AuditImpact {
   parentWeekendEligible: boolean;
   /** Which municipality-based city filter would include the child. */
   childCityFilterMunicipalityId?: string;
-  /** Whether the child is an itinerary candidate of the hub (featured or child). */
+  /** Structural child of its parent (parentDestinationId set and resolvable). */
+  childContainedByParent: boolean;
+  /** Listed in the parent hub's featuredDestinationIds. */
+  childFeaturedByParent: boolean;
+  /** Contained or featured by its parent: appears in the parent's itinerary candidate set. */
   childItineraryCandidate: boolean;
+  /** Featured refs of this hub that are NOT its structural children (featured-only links). */
+  featuredOnlyRefs: string[];
   /** Whether the child appears in any nearby/related grouping list. */
   childInNearbyGrouping: boolean;
 }
 
 export interface AuditReport {
-  generatedAt: string;
+  /** Attached by the caller (CLI); the pure audit itself never timestamps. */
+  generatedAt?: string;
   scanned: {
     destinations: number;
     detailFiles: number;
@@ -448,7 +457,9 @@ function checkGeography(
     }
   }
 
-  // Duplicate coordinates across unrelated destinations.
+  // Duplicate coordinates across destinations. Direct parent/child pairs and
+  // same-site hub/POI anchors (a hub and a POI standing on the same spot) are
+  // expected and downgraded to info; unrelated duplicates stay warnings.
   const byCoord = new Map<string, string[]>();
   for (const dest of destinations) {
     const c = dest.coordinates;
@@ -457,16 +468,35 @@ function checkGeography(
     byCoord.set(key, [...(byCoord.get(key) ?? []), dest.id]);
   }
   for (const [key, ids] of byCoord) {
-    if (ids.length > 1) {
-      findings.push({
-        code: "GEO_DUPLICATE_COORDINATES",
-        severity: "warning",
-        category: "B",
-        targetId: ids[0],
-        message: `Destinations [${ids.join(", ")}] share coordinates ${key}; verify they are not copies.`,
-        details: { coordinates: key, destinationIds: ids },
-      });
-    }
+    if (ids.length <= 1) continue;
+    const records = ids
+      .map((id) => byId.get(id))
+      .filter(Boolean) as Destination[];
+    const parentChildPair = records.some((a) =>
+      records.some(
+        (b) =>
+          a.id !== b.id &&
+          (a.relationships?.parentDestinationId === b.id ||
+            b.relationships?.parentDestinationId === a.id),
+      ),
+    );
+    const hubPoiAnchor =
+      records.some((r) => r.role === "hub") &&
+      records.some((r) => r.role !== "hub");
+    const severity = parentChildPair || hubPoiAnchor ? "info" : "warning";
+    const reason = parentChildPair
+      ? "direct parent/child pair sharing the site"
+      : hubPoiAnchor
+        ? "same-site hub/POI anchor"
+        : "unrelated destinations";
+    findings.push({
+      code: "GEO_DUPLICATE_COORDINATES",
+      severity,
+      category: "B",
+      targetId: ids[0],
+      message: `Destinations [${ids.join(", ")}] share coordinates ${key}; ${reason} — verify they are not copies.`,
+      details: { coordinates: key, destinationIds: ids, reason },
+    });
   }
 
   // Child implausibly far from municipality-specific parent.
@@ -954,6 +984,12 @@ function computeImpact(
 
     const children = parentId ? childrenOf(parentId) : [];
     const publishedChildren = parentId ? publishedOf(parentId) : [];
+    const parentFeatured = parent?.relationships?.featuredDestinationIds ?? [];
+
+    const childContainedByParent = Boolean(parentId && parent);
+    const childFeaturedByParent = parent
+      ? parentFeatured.includes(dest.id)
+      : false;
 
     impact[dest.id] = {
       parentPlaceCount: parentId ? publishedChildren.length : 0,
@@ -964,10 +1000,17 @@ function computeImpact(
         ? weekendCapacityMinutes(parent, publishedChildren) >= 480
         : false,
       childCityFilterMunicipalityId: dest.municipalityId,
-      childItineraryCandidate: parentId
-        ? children.some((c) => c.id === dest.id) ||
-          (rels.featuredDestinationIds ?? []).includes(dest.id)
-        : (rels.featuredDestinationIds?.length ?? 0) > 0,
+      childContainedByParent,
+      childFeaturedByParent,
+      childItineraryCandidate: childContainedByParent || childFeaturedByParent,
+      // For hub candidates, list featured refs that are NOT structural
+      // children: those are featured-only links (e.g. a cross-municipality
+      // featured pick) whose correction changes the hub's featured section.
+      featuredOnlyRefs: rels.featuredDestinationIds
+        ? rels.featuredDestinationIds.filter(
+            (id) => !children.some((c) => c.id === id),
+          )
+        : [],
       childInNearbyGrouping: Boolean(
         (rels.nearbyDestinationIds?.length ?? 0) > 0 ||
         (rels.relatedDestinationIds?.length ?? 0) > 0,
@@ -1028,7 +1071,7 @@ export function runAudit(
   const impact = computeImpact(destinations, byId, findings);
 
   return {
-    generatedAt: new Date().toISOString(),
+    generatedAt: options.generatedAt,
     scanned: {
       destinations: destinations.length,
       detailFiles: details.length,

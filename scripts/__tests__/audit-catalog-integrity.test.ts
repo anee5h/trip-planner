@@ -255,7 +255,7 @@ describe("catalogue integrity audit", () => {
     expect(codes(report.findings, "castle")).toContain("SYNC_META_STALE");
   });
 
-  it("audit output is deterministic across runs", () => {
+  it("audit output is deterministic across runs, even with a delay between them", async () => {
     const city = cityHub("okayama-city", { municipalityId: "Okayama:okayama" });
     const child = makeDestination({
       id: "korakuen",
@@ -269,9 +269,19 @@ describe("catalogue integrity audit", () => {
       relationships: { parentDestinationId: "okayama-city" },
     });
     const input = [city, child, wrong];
-    const first = runWith(input);
-    const second = runWith(input);
+    // The pure audit must not embed a clock: a fixed timestamp keeps two
+    // runs byte-identical even when wall-clock time moves between them.
+    const fixed = "2026-08-06T00:00:00.000Z";
+    const first = runAudit(input, [], [], { generatedAt: fixed });
+    await new Promise((resolve) => setTimeout(resolve, 60));
+    const second = runAudit(input, [], [], { generatedAt: fixed });
     expect(second).toEqual(first);
+    expect(second.generatedAt).toBe(fixed);
+  });
+
+  it("pure audit omits generatedAt when the caller provides none", () => {
+    const report = runWith([cityHub("okayama-city")]);
+    expect(report.generatedAt).toBeUndefined();
   });
 
   it("audit never mutates catalogue input", () => {
@@ -286,7 +296,98 @@ describe("catalogue integrity audit", () => {
     expect(JSON.parse(JSON.stringify([city, child]))).toEqual(snapshot);
   });
 
-  it("recommendation impact is reported for relationship candidates", () => {
+  // ---------------------------------------------------------------------
+  // Recommendation-impact membership (parent's featured list, not the
+  // child's own): structural child only / featured-only / both / neither.
+  // ---------------------------------------------------------------------
+
+  /** Candidate via its own cross-prefecture ref (REL_CROSS_PREFECTURE_REF). */
+  function crossPrefRef(id: string, refId: string): Destination {
+    return makeDestination({
+      id,
+      relationships: { nearbyDestinationIds: [refId] },
+    });
+  }
+
+  /** A hub record in another prefecture so the cross-prefecture ref fires. */
+  function refHub(id: string, prefecture: string): Destination {
+    return makeDestination({
+      id,
+      prefecture,
+      role: "hub",
+      kind: "city",
+      municipalityId: `${prefecture}:${id.replace("-city", "")}`,
+      relationships: {},
+    });
+  }
+
+  it("impact: structural child only (contained, not featured)", () => {
+    const hub = cityHub("okayama-city", { municipalityId: "Okayama:okayama" });
+    hub.relationships = { featuredDestinationIds: [] };
+    const child = crossPrefRef("korakuen", "fukuoka-city");
+    child.municipalityId = "Okayama:okayama";
+    child.relationships = {
+      parentDestinationId: "okayama-city",
+      nearbyDestinationIds: ["fukuoka-city"],
+    };
+    const report = runWith([hub, child, refHub("fukuoka-city", "Fukuoka")]);
+    const impact = report.impact["korakuen"];
+    expect(impact.childContainedByParent).toBe(true);
+    expect(impact.childFeaturedByParent).toBe(false);
+    expect(impact.childItineraryCandidate).toBe(true);
+  });
+
+  it("impact: featured-only destination (hub features a non-child)", () => {
+    const hub = cityHub("okayama-city", { municipalityId: "Okayama:okayama" });
+    const castle = crossPrefRef("bitchu-matsuyama-castle", "nagasaki-city");
+    castle.municipalityId = "Okayama:takahashi";
+    castle.relationships = {
+      nearbyDestinationIds: ["nagasaki-city"],
+    };
+    // Hub features the castle (different municipality) → featured-only link.
+    hub.relationships = { featuredDestinationIds: ["bitchu-matsuyama-castle"] };
+    const report = runWith([hub, castle, refHub("nagasaki-city", "Nagasaki")]);
+    const hubImpact = report.impact["okayama-city"];
+    expect(hubImpact.featuredOnlyRefs).toEqual(["bitchu-matsuyama-castle"]);
+    // The castle itself has no parent: it is neither contained nor featured
+    // by a parent — its itinerary relevance exists only via the hub's
+    // featured-only link.
+    const castleImpact = report.impact["bitchu-matsuyama-castle"];
+    expect(castleImpact.childContainedByParent).toBe(false);
+    expect(castleImpact.childFeaturedByParent).toBe(false);
+    expect(castleImpact.childItineraryCandidate).toBe(false);
+  });
+
+  it("impact: both (child that is also featured by its parent)", () => {
+    const hub = cityHub("okayama-city", { municipalityId: "Okayama:okayama" });
+    hub.relationships = { featuredDestinationIds: ["korakuen"] };
+    const child = crossPrefRef("korakuen", "fukuoka-city");
+    child.municipalityId = "Okayama:okayama";
+    child.relationships = {
+      parentDestinationId: "okayama-city",
+      nearbyDestinationIds: ["fukuoka-city"],
+    };
+    const report = runWith([hub, child, refHub("fukuoka-city", "Fukuoka")]);
+    const impact = report.impact["korakuen"];
+    expect(impact.childContainedByParent).toBe(true);
+    expect(impact.childFeaturedByParent).toBe(true);
+    expect(impact.childItineraryCandidate).toBe(true);
+    expect(impact.featuredOnlyRefs).toEqual([]);
+  });
+
+  it("impact: neither (no parent, not featured anywhere)", () => {
+    const hub = cityHub("okayama-city", { municipalityId: "Okayama:okayama" });
+    hub.relationships = { featuredDestinationIds: [] };
+    const dest = crossPrefRef("standalone-dest", "nagasaki-city");
+    const report = runWith([hub, dest, refHub("nagasaki-city", "Nagasaki")]);
+    const impact = report.impact["standalone-dest"];
+    expect(impact.childContainedByParent).toBe(false);
+    expect(impact.childFeaturedByParent).toBe(false);
+    expect(impact.childItineraryCandidate).toBe(false);
+    expect(impact.featuredOnlyRefs).toEqual([]);
+  });
+
+  it("impact: parent place count and capacity are still reported", () => {
     const city = cityHub("okayama-city", { municipalityId: "Okayama:okayama" });
     const child = makeDestination({
       id: "wrong-city-child",
@@ -301,5 +402,74 @@ describe("catalogue integrity audit", () => {
     expect(impact.parentWeekendCapacityMinutes).toBe(720);
     expect(impact.parentWeekendEligible).toBe(true);
     expect(impact.childCityFilterMunicipalityId).toBe("Okayama:takahashi");
+  });
+
+  // ---------------------------------------------------------------------
+  // Duplicate-coordinate severity: related pairs downgraded, unrelated kept.
+  // ---------------------------------------------------------------------
+
+  it("geo: direct parent/child pair sharing coordinates is info, not a warning", () => {
+    const hub = cityHub("kawagoe-city", {
+      municipalityId: "Saitama:kawagoe",
+      prefecture: "Saitama",
+      coordinates: { lat: 35.925, lng: 139.486 },
+    });
+    const poi = makeDestination({
+      id: "kurazukuri-warehouse-district",
+      prefecture: "Saitama",
+      municipalityId: "Saitama:kawagoe",
+      role: "poi",
+      relationships: { parentDestinationId: "kawagoe-city" },
+      coordinates: { lat: 35.9251, lng: 139.4861 },
+    });
+    const report = runWith([hub, poi]);
+    const findings = report.findings.filter(
+      (f) => f.code === "GEO_DUPLICATE_COORDINATES",
+    );
+    expect(findings.length).toBe(1);
+    expect(findings[0].severity).toBe("info");
+    expect(findings[0].details?.reason).toBe(
+      "direct parent/child pair sharing the site",
+    );
+  });
+
+  it("geo: same-site hub/POI anchor (not parent/child) is info", () => {
+    const hub = cityHub("shinjuku-city", {
+      municipalityId: "Tokyo:shinjuku",
+      prefecture: "Tokyo",
+      coordinates: { lat: 35.694, lng: 139.703 },
+    });
+    const garden = makeDestination({
+      id: "shinjuku-gyo-en",
+      prefecture: "Tokyo",
+      role: "poi",
+      coordinates: { lat: 35.6941, lng: 139.7031 },
+    });
+    const report = runWith([hub, garden]);
+    const findings = report.findings.filter(
+      (f) => f.code === "GEO_DUPLICATE_COORDINATES",
+    );
+    expect(findings.length).toBe(1);
+    expect(findings[0].severity).toBe("info");
+    expect(findings[0].details?.reason).toBe("same-site hub/POI anchor");
+  });
+
+  it("geo: unrelated destinations sharing coordinates stay a warning", () => {
+    const a = makeDestination({
+      id: "copy-a",
+      role: "poi",
+      coordinates: { lat: 34.8089, lng: 133.6222 },
+    });
+    const b = makeDestination({
+      id: "copy-b",
+      role: "poi",
+      coordinates: { lat: 34.80891, lng: 133.62221 },
+    });
+    const report = runWith([a, b]);
+    const findings = report.findings.filter(
+      (f) => f.code === "GEO_DUPLICATE_COORDINATES",
+    );
+    expect(findings.length).toBe(1);
+    expect(findings[0].severity).toBe("warning");
   });
 });

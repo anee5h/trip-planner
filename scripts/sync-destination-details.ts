@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { format, resolveConfig } from "prettier";
+import { buildDestinationsMeta } from "./catalog/meta.mjs";
 import type { Destination } from "../src/shared/types/destination";
 
 const indexPath = path.join(
@@ -35,22 +36,12 @@ async function main() {
     );
   }
 
-  // destinations-meta.json is a derived store file (pipeline Stage 5
-  // mapping). It is regenerated here with the same mapping so the sync
-  // step is the single generator for both derived files; the legacy
-  // pipeline (scripts/pipeline.cjs) is not runnable end-to-end (its Stage 1
-  // fails on legacy records lacking budget fields).
-  const metaData = destinationsIndex.map((d) => ({
-    id: d.id,
-    name: d.name,
-    prefecture: d.prefecture,
-    region: d.region || "Other",
-    role: d.role || "poi",
-    kind: d.kind || "attraction",
-    status: d.status || "verified",
-    relationships: d.relationships || {},
-  }));
-  metaData.sort((a, b) => a.id.localeCompare(b.id));
+  // destinations-meta.json is a derived store file. The mapping lives in the
+  // shared scripts/catalog/meta.mjs builder (also used by pipeline Stage 5)
+  // so the two generators can never drift; the legacy pipeline itself is not
+  // runnable end-to-end (its Stage 1 fails on legacy records lacking budget
+  // fields), which is why the sync step also emits the file.
+  const metaData = buildDestinationsMeta(destinationsIndex);
   fs.writeFileSync(
     metaPath,
     await formatJson(`${JSON.stringify(metaData, null, 2)}\n`),

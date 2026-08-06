@@ -191,8 +191,8 @@
         "train": 200,
         "shinkansen": 200
       },
-      "reason": "Kurashiki is served by the Sanyo Shinkansen at Shin-Kurashiki Station, but shinkansen was not authorized in transportOptions, so origin-aware matching (Tokyo-Okayama shinkansen corridor in ground-routes.json) returned no estimate and cards showed \"N/A\" travel time. Value matches the sibling Okayama hub convention (okayama-city shinkansen: 200).",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Sanyo_Shinkansen",
+      "reason": "Kurashiki is served by the Sanyo Shinkansen at Shin-Kurashiki Station (official JR West station page, JRおでかけネット, timetable shows Tokaido/Sanyo/Kyushu Shinkansen directions), but shinkansen was not authorized in transportOptions, so origin-aware matching (Tokyo-Okayama shinkansen corridor in ground-routes.json) returned no estimate and cards showed \"N/A\" travel time. transportOptions.shinkansen = 200 is a mode-authorization gate plus neutral-browsing reference value matching the sibling okayama-city convention; origin-aware durations always come from ground-routes.json, never from this value.",
+      "sourceUrl": "https://www.jr-odekake.net/eki/top?id=0650614",
       "checkedAt": "2026-08-06",
       "confidence": "verified"
     }

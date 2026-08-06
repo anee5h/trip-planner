@@ -14,7 +14,13 @@
  *   npm run audit:catalog-integrity -- --prefecture Okayama
  *   npm run audit:catalog-integrity -- --destination kurashiki-city
  *   npm run audit:catalog-integrity -- --json
+ *   npm run audit:catalog-integrity -- --output reports/catalog-integrity-audit.json
  *   npm run audit:catalog-integrity -- --strict
+ *
+ * Output: console summary by default; --json prints machine-readable JSON to
+ * stdout; --output <path> writes the JSON report to an explicit file. The
+ * command never writes a report file implicitly, so a tracked tree cannot
+ * churn from a plain run.
  *
  * Exit codes: 1 when errors are found (or warnings with --strict), else 0.
  * No network access is required.
@@ -44,8 +50,8 @@ Options:
   --prefecture <name>  Restrict findings to destinations in a prefecture
   --destination <id>   Restrict findings to one destination
   --json               Print machine-readable JSON to stdout
+  --output <path>      Write the JSON report to an explicit file
   --strict             Exit non-zero on warnings as well as errors
-  --no-report          Skip writing reports/catalog-integrity-audit.json
   --help               Show this help`);
     return;
   }
@@ -78,9 +84,11 @@ Options:
     }
   }
 
+  // The pure audit is deterministic; the real timestamp is attached here.
   const report: AuditReport = runAudit(destinations, details, metaEntries, {
     prefecture: getFlag("prefecture"),
     destinationId: getFlag("destination"),
+    generatedAt: new Date().toISOString(),
   });
 
   if (hasFlag("json")) {
@@ -116,19 +124,17 @@ Options:
       for (const id of impacted.sort()) {
         const im = report.impact[id];
         console.log(
-          `  ${id}: parent places=${im.parentPlaceCount}, weekend capacity=${im.parentWeekendCapacityMinutes}min (eligible=${im.parentWeekendEligible}), city filter=${im.childCityFilterMunicipalityId ?? "n/a"}, itinerary candidate=${im.childItineraryCandidate}, nearby grouping=${im.childInNearbyGrouping}`,
+          `  ${id}: parent places=${im.parentPlaceCount}, weekend capacity=${im.parentWeekendCapacityMinutes}min (eligible=${im.parentWeekendEligible}), city filter=${im.childCityFilterMunicipalityId ?? "n/a"}, contained=${im.childContainedByParent}, featured=${im.childFeaturedByParent}, itinerary candidate=${im.childItineraryCandidate}, featured-only refs=[${im.featuredOnlyRefs.join(", ")}], nearby grouping=${im.childInNearbyGrouping}`,
         );
       }
     }
   }
 
-  if (!hasFlag("no-report")) {
-    const reportsDir = path.join(rootDir, "reports");
-    fs.mkdirSync(reportsDir, { recursive: true });
-    fs.writeFileSync(
-      path.join(reportsDir, "catalog-integrity-audit.json"),
-      `${JSON.stringify(report, null, 2)}\n`,
-    );
+  const outputPath = getFlag("output");
+  if (outputPath) {
+    const resolved = path.resolve(rootDir, outputPath);
+    fs.mkdirSync(path.dirname(resolved), { recursive: true });
+    fs.writeFileSync(resolved, `${JSON.stringify(report, null, 2)}\n`);
   }
 
   const failed =
