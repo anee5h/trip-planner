@@ -52,8 +52,15 @@ import {
 import {
   consolidateWeekendAreas,
   passesNoOriginWeekendGate,
+  getContainedPlaces,
   type WeekendAreaConsolidation,
 } from "@/shared/services/recommendation/WeekendAreaPolicy";
+import {
+  buildExplorerWardGroup,
+  isTokyoWardHub,
+  KANTO_PREFECTURES,
+  TOKYO_WARDS_GROUP_ID,
+} from "@/shared/services/recommendation/TokyoWardsConsolidation";
 import {
   tokenizeQuery,
   matchesDestination,
@@ -574,6 +581,61 @@ export default function Destinations() {
         const consolidated = consolidateWeekendAreas(result, allDestinations);
         weekendConsolidation = consolidated;
         result = consolidated.areas;
+
+        // Conditional Tokyo 23 Wards consolidation: outside Kanto, eligible
+        // ward hubs collapse into one virtual super-hub card.
+        const originPrefecture = originMunicipalityId
+          ?.split(":")[0]
+          ?.toLowerCase();
+        if (
+          originPrefecture &&
+          !KANTO_PREFECTURES.has(originPrefecture) &&
+          // An explicit city filter (e.g. the group's own link) means the
+          // user wants those specific hubs individually — do not re-group.
+          selectedCities.length === 0 &&
+          result.length > 0
+        ) {
+          const wardMembers = result.filter(isTokyoWardHub);
+          if (wardMembers.length >= 2) {
+            // Unique published supporting places across the members.
+            const seenPlaces = new Set<string>();
+            for (const member of wardMembers) {
+              for (const place of getContainedPlaces(member, allDestinations)) {
+                seenPlaces.add(place.id);
+              }
+            }
+            const group = buildExplorerWardGroup({
+              members: wardMembers,
+              placeCount: seenPlaces.size,
+              tripMode,
+            });
+            const memberIds = new Set(wardMembers.map((m) => m.id));
+            const remaining = result.filter((d) => !memberIds.has(d.id));
+            result = [group, ...remaining];
+
+            weekendConsolidation = {
+              areas: result,
+              placeCountById: new Map(
+                result.map((area) => [
+                  area.id,
+                  area.id === TOKYO_WARDS_GROUP_ID
+                    ? seenPlaces.size
+                    : (consolidated.placeCountById.get(area.id) ?? 0),
+                ]),
+              ),
+              capacityMinutesById: consolidated.capacityMinutesById,
+              kindById: new Map(
+                result.map((area) => [
+                  area.id,
+                  area.id === TOKYO_WARDS_GROUP_ID
+                    ? "trip_area"
+                    : (consolidated.kindById.get(area.id) ?? "trip_area"),
+                ]),
+              ),
+              totalPlaceCount: consolidated.totalPlaceCount,
+            };
+          }
+        }
       }
     } else if (
       tripDuration !== "any" ||

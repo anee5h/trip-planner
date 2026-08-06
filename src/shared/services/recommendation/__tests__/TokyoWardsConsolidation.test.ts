@@ -4,6 +4,8 @@ import { runRecommendationPipeline } from "../RecommendationPipeline";
 import {
   consolidateTokyoWards,
   buildTokyoWardsLink,
+  buildExplorerWardGroup,
+  getWardGroup,
   TOKYO_WARDS_GROUP_ID,
   TOKYO_WARDS_DIVERSITY_BONUS_MAX,
   isTokyoWardHub,
@@ -292,6 +294,39 @@ describe("consolidateTokyoWards", () => {
     expect(group.wardGroup?.gatewayEstimate?.mode).toBe("flight");
     expect(group.wardGroup?.gatewayEstimate?.timeRange).toEqual([90, 130]);
     expect(group.transportEstimate?.timeRange).toEqual([90, 130]);
+  });
+});
+
+// ── buildExplorerWardGroup ───────────────────────────────────────────────────
+
+describe("buildExplorerWardGroup", () => {
+  it("builds a single virtual card carrying member ids and counts", () => {
+    const members = WARD_IDS.slice(0, 3).map((id, i) =>
+      dest({
+        id,
+        role: "hub",
+        kind: "ward",
+        municipalityId: `Tokyo:${id.replace("-city", "")}`,
+        ratings: { overall: 5 + i } as never,
+      }),
+    );
+    const group = buildExplorerWardGroup({
+      members,
+      placeCount: 9,
+      tripMode: "weekend_2d1n",
+    });
+    expect(group.id).toBe(TOKYO_WARDS_GROUP_ID);
+    expect(group.name).toBe("Tokyo 23 Wards");
+    const meta = getWardGroup(group);
+    expect(meta?.memberCount).toBe(3);
+    expect(meta?.placeCount).toBe(9);
+    expect(meta?.memberIds).toEqual(WARD_IDS.slice(0, 3));
+    expect(meta?.tripMode).toBe("weekend_2d1n");
+  });
+
+  it("returns undefined metadata for ordinary destinations", () => {
+    const plain = dest({ id: "edogawa-city", role: "hub", kind: "ward" });
+    expect(getWardGroup(plain)).toBeUndefined();
   });
 });
 

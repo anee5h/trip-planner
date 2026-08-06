@@ -37,6 +37,22 @@ export function isTokyoWardHub(destination: Destination): boolean {
   );
 }
 
+/** Typed accessor for the virtual group marker on any destination-shaped value. */
+export function getWardGroup(
+  destination: Destination,
+): TokyoWardsGroupMetadata | undefined {
+  if (
+    destination &&
+    typeof destination === "object" &&
+    "wardGroup" in destination
+  ) {
+    return (
+      destination as Destination & { wardGroup?: TokyoWardsGroupMetadata }
+    ).wardGroup;
+  }
+  return undefined;
+}
+
 export interface TokyoWardsGroupMetadata {
   memberCount: number;
   /** Unique published supporting places across all members. */
@@ -156,4 +172,39 @@ export function buildTokyoWardsLink(
     params.set("tripMode", tripMode);
   }
   return `/destinations?${params.toString()}`;
+}
+
+export interface ExplorerWardGroupBuildInput {
+  members: Destination[];
+  /** Unique published supporting places across members. */
+  placeCount: number;
+  tripMode?: TripMode;
+}
+
+/**
+ * Builds the virtual group card for the Destinations explorer: a shallow
+ * copy of the highest-ranked member with a distinct id, the localized
+ * display name, and the wardGroup metadata the card branch renders.
+ */
+export function buildExplorerWardGroup(
+  input: ExplorerWardGroupBuildInput,
+): Destination {
+  const { members, placeCount, tripMode } = input;
+  const topMember = members.reduce((best, member) =>
+    (member.ratings?.overall ?? 0) >= (best.ratings?.overall ?? 0)
+      ? member
+      : best,
+  );
+  return {
+    ...topMember,
+    id: TOKYO_WARDS_GROUP_ID,
+    name: "Tokyo 23 Wards",
+    wardGroup: {
+      memberCount: members.length,
+      placeCount,
+      gatewayEstimate: undefined,
+      memberIds: members.map((member) => member.id),
+      tripMode,
+    },
+  } as Destination;
 }
