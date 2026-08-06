@@ -18,25 +18,26 @@ export interface WeekendAreaClassification {
 }
 
 /**
- * Standalone roots whose kind marks a single attraction. These are never
- * weekend bases even when a large own capacity would otherwise qualify.
+ * Positive allowlist of coherent-area kinds. A standalone root is a weekend
+ * primary area only when its structured kind is explicitly area-like.
+ * Unknown or missing kinds default to POI — the classifier never assumes
+ * "no kind means area".
+ *
+ * Only values that actually exist in the catalogue are listed.
  */
-const STANDALONE_POI_KINDS: Record<string, true> = {
-  museum: true,
-  tower: true,
-  garden: true,
-  castle: true,
-  park: true,
-  shrine: true,
-  temple: true,
-  beach: true,
-  bridge: true,
-  viewpoint: true,
-  amusement_park: true,
-  aquarium: true,
-  zoo: true,
+const AREA_LIKE_KINDS: Record<string, true> = {
+  city: true,
+  ward: true,
+  town: true,
+  village: true,
+  district: true,
+  island: true,
+  nature: true,
+  natural: true,
+  mountain: true,
+  lake: true,
+  historic_town: true,
   onsen: true,
-  cape: true,
 };
 
 /**
@@ -88,11 +89,11 @@ export function computeAreaCapacityMinutes(
  * - Standalone roots that are not single-attraction kinds → standalone_area.
  * - Everything else (child POIs, standalone POIs, legacy POIs) → poi.
  */
-export function classifyWeekendResultCandidate(
+function classifyWithChildren(
   destination: Destination,
-  pool: readonly Destination[],
+  children: readonly Destination[],
 ): WeekendAreaClassification {
-  const children = getContainedPlaces(destination, pool);
+  const ownMinutes = (destination.recommendedVisitHours?.max ?? 0) * 60;
   if (destination.role === "hub" || destination.placeType === "hub") {
     return {
       kind: "trip_area",
@@ -107,14 +108,11 @@ export function classifyWeekendResultCandidate(
       capacityMinutes: computeAreaCapacityMinutes(destination, children),
     };
   }
-  const ownMinutes = (destination.recommendedVisitHours?.max ?? 0) * 60;
   if (
     destination.role === "standalone" &&
-    (!destination.kind || !STANDALONE_POI_KINDS[destination.kind])
+    destination.kind &&
+    AREA_LIKE_KINDS[destination.kind]
   ) {
-    // Legacy standalone roots (no kind) are deliberate regional or
-    // island-wide roots; remaining kinds (island, nature, natural, lake,
-    // mountain, district, town, village) are coherent areas.
     return {
       kind: "standalone_area",
       placeCount: 0,
@@ -129,6 +127,16 @@ export function classifyWeekendResultCandidate(
   };
 }
 
+export function classifyWeekendResultCandidate(
+  destination: Destination,
+  pool: readonly Destination[],
+): WeekendAreaClassification {
+  return classifyWithChildren(
+    destination,
+    getContainedPlaces(destination, pool),
+  );
+}
+
 export interface WeekendAreaConsolidation {
   /** Primary results — eligible trip areas / standalone areas, input order. */
   areas: Destination[];
@@ -138,6 +146,25 @@ export interface WeekendAreaConsolidation {
   /** Unique published children across all returned areas (deduped by id). */
   totalPlaceCount: number;
 }
+
+/**
+ * No-origin weekend browsing gate: no personalized travel claims, but the
+ * candidate still needs coherent trip-area classification and at least 480
+ * published activity minutes. Thin areas are never 2D1N bases.
+ */
+export function passesNoOriginWeekendGate(
+  destination: Destination,
+  pool: readonly Destination[],
+): boolean {
+  const children = getContainedPlaces(destination, pool);
+  if (classifyWithChildren(destination, children).kind === "poi") return false;
+  return (
+    computeAreaCapacityMinutes(destination, children) >=
+    WEEKEND_CAPACITY_MIN_MINUTES
+  );
+}
+
+const WEEKEND_CAPACITY_MIN_MINUTES = 480;
 
 /**
  * Hub-first consolidation step: runs after weekend eligibility, before final
@@ -166,24 +193,13 @@ export function consolidateWeekendAreas(
 
   for (const destination of eligible) {
     const children = childIndex.get(destination.id) ?? [];
-    const kind: WeekendResultKind =
-      destination.role === "hub" || destination.placeType === "hub"
-        ? "trip_area"
-        : children.length > 0
-          ? "trip_area"
-          : destination.role === "standalone" &&
-              (!destination.kind || !STANDALONE_POI_KINDS[destination.kind])
-            ? "standalone_area"
-            : "poi";
-    if (kind === "poi") continue;
+    const classification = classifyWithChildren(destination, children);
+    if (classification.kind === "poi") continue;
 
     areas.push(destination);
-    placeCountById.set(destination.id, children.length);
-    capacityMinutesById.set(
-      destination.id,
-      computeAreaCapacityMinutes(destination, children),
-    );
-    kindById.set(destination.id, kind);
+    placeCountById.set(destination.id, classification.placeCount);
+    capacityMinutesById.set(destination.id, classification.capacityMinutes);
+    kindById.set(destination.id, classification.kind);
     for (const child of children) {
       seenChildIds.add(child.id);
     }

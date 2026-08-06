@@ -1,6 +1,7 @@
 {
   "id": "saitama-nagatoro",
   "name": "Nagatoro",
+  "kind": "nature",
   "prefecture": "Saitama",
   "region": "Kanto",
   "categories": ["Nature", "River"],

@@ -1,6 +1,7 @@
 {
   "id": "nagano-kamikochi",
   "name": "Kamikochi",
+  "kind": "mountain",
   "prefecture": "Nagano",
   "region": "Chubu",
   "categories": ["Nature", "Hiking", "Mountains"],

@@ -1,6 +1,7 @@
 {
   "id": "jogashima",
   "name": "Miura Peninsula & Jogashima",
+  "kind": "nature",
   "region": "Kanto",
   "categories": ["Coast", "Nature"],
   "tags": ["Ocean", "Scenic", "Hiking"],

@@ -19,7 +19,10 @@ type DestOverrides = Omit<Partial<Destination>, "ratings"> & {
 function dest(overrides: DestOverrides): Destination {
   return {
     name: overrides.name ?? overrides.id,
-    prefecture: "Tokyo",
+    // Sits on a verified corridor from the test origin so travel fit is
+    // evaluated (tokyo ↔ kanagawa train [50, 90]); tests exercising the
+    // no-duration gate override it.
+    prefecture: "Kanagawa",
     region: "Kanto",
     categories: [],
     heroImage: "",
@@ -376,9 +379,10 @@ describe("evaluateWeekendCandidate", () => {
   it("strong travel + capacity strong + two clear days → scoreDelta 17", () => {
     const d = dest({
       id: "test",
+      prefecture: "Kyoto",
       recommendedVisitHours: { min: 1, max: 10 }, // 600 min → strong capacity
       indoorPercent: 50,
-      transportOptions: { train: 180 }, // 180 min → strong band (121–240)
+      transportOptions: { shinkansen: 180 },
     });
     const ctx = context({
       weather: {
@@ -387,11 +391,12 @@ describe("evaluateWeekendCandidate", () => {
           { date: "2026-08-06", condition: "clear" },
         ],
       },
-      publicModes: ["train"],
-      homeStationCoords: { lat: 35.68, lng: 139.76 },
+      // tokyo ↔ kyoto shinkansen corridor [135, 220] → strong band
+      publicModes: ["shinkansen"],
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
     });
 
-    const result = evaluateWeekendCandidate(d, ctx, [d], ["train"]);
+    const result = evaluateWeekendCandidate(d, ctx, [d], ["shinkansen"]);
     expect(result.eligible).toBe(true);
     expect(result.travelFit.band).toBe("strong");
     expect(result.travelScore).toBe(WEEKEND_SCORING.TRAVEL_STRONG_BONUS);
@@ -418,7 +423,7 @@ describe("evaluateWeekendCandidate", () => {
         ],
       },
       publicModes: ["train"],
-      homeStationCoords: { lat: 35.68, lng: 139.76 },
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
     });
 
     const result = evaluateWeekendCandidate(d, ctx, [d], ["train"]);
@@ -435,7 +440,7 @@ describe("evaluateWeekendCandidate", () => {
     });
     const ctx = context({
       publicModes: ["train"],
-      homeStationCoords: { lat: 35.68, lng: 139.76 },
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
     });
 
     const result = evaluateWeekendCandidate(d, ctx, [d], ["train"]);
@@ -446,8 +451,9 @@ describe("evaluateWeekendCandidate", () => {
   it("includes weekendTripReady reason when eligible (strong) ", () => {
     const d = dest({
       id: "test",
+      prefecture: "Kyoto",
       recommendedVisitHours: { min: 1, max: 10 },
-      transportOptions: { train: 180 }, // strong band
+      transportOptions: { shinkansen: 180 },
     });
     const ctx = context({
       weather: {
@@ -456,11 +462,11 @@ describe("evaluateWeekendCandidate", () => {
           { date: "2026-08-06", condition: "clear" },
         ],
       },
-      publicModes: ["train"],
-      homeStationCoords: { lat: 35.68, lng: 139.76 },
+      publicModes: ["shinkansen"],
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
     });
 
-    const result = evaluateWeekendCandidate(d, ctx, [d], ["train"]);
+    const result = evaluateWeekendCandidate(d, ctx, [d], ["shinkansen"]);
     expect(result.eligible).toBe(true);
     const codes = result.reasons.map((r) => r.code);
     expect(codes).toContain("weekendTripReady");
@@ -477,7 +483,7 @@ describe("evaluateWeekendCandidate", () => {
     });
     const ctx = context({
       publicModes: ["train"],
-      homeStationCoords: { lat: 35.68, lng: 139.76 },
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
       accommodationAllowance: 15000,
     });
 
@@ -497,7 +503,7 @@ describe("evaluateWeekendCandidate", () => {
     });
     const ctx = context({
       publicModes: ["train"],
-      homeStationCoords: { lat: 35.68, lng: 139.76 },
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
       accommodationAllowance: 0,
     });
 
@@ -523,7 +529,7 @@ describe("evaluateWeekendCandidate", () => {
         ],
       },
       publicModes: ["train"],
-      homeStationCoords: { lat: 35.68, lng: 139.76 },
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
     });
 
     const result = evaluateWeekendCandidate(d, ctx, [d], ["train"]);
@@ -549,7 +555,7 @@ describe("evaluateWeekendCandidate", () => {
         ],
       },
       publicModes: ["train"],
-      homeStationCoords: { lat: 35.68, lng: 139.76 },
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
     });
 
     const result = evaluateWeekendCandidate(d, ctx, [d], ["train"]);
@@ -562,9 +568,10 @@ describe("evaluateWeekendCandidate", () => {
   it("origin-local destination excluded when municipality matches, kept otherwise", () => {
     const d = dest({
       id: "local",
+      prefecture: "Kyoto",
       municipalityId: "Osaka:osaka",
       recommendedVisitHours: { min: 8, max: 12 }, // 720 min → strong capacity
-      transportOptions: { train: 190 }, // strong band
+      transportOptions: { train: 190 },
     });
     const ctx = context({
       publicModes: ["train"],

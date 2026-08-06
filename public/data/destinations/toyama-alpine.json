@@ -1,6 +1,7 @@
 {
   "id": "toyama-alpine",
   "name": "Tateyama Kurobe Alpine Route",
+  "kind": "nature",
   "region": "Chubu",
   "categories": ["Nature", "Mountain"],
   "tags": ["Snow Wall", "Dam", "Scenic"],

@@ -1,6 +1,7 @@
 {
   "id": "nagano-tsumago-juku",
   "name": "Tsumago-juku",
+  "kind": "historic_town",
   "prefecture": "Nagano",
   "region": "Chubu",
   "categories": ["History", "Nature"],

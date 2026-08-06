@@ -1,6 +1,7 @@
 {
   "id": "yamanashi-fujiyoshida",
   "name": "Fujiyoshida",
+  "kind": "nature",
   "prefecture": "Yamanashi",
   "region": "Chubu",
   "categories": ["History", "Nature", "Theme Park"],

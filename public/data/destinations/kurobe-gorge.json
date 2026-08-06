@@ -1,6 +1,7 @@
 {
   "id": "kurobe-gorge",
   "name": "Kurobe Gorge",
+  "kind": "nature",
   "region": "Chubu",
   "categories": ["Nature", "Mountain"],
   "tags": ["Scenic Railway", "Ravine", "Onsen"],

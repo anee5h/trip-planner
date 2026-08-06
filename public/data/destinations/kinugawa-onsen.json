@@ -1,6 +1,7 @@
 {
   "id": "kinugawa-onsen",
   "name": "Kinugawa Onsen",
+  "kind": "onsen",
   "region": "Kanto",
   "categories": ["Hot Spring", "Theme Park"],
   "tags": ["Onsen", "Edo Wonderland"],

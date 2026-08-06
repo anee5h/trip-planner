@@ -1,6 +1,7 @@
 {
   "id": "yamanashi-nishizawa-valley",
   "name": "Nishizawa Valley",
+  "kind": "nature",
   "prefecture": "Yamanashi",
   "region": "Chubu",
   "categories": ["Nature", "Hiking"],

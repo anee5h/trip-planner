@@ -1,7 +1,11 @@
 import { describe, it, expect } from "vitest";
 import type { Destination } from "@/shared/types/destination";
 import { runRecommendationPipeline } from "../RecommendationPipeline";
-import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService";
+import {
+  getEstimatedBudgetRange,
+  getTransportCost,
+  TRANSPORT_PRICING_CONFIG,
+} from "@/shared/services/budget/BudgetService";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { RecommendationContext } from "../RecommendationContext";
 
@@ -19,7 +23,10 @@ type DestOverrides = Omit<Partial<Destination>, "ratings"> & {
 function dest(overrides: DestOverrides): Destination {
   return {
     name: overrides.name ?? overrides.id,
-    prefecture: "Tokyo",
+    // Default prefecture sits on a short verified corridor from the default
+    // tokyoHome origin (tokyo ↔ kanagawa train [50, 90]); tests that
+    // exercise the no-duration gate override it.
+    prefecture: "Kanagawa",
     region: "Kanto",
     categories: [],
     heroImage: "",
@@ -95,30 +102,34 @@ describe("runRecommendationPipeline — day-trip parity", () => {
 // ── Weekend mode ─────────────────────────────────────────────────────────────
 
 describe("runRecommendationPipeline — weekend mode", () => {
-  it("excludes destination with one-way > 420 minutes", () => {
-    const far = dest({
-      id: "far",
+  it("excludes destinations without a verified origin-aware duration", () => {
+    // Prefecture without any registered corridor → no origin-aware duration,
+    // so the candidate is excluded from personalized weekend matching even
+    // with ample capacity. Travel-band boundaries live in WeekendPolicy.
+    const noCorridor = dest({
+      id: "no-corridor",
       role: "hub",
+      prefecture: "Kagawa",
       transportOptions: { train: 421 },
       recommendedVisitHours: { min: 1, max: 10 }, // 600 min → sufficient capacity
     });
-    const close = dest({
-      id: "close",
+    const corridor = dest({
+      id: "corridor",
       role: "hub",
       transportOptions: { train: 180 },
       recommendedVisitHours: { min: 1, max: 10 },
     });
 
     const results = runRecommendationPipeline(
-      [far, close],
+      [noCorridor, corridor],
       ctx({ tripMode: "weekend_2d1n" }),
     );
     const ids = results.map((r) => r.id);
-    expect(ids).not.toContain("far");
-    expect(ids).toContain("close");
+    expect(ids).not.toContain("no-corridor");
+    expect(ids).toContain("corridor");
   });
 
-  it("includes destination at exactly 420 minutes", () => {
+  it("includes destinations on a verified corridor", () => {
     const edge = dest({
       id: "edge",
       role: "hub",
@@ -126,8 +137,6 @@ describe("runRecommendationPipeline — weekend mode", () => {
       recommendedVisitHours: { min: 1, max: 10 },
     });
 
-    // Budget must admit the verified 420-minute round trip + full-day meals;
-    // the travel-policy boundary itself is covered in WeekendPolicy.test.ts.
     const results = runRecommendationPipeline(
       [edge],
       ctx({ tripMode: "weekend_2d1n", budget: 100000 }),
@@ -828,5 +837,102 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
     });
     const results = runRecommendationPipeline([museum], ctx());
     expect(results.map((r) => r.id)).toContain("museum-daytrip");
+  });
+});
+
+// ── False trip-area classification regressions ───────────────────────────────
+
+describe("runRecommendationPipeline — positive area classification", () => {
+  it("Ghibli Museum (standalone, no kind) is not a primary 2D1N trip area", () => {
+    const results = runRecommendationPipeline(
+      [byId.get("ghibli-museum")!],
+      ctx({ tripMode: "weekend_2d1n", budget: 200000 }),
+    );
+    expect(results.map((r) => r.id)).not.toContain("ghibli-museum");
+  });
+
+  it("standalone with an unknown kind stays a POI even with corridor + capacity", () => {
+    const animeMuseum = dest({
+      id: "anime-museum",
+      role: "standalone",
+      kind: "anime" as never,
+      transportOptions: { train: 40 },
+      recommendedVisitHours: { min: 1, max: 10 }, // 600 min
+    });
+    const results = runRecommendationPipeline(
+      [animeMuseum],
+      ctx({ tripMode: "weekend_2d1n", budget: 200000 }),
+    );
+    expect(results).toEqual([]);
+  });
+
+  it("city, ward and town hubs remain eligible trip areas", () => {
+    const city = dest({
+      id: "city-hub",
+      role: "hub",
+      kind: "city",
+      transportOptions: { train: 60 },
+      recommendedVisitHours: { min: 1, max: 10 },
+    });
+    const ward = dest({
+      id: "ward-hub",
+      role: "hub",
+      kind: "ward",
+      transportOptions: { train: 60 },
+      recommendedVisitHours: { min: 1, max: 10 },
+    });
+    const town = dest({
+      id: "town-hub",
+      role: "hub",
+      kind: "town",
+      transportOptions: { train: 60 },
+      recommendedVisitHours: { min: 1, max: 10 },
+    });
+    const results = runRecommendationPipeline(
+      [city, ward, town],
+      ctx({ tripMode: "weekend_2d1n", budget: 200000 }),
+    );
+    const ids = results.map((r) => r.id);
+    expect(ids).toContain("city-hub");
+    expect(ids).toContain("ward-hub");
+    expect(ids).toContain("town-hub");
+  });
+});
+
+// ── Card consistency ─────────────────────────────────────────────────────────
+
+describe("runRecommendationPipeline — estimate consistency", () => {
+  it("ranking, display, and budget use the same origin-aware duration", () => {
+    const kyoto = byId.get("kyoto-city")!;
+    const OSAKA = { lat: 34.7025, lng: 135.4959 };
+    const results = runRecommendationPipeline(
+      [kyoto],
+      ctx({
+        tripMode: "weekend_2d1n",
+        budget: 200000,
+        publicModes: ["train", "shinkansen"],
+        homeStationCoords: OSAKA,
+      }),
+    );
+    expect(results).toHaveLength(1);
+    const result = results[0];
+
+    // Display estimate.
+    const estimate = result.transportEstimate!;
+    expect(estimate.mode).toBe("shinkansen");
+    expect(estimate.timeRange).toEqual([15, 35]);
+
+    // Ranking duration: midpoint of the same estimate.
+    const mid = Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2);
+    expect(result.weekend?.travelFit.oneWayMinutes).toBe(mid);
+
+    // Budget duration: same estimate via the origin-aware cost path.
+    const budgetCost = getTransportCost(kyoto, estimate.mode, 2, OSAKA);
+    expect(budgetCost).not.toBeNull();
+    const cfg = TRANSPORT_PRICING_CONFIG.shinkansen;
+    const expectedCost = Math.floor(
+      Math.round(cfg.baseFare + mid * cfg.perMinRate) * 2 * 2,
+    );
+    expect(budgetCost).toBe(expectedCost);
   });
 });

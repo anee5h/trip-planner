@@ -1,6 +1,7 @@
 {
   "id": "mount-fuji",
   "name": "Mount Fuji",
+  "kind": "mountain",
   "region": "Chubu",
   "categories": ["Mountain", "Nature"],
   "tags": ["Iconic", "Climbing", "Views"],

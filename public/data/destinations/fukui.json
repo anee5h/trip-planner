@@ -1,6 +1,7 @@
 {
   "id": "fukui",
   "name": "Fukui",
+  "kind": "city",
   "region": "Chubu",
   "categories": ["City", "Museum", "Coast"],
   "tags": ["Dinosaurs", "Cliffs", "Crab"],

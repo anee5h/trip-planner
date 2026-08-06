@@ -1,6 +1,7 @@
 {
   "id": "boso-peninsula",
   "name": "Boso Peninsula",
+  "kind": "nature",
   "prefecture": "Chiba",
   "region": "Kanto",
   "categories": ["Coast", "Nature", "Drive"],

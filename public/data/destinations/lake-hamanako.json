@@ -1,6 +1,7 @@
 {
   "id": "lake-hamanako",
   "name": "Lake Hamanako",
+  "kind": "lake",
   "region": "Chubu",
   "categories": ["Lake", "Hot Spring"],
   "tags": ["Eel", "Cycling", "Onsen"],

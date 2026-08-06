@@ -1,6 +1,7 @@
 {
   "id": "chiba-yoro-valley",
   "name": "Yoro Valley",
+  "kind": "nature",
   "prefecture": "Chiba",
   "region": "Kanto",
   "categories": ["Nature", "Hiking"],

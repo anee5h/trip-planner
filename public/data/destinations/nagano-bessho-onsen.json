@@ -1,6 +1,7 @@
 {
   "id": "nagano-bessho-onsen",
   "name": "Bessho Onsen",
+  "kind": "onsen",
   "prefecture": "Nagano",
   "region": "Chubu",
   "categories": ["Relaxation", "History"],

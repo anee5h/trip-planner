@@ -1,6 +1,7 @@
 {
   "id": "tokyo-hinohara",
   "name": "Hinohara",
+  "kind": "nature",
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Nature", "Relaxation"],

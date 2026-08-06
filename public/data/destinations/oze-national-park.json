@@ -1,6 +1,7 @@
 {
   "id": "oze-national-park",
   "name": "Oze National Park",
+  "kind": "nature",
   "region": "Kanto",
   "categories": ["Nature", "Mountain"],
   "tags": ["Hiking", "Marshlands"],

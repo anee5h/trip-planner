@@ -1,6 +1,7 @@
 {
   "id": "takaoka",
   "name": "Takaoka",
+  "kind": "city",
   "region": "Chubu",
   "categories": ["City", "Shrine", "History"],
   "tags": ["Great Buddha", "Doraemon", "Crafts"],

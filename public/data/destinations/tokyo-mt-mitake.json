@@ -1,6 +1,7 @@
 {
   "id": "tokyo-mt-mitake",
   "name": "Mt. Mitake",
+  "kind": "mountain",
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["History", "Hiking", "Nature"],

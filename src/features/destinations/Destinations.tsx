@@ -51,6 +51,7 @@ import {
 } from "@/shared/services/recommendation/OriginAreaService";
 import {
   consolidateWeekendAreas,
+  passesNoOriginWeekendGate,
   type WeekendAreaConsolidation,
 } from "@/shared/services/recommendation/WeekendAreaPolicy";
 import {
@@ -74,6 +75,7 @@ import {
   parseDestinationSearchParams,
   serializeDestinationSearchParams,
 } from "./destinationSearchParams";
+import { ALL_PUBLIC_MODES } from "@/features/home/services/TransportResolver";
 
 export default function Destinations() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -523,30 +525,36 @@ export default function Destinations() {
       });
     }
 
-    // Budget tiers are ranking preferences. Neutral transport and duration
-    // settings must keep the complete catalogue browsable.
     // Weekend mode uses its own eligibility gate instead of duration bands.
     if (tripMode === "weekend_2d1n") {
       const hasOrigin = homeStationCoords || homeStationTransportZoneId;
+      // Empty transport preference means "any public transport", never
+      // "ignore transport": an explicit origin still requires a known
+      // origin-aware duration.
+      const effectivePublicModes =
+        publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
       result = result.filter((dest) => {
-        if (!hasOrigin) return true; // neutral browsing without origin
         // Origin-local destinations are never getaways (same municipality as base).
         if (isOriginLocalDestination(dest, originMunicipalityId)) return false;
-        // Neutral browsing: no explicit transport preference → no transport gate.
-        if (!hasRestrictedTransportSelection(carMode, publicModes)) return true;
+        if (!hasOrigin) {
+          // No-origin: no travel claims, but coherent area classification
+          // and 480+ published activity minutes are still required.
+          return passesNoOriginWeekendGate(dest, allDestinations);
+        }
         const modes = getValidModes(
           dest,
           carMode,
-          publicModes,
+          effectivePublicModes,
           homeStationCoords ?? undefined,
           budgetTier,
           homeStationTransportZoneId,
         );
         if (modes.length === 0) return false;
-        const fit = evaluateWeekendTravelFit(
-          getBestOneWayTravelMinutes(dest, catalogContext, modes),
-        );
-        if (!fit.eligible) return false;
+        // No origin-aware duration → excluded from personalized matching.
+        const minutes = getBestOneWayTravelMinutes(dest, catalogContext, modes);
+        if (minutes === undefined) return false;
+        if (!evaluateWeekendTravelFit(minutes).eligible) return false;
+        // Capacity is required with or without an origin.
         return evaluateWeekendCapacity(dest, allDestinations).eligible;
       });
 
@@ -685,20 +693,33 @@ export default function Destinations() {
           );
         case "travelTime":
           const getFastestTime = (dest: Destination) => {
-            const times = getValidModes(
+            const modes = getValidModes(
               dest,
               carMode,
               publicModes,
               homeStationCoords ?? undefined,
               budgetTier,
               homeStationTransportZoneId,
-            ).map(
-              (m) =>
-                (dest.transportOptions?.[
-                  m as keyof typeof dest.transportOptions
-                ] as number) || 999,
             );
-            return times.length > 0 ? Math.min(...times) : 999;
+            if (modes.length === 0) return 999;
+            // Origin-aware duration when an origin exists (never a false
+            // personalized claim); neutral browsing falls back to catalogue
+            // minutes for comparison only.
+            const minutes = getBestOneWayTravelMinutes(
+              dest,
+              catalogContext,
+              modes,
+            );
+            if (minutes !== undefined) return minutes;
+            const legacyMinutes = Math.min(
+              ...modes.map(
+                (m) =>
+                  (dest.transportOptions?.[
+                    m as keyof typeof dest.transportOptions
+                  ] as number) || 999,
+              ),
+            );
+            return legacyMinutes;
           };
           return getFastestTime(a) - getFastestTime(b);
         case "nearest": {
@@ -944,7 +965,12 @@ export default function Destinations() {
                     destination={dest}
                     partySize={partySize}
                     carMode={carMode}
-                    publicModes={publicModes}
+                    // Empty transport preference means "any public
+                    // transport" — cards resolve the fastest verified mode
+                    // instead of showing N/A.
+                    publicModes={
+                      publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES
+                    }
                     weekendSummary={
                       weekendResult
                         ? {

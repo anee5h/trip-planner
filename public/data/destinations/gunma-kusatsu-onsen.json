@@ -1,6 +1,7 @@
 {
   "id": "gunma-kusatsu-onsen",
   "name": "Kusatsu Onsen",
+  "kind": "onsen",
   "prefecture": "Gunma",
   "region": "Kanto",
   "categories": ["Relaxation", "Nature"],

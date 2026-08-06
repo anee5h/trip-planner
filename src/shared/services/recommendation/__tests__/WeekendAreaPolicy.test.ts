@@ -7,6 +7,7 @@ import {
   isPublishedDestination,
   computeAreaCapacityMinutes,
   formatWeekendMinutes,
+  passesNoOriginWeekendGate,
 } from "../WeekendAreaPolicy";
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -90,10 +91,20 @@ describe("classifyWeekendResultCandidate", () => {
     }
   });
 
-  it("legacy standalone root (no kind) → standalone_area", () => {
+  it("legacy standalone root without area kind → poi (no missing-kind rule)", () => {
+    const noKind = dest({
+      id: "ghibli-museum",
+      role: "standalone",
+      recommendedVisitHours: { min: 6, max: 13 },
+    });
+    expect(classifyWeekendResultCandidate(noKind, [noKind]).kind).toBe("poi");
+  });
+
+  it("standalone with explicit area kind → standalone_area", () => {
     const kamikochi = dest({
       id: "nagano-kamikochi",
       role: "standalone",
+      kind: "mountain" as DestinationKind,
       recommendedVisitHours: { min: 6, max: 13 },
     });
     const cls = classifyWeekendResultCandidate(kamikochi, [kamikochi]);
@@ -118,6 +129,7 @@ describe("classifyWeekendResultCandidate", () => {
     const kamikochi = dest({
       id: "nagano-kamikochi",
       role: "standalone",
+      kind: "mountain" as DestinationKind,
       relationships: { parentDestinationId: "matsumoto-city" },
     });
     const cls = classifyWeekendResultCandidate(kamikochi, [
@@ -254,6 +266,7 @@ describe("consolidateWeekendAreas", () => {
     const kamikochi = dest({
       id: "nagano-kamikochi",
       role: "standalone",
+      kind: "mountain" as DestinationKind,
       recommendedVisitHours: { min: 6, max: 13 },
     });
     const consolidated = consolidateWeekendAreas([kamikochi], [kamikochi]);
@@ -315,6 +328,71 @@ describe("consolidateWeekendAreas", () => {
     });
     const consolidated = consolidateWeekendAreas([hub], [hub, dup, dup]);
     expect(consolidated.totalPlaceCount).toBe(1);
+  });
+});
+
+// ── No-origin weekend gate ───────────────────────────────────────────────────
+
+describe("passesNoOriginWeekendGate", () => {
+  it("no-origin 2D1N still enforces 480 published minutes", () => {
+    const thinHub = dest({
+      id: "thin-hub",
+      role: "hub",
+      recommendedVisitHours: { min: 1, max: 6 }, // 360 min
+    });
+    expect(passesNoOriginWeekendGate(thinHub, [thinHub])).toBe(false);
+  });
+
+  it("thin hub fails even without an origin", () => {
+    const thinArea = dest({
+      id: "thin-area",
+      role: "standalone",
+      kind: "nature" as DestinationKind,
+      recommendedVisitHours: { min: 1, max: 7 }, // 420 min
+    });
+    expect(passesNoOriginWeekendGate(thinArea, [thinArea])).toBe(false);
+  });
+
+  it("coherent 480+ minute area passes without an origin", () => {
+    const kamikochi = dest({
+      id: "nagano-kamikochi",
+      role: "standalone",
+      kind: "mountain" as DestinationKind,
+      recommendedVisitHours: { min: 6, max: 13 }, // 780 min
+    });
+    expect(passesNoOriginWeekendGate(kamikochi, [kamikochi])).toBe(true);
+  });
+
+  it("hub with children summing to 480+ passes", () => {
+    const hub = dest({
+      id: "hub",
+      role: "hub",
+      recommendedVisitHours: { min: 1, max: 2 }, // 120 own
+    });
+    const kids = [
+      dest({
+        id: "c1",
+        relationships: { parentDestinationId: "hub" },
+        recommendedVisitHours: { min: 1, max: 4 },
+      }),
+      dest({
+        id: "c2",
+        relationships: { parentDestinationId: "hub" },
+        recommendedVisitHours: { min: 1, max: 4 },
+      }),
+    ];
+    // childrenSum 480 >= own 120 → 480 minutes → passes.
+    expect(passesNoOriginWeekendGate(hub, [hub, ...kids])).toBe(true);
+  });
+
+  it("POI never passes the no-origin gate", () => {
+    const museum = dest({
+      id: "museum",
+      role: "standalone",
+      kind: "museum" as DestinationKind,
+      recommendedVisitHours: { min: 1, max: 10 },
+    });
+    expect(passesNoOriginWeekendGate(museum, [museum])).toBe(false);
   });
 });
 

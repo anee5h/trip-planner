@@ -2774,6 +2774,7 @@
   {
     "id": "ashigara",
     "name": "Ashigara",
+    "kind": "mountain",
     "region": "Kanto",
     "categories": ["Nature", "Mountain"],
     "tags": ["Hiking", "Quiet"],
@@ -4279,6 +4280,7 @@
   {
     "id": "boso-peninsula",
     "name": "Boso Peninsula",
+    "kind": "nature",
     "prefecture": "Chiba",
     "region": "Kanto",
     "categories": ["Coast", "Nature", "Drive"],
@@ -5288,6 +5290,7 @@
   {
     "id": "chiba-nokogiriyama",
     "name": "Nokogiriyama",
+    "kind": "mountain",
     "prefecture": "Chiba",
     "region": "Kanto",
     "categories": ["History", "Hiking", "Nature"],
@@ -6319,6 +6322,7 @@
   {
     "id": "chiba-yoro-valley",
     "name": "Yoro Valley",
+    "kind": "nature",
     "prefecture": "Chiba",
     "region": "Kanto",
     "categories": ["Nature", "Hiking"],
@@ -10221,6 +10225,7 @@
   {
     "id": "fuji-5-lake",
     "name": "Fuji Five Lakes",
+    "kind": "lake",
     "region": "Chubu",
     "categories": ["Lake", "Nature", "Theme Park"],
     "tags": ["Fuji Views", "Fuji-Q", "Cycling"],
@@ -10939,6 +10944,7 @@
   {
     "id": "fukui",
     "name": "Fukui",
+    "kind": "city",
     "region": "Chubu",
     "categories": ["City", "Museum", "Coast"],
     "tags": ["Dinosaurs", "Cliffs", "Crab"],
@@ -13091,6 +13097,7 @@
   {
     "id": "gifu-gujo-hachiman",
     "name": "Gujo Hachiman",
+    "kind": "historic_town",
     "prefecture": "Gifu",
     "region": "Chubu",
     "categories": ["History", "Waterfalls"],
@@ -13195,6 +13202,7 @@
   {
     "id": "gifu-magome-juku",
     "name": "Magome-juku",
+    "kind": "historic_town",
     "prefecture": "Gifu",
     "region": "Chubu",
     "categories": ["History", "Nature"],
@@ -14430,6 +14438,7 @@
   {
     "id": "gunma-ikaho-onsen",
     "name": "Ikaho Onsen",
+    "kind": "onsen",
     "prefecture": "Gunma",
     "region": "Kanto",
     "categories": ["Relaxation", "History"],
@@ -14582,6 +14591,7 @@
   {
     "id": "gunma-kusatsu-onsen",
     "name": "Kusatsu Onsen",
+    "kind": "onsen",
     "prefecture": "Gunma",
     "region": "Kanto",
     "categories": ["Relaxation", "Nature"],
@@ -14745,6 +14755,7 @@
   {
     "id": "gunma-shima-onsen",
     "name": "Shima Onsen",
+    "kind": "onsen",
     "prefecture": "Gunma",
     "region": "Kanto",
     "categories": ["Relaxation", "Nature"],
@@ -19203,6 +19214,7 @@
   {
     "id": "ibaraki-mount-tsukuba",
     "name": "Mount Tsukuba",
+    "kind": "mountain",
     "prefecture": "Ibaraki",
     "region": "Kanto",
     "categories": ["Hiking", "Nature"],
@@ -21638,6 +21650,7 @@
   {
     "id": "izu",
     "name": "Izu Peninsula",
+    "kind": "nature",
     "region": "Chubu",
     "categories": ["Coast", "Hot Spring"],
     "tags": ["Beaches", "Onsen", "Scuba"],
@@ -22212,6 +22225,7 @@
   {
     "id": "jogashima",
     "name": "Miura Peninsula & Jogashima",
+    "kind": "nature",
     "region": "Kanto",
     "categories": ["Coast", "Nature"],
     "tags": ["Ocean", "Scenic", "Hiking"],
@@ -24077,6 +24091,7 @@
   {
     "id": "kanazawa",
     "name": "Kanazawa",
+    "kind": "city",
     "region": "Chubu",
     "categories": ["City", "Garden", "History"],
     "tags": ["Kenrokuen", "Gold Leaf", "Geisha District"],
@@ -27417,6 +27432,7 @@
   {
     "id": "kinugawa-onsen",
     "name": "Kinugawa Onsen",
+    "kind": "onsen",
     "region": "Kanto",
     "categories": ["Hot Spring", "Theme Park"],
     "tags": ["Onsen", "Edo Wonderland"],
@@ -27874,6 +27890,7 @@
   {
     "id": "kiso",
     "name": "Kiso Valley",
+    "kind": "nature",
     "region": "Chubu",
     "categories": ["Town", "History", "Mountain"],
     "tags": ["Nakasendo", "Post Towns", "Tsumago"],
@@ -31498,6 +31515,7 @@
   {
     "id": "kurobe-gorge",
     "name": "Kurobe Gorge",
+    "kind": "nature",
     "region": "Chubu",
     "categories": ["Nature", "Mountain"],
     "tags": ["Scenic Railway", "Ravine", "Onsen"],
@@ -33035,6 +33053,7 @@
   {
     "id": "lake-hamanako",
     "name": "Lake Hamanako",
+    "kind": "lake",
     "region": "Chubu",
     "categories": ["Lake", "Hot Spring"],
     "tags": ["Eel", "Cycling", "Onsen"],
@@ -33128,6 +33147,7 @@
   {
     "id": "lake-sagami",
     "name": "Lake Sagami",
+    "kind": "lake",
     "region": "Kanto",
     "categories": ["Lake", "Nature", "Theme Park"],
     "tags": ["Illumination", "Outdoors"],
@@ -38115,6 +38135,7 @@
   {
     "id": "mount-fuji",
     "name": "Mount Fuji",
+    "kind": "mountain",
     "region": "Chubu",
     "categories": ["Mountain", "Nature"],
     "tags": ["Iconic", "Climbing", "Views"],
@@ -39441,6 +39462,7 @@
   {
     "id": "nagano-bessho-onsen",
     "name": "Bessho Onsen",
+    "kind": "onsen",
     "prefecture": "Nagano",
     "region": "Chubu",
     "categories": ["Relaxation", "History"],
@@ -39638,6 +39660,7 @@
   {
     "id": "nagano-kamikochi",
     "name": "Kamikochi",
+    "kind": "mountain",
     "prefecture": "Nagano",
     "region": "Chubu",
     "categories": ["Nature", "Hiking", "Mountains"],
@@ -39737,6 +39760,7 @@
   {
     "id": "nagano-narai-juku",
     "name": "Narai-juku",
+    "kind": "historic_town",
     "prefecture": "Nagano",
     "region": "Chubu",
     "categories": ["History", "Urban"],
@@ -39939,6 +39963,7 @@
   {
     "id": "nagano-tsumago-juku",
     "name": "Tsumago-juku",
+    "kind": "historic_town",
     "prefecture": "Nagano",
     "region": "Chubu",
     "categories": ["History", "Nature"],
@@ -44708,6 +44733,7 @@
   {
     "id": "noto",
     "name": "Noto Peninsula",
+    "kind": "nature",
     "region": "Chubu",
     "categories": ["Coast", "Nature"],
     "tags": ["Scenic Drive", "Seafood", "Rugged"],
@@ -45333,6 +45359,7 @@
   {
     "id": "nyuto-onsen-akita",
     "name": "Nyuto Onsen",
+    "kind": "onsen",
     "nameJa": "乳頭温泉郷",
     "prefecture": "Akita",
     "region": "Tohoku",
@@ -46912,6 +46939,7 @@
   {
     "id": "okuhida",
     "name": "Okuhida",
+    "kind": "onsen",
     "region": "Chubu",
     "categories": ["Hot Spring", "Mountain", "Nature"],
     "tags": ["Onsen", "Ropeway", "Alps"],
@@ -50133,6 +50161,7 @@
   {
     "id": "oze-national-park",
     "name": "Oze National Park",
+    "kind": "nature",
     "region": "Kanto",
     "categories": ["Nature", "Mountain"],
     "tags": ["Hiking", "Marshlands"],
@@ -51301,6 +51330,7 @@
     "id": "sado-island",
     "transportZoneId": "sado",
     "name": "Sado Island",
+    "kind": "island",
     "region": "Chubu",
     "categories": ["Island", "History", "Nature"],
     "tags": ["Gold Mine", "Tub Boats", "Remote"],
@@ -51731,6 +51761,7 @@
   {
     "id": "saitama-nagatoro",
     "name": "Nagatoro",
+    "kind": "nature",
     "prefecture": "Saitama",
     "region": "Kanto",
     "categories": ["Nature", "River"],
@@ -60054,6 +60085,7 @@
   {
     "id": "takaoka",
     "name": "Takaoka",
+    "kind": "city",
     "region": "Chubu",
     "categories": ["City", "Shrine", "History"],
     "tags": ["Great Buddha", "Doraemon", "Crafts"],
@@ -63618,6 +63650,7 @@
   {
     "id": "tokyo-hinohara",
     "name": "Hinohara",
+    "kind": "nature",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["Nature", "Relaxation"],
@@ -63929,6 +63962,7 @@
   {
     "id": "tokyo-mt-mitake",
     "name": "Mt. Mitake",
+    "kind": "mountain",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["History", "Hiking", "Nature"],
@@ -64277,6 +64311,7 @@
   {
     "id": "tokyo-okutama",
     "name": "Okutama",
+    "kind": "nature",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["Nature", "Hiking", "Lake"],
@@ -65603,6 +65638,7 @@
   {
     "id": "toyama-alpine",
     "name": "Tateyama Kurobe Alpine Route",
+    "kind": "nature",
     "region": "Chubu",
     "categories": ["Nature", "Mountain"],
     "tags": ["Snow Wall", "Dam", "Scenic"],
@@ -69251,6 +69287,7 @@
   {
     "id": "yamanashi-fujiyoshida",
     "name": "Fujiyoshida",
+    "kind": "nature",
     "prefecture": "Yamanashi",
     "region": "Chubu",
     "categories": ["History", "Nature", "Theme Park"],
@@ -69350,6 +69387,7 @@
   {
     "id": "yamanashi-nishizawa-valley",
     "name": "Nishizawa Valley",
+    "kind": "nature",
     "prefecture": "Yamanashi",
     "region": "Chubu",
     "categories": ["Nature", "Hiking"],
@@ -69443,6 +69481,7 @@
   {
     "id": "yamanashi-shosenkyo-gorge",
     "name": "Shosenkyo Gorge",
+    "kind": "nature",
     "prefecture": "Yamanashi",
     "region": "Chubu",
     "categories": ["Nature", "Hiking"],
@@ -72346,6 +72385,7 @@
   {
     "id": "zushi",
     "name": "Zushi & Yokosuka",
+    "kind": "nature",
     "region": "Kanto",
     "categories": ["Coast", "Beach"],
     "tags": ["Surfing", "Cafes", "Sunset"],

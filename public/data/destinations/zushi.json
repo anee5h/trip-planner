@@ -1,6 +1,7 @@
 {
   "id": "zushi",
   "name": "Zushi & Yokosuka",
+  "kind": "nature",
   "region": "Kanto",
   "categories": ["Coast", "Beach"],
   "tags": ["Surfing", "Cafes", "Sunset"],
