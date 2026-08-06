@@ -44,6 +44,10 @@ import {
   evaluateWeekendCapacity,
 } from "@/shared/services/recommendation/WeekendPolicy";
 import {
+  resolveOriginMunicipalityId,
+  isOriginLocalDestination,
+} from "@/shared/services/recommendation/OriginAreaService";
+import {
   tokenizeQuery,
   matchesDestination,
 } from "@/shared/services/recommendation/DestinationSearch";
@@ -100,8 +104,8 @@ export default function Destinations() {
   const [tripDuration, setTripDuration] = useState<TripDuration>(
     initialExplorerState.tripDuration,
   );
-  const [tripMode, setTripMode] = useState<TripMode>(
-    initialExplorerState.tripMode,
+  const [tripMode, setTripMode] = useState<"any" | TripMode>(
+    initialExplorerState.tripMode as "any" | TripMode,
   );
   const [accommodationAllowance, setAccommodationAllowance] = useState<number>(
     initialExplorerState.accommodationAllowance,
@@ -349,6 +353,10 @@ export default function Destinations() {
 
   // Filter and sort destinations
   const filteredAndSortedDestinations = useMemo(() => {
+    const originMunicipalityId = resolveOriginMunicipalityId(
+      homeStationCoords ?? undefined,
+      allDestinations,
+    );
     let result = allDestinations.map((destination) =>
       buildRecommendationCandidate(destination, catalogContext),
     );
@@ -508,6 +516,10 @@ export default function Destinations() {
       const hasOrigin = homeStationCoords || homeStationTransportZoneId;
       result = result.filter((dest) => {
         if (!hasOrigin) return true; // neutral browsing without origin
+        // Origin-local destinations are never getaways (same municipality as base).
+        if (isOriginLocalDestination(dest, originMunicipalityId)) return false;
+        // Neutral browsing: no explicit transport preference → no transport gate.
+        if (!hasRestrictedTransportSelection(carMode, publicModes)) return true;
         const modes = getValidModes(
           dest,
           carMode,
@@ -733,8 +745,8 @@ export default function Destinations() {
     setWalkingIntensity(defaults.walkingIntensity);
     setSuitabilities(defaults.suitabilities);
     setInterests(defaults.interests);
+    setTripMode(defaults.tripMode);
     setViewMode(defaults.viewMode);
-    setCurrentPage(defaults.currentPage);
   };
 
   const totalPages = Math.ceil(

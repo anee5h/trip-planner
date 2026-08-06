@@ -15,6 +15,7 @@ import {
 import type { PipelineRecommendation } from "./RecommendationTypes";
 import { evaluateWeekendCandidate } from "./WeekendPolicy";
 import type { WeekendCandidateEvaluation } from "./WeekendPolicy";
+import { resolveOriginMunicipalityId } from "./OriginAreaService";
 
 function coordinatesWithinOneKm(
   a: PipelineRecommendation,
@@ -130,6 +131,12 @@ export function runRecommendationPipeline(
 ): PipelineRecommendation[] {
   const tripMode = context.tripMode ?? "day_trip";
   const isWeekend = tripMode === "weekend_2d1n";
+  const originMunicipalityId = isWeekend
+    ? resolveOriginMunicipalityId(
+        context.homeStationCoords ?? undefined,
+        destinations,
+      )
+    : undefined;
 
   const candidates = destinations.map((destination) =>
     buildRecommendationCandidate(destination, context),
@@ -163,6 +170,7 @@ export function runRecommendationPipeline(
         context,
         candidates,
         modes,
+        originMunicipalityId,
       );
       weekendEvalCache.set(destination.id, eval_);
       if (!eval_.eligible) return false;

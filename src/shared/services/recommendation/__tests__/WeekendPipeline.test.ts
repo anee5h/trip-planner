@@ -212,7 +212,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
     expect(results).toHaveLength(1);
     const weekend = results[0].weekend;
     expect(weekend).toBeDefined();
-    expect(weekend!.travelFit.band).toBe("strong");
+    expect(weekend!.travelFit.band).toBe("nearby");
     expect(weekend!.capacity.activityMinutes).toBe(600);
     expect(weekend!.weatherDays).toHaveLength(2);
     expect(weekend!.accommodationAllowance).toBe(20000);
@@ -538,5 +538,138 @@ describe("weekend weather 2-day enforcement", () => {
     expect(twoDayResult[0].estimatedCostRange).toEqual(
       threeDayResult[0].estimatedCostRange,
     );
+  });
+});
+
+// ── Origin-local exclusion (real fixtures) ───────────────────────────────────
+
+describe("runRecommendationPipeline — origin-local exclusion (real fixtures)", () => {
+  const SHINJUKU = { lat: 35.6897, lng: 139.7006 };
+  const OSAKA = { lat: 34.7025, lng: 135.4959 };
+
+  // budget 200000 keeps the budget gate (pipeline lines 189-198) from
+  // excluding candidates for unrelated reasons.
+
+  it("Osaka City base + Osaka City destination excluded in 2D1N; Kyoto kept", () => {
+    const results = runRecommendationPipeline(
+      [byId.get("osaka-city")!, byId.get("kyoto-city")!],
+      ctx({
+        tripMode: "weekend_2d1n",
+        budget: 200000,
+        homeStationCoords: OSAKA,
+      }),
+    );
+    const ids = results.map((r) => r.id);
+    expect(ids).not.toContain("osaka-city");
+    expect(ids).toContain("kyoto-city");
+  });
+
+  it("Shinjuku base + Shinjuku Ward excluded in 2D1N; Shibuya kept", () => {
+    const results = runRecommendationPipeline(
+      [byId.get("shinjuku-city")!, byId.get("shibuya-city")!],
+      ctx({
+        tripMode: "weekend_2d1n",
+        budget: 200000,
+        homeStationCoords: SHINJUKU,
+      }),
+    );
+    const ids = results.map((r) => r.id);
+    expect(ids).not.toContain("shinjuku-city");
+    expect(ids).toContain("shibuya-city");
+  });
+
+  it("Shinjuku base + Shibuya Ward eligible (different municipality)", () => {
+    const results = runRecommendationPipeline(
+      [byId.get("shinjuku-city")!, byId.get("shibuya-city")!],
+      ctx({
+        tripMode: "weekend_2d1n",
+        budget: 200000,
+        homeStationCoords: SHINJUKU,
+      }),
+    );
+    expect(results.map((r) => r.id)).toContain("shibuya-city");
+  });
+
+  it("Shinjuku base + Taito Ward eligible (different municipality)", () => {
+    const results = runRecommendationPipeline(
+      [byId.get("shinjuku-city")!, byId.get("taito-city")!],
+      ctx({
+        tripMode: "weekend_2d1n",
+        budget: 200000,
+        homeStationCoords: SHINJUKU,
+      }),
+    );
+    expect(results.map((r) => r.id)).toContain("taito-city");
+  });
+
+  it("day trip unaffected: Osaka City present from Osaka base", () => {
+    const results = runRecommendationPipeline(
+      [byId.get("osaka-city")!, byId.get("kyoto-city")!],
+      ctx({
+        tripMode: "day_trip",
+        budget: 200000,
+        homeStationCoords: OSAKA,
+      }),
+    );
+    expect(results.map((r) => r.id)).toContain("osaka-city");
+  });
+
+  it("undefined tripMode unaffected: Osaka City present from Osaka base", () => {
+    const results = runRecommendationPipeline(
+      [byId.get("osaka-city")!, byId.get("kyoto-city")!],
+      ctx({
+        tripMode: undefined,
+        budget: 200000,
+        homeStationCoords: OSAKA,
+      }),
+    );
+    expect(results.map((r) => r.id)).toContain("osaka-city");
+  });
+
+  it("full catalogue, Osaka base: no Osaka:osaka results, kyoto-city present", () => {
+    const results = runRecommendationPipeline(
+      destinationsIndex as Destination[],
+      {
+        vibe: "any",
+        budget: 500000,
+        carMode: "none",
+        publicModes: ["train", "shinkansen"],
+        partySize: 2,
+        visitedIds: [],
+        homeStationCoords: OSAKA,
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 20000,
+      },
+    );
+    expect(results.length).toBeGreaterThan(0);
+    for (const r of results) {
+      expect(byId.get(r.id)!.municipalityId).not.toBe("Osaka:osaka");
+    }
+    expect(results.map((r) => r.id)).toContain("kyoto-city");
+  });
+
+  it("full catalogue, Shinjuku base: only Tokyo:shinjuku absent; other wards present", () => {
+    const results = runRecommendationPipeline(
+      destinationsIndex as Destination[],
+      {
+        vibe: "any",
+        budget: 500000,
+        carMode: "none",
+        publicModes: ["train", "shinkansen"],
+        partySize: 2,
+        visitedIds: [],
+        homeStationCoords: SHINJUKU,
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 20000,
+      },
+    );
+    expect(results.length).toBeGreaterThan(0);
+    for (const r of results) {
+      expect(byId.get(r.id)!.municipalityId).not.toBe("Tokyo:shinjuku");
+    }
+    const ids = results.map((r) => r.id);
+    // A Shinjuku base excludes only the Shinjuku ward, never all 23 wards.
+    expect(ids).toContain("shibuya-city");
+    expect(ids).toContain("taito-city");
   });
 });

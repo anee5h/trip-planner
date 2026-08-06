@@ -6,18 +6,22 @@ import type {
 import type { MatchReason } from "./RecommendationTypes";
 import { evaluateWeekendWeather } from "@/shared/services/weather/WeekendWeatherScoring";
 import { getBestOneWayTravelMinutes } from "./TripDurationService";
+import { isOriginLocalDestination } from "./OriginAreaService";
 
 // ── Travel Policy ────────────────────────────────────────────────────────────
 
 export const WEEKEND_TRAVEL_POLICY = {
-  /** Destinations closer than this are too local for a weekend getaway. */
-  LOCAL_MAX_MINUTES: 30,
-  STRONG_MAX_MINUTES: 180,
+  /** Very close destinations are eligible but receive no weekend travel bonus. */
+  LOCAL_MAX_MINUTES: 60,
+  /** Sweet spot for an overnight getaway — strongest score. */
+  STRONG_MIN_MINUTES: 121,
+  STRONG_MAX_MINUTES: 240,
   ACCEPTABLE_MAX_MINUTES: 300,
   WEAK_MAX_MINUTES: 420,
 } as const;
 
-export type WeekendTravelBand = "strong" | "acceptable" | "weak" | "unknown";
+export type WeekendTravelBand =
+  "local" | "nearby" | "strong" | "acceptable" | "weak" | "unknown";
 
 export interface WeekendTravelFit {
   eligible: boolean;
@@ -32,7 +36,10 @@ export function evaluateWeekendTravelFit(
     return { eligible: false, band: "unknown" };
   }
   if (oneWayMinutes <= WEEKEND_TRAVEL_POLICY.LOCAL_MAX_MINUTES) {
-    return { eligible: false, band: "strong", oneWayMinutes };
+    return { eligible: true, band: "local", oneWayMinutes };
+  }
+  if (oneWayMinutes < WEEKEND_TRAVEL_POLICY.STRONG_MIN_MINUTES) {
+    return { eligible: true, band: "nearby", oneWayMinutes };
   }
   if (oneWayMinutes <= WEEKEND_TRAVEL_POLICY.STRONG_MAX_MINUTES) {
     return { eligible: true, band: "strong", oneWayMinutes };
@@ -99,18 +106,27 @@ export function evaluateWeekendCapacity(
 // ── Scoring ──────────────────────────────────────────────────────────────────
 
 export const WEEKEND_SCORING = {
-  TRAVEL_STRONG_BONUS: 10,
-  TRAVEL_ACCEPTABLE_BASE: 10,
-  TRAVEL_ACCEPTABLE_DENOM: 120,
-  TRAVEL_ACCEPTABLE_STEEPNESS: 14,
+  /** Very close to origin: eligible but no getaway bonus. */
+  TRAVEL_LOCAL_BONUS: -20,
+  /** Modest bonus for closer-than-sweet-spot destinations. */
+  TRAVEL_NEARBY_BONUS: 3,
+  /** Strongest bonus for the overnight sweet spot (121–240 min). */
+  TRAVEL_STRONG_BONUS: 14,
+  /** Positive but declining bonus for acceptable distances. */
+  TRAVEL_ACCEPTABLE_BASE: 5,
+  TRAVEL_ACCEPTABLE_DENOM: 60,
+  TRAVEL_ACCEPTABLE_STEEPNESS: 5,
+  /** Penalty for very long one-way travel. */
   TRAVEL_WEAK_BASE: -12,
   TRAVEL_WEAK_DENOM: 120,
-  TRAVEL_WEAK_STEEPNESS: 18,
+  TRAVEL_WEAK_STEEPNESS: 15,
   CAPACITY_STRONG_BONUS: 3,
 } as const;
 
 export function weekendTravelScoreDelta(fit: WeekendTravelFit): number {
   const minutes = fit.oneWayMinutes;
+  if (fit.band === "local") return WEEKEND_SCORING.TRAVEL_LOCAL_BONUS;
+  if (fit.band === "nearby") return WEEKEND_SCORING.TRAVEL_NEARBY_BONUS;
   if (fit.band === "strong") return WEEKEND_SCORING.TRAVEL_STRONG_BONUS;
   if (fit.band === "acceptable" && minutes !== undefined) {
     return (
@@ -154,6 +170,7 @@ export function evaluateWeekendCandidate(
   context: RecommendationContext,
   pool: readonly Destination[],
   modes: string[],
+  originMunicipalityId?: string,
 ): WeekendCandidateEvaluation {
   const weatherDays = (context.weather?.days ?? []).slice(0, 2);
 
@@ -171,7 +188,10 @@ export function evaluateWeekendCandidate(
 
   const scoreDelta = travelScore + capacityScore + weatherScore;
 
-  const eligible = travelFit.eligible && capacity.eligible;
+  const eligible =
+    travelFit.eligible &&
+    capacity.eligible &&
+    !isOriginLocalDestination(destination, originMunicipalityId);
 
   const reasons: MatchReason[] = [];
   if (eligible) {

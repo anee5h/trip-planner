@@ -56,26 +56,26 @@ function context(
 // ── Travel Fit Tests ─────────────────────────────────────────────────────────
 
 describe("evaluateWeekendTravelFit", () => {
-  it("0 minutes → too local, ineligible", () => {
+  it("0 minutes → local, eligible", () => {
     expect(evaluateWeekendTravelFit(0)).toEqual({
-      eligible: false,
-      band: "strong",
+      eligible: true,
+      band: "local",
       oneWayMinutes: 0,
     });
   });
-  it("180 minutes → strong, eligible", () => {
-    expect(evaluateWeekendTravelFit(180)).toEqual({
+  it("60 minutes → local, eligible", () => {
+    expect(evaluateWeekendTravelFit(60)).toEqual({
       eligible: true,
-      band: "strong",
-      oneWayMinutes: 180,
+      band: "local",
+      oneWayMinutes: 60,
     });
   });
 
-  it("181 → acceptable, eligible", () => {
-    expect(evaluateWeekendTravelFit(181)).toEqual({
+  it("61 → nearby, eligible", () => {
+    expect(evaluateWeekendTravelFit(61)).toEqual({
       eligible: true,
-      band: "acceptable",
-      oneWayMinutes: 181,
+      band: "nearby",
+      oneWayMinutes: 61,
     });
   });
 
@@ -122,14 +122,14 @@ describe("evaluateWeekendTravelFit", () => {
 // ── Travel Score Delta Tests ─────────────────────────────────────────────────
 
 describe("weekendTravelScoreDelta", () => {
-  it("strong band → TRAVEL_STRONG_BONUS (10)", () => {
+  it("strong band → TRAVEL_STRONG_BONUS (14)", () => {
     expect(
       weekendTravelScoreDelta({
         eligible: true,
         band: "strong",
-        oneWayMinutes: 100,
+        oneWayMinutes: 180,
       }),
-    ).toBe(10);
+    ).toBe(14);
   });
 
   it("unknown band → 0", () => {
@@ -138,29 +138,40 @@ describe("weekendTravelScoreDelta", () => {
     );
   });
 
+  it("local band → TRAVEL_LOCAL_BONUS (-20)", () => {
+    expect(
+      weekendTravelScoreDelta({
+        eligible: true,
+        band: "local",
+        oneWayMinutes: 45,
+      }),
+    ).toBe(WEEKEND_SCORING.TRAVEL_LOCAL_BONUS);
+    expect(WEEKEND_SCORING.TRAVEL_LOCAL_BONUS).toBe(-20);
+  });
+
   it("acceptable band: monotonic decreasing", () => {
-    // formula: 10 - ((mins - 180)/120)*14
-    // at 181: 10 - (1/120)*14 ≈ 9.8833
-    // at 300: 10 - (120/120)*14 = -4
-    const d181 = weekendTravelScoreDelta({
+    // formula: 5 - ((mins - 240)/60)*5
+    // at 241: 5 - (1/60)*5 ≈ 4.917
+    // at 300: 5 - (60/60)*5 = 0
+    const d241 = weekendTravelScoreDelta({
       eligible: true,
       band: "acceptable",
-      oneWayMinutes: 181,
+      oneWayMinutes: 241,
     });
     const d300 = weekendTravelScoreDelta({
       eligible: true,
       band: "acceptable",
       oneWayMinutes: 300,
     });
-    expect(d181).toBeGreaterThan(d300);
-    expect(d181).toBeCloseTo(9.8833, 2);
-    expect(d300).toBeCloseTo(-4, 5);
+    expect(d241).toBeGreaterThan(d300);
+    expect(d241).toBeCloseTo(4.917, 2);
+    expect(d300).toBeCloseTo(0, 5);
   });
 
   it("weak band: monotonic decreasing", () => {
-    // formula: -12 - ((mins - 300)/120)*18
-    // at 301: -12 - (1/120)*18 = -12.15
-    // at 420: -12 - (120/120)*18 = -30
+    // formula: -12 - ((mins - 300)/120)*15
+    // at 301: -12 - (1/120)*15 ≈ -12.125
+    // at 420: -12 - (120/120)*15 = -27
     const d301 = weekendTravelScoreDelta({
       eligible: true,
       band: "weak",
@@ -172,8 +183,8 @@ describe("weekendTravelScoreDelta", () => {
       oneWayMinutes: 420,
     });
     expect(d301).toBeGreaterThan(d420);
-    expect(d301).toBeCloseTo(-12.15, 2);
-    expect(d420).toBeCloseTo(-30, 5);
+    expect(d301).toBeCloseTo(-12.125, 2);
+    expect(d420).toBeCloseTo(-27, 5);
   });
 });
 
@@ -336,12 +347,12 @@ describe("evaluateWeekendCapacity", () => {
 // ── Weekend Candidate Evaluation Tests ───────────────────────────────────────
 
 describe("evaluateWeekendCandidate", () => {
-  it("strong travel + capacity strong + two clear days → scoreDelta 13", () => {
+  it("strong travel + capacity strong + two clear days → scoreDelta 17", () => {
     const d = dest({
       id: "test",
       recommendedVisitHours: { min: 1, max: 10 }, // 600 min → strong capacity
       indoorPercent: 50,
-      transportOptions: { train: 90 }, // strong travel
+      transportOptions: { train: 180 }, // 180 min → strong band (121–240)
     });
     const ctx = context({
       weather: {
@@ -406,11 +417,11 @@ describe("evaluateWeekendCandidate", () => {
     expect(result.capacity.eligible).toBe(false);
   });
 
-  it("includes weekendTripReady reason when eligible", () => {
+  it("includes weekendTripReady reason when eligible (strong) ", () => {
     const d = dest({
       id: "test",
       recommendedVisitHours: { min: 1, max: 10 },
-      transportOptions: { train: 90 },
+      transportOptions: { train: 180 }, // strong band
     });
     const ctx = context({
       weather: {
@@ -520,5 +531,32 @@ describe("evaluateWeekendCandidate", () => {
       (r) => r.code === "weekendWeatherPoorOutdoor",
     );
     expect(weatherReason).toBeDefined();
+  });
+
+  it("origin-local destination excluded when municipality matches, kept otherwise", () => {
+    const d = dest({
+      id: "local",
+      municipalityId: "Osaka:osaka",
+      recommendedVisitHours: { min: 8, max: 12 }, // 720 min → strong capacity
+      transportOptions: { train: 190 }, // strong band
+    });
+    const ctx = context({
+      publicModes: ["train"],
+      homeStationCoords: { lat: 34.7, lng: 135.5 },
+    });
+
+    // Same municipality as the origin → excluded (not a getaway).
+    const excluded = evaluateWeekendCandidate(
+      d,
+      ctx,
+      [d],
+      ["train"],
+      "Osaka:osaka",
+    );
+    expect(excluded.eligible).toBe(false);
+
+    // Undetermined origin municipality → safe fallback, retained.
+    const kept = evaluateWeekendCandidate(d, ctx, [d], ["train"], undefined);
+    expect(kept.eligible).toBe(true);
   });
 });
