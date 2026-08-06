@@ -597,16 +597,8 @@ async function runPipeline() {
     __dirname,
     "../src/shared/data/destinations-meta.json",
   );
-  const metaData = rawData.map((d) => ({
-    id: d.id,
-    name: d.name,
-    prefecture: d.prefecture,
-    region: d.region || "Other",
-    role: d.role || "poi",
-    kind: d.kind || "attraction",
-    status: d.status || "verified",
-    relationships: d.relationships || {},
-  }));
+  const { buildDestinationsMeta } = await import("../catalog/meta.mjs");
+  const metaData = buildDestinationsMeta(rawData);
   fs.writeFileSync(metaPath, JSON.stringify(metaData, null, 2) + "\n");
   console.log(
     `\x1b[32m✔ Successfully wrote ${rawData.length} processed destinations to ${outputPath} and ${metaPath}\x1b[0m\n`,

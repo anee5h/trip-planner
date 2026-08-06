@@ -14,6 +14,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "validate-all": "tsx scripts/validate-all.ts",
+    "audit:catalog-integrity": "tsx scripts/audit-catalog-integrity.ts",
     "validate-destinations": "tsx scripts/cli/validate-destinations.ts",
     "validate-destination-details": "tsx scripts/cli/validate-destination-details.ts",
     "validate-places": "tsx scripts/cli/validate-places.ts",

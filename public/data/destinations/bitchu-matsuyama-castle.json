@@ -109,7 +109,14 @@
     "min": 3,
     "max": 5
   },
-  "officialWebsite": "https://www.city.takahashi.lg.jp/site/bitchu-matsuyama-castle/",
-  "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Okayama:takahashi"
+  "officialWebsite": "https://www.bitchumatsuyamacastle.jp/",
+  "businessHours": "09:00 - 17:30 (Apr-Sep) / 09:00 - 16:30 (Oct-Mar)",
+  "municipalityId": "Okayama:takahashi",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-06",
+    "sourceUrl": "https://www.bitchumatsuyamacastle.jp/",
+    "lastAdmission": "17:00 (Apr-Sep) / 16:00 (Oct-Mar)",
+    "closedDays": "Dec 29 - Jan 3"
+  },
+  "kind": "castle"
 }
