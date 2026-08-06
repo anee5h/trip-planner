@@ -70,8 +70,8 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
-    "featuredDestinationIds": ["matsuyama-castle-ehime", "uwajima-castle"],
-    "nearbyDestinationIds": ["takamatsu-city", "kochi-city", "tokushima-city"],
+    "featuredDestinationIds": [],
+    "nearbyDestinationIds": [],
     "parentDestinationId": "sendai-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg",

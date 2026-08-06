@@ -67,7 +67,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["bitchu-matsuyama-castle", "korakuen-okayama"],
+    "featuredDestinationIds": ["korakuen-okayama"],
     "nearbyDestinationIds": [
       "hiroshima-city",
       "onomichi-city",

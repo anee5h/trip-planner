@@ -1,0 +1,116 @@
+{
+  "generatedAt": "2026-08-06",
+  "scope": "First verified correction batch (Okayama focus + conclusive nationwide outliers)",
+  "corrections": [
+    {
+      "destinationId": "okayama-city",
+      "field": "relationships.featuredDestinationIds",
+      "oldValue": ["bitchu-matsuyama-castle", "korakuen-okayama"],
+      "newValue": ["korakuen-okayama"],
+      "reason": "Bitchu Matsuyama Castle is physically in Takahashi City (municipalityId Okayama:takahashi) and is a child of takahashi-city; it must not appear as a featured top sight of Okayama City.",
+      "sourceUrl": "https://www.city.takahashi.lg.jp/site/bichu-matsuyama/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "kurashiki-city",
+      "field": "relationships.featuredDestinationIds",
+      "oldValue": ["bitchu-matsuyama-castle", "korakuen-okayama"],
+      "newValue": ["korakuen-okayama"],
+      "reason": "Bitchu Matsuyama Castle is in Takahashi City, not Kurashiki; removed from the Kurashiki featured list (Korakuen retained as a same-prefecture regional pick).",
+      "sourceUrl": "https://www.city.takahashi.lg.jp/site/bichu-matsuyama/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "takahashi-city",
+      "field": "relationships.featuredDestinationIds",
+      "oldValue": [],
+      "newValue": ["bitchu-matsuyama-castle"],
+      "reason": "Bitchu Matsuyama Castle is the canonical child of the Takahashi hub (same municipality Okayama:takahashi); featuring it restores the hub page top-sight section.",
+      "sourceUrl": "https://www.city.takahashi.lg.jp/site/bichu-matsuyama/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "matsushima-bay",
+      "field": "relationships.featuredDestinationIds",
+      "oldValue": ["matsuyama-castle-ehime", "uwajima-castle"],
+      "newValue": [],
+      "reason": "Featured list is a verbatim copy of the Matsuyama City (Ehime) record: both castles are in Ehime, ~700 km from Miyagi. Matsushima Bay is in Miyagi (parent sendai-city).",
+      "sourceUrl": "https://www.miyagi-kankou.or.jp/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "matsushima-bay",
+      "field": "relationships.nearbyDestinationIds",
+      "oldValue": ["takamatsu-city", "kochi-city", "tokushima-city"],
+      "newValue": [],
+      "reason": "Nearby list is the Shikoku cluster copied from the Matsuyama City record; Shikoku cities are 500+ km from Miyagi with no modeled connection.",
+      "sourceUrl": "https://www.miyagi-kankou.or.jp/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "nijo-castle-kyoto",
+      "field": "relationships.featuredDestinationIds",
+      "oldValue": ["nikko-toshogu-shrine-tochigi", "kegon-falls-nikko"],
+      "newValue": [],
+      "reason": "Nijo Castle (Kyoto) features Nikko shrines and Kegon Falls, both in Tochigi ~350 km away; batch-import error (Kanto cluster).",
+      "sourceUrl": "https://nijo-jocastle.city.kyoto.lg.jp/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "nijo-castle-kyoto",
+      "field": "relationships.nearbyDestinationIds",
+      "oldValue": ["shibuya-city", "hakone-town", "chiba-city"],
+      "newValue": [],
+      "reason": "Nearby list is a Kanto cluster (Tokyo/Kanagawa/Chiba) on a Kyoto record; no modeled connection and geographically impossible as \"nearby\".",
+      "sourceUrl": "https://nijo-jocastle.city.kyoto.lg.jp/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "kobe-maya-night-view",
+      "field": "relationships.featuredDestinationIds",
+      "oldValue": ["kochi-castle"],
+      "newValue": [],
+      "reason": "Mount Maya (Kobe) features Kochi Castle, ~250 km away in another prefecture; batch-import error. (nearbyDestinationIds kept: flagged as suspicious in the audit report, not corrected.)",
+      "sourceUrl": "https://www.city.kobe.lg.jp/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "hakodate-night-view",
+      "field": "relationships.featuredDestinationIds",
+      "oldValue": ["ashigara", "jogashima"],
+      "newValue": [],
+      "reason": "Mount Hakodate features Ashigara and Jogashima, both in Kanagawa ~800 km away; batch-import error (Kanto cluster).",
+      "sourceUrl": "https://www.hakodate.travel/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "hakodate-night-view",
+      "field": "relationships.nearbyDestinationIds",
+      "oldValue": ["shibuya-city", "chiba-city", "saitama-city"],
+      "newValue": [],
+      "reason": "Nearby list is a Kanto cluster on a Hokkaido record; no modeled connection.",
+      "sourceUrl": "https://www.hakodate.travel/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    },
+    {
+      "destinationId": "hakodate-night-view",
+      "field": "relationships.relatedDestinationIds",
+      "oldValue": ["kusatsu-town", "yufu-city"],
+      "newValue": [],
+      "reason": "Related list is a verbatim copy of hakone-town's list (Gunma/Oita onsen towns); unrelated to Mount Hakodate.",
+      "sourceUrl": "https://www.hakodate.travel/",
+      "checkedAt": "2026-08-06",
+      "confidence": "verified"
+    }
+  ]
+}

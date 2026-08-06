@@ -15801,9 +15801,9 @@
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {
       "parentDestinationId": "hakodate-city",
-      "featuredDestinationIds": ["ashigara", "jogashima"],
-      "nearbyDestinationIds": ["shibuya-city", "chiba-city", "saitama-city"],
-      "relatedDestinationIds": ["kusatsu-town", "yufu-city"]
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [],
+      "relatedDestinationIds": []
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg",
     "budgetBreakdown": {
@@ -29331,7 +29331,7 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {
-      "featuredDestinationIds": ["kochi-castle"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "takamatsu-city",
         "matsuyama-city",
@@ -31307,7 +31307,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": ["bitchu-matsuyama-castle", "korakuen-okayama"],
+      "featuredDestinationIds": ["korakuen-okayama"],
       "nearbyDestinationIds": [
         "hiroshima-city",
         "onomichi-city",
@@ -35262,12 +35262,8 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {
-      "featuredDestinationIds": ["matsuyama-castle-ehime", "uwajima-castle"],
-      "nearbyDestinationIds": [
-        "takamatsu-city",
-        "kochi-city",
-        "tokushima-city"
-      ],
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [],
       "parentDestinationId": "sendai-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg",
@@ -43811,11 +43807,8 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {
-      "featuredDestinationIds": [
-        "nikko-toshogu-shrine-tochigi",
-        "kegon-falls-nikko"
-      ],
-      "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"],
+      "featuredDestinationIds": [],
+      "nearbyDestinationIds": [],
       "parentDestinationId": "kyoto-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/1280px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg",
@@ -46683,7 +46676,7 @@
       }
     ],
     "relationships": {
-      "featuredDestinationIds": ["bitchu-matsuyama-castle", "korakuen-okayama"],
+      "featuredDestinationIds": ["korakuen-okayama"],
       "nearbyDestinationIds": [
         "hiroshima-city",
         "onomichi-city",
@@ -59825,7 +59818,7 @@
     "parking": "Available around major attractions; confirm local restrictions.",
     "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
     "relationships": {
-      "featuredDestinationIds": []
+      "featuredDestinationIds": ["bitchu-matsuyama-castle"]
     },
     "status": "verified",
     "travelEstimate": {

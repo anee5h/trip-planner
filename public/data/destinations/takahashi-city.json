@@ -74,7 +74,7 @@
   "parking": "Available around major attractions; confirm local restrictions.",
   "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
   "relationships": {
-    "featuredDestinationIds": []
+    "featuredDestinationIds": ["bitchu-matsuyama-castle"]
   },
   "status": "verified",
   "travelEstimate": {
