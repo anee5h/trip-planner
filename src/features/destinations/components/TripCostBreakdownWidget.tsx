@@ -20,12 +20,14 @@ import {
   Sparkles,
   ChevronDown,
   ChevronUp,
+  BedDouble,
 } from "lucide-react";
 import { findNearbyCombinations } from "@/shared/services/recommendation/DestinationCombinationService";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import { Link, useLocation } from "react-router-dom";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
+import { useTranslation } from "react-i18next";
 import type { GeneratedPlanCostResult } from "@/shared/services/budget/GeneratedPlanCostService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 
@@ -40,6 +42,7 @@ export interface TripCostBreakdownWidgetProps {
   defaultExpanded?: boolean;
   hasGeneratedPlan?: boolean;
   planCostBreakdown?: GeneratedPlanCostResult;
+  accommodationAllowance?: number;
 }
 
 export function TripCostBreakdownWidget({
@@ -51,7 +54,9 @@ export function TripCostBreakdownWidget({
   defaultExpanded = false,
   hasGeneratedPlan = false,
   planCostBreakdown,
+  accommodationAllowance,
 }: TripCostBreakdownWidgetProps) {
+  const { t } = useTranslation();
   const location = useLocation();
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
   const [viewMode, setViewMode] = useState<"party" | "perPerson">("party");
@@ -81,6 +86,7 @@ export function TripCostBreakdownWidget({
       activeMode: activeTransportMode,
       partySize,
       ferryTemporal,
+      accommodationAllowance,
     });
   }, [
     destination,
@@ -88,6 +94,7 @@ export function TripCostBreakdownWidget({
     partySize,
     planCostBreakdown,
     ferryTemporal,
+    accommodationAllowance,
   ]);
 
   const displayRange = (range: [number, number]): [number, number] =>
@@ -124,12 +131,20 @@ export function TripCostBreakdownWidget({
   const hasParking = planCostBreakdown
     ? planCostBreakdown.parking.applicable
     : parkingRange[1] > 0;
+  const hasAccommodationAllowance = Boolean(
+    accommodationAllowance && accommodationAllowance > 0,
+  );
+  const accommodationAllowanceRange: [number, number] =
+    hasAccommodationAllowance
+      ? [accommodationAllowance!, accommodationAllowance!]
+      : [0, 0];
   const visiblePartyRanges = planCostBreakdown
     ? [
         ...(hasTransport ? [transportRange] : []),
         admissionRange,
         ...(hasMeals ? [mealRange] : []),
         ...(hasParking ? [parkingRange] : []),
+        ...(hasAccommodationAllowance ? [accommodationAllowanceRange] : []),
       ]
     : [];
   const totalRange: [number, number] = planCostBreakdown
@@ -458,6 +473,39 @@ export function TripCostBreakdownWidget({
                       }}
                     />
                   </div>
+                </div>
+              )}
+
+              {hasAccommodationAllowance && (
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-xs font-bold">
+                    <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                      <BedDouble className="w-4 h-4 text-teal-500 shrink-0" />
+                      {t("planner.stayAllowanceRow")}
+                    </span>
+                    <span className="text-slate-900 dark:text-white">
+                      {formatLocalizedJPYRange(
+                        viewMode === "party"
+                          ? [accommodationAllowance!, accommodationAllowance!]
+                          : [
+                              Math.round(accommodationAllowance! / partySize),
+                              Math.round(accommodationAllowance! / partySize),
+                            ],
+                        locale,
+                      )}
+                    </span>
+                  </div>
+                  <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-teal-500 rounded-full transition-all"
+                      style={{
+                        width: `${getCategoryWidth(accommodationAllowance!)}%`,
+                      }}
+                    />
+                  </div>
+                  <p className="text-[10px] text-slate-400">
+                    {t("planner.stayAllowanceNote")}
+                  </p>
                 </div>
               )}
             </div>

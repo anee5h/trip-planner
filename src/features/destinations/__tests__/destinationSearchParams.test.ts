@@ -232,4 +232,82 @@ describe("destinationSearchParams", () => {
     expect(economyDestinations.length).toBeGreaterThan(0);
     expect(economyDestinations.length).toBeLessThan(destinations.length);
   });
+
+  // -------------------------------------------------------------------------
+  // Weekend tripMode & accommodation allowance (stay)
+  // -------------------------------------------------------------------------
+
+  it("defaults tripMode to any and accommodationAllowance to 15000", () => {
+    const parsed = parseDestinationSearchParams(new URLSearchParams(""));
+    expect(parsed.tripMode).toBe("any");
+    expect(parsed.accommodationAllowance).toBe(15000);
+  });
+
+  it("any omits tripMode and stay params in serialization", () => {
+    const state = { ...DEFAULT_DESTINATION_EXPLORER_STATE };
+    const serialized = serializeDestinationSearchParams(state).toString();
+    expect(serialized).not.toContain("tripMode=");
+    expect(serialized).not.toContain("stay=");
+  });
+
+  it("round-trips weekend_2d1n with stay allowance via planner serialization", () => {
+    const plannerParams = serializePlannerSearchParams({
+      vibe: "food",
+      partySize: 2,
+      budgetTier: "standard",
+      tripDuration: "fullDay",
+      budget: 95000,
+      carMode: "none",
+      publicModes: ["train"],
+      tripMode: "weekend_2d1n",
+      accommodationAllowance: 20000,
+    });
+
+    const parsed = parseDestinationSearchParams(
+      new URLSearchParams(plannerParams),
+    );
+
+    expect(parsed.tripMode).toBe("weekend_2d1n");
+    expect(parsed.accommodationAllowance).toBe(20000);
+  });
+
+  it("parses stay from URL params with tripMode weekend_2d1n", () => {
+    const params = new URLSearchParams("tripMode=weekend_2d1n&stay=8000");
+    const parsed = parseDestinationSearchParams(params);
+    expect(parsed.tripMode).toBe("weekend_2d1n");
+    expect(parsed.accommodationAllowance).toBe(8000);
+  });
+
+  it("falls back to default stay when stay param is invalid", () => {
+    const params = new URLSearchParams("stay=notanumber");
+    const parsed = parseDestinationSearchParams(params);
+    expect(parsed.accommodationAllowance).toBe(15000);
+  });
+
+  it("falls back to default stay when stay exceeds MAX", () => {
+    const params = new URLSearchParams("stay=999999");
+    const parsed = parseDestinationSearchParams(params);
+    expect(parsed.accommodationAllowance).toBe(15000);
+  });
+
+  it("omits stay param when at default 15000 in explorer serialization", () => {
+    const state = {
+      ...DEFAULT_DESTINATION_EXPLORER_STATE,
+      tripMode: "weekend_2d1n" as const,
+      accommodationAllowance: 15000,
+    };
+    const serialized = serializeDestinationSearchParams(state).toString();
+    expect(serialized).toContain("tripMode=weekend_2d1n");
+    expect(serialized).not.toContain("stay=15000");
+  });
+
+  it("serializes stay when different from default 15000", () => {
+    const state = {
+      ...DEFAULT_DESTINATION_EXPLORER_STATE,
+      tripMode: "weekend_2d1n" as const,
+      accommodationAllowance: 8000,
+    };
+    const serialized = serializeDestinationSearchParams(state).toString();
+    expect(serialized).toContain("stay=8000");
+  });
 });

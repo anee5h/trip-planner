@@ -8,14 +8,22 @@ import type { FerryTemporalContext } from "@/shared/services/transport/types";
 export type TripDuration =
   "any" | "shortOuting" | "halfDay" | "fullDay" | "weekend";
 
+export type TripMode = "day_trip" | "weekend_2d1n";
 export type ActualWeatherCondition =
   "clear" | "cloudy" | "rainy" | "stormy" | "snowy" | "unknown";
+export interface RecommendationWeatherDay {
+  /** YYYY-MM-DD local calendar date */
+  date: string;
+  condition: ActualWeatherCondition;
+  temperatureC?: number;
+}
 
 export interface RecommendationWeatherContext {
   actual?: {
     condition: ActualWeatherCondition;
     temperatureC?: number;
   };
+  days?: RecommendationWeatherDay[];
   preferred?: "any" | "rainy" | "hot" | "cold";
 }
 
@@ -68,6 +76,8 @@ export interface RecommendationContext {
   availableTimeHours?: number;
   userProfile?: ImplicitUserProfile;
   personalizationSettings?: PersonalizationSettings;
+  tripMode?: TripMode;
+  accommodationAllowance?: number;
 }
 
 export interface TripDurationContext {

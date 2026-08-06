@@ -1,6 +1,7 @@
 {
   "id": "gifu-gujo-hachiman",
   "name": "Gujo Hachiman",
+  "kind": "historic_town",
   "prefecture": "Gifu",
   "region": "Chubu",
   "categories": ["History", "Waterfalls"],

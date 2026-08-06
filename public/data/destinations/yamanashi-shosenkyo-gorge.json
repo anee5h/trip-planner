@@ -1,6 +1,7 @@
 {
   "id": "yamanashi-shosenkyo-gorge",
   "name": "Shosenkyo Gorge",
+  "kind": "nature",
   "prefecture": "Yamanashi",
   "region": "Chubu",
   "categories": ["Nature", "Hiking"],

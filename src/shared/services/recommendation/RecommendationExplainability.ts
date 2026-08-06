@@ -10,6 +10,7 @@ import {
   getEstimatedBudgetRange,
 } from "@/shared/services/budget/BudgetService";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
+import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import type { PriceRange } from "@/shared/types/planner";
 
 export function createRecommendationMatch(
@@ -40,7 +41,6 @@ export function createRecommendationMatch(
   let bestMode = validModesForDest[0];
   let bestModeBudget: PriceRange | undefined;
   let hasFastTrain = false;
-  let hasEasyDrive = false;
 
   for (const mode of validModesForDest) {
     let estimatedBudget: PriceRange | undefined;
@@ -69,17 +69,16 @@ export function createRecommendationMatch(
     }
 
     if (mode === "train") {
-      const time = dest.transportOptions?.train;
-      if (time && time <= 60) {
+      const estimate = getOriginAwareTransportEstimate(
+        dest,
+        {
+          homeStationCoords: context.homeStationCoords ?? undefined,
+          ferryTemporal: context.ferryTemporal,
+        },
+        ["train"],
+      );
+      if (estimate && estimate.timeRange[0] <= 60) {
         hasFastTrain = true;
-      }
-    } else if (
-      (mode === "car" || mode === "my_car") &&
-      dest.transportOptions?.car
-    ) {
-      const time = dest.transportOptions.car;
-      if (time && time <= 60) {
-        hasEasyDrive = true;
       }
     }
   }
@@ -112,32 +111,33 @@ export function createRecommendationMatch(
     }
   }
 
-  // Transport Reasons
+  // Transport Reasons — minutes come from the same origin-aware estimate
+  // used for ranking, never from unprovenanced catalogue values.
+  const transportEstimate = getOriginAwareTransportEstimate(
+    dest,
+    {
+      homeStationCoords: context.homeStationCoords ?? undefined,
+      ferryTemporal: context.ferryTemporal,
+    },
+    validModesForDest,
+  );
   if (hasFastTrain) {
+    const minutes = transportEstimate?.timeRange[0] ?? 0;
     reasons.push({
       type: "Transport",
       code: "transportFastTrain",
-      params: { minutes: dest.transportOptions?.train || 0 },
+      params: { minutes },
       title: "Fast Train Access",
-      description: `Only ${dest.transportOptions?.train}m by train`,
+      description: `Only ${minutes}m by train`,
     });
   }
-  if (hasEasyDrive) {
-    reasons.push({
-      type: "Transport",
-      code: "transportEasyDrive",
-      params: { minutes: dest.transportOptions?.car || 0 },
-      title: "Easy Drive",
-      description: `Only ${dest.transportOptions?.car}m driving distance`,
-    });
-  }
-  if (bestMode === "shinkansen") {
+  if (bestMode === "shinkansen" && transportEstimate) {
     reasons.push({
       type: "Transport",
       code: "transportShinkansen",
-      params: { minutes: dest.transportOptions?.shinkansen || 0 },
+      params: { minutes: transportEstimate.timeRange[0] },
       title: "Shinkansen Connected",
-      description: `Quick shinkansen access (${dest.transportOptions?.shinkansen}m)`,
+      description: `Quick shinkansen access (${transportEstimate.timeRange[0]}m)`,
     });
   }
   if (bestMode === "ferry") {

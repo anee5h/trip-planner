@@ -1,6 +1,7 @@
 {
   "id": "gifu-magome-juku",
   "name": "Magome-juku",
+  "kind": "historic_town",
   "prefecture": "Gifu",
   "region": "Chubu",
   "categories": ["History", "Nature"],

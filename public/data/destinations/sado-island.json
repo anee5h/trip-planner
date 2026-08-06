@@ -2,6 +2,7 @@
   "id": "sado-island",
   "transportZoneId": "sado",
   "name": "Sado Island",
+  "kind": "island",
   "region": "Chubu",
   "categories": ["Island", "History", "Nature"],
   "tags": ["Gold Mine", "Tub Boats", "Remote"],

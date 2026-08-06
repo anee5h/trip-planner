@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { LazyImage } from "@/shared/components/ui/LazyImage";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPickerModal";
@@ -48,10 +49,23 @@ import {
   formatPrefecture,
   localizePlaceLabel,
 } from "@/shared/utils/placeLabels";
+import { pickSemanticDestinationTag } from "@/shared/utils/semanticTags";
 import { localizeRecommendationReason } from "@/shared/utils/recommendationLabels";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
+import { formatWeekendMinutes } from "@/shared/services/recommendation/WeekendAreaPolicy";
+import {
+  buildTokyoWardsLink,
+  getWardGroup,
+} from "@/shared/services/recommendation/TokyoWardsConsolidation";
 import { getCityArea } from "@/shared/data/cityAreas";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
+
+export interface WeekendCardSummary {
+  placeCount: number;
+  capacityMinutes: number;
+  oneWayMinutes?: number;
+  bestMode?: string;
+}
 
 interface DestinationCardProps {
   destination: Destination;
@@ -62,6 +76,8 @@ interface DestinationCardProps {
   carMode?: string;
   publicModes?: string[];
   availableTimeHours?: number;
+  /** 2D1N trip-area summary shown on the card's compact weekend line. */
+  weekendSummary?: WeekendCardSummary;
 }
 
 export default function DestinationCard({
@@ -71,12 +87,30 @@ export default function DestinationCard({
   carMode,
   publicModes,
   availableTimeHours,
+  weekendSummary,
 }: DestinationCardProps) {
   const { locale } = useLocale();
+  const { t } = useTranslation();
+  const wardGroup = getWardGroup(destination);
+  const modeLabels = {
+    train: t("home.transportModes.train"),
+    shinkansen: t("home.transportModes.shinkansen"),
+    bus: t("home.transportModes.bus"),
+    flight: t("home.transportModes.flight"),
+    ferry: t("home.transportModes.ferry"),
+    car: t("home.transportModes.car"),
+    my_car: t("home.transportModes.my_car"),
+  } as const;
   const localizedDestination = getLocalizedPlace(destination, locale);
   const parent =
     DestinationRelationshipService.getParentDestination(destination);
   const localizedParent = parent ? getLocalizedPlace(parent, locale) : null;
+  const semanticTag = pickSemanticDestinationTag(
+    destination,
+    localizedDestination,
+    locale,
+    localizedParent?.name ?? null,
+  );
   const area = getCityArea(destination.areaId);
   const locationLabel = localizedParent
     ? `${area ? area.name[locale] : localizedParent.name}${area ? ` · ${localizedParent.name}` : ""}`
@@ -188,42 +222,54 @@ export default function DestinationCard({
               #{rank}
             </Badge>
           )}
-          {destination.kind && (
-            <Badge className="bg-emerald-600/90 text-white font-extrabold capitalize backdrop-blur-md border border-white/20 shadow-md">
-              {localizePlaceLabel(destination.kind, locale)}
+          {wardGroup ? (
+            <Badge className="bg-emerald-600/90 text-white font-extrabold backdrop-blur-md border border-white/20 shadow-md">
+              {t("destination.tokyoWardsBadge")}
             </Badge>
-          )}
-          {destination.tags.slice(0, 1).map((tag) => {
-            let badgeStyle =
-              "bg-slate-900/70 hover:bg-slate-900 text-white backdrop-blur-md border border-white/20";
-            if (tag === "12 Original Keeps") {
-              badgeStyle =
-                "bg-amber-500 hover:bg-amber-600 text-white border-amber-300 font-bold shadow-md";
-            } else if (tag === "World's Tallest Tower") {
-              badgeStyle =
-                "bg-sky-600 hover:bg-sky-700 text-white border-sky-300 font-bold shadow-md";
-            } else if (tag === "Top 100 Castle") {
-              badgeStyle =
-                "bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold border-amber-300 shadow-md";
-            } else if (tag === "Free Observatory") {
-              badgeStyle =
-                "bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-300 font-bold shadow-md";
-            }
+          ) : (
+            <>
+              {destination.kind && (
+                <Badge className="bg-emerald-600/90 text-white font-extrabold capitalize backdrop-blur-md border border-white/20 shadow-md">
+                  {localizePlaceLabel(destination.kind, locale)}
+                </Badge>
+              )}
+              {semanticTag &&
+                (() => {
+                  const tag = semanticTag;
+                  let badgeStyle =
+                    "bg-slate-900/70 hover:bg-slate-900 text-white backdrop-blur-md border border-white/20";
+                  if (tag === "12 Original Keeps") {
+                    badgeStyle =
+                      "bg-amber-500 hover:bg-amber-600 text-white border-amber-300 font-bold shadow-md";
+                  } else if (tag === "World's Tallest Tower") {
+                    badgeStyle =
+                      "bg-sky-600 hover:bg-sky-700 text-white border-sky-300 font-bold shadow-md";
+                  } else if (tag === "Top 100 Castle") {
+                    badgeStyle =
+                      "bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold border-amber-300 shadow-md";
+                  } else if (tag === "Free Observatory") {
+                    badgeStyle =
+                      "bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-300 font-bold shadow-md";
+                  }
 
-            return (
-              <Badge key={tag} className={badgeStyle}>
-                {localizePlaceLabel(tag, locale)}
-              </Badge>
-            );
-          })}
+                  return (
+                    <Badge key={tag} className={badgeStyle}>
+                      {localizePlaceLabel(tag, locale)}
+                    </Badge>
+                  );
+                })()}
+            </>
+          )}
         </div>
-        <div className="absolute right-3 top-3 z-10 flex">
-          <BucketListButton
-            destinationId={destination.id}
-            destinationName={localizedDestination.name}
-            className="size-10 p-0"
-          />
-        </div>
+        {!wardGroup && (
+          <div className="absolute right-3 top-3 z-10 flex">
+            <BucketListButton
+              destinationId={destination.id}
+              destinationName={localizedDestination.name}
+              className="size-10 p-0"
+            />
+          </div>
+        )}
         <div className="absolute bottom-3 right-3 z-20 flex items-center rounded-lg border border-emerald-100 bg-emerald-50/95 px-2.5 py-1 shadow-sm backdrop-blur-sm dark:border-emerald-800/50 dark:bg-emerald-900/90">
           <span className="text-sm font-bold text-emerald-700 dark:text-emerald-300">
             ⭐ {destination.ratings.overall}
@@ -233,10 +279,16 @@ export default function DestinationCard({
 
       <CardHeader className="p-3 pb-1 md:p-4 md:pb-2">
         <h3
-          title={formatPlaceName(localizedDestination, locale)}
+          title={
+            wardGroup
+              ? t("destination.tokyoWardsGroup")
+              : formatPlaceName(localizedDestination, locale)
+          }
           className="line-clamp-2 min-h-10 min-w-0 text-xl font-extrabold leading-[1.15] tracking-tight"
         >
-          {formatPlaceName(localizedDestination, locale)}
+          {wardGroup
+            ? t("destination.tokyoWardsGroup")
+            : formatPlaceName(localizedDestination, locale)}
         </h3>
 
         <div className="mt-0.5 flex h-5 min-w-0 items-center text-sm font-medium text-slate-500 dark:text-slate-400 md:mt-1">
@@ -309,7 +361,12 @@ export default function DestinationCard({
           <div>
             <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 text-[13px] font-semibold text-slate-700 dark:text-slate-300 md:min-h-12 md:gap-x-3 md:gap-y-2 md:text-sm">
               {(() => {
-                const mode = preferredTransport?.mode ?? "train";
+                // The Tokyo wards group shows the fastest verified gateway
+                // estimate across its members, not the top member's own
+                // legacy transport options.
+                const gateway = wardGroup?.gatewayEstimate;
+                const mode =
+                  gateway?.mode ?? preferredTransport?.mode ?? "train";
 
                 let Icon = Train;
                 if (mode === "car" || mode === "my_car") Icon = Car;
@@ -317,9 +374,11 @@ export default function DestinationCard({
                 if (mode === "shinkansen") Icon = TrainFront;
                 if (mode === "flight") Icon = Plane;
 
-                const formattedTime = preferredTransport
-                  ? formatTransportTime(preferredTransport.timeRange)
-                  : "N/A";
+                const formattedTime = gateway
+                  ? formatTransportTime(gateway.timeRange)
+                  : preferredTransport
+                    ? formatTransportTime(preferredTransport.timeRange)
+                    : "N/A";
 
                 const isDriving = mode === "car" || mode === "my_car";
 
@@ -395,72 +454,125 @@ export default function DestinationCard({
                 </span>
               </div>
             </div>
+
+            {weekendSummary && (
+              <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                {weekendSummary.placeCount > 0 && (
+                  <span>
+                    {t("destination.tripAreas.places", {
+                      places: weekendSummary.placeCount,
+                    })}
+                  </span>
+                )}
+                {weekendSummary.placeCount > 0 && <span>·</span>}
+                <span>
+                  {weekendSummary.capacityMinutes >= 600
+                    ? t("destination.tripAreas.plentyForTwoDays")
+                    : t("destination.tripAreas.readyForTwoDays")}
+                </span>
+                {weekendSummary.oneWayMinutes !== undefined &&
+                  weekendSummary.bestMode && (
+                    <span className="text-slate-500">
+                      ·{" "}
+                      {t("destination.tripAreas.travelBy", {
+                        time: formatWeekendMinutes(
+                          weekendSummary.oneWayMinutes,
+                          locale,
+                        ),
+                        mode:
+                          modeLabels[
+                            weekendSummary.bestMode as keyof typeof modeLabels
+                          ] ?? weekendSummary.bestMode,
+                      })}
+                    </span>
+                  )}
+              </div>
+            )}
           </div>
         )}
       </CardContent>
 
       <CardFooter className="flex items-center gap-1 p-3 pt-0 md:gap-1.5 md:p-4 md:pt-0">
-        <button
-          onClick={handleAddToItinerary}
-          aria-label={cardCopy.add}
-          className="flex size-11 shrink-0 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-100 hover:text-emerald-600 dark:text-slate-300 dark:hover:bg-slate-800"
-          title={cardCopy.add}
-        >
-          <Plus className="size-5" />
-        </button>
-        <button
-          onClick={handleVisitedClick}
-          disabled={!canMutateProfile}
-          aria-pressed={visited}
-          aria-label={
-            visited
-              ? "Mark destination as unvisited"
-              : "Mark destination as visited"
-          }
-          className="flex size-11 shrink-0 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
-          title={locale === "ja" ? "訪問済みにする" : "Mark as Visited"}
-        >
-          <CheckCircle2
-            className={`size-5 ${visited ? "fill-emerald-500 text-emerald-500" : ""}`}
-          />
-        </button>
+        {wardGroup && (
+          <span className="text-xs font-bold text-slate-500 dark:text-slate-400 px-1">
+            {t("destination.tokyoWardsCount", {
+              count: wardGroup.wardCount,
+            })}
+          </span>
+        )}
+        {!wardGroup && (
+          <>
+            <button
+              onClick={handleAddToItinerary}
+              aria-label={cardCopy.add}
+              className="flex size-11 shrink-0 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-100 hover:text-emerald-600 dark:text-slate-300 dark:hover:bg-slate-800"
+              title={cardCopy.add}
+            >
+              <Plus className="size-5" />
+            </button>
+            <button
+              onClick={handleVisitedClick}
+              disabled={!canMutateProfile}
+              aria-pressed={visited}
+              aria-label={
+                visited
+                  ? "Mark destination as unvisited"
+                  : "Mark destination as visited"
+              }
+              className="flex size-11 shrink-0 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
+              title={locale === "ja" ? "訪問済みにする" : "Mark as Visited"}
+            >
+              <CheckCircle2
+                className={`size-5 ${visited ? "fill-emerald-500 text-emerald-500" : ""}`}
+              />
+            </button>
 
-        {/* Compare - icon-only button */}
-        <Button
-          variant={comparing ? "default" : "ghost"}
-          size="icon"
-          title={comparing ? cardCopy.removeCompare : cardCopy.compare}
-          aria-label={comparing ? cardCopy.removeCompare : cardCopy.compare}
-          aria-pressed={comparing}
-          className={
-            comparing
-              ? "size-11 bg-indigo-600 hover:bg-indigo-700 text-white shrink-0 shadow-sm border border-indigo-500"
-              : "size-11 shrink-0 text-slate-600 dark:text-slate-300 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950/40"
-          }
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            if (!comparing && compareList.length >= 4) {
-              alert("You can only compare up to 4 destinations at a time.");
-              return;
-            }
-            toggleCompare(destination.id);
-            recommendationAnalytics.trackCompare(destination.id, !comparing);
-          }}
-        >
-          {comparing ? (
-            <Scale className="w-4 h-4 text-white" />
-          ) : (
-            <Scale className="w-4 h-4 text-slate-600 dark:text-slate-300" />
-          )}
-        </Button>
+            {/* Compare - icon-only button */}
+            <Button
+              variant={comparing ? "default" : "ghost"}
+              size="icon"
+              title={comparing ? cardCopy.removeCompare : cardCopy.compare}
+              aria-label={comparing ? cardCopy.removeCompare : cardCopy.compare}
+              aria-pressed={comparing}
+              className={
+                comparing
+                  ? "size-11 bg-indigo-600 hover:bg-indigo-700 text-white shrink-0 shadow-sm border border-indigo-500"
+                  : "size-11 shrink-0 text-slate-600 dark:text-slate-300 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950/40"
+              }
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (!comparing && compareList.length >= 4) {
+                  alert("You can only compare up to 4 destinations at a time.");
+                  return;
+                }
+                toggleCompare(destination.id);
+                recommendationAnalytics.trackCompare(
+                  destination.id,
+                  !comparing,
+                );
+              }}
+            >
+              {comparing ? (
+                <Scale className="w-4 h-4 text-white" />
+              ) : (
+                <Scale className="w-4 h-4 text-slate-600 dark:text-slate-300" />
+              )}
+            </Button>
+          </>
+        )}
 
-        {/* Explore - dominant CTA takes remaining space */}
+        {/* Explore - dominant CTA takes remaining space; the Tokyo 23 Wards
+            group opens the filtered ward list instead of a details page. */}
         <Link
-          to={{
-            pathname: `/destinations/${destination.id}`,
-            search: location.search,
-          }}
+          to={
+            wardGroup
+              ? buildTokyoWardsLink(wardGroup.wardHubIds, wardGroup.tripMode)
+              : {
+                  pathname: `/destinations/${destination.id}`,
+                  search: location.search,
+                }
+          }
           state={linkState}
           className="ml-auto"
           onClick={() =>

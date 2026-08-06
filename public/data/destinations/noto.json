@@ -1,6 +1,7 @@
 {
   "id": "noto",
   "name": "Noto Peninsula",
+  "kind": "nature",
   "region": "Chubu",
   "categories": ["Coast", "Nature"],
   "tags": ["Scenic Drive", "Seafood", "Rugged"],

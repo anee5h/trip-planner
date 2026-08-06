@@ -167,7 +167,7 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(result.score).toBeGreaterThan(-100);
   });
 
-  it("preserves private transport when budget preferences filter public modes", () => {
+  it("retains every authorized user-allowed mode regardless of budget tier", () => {
     const carDestination = {
       ...mockDest,
       transportOptions: { train: 60, car: 70, my_car: 65 },
@@ -193,6 +193,8 @@ describe("RecommendationScorer Unit Tests", () => {
         "mainland-honshu",
       ),
     ).toEqual(["my_car"]);
+    // Budget tiers must not delete faster authorized modes (e.g. shinkansen
+    // for a standard user): travel evaluation sees every valid mode.
     expect(
       getValidModes(
         carDestination,
@@ -202,7 +204,7 @@ describe("RecommendationScorer Unit Tests", () => {
         "standard",
         "mainland-honshu",
       ),
-    ).toEqual(["car", "train"]);
+    ).toEqual(["train", "car"]);
   });
 
   it("applies +25 boost for thumbs up and -1000 penalty for thumbs down", () => {

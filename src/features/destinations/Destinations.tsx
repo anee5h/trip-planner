@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
@@ -25,7 +26,10 @@ import {
   getValidModes,
   scoreForCatalog,
 } from "@/shared/services/recommendation/RecommendationService";
-import type { RecommendationContext } from "@/shared/services/recommendation/RecommendationContext";
+import type {
+  RecommendationContext,
+  TripMode,
+} from "@/shared/services/recommendation/RecommendationContext";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
 import {
   BUDGET_TIER_LIMITS,
@@ -33,9 +37,34 @@ import {
   type BudgetTier,
 } from "@/shared/types/planner";
 import {
-  estimateTripDuration,
-  matchesTripDurationEstimate,
+  getBestOneWayTravelMinutes,
+  matchesVisitDuration,
 } from "@/shared/services/recommendation/TripDurationService";
+import {
+  evaluateWeekendTravelFit,
+  evaluateWeekendCapacity,
+  weekendTravelScoreDelta,
+} from "@/shared/services/recommendation/WeekendPolicy";
+import {
+  resolveOriginMunicipalityId,
+  isOriginLocalDestination,
+} from "@/shared/services/recommendation/OriginAreaService";
+import {
+  consolidateWeekendAreas,
+  passesNoOriginWeekendGate,
+  getContainedPlaces,
+  type WeekendAreaConsolidation,
+} from "@/shared/services/recommendation/WeekendAreaPolicy";
+import {
+  buildExplorerWardGroup,
+  computeTokyoWardStats,
+  isTokyoWardHub,
+  KANTO_PREFECTURES,
+  TOKYO_WARDS_DIVERSITY_BONUS_MAX,
+  TOKYO_WARDS_GROUP_ID,
+} from "@/shared/services/recommendation/TokyoWardsConsolidation";
+import type { OriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import {
   tokenizeQuery,
   matchesDestination,
@@ -57,6 +86,7 @@ import {
   parseDestinationSearchParams,
   serializeDestinationSearchParams,
 } from "./destinationSearchParams";
+import { ALL_PUBLIC_MODES } from "@/features/home/services/TransportResolver";
 
 export default function Destinations() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -71,6 +101,7 @@ export default function Destinations() {
   const { homeStationCoords, homeStationTransportZoneId, destinationRatings } =
     useTripStore();
   const { locale } = useLocale();
+  const { t } = useTranslation();
   const allDestinations = (getDestinationList("en") as Destination[]).map(
     (destination) => getLocalizedPlace(destination, locale),
   );
@@ -92,6 +123,12 @@ export default function Destinations() {
   const [weather, setWeather] = useState(initialExplorerState.weather);
   const [tripDuration, setTripDuration] = useState<TripDuration>(
     initialExplorerState.tripDuration,
+  );
+  const [tripMode, setTripMode] = useState<"any" | TripMode>(
+    initialExplorerState.tripMode as "any" | TripMode,
+  );
+  const [accommodationAllowance, setAccommodationAllowance] = useState<number>(
+    initialExplorerState.accommodationAllowance,
   );
   const [walkingIntensity, setWalkingIntensity] = useState(
     initialExplorerState.walkingIntensity,
@@ -179,6 +216,8 @@ export default function Destinations() {
     setVibe(restored.vibe);
     setWeather(restored.weather);
     setTripDuration(restored.tripDuration);
+    setTripMode(restored.tripMode);
+    setAccommodationAllowance(restored.accommodationAllowance);
     setWalkingIntensity(restored.walkingIntensity);
     setSuitabilities(restored.suitabilities);
     setInterests(restored.interests);
@@ -210,6 +249,8 @@ export default function Destinations() {
       vibe,
       weather,
       tripDuration,
+      tripMode,
+      accommodationAllowance,
       walkingIntensity,
       suitabilities,
       interests,
@@ -239,6 +280,8 @@ export default function Destinations() {
     vibe,
     weather,
     tripDuration,
+    tripMode,
+    accommodationAllowance,
     walkingIntensity,
     suitabilities,
     interests,
@@ -322,13 +365,25 @@ export default function Destinations() {
     vibe,
     weather,
     tripDuration,
+    tripMode,
     walkingIntensity,
     suitabilities,
     interests,
   ]);
 
-  // Filter and sort destinations
-  const filteredAndSortedDestinations = useMemo(() => {
+  // Filter and sort destinations. Weekend mode additionally consolidates the
+  // primary results to coherent trip areas and reports the same consolidated
+  // model for counts, the modal button, and the rendered cards.
+  const {
+    destinations: filteredAndSortedDestinations,
+    weekend: weekendResult,
+    weekendTravelById,
+  } = useMemo(() => {
+    const originMunicipalityId = resolveOriginMunicipalityId(
+      homeStationCoords ?? undefined,
+      allDestinations,
+    );
+    let weekendConsolidation: WeekendAreaConsolidation | null = null;
     let result = allDestinations.map((destination) =>
       buildRecommendationCandidate(destination, catalogContext),
     );
@@ -353,6 +408,17 @@ export default function Destinations() {
           selectedPrefectures.includes(dest.prefecture);
         return matchRegion || matchPref;
       });
+    }
+
+    // 0.6. Filter by City / Municipality (used by the Tokyo 23 Wards group
+    // link: individual ward hubs stay browseable).
+    if (selectedCities.length > 0) {
+      result = result.filter(
+        (dest) =>
+          selectedCities.includes(dest.id) ||
+          (dest.municipalityId !== undefined &&
+            selectedCities.includes(dest.municipalityId)),
+      );
     }
 
     if (indoorMin > 0) {
@@ -481,13 +547,213 @@ export default function Destinations() {
       });
     }
 
-    // Budget tiers are ranking preferences. Neutral transport and duration
-    // settings must keep the complete catalogue browsable.
-    if (
+    // Weekend card travel claims: only with an explicit origin, and only for
+    // the consolidated primary areas.
+    const weekendTravelById = new Map<
+      string,
+      {
+        oneWayMinutes?: number;
+        bestMode?: string;
+        estimate?: OriginAwareTransportEstimate;
+      }
+    >();
+    // Weekend-aware "recommended" scores for 2D1N (matches Home ranking).
+    const weekendRecommendedScoreById = new Map<string, number>();
+
+    // Weekend mode uses its own eligibility gate instead of duration bands.
+    if (tripMode === "weekend_2d1n") {
+      const hasOrigin = homeStationCoords || homeStationTransportZoneId;
+      // Empty transport preference means "any public transport", never
+      // "ignore transport": an explicit origin still requires a known
+      // origin-aware duration.
+      const effectivePublicModes =
+        publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
+      result = result.filter((dest) => {
+        // Origin-local destinations are never getaways (same municipality as base).
+        if (isOriginLocalDestination(dest, originMunicipalityId)) return false;
+        if (!hasOrigin) {
+          // No-origin: no travel claims, but coherent area classification
+          // and 480+ published activity minutes are still required.
+          return passesNoOriginWeekendGate(dest, allDestinations);
+        }
+        const modes = getValidModes(
+          dest,
+          carMode,
+          effectivePublicModes,
+          homeStationCoords ?? undefined,
+          budgetTier,
+          homeStationTransportZoneId,
+        );
+        if (modes.length === 0) return false;
+        // No origin-aware duration → excluded from personalized matching.
+        const minutes = getBestOneWayTravelMinutes(dest, catalogContext, modes);
+        if (minutes === undefined) return false;
+        if (!evaluateWeekendTravelFit(minutes).eligible) return false;
+        // Capacity is required with or without an origin.
+        return evaluateWeekendCapacity(dest, allDestinations).eligible;
+      });
+
+      // Hub-first: primary 2D1N results are trip areas, never isolated POIs.
+      if (result.length > 0) {
+        const consolidated = consolidateWeekendAreas(result, allDestinations);
+        weekendConsolidation = consolidated;
+        result = consolidated.areas;
+
+        if (homeStationCoords) {
+          for (const area of result) {
+            const modes = getValidModes(
+              area,
+              carMode,
+              effectivePublicModes,
+              homeStationCoords ?? undefined,
+              budgetTier,
+              homeStationTransportZoneId,
+            );
+            const estimate = getOriginAwareTransportEstimate(
+              area,
+              { homeStationCoords },
+              modes,
+            );
+            weekendTravelById.set(area.id, {
+              oneWayMinutes: estimate
+                ? Math.round(
+                    (estimate.timeRange[0] + estimate.timeRange[1]) / 2,
+                  )
+                : undefined,
+              bestMode: estimate?.mode,
+              estimate: estimate ?? undefined,
+            });
+          }
+        }
+
+        // Weekend-aware "recommended" ranking (matches the Home pipeline):
+        // catalog score + weekend travel/capacity deltas. The ward group
+        // then ranks as its best member plus the bounded diversity bonus
+        // instead of being buried at a plain catalog-score position.
+        if (sortBy === "recommended") {
+          for (const area of result) {
+            const base = scoreForCatalog(area, catalogContext);
+            let delta = 0;
+            const minutes = weekendTravelById.get(area.id)?.oneWayMinutes;
+            if (minutes !== undefined) {
+              delta += weekendTravelScoreDelta(
+                evaluateWeekendTravelFit(minutes),
+              );
+            }
+            if (
+              evaluateWeekendCapacity(area, allDestinations).activityMinutes >=
+              600
+            ) {
+              delta += 3;
+            }
+            weekendRecommendedScoreById.set(area.id, base + delta);
+          }
+        }
+
+        // Conditional Tokyo 23 Wards consolidation: outside Kanto, eligible
+        // ward hubs collapse into one virtual super-hub card.
+        const originPrefecture = originMunicipalityId
+          ?.split(":")[0]
+          ?.toLowerCase();
+        if (
+          originPrefecture &&
+          !KANTO_PREFECTURES.has(originPrefecture) &&
+          // An explicit city filter (e.g. the group's own link) means the
+          // user wants those specific hubs individually — do not re-group.
+          selectedCities.length === 0 &&
+          result.length > 0
+        ) {
+          const wardMembers = result.filter(isTokyoWardHub);
+          if (wardMembers.length >= 2) {
+            const { wardCount, memberIds, wardHubIds } = computeTokyoWardStats(
+              wardMembers,
+              allDestinations,
+            );
+            // Unique published supporting places across the members.
+            const seenPlaces = new Set<string>();
+            for (const member of wardMembers) {
+              for (const place of getContainedPlaces(member, allDestinations)) {
+                seenPlaces.add(place.id);
+              }
+            }
+            // Fastest verified gateway estimate across the members.
+            let gatewayEstimate: OriginAwareTransportEstimate | undefined;
+            for (const member of wardMembers) {
+              const memberEstimate = weekendTravelById.get(member.id)?.estimate;
+              if (
+                memberEstimate &&
+                (!gatewayEstimate ||
+                  memberEstimate.timeRange[0] < gatewayEstimate.timeRange[0])
+              ) {
+                gatewayEstimate = memberEstimate;
+              }
+            }
+            const group = buildExplorerWardGroup({
+              members: wardMembers,
+              wardCount,
+              wardHubIds,
+              placeCount: seenPlaces.size,
+              tripMode,
+              gatewayEstimate,
+            });
+            const memberIdSet = new Set(memberIds);
+            const remaining = result.filter((d) => !memberIdSet.has(d.id));
+            result = [group, ...remaining];
+
+            // The group ranks as its best member plus the bounded bonus,
+            // sized by the unique ward count, never the raw hub count.
+            if (sortBy === "recommended") {
+              let maxMemberScore = -Infinity;
+              for (const memberId of memberIdSet) {
+                const memberScore = weekendRecommendedScoreById.get(memberId);
+                if (memberScore !== undefined && memberScore > maxMemberScore) {
+                  maxMemberScore = memberScore;
+                }
+              }
+              if (maxMemberScore > -Infinity) {
+                weekendRecommendedScoreById.set(
+                  TOKYO_WARDS_GROUP_ID,
+                  maxMemberScore +
+                    Math.min(TOKYO_WARDS_DIVERSITY_BONUS_MAX, wardCount - 1),
+                );
+              }
+            }
+
+            weekendConsolidation = {
+              areas: result,
+              placeCountById: new Map(
+                result.map((area) => [
+                  area.id,
+                  area.id === TOKYO_WARDS_GROUP_ID
+                    ? seenPlaces.size
+                    : (consolidated.placeCountById.get(area.id) ?? 0),
+                ]),
+              ),
+              capacityMinutesById: consolidated.capacityMinutesById,
+              kindById: new Map(
+                result.map((area) => [
+                  area.id,
+                  area.id === TOKYO_WARDS_GROUP_ID
+                    ? "trip_area"
+                    : (consolidated.kindById.get(area.id) ?? "trip_area"),
+                ]),
+              ),
+              totalPlaceCount: consolidated.totalPlaceCount,
+            };
+          }
+        }
+      }
+    } else if (
       tripDuration !== "any" ||
       hasRestrictedTransportSelection(carMode, publicModes)
     ) {
+      const hasOrigin = homeStationCoords || homeStationTransportZoneId;
       result = result.filter((dest) => {
+        // Time at destination: use pure visit-duration matching.
+        // Origin travel is evaluated separately for reachability;
+        // when no origin is set, browsing stays neutral (no mode gate).
+        if (!matchesVisitDuration(dest, tripDuration)) return false;
+        if (!hasOrigin) return true;
         const modes = getValidModes(
           dest,
           carMode,
@@ -496,13 +762,7 @@ export default function Destinations() {
           budgetTier,
           homeStationTransportZoneId,
         );
-        return (
-          modes.length > 0 &&
-          matchesTripDurationEstimate(
-            estimateTripDuration(dest, catalogContext, modes),
-            tripDuration,
-          )
-        );
+        return modes.length > 0;
       });
     }
 
@@ -543,9 +803,14 @@ export default function Destinations() {
     result = [...result].sort((a, b) => {
       switch (sortBy) {
         case "recommended":
+          // 2D1N uses the weekend-aware score so the explorer ranks
+          // consistently with the Home pipeline (and the Tokyo wards group
+          // ranks as its best member, not at a plain catalog position).
           return (
-            scoreForCatalog(b, catalogContext) -
-            scoreForCatalog(a, catalogContext)
+            (weekendRecommendedScoreById.get(b.id) ??
+              scoreForCatalog(b, catalogContext)) -
+            (weekendRecommendedScoreById.get(a.id) ??
+              scoreForCatalog(a, catalogContext))
           );
         case "budget":
           return (
@@ -588,20 +853,33 @@ export default function Destinations() {
           );
         case "travelTime":
           const getFastestTime = (dest: Destination) => {
-            const times = getValidModes(
+            const modes = getValidModes(
               dest,
               carMode,
               publicModes,
               homeStationCoords ?? undefined,
               budgetTier,
               homeStationTransportZoneId,
-            ).map(
-              (m) =>
-                (dest.transportOptions?.[
-                  m as keyof typeof dest.transportOptions
-                ] as number) || 999,
             );
-            return times.length > 0 ? Math.min(...times) : 999;
+            if (modes.length === 0) return 999;
+            // Origin-aware duration when an origin exists (never a false
+            // personalized claim); neutral browsing falls back to catalogue
+            // minutes for comparison only.
+            const minutes = getBestOneWayTravelMinutes(
+              dest,
+              catalogContext,
+              modes,
+            );
+            if (minutes !== undefined) return minutes;
+            const legacyMinutes = Math.min(
+              ...modes.map(
+                (m) =>
+                  (dest.transportOptions?.[
+                    m as keyof typeof dest.transportOptions
+                  ] as number) || 999,
+              ),
+            );
+            return legacyMinutes;
           };
           return getFastestTime(a) - getFastestTime(b);
         case "nearest": {
@@ -641,7 +919,11 @@ export default function Destinations() {
       }
     });
 
-    return result;
+    return {
+      destinations: result,
+      weekend: weekendConsolidation,
+      weekendTravelById,
+    };
   }, [
     allDestinations,
     query,
@@ -652,6 +934,7 @@ export default function Destinations() {
     partySize,
     budgetTier,
     tripDuration,
+    tripMode,
     walkingIntensity,
     homeStationCoords,
     homeStationTransportZoneId,
@@ -692,8 +975,8 @@ export default function Destinations() {
     setWalkingIntensity(defaults.walkingIntensity);
     setSuitabilities(defaults.suitabilities);
     setInterests(defaults.interests);
+    setTripMode(defaults.tripMode);
     setViewMode(defaults.viewMode);
-    setCurrentPage(defaults.currentPage);
   };
 
   const totalPages = Math.ceil(
@@ -778,6 +1061,8 @@ export default function Destinations() {
         setVibe={setVibe}
         tripDuration={tripDuration}
         setTripDuration={setTripDuration}
+        tripMode={tripMode}
+        setTripMode={setTripMode}
         walkingIntensity={walkingIntensity}
         setWalkingIntensity={setWalkingIntensity}
         suitabilities={suitabilities}
@@ -795,9 +1080,15 @@ export default function Destinations() {
         className="mb-6 flex flex-wrap items-center justify-between gap-4 text-slate-600 dark:text-slate-400 font-medium scroll-mt-24"
       >
         <div className="flex items-center gap-2">
-          <span className="text-sm font-bold text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
-            {filteredAndSortedDestinations.length} destination
-            {filteredAndSortedDestinations.length === 1 ? "" : "s"} matching
+          <span className="text-sm font-bold text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-800">
+            {weekendResult
+              ? t("destination.tripAreas.summary", {
+                  areas: filteredAndSortedDestinations.length,
+                  places: weekendResult.totalPlaceCount,
+                })
+              : `${filteredAndSortedDestinations.length} destination${
+                  filteredAndSortedDestinations.length === 1 ? "" : "s"
+                } matching`}
           </span>
         </div>
       </div>
@@ -826,15 +1117,36 @@ export default function Destinations() {
                 (currentPage - 1) * ITEMS_PER_PAGE,
                 currentPage * ITEMS_PER_PAGE,
               )
-              .map((dest) => (
-                <DestinationCard
-                  key={dest.id}
-                  destination={dest}
-                  partySize={partySize}
-                  carMode={carMode}
-                  publicModes={publicModes}
-                />
-              ))}
+              .map((dest) => {
+                const travel = weekendTravelById.get(dest.id);
+                return (
+                  <DestinationCard
+                    key={dest.id}
+                    destination={dest}
+                    partySize={partySize}
+                    carMode={carMode}
+                    // Empty transport preference means "any public
+                    // transport" — cards resolve the fastest verified mode
+                    // instead of showing N/A.
+                    publicModes={
+                      publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES
+                    }
+                    weekendSummary={
+                      weekendResult
+                        ? {
+                            placeCount:
+                              weekendResult.placeCountById.get(dest.id) ?? 0,
+                            capacityMinutes:
+                              weekendResult.capacityMinutesById.get(dest.id) ??
+                              0,
+                            oneWayMinutes: travel?.oneWayMinutes,
+                            bestMode: travel?.bestMode,
+                          }
+                        : undefined
+                    }
+                  />
+                );
+              })}
           </div>
 
           {/* Pagination Controls */}

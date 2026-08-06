@@ -1,6 +1,7 @@
 {
   "id": "okuhida",
   "name": "Okuhida",
+  "kind": "onsen",
   "region": "Chubu",
   "categories": ["Hot Spring", "Mountain", "Nature"],
   "tags": ["Onsen", "Ropeway", "Alps"],

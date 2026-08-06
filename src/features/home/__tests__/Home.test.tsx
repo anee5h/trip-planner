@@ -5,7 +5,7 @@ import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
 import { afterEach, describe, it, expect, vi } from "vitest";
-import Home from "../Home";
+import Home, { formatCompactDate, formatCompactDateRange } from "../Home";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -37,7 +37,29 @@ vi.mock("@/shared/services/weather/WeatherTabService", () => ({
     temp: 28,
     desc: "Sunny",
   }),
+  getNextCalendarDate: (iso: string) => {
+    const [y, m, d] = iso.split("-").map(Number);
+    return `${y}-${String(m).padStart(2, "0")}-${String(d + 1).padStart(2, "0")}`;
+  },
+  getForecastDaysForRange: () => [
+    { date: "2026-08-01", desc: "Sunny", maxTemp: 30 },
+    { date: "2026-08-02", desc: "Cloudy", maxTemp: 28 },
+  ],
 }));
+
+vi.mock(
+  "@/shared/services/recommendation/RecommendationContext",
+  async (importOriginal) => {
+    const actual = (await importOriginal()) as Record<string, unknown>;
+    return {
+      ...actual,
+      normalizeWeatherDescription: (desc: string) =>
+        desc.toLowerCase() === "sunny"
+          ? ("clear" as const)
+          : ("cloudy" as const),
+    };
+  },
+);
 
 vi.mock("@/shared/hooks/useTripStore", () => ({
   useTripStore: () => ({
@@ -74,14 +96,28 @@ vi.mock("@/shared/context/AuthModalContext", () => ({
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
-    t: (key: string) =>
-      ({
-        "home.dateTabs.today": "Today",
-        "home.dateTabs.tomorrow": "Tomorrow",
-        "home.dateTabs.this_weekend": "This Weekend",
-        "home.weatherConditions.sunny": "Sunny",
-        "origin.cancel": "Cancel",
-      })[key] ?? key,
+    t: (key: string, opts?: Record<string, number | string>) => {
+      const label =
+        {
+          "home.dateTabs.today": "Today",
+          "home.dateTabs.tomorrow": "Tomorrow",
+          "home.dateTabs.this_weekend": "This Weekend",
+          "home.weatherConditions.sunny": "Sunny",
+          "origin.cancel": "Cancel",
+          "home.tripModes.day_trip": "Day trip",
+          "home.tripModes.weekend_2d1n": "Weekend · 2 days / 1 night",
+          "home.weekendMatches": "Weekend getaways",
+          "home.weekendYourMatches": "Your best weekend getaways",
+          "home.weekendDates": "{{day1}} – {{day2}}",
+          "home.weekendNoResultsTitle": "No weekend-ready destinations found",
+          "home.accommodationPresets.custom": "Custom",
+          "home.weekendBadge": "2 days / 1 night",
+        }[key] ?? key;
+      if (!opts) return label;
+      return label.replace(/\{\{(\w+)\}\}/g, (_, name: string) =>
+        String(opts[name] ?? ""),
+      );
+    },
     i18n: { language: "en" },
   }),
   initReactI18next: {
@@ -217,5 +253,111 @@ describe("Home Integration Tests", () => {
 
     // Heading should still say "Top matches for today" because applyPlannerState was not called
     expect(container.textContent).toContain("home.topMatches");
+  });
+
+  it("weekend mode: toggling to Weekend changes heading after apply", () => {
+    const container = renderHome();
+
+    // Find and click the weekend toggle button
+    const weekendToggle = Array.from(container.querySelectorAll("button")).find(
+      (btn) =>
+        btn.textContent?.includes("Weekend") &&
+        btn.getAttribute("role") === "radio",
+    );
+    expect(weekendToggle).toBeDefined();
+
+    act(() => {
+      weekendToggle?.click();
+    });
+
+    // The toggle should now show weekend mode
+    // Default heading should still be day-trip since we haven't applied yet
+    expect(container.textContent).toContain("home.topMatches");
+
+    // Click Find/Apply to see if weekend heading appears
+    const applyBtn = Array.from(container.querySelectorAll("button")).find(
+      (b) =>
+        b.textContent?.includes("home.find") ||
+        b.textContent?.includes("home.view") ||
+        b.textContent?.includes("home.update"),
+    );
+    act(() => {
+      applyBtn?.click();
+    });
+    // After applying, the heading should show weekend user matches
+    expect(container.textContent).toContain("Your best weekend getaways");
+  });
+});
+
+describe("formatCompactDateRange", () => {
+  it("same month renders Aug 8–9", () => {
+    expect(formatCompactDateRange("2026-08-08", "2026-08-09", "en")).toBe(
+      "Aug 8–9",
+    );
+  });
+
+  it("month rollover keeps both months", () => {
+    expect(formatCompactDateRange("2026-08-30", "2026-08-31", "en")).toBe(
+      "Aug 30–31",
+    );
+    expect(formatCompactDateRange("2026-09-30", "2026-10-01", "en")).toBe(
+      "Sep 30 – Oct 1",
+    );
+  });
+
+  it("year rollover renders Dec 31 – Jan 1", () => {
+    expect(formatCompactDateRange("2026-12-31", "2027-01-01", "en")).toBe(
+      "Dec 31 – Jan 1",
+    );
+  });
+
+  it("single date formats compactly", () => {
+    expect(formatCompactDate("2026-08-08", "en")).toBe("Aug 8");
+  });
+
+  it("Japanese range uses 8/8〜8/9", () => {
+    expect(formatCompactDateRange("2026-08-08", "2026-08-09", "ja")).toBe(
+      "8/8〜8/9",
+    );
+    expect(formatCompactDateRange("2026-12-31", "2027-01-01", "ja")).toBe(
+      "12/31〜1/1",
+    );
+  });
+});
+
+describe("weekend date capsule", () => {
+  it("keeps the compact visible label and the full range in aria/title", () => {
+    const container = renderHome();
+
+    // Switch to weekend and apply it.
+    const weekendToggle = Array.from(container.querySelectorAll("button")).find(
+      (btn) =>
+        btn.textContent?.includes("Weekend") &&
+        btn.getAttribute("role") === "radio",
+    );
+    act(() => weekendToggle?.click());
+    const applyBtn = Array.from(container.querySelectorAll("button")).find(
+      (b) => /home.find|home.view|home.update/.test(b.textContent ?? ""),
+    );
+    act(() => applyBtn?.click());
+
+    // Open the date picker and pick Sat, Aug 1 (the mock range starts 2026-08-01).
+    const rangeBtn = () =>
+      Array.from(container.querySelectorAll("button")).find((b) =>
+        b.querySelector(".lucide-calendar"),
+      );
+    act(() => rangeBtn()?.click());
+    const aug1Chip = Array.from(container.querySelectorAll("button")).find(
+      (b) => b.textContent?.includes("Sat, Aug 1"),
+    );
+    act(() => aug1Chip?.click());
+
+    const capsule = rangeBtn();
+    expect(capsule?.textContent).toContain("Aug 1–2");
+    expect(capsule?.getAttribute("aria-label")).toContain("Sat, Aug 1");
+    expect(capsule?.getAttribute("aria-label")).toContain("Sun, Aug 2");
+    expect(capsule?.getAttribute("title")).toBe(
+      capsule?.getAttribute("aria-label"),
+    );
   });
 });

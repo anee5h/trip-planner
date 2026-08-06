@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import type { User } from "@supabase/supabase-js";
 import type { BudgetTier } from "@/shared/types/planner";
+import type { TripMode } from "@/shared/services/recommendation/RecommendationContext";
 import {
   getPlannerBudgetLimit,
   type HomepageTripDuration,
@@ -13,6 +14,11 @@ import {
   getDefaultTripDuration,
   type ForecastDateSelection,
 } from "../services/DefaultDurationPolicy";
+import {
+  ACCOMMODATION_ALLOWANCE_PRESETS,
+  isValidAccommodationAllowance,
+  MAX_ACCOMMODATION_ALLOWANCE,
+} from "@/shared/services/budget/BudgetService";
 
 export const DEFAULT_PLANNER_BUDGET_TIER: BudgetTier = "standard";
 
@@ -22,6 +28,8 @@ export interface PlannerControlsState {
   partySize: number;
   budgetTier: BudgetTier;
   transportPreference: TransportPreference;
+  tripMode: TripMode;
+  accommodationAllowance: number;
 }
 
 export interface ResolvedPlannerState extends PlannerControlsState {
@@ -48,6 +56,8 @@ export function useTripPlannerState(
     partySize: 2,
     budgetTier: DEFAULT_PLANNER_BUDGET_TIER,
     transportPreference: "public",
+    tripMode: "day_trip",
+    accommodationAllowance: ACCOMMODATION_ALLOWANCE_PRESETS.standard,
   });
 
   const [appliedState, setAppliedState] = useState<PlannerControlsState>({
@@ -56,6 +66,8 @@ export function useTripPlannerState(
     partySize: 2,
     budgetTier: DEFAULT_PLANNER_BUDGET_TIER,
     transportPreference: "public",
+    tripMode: "day_trip",
+    accommodationAllowance: ACCOMMODATION_ALLOWANCE_PRESETS.standard,
   });
 
   const [hasUserApplied, setHasUserApplied] = useState(false);
@@ -84,7 +96,9 @@ export function useTripPlannerState(
       draftState.tripDuration !== appliedState.tripDuration ||
       draftState.partySize !== appliedState.partySize ||
       draftState.budgetTier !== appliedState.budgetTier ||
-      draftState.transportPreference !== appliedState.transportPreference
+      draftState.transportPreference !== appliedState.transportPreference ||
+      draftState.tripMode !== appliedState.tripMode ||
+      draftState.accommodationAllowance !== appliedState.accommodationAllowance
     );
   }, [draftState, appliedState]);
 
@@ -103,6 +117,8 @@ export function useTripPlannerState(
         state.budgetTier,
         state.partySize,
         state.tripDuration,
+        state.tripMode,
+        state.accommodationAllowance,
       );
       return {
         ...state,
@@ -149,6 +165,20 @@ export function useTripPlannerState(
     [],
   );
 
+  const setTripMode = useCallback((tripMode: TripMode) => {
+    setDraftState((prev) => ({ ...prev, tripMode }));
+  }, []);
+
+  const setAccommodationAllowance = useCallback((value: number) => {
+    if (isValidAccommodationAllowance(value)) {
+      setDraftState((prev) => ({ ...prev, accommodationAllowance: value }));
+      return;
+    }
+    // Clamp to nearest valid bound
+    const nearest = value < 0 ? 0 : MAX_ACCOMMODATION_ALLOWANCE;
+    setDraftState((prev) => ({ ...prev, accommodationAllowance: nearest }));
+  }, []);
+
   return {
     // Draft control values & setters
     draftState,
@@ -163,6 +193,10 @@ export function useTripPlannerState(
     setBudgetTier,
     transportPreference: draftState.transportPreference,
     setTransportPreference,
+    tripMode: draftState.tripMode,
+    setTripMode,
+    accommodationAllowance: draftState.accommodationAllowance,
+    setAccommodationAllowance,
 
     // Resolved draft & applied states
     resolvedDraft,

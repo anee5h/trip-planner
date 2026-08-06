@@ -18,7 +18,7 @@ const destination = {
 const TOKYO = { lat: 35.6812, lng: 139.7671 };
 
 describe("getFastestPreferredTransport", () => {
-  it("chooses the fastest enabled mode and pairs its estimate with that mode", () => {
+  it("chooses the fastest verified origin-aware mode and pairs its estimate with that mode", () => {
     const preferred = getFastestPreferredTransport(
       destination,
       "rental",
@@ -28,14 +28,16 @@ describe("getFastestPreferredTransport", () => {
       "mainland-honshu",
     );
 
+    // tokyo ↔ kanagawa train corridor [50, 90] is the only verified
+    // origin-aware duration; car/bus have no verified corridor.
     expect(preferred).toMatchObject({
-      mode: "car",
-      timeRange: [70, 70],
+      mode: "train",
+      timeRange: [50, 90],
     });
     expect(preferred?.estimatedBudget).toBeGreaterThan(0);
   });
 
-  it("does not select a faster mode that the traveller has disabled", () => {
+  it("does not select a mode the traveller has disabled or that lacks a verified duration", () => {
     const preferred = getFastestPreferredTransport(
       destination,
       "none",
@@ -46,7 +48,7 @@ describe("getFastestPreferredTransport", () => {
     );
 
     expect(preferred?.mode).toBe("train");
-    expect(preferred?.timeRange).toEqual([95, 95]);
+    expect(preferred?.timeRange).toEqual([50, 90]);
   });
 
   it("returns null when no authorized mode exists", () => {

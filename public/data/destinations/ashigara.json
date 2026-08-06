@@ -1,6 +1,7 @@
 {
   "id": "ashigara",
   "name": "Ashigara",
+  "kind": "mountain",
   "region": "Kanto",
   "categories": ["Nature", "Mountain"],
   "tags": ["Hiking", "Quiet"],

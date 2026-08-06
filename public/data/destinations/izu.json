@@ -1,6 +1,7 @@
 {
   "id": "izu",
   "name": "Izu Peninsula",
+  "kind": "nature",
   "region": "Chubu",
   "categories": ["Coast", "Hot Spring"],
   "tags": ["Beaches", "Onsen", "Scuba"],

@@ -260,3 +260,59 @@ export function getTabWeatherSummary(
     icon: chosenDay.icon,
   };
 }
+
+/**
+ * Returns the next local calendar date after the given YYYY-MM-DD date,
+ * handling month-end, year-end and leap-day rollover. Local calendar
+ * arithmetic (no UTC shift bugs): parse as local Date, add 1 day, format
+ * with the existing formatDateISO helper. Throws on malformed input.
+ */
+export function getNextCalendarDate(isoDate: string): string {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(isoDate);
+  if (!m) {
+    throw new Error(`Invalid ISO date: ${isoDate}`);
+  }
+  const year = parseInt(m[1], 10);
+  const month = parseInt(m[2], 10);
+  const day = parseInt(m[3], 10);
+  // Validate month/day ranges to catch e.g. 2026-13-01 and 2026-02-30
+  // (Date would silently roll over; reject instead).
+  if (month < 1 || month > 12 || day < 1 || day > 31) {
+    throw new Error(`Invalid ISO date: ${isoDate}`);
+  }
+  const d = new Date(year, month - 1, day);
+  if (
+    d.getFullYear() !== year ||
+    d.getMonth() !== month - 1 ||
+    d.getDate() !== day
+  ) {
+    throw new Error(`Invalid ISO date: ${isoDate}`);
+  }
+  // Local calendar arithmetic — no UTC shift
+  d.setDate(d.getDate() + 1);
+  return formatDateISO(d);
+}
+
+/**
+ * Returns up to dayCount DayForecastData entries from forecastMap for the
+ * consecutive local calendar days starting at startIso (startIso + 0..dayCount-1).
+ * Dates missing from the map are SKIPPED (never fabricated); the result may
+ * contain fewer than dayCount entries (0..dayCount). Used for the weekend's
+ * Day 1 (selected date) and Day 2 (next calendar date) forecasts.
+ */
+export function getForecastDaysForRange(
+  forecastMap: ReadonlyMap<string, DayForecastData>,
+  startIso: string,
+  dayCount: number,
+): DayForecastData[] {
+  const result: DayForecastData[] = [];
+  let cursor = startIso;
+  for (let i = 0; i < dayCount; i++) {
+    const entry = forecastMap.get(cursor);
+    if (entry !== undefined) {
+      result.push(entry);
+    }
+    cursor = getNextCalendarDate(cursor);
+  }
+  return result;
+}

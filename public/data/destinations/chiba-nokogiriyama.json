@@ -1,6 +1,7 @@
 {
   "id": "chiba-nokogiriyama",
   "name": "Nokogiriyama",
+  "kind": "mountain",
   "prefecture": "Chiba",
   "region": "Kanto",
   "categories": ["History", "Hiking", "Nature"],

@@ -7,6 +7,8 @@ import { LazyImage } from "@/shared/components/ui/LazyImage";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
+import { formatWeekendMinutes } from "@/shared/services/recommendation/WeekendAreaPolicy";
+import { buildTokyoWardsLink } from "@/shared/services/recommendation/TokyoWardsConsolidation";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { useTranslation } from "react-i18next";
 import {
@@ -15,6 +17,8 @@ import {
 } from "@/shared/utils/placeLabels";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
+import type { ScoredDestination } from "@/shared/services/recommendation/RecommendationTypes";
+import { Sun, Cloud, CloudRain, CloudSnow, CloudLightning } from "lucide-react";
 
 interface HomeMatchCardProps {
   destination: Destination;
@@ -55,7 +59,12 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   const { t } = useTranslation();
   const { homeStationCoords, homeStationTransportZoneId } = useTripStore();
   const localized = getLocalizedPlace(destination, locale);
-  const { title, subtitle } = parseCleanTitle(localized.name);
+  const wardGroup = (destination as ScoredDestination).wardGroup;
+  const parsedTitle = parseCleanTitle(localized.name);
+  const title = wardGroup
+    ? t("destination.tokyoWardsGroup")
+    : parsedTitle.title;
+  const subtitle = parsedTitle.subtitle;
   const areaAndCategory = [
     formatPrefecture(destination.prefecture, locale),
     destination.categories[0] &&
@@ -96,10 +105,58 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   };
   const TravelIcon = transportDisplay.Icon;
 
+  // Weekend metadata
+  const weekend = (destination as ScoredDestination).weekend;
+  // Prefer the most situation-specific weekend reason (weather > travel >
+  // capacity) over the generic "weekendTripReady" headline.
+  const weekendReason = weekend
+    ? ((destination as ScoredDestination).match?.reasons?.find((r) =>
+        r.code.startsWith("weekendWeather"),
+      ) ??
+      (destination as ScoredDestination).match?.reasons?.find((r) =>
+        r.code.startsWith("weekendTravel"),
+      ) ??
+      (destination as ScoredDestination).match?.reasons?.find((r) =>
+        r.code.startsWith("weekendCapacity"),
+      ) ??
+      (destination as ScoredDestination).match?.reasons?.find(
+        (r) => r.code === "weekendTripReady",
+      ))
+    : undefined;
+
+  const weatherIconForCondition = (condition: string): React.ElementType => {
+    switch (condition) {
+      case "clear":
+      case "sunny":
+        return Sun;
+      case "cloudy":
+        return Cloud;
+      case "rainy":
+        return CloudRain;
+      case "snowy":
+        return CloudSnow;
+      case "stormy":
+        return CloudLightning;
+      default:
+        return Cloud;
+    }
+  };
+  const cardHref = wardGroup
+    ? buildTokyoWardsLink(wardGroup.wardHubIds, wardGroup.tripMode)
+    : `/destinations/${destination.id}`;
+
   return (
     <Link
-      to={`/destinations/${destination.id}`}
-      state={travelDate ? { travelDate } : undefined}
+      to={cardHref}
+      state={{
+        ...(travelDate ? { travelDate } : {}),
+        ...(weekend
+          ? {
+              tripMode: "weekend_2d1n" as const,
+              accommodationAllowance: weekend.accommodationAllowance,
+            }
+          : {}),
+      }}
       className="group relative flex h-full flex-1 cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-md transition-all duration-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
     >
       <div className="relative aspect-[4/3] sm:h-48 sm:aspect-auto w-full overflow-hidden bg-slate-100 dark:bg-slate-800 shrink-0">
@@ -111,26 +168,39 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
 
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30" />
 
-        {/* Rank Badge - Show only when requested */}
-        {showRank && (
-          <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 bg-slate-900/90 text-white font-black text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/20 shadow-md flex items-center gap-1">
-            <span className="text-emerald-400 font-black">#{rank}</span>
+        {/* Rank + Weekend Badges - stacked in one flex column */}
+        <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 flex flex-col items-start gap-1">
+          {showRank && (
+            <div className="bg-slate-900/90 text-white font-black text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/20 shadow-md flex items-center gap-1">
+              <span className="text-emerald-400 font-black">#{rank}</span>
+            </div>
+          )}
+          {weekend && (
+            <div
+              className="bg-emerald-600/90 text-white font-bold text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full shadow-md"
+              aria-label={t("home.weekendBadge")}
+            >
+              {t("home.weekendBadge")}
+            </div>
+          )}
+        </div>
+
+        {/* Bucket List Action - Stops Propagation; hidden for the virtual
+            Tokyo 23 Wards group (it is not a real catalogue destination). */}
+        {!wardGroup && (
+          <div
+            className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10 scale-90 sm:scale-100"
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+            }}
+          >
+            <BucketListButton
+              destinationId={destination.id}
+              destinationName={localized.name}
+            />
           </div>
         )}
-
-        {/* Bucket List Action - Stops Propagation */}
-        <div
-          className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10 scale-90 sm:scale-100"
-          onClick={(e) => {
-            e.stopPropagation();
-            e.preventDefault();
-          }}
-        >
-          <BucketListButton
-            destinationId={destination.id}
-            destinationName={localized.name}
-          />
-        </div>
       </div>
 
       <div className="flex flex-1 flex-col justify-between p-3 sm:p-4">
@@ -146,9 +216,77 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
         </div>
 
         <div className="mt-auto pt-2">
+          {/* Trip-area line: wards · places · capacity, travel time */}
+          {(weekend || wardGroup) && (
+            <p className="line-clamp-1 text-[9px] font-semibold text-emerald-600 dark:text-emerald-400 mt-1">
+              {[
+                wardGroup &&
+                  t("destination.tokyoWardsCount", {
+                    count: wardGroup.wardCount,
+                  }),
+                (weekend?.placeCount ?? wardGroup?.placeCount ?? 0) > 0 &&
+                  t("home.places", {
+                    count: weekend?.placeCount ?? wardGroup?.placeCount ?? 0,
+                  }),
+                weekend &&
+                  (weekend.capacity.activityMinutes >= 600
+                    ? t("destination.tripAreas.plentyForTwoDays")
+                    : t("destination.tripAreas.readyForTwoDays")),
+              ]
+                .filter(Boolean)
+                .join(" · ")}
+              {weekend?.travelFit.oneWayMinutes !== undefined &&
+                bestTransport?.mode && (
+                  <span className="text-slate-500">
+                    {" "}
+                    ·{" "}
+                    {t("destination.tripAreas.travelBy", {
+                      time: formatWeekendMinutes(
+                        weekend.travelFit.oneWayMinutes,
+                        locale,
+                      ),
+                      mode: transportDisplay.label,
+                    })}
+                  </span>
+                )}
+            </p>
+          )}
+
+          {/* Weekend reason line */}
+          {weekendReason && (
+            <p className="line-clamp-1 text-[9px] font-semibold text-emerald-600 dark:text-emerald-400 mt-1">
+              {t(`recommendation.reasons.${weekendReason.code}.title`, {
+                ...(weekendReason.params ?? {}),
+              })}
+            </p>
+          )}
+
           <p className="line-clamp-1 text-[10px] font-semibold text-slate-500 dark:text-slate-400 sm:text-xs">
             {areaAndCategory}
           </p>
+
+          {/* Weekend Day 1 / Day 2 weather chips */}
+          {weekend?.weatherDays && weekend.weatherDays.length > 0 && (
+            <div className="mt-1 flex items-center gap-1.5 flex-wrap">
+              {weekend.weatherDays.slice(0, 2).map((day, idx) => {
+                const DayIcon = weatherIconForCondition(day.condition);
+                return (
+                  <span
+                    key={idx}
+                    className="inline-flex items-center gap-0.5 text-[9px] font-semibold text-slate-500 dark:text-slate-400"
+                    aria-label={t(
+                      idx === 0 ? "home.day1Label" : "home.day2Label",
+                    )}
+                  >
+                    <DayIcon className="w-3 h-3 shrink-0" />
+                    {day.temperatureC != null && (
+                      <span>{day.temperatureC}°</span>
+                    )}
+                  </span>
+                );
+              })}
+            </div>
+          )}
 
           <div className="mt-2 flex flex-wrap items-center gap-1.5 text-[10px] font-semibold text-slate-500 dark:text-slate-400 sm:text-xs">
             <span className="flex items-center gap-1 truncate">

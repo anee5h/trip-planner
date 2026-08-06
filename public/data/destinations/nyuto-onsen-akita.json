@@ -1,6 +1,7 @@
 {
   "id": "nyuto-onsen-akita",
   "name": "Nyuto Onsen",
+  "kind": "onsen",
   "nameJa": "乳頭温泉郷",
   "prefecture": "Akita",
   "region": "Tohoku",

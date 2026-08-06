@@ -32,9 +32,15 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
     }
   }, [recommendations, appliedState]);
 
-  const headingText = hasUserApplied
-    ? t("home.yourMatches")
-    : t("home.topMatches");
+  const isWeekend = appliedState.tripMode === "weekend_2d1n";
+
+  const headingText = isWeekend
+    ? hasUserApplied
+      ? t("home.weekendYourMatches")
+      : t("home.weekendMatches")
+    : hasUserApplied
+      ? t("home.yourMatches")
+      : t("home.topMatches");
 
   // Serializes applied filters to search params without serializing actual forecast weather
   const searchParamsString = serializePlannerSearchParams({
@@ -45,7 +51,11 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
     budget: appliedState.budget,
     carMode: appliedState.carMode,
     publicModes: appliedState.publicModes,
+    tripMode: appliedState.tripMode,
+    accommodationAllowance: appliedState.accommodationAllowance,
   });
+
+  const isEmpty = recommendations.length === 0;
 
   return (
     <section
@@ -73,29 +83,40 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
         </div>
 
         {/* Top 5 Recommendations Horizontal Scroll Rail */}
-        <div
-          ref={railRef}
-          className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 py-2 scrollbar-none sm:mx-0 sm:gap-4 sm:px-0"
-        >
-          {topFive.map((dest, index) => (
-            <div
-              key={dest.id}
-              className="flex h-full w-[46vw] min-w-[160px] max-w-[180px] shrink-0 snap-start flex-col sm:w-[250px] sm:min-w-[250px] sm:max-w-[250px]"
-            >
-              <HomeMatchCard
-                destination={dest}
-                rank={index + 1}
-                showRank={true}
-                partySize={appliedState.partySize}
-                carMode={appliedState.carMode}
-                publicModes={appliedState.publicModes}
-                travelDate={travelDate}
-              />
-            </div>
-          ))}
-          {/* Rail Trailing Padding Element for Mobile */}
-          <div className="w-1 shrink-0 sm:hidden" />
-        </div>
+        {isEmpty && isWeekend ? (
+          <div className="flex flex-col items-center justify-center py-10 px-4 text-center">
+            <h3 className="text-lg font-extrabold text-slate-700 dark:text-slate-300 mb-2">
+              {t("home.weekendNoResultsTitle")}
+            </h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-md">
+              {t("home.weekendNoResultsBody")}
+            </p>
+          </div>
+        ) : (
+          <div
+            ref={railRef}
+            className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 py-2 scrollbar-none sm:mx-0 sm:gap-4 sm:px-0"
+          >
+            {topFive.map((dest, index) => (
+              <div
+                key={dest.id}
+                className="flex h-full w-[46vw] min-w-[160px] max-w-[180px] shrink-0 snap-start flex-col sm:w-[250px] sm:min-w-[250px] sm:max-w-[250px]"
+              >
+                <HomeMatchCard
+                  destination={dest}
+                  rank={index + 1}
+                  showRank={true}
+                  partySize={appliedState.partySize}
+                  carMode={appliedState.carMode}
+                  publicModes={appliedState.publicModes}
+                  travelDate={travelDate}
+                />
+              </div>
+            ))}
+            {/* Rail Trailing Padding Element for Mobile */}
+            <div className="w-1 shrink-0 sm:hidden" />
+          </div>
+        )}
       </div>
     </section>
   );

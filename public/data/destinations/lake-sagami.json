@@ -1,6 +1,7 @@
 {
   "id": "lake-sagami",
   "name": "Lake Sagami",
+  "kind": "lake",
   "region": "Kanto",
   "categories": ["Lake", "Nature", "Theme Park"],
   "tags": ["Illumination", "Outdoors"],

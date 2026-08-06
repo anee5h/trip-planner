@@ -5,6 +5,7 @@ import {
 } from "@/shared/services/transport/TransportTopologyService";
 import type { Destination } from "@/shared/types/destination";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
+import type { BudgetTier } from "@/shared/types/planner";
 import type { TransportMode } from "@/shared/services/transport/types";
 import {
   resolveRecommendationWeather,
@@ -14,6 +15,7 @@ import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService"
 import { getFixedSeason } from "@/shared/utils/season";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
+import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { personalizationService } from "./PersonalizationService";
 
@@ -84,7 +86,7 @@ export function getValidModes(
   carMode: string = "none",
   publicModes: string[] = [],
   homeCoords?: { lat: number; lng: number },
-  budgetTier?: import("@/shared/types/planner").BudgetTier,
+  _budgetTier?: BudgetTier,
   originZoneId?: TransportZoneId,
   ferryTemporal?: FerryTemporalContext,
 ): string[] {
@@ -151,30 +153,10 @@ export function getValidModes(
     if (selected.has(mode) && supported(mode)) validModes.push(mode);
   }
 
-  // e. Budget-tier preference applied last.
-  if (budgetTier) {
-    const carModes = validModes.filter(
-      (mode) => mode === "car" || mode === "my_car",
-    );
-    const publicTransportModes = validModes.filter(
-      (mode) => mode !== "car" && mode !== "my_car",
-    );
-    const hasMode = (mode: string) => publicTransportModes.includes(mode);
-    const choose = (preferred: string[], fallback: string[]) => {
-      const primary = preferred.filter(hasMode);
-      return primary.length > 0 ? primary : fallback.filter(hasMode);
-    };
-    const preferredPublicModes =
-      budgetTier === "economy"
-        ? choose(["train", "bus", "ferry"], ["shinkansen", "flight"])
-        : budgetTier === "standard"
-          ? choose(["train", "bus", "ferry"], ["shinkansen", "flight"])
-          : budgetTier === "comfortable"
-            ? choose(["shinkansen", "train", "bus", "ferry"], ["flight"])
-            : choose(["shinkansen", "flight", "train", "bus", "ferry"], []);
-    validModes = [...carModes, ...preferredPublicModes];
-  }
-
+  // No budget-tier mode deletion: a faster authorized mode (e.g. shinkansen)
+  // must survive for travel-time evaluation and for per-mode affordability.
+  // Budget tiers influence ranking and the affordability gate, never which
+  // authorized modes are evaluated.
   return validModes;
 }
 
@@ -251,20 +233,22 @@ export function calculateScore(
     }
 
     if (mode === "train") {
-      const time = dest.transportOptions?.train;
-      if (time) {
+      const estimate = getOriginAwareTransportEstimate(
+        dest,
+        {
+          homeStationCoords: context.homeStationCoords ?? undefined,
+          ferryTemporal: context.ferryTemporal,
+        },
+        ["train"],
+      );
+      if (estimate) {
         modeScore +=
-          SCORING_WEIGHTS.TRANSPORT_TRAIN_BASE + Math.max(0, 12 - time / 10);
+          SCORING_WEIGHTS.TRANSPORT_TRAIN_BASE +
+          Math.max(0, 12 - estimate.timeRange[0] / 10);
       }
     } else if (mode === "car" || mode === "my_car") {
-      const time =
-        mode === "my_car"
-          ? dest.transportOptions?.my_car
-          : dest.transportOptions?.car;
-      if (time) {
-        modeScore +=
-          SCORING_WEIGHTS.TRANSPORT_CAR_BASE + Math.max(0, 10 - time / 15);
-      }
+      // Car modes have no verified origin-aware duration registry; no bonus
+      // is fabricated from unprovenanced catalogue times.
     } else if (mode === "shinkansen") {
       modeScore += SCORING_WEIGHTS.TRANSPORT_SHINKANSEN_FLAT;
     } else if (mode === "bus") {
@@ -347,51 +331,54 @@ export function calculateScore(
       break;
   }
 
-  // Environmental Logic
-  const isRaining =
-    actual?.condition === "rainy" || actual?.condition === "stormy";
-  const isHot = actual?.temperatureC !== undefined && actual.temperatureC >= 30;
-  const isCold =
-    actual?.temperatureC !== undefined && actual.temperatureC <= 10;
+  // Environmental Logic — only applies to day trips; weekend weather is handled separately
+  if (context.tripMode !== "weekend_2d1n") {
+    const isRaining =
+      actual?.condition === "rainy" || actual?.condition === "stormy";
+    const isHot =
+      actual?.temperatureC !== undefined && actual.temperatureC >= 30;
+    const isCold =
+      actual?.temperatureC !== undefined && actual.temperatureC <= 10;
 
-  if (isRaining) {
-    const indoor = dest.indoorPercent || 0;
-    score += (indoor / 100) * SCORING_WEIGHTS.ENV_RAIN_INDOOR_MULTIPLIER;
-    if (indoor < 30) score -= SCORING_WEIGHTS.ENV_RAIN_POOR_INDOOR_PENALTY;
-  }
-  if (isHot) {
-    score += ratingScore(
-      (ratings.summer - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
-    );
-    if (ratings.summer <= 4)
-      score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
-  }
-  if (isCold) {
-    score += ratingScore(
-      (ratings.winter - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
-    );
-    if (ratings.winter <= 4)
-      score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
-  }
+    if (isRaining) {
+      const indoor = dest.indoorPercent || 0;
+      score += (indoor / 100) * SCORING_WEIGHTS.ENV_RAIN_INDOOR_MULTIPLIER;
+      if (indoor < 30) score -= SCORING_WEIGHTS.ENV_RAIN_POOR_INDOOR_PENALTY;
+    }
+    if (isHot) {
+      score += ratingScore(
+        (ratings.summer - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
+      );
+      if (ratings.summer <= 4)
+        score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
+    }
+    if (isCold) {
+      score += ratingScore(
+        (ratings.winter - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
+      );
+      if (ratings.winter <= 4)
+        score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
+    }
 
-  if (preferred === "rainy") {
-    const indoor = dest.indoorPercent || 0;
-    score += (indoor / 100) * SCORING_WEIGHTS.ENV_RAIN_INDOOR_MULTIPLIER;
-    if (indoor < 30) score -= SCORING_WEIGHTS.ENV_RAIN_POOR_INDOOR_PENALTY;
-  }
-  if (preferred === "hot") {
-    score += ratingScore(
-      (ratings.summer - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
-    );
-    if (ratings.summer <= 4)
-      score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
-  }
-  if (preferred === "cold") {
-    score += ratingScore(
-      (ratings.winter - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
-    );
-    if (ratings.winter <= 4)
-      score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
+    if (preferred === "rainy") {
+      const indoor = dest.indoorPercent || 0;
+      score += (indoor / 100) * SCORING_WEIGHTS.ENV_RAIN_INDOOR_MULTIPLIER;
+      if (indoor < 30) score -= SCORING_WEIGHTS.ENV_RAIN_POOR_INDOOR_PENALTY;
+    }
+    if (preferred === "hot") {
+      score += ratingScore(
+        (ratings.summer - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
+      );
+      if (ratings.summer <= 4)
+        score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
+    }
+    if (preferred === "cold") {
+      score += ratingScore(
+        (ratings.winter - 5) * SCORING_WEIGHTS.ENV_TEMP_MULTIPLIER,
+      );
+      if (ratings.winter <= 4)
+        score -= ratingScore(SCORING_WEIGHTS.ENV_TEMP_PENALTY);
+    }
   }
 
   // Calendar Season Scoring

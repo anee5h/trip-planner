@@ -49,7 +49,11 @@ function Harness() {
       partySize: 3,
       budgetTier: "economy",
       tripDuration: "halfDay",
+      tripMode: "day_trip",
+      accommodationAllowance: 0,
     },
+    tripMode: "day_trip",
+    accommodationAllowance: 0,
   });
   return null;
 }
@@ -74,7 +78,40 @@ function FallbackHarness() {
       partySize: 3,
       budgetTier: "economy",
       tripDuration: "halfDay",
+      tripMode: "day_trip",
+      accommodationAllowance: 0,
     },
+    tripMode: "day_trip",
+    accommodationAllowance: 0,
+  });
+  return null;
+}
+
+function WeekendHarness() {
+  latestRoulette = useTripRecommendations({
+    allDestinations: [],
+    actualWeather: { desc: "Clear", temperatureC: 22 },
+    vibe: "nature",
+    budget: 95_000,
+    carMode: "none",
+    publicModes: ["train"],
+    partySize: 2,
+    budgetTier: "standard",
+    tripDuration: "fullDay",
+    homeStationCoords: { lat: 35.68, lng: 139.76 },
+    isVisited: () => false,
+    rouletteConstraints: {
+      budget: 80_000,
+      carMode: "none",
+      publicModes: ["train"],
+      partySize: 2,
+      budgetTier: "standard",
+      tripDuration: "fullDay",
+      tripMode: "weekend_2d1n",
+      accommodationAllowance: 15000,
+    },
+    tripMode: "weekend_2d1n",
+    accommodationAllowance: 15000,
   });
   return null;
 }
@@ -85,6 +122,13 @@ describe("useTripRecommendations", () => {
     document.body.appendChild(host);
     root = createRoot(host);
     act(() => root!.render(<Harness />));
+
+    const mainContext = getRecommendations.mock.calls[0]?.[1];
+    expect(mainContext).toMatchObject({
+      vibe: "art",
+      tripMode: "day_trip",
+      accommodationAllowance: 0,
+    });
 
     const rouletteContext = getRecommendations.mock.calls[1]?.[1];
     expect(rouletteContext).toMatchObject({
@@ -127,5 +171,56 @@ describe("useTripRecommendations", () => {
     expect(rouletteContexts.some((context) => context.budget === 12_000)).toBe(
       true,
     );
+  });
+
+  it("passes tripMode and accommodationAllowance into recommendation context for weekend mode", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => root!.render(<WeekendHarness />));
+
+    const mainContext = getRecommendations.mock.calls[0]?.[1];
+    expect(mainContext).toMatchObject({
+      tripMode: "weekend_2d1n",
+      accommodationAllowance: 15000,
+    });
+
+    // Roulette context should also carry tripMode and accommodationAllowance
+    const rouletteContexts = getRecommendations.mock.calls
+      .slice(1)
+      .map(
+        ([, context]) =>
+          context as {
+            tripMode?: string;
+            accommodationAllowance?: number;
+            vibe?: string;
+          },
+      )
+      .filter((context) => context.vibe === "any");
+
+    expect(rouletteContexts.length).toBeGreaterThan(0);
+    for (const ctx of rouletteContexts) {
+      expect(ctx.tripMode).toBe("weekend_2d1n");
+      expect(ctx.accommodationAllowance).toBe(15000);
+    }
+  });
+
+  it("weekend roulette does not perform adjacent day-trip duration expansion", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => root!.render(<WeekendHarness />));
+
+    const rouletteContexts = getRecommendations.mock.calls
+      .slice(1)
+      .map(([, context]) => context as { tripDuration?: string; vibe?: string })
+      .filter((context) => context.vibe === "any");
+
+    expect(rouletteContexts.length).toBeGreaterThan(0);
+    for (const ctx of rouletteContexts) {
+      // Weekend mode evaluates exactly the selected duration — never the
+      // adjacent day-trip bands.
+      expect(ctx.tripDuration).toBe("fullDay");
+    }
   });
 });

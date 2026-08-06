@@ -22,6 +22,9 @@ import {
 } from "@/shared/utils/placeLabels";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useTranslation } from "react-i18next";
+import type { TripMode } from "@/shared/services/recommendation/RecommendationContext";
+import type { ScoredDestination } from "@/shared/services/recommendation/RecommendationTypes";
+import { buildTokyoWardsLink } from "@/shared/services/recommendation/TokyoWardsConsolidation";
 
 interface RouletteModalProps {
   isOpen: boolean;
@@ -31,8 +34,26 @@ interface RouletteModalProps {
   carMode?: string;
   publicModes?: string[];
   tripDuration?: "shortOuting" | "halfDay" | "fullDay";
+  /** The same trip mode the candidate pool was built with. */
+  tripMode?: TripMode;
   expansion?: "exact" | "duration" | "budget";
 }
+
+const DAY_TRIP_DURATION_LABELS = {
+  shortOuting: "home.durations.shortOuting",
+  halfDay: "home.durations.halfDay",
+  fullDay: "home.durations.fullDay",
+} as const;
+
+const MODE_LABELS = {
+  train: "home.transportModes.train",
+  shinkansen: "home.transportModes.shinkansen",
+  bus: "home.transportModes.bus",
+  flight: "home.transportModes.flight",
+  ferry: "home.transportModes.ferry",
+  car: "home.transportModes.car",
+  my_car: "home.transportModes.my_car",
+} as const;
 
 export default function RouletteModal({
   isOpen,
@@ -42,6 +63,7 @@ export default function RouletteModal({
   carMode,
   publicModes,
   tripDuration = "halfDay",
+  tripMode = "day_trip",
   expansion = "exact",
 }: RouletteModalProps) {
   const { locale } = useLocale();
@@ -119,20 +141,51 @@ export default function RouletteModal({
     ? getLocalizedPlace(displayedCandidate, locale)
     : null;
 
-  const bestTransport = displayedCandidate
-    ? getFastestPreferredTransport(
-        displayedCandidate,
-        carMode,
-        publicModes,
-        partySize,
-        homeStationCoords || undefined,
-        homeStationTransportZoneId,
-      )
-    : null;
+  // The candidate's evaluated origin-aware estimate (the same one used for
+  // ranking and budget) — roulette never recomputes travel from raw
+  // destination.transportOptions. Defensive fallback only for candidates
+  // that did not come from the recommendation pipeline.
+  const scoredCandidate = displayedCandidate as ScoredDestination;
+  const pipelineEstimate = scoredCandidate?.transportEstimate;
+  const bestTransport = pipelineEstimate
+    ? {
+        mode: pipelineEstimate.mode,
+        timeRange: pipelineEstimate.timeRange,
+        estimatedBudget: 0,
+      }
+    : displayedCandidate
+      ? getFastestPreferredTransport(
+          displayedCandidate,
+          carMode,
+          publicModes,
+          partySize,
+          homeStationCoords || undefined,
+          homeStationTransportZoneId,
+        )
+      : null;
   const transportLabel = bestTransport
-    ? (t(`home.transportModes.${bestTransport.mode}` as never) as string)
+    ? (t(
+        MODE_LABELS[bestTransport.mode as keyof typeof MODE_LABELS] ??
+          "home.transportModes.travel",
+      ) as string)
     : t("home.transportModes.travel");
-  const durationLabel = t(`home.durations.${tripDuration}`) as string;
+  const isWeekend = tripMode === "weekend_2d1n";
+  const durationLabel = isWeekend
+    ? t("home.weekendBadge")
+    : (t(DAY_TRIP_DURATION_LABELS[tripDuration]) as string);
+  const weekendPlaceCount = isWeekend
+    ? (scoredCandidate?.weekend?.placeCount ?? 0)
+    : 0;
+  const wardGroup = scoredCandidate?.wardGroup;
+  const displayName =
+    wardGroup !== undefined
+      ? t("destination.tokyoWardsGroup")
+      : localized?.name || displayedCandidate?.name || "";
+  const detailHref = wardGroup
+    ? buildTokyoWardsLink(wardGroup.wardHubIds, wardGroup.tripMode)
+    : winner
+      ? `/destinations/${winner.id}`
+      : "/destinations";
   const locationLabel = displayedCandidate
     ? [
         formatPrefecture(displayedCandidate.prefecture, locale),
@@ -142,7 +195,6 @@ export default function RouletteModal({
         .filter(Boolean)
         .join(" · ")
     : "";
-  const displayName = localized?.name || displayedCandidate?.name || "";
 
   return (
     <div
@@ -244,6 +296,16 @@ export default function RouletteModal({
                   <span>{transportLabel}</span>
                   <span className="text-slate-300 dark:text-slate-600">·</span>
                   <span>{durationLabel}</span>
+                  {weekendPlaceCount > 0 && (
+                    <>
+                      <span className="text-slate-300 dark:text-slate-600">
+                        ·
+                      </span>
+                      <span>
+                        {t("home.places", { count: weekendPlaceCount })}
+                      </span>
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -260,11 +322,7 @@ export default function RouletteModal({
                 </Button>
 
                 {winner && (
-                  <Link
-                    to={`/destinations/${winner.id}`}
-                    onClick={onClose}
-                    className="flex-1"
-                  >
+                  <Link to={detailHref} onClick={onClose} className="flex-1">
                     <Button className="w-full h-12 rounded-2xl font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/25">
                       <span>{t("home.roulette.viewDetails")}</span>
                       <ArrowRight className="w-4 h-4 ml-2" />

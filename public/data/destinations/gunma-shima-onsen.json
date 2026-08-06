@@ -1,6 +1,7 @@
 {
   "id": "gunma-shima-onsen",
   "name": "Shima Onsen",
+  "kind": "onsen",
   "prefecture": "Gunma",
   "region": "Kanto",
   "categories": ["Relaxation", "Nature"],

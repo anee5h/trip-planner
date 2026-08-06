@@ -1,6 +1,7 @@
 {
   "id": "ibaraki-mount-tsukuba",
   "name": "Mount Tsukuba",
+  "kind": "mountain",
   "prefecture": "Ibaraki",
   "region": "Kanto",
   "categories": ["Hiking", "Nature"],

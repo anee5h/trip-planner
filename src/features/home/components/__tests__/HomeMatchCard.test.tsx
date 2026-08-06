@@ -8,6 +8,7 @@ import type { Destination } from "@/shared/types/destination";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
 import { formatTransportTime } from "@/shared/services/transport/formatters";
+import { HomeMatchCard } from "../HomeMatchCard";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -39,9 +40,17 @@ vi.mock("react-i18next", () => ({
   }),
 }));
 
-vi.mock("@/shared/services/place/PlaceCatalog", () => ({
-  getLocalizedPlace: (dest: Destination) => ({ name: dest.name }),
-}));
+vi.mock("@/shared/services/place/PlaceCatalog", async (importOriginal) => {
+  const actual =
+    await importOriginal<
+      typeof import("@/shared/services/place/PlaceCatalog")
+    >();
+  return {
+    ...actual,
+    // Keep origin resolution real (catalogue hubs); only localization is stubbed.
+    getLocalizedPlace: (dest: Destination) => ({ name: dest.name }),
+  };
+});
 
 vi.mock("@/shared/components/ui/BucketListButton", () => ({
   BucketListButton: () => null,
@@ -65,6 +74,7 @@ const seikoMuseum: Destination = {
   budgetMin: 0,
   budgetMax: 0,
   transportOptions: { train: 14 },
+  municipalityId: "Tokyo:chuo",
   coordinates: { lat: 35.6712, lng: 139.7645 },
   role: "standalone",
 } as unknown as Destination;
@@ -88,9 +98,10 @@ function bestTime(
 }
 
 describe("HomeMatchCard — origin-adjusted transport calculation (service level)", () => {
-  it("raw Seiko with an authorized origin displays the catalogue time", () => {
-    const time = bestTime(seikoMuseum, YOKOHAMA);
-    expect(time).toBe(14);
+  it("Seiko from Tokyo resolves via the verified metro corridor", () => {
+    // Tokyo:chiyoda → Tokyo:chuo train corridor [5, 15].
+    const time = bestTime(seikoMuseum, TOKYO);
+    expect(time).toBe(5);
   });
 
   it("raw Seiko without origin has no authorized transport", () => {
@@ -98,15 +109,59 @@ describe("HomeMatchCard — origin-adjusted transport calculation (service level
     expect(time).toBeNull();
   });
 
-  it("Tokyo and Yokohama origins both authorize the train mode", () => {
-    const tokyoTime = bestTime(seikoMuseum, TOKYO);
+  it("Yokohama origin uses the bidirectional kanagawa corridor", () => {
+    // tokyo ↔ kanagawa train corridor [50, 90].
     const yokohamaTime = bestTime(seikoMuseum, YOKOHAMA);
-    expect(tokyoTime).not.toBeNull();
-    expect(yokohamaTime).not.toBeNull();
+    expect(yokohamaTime).toBe(50);
   });
 });
 
 // ── Component render test ─────────────────────────────────────────────────────
+describe("HomeMatchCard — Tokyo 23 Wards group card", () => {
+  it("renders the group title, ward/place counts, and the filtered link", async () => {
+    const groupDestination = {
+      ...seikoMuseum,
+      id: "tokyo-23-wards",
+      name: "Tokyo 23 Wards",
+      wardGroup: {
+        memberCount: 2,
+        wardCount: 2,
+        placeCount: 32,
+        gatewayEstimate: {
+          mode: "shinkansen",
+          timeRange: [150, 270] as [number, number],
+          source: "verified_ground_route" as const,
+        },
+        memberIds: ["shinjuku-city", "shibuya-city"],
+        wardHubIds: ["shinjuku-city", "shibuya-city"],
+        tripMode: "weekend_2d1n" as const,
+      },
+    };
+
+    const host = document.createElement("div");
+    document.body.appendChild(host);
+    const root = createRoot(host);
+    await act(async () => {
+      root.render(
+        <HomeMatchCard
+          destination={groupDestination as unknown as Destination}
+          rank={1}
+        />,
+      );
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("destination.tokyoWardsGroup");
+    expect(text).toContain("destination.tokyoWardsCount");
+    const link = host.querySelector("a");
+    expect(link?.getAttribute("href")).toBe(
+      "/destinations?city=shinjuku-city&city=shibuya-city&tripMode=weekend_2d1n",
+    );
+    act(() => root.unmount());
+    host.remove();
+  });
+});
+
 describe("HomeMatchCard — rendered card time with Yokohama origin", () => {
   let host: HTMLDivElement;
   let root: Root;
@@ -122,7 +177,7 @@ describe("HomeMatchCard — rendered card time with Yokohama origin", () => {
     host.remove();
   });
 
-  it("rendered card shows the catalogue train time with an authorized origin", async () => {
+  it("rendered card never fabricates a time without a verified corridor", async () => {
     // Dynamically import to pick up mocks.
     const { HomeMatchCard } = await import("../HomeMatchCard");
 

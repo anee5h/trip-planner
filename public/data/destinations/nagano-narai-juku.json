@@ -1,6 +1,7 @@
 {
   "id": "nagano-narai-juku",
   "name": "Narai-juku",
+  "kind": "historic_town",
   "prefecture": "Nagano",
   "region": "Chubu",
   "categories": ["History", "Urban"],

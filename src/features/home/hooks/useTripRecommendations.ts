@@ -2,7 +2,11 @@ import { useMemo } from "react";
 import type { Destination } from "@/shared/types/destination";
 import { getRecommendations } from "@/shared/services/recommendation/RecommendationService";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
+import type {
+  TripDuration,
+  TripMode,
+  RecommendationWeatherDay,
+} from "@/shared/services/recommendation/RecommendationContext";
 import { normalizeWeatherDescription } from "@/shared/services/recommendation/RecommendationContext";
 import type { BudgetTier } from "@/shared/types/planner";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
@@ -59,7 +63,12 @@ interface UseTripRecommendationsProps {
     | "partySize"
     | "budgetTier"
     | "tripDuration"
+    | "tripMode"
+    | "accommodationAllowance"
   >;
+  weatherDays?: RecommendationWeatherDay[];
+  tripMode: TripMode;
+  accommodationAllowance: number;
 }
 
 export function useTripRecommendations({
@@ -78,6 +87,9 @@ export function useTripRecommendations({
   ferryTemporal,
   isVisited,
   rouletteConstraints,
+  tripMode,
+  accommodationAllowance,
+  weatherDays,
 }: UseTripRecommendationsProps) {
   const { destinationRatings } = useTripStore();
   const visitedIds = useMemo(
@@ -104,12 +116,15 @@ export function useTripRecommendations({
             }
           : undefined,
         preferred: preferredWeather,
+        days: tripMode === "weekend_2d1n" ? weatherDays : undefined,
       },
       visitedIds,
       homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
       originZoneId: homeStationTransportZoneId,
       tripDuration,
       ferryTemporal,
+      tripMode,
+      accommodationAllowance,
     });
   }, [
     allDestinations,
@@ -127,6 +142,9 @@ export function useTripRecommendations({
     ferryTemporal,
     destinationRatings,
     visitedIds,
+    tripMode,
+    accommodationAllowance,
+    weatherDays,
   ]);
 
   const roulette = useMemo(() => {
@@ -137,6 +155,8 @@ export function useTripRecommendations({
       partySize,
       budgetTier,
       tripDuration,
+      tripMode,
+      accommodationAllowance,
     };
     const getPool = (budgetLimit: number, durations: TripDuration[]) =>
       uniqueCandidates(
@@ -155,6 +175,7 @@ export function useTripRecommendations({
                     temperatureC: actualWeather.temperatureC,
                   }
                 : undefined,
+              days: tripMode === "weekend_2d1n" ? weatherDays : undefined,
             },
             visitedIds,
             homeStationCoords: homeStationCoords || {
@@ -165,9 +186,20 @@ export function useTripRecommendations({
             userRatings: destinationRatings,
             tripDuration: duration,
             ferryTemporal,
+            tripMode: constraints.tripMode,
+            accommodationAllowance: constraints.accommodationAllowance,
           }),
         ),
       );
+
+    // Weekend mode: no adjacent-duration expansion
+    const durations =
+      constraints.tripMode === "weekend_2d1n"
+        ? [constraints.tripDuration]
+        : [
+            constraints.tripDuration,
+            ...adjacentDurations(constraints.tripDuration),
+          ];
 
     const exact = getPool(constraints.budget, [constraints.tripDuration]);
     if (exact.length >= MIN_EXACT_ROULETTE_CANDIDATES) {
@@ -177,10 +209,6 @@ export function useTripRecommendations({
       };
     }
 
-    const durations = [
-      constraints.tripDuration,
-      ...adjacentDurations(constraints.tripDuration),
-    ];
     const durationExpanded = getPool(constraints.budget, durations);
     if (durationExpanded.length >= TARGET_ROULETTE_CANDIDATES) {
       return {
@@ -210,6 +238,8 @@ export function useTripRecommendations({
     publicModes,
     rouletteConstraints,
     tripDuration,
+    tripMode,
+    accommodationAllowance,
     visitedIds,
   ]);
 

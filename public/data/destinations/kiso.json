@@ -1,6 +1,7 @@
 {
   "id": "kiso",
   "name": "Kiso Valley",
+  "kind": "nature",
   "region": "Chubu",
   "categories": ["Town", "History", "Mountain"],
   "tags": ["Nakasendo", "Post Towns", "Tsumago"],

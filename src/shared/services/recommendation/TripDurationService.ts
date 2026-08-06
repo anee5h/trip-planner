@@ -1,6 +1,5 @@
 import type { Destination } from "@/shared/types/destination";
-import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
-import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
+import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import type {
   RecommendationContext,
   TripDuration,
@@ -13,6 +12,7 @@ export interface TripDurationEstimate {
   representativeHours: number;
   band: TripDuration;
   mode?: string;
+  bestTravelMinutes?: number;
   isImpossible?: boolean;
   isBorderline?: boolean;
   warningMessage?: {
@@ -26,6 +26,33 @@ export function getBand(hours: number): TripDuration {
   if (hours < 7.5) return "halfDay";
   if (hours <= 14) return "fullDay";
   return "weekend";
+}
+
+/**
+ * Pure visit-duration band using only published recommendedVisitHours.
+ * Changing origin must not change the result.
+ */
+export type VisitDuration = Exclude<TripDuration, "weekend">;
+
+export function getVisitBand(destination: Destination): VisitDuration | null {
+  if (!destination.recommendedVisitHours) return null;
+  const hours =
+    (destination.recommendedVisitHours.min +
+      destination.recommendedVisitHours.max) /
+    2;
+  if (hours < 2.5) return "shortOuting";
+  if (hours < 5) return "halfDay";
+  return "fullDay";
+}
+
+export function matchesVisitDuration(
+  destination: Destination,
+  requested: TripDuration,
+): boolean {
+  if (requested === "any") return true;
+  if (requested === "weekend") return true; // trip-mode gate handles this
+  const band = getVisitBand(destination);
+  return band === requested;
 }
 
 export function formatTripDurationLabel(
@@ -61,6 +88,30 @@ export function formatTripDurationLabel(
   }
 }
 
+/**
+ * Returns the fastest verified origin-aware one-way travel time (midpoint of
+ * the estimate range) for a destination across all authorised transport
+ * modes. Returns `undefined` when no origin-aware duration exists — the
+ * caller must then exclude the candidate from personalized matching, never
+ * fall back to unprovenanced `transportOptions` values.
+ */
+export function getBestOneWayTravelMinutes(
+  destination: Destination,
+  context: TripDurationContext | RecommendationContext,
+  modes: string[],
+): number | undefined {
+  const estimate = getOriginAwareTransportEstimate(
+    destination,
+    {
+      homeStationCoords: context.homeStationCoords ?? undefined,
+      ferryTemporal: context.ferryTemporal,
+    },
+    modes,
+  );
+  if (!estimate) return undefined;
+  return Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2);
+}
+
 export function estimateTripDuration(
   destination: Destination,
   context: TripDurationContext | RecommendationContext,
@@ -76,46 +127,26 @@ export function estimateTripDuration(
   let totalRangeHours: [number, number];
   let representativeHours: number;
   let bestMode: string | undefined;
+  let bestTravelMinutes: number | undefined;
 
   if (!context.homeStationCoords) {
     totalRangeHours = visitRange;
     representativeHours = (visitRange[0] + visitRange[1]) / 2;
   } else {
-    let bestTravelMinutes: number | undefined;
-    for (const mode of modes) {
-      let minutes =
-        destination.transportOptions?.[
-          mode as keyof typeof destination.transportOptions
-        ];
-      if (mode === "flight") {
-        const estimate = getFlightTransportEstimate(
-          destination,
-          context.homeStationCoords || undefined,
-        );
-        minutes = estimate
-          ? (estimate.timeRange[0] + estimate.timeRange[1]) / 2
-          : undefined;
-      }
-      if (mode === "ferry") {
-        const estimate = getFerryTransportEstimate(
-          destination,
-          context.homeStationCoords || undefined,
-          context.ferryTemporal,
-        );
-        minutes = estimate
-          ? (estimate.timeRange[0] + estimate.timeRange[1]) / 2
-          : undefined;
-      }
-      if (
-        minutes !== undefined &&
-        (bestTravelMinutes === undefined || minutes < bestTravelMinutes)
-      ) {
-        bestTravelMinutes = minutes;
-        bestMode = mode;
-      }
-    }
+    const estimate = getOriginAwareTransportEstimate(
+      destination,
+      {
+        homeStationCoords: context.homeStationCoords ?? undefined,
+        ferryTemporal: context.ferryTemporal,
+      },
+      modes,
+    );
 
-    if (bestTravelMinutes === undefined) return null;
+    if (!estimate) return null;
+    bestMode = estimate.mode;
+    bestTravelMinutes = Math.round(
+      (estimate.timeRange[0] + estimate.timeRange[1]) / 2,
+    );
     const bufferHours =
       ((destination.travelBuffers?.transferMinutes ?? 0) +
         (destination.travelBuffers?.ferryMinutes ?? 0)) /
@@ -161,6 +192,7 @@ export function estimateTripDuration(
     representativeHours,
     band: getBand(representativeHours),
     mode: bestMode,
+    bestTravelMinutes,
     isImpossible,
     isBorderline,
     warningMessage,

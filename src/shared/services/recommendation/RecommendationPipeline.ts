@@ -4,7 +4,7 @@ import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
 import {
   estimateTripDuration,
-  matchesTripDurationEstimate,
+  matchesVisitDuration,
 } from "./TripDurationService";
 import { createRecommendationMatch } from "./RecommendationExplainability";
 import {
@@ -13,6 +13,15 @@ import {
   getValidModes,
 } from "./RecommendationScorer";
 import type { PipelineRecommendation } from "./RecommendationTypes";
+import { evaluateWeekendCandidate } from "./WeekendPolicy";
+import type { WeekendCandidateEvaluation } from "./WeekendPolicy";
+import { resolveOriginMunicipalityId } from "./OriginAreaService";
+import { consolidateTokyoWards } from "./TokyoWardsConsolidation";
+import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import {
+  consolidateWeekendAreas,
+  type WeekendAreaConsolidation,
+} from "./WeekendAreaPolicy";
 
 function coordinatesWithinOneKm(
   a: PipelineRecommendation,
@@ -126,9 +135,22 @@ export function runRecommendationPipeline(
   destinations: Destination[],
   context: RecommendationContext,
 ): PipelineRecommendation[] {
+  const tripMode = context.tripMode ?? "day_trip";
+  const isWeekend = tripMode === "weekend_2d1n";
+  // Resolved for every mode: weekend uses it for the origin-local
+  // exclusion, and the Tokyo wards consolidation uses the origin region.
+  const originMunicipalityId = resolveOriginMunicipalityId(
+    context.homeStationCoords ?? undefined,
+    destinations,
+  );
+
   const candidates = destinations.map((destination) =>
     buildRecommendationCandidate(destination, context),
   );
+
+  // Cache weekend evaluations keyed by destination id
+  const weekendEvalCache = new Map<string, WeekendCandidateEvaluation>();
+
   const eligible = candidates.filter((destination) => {
     if (!destination.id || context.visitedIds.includes(destination.id))
       return false;
@@ -142,9 +164,26 @@ export function runRecommendationPipeline(
       context.ferryTemporal,
     );
     if (modes.length === 0) return false;
+
     const durationEst = estimateTripDuration(destination, context, modes);
-    if (!matchesTripDurationEstimate(durationEst, context.tripDuration))
-      return false;
+
+    // Weekend mode: skip duration-band match; use evaluateWeekendCandidate.
+    // Day-trip mode uses pure visit-duration matching (origin must not change
+    // the time-at-destination classification).
+    if (isWeekend) {
+      const eval_ = evaluateWeekendCandidate(
+        destination,
+        context,
+        candidates,
+        modes,
+        originMunicipalityId,
+      );
+      weekendEvalCache.set(destination.id, eval_);
+      if (!eval_.eligible) return false;
+    } else {
+      if (!matchesVisitDuration(destination, context.tripDuration ?? "any"))
+        return false;
+    }
 
     if (context.budgetTier === "luxury") return true;
 
@@ -177,60 +216,139 @@ export function runRecommendationPipeline(
     return true;
   });
 
-  const scored = eligible.map((candidate) => {
-    const scoreResult = calculateScore(candidate, context);
-    const match = createRecommendationMatch(
-      candidate,
-      context,
-      scoreResult.score,
-    );
-    const durationEstimate = estimateTripDuration(
-      candidate,
-      context,
-      getValidModes(
-        candidate,
-        context.carMode,
-        context.publicModes,
-        context.homeStationCoords || undefined,
-        context.budgetTier,
-        context.originZoneId,
-        context.ferryTemporal,
-      ),
-    );
-    const budgetResult = getEstimatedBudgetRange(
-      candidate,
-      scoreResult.bestMode || "train",
-      context.partySize,
-      context.budgetTier,
-      durationEstimate?.representativeHours,
-      context.homeStationCoords || undefined,
-      context.ferryTemporal,
-    );
-    const estimatedCostRange = budgetResult.range;
-    const estimatedCostTransportIncluded = budgetResult.transportIncluded;
+  // Hub-first consolidation: 2D1N primary results are coherent trip areas
+  // (hubs / standalone areas); child POIs and standalone POIs are dropped.
+  let weekendAreas: WeekendAreaConsolidation | undefined;
+  if (isWeekend) {
+    weekendAreas = consolidateWeekendAreas(eligible, candidates);
+  }
+  const weekendPrimaryIds = weekendAreas
+    ? new Set(weekendAreas.areas.map((area) => area.id))
+    : null;
 
-    return {
-      ...candidate,
-      score: scoreResult.score,
-      match,
-      bestTransportMode: scoreResult.bestMode,
-      estimatedCostRange,
-      estimatedCostTransportIncluded,
-      pipeline: {
-        eligible: true,
-        estimatedCost: estimatedCostRange[0],
+  const scored = eligible
+    .filter(
+      (candidate) =>
+        !isWeekend || (weekendPrimaryIds?.has(candidate.id) ?? false),
+    )
+    .map((candidate) => {
+      const scoreResult = calculateScore(candidate, context);
+      const weekend = isWeekend
+        ? weekendEvalCache.get(candidate.id)
+        : undefined;
+      const totalScore = scoreResult.score + (weekend?.scoreDelta ?? 0);
+      const match = createRecommendationMatch(candidate, context, totalScore);
+
+      // Append weekend reasons
+      if (weekend) {
+        match.reasons.push(...weekend.reasons);
+      }
+
+      const durationEstimate = estimateTripDuration(
+        candidate,
+        context,
+        getValidModes(
+          candidate,
+          context.carMode,
+          context.publicModes,
+          context.homeStationCoords || undefined,
+          context.budgetTier,
+          context.originZoneId,
+          context.ferryTemporal,
+        ),
+      );
+      // The exact estimate used for ranking/budget; cards and roulette read
+      // it from the recommendation instead of recomputing transport.
+      const transportEstimate = getOriginAwareTransportEstimate(
+        candidate,
+        {
+          homeStationCoords: context.homeStationCoords ?? undefined,
+          ferryTemporal: context.ferryTemporal,
+        },
+        getValidModes(
+          candidate,
+          context.carMode,
+          context.publicModes,
+          context.homeStationCoords || undefined,
+          context.budgetTier,
+          context.originZoneId,
+          context.ferryTemporal,
+        ),
+      );
+      const budgetResult = getEstimatedBudgetRange(
+        candidate,
+        scoreResult.bestMode || "train",
+        context.partySize,
+        context.budgetTier,
+        durationEstimate?.representativeHours,
+        context.homeStationCoords || undefined,
+        context.ferryTemporal,
+      );
+      const estimatedCostRange = budgetResult.range;
+      const estimatedCostTransportIncluded = budgetResult.transportIncluded;
+
+      // Append weekendTransportExcluded reason if applicable
+      if (weekend && !budgetResult.transportIncluded) {
+        match.reasons.push({
+          type: "Transport",
+          code: "weekendTransportExcluded",
+          title: "Transport Excluded",
+          description:
+            "Transport cost unavailable; total excludes origin transport",
+        });
+      }
+
+      // Build scoreContributions
+      const scoreContributions: Record<string, number> = {
+        total: totalScore,
+        transport: scoreResult.bestModeScore,
+      };
+      if (weekend) {
+        scoreContributions["weekendTravel"] = weekend.travelScore;
+        scoreContributions["weekendCapacity"] = weekend.capacityScore;
+        scoreContributions["weekendWeather"] = weekend.weatherScore;
+      }
+
+      return {
+        ...candidate,
+        score: totalScore,
+        match,
+        transportEstimate,
+        bestTransportMode: scoreResult.bestMode,
         estimatedCostRange,
         estimatedCostTransportIncluded,
-        bestTransportMode: scoreResult.bestMode,
-        scoreContributions: {
-          total: scoreResult.score,
-          transport: scoreResult.bestModeScore,
+        weekend: weekend
+          ? {
+              travelFit: weekend.travelFit,
+              capacity: weekend.capacity,
+              weatherDays: weekend.weatherDays,
+              accommodationAllowance: context.accommodationAllowance,
+              estimatedCostTransportIncluded,
+              areaKind: weekendAreas?.kindById.get(candidate.id),
+              placeCount: weekendAreas?.placeCountById.get(candidate.id) ?? 0,
+            }
+          : undefined,
+        pipeline: {
+          eligible: true,
+          estimatedCost: estimatedCostRange[0],
+          estimatedCostRange,
+          estimatedCostTransportIncluded,
+          bestTransportMode: scoreResult.bestMode,
+          scoreContributions,
+          confidence: calculateConfidence(totalScore),
+          reasons: match.reasons,
         },
-        confidence: calculateConfidence(scoreResult.score),
-        reasons: match.reasons,
-      },
-    } as PipelineRecommendation;
+      } as PipelineRecommendation;
+    });
+
+  // Conditional Tokyo 23 Wards consolidation: outside Kanto, eligible ward
+  // hubs collapse into one virtual super-hub result.
+  const consolidated = consolidateTokyoWards({
+    results: scored,
+    originPrefecture: originMunicipalityId?.split(":")[0]?.toLowerCase(),
+    pool: destinations,
+    tripMode,
   });
 
-  return diversifyRecommendations(scored);
+  return diversifyRecommendations(consolidated);
 }

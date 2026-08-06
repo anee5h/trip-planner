@@ -11,7 +11,12 @@ import { getDestinationList } from "@/shared/services/destination/DestinationSer
 import type { Destination } from "@/shared/types/destination";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
-import { getTabWeatherSummary } from "@/shared/services/weather/WeatherTabService";
+import {
+  getTabWeatherSummary,
+  getNextCalendarDate,
+  getForecastDaysForRange,
+} from "@/shared/services/weather/WeatherTabService";
+import { normalizeWeatherDescription } from "@/shared/services/recommendation/RecommendationContext";
 import RouletteModal from "@/features/home/components/RouletteModal";
 
 import { useTripPlannerState } from "@/features/home/hooks/useTripPlannerState";
@@ -25,6 +30,48 @@ import CollectionsRail from "./components/CollectionsRail";
 import UnexploredNearbyRail from "./components/UnexploredNearbyRail";
 import { useTranslation } from "react-i18next";
 import StationInput from "@/shared/components/StationInput";
+
+/**
+ * Compact single-date label: "Aug 8" / "8/8".
+ */
+export function formatCompactDate(
+  isoDate: string,
+  locale: "en" | "ja",
+): string {
+  const [year, month, day] = isoDate.split("-").map(Number);
+  if (locale === "ja") return `${month}/${day}`;
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+  }).format(new Date(year, month - 1, day));
+}
+
+/**
+ * Compact two-day range label for narrow screens: "Aug 8–9" (same month),
+ * "Aug 30 – Sep 1" (month rollover), "Dec 31 – Jan 1" (year rollover);
+ * Japanese: "8/8〜8/9". The full weekday/date label is preserved through
+ * aria-label/title on the control.
+ */
+export function formatCompactDateRange(
+  day1Iso: string,
+  day2Iso: string,
+  locale: "en" | "ja",
+): string {
+  if (locale === "ja") {
+    return `${formatCompactDate(day1Iso, "ja")}〜${formatCompactDate(day2Iso, "ja")}`;
+  }
+  const [y1, m1] = day1Iso.split("-").map(Number);
+  const [y2, m2] = day2Iso.split("-").map(Number);
+  if (y1 === y2 && m1 === m2) {
+    const [, , d1] = day1Iso.split("-").map(Number);
+    const [, , d2] = day2Iso.split("-").map(Number);
+    const monthName = new Intl.DateTimeFormat("en-US", {
+      month: "short",
+    }).format(new Date(y1, m1 - 1, 1));
+    return `${monthName} ${d1}–${d2}`;
+  }
+  return `${formatCompactDate(day1Iso, "en")} – ${formatCompactDate(day2Iso, "en")}`;
+}
 
 export default function Home() {
   const { t, i18n } = useTranslation();
@@ -94,6 +141,10 @@ export default function Home() {
     setBudgetTier,
     transportPreference,
     setTransportPreference,
+    tripMode,
+    setTripMode,
+    accommodationAllowance,
+    setAccommodationAllowance,
     resolvedDraft,
     resolvedApplied,
     hasUserApplied,
@@ -122,6 +173,22 @@ export default function Home() {
             ? Cloud
             : Sun;
 
+  // Weekend weather forecast days derivation
+  const weatherDays = useMemo(() => {
+    if (resolvedApplied.tripMode !== "weekend_2d1n") return undefined;
+    if (!weatherContext) return undefined;
+    const day1Iso =
+      customDate ?? currentTab?.dates?.[0] ?? weatherContext.minDate;
+    if (!day1Iso) return undefined;
+    return getForecastDaysForRange(weatherContext.forecastMap, day1Iso, 2).map(
+      (d) => ({
+        date: d.date,
+        condition: normalizeWeatherDescription(d.desc),
+        temperatureC: d.maxTemp,
+      }),
+    );
+  }, [resolvedApplied.tripMode, customDate, currentTab, weatherContext]);
+
   // Recommendation engine consumes applied state + live weather context
   const { recommendedDestinations, rouletteCandidates, rouletteExpansion } =
     useTripRecommendations({
@@ -141,6 +208,9 @@ export default function Home() {
       ferryTemporal,
       isVisited,
       rouletteConstraints: resolvedDraft,
+      tripMode: resolvedApplied.tripMode,
+      accommodationAllowance: resolvedApplied.accommodationAllowance,
+      weatherDays,
     });
 
   const [rouletteOpen, setRouletteOpen] = useState(false);
@@ -161,18 +231,6 @@ export default function Home() {
 
   const selectedDate =
     customDate || currentTab?.dates?.[0] || weatherContext?.minDate;
-  const selectedDateLabel = useMemo(() => {
-    if (activeTabId === "today" || activeTabId === "tomorrow") {
-      return t("home.moreDates");
-    }
-    if (!selectedDate) return t("home.moreDates");
-    const [year, month, day] = selectedDate.split("-").map(Number);
-    return new Intl.DateTimeFormat(i18n.language === "ja" ? "ja-JP" : "en-US", {
-      weekday: "short",
-      month: "short",
-      day: "numeric",
-    }).format(new Date(year, month - 1, day));
-  }, [activeTabId, i18n.language, selectedDate, t]);
 
   const formatForecastDate = useCallback(
     (date: string) => {
@@ -184,6 +242,51 @@ export default function Home() {
     },
     [i18n.language],
   );
+  const selectedDateLabel = useMemo(() => {
+    if (resolvedApplied.tripMode === "weekend_2d1n" && selectedDate) {
+      const day2 = getNextCalendarDate(selectedDate);
+      return t("home.weekendDates", {
+        day1: formatForecastDate(selectedDate),
+        day2: formatForecastDate(day2),
+      });
+    }
+    if (activeTabId === "today" || activeTabId === "tomorrow") {
+      return t("home.moreDates");
+    }
+    if (!selectedDate) return t("home.moreDates");
+    const [year, month, day] = selectedDate.split("-").map(Number);
+    return new Intl.DateTimeFormat(i18n.language === "ja" ? "ja-JP" : "en-US", {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+    }).format(new Date(year, month - 1, day));
+  }, [
+    activeTabId,
+    i18n.language,
+    selectedDate,
+    t,
+    resolvedApplied.tripMode,
+    formatForecastDate,
+  ]);
+
+  /**
+   * Compact visible label for narrow screens: "Aug 8–9" / "8/8〜8/9". The
+   * full weekday/date label stays available via aria-label and title.
+   */
+  const compactDateLabel = useMemo(() => {
+    if (resolvedApplied.tripMode === "weekend_2d1n" && selectedDate) {
+      return formatCompactDateRange(
+        selectedDate,
+        getNextCalendarDate(selectedDate),
+        i18n.language === "ja" ? "ja" : "en",
+      );
+    }
+    if (!selectedDate) return t("home.moreDates");
+    return formatCompactDate(
+      selectedDate,
+      i18n.language === "ja" ? "ja" : "en",
+    );
+  }, [i18n.language, resolvedApplied.tripMode, selectedDate, t]);
 
   const handleApplyAndScroll = useCallback(() => {
     applyPlannerState();
@@ -208,7 +311,7 @@ export default function Home() {
             </div>
 
             {weatherContext && (
-              <div className="grid w-full grid-cols-3 items-center gap-1 sm:w-[450px] sm:max-w-full sm:gap-1.5">
+              <div className="grid w-full grid-cols-2 items-center gap-1 sm:w-[450px] sm:max-w-full sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(105px,125px)] sm:gap-1.5">
                 {weatherContext.tabs
                   .filter((tab) => tab.id === "today" || tab.id === "tomorrow")
                   .map((tab) => (
@@ -228,7 +331,7 @@ export default function Home() {
                         }
                         setActiveTabId(tab.id);
                       }}
-                      className={`inline-flex h-9 w-full items-center justify-center overflow-hidden whitespace-nowrap rounded-full px-1 py-1 text-[10px] font-bold transition-all focus:outline-none sm:px-1.5 sm:text-[11px] ${
+                      className={`inline-flex h-9 min-w-0 w-full items-center justify-center overflow-hidden whitespace-nowrap rounded-full px-1 py-1 text-[10px] font-bold transition-all focus:outline-none sm:px-1.5 sm:text-[11px] ${
                         activeTabId === tab.id
                           ? "bg-emerald-600 text-white shadow-sm"
                           : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800"
@@ -252,15 +355,17 @@ export default function Home() {
                     </button>
                   ))}
 
-                <div className="relative w-full">
+                <div className="relative col-span-2 min-w-0 sm:col-span-1">
                   <button
                     type="button"
                     onClick={() => setDatePickerOpen((open) => !open)}
-                    className="inline-flex h-9 w-full items-center justify-center gap-1 overflow-hidden whitespace-nowrap rounded-full border border-slate-200 bg-white px-1 py-1 text-[10px] font-bold text-slate-700 shadow-sm transition-colors hover:border-emerald-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 sm:px-1.5 sm:text-[11px]"
+                    aria-label={selectedDateLabel}
+                    title={selectedDateLabel}
+                    className="inline-flex h-9 w-full min-w-0 max-w-full items-center justify-center gap-1 overflow-hidden whitespace-nowrap rounded-full border border-slate-200 bg-white px-1 py-1 text-[10px] font-bold text-slate-700 shadow-sm transition-colors hover:border-emerald-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 sm:px-1.5 sm:text-[11px]"
                     aria-expanded={datePickerOpen}
                   >
                     <Calendar className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                    <span>{selectedDateLabel}</span>
+                    <span className="min-w-0 truncate">{compactDateLabel}</span>
                   </button>
                   {datePickerOpen && (
                     <>
@@ -344,7 +449,11 @@ export default function Home() {
               {t("home.headline")}
             </h1>
             <p className="mt-2 hidden text-sm font-medium leading-relaxed text-slate-500 dark:text-slate-400 sm:block md:text-base">
-              {t("home.subtitle")}
+              {t(
+                resolvedApplied.tripMode === "weekend_2d1n"
+                  ? "home.subtitleWeekend"
+                  : "home.subtitle",
+              )}
             </p>
           </div>
 
@@ -360,6 +469,10 @@ export default function Home() {
             onBudgetTierChange={setBudgetTier}
             transportPreference={transportPreference}
             onTransportPreferenceChange={setTransportPreference}
+            tripMode={tripMode}
+            onTripModeChange={setTripMode}
+            accommodationAllowance={accommodationAllowance}
+            onAccommodationAllowanceChange={setAccommodationAllowance}
             hasUserApplied={hasUserApplied}
             isDirty={isDirty}
             onApplyMatches={handleApplyAndScroll}
@@ -376,7 +489,8 @@ export default function Home() {
         partySize={resolvedDraft.partySize}
         carMode={resolvedDraft.carMode}
         publicModes={resolvedDraft.publicModes}
-        tripDuration={tripDuration}
+        tripDuration={resolvedDraft.tripDuration}
+        tripMode={resolvedDraft.tripMode}
         expansion={rouletteExpansion}
       />
 
@@ -388,15 +502,18 @@ export default function Home() {
         travelDate={travelDateIso}
       />
 
-      {/* Unexplored Nearby Rail — nearest unvisited destinations from home origin */}
-      <UnexploredNearbyRail
-        destinations={allDestinations}
-        homeStationCoords={homeStationCoords}
-        isVisited={isVisited}
-        partySize={resolvedApplied.partySize}
-        carMode={resolvedApplied.carMode}
-        publicModes={resolvedApplied.publicModes}
-      />
+      {/* Unexplored Nearby Rail — nearest unvisited destinations from home origin.
+          Only shown for day trips; weekend mode has its own recommendation rail. */}
+      {resolvedApplied.tripMode !== "weekend_2d1n" && (
+        <UnexploredNearbyRail
+          destinations={allDestinations}
+          homeStationCoords={homeStationCoords}
+          isVisited={isVisited}
+          partySize={resolvedApplied.partySize}
+          carMode={resolvedApplied.carMode}
+          publicModes={resolvedApplied.publicModes}
+        />
+      )}
 
       {/* Conditional Placement: Bucket List Rail near top ONLY if user has saved items */}
       {hasSavedItems && (
