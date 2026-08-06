@@ -98,11 +98,13 @@ describe("runRecommendationPipeline — weekend mode", () => {
   it("excludes destination with one-way > 420 minutes", () => {
     const far = dest({
       id: "far",
+      role: "hub",
       transportOptions: { train: 421 },
       recommendedVisitHours: { min: 1, max: 10 }, // 600 min → sufficient capacity
     });
     const close = dest({
       id: "close",
+      role: "hub",
       transportOptions: { train: 180 },
       recommendedVisitHours: { min: 1, max: 10 },
     });
@@ -119,6 +121,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
   it("includes destination at exactly 420 minutes", () => {
     const edge = dest({
       id: "edge",
+      role: "hub",
       transportOptions: { train: 420 },
       recommendedVisitHours: { min: 1, max: 10 },
     });
@@ -135,6 +138,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
   it("excludes destination with capacity < 480 but includes >= 480 (hub + children)", () => {
     const hub = dest({
       id: "hub",
+      role: "hub",
       recommendedVisitHours: { min: 1, max: 2 }, // 120 min own
       transportOptions: { train: 90 },
     });
@@ -163,6 +167,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
   it("standalone destination with capacity >= 480 included", () => {
     const solo = dest({
       id: "solo",
+      role: "hub",
       recommendedVisitHours: { min: 1, max: 9 }, // 540 min
       transportOptions: { train: 90 },
     });
@@ -177,6 +182,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
   it("standalone destination with capacity < 480 excluded", () => {
     const small = dest({
       id: "small",
+      role: "hub",
       recommendedVisitHours: { min: 1, max: 2 }, // 120 min
       transportOptions: { train: 90 },
     });
@@ -191,6 +197,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
   it("attaches weekend metadata to results", () => {
     const d = dest({
       id: "d",
+      role: "hub",
       recommendedVisitHours: { min: 1, max: 10 },
       transportOptions: { train: 90 },
     });
@@ -255,6 +262,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
   it("weekend result includes weekendTripReady reason", () => {
     const d = dest({
       id: "d",
+      role: "hub",
       recommendedVisitHours: { min: 1, max: 10 },
       transportOptions: { train: 90 },
     });
@@ -271,6 +279,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
   it("weekend scoring contributions appear in pipeline", () => {
     const d = dest({
       id: "d",
+      role: "hub",
       recommendedVisitHours: { min: 1, max: 10 },
       transportOptions: { train: 90 },
     });
@@ -290,6 +299,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
   it("ranks 2 good-weather days above 1 good + 1 stormy for the same destination", () => {
     const d = dest({
       id: "weather-compare",
+      role: "hub",
       transportOptions: { train: 90 },
       indoorPercent: 30,
       recommendedVisitHours: { min: 1, max: 10 },
@@ -328,12 +338,14 @@ describe("runRecommendationPipeline — weekend mode", () => {
   it("indoor-heavy destination penalized less than outdoor-heavy for identical stormy weather", () => {
     const indoorDest = dest({
       id: "indoor-heavy",
+      role: "hub",
       transportOptions: { train: 90 },
       indoorPercent: 85,
       recommendedVisitHours: { min: 1, max: 10 },
     });
     const outdoorDest = dest({
       id: "outdoor-heavy",
+      role: "hub",
       transportOptions: { train: 90 },
       indoorPercent: 10,
       recommendedVisitHours: { min: 1, max: 10 },
@@ -502,6 +514,7 @@ describe("weekend weather 2-day enforcement", () => {
   it("a third weather day has no effect on weekend scoring", () => {
     const d = dest({
       id: "weather-dest",
+      role: "hub",
       recommendedVisitHours: { min: 1, max: 10 },
       transportOptions: { train: 90 },
     });
@@ -671,5 +684,149 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     // A Shinjuku base excludes only the Shinjuku ward, never all 23 wards.
     expect(ids).toContain("shibuya-city");
     expect(ids).toContain("taito-city");
+  });
+});
+
+// ── Hub-first weekend results ────────────────────────────────────────────────
+
+describe("runRecommendationPipeline — hub-first weekend results", () => {
+  const OSAKA = { lat: 34.7025, lng: 135.4959 };
+
+  it("explicit hubs return as primary trip areas with metadata", () => {
+    const results = runRecommendationPipeline(
+      [byId.get("osaka-city")!, byId.get("kyoto-city")!],
+      ctx({
+        tripMode: "weekend_2d1n",
+        budget: 200000,
+        homeStationCoords: OSAKA,
+      }),
+    );
+    const ids = results.map((r) => r.id);
+    expect(ids).not.toContain("osaka-city"); // origin-local
+    expect(ids).toContain("kyoto-city");
+    const kyoto = results.find((r) => r.id === "kyoto-city")!;
+    expect(kyoto.weekend?.areaKind).toBe("trip_area");
+    // Place counts come from the actual pool: no children in this two-record
+    // pool, so the count is 0 (full-catalogue runs assert real counts).
+    expect(kyoto.weekend?.placeCount).toBe(0);
+  });
+
+  it("eligible child POI is suppressed when its parent hub is eligible", () => {
+    const child = dest({
+      id: "kyoto-child-poi",
+      role: "poi",
+      relationships: { parentDestinationId: "kyoto-city" },
+      transportOptions: { train: 230 },
+      recommendedVisitHours: { min: 1, max: 8 }, // 480 min — would pass alone
+    });
+    const results = runRecommendationPipeline(
+      [byId.get("kyoto-city")!, child],
+      ctx({
+        tripMode: "weekend_2d1n",
+        budget: 200000,
+        homeStationCoords: OSAKA,
+      }),
+    );
+    expect(results.map((r) => r.id)).toEqual(["kyoto-city"]);
+    expect(results[0].weekend?.placeCount).toBe(1);
+  });
+
+  it("standalone museum with enough own capacity is not a primary result", () => {
+    const museum = dest({
+      id: "big-museum",
+      role: "standalone",
+      kind: "museum",
+      transportOptions: { train: 180 },
+      recommendedVisitHours: { min: 1, max: 10 }, // 600 min — would pass alone
+    });
+    const results = runRecommendationPipeline(
+      [museum],
+      ctx({ tripMode: "weekend_2d1n", budget: 200000 }),
+    );
+    expect(results).toEqual([]);
+  });
+
+  it("child POI of an ineligible parent is not promoted", () => {
+    const orphanPoi = dest({
+      id: "orphan-poi",
+      role: "poi",
+      relationships: { parentDestinationId: "not-in-pool-hub" },
+      transportOptions: { train: 120 },
+      recommendedVisitHours: { min: 1, max: 10 }, // 600 min
+    });
+    const results = runRecommendationPipeline(
+      [orphanPoi],
+      ctx({ tripMode: "weekend_2d1n", budget: 200000 }),
+    );
+    expect(results).toEqual([]);
+  });
+
+  it("coherent non-city area (Kamikochi) qualifies as standalone_area", () => {
+    const results = runRecommendationPipeline(
+      [byId.get("nagano-kamikochi")!],
+      ctx({ tripMode: "weekend_2d1n", budget: 200000 }),
+    );
+    expect(results.map((r) => r.id)).toContain("nagano-kamikochi");
+    expect(results[0].weekend?.areaKind).toBe("standalone_area");
+  });
+
+  it("full catalogue Tokyo/Osaka/Fukuoka return only trip-area results", () => {
+    const homes = [
+      { lat: 35.6812, lng: 139.7671 },
+      OSAKA,
+      { lat: 33.5902, lng: 130.4017 },
+    ];
+    for (const home of homes) {
+      const results = runRecommendationPipeline(
+        destinationsIndex as Destination[],
+        {
+          vibe: "any",
+          budget: 500000,
+          carMode: "none",
+          publicModes: ["train", "shinkansen"],
+          partySize: 2,
+          visitedIds: [],
+          homeStationCoords: home,
+          tripMode: "weekend_2d1n",
+          accommodationAllowance: 20000,
+        },
+      );
+      expect(results.length).toBeGreaterThan(0);
+      for (const r of results) {
+        expect(r.weekend?.areaKind).not.toBe("poi");
+        const dest = byId.get(r.id)!;
+        expect(dest.role === "hub" || dest.role === "standalone").toBe(true);
+      }
+    }
+  });
+
+  it("explicit-origin candidate with unknown travel duration is excluded", () => {
+    const noRoute = dest({
+      id: "no-route",
+      role: "hub",
+      transportOptions: {},
+      recommendedVisitHours: { min: 1, max: 10 },
+    });
+    const results = runRecommendationPipeline(
+      [noRoute],
+      ctx({
+        tripMode: "weekend_2d1n",
+        budget: 200000,
+        homeStationCoords: tokyoHome,
+      }),
+    );
+    expect(results).toEqual([]);
+  });
+
+  it("day-trip and Any browsing keep ordinary POI results", () => {
+    const museum = dest({
+      id: "museum-daytrip",
+      role: "standalone",
+      kind: "museum",
+      transportOptions: { train: 40 },
+      recommendedVisitHours: { min: 2, max: 3 },
+    });
+    const results = runRecommendationPipeline([museum], ctx());
+    expect(results.map((r) => r.id)).toContain("museum-daytrip");
   });
 });

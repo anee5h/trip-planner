@@ -63,6 +63,13 @@ describe("useTripPlannerState", () => {
     expect(result.transportPreference).toBe("public");
   });
 
+  it("defaults Home trip mode to day_trip (weekend is opt-in)", () => {
+    const getResult = setupHook();
+    const result = getResult();
+    expect(result.tripMode).toBe("day_trip");
+    expect(result.resolvedApplied.tripMode).toBe("day_trip");
+  });
+
   it("updates draft state without mutating applied state until applyPlannerState is called", () => {
     const getResult = setupHook();
 

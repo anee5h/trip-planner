@@ -117,6 +117,32 @@ describe("evaluateWeekendTravelFit", () => {
       band: "unknown",
     });
   });
+
+  it("120 → nearby, eligible; 121 → strong, eligible", () => {
+    expect(evaluateWeekendTravelFit(120)).toEqual({
+      eligible: true,
+      band: "nearby",
+      oneWayMinutes: 120,
+    });
+    expect(evaluateWeekendTravelFit(121)).toEqual({
+      eligible: true,
+      band: "strong",
+      oneWayMinutes: 121,
+    });
+  });
+
+  it("240 → strong, eligible; 241 → acceptable, eligible", () => {
+    expect(evaluateWeekendTravelFit(240)).toEqual({
+      eligible: true,
+      band: "strong",
+      oneWayMinutes: 240,
+    });
+    expect(evaluateWeekendTravelFit(241)).toEqual({
+      eligible: true,
+      band: "acceptable",
+      oneWayMinutes: 241,
+    });
+  });
 });
 
 // ── Travel Score Delta Tests ─────────────────────────────────────────────────
