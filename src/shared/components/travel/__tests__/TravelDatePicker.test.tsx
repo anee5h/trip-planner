@@ -633,4 +633,108 @@ describe("TravelDatePicker Component", () => {
     expect(host!.querySelector('[role="dialog"]')).toBeNull();
     expect(document.activeElement).toBe(trigger);
   });
+
+  it("23. Home default trigger displays Select date when no explicit selection exists", () => {
+    const handleChange = vi.fn();
+    act(() => {
+      root!.render(
+        <TravelDatePicker
+          value={undefined}
+          onChange={handleChange}
+          hasExplicitSelection={false}
+          allowAnyDate={false}
+          locale="en"
+        />,
+      );
+    });
+    const trigger = host!.querySelector("button")!;
+    expect(trigger.textContent).toContain("Select date");
+  });
+
+  it("24. Destinations default trigger displays Any date", () => {
+    const handleChange = vi.fn();
+    act(() => {
+      root!.render(
+        <TravelDatePicker
+          value={undefined}
+          onChange={handleChange}
+          allowAnyDate={true}
+          locale="en"
+        />,
+      );
+    });
+    const trigger = host!.querySelector("button")!;
+    expect(trigger.textContent).toContain("Any date");
+  });
+
+  it("25. Popover contains zero month/year dropdown selects, single caption, and 1 prev / 1 next nav button", () => {
+    const handleChange = vi.fn();
+    act(() => {
+      root!.render(
+        <TravelDatePicker
+          value={todayIso}
+          onChange={handleChange}
+          locale="en"
+        />,
+      );
+    });
+
+    const trigger = host!.querySelector("button") as HTMLButtonElement;
+    act(() => trigger.click());
+
+    const dialog = host!.querySelector('[role="dialog"]')!;
+    expect(dialog).not.toBeNull();
+
+    const dropdownSelects = dialog.querySelectorAll("select");
+    expect(dropdownSelects.length).toBe(0);
+
+    const prevBtn = dialog.querySelectorAll("button.rdp-button_previous");
+    const nextBtn = dialog.querySelectorAll("button.rdp-button_next");
+    expect(prevBtn.length).toBe(1);
+    expect(nextBtn.length).toBe(1);
+
+    const captionLabel = dialog.querySelector(".rdp-caption_label");
+    expect(captionLabel).not.toBeNull();
+    expect(captionLabel?.textContent).toMatch(/^[A-Z][a-z]+\s+\d{4}$/);
+  });
+
+  it("26. Today current-day modifier style is distinct from explicit selected modifier style", () => {
+    const handleChange = vi.fn();
+    act(() => {
+      root!.render(
+        <TravelDatePicker
+          value={undefined}
+          onChange={handleChange}
+          hasExplicitSelection={false}
+          allowAnyDate={false}
+          locale="en"
+        />,
+      );
+    });
+
+    const trigger = host!.querySelector("button") as HTMLButtonElement;
+    act(() => trigger.click());
+
+    const todayBtn = host!.querySelector(`button[data-date="${todayIso}"]`)!;
+    expect(todayBtn).not.toBeNull();
+    expect(todayBtn.className).toContain("border-2");
+    expect(todayBtn.className).not.toContain("bg-emerald-600");
+
+    act(() => {
+      root!.render(
+        <TravelDatePicker
+          value={todayIso}
+          onChange={handleChange}
+          hasExplicitSelection={true}
+          allowAnyDate={false}
+          locale="en"
+        />,
+      );
+    });
+
+    const selectedTodayBtn = host!.querySelector(
+      `button[data-date="${todayIso}"]`,
+    )!;
+    expect(selectedTodayBtn.className).toContain("bg-emerald-600");
+  });
 });

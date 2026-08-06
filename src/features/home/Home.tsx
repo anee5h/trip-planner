@@ -121,6 +121,9 @@ export default function Home() {
    * its own in-flight write for a URL→state restoration.
    */
   const lastWrittenUrlRef = useRef<string | undefined>(undefined);
+  const [hasExplicitSelection, setHasExplicitSelection] = useState<boolean>(
+    () => searchParams.has("date"),
+  );
 
   // The date serialized by the current selection: today omits the param,
   // tomorrow and custom dates serialize the ISO date.
@@ -167,12 +170,14 @@ export default function Home() {
     lastAppliedUrlRef.current = urlDate;
 
     if (urlDate !== undefined) {
+      setHasExplicitSelection(true);
       restoreInFlightRef.current = true;
       handleCustomDateSelect(urlDate);
       return;
     }
     if (current) {
       // URL no longer carries a date: reset the selection to today.
+      setHasExplicitSelection(false);
       restoreInFlightRef.current = true;
       setWeatherContext((prev) =>
         prev
@@ -399,6 +404,7 @@ export default function Home() {
                   <TravelDatePicker
                     value={stateDate}
                     onChange={(newDate) => {
+                      setHasExplicitSelection(true);
                       if (newDate) {
                         handleCustomDateSelect(newDate);
                       } else {
@@ -413,6 +419,7 @@ export default function Home() {
                         setActiveTabId("today");
                       }
                     }}
+                    hasExplicitSelection={hasExplicitSelection}
                     forecastMap={weatherContext.forecastMap}
                     originLabel={homeStation || undefined}
                     tripMode={resolvedApplied.tripMode}

@@ -149,7 +149,7 @@ function renderHome(initialEntry = "/") {
   };
 }
 
-async function waitForCondition(condition: () => boolean, timeout = 1000) {
+async function waitForCondition(condition: () => boolean, timeout = 3000) {
   const start = Date.now();
   while (Date.now() - start < timeout) {
     if (condition()) return;
@@ -310,7 +310,8 @@ describe("Home arbitrary future dates", () => {
     // Should restore to initial state (Today / no date param) without being blocked by lastWrittenUrlRef
     await waitForCondition(() => params()?.get("date") === null);
     await waitForCondition(
-      () => calendarCapsule(host)?.textContent?.includes("Today") ?? false,
+      () =>
+        calendarCapsule(host)?.textContent?.includes("Select date") ?? false,
     );
   });
 

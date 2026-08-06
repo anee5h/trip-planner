@@ -9,7 +9,12 @@ import {
   Sun,
   X,
 } from "lucide-react";
-import { DayPicker, type DayButtonProps } from "react-day-picker";
+import {
+  DayPicker,
+  DayButton,
+  getDefaultClassNames,
+  type DayButtonProps,
+} from "react-day-picker";
 import { ja, enUS } from "date-fns/locale";
 import type { TripMode } from "@/shared/services/recommendation/RecommendationContext";
 import type { DayForecastData } from "@/shared/services/weather/WeatherTabService";
@@ -71,12 +76,21 @@ export function formatCapsuleLabel(
   todayIso: string,
   tomorrowIso: string,
   t: (key: any, options?: any) => any,
+  hasExplicitSelection?: boolean,
 ): string {
+  if (
+    !hasExplicitSelection &&
+    !allowAnyDate &&
+    (!value || value === todayIso)
+  ) {
+    return t("datePicker.selectDate", { defaultValue: "Select date" });
+  }
+
   if (!value) {
     if (allowAnyDate) {
       return t("datePicker.anyDate", { defaultValue: "Any date" });
     }
-    return t("datePicker.today", { defaultValue: "Today" });
+    return t("datePicker.selectDate", { defaultValue: "Select date" });
   }
 
   if (tripMode === "day_trip") {
@@ -114,6 +128,7 @@ export function formatCapsuleLabel(
 export interface TravelDatePickerProps {
   value?: string;
   onChange: (date: string | undefined) => void;
+  hasExplicitSelection?: boolean;
   tripMode?: TripMode;
   forecastMap?: ReadonlyMap<string, DayForecastData>;
   allowAnyDate?: boolean;
@@ -127,6 +142,7 @@ export interface TravelDatePickerProps {
 export default function TravelDatePicker({
   value,
   onChange,
+  hasExplicitSelection: propHasExplicitSelection,
   tripMode = "day_trip",
   forecastMap,
   allowAnyDate = false,
@@ -147,6 +163,18 @@ export default function TravelDatePicker({
 
   const minDateIso = propMinDate || todayIso;
   const minDateObj = useMemo(() => travelDateToDate(todayIso), [todayIso]);
+
+  const [hasExplicitSelection, setHasExplicitSelection] = useState<boolean>(
+    () => propHasExplicitSelection ?? Boolean(value),
+  );
+
+  useEffect(() => {
+    if (propHasExplicitSelection !== undefined) {
+      setHasExplicitSelection(propHasExplicitSelection);
+    } else if (value) {
+      setHasExplicitSelection(true);
+    }
+  }, [propHasExplicitSelection, value]);
 
   const [displayedMonth, setDisplayedMonth] = useState<Date>(() => {
     if (value) return travelDateToDate(value);
@@ -218,7 +246,9 @@ export default function TravelDatePicker({
       }
     }
     document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, [isOpen]);
 
   const handleToggle = useCallback(() => {
@@ -231,8 +261,9 @@ export default function TravelDatePicker({
   }, []);
 
   const handleSelectDate = useCallback(
-    (isoDate: string | undefined) => {
-      onChange(isoDate);
+    (selectedIso: string | undefined) => {
+      setHasExplicitSelection(true);
+      onChange(selectedIso);
       setIsOpen(false);
       triggerRef.current?.focus();
     },
@@ -249,6 +280,7 @@ export default function TravelDatePicker({
       todayIso,
       tomorrowIso,
       (key: string, opts?: any) => t(key, { lng: currentLocale, ...opts }),
+      hasExplicitSelection,
     );
   }, [
     propTriggerLabel,
@@ -259,6 +291,7 @@ export default function TravelDatePicker({
     todayIso,
     tomorrowIso,
     t,
+    hasExplicitSelection,
   ]);
 
   const day1DateObj = useMemo(
@@ -297,14 +330,13 @@ export default function TravelDatePicker({
     return mods;
   }, [day2DateObj, forecastMap, minDateIso]);
 
-  const DayButtonComponent = useCallback(
+  const CustomDayButton = useCallback(
     (props: DayButtonProps) => {
       const {
         day,
         modifiers: dayModifiers,
         children,
-        onClick,
-        disabled,
+        className: btnClassName,
         ...restProps
       } = props;
       const iso = localDateToIso(day.date);
@@ -316,7 +348,7 @@ export default function TravelDatePicker({
       );
       const isDay2 = dayModifiers.day2;
       const isSelected = dayModifiers.selected;
-      const isDisabled = dayModifiers.disabled;
+      const isToday = dayModifiers.today;
 
       let ForecastIcon = Sun;
       if (marker?.icon === "rain") ForecastIcon = Cloud;
@@ -333,25 +365,28 @@ export default function TravelDatePicker({
       }
 
       return (
-        <button
-          {...restProps}
+        <DayButton
+          {...props}
           data-date={iso}
-          type="button"
-          disabled={disabled}
-          onClick={onClick}
           aria-label={ariaText}
           className={cn(
+            btnClassName,
             "relative flex flex-col items-center justify-center h-10 w-full rounded-xl text-xs font-bold transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500/50",
             isSelected &&
-              "bg-emerald-600 text-white shadow-sm z-10 hover:bg-emerald-700",
+              "bg-emerald-600 text-white shadow-sm z-10 hover:bg-emerald-700 font-extrabold",
             isDay2 &&
               !isSelected &&
               "bg-emerald-100 dark:bg-emerald-950/80 text-emerald-900 dark:text-emerald-200 font-extrabold border border-emerald-400/80 dark:border-emerald-700/80 z-10 hover:bg-emerald-200 dark:hover:bg-emerald-900",
             !isSelected &&
               !isDay2 &&
-              !isDisabled &&
+              isToday &&
+              "border-2 border-emerald-500/90 text-emerald-700 dark:text-emerald-300 font-bold bg-emerald-50/40 dark:bg-emerald-950/20",
+            !isSelected &&
+              !isDay2 &&
+              !isToday &&
+              !dayModifiers.disabled &&
               "hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-100",
-            isDisabled &&
+            dayModifiers.disabled &&
               "opacity-35 cursor-not-allowed text-slate-400 dark:text-slate-600",
           )}
         >
@@ -371,11 +406,16 @@ export default function TravelDatePicker({
               <span>{marker.maxTemp}°</span>
             </span>
           )}
-        </button>
+        </DayButton>
       );
     },
     [forecastMap, originLabel, currentLocale, t],
   );
+
+  const defaultClassNames = useMemo(() => getDefaultClassNames(), []);
+  const isSelectedStyle = allowAnyDate
+    ? Boolean(value)
+    : Boolean(hasExplicitSelection);
 
   return (
     <div
@@ -395,9 +435,9 @@ export default function TravelDatePicker({
         aria-expanded={isOpen}
         className={cn(
           "inline-flex h-9 w-full min-w-0 items-center justify-between gap-1.5 rounded-xl border px-3 text-xs font-bold shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500/50 sm:w-auto",
-          value
-            ? "border-emerald-500/80 bg-emerald-50 text-emerald-900 dark:border-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-200"
-            : "border-slate-200 bg-white text-slate-700 hover:border-emerald-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200",
+          isSelectedStyle
+            ? "border-emerald-500 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-200"
+            : "border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300",
         )}
       >
         <div className="flex items-center gap-1.5 min-w-0 truncate">
@@ -432,11 +472,11 @@ export default function TravelDatePicker({
             aria-label={t("datePicker.chooseTravelDate", {
               defaultValue: "Choose travel date",
             })}
-            className="fixed inset-x-3 bottom-4 z-50 max-h-[85dvh] overflow-y-auto rounded-2xl border border-slate-200 bg-white p-3.5 shadow-2xl dark:border-slate-800 dark:bg-slate-950 sm:absolute sm:left-0 sm:right-auto sm:bottom-auto sm:top-full sm:mt-2 sm:w-[320px] sm:max-h-none sm:rounded-2xl"
+            className="fixed inset-x-3 bottom-4 z-50 max-h-[85dvh] overflow-y-auto rounded-2xl border border-slate-200 bg-white p-3.5 shadow-2xl dark:border-slate-800 dark:bg-slate-950 sm:absolute sm:left-0 sm:right-auto sm:bottom-auto sm:top-full sm:mt-2 sm:w-[330px] sm:max-h-none sm:rounded-2xl"
           >
             {/* Popover Header */}
             <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
-              <span className="text-xs font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+              <span className="text-xs font-extrabold uppercase tracking-wider text-slate-600 dark:text-slate-400">
                 {t("datePicker.chooseTravelDate", {
                   defaultValue: "Choose travel date",
                 })}
@@ -454,13 +494,13 @@ export default function TravelDatePicker({
             </div>
 
             {/* Quick Date Shortcuts Bar */}
-            <div className="mt-2.5 flex items-center gap-1.5">
+            <div className="mt-2.5 flex items-center gap-1.5 flex-wrap sm:flex-nowrap">
               {allowAnyDate && (
                 <button
                   type="button"
                   onClick={() => handleSelectDate(undefined)}
                   className={cn(
-                    "flex-1 h-8 rounded-lg text-xs font-bold border transition-colors",
+                    "flex-1 h-8 rounded-lg text-xs font-bold border transition-colors min-w-[70px]",
                     !value
                       ? "border-emerald-500 bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200"
                       : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800",
@@ -473,8 +513,8 @@ export default function TravelDatePicker({
                 type="button"
                 onClick={() => handleSelectDate(todayIso)}
                 className={cn(
-                  "flex-1 h-8 rounded-lg text-xs font-bold border transition-colors",
-                  value === todayIso
+                  "flex-1 h-8 rounded-lg text-xs font-bold border transition-colors min-w-[70px]",
+                  value === todayIso && hasExplicitSelection
                     ? "border-emerald-500 bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200"
                     : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800",
                 )}
@@ -485,7 +525,7 @@ export default function TravelDatePicker({
                 type="button"
                 onClick={() => handleSelectDate(tomorrowIso)}
                 className={cn(
-                  "flex-1 h-8 rounded-lg text-xs font-bold border transition-colors",
+                  "flex-1 h-8 rounded-lg text-xs font-bold border transition-colors min-w-[70px]",
                   value === tomorrowIso
                     ? "border-emerald-500 bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200"
                     : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800",
@@ -497,7 +537,7 @@ export default function TravelDatePicker({
 
             {/* Origin Forecast Hint */}
             {forecastMap && (
-              <div className="mt-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 p-2 text-center border border-slate-100 dark:border-slate-800/80">
+              <div className="mt-2 rounded-xl bg-slate-50 dark:bg-slate-900/60 p-2 text-center border border-slate-100 dark:border-slate-800/80">
                 <p className="text-[11px] font-semibold text-slate-600 dark:text-slate-400">
                   {t("datePicker.forecastNearOrigin", {
                     origin:
@@ -516,11 +556,15 @@ export default function TravelDatePicker({
             <div className="mt-2 flex justify-center">
               <DayPicker
                 mode="single"
-                captionLayout="dropdown"
-                selected={day1DateObj}
+                captionLayout="label"
+                selected={
+                  hasExplicitSelection || allowAnyDate ? day1DateObj : undefined
+                }
                 onSelect={(d) => {
                   if (d) {
                     handleSelectDate(localDateToIso(d));
+                  } else {
+                    handleSelectDate(undefined);
                   }
                 }}
                 month={displayedMonth}
@@ -529,33 +573,29 @@ export default function TravelDatePicker({
                 modifiers={modifiers}
                 locale={currentLocale === "ja" ? ja : enUS}
                 components={{
-                  DayButton: DayButtonComponent,
+                  DayButton: CustomDayButton,
                 }}
                 classNames={{
-                  root: "w-full text-slate-900 dark:text-slate-100",
-                  months: "w-full",
-                  month: "w-full space-y-2",
-                  month_caption:
-                    "flex justify-center items-center h-8 font-bold text-xs relative",
-                  caption_label:
-                    "text-xs font-extrabold text-slate-900 dark:text-slate-100",
-                  nav: "flex items-center justify-between absolute inset-x-0 top-0 h-8 px-1 z-10",
-                  button_previous:
-                    "h-7 w-7 flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors",
-                  button_next:
-                    "h-7 w-7 flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors",
-                  month_grid: "w-full border-collapse space-y-1",
-                  weekdays:
-                    "flex w-full border-b border-slate-100 dark:border-slate-800 pb-1 mb-1",
-                  weekday:
-                    "w-full text-center text-[10px] font-bold text-slate-400 uppercase tracking-wider",
-                  weeks: "w-full space-y-1",
-                  week: "flex w-full gap-1",
-                  day: "w-full flex-1 text-center p-0 relative",
-                  today: "font-black text-emerald-600 dark:text-emerald-400",
-                  outside: "opacity-40",
-                  disabled: "opacity-30 cursor-not-allowed",
-                  hidden: "invisible",
+                  ...defaultClassNames,
+                  root: `${defaultClassNames.root} w-full text-slate-900 dark:text-slate-100 select-none`,
+                  months: `${defaultClassNames.months} relative w-full`,
+                  month: `${defaultClassNames.month} w-full space-y-2`,
+                  month_caption: `${defaultClassNames.month_caption} flex items-center justify-center h-8 font-bold text-xs w-full`,
+                  caption_label: `${defaultClassNames.caption_label} text-xs font-extrabold capitalize text-slate-900 dark:text-slate-100`,
+                  nav: `${defaultClassNames.nav} flex items-center justify-between absolute top-0 inset-x-0 h-8 px-1 z-10 pointer-events-none`,
+                  button_previous: `${defaultClassNames.button_previous} pointer-events-auto h-7 w-7 flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors`,
+                  button_next: `${defaultClassNames.button_next} pointer-events-auto h-7 w-7 flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors`,
+                  month_grid: `${defaultClassNames.month_grid} w-full border-collapse space-y-1`,
+                  weekdays: `${defaultClassNames.weekdays} flex w-full border-b border-slate-100 dark:border-slate-800 pb-1 mb-1`,
+                  weekday: `${defaultClassNames.weekday} w-full text-center text-[10px] font-bold text-slate-400 uppercase tracking-wider`,
+                  weeks: `${defaultClassNames.weeks} w-full space-y-1`,
+                  week: `${defaultClassNames.week} flex w-full gap-1`,
+                  day: `${defaultClassNames.day} w-full flex-1 text-center p-0 relative`,
+                  today: `${defaultClassNames.today} border-2 border-emerald-500/90 font-bold text-emerald-700 dark:text-emerald-300`,
+                  selected: `${defaultClassNames.selected} bg-emerald-600 text-white shadow-sm z-10 hover:bg-emerald-700 font-extrabold rounded-xl`,
+                  outside: `${defaultClassNames.outside} opacity-40`,
+                  disabled: `${defaultClassNames.disabled} opacity-30 cursor-not-allowed`,
+                  hidden: `${defaultClassNames.hidden} invisible`,
                 }}
               />
             </div>
