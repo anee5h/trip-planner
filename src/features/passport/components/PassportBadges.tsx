@@ -7,8 +7,10 @@ import { BadgeCard } from "./BadgeCard";
 import { BadgeDetailModal } from "./BadgeDetailModal";
 import { Icons } from "@/shared/icons";
 import { useLocalStorage } from "@/shared/hooks/useLocalStorage";
+import { useTranslation } from "react-i18next";
 
 export function PassportBadges() {
+  const { t } = useTranslation();
   const { visited, visitedPrefectures, trips } = useTripStore();
   const [activeCategory, setActiveCategory] = useState<BadgeCategory | "all">(
     "all",
@@ -54,20 +56,19 @@ export function PassportBadges() {
         <div className="space-y-1">
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
             <CategoryIcon className="w-4 h-4" />
-            Travel Identity & Collector Pins
+            {t("ui.badges")}
           </div>
           <h2 className="text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white">
-            Milestone & Exploration Badges
+            {t("ui.badges")}
           </h2>
           <p className="text-xs text-slate-500 dark:text-slate-400">
-            Earn unlockable enamel pin badges as you explore Japan's regions and
-            travel styles.
+            Badges earned by visiting destinations across Japan.
           </p>
         </div>
 
         <div className="px-4 py-2 rounded-2xl bg-emerald-50 dark:bg-emerald-950 border border-emerald-200 dark:border-emerald-800 shrink-0 text-center md:text-right">
           <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-            Badges Earned
+            {t("ui.badges")}
           </div>
           <div className="text-xl font-extrabold text-emerald-700 dark:text-emerald-300">
             {totalUnlocked}{" "}
@@ -81,10 +82,10 @@ export function PassportBadges() {
       {/* Category Filter Tabs */}
       <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
         {[
-          { id: "all", label: "All Badges" },
+          { id: "all", label: t("ui.collections") },
           { id: "travel-style", label: "Travel Style" },
           { id: "interests", label: "Interests" },
-          { id: "regional", label: "Regional Identity" },
+          { id: "regional", label: "Regional" },
           { id: "experience", label: "Experience" },
         ].map((cat) => {
           const isActive = activeCategory === cat.id;

@@ -21,7 +21,6 @@ import { useAuth } from "@/shared/hooks/useAuth";
 import { useAuthModal } from "@/shared/context/AuthModalContext";
 import { GlobalSearch } from "@/features/search/GlobalSearch";
 import { FeedbackModal } from "@/shared/components/feedback/FeedbackModal";
-import { ReleaseNotesModal } from "@/shared/components/ui/ReleaseNotesModal";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { MegurutoMark } from "@/shared/components/brand/MegurutoMark";
 import { useTranslation } from "react-i18next";
@@ -34,7 +33,6 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { openAuthModal } = useAuthModal();
   const [feedbackOpen, setFeedbackOpen] = useState(false);
-  const [releaseNotesOpen, setReleaseNotesOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
 
@@ -531,30 +529,13 @@ export default function Navbar() {
 
             {/* Mobile Drawer Secondary Links & Footer */}
             <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-2 pb-1">
-              <button
-                onClick={() => {
-                  setMenuOpen(false);
-                  setReleaseNotesOpen(true);
-                }}
-                className="hover:text-emerald-500 font-bold transition-colors cursor-pointer flex items-center gap-1"
-                title="View Release Notes"
-              >
-                <span>Meguruto v{__APP_VERSION__}</span>
-                <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded font-extrabold border border-emerald-500/20">
-                  Notes
-                </span>
-              </button>
+              <span className="text-slate-400 dark:text-slate-500">
+                Meguruto v{__APP_VERSION__}
+              </span>
             </div>
           </nav>
         </div>
       )}
-
-      {/* Release Notes Modal */}
-      <ReleaseNotesModal
-        isOpen={releaseNotesOpen}
-        onClose={() => setReleaseNotesOpen(false)}
-        version={`v${__APP_VERSION__}`}
-      />
     </header>
   );
 }

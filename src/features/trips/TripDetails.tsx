@@ -107,7 +107,8 @@ export default function TripDetails({
             <Button
               variant="outline"
               size="icon"
-              aria-label="Export to calendar options"
+              aria-label="Export to calendar"
+              title="Export to calendar"
               onClick={() => setIsCalendarOpen(!isCalendarOpen)}
               className="rounded-full border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900"
             >
@@ -151,7 +152,8 @@ export default function TripDetails({
           <Button
             variant="outline"
             size="icon"
-            aria-label="Print or save trip to PDF"
+            aria-label="Print trip"
+            title="Print trip"
             onClick={triggerPdfPrint}
             className="rounded-full border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900"
           >
@@ -162,7 +164,8 @@ export default function TripDetails({
           <Button
             variant="outline"
             size="icon"
-            aria-label="Share trip link"
+            aria-label="Copy trip link"
+            title="Copy trip link"
             onClick={handleShareTrip}
             className="rounded-full border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900"
           >
@@ -174,7 +177,7 @@ export default function TripDetails({
       {/* Main Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Planner Left Area */}
-        <div className="lg:col-span-2 space-y-6">
+        <div className="lg:col-span-2 space-y-6 order-1">
           <ItineraryPlanner
             trip={trip}
             onAddStop={onAddStop}
@@ -184,7 +187,7 @@ export default function TripDetails({
         </div>
 
         {/* Journal Right Area */}
-        <div className="h-fit space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900 sm:p-5">
+        <div className="h-fit space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900 sm:p-5 order-2">
           <h4 className="text-md font-bold text-slate-950 dark:text-white">
             Trip Journal Notes
           </h4>

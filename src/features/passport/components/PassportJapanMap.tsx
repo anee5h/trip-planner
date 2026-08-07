@@ -1,94 +1,7 @@
 import { useState, useEffect } from "react";
 import Japan from "@react-map/japan";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-
-const REGIONS = [
-  {
-    name: "Hokkaido",
-    prefectures: [{ id: "Hokkaido\x8D", name: "Hokkaido" }],
-  },
-  {
-    name: "Tohoku",
-    prefectures: [
-      { id: "Aomori", name: "Aomori" },
-      { id: "Iwate", name: "Iwate" },
-      { id: "Miyagi", name: "Miyagi" },
-      { id: "Akita", name: "Akita" },
-      { id: "Yamagata", name: "Yamagata" },
-      { id: "Fukushima", name: "Fukushima" },
-    ],
-  },
-  {
-    name: "Kanto",
-    prefectures: [
-      { id: "Ibaraki", name: "Ibaraki" },
-      { id: "Tochigi", name: "Tochigi" },
-      { id: "Gunma", name: "Gunma" },
-      { id: "Saitama", name: "Saitama" },
-      { id: "Chiba", name: "Chiba" },
-      { id: "Tokyo", name: "Tokyo" },
-      { id: "Kanagawa", name: "Kanagawa" },
-    ],
-  },
-  {
-    name: "Chubu",
-    prefectures: [
-      { id: "Niigata", name: "Niigata" },
-      { id: "Toyama", name: "Toyama" },
-      { id: "Ishikawa", name: "Ishikawa" },
-      { id: "Fukui", name: "Fukui" },
-      { id: "Yamanashi", name: "Yamanashi" },
-      { id: "Nagano", name: "Nagano" },
-      { id: "Gifu", name: "Gifu" },
-      { id: "Shizuoka", name: "Shizuoka" },
-      { id: "Aichi", name: "Aichi" },
-    ],
-  },
-  {
-    name: "Kansai",
-    prefectures: [
-      { id: "Mie", name: "Mie" },
-      { id: "Shiga", name: "Shiga" },
-      { id: "Kyoto", name: "Kyoto" },
-      { id: "Osaka", name: "Osaka" },
-      { id: "Hyogo", name: "Hyogo" },
-      { id: "Nara", name: "Nara" },
-      { id: "Wakayama", name: "Wakayama" },
-    ],
-  },
-  {
-    name: "Chugoku",
-    prefectures: [
-      { id: "Tottori", name: "Tottori" },
-      { id: "Shimane", name: "Shimane" },
-      { id: "Okayama", name: "Okayama" },
-      { id: "Hiroshima", name: "Hiroshima" },
-      { id: "Yamaguchi", name: "Yamaguchi" },
-    ],
-  },
-  {
-    name: "Shikoku",
-    prefectures: [
-      { id: "Tokushima", name: "Tokushima" },
-      { id: "Kagawa", name: "Kagawa" },
-      { id: "Ehime", name: "Ehime" },
-      { id: "Kochi", name: "Kochi" },
-    ],
-  },
-  {
-    name: "Kyushu & Okinawa",
-    prefectures: [
-      { id: "Fukuoka", name: "Fukuoka" },
-      { id: "Saga", name: "Saga" },
-      { id: "Nagasaki", name: "Nagasaki" },
-      { id: "Kumamoto", name: "Kumamoto" },
-      { id: "Oita", name: "Oita" },
-      { id: "Miyazaki", name: "Miyazaki" },
-      { id: "Kagoshima", name: "Kagoshima" },
-      { id: "Okinawa", name: "Okinawa" },
-    ],
-  },
-];
+import { REGIONS } from "../data/regions";
 
 export function PassportJapanMap() {
   const { visitedPrefectures, isPrefectureVisited } = useTripStore();
@@ -103,7 +16,7 @@ export function PassportJapanMap() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const mapSize = windowWidth < 640 ? Math.min(windowWidth - 80, 320) : 580;
+  const mapSize = windowWidth < 640 ? Math.min(windowWidth - 80, 320) : 720;
 
   const cityColors = visitedPrefectures.reduce(
     (acc, pref) => {
@@ -128,12 +41,12 @@ export function PassportJapanMap() {
         {/* Interactive Map */}
         <div className="w-full max-w-[680px] aspect-square flex items-center justify-center py-4">
           <Japan
-            type="select-multiple"
+            type="select-single"
             size={mapSize}
             mapColor="#cbd5e1"
             strokeColor="#ffffff"
             strokeWidth={1.5}
-            hoverColor="#34d399"
+            hoverColor="#cbd5e1"
             selectColor="#10b981"
             cityColors={cityColors}
             hints={true}
@@ -152,7 +65,7 @@ export function PassportJapanMap() {
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
             {REGIONS.map((region) => {
               const visitedCount = region.prefectures.filter((p) =>
-                isPrefectureVisited(p.id),
+                isPrefectureVisited(p),
               ).length;
               const total = region.prefectures.length;
               const hasVisited = visitedCount > 0;

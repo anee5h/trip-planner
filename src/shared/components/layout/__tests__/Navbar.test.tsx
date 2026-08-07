@@ -100,4 +100,22 @@ describe("Navbar Component", () => {
     act(() => japanese?.click());
     expect(localeState.setLocale).toHaveBeenCalledWith("ja");
   });
+
+  it("renders version badge as plain text, not a clickable release-notes trigger", () => {
+    const node = renderNavbar();
+    // Open mobile menu to access version badge
+    const menuButton = node.querySelector<HTMLButtonElement>(
+      'button[aria-label="Toggle menu"]',
+    );
+    act(() => menuButton?.click());
+    // The version badge should be a <span>, not a <button>
+    const spans = node.querySelectorAll("span");
+    const versionSpan = Array.from(spans).find((s) =>
+      s.textContent?.startsWith("Meguruto v"),
+    );
+    expect(versionSpan).not.toBeNull();
+    expect(versionSpan?.tagName).toBe("SPAN");
+    // No 'Notes' badge element should exist
+    expect(node.textContent).not.toContain("Notes");
+  });
 });

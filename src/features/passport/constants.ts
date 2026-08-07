@@ -2,13 +2,7 @@ import { Icons } from "@/shared/icons";
 import type { ComponentType } from "react";
 
 export interface PassportSectionConfig {
-  id:
-    | "overview"
-    | "japan-map"
-    | "timeline"
-    | "achievements"
-    | "badges"
-    | "statistics";
+  id: "overview" | "japan-map" | "timeline" | "achievements" | "badges";
   label: string;
   shortLabel: string;
   description: string;
@@ -50,12 +44,5 @@ export const PASSPORT_SECTIONS: readonly PassportSectionConfig[] = [
     shortLabel: "Badges",
     description: "Earned travel milestone & regional exploration badges",
     icon: Icons.badges,
-  },
-  {
-    id: "statistics",
-    label: "Statistics",
-    shortLabel: "Statistics",
-    description: "Breakdown of explored places & prefecture stats",
-    icon: Icons.statistics,
   },
 ] as const;

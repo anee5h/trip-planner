@@ -18,84 +18,12 @@ import type { Collection } from "@/shared/types/collection";
 import type { PassportTab } from "../types";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { getCollectionContent } from "@/shared/utils/collections";
+import { BADGES_CATALOG } from "../data/badges";
+import { REGIONS } from "../data/regions";
 
 interface PassportOverviewProps {
   onSelectTab: (tab: PassportTab) => void;
 }
-
-const REGIONS = [
-  {
-    name: "Kanto",
-    prefectures: [
-      "Ibaraki",
-      "Tochigi",
-      "Gunma",
-      "Saitama",
-      "Chiba",
-      "Tokyo",
-      "Kanagawa",
-    ],
-  },
-  {
-    name: "Kansai",
-    prefectures: [
-      "Mie",
-      "Shiga",
-      "Kyoto",
-      "Osaka",
-      "Hyogo",
-      "Nara",
-      "Wakayama",
-    ],
-  },
-  {
-    name: "Tohoku",
-    prefectures: [
-      "Aomori",
-      "Iwate",
-      "Miyagi",
-      "Akita",
-      "Yamagata",
-      "Fukushima",
-    ],
-  },
-  {
-    name: "Chubu",
-    prefectures: [
-      "Niigata",
-      "Toyama",
-      "Ishikawa",
-      "Fukui",
-      "Yamanashi",
-      "Nagano",
-      "Gifu",
-      "Shizuoka",
-      "Aichi",
-    ],
-  },
-  {
-    name: "Chugoku",
-    prefectures: ["Tottori", "Shimane", "Okayama", "Hiroshima", "Yamaguchi"],
-  },
-  {
-    name: "Shikoku",
-    prefectures: ["Tokushima", "Kagawa", "Ehime", "Kochi"],
-  },
-  {
-    name: "Kyushu",
-    prefectures: [
-      "Fukuoka",
-      "Saga",
-      "Nagasaki",
-      "Kumamoto",
-      "Oita",
-      "Miyazaki",
-      "Kagoshima",
-      "Okinawa",
-    ],
-  },
-  { name: "Hokkaido", prefectures: ["Hokkaido"] },
-];
 
 export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
   const { visited, visitedPrefectures, trips } = useTripStore();
@@ -216,8 +144,8 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
               <div className="pt-2 flex items-center justify-between border-t border-white/15">
                 <p className="text-xs text-emerald-100/90 font-medium">
                   {visitedPrefectures.length > 0
-                    ? `Awesome start! Logged visits in ${visitedPrefectures.length} prefecture${visitedPrefectures.length > 1 ? "s" : ""}.`
-                    : "Start logging your travel history on the interactive map!"}
+                    ? `${visitedPrefectures.length} prefecture${visitedPrefectures.length > 1 ? "s" : ""} visited`
+                    : "Mark destinations as visited to track your progress."}
                 </p>
                 <button
                   onClick={() => onSelectTab("japan-map")}
@@ -371,10 +299,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
             </h3>
 
             <div className="space-y-3">
-              <div
-                onClick={() => onSelectTab("statistics")}
-                className="cursor-pointer flex items-center justify-between p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group"
-              >
+              <div className="flex items-center justify-between p-3 rounded-2xl">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 shadow-xs">
                     <Sparkles className="w-4 h-4" />
@@ -388,7 +313,6 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                     </div>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
               <div
@@ -404,7 +328,8 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                       Achievements Unlocked
                     </div>
                     <div className="text-lg font-extrabold text-slate-900 dark:text-white">
-                      {visited.length >= 1 ? "1" : "0"} / 6 Milestones
+                      {achievementStats.filter((a) => a.isCompleted).length} /{" "}
+                      {achievementStats.length} Milestones
                     </div>
                   </div>
                 </div>
@@ -424,7 +349,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                       Enamel Pin Badges
                     </div>
                     <div className="text-lg font-extrabold text-slate-900 dark:text-white">
-                      22 Travel Badges
+                      {BADGES_CATALOG.length} available
                     </div>
                   </div>
                 </div>

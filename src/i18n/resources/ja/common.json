@@ -486,6 +486,7 @@
     "back": "戻る",
     "cancel": "キャンセル",
     "save": "保存",
+    "delete": "削除",
     "close": "閉じる",
     "clearAll": "すべて消去",
     "view": "詳細を見る",
@@ -596,6 +597,45 @@
     "baseLocation": "出発地",
     "failedSave": "設定の保存に失敗しました",
     "settingsSaved": "設定を保存しました"
+  },
+  "settings": {
+    "fullName": "名前",
+    "fullNamePlaceholder": "お名前を入力",
+    "username": "ユーザー名",
+    "usernamePlaceholder": "@ユーザー名",
+    "homeCityHelp": "おすすめ表示に使用する居住地です。下の出発駅とは別に設定します。",
+    "baseLocationHelp": "移動時間の計算に使用する主な出発駅です。",
+    "appearanceHelp": "テーマと言語は選択後すぐに適用されます。",
+    "theme": "テーマ",
+    "themeSystem": "システム",
+    "themeLight": "ライト",
+    "themeDark": "ダーク",
+    "languageEn": "English",
+    "languageJa": "日本語",
+    "languageChangedEn": "Language set to English",
+    "languageChangedJa": "言語を日本語に変更しました",
+    "dataHelp": "旅行データの完全なバックアップをダウンロードします。",
+    "dataDescription": "プロフィール、訪問済みスポット、都道府県、保存済み旅行プランをJSON形式で出力します。",
+    "exportButton": "データをエクスポート (JSON)",
+    "travelDescription": "旅行プラン生成に使用するデフォルトの予算・交通手段・人数です。",
+    "primaryTransport": "主な交通手段",
+    "publicTransportModes": "公共交通機関",
+    "recommendationAnalytics": "おすすめ分析",
+    "recommendationAnalyticsHelp": "おすすめ品質向上のため、匿名の利用データを送信します。"
+  },
+  "passport": {
+    "signedOutTitle": "旅行パスポートを見るにはサインインしてください",
+    "signedOutDescription": "訪れたスポットや都道府県を記録し、日本各地を探索しながらバッジを獲得できます。"
+  },
+  "onboarding": {
+    "accountTitle": "あなたについて教えてください",
+    "accountHelp": "おすすめ表示のパーソナライズに使用します。",
+    "preferencesTitle": "旅行の設定",
+    "preferencesHelp": "旅行プラン生成のデフォルト値を設定します。",
+    "skip": "スキップ",
+    "continue": "次へ",
+    "doneTitle": "完了しました",
+    "doneHelp": "これらの設定は後から設定画面で変更できます。"
   },
   "datePicker": {
     "selectDate": "日付を選択",

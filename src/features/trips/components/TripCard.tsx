@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Calendar, Trash2, ArrowRight } from "lucide-react";
 import type { Trip } from "@/shared/types/trip";
 import { Button } from "@/shared/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 interface TripCardProps {
   trip: Trip;
@@ -9,6 +11,8 @@ interface TripCardProps {
 }
 
 export default function TripCard({ trip, onSelect, onDelete }: TripCardProps) {
+  const { t } = useTranslation();
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const stopsCount = trip.stops.length;
 
   const formatDate = (dateStr?: string) => {
@@ -27,14 +31,39 @@ export default function TripCard({ trip, onSelect, onDelete }: TripCardProps) {
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 capitalize border border-emerald-100 dark:border-emerald-900">
             {trip.status}
           </span>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => onDelete(trip.id)}
-            className="text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-full"
-          >
-            <Trash2 className="w-4 h-4" />
-          </Button>
+          {confirmDelete ? (
+            <div className="flex items-center gap-1">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => {
+                  onDelete(trip.id);
+                  setConfirmDelete(false);
+                }}
+                className="text-xs font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-full px-3 h-7"
+              >
+                {t("ui.delete")}
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setConfirmDelete(false)}
+                className="text-xs text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full px-3 h-7"
+              >
+                {t("ui.cancel")}
+              </Button>
+            </div>
+          ) : (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setConfirmDelete(true)}
+              className="text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-full"
+              aria-label={t("ui.delete")}
+            >
+              <Trash2 className="w-4 h-4" />
+            </Button>
+          )}
         </div>
 
         <h3 className="text-xl font-bold text-slate-950 dark:text-white mb-2 line-clamp-1">
