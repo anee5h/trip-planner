@@ -19,17 +19,25 @@ export interface LocalDisplayEstimateContext {
 /**
  * Presentation-only helper for local nearby-discovery cards.
  *
- * Hard Locality Guard:
+ * Hard Locality & Local Access Guards:
  * - Runs ONLY for same-municipality trips (origin municipality === destination municipality).
+ * - Honors destination.localAccessUnestimated (returns null when unestimated).
+ * - Honors destination.localAccessModes (returns null when mode is unauthorized or train excluded).
+ * - Honors context.publicModes (returns null when train is not in publicModes).
  * - Must NOT be used by canonical transport services, recommendation scoring, or budget policies.
  */
 export function getLocalDiscoveryDisplayEstimate(
   destination: Destination,
   context: LocalDisplayEstimateContext,
 ): LocalDisplayEstimate | null {
-  const { homeStationCoords, carMode, allDestinations } = context;
+  const { homeStationCoords, carMode, publicModes, allDestinations } = context;
 
-  // 1. Coordinate check
+  // 1. Explicit unestimated local access check
+  if (destination.localAccessUnestimated === true) {
+    return null;
+  }
+
+  // 2. Coordinate check
   if (
     !homeStationCoords ||
     typeof homeStationCoords.lat !== "number" ||
@@ -45,7 +53,7 @@ export function getLocalDiscoveryDisplayEstimate(
     return null;
   }
 
-  // 2. Municipality check
+  // 3. Municipality check
   const destMunicipalityId = destination.municipalityId?.trim();
   if (!destMunicipalityId) {
     return null;
@@ -61,11 +69,44 @@ export function getLocalDiscoveryDisplayEstimate(
     return null;
   }
 
-  // 3. Mode selection (strictly typed)
-  const modeToUse: "train" | "car" =
-    carMode === "my_car" || carMode === "rental" ? "car" : "train";
+  // 4. Mode selection & localAccessModes authorization check
+  const isCarUser = carMode === "my_car" || carMode === "rental";
 
-  // 4. Calculate local display estimate
+  let modeToUse: "train" | "car" | null = null;
+
+  if (isCarUser) {
+    if (
+      destination.localAccessModes &&
+      destination.localAccessModes.length > 0
+    ) {
+      const allowsCar =
+        carMode === "my_car"
+          ? destination.localAccessModes.includes("my_car") ||
+            destination.localAccessModes.includes("car")
+          : destination.localAccessModes.includes("car");
+      if (allowsCar) {
+        modeToUse = "car";
+      }
+    } else {
+      modeToUse = "car";
+    }
+  } else {
+    const publicModesAllowTrain = !publicModes || publicModes.includes("train");
+    const localAccessAllowsTrain =
+      !destination.localAccessModes ||
+      destination.localAccessModes.length === 0 ||
+      destination.localAccessModes.includes("train");
+
+    if (publicModesAllowTrain && localAccessAllowsTrain) {
+      modeToUse = "train";
+    }
+  }
+
+  if (!modeToUse) {
+    return null;
+  }
+
+  // 5. Calculate local display estimate
   const calc = estimateBetween(
     { coordinates: homeStationCoords },
     { coordinates: destination.coordinates },

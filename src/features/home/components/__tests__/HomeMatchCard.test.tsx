@@ -22,9 +22,11 @@ vi.mock("react-router-dom", () => ({
   ),
 }));
 
+let mockHomeStationCoords: { lat: number; lng: number } | null = YOKOHAMA;
+
 vi.mock("@/shared/hooks/useTripStore", () => ({
   useTripStore: () => ({
-    homeStationCoords: YOKOHAMA,
+    homeStationCoords: mockHomeStationCoords,
     isFavorite: () => false,
     toggleFavorite: vi.fn(),
   }),
@@ -216,6 +218,45 @@ const ogasawaraPOI: Destination = {
   role: "poi",
 } as unknown as Destination;
 
+const sakurajimaPOI: Destination = {
+  id: "sakurajima",
+  name: "Sakurajima",
+  prefecture: "Kagoshima",
+  municipalityId: "Kagoshima:kagoshima",
+  region: "Kyushu",
+  categories: ["Nature"],
+  heroImage: "",
+  description: "",
+  highlights: [],
+  budgetRecommended: 0,
+  budgetMin: 0,
+  budgetMax: 0,
+  transportOptions: { car: 30, ferry: 15 },
+  localAccessUnestimated: true,
+  localAccessModes: ["car", "my_car", "bus"],
+  coordinates: { lat: 31.5833, lng: 130.65 },
+  role: "poi",
+} as unknown as Destination;
+
+const busOnlyYokohamaPOI: Destination = {
+  id: "sankei-en",
+  name: "Sankeien Garden",
+  prefecture: "Kanagawa",
+  municipalityId: "Kanagawa:yokohama",
+  region: "Kanto",
+  categories: ["Park"],
+  heroImage: "",
+  description: "",
+  highlights: [],
+  budgetRecommended: 0,
+  budgetMin: 0,
+  budgetMax: 0,
+  transportOptions: { bus: 35 },
+  localAccessModes: ["bus", "car"],
+  coordinates: { lat: 35.4167, lng: 139.6639 },
+  role: "poi",
+} as unknown as Destination;
+
 describe("HomeMatchCard — KAI-52 local display estimates and guards", () => {
   let host: HTMLDivElement;
   let root: Root;
@@ -229,6 +270,7 @@ describe("HomeMatchCard — KAI-52 local display estimates and guards", () => {
   afterEach(() => {
     act(() => root.unmount());
     host.remove();
+    mockHomeStationCoords = YOKOHAMA;
   });
 
   it("renders verified cross-prefecture time when authorized corridor exists", async () => {
@@ -282,6 +324,34 @@ describe("HomeMatchCard — KAI-52 local display estimates and guards", () => {
 
     await act(async () => {
       root.render(<HomeMatchCard destination={ogasawaraPOI} rank={1} />);
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).not.toMatch(/Est\.\s*\d+/);
+    expect(text).toContain("home.transportModes.travel");
+  });
+
+  it("negative: does NOT fabricate local display estimate for localAccessUnestimated destination (Kagoshima -> Sakurajima with car)", async () => {
+    const { HomeMatchCard } = await import("../HomeMatchCard");
+
+    mockHomeStationCoords = { lat: 31.5966, lng: 130.5571 }; // Kagoshima City
+
+    await act(async () => {
+      root.render(
+        <HomeMatchCard destination={sakurajimaPOI} rank={1} carMode="my_car" />,
+      );
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).not.toMatch(/Est\.\s*\d+/);
+    expect(text).toContain("home.transportModes.travel");
+  });
+
+  it("negative: does NOT fabricate train estimate for destination that explicitly excludes train in localAccessModes", async () => {
+    const { HomeMatchCard } = await import("../HomeMatchCard");
+
+    await act(async () => {
+      root.render(<HomeMatchCard destination={busOnlyYokohamaPOI} rank={1} />);
     });
 
     const text = host.textContent ?? "";

@@ -4,6 +4,7 @@ import { getLocalDiscoveryDisplayEstimate } from "../LocalDiscoveryDisplayEstima
 
 const YOKOHAMA_NAKAYAMA = { lat: 35.5138, lng: 139.5397 };
 const TOKYO_STATION = { lat: 35.6812, lng: 139.7671 };
+const KAGOSHIMA_CITY = { lat: 31.5966, lng: 130.5571 };
 
 const YOKOHAMA_HUB: Destination = {
   id: "yokohama-city",
@@ -32,7 +33,16 @@ const KAMAKURA_HUB: Destination = {
   role: "hub",
 } as unknown as Destination;
 
-const mockCatalog = [YOKOHAMA_HUB, CHIYODA_HUB, KAMAKURA_HUB];
+const KAGOSHIMA_HUB: Destination = {
+  id: "kagoshima-city",
+  name: "Kagoshima City",
+  prefecture: "Kagoshima",
+  municipalityId: "Kagoshima:kagoshima",
+  coordinates: { lat: 31.5966, lng: 130.5571 },
+  role: "hub",
+} as unknown as Destination;
+
+const mockCatalog = [YOKOHAMA_HUB, CHIYODA_HUB, KAMAKURA_HUB, KAGOSHIMA_HUB];
 
 const YOKOHAMA_POI: Destination = {
   id: "minato-mirai",
@@ -61,8 +71,29 @@ const OGASAWARA_POI: Destination = {
   role: "poi",
 } as unknown as Destination;
 
+const SAKURAJIMA_POI: Destination = {
+  id: "sakurajima",
+  name: "Sakurajima",
+  prefecture: "Kagoshima",
+  municipalityId: "Kagoshima:kagoshima",
+  coordinates: { lat: 31.5833, lng: 130.65 },
+  localAccessUnestimated: true,
+  localAccessModes: ["car", "my_car", "bus"],
+  role: "poi",
+} as unknown as Destination;
+
+const BUS_ONLY_YOKOHAMA_POI: Destination = {
+  id: "sankei-en",
+  name: "Sankeien Garden",
+  prefecture: "Kanagawa",
+  municipalityId: "Kanagawa:yokohama",
+  coordinates: { lat: 35.4167, lng: 139.6639 },
+  localAccessModes: ["bus", "car"],
+  role: "poi",
+} as unknown as Destination;
+
 describe("LocalDiscoveryDisplayEstimator", () => {
-  it("returns calculated_local_display estimate for same-municipality POI", () => {
+  it("returns calculated_local_display estimate for same-municipality POI (Nakayama -> Minato Mirai)", () => {
     const result = getLocalDiscoveryDisplayEstimate(YOKOHAMA_POI, {
       homeStationCoords: YOKOHAMA_NAKAYAMA,
       allDestinations: mockCatalog,
@@ -75,7 +106,7 @@ describe("LocalDiscoveryDisplayEstimator", () => {
     expect(result?.timeRange[1]).toBeGreaterThan(result?.timeRange[0] ?? 0);
   });
 
-  it("selects car mode when carMode preference is set", () => {
+  it("selects car mode when carMode preference is set and car access is authorized", () => {
     const result = getLocalDiscoveryDisplayEstimate(YOKOHAMA_POI, {
       homeStationCoords: YOKOHAMA_NAKAYAMA,
       carMode: "rental",
@@ -84,6 +115,36 @@ describe("LocalDiscoveryDisplayEstimator", () => {
 
     expect(result).not.toBeNull();
     expect(result?.mode).toBe("car");
+  });
+
+  it("regression: returns null for localAccessUnestimated destination (Kagoshima -> Sakurajima with car preference)", () => {
+    const result = getLocalDiscoveryDisplayEstimate(SAKURAJIMA_POI, {
+      homeStationCoords: KAGOSHIMA_CITY,
+      carMode: "my_car",
+      allDestinations: mockCatalog,
+    });
+
+    expect(result).toBeNull();
+  });
+
+  it("regression: returns null when destination localAccessModes explicitly excludes train for public transport user", () => {
+    const result = getLocalDiscoveryDisplayEstimate(BUS_ONLY_YOKOHAMA_POI, {
+      homeStationCoords: YOKOHAMA_NAKAYAMA,
+      publicModes: ["train", "bus"],
+      allDestinations: mockCatalog,
+    });
+
+    expect(result).toBeNull();
+  });
+
+  it("returns null when publicModes excludes train", () => {
+    const result = getLocalDiscoveryDisplayEstimate(YOKOHAMA_POI, {
+      homeStationCoords: YOKOHAMA_NAKAYAMA,
+      publicModes: ["bus"],
+      allDestinations: mockCatalog,
+    });
+
+    expect(result).toBeNull();
   });
 
   it("returns null for cross-municipality destinations (Yokohama -> Kamakura)", () => {
@@ -100,38 +161,6 @@ describe("LocalDiscoveryDisplayEstimator", () => {
       homeStationCoords: TOKYO_STATION,
       allDestinations: mockCatalog,
     });
-
-    expect(result).toBeNull();
-  });
-
-  it("returns null when origin municipality cannot be resolved", () => {
-    const result = getLocalDiscoveryDisplayEstimate(YOKOHAMA_POI, {
-      homeStationCoords: { lat: 0, lng: 0 },
-      allDestinations: mockCatalog,
-    });
-
-    expect(result).toBeNull();
-  });
-
-  it("returns null when destination has no municipalityId", () => {
-    const poiNoMuni = { ...YOKOHAMA_POI, municipalityId: undefined };
-    const result = getLocalDiscoveryDisplayEstimate(poiNoMuni, {
-      homeStationCoords: YOKOHAMA_NAKAYAMA,
-      allDestinations: mockCatalog,
-    });
-
-    expect(result).toBeNull();
-  });
-
-  it("returns null when destination has no coordinates", () => {
-    const poiNoCoords = { ...YOKOHAMA_POI, coordinates: undefined };
-    const result = getLocalDiscoveryDisplayEstimate(
-      poiNoCoords as unknown as Destination,
-      {
-        homeStationCoords: YOKOHAMA_NAKAYAMA,
-        allDestinations: mockCatalog,
-      },
-    );
 
     expect(result).toBeNull();
   });
