@@ -1,6 +1,5 @@
 import { PASSPORT_SECTIONS } from "../constants";
 import type { PassportTab } from "../types";
-import { ScrollContainer } from "@/shared/components/ui/ScrollContainer";
 import { useTranslation } from "react-i18next";
 
 interface PassportNavProps {
@@ -20,28 +19,34 @@ export function PassportNav({ activeTab, onSelectTab }: PassportNavProps) {
   } as const;
   return (
     <div className="sticky top-16 z-30 bg-background/95 backdrop-blur-md py-2 border-b border-slate-200/80 dark:border-slate-800/80">
-      <ScrollContainer className="flex items-center gap-1.5 py-0.5 pr-5">
+      {/* Mobile: icon-only tabs except the active one; sm+: icon + label. No scrolling. */}
+      <div className="flex items-center gap-1.5">
         {PASSPORT_SECTIONS.map((section) => {
           const isActive = activeTab === section.id;
           const Icon = section.icon;
+          const label = labels[section.id];
           return (
             <button
               key={section.id}
               onClick={() => onSelectTab(section.id)}
-              className={`flex items-center gap-1.5 px-3.5 py-2.5 sm:py-2 min-h-[44px] sm:min-h-[36px] rounded-xl font-bold text-xs sm:text-sm shrink-0 transition-all ${
+              title={label}
+              aria-label={label}
+              className={`flex items-center justify-center gap-1.5 px-3.5 py-2.5 sm:py-2 min-h-[44px] sm:min-h-[36px] rounded-xl font-bold text-xs sm:text-sm shrink-0 transition-all ${
                 isActive
                   ? "bg-emerald-600 dark:bg-emerald-500 text-white shadow-sm"
-                  : "bg-slate-100/80 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 hover:bg-slate-200/80 dark:hover:bg-slate-700/80"
+                  : "bg-slate-100/80 dark:bg-slate-800/60 text-slate-700 dark:text-slate-200 hover:bg-slate-200/80 dark:hover:bg-slate-700/80"
               }`}
             >
               <Icon
-                className={`w-4 h-4 ${isActive ? "text-white" : "text-slate-500 dark:text-slate-400"}`}
+                className={`w-4 h-4 ${isActive ? "text-white" : "text-slate-600 dark:text-slate-300"}`}
+                aria-hidden="true"
               />
-              <span>{labels[section.id]}</span>
+              <span className="hidden sm:inline">{label}</span>
+              {isActive && <span className="sm:hidden">{label}</span>}
             </button>
           );
         })}
-      </ScrollContainer>
+      </div>
     </div>
   );
 }
