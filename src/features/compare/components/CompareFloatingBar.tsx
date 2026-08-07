@@ -33,7 +33,7 @@ export default function CompareFloatingBar({
           <Button
             onClick={onOpenModal}
             size="sm"
-            className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs rounded-full px-4 shadow-sm"
+            className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs rounded-full px-4 min-h-[44px] sm:min-h-[36px] shadow-sm flex items-center"
           >
             {t("ui.compareNow")}
             <ArrowRight className="w-3.5 h-3.5 ml-1" />
@@ -41,7 +41,7 @@ export default function CompareFloatingBar({
 
           <button
             onClick={clearCompare}
-            className="p-1.5 text-slate-400 hover:text-red-400 rounded-full hover:bg-slate-800 transition-colors"
+            className="p-2 min-h-[44px] min-w-[44px] text-slate-400 hover:text-red-400 rounded-full hover:bg-slate-800 transition-colors flex items-center justify-center"
             title={t("ui.clearCompare")}
             aria-label={t("ui.clearCompare")}
           >
