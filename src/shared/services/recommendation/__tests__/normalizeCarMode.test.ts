@@ -1,14 +1,9 @@
 import { describe, it, expect } from "vitest";
+import { normalizeCarMode } from "@/shared/utils/carMode";
 import { getValidModes } from "../RecommendationScorer";
 import type { Destination } from "@/shared/types/destination";
 
-/** Normalize legacy "own" to canonical "my_car". */
-function normalizeCarMode(raw: string | undefined): string {
-  if (raw === "own") return "my_car";
-  return raw || "none";
-}
-
-describe("carMode normalization", () => {
+describe("normalizeCarMode", () => {
   it('"own" normalizes to "my_car"', () => {
     expect(normalizeCarMode("own")).toBe("my_car");
   });
@@ -25,14 +20,17 @@ describe("carMode normalization", () => {
     expect(normalizeCarMode("none")).toBe("none");
   });
 
-  it('undefined returns "none"', () => {
+  it("undefined returns 'none'", () => {
     expect(normalizeCarMode(undefined)).toBe("none");
+  });
+
+  it("unknown string returns 'none'", () => {
+    expect(normalizeCarMode("helicopter")).toBe("none");
   });
 });
 
 describe('saved "own" carMode reaches getValidModes as my_car', () => {
   it("normalized my_car from legacy own is authorized for same-zone mainland destination", () => {
-    // Simulate a destination on mainland-honshu that supports car
     const dest = {
       id: "test-dest",
       name: "Test",
@@ -42,15 +40,12 @@ describe('saved "own" carMode reaches getValidModes as my_car', () => {
       role: "poi",
     } as unknown as Destination;
 
-    // Legacy "own" saved in metadata
-    const rawCarMode = "own";
-    const carMode = normalizeCarMode(rawCarMode);
-
+    const carMode = normalizeCarMode("own");
     expect(carMode).toBe("my_car");
 
     const modes = getValidModes(
       dest,
-      carMode, // "my_car"
+      carMode,
       ["train", "shinkansen", "bus"],
       { lat: 35.68, lng: 139.76 },
       undefined,

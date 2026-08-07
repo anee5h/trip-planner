@@ -33,10 +33,7 @@ const BUDGET_PRESETS = [
   { id: "luxury", key: "home.budgets.luxury" },
 ] as const;
 
-function normalizeCarMode(raw: string | undefined): string {
-  if (raw === "own") return "my_car";
-  return raw || "none";
-}
+import { normalizeCarMode, type CarMode } from "@/shared/utils/carMode";
 
 const ALL_MODES = [
   { id: "train", key: "home.transportModes.train" as const },
@@ -426,7 +423,9 @@ export default function Settings() {
                         <button
                           key={m.id}
                           type="button"
-                          onClick={() => handleFieldChange(setCarMode, m.id)}
+                          onClick={() =>
+                            handleFieldChange(setCarMode, m.id as CarMode)
+                          }
                           className={`${btnBase} text-center ${
                             carMode === m.id
                               ? "bg-emerald-500 text-white border-emerald-500"

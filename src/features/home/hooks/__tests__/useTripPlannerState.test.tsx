@@ -208,4 +208,12 @@ describe("useTripPlannerState", () => {
       expect(getResult().isDirty).toBe(false);
     });
   });
+
+  describe("carMode normalization", () => {
+    it("resolves legacy own to my_car via shared normalizeCarMode", async () => {
+      const { normalizeCarMode } = await import("@/shared/utils/carMode");
+      expect(normalizeCarMode("own")).toBe("my_car");
+      expect(normalizeCarMode("my_car")).toBe("my_car");
+    });
+  });
 });

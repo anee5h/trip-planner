@@ -9,16 +9,12 @@ import type { Destination } from "@/shared/types/destination";
 import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDestinationPicker";
 import { Button } from "@/shared/components/ui/button";
 import { useTranslation } from "react-i18next";
+import { normalizeCarMode } from "@/shared/utils/carMode";
 
 const ONBOARDING_PREFIX = "meguruto-onboarding-v2";
 
 function onboardingKey(userId: string): string {
   return `${ONBOARDING_PREFIX}-${userId}`;
-}
-
-function normalizeCarMode(raw: string | undefined): string {
-  if (raw === "own") return "my_car";
-  return raw || "none";
 }
 
 function isOnboardingNeeded(userId: string): boolean {
