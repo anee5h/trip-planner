@@ -475,6 +475,21 @@ export default function Navbar() {
                   {t("navigation.settings")}
                 </Link>
 
+                {/* Discover section — visually separate from account/preferences */}
+                <div className="border-t border-slate-100 dark:border-slate-800/80 mt-1 pt-2">
+                  <p className="px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                    {t("navigation.discover")}
+                  </p>
+                  <Link
+                    to="/collections"
+                    onClick={() => setMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                  >
+                    <Layers className="w-5 h-5 text-teal-500" />{" "}
+                    {t("navigation.collections")}
+                  </Link>
+                </div>
+
                 <button
                   type="button"
                   onClick={() => setLocale(locale === "en" ? "ja" : "en")}
@@ -544,6 +559,21 @@ export default function Navbar() {
               </div>
             ) : (
               <div className="flex flex-col gap-1">
+                {/* Discover section — visible without an account */}
+                <div className="border-b border-slate-100 dark:border-slate-800/80 pb-1 mb-1">
+                  <p className="px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                    {t("navigation.discover")}
+                  </p>
+                  <Link
+                    to="/collections"
+                    onClick={() => setMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                  >
+                    <Layers className="w-5 h-5 text-teal-500" />{" "}
+                    {t("navigation.collections")}
+                  </Link>
+                </div>
+
                 <button
                   type="button"
                   onClick={() => setLocale(locale === "en" ? "ja" : "en")}
