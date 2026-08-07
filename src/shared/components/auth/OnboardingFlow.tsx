@@ -72,6 +72,15 @@ export function OnboardingFlow() {
   const [partySize, setPartySize] = useState(2);
   const [budget, setBudget] = useState("standard");
 
+  // Reset transient state when user changes
+  useEffect(() => {
+    setVisible(false);
+    setStep("account");
+    setSaveError("");
+    setSaving(false);
+  }, [user?.id]);
+
+  // Show onboarding if needed for current user
   useEffect(() => {
     if (!user?.id) return;
     if (isOnboardingNeeded(user.id)) {

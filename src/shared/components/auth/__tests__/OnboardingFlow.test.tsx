@@ -148,6 +148,28 @@ describe("OnboardingFlow", () => {
     expect(document.body.textContent).toContain("onboarding.accountTitle");
   });
 
+  it("resets and re-evaluates when user switches in the same mounted root", () => {
+    // User A sees and skips onboarding
+    render();
+    expect(document.body.textContent).toContain("onboarding.accountTitle");
+    const skipBtn = findButton("onboarding.skip");
+    act(() => skipBtn?.click());
+    expect(document.body.textContent).not.toContain("onboarding.accountTitle");
+
+    // Switch to user B without unmounting
+    state.userId = "user-b";
+    state.userMeta = {};
+    act(() => root.render(<OnboardingFlow />));
+    // User B should see onboarding (different user, clean state)
+    expect(document.body.textContent).toContain("onboarding.accountTitle");
+
+    // Switch back to user A without unmounting
+    state.userId = "user-a";
+    act(() => root.render(<OnboardingFlow />));
+    // User A should NOT see onboarding (already skipped)
+    expect(document.body.textContent).not.toContain("onboarding.accountTitle");
+  });
+
   it("does not advance on save error and shows feedback", async () => {
     state.updateError = { message: "Network error" };
     render();
