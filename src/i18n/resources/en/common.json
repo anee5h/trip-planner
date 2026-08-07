@@ -591,7 +591,7 @@
     "accessibility": "Accessibility",
     "dataExport": "Data & export",
     "accountDescription": "Manage your public identity, home city, and language.",
-    "chooseCity": "Choose a city",
+    "chooseCity": "Select home city",
     "defaultLanguage": "Default language",
     "baseLocation": "Base location",
     "failedSave": "Failed to save settings",

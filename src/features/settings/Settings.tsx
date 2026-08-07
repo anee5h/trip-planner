@@ -11,7 +11,7 @@ import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import {
   UserRound,
-  Settings2,
+  Globe,
   Car,
   Palette,
   Download,
@@ -26,7 +26,8 @@ import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 import packageJson from "@/../package.json";
 
-type SettingsSection = "account" | "general" | "travel" | "appearance" | "data";
+type SettingsSection =
+  "account" | "language" | "travel" | "appearance" | "data";
 
 const BUDGET_PRESETS = [
   { id: "economy", key: "home.budgets.economy" },
@@ -53,7 +54,6 @@ export default function Settings() {
   const [loading, setLoading] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
 
-  // Settings State
   const [baseLocation, setBaseLocation] = useState(
     homeStation || user?.user_metadata?.base_location || "Tokyo Station",
   );
@@ -211,12 +211,15 @@ export default function Settings() {
   };
 
   const sidebarSections = [
-    { id: "account", label: t("ui.account"), icon: UserRound },
-    { id: "general", label: t("ui.general"), icon: Settings2 },
-    { id: "travel", label: t("ui.travelPreferences"), icon: Car },
-    { id: "appearance", label: t("ui.appearance"), icon: Palette },
-    { id: "data", label: t("ui.dataExport"), icon: Download },
-  ] as const;
+    { id: "account" as const, label: t("ui.account"), icon: UserRound },
+    { id: "language" as const, label: t("ui.defaultLanguage"), icon: Globe },
+    { id: "travel" as const, label: t("ui.travelPreferences"), icon: Car },
+    { id: "appearance" as const, label: t("ui.appearance"), icon: Palette },
+    { id: "data" as const, label: t("ui.dataExport"), icon: Download },
+  ];
+
+  const btnBase =
+    "p-2 sm:p-3 rounded-xl text-[11px] sm:text-xs font-bold border transition-all";
 
   return (
     <div className="container mx-auto max-w-6xl space-y-6 px-4 py-6 sm:px-6 sm:py-8 lg:px-8 animate-in fade-in duration-200">
@@ -226,10 +229,9 @@ export default function Settings() {
         description={t("ui.settingsDescription")}
       />
 
-      {/* Mobile: stacked sections with accordion feel. Desktop: sidebar + panel */}
       <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-        {/* Sidebar – horizontal scroll on mobile, vertical on desktop */}
-        <nav className="lg:col-span-3 w-full flex overflow-x-auto lg:flex-col gap-2 pb-2 lg:pb-0 scrollbar-none">
+        {/* Sidebar */}
+        <nav className="lg:col-span-3 w-full flex overflow-x-auto lg:flex-col gap-1.5 pb-2 lg:pb-0 scrollbar-none">
           {sidebarSections.map((sec) => {
             const isActive = activeSection === sec.id;
             const Icon = sec.icon;
@@ -238,14 +240,14 @@ export default function Settings() {
                 key={sec.id}
                 type="button"
                 onClick={() => setActiveSection(sec.id)}
-                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0 ${
+                className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap shrink-0 ${
                   isActive
-                    ? "bg-emerald-600 text-white shadow-md shadow-emerald-500/20"
+                    ? "bg-emerald-600 text-white shadow-sm"
                     : "bg-slate-50 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >
                 <Icon
-                  className={`w-4 h-4 shrink-0 ${isActive ? "text-white" : "text-emerald-500"}`}
+                  className={`w-3.5 h-3.5 shrink-0 ${isActive ? "text-white" : "text-emerald-500"}`}
                 />
                 <span className="hidden sm:inline">{sec.label}</span>
               </button>
@@ -282,7 +284,7 @@ export default function Settings() {
                     {t("auth.signUpTitle")}
                     <input
                       value={fullName}
-                      onChange={(event) => setFullName(event.target.value)}
+                      onChange={(e) => setFullName(e.target.value)}
                       placeholder={t("auth.signUpPrompt")}
                       className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
                     />
@@ -291,7 +293,7 @@ export default function Settings() {
                     Username
                     <input
                       value={username}
-                      onChange={(event) => setUsername(event.target.value)}
+                      onChange={(e) => setUsername(e.target.value)}
                       placeholder="@username"
                       className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
                     />
@@ -300,7 +302,7 @@ export default function Settings() {
                     {t("ui.chooseCity")}
                     <select
                       value={homeCityId}
-                      onChange={(event) => setHomeCityId(event.target.value)}
+                      onChange={(e) => setHomeCityId(e.target.value)}
                       className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
                     >
                       <option value="">{t("ui.chooseCity")}</option>
@@ -314,41 +316,53 @@ export default function Settings() {
                       ))}
                     </select>
                   </label>
-                  <label className="block text-xs font-bold uppercase text-slate-500">
-                    {t("ui.defaultLanguage")}
-                    <select
-                      value={defaultLocale}
-                      onChange={(event) =>
-                        setDefaultLocale(event.target.value as "en" | "ja")
-                      }
-                      className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
-                    >
-                      <option value="en">English</option>
-                      <option value="ja">日本語</option>
-                    </select>
-                  </label>
-                </div>
-              </div>
-            )}
 
-            {/* ── General ── */}
-            {activeSection === "general" && (
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                    {t("ui.general")}
-                  </h3>
-                  <p className="text-xs text-slate-500">
-                    {t("ui.baseLocation")}
-                  </p>
-                </div>
-                <div className="space-y-4 pt-2">
-                  <div>
+                  {/* Base location - moved into account */}
+                  <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
                     <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
                       {t("ui.baseLocation")}
                     </label>
                     <StationInput embedded={true} />
                   </div>
+                </div>
+              </div>
+            )}
+
+            {/* ── Language ── */}
+            {activeSection === "language" && (
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                    {t("ui.defaultLanguage")}
+                  </h3>
+                  <p className="text-xs text-slate-500">
+                    Override the browser language setting. Your browser is
+                    detected as{" "}
+                    {typeof navigator !== "undefined" &&
+                    navigator.language.toLowerCase().startsWith("ja")
+                      ? "日本語"
+                      : "English"}
+                    .
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 gap-3 pt-2">
+                  {[
+                    { id: "en", label: "English" },
+                    { id: "ja", label: "日本語" },
+                  ].map((opt) => (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      onClick={() => setDefaultLocale(opt.id as "en" | "ja")}
+                      className={`${btnBase} text-center ${
+                        defaultLocale === opt.id
+                          ? "bg-emerald-500 text-white border-emerald-500"
+                          : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
                 </div>
               </div>
             )}
@@ -371,13 +385,13 @@ export default function Settings() {
                     <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
                       {t("home.budget")}
                     </label>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
                       {BUDGET_PRESETS.map((b) => (
                         <button
                           key={b.id}
                           type="button"
                           onClick={() => setBudget(b.id)}
-                          className={`p-3 rounded-2xl text-xs font-bold border transition-all ${
+                          className={`${btnBase} text-center ${
                             budget === b.id
                               ? "bg-emerald-500 text-white border-emerald-500"
                               : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
@@ -394,7 +408,7 @@ export default function Settings() {
                     <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
                       {t("home.transportModes.car")}
                     </label>
-                    <div className="grid grid-cols-3 gap-2">
+                    <div className="grid grid-cols-3 gap-1.5">
                       {[
                         {
                           id: "none",
@@ -410,7 +424,7 @@ export default function Settings() {
                           key={m.id}
                           type="button"
                           onClick={() => setCarMode(m.id)}
-                          className={`p-3 rounded-2xl text-xs font-bold border transition-all ${
+                          className={`${btnBase} text-center ${
                             carMode === m.id
                               ? "bg-emerald-500 text-white border-emerald-500"
                               : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
@@ -422,12 +436,12 @@ export default function Settings() {
                     </div>
                   </div>
 
-                  {/* Public transport modes */}
+                  {/* Public transport */}
                   <div>
                     <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
                       {t("home.transport")}
                     </label>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
                       {[
                         { id: "train", label: t("home.transportModes.train") },
                         {
@@ -444,7 +458,7 @@ export default function Settings() {
                           key={tm.id}
                           type="button"
                           onClick={() => togglePublicMode(tm.id)}
-                          className={`p-3 rounded-2xl text-xs font-bold border transition-all ${
+                          className={`${btnBase} text-center ${
                             publicModes.includes(tm.id)
                               ? "bg-emerald-500 text-white border-emerald-500"
                               : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
@@ -505,7 +519,7 @@ export default function Settings() {
                       <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
                         {t("recommendation.personalization.noveltyLabel")}
                       </label>
-                      <div className="grid grid-cols-3 gap-2">
+                      <div className="grid grid-cols-3 gap-1.5">
                         {[
                           {
                             id: "BALANCED",
@@ -534,7 +548,7 @@ export default function Settings() {
                                 novelty: nov.id as any,
                               });
                             }}
-                            className={`p-3 rounded-2xl text-xs font-bold border transition-all ${
+                            className={`${btnBase} text-center ${
                               personalizationService.getSettings().novelty ===
                               nov.id
                                 ? "bg-emerald-500 text-white border-emerald-500"
@@ -596,7 +610,7 @@ export default function Settings() {
                   <p className="text-xs text-slate-500">{t("ui.appearance")}</p>
                 </div>
 
-                <div className="grid grid-cols-3 gap-3 pt-2">
+                <div className="grid grid-cols-3 gap-2">
                   {[
                     { id: "system", label: "System" },
                     { id: "light", label: "Light" },
@@ -606,7 +620,7 @@ export default function Settings() {
                       key={opt.id}
                       type="button"
                       onClick={() => setTheme(opt.id as any)}
-                      className={`p-4 rounded-2xl text-xs font-bold border transition-all text-center ${
+                      className={`${btnBase} text-center ${
                         theme === opt.id
                           ? "bg-emerald-500 text-white border-emerald-500 shadow-sm"
                           : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"

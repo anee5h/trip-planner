@@ -5,20 +5,9 @@ export function generateIcsContent(trip: Trip): string {
     return dateStr.replace(/-/g, "") + "T000000Z";
   };
 
-  const getNextDay = (dateStr: string) => {
-    const date = new Date(dateStr);
-    date.setDate(date.getDate() + 1);
-    return date.toISOString().split("T")[0];
-  };
-
-  const start = trip.startDate
-    ? formatIcsDate(trip.startDate)
-    : formatIcsDate(new Date().toISOString().split("T")[0]);
-  const end = trip.endDate
-    ? formatIcsDate(getNextDay(trip.endDate))
-    : formatIcsDate(
-        getNextDay(trip.startDate || new Date().toISOString().split("T")[0]),
-      );
+  const { start: startDate, end: endDate } = deriveTripDates(trip);
+  const start = formatIcsDate(startDate);
+  const end = formatIcsDate(getNextDay(endDate));
 
   const description = trip.stops
     .map((s, idx) => `${idx + 1}. ${s.name}${s.date ? ` — ${s.date}` : ""}`)
@@ -56,23 +45,34 @@ export function downloadIcsFile(trip: Trip): void {
   document.body.removeChild(link);
 }
 
+function deriveTripDates(trip: Trip): { start: string; end: string } {
+  const stopDates = trip.stops
+    .map((s) => s.date)
+    .filter((d): d is string => Boolean(d))
+    .sort();
+
+  const startDate =
+    trip.startDate || stopDates[0] || new Date().toISOString().split("T")[0];
+  const endDate = trip.endDate || stopDates[stopDates.length - 1] || startDate;
+
+  return { start: startDate, end: endDate };
+}
+
+function getNextDay(dateStr: string): string {
+  const date = new Date(dateStr);
+  date.setDate(date.getDate() + 1);
+  return date.toISOString().split("T")[0];
+}
+
 export function generateGoogleCalendarUrl(trip: Trip): string {
   const formatUrlDate = (dateStr: string) => {
     return dateStr.replace(/-/g, "");
   };
 
-  const getNextDay = (dateStr: string) => {
-    const date = new Date(dateStr);
-    date.setDate(date.getDate() + 1);
-    return date.toISOString().split("T")[0];
-  };
+  const { start: startDate, end: endDate } = deriveTripDates(trip);
+  const calEndDate = getNextDay(endDate);
 
-  const startDate = trip.startDate || new Date().toISOString().split("T")[0];
-  const endDate = trip.endDate
-    ? getNextDay(trip.endDate)
-    : getNextDay(startDate);
-
-  const dates = `${formatUrlDate(startDate)}/${formatUrlDate(endDate)}`;
+  const dates = `${formatUrlDate(startDate)}/${formatUrlDate(calEndDate)}`;
   const text = encodeURIComponent(trip.title);
 
   // Build deep link back to this specific trip

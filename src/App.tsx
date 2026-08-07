@@ -51,79 +51,84 @@ import { ThemeProvider } from "./shared/context/ThemeContext";
 import { LocaleProvider } from "./shared/context/LocaleContext";
 import { AuthModalProvider } from "./shared/context/AuthModalContext";
 import { useIdlePrefetch } from "./shared/hooks/useIdlePrefetch";
+import { OnboardingFlow } from "./shared/components/auth/OnboardingFlow";
 
-function App() {
+function AppInner() {
   const [compareModalOpen, setCompareModalOpen] = useState(false);
   useIdlePrefetch();
 
+  return (
+    <>
+      <Router>
+        <div className="flex flex-col min-h-screen bg-background text-foreground">
+          <Navbar />
+          <main className="flex-grow">
+            <ErrorBoundary>
+              <Suspense fallback={<PageLoader />}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/destinations" element={<Destinations />} />
+                  <Route
+                    path="/destinations/:id"
+                    element={<DestinationDetails />}
+                  />
+                  <Route
+                    path="/collections"
+                    element={<CollectionsDirectory />}
+                  />
+                  <Route
+                    path="/collections/:slug"
+                    element={<CollectionDetails />}
+                  />
+                  <Route path="/compare" element={<Compare />} />
+                  <Route
+                    path="/favorites"
+                    element={<Navigate to="/bucket-list" replace />}
+                  />
+                  <Route path="/bucket-list" element={<MyTrips />} />
+                  <Route path="/my-trips" element={<MyTrips />} />
+                  <Route path="/passport" element={<Passport />} />
+                  <Route
+                    path="/visited-map"
+                    element={<Navigate to="/passport" replace />}
+                  />
+                  <Route path="/profile" element={<Profile />} />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/help" element={<Help />} />
+                  <Route path="/qa" element={<QaDashboard />} />
+                  <Route
+                    path="/editorial"
+                    element={<Navigate to="/qa" replace />}
+                  />
+                  <Route path="/terms" element={<Terms />} />
+                  <Route path="/privacy" element={<Privacy />} />
+                  <Route path="/cookies" element={<Cookies />} />
+                </Routes>
+              </Suspense>
+            </ErrorBoundary>
+          </main>
+          <Footer />
+          <CompareFloatingBar onOpenModal={() => setCompareModalOpen(true)} />
+          <CompareModal
+            isOpen={compareModalOpen}
+            onClose={() => setCompareModalOpen(false)}
+          />
+        </div>
+        <Toaster position="bottom-right" />
+      </Router>
+      <OnboardingFlow />
+    </>
+  );
+}
+
+function App() {
   return (
     <AuthProvider>
       <ThemeProvider>
         <LocaleProvider>
           <AuthModalProvider>
             <TripStoreProvider>
-              <Router>
-                <div className="flex flex-col min-h-screen bg-background text-foreground">
-                  <Navbar />
-                  <main className="flex-grow">
-                    <ErrorBoundary>
-                      <Suspense fallback={<PageLoader />}>
-                        <Routes>
-                          <Route path="/" element={<Home />} />
-                          <Route
-                            path="/destinations"
-                            element={<Destinations />}
-                          />
-                          <Route
-                            path="/destinations/:id"
-                            element={<DestinationDetails />}
-                          />
-                          <Route
-                            path="/collections"
-                            element={<CollectionsDirectory />}
-                          />
-                          <Route
-                            path="/collections/:slug"
-                            element={<CollectionDetails />}
-                          />
-                          <Route path="/compare" element={<Compare />} />
-                          <Route
-                            path="/favorites"
-                            element={<Navigate to="/bucket-list" replace />}
-                          />
-                          <Route path="/bucket-list" element={<MyTrips />} />
-                          <Route path="/my-trips" element={<MyTrips />} />
-                          <Route path="/passport" element={<Passport />} />
-                          <Route
-                            path="/visited-map"
-                            element={<Navigate to="/passport" replace />}
-                          />
-                          <Route path="/profile" element={<Profile />} />
-                          <Route path="/settings" element={<Settings />} />
-                          <Route path="/help" element={<Help />} />
-                          <Route path="/qa" element={<QaDashboard />} />
-                          <Route
-                            path="/editorial"
-                            element={<Navigate to="/qa" replace />}
-                          />
-                          <Route path="/terms" element={<Terms />} />
-                          <Route path="/privacy" element={<Privacy />} />
-                          <Route path="/cookies" element={<Cookies />} />
-                        </Routes>
-                      </Suspense>
-                    </ErrorBoundary>
-                  </main>
-                  <Footer />
-                  <CompareFloatingBar
-                    onOpenModal={() => setCompareModalOpen(true)}
-                  />
-                  <CompareModal
-                    isOpen={compareModalOpen}
-                    onClose={() => setCompareModalOpen(false)}
-                  />
-                </div>
-                <Toaster position="bottom-right" />
-              </Router>
+              <AppInner />
             </TripStoreProvider>
           </AuthModalProvider>
         </LocaleProvider>
