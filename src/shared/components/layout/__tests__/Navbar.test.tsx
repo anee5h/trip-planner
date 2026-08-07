@@ -72,7 +72,7 @@ describe("Navbar Component", () => {
     expect(typeof Navbar).toBe("function");
   });
 
-  it("keeps the home link accessible and shows the wordmark from 360px", () => {
+  it("keeps the home link accessible and shows both mark and wordmark", () => {
     const node = renderNavbar();
 
     const homeLink = node.querySelector<HTMLAnchorElement>(
@@ -87,8 +87,8 @@ describe("Navbar Component", () => {
 
     expect(homeLink).not.toBeNull();
     expect(wordmark?.textContent).toBe("Meguruto");
-    expect(wordmark?.className).toContain("hidden min-[360px]:inline");
-    expect(wordmark?.className).not.toContain("sm:inline");
+    expect(wordmark?.className).toContain("inline");
+    expect(wordmark?.className).not.toContain("hidden");
     expect(markFrame?.className).toContain("dark:ring-white/50");
   });
 

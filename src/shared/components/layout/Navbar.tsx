@@ -130,7 +130,7 @@ export default function Navbar() {
           </span>
           <span
             data-testid="navbar-brand-wordmark"
-            className="hidden min-[360px]:inline text-lg min-[390px]:text-xl"
+            className="inline text-lg min-[390px]:text-xl font-extrabold"
           >
             <span className="text-emerald-600 dark:text-emerald-300">
               Meguru
@@ -343,18 +343,18 @@ export default function Navbar() {
         <Link
           to="/"
           aria-label="Meguruto home"
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 font-bold tracking-tight z-10"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5 font-bold tracking-tight z-10"
           onClick={() => setMenuOpen(false)}
         >
           <span
             data-testid="navbar-brand-mark-frame"
-            className="inline-flex rounded-[10px] bg-white p-[2px] ring-1 ring-slate-200 shadow-xs dark:ring-white/50"
+            className="inline-flex rounded-[8px] bg-white p-[1.5px] ring-1 ring-slate-200 shadow-xs dark:ring-white/50"
           >
-            <MegurutoMark className="size-[28px] min-[390px]:size-[30px]" />
+            <MegurutoMark className="size-[22px] min-[390px]:size-[24px]" />
           </span>
           <span
             data-testid="navbar-brand-wordmark"
-            className="hidden min-[360px]:inline text-lg min-[390px]:text-xl"
+            className="inline text-base min-[390px]:text-lg font-extrabold"
           >
             <span className="text-emerald-600 dark:text-emerald-300">
               Meguru
