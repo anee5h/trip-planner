@@ -124,15 +124,15 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                 return (
                   <div
                     key={dest.id}
-                    className="w-[260px] sm:w-[290px] md:w-auto shrink-0 snap-start bg-slate-50 dark:bg-slate-850/80 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 flex flex-col justify-between gap-4 shadow-sm"
+                    className="w-[260px] sm:w-[290px] md:w-auto shrink-0 snap-start bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 flex flex-col justify-between gap-4 shadow-sm"
                   >
                     {/* Header Card */}
                     <div className="relative flex flex-col min-w-0">
                       <button
                         onClick={() => toggleCompare(dest.id)}
                         className="absolute top-2 right-2 z-10 p-1.5 bg-black/50 hover:bg-red-600 text-white rounded-full backdrop-blur-md transition-colors"
-                        title="Remove from compare"
-                        aria-label={`Remove ${dest.name} from comparison`}
+                        title={t("compare.removeFromCompare")}
+                        aria-label={`${t("compare.removeFromCompare")} ${dest.name}`}
                       >
                         <X className="w-3.5 h-3.5" />
                       </button>
@@ -150,7 +150,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                       </h3>
                       <p className="text-xs text-slate-500 dark:text-slate-400 mb-3 truncate">
                         {dest.prefecture} •{" "}
-                        {dest.categories?.[0] || "Attraction"}
+                        {dest.categories?.[0] || t("compare.attraction")}
                       </p>
 
                       <Link
@@ -173,7 +173,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                       {/* Overall Score */}
                       <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
                         <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
-                          Score
+                          {t("compare.score")}
                         </span>
                         <div className="flex items-center gap-1.5">
                           <span className="font-extrabold text-slate-900 dark:text-white text-xs">
@@ -181,7 +181,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                           </span>
                           {isBestOverall && (
                             <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
-                              Best
+                              {t("compare.best")}
                             </Badge>
                           )}
                         </div>
@@ -190,7 +190,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                       {/* Est. Budget */}
                       <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
                         <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
-                          Budget
+                          {t("compare.budget")}
                         </span>
                         <div className="flex items-center gap-1.5">
                           <span className="font-bold text-slate-900 dark:text-white text-xs">
@@ -198,7 +198,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                           </span>
                           {isLowestBudget && (
                             <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
-                              Lowest
+                              {t("compare.lowest")}
                             </Badge>
                           )}
                         </div>
@@ -207,15 +207,17 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                       {/* Travel Time */}
                       <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
                         <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
-                          Travel
+                          {t("compare.travel")}
                         </span>
                         <div className="flex items-center gap-1.5">
                           <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs">
-                            {time !== 999 ? `${time}m` : "N/A"}
+                            {time !== 999
+                              ? `${time}m`
+                              : t("compare.unavailable")}
                           </span>
                           {isFastest && (
                             <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
-                              Fastest
+                              {t("compare.fastest")}
                             </Badge>
                           )}
                         </div>
@@ -224,7 +226,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                       {/* Walking */}
                       <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
                         <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
-                          Walk
+                          {t("compare.walk")}
                         </span>
                         <span
                           className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${walkMeta.badgeClass}`}
@@ -236,7 +238,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                       {/* Couple Rating */}
                       <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
                         <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
-                          Couple
+                          {t("compare.couple")}
                         </span>
                         <div className="flex items-center gap-1.5">
                           <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs">
@@ -244,7 +246,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                           </span>
                           {isMaxCouple && (
                             <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
-                              Top
+                              {t("compare.top")}
                             </Badge>
                           )}
                         </div>

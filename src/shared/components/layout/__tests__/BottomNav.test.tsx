@@ -117,11 +117,11 @@ describe("BottomNav Component", () => {
     window.removeEventListener("keydown", listener);
   });
 
-  it("hides bottom nav when compareList selection tray is active to avoid bar collision", () => {
+  it("keeps bottom nav visible when compareList selection tray is active", () => {
     tripStoreState.compareList = ["kyoto-station", "osaka-station"];
     const node = renderBottomNav(["/"]);
     const nav = node.querySelector("nav[aria-label='Mobile Navigation']");
-    expect(nav).toBeNull();
+    expect(nav).not.toBeNull();
     tripStoreState.compareList = [];
   });
 });

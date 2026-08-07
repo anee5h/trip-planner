@@ -21,7 +21,12 @@
     "editProfile": "Edit Profile",
     "settings": "Settings",
     "language": "Language",
-    "theme": "Theme"
+    "theme": "Theme",
+    "signedInAs": "Signed in as",
+    "help": "Help",
+    "feedback": "Send Feedback",
+    "signIn": "Sign In",
+    "signOut": "Sign Out"
   },
   "legal": {
     "terms": "Terms",
@@ -651,5 +656,25 @@
     "chooseTravelDate": "Choose travel date",
     "forecastNearOrigin": "Forecast near {{origin}}",
     "day2DerivedHint": "Day 2 (derived for 2D1N trip)"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "compare": {
+    "score": "Score",
+    "best": "Best",
+    "budget": "Budget",
+    "lowest": "Lowest",
+    "travel": "Travel",
+    "fastest": "Fastest",
+    "walk": "Walk",
+    "couple": "Couple",
+    "top": "Top",
+    "attraction": "Attraction",
+    "removeFromCompare": "Remove from comparison",
+    "closeModal": "Close comparison modal",
+    "unavailable": "N/A"
   }
 }

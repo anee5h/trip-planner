@@ -16,7 +16,7 @@ export default function CompareFloatingBar({
   if (compareList.length === 0) return null;
 
   return (
-    <div className="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] md:bottom-6 left-1/2 -translate-x-1/2 z-40 animate-in slide-in-from-bottom-5 duration-300">
+    <div className="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom))] md:bottom-6 left-1/2 -translate-x-1/2 z-40 animate-in slide-in-from-bottom-5 duration-300">
       <div className="bg-slate-900/90 dark:bg-slate-950/90 text-white border border-slate-700/60 rounded-full px-5 py-3 shadow-2xl backdrop-blur-md flex items-center gap-4">
         <div className="flex items-center gap-2 font-extrabold text-xs tracking-wide">
           <div className="p-1.5 rounded-full bg-emerald-500 text-slate-950">
