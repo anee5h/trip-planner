@@ -7,7 +7,7 @@
 3. Record every editorial source as `official`, `government`, `tourism_board`, `wikipedia`, `editor_observation`, `calculated`, or legacy `manual`. AI assistance belongs in the change history; it is not a factual source.
 4. Move the record through `in_review` and `approved` after an editor checks facts, hierarchy, and both locales.
 5. Set `published` only with a source, review date, reviewer, change summary, `checkedAt`, and a freshness state.
-6. Run `npm run validate-places`, then regenerate public details when catalog data changes.
+6. Run `npm run validate-places`, then regenerate public details when catalog data changes. CI enforces regeneration and the warning baseline via `npm run check:catalog-ci` (see `scripts/README.md` → Catalogue integrity CI checks).
 
 Existing catalog records are intentionally marked `legacy` until individually reviewed. Legacy records remain visible but must not be presented as newly approved content.
 

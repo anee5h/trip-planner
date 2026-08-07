@@ -24,6 +24,9 @@ npm run sync-destination-details
 # Confirm every public detail file matches the destination index
 npm run validate-destination-details
 
+# Catalogue integrity gate (runs in CI on catalogue-affecting PRs)
+npm run check:catalog-ci
+
 # Validate the v2 canonical place, editorial, bilingual, and hierarchy foundation
 npm run validate-places
 
@@ -55,6 +58,124 @@ When adding a new region or batch of destinations:
    ```
 
 ---
+
+---
+
+## Catalogue integrity CI checks
+
+`npm run check:catalog-ci` is the single gate that CI runs for catalogue
+integrity (workflow: `.github/workflows/catalogue-integrity.yml`, on every
+pull request to `main`). It is safe to run locally — it never writes
+catalogue files — and developers reproduce any CI failure with exactly this
+command.
+
+### When the workflow runs
+
+The command first classifies the changed files with
+`parseCatalogueScope` (scripts/cli/changed-scope.ts) and skips itself when
+nothing catalogue-affecting changed. The workflow deliberately has **no YAML
+`paths` filter**: the TypeScript classifier is the only gate, so a path can
+never bypass the check by being missing from a hand-maintained list.
+
+A change under any of these paths forces the full check:
+
+- `src/shared/data/**` — destination index, meta, collections, and the
+  transport registries (airports, airport zones, flight/ferry estimates, ferry
+  routes, transport topology, ground routes)
+- `public/data/**` — generated per-destination detail files and station data
+- `scripts/**` — audit code, generators, sync scripts, validators, CLIs, the
+  corrections manifest, the pipeline
+- `src/shared/types/**` — catalogue schemas
+- `package.json`, `package-lock.json` — package scripts control the checks,
+  and a lockfile-only change alters what `npm ci` installs, which can change
+  audit/generation behaviour
+- `.github/workflows/**` — workflow files
+
+No other package-manager/runtime control file exists in this repo (no
+`.npmrc`, yarn/pnpm/bun locks; `.nvmrc`/`.node-version` are ignored by CI,
+which pins the Node version via `setup-node` in the workflows).
+
+### Stages
+
+1. **Audit** — the read-only `runAudit` from scripts/audit/catalog-integrity.ts
+   (no network). Any `error`-severity finding fails the check.
+2. **Warning baseline** — warning-severity findings are compared against the
+   committed ledger `scripts/audit/catalog-warnings-baseline.json`.
+3. **Generated files** — scripts/check-catalog-sync.ts regenerates every
+   `public/data/destinations/<id>.json` file and `destinations-meta.json`
+   from the index **in memory** (same generator as `sync-destination-details`,
+   scripts/catalog/generate-outputs.ts), compares byte-for-byte with the
+   committed files, and generates a second time to prove idempotency (zero
+   diff). Source/detail/meta field consistency is additionally enforced by
+   the audit's category-E rules (SYNC_*).
+
+### The warning baseline
+
+`scripts/audit/catalog-warnings-baseline.json` records the warning debt
+accepted on `main` at the time of the last deliberate update (currently 396
+instances). It is derived from the exact `main` audit, committed, and
+reviewed like any other file.
+
+- **Fingerprints** are `"<CODE>:<destinationId>[:<identity>]"` with
+  per-fingerprint instance counts. The identity is a canonical, structured
+  description of the violation built from `finding.details`, never from the
+  free-form message:
+  - relationship list warnings → relationship key + referenced destination
+    ID (e.g. `REL_CROSS_PREFECTURE_REF:okayama-city:nearbyDestinationIds|
+fukuoka-city`)
+  - featured-list warnings → featured destination ID
+  - duplicate-coordinate warnings → sorted destination-ID pair
+  - municipality-mismatch warnings → the municipality/parent IDs
+  - missing/dangling reference warnings → the referenced ID
+  - parent warnings → `parentDestinationId`
+  - detail-mismatch warnings → the sorted disagreeing field list
+  - rules whose code+destination already identifies exactly one violation
+    (e.g. `MUNI_HUB_MISSING_NAME_JA`) keep the plain `CODE:destinationId`
+    form
+
+  Identity components are stable IDs (never display names); arrays whose
+  ordering is irrelevant are sorted; calculated diagnostics (distances,
+  counts, coordinate strings, visit-hour values) and timestamps are
+  excluded. Two different violations can therefore never share a
+  fingerprint, even with the same code and destination — a warning cannot
+  be silently exchanged for a different warning of the same code on the
+  same record.
+
+- **New instances fail** — a fingerprint with more instances than the
+  baseline fails the check, even when another warning was removed in the
+  same PR (neither the "same total count" nor the "same record, extra
+  instance" loophole exists).
+- **Fewer instances pass** — removals are improvements. After verified
+  sanitation work that removes warnings, update the baseline in the same PR:
+
+  ```bash
+  npm run check:catalog-warnings:update
+  ```
+
+  then review the `scripts/audit/catalog-warnings-baseline.json` diff and
+  commit it. The update command **refuses to run while new warning instances
+  exist**, so the accepted debt can only shrink. CI never regenerates the
+  baseline.
+
+- **Why existing warnings are accepted** — they are pre-existing debt on
+  `main`; blocking every unrelated catalogue correction until all 396 are
+  fixed would stall legitimate work. The ledger keeps that debt visible and
+  bounded.
+- **Why new warnings are rejected** — a new or extra warning is a
+  regression, exactly what the gate exists to catch. New audit rules must
+  land with their data fixed in the same PR (the update command will not
+  accept their findings).
+
+### Local reproduction
+
+```bash
+npm run check:catalog-ci               # everything CI runs (skips when irrelevant)
+npm run check:catalog-warnings         # audit + baseline comparison only
+npm run check:catalog-warnings:update  # deliberate baseline reduction (refuses growth)
+npm run check:catalog-sync             # generated-file currency + idempotency
+npm run sync-destination-details       # regenerate committed outputs (if stale)
+npm run audit:catalog-integrity        # the read-only audit alone
+```
 
 ## Pipeline Stages
 

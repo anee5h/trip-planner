@@ -28,12 +28,8 @@
 
 import fs from "fs";
 import path from "path";
-import type { Destination } from "../src/shared/types/destination.js";
-import {
-  runAudit,
-  type DetailFileEntry,
-  type AuditReport,
-} from "./audit/catalog-integrity.js";
+import { runAudit, type AuditReport } from "./audit/catalog-integrity.js";
+import { loadCatalogInputs } from "./audit/catalog-inputs.js";
 
 const args = process.argv.slice(2);
 const getFlag = (name: string): string | undefined => {
@@ -57,32 +53,7 @@ Options:
   }
 
   const rootDir = process.cwd();
-  const indexPath = path.join(
-    rootDir,
-    "src/shared/data/destinations-index.json",
-  );
-  const metaPath = path.join(rootDir, "src/shared/data/destinations-meta.json");
-  const detailsDir = path.join(rootDir, "public/data/destinations");
-
-  const destinations = JSON.parse(
-    fs.readFileSync(indexPath, "utf-8"),
-  ) as Destination[];
-  const metaEntries = JSON.parse(fs.readFileSync(metaPath, "utf-8")) as {
-    id: string;
-    [k: string]: unknown;
-  }[];
-
-  const details: DetailFileEntry[] = [];
-  if (fs.existsSync(detailsDir)) {
-    for (const file of fs.readdirSync(detailsDir).sort()) {
-      if (!file.endsWith(".json")) continue;
-      const id = file.slice(0, -".json".length);
-      const record = JSON.parse(
-        fs.readFileSync(path.join(detailsDir, file), "utf-8"),
-      ) as Destination;
-      details.push({ id, record });
-    }
-  }
+  const { destinations, details, metaEntries } = loadCatalogInputs(rootDir);
 
   // The pure audit is deterministic; the real timestamp is attached here.
   const report: AuditReport = runAudit(destinations, details, metaEntries, {

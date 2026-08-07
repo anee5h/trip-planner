@@ -5,6 +5,11 @@
  *          findings only.
  * AUD-002: Findings are structured objects with stable codes (documented
  *          below), so machine consumers can rely on them across runs.
+ *          Rules that can fire several times for one record (relationship
+ *          lists, duplicate coordinates, ...) carry identity fields in
+ *          `details` (referenced id, relationship key, sorted id set) so
+ *          the warning baseline can fingerprint each violation; see
+ *          warningIdentity() in scripts/audit/catalog-baseline.ts.
  * AUD-003: Distance/duplicate-coordinate checks are suspicion signals only;
  *          they never justify an automatic reassignment.
  * AUD-004: Municipality-mismatch rules apply only when the parent is an
@@ -223,6 +228,7 @@ function checkRelationships(
             category: "A",
             targetId: dest.id,
             message: `Destination '${dest.id}' references non-existent parent '${parentId}'.`,
+            details: { parentDestinationId: parentId },
           });
         } else {
           if (parent.role !== "hub") {
@@ -232,6 +238,7 @@ function checkRelationships(
               category: "A",
               targetId: dest.id,
               message: `Destination '${dest.id}' has non-hub parent '${parentId}'.`,
+              details: { parentDestinationId: parentId },
             });
           }
           if (
@@ -245,6 +252,7 @@ function checkRelationships(
               category: "A",
               targetId: dest.id,
               message: `Destination '${dest.id}' (${dest.prefecture}) cannot have parent '${parentId}' (${parent.prefecture}).`,
+              details: { parentDestinationId: parentId },
             });
           }
           // AUD-004: municipality equality only for municipality-scale hubs.
@@ -279,6 +287,7 @@ function checkRelationships(
               category: "A",
               targetId: dest.id,
               message: `Child '${dest.id}' is assigned to parent '${parentId}' whose editorial lifecycle is '${lifecycle}' (not published).`,
+              details: { parentDestinationId: parentId },
             });
           }
         }
@@ -305,6 +314,7 @@ function checkRelationships(
             category: "A",
             targetId: dest.id,
             message: `Destination '${dest.id}' cannot reference itself in '${key}'.`,
+            details: { key },
           });
         }
         if (seen.has(refId)) {
@@ -360,6 +370,7 @@ function checkRelationships(
               targetId: dest.id,
               message: `Hub '${dest.id}' features '${refId}' which is in a different municipality (${ref.municipalityId}).`,
               details: {
+                refId,
                 hubMunicipalityId: dest.municipalityId,
                 refMunicipalityId: ref.municipalityId,
               },
@@ -379,6 +390,7 @@ function checkRelationships(
           category: "A",
           targetId: dest.id,
           message: `Destination '${dest.id}' has non-hub gateway '${rels.gatewayHubId}'.`,
+          details: { gatewayHubId: rels.gatewayHubId },
         });
       }
     }
