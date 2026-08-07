@@ -10,9 +10,10 @@ import { getDestinationList } from "@/shared/services/destination/DestinationSer
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import {
-  MapPin,
+  UserRound,
+  Settings2,
   Car,
-  Sun,
+  Palette,
   Eye,
   Download,
   CheckCircle2,
@@ -24,6 +25,7 @@ import { Button } from "@/shared/components/ui/button";
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
+import packageJson from "@/../package.json";
 
 type SettingsSection =
   "account" | "general" | "travel" | "appearance" | "accessibility" | "data";
@@ -64,7 +66,7 @@ export default function Settings() {
   const [partySize, setPartySize] = useState(
     user?.user_metadata?.preferences?.partySize || 2,
   );
-  const [reducedMotion, setReducedMotion] = useState(false);
+
   const [homeCityId, setHomeCityId] = useState(
     user?.user_metadata?.home_city || "",
   );
@@ -116,8 +118,6 @@ export default function Settings() {
     e.preventDefault();
     setLoading(true);
     try {
-      const locationChanged = baseLocation !== homeStation;
-
       const { error } = await updateUserProfile({
         full_name: fullName.trim(),
         username: username.trim(),
@@ -136,25 +136,8 @@ export default function Settings() {
       if (!error) {
         setLocale(defaultLocale);
         setSaveSuccess(true);
-        if (locationChanged) {
-          toast.success(
-            `Base Location updated to ${baseLocation}. Recommendations refreshed.`,
-          );
-        } else {
-          const sectionToasts: Record<SettingsSection, string> = {
-            account: "Account settings updated successfully!",
-            general: "General settings updated successfully!",
-            travel: "Travel preferences updated successfully!",
-            appearance: "Appearance & theme updated successfully!",
-            accessibility: "Accessibility options updated successfully!",
-            data: "Data settings updated successfully!",
-          };
-          toast.success(
-            sectionToasts[activeSection] || "Settings saved successfully!",
-          );
-        }
+        toast.success(t("ui.settingsSaved"));
 
-        // Safe return flow: validate internal relative URL
         if (
           returnParam &&
           returnParam.startsWith("/") &&
@@ -182,7 +165,7 @@ export default function Settings() {
   const handleExportData = () => {
     const exportData = {
       app: "Meguruto",
-      version: "1.5.2",
+      version: packageJson.version,
       schemaVersion: 1,
       exportedAt: new Date().toISOString(),
       profile: {
@@ -213,7 +196,7 @@ export default function Settings() {
     downloadAnchor.click();
     downloadAnchor.remove();
 
-    toast.success(t("ui.settingsSaved"));
+    toast.success(t("ui.dataExport"));
   };
 
   return (
@@ -228,10 +211,10 @@ export default function Settings() {
         {/* Settings Navigation Sidebar */}
         <div className="lg:col-span-3 flex overflow-x-auto lg:flex-col gap-2 pb-2 lg:pb-0 scrollbar-none">
           {[
-            { id: "account", label: t("ui.account"), icon: MapPin },
-            { id: "general", label: t("ui.general"), icon: MapPin },
+            { id: "account", label: t("ui.account"), icon: UserRound },
+            { id: "general", label: t("ui.general"), icon: Settings2 },
             { id: "travel", label: t("ui.travelPreferences"), icon: Car },
-            { id: "appearance", label: t("ui.appearance"), icon: Sun },
+            { id: "appearance", label: t("ui.appearance"), icon: Palette },
             { id: "accessibility", label: t("ui.accessibility"), icon: Eye },
             { id: "data", label: t("ui.dataExport"), icon: Download },
           ].map((sec) => {
@@ -340,8 +323,7 @@ export default function Settings() {
                     {t("ui.general")}
                   </h3>
                   <p className="text-xs text-slate-500">
-                    Set your home starting point for travel duration estimates
-                    and regional route calculations.
+                    {t("ui.baseLocation")}
                   </p>
                 </div>
 
@@ -363,24 +345,29 @@ export default function Settings() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                    Travel & Transit Preferences
+                    {t("ui.travelPreferences")}
                   </h3>
                   <p className="text-xs text-slate-500">
-                    Configure default transit modes and party size for trip
-                    generation.
+                    {t("home.transportOptions.public")}
                   </p>
                 </div>
 
                 <div className="space-y-4 pt-2">
                   <div>
                     <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
-                      Car Mode Preference
+                      {t("home.transportModes.car")}
                     </label>
                     <div className="grid grid-cols-3 gap-3">
                       {[
-                        { id: "none", label: "Transit Only" },
-                        { id: "rental", label: "Rental Car" },
-                        { id: "own", label: "Personal Car" },
+                        {
+                          id: "none",
+                          label: t("home.transportOptions.public"),
+                        },
+                        {
+                          id: "rental",
+                          label: t("home.transportOptions.rentalCar"),
+                        },
+                        { id: "own", label: t("home.transportOptions.myCar") },
                       ].map((m) => (
                         <button
                           key={m.id}
@@ -400,14 +387,20 @@ export default function Settings() {
 
                   <div>
                     <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
-                      Public Transport Modes
+                      {t("home.transport")}
                     </label>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                       {[
-                        { id: "train", label: "Train / Subway" },
-                        { id: "shinkansen", label: "Shinkansen" },
-                        { id: "bus", label: "Local Bus" },
-                        { id: "flight", label: "Domestic Flight" },
+                        { id: "train", label: t("home.transportModes.train") },
+                        {
+                          id: "shinkansen",
+                          label: t("home.transportModes.shinkansen"),
+                        },
+                        { id: "bus", label: t("home.transportModes.bus") },
+                        {
+                          id: "flight",
+                          label: t("home.transportModes.flight"),
+                        },
                       ].map((tm) => (
                         <button
                           key={tm.id}
@@ -427,8 +420,10 @@ export default function Settings() {
 
                   <div>
                     <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5">
-                      Default Travel Party Size: {partySize} person
-                      {partySize > 1 ? "s" : ""}
+                      {t("home.party")}: {partySize}{" "}
+                      {partySize > 1
+                        ? t("home.people_other")
+                        : t("home.people_one")}
                     </label>
                     <input
                       type="range"
@@ -443,17 +438,16 @@ export default function Settings() {
                   {/* Recommendation Personalization & Privacy */}
                   <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-4">
                     <h4 className="text-sm font-extrabold text-slate-900 dark:text-white">
-                      Recommendation Personalization & Privacy
+                      {t("recommendation.personalization.title")}
                     </h4>
 
                     <div className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800">
                       <div>
                         <div className="text-xs font-bold text-slate-900 dark:text-white">
-                          History-Based Personalization
+                          {t("recommendation.personalization.enableLabel")}
                         </div>
                         <div className="text-[11px] text-slate-500">
-                          Adjust recommendation rankings using saved and visited
-                          destinations
+                          {t("recommendation.personalization.enableHelp")}
                         </div>
                       </div>
                       <input
@@ -463,7 +457,6 @@ export default function Settings() {
                           personalizationService.updateSettings({
                             enabled: e.target.checked,
                           });
-                          toast.success("Personalization updated");
                         }}
                         className="w-4 h-4 accent-emerald-600 rounded cursor-pointer"
                       />
@@ -471,13 +464,28 @@ export default function Settings() {
 
                     <div>
                       <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
-                        Novelty Preference
+                        {t("recommendation.personalization.noveltyLabel")}
                       </label>
                       <div className="grid grid-cols-3 gap-3">
                         {[
-                          { id: "BALANCED", label: "Balanced" },
-                          { id: "NOVEL", label: "Prefer Unvisited" },
-                          { id: "FAMILIAR", label: "Prefer Visited" },
+                          {
+                            id: "BALANCED",
+                            label: t(
+                              "recommendation.personalization.noveltyBalanced",
+                            ),
+                          },
+                          {
+                            id: "NOVEL",
+                            label: t(
+                              "recommendation.personalization.noveltyNovel",
+                            ),
+                          },
+                          {
+                            id: "FAMILIAR",
+                            label: t(
+                              "recommendation.personalization.noveltyFamiliar",
+                            ),
+                          },
                         ].map((nov) => (
                           <button
                             key={nov.id}
@@ -486,7 +494,6 @@ export default function Settings() {
                               personalizationService.updateSettings({
                                 novelty: nov.id as any,
                               });
-                              toast.success(`Novelty set to ${nov.label}`);
                             }}
                             className={`p-3 rounded-2xl text-xs font-bold border transition-all ${
                               personalizationService.getSettings().novelty ===
@@ -504,7 +511,7 @@ export default function Settings() {
                     <div className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800">
                       <div>
                         <div className="text-xs font-bold text-slate-900 dark:text-white">
-                          Analytics & Telemetry Opt-Out
+                          {t("recommendation.feedback.optOutLabel")}
                         </div>
                         <div className="text-[11px] text-slate-500">
                           Stop sending zero-PII recommendation quality events
@@ -516,11 +523,6 @@ export default function Settings() {
                         checked={recommendationAnalytics.getOptOut()}
                         onChange={(e) => {
                           recommendationAnalytics.setOptOut(e.target.checked);
-                          toast.success(
-                            e.target.checked
-                              ? "Telemetry opted out"
-                              : "Telemetry enabled",
-                          );
                         }}
                         className="w-4 h-4 accent-emerald-600 rounded cursor-pointer"
                       />
@@ -531,20 +533,14 @@ export default function Settings() {
                         type="button"
                         variant="outline"
                         onClick={() => {
-                          if (
-                            window.confirm(
-                              "Are you sure you want to reset your personalization profile?",
-                            )
-                          ) {
-                            personalizationService.resetSettings();
-                            toast.success(
-                              "Personalization profile reset to defaults",
-                            );
-                          }
+                          personalizationService.resetSettings();
+                          toast.success(
+                            t("recommendation.personalization.resetAction"),
+                          );
                         }}
                         className="text-xs text-rose-600 dark:text-rose-400 border-rose-200 dark:border-rose-900 hover:bg-rose-50 dark:hover:bg-rose-950/30 font-bold"
                       >
-                        Reset Personalization Profile
+                        {t("recommendation.personalization.resetAction")}
                       </Button>
                     </div>
                   </div>
@@ -557,19 +553,16 @@ export default function Settings() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                    Appearance & Theme
+                    {t("ui.appearance")}
                   </h3>
-                  <p className="text-xs text-slate-500">
-                    Customize interface visual theme. ThemeProvider applies
-                    changes instantly.
-                  </p>
+                  <p className="text-xs text-slate-500">{t("ui.appearance")}</p>
                 </div>
 
                 <div className="grid grid-cols-3 gap-3 pt-2">
                   {[
-                    { id: "system", label: "System Default" },
-                    { id: "light", label: "Light Mode" },
-                    { id: "dark", label: "Dark Mode" },
+                    { id: "system", label: "System" },
+                    { id: "light", label: "Light" },
+                    { id: "dark", label: "Dark" },
                   ].map((t) => (
                     <button
                       key={t.id}
@@ -593,29 +586,17 @@ export default function Settings() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                    Accessibility Options
+                    {t("ui.accessibility")}
                   </h3>
                   <p className="text-xs text-slate-500">
-                    Configure motion and visual contrast preferences.
+                    {t("ui.accessibility")}
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 flex items-center justify-between">
-                  <div>
-                    <div className="text-xs font-bold text-slate-900 dark:text-white">
-                      Reduced Motion
-                    </div>
-                    <div className="text-[11px] text-slate-500">
-                      Minimize animations and UI transition effects
-                    </div>
-                  </div>
-                  <input
-                    type="checkbox"
-                    checked={reducedMotion}
-                    onChange={(e) => setReducedMotion(e.target.checked)}
-                    className="w-5 h-5 accent-emerald-500 rounded cursor-pointer"
-                  />
-                </div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 py-8 text-center">
+                  Accessibility preferences are configured via your device and
+                  browser settings.
+                </p>
               </div>
             )}
 
@@ -624,11 +605,9 @@ export default function Settings() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                    Data & Export Controls
+                    {t("ui.dataExport")}
                   </h3>
-                  <p className="text-xs text-slate-500">
-                    Manage your stored travel history data.
-                  </p>
+                  <p className="text-xs text-slate-500">{t("ui.dataExport")}</p>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 space-y-3">
@@ -637,7 +616,7 @@ export default function Settings() {
                   </div>
                   <p className="text-[11px] text-slate-500">
                     Download a full JSON backup of your profile details, visited
-                    places, prefectures, and saved trips (`schemaVersion: 1`).
+                    places, prefectures, and saved trips.
                   </p>
                   <Button
                     type="button"
@@ -651,7 +630,7 @@ export default function Settings() {
               </div>
             )}
 
-            {activeSection !== "data" && (
+            {activeSection !== "data" && activeSection !== "accessibility" && (
               <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
                 <Button
                   type="submit"
@@ -659,7 +638,7 @@ export default function Settings() {
                   className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
-                  Save Settings
+                  {t("ui.save")}
                 </Button>
               </div>
             )}
