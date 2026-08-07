@@ -643,13 +643,18 @@ function checkTiming(
         message: `Hub '${dest.id}' is missing recommendedVisitHours; weekend capacity falls back to 0 minutes.`,
       });
     }
-    if (typeof dest.totalTripHours !== "number") {
+    // KAI-50: `recommendedVisitHours` is the canonical planning duration.
+    // The deprecated `totalTripHours` field cannot substitute because its
+    // legacy semantics may include transport from a fixed origin. Records
+    // without canonical visit data are flagged; hubs and published POIs
+    // keep their role-specific warnings below.
+    if (!h && !isHubOrCity && !(isPoi && isPublished(dest))) {
       findings.push({
-        code: "TIME_MISSING_TOTAL_TRIP_HOURS",
+        code: "TIME_MISSING_CANONICAL_DURATION",
         severity: "warning",
         category: "C",
         targetId: dest.id,
-        message: `Destination '${dest.id}' is missing totalTripHours.`,
+        message: `Destination '${dest.id}' is missing recommendedVisitHours and cannot be duration-planned; legacy totalTripHours is not a substitute.`,
       });
     }
   }

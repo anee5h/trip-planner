@@ -15,6 +15,8 @@
  *  10. source/detail mismatch           — SYNC_DETAIL_MISMATCH
  *  11. orphan detail file               — SYNC_ORPHAN_DETAIL
  *  12. generated index mismatch         — SYNC_META_STALE
+ *  13. modern record without legacy     — no TIME_MISSING_* warning
+ *  14. missing canonical duration       — TIME_MISSING_CANONICAL_DURATION
  *
  * Also asserts determinism: two runs over the same input produce identical
  * output, and the audit never mutates its inputs.
@@ -253,6 +255,36 @@ describe("catalogue integrity audit", () => {
       [{ id: "castle", role: "poi", kind: "attraction", status: "beta" }],
     );
     expect(codes(report.findings, "castle")).toContain("SYNC_META_STALE");
+  });
+
+  it("13. modern record without totalTripHours gets no timing warning", () => {
+    const dest = makeDestination({
+      id: "byodoin-modern",
+      recommendedVisitHours: { min: 1, max: 2 },
+      totalTripHours: undefined,
+    });
+    const report = runWith([dest]);
+    expect(codes(report.findings, "byodoin-modern")).not.toContain(
+      "TIME_MISSING_TOTAL_TRIP_HOURS",
+    );
+    expect(codes(report.findings, "byodoin-modern")).not.toContain(
+      "TIME_MISSING_CANONICAL_DURATION",
+    );
+  });
+
+  it("14. missing canonical duration is flagged (TIME_MISSING_CANONICAL_DURATION)", () => {
+    const dest = makeDestination({
+      id: "legacy-only",
+      recommendedVisitHours: undefined,
+      totalTripHours: 6,
+    });
+    const report = runWith([dest]);
+    expect(codes(report.findings, "legacy-only")).toContain(
+      "TIME_MISSING_CANONICAL_DURATION",
+    );
+    expect(codes(report.findings, "legacy-only")).not.toContain(
+      "TIME_MISSING_TOTAL_TRIP_HOURS",
+    );
   });
 
   it("audit output is deterministic across runs, even with a delay between them", async () => {

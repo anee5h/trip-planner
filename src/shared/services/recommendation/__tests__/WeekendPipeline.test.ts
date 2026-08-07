@@ -544,7 +544,7 @@ describe("runRecommendationPipeline — weekend transport excluded reason", () =
       "flight",
       2,
       "standard",
-      ishigaki.totalTripHours,
+      undefined,
       FUKUOKA,
     );
     expect(budgetEst.transportIncluded).toBe(false);

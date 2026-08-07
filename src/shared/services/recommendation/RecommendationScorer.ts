@@ -18,6 +18,7 @@ import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTran
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { personalizationService } from "./PersonalizationService";
+import { estimateTripDuration } from "./TripDurationService";
 
 export const SCORING_WEIGHTS = {
   // Base & Ratings
@@ -196,6 +197,14 @@ export function calculateScore(
     context.originZoneId,
     context.ferryTemporal,
   );
+  // KAI-50: budget duration is the runtime-derived total (visit + verified
+  // origin travel), never the deprecated legacy `totalTripHours` field.
+  const durationEstimate = estimateTripDuration(
+    dest,
+    context,
+    validModesForDest,
+  );
+  const tripDurationHours = durationEstimate?.representativeHours;
 
   // Budget and Transport Logic
   let bestMode = validModesForDest[0];
@@ -212,7 +221,7 @@ export function calculateScore(
         mode,
         partySize,
         context.budgetTier,
-        dest.totalTripHours,
+        tripDurationHours,
         context.homeStationCoords || undefined,
       );
       adjustedBudget =

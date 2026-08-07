@@ -57,6 +57,7 @@ function makeDest(
     budgetRecommended: 2000,
     budgetMax: 5000,
     transportOptions: { train: 60 },
+    recommendedVisitHours: { min: 4, max: 8 },
     totalTripHours: 4,
     walkingMin: 2000,
     walkingSunMin: 1000,

@@ -48,6 +48,12 @@ export function normalizeWeatherDescription(
   return "unknown";
 }
 
+/**
+ * @deprecated Legacy banding over the deprecated `totalTripHours` catalogue
+ * field. Production filtering uses `matchesVisitDuration` /
+ * `matchesTripDurationEstimate`, which are canonical visit- or
+ * runtime-derived-duration based.
+ */
 export function matchesTripDuration(
   totalTripHours: number,
   tripDuration: TripDuration = "any",

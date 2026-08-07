@@ -14,6 +14,7 @@ import type {
   TransportMode,
 } from "@/shared/services/transport/types";
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
+import { estimateTripDuration } from "@/shared/services/recommendation/TripDurationService";
 export const ACCOMMODATION_ALLOWANCE_PRESETS = {
   economy: 8000,
   standard: 15000,
@@ -22,6 +23,36 @@ export const ACCOMMODATION_ALLOWANCE_PRESETS = {
 export type AccommodationAllowancePreset =
   keyof typeof ACCOMMODATION_ALLOWANCE_PRESETS;
 export const MAX_ACCOMMODATION_ALLOWANCE = 500000;
+
+/**
+ * Neutral meal/rental budgeting assumption used only when a destination has
+ * no canonical `recommendedVisitHours` data. This is a budget heuristic for
+ * meal count and rental tier, never a recommendation duration estimate.
+ */
+export const UNKNOWN_TRIP_DURATION_HOURS = 8;
+
+/**
+ * Runtime-derived trip duration in hours. Uses the canonical visit duration
+ * and adds verified origin-aware round-trip travel when an origin and mode
+ * are available. Returns `undefined` for records that cannot be
+ * duration-planned; callers then use `UNKNOWN_TRIP_DURATION_HOURS` for
+ * meal/rental budgeting only.
+ */
+function deriveTripDurationHours(
+  dest: Destination,
+  mode?: string,
+  homeCoords?: { lat: number; lng: number },
+  ferryTemporal?: FerryTemporalContext,
+): number | undefined {
+  if (!dest.recommendedVisitHours) return undefined;
+  const modes =
+    mode && mode !== "all" && mode !== "any" ? [mode as TransportMode] : [];
+  return estimateTripDuration(
+    dest,
+    { homeStationCoords: homeCoords ?? undefined, ferryTemporal },
+    modes,
+  )?.representativeHours;
+}
 
 /**
  * Returns true when value is a finite integer between 0 and MAX_ACCOMMODATION_ALLOWANCE inclusive.
@@ -110,10 +141,14 @@ export function getEstimatedBudgetRange(
   mode: string,
   partySize: number,
   budgetTier: BudgetTier = "standard",
-  totalTripHours: number = dest.totalTripHours,
+  tripDurationHours?: number,
   homeCoords?: { lat: number; lng: number },
   ferryTemporal?: FerryTemporalContext,
 ): EstimatedBudgetRangeResult {
+  const effectiveTripDurationHours =
+    tripDurationHours ??
+    deriveTripDurationHours(dest, mode, homeCoords, ferryTemporal) ??
+    UNKNOWN_TRIP_DURATION_HOURS;
   const breakdown = getEffectiveBudgetBreakdown(dest);
   const scale = partySize / 2;
   const rawTransport = getTransportCost(
@@ -122,10 +157,15 @@ export function getEstimatedBudgetRange(
     partySize,
     homeCoords,
     ferryTemporal,
+    effectiveTripDurationHours,
   );
   const transportIncluded = rawTransport !== null;
   const transport = rawTransport ?? 0;
-  const food = getDiningFoodRange(budgetTier, totalTripHours, partySize);
+  const food = getDiningFoodRange(
+    budgetTier,
+    effectiveTripDurationHours,
+    partySize,
+  );
   const transfers: Record<BudgetTier, PriceRange> = {
     economy: [0, 600],
     standard: [500, 1500],
@@ -232,6 +272,7 @@ export function getTransportCost(
   partySize: number = 2,
   homeCoords?: { lat: number; lng: number },
   ferryTemporal?: FerryTemporalContext,
+  tripDurationHours?: number,
 ): number | null {
   // 1. Explicit Route Fare Precedence (if specified in destination JSON)
   const explicitFare =
@@ -316,8 +357,11 @@ export function getTransportCost(
     const driveTimeOneWayMin = originAwareMinutes ?? dest.transportOptions?.car;
     if (driveTimeOneWayMin === undefined) return null;
     const distanceKm = driveTimeOneWayMin * cfg.car.circuityMultiplier;
-    const tripDurationHours = dest.totalTripHours || 8;
-    const rentalFee = getRentalBaseFee(tripDurationHours);
+    const rentalDurationHours =
+      tripDurationHours ??
+      deriveTripDurationHours(dest, mode, homeCoords, ferryTemporal) ??
+      UNKNOWN_TRIP_DURATION_HOURS;
+    const rentalFee = getRentalBaseFee(rentalDurationHours);
     const tollsRoundTrip = Math.floor(distanceKm * cfg.car.tollRatePerKm * 2);
     const gasRoundTrip = Math.floor(
       ((distanceKm * 2) / cfg.car.fuelConsumptionKmPerLiter) *
@@ -499,6 +543,8 @@ export function calculateItemizedTripCost(
     activeMode?: string | null;
     partySize?: number;
     budgetTier?: BudgetTier;
+    tripDurationHours?: number;
+    /** @deprecated Use `tripDurationHours`; kept as an explicit-input alias. */
     totalTripHours?: number;
     homeCoords?: { lat: number; lng: number };
     ferryTemporal?: FerryTemporalContext;
@@ -510,7 +556,16 @@ export function calculateItemizedTripCost(
   // from the total, never defaulted to Train.
   const mode = options.activeMode ?? null;
   const budgetTier = options.budgetTier ?? "standard";
-  const totalTripHours = options.totalTripHours ?? dest.totalTripHours ?? 6;
+  const tripDurationHours =
+    options.tripDurationHours ??
+    options.totalTripHours ??
+    deriveTripDurationHours(
+      dest,
+      options.activeMode ?? undefined,
+      options.homeCoords,
+      options.ferryTemporal,
+    ) ??
+    UNKNOWN_TRIP_DURATION_HOURS;
 
   const isFreeTicket = isFreeDestination(dest);
   const breakdown = getEffectiveBudgetBreakdown(dest);
@@ -524,11 +579,12 @@ export function calculateItemizedTripCost(
           partySize,
           options.homeCoords,
           options.ferryTemporal,
+          tripDurationHours,
         );
   const transport =
     Number.isNaN(rawTransport) || !rawTransport ? 0 : rawTransport;
   const tickets = isFreeTicket ? 0 : (breakdown.tickets || 0) * partySize;
-  const food = getDiningFoodRange(budgetTier, totalTripHours, partySize);
+  const food = getDiningFoodRange(budgetTier, tripDurationHours, partySize);
   const cafe = (breakdown.cafe || 0) * partySize;
   const parking = mode === "car" || mode === "my_car" ? 1200 : 0;
   const accommodationAllowance = options.accommodationAllowance ?? 0;

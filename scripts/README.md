@@ -225,7 +225,7 @@ Source JSON ➔ [1. Validate Schema] ➔ [2. Geocode] ➔ [3. Normalize] ➔ [4.
     "car": 90,
     "shinkansen": 45
   },
-  "totalTripHours": 8,
+  "recommendedVisitHours": { "min": 1, "max": 2 },
   "walkingMin": 45,
   "walkingSunMin": 30,
   "walkingShadeMin": 15,
@@ -256,6 +256,17 @@ Source JSON ➔ [1. Validate Schema] ➔ [2. Geocode] ➔ [3. Normalize] ➔ [4.
   "notes": "Purchase Hakone Free Pass for unlimited transit."
 }
 ```
+
+## Duration fields (KAI-50)
+
+- `recommendedVisitHours` is the canonical visit duration and must be
+  populated for every planned destination.
+- `totalTripHours` is deprecated and optional. Do not populate it for new
+  records; runtime planning ignores it because legacy values may include
+  transport from a fixed origin. Total trip duration is derived at runtime
+  from `recommendedVisitHours` plus verified origin-aware travel.
+- See `docs/trip-duration-model.md` for the full model and migration
+  guidance.
 
 ---
 

@@ -12,6 +12,7 @@ import {
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import type { PriceRange } from "@/shared/types/planner";
+import { estimateTripDuration } from "./TripDurationService";
 
 export function createRecommendationMatch(
   dest: Destination,
@@ -36,6 +37,12 @@ export function createRecommendationMatch(
     context.originZoneId,
     context.ferryTemporal,
   );
+  const durationEstimate = estimateTripDuration(
+    dest,
+    context,
+    validModesForDest,
+  );
+  const tripDurationHours = durationEstimate?.representativeHours;
 
   // 1. Budget and Transport Explainability
   let bestMode = validModesForDest[0];
@@ -50,7 +57,7 @@ export function createRecommendationMatch(
         mode,
         partySize,
         context.budgetTier,
-        dest.totalTripHours,
+        tripDurationHours,
         context.homeStationCoords || undefined,
         context.ferryTemporal,
       );

@@ -4,6 +4,7 @@ import {
   MAX_ACCOMMODATION_ALLOWANCE,
   isValidAccommodationAllowance,
   calculateItemizedTripCost,
+  getEstimatedBudgetRange,
   isFreeDestination,
   formatLocalizedJPYRange,
 } from "../BudgetService";
@@ -16,6 +17,7 @@ const mockPaidDest = {
   budgetMin: 2000,
   budgetMax: 3000,
   budgetRecommended: 8000,
+  recommendedVisitHours: { min: 1, max: 2 },
   totalTripHours: 3,
   transportOptions: { train: 30 },
 } as unknown as Destination;
@@ -27,6 +29,7 @@ const mockFreeDest = {
   tags: ["Free"],
   budgetMin: 0,
   budgetMax: 1000,
+  recommendedVisitHours: { min: 1, max: 2 },
   totalTripHours: 2,
   transportOptions: { train: 20 },
 } as unknown as Destination;
@@ -61,6 +64,30 @@ describe("BudgetService", () => {
     expect(itemizedPaid.transport).toBeGreaterThan(0);
     expect(itemizedPaid.partyRange[0]).toBeGreaterThan(
       itemizedPaid.perPersonRange[0],
+    );
+  });
+
+  it("derives budget duration from recommendedVisitHours, never legacy totalTripHours", () => {
+    const base = {
+      ...mockPaidDest,
+      recommendedVisitHours: { min: 1, max: 2 },
+      totalTripHours: 3,
+    };
+    const staleLegacy = {
+      ...mockPaidDest,
+      recommendedVisitHours: { min: 1, max: 2 },
+      totalTripHours: 12,
+    };
+    const noLegacy = {
+      ...mockPaidDest,
+      recommendedVisitHours: { min: 1, max: 2 },
+      totalTripHours: undefined,
+    };
+    expect(getEstimatedBudgetRange(base, "train", 1, "standard")).toEqual(
+      getEstimatedBudgetRange(staleLegacy, "train", 1, "standard"),
+    );
+    expect(getEstimatedBudgetRange(base, "train", 1, "standard")).toEqual(
+      getEstimatedBudgetRange(noLegacy, "train", 1, "standard"),
     );
   });
 

@@ -266,11 +266,11 @@ function validateInvariants(data: DestinationRecord[]) {
       `${id}: sun+shade (${ws}+${wh}) > walkingMin (${wm})`,
     );
 
+    // KAI-50: canonical visit duration only; `totalTripHours` is deprecated
+    // and may include origin transport.
     const maxMinutes = r.recommendedVisitHours?.max
       ? r.recommendedVisitHours.max * 60
-      : r.totalTripHours
-        ? r.totalTripHours * 60
-        : null;
+      : null;
     if (maxMinutes !== null) {
       assert(
         wm <= maxMinutes,

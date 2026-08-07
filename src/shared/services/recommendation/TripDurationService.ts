@@ -117,12 +117,14 @@ export function estimateTripDuration(
   context: TripDurationContext | RecommendationContext,
   modes: string[],
 ): TripDurationEstimate | null {
-  const visitRange: [number, number] = destination.recommendedVisitHours
-    ? [
-        destination.recommendedVisitHours.min,
-        destination.recommendedVisitHours.max,
-      ]
-    : [destination.totalTripHours, destination.totalTripHours];
+  // KAI-50: `recommendedVisitHours` is the only canonical visit-duration
+  // source. `totalTripHours` is deprecated and may already include travel
+  // from a fixed origin, so it can never be used as a visit fallback.
+  if (!destination.recommendedVisitHours) return null;
+  const visitRange: [number, number] = [
+    destination.recommendedVisitHours.min,
+    destination.recommendedVisitHours.max,
+  ];
 
   let totalRangeHours: [number, number];
   let representativeHours: number;
@@ -197,6 +199,20 @@ export function estimateTripDuration(
     isBorderline,
     warningMessage,
   };
+}
+
+/**
+ * Representative runtime total trip duration in hours, derived from the
+ * canonical visit duration plus verified origin-aware round-trip travel and
+ * buffers. Returns `undefined` when the destination cannot be
+ * duration-planned (no canonical visit duration).
+ */
+export function getDerivedTripDurationHours(
+  destination: Destination,
+  context: TripDurationContext | RecommendationContext,
+  modes: string[],
+): number | undefined {
+  return estimateTripDuration(destination, context, modes)?.representativeHours;
 }
 
 export function matchesTripDurationEstimate(

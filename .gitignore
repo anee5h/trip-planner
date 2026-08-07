@@ -33,4 +33,5 @@ docs/*
 !docs/RELEASE_RULES.md
 !docs/Roadmapv2.0.md
 !docs/destinations-filter-exclusion-analysis.md
+!docs/trip-duration-model.md
 /docs/Roadmapv2.0.md
