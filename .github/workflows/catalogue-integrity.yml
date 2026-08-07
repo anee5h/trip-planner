@@ -1,0 +1,41 @@
+name: Catalogue Integrity
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: catalogue-integrity-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Full history so the changed-path classifier can diff against
+          # origin/main (scripts/cli/changed-scope.ts).
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Single command = exactly what developers run locally
+      # (scripts/check-catalog-ci.ts). It skips itself when the diff contains
+      # no catalogue-affecting files, so there is deliberately no YAML
+      # `paths` filter: the classifier in changed-scope.ts is the only gate.
+      - name: Catalogue integrity audit, warning baseline, and generation checks
+        run: npm run check:catalog-ci

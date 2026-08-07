@@ -1,39 +1,23 @@
 import fs from "fs";
 import path from "path";
-import { format, resolveConfig } from "prettier";
-import { buildDestinationsMeta } from "./catalog/meta.mjs";
-import type { Destination } from "../src/shared/types/destination";
+import { generateCatalogueOutputs } from "./catalog/generate-outputs";
 
-const indexPath = path.join(
-  process.cwd(),
-  "src/shared/data/destinations-index.json",
-);
 const detailsDirectory = path.join(process.cwd(), "public/data/destinations");
 const metaPath = path.join(
   process.cwd(),
   "src/shared/data/destinations-meta.json",
 );
 
-/** Format a generated JSON document with the repo's prettier config so that
- *  regeneration is idempotent (output matches what lint-staged would commit). */
-async function formatJson(content: string): Promise<string> {
-  const config = (await resolveConfig(process.cwd())) ?? {};
-  return format(content, { ...config, parser: "json" });
-}
-
 async function main() {
   fs.mkdirSync(detailsDirectory, { recursive: true });
 
-  const destinationsIndex = JSON.parse(
-    fs.readFileSync(indexPath, "utf-8"),
-  ) as Destination[];
+  // Generation logic lives in scripts/catalog/generate-outputs.ts (also used
+  // by scripts/check-catalog-sync.ts) so the writer and the CI check can
+  // never drift apart.
+  const { detailFiles, meta } = await generateCatalogueOutputs();
 
-  for (const destination of destinationsIndex) {
-    const detailPath = path.join(detailsDirectory, `${destination.id}.json`);
-    fs.writeFileSync(
-      detailPath,
-      await formatJson(`${JSON.stringify(destination, null, 2)}\n`),
-    );
+  for (const [id, content] of detailFiles) {
+    fs.writeFileSync(path.join(detailsDirectory, `${id}.json`), content);
   }
 
   // destinations-meta.json is a derived store file. The mapping lives in the
@@ -41,14 +25,10 @@ async function main() {
   // so the two generators can never drift; the legacy pipeline itself is not
   // runnable end-to-end (its Stage 1 fails on legacy records lacking budget
   // fields), which is why the sync step also emits the file.
-  const metaData = buildDestinationsMeta(destinationsIndex);
-  fs.writeFileSync(
-    metaPath,
-    await formatJson(`${JSON.stringify(metaData, null, 2)}\n`),
-  );
+  fs.writeFileSync(metaPath, meta);
 
   console.log(
-    `Synced ${destinationsIndex.length} destination detail files and destinations-meta.json.`,
+    `Synced ${detailFiles.size} destination detail files and destinations-meta.json.`,
   );
 }
 
