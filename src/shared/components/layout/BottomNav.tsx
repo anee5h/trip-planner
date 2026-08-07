@@ -48,7 +48,7 @@ export default function BottomNav() {
           <Home
             className={`w-5 h-5 transition-transform ${isHomeActive ? "scale-110" : ""}`}
           />
-          <span className="text-[11px] tracking-tight truncate max-w-[56px] text-center">
+          <span className="text-[11px] truncate max-w-[68px] text-center">
             {t("navigation.home")}
           </span>
         </Link>
@@ -66,7 +66,7 @@ export default function BottomNav() {
           <Map
             className={`w-5 h-5 transition-transform ${isExploreActive ? "scale-110" : ""}`}
           />
-          <span className="text-[11px] tracking-tight truncate max-w-[56px] text-center">
+          <span className="text-[11px] truncate max-w-[68px] text-center">
             {t("navigation.explore")}
           </span>
         </Link>
@@ -81,7 +81,7 @@ export default function BottomNav() {
           >
             <Search className="w-5 h-5 transition-transform group-hover:rotate-12" />
           </button>
-          <span className="text-[11px] tracking-tight text-slate-500 dark:text-slate-400 font-semibold mt-0.5 truncate max-w-[56px] text-center">
+          <span className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold mt-0.5 truncate max-w-[68px] text-center">
             {t("search.label")}
           </span>
         </div>
@@ -99,7 +99,7 @@ export default function BottomNav() {
           <Calendar
             className={`w-5 h-5 transition-transform ${isTripsActive ? "scale-110" : ""}`}
           />
-          <span className="text-[11px] tracking-tight truncate max-w-[56px] text-center">
+          <span className="text-[11px] truncate max-w-[68px] text-center">
             {t("navigation.trips")}
           </span>
         </Link>
@@ -117,7 +117,7 @@ export default function BottomNav() {
           <Compass
             className={`w-5 h-5 transition-transform ${isPassportActive ? "scale-110" : ""}`}
           />
-          <span className="text-[11px] tracking-tight truncate max-w-[56px] text-center">
+          <span className="text-[11px] truncate max-w-[68px] text-center">
             {t("navigation.passport")}
           </span>
         </Link>

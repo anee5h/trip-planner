@@ -34,7 +34,7 @@ export function PassportJapanMap() {
             Explored Prefectures Map
           </h2>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-            Hover over any prefecture to view details
+            Tap or hover over any prefecture to view details
           </p>
         </div>
 

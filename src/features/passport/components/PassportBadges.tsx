@@ -8,6 +8,7 @@ import { BadgeDetailModal } from "./BadgeDetailModal";
 import { Icons } from "@/shared/icons";
 import { useLocalStorage } from "@/shared/hooks/useLocalStorage";
 import { useTranslation } from "react-i18next";
+import { ScrollContainer } from "@/shared/components/ui/ScrollContainer";
 
 export function PassportBadges() {
   const { t } = useTranslation();
@@ -80,7 +81,7 @@ export function PassportBadges() {
       </div>
 
       {/* Category Filter Tabs */}
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+      <ScrollContainer className="flex items-center gap-2 pb-1">
         {[
           { id: "all", label: t("ui.collections") },
           { id: "travel-style", label: "Travel Style" },
@@ -93,7 +94,7 @@ export function PassportBadges() {
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id as any)}
-              className={`px-4 py-2 rounded-2xl text-xs font-bold shrink-0 transition-all ${
+              className={`px-4 py-2.5 sm:py-2 min-h-[44px] sm:min-h-[36px] rounded-2xl text-xs font-bold shrink-0 transition-all flex items-center justify-center ${
                 isActive
                   ? "bg-emerald-600 text-white shadow-sm"
                   : "bg-slate-100 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
@@ -103,7 +104,7 @@ export function PassportBadges() {
             </button>
           );
         })}
-      </div>
+      </ScrollContainer>
 
       {/* Grid of Circular Enamel Pin Badges (NO progress bars) */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">

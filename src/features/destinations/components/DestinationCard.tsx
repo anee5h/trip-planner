@@ -375,7 +375,7 @@ export default function DestinationCard({
                 {conditionLabel}
               </p>
             )}
-            <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 text-[13px] font-semibold text-slate-700 dark:text-slate-300 md:min-h-12 md:gap-x-3 md:gap-y-2 md:text-sm">
+            <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 md:min-h-12 md:gap-x-3 md:gap-y-2 md:text-sm">
               {(() => {
                 // The Tokyo wards group shows the fastest verified gateway
                 // estimate across its members, not the top member's own
@@ -394,9 +394,11 @@ export default function DestinationCard({
                   ? formatTransportTime(gateway.timeRange, locale)
                   : preferredTransport
                     ? formatTransportTime(preferredTransport.timeRange, locale)
-                    : "N/A";
+                    : "";
 
                 const isDriving = mode === "car" || mode === "my_car";
+
+                if (!formattedTime) return null;
 
                 return (
                   <div className="flex items-center whitespace-nowrap min-w-0">
@@ -508,7 +510,7 @@ export default function DestinationCard({
         )}
       </CardContent>
 
-      <CardFooter className="flex items-center gap-1 p-3 pt-0 md:gap-1.5 md:p-4 md:pt-0">
+      <CardFooter className="flex items-center gap-1.5 p-3 pt-0 md:p-4 md:pt-0">
         {wardGroup && (
           <span className="text-xs font-bold text-slate-500 dark:text-slate-400 px-1">
             {t("destination.tokyoWardsCount", {

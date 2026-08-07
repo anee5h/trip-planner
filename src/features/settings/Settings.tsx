@@ -239,7 +239,7 @@ export default function Settings() {
   ];
 
   const btnBase =
-    "p-2 sm:p-3 rounded-xl text-[11px] sm:text-xs font-bold border transition-all";
+    "p-2.5 sm:p-3 min-h-[44px] sm:min-h-[36px] flex items-center justify-center rounded-xl text-xs font-bold border transition-all";
 
   return (
     <div className="container mx-auto max-w-6xl space-y-6 px-4 py-6 sm:px-6 sm:py-8 lg:px-8 animate-in fade-in duration-200">
@@ -250,7 +250,7 @@ export default function Settings() {
       />
 
       <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-        {/* Sidebar — icon-only on mobile, active tab shows label */}
+        {/* Sidebar — section tabs with explicit labels */}
         <nav
           className="lg:col-span-3 w-full flex overflow-x-auto lg:flex-col gap-1.5 pb-2 lg:pb-0 scrollbar-none"
           role="tablist"
