@@ -839,7 +839,7 @@
   },
   {
     "id": "chofu-tokyo",
-    "name": "Chofu",
+    "name": "Chofu City",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "role": "hub",
@@ -1357,7 +1357,7 @@
   },
   {
     "id": "fukui",
-    "name": "Fukui",
+    "name": "Fukui City",
     "prefecture": "Fukui",
     "region": "Chubu",
     "role": "standalone",
@@ -3120,7 +3120,7 @@
   },
   {
     "id": "kanazawa",
-    "name": "Kanazawa",
+    "name": "Kanazawa City",
     "prefecture": "Ishikawa",
     "region": "Chubu",
     "role": "standalone",
@@ -4398,7 +4398,7 @@
   },
   {
     "id": "machida-tokyo",
-    "name": "Machida",
+    "name": "Machida City",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "role": "hub",
@@ -6159,7 +6159,7 @@
   },
   {
     "id": "ome-tokyo",
-    "name": "Ome",
+    "name": "Ome City",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "role": "hub",
@@ -7800,7 +7800,7 @@
   },
   {
     "id": "takaoka",
-    "name": "Takaoka",
+    "name": "Takaoka City",
     "prefecture": "Toyama",
     "region": "Chubu",
     "role": "standalone",
