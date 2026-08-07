@@ -33,6 +33,14 @@ const BUDGET_PRESETS = [
   { id: "luxury", key: "home.budgets.luxury" },
 ] as const;
 
+const ALL_MODES = [
+  { id: "train", key: "home.transportModes.train" as const },
+  { id: "shinkansen", key: "home.transportModes.shinkansen" as const },
+  { id: "bus", key: "home.transportModes.bus" as const },
+  { id: "flight", key: "home.transportModes.flight" as const },
+  { id: "ferry", key: "home.transportModes.ferry" as const },
+];
+
 export default function Settings() {
   const { t } = useTranslation();
   const { user, updateUserProfile } = useAuth();
@@ -50,6 +58,7 @@ export default function Settings() {
   );
   const [loading, setLoading] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
+  const [isDirty, setIsDirty] = useState(false);
 
   const [baseLocation, setBaseLocation] = useState(
     homeStation || user?.user_metadata?.base_location || "Tokyo Station",
@@ -63,6 +72,7 @@ export default function Settings() {
       "shinkansen",
       "bus",
       "flight",
+      "ferry",
     ],
   );
   const [partySize, setPartySize] = useState(
@@ -109,6 +119,7 @@ export default function Settings() {
             "shinkansen",
             "bus",
             "flight",
+            "ferry",
           ],
         );
         setPartySize(user.user_metadata.preferences.partySize || 2);
@@ -140,6 +151,7 @@ export default function Settings() {
       if (!error) {
         setLocale(defaultLocale);
         setSaveSuccess(true);
+        setIsDirty(false);
         toast.success(t("ui.settingsSaved"));
 
         if (
@@ -160,10 +172,19 @@ export default function Settings() {
     }
   };
 
+  const handleFieldChange = <T,>(setter: (v: T) => void, value: T) => {
+    setter(value);
+    setIsDirty(true);
+  };
+
   const togglePublicMode = (mode: string) => {
-    setPublicModes((prev) =>
-      prev.includes(mode) ? prev.filter((m) => m !== mode) : [...prev, mode],
-    );
+    setPublicModes((prev) => {
+      const next = prev.includes(mode)
+        ? prev.filter((m) => m !== mode)
+        : [...prev, mode];
+      setIsDirty(true);
+      return next;
+    });
   };
 
   const handleExportData = () => {
@@ -227,8 +248,12 @@ export default function Settings() {
       />
 
       <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-        {/* Sidebar */}
-        <nav className="lg:col-span-3 w-full flex overflow-x-auto lg:flex-col gap-1.5 pb-2 lg:pb-0 scrollbar-none">
+        {/* Sidebar — icon-only on mobile, active tab shows label */}
+        <nav
+          className="lg:col-span-3 w-full flex overflow-x-auto lg:flex-col gap-1.5 pb-2 lg:pb-0 scrollbar-none"
+          role="tablist"
+          aria-label="Settings sections"
+        >
           {sidebarSections.map((sec) => {
             const isActive = activeSection === sec.id;
             const Icon = sec.icon;
@@ -236,6 +261,9 @@ export default function Settings() {
               <button
                 key={sec.id}
                 type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-label={sec.label}
                 onClick={() => setActiveSection(sec.id)}
                 className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap shrink-0 ${
                   isActive
@@ -245,8 +273,11 @@ export default function Settings() {
               >
                 <Icon
                   className={`w-3.5 h-3.5 shrink-0 ${isActive ? "text-white" : "text-emerald-500"}`}
+                  aria-hidden="true"
                 />
-                <span className="hidden sm:inline">{sec.label}</span>
+                <span className={isActive ? "" : "hidden sm:inline"}>
+                  {sec.label}
+                </span>
               </button>
             );
           })}
@@ -267,55 +298,67 @@ export default function Settings() {
 
             {/* ── Account ── */}
             {activeSection === "account" && (
-              <div className="space-y-6">
+              <div className="space-y-5">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     {t("ui.account")}
                   </h3>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
                     {t("ui.accountDescription")}
                   </p>
                 </div>
-                <div className="space-y-4">
-                  <label className="block text-xs font-bold uppercase text-slate-500">
-                    Full name
-                    <input
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      placeholder="Your full name"
-                      className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
-                    />
-                  </label>
-                  <label className="block text-xs font-bold uppercase text-slate-500">
-                    Username
-                    <input
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                      placeholder="@username"
-                      className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
-                    />
-                  </label>
-                  <label className="block text-xs font-bold uppercase text-slate-500">
-                    {t("ui.chooseCity")}
-                    <SearchableDestinationPicker
-                      value={homeCityId}
-                      onSelect={(d) => setHomeCityId(d.id)}
-                      placeholder={t("ui.chooseCity")}
-                      locale={locale}
-                      destinations={cityHubs}
-                      savedDestinations={[]}
-                      recentDestinations={[]}
-                      className="mt-2"
-                    />
-                  </label>
 
-                  {/* Base location - moved into account */}
-                  <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
-                      {t("ui.baseLocation")}
-                    </label>
-                    <StationInput embedded={true} />
-                  </div>
+                <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400">
+                  Full name
+                  <input
+                    value={fullName}
+                    onChange={(e) =>
+                      handleFieldChange(setFullName, e.target.value)
+                    }
+                    placeholder="Your full name"
+                    className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
+                  />
+                </label>
+                <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400">
+                  Username
+                  <input
+                    value={username}
+                    onChange={(e) =>
+                      handleFieldChange(setUsername, e.target.value)
+                    }
+                    placeholder="@username"
+                    className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
+                  />
+                </label>
+                <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400">
+                  {t("ui.chooseCity")}
+                  <SearchableDestinationPicker
+                    value={homeCityId}
+                    onSelect={(d) => {
+                      handleFieldChange(setHomeCityId, d.id);
+                    }}
+                    placeholder={t("ui.chooseCity")}
+                    locale={locale}
+                    destinations={cityHubs}
+                    savedDestinations={[]}
+                    recentDestinations={[]}
+                    className="mt-2"
+                  />
+                  <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-1">
+                    Your home city for personalised recommendations. This is
+                    separate from your transit base station below.
+                  </p>
+                </label>
+
+                {/* Base location — flattened, no nested card */}
+                <div className="border-t border-slate-100 dark:border-slate-800 pt-4">
+                  <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
+                    {t("ui.baseLocation")}
+                  </label>
+                  <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-2">
+                    Your main departure station for transit duration estimates.
+                  </p>
+                  <StationInput embedded={true} />
                 </div>
               </div>
             )}
@@ -327,15 +370,16 @@ export default function Settings() {
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     {t("ui.travelPreferences")}
                   </h3>
-                  <p className="text-xs text-slate-500">
-                    {t("home.transport")}
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    Default budget, transport, and party size for trip
+                    generation.
                   </p>
                 </div>
 
-                <div className="space-y-5 pt-2">
+                <div className="space-y-5">
                   {/* Budget */}
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                    <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
                       {t("home.budget")}
                     </label>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
@@ -343,7 +387,7 @@ export default function Settings() {
                         <button
                           key={b.id}
                           type="button"
-                          onClick={() => setBudget(b.id)}
+                          onClick={() => handleFieldChange(setBudget, b.id)}
                           className={`${btnBase} text-center ${
                             budget === b.id
                               ? "bg-emerald-500 text-white border-emerald-500"
@@ -358,7 +402,7 @@ export default function Settings() {
 
                   {/* Primary transport */}
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                    <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
                       Primary transport
                     </label>
                     <div className="grid grid-cols-3 gap-1.5">
@@ -371,12 +415,15 @@ export default function Settings() {
                           id: "rental",
                           label: t("home.transportOptions.rentalCar"),
                         },
-                        { id: "own", label: t("home.transportOptions.myCar") },
+                        {
+                          id: "own",
+                          label: t("home.transportOptions.myCar"),
+                        },
                       ].map((m) => (
                         <button
                           key={m.id}
                           type="button"
-                          onClick={() => setCarMode(m.id)}
+                          onClick={() => handleFieldChange(setCarMode, m.id)}
                           className={`${btnBase} text-center ${
                             carMode === m.id
                               ? "bg-emerald-500 text-white border-emerald-500"
@@ -391,22 +438,11 @@ export default function Settings() {
 
                   {/* Public transport modes */}
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                    <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
                       Public transport modes
                     </label>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
-                      {[
-                        { id: "train", label: t("home.transportModes.train") },
-                        {
-                          id: "shinkansen",
-                          label: t("home.transportModes.shinkansen"),
-                        },
-                        { id: "bus", label: t("home.transportModes.bus") },
-                        {
-                          id: "flight",
-                          label: t("home.transportModes.flight"),
-                        },
-                      ].map((tm) => (
+                    <div className="grid grid-cols-3 sm:grid-cols-5 gap-1.5">
+                      {ALL_MODES.map((tm) => (
                         <button
                           key={tm.id}
                           type="button"
@@ -417,7 +453,7 @@ export default function Settings() {
                               : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
                           }`}
                         >
-                          {tm.label}
+                          {t(tm.key)}
                         </button>
                       ))}
                     </div>
@@ -425,8 +461,8 @@ export default function Settings() {
 
                   {/* Party size */}
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5">
-                      {t("home.party")}: {partySize}{" "}
+                    <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-1.5">
+                      {t("home.party")}:{" "}
                       {t("home.people_other", { count: partySize })}
                     </label>
                     <input
@@ -434,13 +470,18 @@ export default function Settings() {
                       min={1}
                       max={10}
                       value={partySize}
-                      onChange={(e) => setPartySize(parseInt(e.target.value))}
+                      onChange={(e) =>
+                        handleFieldChange(
+                          setPartySize,
+                          parseInt(e.target.value),
+                        )
+                      }
                       className="w-full accent-emerald-500"
                     />
                   </div>
 
                   {/* Personalization */}
-                  <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-4">
+                  <div className="border-t border-slate-200 dark:border-slate-800 pt-4 space-y-4">
                     <h4 className="text-sm font-extrabold text-slate-900 dark:text-white">
                       {t("recommendation.personalization.title")}
                     </h4>
@@ -450,7 +491,7 @@ export default function Settings() {
                         <div className="text-xs font-bold text-slate-900 dark:text-white">
                           {t("recommendation.personalization.enableLabel")}
                         </div>
-                        <div className="text-[11px] text-slate-500">
+                        <div className="text-[11px] text-slate-500 dark:text-slate-400">
                           {t("recommendation.personalization.enableHelp")}
                         </div>
                       </div>
@@ -467,7 +508,7 @@ export default function Settings() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                      <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
                         {t("recommendation.personalization.noveltyLabel")}
                       </label>
                       <div className="grid grid-cols-3 gap-1.5">
@@ -517,7 +558,7 @@ export default function Settings() {
                         <div className="text-xs font-bold text-slate-900 dark:text-white">
                           Recommendation analytics
                         </div>
-                        <div className="text-[11px] text-slate-500">
+                        <div className="text-[11px] text-slate-500 dark:text-slate-400">
                           Send anonymous recommendation quality events to help
                           improve suggestions.
                         </div>
@@ -559,13 +600,13 @@ export default function Settings() {
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     {t("ui.appearance")}
                   </h3>
-                  <p className="text-xs text-slate-500">
-                    Theme and language preferences.
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    Theme and language apply immediately on selection.
                   </p>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                  <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
                     Theme
                   </label>
                   <div className="grid grid-cols-3 gap-2">
@@ -591,7 +632,7 @@ export default function Settings() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                  <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
                     {t("ui.defaultLanguage")}
                   </label>
                   <div className="grid grid-cols-2 gap-2">
@@ -602,7 +643,19 @@ export default function Settings() {
                       <button
                         key={opt.id}
                         type="button"
-                        onClick={() => setDefaultLocale(opt.id as "en" | "ja")}
+                        onClick={async () => {
+                          const next = opt.id as "en" | "ja";
+                          setDefaultLocale(next);
+                          setLocale(next);
+                          await updateUserProfile({
+                            default_locale: next,
+                          });
+                          toast.success(
+                            next === "ja"
+                              ? "言語を日本語に変更しました"
+                              : "Language set to English",
+                          );
+                        }}
                         className={`${btnBase} text-center ${
                           defaultLocale === opt.id
                             ? "bg-emerald-500 text-white border-emerald-500"
@@ -624,16 +677,15 @@ export default function Settings() {
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     {t("ui.dataExport")}
                   </h3>
-                  <p className="text-xs text-slate-500">{t("ui.dataExport")}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    Download a full backup of your travel data.
+                  </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 space-y-3">
-                  <div className="text-xs font-bold text-slate-900 dark:text-white">
-                    Export Travel History (JSON Backup)
-                  </div>
-                  <p className="text-[11px] text-slate-500">
-                    Download a full JSON backup of your profile details, visited
-                    places, prefectures, and saved trips.
+                <div className="space-y-3">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    Includes your profile details, visited places, prefectures,
+                    and saved trips in JSON format.
                   </p>
                   <Button
                     type="button"
@@ -647,11 +699,12 @@ export default function Settings() {
               </div>
             )}
 
-            {activeSection !== "data" && (
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+            {/* Save — hidden for appearance (immediate) and data (export-only) */}
+            {activeSection !== "data" && activeSection !== "appearance" && (
+              <div className="border-t border-slate-100 dark:border-slate-800 pt-4 flex justify-end">
                 <Button
                   type="submit"
-                  disabled={loading}
+                  disabled={loading || !isDirty}
                   className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
