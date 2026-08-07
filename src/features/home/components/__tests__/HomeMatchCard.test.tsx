@@ -348,7 +348,7 @@ describe("HomeMatchCard — KAI-52 local display estimates and guards", () => {
     expect(text).toContain("home.transportModes.travel");
   });
 
-  it("negative: does NOT fabricate train estimate for destination that explicitly excludes train in localAccessModes", async () => {
+  it("uses bus estimate for destination with bus-only localAccessModes instead of fabricating train", async () => {
     const { HomeMatchCard } = await import("../HomeMatchCard");
 
     await act(async () => {
@@ -356,8 +356,9 @@ describe("HomeMatchCard — KAI-52 local display estimates and guards", () => {
     });
 
     const text = host.textContent ?? "";
-    expect(text).not.toMatch(/Est\.\s*\d+/);
-    expect(text).toContain("home.transportModes.travel");
+    // Bus estimate should be present (not generic Travel)
+    expect(text).toMatch(/Est\.\s*\d+/);
+    expect(text).not.toContain("home.transportModes.travel");
   });
 
   it("recommendation leakage proof: canonical OriginAwareTransportService remains null for same-municipality without verified route", async () => {

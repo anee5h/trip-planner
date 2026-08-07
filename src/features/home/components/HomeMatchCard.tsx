@@ -98,6 +98,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   const localDisplayEstimate = !verifiedTransport
     ? getSafeDisplayEstimate(destination, {
         homeStationCoords,
+        homeStationTransportZoneId,
         carMode,
         publicModes,
       })

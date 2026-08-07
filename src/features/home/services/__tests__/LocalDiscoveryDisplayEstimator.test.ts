@@ -50,6 +50,7 @@ const YOKOHAMA_POI: Destination = {
   prefecture: "Kanagawa",
   municipalityId: "Kanagawa:yokohama",
   coordinates: { lat: 35.4578, lng: 139.6322 },
+  transportOptions: { train: 0, bus: 0, car: 0 },
   role: "poi",
 } as unknown as Destination;
 
@@ -59,6 +60,7 @@ const KAMAKURA_POI: Destination = {
   prefecture: "Kanagawa",
   municipalityId: "Kanagawa:kamakura",
   coordinates: { lat: 35.3167, lng: 139.5361 },
+  transportOptions: { train: 0, bus: 0, car: 0 },
   role: "poi",
 } as unknown as Destination;
 
@@ -68,6 +70,7 @@ const OGASAWARA_POI: Destination = {
   prefecture: "Tokyo",
   municipalityId: "Tokyo:ogasawara",
   coordinates: { lat: 27.095, lng: 142.192 },
+  transportOptions: {},
   role: "poi",
 } as unknown as Destination;
 
@@ -79,6 +82,7 @@ const SAKURAJIMA_POI: Destination = {
   coordinates: { lat: 31.5833, lng: 130.65 },
   localAccessUnestimated: true,
   localAccessModes: ["car", "my_car", "bus"],
+  transportOptions: { car: 0, bus: 0 },
   role: "poi",
 } as unknown as Destination;
 
@@ -89,6 +93,7 @@ const BUS_ONLY_YOKOHAMA_POI: Destination = {
   municipalityId: "Kanagawa:yokohama",
   coordinates: { lat: 35.4167, lng: 139.6639 },
   localAccessModes: ["bus", "car"],
+  transportOptions: { bus: 0, car: 0 },
   role: "poi",
 } as unknown as Destination;
 
@@ -98,6 +103,7 @@ const TOKYO_POI: Destination = {
   prefecture: "Tokyo",
   municipalityId: "Tokyo:shibuya",
   coordinates: { lat: 35.6595, lng: 139.7004 },
+  transportOptions: { train: 0, bus: 0, car: 0 },
   role: "poi",
 } as unknown as Destination;
 
@@ -134,19 +140,20 @@ describe("getSafeDisplayEstimate", () => {
     expect(result).toBeNull();
   });
 
-  it("returns null when localAccessModes excludes train", () => {
+  it("produces bus estimate when localAccessModes excludes train but bus is authorized", () => {
     const result = getSafeDisplayEstimate(BUS_ONLY_YOKOHAMA_POI, {
       homeStationCoords: YOKOHAMA_NAKAYAMA,
       publicModes: ["train", "bus"],
       allDestinations: mockCatalog,
     });
-    expect(result).toBeNull();
+    expect(result).not.toBeNull();
+    expect(result?.mode).toBe("bus");
   });
 
-  it("returns null when publicModes excludes train", () => {
+  it("returns null when publicModes has no authorized ground mode", () => {
     const result = getSafeDisplayEstimate(YOKOHAMA_POI, {
       homeStationCoords: YOKOHAMA_NAKAYAMA,
-      publicModes: ["bus"],
+      publicModes: ["flight"],
       allDestinations: mockCatalog,
     });
     expect(result).toBeNull();
@@ -209,6 +216,7 @@ describe("getSafeDisplayEstimate", () => {
       prefecture: "Okinawa",
       municipalityId: "Okinawa:naha",
       coordinates: { lat: 26.217, lng: 127.719 },
+      transportOptions: { bus: 0, car: 0 },
       role: "poi",
     } as unknown as Destination;
     const result = getSafeDisplayEstimate(okinawaPoi, {
