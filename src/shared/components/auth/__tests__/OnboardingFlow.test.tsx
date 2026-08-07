@@ -211,4 +211,48 @@ describe("OnboardingFlow", () => {
     await act(async () => continueBtn?.click());
     expect(document.body.textContent).toContain("onboarding.preferencesTitle");
   });
+
+  it("does not show for existing user with preferences_set metadata", () => {
+    state.userMeta = { preferences: { preferences_set: true } };
+    render();
+    // Should not show onboarding, no localStorage key yet
+    expect(document.body.textContent).not.toContain("onboarding.accountTitle");
+    // Completion marker should be persisted locally
+    const stored = JSON.parse(
+      localStorage.getItem("meguruto-onboarding-v2-user-a") || "{}",
+    );
+    expect(stored.completed).toBe(true);
+  });
+
+  it("does not show for skipped user after re-render with preferences_set", () => {
+    // First skip
+    render();
+    const skipBtn = findButton("onboarding.skip");
+    act(() => skipBtn?.click());
+
+    // Set preferences_set and re-render
+    state.userMeta = { preferences: { preferences_set: true } };
+    state.userId = "user-a";
+    act(() => root.render(<OnboardingFlow />));
+    expect(document.body.textContent).not.toContain("onboarding.accountTitle");
+  });
+
+  it("shows onboarding for new user without preferences_set", () => {
+    state.userMeta = { preferences: {} };
+    render();
+    expect(document.body.textContent).toContain("onboarding.accountTitle");
+  });
+
+  it("account switching still works with preferences_set check", () => {
+    // User A: existing with preferences_set
+    state.userMeta = { preferences: { preferences_set: true } };
+    render();
+    expect(document.body.textContent).not.toContain("onboarding.accountTitle");
+
+    // Switch to User B: new user
+    state.userId = "user-b";
+    state.userMeta = {};
+    act(() => root.render(<OnboardingFlow />));
+    expect(document.body.textContent).toContain("onboarding.accountTitle");
+  });
 });
