@@ -41,12 +41,12 @@ export function PassportJapanMap() {
         {/* Interactive Map */}
         <div className="w-full max-w-[680px] aspect-square flex items-center justify-center py-4">
           <Japan
-            type="select-multiple"
+            type="select-single"
             size={mapSize}
             mapColor="#cbd5e1"
             strokeColor="#ffffff"
             strokeWidth={1.5}
-            hoverColor="#34d399"
+            hoverColor="#cbd5e1"
             selectColor="#10b981"
             cityColors={cityColors}
             hints={true}

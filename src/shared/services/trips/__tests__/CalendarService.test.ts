@@ -18,7 +18,7 @@ const mockTrip: Trip = {
       type: "destination",
       destinationId: "shinjuku",
       name: "Shinjuku Gyoen",
-      arrivalTime: "10:00 AM",
+      date: "2026-11-02",
     },
   ],
   createdAt: "2026-07-23T12:00:00Z",
@@ -32,7 +32,7 @@ describe("CalendarService Unit Tests", () => {
     expect(ics).toContain("SUMMARY:Tokyo Autumn Adventure");
     expect(ics).toContain("DTSTART;VALUE=DATE:20261101");
     expect(ics).toContain("DTEND;VALUE=DATE:20261106");
-    expect(ics).toContain("DESCRIPTION:1. Shinjuku Gyoen (Arrives: 10:00 AM)");
+    expect(ics).toContain("DESCRIPTION:1. Shinjuku Gyoen — 2026-11-02");
     expect(ics).toContain("END:VEVENT");
     expect(ics).toContain("END:VCALENDAR");
   });

@@ -11,8 +11,6 @@ import {
   Plus,
   Trash2,
   CalendarDays,
-  Clock,
-  Sparkles,
   Calendar as CalendarIcon,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -27,46 +25,20 @@ interface ItineraryPlannerProps {
   onReorderStops: (startIndex: number, endIndex: number) => void;
 }
 
-const TIME_PRESETS = [
-  { label: "Morning", arrival: "09:00", departure: "11:30" },
-  { label: "Noon", arrival: "12:00", departure: "13:30" },
-  { label: "Afternoon", arrival: "14:00", departure: "16:30" },
-  { label: "Evening", arrival: "18:00", departure: "20:30" },
-];
-
-const TIME_OPTIONS = Array.from({ length: 32 }, (_, i) => {
-  const totalMins = 7 * 60 + i * 30; // 07:00 to 22:30
-  const hours = Math.floor(totalMins / 60)
-    .toString()
-    .padStart(2, "0");
-  const mins = (totalMins % 60).toString().padStart(2, "0");
-  return `${hours}:${mins}`;
-});
-
-/**
- * Sanitizes and clamps year inputs to valid real-world ranges (2020–2035).
- * Prevents invalid user entries like 5454-05-04.
- */
 function sanitizeDateInput(rawDate: string): string {
   if (!rawDate) return "";
   const parts = rawDate.split("-");
   if (parts.length < 3) return rawDate;
-
   let year = parseInt(parts[0], 10);
   const currentYear = new Date().getFullYear();
-
   if (isNaN(year) || year < 2020 || year > 2035) {
     year = currentYear;
   }
-
   const month = parts[1].padStart(2, "0");
   const day = parts[2].padStart(2, "0");
   return `${year}-${month}-${day}`;
 }
 
-/**
- * Formats ISO date string (2026-08-15) to human-friendly format (Aug 15, 2026).
- */
 function formatDisplayDate(dateStr: string, locale: string = "en"): string {
   if (!dateStr) return "";
   try {
@@ -85,8 +57,8 @@ function formatDisplayDate(dateStr: string, locale: string = "en"): string {
         });
       }
     }
-  } catch (e) {
-    // Fallback to raw string if parsing fails
+  } catch {
+    // Fallback to raw string
   }
   return dateStr;
 }
@@ -105,9 +77,6 @@ export default function ItineraryPlanner({
   const [customName, setCustomName] = useState("");
   const [notes, setNotes] = useState("");
   const [stopDate, setStopDate] = useState("");
-  const [arrivalTime, setArrivalTime] = useState("");
-  const [departureTime, setDepartureTime] = useState("");
-  const [estimatedCost, setEstimatedCost] = useState("");
   const { favorites } = useTripStore();
   const recentDestinations = useRecentlyViewedDestinations();
 
@@ -119,13 +88,8 @@ export default function ItineraryPlanner({
       .filter((d): d is Destination => Boolean(d));
   }, [favorites, destinations]);
 
-  // Generate Trip Day Presets (Day 1, Day 2, Day 3)
-  const getTripDatePresets = () => {
-    const today = new Date();
-    const todayStr = today.toISOString().split("T")[0];
-
+  const tripDatePresets = useMemo(() => {
     const presets: Array<{ label: string; date: string }> = [];
-
     if (trip.startDate) {
       const baseDate = new Date(trip.startDate);
       if (!isNaN(baseDate.getTime())) {
@@ -141,11 +105,10 @@ export default function ItineraryPlanner({
         return presets;
       }
     }
-
-    // Default presets
+    const today = new Date();
+    const todayStr = today.toISOString().split("T")[0];
     const tomorrow = new Date(today);
     tomorrow.setDate(tomorrow.getDate() + 1);
-
     presets.push({
       label: locale === "ja" ? "今日" : "Today",
       date: todayStr,
@@ -154,16 +117,8 @@ export default function ItineraryPlanner({
       label: locale === "ja" ? "明日" : "Tomorrow",
       date: tomorrow.toISOString().split("T")[0],
     });
-
     return presets;
-  };
-
-  const tripDatePresets = getTripDatePresets();
-
-  const handleApplyTimePreset = (arrival: string, departure: string) => {
-    setArrivalTime(arrival);
-    setDepartureTime(departure);
-  };
+  }, [trip.startDate, locale]);
 
   const handleDateChange = (val: string) => {
     setStopDate(sanitizeDateInput(val));
@@ -182,9 +137,6 @@ export default function ItineraryPlanner({
         name: dest.name,
         notes: notes || undefined,
         date: finalDate || undefined,
-        arrivalTime: arrivalTime || undefined,
-        departureTime: departureTime || undefined,
-        estimatedCost: estimatedCost ? parseFloat(estimatedCost) : undefined,
       });
     } else {
       if (!customName || customName.trim() === "") return;
@@ -193,20 +145,13 @@ export default function ItineraryPlanner({
         name: customName,
         notes: notes || undefined,
         date: finalDate || undefined,
-        arrivalTime: arrivalTime || undefined,
-        departureTime: departureTime || undefined,
-        estimatedCost: estimatedCost ? parseFloat(estimatedCost) : undefined,
       });
     }
 
-    // Reset Form
     setSelectedDestId("");
     setCustomName("");
     setNotes("");
     setStopDate("");
-    setArrivalTime("");
-    setDepartureTime("");
-    setEstimatedCost("");
   };
 
   return (
@@ -214,14 +159,14 @@ export default function ItineraryPlanner({
       {/* Add Stop Form */}
       <form
         onSubmit={handleAddStop}
-        className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-3xl space-y-4 shadow-sm"
+        className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 sm:p-6 rounded-3xl space-y-4 shadow-sm"
       >
         <h4 className="text-md font-bold text-slate-950 dark:text-white mb-2 flex items-center gap-2">
           <CalendarDays className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
           {t("ui.addStop")}
         </h4>
 
-        <div className="flex gap-4">
+        <div className="flex gap-3">
           <button
             type="button"
             onClick={() => setStopType("destination")}
@@ -282,15 +227,13 @@ export default function ItineraryPlanner({
           </div>
         )}
 
-        {/* Date Section with Presets */}
+        {/* Date */}
         <div className="space-y-2">
-          <div className="flex items-center justify-between">
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+          <div className="flex items-center justify-between flex-wrap gap-2">
+            <label className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
               <CalendarIcon className="w-3.5 h-3.5 text-emerald-500" />
-              Visit Date
+              {t("datePicker.chooseTravelDate")}
             </label>
-
-            {/* Dynamic Day Presets */}
             <div className="flex items-center gap-1.5">
               {tripDatePresets.map((preset) => (
                 <button
@@ -308,100 +251,18 @@ export default function ItineraryPlanner({
               ))}
             </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <Input
-                type="date"
-                value={stopDate}
-                min="2020-01-01"
-                max="2035-12-31"
-                onChange={(e) => handleDateChange(e.target.value)}
-                onBlur={(e) => handleDateChange(e.target.value)}
-                className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl text-sm"
-              />
-            </div>
-
-            <div>
-              <Input
-                type="number"
-                value={estimatedCost}
-                onChange={(e) => setEstimatedCost(e.target.value)}
-                placeholder="Estimated Cost (￥ e.g. 1500)"
-                className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl"
-              />
-            </div>
-          </div>
+          <Input
+            type="date"
+            value={stopDate}
+            min="2020-01-01"
+            max="2035-12-31"
+            onChange={(e) => handleDateChange(e.target.value)}
+            onBlur={(e) => handleDateChange(e.target.value)}
+            className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl text-sm w-full"
+          />
         </div>
 
-        {/* Quick Time Presets Bar */}
-        <div className="pt-1">
-          <div className="flex items-center justify-between mb-1.5">
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-500" />
-              Quick Time Presets
-            </label>
-          </div>
-          <div className="flex flex-wrap items-center gap-2">
-            {TIME_PRESETS.map((preset) => (
-              <button
-                key={preset.label}
-                type="button"
-                onClick={() =>
-                  handleApplyTimePreset(preset.arrival, preset.departure)
-                }
-                className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all border ${
-                  arrivalTime === preset.arrival &&
-                  departureTime === preset.departure
-                    ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-600 dark:text-emerald-300 font-bold"
-                    : "bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-700"
-                }`}
-              >
-                {preset.label} ({preset.arrival} – {preset.departure})
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Arrival & Departure Time Selectors */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
-              {t("ui.arrivalTime")}
-            </label>
-            <select
-              value={arrivalTime}
-              onChange={(e) => setArrivalTime(e.target.value)}
-              className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-            >
-              <option value="">-- Select Arrival Time --</option>
-              {TIME_OPTIONS.map((time) => (
-                <option key={`arr-${time}`} value={time}>
-                  {time}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
-              {t("ui.departureTime")}
-            </label>
-            <select
-              value={departureTime}
-              onChange={(e) => setDepartureTime(e.target.value)}
-              className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-            >
-              <option value="">-- Select Departure Time --</option>
-              {TIME_OPTIONS.map((time) => (
-                <option key={`dep-${time}`} value={time}>
-                  {time}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-
+        {/* Notes */}
         <div>
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
             {t("ui.notes")}
@@ -418,7 +279,7 @@ export default function ItineraryPlanner({
         <Button
           type="submit"
           disabled={stopType === "destination" ? !selectedDestId : !customName}
-          className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold px-6"
+          className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold px-6"
         >
           <Plus className="w-4 h-4 mr-1.5" />
           <span>{t("ui.addStopAction")}</span>
@@ -432,60 +293,45 @@ export default function ItineraryPlanner({
         </h4>
 
         {trip.stops.length === 0 ? (
-          <p className="text-slate-400 dark:text-slate-500 text-sm italic">
+          <p className="text-slate-400 dark:text-slate-500 text-sm italic py-8 text-center">
             {t("ui.noItinerariesHint")}
           </p>
         ) : (
-          <div className="relative pl-6 space-y-6 before:absolute before:left-[1.125rem] before:top-4 before:bottom-4 before:w-0.5 before:bg-emerald-500/30 dark:before:bg-emerald-500/40">
+          <div className="space-y-4">
             {trip.stops.map((stop, index) => (
               <div
                 key={stop.id}
-                className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4.5 rounded-2xl flex items-center justify-between shadow-sm hover:shadow-md transition-shadow"
+                className="flex items-center gap-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-2xl shadow-sm"
               >
-                <div className="absolute -left-[2.25rem] top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-extrabold text-sm shadow-md ring-4 ring-slate-50 dark:ring-background">
+                {/* Stop number */}
+                <div className="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-extrabold text-sm shrink-0">
                   {index + 1}
                 </div>
 
-                <div className="flex-grow pl-2">
-                  <h5 className="font-extrabold text-slate-900 dark:text-white text-base">
+                <div className="flex-1 min-w-0">
+                  <h5 className="font-extrabold text-slate-900 dark:text-white text-sm truncate">
                     {stop.name}
                   </h5>
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-1.5 text-xs text-slate-500 dark:text-slate-400">
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1 text-xs text-slate-500 dark:text-slate-400">
                     <span className="inline-block px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold uppercase tracking-wider text-[10px]">
                       {stop.type}
                     </span>
-
                     {stop.date && (
                       <span className="inline-flex items-center gap-1 font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-md border border-emerald-500/20">
                         <CalendarDays className="w-3 h-3" />
                         {formatDisplayDate(stop.date, locale)}
                       </span>
                     )}
-
-                    {(stop.arrivalTime || stop.departureTime) && (
-                      <span className="inline-flex items-center gap-1 font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">
-                        <Clock className="w-3 h-3 text-slate-400" />
-                        {stop.arrivalTime || "--"} –{" "}
-                        {stop.departureTime || "--"}
-                      </span>
-                    )}
-
-                    {stop.estimatedCost !== undefined && (
-                      <span className="font-bold text-emerald-600 dark:text-emerald-400">
-                        ¥{stop.estimatedCost.toLocaleString()}
-                      </span>
-                    )}
-
                     {stop.notes && (
-                      <span className="italic text-slate-500">
+                      <span className="italic text-slate-500 truncate">
                         "{stop.notes}"
                       </span>
                     )}
                   </div>
                 </div>
 
-                <div className="flex items-center gap-1 shrink-0 ml-4">
-                  {/* Reorder Buttons */}
+                {/* Actions */}
+                <div className="flex items-center gap-0.5 shrink-0">
                   <Button
                     variant="ghost"
                     size="icon"

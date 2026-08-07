@@ -21,10 +21,7 @@ export function generateIcsContent(trip: Trip): string {
       );
 
   const description = trip.stops
-    .map(
-      (s, idx) =>
-        `${idx + 1}. ${s.name}${s.arrivalTime ? ` (Arrives: ${s.arrivalTime})` : ""}`,
-    )
+    .map((s, idx) => `${idx + 1}. ${s.name}${s.date ? ` — ${s.date}` : ""}`)
     .join("\\n");
 
   return [
@@ -82,10 +79,7 @@ export function generateGoogleCalendarUrl(trip: Trip): string {
   const tripLink = `${window.location.origin}/my-trips?tripId=${trip.id}`;
 
   const stopsSummary = trip.stops
-    .map(
-      (s, idx) =>
-        `${idx + 1}. ${s.name}${s.arrivalTime ? ` (${s.arrivalTime})` : ""}`,
-    )
+    .map((s, idx) => `${idx + 1}. ${s.name}${s.date ? ` — ${s.date}` : ""}`)
     .join("\n");
 
   const body = `Plan Link: ${tripLink}\n\nItinerary Overview:\n${stopsSummary}`;

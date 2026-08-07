@@ -14,7 +14,6 @@ import {
   Settings2,
   Car,
   Palette,
-  Eye,
   Download,
   CheckCircle2,
   Loader2,
@@ -27,8 +26,14 @@ import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 import packageJson from "@/../package.json";
 
-type SettingsSection =
-  "account" | "general" | "travel" | "appearance" | "accessibility" | "data";
+type SettingsSection = "account" | "general" | "travel" | "appearance" | "data";
+
+const BUDGET_PRESETS = [
+  { id: "economy", key: "home.budgets.economy" },
+  { id: "standard", key: "home.budgets.standard" },
+  { id: "comfortable", key: "home.budgets.comfortable" },
+  { id: "luxury", key: "home.budgets.luxury" },
+] as const;
 
 export default function Settings() {
   const { t } = useTranslation();
@@ -66,7 +71,9 @@ export default function Settings() {
   const [partySize, setPartySize] = useState(
     user?.user_metadata?.preferences?.partySize || 2,
   );
-
+  const [budget, setBudget] = useState(
+    user?.user_metadata?.preferences?.budget || "standard",
+  );
   const [homeCityId, setHomeCityId] = useState(
     user?.user_metadata?.home_city || "",
   );
@@ -77,6 +84,7 @@ export default function Settings() {
   const [defaultLocale, setDefaultLocale] = useState<"en" | "ja">(
     user?.user_metadata?.default_locale === "ja" ? "ja" : locale,
   );
+
   const cityHubs = useMemo(
     () =>
       (getDestinationList(locale) as Destination[])
@@ -110,6 +118,7 @@ export default function Settings() {
           ],
         );
         setPartySize(user.user_metadata.preferences.partySize || 2);
+        setBudget(user.user_metadata.preferences.budget || "standard");
       }
     }
   }, [user, locale]);
@@ -129,6 +138,7 @@ export default function Settings() {
           carMode,
           publicModes,
           partySize,
+          budget,
           preferences_set: true,
         },
       });
@@ -179,6 +189,7 @@ export default function Settings() {
         carMode,
         publicModes,
         partySize,
+        budget,
         theme,
       },
       visitedDestinations: visited,
@@ -199,6 +210,14 @@ export default function Settings() {
     toast.success(t("ui.dataExport"));
   };
 
+  const sidebarSections = [
+    { id: "account", label: t("ui.account"), icon: UserRound },
+    { id: "general", label: t("ui.general"), icon: Settings2 },
+    { id: "travel", label: t("ui.travelPreferences"), icon: Car },
+    { id: "appearance", label: t("ui.appearance"), icon: Palette },
+    { id: "data", label: t("ui.dataExport"), icon: Download },
+  ] as const;
+
   return (
     <div className="container mx-auto max-w-6xl space-y-6 px-4 py-6 sm:px-6 sm:py-8 lg:px-8 animate-in fade-in duration-200">
       <PageHeader
@@ -207,52 +226,47 @@ export default function Settings() {
         description={t("ui.settingsDescription")}
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Settings Navigation Sidebar */}
-        <div className="lg:col-span-3 flex overflow-x-auto lg:flex-col gap-2 pb-2 lg:pb-0 scrollbar-none">
-          {[
-            { id: "account", label: t("ui.account"), icon: UserRound },
-            { id: "general", label: t("ui.general"), icon: Settings2 },
-            { id: "travel", label: t("ui.travelPreferences"), icon: Car },
-            { id: "appearance", label: t("ui.appearance"), icon: Palette },
-            { id: "accessibility", label: t("ui.accessibility"), icon: Eye },
-            { id: "data", label: t("ui.dataExport"), icon: Download },
-          ].map((sec) => {
+      {/* Mobile: stacked sections with accordion feel. Desktop: sidebar + panel */}
+      <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+        {/* Sidebar – horizontal scroll on mobile, vertical on desktop */}
+        <nav className="lg:col-span-3 w-full flex overflow-x-auto lg:flex-col gap-2 pb-2 lg:pb-0 scrollbar-none">
+          {sidebarSections.map((sec) => {
             const isActive = activeSection === sec.id;
             const Icon = sec.icon;
             return (
               <button
                 key={sec.id}
                 type="button"
-                onClick={() => setActiveSection(sec.id as SettingsSection)}
-                className={`w-full flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0 text-left ${
+                onClick={() => setActiveSection(sec.id)}
+                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0 ${
                   isActive
-                    ? "bg-emerald-600 text-white shadow-md shadow-emerald-500/20 ring-2 ring-emerald-500/30"
+                    ? "bg-emerald-600 text-white shadow-md shadow-emerald-500/20"
                     : "bg-slate-50 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >
                 <Icon
                   className={`w-4 h-4 shrink-0 ${isActive ? "text-white" : "text-emerald-500"}`}
                 />
-                <span>{sec.label}</span>
+                <span className="hidden sm:inline">{sec.label}</span>
               </button>
             );
           })}
-        </div>
+        </nav>
 
-        {/* Main Settings Form Panel */}
-        <div className="lg:col-span-9">
+        {/* Main Panel */}
+        <div className="lg:col-span-9 w-full">
           <form
             onSubmit={handleSave}
             className="space-y-5 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900 sm:p-6"
           >
             {saveSuccess && (
               <div className="p-3.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 text-xs font-bold flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4" /> Settings updated
-                successfully!
+                <CheckCircle2 className="w-4 h-4" />
+                {t("ui.settingsSaved")}
               </div>
             )}
 
+            {/* ── Account ── */}
             {activeSection === "account" && (
               <div className="space-y-6">
                 <div>
@@ -265,10 +279,11 @@ export default function Settings() {
                 </div>
                 <div className="space-y-4">
                   <label className="block text-xs font-bold uppercase text-slate-500">
-                    Full name
+                    {t("auth.signUpTitle")}
                     <input
                       value={fullName}
                       onChange={(event) => setFullName(event.target.value)}
+                      placeholder={t("auth.signUpPrompt")}
                       className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
                     />
                   </label>
@@ -277,6 +292,7 @@ export default function Settings() {
                     <input
                       value={username}
                       onChange={(event) => setUsername(event.target.value)}
+                      placeholder="@username"
                       className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
                     />
                   </label>
@@ -315,7 +331,7 @@ export default function Settings() {
               </div>
             )}
 
-            {/* Section 1: General & Base Location */}
+            {/* ── General ── */}
             {activeSection === "general" && (
               <div className="space-y-6">
                 <div>
@@ -326,21 +342,18 @@ export default function Settings() {
                     {t("ui.baseLocation")}
                   </p>
                 </div>
-
                 <div className="space-y-4 pt-2">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
                       {t("ui.baseLocation")}
                     </label>
-
-                    {/* Reusable StationInput Component */}
                     <StationInput embedded={true} />
                   </div>
                 </div>
               </div>
             )}
 
-            {/* Section 2: Travel Preferences */}
+            {/* ── Travel Preferences ── */}
             {activeSection === "travel" && (
               <div className="space-y-6">
                 <div>
@@ -348,16 +361,40 @@ export default function Settings() {
                     {t("ui.travelPreferences")}
                   </h3>
                   <p className="text-xs text-slate-500">
-                    {t("home.transportOptions.public")}
+                    {t("home.transport")}
                   </p>
                 </div>
 
-                <div className="space-y-4 pt-2">
+                <div className="space-y-5 pt-2">
+                  {/* Budget */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                      {t("home.budget")}
+                    </label>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                      {BUDGET_PRESETS.map((b) => (
+                        <button
+                          key={b.id}
+                          type="button"
+                          onClick={() => setBudget(b.id)}
+                          className={`p-3 rounded-2xl text-xs font-bold border transition-all ${
+                            budget === b.id
+                              ? "bg-emerald-500 text-white border-emerald-500"
+                              : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
+                          }`}
+                        >
+                          {t(b.key)}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Car mode */}
                   <div>
                     <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
                       {t("home.transportModes.car")}
                     </label>
-                    <div className="grid grid-cols-3 gap-3">
+                    <div className="grid grid-cols-3 gap-2">
                       {[
                         {
                           id: "none",
@@ -385,11 +422,12 @@ export default function Settings() {
                     </div>
                   </div>
 
+                  {/* Public transport modes */}
                   <div>
                     <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
                       {t("home.transport")}
                     </label>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                       {[
                         { id: "train", label: t("home.transportModes.train") },
                         {
@@ -418,6 +456,7 @@ export default function Settings() {
                     </div>
                   </div>
 
+                  {/* Party size */}
                   <div>
                     <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5">
                       {t("home.party")}: {partySize}{" "}
@@ -435,7 +474,7 @@ export default function Settings() {
                     />
                   </div>
 
-                  {/* Recommendation Personalization & Privacy */}
+                  {/* Personalization */}
                   <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-4">
                     <h4 className="text-sm font-extrabold text-slate-900 dark:text-white">
                       {t("recommendation.personalization.title")}
@@ -466,7 +505,7 @@ export default function Settings() {
                       <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
                         {t("recommendation.personalization.noveltyLabel")}
                       </label>
-                      <div className="grid grid-cols-3 gap-3">
+                      <div className="grid grid-cols-3 gap-2">
                         {[
                           {
                             id: "BALANCED",
@@ -514,8 +553,7 @@ export default function Settings() {
                           {t("recommendation.feedback.optOutLabel")}
                         </div>
                         <div className="text-[11px] text-slate-500">
-                          Stop sending zero-PII recommendation quality events
-                          and purge queue
+                          {t("recommendation.feedback.optOutLabel")}
                         </div>
                       </div>
                       <input
@@ -548,7 +586,7 @@ export default function Settings() {
               </div>
             )}
 
-            {/* Section 3: Appearance */}
+            {/* ── Appearance ── */}
             {activeSection === "appearance" && (
               <div className="space-y-6">
                 <div>
@@ -563,44 +601,25 @@ export default function Settings() {
                     { id: "system", label: "System" },
                     { id: "light", label: "Light" },
                     { id: "dark", label: "Dark" },
-                  ].map((t) => (
+                  ].map((opt) => (
                     <button
-                      key={t.id}
+                      key={opt.id}
                       type="button"
-                      onClick={() => setTheme(t.id as any)}
+                      onClick={() => setTheme(opt.id as any)}
                       className={`p-4 rounded-2xl text-xs font-bold border transition-all text-center ${
-                        theme === t.id
+                        theme === opt.id
                           ? "bg-emerald-500 text-white border-emerald-500 shadow-sm"
                           : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
                       }`}
                     >
-                      {t.label}
+                      {opt.label}
                     </button>
                   ))}
                 </div>
               </div>
             )}
 
-            {/* Section 4: Accessibility */}
-            {activeSection === "accessibility" && (
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                    {t("ui.accessibility")}
-                  </h3>
-                  <p className="text-xs text-slate-500">
-                    {t("ui.accessibility")}
-                  </p>
-                </div>
-
-                <p className="text-xs text-slate-500 dark:text-slate-400 py-8 text-center">
-                  Accessibility preferences are configured via your device and
-                  browser settings.
-                </p>
-              </div>
-            )}
-
-            {/* Section 5: Data & Export */}
+            {/* ── Data ── */}
             {activeSection === "data" && (
               <div className="space-y-6">
                 <div>
@@ -630,7 +649,7 @@ export default function Settings() {
               </div>
             )}
 
-            {activeSection !== "data" && activeSection !== "accessibility" && (
+            {activeSection !== "data" && (
               <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
                 <Button
                   type="submit"

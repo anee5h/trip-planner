@@ -144,8 +144,8 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
               <div className="pt-2 flex items-center justify-between border-t border-white/15">
                 <p className="text-xs text-emerald-100/90 font-medium">
                   {visitedPrefectures.length > 0
-                    ? `Awesome start! Logged visits in ${visitedPrefectures.length} prefecture${visitedPrefectures.length > 1 ? "s" : ""}.`
-                    : "Start logging your travel history on the interactive map!"}
+                    ? `${visitedPrefectures.length} prefecture${visitedPrefectures.length > 1 ? "s" : ""} visited`
+                    : "Mark destinations as visited to track your progress."}
                 </p>
                 <button
                   onClick={() => onSelectTab("japan-map")}
