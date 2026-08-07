@@ -64,9 +64,6 @@ vi.mock("../components/PassportAchievements", () => ({
 vi.mock("../components/PassportBadges", () => ({
   PassportBadges: () => null,
 }));
-vi.mock("../components/PassportStatistics", () => ({
-  PassportStatistics: () => null,
-}));
 
 let root: Root;
 let host: HTMLDivElement;

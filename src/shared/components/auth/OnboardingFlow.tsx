@@ -17,7 +17,8 @@ function isOnboardingNeeded(userId: string): boolean {
     const stored = localStorage.getItem(ONBOARDING_KEY);
     if (!stored) return true;
     const data = JSON.parse(stored);
-    return !data.completed && data.userId === userId;
+    // completed or skipped: don't show again
+    return !data.completed && !data.skipped && data.userId === userId;
   } catch {
     return true;
   }
@@ -26,7 +27,7 @@ function isOnboardingNeeded(userId: string): boolean {
 function markOnboardingSkipped(userId: string) {
   localStorage.setItem(
     ONBOARDING_KEY,
-    JSON.stringify({ userId, completed: false, skippedAt: Date.now() }),
+    JSON.stringify({ userId, skipped: true, skippedAt: Date.now() }),
   );
 }
 
@@ -61,6 +62,7 @@ export function OnboardingFlow() {
     "shinkansen",
     "bus",
     "flight",
+    "ferry",
   ]);
   const [partySize, setPartySize] = useState(2);
   const [budget, setBudget] = useState("standard");
@@ -85,6 +87,7 @@ export function OnboardingFlow() {
             "shinkansen",
             "bus",
             "flight",
+            "ferry",
           ],
         );
         setPartySize(user.user_metadata.preferences.partySize || 2);
@@ -158,11 +161,9 @@ export function OnboardingFlow() {
           <div className="text-center py-6 space-y-3">
             <div className="text-2xl">✅</div>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-              All set!
+              {t("onboarding.doneTitle")}
             </h3>
-            <p className="text-xs text-slate-500">
-              You can change these anytime in Settings.
-            </p>
+            <p className="text-xs text-slate-500">{t("onboarding.doneHelp")}</p>
           </div>
         ) : (
           <>
@@ -180,27 +181,27 @@ export function OnboardingFlow() {
               <div className="space-y-4">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                    Tell us about yourself
+                    {t("onboarding.accountTitle")}
                   </h3>
                   <p className="text-xs text-slate-500">
-                    This helps personalize your trip recommendations.
+                    {t("onboarding.accountHelp")}
                   </p>
                 </div>
                 <label className="block text-xs font-bold uppercase text-slate-500">
-                  Full name
+                  {t("settings.fullName")}
                   <input
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    placeholder="Your full name"
+                    placeholder={t("settings.fullNamePlaceholder")}
                     className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
                   />
                 </label>
                 <label className="block text-xs font-bold uppercase text-slate-500">
-                  Language
+                  {t("ui.defaultLanguage")}
                   <div className="grid grid-cols-2 gap-2 mt-2">
                     {[
-                      { id: "en", label: "English" },
-                      { id: "ja", label: "日本語" },
+                      { id: "en", label: t("settings.languageEn") },
+                      { id: "ja", label: t("settings.languageJa") },
                     ].map((opt) => (
                       <button
                         key={opt.id}
@@ -218,11 +219,11 @@ export function OnboardingFlow() {
                   </div>
                 </label>
                 <label className="block text-xs font-bold uppercase text-slate-500">
-                  Home city
+                  {t("ui.chooseCity")}
                   <SearchableDestinationPicker
                     value={homeCityId}
                     onSelect={(d) => setHomeCityId(d.id)}
-                    placeholder="Select home city"
+                    placeholder={t("ui.chooseCity")}
                     locale={locale}
                     destinations={cityHubs}
                     savedDestinations={[]}
@@ -232,7 +233,7 @@ export function OnboardingFlow() {
                 </label>
                 <div>
                   <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
-                    Base station
+                    {t("ui.baseLocation")}
                   </label>
                   <StationInput embedded={true} />
                 </div>
@@ -243,14 +244,14 @@ export function OnboardingFlow() {
                     onClick={handleSkip}
                     className="flex-1 rounded-xl text-xs font-bold"
                   >
-                    Skip
+                    {t("onboarding.skip")}
                   </Button>
                   <Button
                     type="button"
                     onClick={handleSaveAccount}
                     className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold"
                   >
-                    Continue
+                    {t("onboarding.continue")}
                   </Button>
                 </div>
               </div>
@@ -260,10 +261,10 @@ export function OnboardingFlow() {
               <div className="space-y-4">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                    Travel preferences
+                    {t("onboarding.preferencesTitle")}
                   </h3>
                   <p className="text-xs text-slate-500">
-                    Set your defaults for trip planning.
+                    {t("onboarding.preferencesHelp")}
                   </p>
                 </div>
 
@@ -299,7 +300,7 @@ export function OnboardingFlow() {
 
                 <div>
                   <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5">
-                    {t("home.transportModes.car")}
+                    {t("settings.primaryTransport")}
                   </label>
                   <div className="grid grid-cols-3 gap-1.5">
                     {[
@@ -328,9 +329,9 @@ export function OnboardingFlow() {
 
                 <div>
                   <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5">
-                    {t("home.transport")}
+                    {t("settings.publicTransportModes")}
                   </label>
-                  <div className="grid grid-cols-2 gap-1.5">
+                  <div className="grid grid-cols-3 gap-1.5">
                     {[
                       { id: "train", label: t("home.transportModes.train") },
                       {
@@ -339,6 +340,7 @@ export function OnboardingFlow() {
                       },
                       { id: "bus", label: t("home.transportModes.bus") },
                       { id: "flight", label: t("home.transportModes.flight") },
+                      { id: "ferry", label: t("home.transportModes.ferry") },
                     ].map((tm) => (
                       <button
                         key={tm.id}
@@ -358,10 +360,8 @@ export function OnboardingFlow() {
 
                 <div>
                   <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5">
-                    {t("home.party")}: {partySize}{" "}
-                    {partySize > 1
-                      ? t("home.people_other")
-                      : t("home.people_one")}
+                    {t("home.party")}:{" "}
+                    {t("home.people_other", { count: partySize })}
                   </label>
                   <input
                     type="range"
@@ -380,14 +380,14 @@ export function OnboardingFlow() {
                     onClick={handleSkip}
                     className="flex-1 rounded-xl text-xs font-bold"
                   >
-                    Skip
+                    {t("onboarding.skip")}
                   </Button>
                   <Button
                     type="button"
                     onClick={handleSavePreferences}
                     className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold"
                   >
-                    Save
+                    {t("ui.save")}
                   </Button>
                 </div>
               </div>

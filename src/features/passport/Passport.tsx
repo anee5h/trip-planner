@@ -84,9 +84,6 @@ export default function Passport() {
             {activeTab === "timeline" && <PassportTimeline />}
             {activeTab === "achievements" && <PassportAchievements />}
             {activeTab === "badges" && <PassportBadges />}
-            {activeTab === "statistics" && (
-              <PassportOverview onSelectTab={setActiveTab} />
-            )}
           </main>
         </>
       )}

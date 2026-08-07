@@ -486,6 +486,7 @@
     "back": "戻る",
     "cancel": "キャンセル",
     "save": "保存",
+    "delete": "削除",
     "close": "閉じる",
     "clearAll": "すべて消去",
     "view": "詳細を見る",
@@ -625,6 +626,16 @@
   "passport": {
     "signedOutTitle": "旅行パスポートを見るにはサインインしてください",
     "signedOutDescription": "訪れたスポットや都道府県を記録し、日本各地を探索しながらバッジを獲得できます。"
+  },
+  "onboarding": {
+    "accountTitle": "あなたについて教えてください",
+    "accountHelp": "おすすめ表示のパーソナライズに使用します。",
+    "preferencesTitle": "旅行の設定",
+    "preferencesHelp": "旅行プラン生成のデフォルト値を設定します。",
+    "skip": "スキップ",
+    "continue": "次へ",
+    "doneTitle": "完了しました",
+    "doneHelp": "これらの設定は後から設定画面で変更できます。"
   },
   "datePicker": {
     "selectDate": "日付を選択",

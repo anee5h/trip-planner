@@ -486,6 +486,7 @@
     "back": "Back",
     "cancel": "Cancel",
     "save": "Save",
+    "delete": "Delete",
     "close": "Close",
     "clearAll": "Clear all",
     "view": "View details",
@@ -625,6 +626,16 @@
   "passport": {
     "signedOutTitle": "Sign in to view your travel passport",
     "signedOutDescription": "Track visited destinations, prefectures, and earn badges as you explore Japan."
+  },
+  "onboarding": {
+    "accountTitle": "Tell us about yourself",
+    "accountHelp": "This helps personalize your trip recommendations.",
+    "preferencesTitle": "Travel preferences",
+    "preferencesHelp": "Set your defaults for trip planning.",
+    "skip": "Skip",
+    "continue": "Continue",
+    "doneTitle": "All set!",
+    "doneHelp": "You can change these anytime in Settings."
   },
   "datePicker": {
     "selectDate": "Select date",

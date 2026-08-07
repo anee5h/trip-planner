@@ -72,13 +72,13 @@ describe("TripCard", () => {
     );
     act(() => deleteBtn?.click());
 
-    // Should now show confirm button
-    expect(host.textContent).toContain("ui.save");
+    // Should now show delete button
+    expect(host.textContent).toContain("ui.delete");
     expect(host.textContent).toContain("ui.cancel");
 
     // Click confirm
     const confirmBtn = Array.from(host.querySelectorAll("button")).find((b) =>
-      b.textContent?.includes("ui.save"),
+      b.textContent?.includes("ui.delete"),
     );
     act(() => confirmBtn?.click());
     expect(onDelete).toHaveBeenCalledWith("trip-1");
@@ -100,7 +100,7 @@ describe("TripCard", () => {
     // Should not have called onDelete
     expect(onDelete).not.toHaveBeenCalled();
     // Confirm button should be gone
-    expect(host.textContent).not.toContain("ui.save");
+    expect(host.textContent).not.toContain("ui.delete");
   });
 
   it("displays stop count", () => {

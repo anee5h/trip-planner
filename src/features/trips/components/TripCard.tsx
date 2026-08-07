@@ -42,7 +42,7 @@ export default function TripCard({ trip, onSelect, onDelete }: TripCardProps) {
                 }}
                 className="text-xs font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-full px-3 h-7"
               >
-                {t("ui.save")}
+                {t("ui.delete")}
               </Button>
               <Button
                 variant="ghost"

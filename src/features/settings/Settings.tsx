@@ -575,10 +575,16 @@ export default function Settings() {
                         type="button"
                         variant="outline"
                         onClick={() => {
-                          personalizationService.resetSettings();
-                          toast.success(
-                            t("recommendation.personalization.resetAction"),
-                          );
+                          if (
+                            window.confirm(
+                              t("recommendation.personalization.resetConfirm"),
+                            )
+                          ) {
+                            personalizationService.resetSettings();
+                            toast.success(
+                              t("recommendation.personalization.resetAction"),
+                            );
+                          }
                         }}
                         className="text-xs text-rose-600 dark:text-rose-400 border-rose-200 dark:border-rose-900 hover:bg-rose-50 dark:hover:bg-rose-950/30 font-bold"
                       >

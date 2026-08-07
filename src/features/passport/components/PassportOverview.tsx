@@ -299,10 +299,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
             </h3>
 
             <div className="space-y-3">
-              <div
-                onClick={() => onSelectTab("statistics")}
-                className="cursor-pointer flex items-center justify-between p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group"
-              >
+              <div className="flex items-center justify-between p-3 rounded-2xl">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 shadow-xs">
                     <Sparkles className="w-4 h-4" />
@@ -316,7 +313,6 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                     </div>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
               <div

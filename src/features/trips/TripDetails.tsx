@@ -177,7 +177,7 @@ export default function TripDetails({
       {/* Main Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Planner Left Area */}
-        <div className="lg:col-span-2 space-y-6 order-2 lg:order-1">
+        <div className="lg:col-span-2 space-y-6 order-1">
           <ItineraryPlanner
             trip={trip}
             onAddStop={onAddStop}
@@ -187,7 +187,7 @@ export default function TripDetails({
         </div>
 
         {/* Journal Right Area */}
-        <div className="h-fit space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900 sm:p-5 order-1 lg:order-2">
+        <div className="h-fit space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900 sm:p-5 order-2">
           <h4 className="text-md font-bold text-slate-950 dark:text-white">
             Trip Journal Notes
           </h4>
