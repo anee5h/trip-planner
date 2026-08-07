@@ -10,10 +10,8 @@ import {
   User,
   Sliders,
   LogOut,
-  Bookmark,
   HelpCircle,
   MessageSquare,
-  Layers,
   Languages,
   Sun,
   Moon,
@@ -110,7 +108,6 @@ export default function Navbar() {
   }, []);
 
   const isDestinationsActive = location.pathname.startsWith("/destinations");
-  const isCollectionsActive = location.pathname.startsWith("/collections");
   const isMyTripsActive = location.pathname.startsWith("/my-trips");
   const isBucketListActive = location.pathname.startsWith("/bucket-list");
   const isPassportActive = location.pathname.startsWith("/passport");
@@ -146,67 +143,33 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3 shrink-0">
           <nav className="hidden md:flex items-center gap-1.5">
-            {/* Discover Cluster */}
-            <div className="flex items-center gap-1.5">
-              <Link
-                to="/destinations"
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
-                  isDestinationsActive
-                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
-                }`}
-              >
-                <Map className="w-4 h-4" />
-                <span>{t("navigation.destinations")}</span>
-              </Link>
+            {/* Explore */}
+            <Link
+              to="/destinations"
+              className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
+                isDestinationsActive
+                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
+                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
+              }`}
+            >
+              <Map className="w-4 h-4" />
+              <span>{t("navigation.explore")}</span>
+            </Link>
 
-              <Link
-                to="/collections"
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
-                  isCollectionsActive
-                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
-                }`}
-              >
-                <Layers className="w-4 h-4" />
-                <span>{t("navigation.collections")}</span>
-              </Link>
-            </div>
+            {/* Trips */}
+            <Link
+              to="/my-trips"
+              className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
+                isMyTripsActive || isBucketListActive
+                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
+                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
+              }`}
+            >
+              <Calendar className="w-4 h-4" />
+              <span>{t("navigation.trips")}</span>
+            </Link>
 
-            {/* Divider between Discover & Plan */}
-            <div className="h-4 w-[1px] bg-slate-200 dark:bg-slate-800 mx-1 shrink-0" />
-
-            {/* Plan Cluster */}
-            <div className="flex items-center gap-1.5">
-              <Link
-                to="/my-trips"
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
-                  isMyTripsActive
-                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
-                }`}
-              >
-                <Calendar className="w-4 h-4" />
-                <span>{t("navigation.itineraries")}</span>
-              </Link>
-
-              <Link
-                to="/bucket-list"
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
-                  isBucketListActive
-                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
-                }`}
-              >
-                <Bookmark className="w-4 h-4" />
-                <span>{t("navigation.bucketList")}</span>
-              </Link>
-            </div>
-
-            {/* Divider between Plan & Passport */}
-            <div className="h-4 w-[1px] bg-slate-200 dark:bg-slate-800 mx-1 shrink-0" />
-
-            {/* Standalone Passport */}
+            {/* Passport */}
             <Link
               to="/passport"
               className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
@@ -411,7 +374,8 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                 >
-                  <User className="w-5 h-5 text-slate-500" /> Edit Profile
+                  <User className="w-5 h-5 text-slate-500" />{" "}
+                  {t("navigation.editProfile")}
                 </Link>
 
                 <Link
@@ -419,7 +383,8 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                 >
-                  <Sliders className="w-5 h-5 text-slate-500" /> Settings
+                  <Sliders className="w-5 h-5 text-slate-500" />{" "}
+                  {t("navigation.settings")}
                 </Link>
 
                 <button
@@ -428,7 +393,8 @@ export default function Navbar() {
                   className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left"
                 >
                   <span className="flex items-center gap-3">
-                    <Languages className="w-5 h-5 text-slate-500" /> Language
+                    <Languages className="w-5 h-5 text-slate-500" />{" "}
+                    {t("navigation.language")}
                   </span>
                   <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
                     {locale === "en" ? "English" : "日本語"}
@@ -448,7 +414,7 @@ export default function Navbar() {
                     ) : (
                       <Sun className="w-5 h-5 text-amber-500" />
                     )}
-                    Theme
+                    {t("navigation.theme")}
                   </span>
                   <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 capitalize">
                     {resolvedTheme}
@@ -493,7 +459,8 @@ export default function Navbar() {
                   className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left"
                 >
                   <span className="flex items-center gap-3">
-                    <Languages className="w-5 h-5 text-slate-500" /> Language
+                    <Languages className="w-5 h-5 text-slate-500" />{" "}
+                    {t("navigation.language")}
                   </span>
                   <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
                     {locale === "en" ? "English" : "日本語"}
@@ -513,7 +480,7 @@ export default function Navbar() {
                     ) : (
                       <Sun className="w-5 h-5 text-amber-500" />
                     )}
-                    Theme
+                    {t("navigation.theme")}
                   </span>
                   <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 capitalize">
                     {resolvedTheme}

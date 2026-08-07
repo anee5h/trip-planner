@@ -17,7 +17,11 @@
     "collections": "コレクション",
     "itineraries": "旅程",
     "bucketList": "行きたい",
-    "passport": "パスポート"
+    "passport": "パスポート",
+    "editProfile": "アカウント編集",
+    "settings": "設定",
+    "language": "言語",
+    "theme": "テーマ"
   },
   "legal": {
     "terms": "利用規約",

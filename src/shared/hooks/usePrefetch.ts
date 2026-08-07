@@ -5,7 +5,7 @@ const PREFETCH_MAP: Record<string, () => Promise<unknown>> = {
   "/collections": () => import("@/features/collections/CollectionsDirectory"),
   "/passport": () => import("@/features/passport/Passport"),
   "/my-trips": () => import("@/features/profile/MyTrips"),
-  "/profile": () => import("@/features/profile/Profile"),
+  "/profile": () => import("@/features/settings/Settings"),
   "/settings": () => import("@/features/settings/Settings"),
   "/help": () => import("@/features/help/Help"),
 };

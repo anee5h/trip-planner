@@ -818,16 +818,16 @@ export default function DestinationFilters({
                   <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
                     {isJa ? "旅行人数" : "Travel party"}
                   </label>
-                  <div className="h-10 w-40 sm:w-52 p-1 bg-slate-100 dark:bg-slate-900 rounded-xl flex items-center justify-between px-2">
+                  <div className="h-10 w-44 sm:w-56 p-1 bg-slate-100/90 dark:bg-slate-900 rounded-xl flex items-center justify-between px-2.5 gap-2 border border-slate-200/50 dark:border-slate-800/50">
                     <button
                       type="button"
                       disabled={partySize <= 1}
                       onClick={() => setPartySize(Math.max(1, partySize - 1))}
-                      className="w-8 h-8 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 disabled:opacity-30 transition-colors shadow-xs shrink-0"
+                      className="w-8 h-8 flex items-center justify-center rounded-lg bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 disabled:opacity-30 transition-colors shadow-xs shrink-0"
                     >
                       <Minus className="w-3.5 h-3.5" />
                     </button>
-                    <span className="text-xs font-bold text-slate-900 dark:text-white">
+                    <span className="text-xs font-bold text-slate-900 dark:text-white truncate">
                       {isJa
                         ? `${partySize}名`
                         : `${partySize} ${partySize === 1 ? "person" : "people"}`}
@@ -836,7 +836,7 @@ export default function DestinationFilters({
                       type="button"
                       disabled={partySize >= 10}
                       onClick={() => setPartySize(Math.min(10, partySize + 1))}
-                      className="w-8 h-8 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 disabled:opacity-30 transition-colors shadow-xs shrink-0"
+                      className="w-8 h-8 flex items-center justify-center rounded-lg bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 disabled:opacity-30 transition-colors shadow-xs shrink-0"
                     >
                       <Plus className="w-3.5 h-3.5" />
                     </button>

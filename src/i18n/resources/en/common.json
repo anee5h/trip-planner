@@ -17,7 +17,11 @@
     "collections": "Collections",
     "itineraries": "Itineraries",
     "bucketList": "Bucket List",
-    "passport": "Passport"
+    "passport": "Passport",
+    "editProfile": "Edit Profile",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme"
   },
   "legal": {
     "terms": "Terms",

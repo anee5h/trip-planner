@@ -105,8 +105,10 @@ describe("Navbar Component", () => {
     );
     act(() => menuButton?.click());
 
-    const langToggle = Array.from(node.querySelectorAll("button")).find((b) =>
-      b.textContent?.includes("Language"),
+    const langToggle = Array.from(node.querySelectorAll("button")).find(
+      (b) =>
+        b.textContent?.includes("navigation.language") ||
+        b.textContent?.includes("Language"),
     );
     expect(langToggle).not.toBeNull();
     act(() => langToggle?.click());
@@ -129,5 +131,15 @@ describe("Navbar Component", () => {
     expect(versionSpan?.tagName).toBe("SPAN");
     // No 'Notes' badge element should exist
     expect(node.textContent).not.toContain("Notes");
+  });
+
+  it("renders 3 consistent top-level navigation items on desktop", () => {
+    const node = renderNavbar();
+    const desktopNav = node.querySelector("nav.hidden.md\\:flex");
+    expect(desktopNav).not.toBeNull();
+    const links = desktopNav?.querySelectorAll("a");
+    expect(links?.length).toBe(3);
+    const hrefs = Array.from(links || []).map((a) => a.getAttribute("href"));
+    expect(hrefs).toEqual(["/destinations", "/my-trips", "/passport"]);
   });
 });
