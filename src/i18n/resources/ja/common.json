@@ -10,6 +10,8 @@
     "hide": "非表示"
   },
   "navigation": {
+    "home": "ホーム",
+    "explore": "探す",
     "destinations": "目的地",
     "collections": "コレクション",
     "itineraries": "旅程",

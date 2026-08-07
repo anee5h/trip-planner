@@ -10,6 +10,8 @@
     "hide": "Hide"
   },
   "navigation": {
+    "home": "Home",
+    "explore": "Explore",
     "destinations": "Destinations",
     "collections": "Collections",
     "itineraries": "Itineraries",

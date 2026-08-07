@@ -15,6 +15,8 @@ import {
   MessageSquare,
   Layers,
   Languages,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -22,6 +24,7 @@ import { useAuthModal } from "@/shared/context/AuthModalContext";
 import { GlobalSearch } from "@/features/search/GlobalSearch";
 import { FeedbackModal } from "@/shared/components/feedback/FeedbackModal";
 import { useLocale } from "@/shared/context/LocaleContext";
+import { useTheme } from "@/shared/context/ThemeContext";
 import { MegurutoMark } from "@/shared/components/brand/MegurutoMark";
 import { useTranslation } from "react-i18next";
 
@@ -29,6 +32,7 @@ export default function Navbar() {
   const location = useLocation();
   const { user, loading, signOut } = useAuth();
   const { locale, setLocale } = useLocale();
+  const { resolvedTheme, setTheme } = useTheme();
   const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
   const { openAuthModal } = useAuthModal();
@@ -474,7 +478,7 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                 >
-                  <User className="w-5 h-5 text-slate-500" /> Profile
+                  <User className="w-5 h-5 text-slate-500" /> Edit Profile
                 </Link>
 
                 <Link
@@ -484,6 +488,39 @@ export default function Navbar() {
                 >
                   <Sliders className="w-5 h-5 text-slate-500" /> Settings
                 </Link>
+
+                <button
+                  type="button"
+                  onClick={() => setLocale(locale === "en" ? "ja" : "en")}
+                  className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left"
+                >
+                  <span className="flex items-center gap-3">
+                    <Languages className="w-5 h-5 text-slate-500" /> Language
+                  </span>
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+                    {locale === "en" ? "English" : "日本語"}
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setTheme(resolvedTheme === "dark" ? "light" : "dark")
+                  }
+                  className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left"
+                >
+                  <span className="flex items-center gap-3">
+                    {resolvedTheme === "dark" ? (
+                      <Moon className="w-5 h-5 text-indigo-400" />
+                    ) : (
+                      <Sun className="w-5 h-5 text-amber-500" />
+                    )}
+                    Theme
+                  </span>
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 capitalize">
+                    {resolvedTheme}
+                  </span>
+                </button>
 
                 <Link
                   to="/help"
@@ -516,15 +553,50 @@ export default function Navbar() {
                 </button>
               </div>
             ) : (
-              <button
-                onClick={() => {
-                  setMenuOpen(false);
-                  openAuthModal();
-                }}
-                className="flex items-center justify-center gap-2 mt-2 w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-xl py-3 font-bold shadow-md transition-all duration-300"
-              >
-                <LogIn className="w-5 h-5" /> {t("actions.signIn")}
-              </button>
+              <div className="flex flex-col gap-1">
+                <button
+                  type="button"
+                  onClick={() => setLocale(locale === "en" ? "ja" : "en")}
+                  className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left"
+                >
+                  <span className="flex items-center gap-3">
+                    <Languages className="w-5 h-5 text-slate-500" /> Language
+                  </span>
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+                    {locale === "en" ? "English" : "日本語"}
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setTheme(resolvedTheme === "dark" ? "light" : "dark")
+                  }
+                  className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left"
+                >
+                  <span className="flex items-center gap-3">
+                    {resolvedTheme === "dark" ? (
+                      <Moon className="w-5 h-5 text-indigo-400" />
+                    ) : (
+                      <Sun className="w-5 h-5 text-amber-500" />
+                    )}
+                    Theme
+                  </span>
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 capitalize">
+                    {resolvedTheme}
+                  </span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    openAuthModal();
+                  }}
+                  className="flex items-center justify-center gap-2 mt-2 w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-xl py-3 font-bold shadow-md transition-all duration-300"
+                >
+                  <LogIn className="w-5 h-5" /> {t("actions.signIn")}
+                </button>
+              </div>
             )}
 
             {/* Mobile Drawer Secondary Links & Footer */}

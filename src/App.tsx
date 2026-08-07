@@ -53,6 +53,8 @@ import { AuthModalProvider } from "./shared/context/AuthModalContext";
 import { useIdlePrefetch } from "./shared/hooks/useIdlePrefetch";
 import { OnboardingFlow } from "./shared/components/auth/OnboardingFlow";
 
+import BottomNav from "./shared/components/layout/BottomNav";
+
 function AppInner() {
   const [compareModalOpen, setCompareModalOpen] = useState(false);
   useIdlePrefetch();
@@ -62,7 +64,7 @@ function AppInner() {
       <Router>
         <div className="flex flex-col min-h-screen bg-background text-foreground">
           <Navbar />
-          <main className="flex-grow">
+          <main className="flex-grow pb-[calc(4.25rem+env(safe-area-inset-bottom))] md:pb-0">
             <ErrorBoundary>
               <Suspense fallback={<PageLoader />}>
                 <Routes>
@@ -108,6 +110,7 @@ function AppInner() {
             </ErrorBoundary>
           </main>
           <Footer />
+          <BottomNav />
           <CompareFloatingBar onOpenModal={() => setCompareModalOpen(true)} />
           <CompareModal
             isOpen={compareModalOpen}

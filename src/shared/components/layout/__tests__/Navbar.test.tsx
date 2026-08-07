@@ -29,6 +29,14 @@ vi.mock("@/shared/context/AuthModalContext", () => ({
   useAuthModal: () => ({ openAuthModal: vi.fn() }),
 }));
 
+vi.mock("@/shared/context/ThemeContext", () => ({
+  useTheme: () => ({
+    theme: "light",
+    setTheme: vi.fn(),
+    resolvedTheme: "light",
+  }),
+}));
+
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string) => key,
