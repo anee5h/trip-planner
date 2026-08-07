@@ -9,7 +9,6 @@ import type { Destination } from "@/shared/types/destination";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import {
   UserRound,
-  Globe,
   Car,
   Palette,
   Download,
@@ -25,8 +24,7 @@ import { useTranslation } from "react-i18next";
 import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDestinationPicker";
 import packageJson from "@/../package.json";
 
-type SettingsSection =
-  "account" | "language" | "travel" | "appearance" | "data";
+type SettingsSection = "account" | "travel" | "appearance" | "data";
 
 const BUDGET_PRESETS = [
   { id: "economy", key: "home.budgets.economy" },
@@ -208,9 +206,12 @@ export default function Settings() {
 
   const sidebarSections = [
     { id: "account" as const, label: t("ui.account"), icon: UserRound },
-    { id: "language" as const, label: t("ui.defaultLanguage"), icon: Globe },
     { id: "travel" as const, label: t("ui.travelPreferences"), icon: Car },
-    { id: "appearance" as const, label: t("ui.appearance"), icon: Palette },
+    {
+      id: "appearance" as const,
+      label: t("ui.appearance"),
+      icon: Palette,
+    },
     { id: "data" as const, label: t("ui.dataExport"), icon: Download },
   ];
 
@@ -319,45 +320,6 @@ export default function Settings() {
               </div>
             )}
 
-            {/* ── Language ── */}
-            {activeSection === "language" && (
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                    {t("ui.defaultLanguage")}
-                  </h3>
-                  <p className="text-xs text-slate-500">
-                    Override the browser language setting. Your browser is
-                    detected as{" "}
-                    {typeof navigator !== "undefined" &&
-                    navigator.language.toLowerCase().startsWith("ja")
-                      ? "日本語"
-                      : "English"}
-                    .
-                  </p>
-                </div>
-                <div className="grid grid-cols-2 gap-3 pt-2">
-                  {[
-                    { id: "en", label: "English" },
-                    { id: "ja", label: "日本語" },
-                  ].map((opt) => (
-                    <button
-                      key={opt.id}
-                      type="button"
-                      onClick={() => setDefaultLocale(opt.id as "en" | "ja")}
-                      className={`${btnBase} text-center ${
-                        defaultLocale === opt.id
-                          ? "bg-emerald-500 text-white border-emerald-500"
-                          : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
-                      }`}
-                    >
-                      {opt.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
             {/* ── Travel Preferences ── */}
             {activeSection === "travel" && (
               <div className="space-y-6">
@@ -394,10 +356,10 @@ export default function Settings() {
                     </div>
                   </div>
 
-                  {/* Car mode */}
+                  {/* Primary transport */}
                   <div>
                     <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
-                      {t("home.transportModes.car")}
+                      Primary transport
                     </label>
                     <div className="grid grid-cols-3 gap-1.5">
                       {[
@@ -427,10 +389,10 @@ export default function Settings() {
                     </div>
                   </div>
 
-                  {/* Public transport */}
+                  {/* Public transport modes */}
                   <div>
                     <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
-                      {t("home.transport")}
+                      Public transport modes
                     </label>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
                       {[
@@ -465,9 +427,7 @@ export default function Settings() {
                   <div>
                     <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5">
                       {t("home.party")}: {partySize}{" "}
-                      {partySize > 1
-                        ? t("home.people_other")
-                        : t("home.people_one")}
+                      {t("home.people_other", { count: partySize })}
                     </label>
                     <input
                       type="range"
@@ -555,17 +515,18 @@ export default function Settings() {
                     <div className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800">
                       <div>
                         <div className="text-xs font-bold text-slate-900 dark:text-white">
-                          {t("recommendation.feedback.optOutLabel")}
+                          Recommendation analytics
                         </div>
                         <div className="text-[11px] text-slate-500">
-                          {t("recommendation.feedback.optOutLabel")}
+                          Send anonymous recommendation quality events to help
+                          improve suggestions.
                         </div>
                       </div>
                       <input
                         type="checkbox"
-                        checked={recommendationAnalytics.getOptOut()}
+                        checked={!recommendationAnalytics.getOptOut()}
                         onChange={(e) => {
-                          recommendationAnalytics.setOptOut(e.target.checked);
+                          recommendationAnalytics.setOptOut(!e.target.checked);
                         }}
                         className="w-4 h-4 accent-emerald-600 rounded cursor-pointer"
                       />
@@ -591,35 +552,67 @@ export default function Settings() {
               </div>
             )}
 
-            {/* ── Appearance ── */}
+            {/* ── Appearance & Language ── */}
             {activeSection === "appearance" && (
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     {t("ui.appearance")}
                   </h3>
-                  <p className="text-xs text-slate-500">{t("ui.appearance")}</p>
+                  <p className="text-xs text-slate-500">
+                    Theme and language preferences.
+                  </p>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2">
-                  {[
-                    { id: "system", label: "System" },
-                    { id: "light", label: "Light" },
-                    { id: "dark", label: "Dark" },
-                  ].map((opt) => (
-                    <button
-                      key={opt.id}
-                      type="button"
-                      onClick={() => setTheme(opt.id as any)}
-                      className={`${btnBase} text-center ${
-                        theme === opt.id
-                          ? "bg-emerald-500 text-white border-emerald-500 shadow-sm"
-                          : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
-                      }`}
-                    >
-                      {opt.label}
-                    </button>
-                  ))}
+                <div>
+                  <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                    Theme
+                  </label>
+                  <div className="grid grid-cols-3 gap-2">
+                    {[
+                      { id: "system", label: "System" },
+                      { id: "light", label: "Light" },
+                      { id: "dark", label: "Dark" },
+                    ].map((opt) => (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        onClick={() => setTheme(opt.id as any)}
+                        className={`${btnBase} text-center ${
+                          theme === opt.id
+                            ? "bg-emerald-500 text-white border-emerald-500 shadow-sm"
+                            : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
+                        }`}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                    {t("ui.defaultLanguage")}
+                  </label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      { id: "en", label: "English" },
+                      { id: "ja", label: "日本語" },
+                    ].map((opt) => (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        onClick={() => setDefaultLocale(opt.id as "en" | "ja")}
+                        className={`${btnBase} text-center ${
+                          defaultLocale === opt.id
+                            ? "bg-emerald-500 text-white border-emerald-500"
+                            : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
+                        }`}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}

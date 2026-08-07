@@ -95,7 +95,7 @@ export default function MyTrips() {
             : t("ui.noItinerariesHint")
         }
         actions={
-          activeTab === "planned" ? (
+          activeTab === "planned" && trips.length > 0 ? (
             <Button
               onClick={() => setIsAddingTrip(true)}
               className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold px-6 shadow-md"

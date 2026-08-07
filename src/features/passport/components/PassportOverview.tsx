@@ -353,7 +353,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                       Enamel Pin Badges
                     </div>
                     <div className="text-lg font-extrabold text-slate-900 dark:text-white">
-                      {BADGES_CATALOG.length} Travel Badges
+                      {BADGES_CATALOG.length} available
                     </div>
                   </div>
                 </div>

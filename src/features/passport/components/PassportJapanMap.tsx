@@ -16,7 +16,7 @@ export function PassportJapanMap() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const mapSize = windowWidth < 640 ? Math.min(windowWidth - 80, 320) : 580;
+  const mapSize = windowWidth < 640 ? Math.min(windowWidth - 80, 320) : 720;
 
   const cityColors = visitedPrefectures.reduce(
     (acc, pref) => {

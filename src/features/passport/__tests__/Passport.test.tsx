@@ -15,6 +15,10 @@ const state = vi.hoisted(() => ({
   retry: vi.fn(),
 }));
 
+vi.mock("@/shared/context/AuthModalContext", () => ({
+  useAuthModal: () => ({ openAuthModal: vi.fn() }),
+}));
+
 vi.mock("@/shared/hooks/useAuth", () => ({
   useAuth: () => ({ user: state.user, loading: state.authLoading }),
 }));
@@ -117,10 +121,12 @@ describe("Passport hydration rendering", () => {
     },
   );
 
-  it("preserves signed-out Passport rendering", () => {
+  it("shows sign-in prompt when signed out", () => {
     state.user = null;
+    state.authLoading = false;
     state.profileSyncStatus = "idle";
     render();
-    expect(host.textContent).toContain("passport-overview");
+    expect(host.textContent).toContain("Sign in to view your travel passport");
+    expect(host.textContent).not.toContain("passport-overview");
   });
 });
