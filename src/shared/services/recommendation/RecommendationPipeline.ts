@@ -2,10 +2,7 @@ import type { Destination } from "@/shared/types/destination";
 import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService";
 import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
-import {
-  estimateTripDuration,
-  matchesVisitDuration,
-} from "./TripDurationService";
+import { matchesVisitDuration } from "./TripDurationService";
 import { createRecommendationMatch } from "./RecommendationExplainability";
 import {
   calculateConfidence,
@@ -180,8 +177,6 @@ export function runRecommendationPipeline(
       return false;
     }
 
-    const durationEst = estimateTripDuration(destination, context, modes);
-
     // Weekend mode: skip duration-band match; use evaluateWeekendCandidate.
     // Day-trip mode uses pure visit-duration matching (origin must not change
     // the time-at-destination classification).
@@ -202,26 +197,27 @@ export function runRecommendationPipeline(
 
     if (context.budgetTier === "luxury") return true;
 
-    // Call getEstimatedBudgetRange once per mode
+    // Call getEstimatedBudgetRange once per mode; it derives that mode's own
+    // trip duration internally.
     const modeBudgetEstimates = modes.map((mode) =>
       getEstimatedBudgetRange(
         destination,
         mode,
         context.partySize,
         context.budgetTier,
-        durationEst?.representativeHours,
         context.homeStationCoords || undefined,
         context.ferryTemporal,
       ),
     );
 
-    // Filter by budget only using verified estimates where origin transport is included
+    // Filter by budget only using complete verified estimates (origin
+    // transport included and mode-specific duration known).
     const verifiedEstimates = modeBudgetEstimates.filter(
-      (b) => b.transportIncluded,
+      (b) => b.transportIncluded && b.durationIncluded && b.range !== null,
     );
     if (verifiedEstimates.length > 0) {
       const lowestVerifiedCost = Math.min(
-        ...verifiedEstimates.map((b) => b.range[1]),
+        ...verifiedEstimates.map((b) => b.range![1]),
       );
       return lowestVerifiedCost <= context.budget;
     }
@@ -278,19 +274,6 @@ export function runRecommendationPipeline(
         match.reasons.push(...condition.reasons);
       }
 
-      const durationEstimate = estimateTripDuration(
-        candidate,
-        context,
-        getValidModes(
-          candidate,
-          context.carMode,
-          context.publicModes,
-          context.homeStationCoords || undefined,
-          context.budgetTier,
-          context.originZoneId,
-          context.ferryTemporal,
-        ),
-      );
       // The exact estimate used for ranking/budget; cards and roulette read
       // it from the recommendation instead of recomputing transport.
       const transportEstimate = getOriginAwareTransportEstimate(
@@ -314,11 +297,13 @@ export function runRecommendationPipeline(
         scoreResult.bestMode || "train",
         context.partySize,
         context.budgetTier,
-        durationEstimate?.representativeHours,
         context.homeStationCoords || undefined,
         context.ferryTemporal,
       );
-      const estimatedCostRange = budgetResult.range;
+      const estimatedCostRange =
+        budgetResult.durationIncluded && budgetResult.range
+          ? budgetResult.range
+          : undefined;
       const estimatedCostTransportIncluded = budgetResult.transportIncluded;
 
       // Append weekendTransportExcluded reason if applicable
@@ -365,7 +350,7 @@ export function runRecommendationPipeline(
           : undefined,
         pipeline: {
           eligible: true,
-          estimatedCost: estimatedCostRange[0],
+          estimatedCost: estimatedCostRange?.[0],
           estimatedCostRange,
           estimatedCostTransportIncluded,
           bestTransportMode: scoreResult.bestMode,

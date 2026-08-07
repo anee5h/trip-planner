@@ -50,11 +50,14 @@ export function createRecommendationMatch(
         mode,
         partySize,
         context.budgetTier,
-        dest.totalTripHours,
         context.homeStationCoords || undefined,
         context.ferryTemporal,
       );
-      if (budgetEst.transportIncluded) {
+      if (
+        budgetEst.transportIncluded &&
+        budgetEst.durationIncluded &&
+        budgetEst.range
+      ) {
         estimatedBudget = budgetEst.range;
       }
     }

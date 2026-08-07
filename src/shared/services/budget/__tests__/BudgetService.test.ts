@@ -4,9 +4,13 @@ import {
   MAX_ACCOMMODATION_ALLOWANCE,
   isValidAccommodationAllowance,
   calculateItemizedTripCost,
+  getEstimatedBudgetRange,
+  getDiningFoodRange,
+  getTransportCost,
   isFreeDestination,
   formatLocalizedJPYRange,
 } from "../BudgetService";
+import * as BudgetServiceModule from "../BudgetService";
 import type { Destination } from "@/shared/types/destination";
 
 const mockPaidDest = {
@@ -16,6 +20,7 @@ const mockPaidDest = {
   budgetMin: 2000,
   budgetMax: 3000,
   budgetRecommended: 8000,
+  recommendedVisitHours: { min: 1, max: 2 },
   totalTripHours: 3,
   transportOptions: { train: 30 },
 } as unknown as Destination;
@@ -27,6 +32,7 @@ const mockFreeDest = {
   tags: ["Free"],
   budgetMin: 0,
   budgetMax: 1000,
+  recommendedVisitHours: { min: 1, max: 2 },
   totalTripHours: 2,
   transportOptions: { train: 20 },
 } as unknown as Destination;
@@ -62,6 +68,105 @@ describe("BudgetService", () => {
     expect(itemizedPaid.partyRange[0]).toBeGreaterThan(
       itemizedPaid.perPersonRange[0],
     );
+  });
+
+  it("derives budget duration from recommendedVisitHours, never legacy totalTripHours", () => {
+    const base = {
+      ...mockPaidDest,
+      recommendedVisitHours: { min: 1, max: 2 },
+      totalTripHours: 3,
+    };
+    const staleLegacy = {
+      ...mockPaidDest,
+      recommendedVisitHours: { min: 1, max: 2 },
+      totalTripHours: 12,
+    };
+    const noLegacy = {
+      ...mockPaidDest,
+      recommendedVisitHours: { min: 1, max: 2 },
+      totalTripHours: undefined,
+    };
+    expect(getEstimatedBudgetRange(base, "train", 1, "standard")).toEqual(
+      getEstimatedBudgetRange(staleLegacy, "train", 1, "standard"),
+    );
+    expect(getEstimatedBudgetRange(base, "train", 1, "standard")).toEqual(
+      getEstimatedBudgetRange(noLegacy, "train", 1, "standard"),
+    );
+  });
+
+  it("uses a mode-specific duration so train and shinkansen get their own meal buckets", () => {
+    const twoModeDest = {
+      ...mockPaidDest,
+      id: "kyoto-two-mode",
+      prefecture: "Kyoto",
+      municipalityId: "Kyoto:kyoto",
+      recommendedVisitHours: { min: 4, max: 4 },
+      transportOptions: { train: 60, shinkansen: 30 },
+      budgetBreakdown: {
+        transport: 1000,
+        tickets: 2000,
+        food: 1500,
+        cafe: 500,
+      },
+    } as unknown as Destination;
+    const osaka = { lat: 34.6937, lng: 135.5023 };
+
+    const trainBudget = getEstimatedBudgetRange(
+      twoModeDest,
+      "train",
+      1,
+      "standard",
+      osaka,
+    );
+    const shinkansenBudget = getEstimatedBudgetRange(
+      twoModeDest,
+      "shinkansen",
+      1,
+      "standard",
+      osaka,
+    );
+
+    expect(trainBudget.durationIncluded).toBe(true);
+    expect(shinkansenBudget.durationIncluded).toBe(true);
+    expect(trainBudget.food).not.toBeNull();
+    expect(shinkansenBudget.food).not.toBeNull();
+    // Shinkansen keeps the trip under 5h (lunch only); the slower train
+    // crosses the 5h threshold and adds dinner. Reusing the fastest-mode
+    // duration would give both modes the same meal bucket.
+    expect(shinkansenBudget.food![1]).toBeLessThan(trainBudget.food![0]);
+    expect(trainBudget.range).not.toEqual(shinkansenBudget.range);
+  });
+
+  it("never fabricates a meal count when trip duration is unknown", () => {
+    const noVisit = {
+      ...mockPaidDest,
+      recommendedVisitHours: undefined,
+      totalTripHours: undefined,
+    } as unknown as Destination;
+    const result = getEstimatedBudgetRange(noVisit, "train", 1, "standard");
+
+    expect(getDiningFoodRange("standard", undefined, 1)).toBeNull();
+    expect(result.durationIncluded).toBe(false);
+    expect(result.food).toBeNull();
+    expect(result.range).toBeNull();
+  });
+
+  it("never fabricates a rental tier when trip duration is unknown", () => {
+    const noVisitCar = {
+      ...mockPaidDest,
+      recommendedVisitHours: undefined,
+      totalTripHours: undefined,
+      transportOptions: { car: 60 },
+    } as unknown as Destination;
+
+    expect(getTransportCost(noVisitCar, "car", 2)).toBeNull();
+  });
+
+  it("has no generic duration fallback constant", () => {
+    expect(
+      (BudgetServiceModule as unknown as Record<string, unknown>)
+        .UNKNOWN_TRIP_DURATION_HOURS,
+    ).toBeUndefined();
   });
 
   describe("ACCOMMODATION_ALLOWANCE_PRESETS", () => {

@@ -67,6 +67,9 @@ export function TripCostBreakdownWidget({
         transport:
           planCostBreakdown.originTransport.min +
           planCostBreakdown.localTransit.min,
+        transportAvailable:
+          planCostBreakdown.originTransport.applicable ||
+          planCostBreakdown.localTransit.applicable,
         tickets: planCostBreakdown.admission.min,
         food: [planCostBreakdown.meals.min, planCostBreakdown.meals.max] as [
           number,
@@ -80,6 +83,7 @@ export function TripCostBreakdownWidget({
         confidence: planCostBreakdown.confidence,
         partyRange: planCostBreakdown.totalRange,
         perPersonRange: planCostBreakdown.totalRange,
+        durationKnown: true,
       };
     }
     return calculateItemizedTripCost(destination, {
@@ -114,7 +118,9 @@ export function TripCostBreakdownWidget({
     : [cost.tickets, cost.tickets];
   const mealRange: [number, number] = planCostBreakdown
     ? [planCostBreakdown.meals.min, planCostBreakdown.meals.max]
-    : [cost.food[0], cost.food[1]];
+    : cost.food
+      ? [cost.food[0], cost.food[1]]
+      : [0, 0];
   const cafeRange: [number, number] = planCostBreakdown
     ? [0, 0]
     : [cost.cafe, cost.cafe];
@@ -123,11 +129,11 @@ export function TripCostBreakdownWidget({
     : [cost.parking, cost.parking];
   const hasMeals = planCostBreakdown
     ? planCostBreakdown.meals.applicable
-    : true;
+    : cost.food !== null;
   const hasCafe = !planCostBreakdown && cafeRange[1] > 0;
   const hasTransport = planCostBreakdown
     ? planCostBreakdown.localTransit.applicable
-    : transportRange[1] > 0;
+    : cost.transportAvailable && transportRange[1] > 0;
   const hasParking = planCostBreakdown
     ? planCostBreakdown.parking.applicable
     : parkingRange[1] > 0;
@@ -224,13 +230,17 @@ export function TripCostBreakdownWidget({
               )}
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              {!hasTransport
+              {!cost.durationKnown
                 ? locale === "ja"
-                  ? `現地費用の概算（交通費を除く） (グループ: ${partySize}名)`
-                  : `Estimated on-site total — transport excluded (${partySize} guests)`
-                : locale === "ja"
-                  ? `交通・チケット・食事を含む予想合計 (グループ: ${partySize}名)`
-                  : `Est. total including transport, tickets & dining (${partySize} guests)`}
+                  ? `滞在時間が不明なため一部の概算のみ (グループ: ${partySize}名)`
+                  : `Partial estimate — visit duration unknown (${partySize} guests)`
+                : !hasTransport
+                  ? locale === "ja"
+                    ? `現地費用の概算（交通費を除く） (グループ: ${partySize}名)`
+                    : `Estimated on-site total — transport excluded (${partySize} guests)`
+                  : locale === "ja"
+                    ? `交通・チケット・食事を含む予想合計 (グループ: ${partySize}名)`
+                    : `Est. total including transport, tickets & dining (${partySize} guests)`}
             </p>
           </div>
 

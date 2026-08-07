@@ -212,13 +212,19 @@ export function calculateScore(
         mode,
         partySize,
         context.budgetTier,
-        dest.totalTripHours,
         context.homeStationCoords || undefined,
+        context.ferryTemporal,
       );
-      adjustedBudget =
-        (estimatedResult.range[0] + estimatedResult.range[1]) / 2;
-      // Skip budget bonus or penalty when the required origin transport fare is unavailable
-      if (estimatedResult.transportIncluded) {
+      // KAI-50: budget uses the mode-specific derived duration. Skip the
+      // bonus/penalty when either the origin transport fare or the
+      // duration-dependent meal/rental cost is unavailable.
+      if (
+        estimatedResult.transportIncluded &&
+        estimatedResult.durationIncluded &&
+        estimatedResult.range
+      ) {
+        adjustedBudget =
+          (estimatedResult.range[0] + estimatedResult.range[1]) / 2;
         if (adjustedBudget > budget) {
           modeScore -=
             ((adjustedBudget - budget) / SCORING_WEIGHTS.BUDGET_OVER_DIVISOR) *

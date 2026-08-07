@@ -236,7 +236,16 @@ export interface Destination {
     car?: number;
     my_car?: number;
   };
-  totalTripHours: number;
+  /**
+   * @deprecated Legacy compatibility field. Pre-KAI-50 imports used this
+   * with inconsistent semantics: sometimes on-site time, sometimes a whole
+   * trip from a fixed origin such as Tokyo/Yokohama. Planning never reads
+   * it. Use `recommendedVisitHours` for visit duration and let the runtime
+   * derive total trip duration from verified origin-aware travel. New
+   * records should not populate this field; existing values are retained
+   * for historical data compatibility only.
+   */
+  totalTripHours?: number;
   recommendedVisitHours?: {
     min: number;
     max: number;

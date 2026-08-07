@@ -93,10 +93,14 @@ describe("Okinawa destination runtime contract", () => {
       expect(r.notes).toBeTruthy();
     });
 
-    it(`${r.id}: has valid totalTripHours`, () => {
-      expect(typeof r.totalTripHours).toBe("number");
-      expect(Number.isFinite(r.totalTripHours)).toBe(true);
-      expect(r.totalTripHours).toBeGreaterThan(0);
+    it(`${r.id}: has valid recommendedVisitHours`, () => {
+      expect(r.recommendedVisitHours).toBeDefined();
+      expect(Number.isFinite(r.recommendedVisitHours?.min)).toBe(true);
+      expect(Number.isFinite(r.recommendedVisitHours?.max)).toBe(true);
+      expect(r.recommendedVisitHours!.min).toBeGreaterThan(0);
+      expect(r.recommendedVisitHours!.max).toBeGreaterThanOrEqual(
+        r.recommendedVisitHours!.min,
+      );
     });
 
     it(`${r.id}: has valid walkingMin`, () => {
@@ -150,7 +154,7 @@ describe("Okinawa destination runtime contract", () => {
 // Negative tests: confirm validator catches missing fields
 describe("Okinawa field deletion causes validation failure", () => {
   const fieldsToDelete = [
-    "totalTripHours",
+    "recommendedVisitHours",
     "walkingMin",
     "indoorPercent",
     "reservation",
@@ -164,12 +168,8 @@ describe("Okinawa field deletion causes validation failure", () => {
       const mutated = { ...record };
       delete (mutated as any)[field];
 
-      if (field === "totalTripHours") {
-        expect(
-          typeof mutated.totalTripHours !== "number" ||
-            !Number.isFinite(mutated.totalTripHours) ||
-            mutated.totalTripHours <= 0,
-        ).toBe(true);
+      if (field === "recommendedVisitHours") {
+        expect(mutated.recommendedVisitHours).toBeUndefined();
       } else if (field === "walkingMin") {
         expect(
           typeof mutated.walkingMin !== "number" ||

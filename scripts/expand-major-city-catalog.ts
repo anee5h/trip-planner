@@ -461,7 +461,6 @@ function createDestination(
       cafe: budgetRecommended - Math.round(budgetRecommended * 0.9),
     },
     transportOptions,
-    totalTripHours: p.visitHours[1] + 2,
     recommendedVisitHours: {
       min: p.visitHours[0],
       max: p.visitHours[1],

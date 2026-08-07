@@ -31,6 +31,7 @@ const baseDest = {
   bestSeason: "Spring",
   coordinates: { lat: 35.2323, lng: 139.1069 },
   transportOptions: { train: 45 },
+  recommendedVisitHours: { min: 1, max: 3 },
   totalTripHours: 4,
   walkingMin: 30,
   walkingSunMin: 15,

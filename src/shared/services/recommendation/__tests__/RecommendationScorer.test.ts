@@ -40,6 +40,7 @@ const mockDest = {
   bestSeason: "Spring",
   coordinates: { lat: 35.6812, lng: 139.7671 },
   transportOptions: { train: 60 },
+  recommendedVisitHours: { min: 3, max: 5 },
   totalTripHours: 4,
   walkingMin: 30,
   walkingSunMin: 15,

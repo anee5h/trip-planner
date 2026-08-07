@@ -279,9 +279,10 @@ export const destinationsValidator: ValidatorModule = {
           });
         }
         if (
-          typeof dest.totalTripHours !== "number" ||
-          !Number.isFinite(dest.totalTripHours) ||
-          dest.totalTripHours <= 0
+          dest.totalTripHours !== undefined &&
+          (typeof dest.totalTripHours !== "number" ||
+            !Number.isFinite(dest.totalTripHours) ||
+            dest.totalTripHours <= 0)
         ) {
           issues.push({
             severity: "error",
@@ -399,11 +400,12 @@ export const destinationsValidator: ValidatorModule = {
             targetId: dest.id,
           });
         }
+        // KAI-50: `totalTripHours` is deprecated and semantically
+        // ambiguous; walking time is validated against the canonical visit
+        // duration only.
         const maxVisitMin = dest.recommendedVisitHours?.max
           ? dest.recommendedVisitHours.max * 60
-          : dest.totalTripHours
-            ? dest.totalTripHours * 60
-            : null;
+          : null;
         if (maxVisitMin !== null && wm > maxVisitMin) {
           issues.push({
             severity: "error",

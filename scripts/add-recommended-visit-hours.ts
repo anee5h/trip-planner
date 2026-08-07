@@ -11,14 +11,12 @@ const root = process.cwd();
 const indexPath = path.join(root, "src/shared/data/destinations-index.json");
 const detailsDir = path.join(root, "public/data/destinations");
 
-function addHours(record: RecordLike) {
-  if (record.recommendedVisitHours || !record.totalTripHours) return false;
-  const base = Math.max(1, record.totalTripHours);
-  record.recommendedVisitHours = {
-    min: record.role === "hub" ? base : Math.max(1, base - 1),
-    max: record.role === "hub" ? base + 6 : base + 1,
-  };
-  return true;
+function addHours(_record: RecordLike) {
+  // KAI-50: legacy `totalTripHours` semantics are ambiguous (on-site time
+  // vs. a whole trip from a fixed origin), so visit hours must never be
+  // derived from it. Author `recommendedVisitHours` from editorial evidence
+  // instead; this script is intentionally disabled for auto-derivation.
+  return false;
 }
 
 function updateFile(filePath: string) {

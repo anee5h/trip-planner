@@ -371,7 +371,6 @@ describe("planned date drives availability, never the clock", () => {
         "ferry",
         2,
         "standard",
-        6,
         WAKAYAMA,
         JANUARY_TRIP,
       ).transportIncluded,
@@ -400,7 +399,6 @@ describe("planned date drives availability, never the clock", () => {
         "ferry",
         2,
         "standard",
-        6,
         WAKAYAMA,
         AUGUST_TRIP,
       ).transportIncluded,
@@ -433,15 +431,8 @@ describe("fare validity windows", () => {
     // The expired fare must not be reused by the budget.
     expect(getTransportCost(dest, "ferry", 2, NIIGATA, lateTrip)).toBeNull();
     expect(
-      getEstimatedBudgetRange(
-        dest,
-        "ferry",
-        2,
-        "standard",
-        6,
-        NIIGATA,
-        lateTrip,
-      ).transportIncluded,
+      getEstimatedBudgetRange(dest, "ferry", 2, "standard", NIIGATA, lateTrip)
+        .transportIncluded,
     ).toBe(false);
     // Ferry stays selectable: the service is running year-round.
     const modes = getValidModes(

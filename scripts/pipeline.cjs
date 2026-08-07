@@ -550,10 +550,6 @@ async function runPipeline() {
       d.indoorPercent = 20;
       filledFieldsCount++;
     }
-    if (d.totalTripHours === undefined || d.totalTripHours === null) {
-      d.totalTripHours = 4;
-      filledFieldsCount++;
-    }
     if (!d.bestMonths) {
       d.bestMonths = [3, 4, 5, 9, 10, 11];
       filledFieldsCount++;

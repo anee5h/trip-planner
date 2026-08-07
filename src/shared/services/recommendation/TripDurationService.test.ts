@@ -3,6 +3,9 @@ import {
   estimateTripDuration,
   formatTripDurationLabel,
   getBand,
+  getDerivedTripDurationHours,
+  getVisitBand,
+  matchesVisitDuration,
 } from "./TripDurationService";
 import type { Destination } from "@/shared/types/destination";
 
@@ -108,5 +111,176 @@ describe("TripDurationService", () => {
     expect(estimate?.isBorderline).toBe(true);
     expect(estimate?.warningMessage?.en).toContain("Tight schedule");
     expect(estimate?.warningMessage?.ja).toContain("時間がタイトです");
+  });
+
+  it("uses recommendedVisitHours and ignores legacy totalTripHours", () => {
+    const modern = {
+      ...destination,
+      id: "modern-both",
+      totalTripHours: 8,
+    };
+    const estimate = estimateTripDuration(
+      modern,
+      { homeStationCoords: null } as never,
+      ["train"],
+    );
+    expect(estimate?.visitRangeHours).toEqual([3, 4]);
+    expect(estimate?.totalRangeHours).toEqual([3, 4]);
+    expect(estimate?.band).toBe("shortOuting");
+
+    const staleLegacy = estimateTripDuration(
+      { ...modern, totalTripHours: 99 },
+      { homeStationCoords: null } as never,
+      ["train"],
+    );
+    expect(staleLegacy?.visitRangeHours).toEqual([3, 4]);
+    expect(staleLegacy?.totalRangeHours).toEqual([3, 4]);
+    expect(staleLegacy?.band).toBe("shortOuting");
+  });
+
+  it("plans modern records without totalTripHours", () => {
+    const modern = {
+      ...destination,
+      id: "modern-no-legacy",
+      totalTripHours: undefined,
+    };
+    const estimate = estimateTripDuration(
+      modern,
+      { homeStationCoords: { lat: 34.4, lng: 132.45 } } as never,
+      ["train"],
+    );
+    expect(estimate?.visitRangeHours).toEqual([3, 4]);
+    expect(estimate?.totalRangeHours[0]).toBeGreaterThan(3);
+    expect(estimate?.mode).toBe("train");
+  });
+
+  it("returns no estimate for legacy-only records instead of using ambiguous totalTripHours", () => {
+    const legacyOnly = {
+      ...destination,
+      id: "legacy-only",
+      recommendedVisitHours: undefined,
+      totalTripHours: 6,
+    } as unknown as Destination;
+    expect(
+      estimateTripDuration(legacyOnly, { homeStationCoords: null } as never, [
+        "train",
+      ]),
+    ).toBeNull();
+    expect(
+      getDerivedTripDurationHours(
+        legacyOnly,
+        { homeStationCoords: null } as never,
+        ["train"],
+      ),
+    ).toBeUndefined();
+  });
+
+  it("returns no estimate when all duration data is missing", () => {
+    const missing = {
+      ...destination,
+      id: "missing-all",
+      recommendedVisitHours: undefined,
+      totalTripHours: undefined,
+    } as unknown as Destination;
+    expect(
+      estimateTripDuration(missing, { homeStationCoords: null } as never, [
+        "train",
+      ]),
+    ).toBeNull();
+  });
+
+  it("never adds transport on top of an origin-inclusive legacy value", () => {
+    const legacyStyle = {
+      ...destination,
+      id: "legacy-style",
+      recommendedVisitHours: { min: 1, max: 2 },
+      totalTripHours: 6,
+    };
+    const estimate = estimateTripDuration(
+      legacyStyle,
+      { homeStationCoords: { lat: 34.4, lng: 132.45 } } as never,
+      ["train"],
+    );
+    // Verified Hiroshima -> Miyajima corridor midpoint 38 min, round trip
+    // 76 min + 20 min ferry buffer = 1.6 h over the canonical 1-2 h visit.
+    expect(estimate?.visitRangeHours).toEqual([1, 2]);
+    expect(estimate?.totalRangeHours[0]).toBeCloseTo(2.6, 2);
+    expect(estimate?.totalRangeHours[1]).toBeCloseTo(3.6, 2);
+    // The legacy 6 h value is never treated as visit time nor as a total
+    // that travel is added onto.
+    expect(estimate?.totalRangeHours[1]).not.toBeCloseTo(7.6, 2);
+  });
+
+  it("keeps the visit band independent of origin", () => {
+    const dest = { ...destination, id: "origin-independent" };
+    expect(getVisitBand(dest)).toBe("halfDay");
+    expect(matchesVisitDuration(dest, "halfDay")).toBe(true);
+    expect(matchesVisitDuration(dest, "shortOuting")).toBe(false);
+  });
+
+  it("changes only the total duration when origin travel changes", () => {
+    const dest = { ...destination, id: "personalized-total" };
+    const noOrigin = estimateTripDuration(
+      dest,
+      { homeStationCoords: null } as never,
+      ["train"],
+    );
+    const withOrigin = estimateTripDuration(
+      dest,
+      { homeStationCoords: { lat: 34.4, lng: 132.45 } } as never,
+      ["train"],
+    );
+    expect(noOrigin?.visitRangeHours).toEqual([3, 4]);
+    expect(withOrigin?.visitRangeHours).toEqual([3, 4]);
+    expect(withOrigin?.totalRangeHours[0]).toBeGreaterThan(
+      noOrigin!.totalRangeHours[0],
+    );
+    expect(
+      getDerivedTripDurationHours(dest, { homeStationCoords: null } as never, [
+        "train",
+      ]),
+    ).toBe(3.5);
+    expect(
+      getDerivedTripDurationHours(
+        dest,
+        { homeStationCoords: { lat: 34.4, lng: 132.45 } } as never,
+        ["train"],
+      ),
+    ).toBeCloseTo(5.1, 1);
+  });
+
+  it("derives mode-specific totals for train vs shinkansen", () => {
+    const osaka = { lat: 34.6937, lng: 135.5023 };
+    const twoMode = {
+      ...destination,
+      id: "kyoto-two-mode",
+      prefecture: "Kyoto",
+      municipalityId: "Kyoto:kyoto",
+      recommendedVisitHours: { min: 4, max: 4 },
+      travelBuffers: undefined,
+    };
+
+    const train = estimateTripDuration(
+      twoMode,
+      { homeStationCoords: osaka } as never,
+      ["train"],
+    );
+    const shinkansen = estimateTripDuration(
+      twoMode,
+      { homeStationCoords: osaka } as never,
+      ["shinkansen"],
+    );
+
+    expect(train).not.toBeNull();
+    expect(shinkansen).not.toBeNull();
+    expect(train!.visitRangeHours).toEqual(shinkansen!.visitRangeHours);
+    // Verified Osaka -> Kyoto train midpoint 36.5 min vs shinkansen 25 min.
+    // With a 4h visit, train crosses the 5h food-duration threshold while
+    // shinkansen stays under it.
+    expect(train!.totalRangeHours[0]).toBeGreaterThan(
+      shinkansen!.totalRangeHours[0],
+    );
+    expect(train!.representativeHours).toBeGreaterThan(5);
+    expect(shinkansen!.representativeHours).toBeLessThan(5);
   });
 });
