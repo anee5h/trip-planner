@@ -72,12 +72,20 @@ export function OnboardingFlow() {
   const [partySize, setPartySize] = useState(2);
   const [budget, setBudget] = useState("standard");
 
-  // Reset transient state when user changes
+  // Reset all transient state and form fields when user changes
   useEffect(() => {
     setVisible(false);
     setStep("account");
     setSaveError("");
     setSaving(false);
+    setFullName("");
+    setHomeCityId("");
+    setBaseLocation("Tokyo Station");
+    setDefaultLocale(locale);
+    setCarMode("none");
+    setPublicModes(["train", "shinkansen", "bus", "flight", "ferry"]);
+    setPartySize(2);
+    setBudget("standard");
   }, [user?.id]);
 
   // Show onboarding if needed for current user

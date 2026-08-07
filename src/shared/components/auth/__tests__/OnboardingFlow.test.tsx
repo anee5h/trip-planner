@@ -170,6 +170,30 @@ describe("OnboardingFlow", () => {
     expect(document.body.textContent).not.toContain("onboarding.accountTitle");
   });
 
+  it("resets form fields on user switch so User B cannot inherit User A unsaved data", () => {
+    // User A types a name but does NOT save
+    render();
+    const nameInput = document.body.querySelector("input");
+    act(() => {
+      const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+        window.HTMLInputElement.prototype,
+        "value",
+      )?.set;
+      nativeInputValueSetter?.call(nameInput, "Alice");
+      nameInput?.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+    expect((nameInput as HTMLInputElement)?.value).toBe("Alice");
+
+    // Switch to User B without unmounting
+    state.userId = "user-b";
+    state.userMeta = {};
+    act(() => root.render(<OnboardingFlow />));
+
+    // User B's full name input should be blank (clean defaults)
+    const nameInputB = document.body.querySelector("input");
+    expect((nameInputB as HTMLInputElement)?.value).toBe("");
+  });
+
   it("does not advance on save error and shows feedback", async () => {
     state.updateError = { message: "Network error" };
     render();
