@@ -56,7 +56,7 @@ export default function Settings() {
   const returnParam = searchParams.get("return");
 
   const [activeSection, setActiveSection] = useState<SettingsSection>(
-    sectionParam || "account",
+    sectionParam || "travel",
   );
   const [loading, setLoading] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
@@ -101,6 +101,10 @@ export default function Settings() {
         .sort((a, b) => a.name.localeCompare(b.name)),
     [locale],
   );
+
+  useEffect(() => {
+    if (sectionParam) setActiveSection(sectionParam);
+  }, [sectionParam]);
 
   useEffect(() => {
     if (homeStation) setBaseLocation(homeStation);

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Calendar,
   Map,
@@ -15,6 +15,7 @@ import {
   Languages,
   Sun,
   Moon,
+  ArrowLeft,
 } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -28,6 +29,7 @@ import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { user, loading, signOut } = useAuth();
   const { locale, setLocale } = useLocale();
   const { resolvedTheme, setTheme } = useTheme();
@@ -278,7 +280,7 @@ export default function Navbar() {
                     </Link>
 
                     <Link
-                      to="/settings"
+                      to="/settings?section=travel"
                       onClick={() => setUserMenuOpen(false)}
                       className="w-full flex items-center gap-2.5 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
                     >
@@ -336,8 +338,24 @@ export default function Navbar() {
 
       {/* Mobile Header (Centered Brand & Hamburger Only) */}
       <div className="relative flex items-center justify-between px-4 h-[56px] w-full md:hidden">
-        {/* Left Utility Slot (Empty for home, maintains geometric layout) */}
-        <div className="w-10 flex items-center justify-start shrink-0" />
+        {/* Left Utility Slot (Back on destination detail; otherwise empty to keep brand centered) */}
+        <div className="w-10 flex items-center justify-start shrink-0">
+          {/^\/destinations\/[^/]+$/.test(location.pathname) && (
+            <button
+              type="button"
+              onClick={() =>
+                location.key !== "default"
+                  ? navigate(-1)
+                  : navigate("/destinations")
+              }
+              aria-label={t("navigation.back")}
+              title={t("navigation.back")}
+              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-emerald-600 transition-colors"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </button>
+          )}
+        </div>
 
         {/* Geometrically Centered Meguruto Brand */}
         <Link
@@ -433,7 +451,7 @@ export default function Navbar() {
                 </Link>
 
                 <Link
-                  to="/settings"
+                  to="/settings?section=travel"
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                 >

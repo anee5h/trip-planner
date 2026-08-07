@@ -26,7 +26,8 @@
     "help": "Help",
     "feedback": "Send Feedback",
     "signIn": "Sign In",
-    "signOut": "Sign Out"
+    "signOut": "Sign Out",
+    "back": "Back"
   },
   "legal": {
     "terms": "Terms",

@@ -26,7 +26,8 @@
     "help": "ヘルプ",
     "feedback": "フィードバック送信",
     "signIn": "ログイン",
-    "signOut": "ログアウト"
+    "signOut": "ログアウト",
+    "back": "戻る"
   },
   "legal": {
     "terms": "利用規約",
