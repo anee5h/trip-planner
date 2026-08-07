@@ -109,7 +109,9 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
               </p>
             </div>
           ) : (
-            <div className="flex md:grid md:grid-cols-3 gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory pb-2">
+            <div
+              className={`flex md:grid md:grid-cols-3 gap-3 sm:gap-4 pb-2 ${compareDestinations.length > 1 ? "overflow-x-auto snap-x snap-mandatory" : ""}`}
+            >
               {compareDestinations.map((dest, idx) => {
                 const isBestOverall = dest.ratings.overall === maxOverall;
                 const cost = budgets[idx];

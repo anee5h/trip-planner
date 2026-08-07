@@ -16,6 +16,7 @@ import {
   Sun,
   Moon,
   ArrowLeft,
+  Layers,
 } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -110,8 +111,10 @@ export default function Navbar() {
   }, []);
 
   const isDestinationsActive = location.pathname.startsWith("/destinations");
-  const isMyTripsActive = location.pathname.startsWith("/my-trips");
-  const isBucketListActive = location.pathname.startsWith("/bucket-list");
+  const isCollectionsActive = location.pathname.startsWith("/collections");
+  const isTripsActive =
+    location.pathname.startsWith("/my-trips") ||
+    location.pathname.startsWith("/bucket-list");
   const isPassportActive = location.pathname.startsWith("/passport");
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-950/85 backdrop-blur-xl shadow-xs shadow-slate-900/5 dark:shadow-slate-950/20">
@@ -159,11 +162,24 @@ export default function Navbar() {
               <span>{t("navigation.explore")}</span>
             </Link>
 
+            {/* Collections (desktop lg+ only; tablets keep the compact trio) */}
+            <Link
+              to="/collections"
+              className={`hidden lg:flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
+                isCollectionsActive
+                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
+                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
+              }`}
+            >
+              <Layers className="w-4 h-4" />
+              <span>{t("navigation.collections")}</span>
+            </Link>
+
             {/* Trips */}
             <Link
               to="/my-trips"
               className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
-                isMyTripsActive || isBucketListActive
+                isTripsActive
                   ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
                   : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
               }`}

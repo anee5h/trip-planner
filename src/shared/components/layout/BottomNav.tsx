@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Home, Map, Search, Calendar, Compass } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { dispatchOpenSearch } from "@/features/search/openSearch";
 
 export default function BottomNav() {
   const location = useLocation();
@@ -14,13 +15,7 @@ export default function BottomNav() {
   const isPassportActive = pathname.startsWith("/passport");
 
   const handleOpenSearch = () => {
-    // Trigger global search shortcut (Cmd+K / Ctrl+K) or custom event
-    const event = new KeyboardEvent("keydown", {
-      key: "k",
-      metaKey: true,
-      bubbles: true,
-    });
-    window.dispatchEvent(event);
+    dispatchOpenSearch();
   };
 
   return (

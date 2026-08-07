@@ -95,26 +95,26 @@ describe("BottomNav Component", () => {
     expect(homeLink?.getAttribute("aria-current")).toBeNull();
   });
 
-  it("dispatches global search shortcut on search button click", () => {
+  it("dispatches the explicit open-search event on search button click", () => {
     const node = renderBottomNav(["/"]);
     const searchButton = node.querySelector<HTMLButtonElement>(
       "button[aria-label='Search']",
     );
 
     let eventFired = false;
-    const listener = (e: KeyboardEvent) => {
-      if (e.key === "k" && e.metaKey) {
+    const listener = (e: Event) => {
+      if (e.type === "meguruto:open-search") {
         eventFired = true;
       }
     };
-    window.addEventListener("keydown", listener);
+    window.addEventListener("meguruto:open-search", listener);
 
     act(() => {
       searchButton?.click();
     });
 
     expect(eventFired).toBe(true);
-    window.removeEventListener("keydown", listener);
+    window.removeEventListener("meguruto:open-search", listener);
   });
 
   it("keeps bottom nav visible when compareList selection tray is active", () => {
