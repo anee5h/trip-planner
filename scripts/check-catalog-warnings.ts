@@ -29,6 +29,7 @@ import {
   compareToBaseline,
   updateBaseline,
   validateBaseline,
+  warningFingerprint,
   type CatalogWarningsBaseline,
 } from "./audit/catalog-baseline.js";
 
@@ -46,18 +47,23 @@ export interface WarningsCheckOptions {
 
 function printFindings(label: string, findings: AuditFinding[]): void {
   for (const f of findings) {
-    console.log(`  ${label} ${f.code}:${f.targetId} — ${f.message}`);
+    console.log(`  ${label} ${warningFingerprint(f)} — ${f.message}`);
   }
 }
 
 function printGuidance(): void {
   console.log(`
 Baseline policy (scripts/audit/catalog-warnings-baseline.json):
-  • Fingerprints are "<CODE>:<destinationId>" — messages, paths and ordering
-    never affect them, so unrelated prose churn cannot move the set.
-  • New warning instances fail the check even when the total warning count is
-    unchanged; the baseline is per-record debt with per-record instance
-    counts, never one integer.
+  • Fingerprints are "<CODE>:<destinationId>[:<identity>]" — the identity is
+    a canonical structured description of the violation (relationship key +
+    referenced destination, sorted id sets, ...), so two different warnings
+    never share a fingerprint even with the same code and destination.
+    Messages, paths, distances and ordering never affect them, so prose
+    churn cannot move the set and a warning can never be silently exchanged
+    for a different one.
+  • New warning identities fail the check even when the total warning count
+    is unchanged; the baseline is per-violation debt with per-violation
+    instance counts, never one integer.
   • Fewer instances of a fingerprint are improvements and pass. After
     verified sanitation work that removes warnings, update the baseline in
     the same PR:

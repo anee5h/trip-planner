@@ -119,7 +119,14 @@ const CATALOGUE_AFFECTING_PREFIXES = [
  */
 export function isCatalogueAffectingPath(file: string): boolean {
   const normalized = file.replace(/\\/g, "/");
-  if (normalized === "package.json") return true;
+  // package.json controls the check scripts; package-lock.json changes what
+  // `npm ci` installs, which can alter audit/generation behaviour. No other
+  // package-manager/runtime control file exists in this repo (.npmrc, yarn,
+  // pnpm and bun locks are absent; .nvmrc/.node-version are ignored by CI,
+  // which pins node via setup-node in the workflows).
+  if (normalized === "package.json" || normalized === "package-lock.json") {
+    return true;
+  }
   return CATALOGUE_AFFECTING_PREFIXES.some((prefix) =>
     normalized.startsWith(prefix),
   );

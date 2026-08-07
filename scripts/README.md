@@ -86,8 +86,14 @@ A change under any of these paths forces the full check:
 - `scripts/**` — audit code, generators, sync scripts, validators, CLIs, the
   corrections manifest, the pipeline
 - `src/shared/types/**` — catalogue schemas
-- `package.json` — package scripts that control the checks
+- `package.json`, `package-lock.json` — package scripts control the checks,
+  and a lockfile-only change alters what `npm ci` installs, which can change
+  audit/generation behaviour
 - `.github/workflows/**` — workflow files
+
+No other package-manager/runtime control file exists in this repo (no
+`.npmrc`, yarn/pnpm/bun locks; `.nvmrc`/`.node-version` are ignored by CI,
+which pins the Node version via `setup-node` in the workflows).
 
 ### Stages
 
@@ -107,14 +113,34 @@ A change under any of these paths forces the full check:
 
 `scripts/audit/catalog-warnings-baseline.json` records the warning debt
 accepted on `main` at the time of the last deliberate update (currently 396
-instances across 219 record/code fingerprints). It is derived from the exact
-`main` audit, committed, and reviewed like any other file.
+instances). It is derived from the exact `main` audit, committed, and
+reviewed like any other file.
 
-- **Fingerprints** are `"<CODE>:<destinationId>"` with per-record instance
-  counts (a record can legitimately carry several findings of one code, e.g.
-  one `REL_CROSS_PREFECTURE_REF` per relationship key). Messages, paths,
-  distances, timestamps, and ordering never affect a fingerprint, so prose
-  churn cannot move the set.
+- **Fingerprints** are `"<CODE>:<destinationId>[:<identity>]"` with
+  per-fingerprint instance counts. The identity is a canonical, structured
+  description of the violation built from `finding.details`, never from the
+  free-form message:
+  - relationship list warnings → relationship key + referenced destination
+    ID (e.g. `REL_CROSS_PREFECTURE_REF:okayama-city:nearbyDestinationIds|
+fukuoka-city`)
+  - featured-list warnings → featured destination ID
+  - duplicate-coordinate warnings → sorted destination-ID pair
+  - municipality-mismatch warnings → the municipality/parent IDs
+  - missing/dangling reference warnings → the referenced ID
+  - parent warnings → `parentDestinationId`
+  - detail-mismatch warnings → the sorted disagreeing field list
+  - rules whose code+destination already identifies exactly one violation
+    (e.g. `MUNI_HUB_MISSING_NAME_JA`) keep the plain `CODE:destinationId`
+    form
+
+  Identity components are stable IDs (never display names); arrays whose
+  ordering is irrelevant are sorted; calculated diagnostics (distances,
+  counts, coordinate strings, visit-hour values) and timestamps are
+  excluded. Two different violations can therefore never share a
+  fingerprint, even with the same code and destination — a warning cannot
+  be silently exchanged for a different warning of the same code on the
+  same record.
+
 - **New instances fail** — a fingerprint with more instances than the
   baseline fails the check, even when another warning was removed in the
   same PR (neither the "same total count" nor the "same record, extra

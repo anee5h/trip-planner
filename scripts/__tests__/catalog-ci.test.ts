@@ -99,15 +99,21 @@ function refHub(): Destination {
   });
 }
 
-/** One REL_CROSS_PREFECTURE_REF warning instance per relationship key. */
-function crossPrefRecord(id: string, keys: string[]): Destination {
+/** One REL_CROSS_PREFECTURE_REF warning instance per relationship key,
+ *  referencing `refId` (defaults to the out-of-prefecture hub). */
+function crossPrefRecord(
+  id: string,
+  keys: string[],
+  refId = "fukuoka-city",
+): Destination {
   const relationships: Record<string, string[]> = {};
-  for (const key of keys) relationships[key] = ["fukuoka-city"];
+  for (const key of keys) relationships[key] = [refId];
   return makeDest(id, { relationships });
 }
 
 const WARN_CODE = "REL_CROSS_PREFECTURE_REF";
-const fp = (code: string, id: string) => `${code}:${id}`;
+const fp = (code: string, id: string, identity?: string) =>
+  identity ? `${code}:${id}:${identity}` : `${code}:${id}`;
 
 /** Two warning-bearing records plus their out-of-prefecture ref hub. */
 function twoRecords(): Destination[] {
@@ -220,8 +226,22 @@ describe("catalogue warning baseline", () => {
     const report = auditOf(destinations);
     const baseline = buildBaseline(report);
     expect(baseline.warningsByCode[WARN_CODE]).toBe(3);
-    expect(baseline.warningFingerprints[fp(WARN_CODE, "a-place")]).toBe(1);
-    expect(baseline.warningFingerprints[fp(WARN_CODE, "b-place")]).toBe(2);
+    // Each relationship key is its own violation identity.
+    expect(
+      baseline.warningFingerprints[
+        fp(WARN_CODE, "a-place", "nearbyDestinationIds|fukuoka-city")
+      ],
+    ).toBe(1);
+    expect(
+      baseline.warningFingerprints[
+        fp(WARN_CODE, "b-place", "nearbyDestinationIds|fukuoka-city")
+      ],
+    ).toBe(1);
+    expect(
+      baseline.warningFingerprints[
+        fp(WARN_CODE, "b-place", "relatedDestinationIds|fukuoka-city")
+      ],
+    ).toBe(1);
   });
 
   it("fingerprints exclude messages, paths, and ordering", () => {
@@ -230,7 +250,9 @@ describe("catalogue warning baseline", () => {
     const fingerprint = warningFingerprint(
       report.findings.find((f) => f.severity === "warning")!,
     );
-    expect(fingerprint).toBe(`${WARN_CODE}:a-place`);
+    expect(fingerprint).toBe(
+      `${WARN_CODE}:a-place:nearbyDestinationIds|fukuoka-city`,
+    );
   });
 
   it("a new warning fingerprint fails even when the total count is unchanged", () => {
@@ -246,25 +268,96 @@ describe("catalogue warning baseline", () => {
     const report = auditOf(changed);
     expect(report.summary.warnings).toBe(baseline.warningsByCode[WARN_CODE]);
     const cmp = compareToBaseline(report, baseline);
-    expect(cmp.added.map(warningFingerprint)).toEqual([`${WARN_CODE}:c-place`]);
-    expect(cmp.reduced).toEqual([`${WARN_CODE}:b-place`]);
+    expect(cmp.added.map(warningFingerprint)).toEqual([
+      `${WARN_CODE}:c-place:nearbyDestinationIds|fukuoka-city`,
+    ]);
+    expect(cmp.reduced).toEqual([
+      `${WARN_CODE}:b-place:nearbyDestinationIds|fukuoka-city`,
+    ]);
+  });
+
+  it("same-code/same-target replacement fails (REL_CROSS_PREFECTURE_REF)", () => {
+    // Baseline: hub-x warns because it references destination-a.
+    // Current: same code, same target, same count — but the reference is
+    // now destination-b. One warning was silently exchanged for another.
+    // dest-a/dest-b live in Fukuoka so the cross-prefecture ref fires.
+    const withRef = (refId: string) => [
+      crossPrefRecord("hub-x", ["nearbyDestinationIds"], refId),
+      refHub(),
+      makeDest("dest-a", { prefecture: "Fukuoka" }),
+      makeDest("dest-b", { prefecture: "Fukuoka" }),
+    ];
+    const baseline = buildBaseline(auditOf(withRef("dest-a")));
+    const replaced = auditOf(withRef("dest-b"));
+    expect(replaced.summary.warnings).toBe(baseline.warningsByCode[WARN_CODE]);
+    const cmp = compareToBaseline(replaced, baseline);
+    expect(cmp.added.map(warningFingerprint)).toEqual([
+      `${WARN_CODE}:hub-x:nearbyDestinationIds|dest-b`,
+    ]);
+    expect(cmp.reduced).toEqual([
+      `${WARN_CODE}:hub-x:nearbyDestinationIds|dest-a`,
+    ]);
+  });
+
+  it("same-code/same-target replacement fails (REL_CROSS_MUNICIPALITY_FEATURED)", () => {
+    // A second repeated-warning category: a hub swapping which
+    // cross-municipality destination it features must be detected.
+    const hub = (featured: string) =>
+      makeDest("hub-x", {
+        name: "Hub X City",
+        kind: "city",
+        role: "hub",
+        municipalityId: "Okayama:okayama",
+        nameJa: "ハブ市",
+        recommendedVisitHours: { min: 4, max: 8 },
+        relationships: { featuredDestinationIds: [featured] },
+      });
+    const poi = (id: string, muni: string) =>
+      makeDest(id, { municipalityId: muni });
+    const baseline = buildBaseline(
+      auditOf([
+        hub("poi-a"),
+        poi("poi-a", "Okayama:takahashi"),
+        poi("poi-b", "Okayama:kurashiki"),
+      ]),
+    );
+    const replaced = auditOf([
+      hub("poi-b"),
+      poi("poi-a", "Okayama:takahashi"),
+      poi("poi-b", "Okayama:kurashiki"),
+    ]);
+    expect(replaced.summary.warnings).toBe(
+      baseline.warningsByCode["REL_CROSS_MUNICIPALITY_FEATURED"],
+    );
+    const cmp = compareToBaseline(replaced, baseline);
+    expect(cmp.added.map(warningFingerprint)).toEqual([
+      "REL_CROSS_MUNICIPALITY_FEATURED:hub-x:poi-b",
+    ]);
+    expect(cmp.reduced).toEqual([
+      "REL_CROSS_MUNICIPALITY_FEATURED:hub-x:poi-a",
+    ]);
   });
 
   it("an extra instance of an already-accepted fingerprint fails", () => {
-    const root = tmpRoot();
-    writeWarningsFixture(root, twoRecords());
-    const baseline = baselineFor(root);
-    // a-place gains a second cross-prefecture ref (relatedDestinationIds).
-    const changed = [
-      crossPrefRecord("a-place", [
-        "nearbyDestinationIds",
-        "relatedDestinationIds",
-      ]),
-      crossPrefRecord("b-place", ["nearbyDestinationIds"]),
+    // Two occurrences of the same ref in one list produce two findings with
+    // an identical identity; a third occurrence is an extra instance.
+    const dest = (refs: string[]) =>
+      makeDest("a-place", { relationships: { nearbyDestinationIds: refs } });
+    const two = auditOf([dest(["fukuoka-city", "fukuoka-city"]), refHub()]);
+    const baseline = buildBaseline(two);
+    const fp2 = `${WARN_CODE}:a-place:nearbyDestinationIds|fukuoka-city`;
+    expect(baseline.warningFingerprints[fp2]).toBe(2);
+    const three = auditOf([
+      dest(["fukuoka-city", "fukuoka-city", "fukuoka-city"]),
       refHub(),
-    ];
-    const cmp = compareToBaseline(auditOf(changed), baseline);
-    expect(cmp.added.map(warningFingerprint)).toEqual([`${WARN_CODE}:a-place`]);
+    ]);
+    const cmp = compareToBaseline(three, baseline);
+    // The third occurrence is an extra instance of the accepted cross-pref
+    // fingerprint AND an extra REL_DUPLICATE_REF instance of the same ref.
+    expect(cmp.added.map(warningFingerprint)).toEqual([
+      fp2,
+      "REL_DUPLICATE_REF:a-place:nearbyDestinationIds|fukuoka-city",
+    ]);
   });
 
   it("removal of an existing warning passes", () => {
@@ -277,7 +370,9 @@ describe("catalogue warning baseline", () => {
     ];
     const cmp = compareToBaseline(auditOf(improved), baseline);
     expect(cmp.added).toEqual([]);
-    expect(cmp.reduced).toEqual([`${WARN_CODE}:b-place`]);
+    expect(cmp.reduced).toEqual([
+      `${WARN_CODE}:b-place:nearbyDestinationIds|fukuoka-city`,
+    ]);
   });
 
   it("audit errors fail the comparison", () => {
@@ -324,7 +419,7 @@ describe("catalogue warning baseline", () => {
     expect("baseline" in next).toBe(true);
     if ("baseline" in next) {
       expect(next.baseline.warningFingerprints).toEqual({
-        [fp(WARN_CODE, "a-place")]: 1,
+        [fp(WARN_CODE, "a-place", "nearbyDestinationIds|fukuoka-city")]: 1,
       });
     }
 
@@ -387,6 +482,31 @@ describe("runWarningsCheck", () => {
     expect(await runWarningsCheck({ rootDir: root })).toBe(1);
     expect(errors.join("\n")).toContain("new warning instance");
     expect(text()).toContain(`${WARN_CODE}:c-place`);
+  });
+
+  it("fails when a warning is exchanged for another of the same code and target", async () => {
+    // Baseline: hub-x warns because it references dest-a. The branch keeps
+    // the same code, target, and total count but references dest-b instead:
+    // one accepted warning was silently swapped for a new one.
+    const root = tmpRoot();
+    // dest-a/dest-b live in Fukuoka so the cross-prefecture ref fires.
+    const withRef = (refId: string) => [
+      crossPrefRecord("hub-x", ["nearbyDestinationIds"], refId),
+      refHub(),
+      makeDest("dest-a", { prefecture: "Fukuoka" }),
+      makeDest("dest-b", { prefecture: "Fukuoka" }),
+    ];
+    writeWarningsFixture(root, withRef("dest-a"));
+    writeBaseline(root, baselineFor(root));
+    writeWarningsFixture(root, withRef("dest-b"));
+    const { errors, text } = captureConsole();
+    expect(await runWarningsCheck({ rootDir: root })).toBe(1);
+    const errText = errors.join("\n");
+    expect(errText).toContain("new warning instance");
+    expect(text()).toContain(`${WARN_CODE}:hub-x:nearbyDestinationIds|dest-b`);
+    expect(text()).toContain(
+      `GONE ${WARN_CODE}:hub-x:nearbyDestinationIds|dest-a`,
+    );
   });
 
   it("fails on audit errors", async () => {
@@ -457,7 +577,7 @@ describe("runWarningsCheck", () => {
     expect(await runWarningsCheck({ rootDir: root, update: true })).toBe(0);
     const after = JSON.parse(fs.readFileSync(baselinePath, "utf-8"));
     expect(after.warningFingerprints).toEqual({
-      [fp(WARN_CODE, "a-place")]: 1,
+      [fp(WARN_CODE, "a-place", "nearbyDestinationIds|fukuoka-city")]: 1,
     });
     expect(logs.join("\n")).toContain("Baseline updated");
     expect(fs.readFileSync(baselinePath, "utf-8")).not.toBe(before);

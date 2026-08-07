@@ -4,9 +4,15 @@
  * The baseline (scripts/audit/catalog-warnings-baseline.json) is the
  * committed ledger of warning-severity findings accepted on `main`.
  *
- * BASELINE-001: A fingerprint is "<CODE>:<targetId>". Messages, paths,
- *               distances, timestamps, and ordering are deliberately
- *               excluded, so unrelated prose churn can never move the set.
+ * BASELINE-001: A fingerprint is "<CODE>:<targetId>[:<identity>]". The
+ *               identity is a canonical, structured description of the
+ *               violation (relationship key + referenced destination, sorted
+ *               id pairs, ...), so two different violations can never share
+ *               a fingerprint even when they share code and target.
+ *               Messages, paths, distances, timestamps, display names and
+ *               ordering are deliberately excluded: prose churn cannot move
+ *               the set, and a warning can never be silently exchanged for
+ *               a different warning of the same code on the same record.
  * BASELINE-002: The baseline is per-record debt with per-record instance
  *               counts (a record can carry several findings of one code,
  *               e.g. one REL_CROSS_PREFECTURE_REF per relationship key).
@@ -33,12 +39,95 @@ export interface CatalogWarningsBaseline {
   errors: number;
   /** Warning counts per finding code (warning severity only). */
   warningsByCode: Record<string, number>;
-  /** Per-record instance counts: "<CODE>:<targetId>" → number of findings. */
+  /** Instance counts: "<CODE>:<targetId>[:<identity>]" → number of findings. */
   warningFingerprints: Record<string, number>;
 }
 
+// ---------------------------------------------------------------------------
+// Canonical warning identity
+// ---------------------------------------------------------------------------
+
+/**
+ * Stable semantic identity of a warning violation, derived deliberately from
+ * structured finding.details (never from the free-form message).
+ *
+ * IDENTITY-001: Identity uses stable destination/municipality IDs, never
+ *               display names.
+ * IDENTITY-002: Arrays whose ordering is semantically irrelevant (id sets,
+ *               field lists, cycle members) are sorted before joining.
+ * IDENTITY-003: Calculated diagnostics (distances, counts, coordinate
+ *               strings, visit-hour values) and timestamps are excluded
+ *               unless they define the violation itself.
+ * IDENTITY-004: Rules whose code+targetId already identifies exactly one
+ *               violation return "" — the fingerprint stays
+ *               "<CODE>:<targetId>".
+ */
+function asString(value: unknown): string {
+  return typeof value === "string" ? value : String(value ?? "");
+}
+
+function joinSorted(value: unknown): string {
+  if (!Array.isArray(value)) return "";
+  return [...value.map(asString)].sort().join(",");
+}
+
+function pair(a: unknown, b: unknown): string {
+  return `${asString(a)}|${asString(b)}`;
+}
+
+export function warningIdentity(finding: AuditFinding): string {
+  const d = finding.details ?? {};
+  switch (finding.code) {
+    // Relationship violations: identity is the offending link.
+    case "REL_CYCLE":
+      return joinSorted(d.cycle); // set of destinations in the cycle
+    case "REL_DANGLING_PARENT":
+    case "REL_NON_HUB_PARENT":
+    case "REL_CROSS_PREFECTURE_PARENT":
+    case "REL_UNPUBLISHED_PARENT":
+      return asString(d.parentDestinationId);
+    case "REL_CROSS_MUNICIPALITY_PARENT":
+      return pair(d.childMunicipalityId, d.parentMunicipalityId);
+    case "REL_DANGLING_REF":
+    case "REL_DUPLICATE_REF":
+    case "REL_CROSS_PREFECTURE_REF":
+      return pair(d.key, d.refId);
+    case "REL_SELF_REF":
+      return asString(d.key);
+    case "REL_CROSS_MUNICIPALITY_FEATURED":
+      return asString(d.refId);
+    case "REL_NON_HUB_GATEWAY":
+      return asString(d.gatewayHubId);
+    // Geography.
+    case "GEO_DUPLICATE_COORDINATES":
+      return joinSorted(d.destinationIds); // sorted pair/triple of ids
+    case "GEO_CHILD_FAR_FROM_MUNI_PARENT":
+      return asString(d.parentId); // distanceKm is a diagnostic, not identity
+    // Timing.
+    case "TIME_HUB_CAPACITY_INVALID_CHILD":
+      return joinSorted(d.childIds);
+    // Municipality/naming.
+    case "MUNI_PREFECTURE_MISMATCH":
+      return asString(d.municipalityId);
+    // Source/generated consistency.
+    case "SYNC_DETAIL_MISMATCH":
+      return joinSorted(d.diffFields); // which fields disagree
+    default:
+      return "";
+  }
+}
+
+/**
+ * Fingerprint: "<CODE>:<targetId>" when the identity is empty, otherwise
+ * "<CODE>:<targetId>:<identity>". Two findings with the same fingerprint are
+ * the same violation; different violations always differ in at least one
+ * component.
+ */
 export function warningFingerprint(finding: AuditFinding): string {
-  return `${finding.code}:${finding.targetId}`;
+  const identity = warningIdentity(finding);
+  return identity
+    ? `${finding.code}:${finding.targetId}:${identity}`
+    : `${finding.code}:${finding.targetId}`;
 }
 
 export function buildBaseline(report: AuditReport): CatalogWarningsBaseline {

@@ -102,12 +102,21 @@ describe("parseCatalogueScope", () => {
       "scripts/cli/validate-destinations.ts",
       // package scripts and workflow files controlling the checks
       "package.json",
+      "package-lock.json",
       ".github/workflows/catalogue-integrity.yml",
       ".github/workflows/pr-checks.yml",
     ];
     const r = parseCatalogueScope(relevant.join("\n"));
     expect(r.relevant).toBe(true);
     expect(r.relevantFiles).toEqual(relevant);
+  });
+
+  it("treats a package-lock.json-only change as catalogue-affecting", () => {
+    // A lockfile-only change alters what `npm ci` installs and can therefore
+    // change audit/generation behaviour.
+    const r = parseCatalogueScope("package-lock.json");
+    expect(r.relevant).toBe(true);
+    expect(r.relevantFiles).toEqual(["package-lock.json"]);
   });
 
   it("ignores app code, docs, and unrelated config", () => {
