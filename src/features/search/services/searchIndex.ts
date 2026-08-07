@@ -191,11 +191,6 @@ export function searchDocuments(
 
     return [
       {
-        type: "navigation",
-        label: "Navigation & Actions",
-        items: navActions.slice(0, 4),
-      },
-      {
         type: "destination",
         label: "Popular Destinations",
         items: popularDestinations,
@@ -204,6 +199,11 @@ export function searchDocuments(
         type: "collection",
         label: "Featured Collections",
         items: popularCollections,
+      },
+      {
+        type: "navigation",
+        label: "Navigation & Actions",
+        items: navActions.slice(0, 4),
       },
     ];
   }

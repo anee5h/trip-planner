@@ -4,12 +4,22 @@ import { MemoryRouter } from "react-router-dom";
 import { afterEach, describe, it, expect, vi } from "vitest";
 import BottomNav from "../BottomNav";
 
+const tripStoreState = vi.hoisted(() => ({
+  compareList: [] as string[],
+}));
+
+vi.mock("@/shared/hooks/useTripStore", () => ({
+  useTripStore: () => ({
+    compareList: tripStoreState.compareList,
+  }),
+}));
+
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string) => {
       if (key === "navigation.home") return "Home";
       if (key === "navigation.explore") return "Explore";
-      if (key === "navigation.itineraries") return "Trips";
+      if (key === "navigation.trips") return "Trips";
       if (key === "navigation.passport") return "Passport";
       if (key === "search.label") return "Search";
       return key;
@@ -105,5 +115,13 @@ describe("BottomNav Component", () => {
 
     expect(eventFired).toBe(true);
     window.removeEventListener("keydown", listener);
+  });
+
+  it("hides bottom nav when compareList selection tray is active to avoid bar collision", () => {
+    tripStoreState.compareList = ["kyoto-station", "osaka-station"];
+    const node = renderBottomNav(["/"]);
+    const nav = node.querySelector("nav[aria-label='Mobile Navigation']");
+    expect(nav).toBeNull();
+    tripStoreState.compareList = [];
   });
 });

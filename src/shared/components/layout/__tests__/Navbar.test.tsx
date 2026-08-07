@@ -92,20 +92,24 @@ describe("Navbar Component", () => {
     expect(markFrame?.className).toContain("dark:ring-white/50");
   });
 
-  it("makes the language menu available in the mobile navbar", () => {
+  it("makes the language toggle available in the mobile hamburger drawer and desktop navbar", () => {
     const node = renderNavbar();
-    const languageButton = node.querySelector<HTMLButtonElement>(
-      'button[aria-label="Select language"]',
+    const desktopLanguageContainer = node.querySelector<HTMLDivElement>(
+      "div.relative.hidden.md\\:block",
     );
+    expect(desktopLanguageContainer).not.toBeNull();
 
-    expect(languageButton).not.toBeNull();
-    expect(languageButton?.parentElement?.className).not.toContain("hidden");
-
-    act(() => languageButton?.click());
-    const japanese = Array.from(node.querySelectorAll("button")).find(
-      (button) => button.textContent?.includes("日本語"),
+    // Open mobile menu drawer to access mobile language toggle
+    const menuButton = node.querySelector<HTMLButtonElement>(
+      'button[aria-label="Toggle menu"]',
     );
-    act(() => japanese?.click());
+    act(() => menuButton?.click());
+
+    const langToggle = Array.from(node.querySelectorAll("button")).find((b) =>
+      b.textContent?.includes("Language"),
+    );
+    expect(langToggle).not.toBeNull();
+    act(() => langToggle?.click());
     expect(localeState.setLocale).toHaveBeenCalledWith("ja");
   });
 

@@ -1,11 +1,16 @@
 import { Link, useLocation } from "react-router-dom";
 import { Home, Map, Search, Calendar, Compass } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useTripStore } from "@/shared/hooks/useTripStore";
 
 export default function BottomNav() {
   const location = useLocation();
   const { t } = useTranslation();
+  const { compareList } = useTripStore();
   const pathname = location.pathname;
+
+  // Hide persistent bottom nav when Compare floating tray is active to avoid bar collisions
+  if (compareList.length > 0) return null;
 
   const isHomeActive = pathname === "/";
   const isExploreActive =
@@ -95,7 +100,7 @@ export default function BottomNav() {
             className={`w-5 h-5 transition-transform ${isTripsActive ? "scale-110" : ""}`}
           />
           <span className="text-[10px] tracking-tight truncate max-w-[56px] text-center">
-            {t("navigation.itineraries")}
+            {t("navigation.trips")}
           </span>
         </Link>
 

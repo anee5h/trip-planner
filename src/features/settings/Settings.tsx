@@ -277,9 +277,7 @@ export default function Settings() {
                   className={`w-3.5 h-3.5 shrink-0 ${isActive ? "text-white" : "text-emerald-500"}`}
                   aria-hidden="true"
                 />
-                <span className={isActive ? "" : "hidden sm:inline"}>
-                  {sec.label}
-                </span>
+                <span>{sec.label}</span>
               </button>
             );
           })}

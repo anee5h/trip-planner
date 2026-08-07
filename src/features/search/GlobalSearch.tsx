@@ -53,7 +53,7 @@ export function GlobalSearch() {
       {/* Desktop Search Input (Navbar Center) */}
       <div
         ref={containerRef}
-        className="relative hidden lg:flex items-center flex-1 max-w-xs xl:max-w-sm ml-4 mr-6"
+        className="relative hidden md:flex items-center flex-1 max-w-xs xl:max-w-sm ml-4 mr-4 lg:mr-6"
       >
         <div className="relative w-full">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 dark:text-slate-500 pointer-events-none stroke-[2.2]" />
@@ -110,15 +110,6 @@ export function GlobalSearch() {
           </div>
         )}
       </div>
-
-      {/* Mobile Search Icon Trigger Button */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="lg:hidden p-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors"
-        aria-label={t("search.label")}
-      >
-        <Search className="w-5 h-5" />
-      </button>
 
       {/* Command Palette Modal Dialog */}
       <SearchDialog

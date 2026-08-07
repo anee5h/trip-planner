@@ -29,7 +29,7 @@ const CollectionsDirectory = lazy(
 const CollectionDetails = lazy(
   () => import("./features/collections/CollectionDetails"),
 );
-const Profile = lazy(() => import("./features/profile/Profile"));
+
 const Settings = lazy(() => import("./features/settings/Settings"));
 const Help = lazy(() => import("./features/help/Help"));
 const QaDashboard = lazy(() => import("./features/qa/QaDashboard"));
@@ -94,7 +94,12 @@ function AppInner() {
                     path="/visited-map"
                     element={<Navigate to="/passport" replace />}
                   />
-                  <Route path="/profile" element={<Profile />} />
+                  <Route
+                    path="/profile"
+                    element={
+                      <Navigate to="/settings?section=account" replace />
+                    }
+                  />
                   <Route path="/settings" element={<Settings />} />
                   <Route path="/help" element={<Help />} />
                   <Route path="/qa" element={<QaDashboard />} />

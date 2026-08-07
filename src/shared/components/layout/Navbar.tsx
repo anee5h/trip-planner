@@ -219,7 +219,7 @@ export default function Navbar() {
               <span>{t("navigation.passport")}</span>
             </Link>
           </nav>
-          <div className="relative">
+          <div className="relative hidden md:block">
             <button
               type="button"
               onClick={() => setLanguageMenuOpen((open) => !open)}
@@ -287,7 +287,7 @@ export default function Navbar() {
 
                     <div className="py-1 space-y-0.5">
                       <Link
-                        to="/profile"
+                        to="/settings?section=account"
                         onClick={() => setUserMenuOpen(false)}
                         className="w-full flex items-center gap-2.5 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
                       >
@@ -390,74 +390,7 @@ export default function Navbar() {
           ref={mobileMenuRef}
           className="md:hidden fixed inset-x-0 top-[68px] z-40 bg-background border-b shadow-lg max-h-[calc(100vh-68px)] overflow-y-auto"
         >
-          <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
-            <Link
-              to="/destinations"
-              onClick={() => setMenuOpen(false)}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
-                isDestinationsActive
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
-                  : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
-              }`}
-            >
-              <Map className="w-5 h-5 text-emerald-500" />{" "}
-              {t("navigation.destinations")}
-            </Link>
-
-            <Link
-              to="/collections"
-              onClick={() => setMenuOpen(false)}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
-                isCollectionsActive
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
-                  : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
-              }`}
-            >
-              <Layers className="w-5 h-5 text-teal-500" />{" "}
-              {t("navigation.collections")}
-            </Link>
-
-            <Link
-              to="/my-trips"
-              onClick={() => setMenuOpen(false)}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
-                isMyTripsActive
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
-                  : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
-              }`}
-            >
-              <Calendar className="w-5 h-5 text-emerald-500" />{" "}
-              {t("navigation.itineraries")}
-            </Link>
-
-            <Link
-              to="/bucket-list"
-              onClick={() => setMenuOpen(false)}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
-                isBucketListActive
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
-                  : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
-              }`}
-            >
-              <Bookmark className="w-5 h-5 text-amber-500" />{" "}
-              {t("navigation.bucketList")}
-            </Link>
-
-            <Link
-              to="/passport"
-              onClick={() => setMenuOpen(false)}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
-                isPassportActive
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
-                  : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
-              }`}
-            >
-              <Compass className="w-5 h-5 text-emerald-500" />{" "}
-              {t("navigation.passport")}
-            </Link>
-
-            <div className="my-1 border-t border-slate-200 dark:border-slate-800" />
-
+          <nav className="container mx-auto px-4 py-3 flex flex-col gap-1">
             {loading ? (
               <div className="w-8 h-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin self-center my-4" />
             ) : user ? (
@@ -474,7 +407,7 @@ export default function Navbar() {
                 </div>
 
                 <Link
-                  to="/profile"
+                  to="/settings?section=account"
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                 >
