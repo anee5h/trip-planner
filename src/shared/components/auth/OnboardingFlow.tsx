@@ -9,6 +9,7 @@ import type { Destination } from "@/shared/types/destination";
 import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDestinationPicker";
 import { Button } from "@/shared/components/ui/button";
 import { useTranslation } from "react-i18next";
+import { normalizeCarMode } from "@/shared/utils/carMode";
 
 const ONBOARDING_PREFIX = "meguruto-onboarding-v2";
 
@@ -19,12 +20,29 @@ function onboardingKey(userId: string): string {
 function isOnboardingNeeded(userId: string): boolean {
   try {
     const stored = localStorage.getItem(onboardingKey(userId));
-    if (!stored) return true;
-    const data = JSON.parse(stored);
-    return !data.completed && !data.skipped;
+    if (stored) {
+      const data = JSON.parse(stored);
+      if (data.completed || data.skipped) return false;
+    }
+    return true;
   } catch {
     return true;
   }
+}
+
+function checkAndMarkConfiguredAccount(
+  userId: string,
+  userMeta?: Record<string, unknown> | null,
+): boolean {
+  // Already completed or skipped locally → don't show
+  if (!isOnboardingNeeded(userId)) return false;
+  // Supabase metadata says preferences already set → mark complete, don't show
+  const prefs = userMeta?.preferences as Record<string, unknown> | undefined;
+  if (prefs?.preferences_set === true) {
+    markOnboardingComplete(userId);
+    return false;
+  }
+  return true;
 }
 
 function markOnboardingSkipped(userId: string) {
@@ -91,6 +109,7 @@ export function OnboardingFlow() {
   // Show onboarding if needed for current user
   useEffect(() => {
     if (!user?.id) return;
+    if (!checkAndMarkConfiguredAccount(user.id, user.user_metadata)) return;
     if (isOnboardingNeeded(user.id)) {
       // Populate from existing metadata if available
       setFullName(user.user_metadata?.full_name || "");
@@ -102,7 +121,7 @@ export function OnboardingFlow() {
         user.user_metadata?.default_locale === "ja" ? "ja" : locale,
       );
       if (user.user_metadata?.preferences) {
-        setCarMode(user.user_metadata.preferences.carMode || "none");
+        setCarMode(normalizeCarMode(user.user_metadata.preferences.carMode));
         setPublicModes(
           user.user_metadata.preferences.publicModes || [
             "train",
@@ -357,7 +376,7 @@ export function OnboardingFlow() {
                         id: "rental",
                         label: t("home.transportOptions.rentalCar"),
                       },
-                      { id: "own", label: t("home.transportOptions.myCar") },
+                      { id: "my_car", label: t("home.transportOptions.myCar") },
                     ].map((m) => (
                       <button
                         key={m.id}

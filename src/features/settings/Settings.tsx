@@ -33,6 +33,8 @@ const BUDGET_PRESETS = [
   { id: "luxury", key: "home.budgets.luxury" },
 ] as const;
 
+import { normalizeCarMode, type CarMode } from "@/shared/utils/carMode";
+
 const ALL_MODES = [
   { id: "train", key: "home.transportModes.train" as const },
   { id: "shinkansen", key: "home.transportModes.shinkansen" as const },
@@ -64,7 +66,7 @@ export default function Settings() {
     homeStation || user?.user_metadata?.base_location || "Tokyo Station",
   );
   const [carMode, setCarMode] = useState(
-    user?.user_metadata?.preferences?.carMode || "none",
+    normalizeCarMode(user?.user_metadata?.preferences?.carMode),
   );
   const [publicModes, setPublicModes] = useState<string[]>(
     user?.user_metadata?.preferences?.publicModes || [
@@ -112,7 +114,7 @@ export default function Settings() {
         user.user_metadata.default_locale === "ja" ? "ja" : locale,
       );
       if (user.user_metadata.preferences) {
-        setCarMode(user.user_metadata.preferences.carMode || "none");
+        setCarMode(normalizeCarMode(user.user_metadata.preferences.carMode));
         setPublicModes(
           user.user_metadata.preferences.publicModes || [
             "train",
@@ -414,14 +416,16 @@ export default function Settings() {
                           label: t("home.transportOptions.rentalCar"),
                         },
                         {
-                          id: "own",
+                          id: "my_car",
                           label: t("home.transportOptions.myCar"),
                         },
                       ].map((m) => (
                         <button
                           key={m.id}
                           type="button"
-                          onClick={() => handleFieldChange(setCarMode, m.id)}
+                          onClick={() =>
+                            handleFieldChange(setCarMode, m.id as CarMode)
+                          }
                           className={`${btnBase} text-center ${
                             carMode === m.id
                               ? "bg-emerald-500 text-white border-emerald-500"

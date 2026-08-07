@@ -10,6 +10,7 @@ import {
   resolveTransportSelection,
   type TransportPreference,
 } from "../services/TransportResolver";
+import { normalizeCarMode } from "@/shared/utils/carMode";
 import {
   getDefaultTripDuration,
   type ForecastDateSelection,
@@ -75,7 +76,7 @@ export function useTripPlannerState(
   useEffect(() => {
     if (user?.user_metadata?.preferences) {
       const prefs = user.user_metadata.preferences;
-      const userCarMode = prefs.carMode || "none";
+      const userCarMode = normalizeCarMode(prefs.carMode);
       const userPartySize = prefs.partySize || 2;
       setConfiguredCarMode(userCarMode);
 
