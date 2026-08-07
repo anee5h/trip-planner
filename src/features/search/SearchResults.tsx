@@ -101,7 +101,7 @@ export function SearchResults({
 
                     <div className="flex items-center gap-2 shrink-0 ml-3">
                       {item.badge && (
-                        <span className="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80">
+                        <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-transparent text-slate-400 dark:text-slate-500 border border-slate-200 dark:border-slate-700/60">
                           {item.badge}
                         </span>
                       )}

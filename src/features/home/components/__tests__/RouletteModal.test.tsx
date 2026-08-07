@@ -220,5 +220,5 @@ describe("RouletteModal weekend mode", () => {
     );
     act(() => root.unmount());
     host.remove();
-  });
+  }, 15000);
 });

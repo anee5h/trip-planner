@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Calendar,
   Map,
@@ -10,11 +10,13 @@ import {
   User,
   Sliders,
   LogOut,
-  Bookmark,
   HelpCircle,
   MessageSquare,
-  Layers,
   Languages,
+  Sun,
+  Moon,
+  ArrowLeft,
+  Layers,
 } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -22,13 +24,16 @@ import { useAuthModal } from "@/shared/context/AuthModalContext";
 import { GlobalSearch } from "@/features/search/GlobalSearch";
 import { FeedbackModal } from "@/shared/components/feedback/FeedbackModal";
 import { useLocale } from "@/shared/context/LocaleContext";
+import { useTheme } from "@/shared/context/ThemeContext";
 import { MegurutoMark } from "@/shared/components/brand/MegurutoMark";
 import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { user, loading, signOut } = useAuth();
   const { locale, setLocale } = useLocale();
+  const { resolvedTheme, setTheme } = useTheme();
   const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
   const { openAuthModal } = useAuthModal();
@@ -107,12 +112,14 @@ export default function Navbar() {
 
   const isDestinationsActive = location.pathname.startsWith("/destinations");
   const isCollectionsActive = location.pathname.startsWith("/collections");
-  const isMyTripsActive = location.pathname.startsWith("/my-trips");
-  const isBucketListActive = location.pathname.startsWith("/bucket-list");
+  const isTripsActive =
+    location.pathname.startsWith("/my-trips") ||
+    location.pathname.startsWith("/bucket-list");
   const isPassportActive = location.pathname.startsWith("/passport");
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-950/85 backdrop-blur-xl shadow-xs shadow-slate-900/5 dark:shadow-slate-950/20">
-      <div className="container mx-auto px-4 h-[68px] flex items-center justify-between gap-2 md:gap-4">
+      {/* Desktop Header */}
+      <div className="hidden md:flex container mx-auto px-4 h-[68px] items-center justify-between gap-4">
         {/* Logo */}
         <Link
           to="/"
@@ -128,7 +135,7 @@ export default function Navbar() {
           </span>
           <span
             data-testid="navbar-brand-wordmark"
-            className="hidden min-[360px]:inline text-lg min-[390px]:text-xl"
+            className="inline text-lg min-[390px]:text-xl font-extrabold"
           >
             <span className="text-emerald-600 dark:text-emerald-300">
               Meguru
@@ -137,72 +144,51 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Global Search Bar (Center / Desktop & Mobile icon) */}
+        {/* Global Search Bar (Desktop Center) */}
         <GlobalSearch />
 
         <div className="flex items-center gap-3 shrink-0">
           <nav className="hidden md:flex items-center gap-1.5">
-            {/* Discover Cluster */}
-            <div className="flex items-center gap-1.5">
-              <Link
-                to="/destinations"
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
-                  isDestinationsActive
-                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
-                }`}
-              >
-                <Map className="w-4 h-4" />
-                <span>{t("navigation.destinations")}</span>
-              </Link>
+            {/* Explore */}
+            <Link
+              to="/destinations"
+              className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
+                isDestinationsActive
+                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
+                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
+              }`}
+            >
+              <Map className="w-4 h-4" />
+              <span>{t("navigation.explore")}</span>
+            </Link>
 
-              <Link
-                to="/collections"
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
-                  isCollectionsActive
-                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
-                }`}
-              >
-                <Layers className="w-4 h-4" />
-                <span>{t("navigation.collections")}</span>
-              </Link>
-            </div>
+            {/* Collections (desktop lg+ only; tablets keep the compact trio) */}
+            <Link
+              to="/collections"
+              className={`hidden lg:flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
+                isCollectionsActive
+                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
+                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
+              }`}
+            >
+              <Layers className="w-4 h-4" />
+              <span>{t("navigation.collections")}</span>
+            </Link>
 
-            {/* Divider between Discover & Plan */}
-            <div className="h-4 w-[1px] bg-slate-200 dark:bg-slate-800 mx-1 shrink-0" />
+            {/* Trips */}
+            <Link
+              to="/my-trips"
+              className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
+                isTripsActive
+                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
+                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
+              }`}
+            >
+              <Calendar className="w-4 h-4" />
+              <span>{t("navigation.trips")}</span>
+            </Link>
 
-            {/* Plan Cluster */}
-            <div className="flex items-center gap-1.5">
-              <Link
-                to="/my-trips"
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
-                  isMyTripsActive
-                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
-                }`}
-              >
-                <Calendar className="w-4 h-4" />
-                <span>{t("navigation.itineraries")}</span>
-              </Link>
-
-              <Link
-                to="/bucket-list"
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
-                  isBucketListActive
-                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
-                }`}
-              >
-                <Bookmark className="w-4 h-4" />
-                <span>{t("navigation.bucketList")}</span>
-              </Link>
-            </div>
-
-            {/* Divider between Plan & Passport */}
-            <div className="h-4 w-[1px] bg-slate-200 dark:bg-slate-800 mx-1 shrink-0" />
-
-            {/* Standalone Passport */}
+            {/* Passport */}
             <Link
               to="/passport"
               className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
@@ -215,7 +201,8 @@ export default function Navbar() {
               <span>{t("navigation.passport")}</span>
             </Link>
           </nav>
-          <div className="relative">
+
+          <div className="relative hidden md:block">
             <button
               type="button"
               onClick={() => setLanguageMenuOpen((open) => !open)}
@@ -225,7 +212,7 @@ export default function Navbar() {
               <Languages className="h-5 w-5" />
             </button>
             {languageMenuOpen && (
-              <div className="absolute right-0 mt-2 w-36 rounded-xl border border-slate-200 bg-white p-1 shadow-xl dark:border-slate-700 dark:bg-slate-900">
+              <div className="absolute right-0 mt-2 w-36 rounded-xl border border-slate-200 bg-white p-1 shadow-xl dark:border-slate-700 dark:bg-slate-900 z-50">
                 {[
                   ["en", "English"],
                   ["ja", "日本語"],
@@ -237,126 +224,188 @@ export default function Navbar() {
                       setLocale(value as "en" | "ja");
                       setLanguageMenuOpen(false);
                     }}
-                    className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-800"
+                    className={`w-full rounded-lg px-3 py-1.5 text-left text-xs font-semibold ${
+                      locale === value
+                        ? "bg-emerald-50 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400"
+                        : "text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+                    }`}
                   >
                     {label}
-                    {locale === value && (
-                      <span className="text-emerald-500">✓</span>
-                    )}
                   </button>
                 ))}
               </div>
             )}
           </div>
 
-          <div className="hidden sm:flex items-center gap-2">
-            {loading ? (
-              <div className="w-8 h-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
-            ) : user ? (
-              <div className="relative" ref={userMenuRef}>
-                <button
-                  onClick={() => setUserMenuOpen((prev) => !prev)}
-                  className="flex items-center justify-center p-0.5 rounded-full hover:ring-2 hover:ring-emerald-400/50 transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                  aria-label="User menu"
-                >
-                  <div className="w-9 h-9 rounded-full bg-emerald-600 flex items-center justify-center text-white text-sm font-bold shadow-sm">
-                    {(
-                      user.email?.[0] ??
-                      (user.user_metadata?.full_name as string)?.[0] ??
-                      "U"
-                    ).toUpperCase()}
-                  </div>
-                </button>
-
-                {userMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-56 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl py-2 z-50 animate-in fade-in-50 zoom-in-95">
-                    <div className="px-4 py-2.5 border-b border-slate-100 dark:border-slate-800">
-                      <p className="text-xs text-slate-400 font-medium">
-                        Signed in as
-                      </p>
-                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 truncate">
-                        {user.email ??
-                          (user.user_metadata?.full_name as string) ??
-                          "User"}
-                      </p>
-                    </div>
-
-                    <div className="py-1 space-y-0.5">
-                      <Link
-                        to="/profile"
-                        onClick={() => setUserMenuOpen(false)}
-                        className="w-full flex items-center gap-2.5 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
-                      >
-                        <User className="w-4 h-4 text-slate-500" />
-                        Profile
-                      </Link>
-
-                      <Link
-                        to="/settings"
-                        onClick={() => setUserMenuOpen(false)}
-                        className="w-full flex items-center gap-2.5 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
-                      >
-                        <Sliders className="w-4 h-4 text-slate-500" />
-                        Settings
-                      </Link>
-
-                      <Link
-                        to="/help"
-                        onClick={() => setUserMenuOpen(false)}
-                        className="w-full flex items-center gap-2.5 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
-                      >
-                        <HelpCircle className="w-4 h-4 text-slate-500" />
-                        Help
-                      </Link>
-
-                      <button
-                        onClick={() => {
-                          setUserMenuOpen(false);
-                          setFeedbackOpen(true);
-                        }}
-                        className="w-full flex items-center gap-2.5 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors text-left"
-                      >
-                        <MessageSquare className="w-4 h-4 text-slate-500" />
-                        Send Feedback
-                      </button>
-                    </div>
-
-                    <div className="border-t border-slate-100 dark:border-slate-800 pt-1 mt-1">
-                      <button
-                        onClick={() => {
-                          setUserMenuOpen(false);
-                          signOut?.();
-                        }}
-                        className="w-full flex items-center gap-2.5 px-4 py-2 text-sm font-semibold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors text-left"
-                      >
-                        <LogOut className="w-4 h-4 text-red-600 dark:text-red-400" />
-                        {t("actions.signOut")}
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
+          <button
+            type="button"
+            onClick={() =>
+              setTheme(resolvedTheme === "dark" ? "light" : "dark")
+            }
+            className="rounded-lg p-2 text-slate-600 dark:text-slate-300 hover:text-emerald-600"
+            aria-label="Toggle theme"
+          >
+            {resolvedTheme === "dark" ? (
+              <Sun className="h-5 w-5 text-amber-400" />
             ) : (
-              <Button
-                onClick={openAuthModal}
-                className="group bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-full font-bold shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 px-6"
-              >
-                <LogIn className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
-                {t("actions.signIn")}
-              </Button>
+              <Moon className="h-5 w-5 text-slate-600" />
             )}
-          </div>
+          </button>
 
-          <FeedbackModal
-            isOpen={feedbackOpen}
-            onClose={() => setFeedbackOpen(false)}
-          />
+          {loading ? (
+            <div className="w-8 h-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
+          ) : user ? (
+            <div className="relative" ref={userMenuRef}>
+              <button
+                type="button"
+                onClick={() => setUserMenuOpen((o) => !o)}
+                className="flex items-center gap-2 p-1 rounded-full hover:ring-2 hover:ring-emerald-500/50 transition-all focus:outline-hidden"
+                aria-expanded={userMenuOpen}
+                aria-label="User menu"
+              >
+                <div className="w-8 h-8 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center shadow-xs">
+                  {(
+                    user.email?.[0] ??
+                    (user.user_metadata?.full_name as string)?.[0] ??
+                    "U"
+                  ).toUpperCase()}
+                </div>
+              </button>
 
-          {/* Hamburger button — mobile only */}
+              {userMenuOpen && (
+                <div className="absolute right-0 mt-2 w-56 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                  <div className="px-4 py-2 border-b border-slate-100 dark:border-slate-800">
+                    <p className="text-xs text-slate-400 font-medium">
+                      {t("navigation.signedInAs")}
+                    </p>
+                    <p className="text-xs font-bold text-slate-800 dark:text-slate-200 truncate mt-0.5">
+                      {user.email ??
+                        (user.user_metadata?.full_name as string) ??
+                        "User"}
+                    </p>
+                  </div>
+
+                  <div className="py-1 space-y-0.5">
+                    <Link
+                      to="/settings?section=account"
+                      onClick={() => setUserMenuOpen(false)}
+                      className="w-full flex items-center gap-2.5 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
+                    >
+                      <User className="w-4 h-4 text-slate-500" />
+                      {t("navigation.editProfile")}
+                    </Link>
+
+                    <Link
+                      to="/settings?section=travel"
+                      onClick={() => setUserMenuOpen(false)}
+                      className="w-full flex items-center gap-2.5 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
+                    >
+                      <Sliders className="w-4 h-4 text-slate-500" />
+                      {t("navigation.settings")}
+                    </Link>
+
+                    <Link
+                      to="/help"
+                      onClick={() => setUserMenuOpen(false)}
+                      className="w-full flex items-center gap-2.5 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
+                    >
+                      <HelpCircle className="w-4 h-4 text-slate-500" />
+                      {t("navigation.help")}
+                    </Link>
+
+                    <button
+                      onClick={() => {
+                        setUserMenuOpen(false);
+                        setFeedbackOpen(true);
+                      }}
+                      className="w-full flex items-center gap-2.5 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors text-left"
+                    >
+                      <MessageSquare className="w-4 h-4 text-slate-500" />
+                      {t("navigation.feedback")}
+                    </button>
+                  </div>
+
+                  <div className="border-t border-slate-100 dark:border-slate-800 pt-1 mt-1">
+                    <button
+                      onClick={() => {
+                        setUserMenuOpen(false);
+                        signOut?.();
+                      }}
+                      className="w-full flex items-center gap-2.5 px-4 py-2 text-sm font-semibold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors text-left"
+                    >
+                      <LogOut className="w-4 h-4 text-red-600 dark:text-red-400" />
+                      {t("navigation.signOut")}
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Button
+              onClick={openAuthModal}
+              className="group bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-full font-bold shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 px-6"
+            >
+              <LogIn className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
+              {t("navigation.signIn")}
+            </Button>
+          )}
+        </div>
+      </div>
+
+      {/* Mobile Header (Centered Brand & Hamburger Only) */}
+      <div className="relative flex items-center justify-between px-4 h-[56px] w-full md:hidden">
+        {/* Left Utility Slot (Back on destination detail; otherwise empty to keep brand centered) */}
+        <div className="w-10 flex items-center justify-start shrink-0">
+          {/^\/destinations\/[^/]+$/.test(location.pathname) && (
+            <button
+              type="button"
+              onClick={() =>
+                location.key !== "default"
+                  ? navigate(-1)
+                  : navigate("/destinations")
+              }
+              aria-label={t("navigation.back")}
+              title={t("navigation.back")}
+              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-emerald-600 transition-colors"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </button>
+          )}
+        </div>
+
+        {/* Geometrically Centered Meguruto Brand */}
+        <Link
+          to="/"
+          aria-label="Meguruto home"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-1.5 font-bold tracking-tight z-10"
+          onClick={() => setMenuOpen(false)}
+        >
+          <span
+            data-testid="navbar-brand-mark-frame"
+            className="inline-flex rounded-[8px] bg-white p-[1.5px] ring-1 ring-slate-200 shadow-xs dark:ring-white/50"
+          >
+            <MegurutoMark className="size-[22px] min-[390px]:size-[24px]" />
+          </span>
+          <span
+            data-testid="navbar-brand-wordmark"
+            className="inline text-base min-[390px]:text-lg font-extrabold"
+          >
+            <span className="text-emerald-600 dark:text-emerald-300">
+              Meguru
+            </span>
+            <span className="text-slate-900 dark:text-white">to</span>
+          </span>
+        </Link>
+
+        {/* Right Hamburger Button */}
+        <div className="flex items-center justify-end w-10 shrink-0 z-20">
           <button
             ref={hamburgerBtnRef}
-            className="md:hidden p-2 text-slate-700 dark:text-slate-300 ml-1"
+            type="button"
             onClick={() => setMenuOpen((o) => !o)}
+            className="p-2 text-slate-700 dark:text-slate-300 hover:text-emerald-600 focus:outline-hidden min-h-[44px] min-w-[44px] flex items-center justify-center"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu-drawer"
             aria-label="Toggle menu"
           >
             {menuOpen ? (
@@ -368,10 +417,15 @@ export default function Navbar() {
         </div>
       </div>
 
+      <FeedbackModal
+        isOpen={feedbackOpen}
+        onClose={() => setFeedbackOpen(false)}
+      />
+
       {/* Mobile drawer backdrop */}
       {menuOpen && (
         <div
-          className="md:hidden fixed inset-0 top-[68px] bg-black/60 backdrop-blur-sm z-40"
+          className="md:hidden fixed inset-0 top-[56px] bg-black/60 backdrop-blur-sm z-40"
           onClick={() => {
             setMenuOpen(false);
             hamburgerBtnRef.current?.focus();
@@ -384,85 +438,19 @@ export default function Navbar() {
       {menuOpen && (
         <div
           ref={mobileMenuRef}
-          className="md:hidden fixed inset-x-0 top-[68px] z-40 bg-background border-b shadow-lg max-h-[calc(100vh-68px)] overflow-y-auto"
+          id="mobile-menu-drawer"
+          className="md:hidden fixed inset-x-0 top-[56px] z-40 bg-background border-b shadow-lg max-h-[calc(100vh-56px)] overflow-y-auto"
         >
-          <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
-            <Link
-              to="/destinations"
-              onClick={() => setMenuOpen(false)}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
-                isDestinationsActive
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
-                  : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
-              }`}
-            >
-              <Map className="w-5 h-5 text-emerald-500" />{" "}
-              {t("navigation.destinations")}
-            </Link>
-
-            <Link
-              to="/collections"
-              onClick={() => setMenuOpen(false)}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
-                isCollectionsActive
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
-                  : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
-              }`}
-            >
-              <Layers className="w-5 h-5 text-teal-500" />{" "}
-              {t("navigation.collections")}
-            </Link>
-
-            <Link
-              to="/my-trips"
-              onClick={() => setMenuOpen(false)}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
-                isMyTripsActive
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
-                  : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
-              }`}
-            >
-              <Calendar className="w-5 h-5 text-emerald-500" />{" "}
-              {t("navigation.itineraries")}
-            </Link>
-
-            <Link
-              to="/bucket-list"
-              onClick={() => setMenuOpen(false)}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
-                isBucketListActive
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
-                  : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
-              }`}
-            >
-              <Bookmark className="w-5 h-5 text-amber-500" />{" "}
-              {t("navigation.bucketList")}
-            </Link>
-
-            <Link
-              to="/passport"
-              onClick={() => setMenuOpen(false)}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
-                isPassportActive
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 font-bold"
-                  : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
-              }`}
-            >
-              <Compass className="w-5 h-5 text-emerald-500" />{" "}
-              {t("navigation.passport")}
-            </Link>
-
-            <div className="my-1 border-t border-slate-200 dark:border-slate-800" />
-
+          <nav className="container mx-auto px-4 py-3 flex flex-col gap-1">
             {loading ? (
               <div className="w-8 h-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin self-center my-4" />
             ) : user ? (
               <div className="flex flex-col gap-1">
-                <div className="px-4 py-2 mb-1">
+                <div className="px-4 py-2 mb-1 border-b border-slate-100 dark:border-slate-800/80">
                   <p className="text-xs text-slate-400 font-medium">
-                    Signed in as
+                    {t("navigation.signedInAs")}
                   </p>
-                  <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 truncate">
+                  <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 truncate mt-0.5">
                     {user.email ??
                       (user.user_metadata?.full_name as string) ??
                       "User"}
@@ -470,27 +458,81 @@ export default function Navbar() {
                 </div>
 
                 <Link
-                  to="/profile"
+                  to="/settings?section=account"
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                 >
-                  <User className="w-5 h-5 text-slate-500" /> Profile
+                  <User className="w-5 h-5 text-slate-500" />{" "}
+                  {t("navigation.editProfile")}
                 </Link>
 
                 <Link
-                  to="/settings"
+                  to="/settings?section=travel"
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                 >
-                  <Sliders className="w-5 h-5 text-slate-500" /> Settings
+                  <Sliders className="w-5 h-5 text-slate-500" />{" "}
+                  {t("navigation.settings")}
                 </Link>
+
+                {/* Discover section — visually separate from account/preferences */}
+                <div className="border-t border-slate-100 dark:border-slate-800/80 mt-1 pt-2">
+                  <p className="px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                    {t("navigation.discover")}
+                  </p>
+                  <Link
+                    to="/collections"
+                    onClick={() => setMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                  >
+                    <Layers className="w-5 h-5 text-teal-500" />{" "}
+                    {t("navigation.collections")}
+                  </Link>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setLocale(locale === "en" ? "ja" : "en")}
+                  className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left"
+                >
+                  <span className="flex items-center gap-3">
+                    <Languages className="w-5 h-5 text-slate-500" />{" "}
+                    {t("navigation.language")}
+                  </span>
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+                    {locale === "en" ? "English" : "日本語"}
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setTheme(resolvedTheme === "dark" ? "light" : "dark")
+                  }
+                  className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left"
+                >
+                  <span className="flex items-center gap-3">
+                    {resolvedTheme === "dark" ? (
+                      <Moon className="w-5 h-5 text-indigo-400" />
+                    ) : (
+                      <Sun className="w-5 h-5 text-amber-500" />
+                    )}
+                    {t("navigation.theme")}
+                  </span>
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 capitalize">
+                    {resolvedTheme === "dark"
+                      ? t("theme.dark")
+                      : t("theme.light")}
+                  </span>
+                </button>
 
                 <Link
                   to="/help"
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                 >
-                  <HelpCircle className="w-5 h-5 text-slate-500" /> Help
+                  <HelpCircle className="w-5 h-5 text-slate-500" />{" "}
+                  {t("navigation.help")}
                 </Link>
 
                 <button
@@ -500,8 +542,8 @@ export default function Navbar() {
                   }}
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left"
                 >
-                  <MessageSquare className="w-5 h-5 text-slate-500" /> Send
-                  Feedback
+                  <MessageSquare className="w-5 h-5 text-slate-500" />{" "}
+                  {t("navigation.feedback")}
                 </button>
 
                 <button
@@ -509,25 +551,98 @@ export default function Navbar() {
                     setMenuOpen(false);
                     signOut?.();
                   }}
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors text-left"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors text-left border-t border-slate-100 dark:border-slate-800/80 pt-3 mt-1"
                 >
                   <LogOut className="w-5 h-5 text-red-500" />{" "}
-                  {t("actions.signOut")}
+                  {t("navigation.signOut")}
                 </button>
               </div>
             ) : (
-              <button
-                onClick={() => {
-                  setMenuOpen(false);
-                  openAuthModal();
-                }}
-                className="flex items-center justify-center gap-2 mt-2 w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-xl py-3 font-bold shadow-md transition-all duration-300"
-              >
-                <LogIn className="w-5 h-5" /> {t("actions.signIn")}
-              </button>
+              <div className="flex flex-col gap-1">
+                {/* Discover section — visible without an account */}
+                <div className="border-b border-slate-100 dark:border-slate-800/80 pb-1 mb-1">
+                  <p className="px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                    {t("navigation.discover")}
+                  </p>
+                  <Link
+                    to="/collections"
+                    onClick={() => setMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                  >
+                    <Layers className="w-5 h-5 text-teal-500" />{" "}
+                    {t("navigation.collections")}
+                  </Link>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setLocale(locale === "en" ? "ja" : "en")}
+                  className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left"
+                >
+                  <span className="flex items-center gap-3">
+                    <Languages className="w-5 h-5 text-slate-500" />{" "}
+                    {t("navigation.language")}
+                  </span>
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+                    {locale === "en" ? "English" : "日本語"}
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setTheme(resolvedTheme === "dark" ? "light" : "dark")
+                  }
+                  className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left"
+                >
+                  <span className="flex items-center gap-3">
+                    {resolvedTheme === "dark" ? (
+                      <Moon className="w-5 h-5 text-indigo-400" />
+                    ) : (
+                      <Sun className="w-5 h-5 text-amber-500" />
+                    )}
+                    {t("navigation.theme")}
+                  </span>
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 capitalize">
+                    {resolvedTheme === "dark"
+                      ? t("theme.dark")
+                      : t("theme.light")}
+                  </span>
+                </button>
+
+                <Link
+                  to="/help"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                >
+                  <HelpCircle className="w-5 h-5 text-slate-500" />{" "}
+                  {t("navigation.help")}
+                </Link>
+
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setFeedbackOpen(true);
+                  }}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left"
+                >
+                  <MessageSquare className="w-5 h-5 text-slate-500" />{" "}
+                  {t("navigation.feedback")}
+                </button>
+
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    openAuthModal();
+                  }}
+                  className="flex items-center justify-center gap-2 mt-2 w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-xl py-3 font-bold shadow-md transition-all duration-300"
+                >
+                  <LogIn className="w-5 h-5" /> {t("navigation.signIn")}
+                </button>
+              </div>
             )}
 
-            {/* Mobile Drawer Secondary Links & Footer */}
+            {/* Mobile Drawer Footer */}
             <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-2 pb-1">
               <span className="text-slate-400 dark:text-slate-500">
                 Meguruto v{__APP_VERSION__}

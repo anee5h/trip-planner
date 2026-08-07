@@ -97,7 +97,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
         </div>
 
         {/* Modal Body */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
           {compareDestinations.length === 0 ? (
             <div className="text-center py-16 bg-slate-50 dark:bg-slate-950/50 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800">
               <Scale className="w-12 h-12 text-slate-300 dark:text-slate-700 mx-auto mb-3" />
@@ -109,260 +109,155 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
               </p>
             </div>
           ) : (
-            <>
-              {/* Destination Cards Header Grid - Strict Equal Columns */}
-              <div
-                className={`grid gap-4 ${
-                  compareDestinations.length === 1
-                    ? "grid-cols-1 max-w-md mx-auto"
-                    : compareDestinations.length === 2
-                      ? "grid-cols-1 md:grid-cols-2"
-                      : "grid-cols-1 md:grid-cols-3"
-                }`}
-              >
-                {compareDestinations.map((dest) => (
+            <div
+              className={`flex md:grid md:grid-cols-3 gap-3 sm:gap-4 pb-2 ${compareDestinations.length > 1 ? "overflow-x-auto snap-x snap-mandatory" : ""}`}
+            >
+              {compareDestinations.map((dest, idx) => {
+                const isBestOverall = dest.ratings.overall === maxOverall;
+                const cost = budgets[idx];
+                const isLowestBudget = cost === minBudget;
+                const time = travelTimes[idx];
+                const isFastest = time === minTravelTime && time !== 999;
+                const walkMeta = getWalkingIntensityMetadata(
+                  getWalkingIntensity(dest),
+                );
+                const isMaxCouple = dest.ratings.couple === maxCoupleScore;
+
+                return (
                   <div
                     key={dest.id}
-                    className="relative bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 flex flex-col min-w-0 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                    className="w-[260px] sm:w-[290px] md:w-auto shrink-0 snap-start bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 flex flex-col justify-between gap-4 shadow-sm"
                   >
-                    <button
-                      onClick={() => toggleCompare(dest.id)}
-                      className="absolute top-6 right-6 z-10 p-1.5 bg-black/40 hover:bg-red-600 text-white rounded-full backdrop-blur-md transition-colors"
-                      title="Remove from compare"
-                    >
-                      <X className="w-3.5 h-3.5" />
-                    </button>
+                    {/* Header Card */}
+                    <div className="relative flex flex-col min-w-0">
+                      <button
+                        onClick={() => toggleCompare(dest.id)}
+                        className="absolute top-2 right-2 z-10 p-1.5 bg-black/50 hover:bg-red-600 text-white rounded-full backdrop-blur-md transition-colors"
+                        title={t("compare.removeFromCompare")}
+                        aria-label={`${t("compare.removeFromCompare")} ${dest.name}`}
+                      >
+                        <X className="w-3.5 h-3.5" />
+                      </button>
 
-                    {/* Image Aspect & Overflow Protection */}
-                    <div className="w-full h-36 md:h-40 rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-700 relative shrink-0 mb-3">
-                      <img
-                        src={dest.heroImage}
-                        alt={dest.name}
-                        className="w-full h-full object-cover shrink-0"
-                      />
+                      <div className="w-full h-32 sm:h-36 rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-700 relative shrink-0 mb-3">
+                        <img
+                          src={dest.heroImage}
+                          alt={dest.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+
+                      <h3 className="font-extrabold text-base text-slate-900 dark:text-white truncate">
+                        {dest.name}
+                      </h3>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mb-3 truncate">
+                        {dest.prefecture} •{" "}
+                        {dest.categories?.[0] || t("compare.attraction")}
+                      </p>
+
+                      <Link
+                        to={`/destinations/${dest.id}`}
+                        onClick={onClose}
+                        className="w-full"
+                      >
+                        <Button
+                          size="sm"
+                          className="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-sm"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5 mr-1" />{" "}
+                          {t("ui.view")}
+                        </Button>
+                      </Link>
                     </div>
 
-                    <h3 className="font-extrabold text-base text-slate-900 dark:text-white truncate">
-                      {dest.name}
-                    </h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mb-3 truncate">
-                      {dest.prefecture} • {dest.categories?.[0] || "Attraction"}
-                    </p>
-
-                    <Link
-                      to={`/destinations/${dest.id}`}
-                      onClick={onClose}
-                      className="mt-auto"
-                    >
-                      <Button
-                        size="sm"
-                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-sm"
-                      >
-                        <ExternalLink className="w-3.5 h-3.5 mr-1" />{" "}
-                        {t("ui.view")}
-                      </Button>
-                    </Link>
-                  </div>
-                ))}
-              </div>
-
-              {/* Comparative Feature Matrix Grid */}
-              <div className="bg-slate-50 dark:bg-slate-950/60 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 space-y-4">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
-                  {t("ui.compare")}
-                </h4>
-
-                {/* Metric 1: Overall Rating */}
-                <div className="space-y-1.5">
-                  <div className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                    Overall Score
-                  </div>
-                  <div
-                    className={`grid gap-4 ${
-                      compareDestinations.length === 1
-                        ? "grid-cols-1 max-w-md mx-auto"
-                        : compareDestinations.length === 2
-                          ? "grid-cols-1 md:grid-cols-2"
-                          : "grid-cols-1 md:grid-cols-3"
-                    }`}
-                  >
-                    {compareDestinations.map((dest) => {
-                      const isBest = dest.ratings.overall === maxOverall;
-                      return (
-                        <div
-                          key={dest.id}
-                          className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 flex justify-between items-center min-w-0"
-                        >
-                          <span className="font-extrabold text-slate-900 dark:text-white text-sm">
-                            {dest.ratings.overall} / 10
+                    {/* Metrics Stack for this Destination */}
+                    <div className="space-y-2.5 pt-2 border-t border-slate-200/80 dark:border-slate-800/80">
+                      {/* Overall Score */}
+                      <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
+                          {t("compare.score")}
+                        </span>
+                        <div className="flex items-center gap-1.5">
+                          <span className="font-extrabold text-slate-900 dark:text-white text-xs">
+                            {dest.ratings.overall}/10
                           </span>
-                          {isBest && (
-                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold">
-                              Best
+                          {isBestOverall && (
+                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
+                              {t("compare.best")}
                             </Badge>
                           )}
                         </div>
-                      );
-                    })}
-                  </div>
-                </div>
+                      </div>
 
-                {/* Metric 2: Estimated Budget */}
-                <div className="space-y-1.5">
-                  <div className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                    Estimated Budget (per person)
-                  </div>
-                  <div
-                    className={`grid gap-4 ${
-                      compareDestinations.length === 1
-                        ? "grid-cols-1 max-w-md mx-auto"
-                        : compareDestinations.length === 2
-                          ? "grid-cols-1 md:grid-cols-2"
-                          : "grid-cols-1 md:grid-cols-3"
-                    }`}
-                  >
-                    {compareDestinations.map((dest) => {
-                      const cost = getAdjustedBudget(dest, "all");
-                      const isLowest = cost === minBudget;
-                      return (
-                        <div
-                          key={dest.id}
-                          className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 flex justify-between items-center min-w-0"
-                        >
-                          <span className="font-bold text-slate-900 dark:text-white text-sm">
+                      {/* Est. Budget */}
+                      <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
+                          {t("compare.budget")}
+                        </span>
+                        <div className="flex items-center gap-1.5">
+                          <span className="font-bold text-slate-900 dark:text-white text-xs">
                             ¥{(cost / 1000).toFixed(0)}k
                           </span>
-                          {isLowest && (
-                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold">
-                              Lowest
+                          {isLowestBudget && (
+                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
+                              {t("compare.lowest")}
                             </Badge>
                           )}
                         </div>
-                      );
-                    })}
-                  </div>
-                </div>
+                      </div>
 
-                {/* Metric 3: Travel Time */}
-                <div className="space-y-1.5">
-                  <div className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                    Fastest Travel Time
-                  </div>
-                  <div
-                    className={`grid gap-4 ${
-                      compareDestinations.length === 1
-                        ? "grid-cols-1 max-w-md mx-auto"
-                        : compareDestinations.length === 2
-                          ? "grid-cols-1 md:grid-cols-2"
-                          : "grid-cols-1 md:grid-cols-3"
-                    }`}
-                  >
-                    {compareDestinations.map((dest) => {
-                      const times = Object.entries(
-                        dest.transportOptions || {},
-                      ).filter(([_, v]) => v !== undefined) as [
-                        string,
-                        number,
-                      ][];
-                      const fastest =
-                        times.length > 0
-                          ? times.reduce((min, curr) =>
-                              curr[1] < min[1] ? curr : min,
-                            )
-                          : ["none", 999];
-                      const time = fastest[1];
-                      const mode = fastest[0];
-                      const isFastest = time === minTravelTime && time !== 999;
-                      return (
-                        <div
-                          key={dest.id}
-                          className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 flex justify-between items-center min-w-0"
-                        >
-                          <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs truncate">
-                            {time !== 999 ? `${time}m (${mode})` : "N/A"}
+                      {/* Travel Time */}
+                      <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
+                          {t("compare.travel")}
+                        </span>
+                        <div className="flex items-center gap-1.5">
+                          <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs">
+                            {time !== 999
+                              ? `${time}m`
+                              : t("compare.unavailable")}
                           </span>
                           {isFastest && (
-                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold shrink-0">
-                              Fastest
+                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
+                              {t("compare.fastest")}
                             </Badge>
                           )}
                         </div>
-                      );
-                    })}
-                  </div>
-                </div>
+                      </div>
 
-                {/* Metric 4: Walking Intensity */}
-                <div className="space-y-1.5">
-                  <div className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                    Walk Intensity
-                  </div>
-                  <div
-                    className={`grid gap-4 ${
-                      compareDestinations.length === 1
-                        ? "grid-cols-1 max-w-md mx-auto"
-                        : compareDestinations.length === 2
-                          ? "grid-cols-1 md:grid-cols-2"
-                          : "grid-cols-1 md:grid-cols-3"
-                    }`}
-                  >
-                    {compareDestinations.map((dest) => {
-                      const walkMeta = getWalkingIntensityMetadata(
-                        getWalkingIntensity(dest),
-                      );
-                      return (
-                        <div
-                          key={dest.id}
-                          className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 flex justify-between items-center min-w-0"
+                      {/* Walking */}
+                      <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
+                          {t("compare.walk")}
+                        </span>
+                        <span
+                          className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${walkMeta.badgeClass}`}
                         >
-                          <span
-                            className={`px-2.5 py-0.5 rounded-full text-xs font-bold border ${walkMeta.badgeClass}`}
-                          >
-                            {walkMeta.icon} {walkMeta.label}
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
+                          {walkMeta.label}
+                        </span>
+                      </div>
 
-                {/* Metric 5: Couple Score */}
-                <div className="space-y-1.5">
-                  <div className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                    Couple Rating
-                  </div>
-                  <div
-                    className={`grid gap-4 ${
-                      compareDestinations.length === 1
-                        ? "grid-cols-1 max-w-md mx-auto"
-                        : compareDestinations.length === 2
-                          ? "grid-cols-1 md:grid-cols-2"
-                          : "grid-cols-1 md:grid-cols-3"
-                    }`}
-                  >
-                    {compareDestinations.map((dest) => {
-                      const score = dest.ratings.couple;
-                      const isMax = score === maxCoupleScore;
-                      return (
-                        <div
-                          key={dest.id}
-                          className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 flex justify-between items-center min-w-0"
-                        >
+                      {/* Couple Rating */}
+                      <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
+                          {t("compare.couple")}
+                        </span>
+                        <div className="flex items-center gap-1.5">
                           <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs">
-                            {score} / 10
+                            {dest.ratings.couple}/10
                           </span>
-                          {isMax && (
-                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold shrink-0">
-                              Highest
+                          {isMaxCouple && (
+                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
+                              {t("compare.top")}
                             </Badge>
                           )}
                         </div>
-                      );
-                    })}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </>
+                );
+              })}
+            </div>
           )}
         </div>
       </div>

@@ -29,6 +29,14 @@ vi.mock("@/shared/context/AuthModalContext", () => ({
   useAuthModal: () => ({ openAuthModal: vi.fn() }),
 }));
 
+vi.mock("@/shared/context/ThemeContext", () => ({
+  useTheme: () => ({
+    theme: "light",
+    setTheme: vi.fn(),
+    resolvedTheme: "light",
+  }),
+}));
+
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string) => key,
@@ -64,7 +72,7 @@ describe("Navbar Component", () => {
     expect(typeof Navbar).toBe("function");
   });
 
-  it("keeps the home link accessible and shows the wordmark from 360px", () => {
+  it("keeps the home link accessible and shows both mark and wordmark", () => {
     const node = renderNavbar();
 
     const homeLink = node.querySelector<HTMLAnchorElement>(
@@ -79,25 +87,31 @@ describe("Navbar Component", () => {
 
     expect(homeLink).not.toBeNull();
     expect(wordmark?.textContent).toBe("Meguruto");
-    expect(wordmark?.className).toContain("hidden min-[360px]:inline");
-    expect(wordmark?.className).not.toContain("sm:inline");
+    expect(wordmark?.className).toContain("inline");
+    expect(wordmark?.className).not.toContain("hidden");
     expect(markFrame?.className).toContain("dark:ring-white/50");
   });
 
-  it("makes the language menu available in the mobile navbar", () => {
+  it("makes the language toggle available in the mobile hamburger drawer and desktop navbar", () => {
     const node = renderNavbar();
-    const languageButton = node.querySelector<HTMLButtonElement>(
-      'button[aria-label="Select language"]',
+    const desktopLanguageContainer = node.querySelector<HTMLDivElement>(
+      "div.relative.hidden.md\\:block",
     );
+    expect(desktopLanguageContainer).not.toBeNull();
 
-    expect(languageButton).not.toBeNull();
-    expect(languageButton?.parentElement?.className).not.toContain("hidden");
-
-    act(() => languageButton?.click());
-    const japanese = Array.from(node.querySelectorAll("button")).find(
-      (button) => button.textContent?.includes("日本語"),
+    // Open mobile menu drawer to access mobile language toggle
+    const menuButton = node.querySelector<HTMLButtonElement>(
+      'button[aria-label="Toggle menu"]',
     );
-    act(() => japanese?.click());
+    act(() => menuButton?.click());
+
+    const langToggle = Array.from(node.querySelectorAll("button")).find(
+      (b) =>
+        b.textContent?.includes("navigation.language") ||
+        b.textContent?.includes("Language"),
+    );
+    expect(langToggle).not.toBeNull();
+    act(() => langToggle?.click());
     expect(localeState.setLocale).toHaveBeenCalledWith("ja");
   });
 
@@ -117,5 +131,20 @@ describe("Navbar Component", () => {
     expect(versionSpan?.tagName).toBe("SPAN");
     // No 'Notes' badge element should exist
     expect(node.textContent).not.toContain("Notes");
+  });
+
+  it("renders 4 consistent top-level navigation items on desktop", () => {
+    const node = renderNavbar();
+    const desktopNav = node.querySelector("nav.hidden.md\\:flex");
+    expect(desktopNav).not.toBeNull();
+    const links = desktopNav?.querySelectorAll("a");
+    expect(links?.length).toBe(4);
+    const hrefs = Array.from(links || []).map((a) => a.getAttribute("href"));
+    expect(hrefs).toEqual([
+      "/destinations",
+      "/collections",
+      "/my-trips",
+      "/passport",
+    ]);
   });
 });

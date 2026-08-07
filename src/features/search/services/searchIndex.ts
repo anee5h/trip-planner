@@ -191,19 +191,22 @@ export function searchDocuments(
 
     return [
       {
-        type: "navigation",
-        label: "Navigation & Actions",
-        items: navActions.slice(0, 4),
-      },
-      {
         type: "destination",
-        label: "Popular Destinations",
+        label: locale === "ja" ? "人気の目的地" : "Popular Destinations",
         items: popularDestinations,
       },
       {
         type: "collection",
-        label: "Featured Collections",
+        label: locale === "ja" ? "注目のコレクション" : "Featured Collections",
         items: popularCollections,
+      },
+      {
+        type: "navigation",
+        label:
+          locale === "ja"
+            ? "ナビゲーションとアクション"
+            : "Navigation & Actions",
+        items: navActions.slice(0, 4),
       },
     ];
   }

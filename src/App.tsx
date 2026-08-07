@@ -29,7 +29,7 @@ const CollectionsDirectory = lazy(
 const CollectionDetails = lazy(
   () => import("./features/collections/CollectionDetails"),
 );
-const Profile = lazy(() => import("./features/profile/Profile"));
+
 const Settings = lazy(() => import("./features/settings/Settings"));
 const Help = lazy(() => import("./features/help/Help"));
 const QaDashboard = lazy(() => import("./features/qa/QaDashboard"));
@@ -53,6 +53,8 @@ import { AuthModalProvider } from "./shared/context/AuthModalContext";
 import { useIdlePrefetch } from "./shared/hooks/useIdlePrefetch";
 import { OnboardingFlow } from "./shared/components/auth/OnboardingFlow";
 
+import BottomNav from "./shared/components/layout/BottomNav";
+
 function AppInner() {
   const [compareModalOpen, setCompareModalOpen] = useState(false);
   useIdlePrefetch();
@@ -62,7 +64,7 @@ function AppInner() {
       <Router>
         <div className="flex flex-col min-h-screen bg-background text-foreground">
           <Navbar />
-          <main className="flex-grow">
+          <main className="flex-grow pb-[calc(4.25rem+env(safe-area-inset-bottom))] md:pb-0">
             <ErrorBoundary>
               <Suspense fallback={<PageLoader />}>
                 <Routes>
@@ -92,7 +94,12 @@ function AppInner() {
                     path="/visited-map"
                     element={<Navigate to="/passport" replace />}
                   />
-                  <Route path="/profile" element={<Profile />} />
+                  <Route
+                    path="/profile"
+                    element={
+                      <Navigate to="/settings?section=account" replace />
+                    }
+                  />
                   <Route path="/settings" element={<Settings />} />
                   <Route path="/help" element={<Help />} />
                   <Route path="/qa" element={<QaDashboard />} />
@@ -108,6 +115,7 @@ function AppInner() {
             </ErrorBoundary>
           </main>
           <Footer />
+          <BottomNav />
           <CompareFloatingBar onOpenModal={() => setCompareModalOpen(true)} />
           <CompareModal
             isOpen={compareModalOpen}

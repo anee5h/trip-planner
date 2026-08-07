@@ -10,11 +10,25 @@
     "hide": "非表示"
   },
   "navigation": {
+    "home": "ホーム",
+    "explore": "探す",
+    "trips": "旅程",
     "destinations": "目的地",
     "collections": "コレクション",
     "itineraries": "旅程",
     "bucketList": "行きたい",
-    "passport": "パスポート"
+    "passport": "パスポート",
+    "editProfile": "アカウント編集",
+    "settings": "設定",
+    "language": "言語",
+    "theme": "テーマ",
+    "signedInAs": "ログイン中:",
+    "help": "ヘルプ",
+    "feedback": "フィードバック送信",
+    "signIn": "ログイン",
+    "signOut": "ログアウト",
+    "back": "戻る",
+    "discover": "発見"
   },
   "legal": {
     "terms": "利用規約",
@@ -644,5 +658,25 @@
     "chooseTravelDate": "旅行日を選択",
     "forecastNearOrigin": "{{origin}}付近の予報",
     "day2DerivedHint": "2日目（1泊2日の推測）"
+  },
+  "theme": {
+    "light": "ライト",
+    "dark": "ダーク",
+    "system": "システム"
+  },
+  "compare": {
+    "score": "スコア",
+    "best": "最高",
+    "budget": "予算",
+    "lowest": "最安",
+    "travel": "移動時間",
+    "fastest": "最速",
+    "walk": "徒歩強度",
+    "couple": "カップル度",
+    "top": "最高評価",
+    "attraction": "観光スポット",
+    "removeFromCompare": "比較から削除",
+    "closeModal": "比較モーダルを閉じる",
+    "unavailable": "該当なし"
   }
 }

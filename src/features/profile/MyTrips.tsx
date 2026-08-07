@@ -78,6 +78,32 @@ export default function MyTrips() {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-7xl space-y-8">
+      {/* Shared Trips Sub-Navigation */}
+      <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+        <Link
+          to="/my-trips"
+          className={`flex items-center gap-2 px-4 py-2.5 sm:py-2 min-h-[44px] sm:min-h-[36px] rounded-xl text-xs font-bold transition-all ${
+            !isBucketListRoute
+              ? "bg-emerald-600 text-white shadow-sm"
+              : "bg-slate-100 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+          }`}
+        >
+          <Calendar className="w-4 h-4" />
+          <span>{t("navigation.itineraries")}</span>
+        </Link>
+        <Link
+          to="/bucket-list"
+          className={`flex items-center gap-2 px-4 py-2.5 sm:py-2 min-h-[44px] sm:min-h-[36px] rounded-xl text-xs font-bold transition-all ${
+            isBucketListRoute
+              ? "bg-emerald-600 text-white shadow-sm"
+              : "bg-slate-100 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+          }`}
+        >
+          <Bookmark className="w-4 h-4" />
+          <span>{t("navigation.bucketList")}</span>
+        </Link>
+      </div>
+
       <PageHeader
         title={
           activeTab === "bucketlist"

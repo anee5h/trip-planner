@@ -8,6 +8,7 @@ import { BadgeDetailModal } from "./BadgeDetailModal";
 import { Icons } from "@/shared/icons";
 import { useLocalStorage } from "@/shared/hooks/useLocalStorage";
 import { useTranslation } from "react-i18next";
+import { Layers, Train, Heart, MapPin, Sparkles } from "lucide-react";
 
 export function PassportBadges() {
   const { t } = useTranslation();
@@ -79,27 +80,35 @@ export function PassportBadges() {
         </div>
       </div>
 
-      {/* Category Filter Tabs */}
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+      {/* Category Filter Tabs — mobile: icon-only except active; sm+: icon + label. No scrolling. */}
+      <div className="flex items-center gap-1.5">
         {[
-          { id: "all", label: t("ui.collections") },
-          { id: "travel-style", label: "Travel Style" },
-          { id: "interests", label: "Interests" },
-          { id: "regional", label: "Regional" },
-          { id: "experience", label: "Experience" },
+          { id: "all", label: t("ui.collections"), Icon: Layers },
+          { id: "travel-style", label: "Travel Style", Icon: Train },
+          { id: "interests", label: "Interests", Icon: Heart },
+          { id: "regional", label: "Regional", Icon: MapPin },
+          { id: "experience", label: "Experience", Icon: Sparkles },
         ].map((cat) => {
           const isActive = activeCategory === cat.id;
+          const Icon = cat.Icon;
           return (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id as any)}
-              className={`px-4 py-2 rounded-2xl text-xs font-bold shrink-0 transition-all ${
+              title={cat.label}
+              aria-label={cat.label}
+              className={`px-3 py-2.5 sm:py-2 min-h-[44px] sm:min-h-[36px] rounded-2xl text-xs font-bold shrink-0 transition-all flex items-center justify-center gap-1.5 ${
                 isActive
                   ? "bg-emerald-600 text-white shadow-sm"
-                  : "bg-slate-100 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+                  : "bg-slate-100 dark:bg-slate-800/60 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700"
               }`}
             >
-              {cat.label}
+              <Icon
+                className={`w-4 h-4 ${isActive ? "text-white" : "text-slate-600 dark:text-slate-300"}`}
+                aria-hidden="true"
+              />
+              <span className="hidden sm:inline">{cat.label}</span>
+              {isActive && <span className="sm:hidden">{cat.label}</span>}
             </button>
           );
         })}

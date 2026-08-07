@@ -333,9 +333,9 @@ export function ItineraryPickerModal({
         aria-labelledby="itinerary-picker-title"
       >
         {/* Header */}
-        <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-850">
+        <div className="p-6 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between bg-slate-50/70 dark:bg-slate-900/90">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-emerald-50 dark:bg-emerald-950/50 rounded-2xl text-emerald-600 dark:text-emerald-400">
+            <div className="p-2.5 bg-emerald-50 dark:bg-emerald-950/60 rounded-2xl text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/40">
               {payload.type === "destination" ? (
                 <Calendar className="w-5 h-5" />
               ) : (
@@ -349,7 +349,7 @@ export function ItineraryPickerModal({
               >
                 {modalTitle}
               </h3>
-              <p className="text-xs text-slate-500 truncate max-w-[240px]">
+              <p className="text-xs text-slate-500 dark:text-slate-400 truncate max-w-[240px]">
                 {modalSubtitle}
               </p>
             </div>
@@ -357,7 +357,8 @@ export function ItineraryPickerModal({
           <button
             onClick={handleClose}
             disabled={isSubmitting}
-            className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full transition-colors disabled:opacity-50 min-h-[44px] min-w-[44px] flex items-center justify-center"
+            aria-label="Close modal"
+            className="p-2 text-slate-400 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-100 rounded-full transition-colors disabled:opacity-50 min-h-[44px] min-w-[44px] flex items-center justify-center"
           >
             <X className="w-5 h-5" />
           </button>

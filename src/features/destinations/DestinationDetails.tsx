@@ -796,7 +796,7 @@ export default function DestinationDetails() {
         <div className="absolute top-0 left-0 right-0 p-4 z-20 flex items-center justify-between pointer-events-none bg-gradient-to-b from-slate-950/80 via-slate-950/40 to-transparent">
           <Link
             to={{ pathname: "/destinations", search: location.search }}
-            className="pointer-events-auto inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-full bg-black/50 hover:bg-black/70 text-slate-100 backdrop-blur-md border border-white/20 transition-all shadow-md"
+            className="hidden md:inline-flex pointer-events-auto items-center text-xs font-semibold px-3 py-1.5 rounded-full bg-black/50 hover:bg-black/70 text-slate-100 backdrop-blur-md border border-white/20 transition-all shadow-md"
           >
             <ArrowLeft className="w-3.5 h-3.5 mr-1" />
             {locale === "ja" ? "戻る" : "Back"}

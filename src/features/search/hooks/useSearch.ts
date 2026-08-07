@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { searchDocuments } from "../services/searchIndex";
 import type { SearchDocument, SearchGroup } from "../types";
 import { useLocale } from "@/shared/context/LocaleContext";
+import { OPEN_SEARCH_EVENT } from "../openSearch";
 
 export function useSearch() {
   const [query, setQuery] = useState("");
@@ -35,6 +36,16 @@ export function useSearch() {
     }
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // Explicit app event (BottomNav search button) — opens, never toggles
+  useEffect(() => {
+    function handleOpenSearch() {
+      setIsOpen(true);
+    }
+    window.addEventListener(OPEN_SEARCH_EVENT, handleOpenSearch);
+    return () =>
+      window.removeEventListener(OPEN_SEARCH_EVENT, handleOpenSearch);
   }, []);
 
   const selectItem = useCallback(
