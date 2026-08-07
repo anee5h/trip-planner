@@ -7,8 +7,6 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import StationInput from "@/shared/components/StationInput";
 import type { Destination } from "@/shared/types/destination";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
-import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
-import { formatPlaceName } from "@/shared/utils/placeLabels";
 import {
   UserRound,
   Globe,
@@ -24,6 +22,7 @@ import { Button } from "@/shared/components/ui/button";
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
+import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDestinationPicker";
 import packageJson from "@/../package.json";
 
 type SettingsSection =
@@ -88,10 +87,7 @@ export default function Settings() {
   const cityHubs = useMemo(
     () =>
       (getDestinationList(locale) as Destination[])
-        .filter(
-          (destination) =>
-            destination.role === "hub" && destination.kind === "city",
-        )
+        .filter((d) => d.role === "hub")
         .sort((a, b) => a.name.localeCompare(b.name)),
     [locale],
   );
@@ -281,11 +277,11 @@ export default function Settings() {
                 </div>
                 <div className="space-y-4">
                   <label className="block text-xs font-bold uppercase text-slate-500">
-                    {t("auth.signUpTitle")}
+                    Full name
                     <input
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      placeholder={t("auth.signUpPrompt")}
+                      placeholder="Your full name"
                       className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
                     />
                   </label>
@@ -300,21 +296,16 @@ export default function Settings() {
                   </label>
                   <label className="block text-xs font-bold uppercase text-slate-500">
                     {t("ui.chooseCity")}
-                    <select
+                    <SearchableDestinationPicker
                       value={homeCityId}
-                      onChange={(e) => setHomeCityId(e.target.value)}
-                      className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
-                    >
-                      <option value="">{t("ui.chooseCity")}</option>
-                      {cityHubs.map((city) => (
-                        <option key={city.id} value={city.id}>
-                          {formatPlaceName(
-                            getLocalizedPlace(city, locale),
-                            locale,
-                          )}
-                        </option>
-                      ))}
-                    </select>
+                      onSelect={(d) => setHomeCityId(d.id)}
+                      placeholder={t("ui.chooseCity")}
+                      locale={locale}
+                      destinations={cityHubs}
+                      savedDestinations={[]}
+                      recentDestinations={[]}
+                      className="mt-2"
+                    />
                   </label>
 
                   {/* Base location - moved into account */}

@@ -5,9 +5,8 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useLocale } from "@/shared/context/LocaleContext";
 import StationInput from "@/shared/components/StationInput";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
-import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
-import { formatPlaceName } from "@/shared/utils/placeLabels";
 import type { Destination } from "@/shared/types/destination";
+import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDestinationPicker";
 import { Button } from "@/shared/components/ui/button";
 import { useTranslation } from "react-i18next";
 
@@ -102,7 +101,7 @@ export function OnboardingFlow() {
   const cityHubs = useMemo(
     () =>
       (getDestinationList(locale) as Destination[])
-        .filter((d) => d.role === "hub" && d.kind === "city")
+        .filter((d) => d.role === "hub")
         .sort((a, b) => a.name.localeCompare(b.name)),
     [locale],
   );
@@ -192,7 +191,7 @@ export function OnboardingFlow() {
                   <input
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    placeholder="Your name"
+                    placeholder="Your full name"
                     className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
                   />
                 </label>
@@ -220,21 +219,16 @@ export function OnboardingFlow() {
                 </label>
                 <label className="block text-xs font-bold uppercase text-slate-500">
                   Home city
-                  <select
+                  <SearchableDestinationPicker
                     value={homeCityId}
-                    onChange={(e) => setHomeCityId(e.target.value)}
-                    className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
-                  >
-                    <option value="">Select home city</option>
-                    {cityHubs.map((city) => (
-                      <option key={city.id} value={city.id}>
-                        {formatPlaceName(
-                          getLocalizedPlace(city, locale),
-                          locale,
-                        )}
-                      </option>
-                    ))}
-                  </select>
+                    onSelect={(d) => setHomeCityId(d.id)}
+                    placeholder="Select home city"
+                    locale={locale}
+                    destinations={cityHubs}
+                    savedDestinations={[]}
+                    recentDestinations={[]}
+                    className="mt-2"
+                  />
                 </label>
                 <div>
                   <label className="block text-xs font-bold uppercase text-slate-500 mb-2">

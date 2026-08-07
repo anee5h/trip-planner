@@ -18,6 +18,7 @@ interface SearchableDestinationPickerProps {
   placeholder?: string;
   locale?: "en" | "ja";
   className?: string;
+  destinations?: Destination[];
   activeItineraryDestinations?: Destination[];
   savedDestinations?: Destination[];
   recentDestinations?: Destination[];
@@ -29,6 +30,7 @@ export function SearchableDestinationPicker({
   placeholder = "Search destination or city...",
   locale = "en",
   className = "",
+  destinations: customDestinations,
   activeItineraryDestinations = [],
   savedDestinations = [],
   recentDestinations = [],
@@ -63,7 +65,10 @@ export function SearchableDestinationPicker({
     }
   }, [activeIndex, isOpen]);
 
-  const allDestinations = useMemo(() => getCanonicalPlaces(), []);
+  const allDestinations = useMemo(
+    () => customDestinations ?? getCanonicalPlaces(),
+    [customDestinations],
+  );
 
   const selectedDestination = useMemo(() => {
     return allDestinations.find((d: Destination) => d.id === value) || null;
