@@ -22,6 +22,9 @@ import type { TravelConditionEvaluation } from "@/shared/services/recommendation
 import { formatTravelConditionParams } from "@/shared/services/recommendation/TravelConditions";
 import { Sun, Cloud, CloudRain, CloudSnow, CloudLightning } from "lucide-react";
 
+import { ALL_PUBLIC_MODES } from "../services/TransportResolver";
+import { getLocalDiscoveryDisplayEstimate } from "../services/LocalDiscoveryDisplayEstimator";
+
 interface HomeMatchCardProps {
   destination: Destination;
   rank: number;
@@ -54,7 +57,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   showRank = true,
   partySize = 2,
   carMode = "none",
-  publicModes = ["shinkansen", "limited_express", "local_train", "bus"],
+  publicModes = ALL_PUBLIC_MODES,
   travelDate,
 }) => {
   const { locale } = useLocale();
@@ -81,7 +84,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     homeStationCoords,
     originZoneId: homeStationTransportZoneId,
   });
-  const bestTransport = getFastestPreferredTransport(
+  const verifiedTransport = getFastestPreferredTransport(
     adjustedDestination,
     carMode,
     publicModes,
@@ -91,8 +94,23 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     travelDate ? { travelDate: new Date(`${travelDate}T12:00:00`) } : undefined,
   );
 
-  const travelTimeText = bestTransport
-    ? formatTransportTime(bestTransport.timeRange, locale)
+  // Presentation-only local display estimate fallback (same municipality ONLY)
+  const localDisplayEstimate = !verifiedTransport
+    ? getLocalDiscoveryDisplayEstimate(destination, {
+        homeStationCoords,
+        carMode,
+        publicModes,
+      })
+    : null;
+
+  const displayTransport = verifiedTransport ?? localDisplayEstimate;
+
+  const travelTimeText = displayTransport
+    ? localDisplayEstimate
+      ? locale === "ja"
+        ? `約${formatTransportTime(displayTransport.timeRange, locale)}`
+        : `Est. ${formatTransportTime(displayTransport.timeRange, locale)}`
+      : formatTransportTime(displayTransport.timeRange, locale)
     : t("home.transportModes.travel");
   const transportDisplay = {
     train: { Icon: Train, label: t("home.transportModes.train") },
@@ -101,7 +119,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     flight: { Icon: Plane, label: t("home.transportModes.flight") },
     car: { Icon: Car, label: t("home.transportModes.car") },
     my_car: { Icon: Car, label: t("home.transportModes.my_car") },
-  }[bestTransport?.mode ?? ""] ?? {
+  }[displayTransport?.mode ?? ""] ?? {
     Icon: Train,
     label: t("home.transportModes.travel"),
   };
@@ -261,7 +279,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
                 .filter(Boolean)
                 .join(" · ")}
               {weekend?.travelFit.oneWayMinutes !== undefined &&
-                bestTransport?.mode && (
+                displayTransport?.mode && (
                   <span className="text-slate-500">
                     {" "}
                     ·{" "}

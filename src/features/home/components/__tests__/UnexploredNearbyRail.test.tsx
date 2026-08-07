@@ -301,4 +301,23 @@ describe("UnexploredNearbyRail", () => {
     // From Yokohama, yokohama should be first
     expect(ids).toEqual(["yokohama", "tokyo"]);
   });
+
+  it("renders estimated travel time for nearby same-municipality Yokohama destinations", () => {
+    const yokohamaPOI = {
+      ...makeDestination("yokohama-chinatown", 35.4437, 139.638),
+      prefecture: "Kanagawa",
+      municipalityId: "Kanagawa:yokohama",
+      transportOptions: { train: 25 },
+    };
+
+    const container = renderRail({
+      destinations: [yokohamaPOI],
+      homeStationCoords: origin2,
+      isVisited: () => false,
+    });
+
+    const text = container.textContent ?? "";
+    expect(text).toMatch(/\d+\s*min/);
+    expect(text).not.toContain("home.transportModes.travel");
+  });
 });
