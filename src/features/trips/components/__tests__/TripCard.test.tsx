@@ -68,7 +68,7 @@ describe("TripCard", () => {
 
     // Click delete icon
     const deleteBtn = host.querySelector<HTMLButtonElement>(
-      'button[aria-label="Delete trip"]',
+      'button[aria-label="ui.delete"]',
     );
     act(() => deleteBtn?.click());
 
@@ -88,7 +88,7 @@ describe("TripCard", () => {
     render();
 
     const deleteBtn = host.querySelector<HTMLButtonElement>(
-      'button[aria-label="Delete trip"]',
+      'button[aria-label="ui.delete"]',
     );
     act(() => deleteBtn?.click());
 

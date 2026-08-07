@@ -95,7 +95,7 @@ export default function Settings() {
   const cityHubs = useMemo(
     () =>
       (getDestinationList(locale) as Destination[])
-        .filter((d) => d.role === "hub")
+        .filter((d) => d.role === "hub" && d.kind === "city")
         .sort((a, b) => a.name.localeCompare(b.name)),
     [locale],
   );

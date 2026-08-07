@@ -59,7 +59,7 @@ export default function TripCard({ trip, onSelect, onDelete }: TripCardProps) {
               size="icon"
               onClick={() => setConfirmDelete(true)}
               className="text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-full"
-              aria-label="Delete trip"
+              aria-label={t("ui.delete")}
             >
               <Trash2 className="w-4 h-4" />
             </Button>

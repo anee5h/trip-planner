@@ -10,15 +10,18 @@ import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDe
 import { Button } from "@/shared/components/ui/button";
 import { useTranslation } from "react-i18next";
 
-const ONBOARDING_KEY = "meguruto-onboarding-v1";
+const ONBOARDING_PREFIX = "meguruto-onboarding-v2";
+
+function onboardingKey(userId: string): string {
+  return `${ONBOARDING_PREFIX}-${userId}`;
+}
 
 function isOnboardingNeeded(userId: string): boolean {
   try {
-    const stored = localStorage.getItem(ONBOARDING_KEY);
+    const stored = localStorage.getItem(onboardingKey(userId));
     if (!stored) return true;
     const data = JSON.parse(stored);
-    // completed or skipped: don't show again
-    return !data.completed && !data.skipped && data.userId === userId;
+    return !data.completed && !data.skipped;
   } catch {
     return true;
   }
@@ -26,15 +29,15 @@ function isOnboardingNeeded(userId: string): boolean {
 
 function markOnboardingSkipped(userId: string) {
   localStorage.setItem(
-    ONBOARDING_KEY,
-    JSON.stringify({ userId, skipped: true, skippedAt: Date.now() }),
+    onboardingKey(userId),
+    JSON.stringify({ skipped: true, skippedAt: Date.now() }),
   );
 }
 
 function markOnboardingComplete(userId: string) {
   localStorage.setItem(
-    ONBOARDING_KEY,
-    JSON.stringify({ userId, completed: true }),
+    onboardingKey(userId),
+    JSON.stringify({ completed: true }),
   );
 }
 
@@ -48,6 +51,8 @@ export function OnboardingFlow() {
     "account",
   );
   const [visible, setVisible] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState("");
 
   // Account fields
   const [fullName, setFullName] = useState("");
@@ -104,7 +109,7 @@ export function OnboardingFlow() {
   const cityHubs = useMemo(
     () =>
       (getDestinationList(locale) as Destination[])
-        .filter((d) => d.role === "hub")
+        .filter((d) => d.role === "hub" && d.kind === "city")
         .sort((a, b) => a.name.localeCompare(b.name)),
     [locale],
   );
@@ -123,19 +128,28 @@ export function OnboardingFlow() {
 
   const handleSaveAccount = async () => {
     if (!user?.id) return;
-    await updateUserProfile({
+    setSaving(true);
+    setSaveError("");
+    const { error } = await updateUserProfile({
       full_name: fullName.trim(),
       base_location: baseLocation,
       home_city: homeCityId,
       default_locale: defaultLocale,
     });
+    setSaving(false);
+    if (error) {
+      setSaveError(error.message || t("ui.failedSave"));
+      return;
+    }
     setLocale(defaultLocale);
     setStep("preferences");
   };
 
   const handleSavePreferences = async () => {
     if (!user?.id) return;
-    await updateUserProfile({
+    setSaving(true);
+    setSaveError("");
+    const { error } = await updateUserProfile({
       preferences: {
         carMode,
         publicModes,
@@ -144,6 +158,11 @@ export function OnboardingFlow() {
         preferences_set: true,
       },
     });
+    setSaving(false);
+    if (error) {
+      setSaveError(error.message || t("ui.failedSave"));
+      return;
+    }
     markOnboardingComplete(user.id);
     setStep("done");
     setTimeout(() => setVisible(false), 1500);
@@ -187,6 +206,11 @@ export function OnboardingFlow() {
                     {t("onboarding.accountHelp")}
                   </p>
                 </div>
+                {saveError && (
+                  <div className="p-3 rounded-xl bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400 text-xs font-bold">
+                    {saveError}
+                  </div>
+                )}
                 <label className="block text-xs font-bold uppercase text-slate-500">
                   {t("settings.fullName")}
                   <input
@@ -242,6 +266,7 @@ export function OnboardingFlow() {
                     type="button"
                     variant="outline"
                     onClick={handleSkip}
+                    disabled={saving}
                     className="flex-1 rounded-xl text-xs font-bold"
                   >
                     {t("onboarding.skip")}
@@ -249,6 +274,7 @@ export function OnboardingFlow() {
                   <Button
                     type="button"
                     onClick={handleSaveAccount}
+                    disabled={saving}
                     className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold"
                   >
                     {t("onboarding.continue")}
@@ -267,6 +293,11 @@ export function OnboardingFlow() {
                     {t("onboarding.preferencesHelp")}
                   </p>
                 </div>
+                {saveError && (
+                  <div className="p-3 rounded-xl bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400 text-xs font-bold">
+                    {saveError}
+                  </div>
+                )}
 
                 <div>
                   <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5">
@@ -378,6 +409,7 @@ export function OnboardingFlow() {
                     type="button"
                     variant="outline"
                     onClick={handleSkip}
+                    disabled={saving}
                     className="flex-1 rounded-xl text-xs font-bold"
                   >
                     {t("onboarding.skip")}
@@ -385,6 +417,7 @@ export function OnboardingFlow() {
                   <Button
                     type="button"
                     onClick={handleSavePreferences}
+                    disabled={saving}
                     className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold"
                   >
                     {t("ui.save")}

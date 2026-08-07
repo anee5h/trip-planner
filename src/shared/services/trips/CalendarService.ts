@@ -1,5 +1,12 @@
 import type { Trip } from "@/shared/types/trip";
 
+function formatStopLine(s: Trip["stops"][number], idx: number): string {
+  const parts: string[] = [`${idx + 1}. ${s.name}`];
+  if (s.date) parts.push(s.date);
+  if (s.arrivalTime) parts.push(`Arr: ${s.arrivalTime}`);
+  return parts.join(" — ");
+}
+
 export function generateIcsContent(trip: Trip): string {
   const formatIcsDate = (dateStr: string) => {
     return dateStr.replace(/-/g, "") + "T000000Z";
@@ -10,7 +17,7 @@ export function generateIcsContent(trip: Trip): string {
   const end = formatIcsDate(getNextDay(endDate));
 
   const description = trip.stops
-    .map((s, idx) => `${idx + 1}. ${s.name}${s.date ? ` — ${s.date}` : ""}`)
+    .map((s, idx) => formatStopLine(s, idx))
     .join("\\n");
 
   return [
@@ -79,7 +86,7 @@ export function generateGoogleCalendarUrl(trip: Trip): string {
   const tripLink = `${window.location.origin}/my-trips?tripId=${trip.id}`;
 
   const stopsSummary = trip.stops
-    .map((s, idx) => `${idx + 1}. ${s.name}${s.date ? ` — ${s.date}` : ""}`)
+    .map((s, idx) => formatStopLine(s, idx))
     .join("\n");
 
   const body = `Plan Link: ${tripLink}\n\nItinerary Overview:\n${stopsSummary}`;
