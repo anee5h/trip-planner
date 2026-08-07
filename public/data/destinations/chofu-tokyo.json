@@ -1,6 +1,6 @@
 {
   "id": "chofu-tokyo",
-  "name": "Chofu",
+  "name": "Chofu City",
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Culture", "Nature", "Food"],
@@ -119,7 +119,7 @@
   "nameJa": "調布市",
   "content": {
     "en": {
-      "name": "Chofu",
+      "name": "Chofu City",
       "description": "Leafy suburban Tokyo town famous for Jindaiji Temple, hand-made Soba noodles, and GeGeGe no Kitaro anime heritage.",
       "highlights": [
         "Jindaiji Temple",

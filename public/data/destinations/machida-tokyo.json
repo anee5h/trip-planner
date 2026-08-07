@@ -1,6 +1,6 @@
 {
   "id": "machida-tokyo",
-  "name": "Machida",
+  "name": "Machida City",
   "prefecture": "Tokyo",
   "region": "Kanto",
   "categories": ["Urban", "Shopping", "Parks"],
@@ -114,7 +114,7 @@
   "nameJa": "町田市",
   "content": {
     "en": {
-      "name": "Machida",
+      "name": "Machida City",
       "description": "Vibrant shopping and commercial hub in western Tokyo bordering Kanagawa, famous for Serigaya Park and Squirrel Garden.",
       "highlights": [
         "Machida Squirrel Garden",

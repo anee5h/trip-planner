@@ -4034,7 +4034,7 @@
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG",
     "description": "Bitchu Matsuyama Castle is Japan's highest original mountain castle (430 meters above sea level), celebrated for floating above a sea of clouds on autumn mornings.",
-    "notes": "A fantastic trip to Boso Peninsula. Known for its road trip and ocean vibes, it offers a great escape with an overall score of 9.7.",
+    "notes": "Japan's only surviving mountain castle with its original keep.",
     "categories": ["history", "culture", "sightseeing"],
     "budgetMin": 4000,
     "budgetMax": 14000,
@@ -4081,10 +4081,10 @@
     "parking": "Available on site",
     "schemaVersion": 2,
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Boso Peninsula via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Boso%20Peninsula"
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Reggaeman, CC BY-SA 3.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bitchu_Matsuyama_Castle_1.JPG"
     },
     "walkingIntensity": "medium",
     "role": "standalone",
@@ -7108,7 +7108,7 @@
   },
   {
     "id": "chofu-tokyo",
-    "name": "Chofu",
+    "name": "Chofu City",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["Culture", "Nature", "Food"],
@@ -7227,7 +7227,7 @@
     "nameJa": "調布市",
     "content": {
       "en": {
-        "name": "Chofu",
+        "name": "Chofu City",
         "description": "Leafy suburban Tokyo town famous for Jindaiji Temple, hand-made Soba noodles, and GeGeGe no Kitaro anime heritage.",
         "highlights": [
           "Jindaiji Temple",
@@ -10950,7 +10950,7 @@
   },
   {
     "id": "fukui",
-    "name": "Fukui",
+    "name": "Fukui City",
     "kind": "city",
     "region": "Chubu",
     "categories": ["City", "Museum", "Coast"],
@@ -24097,7 +24097,7 @@
   },
   {
     "id": "kanazawa",
-    "name": "Kanazawa",
+    "name": "Kanazawa City",
     "kind": "city",
     "region": "Chubu",
     "categories": ["City", "Garden", "History"],
@@ -33686,7 +33686,7 @@
   },
   {
     "id": "machida-tokyo",
-    "name": "Machida",
+    "name": "Machida City",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["Urban", "Shopping", "Parks"],
@@ -33800,7 +33800,7 @@
     "nameJa": "町田市",
     "content": {
       "en": {
-        "name": "Machida",
+        "name": "Machida City",
         "description": "Vibrant shopping and commercial hub in western Tokyo bordering Kanagawa, famous for Serigaya Park and Squirrel Garden.",
         "highlights": [
           "Machida Squirrel Garden",
@@ -46617,6 +46617,7 @@
   {
     "id": "okayama-city",
     "name": "Okayama City",
+    "nameJa": "岡山市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -47038,7 +47039,7 @@
   },
   {
     "id": "ome-tokyo",
-    "name": "Ome",
+    "name": "Ome City",
     "prefecture": "Tokyo",
     "region": "Kanto",
     "categories": ["Nature", "Culture", "Hiking"],
@@ -47151,7 +47152,7 @@
     "nameJa": "青梅市",
     "content": {
       "en": {
-        "name": "Ome",
+        "name": "Ome City",
         "description": "Nostalgic Showa-era movie poster town in western Tokyo surrounded by Mitake Gorge, river rafting, and mountain shrines.",
         "highlights": [
           "Mitake Gorge",
@@ -60090,7 +60091,7 @@
   },
   {
     "id": "takaoka",
-    "name": "Takaoka",
+    "name": "Takaoka City",
     "kind": "city",
     "region": "Chubu",
     "categories": ["City", "Shrine", "History"],

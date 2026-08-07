@@ -1,6 +1,7 @@
 {
   "id": "okayama-city",
   "name": "Okayama City",
+  "nameJa": "岡山市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

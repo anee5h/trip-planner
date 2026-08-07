@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-06",
-  "scope": "First verified correction batch (Okayama focus + conclusive nationwide outliers)",
+  "generatedAt": "2026-08-07",
+  "scope": "KAI-6 verified municipality naming and Bitchu Matsuyama Castle metadata corrections",
   "corrections": [
     {
       "destinationId": "okayama-city",
@@ -195,6 +195,136 @@
       "sourceUrl": "https://www.jr-odekake.net/eki/top?id=0650614",
       "checkedAt": "2026-08-06",
       "confidence": "verified"
+    },
+    {
+      "destinationId": "okayama-city",
+      "field": "nameJa",
+      "oldValue": null,
+      "newValue": "岡山市",
+      "reason": "Okayama City is the municipality hub for Okayama Prefecture; its official Japanese municipality name is 岡山市.",
+      "sourceUrl": "https://www.city.okayama.jp/",
+      "checkedAt": "2026-08-07",
+      "confidence": "High"
+    },
+    {
+      "destinationId": "chofu-tokyo",
+      "field": "name",
+      "oldValue": "Chofu",
+      "newValue": "Chofu City",
+      "reason": "Official English municipal usage for the Chofu City government portal is Chofu City; the repository city-hub convention requires the City suffix.",
+      "sourceUrl": "https://www.city.chofu.lg.jp/english/",
+      "checkedAt": "2026-08-07",
+      "confidence": "High"
+    },
+    {
+      "destinationId": "chofu-tokyo",
+      "field": "content.en.name",
+      "oldValue": "Chofu",
+      "newValue": "Chofu City",
+      "reason": "Keeps the localized English canonical-name copy consistent with the corrected root name.",
+      "sourceUrl": "https://www.city.chofu.lg.jp/english/",
+      "checkedAt": "2026-08-07",
+      "confidence": "High"
+    },
+    {
+      "destinationId": "machida-tokyo",
+      "field": "name",
+      "oldValue": "Machida",
+      "newValue": "Machida City",
+      "reason": "Official English municipal usage on the Machida City site is Machida City; the repository city-hub convention requires the City suffix.",
+      "sourceUrl": "https://www.city.machida.tokyo.jp/",
+      "checkedAt": "2026-08-07",
+      "confidence": "High"
+    },
+    {
+      "destinationId": "machida-tokyo",
+      "field": "content.en.name",
+      "oldValue": "Machida",
+      "newValue": "Machida City",
+      "reason": "Keeps the localized English canonical-name copy consistent with the corrected root name.",
+      "sourceUrl": "https://www.city.machida.tokyo.jp/",
+      "checkedAt": "2026-08-07",
+      "confidence": "High"
+    },
+    {
+      "destinationId": "ome-tokyo",
+      "field": "name",
+      "oldValue": "Ome",
+      "newValue": "Ome City",
+      "reason": "Official English municipal usage on the Ome City site is Ome City; the repository city-hub convention requires the City suffix.",
+      "sourceUrl": "https://www.city.ome.tokyo.jp/english/",
+      "checkedAt": "2026-08-07",
+      "confidence": "High"
+    },
+    {
+      "destinationId": "ome-tokyo",
+      "field": "content.en.name",
+      "oldValue": "Ome",
+      "newValue": "Ome City",
+      "reason": "Keeps the localized English canonical-name copy consistent with the corrected root name.",
+      "sourceUrl": "https://www.city.ome.tokyo.jp/english/",
+      "checkedAt": "2026-08-07",
+      "confidence": "High"
+    },
+    {
+      "destinationId": "fukui",
+      "field": "name",
+      "oldValue": "Fukui",
+      "newValue": "Fukui City",
+      "reason": "Official English municipal usage on the Fukui City site is Fukui City; the repository city convention requires the City suffix.",
+      "sourceUrl": "https://www.city.fukui.lg.jp/english/",
+      "checkedAt": "2026-08-07",
+      "confidence": "High"
+    },
+    {
+      "destinationId": "kanazawa",
+      "field": "name",
+      "oldValue": "Kanazawa",
+      "newValue": "Kanazawa City",
+      "reason": "Official English municipal usage on the Kanazawa City site is Kanazawa City; the repository city convention requires the City suffix.",
+      "sourceUrl": "https://www4.city.kanazawa.lg.jp/english/",
+      "checkedAt": "2026-08-07",
+      "confidence": "High"
+    },
+    {
+      "destinationId": "takaoka",
+      "field": "name",
+      "oldValue": "Takaoka",
+      "newValue": "Takaoka City",
+      "reason": "Official English municipal usage on the Takaoka City site is Takaoka City; the repository city convention requires the City suffix.",
+      "sourceUrl": "https://www.city.takaoka.toyama.jp/english/",
+      "checkedAt": "2026-08-07",
+      "confidence": "High"
+    },
+    {
+      "destinationId": "bitchu-matsuyama-castle",
+      "field": "notes",
+      "oldValue": "A fantastic trip to Boso Peninsula. Known for its road trip and ocean vibes, it offers a great escape with an overall score of 9.7.",
+      "newValue": "Japan's only surviving mountain castle with its original keep.",
+      "reason": "The previous note described a Boso Peninsula road trip and was a copy-paste contamination; the official castle site describes Bitchu Matsuyama as a surviving original-keep mountain castle.",
+      "sourceUrl": "https://www.bitchumatsuyamacastle.jp/",
+      "checkedAt": "2026-08-07",
+      "confidence": "High"
+    },
+    {
+      "destinationId": "bitchu-matsuyama-castle",
+      "field": "imageMetadata",
+      "oldValue": {
+        "source": "Wikimedia Commons / Wikipedia",
+        "license": "CC-BY-SA / Public Domain",
+        "attribution": "Lead photograph of Boso Peninsula via Wikipedia/Wikimedia Commons",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Boso%20Peninsula"
+      },
+      "newValue": {
+        "source": "Wikimedia Commons",
+        "license": "CC BY-SA 3.0",
+        "attribution": "Reggaeman, CC BY-SA 3.0, via Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bitchu_Matsuyama_Castle_1.JPG"
+      },
+      "reason": "The hero image is Bitchu Matsuyama Castle 1.JPG, but metadata attributed it to the Boso Peninsula; Commons imageinfo records the author as Reggaeman and the license as CC BY-SA 3.0.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bitchu_Matsuyama_Castle_1.JPG",
+      "checkedAt": "2026-08-07",
+      "confidence": "High"
     }
   ]
 }
