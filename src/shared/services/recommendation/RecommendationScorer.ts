@@ -135,9 +135,12 @@ export function getValidModes(
   const supported = (mode: string): boolean => {
     if (mode === "flight") return Boolean(flightEstimate);
     if (mode === "ferry") return Boolean(ferryEstimate);
+    // my_car uses the same road-support check as car
+    const checkMode = mode === "my_car" ? "car" : mode;
     return (
-      dest.transportOptions?.[mode as keyof typeof dest.transportOptions] !==
-      undefined
+      dest.transportOptions?.[
+        checkMode as keyof typeof dest.transportOptions
+      ] !== undefined
     );
   };
   const selected = new Set<string>(publicModes);
@@ -145,12 +148,21 @@ export function getValidModes(
   if (carMode === "my_car") selected.add("my_car");
 
   let validModes: string[] = [];
+  const addMode = (m: string) => {
+    if (!validModes.includes(m)) validModes.push(m);
+  };
   for (const mode of authorized) {
-    if (mode === "car" || mode === "my_car") {
-      if (selected.has(mode) && supported(mode)) validModes.push(mode);
+    if (mode === "car") {
+      // Topology car authorizes both rental and personal car.
+      if (selected.has("car") && supported("car")) addMode("car");
+      if (selected.has("my_car") && supported("my_car")) addMode("my_car");
       continue;
     }
-    if (selected.has(mode) && supported(mode)) validModes.push(mode);
+    if (mode === "my_car") {
+      if (selected.has(mode) && supported(mode)) addMode(mode);
+      continue;
+    }
+    if (selected.has(mode) && supported(mode)) addMode(mode);
   }
 
   // No budget-tier mode deletion: a faster authorized mode (e.g. shinkansen)

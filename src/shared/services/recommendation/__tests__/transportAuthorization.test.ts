@@ -736,3 +736,107 @@ describe("preference ordering", () => {
     expect(modes).toContain("train");
   });
 });
+
+describe("car/my_car cross-zone authorization", () => {
+  const TOKYO_COORDS = { lat: 35.6812, lng: 139.7671 };
+  const FUKUOKA_COORDS = { lat: 33.5902, lng: 130.4017 };
+  const SAPPORO_COORDS = { lat: 43.0618, lng: 141.3545 };
+
+  it("Honshu → Kyushu with my_car authorizes road mode", () => {
+    const dest = byId.get("kumamoto-castle")!;
+    const modes = getValidModes(
+      dest,
+      "my_car",
+      ["train", "shinkansen", "bus", "flight"],
+      TOKYO_COORDS,
+      undefined,
+      "mainland-honshu",
+    );
+    expect(modes).toContain("my_car");
+  });
+
+  it("Honshu → Shikoku with my_car authorizes road mode", () => {
+    const dest = byId.get("kochi-castle")!;
+    const modes = getValidModes(
+      dest,
+      "my_car",
+      ["train", "shinkansen", "bus"],
+      TOKYO_COORDS,
+      undefined,
+      "mainland-honshu",
+    );
+    expect(modes).toContain("my_car");
+  });
+
+  it("Honshu → Hokkaido with my_car does NOT authorize car", () => {
+    const dest = byId.get("sapporo-city")!;
+    const modes = getValidModes(
+      dest,
+      "my_car",
+      ["train", "shinkansen", "bus", "flight"],
+      TOKYO_COORDS,
+      undefined,
+      "mainland-honshu",
+    );
+    // No car in the Honshu↔Hokkaido edge
+    expect(modes).not.toContain("my_car");
+    expect(modes).not.toContain("car");
+  });
+
+  it("Honshu → Kyushu with rental car authorizes car", () => {
+    const dest = byId.get("kumamoto-castle")!;
+    const modes = getValidModes(
+      dest,
+      "rental",
+      ["train", "shinkansen", "bus", "flight"],
+      TOKYO_COORDS,
+      undefined,
+      "mainland-honshu",
+    );
+    expect(modes).toContain("car");
+  });
+
+  it("destination without road support excludes car/my_car", () => {
+    // Ogasawara has no road transportOptions
+    const dest = byId.get("ogasawara-islands-tokyo")!;
+    const modes = getValidModes(
+      dest,
+      "my_car",
+      ["train", "shinkansen", "bus"],
+      TOKYO_COORDS,
+      undefined,
+      "mainland-honshu",
+    );
+    expect(modes).not.toContain("my_car");
+    expect(modes).not.toContain("car");
+  });
+
+  it("destination without train support cannot receive estimated train", () => {
+    // Sakurajima has localAccessModes [car, my_car, bus] — no train
+    const dest = byId.get("sakurajima-volcano-kagoshima")!;
+    const modes = getValidModes(
+      dest,
+      "none",
+      ["train", "bus"],
+      FUKUOKA_COORDS,
+      undefined,
+      "mainland-kyushu",
+    );
+    expect(modes).not.toContain("train");
+  });
+
+  it("Hokkaido → Honshu with authorized train may estimate train when canonical absent", () => {
+    // Train is in the Honshu↔Hokkaido edge (via Shinkansen tunnel);
+    // my_car is not, but train should be authorized.
+    const dest = byId.get("tokyo-station-chiyoda")!;
+    const modes = getValidModes(
+      dest,
+      "none",
+      ["train", "shinkansen"],
+      SAPPORO_COORDS,
+      undefined,
+      "hokkaido",
+    );
+    expect(modes).toContain("train");
+  });
+});
