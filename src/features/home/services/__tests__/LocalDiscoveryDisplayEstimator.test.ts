@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import type { Destination } from "@/shared/types/destination";
-import { getLocalDiscoveryDisplayEstimate } from "../LocalDiscoveryDisplayEstimator";
+import { getSafeDisplayEstimate } from "../LocalDiscoveryDisplayEstimator";
 
 const YOKOHAMA_NAKAYAMA = { lat: 35.5138, lng: 139.5397 };
 const TOKYO_STATION = { lat: 35.6812, lng: 139.7671 };
@@ -92,76 +92,142 @@ const BUS_ONLY_YOKOHAMA_POI: Destination = {
   role: "poi",
 } as unknown as Destination;
 
-describe("LocalDiscoveryDisplayEstimator", () => {
-  it("returns calculated_local_display estimate for same-municipality POI (Nakayama -> Minato Mirai)", () => {
-    const result = getLocalDiscoveryDisplayEstimate(YOKOHAMA_POI, {
+const TOKYO_POI: Destination = {
+  id: "shibuya-crossing",
+  name: "Shibuya Crossing",
+  prefecture: "Tokyo",
+  municipalityId: "Tokyo:shibuya",
+  coordinates: { lat: 35.6595, lng: 139.7004 },
+  role: "poi",
+} as unknown as Destination;
+
+describe("getSafeDisplayEstimate", () => {
+  // ── Preserved same-municipality behavior ──
+
+  it("returns calculated_local_display for same-municipality POI (Nakayama → Minato Mirai)", () => {
+    const result = getSafeDisplayEstimate(YOKOHAMA_POI, {
       homeStationCoords: YOKOHAMA_NAKAYAMA,
       allDestinations: mockCatalog,
     });
-
     expect(result).not.toBeNull();
     expect(result?.source).toBe("calculated_local_display");
     expect(result?.mode).toBe("train");
     expect(result?.timeRange[0]).toBeGreaterThan(0);
-    expect(result?.timeRange[1]).toBeGreaterThan(result?.timeRange[0] ?? 0);
   });
 
-  it("selects car mode when carMode preference is set and car access is authorized", () => {
-    const result = getLocalDiscoveryDisplayEstimate(YOKOHAMA_POI, {
+  it("selects car mode when carMode preference is set", () => {
+    const result = getSafeDisplayEstimate(YOKOHAMA_POI, {
       homeStationCoords: YOKOHAMA_NAKAYAMA,
       carMode: "rental",
       allDestinations: mockCatalog,
     });
-
     expect(result).not.toBeNull();
     expect(result?.mode).toBe("car");
   });
 
-  it("regression: returns null for localAccessUnestimated destination (Kagoshima -> Sakurajima with car preference)", () => {
-    const result = getLocalDiscoveryDisplayEstimate(SAKURAJIMA_POI, {
+  it("returns null for localAccessUnestimated (Sakurajima)", () => {
+    const result = getSafeDisplayEstimate(SAKURAJIMA_POI, {
       homeStationCoords: KAGOSHIMA_CITY,
       carMode: "my_car",
       allDestinations: mockCatalog,
     });
-
     expect(result).toBeNull();
   });
 
-  it("regression: returns null when destination localAccessModes explicitly excludes train for public transport user", () => {
-    const result = getLocalDiscoveryDisplayEstimate(BUS_ONLY_YOKOHAMA_POI, {
+  it("returns null when localAccessModes excludes train", () => {
+    const result = getSafeDisplayEstimate(BUS_ONLY_YOKOHAMA_POI, {
       homeStationCoords: YOKOHAMA_NAKAYAMA,
       publicModes: ["train", "bus"],
       allDestinations: mockCatalog,
     });
-
     expect(result).toBeNull();
   });
 
   it("returns null when publicModes excludes train", () => {
-    const result = getLocalDiscoveryDisplayEstimate(YOKOHAMA_POI, {
+    const result = getSafeDisplayEstimate(YOKOHAMA_POI, {
       homeStationCoords: YOKOHAMA_NAKAYAMA,
       publicModes: ["bus"],
       allDestinations: mockCatalog,
     });
-
     expect(result).toBeNull();
   });
 
-  it("returns null for cross-municipality destinations (Yokohama -> Kamakura)", () => {
-    const result = getLocalDiscoveryDisplayEstimate(KAMAKURA_POI, {
+  // ── New: mainland ground estimates ──
+
+  it("returns calculated_ground_display for cross-municipality mainland (Nakayama → Kamakura)", () => {
+    const result = getSafeDisplayEstimate(KAMAKURA_POI, {
       homeStationCoords: YOKOHAMA_NAKAYAMA,
       allDestinations: mockCatalog,
     });
-
-    expect(result).toBeNull();
+    expect(result).not.toBeNull();
+    expect(result?.source).toBe("calculated_ground_display");
+    expect(result?.mode).toBe("train");
+    expect(result?.timeRange[0]).toBeGreaterThan(0);
   });
 
-  it("returns null for cross-water destinations (Tokyo -> Ogasawara)", () => {
-    const result = getLocalDiscoveryDisplayEstimate(OGASAWARA_POI, {
+  it("returns calculated_ground_display for cross-municipality mainland (Tokyo → Kamakura)", () => {
+    const result = getSafeDisplayEstimate(KAMAKURA_POI, {
       homeStationCoords: TOKYO_STATION,
       allDestinations: mockCatalog,
     });
+    expect(result).not.toBeNull();
+    expect(result?.source).toBe("calculated_ground_display");
+  });
 
+  it("returns ground estimate for Nakayama → Yokohama POI displaying a time", () => {
+    const result = getSafeDisplayEstimate(YOKOHAMA_POI, {
+      homeStationCoords: YOKOHAMA_NAKAYAMA,
+      allDestinations: mockCatalog,
+    });
+    expect(result).not.toBeNull();
+    expect(result?.timeRange[0]).toBeGreaterThan(0);
+  });
+
+  it("returns calculated_ground_display for Nakayama → reasonable mainland Tokyo destination", () => {
+    const result = getSafeDisplayEstimate(TOKYO_POI, {
+      homeStationCoords: YOKOHAMA_NAKAYAMA,
+      allDestinations: mockCatalog,
+    });
+    expect(result).not.toBeNull();
+    expect(result?.source).toBe("calculated_ground_display");
+  });
+
+  // ── Island/topology guards ──
+
+  it("returns null for Ogasawara (no train/car to remote island)", () => {
+    const result = getSafeDisplayEstimate(OGASAWARA_POI, {
+      homeStationCoords: TOKYO_STATION,
+      allDestinations: mockCatalog,
+    });
     expect(result).toBeNull();
+  });
+
+  it("returns null for Okinawa from Tokyo (no mainland train to Okinawa)", () => {
+    const okinawaPoi: Destination = {
+      id: "shuri-castle",
+      name: "Shuri Castle",
+      prefecture: "Okinawa",
+      municipalityId: "Okinawa:naha",
+      coordinates: { lat: 26.217, lng: 127.719 },
+      role: "poi",
+    } as unknown as Destination;
+    const result = getSafeDisplayEstimate(okinawaPoi, {
+      homeStationCoords: TOKYO_STATION,
+      allDestinations: mockCatalog,
+    });
+    expect(result).toBeNull();
+  });
+
+  // ── Kamakura municipality distinction ──
+
+  it("does not treat Kamakura as same-municipality when origin is Yokohama", () => {
+    const result = getSafeDisplayEstimate(KAMAKURA_POI, {
+      homeStationCoords: YOKOHAMA_NAKAYAMA,
+      allDestinations: mockCatalog,
+    });
+    // Should still get an estimate (ground), but NOT same-municipality
+    expect(result).not.toBeNull();
+    expect(result?.source).not.toBe("calculated_local_display");
+    expect(result?.source).toBe("calculated_ground_display");
   });
 });

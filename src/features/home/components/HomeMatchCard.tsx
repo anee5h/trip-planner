@@ -23,7 +23,7 @@ import { formatTravelConditionParams } from "@/shared/services/recommendation/Tr
 import { Sun, Cloud, CloudRain, CloudSnow, CloudLightning } from "lucide-react";
 
 import { ALL_PUBLIC_MODES } from "../services/TransportResolver";
-import { getLocalDiscoveryDisplayEstimate } from "../services/LocalDiscoveryDisplayEstimator";
+import { getSafeDisplayEstimate } from "../services/LocalDiscoveryDisplayEstimator";
 
 interface HomeMatchCardProps {
   destination: Destination;
@@ -94,9 +94,9 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     travelDate ? { travelDate: new Date(`${travelDate}T12:00:00`) } : undefined,
   );
 
-  // Presentation-only local display estimate fallback (same municipality ONLY)
+  // Presentation-only display estimate (same-muni or mainland ground)
   const localDisplayEstimate = !verifiedTransport
-    ? getLocalDiscoveryDisplayEstimate(destination, {
+    ? getSafeDisplayEstimate(destination, {
         homeStationCoords,
         carMode,
         publicModes,
