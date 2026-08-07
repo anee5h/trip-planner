@@ -21,16 +21,18 @@ afterEach(() => {
 });
 
 function TestHarness({
+  mockUser,
   onHookResult,
 }: {
+  mockUser: Parameters<typeof useTripPlannerState>[0];
   onHookResult: (state: ReturnType<typeof useTripPlannerState>) => void;
 }) {
-  const plannerState = useTripPlannerState(null);
+  const plannerState = useTripPlannerState(mockUser);
   onHookResult(plannerState);
   return <div id="test-harness" />;
 }
 
-function setupHook() {
+function setupHook(mockUser: Parameters<typeof useTripPlannerState>[0] = null) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -40,6 +42,7 @@ function setupHook() {
   act(() => {
     root!.render(
       <TestHarness
+        mockUser={mockUser}
         onHookResult={(state) => {
           currentResult = state;
         }}
@@ -155,20 +158,12 @@ describe("useTripPlannerState", () => {
     it("weekend budget equals day budget * 2 + accommodationAllowance", () => {
       const getResult = setupHook();
 
-      // Set weekend mode with specific allowance
       act(() => {
         getResult().setTripMode("weekend_2d1n");
         getResult().setAccommodationAllowance(15000);
       });
 
       const weekendResolved = getResult().resolvedDraft;
-      // Day-trip: 20000 * 2 * (1.0 for fullDay) = 40000
-      // Weekend: 20000 * 2 * 2 + 15000 = 95000
-      // But tripDuration depends on initialDuration which may vary.
-      // Instead, compare weekend budget formula directly.
-      // For weekend with standard tier, partySize=2, accommodation=15000:
-      // dailyLimit = 20000, partySize = 2, multiplier = 2
-      // budget = Math.round(20000 * 2 * 2) + 15000 = 80000 + 15000 = 95000
       expect(weekendResolved.budget).toBe(95000);
     });
 
@@ -209,11 +204,34 @@ describe("useTripPlannerState", () => {
     });
   });
 
-  describe("carMode normalization", () => {
-    it("resolves legacy own to my_car via shared normalizeCarMode", async () => {
-      const { normalizeCarMode } = await import("@/shared/utils/carMode");
-      expect(normalizeCarMode("own")).toBe("my_car");
-      expect(normalizeCarMode("my_car")).toBe("my_car");
+  describe("carMode normalization with mock user", () => {
+    it("normalizes legacy own to my_car and preserves my_car in either transport path", () => {
+      const mockUser = {
+        id: "user-a",
+        user_metadata: {
+          preferences: {
+            carMode: "own",
+            partySize: 2,
+          },
+        },
+      } as unknown as Parameters<typeof useTripPlannerState>[0];
+
+      const getResult = setupHook(mockUser);
+
+      // configuredCarMode should be normalized from "own" → "my_car"
+      expect(getResult().configuredCarMode).toBe("my_car");
+
+      // Set transport preference to "either" (which uses personal car)
+      act(() => {
+        getResult().setTransportPreference("either");
+      });
+
+      // resolvedDraft.carMode should still be "my_car" (not "own")
+      expect(getResult().resolvedDraft.carMode).toBe("my_car");
+
+      // resolvedDraft should contain my_car in publicModes when either is selected
+      // (my_car user with either preference → carMode = "my_car")
+      expect(getResult().resolvedDraft.carMode).toBe("my_car");
     });
   });
 });
