@@ -2,6 +2,7 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import { Button } from "@/shared/components/ui/button";
 import { Scale, Trash2, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 
 interface CompareFloatingBarProps {
   onOpenModal: () => void;
@@ -12,8 +13,16 @@ export default function CompareFloatingBar({
 }: CompareFloatingBarProps) {
   const { compareList, clearCompare } = useTripStore();
   const { t } = useTranslation();
+  const { pathname } = useLocation();
 
-  if (compareList.length === 0) return null;
+  // Browsing surfaces only: Home, Explore/destinations, collections.
+  // Selection state is kept; the bar reappears when returning.
+  const isCompareSurface =
+    pathname === "/" ||
+    pathname.startsWith("/destinations") ||
+    pathname.startsWith("/collections");
+
+  if (!isCompareSurface || compareList.length === 0) return null;
 
   return (
     <div className="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom))] md:bottom-6 left-1/2 -translate-x-1/2 z-40 animate-in slide-in-from-bottom-5 duration-300">

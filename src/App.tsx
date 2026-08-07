@@ -3,7 +3,6 @@ import {
   Routes,
   Route,
   Navigate,
-  useLocation,
 } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { AuthProvider } from "./shared/hooks/useAuth";
@@ -58,11 +57,6 @@ import BottomNav from "./shared/components/layout/BottomNav";
 
 function AppInner() {
   const [compareModalOpen, setCompareModalOpen] = useState(false);
-  const location = useLocation();
-  const isCompareSurface =
-    location.pathname === "/" ||
-    location.pathname.startsWith("/destinations") ||
-    location.pathname.startsWith("/collections");
   useIdlePrefetch();
 
   return (
@@ -122,9 +116,7 @@ function AppInner() {
           </main>
           <Footer />
           <BottomNav />
-          {isCompareSurface && (
-            <CompareFloatingBar onOpenModal={() => setCompareModalOpen(true)} />
-          )}
+          <CompareFloatingBar onOpenModal={() => setCompareModalOpen(true)} />
           <CompareModal
             isOpen={compareModalOpen}
             onClose={() => setCompareModalOpen(false)}
