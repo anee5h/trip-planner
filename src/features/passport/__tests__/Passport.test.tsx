@@ -126,7 +126,7 @@ describe("Passport hydration rendering", () => {
     state.authLoading = false;
     state.profileSyncStatus = "idle";
     render();
-    expect(host.textContent).toContain("Sign in to view your travel passport");
+    expect(host.textContent).toContain("passport.signedOutTitle");
     expect(host.textContent).not.toContain("passport-overview");
   });
 });

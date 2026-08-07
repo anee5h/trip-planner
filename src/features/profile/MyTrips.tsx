@@ -105,6 +105,7 @@ export default function MyTrips() {
             </Button>
           ) : undefined
         }
+        stackActionsOnMobile
       />
 
       {/* Planned Itineraries Sub-Page */}

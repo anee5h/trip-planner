@@ -60,7 +60,7 @@ export function PageHeader({
       )}
 
       <div
-        className={`flex items-start justify-between gap-base ${stackActionsOnMobile ? "max-[399px]:flex-col" : ""}`}
+        className={`flex items-start justify-between gap-base ${stackActionsOnMobile ? "max-sm:flex-col" : ""}`}
       >
         <div className="space-y-xs">
           {subtitle && (

@@ -309,24 +309,24 @@ export default function Settings() {
                 </div>
 
                 <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400">
-                  Full name
+                  {t("settings.fullName")}
                   <input
                     value={fullName}
                     onChange={(e) =>
                       handleFieldChange(setFullName, e.target.value)
                     }
-                    placeholder="Your full name"
+                    placeholder={t("settings.fullNamePlaceholder")}
                     className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
                   />
                 </label>
                 <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400">
-                  Username
+                  {t("settings.username")}
                   <input
                     value={username}
                     onChange={(e) =>
                       handleFieldChange(setUsername, e.target.value)
                     }
-                    placeholder="@username"
+                    placeholder={t("settings.usernamePlaceholder")}
                     className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
                   />
                 </label>
@@ -345,8 +345,7 @@ export default function Settings() {
                     className="mt-2"
                   />
                   <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-1">
-                    Your home city for personalised recommendations. This is
-                    separate from your transit base station below.
+                    {t("settings.homeCityHelp")}
                   </p>
                 </label>
 
@@ -356,7 +355,7 @@ export default function Settings() {
                     {t("ui.baseLocation")}
                   </label>
                   <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-2">
-                    Your main departure station for transit duration estimates.
+                    {t("settings.baseLocationHelp")}
                   </p>
                   <StationInput embedded={true} />
                 </div>
@@ -371,8 +370,7 @@ export default function Settings() {
                     {t("ui.travelPreferences")}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    Default budget, transport, and party size for trip
-                    generation.
+                    {t("settings.travelDescription")}
                   </p>
                 </div>
 
@@ -403,7 +401,7 @@ export default function Settings() {
                   {/* Primary transport */}
                   <div>
                     <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
-                      Primary transport
+                      {t("settings.primaryTransport")}
                     </label>
                     <div className="grid grid-cols-3 gap-1.5">
                       {[
@@ -439,7 +437,7 @@ export default function Settings() {
                   {/* Public transport modes */}
                   <div>
                     <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
-                      Public transport modes
+                      {t("settings.publicTransportModes")}
                     </label>
                     <div className="grid grid-cols-3 sm:grid-cols-5 gap-1.5">
                       {ALL_MODES.map((tm) => (
@@ -556,11 +554,10 @@ export default function Settings() {
                     <div className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800">
                       <div>
                         <div className="text-xs font-bold text-slate-900 dark:text-white">
-                          Recommendation analytics
+                          {t("settings.recommendationAnalytics")}
                         </div>
                         <div className="text-[11px] text-slate-500 dark:text-slate-400">
-                          Send anonymous recommendation quality events to help
-                          improve suggestions.
+                          {t("settings.recommendationAnalyticsHelp")}
                         </div>
                       </div>
                       <input
@@ -601,19 +598,19 @@ export default function Settings() {
                     {t("ui.appearance")}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    Theme and language apply immediately on selection.
+                    {t("settings.appearanceHelp")}
                   </p>
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
-                    Theme
+                    {t("settings.theme")}
                   </label>
                   <div className="grid grid-cols-3 gap-2">
                     {[
-                      { id: "system", label: "System" },
-                      { id: "light", label: "Light" },
-                      { id: "dark", label: "Dark" },
+                      { id: "system", label: t("settings.themeSystem") },
+                      { id: "light", label: t("settings.themeLight") },
+                      { id: "dark", label: t("settings.themeDark") },
                     ].map((opt) => (
                       <button
                         key={opt.id}
@@ -637,8 +634,8 @@ export default function Settings() {
                   </label>
                   <div className="grid grid-cols-2 gap-2">
                     {[
-                      { id: "en", label: "English" },
-                      { id: "ja", label: "日本語" },
+                      { id: "en", label: t("settings.languageEn") },
+                      { id: "ja", label: t("settings.languageJa") },
                     ].map((opt) => (
                       <button
                         key={opt.id}
@@ -652,8 +649,8 @@ export default function Settings() {
                           });
                           toast.success(
                             next === "ja"
-                              ? "言語を日本語に変更しました"
-                              : "Language set to English",
+                              ? t("settings.languageChangedJa")
+                              : t("settings.languageChangedEn"),
                           );
                         }}
                         className={`${btnBase} text-center ${
@@ -678,14 +675,13 @@ export default function Settings() {
                     {t("ui.dataExport")}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    Download a full backup of your travel data.
+                    {t("settings.dataHelp")}
                   </p>
                 </div>
 
                 <div className="space-y-3">
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    Includes your profile details, visited places, prefectures,
-                    and saved trips in JSON format.
+                    {t("settings.dataDescription")}
                   </p>
                   <Button
                     type="button"
@@ -693,7 +689,8 @@ export default function Settings() {
                     onClick={handleExportData}
                     className="rounded-xl text-xs font-bold flex items-center gap-2"
                   >
-                    <Download className="w-3.5 h-3.5" /> Export Data (JSON)
+                    <Download className="w-3.5 h-3.5" />{" "}
+                    {t("settings.exportButton")}
                   </Button>
                 </div>
               </div>

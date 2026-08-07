@@ -54,11 +54,10 @@ export default function Passport() {
         <div className="flex min-h-64 flex-col items-center justify-center gap-3 text-center">
           <LogIn className="size-6 text-slate-400" />
           <p className="font-semibold text-slate-700 dark:text-slate-200">
-            Sign in to view your travel passport
+            {t("passport.signedOutTitle")}
           </p>
           <p className="text-sm text-slate-500 dark:text-slate-400 max-w-sm">
-            Track visited destinations, prefectures, and earn badges as you
-            explore Japan.
+            {t("passport.signedOutDescription")}
           </p>
           <Button onClick={openAuthModal}>{t("actions.signIn")}</Button>
         </div>
