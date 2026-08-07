@@ -18,7 +18,6 @@ import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTran
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { personalizationService } from "./PersonalizationService";
-import { estimateTripDuration } from "./TripDurationService";
 
 export const SCORING_WEIGHTS = {
   // Base & Ratings
@@ -197,14 +196,6 @@ export function calculateScore(
     context.originZoneId,
     context.ferryTemporal,
   );
-  // KAI-50: budget duration is the runtime-derived total (visit + verified
-  // origin travel), never the deprecated legacy `totalTripHours` field.
-  const durationEstimate = estimateTripDuration(
-    dest,
-    context,
-    validModesForDest,
-  );
-  const tripDurationHours = durationEstimate?.representativeHours;
 
   // Budget and Transport Logic
   let bestMode = validModesForDest[0];
@@ -221,13 +212,19 @@ export function calculateScore(
         mode,
         partySize,
         context.budgetTier,
-        tripDurationHours,
         context.homeStationCoords || undefined,
+        context.ferryTemporal,
       );
-      adjustedBudget =
-        (estimatedResult.range[0] + estimatedResult.range[1]) / 2;
-      // Skip budget bonus or penalty when the required origin transport fare is unavailable
-      if (estimatedResult.transportIncluded) {
+      // KAI-50: budget uses the mode-specific derived duration. Skip the
+      // bonus/penalty when either the origin transport fare or the
+      // duration-dependent meal/rental cost is unavailable.
+      if (
+        estimatedResult.transportIncluded &&
+        estimatedResult.durationIncluded &&
+        estimatedResult.range
+      ) {
+        adjustedBudget =
+          (estimatedResult.range[0] + estimatedResult.range[1]) / 2;
         if (adjustedBudget > budget) {
           modeScore -=
             ((adjustedBudget - budget) / SCORING_WEIGHTS.BUDGET_OVER_DIVISOR) *

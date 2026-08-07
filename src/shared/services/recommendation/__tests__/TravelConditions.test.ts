@@ -32,6 +32,7 @@ function makeDestination(overrides: Partial<Destination> = {}): Destination {
     budgetMin: 5000,
     budgetMax: 20000,
     transportOptions: { train: 90 },
+    recommendedVisitHours: { min: 4, max: 8 },
     totalTripHours: 8,
     walkingMin: 30,
     walkingSunMin: 0,
@@ -620,15 +621,8 @@ describe("mode agreement across eligibility, travel-time, budget and card", () =
     // Cost-status semantics: the fare window decides whether the ferry
     // contributes a verified complete cost at all.
     expect(
-      getEstimatedBudgetRange(
-        sado,
-        "ferry",
-        2,
-        "standard",
-        undefined,
-        niigata,
-        inWindow,
-      ).transportIncluded,
+      getEstimatedBudgetRange(sado, "ferry", 2, "standard", niigata, inWindow)
+        .transportIncluded,
     ).toBe(true);
     expect(
       getEstimatedBudgetRange(
@@ -636,7 +630,6 @@ describe("mode agreement across eligibility, travel-time, budget and card", () =
         "ferry",
         2,
         "standard",
-        undefined,
         niigata,
         afterWindow,
       ).transportIncluded,

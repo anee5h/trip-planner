@@ -304,7 +304,6 @@ describe("flight registry expansion (PR #102)", () => {
       "flight",
       2,
       "standard",
-      undefined,
       FUKUOKA,
     );
     expect(budgetEst.transportIncluded).toBe(false);
@@ -345,7 +344,6 @@ describe("flight registry expansion (PR #102)", () => {
       "flight",
       2,
       "standard",
-      undefined,
       TOKYO,
     );
     expect(budgetEst.transportIncluded).toBe(true);

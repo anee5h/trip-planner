@@ -175,9 +175,9 @@ export class HubPlanningService {
           activeMode: travelMode,
         });
         totalTickets += itemBreakdown.tickets || 0;
-        const foodAvg = Array.isArray(itemBreakdown.food)
+        const foodAvg = itemBreakdown.food
           ? Math.round((itemBreakdown.food[0] + itemBreakdown.food[1]) / 2)
-          : Number(itemBreakdown.food || 0);
+          : 0;
         const cafeVal = Number(itemBreakdown.cafe || 0);
         totalFood += foodAvg + cafeVal;
       }

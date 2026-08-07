@@ -49,10 +49,34 @@ Total trip duration is derived at runtime:
 visit duration + round-trip origin-aware travel + legitimate buffers
 ```
 
+Total trip duration is **mode-dependent**. Budgeting and recommendation
+scoring derive the duration for exactly the transport mode being priced
+(`estimateTripDuration(dest, context, [mode])`), never a shared fastest-mode
+total. A slow mode therefore gets its own meal count, rental tier, and cost
+range even when a faster verified mode exists.
+
 When no origin is known, the runtime total is the visit duration alone.
 When an origin is known but no verified origin-aware estimate exists, the
 candidate is excluded from personalized duration planning rather than
 being assigned a fabricated total.
+
+## Unknown-duration budget policy
+
+If `recommendedVisitHours` is missing, or the specific mode has no verified
+origin-aware duration, duration-dependent budget components are reported as
+unavailable:
+
+- Meals: `getDiningFoodRange` returns `null`; no meal count is invented.
+- Rental car: the rental tier cannot be selected, so `getTransportCost`
+  returns `null` (transport unavailable) instead of pricing a guessed tier.
+- `getEstimatedBudgetRange` returns `range: null` with
+  `durationIncluded: false`; scoring and explainability do not award a
+  budget bonus/penalty or an affordability reason from that incomplete
+  estimate.
+
+There is no generic fallback duration. Unknown trip length is never treated
+as zero cost and never approximated with `totalTripHours`, category
+defaults, opening hours, or a fixed constant.
 
 ## Legacy fallback policy
 

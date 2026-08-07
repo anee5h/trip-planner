@@ -264,7 +264,8 @@ Source JSON ➔ [1. Validate Schema] ➔ [2. Geocode] ➔ [3. Normalize] ➔ [4.
 - `totalTripHours` is deprecated and optional. Do not populate it for new
   records; runtime planning ignores it because legacy values may include
   transport from a fixed origin. Total trip duration is derived at runtime
-  from `recommendedVisitHours` plus verified origin-aware travel.
+  from `recommendedVisitHours` plus verified origin-aware travel for exactly
+  the transport mode being priced.
 - See `docs/trip-duration-model.md` for the full model and migration
   guidance.
 

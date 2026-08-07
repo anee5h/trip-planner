@@ -55,6 +55,7 @@ vi.mock("@/shared/services/budget/BudgetService", () => ({
     const partySize = options?.partySize ?? 2;
     return {
       transport: 800,
+      transportAvailable: true,
       tickets: 3000,
       food: [2000, 4000] as [number, number],
       cafe: 600,
@@ -70,6 +71,7 @@ vi.mock("@/shared/services/budget/BudgetService", () => ({
       isFreeTicket: false,
       confidence: "medium" as const,
       accommodationAllowance: allowance,
+      durationKnown: true,
     };
   },
   formatLocalizedJPYRange: ([min, max]: [number, number]) =>

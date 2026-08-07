@@ -25,18 +25,10 @@ export type AccommodationAllowancePreset =
 export const MAX_ACCOMMODATION_ALLOWANCE = 500000;
 
 /**
- * Neutral meal/rental budgeting assumption used only when a destination has
- * no canonical `recommendedVisitHours` data. This is a budget heuristic for
- * meal count and rental tier, never a recommendation duration estimate.
- */
-export const UNKNOWN_TRIP_DURATION_HOURS = 8;
-
-/**
  * Runtime-derived trip duration in hours. Uses the canonical visit duration
- * and adds verified origin-aware round-trip travel when an origin and mode
- * are available. Returns `undefined` for records that cannot be
- * duration-planned; callers then use `UNKNOWN_TRIP_DURATION_HOURS` for
- * meal/rental budgeting only.
+ * and adds verified origin-aware round-trip travel for exactly the requested
+ * mode. Returns `undefined` when the destination cannot be duration-planned
+ * or the requested mode has no verified origin-aware estimate.
  */
 function deriveTripDurationHours(
   dest: Destination,
@@ -47,9 +39,16 @@ function deriveTripDurationHours(
   if (!dest.recommendedVisitHours) return undefined;
   const modes =
     mode && mode !== "all" && mode !== "any" ? [mode as TransportMode] : [];
+  // With no concrete mode there is no travel to price; meals then use the
+  // visit duration only. A concrete mode without a verified origin estimate
+  // remains unknown rather than being approximated.
   return estimateTripDuration(
     dest,
-    { homeStationCoords: homeCoords ?? undefined, ferryTemporal },
+    {
+      homeStationCoords:
+        modes.length > 0 ? (homeCoords ?? undefined) : undefined,
+      ferryTemporal,
+    },
     modes,
   )?.representativeHours;
 }
@@ -110,13 +109,16 @@ export function formatJPYRange(range: PriceRange): string {
 
 export function getDiningFoodRange(
   tier: BudgetTier = "standard",
-  totalTripHours: number,
+  tripDurationHours: number | undefined,
   partySize: number,
-): PriceRange {
+): PriceRange | null {
+  if (tripDurationHours === undefined || !Number.isFinite(tripDurationHours)) {
+    return null;
+  }
   const meals =
-    totalTripHours < 5
+    tripDurationHours < 5
       ? ["lunch"]
-      : totalTripHours <= 9
+      : tripDurationHours <= 9
         ? ["lunch", "dinner"]
         : ["breakfast", "lunch", "dinner"];
   const ranges = meals.map(
@@ -132,8 +134,17 @@ export function getDiningFoodRange(
 }
 
 export interface EstimatedBudgetRangeResult {
-  range: PriceRange;
+  /**
+   * Complete cost range for this mode, or null when trip duration is
+   * unknown and meal/rental-dependent costs cannot be derived.
+   */
+  range: PriceRange | null;
+  /** True when origin transport cost is verified and included. */
   transportIncluded: boolean;
+  /** True when trip duration was derived for exactly this mode. */
+  durationIncluded: boolean;
+  /** Meal range for this mode, or null when trip duration is unknown. */
+  food: PriceRange | null;
 }
 
 export function getEstimatedBudgetRange(
@@ -141,14 +152,15 @@ export function getEstimatedBudgetRange(
   mode: string,
   partySize: number,
   budgetTier: BudgetTier = "standard",
-  tripDurationHours?: number,
   homeCoords?: { lat: number; lng: number },
   ferryTemporal?: FerryTemporalContext,
 ): EstimatedBudgetRangeResult {
-  const effectiveTripDurationHours =
-    tripDurationHours ??
-    deriveTripDurationHours(dest, mode, homeCoords, ferryTemporal) ??
-    UNKNOWN_TRIP_DURATION_HOURS;
+  const effectiveTripDurationHours = deriveTripDurationHours(
+    dest,
+    mode,
+    homeCoords,
+    ferryTemporal,
+  );
   const breakdown = getEffectiveBudgetBreakdown(dest);
   const scale = partySize / 2;
   const rawTransport = getTransportCost(
@@ -161,11 +173,18 @@ export function getEstimatedBudgetRange(
   );
   const transportIncluded = rawTransport !== null;
   const transport = rawTransport ?? 0;
-  const food = getDiningFoodRange(
-    budgetTier,
-    effectiveTripDurationHours,
-    partySize,
-  );
+  const food =
+    effectiveTripDurationHours === undefined
+      ? null
+      : getDiningFoodRange(budgetTier, effectiveTripDurationHours, partySize);
+  if (!food) {
+    return {
+      range: null,
+      transportIncluded,
+      durationIncluded: false,
+      food: null,
+    };
+  }
   const transfers: Record<BudgetTier, PriceRange> = {
     economy: [0, 600],
     standard: [500, 1500],
@@ -181,6 +200,8 @@ export function getEstimatedBudgetRange(
       Math.round((transport + tickets + food[1] + cafe + transfer[1]) * 1.05),
     ],
     transportIncluded,
+    durationIncluded: true,
+    food,
   };
 }
 
@@ -208,11 +229,14 @@ export function getSortableVerifiedBudget(
       mode,
       partySize,
       budgetTier,
-      undefined,
       homeCoords,
       ferryTemporal,
     );
-    if (estimate.transportIncluded) {
+    if (
+      estimate.transportIncluded &&
+      estimate.durationIncluded &&
+      estimate.range
+    ) {
       lowest = Math.min(lowest, estimate.range[1]);
     }
   }
@@ -272,6 +296,11 @@ export function getTransportCost(
   partySize: number = 2,
   homeCoords?: { lat: number; lng: number },
   ferryTemporal?: FerryTemporalContext,
+  /**
+   * Explicit mode-matched trip duration for rental tier selection. Must
+   * correspond to `mode`; when omitted the mode-specific duration is derived
+   * internally and unknown durations make car rental unavailable.
+   */
   tripDurationHours?: number,
 ): number | null {
   // 1. Explicit Route Fare Precedence (if specified in destination JSON)
@@ -359,8 +388,8 @@ export function getTransportCost(
     const distanceKm = driveTimeOneWayMin * cfg.car.circuityMultiplier;
     const rentalDurationHours =
       tripDurationHours ??
-      deriveTripDurationHours(dest, mode, homeCoords, ferryTemporal) ??
-      UNKNOWN_TRIP_DURATION_HOURS;
+      deriveTripDurationHours(dest, mode, homeCoords, ferryTemporal);
+    if (rentalDurationHours === undefined) return null;
     const rentalFee = getRentalBaseFee(rentalDurationHours);
     const tollsRoundTrip = Math.floor(distanceKm * cfg.car.tollRatePerKm * 2);
     const gasRoundTrip = Math.floor(
@@ -526,8 +555,12 @@ export function isFreeDestination(dest: Destination): boolean {
 
 export interface ItemizedCostBreakdown {
   transport: number;
+  /** False when origin transport cost is unavailable or unknown; never
+   *  presented as a verified zero-cost estimate. */
+  transportAvailable: boolean;
   tickets: number;
-  food: PriceRange;
+  /** Meal range, or null when trip duration is unknown. */
+  food: PriceRange | null;
   cafe: number;
   parking: number;
   perPersonRange: PriceRange;
@@ -535,6 +568,8 @@ export interface ItemizedCostBreakdown {
   isFreeTicket: boolean;
   confidence: "high" | "medium" | "estimated";
   accommodationAllowance: number;
+  /** True when trip duration is known and meal/rental costs are included. */
+  durationKnown: boolean;
 }
 
 export function calculateItemizedTripCost(
@@ -543,9 +578,8 @@ export function calculateItemizedTripCost(
     activeMode?: string | null;
     partySize?: number;
     budgetTier?: BudgetTier;
+    /** Intentional caller-known trip duration for the active mode. */
     tripDurationHours?: number;
-    /** @deprecated Use `tripDurationHours`; kept as an explicit-input alias. */
-    totalTripHours?: number;
     homeCoords?: { lat: number; lng: number };
     ferryTemporal?: FerryTemporalContext;
     accommodationAllowance?: number;
@@ -558,21 +592,20 @@ export function calculateItemizedTripCost(
   const budgetTier = options.budgetTier ?? "standard";
   const tripDurationHours =
     options.tripDurationHours ??
-    options.totalTripHours ??
     deriveTripDurationHours(
       dest,
       options.activeMode ?? undefined,
       options.homeCoords,
       options.ferryTemporal,
-    ) ??
-    UNKNOWN_TRIP_DURATION_HOURS;
+    );
+  const durationKnown = tripDurationHours !== undefined;
 
   const isFreeTicket = isFreeDestination(dest);
   const breakdown = getEffectiveBudgetBreakdown(dest);
 
-  const rawTransport =
+  const rawTransport: number | null =
     mode === null
-      ? 0
+      ? null
       : getTransportCost(
           dest,
           mode,
@@ -581,19 +614,32 @@ export function calculateItemizedTripCost(
           options.ferryTemporal,
           tripDurationHours,
         );
+  const transportAvailable = rawTransport !== null;
   const transport =
-    Number.isNaN(rawTransport) || !rawTransport ? 0 : rawTransport;
+    transportAvailable && !Number.isNaN(rawTransport) ? rawTransport : 0;
   const tickets = isFreeTicket ? 0 : (breakdown.tickets || 0) * partySize;
-  const food = getDiningFoodRange(budgetTier, tripDurationHours, partySize);
+  const food = durationKnown
+    ? getDiningFoodRange(budgetTier, tripDurationHours, partySize)
+    : null;
   const cafe = (breakdown.cafe || 0) * partySize;
   const parking = mode === "car" || mode === "my_car" ? 1200 : 0;
   const accommodationAllowance = options.accommodationAllowance ?? 0;
 
   const minPartyTotal = Math.round(
-    transport + tickets + food[0] + cafe + parking + accommodationAllowance,
+    transport +
+      tickets +
+      (food?.[0] ?? 0) +
+      cafe +
+      parking +
+      accommodationAllowance,
   );
   const maxPartyTotal = Math.round(
-    transport + tickets + food[1] + cafe + parking + accommodationAllowance,
+    transport +
+      tickets +
+      (food?.[1] ?? 0) +
+      cafe +
+      parking +
+      accommodationAllowance,
   );
 
   const perPersonMin = Math.round(minPartyTotal / partySize);
@@ -611,6 +657,7 @@ export function calculateItemizedTripCost(
 
   return {
     transport,
+    transportAvailable,
     tickets,
     food,
     cafe,
@@ -620,6 +667,7 @@ export function calculateItemizedTripCost(
     isFreeTicket,
     confidence,
     accommodationAllowance,
+    durationKnown,
   };
 }
 

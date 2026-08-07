@@ -248,4 +248,39 @@ describe("TripDurationService", () => {
       ),
     ).toBeCloseTo(5.1, 1);
   });
+
+  it("derives mode-specific totals for train vs shinkansen", () => {
+    const osaka = { lat: 34.6937, lng: 135.5023 };
+    const twoMode = {
+      ...destination,
+      id: "kyoto-two-mode",
+      prefecture: "Kyoto",
+      municipalityId: "Kyoto:kyoto",
+      recommendedVisitHours: { min: 4, max: 4 },
+      travelBuffers: undefined,
+    };
+
+    const train = estimateTripDuration(
+      twoMode,
+      { homeStationCoords: osaka } as never,
+      ["train"],
+    );
+    const shinkansen = estimateTripDuration(
+      twoMode,
+      { homeStationCoords: osaka } as never,
+      ["shinkansen"],
+    );
+
+    expect(train).not.toBeNull();
+    expect(shinkansen).not.toBeNull();
+    expect(train!.visitRangeHours).toEqual(shinkansen!.visitRangeHours);
+    // Verified Osaka -> Kyoto train midpoint 36.5 min vs shinkansen 25 min.
+    // With a 4h visit, train crosses the 5h food-duration threshold while
+    // shinkansen stays under it.
+    expect(train!.totalRangeHours[0]).toBeGreaterThan(
+      shinkansen!.totalRangeHours[0],
+    );
+    expect(train!.representativeHours).toBeGreaterThan(5);
+    expect(shinkansen!.representativeHours).toBeLessThan(5);
+  });
 });
