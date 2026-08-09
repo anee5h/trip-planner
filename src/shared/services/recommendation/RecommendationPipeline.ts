@@ -319,9 +319,14 @@ export function runRecommendationPipeline(
           )
         : getDayTripTravelDurationEvidence(candidate, context, validModes)
             .estimate;
+      // Card travel and cost must describe one transport choice. The scored
+      // mode remains a ranking input; the displayed verified estimate is the
+      // source of truth for the card's mode and matching budget status.
+      const cardTransportMode =
+        transportEstimate?.mode ?? scoreResult.bestMode ?? "train";
       const budgetResult = getEstimatedBudgetRange(
         candidate,
-        scoreResult.bestMode || "train",
+        cardTransportMode,
         context.partySize,
         context.budgetTier,
         context.homeStationCoords || undefined,

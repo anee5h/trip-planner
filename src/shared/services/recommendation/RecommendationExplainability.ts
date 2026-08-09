@@ -3,7 +3,11 @@ import {
   resolveRecommendationWeather,
   type RecommendationContext,
 } from "./RecommendationContext";
-import type { MatchReason, RecommendationMatch } from "./RecommendationTypes";
+import type {
+  MatchReason,
+  RecommendationMatch,
+  RecommendationReasonCode,
+} from "./RecommendationTypes";
 import { calculateConfidence, getValidModes } from "./RecommendationScorer";
 import {
   formatJPYRange,
@@ -12,6 +16,106 @@ import {
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import type { PriceRange } from "@/shared/types/planner";
+
+const DAY_TRIP_DISPLAY_PRIORITY: readonly (readonly RecommendationReasonCode[])[] =
+  [
+    // Specific date/weather guidance is more decision-useful than generic fit.
+    [
+      "conditionFerrySeasonal",
+      "conditionSeasonalStrong",
+      "conditionSeasonalWeak",
+      "conditionSeasonalMonth",
+      "conditionIndoorHeat",
+      "conditionIndoorWinter",
+      "conditionOutdoorSummer",
+      "conditionOutdoorWinter",
+      "conditionRainFriendly",
+      "conditionRainExposed",
+      "weatherRainFriendly",
+      "weatherCoolRetreat",
+      "weatherWinterComfort",
+    ],
+    // Then show the requested vibe/interest match, preserving its source order.
+    [
+      "interestFood",
+      "interestNature",
+      "interestHistory",
+      "interestArt",
+      "interestSea",
+      "interestCool",
+      "interestThemepark",
+    ],
+    // Transport and budget are useful supporting context.
+    [
+      "transportFastTrain",
+      "transportShinkansen",
+      "transportFerry",
+      "transportEasyDrive",
+    ],
+    ["budgetGreatValue", "budgetWithin"],
+    // Generic/editorial and non-day-trip reasons are the final fallback tier.
+    [
+      "generalHighlyRated",
+      "generalSolidMatch",
+      "editorialReviewPending",
+      "conditionForecastDay",
+      "conditionForecastRange",
+      "conditionUnknown",
+      "weekendWeatherGood",
+      "weekendWeatherDayRain",
+      "weekendWeatherPoorOutdoor",
+      "weekendTravelStrong",
+      "weekendTravelAcceptable",
+      "weekendTravelWeak",
+      "weekendCapacityStrong",
+      "weekendTripReady",
+      "weekendStayAllowance",
+      "weekendTransportExcluded",
+    ],
+  ];
+
+function getDayTripDisplayTier(code: RecommendationReasonCode): number {
+  return DAY_TRIP_DISPLAY_PRIORITY.findIndex((tier) => tier.includes(code));
+}
+
+const WEEKEND_DISPLAY_PRIORITY: readonly RecommendationReasonCode[] = [
+  "weekendWeatherGood",
+  "weekendWeatherDayRain",
+  "weekendWeatherPoorOutdoor",
+  "weekendTravelStrong",
+  "weekendTravelAcceptable",
+  "weekendTravelWeak",
+  "weekendCapacityStrong",
+  "weekendTripReady",
+];
+
+/**
+ * Selects a display-only primary reason without mutating or reordering the
+ * canonical match.reasons array used by recommendation semantics.
+ */
+export function getPrimaryDisplayReason(
+  reasons: readonly MatchReason[],
+  options: { weekend?: boolean } = {},
+): MatchReason | undefined {
+  if (options.weekend) {
+    for (const code of WEEKEND_DISPLAY_PRIORITY) {
+      const reason = reasons.find((candidate) => candidate.code === code);
+      if (reason) return reason;
+    }
+    return undefined;
+  }
+
+  let primary: MatchReason | undefined;
+  let primaryRank = Number.POSITIVE_INFINITY;
+  for (const reason of reasons) {
+    const rank = getDayTripDisplayTier(reason.code);
+    if (rank >= 0 && rank < primaryRank) {
+      primary = reason;
+      primaryRank = rank;
+    }
+  }
+  return primary;
+}
 
 export function createRecommendationMatch(
   dest: Destination,

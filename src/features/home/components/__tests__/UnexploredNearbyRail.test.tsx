@@ -30,6 +30,7 @@ vi.mock("react-i18next", () => ({
       })[key] ?? key,
     i18n: { language: "en" },
   }),
+  initReactI18next: { type: "3rdParty", init: vi.fn() },
 }));
 
 vi.mock("@/shared/hooks/useTripStore", () => ({

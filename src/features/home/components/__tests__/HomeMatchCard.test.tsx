@@ -45,8 +45,14 @@ vi.mock("@/shared/context/LocaleContext", () => ({
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
-    t: (key: string) => key,
+    t: (key: string, options?: { count?: number }) => {
+      if (key === "home.places" && options?.count !== undefined) {
+        return `${options.count} ${options.count === 1 ? "place" : "places"}`;
+      }
+      return key;
+    },
   }),
+  initReactI18next: { type: "3rdParty", init: vi.fn() },
 }));
 
 vi.mock("@/shared/services/place/PlaceCatalog", async (importOriginal) => {
@@ -442,5 +448,112 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
     );
 
     expect(canonicalEstimate).toBeNull();
+  });
+
+  it("shows the canonical strongest day-trip reason and existing estimated cost", async () => {
+    const { HomeMatchCard } = await import("../HomeMatchCard");
+    const scored = {
+      ...seikoMuseum,
+      match: {
+        confidence: 88,
+        reasons: [
+          {
+            type: "Budget",
+            code: "budgetWithin",
+            title: "Within Budget",
+            params: { cost: "¥8k–12k" },
+          },
+          {
+            type: "Interest",
+            code: "interestNature",
+            title: "Nature Escape",
+          },
+        ],
+      },
+      estimatedCostRange: [8000, 12000],
+    } as unknown as Destination;
+
+    await act(async () => {
+      root.render(<HomeMatchCard destination={scored} rank={1} />);
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("Nature Escape");
+    expect(text).not.toContain("Within Budget");
+    expect(text).toContain("¥8k–12k");
+  });
+
+  it("keeps weekend area capacity and transport-excluded warning visible", async () => {
+    const { HomeMatchCard } = await import("../HomeMatchCard");
+    const scoredWeekend = {
+      ...seikoMuseum,
+      match: {
+        confidence: 82,
+        reasons: [
+          {
+            type: "Weekend",
+            code: "weekendTravelAcceptable",
+            title: "Manageable Journey",
+          },
+          {
+            type: "Weekend",
+            code: "weekendTripReady",
+            title: "2-Day Trip Ready",
+          },
+          {
+            type: "Transport",
+            code: "weekendTransportExcluded",
+            title: "Transport Excluded",
+            description:
+              "Transport cost unavailable; total excludes origin transport",
+          },
+        ],
+      },
+      weekend: {
+        travelFit: {
+          oneWayMinutes: 150,
+        },
+        capacity: { activityMinutes: 720 },
+        weatherDays: [],
+        estimatedCostTransportIncluded: false,
+        placeCount: 4,
+      },
+      estimatedCostRange: [12000, 18000],
+    } as unknown as Destination;
+
+    await act(async () => {
+      root.render(<HomeMatchCard destination={scoredWeekend} rank={1} />);
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("destination.tripAreas.plentyForTwoDays");
+    expect(text).toContain("4 places");
+    expect(text).toContain("Transport Excluded");
+    expect(text).not.toContain(
+      "recommendation.reasons.weekendTravelAcceptable.title",
+    );
+    expect(text).not.toContain("destination.tripAreas.travelBy");
+    expect(text).toContain("¥12k–18k");
+  });
+
+  it("uses singular English copy for one weekend place", async () => {
+    const { HomeMatchCard } = await import("../HomeMatchCard");
+    const scoredWeekend = {
+      ...seikoMuseum,
+      weekend: {
+        travelFit: { oneWayMinutes: 150 },
+        capacity: { activityMinutes: 720 },
+        weatherDays: [],
+        estimatedCostTransportIncluded: true,
+        placeCount: 1,
+      },
+    } as unknown as Destination;
+
+    await act(async () => {
+      root.render(<HomeMatchCard destination={scoredWeekend} rank={1} />);
+    });
+
+    expect(host.textContent).toContain("1 place");
+    expect(host.textContent).not.toContain("1 places");
   });
 });

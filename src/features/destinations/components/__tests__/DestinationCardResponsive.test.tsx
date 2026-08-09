@@ -9,6 +9,7 @@ import type { Destination } from "@/shared/types/destination";
 import destinations from "@/shared/data/destinations-index.json";
 import { getSafeDisplayEstimate } from "@/features/home/services/LocalDiscoveryDisplayEstimator";
 import { formatApproximateTransportTime } from "@/shared/services/transport/formatters";
+import * as TripDurationService from "@/shared/services/recommendation/TripDurationService";
 import DestinationCard from "../DestinationCard";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
@@ -102,7 +103,14 @@ describe("DestinationCard responsive content", () => {
   it("keeps the score and core metadata while hiding duplicate mobile context", () => {
     render();
 
-    expect(host.textContent).toContain(`⭐ ${destination.ratings.overall}`);
+    expect(host.textContent).not.toContain("⭐");
+    const score = host.querySelector('[data-testid="meguruto-score"]');
+    expect(score).not.toBeNull();
+    expect(host.querySelector(".lucide-sparkles")).toBeNull();
+    expect(score?.textContent).toBe(String(destination.ratings.overall));
+    expect(score?.getAttribute("aria-label")).toContain(
+      "destination.megurutoScore",
+    );
     expect(host.textContent).toContain("Low sun");
     expect(host.textContent).toContain("Explore");
 
@@ -116,6 +124,13 @@ describe("DestinationCard responsive content", () => {
       `Couple ${destination.ratings.couple}/10`,
     );
     expect(host.querySelector('[data-testid="feedback-control"]')).toBeNull();
+    expect(
+      host.querySelector('[data-testid="destination-card-visit-duration"]')
+        ?.className,
+    ).toContain("hidden");
+    expect(
+      host.querySelector('[data-testid="destination-card-sun"]')?.className,
+    ).toContain("hidden");
   });
 
   it("renders the shared approximate estimate when Explore has no canonical route", () => {
@@ -140,6 +155,27 @@ describe("DestinationCard responsive content", () => {
     expect(host.textContent).toContain(
       formatApproximateTransportTime(displayOnlyEstimate!.timeRange, "en"),
     );
+  });
+
+  it("keeps unknown travel visibly unavailable instead of filling from legacy options", () => {
+    const unknownDestination = {
+      ...destination,
+      id: "unknown-transport-destination",
+      prefecture: "Okinawa",
+      municipalityId: "Okinawa:unknown",
+      transportZoneId: "unknown",
+      transportOptions: { flight: 999 },
+    } as Destination;
+
+    act(() =>
+      root.render(
+        <MemoryRouter>
+          <DestinationCard destination={unknownDestination} />
+        </MemoryRouter>,
+      ),
+    );
+
+    expect(host.textContent).toContain("home.transportModes.travelUnavailable");
   });
 
   it("hides mobile labels without removing desktop items", () => {
@@ -243,10 +279,10 @@ describe("DestinationCard badges", () => {
   }
 
   function badgeContainerText(): string {
-    const badgeArea = Array.from(host.querySelectorAll("div")).find((el) =>
-      /absolute top-3 left-3/.test(el.className),
+    return (
+      host.querySelector('[data-testid="destination-card-badges"]')
+        ?.textContent ?? ""
     );
-    return badgeArea?.textContent ?? "";
   }
 
   it("Osaka City does not show an Osaka City tag (only the title does)", () => {
@@ -301,5 +337,123 @@ describe("DestinationCard badges", () => {
     });
     expect(badgeContainerText()).toContain("destination.tokyoWardsBadge");
     expect(badgeContainerText()).not.toContain("Shibuya Ward");
+  });
+
+  it("shows the canonical strongest recommendation reason without rendering the rest", () => {
+    renderDest({
+      match: {
+        confidence: 91,
+        reasons: [
+          {
+            type: "Budget",
+            code: "budgetWithin",
+            title: "Within Budget",
+          },
+          {
+            type: "Interest",
+            code: "interestNature",
+            title: "Nature Escape",
+            description: "Beautiful scenic landscapes and nature views",
+          },
+          {
+            type: "Interest",
+            code: "interestFood",
+            title: "Top-tier Food Scene",
+            description: "Famous for exceptional local culinary experiences",
+          },
+        ],
+      },
+    });
+
+    expect(host.textContent).toContain("Nature Escape");
+    expect(host.textContent).not.toContain("Within Budget");
+    expect(host.textContent).not.toContain("Top-tier Food Scene");
+  });
+
+  it("wraps long borderline feasibility warnings instead of truncating them", () => {
+    const durationSpy = vi
+      .spyOn(TripDurationService, "estimateDayTripDuration")
+      .mockReturnValue({
+        visitRangeHours: [3, 5],
+        totalRangeHours: [7, 9],
+        representativeHours: 8,
+        band: "fullDay",
+        travelEvidence: "verified",
+        bestTravelMinutes: 120,
+        isBorderline: true,
+        isImpossible: false,
+        warningMessage: {
+          en: "Tight schedule — maximum visit (9h) exceeds 8h limit; allow extra time for transfers and the return journey",
+          ja: "時間がタイトです — 最大滞在 (9時間) が8時間の制限を超えます。乗り換えと帰りの時間に余裕を持ってください",
+        },
+      });
+
+    try {
+      act(() =>
+        root.render(
+          <MemoryRouter>
+            <DestinationCard destination={destination} />
+          </MemoryRouter>,
+        ),
+      );
+    } finally {
+      durationSpy.mockRestore();
+    }
+
+    const warning = host.querySelector(
+      '[data-testid="destination-card-duration-warning"]',
+    );
+    expect(warning).not.toBeNull();
+    expect(warning?.textContent).toContain("Tight schedule");
+    const warningText = warning?.querySelector("span");
+    expect(warningText?.className).toContain("line-clamp-2");
+    expect(warningText?.className).not.toContain("truncate");
+  });
+
+  it("keeps weekend place count, capacity, and verified travel summary", () => {
+    act(() =>
+      root.render(
+        <MemoryRouter>
+          <DestinationCard
+            destination={destination}
+            weekendSummary={{
+              placeCount: 4,
+              capacityMinutes: 720,
+              oneWayMinutes: 90,
+              bestMode: "train",
+            }}
+          />
+        </MemoryRouter>,
+      ),
+    );
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("destination.tripAreas.places");
+    expect(text).toContain("destination.tripAreas.plentyForTwoDays");
+    expect(text).toContain("destination.tripAreas.travelBy");
+  });
+
+  it("keeps the transport-cost warning visible on compact recommendation cards", () => {
+    renderDest({
+      match: {
+        confidence: 75,
+        reasons: [
+          {
+            type: "Weekend",
+            code: "weekendTripReady",
+            title: "2-Day Trip Ready",
+          },
+          {
+            type: "Transport",
+            code: "weekendTransportExcluded",
+            title: "Transport Excluded",
+            description:
+              "Transport cost unavailable; total excludes origin transport",
+          },
+        ],
+      },
+    });
+
+    expect(host.textContent).toContain("Transport Excluded");
   });
 });

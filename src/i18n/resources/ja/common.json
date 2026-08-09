@@ -431,6 +431,8 @@
       "waterfalls": "滝"
     },
     "places": "{{count}}か所",
+    "places_one": "{{count}}か所",
+    "places_other": "{{count}}か所",
     "matchReason": "条件にぴったり",
     "savedReason": "保存済み",
     "rainReason": "雨の日におすすめ",
@@ -488,6 +490,7 @@
     "originForecastHint": "予報は出発地付近の天気です"
   },
   "destination": {
+    "megurutoScore": "メグルートスコア",
     "tokyoWardsGroup": "東京23区",
     "tokyoWardsCount": "{{count}}区",
     "tokyoWardsBadge": "23区",

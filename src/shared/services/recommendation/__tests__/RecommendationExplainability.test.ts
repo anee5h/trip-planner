@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { createRecommendationMatch } from "../RecommendationExplainability";
+import {
+  createRecommendationMatch,
+  getPrimaryDisplayReason,
+} from "../RecommendationExplainability";
+import type { MatchReason } from "../RecommendationTypes";
 import type { Destination } from "@/shared/types/destination";
 
 const baseDest = {
@@ -42,6 +46,51 @@ const baseDest = {
 } as unknown as Destination;
 
 describe("RecommendationExplainability Unit Tests", () => {
+  it("selects a specific interest over an earlier budget reason without reordering reasons", () => {
+    const reasons: MatchReason[] = [
+      {
+        type: "Budget",
+        code: "budgetWithin",
+        title: "Within Budget",
+      },
+      {
+        type: "Interest",
+        code: "interestNature",
+        title: "Nature Escape",
+      },
+    ];
+
+    expect(getPrimaryDisplayReason(reasons)?.code).toBe("interestNature");
+    expect(reasons.map((reason) => reason.code)).toEqual([
+      "budgetWithin",
+      "interestNature",
+    ]);
+  });
+
+  it("keeps the weekend weather, travel, capacity, ready priority", () => {
+    const reasons: MatchReason[] = [
+      {
+        type: "Budget",
+        code: "budgetWithin",
+        title: "Within Budget",
+      },
+      {
+        type: "Weekend",
+        code: "weekendCapacityStrong",
+        title: "Plenty to Do",
+      },
+      {
+        type: "Weekend",
+        code: "weekendWeatherDayRain",
+        title: "Indoor Options Available",
+      },
+    ];
+
+    expect(getPrimaryDisplayReason(reasons, { weekend: true })?.code).toBe(
+      "weekendWeatherDayRain",
+    );
+  });
+
   it("generates match object with budget and train transport explanations", () => {
     const context = {
       tripType: "any",
