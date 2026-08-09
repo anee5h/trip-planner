@@ -19,9 +19,9 @@ Targeted reproduction is available with KAI55_SCENARIO, for example:
 
 ## 2026-08-09 rerun
 
-The complete 41-scenario audit was rerun after PR #120. It produced:
+The complete 42-scenario audit was rerun after PR #120. It produced:
 
-- 28 PASS
+- 29 PASS
 - 12 REVIEW (manual ranking/product judgment)
 - 1 FAIL: F15, the pre-existing visible visit-range semantic mismatch
 
@@ -32,6 +32,11 @@ The new day-trip checks passed:
 - Shin-Yokohama Short outing: non-empty bounded local/ground results.
 - Chiba Short/Half: populated and free of Aomori, Yamagata, Akita, and Kyoto
   leakage.
+- Sapporo/Hokkaido and Fukuoka/Kyushu Short outing: non-empty same-zone local
+  ground rails using bounded estimated evidence.
+- Takamatsu/Shikoku: real-catalogue same-zone local ground evidence remains
+  available for short-outing planning; cross-zone coordinate estimation stays
+  blocked.
 - Island topology: no estimated duration and no train/car feasibility for
   island candidates.
 - Estimated travel: no transport fare or complete budget range was derived

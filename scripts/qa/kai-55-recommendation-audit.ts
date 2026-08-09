@@ -65,6 +65,7 @@ type OriginKey =
   | "tokyo"
   | "chiba"
   | "omiya"
+  | "sapporo"
   | "fukuoka"
   | "wakayama";
 
@@ -97,6 +98,10 @@ const ORIGINS: Record<OriginKey, OriginCase> = {
   omiya: {
     label: "Omiya Station, Saitama",
     coordinates: { lat: 35.9063, lng: 139.6239 },
+  },
+  sapporo: {
+    label: "Sapporo Station, Hokkaido",
+    coordinates: { lat: 43.0687, lng: 141.3508 },
   },
   fukuoka: {
     label: "Fukuoka Station, Fukuoka",
@@ -373,6 +378,18 @@ const scenarios: Scenario[] = [
     topResults: 10,
     expected:
       "A configured mainland origin with nearby destinations keeps a non-empty primary rail even when the verified registry has no Nakayama corridor; only bounded estimated ground evidence may fill that gap.",
+    subsystem: "filter / personalized day-trip fallback",
+    check: { kind: "mainlandOriginFallback", availableHours: 4 },
+  },
+  {
+    id: "C05",
+    title: "Sapporo primary rail survives sparse regional registry coverage",
+    origin: "sapporo",
+    tripDuration: "shortOuting",
+    publicModes: ["train", "bus"],
+    topResults: 10,
+    expected:
+      "A configured Hokkaido origin keeps a non-empty local primary rail when the verified registry lacks the corridor; only bounded same-zone estimated ground evidence may fill that gap.",
     subsystem: "filter / personalized day-trip fallback",
     check: { kind: "mainlandOriginFallback", availableHours: 4 },
   },

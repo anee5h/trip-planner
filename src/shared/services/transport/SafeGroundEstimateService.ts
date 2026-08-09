@@ -21,6 +21,18 @@ import { getDestinationList } from "../destination/DestinationService";
  */
 export const MAX_ESTIMATED_GROUND_DISTANCE_KM = 120;
 
+/**
+ * Geographic islands can still be ordinary large land-transport regions.
+ * Keep this policy separate from TransportZone.isIsland, whose geographic
+ * meaning is used by topology and route safety checks elsewhere.
+ */
+export const MAJOR_LAND_TRANSPORT_ZONE_IDS = new Set<TransportZoneId>([
+  "mainland-honshu",
+  "hokkaido",
+  "mainland-kyushu",
+  "mainland-shikoku",
+]);
+
 const ESTIMATABLE_GROUND_MODES = new Set<TransportMode>([
   "train",
   "shinkansen",
@@ -102,15 +114,13 @@ function pickFastestEstimate(
     timeRange: best.timeRange,
     source: "calculated_ground_display",
     evidence: "estimated",
-    originZoneId: "mainland-honshu",
-    destinationZoneId: "mainland-honshu",
   };
 }
 
 /**
  * Returns an explicitly estimated travel duration only when all of the
  * following are true:
- * - both endpoints resolve to a non-island topology zone;
+ * - both endpoints resolve to the same major land-transport zone;
  * - the caller has already authorized a ground mode for the destination;
  * - both endpoints have finite coordinates within the locality radius;
  * - destination-level access restrictions allow the selected mode.
@@ -146,16 +156,17 @@ export function getSafeGroundEstimate(
   const originZone = zoneById.get(originZoneId);
   const destinationZone = zoneById.get(destinationZoneId);
 
-  // Only non-island mainland topology can use this bounded estimator. In the
-  // current topology that is mainland-honshu; using the zone flags keeps this
-  // policy explicit if more mainland zones are added later.
+  // Only the four ordinary regional land-transport zones can use this
+  // bounded estimator. Do not use `isIsland` here: Hokkaido, Kyushu, and
+  // Shikoku are geographic islands but have normal local ground networks.
   if (
     !originZone ||
     !destinationZone ||
-    originZone.isIsland ||
+    !MAJOR_LAND_TRANSPORT_ZONE_IDS.has(originZoneId) ||
+    !MAJOR_LAND_TRANSPORT_ZONE_IDS.has(destinationZoneId) ||
     originZone.isRemote ||
-    destinationZone.isIsland ||
-    destinationZone.isRemote
+    destinationZone.isRemote ||
+    originZoneId !== destinationZoneId
   ) {
     return null;
   }

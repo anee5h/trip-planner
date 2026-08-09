@@ -42,16 +42,17 @@ Every origin-aware duration carries one of three evidence states:
   ferry registry (`getOriginAwareTransportEstimate`).
 - `estimated`: a bounded coordinate/local-ground estimate used only for a
   day-trip feasibility/display decision. It requires finite coordinates,
-  non-island/non-remote mainland topology, an already authorized ground mode,
-  destination mode support, no `localAccessUnestimated` restriction, and a
-  distance of at most 120 km. It is never a registry fact.
+  one of the four major land-transport zones (Honshu, Hokkaido, Kyushu, or
+  Shikoku) on both endpoints, same-zone local topology, an already authorized
+  ground mode, destination mode support, no `localAccessUnestimated`
+  restriction, and a distance of at most 120 km. It is never a registry fact.
 - `unknown`: no usable duration evidence. It is not eligible for a
   personalized constrained day trip.
 
 Canonical verified evidence always wins. The estimated policy is deliberately
-narrow: islands, ferry routes, flight routes, and long-distance registry gaps
-never gain train/car feasibility from coordinate distance. A configured origin
-zone without coordinates also remains unknown.
+narrow: remote/small-island zones, ferry routes, flight routes, and cross-zone
+long-distance registry gaps never gain train/car feasibility from coordinate
+distance. A configured origin zone without coordinates also remains unknown.
 
 ### Total trip duration (runtime-derived)
 
