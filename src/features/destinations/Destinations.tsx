@@ -118,6 +118,7 @@ export default function Destinations() {
     homeStation,
     homeStationCoords,
     homeStationTransportZoneId,
+    originSource,
     destinationRatings,
   } = useTripStore();
   const { locale } = useLocale();
@@ -1158,7 +1159,11 @@ export default function Destinations() {
         date={date}
         setDate={setDate}
         forecastMap={forecastMap}
-        originLabel={getLocalizedStationLabel(homeStation, locale)}
+        originLabel={
+          originSource === "current"
+            ? t("origin.currentLocation")
+            : getLocalizedStationLabel(homeStation, locale)
+        }
         sortBy={sortBy}
         setSortBy={setSortBy}
         carMode={carMode}

@@ -1,7 +1,7 @@
 /**
  * @vitest-environment jsdom
  */
-import { act, useState } from "react";
+import { act, useCallback, useState } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import type { User } from "@supabase/supabase-js";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
@@ -84,6 +84,7 @@ const TOKYO_DEFAULT: OriginLocation = {
 interface HarnessValue {
   sync: UseTripSyncReturn;
   activeOrigin: OriginLocation;
+  setRuntimeOrigin: (origin: OriginLocation) => void;
 }
 
 let latest: HarnessValue;
@@ -104,7 +105,12 @@ function Harness({
     Record<string, string[] | string>
   >({});
   const [compareList, setCompareList] = useState<string[]>([]);
+  const [savedOrigin, setSavedOrigin] = useState<OriginLocation>(guestOrigin);
   const [activeOrigin, setActiveOrigin] = useState<OriginLocation>(guestOrigin);
+  const setSavedActiveOrigin = useCallback((origin: OriginLocation) => {
+    setSavedOrigin(origin);
+    setActiveOrigin(origin);
+  }, []);
   const [destinationRatings, setDestinationRatings] = useState<
     Record<string, "up" | "down">
   >({});
@@ -121,14 +127,18 @@ function Harness({
     setVisitedDates,
     compareList,
     setCompareList,
-    homeStation: activeOrigin.label,
+    savedHomeStation: savedOrigin.label,
     guestOrigin,
-    setActiveOrigin,
+    setActiveOrigin: setSavedActiveOrigin,
     destinationRatings,
     setDestinationRatings,
   });
 
-  latest = { sync, activeOrigin };
+  latest = {
+    sync,
+    activeOrigin,
+    setRuntimeOrigin: setActiveOrigin,
+  };
   return null;
 }
 
@@ -223,6 +233,42 @@ describe("useTripSync — origin ownership integration", () => {
     });
 
     expect(latest.activeOrigin.label).toBe("Tokyo Station");
+  });
+
+  it("does not persist a runtime current origin when the saved origin is unchanged", async () => {
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: NAKAYAMA.label,
+      },
+      error: null,
+    });
+
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    mocks.upsert.mockClear();
+
+    act(() =>
+      latest.setRuntimeOrigin({
+        label: "Current location",
+        coordinates: { lat: 35.6595, lng: 139.7005 },
+        source: "default",
+      }),
+    );
+    await act(async () => {
+      vi.advanceTimersByTime(1100);
+      await Promise.resolve();
+    });
+
+    expect(latest.activeOrigin.label).toBe("Current location");
+    expect(mocks.upsert).not.toHaveBeenCalled();
   });
 
   it("guest origin unchanged after account hydration", async () => {

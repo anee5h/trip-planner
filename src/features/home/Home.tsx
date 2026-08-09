@@ -76,8 +76,12 @@ export default function Home() {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const { user } = useAuth();
-  const { homeStation, homeStationCoords, homeStationTransportZoneId } =
-    useTripStore();
+  const {
+    homeStation,
+    homeStationCoords,
+    homeStationTransportZoneId,
+    originSource,
+  } = useTripStore();
   const { locale } = useLocale();
   const { isVisited, favorites } = useTripStore();
 
@@ -420,7 +424,11 @@ export default function Home() {
                     }}
                     hasExplicitSelection={hasExplicitSelection}
                     forecastMap={weatherContext.forecastMap}
-                    originLabel={getLocalizedStationLabel(homeStation, locale)}
+                    originLabel={
+                      originSource === "current"
+                        ? t("origin.currentLocation")
+                        : getLocalizedStationLabel(homeStation, locale)
+                    }
                     tripMode={resolvedApplied.tripMode}
                     allowAnyDate={false}
                   />

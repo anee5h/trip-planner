@@ -50,6 +50,7 @@ function dest(overrides: DestOverrides): Destination {
 }
 
 const tokyoHome = { lat: 35.6812, lng: 139.7671 };
+const shibuyaCurrentLocation = { lat: 35.6595, lng: 139.7005 };
 
 function ctx(
   overrides: Partial<RecommendationContext> = {},
@@ -1006,6 +1007,26 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
         homeStationCoords: tokyoHome,
       }),
     );
+    expect(results).toEqual([]);
+  });
+
+  it("keeps unknown weekend routes excluded for a temporary current origin", () => {
+    const noRoute = dest({
+      id: "current-no-route",
+      role: "hub",
+      prefecture: "Kagawa",
+      transportOptions: { train: 240 },
+      recommendedVisitHours: { min: 1, max: 10 },
+    });
+    const results = runRecommendationPipeline(
+      [noRoute],
+      ctx({
+        tripMode: "weekend_2d1n",
+        budget: 200000,
+        homeStationCoords: shibuyaCurrentLocation,
+      }),
+    );
+
     expect(results).toEqual([]);
   });
 

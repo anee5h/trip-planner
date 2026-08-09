@@ -63,7 +63,7 @@ export function OnboardingFlow() {
   const { t } = useTranslation();
   const { user, updateUserProfile } = useAuth();
   const { locale, setLocale } = useLocale();
-  const { homeStation } = useTripStore();
+  const { savedHomeStation } = useTripStore();
 
   const [step, setStep] = useState<"account" | "preferences" | "done">(
     "account",
@@ -115,7 +115,9 @@ export function OnboardingFlow() {
       setFullName(user.user_metadata?.full_name || "");
       setHomeCityId(user.user_metadata?.home_city || "");
       setBaseLocation(
-        homeStation || user.user_metadata?.base_location || "Tokyo Station",
+        savedHomeStation ||
+          user.user_metadata?.base_location ||
+          "Tokyo Station",
       );
       setDefaultLocale(
         user.user_metadata?.default_locale === "ja" ? "ja" : locale,
@@ -139,8 +141,8 @@ export function OnboardingFlow() {
   }, [user?.id]);
 
   useEffect(() => {
-    if (homeStation) setBaseLocation(homeStation);
-  }, [homeStation]);
+    if (savedHomeStation) setBaseLocation(savedHomeStation);
+  }, [savedHomeStation]);
 
   const cityHubs = useMemo(
     () =>
@@ -295,7 +297,7 @@ export function OnboardingFlow() {
                   <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
                     {t("ui.baseLocation")}
                   </label>
-                  <StationInput embedded={true} />
+                  <StationInput embedded={true} allowCurrentLocation={false} />
                 </div>
                 <div className="flex gap-2 pt-2">
                   <Button

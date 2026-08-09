@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import type { ReactNode } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -32,6 +38,19 @@ export type OriginLocation = {
   transportZoneId?: TransportZoneId;
 };
 
+export type OriginSource = "saved" | "current";
+
+type ActiveOrigin =
+  | { source: "saved"; location: OriginLocation }
+  | {
+      source: "current";
+      location: {
+        label: string;
+        coordinates: { lat: number; lng: number };
+        transportZoneId?: TransportZoneId;
+      };
+    };
+
 interface TripStoreContextType {
   favorites: string[];
   toggleFavorite: (id: string) => void;
@@ -54,9 +73,13 @@ interface TripStoreContextType {
   isPrefectureVisited: (id: string) => boolean;
 
   homeStation: string;
+  savedHomeStation: string;
   homeStationCoords: { lat: number; lng: number };
   homeStationTransportZoneId?: TransportZoneId;
+  originSource: OriginSource;
   setOriginLocation: (origin: OriginLocation) => void;
+  setCurrentLocationOrigin: (coordinates: { lat: number; lng: number }) => void;
+  restoreSavedOrigin: () => void;
 
   compareList: string[];
   toggleCompare: (id: string) => void;
@@ -108,6 +131,7 @@ const LEGACY_GUEST_STATION_KEY = "meguruto-guest-home-station";
 const LEGACY_GUEST_COORDS_KEY = "meguruto-guest-home-station-coords";
 const DEFAULT_TOKYO_STATION = "Tokyo Station";
 const DEFAULT_TOKYO_COORDS = { lat: 35.6812, lng: 139.7671 };
+const CURRENT_LOCATION_LABEL = "Current location";
 
 const DEFAULT_ORIGIN: OriginLocation = {
   label: DEFAULT_TOKYO_STATION,
@@ -236,9 +260,16 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
 
   const [guestOrigin, setGuestOrigin] =
     useState<OriginLocation>(loadGuestOrigin);
-  const [activeOrigin, setActiveOrigin] = useState<OriginLocation>(guestOrigin);
-  const activeOriginRef = useRef(activeOrigin);
-  activeOriginRef.current = activeOrigin;
+  const [savedOrigin, setSavedOrigin] = useState<OriginLocation>(guestOrigin);
+  const [activeOrigin, setActiveOrigin] = useState<ActiveOrigin>({
+    source: "saved",
+    location: guestOrigin,
+  });
+
+  const setSavedActiveOrigin = useCallback((origin: OriginLocation) => {
+    setSavedOrigin(origin);
+    setActiveOrigin({ source: "saved", location: origin });
+  }, []);
 
   const [lastSyncedDate, setLastSyncedDate] = useState<string | null>(null);
   const [trips, setTrips] = useState<Trip[]>([]);
@@ -269,9 +300,9 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     setLastSyncedDate,
     compareList,
     setCompareList,
-    homeStation: activeOrigin.label,
+    savedHomeStation: savedOrigin.label,
     guestOrigin,
-    setActiveOrigin,
+    setActiveOrigin: setSavedActiveOrigin,
     trips,
     setTrips,
     destinationRatings,
@@ -288,8 +319,8 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
 
   const setOriginLocation = (origin: OriginLocation) => {
     if (!isValidOriginLocation(origin)) return;
-    activeOriginRef.current = origin;
-    setActiveOrigin(origin);
+    setSavedOrigin(origin);
+    setActiveOrigin({ source: "saved", location: origin });
     if (!user) {
       setGuestOrigin(origin);
       persistGuestOrigin(origin);
@@ -298,6 +329,25 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
       void persistCorrectedOrigin(origin);
     }
   };
+
+  const setCurrentLocationOrigin = useCallback(
+    (coordinates: { lat: number; lng: number }) => {
+      if (!isValidCoordinates(coordinates)) return;
+      setActiveOrigin({
+        source: "current",
+        location: {
+          label: CURRENT_LOCATION_LABEL,
+          coordinates,
+          transportZoneId: resolveOriginTransportZone({ coordinates }),
+        },
+      });
+    },
+    [],
+  );
+
+  const restoreSavedOrigin = useCallback(() => {
+    setActiveOrigin({ source: "saved", location: savedOrigin });
+  }, [savedOrigin]);
 
   const setDestinationRating = (id: string, rating: "up" | "down" | null) => {
     if (!canMutateProfile) return;
@@ -688,10 +738,14 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
         toggleCompare,
         isComparing,
         clearCompare,
-        homeStation: activeOrigin.label,
-        homeStationCoords: activeOrigin.coordinates,
-        homeStationTransportZoneId: activeOrigin.transportZoneId,
+        homeStation: activeOrigin.location.label,
+        savedHomeStation: savedOrigin.label,
+        homeStationCoords: activeOrigin.location.coordinates,
+        homeStationTransportZoneId: activeOrigin.location.transportZoneId,
+        originSource: activeOrigin.source,
         setOriginLocation,
+        setCurrentLocationOrigin,
+        restoreSavedOrigin,
         lastSyncedDate,
         setLastSyncedDate,
         trips,

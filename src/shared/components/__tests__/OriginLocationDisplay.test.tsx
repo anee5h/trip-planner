@@ -20,6 +20,12 @@ vi.mock("react-i18next", () => ({
       ({
         "origin.from": state.locale === "ja" ? "出発地" : "From",
         "origin.edit": state.locale === "ja" ? "編集" : "Edit",
+        "origin.currentLocation":
+          state.locale === "ja" ? "現在地" : "Current location",
+        "origin.currentLocationActive":
+          state.locale === "ja" ? "現在地を使用中" : "Active origin",
+        "origin.useSavedLocation":
+          state.locale === "ja" ? "保存した出発地を使う" : "Use saved origin",
       })[key] ?? key,
   }),
 }));
@@ -85,5 +91,27 @@ describe("OriginLocationDisplay", () => {
     expect(button.disabled).toBe(true);
     act(() => button.click());
     expect(onEdit).not.toHaveBeenCalled();
+  });
+
+  it("clearly labels current location and restores the saved origin", () => {
+    const onRestoreSaved = vi.fn();
+    act(() =>
+      root.render(
+        <OriginLocationDisplay
+          origin=""
+          onEdit={vi.fn()}
+          isCurrentLocation
+          onRestoreSaved={onRestoreSaved}
+        />,
+      ),
+    );
+
+    expect(host.textContent).toContain("Current location");
+    expect(host.textContent).toContain("Active origin");
+    const restore = Array.from(host.querySelectorAll("button")).find(
+      (button) => button.textContent === "Use saved origin",
+    );
+    act(() => restore?.click());
+    expect(onRestoreSaved).toHaveBeenCalledOnce();
   });
 });
