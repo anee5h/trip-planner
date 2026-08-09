@@ -16,14 +16,16 @@ export const WEEKEND_TRAVEL_POLICY = {
   LOCAL_MAX_MINUTES: 60,
   /** Borderline-near destinations remain possible but are heavily deprioritized. */
   NEARBY_MAX_MINUTES: 90,
-  /** Sweet spot for an overnight getaway — strongest score (91–240 min). */
+  /** Normal overnight range before the stronger sweet spot begins. */
+  NORMAL_MAX_MINUTES: 120,
+  /** Sweet spot for an overnight getaway — strongest band (121–240 min). */
   STRONG_MAX_MINUTES: 240,
   ACCEPTABLE_MAX_MINUTES: 300,
   WEAK_MAX_MINUTES: 420,
 } as const;
 
 export type WeekendTravelBand =
-  "local" | "nearby" | "strong" | "acceptable" | "weak" | "unknown";
+  "local" | "nearby" | "normal" | "strong" | "acceptable" | "weak" | "unknown";
 
 export interface WeekendTravelFit {
   eligible: boolean;
@@ -31,17 +33,54 @@ export interface WeekendTravelFit {
   oneWayMinutes?: number;
 }
 
+const OVERNIGHT_WORTHY_KIND = new Set(["island", "onsen"]);
+const OVERNIGHT_WORTHY_CATEGORY = /\b(island|onsen|resort)\b/i;
+
+/**
+ * Local travel may still describe an overnight area when the catalogue says
+ * so explicitly. Capacity is intentionally not part of this exception.
+ */
+export function hasOvernightWorthyWeekendSemantics(
+  destination: Destination,
+  pool: readonly Destination[],
+): boolean {
+  const records = [
+    destination,
+    ...pool.filter(
+      (place) =>
+        place.relationships?.parentDestinationId === destination.id &&
+        isPublishedDestination(place),
+    ),
+  ];
+
+  return records.some(
+    (place) =>
+      (place.kind !== undefined && OVERNIGHT_WORTHY_KIND.has(place.kind)) ||
+      place.categories?.some((category) =>
+        OVERNIGHT_WORTHY_CATEGORY.test(category),
+      ),
+  );
+}
+
 export function evaluateWeekendTravelFit(
   oneWayMinutes: number | undefined,
+  options: { overnightWorthy?: boolean } = {},
 ): WeekendTravelFit {
   if (oneWayMinutes === undefined) {
     return { eligible: false, band: "unknown" };
   }
   if (oneWayMinutes <= WEEKEND_TRAVEL_POLICY.LOCAL_MAX_MINUTES) {
-    return { eligible: false, band: "local", oneWayMinutes };
+    return {
+      eligible: options.overnightWorthy === true,
+      band: "local",
+      oneWayMinutes,
+    };
   }
   if (oneWayMinutes <= WEEKEND_TRAVEL_POLICY.NEARBY_MAX_MINUTES) {
     return { eligible: true, band: "nearby", oneWayMinutes };
+  }
+  if (oneWayMinutes <= WEEKEND_TRAVEL_POLICY.NORMAL_MAX_MINUTES) {
+    return { eligible: true, band: "normal", oneWayMinutes };
   }
   if (oneWayMinutes <= WEEKEND_TRAVEL_POLICY.STRONG_MAX_MINUTES) {
     return { eligible: true, band: "strong", oneWayMinutes };
@@ -110,19 +149,28 @@ export function evaluateWeekendCapacity(
 // ── Scoring ──────────────────────────────────────────────────────────────────
 
 export const WEEKEND_SCORING = {
-  /** Local destinations are hard-excluded; this keeps direct scoring explicit. */
+  /** Ordinary local destinations are hard-excluded; semantic exceptions keep this penalty. */
   TRAVEL_LOCAL_PENALTY: -20,
-  /** Strong penalty for borderline-near overnight candidates (61–90 min). */
+  /** Borderline-near score at 61 minutes; remains strongly negative at 90. */
   TRAVEL_NEARBY_PENALTY: -18,
-  /** Strongest bonus for the overnight sweet spot (91–240 min). */
-  TRAVEL_STRONG_BONUS: 14,
+  TRAVEL_NEARBY_EDGE_PENALTY: -16,
+  /** Transition score at 91 minutes; reaches a small positive by 120 minutes. */
+  TRAVEL_NORMAL_BASE: -14,
+  TRAVEL_NORMAL_MAX: 2,
+  /** Strong overnight score at the start of the 121–240 minute band. */
+  TRAVEL_STRONG_EDGE_BONUS: 2,
+  /** Peak score within the strong overnight band. */
+  TRAVEL_STRONG_BONUS: 9,
+  TRAVEL_STRONG_PEAK_MINUTES: 180,
+  /** Strong-band score at 240 minutes, continuous with the acceptable band. */
+  TRAVEL_STRONG_END_BONUS: 5,
   /** Positive but declining bonus for acceptable distances. */
   TRAVEL_ACCEPTABLE_BASE: 5,
-  TRAVEL_ACCEPTABLE_DENOM: 60,
+  TRAVEL_ACCEPTABLE_DENOM: 59,
   TRAVEL_ACCEPTABLE_STEEPNESS: 5,
-  /** Penalty for very long one-way travel. */
-  TRAVEL_WEAK_BASE: -12,
-  TRAVEL_WEAK_DENOM: 120,
+  /** Long-journey decline starts at neutral immediately after 300 minutes. */
+  TRAVEL_WEAK_BASE: 0,
+  TRAVEL_WEAK_DENOM: 119,
   TRAVEL_WEAK_STEEPNESS: 15,
   CAPACITY_STRONG_BONUS: 3,
 } as const;
@@ -130,12 +178,53 @@ export const WEEKEND_SCORING = {
 export function weekendTravelScoreDelta(fit: WeekendTravelFit): number {
   const minutes = fit.oneWayMinutes;
   if (fit.band === "local") return WEEKEND_SCORING.TRAVEL_LOCAL_PENALTY;
-  if (fit.band === "nearby") return WEEKEND_SCORING.TRAVEL_NEARBY_PENALTY;
-  if (fit.band === "strong") return WEEKEND_SCORING.TRAVEL_STRONG_BONUS;
+  if (fit.band === "nearby" && minutes !== undefined) {
+    return (
+      WEEKEND_SCORING.TRAVEL_NEARBY_PENALTY +
+      ((minutes - WEEKEND_TRAVEL_POLICY.LOCAL_MAX_MINUTES - 1) /
+        (WEEKEND_TRAVEL_POLICY.NEARBY_MAX_MINUTES -
+          WEEKEND_TRAVEL_POLICY.LOCAL_MAX_MINUTES -
+          1)) *
+        (WEEKEND_SCORING.TRAVEL_NEARBY_EDGE_PENALTY -
+          WEEKEND_SCORING.TRAVEL_NEARBY_PENALTY)
+    );
+  }
+  if (fit.band === "normal" && minutes !== undefined) {
+    return (
+      WEEKEND_SCORING.TRAVEL_NORMAL_BASE +
+      ((minutes - WEEKEND_TRAVEL_POLICY.NEARBY_MAX_MINUTES - 1) /
+        (WEEKEND_TRAVEL_POLICY.NORMAL_MAX_MINUTES -
+          WEEKEND_TRAVEL_POLICY.NEARBY_MAX_MINUTES -
+          1)) *
+        (WEEKEND_SCORING.TRAVEL_NORMAL_MAX - WEEKEND_SCORING.TRAVEL_NORMAL_BASE)
+    );
+  }
+  if (fit.band === "strong" && minutes !== undefined) {
+    if (minutes <= WEEKEND_SCORING.TRAVEL_STRONG_PEAK_MINUTES) {
+      return (
+        WEEKEND_SCORING.TRAVEL_STRONG_EDGE_BONUS +
+        ((minutes - WEEKEND_TRAVEL_POLICY.NORMAL_MAX_MINUTES - 1) /
+          (WEEKEND_SCORING.TRAVEL_STRONG_PEAK_MINUTES -
+            WEEKEND_TRAVEL_POLICY.NORMAL_MAX_MINUTES -
+            1)) *
+          (WEEKEND_SCORING.TRAVEL_STRONG_BONUS -
+            WEEKEND_SCORING.TRAVEL_STRONG_EDGE_BONUS)
+      );
+    }
+    return (
+      WEEKEND_SCORING.TRAVEL_STRONG_BONUS -
+      ((minutes - WEEKEND_SCORING.TRAVEL_STRONG_PEAK_MINUTES - 1) /
+        (WEEKEND_TRAVEL_POLICY.STRONG_MAX_MINUTES -
+          WEEKEND_SCORING.TRAVEL_STRONG_PEAK_MINUTES -
+          1)) *
+        (WEEKEND_SCORING.TRAVEL_STRONG_BONUS -
+          WEEKEND_SCORING.TRAVEL_STRONG_END_BONUS)
+    );
+  }
   if (fit.band === "acceptable" && minutes !== undefined) {
     return (
       WEEKEND_SCORING.TRAVEL_ACCEPTABLE_BASE -
-      ((minutes - WEEKEND_TRAVEL_POLICY.STRONG_MAX_MINUTES) /
+      ((minutes - WEEKEND_TRAVEL_POLICY.STRONG_MAX_MINUTES - 1) /
         WEEKEND_SCORING.TRAVEL_ACCEPTABLE_DENOM) *
         WEEKEND_SCORING.TRAVEL_ACCEPTABLE_STEEPNESS
     );
@@ -143,7 +232,7 @@ export function weekendTravelScoreDelta(fit: WeekendTravelFit): number {
   if (fit.band === "weak" && minutes !== undefined) {
     return (
       WEEKEND_SCORING.TRAVEL_WEAK_BASE -
-      ((minutes - WEEKEND_TRAVEL_POLICY.ACCEPTABLE_MAX_MINUTES) /
+      ((minutes - WEEKEND_TRAVEL_POLICY.ACCEPTABLE_MAX_MINUTES - 1) /
         WEEKEND_SCORING.TRAVEL_WEAK_DENOM) *
         WEEKEND_SCORING.TRAVEL_WEAK_STEEPNESS
     );
@@ -182,7 +271,9 @@ export function evaluateWeekendCandidate(
   const weatherDays = (context.destinationWeather?.days ?? []).slice(0, 2);
 
   const oneWayMinutes = getBestOneWayTravelMinutes(destination, context, modes);
-  const travelFit = evaluateWeekendTravelFit(oneWayMinutes);
+  const travelFit = evaluateWeekendTravelFit(oneWayMinutes, {
+    overnightWorthy: hasOvernightWorthyWeekendSemantics(destination, pool),
+  });
   const capacity = evaluateWeekendCapacity(destination, pool);
 
   const travelScore = weekendTravelScoreDelta(travelFit);

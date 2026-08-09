@@ -1,9 +1,11 @@
 import { describe, it, expect } from "vitest";
 import type { Destination } from "@/shared/types/destination";
+import destinationsIndex from "@/shared/data/destinations-index.json";
 import {
   evaluateWeekendTravelFit,
   evaluateWeekendCapacity,
   evaluateWeekendCandidate,
+  hasOvernightWorthyWeekendSemantics,
   weekendTravelScoreDelta,
   WEEKEND_SCORING,
 } from "../WeekendPolicy";
@@ -55,6 +57,13 @@ function context(
     ...overrides,
   };
 }
+
+const catalogueById = new Map(
+  (destinationsIndex as Destination[]).map((destination) => [
+    destination.id,
+    destination,
+  ]),
+);
 
 // ── Travel Fit Tests ─────────────────────────────────────────────────────────
 
@@ -121,7 +130,7 @@ describe("evaluateWeekendTravelFit", () => {
     });
   });
 
-  it("90 → nearby, eligible; 91 → strong, eligible", () => {
+  it("90 → nearby; 91 → normal; 120 → normal; 121 → strong", () => {
     expect(evaluateWeekendTravelFit(90)).toEqual({
       eligible: true,
       band: "nearby",
@@ -129,8 +138,18 @@ describe("evaluateWeekendTravelFit", () => {
     });
     expect(evaluateWeekendTravelFit(91)).toEqual({
       eligible: true,
-      band: "strong",
+      band: "normal",
       oneWayMinutes: 91,
+    });
+    expect(evaluateWeekendTravelFit(120)).toEqual({
+      eligible: true,
+      band: "normal",
+      oneWayMinutes: 120,
+    });
+    expect(evaluateWeekendTravelFit(121)).toEqual({
+      eligible: true,
+      band: "strong",
+      oneWayMinutes: 121,
     });
   });
 
@@ -146,19 +165,57 @@ describe("evaluateWeekendTravelFit", () => {
       oneWayMinutes: 241,
     });
   });
+
+  it("allows local travel only for explicit overnight-worthy semantics", () => {
+    expect(evaluateWeekendTravelFit(60)).toMatchObject({
+      eligible: false,
+      band: "local",
+    });
+    expect(
+      evaluateWeekendTravelFit(60, { overnightWorthy: true }),
+    ).toMatchObject({
+      eligible: true,
+      band: "local",
+    });
+
+    const onsen = dest({
+      id: "near-onsen",
+      kind: "onsen",
+      recommendedVisitHours: { min: 1, max: 10 },
+    });
+    const ordinaryCity = dest({
+      id: "near-city",
+      kind: "city",
+      recommendedVisitHours: { min: 1, max: 10 },
+    });
+    expect(hasOvernightWorthyWeekendSemantics(onsen, [onsen])).toBe(true);
+    expect(
+      hasOvernightWorthyWeekendSemantics(ordinaryCity, [ordinaryCity]),
+    ).toBe(false);
+
+    const arima = catalogueById.get("arima-onsen");
+    const kobe = catalogueById.get("kobe-city");
+    expect(arima).toBeDefined();
+    expect(kobe).toBeDefined();
+    expect(hasOvernightWorthyWeekendSemantics(arima!, [arima!])).toBe(true);
+    expect(hasOvernightWorthyWeekendSemantics(kobe!, [kobe!, arima!])).toBe(
+      true,
+    );
+  });
 });
 
 // ── Travel Score Delta Tests ─────────────────────────────────────────────────
 
 describe("weekendTravelScoreDelta", () => {
-  it("strong band → TRAVEL_STRONG_BONUS (14)", () => {
+  it("strong peak → TRAVEL_STRONG_BONUS (9)", () => {
     expect(
       weekendTravelScoreDelta({
         eligible: true,
         band: "strong",
         oneWayMinutes: 180,
       }),
-    ).toBe(14);
+    ).toBe(WEEKEND_SCORING.TRAVEL_STRONG_BONUS);
+    expect(WEEKEND_SCORING.TRAVEL_STRONG_BONUS).toBe(9);
   });
 
   it("unknown band → 0", () => {
@@ -178,21 +235,50 @@ describe("weekendTravelScoreDelta", () => {
     expect(WEEKEND_SCORING.TRAVEL_LOCAL_PENALTY).toBe(-20);
   });
 
-  it("nearby band → strong negative penalty", () => {
-    expect(
-      weekendTravelScoreDelta({
-        eligible: true,
-        band: "nearby",
-        oneWayMinutes: 90,
-      }),
-    ).toBe(WEEKEND_SCORING.TRAVEL_NEARBY_PENALTY);
+  it("nearby band tapers from strong penalty toward neutral", () => {
+    const d61 = weekendTravelScoreDelta({
+      eligible: true,
+      band: "nearby",
+      oneWayMinutes: 61,
+    });
+    const d90 = weekendTravelScoreDelta({
+      eligible: true,
+      band: "nearby",
+      oneWayMinutes: 90,
+    });
+    const d91 = weekendTravelScoreDelta({
+      eligible: true,
+      band: "normal",
+      oneWayMinutes: 91,
+    });
+    expect(d61).toBe(WEEKEND_SCORING.TRAVEL_NEARBY_PENALTY);
     expect(WEEKEND_SCORING.TRAVEL_NEARBY_PENALTY).toBe(-18);
+    expect(d90).toBe(WEEKEND_SCORING.TRAVEL_NEARBY_EDGE_PENALTY);
+    expect(d90).toBeCloseTo(-16, 5);
+    expect(d91).toBe(WEEKEND_SCORING.TRAVEL_NORMAL_BASE);
+    expect(Math.abs(d91 - d90)).toBeLessThan(3);
+  });
+
+  it("normal to strong boundary remains continuous", () => {
+    const d120 = weekendTravelScoreDelta({
+      eligible: true,
+      band: "normal",
+      oneWayMinutes: 120,
+    });
+    const d121 = weekendTravelScoreDelta({
+      eligible: true,
+      band: "strong",
+      oneWayMinutes: 121,
+    });
+    expect(d120).toBe(WEEKEND_SCORING.TRAVEL_NORMAL_MAX);
+    expect(d121).toBe(WEEKEND_SCORING.TRAVEL_STRONG_EDGE_BONUS);
+    expect(Math.abs(d121 - d120)).toBeLessThan(1);
   });
 
   it("acceptable band: monotonic decreasing", () => {
-    // formula: 5 - ((mins - 240)/60)*5
-    // at 241: 5 - (1/60)*5 ≈ 4.917
-    // at 300: 5 - (60/60)*5 = 0
+    // formula: 5 - ((mins - 241)/59)*5
+    // at 241: 5 - (0/59)*5 = 5
+    // at 300: 5 - (59/59)*5 = 0
     const d241 = weekendTravelScoreDelta({
       eligible: true,
       band: "acceptable",
@@ -204,14 +290,14 @@ describe("weekendTravelScoreDelta", () => {
       oneWayMinutes: 300,
     });
     expect(d241).toBeGreaterThan(d300);
-    expect(d241).toBeCloseTo(4.917, 2);
+    expect(d241).toBeCloseTo(5, 5);
     expect(d300).toBeCloseTo(0, 5);
   });
 
   it("weak band: monotonic decreasing", () => {
-    // formula: -12 - ((mins - 300)/120)*15
-    // at 301: -12 - (1/120)*15 ≈ -12.125
-    // at 420: -12 - (120/120)*15 = -27
+    // formula: 0 - ((mins - 301)/119)*15
+    // at 301: 0 - (0/119)*15 = 0
+    // at 420: 0 - (119/119)*15 = -15
     const d301 = weekendTravelScoreDelta({
       eligible: true,
       band: "weak",
@@ -223,8 +309,8 @@ describe("weekendTravelScoreDelta", () => {
       oneWayMinutes: 420,
     });
     expect(d301).toBeGreaterThan(d420);
-    expect(d301).toBeCloseTo(-12.125, 2);
-    expect(d420).toBeCloseTo(-27, 5);
+    expect(d301).toBeCloseTo(0, 5);
+    expect(d420).toBeCloseTo(-15, 5);
   });
 });
 
@@ -387,7 +473,7 @@ describe("evaluateWeekendCapacity", () => {
 // ── Weekend Candidate Evaluation Tests ───────────────────────────────────────
 
 describe("evaluateWeekendCandidate", () => {
-  it("strong travel + capacity strong + two clear days → scoreDelta 17", () => {
+  it("strong travel + capacity strong + two clear days", () => {
     const d = dest({
       id: "test",
       prefecture: "Kyoto",
@@ -410,12 +496,14 @@ describe("evaluateWeekendCandidate", () => {
     const result = evaluateWeekendCandidate(d, ctx, [d], ["shinkansen"]);
     expect(result.eligible).toBe(true);
     expect(result.travelFit.band).toBe("strong");
-    expect(result.travelScore).toBe(WEEKEND_SCORING.TRAVEL_STRONG_BONUS);
+    expect(result.travelScore).toBeCloseTo(
+      weekendTravelScoreDelta(result.travelFit),
+      5,
+    );
     expect(result.capacityScore).toBe(WEEKEND_SCORING.CAPACITY_STRONG_BONUS);
     expect(result.weatherScore).toBe(0); // two clear days → 0
     expect(result.scoreDelta).toBe(
-      WEEKEND_SCORING.TRAVEL_STRONG_BONUS +
-        WEEKEND_SCORING.CAPACITY_STRONG_BONUS,
+      result.travelScore + WEEKEND_SCORING.CAPACITY_STRONG_BONUS,
     );
   });
 
