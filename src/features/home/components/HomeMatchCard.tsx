@@ -35,6 +35,7 @@ import { getValidModes } from "@/shared/services/recommendation/RecommendationSc
 import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
 import type { TravelConditionEvaluation } from "@/shared/services/recommendation/TravelConditions";
 import { formatTravelConditionParams } from "@/shared/services/recommendation/TravelConditions";
+import { getPrimaryDisplayReason } from "@/shared/services/recommendation/RecommendationExplainability";
 import { Sun, Cloud, CloudRain, CloudSnow, CloudLightning } from "lucide-react";
 import { localizeRecommendationReason } from "@/shared/utils/recommendationLabels";
 
@@ -184,24 +185,15 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     }
     return labelFor(first);
   }, [condition, locale, t]);
-  // Prefer the most situation-specific weekend reason (weather > travel >
-  // capacity) over the generic "weekendTripReady" headline.
+  // Use the shared display-only priority so raw reason construction order does
+  // not make budget or transport displace a more useful reason.
   const weekendReason = weekend
-    ? ((destination as ScoredDestination).match?.reasons?.find((r) =>
-        r.code.startsWith("weekendWeather"),
-      ) ??
-      (destination as ScoredDestination).match?.reasons?.find((r) =>
-        r.code.startsWith("weekendTravel"),
-      ) ??
-      (destination as ScoredDestination).match?.reasons?.find((r) =>
-        r.code.startsWith("weekendCapacity"),
-      ) ??
-      (destination as ScoredDestination).match?.reasons?.find(
-        (r) => r.code === "weekendTripReady",
-      ))
+    ? getPrimaryDisplayReason(scoredDestination.match?.reasons ?? [], {
+        weekend: true,
+      })
     : undefined;
   const dayTripReason = !weekend
-    ? scoredDestination.match?.reasons?.[0]
+    ? getPrimaryDisplayReason(scoredDestination.match?.reasons ?? [])
     : undefined;
   const dayTripReasonLabel = dayTripReason
     ? localizeRecommendationReason(dayTripReason, locale).title

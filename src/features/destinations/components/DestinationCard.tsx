@@ -33,7 +33,6 @@ import {
   Plus,
   Timer,
   AlertTriangle,
-  Sparkles,
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
@@ -59,6 +58,7 @@ import {
 import { pickSemanticDestinationTag } from "@/shared/utils/semanticTags";
 import { localizeRecommendationReason } from "@/shared/utils/recommendationLabels";
 import type { ScoredDestination } from "@/shared/services/recommendation/RecommendationTypes";
+import { getPrimaryDisplayReason } from "@/shared/services/recommendation/RecommendationExplainability";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
 import { formatWeekendMinutes } from "@/shared/services/recommendation/WeekendAreaPolicy";
 import {
@@ -164,7 +164,10 @@ export default function DestinationCard({
 
   const scoredDestination = destination as Partial<ScoredDestination>;
   const match = scoredDestination.match;
-  const strongestReason = match?.reasons[0];
+  const isWeekend = Boolean(weekendSummary);
+  const strongestReason = getPrimaryDisplayReason(match?.reasons ?? [], {
+    weekend: isWeekend,
+  });
   const strongestReasonCopy = strongestReason
     ? localizeRecommendationReason(strongestReason, locale)
     : null;
@@ -223,7 +226,6 @@ export default function DestinationCard({
     homeStationTransportZoneId,
     ferryTemporal,
   );
-  const isWeekend = Boolean(weekendSummary);
   const dayTravelEstimate = isWeekend
     ? undefined
     : getDayTripTravelDurationEvidence(
@@ -335,15 +337,14 @@ export default function DestinationCard({
             />
           </div>
         )}
-        <div className="absolute bottom-3 right-3 z-20 flex items-center rounded-lg border border-emerald-100 bg-emerald-50/95 px-2.5 py-1 shadow-sm backdrop-blur-sm dark:border-emerald-800/50 dark:bg-emerald-900/90">
+        <div className="absolute bottom-3 right-3 z-20 flex items-center rounded-lg border border-white/80 bg-white/90 px-2.5 py-1 shadow-sm backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-900/90">
           <span
             data-testid="meguruto-score"
             title={`${cardCopy.score}: ${destination.ratings.overall}`}
             aria-label={`${cardCopy.score}: ${destination.ratings.overall}`}
-            className="flex items-center gap-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 md:text-sm"
+            className="text-xs font-bold text-slate-700 dark:text-slate-200 md:text-sm"
           >
-            <Sparkles className="size-3.5 md:size-4" aria-hidden="true" />
-            <span>{destination.ratings.overall}</span>
+            {destination.ratings.overall}
           </span>
         </div>
       </div>
@@ -511,6 +512,7 @@ export default function DestinationCard({
               </div>
               {(durationEst?.isBorderline || durationEst?.isImpossible) && (
                 <div
+                  data-testid="destination-card-duration-warning"
                   className={`col-span-2 flex min-w-0 items-center rounded-lg border px-2 py-1 text-xs font-semibold ${
                     durationEst.isImpossible
                       ? "border-rose-200 bg-rose-50 text-rose-700 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-300"
@@ -518,7 +520,14 @@ export default function DestinationCard({
                   }`}
                 >
                   <AlertTriangle className="mr-1.5 size-3.5 shrink-0" />
-                  <span className="truncate">
+                  <span
+                    className="line-clamp-2 break-words"
+                    title={
+                      locale === "ja"
+                        ? durationEst.warningMessage?.ja
+                        : durationEst.warningMessage?.en
+                    }
+                  >
                     {locale === "ja"
                       ? durationEst.warningMessage?.ja
                       : durationEst.warningMessage?.en}

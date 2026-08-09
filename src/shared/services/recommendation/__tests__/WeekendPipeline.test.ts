@@ -1138,4 +1138,58 @@ describe("runRecommendationPipeline — estimate consistency", () => {
     );
     expect(budgetCost).toBe(expectedCost);
   });
+
+  it.each(["hakodate-city", "fukuoka-city"])(
+    "uses the displayed verified flight for %s budget status",
+    (destinationId) => {
+      const destination = byId.get(destinationId)!;
+      const results = runRecommendationPipeline(
+        [destination],
+        ctx({
+          tripMode: "weekend_2d1n",
+          budget: 200000,
+          publicModes: ["train", "shinkansen", "flight"],
+        }),
+      );
+      expect(results).toHaveLength(1);
+
+      const result = results[0];
+      expect(result.transportEstimate?.mode).toBe("flight");
+      const flightBudget = getEstimatedBudgetRange(
+        destination,
+        "flight",
+        2,
+        "standard",
+        tokyoHome,
+      );
+      expect(flightBudget.transportIncluded).toBe(true);
+      expect(result.estimatedCostTransportIncluded).toBe(true);
+      expect(result.estimatedCostRange).toEqual(flightBudget.range);
+      expect(result.match.reasons.map((reason) => reason.code)).not.toContain(
+        "weekendTransportExcluded",
+      );
+    },
+  );
+
+  it("keeps transport excluded when the displayed flight fare is genuinely null", () => {
+    const destination = byId.get("ishigaki-city")!;
+    const results = runRecommendationPipeline(
+      [destination],
+      ctx({
+        tripMode: "weekend_2d1n",
+        budget: 200000,
+        publicModes: ["flight"],
+        homeStationCoords: { lat: 33.5902, lng: 130.4017 },
+        originZoneId: "mainland-kyushu",
+      }),
+    );
+    expect(results).toHaveLength(1);
+
+    const result = results[0];
+    expect(result.transportEstimate?.mode).toBe("flight");
+    expect(result.estimatedCostTransportIncluded).toBe(false);
+    expect(result.match.reasons.map((reason) => reason.code)).toContain(
+      "weekendTransportExcluded",
+    );
+  });
 });

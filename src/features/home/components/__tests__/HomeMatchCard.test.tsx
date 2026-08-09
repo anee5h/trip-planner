@@ -473,8 +473,8 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
     });
 
     const text = host.textContent ?? "";
-    expect(text).toContain("Within Budget");
-    expect(text).not.toContain("Nature Escape");
+    expect(text).toContain("Nature Escape");
+    expect(text).not.toContain("Within Budget");
     expect(text).toContain("¥8k–12k");
   });
 
