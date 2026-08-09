@@ -336,23 +336,24 @@ export default function Destinations() {
   ]);
 
   // Build context for catalog scoring ("Recommended" sort).
-  // Sourced from saved Settings → Travel Preferences where available.
+  // Sourced from the live Explorer controls, so eligibility and Recommended
+  // scoring use the same visible transport selection.
   // Documented defaults when not saved:
   //   tripType: "" — hits no switch case, zero trip-type impact (clean neutral)
-  //   budget:   50_000 JPY — mid-range, non-destructive fallback
-  //   partySize/carMode/publicModes: from saved preferences or fallback values
+  //   budget:   BUDGET_TIER_LIMITS.standard — the Explorer's standard default
+  //   partySize: from the Explorer controls; transport uses the Explorer
+  //   selection or the shared "any public transport" fallback.
   // currentWeatherCondition: "" — calendar season (via getFixedSeason in scorer)
   //   handles the seasonal dimension; no ambient weather fetch needed.
   const catalogContext = useMemo<RecommendationContext>(() => {
-    const prefs = user?.user_metadata?.preferences ?? {};
     return {
       vibe,
       weather: { preferred: weather },
       budgetTier,
       budget: maxBudget,
       partySize,
-      carMode: prefs.carMode ?? "none",
-      publicModes: prefs.publicModes ?? ALL_PUBLIC_MODES,
+      carMode,
+      publicModes: publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES,
       currentWeatherCondition: "",
       currentWeather: null,
       visitedIds: [],
@@ -360,12 +361,12 @@ export default function Destinations() {
       originZoneId: homeStationTransportZoneId,
       userRatings: destinationRatings,
       tripDuration,
+      tripMode: tripMode === "any" ? undefined : tripMode,
       // Selected travel date: keeps every origin-aware estimate, budget and
       // duration read inside the explorer on the same temporal context.
       ferryTemporal,
     };
   }, [
-    user,
     homeStationCoords,
     homeStationTransportZoneId,
     destinationRatings,
@@ -375,6 +376,9 @@ export default function Destinations() {
     tripDuration,
     maxBudget,
     partySize,
+    carMode,
+    publicModes,
+    tripMode,
     ferryTemporal,
   ]);
 
@@ -835,6 +839,7 @@ export default function Destinations() {
         }
       }
     } else if (
+      tripMode === "day_trip" ||
       tripDuration !== "any" ||
       hasRestrictedTransportSelection(carMode, publicModes)
     ) {
@@ -913,6 +918,18 @@ export default function Destinations() {
       );
     }
 
+    // Score once per destination: the shared day-trip efficiency calculation
+    // is origin-aware and should not repeat inside Array.sort's comparator.
+    const recommendedScoreById = new Map<string, number>();
+    if (sortBy === "recommended") {
+      for (const destination of result) {
+        recommendedScoreById.set(
+          destination.id,
+          scoreForCatalog(destination, catalogContext),
+        );
+      }
+    }
+
     // 6. Sort
     result = [...result].sort((a, b) => {
       switch (sortBy) {
@@ -924,9 +941,11 @@ export default function Destinations() {
           // added for both modes when a date is selected.
           return (
             (weekendRecommendedScoreById.get(b.id) ??
+              recommendedScoreById.get(b.id) ??
               scoreForCatalog(b, catalogContext)) +
             (conditionFor(b)?.scoreDelta ?? 0) -
             ((weekendRecommendedScoreById.get(a.id) ??
+              recommendedScoreById.get(a.id) ??
               scoreForCatalog(a, catalogContext)) +
               (conditionFor(a)?.scoreDelta ?? 0))
           );

@@ -9,7 +9,11 @@ import {
   getDayTripTravelDurationEvidence,
   estimateDayTripDuration,
 } from "../TripDurationService";
-import { getRecommendations, getValidModes } from "../RecommendationService";
+import {
+  getRecommendations,
+  getValidModes,
+  scoreForCatalog,
+} from "../RecommendationService";
 import {
   resolveDestinationTransportZone,
   resolveOriginTransportZone,
@@ -67,6 +71,102 @@ function evidenceFor(
 }
 
 describe("day-trip travel evidence", () => {
+  it("does not recommend unknown travel for Nakayama Day Trip + Any", () => {
+    const source = catalog.find(
+      (destination) => destination.id === "yokohama-city",
+    )!;
+    const unknownTravelCandidate = {
+      ...source,
+      id: "unknown-travel-day-trip-any",
+      coordinates: undefined,
+      recommendedVisitHours: { min: 1, max: 2 },
+      transportOptions: { train: 30 },
+    } as Destination;
+
+    const results = getRecommendations([unknownTravelCandidate], {
+      ...contextFor(NAKAYAMA, "halfDay"),
+      tripDuration: "any",
+    });
+
+    expect(results).toHaveLength(0);
+  });
+
+  it("uses the selected transport controls for eligibility and Recommended ordering", () => {
+    const allPublic = {
+      ...contextFor(NAKAYAMA, "halfDay"),
+      tripDuration: "any" as const,
+      publicModes: ALL_PUBLIC_MODES,
+    };
+    const trainOnly = { ...allPublic, publicModes: ["train"] };
+    const trainAndShinkansen = {
+      ...allPublic,
+      publicModes: ["train", "shinkansen"],
+    };
+    const shinkansenOnly = catalog.find(
+      (destination) => destination.id === "dakigaeri-valley-akita",
+    )!;
+    const tokyoStation = catalog.find(
+      (destination) => destination.id === "tokyo-station-chiyoda",
+    )!;
+    const odawara = catalog.find(
+      (destination) => destination.id === "odawara-city",
+    )!;
+    const harryPotter = catalog.find(
+      (destination) => destination.id === "harry-potter-studio",
+    )!;
+
+    expect(
+      getValidModes(
+        shinkansenOnly,
+        "none",
+        allPublic.publicModes,
+        NAKAYAMA,
+        "standard",
+        allPublic.originZoneId,
+      ),
+    ).toEqual(["shinkansen"]);
+    expect(
+      getValidModes(
+        shinkansenOnly,
+        "none",
+        trainOnly.publicModes,
+        NAKAYAMA,
+        "standard",
+        trainOnly.originZoneId,
+      ),
+    ).toEqual([]);
+    expect(
+      getValidModes(
+        tokyoStation,
+        "none",
+        [],
+        NAKAYAMA,
+        "standard",
+        allPublic.originZoneId,
+      ),
+    ).toEqual([]);
+    expect(
+      getValidModes(
+        tokyoStation,
+        "rental",
+        [],
+        NAKAYAMA,
+        "standard",
+        allPublic.originZoneId,
+      ),
+    ).toContain("car");
+
+    expect(scoreForCatalog(odawara, allPublic)).toBeGreaterThan(
+      scoreForCatalog(harryPotter, allPublic),
+    );
+    expect(scoreForCatalog(odawara, trainAndShinkansen)).toBeGreaterThan(
+      scoreForCatalog(harryPotter, trainAndShinkansen),
+    );
+    expect(scoreForCatalog(odawara, trainOnly)).toBeLessThan(
+      scoreForCatalog(harryPotter, trainOnly),
+    );
+  });
+
   it.each([
     ["Nakayama", NAKAYAMA],
     ["Shin-Yokohama", SHIN_YOKOHAMA],

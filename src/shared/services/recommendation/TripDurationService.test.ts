@@ -5,6 +5,7 @@ import {
   getBand,
   getDerivedTripDurationHours,
   getDayTripAvailableTimeHours,
+  getDayTripTravelEfficiency,
   getVisitBand,
   matchesPersonalizedDayTripDuration,
   matchesVisitDuration,
@@ -241,6 +242,7 @@ describe("TripDurationService", () => {
     expect(getDayTripAvailableTimeHours("shortOuting")).toBe(4);
     expect(getDayTripAvailableTimeHours("halfDay")).toBe(7.5);
     expect(getDayTripAvailableTimeHours("fullDay")).toBe(14);
+    expect(getDayTripAvailableTimeHours("any")).toBe(14);
     expect(
       matchesPersonalizedDayTripDuration(
         feasibleTokyoCandidate,
@@ -352,5 +354,53 @@ describe("TripDurationService", () => {
     );
     expect(train!.representativeHours).toBeGreaterThan(5);
     expect(shinkansen!.representativeHours).toBeLessThan(5);
+  });
+
+  it("bounds the smooth day-trip travel-efficiency contribution", () => {
+    const efficiency = getDayTripTravelEfficiency(
+      destination,
+      {
+        homeStationCoords: { lat: 34.4, lng: 132.45 },
+        tripMode: "day_trip",
+        tripDuration: "halfDay",
+      } as never,
+      "train",
+    );
+
+    expect(efficiency?.evidence).toBe("verified");
+    expect(efficiency?.travelShare).toBeGreaterThan(0);
+    expect(efficiency?.totalOutingHours).toBeGreaterThan(
+      efficiency!.visitHours,
+    );
+    expect(efficiency?.availableTimeHours).toBe(7.5);
+    expect(efficiency?.travelEnvelopeShare).toBeGreaterThan(0);
+    expect(efficiency?.contribution).toBeLessThan(0);
+    expect(efficiency?.contribution).toBeGreaterThan(-24);
+  });
+
+  it("does not add a visit-duration utilization penalty", () => {
+    const origin = { lat: 34.4, lng: 132.45 };
+    const shortVisit = getDayTripTravelEfficiency(
+      { ...destination, recommendedVisitHours: { min: 2, max: 2 } },
+      {
+        homeStationCoords: origin,
+        tripMode: "day_trip",
+        tripDuration: "fullDay",
+      } as never,
+      "train",
+    )!;
+    const longVisit = getDayTripTravelEfficiency(
+      { ...destination, recommendedVisitHours: { min: 8, max: 8 } },
+      {
+        homeStationCoords: origin,
+        tripMode: "day_trip",
+        tripDuration: "fullDay",
+      } as never,
+      "train",
+    )!;
+
+    expect(longVisit.travelHours).toBe(shortVisit.travelHours);
+    expect(longVisit.travelEnvelopeShare).toBe(shortVisit.travelEnvelopeShare);
+    expect(longVisit.contribution).toBeGreaterThan(shortVisit.contribution);
   });
 });
