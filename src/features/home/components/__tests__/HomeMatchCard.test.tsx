@@ -7,7 +7,11 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import type { Destination } from "@/shared/types/destination";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
-import { formatTransportTime } from "@/shared/services/transport/formatters";
+import {
+  formatApproximateTransportTime,
+  formatTransportTime,
+} from "@/shared/services/transport/formatters";
+import { getSafeDisplayEstimate } from "../../services/LocalDiscoveryDisplayEstimator";
 import { HomeMatchCard } from "../HomeMatchCard";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
@@ -15,6 +19,9 @@ import { HomeMatchCard } from "../HomeMatchCard";
 // ── Mock heavy deps the component imports ─────────────────────────────────────
 const YOKOHAMA = { lat: 35.4437, lng: 139.638 };
 const TOKYO = { lat: 35.6812, lng: 139.7671 };
+const NAKAYAMA = { lat: 35.514745, lng: 139.539692 };
+const SHIN_YOKOHAMA = { lat: 35.5073, lng: 139.6172 };
+const CHIBA = { lat: 35.6131, lng: 140.1133 };
 
 vi.mock("react-router-dom", () => ({
   Link: ({ children, to }: { children: React.ReactNode; to: string }) => (
@@ -257,7 +264,7 @@ const busOnlyYokohamaPOI: Destination = {
   role: "poi",
 } as unknown as Destination;
 
-describe("HomeMatchCard — KAI-52 local display estimates and guards", () => {
+describe("HomeMatchCard — canonical travel-time truth", () => {
   let host: HTMLDivElement;
   let root: Root;
 
@@ -295,7 +302,27 @@ describe("HomeMatchCard — KAI-52 local display estimates and guards", () => {
     expect(text).toContain(formatTransportTime(best!.timeRange));
   });
 
-  it("renders Est. local display estimate for same-municipality Yokohama POI", async () => {
+  it.each([
+    ["Nakayama", NAKAYAMA],
+    ["Shin-Yokohama", SHIN_YOKOHAMA],
+    ["Chiba", CHIBA],
+  ])(
+    "shows unavailable travel time for %s when canonical travel is unknown",
+    async (_originName, originCoords) => {
+      const { HomeMatchCard } = await import("../HomeMatchCard");
+      mockHomeStationCoords = originCoords;
+
+      await act(async () => {
+        root.render(<HomeMatchCard destination={yokohamaPOI} rank={1} />);
+      });
+
+      const text = host.textContent ?? "";
+      expect(text).not.toMatch(/Est\.\s*\d+/);
+      expect(text).toContain("home.transportModes.travelUnavailable");
+    },
+  );
+
+  it("does not show a coordinate-derived estimate for an unsupported local route", async () => {
     const { HomeMatchCard } = await import("../HomeMatchCard");
 
     await act(async () => {
@@ -303,11 +330,11 @@ describe("HomeMatchCard — KAI-52 local display estimates and guards", () => {
     });
 
     const text = host.textContent ?? "";
-    expect(text).toMatch(/Est\.\s*\d+/);
-    expect(text).not.toContain("home.transportModes.travel");
+    expect(text).not.toMatch(/Est\.\s*\d+/);
+    expect(text).toContain("home.transportModes.travelUnavailable");
   });
 
-  it("renders Est. ground display estimate for cross-municipality mainland (Yokohama -> Kamakura)", async () => {
+  it("does not show a coordinate-derived estimate for an unsupported mainland route", async () => {
     const { HomeMatchCard } = await import("../HomeMatchCard");
 
     await act(async () => {
@@ -315,21 +342,52 @@ describe("HomeMatchCard — KAI-52 local display estimates and guards", () => {
     });
 
     const text = host.textContent ?? "";
-    // Now produces ground estimate (Est. label) instead of generic Travel
-    expect(text).toMatch(/Est\.\s*\d+/);
-    expect(text).not.toContain("home.transportModes.travel");
+    expect(text).not.toMatch(/Est\.\s*\d+/);
+    expect(text).toContain("home.transportModes.travelUnavailable");
+  });
+
+  it("allows an explicitly local discovery surface to show an approximate estimate", async () => {
+    const { HomeMatchCard } = await import("../HomeMatchCard");
+    const localEstimate = getSafeDisplayEstimate(kamakuraPOI, {
+      homeStationCoords: YOKOHAMA,
+      publicModes: ["train"],
+    });
+    expect(localEstimate).not.toBeNull();
+
+    await act(async () => {
+      root.render(
+        <HomeMatchCard
+          destination={kamakuraPOI}
+          rank={1}
+          publicModes={["train"]}
+          allowApproximateLocalDisplay
+        />,
+      );
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain(
+      formatApproximateTransportTime(localEstimate!.timeRange),
+    );
+    expect(text).toContain("~");
   });
 
   it("negative: does NOT fabricate local display estimate for cross-water island (Yokohama -> Ogasawara)", async () => {
     const { HomeMatchCard } = await import("../HomeMatchCard");
 
     await act(async () => {
-      root.render(<HomeMatchCard destination={ogasawaraPOI} rank={1} />);
+      root.render(
+        <HomeMatchCard
+          destination={ogasawaraPOI}
+          rank={1}
+          publicModes={["train"]}
+        />,
+      );
     });
 
     const text = host.textContent ?? "";
     expect(text).not.toMatch(/Est\.\s*\d+/);
-    expect(text).toContain("home.transportModes.travel");
+    expect(text).toContain("home.transportModes.travelUnavailable");
   });
 
   it("negative: does NOT fabricate local display estimate for localAccessUnestimated destination (Kagoshima -> Sakurajima with car)", async () => {
@@ -339,16 +397,21 @@ describe("HomeMatchCard — KAI-52 local display estimates and guards", () => {
 
     await act(async () => {
       root.render(
-        <HomeMatchCard destination={sakurajimaPOI} rank={1} carMode="my_car" />,
+        <HomeMatchCard
+          destination={sakurajimaPOI}
+          rank={1}
+          carMode="my_car"
+          publicModes={["train"]}
+        />,
       );
     });
 
     const text = host.textContent ?? "";
     expect(text).not.toMatch(/Est\.\s*\d+/);
-    expect(text).toContain("home.transportModes.travel");
+    expect(text).toContain("home.transportModes.travelUnavailable");
   });
 
-  it("uses bus estimate for destination with bus-only localAccessModes instead of fabricating train", async () => {
+  it("keeps bus-only local access unknown without a canonical origin-aware duration", async () => {
     const { HomeMatchCard } = await import("../HomeMatchCard");
 
     await act(async () => {
@@ -356,9 +419,8 @@ describe("HomeMatchCard — KAI-52 local display estimates and guards", () => {
     });
 
     const text = host.textContent ?? "";
-    // Bus estimate should be present (not generic Travel)
-    expect(text).toMatch(/Est\.\s*\d+/);
-    expect(text).not.toContain("home.transportModes.travel");
+    expect(text).not.toMatch(/Est\.\s*\d+/);
+    expect(text).toContain("home.transportModes.travelUnavailable");
   });
 
   it("recommendation leakage proof: canonical OriginAwareTransportService remains null for same-municipality without verified route", async () => {

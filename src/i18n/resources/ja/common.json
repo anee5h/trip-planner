@@ -430,7 +430,8 @@
       "ferry": "フェリー",
       "car": "レンタカー",
       "my_car": "マイカー",
-      "travel": "移動"
+      "travel": "移動",
+      "travelUnavailable": "所要時間は利用できません"
     },
     "roulette": {
       "title": "行き先ルーレット",

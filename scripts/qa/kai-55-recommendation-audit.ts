@@ -46,12 +46,14 @@ const { getVisitBand, estimateTripDuration } =
   await import("../../src/shared/services/recommendation/TripDurationService");
 const { getRecommendations, getValidModes } =
   await import("../../src/shared/services/recommendation/RecommendationService");
+const { buildRecommendationCandidate } =
+  await import("../../src/shared/services/recommendation/RecommendationPipeline");
+const { getFastestPreferredTransport } =
+  await import("../../src/shared/services/transport/PreferredTransport");
 const { resolveOriginMunicipalityId } =
   await import("../../src/shared/services/recommendation/OriginAreaService");
 const { classifyWeekendResultCandidate } =
   await import("../../src/shared/services/recommendation/WeekendAreaPolicy");
-const { getSafeDisplayEstimate } =
-  await import("../../src/features/home/services/LocalDiscoveryDisplayEstimator");
 
 type OriginKey =
   | "nakayama"
@@ -117,7 +119,7 @@ type Check =
   | { kind: "knownBudgetWithin" }
   | { kind: "unknownBudgetNotFictional" }
   | { kind: "transportConsistent" }
-  | { kind: "homeDisplayFallback" }
+  | { kind: "homeCanonicalDisplay"; origins: OriginKey[] }
   | { kind: "dayTripFeasibility"; availableHours: number }
   | {
       kind: "personalizedDayTrip";
@@ -465,13 +467,16 @@ const scenarios: Scenario[] = [
   },
   {
     id: "TR03",
-    title: "Home card fallback versus canonical duration",
+    title: "Home card canonical duration consistency",
     origin: "nakayama",
     publicModes: ALL_PUBLIC_MODES,
     expected:
-      "A missing canonical origin-aware duration stays unknown on Home rather than becoming a distance-derived personalized claim.",
+      "Home shows the same canonical known/unknown travel state as destination details and Explore across unsupported and verified corridors.",
     subsystem: "travel time / cross-surface consistency",
-    check: { kind: "homeDisplayFallback" },
+    check: {
+      kind: "homeCanonicalDisplay",
+      origins: ["nakayama", "shinYokohama", "chiba", "tokyo"],
+    },
   },
   {
     id: "TR04",
@@ -659,6 +664,25 @@ function estimateFor(
       ferryTemporal: context.ferryTemporal,
     },
     modes,
+  );
+}
+
+function homeCardTransport(
+  destination: Destination,
+  context: RecommendationContext,
+) {
+  const adjusted = buildRecommendationCandidate(destination, {
+    homeStationCoords: context.homeStationCoords,
+    originZoneId: context.originZoneId,
+  });
+  return getFastestPreferredTransport(
+    adjusted,
+    context.carMode,
+    context.publicModes,
+    context.partySize,
+    context.homeStationCoords ?? undefined,
+    context.originZoneId,
+    context.ferryTemporal,
   );
 }
 
@@ -916,37 +940,51 @@ function validate(
       );
       return { status: "PASS", severity: "none", notes };
     }
-    case "homeDisplayFallback": {
-      const context = contextFor(scenario);
-      const fallbacks = results.slice(0, 20).filter(
-        (result) =>
-          !result.transportEstimate &&
-          getSafeDisplayEstimate(result, {
-            homeStationCoords: context.homeStationCoords,
-            homeStationTransportZoneId: context.originZoneId,
-            carMode: context.carMode,
-            publicModes: context.publicModes,
-          }),
-      );
-      if (fallbacks.length > 0) {
+    case "homeCanonicalDisplay": {
+      const mismatches: string[] = [];
+      for (const origin of scenario.check.origins) {
+        const originScenario = { ...scenario, origin };
+        const context = contextFor(originScenario);
+        const originResults =
+          origin === scenario.origin
+            ? results
+            : getRecommendations(destinations, context);
+        for (const result of originResults.slice(0, 20)) {
+          const canonical = estimateFor(
+            result,
+            context,
+            modesFor(result, context),
+          );
+          const card = homeCardTransport(result, context);
+          if (!canonical && card) {
+            mismatches.push(
+              `${origin}:${result.id} Home=${card.mode}:${card.timeRange.join("-")}m canonical=unknown`,
+            );
+            continue;
+          }
+          if (
+            canonical &&
+            (!card ||
+              card.mode !== canonical.mode ||
+              card.timeRange[0] !== canonical.timeRange[0] ||
+              card.timeRange[1] !== canonical.timeRange[1])
+          ) {
+            mismatches.push(
+              `${origin}:${result.id} Home=${card ? `${card.mode}:${card.timeRange.join("-")}m` : "unknown"} canonical=${formatEstimate(canonical)}`,
+            );
+          }
+        }
+      }
+      if (mismatches.length > 0) {
         return fail(
-          `Home can show a distance-derived estimate while canonical duration is unknown: ${fallbacks
+          `Home transport state disagrees with canonical truth: ${mismatches
             .slice(0, 8)
-            .map((result) => {
-              const display = getSafeDisplayEstimate(result, {
-                homeStationCoords: context.homeStationCoords,
-                homeStationTransportZoneId: context.originZoneId,
-                carMode: context.carMode,
-                publicModes: context.publicModes,
-              });
-              return `${result.id}=${display?.mode ?? "unknown"}:${display?.timeRange.join("-") ?? "unknown"}m`;
-            })
-            .join(", ")}`,
+            .join("; ")}`,
           "P2",
         );
       }
       notes.push(
-        "No inspected result had a Home-only distance fallback when canonical duration was unknown.",
+        `Home transport state matches canonical known/unknown truth for ${scenario.check.origins.join(", ")}; no display-only duration is used.`,
       );
       return { status: "PASS", severity: "none", notes };
     }

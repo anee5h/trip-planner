@@ -430,7 +430,8 @@
       "ferry": "Ferry",
       "car": "Rental car",
       "my_car": "Personal car",
-      "travel": "Travel"
+      "travel": "Travel",
+      "travelUnavailable": "Travel time unavailable"
     },
     "roulette": {
       "title": "Destination Roulette",

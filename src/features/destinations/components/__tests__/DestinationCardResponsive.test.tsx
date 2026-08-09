@@ -7,11 +7,17 @@ import { MemoryRouter } from "react-router-dom";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { Destination } from "@/shared/types/destination";
 import destinations from "@/shared/data/destinations-index.json";
+import { getSafeDisplayEstimate } from "@/features/home/services/LocalDiscoveryDisplayEstimator";
+import { formatTransportTime } from "@/shared/services/transport/formatters";
 import DestinationCard from "../DestinationCard";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
-const state = vi.hoisted(() => ({ canMutateProfile: true, favorite: false }));
+const state = vi.hoisted(() => ({
+  canMutateProfile: true,
+  favorite: false,
+  homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+}));
 
 vi.mock("@/shared/context/LocaleContext", () => ({
   useLocale: () => ({ locale: "en", setLocale: vi.fn() }),
@@ -28,7 +34,7 @@ vi.mock("@/shared/hooks/useTripStore", () => ({
     isComparing: () => false,
     toggleCompare: vi.fn(),
     compareList: [],
-    homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+    homeStationCoords: state.homeStationCoords,
     canMutateProfile: state.canMutateProfile,
     isFavorite: () => state.favorite,
     toggleFavorite: vi.fn(),
@@ -81,6 +87,7 @@ function render() {
 beforeEach(() => {
   state.canMutateProfile = true;
   state.favorite = false;
+  state.homeStationCoords = { lat: 35.6812, lng: 139.7671 };
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -109,6 +116,30 @@ describe("DestinationCard responsive content", () => {
       `Couple ${destination.ratings.couple}/10`,
     );
     expect(host.querySelector('[data-testid="feedback-control"]')).toBeNull();
+  });
+
+  it("does not render the display-only estimate when Explore has no canonical route", () => {
+    state.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    const unsupportedDestination = destinations.find(
+      (candidate) => candidate.id === "abeno-harukas-300-osaka",
+    ) as Destination;
+    const displayOnlyEstimate = getSafeDisplayEstimate(unsupportedDestination, {
+      homeStationCoords: state.homeStationCoords,
+      publicModes: ["train", "shinkansen", "bus", "flight"],
+    });
+
+    expect(displayOnlyEstimate).not.toBeNull();
+    act(() =>
+      root.render(
+        <MemoryRouter>
+          <DestinationCard destination={unsupportedDestination} />
+        </MemoryRouter>,
+      ),
+    );
+
+    expect(host.textContent).not.toContain(
+      formatTransportTime(displayOnlyEstimate!.timeRange, "en"),
+    );
   });
 
   it("hides mobile labels without removing desktop items", () => {

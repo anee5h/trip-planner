@@ -109,6 +109,10 @@ const storeState = vi.hoisted(() => ({
   homeStationTransportZoneId: undefined as string | undefined,
 }));
 
+const NAKAYAMA = { lat: 35.514745, lng: 139.539692 };
+const SHIN_YOKOHAMA = { lat: 35.5073, lng: 139.6172 };
+const CHIBA = { lat: 35.6131, lng: 140.1133 };
+
 vi.mock("@/shared/hooks/useTripStore", () => ({
   useTripStore: () => ({
     isVisited: () => false,
@@ -191,6 +195,38 @@ describe("DestinationDetails transport rows", () => {
     expect(text).not.toContain("Train");
     expect(text).not.toContain("Shinkansen");
     expect(text).toContain("Transport estimate unavailable");
+  });
+
+  it.each([
+    ["Nakayama", NAKAYAMA],
+    ["Shin-Yokohama", SHIN_YOKOHAMA],
+    ["Chiba", CHIBA],
+  ])(
+    "%s labels a safe local fallback as approximate when canonical travel is unknown",
+    async (_originName, originCoords) => {
+      storeState.homeStationCoords = originCoords;
+      storeState.homeStationTransportZoneId = "mainland-honshu";
+      render("/destinations/abeno-harukas-300-osaka");
+      await act(async () => {
+        await flush(80);
+      });
+      const text = host.textContent ?? "";
+      expect(text).toContain("Route not verified");
+      expect(text).toContain("~");
+      expect(text).not.toContain("Transport estimate unavailable");
+      expect(text).not.toContain("136m");
+      expect(text).not.toContain("Est.");
+    },
+  );
+
+  it("Tokyo uses the verified corridor for destination details", async () => {
+    render("/destinations/seiko-museum-ginza");
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).toContain("10m");
+    expect(text).not.toContain("Transport estimate unavailable");
   });
 
   it("no-route destination (Fukuoka → Ogasawara) renders unavailable copy", async () => {

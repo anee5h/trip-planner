@@ -20,6 +20,7 @@ vi.mock("react-i18next", () => ({
         "home.viewAllUnexploredNearby": "View all nearby unexplored places",
         "home.viewAll": "View all",
         "home.transportModes.travel": "Travel",
+        "home.transportModes.travelUnavailable": "Travel time unavailable",
         "home.transportModes.train": "Train",
         "home.transportModes.shinkansen": "Shinkansen",
         "home.transportModes.bus": "Bus",
