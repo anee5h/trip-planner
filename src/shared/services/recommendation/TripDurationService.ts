@@ -55,6 +55,72 @@ export function matchesVisitDuration(
   return band === requested;
 }
 
+/**
+ * The selected day-trip envelopes shown by Home. Weekend planning has a
+ * separate policy and must not use these limits.
+ */
+export function getDayTripAvailableTimeHours(
+  requested: TripDuration,
+): number | undefined {
+  switch (requested) {
+    case "shortOuting":
+      return 4;
+    case "halfDay":
+      return 7.5;
+    case "fullDay":
+      return 14;
+    default:
+      return undefined;
+  }
+}
+
+/**
+ * Whether the context represents a selected origin for personalized planning.
+ * A zone without coordinates is still an origin: the canonical estimator will
+ * remain unknown and the constrained day-trip candidate must be excluded.
+ */
+export function hasPersonalizedOrigin(
+  context: TripDurationContext | RecommendationContext,
+): boolean {
+  return Boolean(
+    context.homeStationCoords ||
+    ("originZoneId" in context &&
+      context.originZoneId &&
+      context.originZoneId !== "unknown"),
+  );
+}
+
+/**
+ * Applies the visit-duration band plus the canonical origin-aware feasibility
+ * contract for constrained day trips. Unknown travel is neutral only when no
+ * personalized origin has been selected; with an origin it is not a usable
+ * duration and the candidate is excluded.
+ */
+export function matchesPersonalizedDayTripDuration(
+  destination: Destination,
+  context: TripDurationContext | RecommendationContext,
+  modes: string[],
+  requested: TripDuration,
+): boolean {
+  if (!matchesVisitDuration(destination, requested)) return false;
+
+  const availableTimeHours = getDayTripAvailableTimeHours(requested);
+  if (availableTimeHours === undefined || !hasPersonalizedOrigin(context)) {
+    return true;
+  }
+
+  const estimate = estimateTripDuration(
+    destination,
+    { ...context, availableTimeHours },
+    modes,
+  );
+  return Boolean(
+    estimate &&
+    estimate.bestTravelMinutes !== undefined &&
+    estimate.totalRangeHours[0] <= availableTimeHours,
+  );
+}
+
 export function formatTripDurationLabel(
   estimate: TripDurationEstimate,
   locale: "en" | "ja",

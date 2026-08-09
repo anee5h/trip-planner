@@ -4,7 +4,9 @@ import {
   formatTripDurationLabel,
   getBand,
   getDerivedTripDurationHours,
+  getDayTripAvailableTimeHours,
   getVisitBand,
+  matchesPersonalizedDayTripDuration,
   matchesVisitDuration,
 } from "./TripDurationService";
 import type { Destination } from "@/shared/types/destination";
@@ -216,6 +218,73 @@ describe("TripDurationService", () => {
     expect(getVisitBand(dest)).toBe("halfDay");
     expect(matchesVisitDuration(dest, "halfDay")).toBe(true);
     expect(matchesVisitDuration(dest, "shortOuting")).toBe(false);
+  });
+
+  it("uses canonical travel for personalized day-trip feasibility", () => {
+    const feasibleTokyoCandidate = {
+      ...destination,
+      id: "tokyo-feasible-half-day",
+      prefecture: "Kanagawa",
+      municipalityId: undefined,
+      recommendedVisitHours: { min: 3, max: 4 },
+    };
+    const infeasibleTokyoCandidate = {
+      ...destination,
+      id: "kyoto-infeasible-half-day",
+      prefecture: "Kyoto",
+      municipalityId: undefined,
+      recommendedVisitHours: { min: 3, max: 4 },
+    };
+    const tokyo = { lat: 35.6812, lng: 139.7671 };
+    const context = { homeStationCoords: tokyo } as never;
+
+    expect(getDayTripAvailableTimeHours("shortOuting")).toBe(4);
+    expect(getDayTripAvailableTimeHours("halfDay")).toBe(7.5);
+    expect(getDayTripAvailableTimeHours("fullDay")).toBe(14);
+    expect(
+      matchesPersonalizedDayTripDuration(
+        feasibleTokyoCandidate,
+        context,
+        ["train"],
+        "halfDay",
+      ),
+    ).toBe(true);
+    expect(
+      matchesPersonalizedDayTripDuration(
+        infeasibleTokyoCandidate,
+        context,
+        ["shinkansen"],
+        "halfDay",
+      ),
+    ).toBe(false);
+  });
+
+  it("keeps unknown travel neutral only without a personalized origin", () => {
+    const unknownCandidate = {
+      ...destination,
+      id: "unknown-origin-half-day",
+      prefecture: "Kanagawa",
+      municipalityId: undefined,
+      transportOptions: { bus: 60 },
+      recommendedVisitHours: { min: 3, max: 4 },
+    };
+
+    expect(
+      matchesPersonalizedDayTripDuration(
+        unknownCandidate,
+        { homeStationCoords: null } as never,
+        ["bus"],
+        "halfDay",
+      ),
+    ).toBe(true);
+    expect(
+      matchesPersonalizedDayTripDuration(
+        unknownCandidate,
+        { homeStationCoords: null, originZoneId: "mainland-honshu" } as never,
+        ["bus"],
+        "halfDay",
+      ),
+    ).toBe(false);
   });
 
   it("changes only the total duration when origin travel changes", () => {
