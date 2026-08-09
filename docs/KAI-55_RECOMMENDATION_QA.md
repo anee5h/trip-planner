@@ -2,19 +2,63 @@
 
 Date: 2026-08-09
 
-Branch: test/kai-55-recommendation-qa
+Branch: fix/kai-55-f15-duration-semantics
 
-Base: latest main at ef74054b
+Base: latest main after merged PR #120 at 422fadf0
 
-Scope: Manual QA and deterministic diagnostic support only. No production recommendation logic or catalogue values were changed.
+Scope: deterministic KAI-55 audit plus regression coverage for evidence-aware
+day-trip feasibility. F15 and weekend/2D1N semantics remain outside this PR.
 
 Reproduction command:
 
-    npx vite-node scripts/qa/kai-55-recommendation-audit.ts
+    node_modules/.bin/tsx --tsconfig tsconfig.app.json scripts/qa/kai-55-recommendation-audit.ts
 
 Targeted reproduction is available with KAI55_SCENARIO, for example:
 
-    KAI55_SCENARIO=F14 npx vite-node scripts/qa/kai-55-recommendation-audit.ts
+    KAI55_SCENARIO=C04 node_modules/.bin/tsx --tsconfig tsconfig.app.json scripts/qa/kai-55-recommendation-audit.ts
+
+## 2026-08-09 rerun
+
+The complete 42-scenario audit was rerun after PR #120. It produced:
+
+- 29 PASS
+- 12 REVIEW (manual ranking/product judgment)
+- 1 FAIL: F15, the pre-existing visible visit-range semantic mismatch
+
+The new day-trip checks passed:
+
+- Nakayama Short outing: 91 results, including bounded estimated local/ground
+  travel; no unknown or infeasible result entered the primary rail.
+- Shin-Yokohama Short outing: non-empty bounded local/ground results.
+- Chiba Short/Half: populated and free of Aomori, Yamagata, Akita, and Kyoto
+  leakage.
+- Sapporo/Hokkaido and Fukuoka/Kyushu Short outing: non-empty same-zone local
+  ground rails using bounded estimated evidence.
+- Takamatsu/Shikoku Half-day: non-empty same-zone local-ground results use
+  bounded estimated evidence; cross-zone coordinate estimation stays blocked.
+- Island topology: no estimated duration and no train/car feasibility for
+  island candidates.
+- Estimated travel: no transport fare or complete budget range was derived
+  from it.
+- Home/shared evidence: verified, estimated, and unknown states agree across
+  the pipeline/card contract; estimated cards are marked with `~`.
+
+Takamatsu catalogue coverage note: Takamatsu has 9 nearby same-zone catalogue
+entries. All have usable estimated local-ground evidence, but none currently
+classify as Short outing because their published `recommendedVisitHours`
+midpoints are at least 2.5 hours. Therefore, zero Takamatsu Short outing
+results are currently a catalogue-content gap, not a transport or
+recommendation defect. The end-to-end regression uses the catalogue-supported
+Half-day band, with a separate lower-level assertion covering all 9 nearby
+entries.
+
+F15 remains intentionally out of scope. The audit runner still reports it so
+the complete matrix stays honest; it is not a regression from this change.
+
+The sections below are the historical pre-fix baseline and are retained for
+traceability.
+
+## Historical baseline (superseded)
 
 ## Pipeline Semantics
 

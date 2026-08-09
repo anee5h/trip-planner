@@ -8,7 +8,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { Destination } from "@/shared/types/destination";
 import destinations from "@/shared/data/destinations-index.json";
 import { getSafeDisplayEstimate } from "@/features/home/services/LocalDiscoveryDisplayEstimator";
-import { formatTransportTime } from "@/shared/services/transport/formatters";
+import { formatApproximateTransportTime } from "@/shared/services/transport/formatters";
 import DestinationCard from "../DestinationCard";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
@@ -118,10 +118,10 @@ describe("DestinationCard responsive content", () => {
     expect(host.querySelector('[data-testid="feedback-control"]')).toBeNull();
   });
 
-  it("does not render the display-only estimate when Explore has no canonical route", () => {
+  it("renders the shared approximate estimate when Explore has no canonical route", () => {
     state.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
     const unsupportedDestination = destinations.find(
-      (candidate) => candidate.id === "abeno-harukas-300-osaka",
+      (candidate) => candidate.id === "yokohama-city",
     ) as Destination;
     const displayOnlyEstimate = getSafeDisplayEstimate(unsupportedDestination, {
       homeStationCoords: state.homeStationCoords,
@@ -137,8 +137,8 @@ describe("DestinationCard responsive content", () => {
       ),
     );
 
-    expect(host.textContent).not.toContain(
-      formatTransportTime(displayOnlyEstimate!.timeRange, "en"),
+    expect(host.textContent).toContain(
+      formatApproximateTransportTime(displayOnlyEstimate!.timeRange, "en"),
     );
   });
 

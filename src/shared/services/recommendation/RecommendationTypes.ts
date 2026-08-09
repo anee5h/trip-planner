@@ -4,7 +4,7 @@ import type { PriceRange } from "@/shared/types/planner";
 import type { WeekendTravelFit } from "./WeekendPolicy";
 import type { WeekendCapacityResult } from "./WeekendPolicy";
 import type { WeekendResultKind } from "./WeekendAreaPolicy";
-import type { OriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import type { TravelDurationEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import type { TokyoWardsGroupMetadata } from "./TokyoWardsConsolidation";
 
 export type MatchReasonType =
@@ -101,8 +101,8 @@ export interface ScoredDestination extends Destination {
   bestTransportMode?: string;
   estimatedCostRange?: PriceRange;
   estimatedCostTransportIncluded?: boolean;
-  /** The exact origin-aware estimate used for ranking/budget/cards. */
-  transportEstimate?: OriginAwareTransportEstimate;
+  /** The shared origin-aware duration used by cards and roulette. */
+  transportEstimate?: TravelDurationEstimate;
   /** Present only on the virtual Tokyo 23 Wards super-hub result. */
   wardGroup?: TokyoWardsGroupMetadata;
   weekend?: WeekendRecommendationMetadata;

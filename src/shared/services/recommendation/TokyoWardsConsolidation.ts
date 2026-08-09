@@ -1,7 +1,7 @@
 import type { Destination } from "@/shared/types/destination";
 import type { TripMode } from "./RecommendationContext";
 import type { PipelineRecommendation } from "./RecommendationTypes";
-import type { OriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import type { TravelDurationEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import { getContainedPlaces } from "./WeekendAreaPolicy";
 
 /** Virtual result id for the Tokyo 23 Wards group card. */
@@ -88,8 +88,8 @@ export interface TokyoWardsGroupMetadata {
   wardCount: number;
   /** Unique published supporting places across all members. */
   placeCount: number;
-  /** Verified origin-aware gateway estimate of the best-served member. */
-  gatewayEstimate?: OriginAwareTransportEstimate;
+  /** Shared origin-aware gateway estimate of the best-served member. */
+  gatewayEstimate?: TravelDurationEstimate;
   /** Every grouped hub id (may exceed 23). */
   memberIds: string[];
   /** One canonical kind=ward hub id per matching municipality (<= 23). */
@@ -202,16 +202,17 @@ export function consolidateTokyoWards(
     }
   }
 
-  const gatewayEstimate = members.reduce<
-    OriginAwareTransportEstimate | undefined
-  >((fastest, member) => {
-    const estimate = member.transportEstimate;
-    if (!estimate) return fastest;
-    if (!fastest || estimate.timeRange[0] < fastest.timeRange[0]) {
-      return estimate;
-    }
-    return fastest;
-  }, undefined);
+  const gatewayEstimate = members.reduce<TravelDurationEstimate | undefined>(
+    (fastest, member) => {
+      const estimate = member.transportEstimate;
+      if (!estimate) return fastest;
+      if (!fastest || estimate.timeRange[0] < fastest.timeRange[0]) {
+        return estimate;
+      }
+      return fastest;
+    },
+    undefined,
+  );
 
   const groupScore =
     topMember.score + Math.min(TOKYO_WARDS_DIVERSITY_BONUS_MAX, wardCount - 1);
@@ -273,8 +274,8 @@ export interface ExplorerWardGroupBuildInput {
   /** Unique published supporting places across members. */
   placeCount: number;
   tripMode?: TripMode;
-  /** Fastest verified origin-aware estimate across the members. */
-  gatewayEstimate?: OriginAwareTransportEstimate;
+  /** Fastest shared origin-aware estimate across the members. */
+  gatewayEstimate?: TravelDurationEstimate;
 }
 
 /**

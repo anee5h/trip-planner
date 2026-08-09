@@ -92,6 +92,7 @@ const weekendCandidate = {
     mode: "shinkansen",
     timeRange: [15, 35] as [number, number],
     source: "verified_ground_route" as const,
+    evidence: "verified" as const,
   },
   weekend: {
     travelFit: { eligible: true, band: "local" as const, oneWayMinutes: 25 },
@@ -185,6 +186,7 @@ describe("RouletteModal weekend mode", () => {
           mode: "shinkansen",
           timeRange: [150, 270] as [number, number],
           source: "verified_ground_route" as const,
+          evidence: "verified" as const,
         },
         memberIds: ["shinjuku-city", "shibuya-city"],
         wardHubIds: ["shinjuku-city", "shibuya-city"],

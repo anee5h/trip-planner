@@ -34,6 +34,8 @@ const {
   await import("../../src/shared/services/transport/OriginAwareTransportService");
 type OriginAwareTransportEstimate =
   import("../../src/shared/services/transport/OriginAwareTransportService").OriginAwareTransportEstimate;
+type TravelDurationEstimate =
+  import("../../src/shared/services/transport/OriginAwareTransportService").TravelDurationEstimate;
 const {
   resolveOriginTransportZone,
   resolveDestinationTransportZone,
@@ -42,14 +44,15 @@ const {
   await import("../../src/shared/services/transport/TransportTopologyService");
 const { deriveTripDates } =
   await import("../../src/shared/services/recommendation/TravelConditions");
-const { getVisitBand, estimateTripDuration } =
+const {
+  getVisitBand,
+  estimateDayTripDuration,
+  estimateTripDuration,
+  getDayTripTravelDurationEvidence,
+} =
   await import("../../src/shared/services/recommendation/TripDurationService");
 const { getRecommendations, getValidModes } =
   await import("../../src/shared/services/recommendation/RecommendationService");
-const { buildRecommendationCandidate } =
-  await import("../../src/shared/services/recommendation/RecommendationPipeline");
-const { getFastestPreferredTransport } =
-  await import("../../src/shared/services/transport/PreferredTransport");
 const { resolveOriginMunicipalityId } =
   await import("../../src/shared/services/recommendation/OriginAreaService");
 const { classifyWeekendResultCandidate } =
@@ -62,6 +65,7 @@ type OriginKey =
   | "tokyo"
   | "chiba"
   | "omiya"
+  | "sapporo"
   | "fukuoka"
   | "wakayama";
 
@@ -95,6 +99,10 @@ const ORIGINS: Record<OriginKey, OriginCase> = {
     label: "Omiya Station, Saitama",
     coordinates: { lat: 35.9063, lng: 139.6239 },
   },
+  sapporo: {
+    label: "Sapporo Station, Hokkaido",
+    coordinates: { lat: 43.0687, lng: 141.3508 },
+  },
   fukuoka: {
     label: "Fukuoka Station, Fukuoka",
     coordinates: { lat: 33.5902, lng: 130.4017 },
@@ -121,6 +129,7 @@ type Check =
   | { kind: "transportConsistent" }
   | { kind: "homeCanonicalDisplay"; origins: OriginKey[] }
   | { kind: "dayTripFeasibility"; availableHours: number }
+  | { kind: "mainlandOriginFallback"; availableHours: number }
   | {
       kind: "personalizedDayTrip";
       availableHours: number;
@@ -313,7 +322,7 @@ const scenarios: Scenario[] = [
     publicModes: ALL_PUBLIC_MODES,
     topResults: 10,
     expected:
-      "Short outings from Chiba retain only candidates with known canonical travel that fit four hours; distant Aomori, Yamagata, Akita, and Kyoto candidates do not survive.",
+      "Short outings from Chiba retain candidates with verified or bounded estimated travel that fit four hours; distant Aomori, Yamagata, Akita, and Kyoto candidates do not survive.",
     subsystem: "filter / personalized day-trip feasibility",
     check: {
       kind: "personalizedDayTrip",
@@ -329,7 +338,7 @@ const scenarios: Scenario[] = [
     publicModes: ALL_PUBLIC_MODES,
     topResults: 10,
     expected:
-      "Half-day recommendations from Chiba exclude infeasible Lake Tazawa and Yamadera-style destinations and retain only known canonical travel within seven-and-a-half hours.",
+      "Half-day recommendations from Chiba exclude infeasible Lake Tazawa and Yamadera-style destinations and retain only verified or bounded estimated travel within seven-and-a-half hours.",
     subsystem: "filter / personalized day-trip feasibility",
     check: {
       kind: "personalizedDayTrip",
@@ -345,7 +354,7 @@ const scenarios: Scenario[] = [
     publicModes: ALL_PUBLIC_MODES,
     topResults: 10,
     expected:
-      "Full-day recommendations from Chiba remain populated with sensible reachable destinations using known canonical travel rather than fabricated duration values.",
+      "Full-day recommendations from Chiba remain populated with sensible reachable destinations using verified or bounded estimated travel rather than fabricated duration values.",
     subsystem: "filter / personalized day-trip feasibility",
     check: {
       kind: "personalizedDayTrip",
@@ -359,6 +368,30 @@ const scenarios: Scenario[] = [
         "yamadera-yamagata",
       ],
     },
+  },
+  {
+    id: "C04",
+    title: "Nakayama primary rail survives sparse registry coverage",
+    origin: "nakayama",
+    tripDuration: "shortOuting",
+    publicModes: ["train", "shinkansen", "bus"],
+    topResults: 10,
+    expected:
+      "A configured mainland origin with nearby destinations keeps a non-empty primary rail even when the verified registry has no Nakayama corridor; only bounded estimated ground evidence may fill that gap.",
+    subsystem: "filter / personalized day-trip fallback",
+    check: { kind: "mainlandOriginFallback", availableHours: 4 },
+  },
+  {
+    id: "C05",
+    title: "Sapporo primary rail survives sparse regional registry coverage",
+    origin: "sapporo",
+    tripDuration: "shortOuting",
+    publicModes: ["train", "bus"],
+    topResults: 10,
+    expected:
+      "A configured Hokkaido origin keeps a non-empty local primary rail when the verified registry lacks the corridor; only bounded same-zone estimated ground evidence may fill that gap.",
+    subsystem: "filter / personalized day-trip fallback",
+    check: { kind: "mainlandOriginFallback", availableHours: 4 },
   },
   {
     id: "T01",
@@ -471,7 +504,7 @@ const scenarios: Scenario[] = [
     origin: "nakayama",
     publicModes: ALL_PUBLIC_MODES,
     expected:
-      "Home shows the same canonical known/unknown travel state as destination details and Explore across unsupported and verified corridors.",
+      "Home shows the same shared verified/estimated/unknown travel evidence as Explore across unsupported and locally estimated corridors.",
     subsystem: "travel time / cross-surface consistency",
     check: {
       kind: "homeCanonicalDisplay",
@@ -667,23 +700,49 @@ function estimateFor(
   );
 }
 
-function homeCardTransport(
+function sharedDayTripTransport(
   destination: Destination,
   context: RecommendationContext,
 ) {
-  const adjusted = buildRecommendationCandidate(destination, {
-    homeStationCoords: context.homeStationCoords,
-    originZoneId: context.originZoneId,
-  });
-  return getFastestPreferredTransport(
-    adjusted,
-    context.carMode,
-    context.publicModes,
-    context.partySize,
-    context.homeStationCoords ?? undefined,
-    context.originZoneId,
-    context.ferryTemporal,
+  return getDayTripTravelDurationEvidence(
+    destination,
+    context,
+    modesFor(destination, context),
   );
+}
+
+function estimateMatches(
+  left: TravelDurationEstimate | undefined,
+  right: TravelDurationEstimate | undefined,
+) {
+  return Boolean(
+    left &&
+    right &&
+    left.mode === right.mode &&
+    left.evidence === right.evidence &&
+    left.timeRange[0] === right.timeRange[0] &&
+    left.timeRange[1] === right.timeRange[1],
+  );
+}
+
+function budgetUsesOnlyVerifiedTravel(
+  result: PipelineRecommendation,
+  context: RecommendationContext,
+) {
+  const estimated = result.transportEstimate?.evidence === "estimated";
+  if (!estimated) return true;
+  const modes = modesFor(result, context);
+  return modes.every((mode) => {
+    const budget = getEstimatedBudgetRange(
+      result,
+      mode,
+      context.partySize,
+      context.budgetTier,
+      context.homeStationCoords ?? undefined,
+      context.ferryTemporal,
+    );
+    return !budget.transportIncluded && !budget.durationIncluded;
+  });
 }
 
 function reasonCodes(result: PipelineRecommendation) {
@@ -693,9 +752,9 @@ function reasonCodes(result: PipelineRecommendation) {
     .join(",");
 }
 
-function formatEstimate(estimate: OriginAwareTransportEstimate | null) {
+function formatEstimate(estimate: TravelDurationEstimate | null | undefined) {
   if (!estimate) return "unknown";
-  return `${estimate.mode}:${estimate.timeRange[0]}-${estimate.timeRange[1]}m`;
+  return `${estimate.evidence ?? "verified"}:${estimate.mode}:${estimate.timeRange[0]}-${estimate.timeRange[1]}m`;
 }
 
 function formatBudget(result: PipelineRecommendation) {
@@ -903,13 +962,29 @@ function validate(
       for (const result of results.slice(0, 20)) {
         const modes = modesFor(result, context);
         const canonical = estimateFor(result, context, modes);
+        const shared = getDayTripTravelDurationEvidence(result, context, modes);
         const derived = estimateTripDuration(result, context, modes);
+        if (
+          shared.estimate &&
+          !estimateMatches(result.transportEstimate, shared.estimate)
+        ) {
+          mismatches.push(
+            `${result.id}: pipeline ${formatEstimate(result.transportEstimate)} vs shared ${formatEstimate(shared.estimate)}`,
+          );
+        }
+        if (shared.evidence === "unknown" && result.transportEstimate) {
+          mismatches.push(`${result.id}: unknown travel received a duration`);
+        }
         if (canonical === null) {
-          if (
-            result.transportEstimate !== null &&
-            result.transportEstimate !== undefined
-          ) {
-            mismatches.push(`${result.id}: pipeline invented a duration`);
+          if (derived) {
+            mismatches.push(
+              `${result.id}: strict duration unexpectedly ${derived.bestTravelMinutes ?? "known"}`,
+            );
+          }
+          if (!budgetUsesOnlyVerifiedTravel(result, context)) {
+            mismatches.push(
+              `${result.id}: estimated travel entered budget data`,
+            );
           }
           continue;
         }
@@ -918,16 +993,29 @@ function validate(
         );
         if (
           !result.transportEstimate ||
-          result.transportEstimate.mode !== canonical.mode
+          result.transportEstimate.evidence !== "verified"
         ) {
           mismatches.push(
-            `${result.id}: pipeline ${formatEstimate(result.transportEstimate ?? null)} vs ${formatEstimate(canonical)}`,
+            `${result.id}: pipeline ${formatEstimate(result.transportEstimate)} vs verified ${formatEstimate(canonical)}`,
+          );
+        }
+        if (
+          result.transportEstimate &&
+          (result.transportEstimate.mode !== canonical.mode ||
+            result.transportEstimate.timeRange[0] !== canonical.timeRange[0] ||
+            result.transportEstimate.timeRange[1] !== canonical.timeRange[1])
+        ) {
+          mismatches.push(
+            `${result.id}: pipeline ${formatEstimate(result.transportEstimate)} vs ${formatEstimate(canonical)}`,
           );
         }
         if (derived?.bestTravelMinutes !== canonicalMid) {
           mismatches.push(
-            `${result.id}: duration ${derived?.bestTravelMinutes ?? "unknown"} vs ${canonicalMid}`,
+            `${result.id}: strict duration ${derived?.bestTravelMinutes ?? "unknown"} vs ${canonicalMid}`,
           );
+        }
+        if (!budgetUsesOnlyVerifiedTravel(result, context)) {
+          mismatches.push(`${result.id}: estimated travel entered budget data`);
         }
       }
       if (mismatches.length > 0)
@@ -936,7 +1024,7 @@ function validate(
           "P2",
         );
       notes.push(
-        "Pipeline transport estimates and derived duration agree for inspected results; unavailable modes remain unknown.",
+        "Pipeline transport estimates agree with the shared verified/estimated/unknown evidence; strict duration and budget checks remain canonical-only.",
       );
       return { status: "PASS", severity: "none", notes };
     }
@@ -950,27 +1038,16 @@ function validate(
             ? results
             : getRecommendations(destinations, context);
         for (const result of originResults.slice(0, 20)) {
-          const canonical = estimateFor(
-            result,
-            context,
-            modesFor(result, context),
-          );
-          const card = homeCardTransport(result, context);
-          if (!canonical && card) {
+          const shared = sharedDayTripTransport(result, context);
+          const card = result.transportEstimate;
+          if (shared.estimate && !estimateMatches(card, shared.estimate)) {
             mismatches.push(
-              `${origin}:${result.id} Home=${card.mode}:${card.timeRange.join("-")}m canonical=unknown`,
+              `${origin}:${result.id} Home=${formatEstimate(card)} shared=${formatEstimate(shared.estimate)}`,
             );
-            continue;
           }
-          if (
-            canonical &&
-            (!card ||
-              card.mode !== canonical.mode ||
-              card.timeRange[0] !== canonical.timeRange[0] ||
-              card.timeRange[1] !== canonical.timeRange[1])
-          ) {
+          if (shared.evidence === "unknown" && card) {
             mismatches.push(
-              `${origin}:${result.id} Home=${card ? `${card.mode}:${card.timeRange.join("-")}m` : "unknown"} canonical=${formatEstimate(canonical)}`,
+              `${origin}:${result.id} Home=${formatEstimate(card)} shared=unknown`,
             );
           }
         }
@@ -984,23 +1061,37 @@ function validate(
         );
       }
       notes.push(
-        `Home transport state matches canonical known/unknown truth for ${scenario.check.origins.join(", ")}; no display-only duration is used.`,
+        `Home transport state matches the shared verified/estimated/unknown day-trip evidence for ${scenario.check.origins.join(", ")}.`,
       );
       return { status: "PASS", severity: "none", notes };
     }
     case "dayTripFeasibility": {
       const context = contextFor(scenario);
+      const unknown: string[] = [];
       const infeasible = results.flatMap((result) => {
         const modes = modesFor(result, context);
-        const estimate = estimateTripDuration(result, context, modes);
-        if (
-          !estimate ||
-          estimate.totalRangeHours[0] <= scenario.check.availableHours
-        ) {
+        const estimate = estimateDayTripDuration(
+          result,
+          { ...context, availableTimeHours: scenario.check.availableHours },
+          modes,
+        );
+        if (!estimate) {
+          unknown.push(result.id);
+          return [];
+        }
+        if (estimate.totalRangeHours[0] <= scenario.check.availableHours) {
           return [];
         }
         return [`${result.id}=${estimate.totalRangeHours[0].toFixed(1)}h+`];
       });
+      if (unknown.length > 0) {
+        return fail(
+          `Unknown travel leaked into day-trip feasibility: ${unknown
+            .slice(0, 8)
+            .join(", ")}`,
+          "P1",
+        );
+      }
       if (infeasible.length > 0) {
         return fail(
           `${infeasible.length} known candidates exceed ${scenario.check.availableHours}h at minimum: ${infeasible
@@ -1020,13 +1111,12 @@ function validate(
       const infeasible: string[] = [];
       for (const result of results) {
         const modes = modesFor(result, context);
-        const canonical = estimateFor(result, context, modes);
-        const estimate = estimateTripDuration(result, context, modes);
-        if (
-          !canonical ||
-          !estimate ||
-          estimate.bestTravelMinutes === undefined
-        ) {
+        const estimate = estimateDayTripDuration(
+          result,
+          { ...context, availableTimeHours: scenario.check.availableHours },
+          modes,
+        );
+        if (!estimate || estimate.travelEvidence === "unknown") {
           unknown.push(result.id);
           continue;
         }
@@ -1041,7 +1131,7 @@ function validate(
       );
       if (unknown.length > 0) {
         return fail(
-          `${unknown.length} retained results have no canonical origin-aware duration: ${unknown
+          `${unknown.length} retained results have unknown origin-aware duration evidence: ${unknown
             .slice(0, 8)
             .join(", ")}`,
           "P1",
@@ -1062,7 +1152,68 @@ function validate(
         );
       }
       notes.push(
-        `All ${results.length} retained results have canonical travel and fit the ${scenario.check.availableHours}h minimum-feasibility envelope; unknown travel is excluded rather than fabricated.`,
+        `All ${results.length} retained results have verified or bounded estimated travel and fit the ${scenario.check.availableHours}h minimum-feasibility envelope; unknown travel is excluded rather than fabricated.`,
+      );
+      return { status: "PASS", severity: "none", notes };
+    }
+    case "mainlandOriginFallback": {
+      const context = contextFor(scenario);
+      if (results.length === 0) {
+        return fail(
+          "Configured mainland origin produced an empty primary recommendation rail.",
+          "P1",
+        );
+      }
+      const evidence = results.map((result) =>
+        getDayTripTravelDurationEvidence(
+          result,
+          context,
+          modesFor(result, context),
+        ),
+      );
+      const unknown = results.filter(
+        (_result, index) => evidence[index].evidence === "unknown",
+      );
+      const estimated = evidence.filter(
+        (item) => item.evidence === "estimated",
+      );
+      const infeasible = results.filter((result) => {
+        const estimate = estimateDayTripDuration(
+          result,
+          { ...context, availableTimeHours: scenario.check.availableHours },
+          modesFor(result, context),
+        );
+        return (
+          !estimate ||
+          estimate.totalRangeHours[0] > scenario.check.availableHours
+        );
+      });
+      if (unknown.length > 0) {
+        return fail(
+          `Unknown travel entered the fallback rail: ${unknown
+            .slice(0, 8)
+            .map((result) => result.id)
+            .join(", ")}`,
+          "P1",
+        );
+      }
+      if (estimated.length === 0) {
+        return fail(
+          "Fallback rail has no bounded estimated evidence; the sparse-registry regression is not covered.",
+          "P1",
+        );
+      }
+      if (infeasible.length > 0) {
+        return fail(
+          `Fallback rail contains infeasible results: ${infeasible
+            .slice(0, 8)
+            .map((result) => result.id)
+            .join(", ")}`,
+          "P1",
+        );
+      }
+      notes.push(
+        `Primary rail has ${results.length} results, including ${estimated.length} bounded estimated local/ground durations, with no unknown or infeasible travel.`,
       );
       return { status: "PASS", severity: "none", notes };
     }
@@ -1099,7 +1250,15 @@ function validate(
         const zone = resolveDestinationTransportZone(result);
         if (!ISLAND_ZONE_IDS.has(zone)) return false;
         const modes = modesFor(result, context);
-        return modes.some((mode) => !["ferry", "flight"].includes(mode));
+        const evidence = getDayTripTravelDurationEvidence(
+          result,
+          context,
+          modes,
+        );
+        return (
+          modes.some((mode) => !["ferry", "flight"].includes(mode)) ||
+          evidence.evidence === "estimated"
+        );
       });
       if (invalid.length > 0)
         return fail(
@@ -1110,7 +1269,7 @@ function validate(
           "P1",
         );
       notes.push(
-        "No inspected island candidate is authorized through rail, bus, or car topology.",
+        "No inspected island candidate is authorized through rail, bus, or car topology or receives an estimated duration.",
       );
       return { status: "PASS", severity: "none", notes };
     }

@@ -14,6 +14,11 @@ import { getDestinationList } from "../destination/DestinationService";
 export type OriginAwareEstimateSource =
   "verified_ground_route" | "verified_flight" | "verified_ferry";
 
+export type TravelDurationEvidence = "verified" | "estimated" | "unknown";
+
+export type EstimatedTransportEstimateSource =
+  "calculated_local_display" | "calculated_ground_display";
+
 /**
  * Canonical origin-aware transport estimate. Every consumer (travel fit,
  * ranking, budget, cards, roulette, destination details) must read durations
@@ -23,11 +28,29 @@ export interface OriginAwareTransportEstimate {
   mode: TransportMode;
   timeRange: [number, number];
   source: OriginAwareEstimateSource;
+  /** Explicit provenance for consumers that also accept bounded estimates. */
+  evidence: "verified";
   originZoneId?: TransportZoneId;
   destinationZoneId?: TransportZoneId;
   sourceUrl?: string;
   checkedAt?: string;
 }
+
+/**
+ * A bounded coordinate/local-ground duration. This is never a canonical
+ * route fact and must not be used for fares or budget calculations.
+ */
+export interface EstimatedTransportEstimate {
+  mode: TransportMode;
+  timeRange: [number, number];
+  source: EstimatedTransportEstimateSource;
+  evidence: "estimated";
+  originZoneId?: TransportZoneId;
+  destinationZoneId?: TransportZoneId;
+}
+
+export type TravelDurationEstimate =
+  OriginAwareTransportEstimate | EstimatedTransportEstimate;
 
 export interface OriginAwareEstimateContext {
   homeStationCoords?: { lat: number; lng: number } | null;
@@ -113,6 +136,7 @@ function getGroundEstimate(
     mode,
     timeRange: route.timeRange,
     source: "verified_ground_route",
+    evidence: "verified",
     destinationZoneId: resolveDestinationTransportZone(destination),
     sourceUrl: route.sourceUrl,
     checkedAt: route.checkedAt,
@@ -142,6 +166,7 @@ export function getOriginAwareTransportEstimate(
           mode: "flight",
           timeRange: flight.timeRange,
           source: "verified_flight",
+          evidence: "verified",
           originZoneId: context.originZoneId,
           destinationZoneId: resolveDestinationTransportZone(destination),
           sourceUrl: undefined,
@@ -158,6 +183,7 @@ export function getOriginAwareTransportEstimate(
           mode: "ferry",
           timeRange: ferry.timeRange,
           source: "verified_ferry",
+          evidence: "verified",
           originZoneId: context.originZoneId,
           destinationZoneId: resolveDestinationTransportZone(destination),
         };

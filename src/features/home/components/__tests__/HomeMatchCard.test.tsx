@@ -140,6 +140,7 @@ describe("HomeMatchCard — Tokyo 23 Wards group card", () => {
           mode: "shinkansen",
           timeRange: [150, 270] as [number, number],
           source: "verified_ground_route" as const,
+          evidence: "verified" as const,
         },
         memberIds: ["shinjuku-city", "shibuya-city"],
         wardHubIds: ["shinjuku-city", "shibuya-city"],
@@ -307,7 +308,7 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
     ["Shin-Yokohama", SHIN_YOKOHAMA],
     ["Chiba", CHIBA],
   ])(
-    "shows unavailable travel time for %s when canonical travel is unknown",
+    "shows a bounded approximate travel time for %s when canonical travel is unknown",
     async (_originName, originCoords) => {
       const { HomeMatchCard } = await import("../HomeMatchCard");
       mockHomeStationCoords = originCoords;
@@ -318,11 +319,18 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
 
       const text = host.textContent ?? "";
       expect(text).not.toMatch(/Est\.\s*\d+/);
-      expect(text).toContain("home.transportModes.travelUnavailable");
+      const estimate = getSafeDisplayEstimate(yokohamaPOI, {
+        homeStationCoords: originCoords,
+        publicModes: ["train"],
+      });
+      expect(estimate).not.toBeNull();
+      expect(text).toContain(
+        formatApproximateTransportTime(estimate!.timeRange),
+      );
     },
   );
 
-  it("does not show a coordinate-derived estimate for an unsupported local route", async () => {
+  it("shows a bounded coordinate-derived estimate for an authorized local route", async () => {
     const { HomeMatchCard } = await import("../HomeMatchCard");
 
     await act(async () => {
@@ -331,10 +339,10 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
 
     const text = host.textContent ?? "";
     expect(text).not.toMatch(/Est\.\s*\d+/);
-    expect(text).toContain("home.transportModes.travelUnavailable");
+    expect(text).toContain("~");
   });
 
-  it("does not show a coordinate-derived estimate for an unsupported mainland route", async () => {
+  it("shows a bounded coordinate-derived estimate for an authorized mainland route", async () => {
     const { HomeMatchCard } = await import("../HomeMatchCard");
 
     await act(async () => {
@@ -343,7 +351,7 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
 
     const text = host.textContent ?? "";
     expect(text).not.toMatch(/Est\.\s*\d+/);
-    expect(text).toContain("home.transportModes.travelUnavailable");
+    expect(text).toContain("~");
   });
 
   it("allows an explicitly local discovery surface to show an approximate estimate", async () => {
@@ -411,7 +419,7 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
     expect(text).toContain("home.transportModes.travelUnavailable");
   });
 
-  it("keeps bus-only local access unknown without a canonical origin-aware duration", async () => {
+  it("shows an approximate bus duration when topology authorizes local bus access", async () => {
     const { HomeMatchCard } = await import("../HomeMatchCard");
 
     await act(async () => {
@@ -420,7 +428,7 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
 
     const text = host.textContent ?? "";
     expect(text).not.toMatch(/Est\.\s*\d+/);
-    expect(text).toContain("home.transportModes.travelUnavailable");
+    expect(text).toContain("~");
   });
 
   it("recommendation leakage proof: canonical OriginAwareTransportService remains null for same-municipality without verified route", async () => {

@@ -1,10 +1,21 @@
 import type { Destination } from "@/shared/types/destination";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import {
+  getSafeGroundEstimate,
+  type SafeGroundEstimateContext,
+} from "@/shared/services/transport/SafeGroundEstimateService";
+import type {
+  TravelDurationEstimate,
+  TravelDurationEvidence,
+} from "@/shared/services/transport/OriginAwareTransportService";
 import type {
   RecommendationContext,
   TripDuration,
   TripDurationContext,
 } from "./RecommendationContext";
+
+/** Extra uncertainty allowance applied only to estimated one-way travel. */
+export const ESTIMATED_TRAVEL_PADDING_MINUTES = 30;
 
 export interface TripDurationEstimate {
   visitRangeHours: [number, number];
@@ -13,6 +24,12 @@ export interface TripDurationEstimate {
   band: TripDuration;
   mode?: string;
   bestTravelMinutes?: number;
+  /** Provenance of the origin-aware travel used by this estimate. */
+  travelEvidence?: TravelDurationEvidence;
+  /** The one-way estimate shown by cards, when an origin is present. */
+  travelEstimate?: TravelDurationEstimate;
+  /** Conservative one-way minutes used for a constrained day-trip gate. */
+  feasibilityTravelMinutes?: number;
   isImpossible?: boolean;
   isBorderline?: boolean;
   warningMessage?: {
@@ -76,8 +93,8 @@ export function getDayTripAvailableTimeHours(
 
 /**
  * Whether the context represents a selected origin for personalized planning.
- * A zone without coordinates is still an origin: the canonical estimator will
- * remain unknown and the constrained day-trip candidate must be excluded.
+ * A zone without coordinates is still an origin: without coordinates there is
+ * no bounded estimate fallback, so unknown remains ineligible.
  */
 export function hasPersonalizedOrigin(
   context: TripDurationContext | RecommendationContext,
@@ -90,11 +107,65 @@ export function hasPersonalizedOrigin(
   );
 }
 
+export interface DayTripTravelDurationEvidence {
+  evidence: TravelDurationEvidence;
+  estimate?: TravelDurationEstimate;
+}
+
 /**
- * Applies the visit-duration band plus the canonical origin-aware feasibility
- * contract for constrained day trips. Unknown travel is neutral only when no
- * personalized origin has been selected; with an origin it is not a usable
- * duration and the candidate is excluded.
+ * Shared day-trip travel truth. Canonical route evidence always wins. The
+ * estimated branch is deliberately narrower than the display-only legacy
+ * helper and is never called by budget code.
+ */
+export function getDayTripTravelDurationEvidence(
+  destination: Destination,
+  context: TripDurationContext | RecommendationContext,
+  modes: readonly string[],
+): DayTripTravelDurationEvidence {
+  // A persisted zone without station coordinates cannot identify a canonical
+  // airport/port or ground corridor. Do not let estimator defaults (such as
+  // Tokyo's default airport origin) turn that incomplete origin into evidence.
+  if (!context.homeStationCoords && hasPersonalizedOrigin(context)) {
+    return { evidence: "unknown" };
+  }
+
+  const verified = getOriginAwareTransportEstimate(
+    destination,
+    {
+      homeStationCoords: context.homeStationCoords ?? undefined,
+      originZoneId:
+        "originZoneId" in context ? context.originZoneId : undefined,
+      ferryTemporal: context.ferryTemporal,
+    },
+    modes,
+  );
+  if (verified) {
+    return {
+      evidence: "verified",
+      estimate: { ...verified, evidence: "verified" },
+    };
+  }
+
+  if (!context.homeStationCoords) return { evidence: "unknown" };
+
+  const estimated = getSafeGroundEstimate(destination, {
+    homeStationCoords: context.homeStationCoords,
+    homeStationTransportZoneId:
+      "originZoneId" in context ? context.originZoneId : undefined,
+    authorizedModes: modes,
+  } satisfies SafeGroundEstimateContext);
+  if (estimated) {
+    return { evidence: "estimated", estimate: estimated };
+  }
+
+  return { evidence: "unknown" };
+}
+
+/**
+ * Applies the visit-duration band plus the verified-or-bounded-estimated
+ * origin-aware feasibility contract for constrained day trips. Unknown travel
+ * is neutral only when no personalized origin has been selected; with an
+ * origin it is not a usable duration and the candidate is excluded.
  */
 export function matchesPersonalizedDayTripDuration(
   destination: Destination,
@@ -109,14 +180,14 @@ export function matchesPersonalizedDayTripDuration(
     return true;
   }
 
-  const estimate = estimateTripDuration(
+  const estimate = estimateDayTripDuration(
     destination,
     { ...context, availableTimeHours },
     modes,
   );
   return Boolean(
     estimate &&
-    estimate.bestTravelMinutes !== undefined &&
+    estimate.travelEvidence !== "unknown" &&
     estimate.totalRangeHours[0] <= availableTimeHours,
   );
 }
@@ -126,31 +197,33 @@ export function formatTripDurationLabel(
   locale: "en" | "ja",
 ): string {
   const hours = Math.round(estimate.representativeHours * 10) / 10;
+  const approximate = estimate.travelEvidence === "estimated";
+  const prefix = approximate ? (locale === "ja" ? "約" : "~") : "";
   if (locale === "ja") {
     switch (estimate.band) {
       case "shortOuting":
-        return `サクッと外出 (${hours}時間)`;
+        return `サクッと外出 (${prefix}${hours}時間)`;
       case "halfDay":
-        return `半日日帰り (${hours}時間)`;
+        return `半日日帰り (${prefix}${hours}時間)`;
       case "fullDay":
-        return `1日日帰り (${hours}時間)`;
+        return `1日日帰り (${prefix}${hours}時間)`;
       case "weekend":
-        return `1泊2日/週末 (${hours}時間)`;
+        return `1泊2日/週末 (${prefix}${hours}時間)`;
       default:
-        return `${hours}時間`;
+        return `${prefix}${hours}時間`;
     }
   }
   switch (estimate.band) {
     case "shortOuting":
-      return `Short Outing (${hours}h)`;
+      return `Short Outing (${prefix}${hours}h)`;
     case "halfDay":
-      return `Half-Day (${hours}h)`;
+      return `Half-Day (${prefix}${hours}h)`;
     case "fullDay":
-      return `Full-Day (${hours}h)`;
+      return `Full-Day (${prefix}${hours}h)`;
     case "weekend":
-      return `Weekend (${hours}h)`;
+      return `Weekend (${prefix}${hours}h)`;
     default:
-      return `${hours}h total`;
+      return `${prefix}${hours}h total`;
   }
 }
 
@@ -196,6 +269,8 @@ export function estimateTripDuration(
   let representativeHours: number;
   let bestMode: string | undefined;
   let bestTravelMinutes: number | undefined;
+  let verifiedTravelEstimate:
+    ReturnType<typeof getOriginAwareTransportEstimate> | undefined;
 
   if (!context.homeStationCoords) {
     totalRangeHours = visitRange;
@@ -205,12 +280,15 @@ export function estimateTripDuration(
       destination,
       {
         homeStationCoords: context.homeStationCoords ?? undefined,
+        originZoneId:
+          "originZoneId" in context ? context.originZoneId : undefined,
         ferryTemporal: context.ferryTemporal,
       },
       modes,
     );
 
     if (!estimate) return null;
+    verifiedTravelEstimate = estimate;
     bestMode = estimate.mode;
     bestTravelMinutes = Math.round(
       (estimate.timeRange[0] + estimate.timeRange[1]) / 2,
@@ -261,6 +339,92 @@ export function estimateTripDuration(
     band: getBand(representativeHours),
     mode: bestMode,
     bestTravelMinutes,
+    travelEvidence: verifiedTravelEstimate ? "verified" : undefined,
+    travelEstimate: verifiedTravelEstimate
+      ? { ...verifiedTravelEstimate, evidence: "verified" }
+      : undefined,
+    isImpossible,
+    isBorderline,
+    warningMessage,
+  };
+}
+
+/**
+ * Day-trip duration model. It shares canonical verified estimates with the
+ * budget-safe model, but permits the explicit bounded estimate only for a
+ * constrained day-trip feasibility/display decision.
+ */
+export function estimateDayTripDuration(
+  destination: Destination,
+  context: TripDurationContext | RecommendationContext,
+  modes: readonly string[],
+): TripDurationEstimate | null {
+  if (!destination.recommendedVisitHours) return null;
+  if (!context.homeStationCoords) {
+    // A persisted topology zone without coordinates is still a personalized
+    // origin, but it cannot support the bounded coordinate fallback. Keep the
+    // conservative unknown result instead of treating the visit-only range as
+    // a personalized travel estimate.
+    if (hasPersonalizedOrigin(context)) return null;
+    return estimateTripDuration(destination, context, [...modes]);
+  }
+
+  const travel = getDayTripTravelDurationEvidence(destination, context, modes);
+  if (!travel.estimate) return null;
+
+  const visitRange: [number, number] = [
+    destination.recommendedVisitHours.min,
+    destination.recommendedVisitHours.max,
+  ];
+  const bestTravelMinutes = Math.round(
+    (travel.estimate.timeRange[0] + travel.estimate.timeRange[1]) / 2,
+  );
+  const feasibilityTravelMinutes =
+    travel.evidence === "estimated"
+      ? travel.estimate.timeRange[1] + ESTIMATED_TRAVEL_PADDING_MINUTES
+      : bestTravelMinutes;
+  const bufferHours =
+    ((destination.travelBuffers?.transferMinutes ?? 0) +
+      (destination.travelBuffers?.ferryMinutes ?? 0)) /
+    60;
+  const travelHours = (feasibilityTravelMinutes * 2) / 60 + bufferHours;
+  const totalRangeHours: [number, number] = [
+    visitRange[0] + travelHours,
+    visitRange[1] + travelHours,
+  ];
+  const representativeHours = (totalRangeHours[0] + totalRangeHours[1]) / 2;
+  const available = context.availableTimeHours;
+  const isImpossible =
+    available !== undefined && available > 0
+      ? totalRangeHours[0] > available
+      : false;
+  const isBorderline =
+    available !== undefined && available > 0
+      ? !isImpossible && totalRangeHours[1] > available
+      : false;
+  let warningMessage: { en: string; ja: string } | undefined;
+  if (isImpossible && available !== undefined) {
+    warningMessage = {
+      en: `Exceeds available time limit of ${available}h (${Math.round(totalRangeHours[0] * 10) / 10}h min required)`,
+      ja: `利用可能時間 (${available}時間) を超えます (最低${Math.round(totalRangeHours[0] * 10) / 10}時間必要)`,
+    };
+  } else if (isBorderline && available !== undefined) {
+    warningMessage = {
+      en: `Tight schedule — maximum visit (${Math.round(totalRangeHours[1] * 10) / 10}h) exceeds ${available}h limit`,
+      ja: `時間がタイトです — 最大滞在 (${Math.round(totalRangeHours[1] * 10) / 10}時間) が${available}時間の制限を超えます`,
+    };
+  }
+
+  return {
+    visitRangeHours: visitRange,
+    totalRangeHours,
+    representativeHours,
+    band: getBand(representativeHours),
+    mode: travel.estimate.mode,
+    bestTravelMinutes,
+    travelEvidence: travel.evidence,
+    travelEstimate: travel.estimate,
+    feasibilityTravelMinutes,
     isImpossible,
     isBorderline,
     warningMessage,

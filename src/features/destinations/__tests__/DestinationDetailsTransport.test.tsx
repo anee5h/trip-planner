@@ -206,7 +206,7 @@ describe("DestinationDetails transport rows", () => {
     async (_originName, originCoords) => {
       storeState.homeStationCoords = originCoords;
       storeState.homeStationTransportZoneId = "mainland-honshu";
-      render("/destinations/abeno-harukas-300-osaka");
+      render("/destinations/yokohama-city");
       await act(async () => {
         await flush(80);
       });
@@ -214,7 +214,6 @@ describe("DestinationDetails transport rows", () => {
       expect(text).toContain("Route not verified");
       expect(text).toContain("~");
       expect(text).not.toContain("Transport estimate unavailable");
-      expect(text).not.toContain("136m");
       expect(text).not.toContain("Est.");
     },
   );

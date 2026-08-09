@@ -265,6 +265,7 @@ describe("TripDurationService", () => {
       id: "unknown-origin-half-day",
       prefecture: "Kanagawa",
       municipalityId: undefined,
+      coordinates: undefined,
       transportOptions: { bus: 60 },
       recommendedVisitHours: { min: 3, max: 4 },
     };

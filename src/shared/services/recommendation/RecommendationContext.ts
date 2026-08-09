@@ -112,6 +112,7 @@ export interface RecommendationContext {
 
 export interface TripDurationContext {
   homeStationCoords?: { lat: number; lng: number } | null;
+  originZoneId?: TransportZoneId;
   availableTimeHours?: number;
   ferryTemporal?: FerryTemporalContext;
 }

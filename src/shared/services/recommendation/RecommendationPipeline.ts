@@ -4,6 +4,7 @@ import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
 import {
   hasPersonalizedOrigin,
+  getDayTripTravelDurationEvidence,
   matchesPersonalizedDayTripDuration,
 } from "./TripDurationService";
 import { createRecommendationMatch } from "./RecommendationExplainability";
@@ -189,8 +190,8 @@ export function runRecommendationPipeline(
 
     // Weekend mode: skip day-trip duration matching; use
     // evaluateWeekendCandidate. Day trips keep the pure visit band as their
-    // on-site source, then apply canonical origin-aware feasibility when an
-    // origin and constrained duration are present.
+    // on-site source, then apply verified-or-bounded-estimated origin-aware
+    // feasibility when an origin and constrained duration are present.
     if (isWeekend) {
       const eval_ = evaluateWeekendCandidate(
         destination,
@@ -292,24 +293,32 @@ export function runRecommendationPipeline(
         match.reasons.push(...condition.reasons);
       }
 
-      // The exact estimate used for ranking/budget; cards and roulette read
-      // it from the recommendation instead of recomputing transport.
-      const transportEstimate = getOriginAwareTransportEstimate(
+      // Cards and roulette read the shared day-trip evidence from the
+      // recommendation instead of recomputing transport. Budget remains on
+      // its separate verified-only path below.
+      const validModes = getValidModes(
         candidate,
-        {
-          homeStationCoords: context.homeStationCoords ?? undefined,
-          ferryTemporal: context.ferryTemporal,
-        },
-        getValidModes(
-          candidate,
-          context.carMode,
-          context.publicModes,
-          context.homeStationCoords || undefined,
-          context.budgetTier,
-          context.originZoneId,
-          context.ferryTemporal,
-        ),
+        context.carMode,
+        context.publicModes,
+        context.homeStationCoords || undefined,
+        context.budgetTier,
+        context.originZoneId,
+        context.ferryTemporal,
       );
+      // Day-trip cards may use the same bounded estimated evidence as the
+      // feasibility gate. Weekend keeps its separate canonical-only policy.
+      const transportEstimate = isWeekend
+        ? getOriginAwareTransportEstimate(
+            candidate,
+            {
+              homeStationCoords: context.homeStationCoords ?? undefined,
+              originZoneId: context.originZoneId,
+              ferryTemporal: context.ferryTemporal,
+            },
+            validModes,
+          )
+        : getDayTripTravelDurationEvidence(candidate, context, validModes)
+            .estimate;
       const budgetResult = getEstimatedBudgetRange(
         candidate,
         scoreResult.bestMode || "train",
