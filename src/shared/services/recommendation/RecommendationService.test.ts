@@ -288,6 +288,7 @@ describe("RecommendationService Unit Tests", () => {
     const unknown = {
       ...mockDestinations[1],
       id: "unknown-half-day",
+      coordinates: undefined,
       transportOptions: { bus: 60 },
       recommendedVisitHours: { min: 3, max: 4 },
     };

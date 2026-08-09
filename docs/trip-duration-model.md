@@ -34,12 +34,24 @@ required to carry it merely to clear an old audit warning, and new
 catalogue data must not populate it. Existing values remain in the
 catalogue for historical review only.
 
-### Travel duration (runtime)
+### Travel duration evidence (runtime)
 
-Travel duration always comes from the verified origin-aware transport
-system (`getOriginAwareTransportEstimate`) for the user's selected origin.
-It is never hidden inside destination catalogue fields that assume a fixed
-origin.
+Every origin-aware duration carries one of three evidence states:
+
+- `verified`: a canonical origin-aware route from the ground, flight, or
+  ferry registry (`getOriginAwareTransportEstimate`).
+- `estimated`: a bounded coordinate/local-ground estimate used only for a
+  day-trip feasibility/display decision. It requires finite coordinates,
+  non-island/non-remote mainland topology, an already authorized ground mode,
+  destination mode support, no `localAccessUnestimated` restriction, and a
+  distance of at most 120 km. It is never a registry fact.
+- `unknown`: no usable duration evidence. It is not eligible for a
+  personalized constrained day trip.
+
+Canonical verified evidence always wins. The estimated policy is deliberately
+narrow: islands, ferry routes, flight routes, and long-distance registry gaps
+never gain train/car feasibility from coordinate distance. A configured origin
+zone without coordinates also remains unknown.
 
 ### Total trip duration (runtime-derived)
 
@@ -49,16 +61,23 @@ Total trip duration is derived at runtime:
 visit duration + round-trip origin-aware travel + legitimate buffers
 ```
 
+For constrained day trips, verified travel is preferred. Estimated travel
+uses the upper bound plus a conservative 30-minute one-way padding before it
+is compared with the Short outing / Half day / Full day envelope. Weekend
+(`2D1N`) planning keeps its separate canonical travel policy.
+
 Total trip duration is **mode-dependent**. Budgeting and recommendation
 scoring derive the duration for exactly the transport mode being priced
 (`estimateTripDuration(dest, context, [mode])`), never a shared fastest-mode
 total. A slow mode therefore gets its own meal count, rental tier, and cost
-range even when a faster verified mode exists.
+range even when a faster verified mode exists. Estimated travel is never used
+to calculate transport fares or budget ranges.
 
 When no origin is known, the runtime total is the visit duration alone.
-When an origin is known but no verified origin-aware estimate exists, the
-candidate is excluded from personalized duration planning rather than
-being assigned a fabricated total.
+When an origin is known but travel evidence is unknown, the candidate is
+excluded from personalized constrained day-trip planning rather than being
+assigned a fabricated total. Cards render estimated travel with `~` / `約`,
+and recommendation explanations never describe estimated travel as verified.
 
 ## Unknown-duration budget policy
 

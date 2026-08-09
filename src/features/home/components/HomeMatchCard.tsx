@@ -19,14 +19,14 @@ import {
   localizePlaceLabel,
 } from "@/shared/utils/placeLabels";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import type { ScoredDestination } from "@/shared/services/recommendation/RecommendationTypes";
+import { getDayTripTravelDurationEvidence } from "@/shared/services/recommendation/TripDurationService";
+import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
 import type { TravelConditionEvaluation } from "@/shared/services/recommendation/TravelConditions";
 import { formatTravelConditionParams } from "@/shared/services/recommendation/TravelConditions";
 import { Sun, Cloud, CloudRain, CloudSnow, CloudLightning } from "lucide-react";
 
 import { ALL_PUBLIC_MODES } from "../services/TransportResolver";
-import { getSafeDisplayEstimate } from "../services/LocalDiscoveryDisplayEstimator";
 
 interface HomeMatchCardProps {
   destination: Destination;
@@ -38,8 +38,8 @@ interface HomeMatchCardProps {
   /** Planned travel date (ISO) forwarded to the destination details page. */
   travelDate?: string;
   /**
-   * Explicitly allow a presentation-only local estimate for local discovery
-   * surfaces. Recommendation cards leave this off so unknown stays unknown.
+   * @deprecated Kept for call-site compatibility. Day-trip cards now use the
+   * shared evidence-aware resolver whenever a configured origin is present.
    */
   allowApproximateLocalDisplay?: boolean;
 }
@@ -67,13 +67,14 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   carMode = "none",
   publicModes = ALL_PUBLIC_MODES,
   travelDate,
-  allowApproximateLocalDisplay = false,
 }) => {
   const { locale } = useLocale();
   const { t } = useTranslation();
   const { homeStationCoords, homeStationTransportZoneId } = useTripStore();
   const localized = getLocalizedPlace(destination, locale);
-  const wardGroup = (destination as ScoredDestination).wardGroup;
+  const scoredDestination = destination as ScoredDestination;
+  const wardGroup = scoredDestination.wardGroup;
+  const weekend = scoredDestination.weekend;
   const parsedTitle = parseCleanTitle(localized.name);
   const title = wardGroup
     ? t("destination.tokyoWardsGroup")
@@ -87,37 +88,47 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     .filter(Boolean)
     .join(" · ");
 
-  // Preferred transport calculation — adjust destination transport options
-  // for the selected origin before picking the fastest mode.
-  const adjustedDestination = buildRecommendationCandidate(destination, {
-    homeStationCoords,
-    originZoneId: homeStationTransportZoneId,
-  });
-  const verifiedTransport = getFastestPreferredTransport(
-    adjustedDestination,
+  const ferryTemporal = travelDate
+    ? { travelDate: new Date(`${travelDate}T12:00:00`) }
+    : undefined;
+  const validModes = getValidModes(
+    destination,
     carMode,
     publicModes,
-    partySize,
     homeStationCoords ?? undefined,
+    undefined,
     homeStationTransportZoneId,
-    travelDate ? { travelDate: new Date(`${travelDate}T12:00:00`) } : undefined,
+    ferryTemporal,
   );
-
-  // Canonical origin-aware transport is the only travel-time truth shown on
-  // recommendation cards. Explicitly local discovery surfaces may opt into a
-  // clearly approximate display value without changing recommendation state.
-  const localDisplayEstimate =
-    !verifiedTransport && allowApproximateLocalDisplay
-      ? getSafeDisplayEstimate(destination, {
+  const sharedDayEstimate = weekend
+    ? undefined
+    : getDayTripTravelDurationEvidence(
+        destination,
+        {
           homeStationCoords,
-          homeStationTransportZoneId,
-          carMode,
-          publicModes,
-        })
-      : null;
-  const displayTransport = verifiedTransport ?? localDisplayEstimate;
+          originZoneId: homeStationTransportZoneId,
+          ferryTemporal,
+        },
+        validModes,
+      ).estimate;
+  const recommendationEstimate = scoredDestination.transportEstimate;
+  const fallbackWeekendTransport = weekend
+    ? getFastestPreferredTransport(
+        destination,
+        carMode,
+        publicModes,
+        partySize,
+        homeStationCoords ?? undefined,
+        homeStationTransportZoneId,
+        ferryTemporal,
+      )
+    : undefined;
+  const displayTransport =
+    recommendationEstimate ?? sharedDayEstimate ?? fallbackWeekendTransport;
   const isApproximateDisplay = Boolean(
-    !verifiedTransport && localDisplayEstimate,
+    displayTransport &&
+    "evidence" in displayTransport &&
+    displayTransport.evidence === "estimated",
   );
   const travelTimeText = displayTransport
     ? isApproximateDisplay
@@ -138,10 +149,8 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
       }[displayTransport.mode]
     : null;
 
-  // Weekend metadata
-  const weekend = (destination as ScoredDestination).weekend;
   // Forecast/seasonal/unknown evaluation for the planned trip dates
-  const condition = (destination as ScoredDestination).condition;
+  const condition = scoredDestination.condition;
 
   const conditionLine = useMemo(() => {
     if (!condition || condition.reasons.length === 0) return undefined;

@@ -73,6 +73,7 @@ function wardResult(
       mode: "shinkansen",
       timeRange: [150, 270],
       source: "verified_ground_route",
+      evidence: "verified",
     },
     weekend: {
       travelFit: { eligible: true, band: "strong", oneWayMinutes: 210 },
@@ -298,12 +299,14 @@ describe("consolidateTokyoWards", () => {
       mode: "shinkansen",
       timeRange: [150, 270],
       source: "verified_ground_route",
+      evidence: "verified",
     };
     const fast = wardResult("shibuya-city", 80, 1);
     fast.transportEstimate = {
       mode: "flight",
       timeRange: [90, 130],
       source: "verified_flight",
+      evidence: "verified",
     };
     const out = consolidateTokyoWards({
       results: [slow, fast],

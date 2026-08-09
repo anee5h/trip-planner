@@ -36,13 +36,18 @@ import {
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
-import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
-import { formatTransportTime } from "@/shared/services/transport/formatters";
 import {
+  formatApproximateTransportTime,
+  formatTransportTime,
+} from "@/shared/services/transport/formatters";
+import {
+  estimateDayTripDuration,
   estimateTripDuration,
   formatTripDurationLabel,
+  getDayTripTravelDurationEvidence,
 } from "@/shared/services/recommendation/TripDurationService";
+import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import {
@@ -185,28 +190,56 @@ export default function DestinationCard({
   const sortedCollections = sortCollections(activeCollections);
   const visibleCollections = sortedCollections.slice(0, 1);
   const desktopCollectionOverflow = Math.max(0, sortedCollections.length - 1);
-  const preferredTransport = getFastestPreferredTransport(
+  const selectedPublicModes = publicModes ?? [
+    "train",
+    "shinkansen",
+    "bus",
+    "flight",
+    "ferry",
+  ];
+  const validModes = getValidModes(
     destination,
     carMode,
-    publicModes,
-    partySize,
+    selectedPublicModes,
     homeStationCoords ?? undefined,
+    undefined,
     homeStationTransportZoneId,
     ferryTemporal,
   );
-  const preferredModes = [
-    ...(carMode && carMode !== "none" ? [carMode] : []),
-    ...(publicModes || ["train", "shinkansen", "bus", "flight"]),
-  ];
-  const durationEst = estimateTripDuration(
-    destination,
-    {
-      homeStationCoords: homeStationCoords ?? undefined,
-      availableTimeHours,
-      ferryTemporal,
-    },
-    preferredModes,
-  );
+  const isWeekend = Boolean(weekendSummary);
+  const dayTravelEstimate = isWeekend
+    ? undefined
+    : getDayTripTravelDurationEvidence(
+        destination,
+        {
+          homeStationCoords: homeStationCoords ?? undefined,
+          originZoneId: homeStationTransportZoneId,
+          ferryTemporal,
+        },
+        validModes,
+      ).estimate;
+  const preferredTransport = isWeekend ? undefined : dayTravelEstimate;
+  const durationEst = isWeekend
+    ? estimateTripDuration(
+        destination,
+        {
+          homeStationCoords: homeStationCoords ?? undefined,
+          originZoneId: homeStationTransportZoneId,
+          availableTimeHours,
+          ferryTemporal,
+        },
+        validModes,
+      )
+    : estimateDayTripDuration(
+        destination,
+        {
+          homeStationCoords: homeStationCoords ?? undefined,
+          originZoneId: homeStationTransportZoneId,
+          availableTimeHours,
+          ferryTemporal,
+        },
+        validModes,
+      );
 
   return (
     <Card className="overflow-hidden flex flex-col h-full group rounded-card shadow-card hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-slate-200 dark:border-slate-800">
@@ -377,9 +410,8 @@ export default function DestinationCard({
             )}
             <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 md:min-h-12 md:gap-x-3 md:gap-y-2 md:text-sm">
               {(() => {
-                // The Tokyo wards group shows the fastest verified gateway
-                // estimate across its members, not the top member's own
-                // legacy transport options.
+                // The Tokyo wards group shows the fastest shared gateway
+                // estimate across its members, not legacy transport options.
                 const gateway = wardGroup?.gatewayEstimate;
                 const mode =
                   gateway?.mode ?? preferredTransport?.mode ?? "train";
@@ -390,11 +422,20 @@ export default function DestinationCard({
                 if (mode === "shinkansen") Icon = TrainFront;
                 if (mode === "flight") Icon = Plane;
 
-                const formattedTime = gateway
-                  ? formatTransportTime(gateway.timeRange, locale)
-                  : preferredTransport
-                    ? formatTransportTime(preferredTransport.timeRange, locale)
-                    : "";
+                const transport = gateway ?? preferredTransport;
+                const isApproximate = Boolean(
+                  transport &&
+                  "evidence" in transport &&
+                  transport.evidence === "estimated",
+                );
+                const formattedTime = transport
+                  ? isApproximate
+                    ? formatApproximateTransportTime(
+                        transport.timeRange,
+                        locale,
+                      )
+                    : formatTransportTime(transport.timeRange, locale)
+                  : "";
 
                 const isDriving = mode === "car" || mode === "my_car";
 

@@ -15,7 +15,10 @@ import { LazyImage } from "@/shared/components/ui/LazyImage";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
-import { formatTransportTime } from "@/shared/services/transport/formatters";
+import {
+  formatApproximateTransportTime,
+  formatTransportTime,
+} from "@/shared/services/transport/formatters";
 import {
   formatPrefecture,
   localizePlaceLabel,
@@ -24,6 +27,8 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useTranslation } from "react-i18next";
 import type { TripMode } from "@/shared/services/recommendation/RecommendationContext";
 import type { ScoredDestination } from "@/shared/services/recommendation/RecommendationTypes";
+import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
+import { getDayTripTravelDurationEvidence } from "@/shared/services/recommendation/TripDurationService";
 import { buildTokyoWardsLink } from "@/shared/services/recommendation/TokyoWardsConsolidation";
 
 interface RouletteModalProps {
@@ -143,33 +148,58 @@ export default function RouletteModal({
 
   // The candidate's evaluated origin-aware estimate (the same one used for
   // ranking and budget) — roulette never recomputes travel from raw
-  // destination.transportOptions. Defensive fallback only for candidates
-  // that did not come from the recommendation pipeline.
+  // destination.transportOptions. Defensive fallback uses the same shared
+  // day-trip evidence source for candidates that did not come from the
+  // recommendation pipeline.
   const scoredCandidate = displayedCandidate as ScoredDestination;
   const pipelineEstimate = scoredCandidate?.transportEstimate;
-  const bestTransport = pipelineEstimate
-    ? {
-        mode: pipelineEstimate.mode,
-        timeRange: pipelineEstimate.timeRange,
-        estimatedBudget: 0,
-      }
-    : displayedCandidate
-      ? getFastestPreferredTransport(
+  const isWeekend = tripMode === "weekend_2d1n";
+  const validModes = displayedCandidate
+    ? getValidModes(
+        displayedCandidate,
+        carMode ?? "none",
+        publicModes ?? [],
+        homeStationCoords || undefined,
+        undefined,
+        homeStationTransportZoneId,
+      )
+    : [];
+  const dayEstimate =
+    !isWeekend && displayedCandidate
+      ? getDayTripTravelDurationEvidence(
           displayedCandidate,
-          carMode,
-          publicModes,
-          partySize,
-          homeStationCoords || undefined,
-          homeStationTransportZoneId,
-        )
-      : null;
+          {
+            homeStationCoords,
+            originZoneId: homeStationTransportZoneId,
+          },
+          validModes,
+        ).estimate
+      : undefined;
+  const bestTransport = pipelineEstimate
+    ? pipelineEstimate
+    : dayEstimate
+      ? dayEstimate
+      : displayedCandidate
+        ? getFastestPreferredTransport(
+            displayedCandidate,
+            carMode,
+            publicModes,
+            partySize,
+            homeStationCoords || undefined,
+            homeStationTransportZoneId,
+          )
+        : null;
+  const isApproximateTransport = Boolean(
+    bestTransport &&
+    "evidence" in bestTransport &&
+    bestTransport.evidence === "estimated",
+  );
   const transportLabel = bestTransport
     ? (t(
         MODE_LABELS[bestTransport.mode as keyof typeof MODE_LABELS] ??
           "home.transportModes.travel",
       ) as string)
     : t("home.transportModes.travel");
-  const isWeekend = tripMode === "weekend_2d1n";
   const durationLabel = isWeekend
     ? t("home.weekendBadge")
     : (t(DAY_TRIP_DURATION_LABELS[tripDuration]) as string);
@@ -289,7 +319,12 @@ export default function RouletteModal({
                   <span className="inline-flex items-center gap-1">
                     <Clock className="h-3.5 w-3.5 text-emerald-500" />
                     {bestTransport
-                      ? formatTransportTime(bestTransport.timeRange, locale)
+                      ? isApproximateTransport
+                        ? formatApproximateTransportTime(
+                            bestTransport.timeRange,
+                            locale,
+                          )
+                        : formatTransportTime(bestTransport.timeRange, locale)
                       : t("home.transportModes.travel")}
                   </span>
                   <span className="text-slate-300 dark:text-slate-600">·</span>
