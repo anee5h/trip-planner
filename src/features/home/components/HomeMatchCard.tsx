@@ -6,7 +6,10 @@ import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { LazyImage } from "@/shared/components/ui/LazyImage";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
-import { formatTransportTime } from "@/shared/services/transport/formatters";
+import {
+  formatApproximateTransportTime,
+  formatTransportTime,
+} from "@/shared/services/transport/formatters";
 import { formatWeekendMinutes } from "@/shared/services/recommendation/WeekendAreaPolicy";
 import { buildTokyoWardsLink } from "@/shared/services/recommendation/TokyoWardsConsolidation";
 import { useLocale } from "@/shared/context/LocaleContext";
@@ -34,6 +37,11 @@ interface HomeMatchCardProps {
   publicModes?: string[];
   /** Planned travel date (ISO) forwarded to the destination details page. */
   travelDate?: string;
+  /**
+   * Explicitly allow a presentation-only local estimate for local discovery
+   * surfaces. Recommendation cards leave this off so unknown stays unknown.
+   */
+  allowApproximateLocalDisplay?: boolean;
 }
 
 /**
@@ -59,6 +67,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   carMode = "none",
   publicModes = ALL_PUBLIC_MODES,
   travelDate,
+  allowApproximateLocalDisplay = false,
 }) => {
   const { locale } = useLocale();
   const { t } = useTranslation();
@@ -94,37 +103,40 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     travelDate ? { travelDate: new Date(`${travelDate}T12:00:00`) } : undefined,
   );
 
-  // Presentation-only display estimate (same-muni or mainland ground)
-  const localDisplayEstimate = !verifiedTransport
-    ? getSafeDisplayEstimate(destination, {
-        homeStationCoords,
-        homeStationTransportZoneId,
-        carMode,
-        publicModes,
-      })
-    : null;
-
+  // Canonical origin-aware transport is the only travel-time truth shown on
+  // recommendation cards. Explicitly local discovery surfaces may opt into a
+  // clearly approximate display value without changing recommendation state.
+  const localDisplayEstimate =
+    !verifiedTransport && allowApproximateLocalDisplay
+      ? getSafeDisplayEstimate(destination, {
+          homeStationCoords,
+          homeStationTransportZoneId,
+          carMode,
+          publicModes,
+        })
+      : null;
   const displayTransport = verifiedTransport ?? localDisplayEstimate;
-
+  const isApproximateDisplay = Boolean(
+    !verifiedTransport && localDisplayEstimate,
+  );
   const travelTimeText = displayTransport
-    ? localDisplayEstimate
-      ? locale === "ja"
-        ? `約${formatTransportTime(displayTransport.timeRange, locale)}`
-        : `Est. ${formatTransportTime(displayTransport.timeRange, locale)}`
+    ? isApproximateDisplay
+      ? formatApproximateTransportTime(displayTransport.timeRange, locale)
       : formatTransportTime(displayTransport.timeRange, locale)
-    : t("home.transportModes.travel");
-  const transportDisplay = {
-    train: { Icon: Train, label: t("home.transportModes.train") },
-    shinkansen: { Icon: TramFront, label: t("home.transportModes.shinkansen") },
-    bus: { Icon: Bus, label: t("home.transportModes.bus") },
-    flight: { Icon: Plane, label: t("home.transportModes.flight") },
-    car: { Icon: Car, label: t("home.transportModes.car") },
-    my_car: { Icon: Car, label: t("home.transportModes.my_car") },
-  }[displayTransport?.mode ?? ""] ?? {
-    Icon: Train,
-    label: t("home.transportModes.travel"),
-  };
-  const TravelIcon = transportDisplay.Icon;
+    : t("home.transportModes.travelUnavailable");
+  const transportDisplay = displayTransport
+    ? {
+        train: { Icon: Train, label: t("home.transportModes.train") },
+        shinkansen: {
+          Icon: TramFront,
+          label: t("home.transportModes.shinkansen"),
+        },
+        bus: { Icon: Bus, label: t("home.transportModes.bus") },
+        flight: { Icon: Plane, label: t("home.transportModes.flight") },
+        car: { Icon: Car, label: t("home.transportModes.car") },
+        my_car: { Icon: Car, label: t("home.transportModes.my_car") },
+      }[displayTransport.mode]
+    : null;
 
   // Weekend metadata
   const weekend = (destination as ScoredDestination).weekend;
@@ -280,7 +292,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
                 .filter(Boolean)
                 .join(" · ")}
               {weekend?.travelFit.oneWayMinutes !== undefined &&
-                displayTransport?.mode && (
+                transportDisplay && (
                   <span className="text-slate-500">
                     {" "}
                     ·{" "}
@@ -341,23 +353,21 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
           )}
 
           <div className="mt-2 flex flex-wrap items-center gap-1.5 text-[10px] font-semibold text-slate-500 dark:text-slate-400 sm:text-xs">
-            {travelTimeText !== transportDisplay.label && (
+            <span className="flex items-center gap-1 truncate">
+              <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400 shrink-0" />
+              <span className="truncate">{travelTimeText}</span>
+            </span>
+            {transportDisplay && (
               <>
-                <span className="flex items-center gap-1 truncate">
-                  <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400 shrink-0" />
-                  <span className="truncate">{travelTimeText}</span>
-                </span>
-
                 <span className="text-slate-300 dark:text-slate-700 font-bold px-1">
                   •
                 </span>
+                <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-bold uppercase text-[9px] sm:text-[10px] tracking-wide shrink-0">
+                  <transportDisplay.Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                  <span>{transportDisplay.label}</span>
+                </span>
               </>
             )}
-
-            <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-bold uppercase text-[9px] sm:text-[10px] tracking-wide shrink-0">
-              <TravelIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-              <span>{transportDisplay.label}</span>
-            </span>
           </div>
         </div>
       </div>

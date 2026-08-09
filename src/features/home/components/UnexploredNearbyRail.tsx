@@ -90,6 +90,7 @@ export const UnexploredNearbyRail: React.FC<UnexploredNearbyRailProps> = ({
                 partySize={partySize}
                 carMode={carMode}
                 publicModes={publicModes}
+                allowApproximateLocalDisplay
               />
             </div>
           ))}

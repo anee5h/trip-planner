@@ -101,7 +101,11 @@ import {
 } from "lucide-react";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
-import { formatTransportTime } from "@/shared/services/transport/formatters";
+import {
+  formatApproximateTransportTime,
+  formatTransportTime,
+} from "@/shared/services/transport/formatters";
+import { getSafeDisplayEstimate } from "@/features/home/services/LocalDiscoveryDisplayEstimator";
 import { useLocale } from "@/shared/context/LocaleContext";
 import {
   getLocalizedPlace,
@@ -200,6 +204,7 @@ const DETAIL_COPY = {
     foodCafe: "Food & Cafe",
     parkingLabel: "Parking",
     transportUnavailable: "Transport estimate unavailable",
+    localRouteUnverified: "Route not verified",
     ferryRouteUnestimated: "Ferry route available — time and cost unavailable",
     onsiteBudget: "On-site budget (transport excluded)",
     localAccessUnestimated:
@@ -238,6 +243,7 @@ const DETAIL_COPY = {
     foodCafe: "食事・カフェ",
     parkingLabel: "駐車場",
     transportUnavailable: "交通手段の見積もりが利用できません",
+    localRouteUnverified: "ルート未検証",
     ferryRouteUnestimated: "フェリー航路あり — 所要時間・料金は利用できません",
     onsiteBudget: "現地予算（往復交通費を除く）",
     localAccessUnestimated: "現地アクセスあり — 所要時間・料金は利用できません",
@@ -721,6 +727,30 @@ export default function DestinationDetails() {
     }
     return modes;
   }, [destination, activeModes, eligibleModes, homeStationCoords]);
+
+  // A local discovery estimate is presentation-only. It is intentionally
+  // excluded from availableModes so it cannot affect transport selection,
+  // budget calculations, or any recommendation decision.
+  const localDisplayEstimate = useMemo(() => {
+    if (!destination || !homeStationCoords || availableModes.length > 0) {
+      return null;
+    }
+    const userPrefs = user?.user_metadata?.preferences;
+    return getSafeDisplayEstimate(destination, {
+      homeStationCoords,
+      homeStationTransportZoneId,
+      carMode: navState?.carMode ?? userPrefs?.carMode ?? "none",
+      publicModes: navState?.publicModes ??
+        userPrefs?.publicModes ?? ["train", "shinkansen", "bus", "flight"],
+    });
+  }, [
+    destination,
+    homeStationCoords,
+    homeStationTransportZoneId,
+    availableModes.length,
+    navState,
+    user,
+  ]);
 
   const defaultMode = useMemo(() => {
     if (availableModes.length === 0) return null;
@@ -1243,15 +1273,28 @@ export default function DestinationDetails() {
                         </h4>
                       </div>
                       <div className="space-y-2 flex-grow">
-                        {availableModes.length === 0 && (
-                          <div className="text-sm text-slate-400 dark:text-slate-500 py-2">
-                            {ferryRouteKnown
-                              ? copy.ferryRouteUnestimated
-                              : localAccessKnown
-                                ? copy.localAccessUnestimated
-                                : copy.transportUnavailable}
-                          </div>
-                        )}
+                        {availableModes.length === 0 &&
+                          (localDisplayEstimate ? (
+                            <div className="py-2 text-sm text-slate-500 dark:text-slate-400">
+                              <div className="font-semibold text-slate-700 dark:text-slate-300">
+                                {formatApproximateTransportTime(
+                                  localDisplayEstimate.timeRange,
+                                  locale,
+                                )}
+                              </div>
+                              <div className="text-xs text-slate-400 dark:text-slate-500">
+                                {copy.localRouteUnverified}
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="py-2 text-sm text-slate-400 dark:text-slate-500">
+                              {ferryRouteKnown
+                                ? copy.ferryRouteUnestimated
+                                : localAccessKnown
+                                  ? copy.localAccessUnestimated
+                                  : copy.transportUnavailable}
+                            </div>
+                          ))}
                         {isModeVisible("train") &&
                           groundMinutesFor("train") !== undefined && (
                             <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">

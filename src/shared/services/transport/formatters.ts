@@ -38,6 +38,50 @@ export function formatTransportTime(
 }
 
 /**
+ * Formats a coordinate-derived display estimate without presenting it as a
+ * verified route. Short ranges stay ranges; longer ranges are rounded to a
+ * half-hour midpoint when that is easier to scan, or kept as an approximate
+ * range for journeys over three hours.
+ */
+export function formatApproximateTransportTime(
+  range: [number, number],
+  locale?: string,
+): string {
+  const isJa = locale === "ja";
+  const prefix = isJa ? "約" : "~";
+  const separator = isJa ? "〜" : "–";
+  const min = Math.max(0, Math.round(range[0]));
+  const max = Math.max(min, Math.round(range[1]));
+
+  if (max < 60) {
+    return `${prefix}${formatTransportTime([min, max], locale)}`;
+  }
+
+  const toHalfHour = (minutes: number) => Math.round((minutes / 60) * 2) / 2;
+  const formatHours = (hours: number) =>
+    Number.isInteger(hours) ? `${hours}` : hours.toFixed(1);
+  const midpoint = toHalfHour((min + max) / 2);
+
+  if (max <= 180) {
+    return isJa
+      ? `${prefix}${formatHours(midpoint)}時間`
+      : `${prefix}${formatHours(midpoint)} hr`;
+  }
+
+  const minHours = toHalfHour(min);
+  const maxHours = toHalfHour(max);
+  if (minHours === maxHours) {
+    return isJa
+      ? `${prefix}${formatHours(minHours)}時間`
+      : `${prefix}${formatHours(minHours)} hr`;
+  }
+
+  return isJa
+    ? `${prefix}${formatHours(minHours)}${separator}${formatHours(maxHours)}時間`
+    : `${prefix}${formatHours(minHours)}${separator}${formatHours(maxHours)} hr`;
+}
+
+/**
  * Formats a cost range (in JPY) into human-readable string.
  * Example: [9000, 18000] => "¥9,000 – ¥18,000", [1200, 1200] => "¥1,200"
  */

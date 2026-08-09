@@ -6,7 +6,11 @@ import {
   getFlightRoute,
   getFlightTransportEstimate,
 } from "../FlightTransportEstimator";
-import { formatTransportCost, formatTransportTime } from "../formatters";
+import {
+  formatApproximateTransportTime,
+  formatTransportCost,
+  formatTransportTime,
+} from "../formatters";
 import {
   getBestEstimateBetween,
   getTransportEstimates,
@@ -47,6 +51,14 @@ describe("TransportEstimator", () => {
     expect(formatTransportTime([30, 45])).toBe("30–45 min");
     expect(formatTransportTime([290, 340])).toBe("4h 50m – 5h 40m");
     expect(formatTransportTime([60, 60])).toBe("1h");
+  });
+
+  it("formats display-only approximate times without false precision", () => {
+    expect(formatApproximateTransportTime([35, 45], "en")).toBe("~35–45 min");
+    expect(formatApproximateTransportTime([60, 120], "en")).toBe("~1.5 hr");
+    expect(formatApproximateTransportTime([180, 240], "en")).toBe("~3–4 hr");
+    expect(formatApproximateTransportTime([35, 45], "ja")).toBe("約35–45分");
+    expect(formatApproximateTransportTime([60, 120], "ja")).toBe("約1.5時間");
   });
 
   it("formats transport cost ranges cleanly", () => {
