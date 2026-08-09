@@ -16,6 +16,8 @@ import type {
 
 /** Extra uncertainty allowance applied only to estimated one-way travel. */
 export const ESTIMATED_TRAVEL_PADDING_MINUTES = 30;
+export const DAY_TRIP_MAX_OUTING_HOURS = 14;
+export const DAY_TRIP_TRAVEL_EFFICIENCY_MAX_PENALTY = 18;
 
 export interface TripDurationEstimate {
   visitRangeHours: [number, number];
@@ -85,7 +87,8 @@ export function getDayTripAvailableTimeHours(
     case "halfDay":
       return 7.5;
     case "fullDay":
-      return 14;
+    case "any":
+      return DAY_TRIP_MAX_OUTING_HOURS;
     default:
       return undefined;
   }
@@ -161,6 +164,70 @@ export function getDayTripTravelDurationEvidence(
   return { evidence: "unknown" };
 }
 
+export interface DayTripTravelEfficiency {
+  evidence: Exclude<TravelDurationEvidence, "unknown">;
+  travelEstimate: TravelDurationEstimate;
+  oneWayMinutes: number;
+  feasibilityOneWayMinutes: number;
+  visitHours: number;
+  travelHours: number;
+  totalOutingHours: number;
+  travelShare: number;
+  utilization: number;
+  contribution: number;
+}
+
+/**
+ * Bounded, smooth day-trip burden. It is shared by Home and Explore and only
+ * runs after the same origin-aware evidence gate has produced a usable route.
+ */
+export function getDayTripTravelEfficiency(
+  destination: Destination,
+  context: TripDurationContext | RecommendationContext,
+  modes: readonly string[],
+): DayTripTravelEfficiency | undefined {
+  const estimate = estimateDayTripDuration(
+    destination,
+    { ...context, availableTimeHours: DAY_TRIP_MAX_OUTING_HOURS },
+    modes,
+  );
+  if (
+    !estimate?.travelEstimate ||
+    !estimate.travelEvidence ||
+    estimate.travelEvidence === "unknown" ||
+    estimate.feasibilityTravelMinutes === undefined
+  ) {
+    return undefined;
+  }
+
+  const visitHours =
+    (estimate.visitRangeHours[0] + estimate.visitRangeHours[1]) / 2;
+  const travelHours =
+    (estimate.feasibilityTravelMinutes * 2 +
+      (destination.travelBuffers?.transferMinutes ?? 0) +
+      (destination.travelBuffers?.ferryMinutes ?? 0)) /
+    60;
+  const totalOutingHours = visitHours + travelHours;
+  const travelShare = totalOutingHours > 0 ? travelHours / totalOutingHours : 1;
+  const utilization = Math.min(1, totalOutingHours / DAY_TRIP_MAX_OUTING_HOURS);
+  // ponytail: one bounded quadratic curve keeps the heuristic explainable; replace with calibrated user-outcome data if available.
+  const burden = 0.55 * travelShare + 0.45 * utilization;
+  const contribution = -DAY_TRIP_TRAVEL_EFFICIENCY_MAX_PENALTY * burden ** 2;
+
+  return {
+    evidence: estimate.travelEvidence,
+    travelEstimate: estimate.travelEstimate,
+    oneWayMinutes: estimate.bestTravelMinutes ?? 0,
+    feasibilityOneWayMinutes: estimate.feasibilityTravelMinutes,
+    visitHours,
+    travelHours,
+    totalOutingHours,
+    travelShare,
+    utilization,
+    contribution,
+  };
+}
+
 /**
  * Applies the visit-duration band plus the verified-or-bounded-estimated
  * origin-aware feasibility contract for constrained day trips. Unknown travel
@@ -175,8 +242,19 @@ export function matchesPersonalizedDayTripDuration(
 ): boolean {
   if (!matchesVisitDuration(destination, requested)) return false;
 
+  const personalizedOrigin = hasPersonalizedOrigin(context);
+  if (!destination.recommendedVisitHours && requested === "any") {
+    // Any remains neutral for legacy records without a published visit band,
+    // but a selected origin still requires usable canonical travel evidence.
+    return (
+      !personalizedOrigin ||
+      getDayTripTravelDurationEvidence(destination, context, modes).evidence !==
+        "unknown"
+    );
+  }
+
   const availableTimeHours = getDayTripAvailableTimeHours(requested);
-  if (availableTimeHours === undefined || !hasPersonalizedOrigin(context)) {
+  if (availableTimeHours === undefined || !personalizedOrigin) {
     return true;
   }
 

@@ -140,6 +140,8 @@ export function runRecommendationPipeline(
 ): PipelineRecommendation[] {
   const tripMode = context.tripMode ?? "day_trip";
   const isWeekend = tripMode === "weekend_2d1n";
+  const scoreContext =
+    context.tripMode === undefined ? { ...context, tripMode } : context;
   // Resolved for every mode: weekend uses it for the origin-local
   // exclusion, and the Tokyo wards consolidation uses the origin region.
   const originMunicipalityId = resolveOriginMunicipalityId(
@@ -262,7 +264,7 @@ export function runRecommendationPipeline(
         !isWeekend || (weekendPrimaryIds?.has(candidate.id) ?? false),
     )
     .map((candidate) => {
-      const scoreResult = calculateScore(candidate, context);
+      const scoreResult = calculateScore(candidate, scoreContext);
       const weekend = isWeekend
         ? weekendEvalCache.get(candidate.id)
         : undefined;
@@ -354,6 +356,10 @@ export function runRecommendationPipeline(
         total: totalScore,
         transport: scoreResult.bestModeScore,
       };
+      if (scoreResult.dayTripTravelEfficiency) {
+        scoreContributions.dayTripTravelEfficiency =
+          scoreResult.dayTripTravelEfficiency.contribution;
+      }
       if (weekend) {
         scoreContributions["weekendTravel"] = weekend.travelScore;
         scoreContributions["weekendCapacity"] = weekend.capacityScore;

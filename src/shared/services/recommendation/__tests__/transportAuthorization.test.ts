@@ -404,10 +404,12 @@ describe("pipeline-level budget filtering and metadata", () => {
       visitedIds: [],
       homeStationCoords: TOKYO,
       originZoneId: "mainland-honshu",
+      tripMode: "weekend_2d1n",
     });
     expect(lowResults.length).toBe(0);
 
     // Budget 200,000 is above verified cost, so it IS admitted and stores transportIncluded=true
+    // Keep this budget-only regression outside the Day Trip + Any 14h envelope.
     const highResults = runRecommendationPipeline([dest], {
       vibe: "any",
       budget: 200000,
@@ -417,6 +419,7 @@ describe("pipeline-level budget filtering and metadata", () => {
       visitedIds: [],
       homeStationCoords: TOKYO,
       originZoneId: "mainland-honshu",
+      tripMode: "weekend_2d1n",
     });
     expect(highResults.length).toBe(1);
     expect(highResults[0].estimatedCostTransportIncluded).toBe(true);

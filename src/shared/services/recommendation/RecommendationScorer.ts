@@ -18,6 +18,11 @@ import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTran
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { personalizationService } from "./PersonalizationService";
+import {
+  getDayTripTravelEfficiency,
+  hasPersonalizedOrigin,
+} from "./TripDurationService";
+import type { DayTripTravelEfficiency } from "./TripDurationService";
 
 export const SCORING_WEIGHTS = {
   // Base & Ratings
@@ -186,6 +191,7 @@ export function calculateScore(
   bestMode?: string;
   bestModeScore: number;
   bestModeBudget?: number;
+  dayTripTravelEfficiency?: DayTripTravelEfficiency;
 } {
   const { budget, carMode, publicModes, partySize, userRatings } = context;
   const vibe = context.vibe ?? context.tripType ?? "any";
@@ -407,6 +413,14 @@ export function calculateScore(
   const seasonScore = dest.season?.[currentSeason] ?? 5;
   score += (seasonScore - 5) * SCORING_WEIGHTS.SEASON_MULTIPLIER;
 
+  const dayTripTravelEfficiency =
+    context.tripMode === "day_trip" && hasPersonalizedOrigin(context)
+      ? getDayTripTravelEfficiency(dest, context, validModesForDest)
+      : undefined;
+  if (dayTripTravelEfficiency) {
+    score += dayTripTravelEfficiency.contribution;
+  }
+
   // User Rating Adjustments (Netflix-style Thumbs Up / Down)
   if (userRatings?.[dest.id] === "up") {
     score += 25;
@@ -433,5 +447,6 @@ export function calculateScore(
     bestMode,
     bestModeScore,
     bestModeBudget,
+    dayTripTravelEfficiency,
   };
 }
