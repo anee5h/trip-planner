@@ -45,7 +45,12 @@ vi.mock("@/shared/context/LocaleContext", () => ({
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
-    t: (key: string) => key,
+    t: (key: string, options?: { count?: number }) => {
+      if (key === "home.places" && options?.count !== undefined) {
+        return `${options.count} ${options.count === 1 ? "place" : "places"}`;
+      }
+      return key;
+    },
   }),
   initReactI18next: { type: "3rdParty", init: vi.fn() },
 }));
@@ -487,6 +492,11 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
         reasons: [
           {
             type: "Weekend",
+            code: "weekendTravelAcceptable",
+            title: "Manageable Journey",
+          },
+          {
+            type: "Weekend",
             code: "weekendTripReady",
             title: "2-Day Trip Ready",
           },
@@ -517,7 +527,33 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
 
     const text = host.textContent ?? "";
     expect(text).toContain("destination.tripAreas.plentyForTwoDays");
+    expect(text).toContain("4 places");
     expect(text).toContain("Transport Excluded");
+    expect(text).not.toContain(
+      "recommendation.reasons.weekendTravelAcceptable.title",
+    );
+    expect(text).not.toContain("destination.tripAreas.travelBy");
     expect(text).toContain("¥12k–18k");
+  });
+
+  it("uses singular English copy for one weekend place", async () => {
+    const { HomeMatchCard } = await import("../HomeMatchCard");
+    const scoredWeekend = {
+      ...seikoMuseum,
+      weekend: {
+        travelFit: { oneWayMinutes: 150 },
+        capacity: { activityMinutes: 720 },
+        weatherDays: [],
+        estimatedCostTransportIncluded: true,
+        placeCount: 1,
+      },
+    } as unknown as Destination;
+
+    await act(async () => {
+      root.render(<HomeMatchCard destination={scoredWeekend} rank={1} />);
+    });
+
+    expect(host.textContent).toContain("1 place");
+    expect(host.textContent).not.toContain("1 places");
   });
 });

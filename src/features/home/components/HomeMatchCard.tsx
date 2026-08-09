@@ -7,6 +7,7 @@ import {
   Car,
   Bus,
   Plane,
+  Ship,
   TramFront,
   JapaneseYen,
   CheckCircle2,
@@ -20,7 +21,6 @@ import {
   formatApproximateTransportTime,
   formatTransportTime,
 } from "@/shared/services/transport/formatters";
-import { formatWeekendMinutes } from "@/shared/services/recommendation/WeekendAreaPolicy";
 import { buildTokyoWardsLink } from "@/shared/services/recommendation/TokyoWardsConsolidation";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { useTranslation } from "react-i18next";
@@ -157,6 +157,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
         },
         bus: { Icon: Bus, label: t("home.transportModes.bus") },
         flight: { Icon: Plane, label: t("home.transportModes.flight") },
+        ferry: { Icon: Ship, label: t("home.transportModes.ferry") },
         car: { Icon: Car, label: t("home.transportModes.car") },
         my_car: { Icon: Car, label: t("home.transportModes.my_car") },
       }[displayTransport.mode]
@@ -192,6 +193,9 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
         weekend: true,
       })
     : undefined;
+  const showWeekendReason = Boolean(
+    weekendReason && !weekendReason.code.startsWith("weekendTravel"),
+  );
   const dayTripReason = !weekend
     ? getPrimaryDisplayReason(scoredDestination.match?.reasons ?? [])
     : undefined;
@@ -289,8 +293,10 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
         )}
       </div>
 
-      <div className="flex flex-1 flex-col justify-between p-3">
-        <div className="flex min-h-[2.5rem] flex-col sm:min-h-[3.25rem]">
+      <div className="flex flex-1 flex-col p-3">
+        <div
+          className={`flex flex-col ${weekend ? "min-h-0" : "min-h-[2.5rem] sm:min-h-[3.25rem]"}`}
+        >
           <h3 className="text-xs sm:text-base font-extrabold text-slate-900 dark:text-white line-clamp-2 leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
             {title}
           </h3>
@@ -301,10 +307,10 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
           )}
         </div>
 
-        <div className="mt-auto pt-2">
-          {/* Trip-area line: wards · places · capacity, travel time */}
+        <div className="pt-2">
+          {/* Trip-area line: wards · places · capacity */}
           {(weekend || wardGroup) && (
-            <p className="line-clamp-1 text-[9px] font-semibold text-emerald-600 dark:text-emerald-400 mt-1">
+            <p className="mt-1 line-clamp-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 sm:text-xs">
               {[
                 wardGroup &&
                   t("destination.tokyoWardsCount", {
@@ -321,26 +327,13 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
               ]
                 .filter(Boolean)
                 .join(" · ")}
-              {weekend?.travelFit.oneWayMinutes !== undefined &&
-                transportDisplay && (
-                  <span className="text-slate-500">
-                    {" "}
-                    ·{" "}
-                    {t("destination.tripAreas.travelBy", {
-                      time: formatWeekendMinutes(
-                        weekend.travelFit.oneWayMinutes,
-                        locale,
-                      ),
-                      mode: transportDisplay.label,
-                    })}
-                  </span>
-                )}
             </p>
           )}
 
-          {/* Weekend reason line */}
-          {weekendReason && (
-            <p className="line-clamp-1 text-[9px] font-semibold text-emerald-600 dark:text-emerald-400 mt-1">
+          {/* A travel reason repeats the detailed row below, so keep only
+              distinct weekend explanations such as weather guidance. */}
+          {showWeekendReason && weekendReason && (
+            <p className="mt-1 line-clamp-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 sm:text-xs">
               {t(`recommendation.reasons.${weekendReason.code}.title`, {
                 ...(weekendReason.params ?? {}),
               })}
@@ -351,20 +344,20 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
               planned dates — never shown as a forecast when seasonal. */}
           {conditionLine && (
             <p
-              className={`mt-1 line-clamp-1 text-[9px] font-semibold text-slate-500 dark:text-slate-400 ${hasCriticalCondition ? "" : "hidden sm:block"}`}
+              className={`mt-1 line-clamp-1 text-[11px] font-semibold text-slate-500 dark:text-slate-400 sm:text-xs ${hasCriticalCondition ? "" : "hidden sm:block"}`}
               title={conditionLine}
             >
               {conditionLine}
             </p>
           )}
 
-          <p className="line-clamp-1 text-[10px] font-semibold text-slate-500 dark:text-slate-400 sm:text-xs">
+          <p className="line-clamp-1 text-[11px] font-semibold text-slate-500 dark:text-slate-400 sm:text-xs">
             {areaAndCategory}
           </p>
 
           {dayTripReasonLabel && (
             <p
-              className="mt-1 flex min-w-0 items-center gap-1 text-[9px] font-semibold text-emerald-600 dark:text-emerald-400"
+              className="mt-1 flex min-w-0 items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 sm:text-xs"
               title={dayTripReasonLabel}
             >
               <CheckCircle2 className="size-3 shrink-0" aria-hidden="true" />
@@ -380,7 +373,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
                 return (
                   <span
                     key={idx}
-                    className="inline-flex items-center gap-0.5 text-[9px] font-semibold text-slate-500 dark:text-slate-400"
+                    className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-slate-500 dark:text-slate-400 sm:text-xs"
                     aria-label={t(
                       idx === 0 ? "home.day1Label" : "home.day2Label",
                     )}
@@ -397,7 +390,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
 
           {transportCostWarningLabel && (
             <p
-              className="mt-1 flex min-w-0 items-center gap-1 text-[9px] font-semibold text-amber-700 dark:text-amber-300"
+              className="mt-1 flex min-w-0 items-center gap-1 text-[11px] font-semibold text-amber-700 dark:text-amber-300 sm:text-xs"
               title={transportCostWarningLabel.description}
             >
               <AlertTriangle className="size-3 shrink-0" />
@@ -407,7 +400,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
             </p>
           )}
 
-          <div className="mt-1.5 flex flex-wrap items-center gap-1 text-[10px] font-semibold text-slate-500 dark:text-slate-400 sm:gap-1.5 sm:text-xs">
+          <div className="mt-1.5 flex flex-wrap items-center gap-1 text-[11px] font-semibold text-slate-500 dark:text-slate-400 sm:gap-1.5 sm:text-xs">
             <span className="flex items-center gap-1 truncate">
               <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400 shrink-0" />
               <span className="truncate">{travelTimeText}</span>
@@ -419,7 +412,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
                 </span>
                 <span
                   title={transportDisplay.label}
-                  className="flex shrink-0 items-center gap-1 text-[9px] font-bold uppercase tracking-wide text-emerald-600 dark:text-emerald-400 sm:text-[10px]"
+                  className="flex shrink-0 items-center gap-1 text-[11px] font-bold uppercase tracking-wide text-emerald-600 dark:text-emerald-400 sm:text-xs"
                 >
                   <transportDisplay.Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   <span className="hidden sm:inline">

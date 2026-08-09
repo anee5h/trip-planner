@@ -431,6 +431,8 @@
       "waterfalls": "Waterfalls"
     },
     "places": "{{count}} places",
+    "places_one": "{{count}} place",
+    "places_other": "{{count}} places",
     "matchReason": "Matches your plan",
     "savedReason": "Saved by you",
     "rainReason": "Well suited to rain",

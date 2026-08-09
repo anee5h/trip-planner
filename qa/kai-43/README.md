@@ -13,3 +13,12 @@ The Home recommendation rail keeps its aligned 390px height at about 257px
 because the compact card retains the strongest reason and existing cost data.
 It removes the mobile subtitle and weather-only detail without dropping
 decision-critical travel, cost, or warning states.
+
+## Home 2D1N follow-up
+
+[EN · 1440px Home weekend screenshot](home-weekend-en-1440-after.png)
+
+The post-review weekend cards measure about 294px high in this desktop state.
+Their metadata begins about 12px after the title, with one detailed travel row;
+the repeated one-way travel reason is suppressed and one-place English copy
+renders as “1 place”.

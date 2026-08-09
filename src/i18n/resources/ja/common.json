@@ -431,6 +431,8 @@
       "waterfalls": "滝"
     },
     "places": "{{count}}か所",
+    "places_one": "{{count}}か所",
+    "places_other": "{{count}}か所",
     "matchReason": "条件にぴったり",
     "savedReason": "保存済み",
     "rainReason": "雨の日におすすめ",
