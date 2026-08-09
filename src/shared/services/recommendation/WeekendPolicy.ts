@@ -12,10 +12,11 @@ import { isPublishedDestination } from "./WeekendAreaPolicy";
 // ── Travel Policy ────────────────────────────────────────────────────────────
 
 export const WEEKEND_TRAVEL_POLICY = {
-  /** Very close destinations are eligible but receive no weekend travel bonus. */
+  /** Ordinary local/day-trip destinations are not overnight getaways. */
   LOCAL_MAX_MINUTES: 60,
-  /** Sweet spot for an overnight getaway — strongest score. */
-  STRONG_MIN_MINUTES: 121,
+  /** Borderline-near destinations remain possible but are heavily deprioritized. */
+  NEARBY_MAX_MINUTES: 90,
+  /** Sweet spot for an overnight getaway — strongest score (91–240 min). */
   STRONG_MAX_MINUTES: 240,
   ACCEPTABLE_MAX_MINUTES: 300,
   WEAK_MAX_MINUTES: 420,
@@ -37,9 +38,9 @@ export function evaluateWeekendTravelFit(
     return { eligible: false, band: "unknown" };
   }
   if (oneWayMinutes <= WEEKEND_TRAVEL_POLICY.LOCAL_MAX_MINUTES) {
-    return { eligible: true, band: "local", oneWayMinutes };
+    return { eligible: false, band: "local", oneWayMinutes };
   }
-  if (oneWayMinutes < WEEKEND_TRAVEL_POLICY.STRONG_MIN_MINUTES) {
+  if (oneWayMinutes <= WEEKEND_TRAVEL_POLICY.NEARBY_MAX_MINUTES) {
     return { eligible: true, band: "nearby", oneWayMinutes };
   }
   if (oneWayMinutes <= WEEKEND_TRAVEL_POLICY.STRONG_MAX_MINUTES) {
@@ -109,11 +110,11 @@ export function evaluateWeekendCapacity(
 // ── Scoring ──────────────────────────────────────────────────────────────────
 
 export const WEEKEND_SCORING = {
-  /** Very close to origin: eligible but no getaway bonus. */
-  TRAVEL_LOCAL_BONUS: -20,
-  /** Modest bonus for closer-than-sweet-spot destinations. */
-  TRAVEL_NEARBY_BONUS: 3,
-  /** Strongest bonus for the overnight sweet spot (121–240 min). */
+  /** Local destinations are hard-excluded; this keeps direct scoring explicit. */
+  TRAVEL_LOCAL_PENALTY: -20,
+  /** Strong penalty for borderline-near overnight candidates (61–90 min). */
+  TRAVEL_NEARBY_PENALTY: -18,
+  /** Strongest bonus for the overnight sweet spot (91–240 min). */
   TRAVEL_STRONG_BONUS: 14,
   /** Positive but declining bonus for acceptable distances. */
   TRAVEL_ACCEPTABLE_BASE: 5,
@@ -128,8 +129,8 @@ export const WEEKEND_SCORING = {
 
 export function weekendTravelScoreDelta(fit: WeekendTravelFit): number {
   const minutes = fit.oneWayMinutes;
-  if (fit.band === "local") return WEEKEND_SCORING.TRAVEL_LOCAL_BONUS;
-  if (fit.band === "nearby") return WEEKEND_SCORING.TRAVEL_NEARBY_BONUS;
+  if (fit.band === "local") return WEEKEND_SCORING.TRAVEL_LOCAL_PENALTY;
+  if (fit.band === "nearby") return WEEKEND_SCORING.TRAVEL_NEARBY_PENALTY;
   if (fit.band === "strong") return WEEKEND_SCORING.TRAVEL_STRONG_BONUS;
   if (fit.band === "acceptable" && minutes !== undefined) {
     return (

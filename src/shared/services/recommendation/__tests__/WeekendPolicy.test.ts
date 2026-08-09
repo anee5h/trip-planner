@@ -59,16 +59,16 @@ function context(
 // ── Travel Fit Tests ─────────────────────────────────────────────────────────
 
 describe("evaluateWeekendTravelFit", () => {
-  it("0 minutes → local, eligible", () => {
+  it("0 minutes → local, ineligible", () => {
     expect(evaluateWeekendTravelFit(0)).toEqual({
-      eligible: true,
+      eligible: false,
       band: "local",
       oneWayMinutes: 0,
     });
   });
-  it("60 minutes → local, eligible", () => {
+  it("60 minutes → local, ineligible", () => {
     expect(evaluateWeekendTravelFit(60)).toEqual({
-      eligible: true,
+      eligible: false,
       band: "local",
       oneWayMinutes: 60,
     });
@@ -121,16 +121,16 @@ describe("evaluateWeekendTravelFit", () => {
     });
   });
 
-  it("120 → nearby, eligible; 121 → strong, eligible", () => {
-    expect(evaluateWeekendTravelFit(120)).toEqual({
+  it("90 → nearby, eligible; 91 → strong, eligible", () => {
+    expect(evaluateWeekendTravelFit(90)).toEqual({
       eligible: true,
       band: "nearby",
-      oneWayMinutes: 120,
+      oneWayMinutes: 90,
     });
-    expect(evaluateWeekendTravelFit(121)).toEqual({
+    expect(evaluateWeekendTravelFit(91)).toEqual({
       eligible: true,
       band: "strong",
-      oneWayMinutes: 121,
+      oneWayMinutes: 91,
     });
   });
 
@@ -167,15 +167,26 @@ describe("weekendTravelScoreDelta", () => {
     );
   });
 
-  it("local band → TRAVEL_LOCAL_BONUS (-20)", () => {
+  it("local band → TRAVEL_LOCAL_PENALTY (-20)", () => {
     expect(
       weekendTravelScoreDelta({
-        eligible: true,
+        eligible: false,
         band: "local",
         oneWayMinutes: 45,
       }),
-    ).toBe(WEEKEND_SCORING.TRAVEL_LOCAL_BONUS);
-    expect(WEEKEND_SCORING.TRAVEL_LOCAL_BONUS).toBe(-20);
+    ).toBe(WEEKEND_SCORING.TRAVEL_LOCAL_PENALTY);
+    expect(WEEKEND_SCORING.TRAVEL_LOCAL_PENALTY).toBe(-20);
+  });
+
+  it("nearby band → strong negative penalty", () => {
+    expect(
+      weekendTravelScoreDelta({
+        eligible: true,
+        band: "nearby",
+        oneWayMinutes: 90,
+      }),
+    ).toBe(WEEKEND_SCORING.TRAVEL_NEARBY_PENALTY);
+    expect(WEEKEND_SCORING.TRAVEL_NEARBY_PENALTY).toBe(-18);
   });
 
   it("acceptable band: monotonic decreasing", () => {
@@ -568,7 +579,7 @@ describe("evaluateWeekendCandidate", () => {
   it("origin-local destination excluded when municipality matches, kept otherwise", () => {
     const d = dest({
       id: "local",
-      prefecture: "Kyoto",
+      prefecture: "Tokyo",
       municipalityId: "Osaka:osaka",
       recommendedVisitHours: { min: 8, max: 12 }, // 720 min → strong capacity
       transportOptions: { train: 190 },
