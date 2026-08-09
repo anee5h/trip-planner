@@ -272,6 +272,63 @@ describe("RecommendationService Unit Tests", () => {
     expect(matchesTripDuration(15, "weekend")).toBe(true);
   });
 
+  it("requires canonical travel for constrained personalized day trips", () => {
+    const feasible = {
+      ...mockDestinations[1],
+      id: "feasible-half-day",
+      recommendedVisitHours: { min: 3, max: 4 },
+    };
+    const infeasible = {
+      ...mockDestinations[1],
+      id: "infeasible-half-day",
+      prefecture: "Kyoto",
+      transportOptions: { shinkansen: 180 },
+      recommendedVisitHours: { min: 3, max: 4 },
+    };
+    const unknown = {
+      ...mockDestinations[1],
+      id: "unknown-half-day",
+      transportOptions: { bus: 60 },
+      recommendedVisitHours: { min: 3, max: 4 },
+    };
+    const results = getRecommendations([feasible, infeasible, unknown], {
+      budget: 100000,
+      budgetTier: "standard",
+      carMode: "none",
+      publicModes: ["train", "shinkansen", "bus"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: homeCoords,
+      tripDuration: "halfDay",
+    });
+
+    const ids = results.map((result) => result.id);
+    expect(ids).toContain("feasible-half-day");
+    expect(ids).not.toContain("infeasible-half-day");
+    expect(ids).not.toContain("unknown-half-day");
+  });
+
+  it("keeps day-trip browsing neutral when no origin is selected", () => {
+    const destination = {
+      ...mockDestinations[1],
+      id: "no-origin-half-day",
+      transportOptions: { bus: 60 },
+      recommendedVisitHours: { min: 3, max: 4 },
+    };
+    const results = getRecommendations([destination], {
+      budget: 100000,
+      budgetTier: "standard",
+      carMode: "none",
+      publicModes: ["bus"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: null,
+      tripDuration: "halfDay",
+    });
+
+    expect(results.map((result) => result.id)).toEqual(["no-origin-half-day"]);
+  });
+
   it("correctly identifies valid transport modes with getValidModes", () => {
     const dest = mockDestinations[2]; // Mount Fuji (bus & shinkansen)
     const validModes = getValidModes(

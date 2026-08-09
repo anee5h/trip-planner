@@ -120,7 +120,7 @@ export function useTripRecommendations({
       // weather preference, so origin conditions cannot score destinations.
       destinationWeather: { preferred: preferredWeather },
       visitedIds,
-      homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
+      homeStationCoords,
       originZoneId: homeStationTransportZoneId,
       tripDuration,
       ferryTemporal,
@@ -175,10 +175,7 @@ export function useTripRecommendations({
             // weather never affects candidate selection or ranking.
             destinationWeather: { preferred: preferredWeather },
             visitedIds,
-            homeStationCoords: homeStationCoords || {
-              lat: 35.6812,
-              lng: 139.7671,
-            },
+            homeStationCoords,
             originZoneId: homeStationTransportZoneId,
             userRatings: destinationRatings,
             tripDuration: duration,

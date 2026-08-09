@@ -58,6 +58,7 @@ type OriginKey =
   | "shinYokohama"
   | "yokohama"
   | "tokyo"
+  | "chiba"
   | "omiya"
   | "fukuoka"
   | "wakayama";
@@ -83,6 +84,10 @@ const ORIGINS: Record<OriginKey, OriginCase> = {
   tokyo: {
     label: "Tokyo Station, Tokyo",
     coordinates: { lat: 35.6812, lng: 139.7671 },
+  },
+  chiba: {
+    label: "Chiba Station, Chiba",
+    coordinates: { lat: 35.6131, lng: 140.1133 },
   },
   omiya: {
     label: "Omiya Station, Saitama",
@@ -114,6 +119,11 @@ type Check =
   | { kind: "transportConsistent" }
   | { kind: "homeDisplayFallback" }
   | { kind: "dayTripFeasibility"; availableHours: number }
+  | {
+      kind: "personalizedDayTrip";
+      availableHours: number;
+      excludedIds: string[];
+    }
   | { kind: "uiVisitRange" }
   | { kind: "islandTopology" }
   | { kind: "reasonConsistent" }
@@ -136,6 +146,7 @@ interface Scenario {
   preferredWeather?: "any" | "rainy" | "hot" | "cold";
   travelDate?: string;
   accommodationAllowance?: number;
+  topResults?: number;
   expected: string;
   subsystem: string;
   check: Check;
@@ -291,6 +302,61 @@ const scenarios: Scenario[] = [
       "The half-day filter should align with the visible 4–7.5h time-at-destination label.",
     subsystem: "filter / UI semantics",
     check: { kind: "uiVisitRange" },
+  },
+  {
+    id: "C01",
+    title: "Chiba personalized short outing",
+    origin: "chiba",
+    tripDuration: "shortOuting",
+    publicModes: ALL_PUBLIC_MODES,
+    topResults: 10,
+    expected:
+      "Short outings from Chiba retain only candidates with known canonical travel that fit four hours; distant Aomori, Yamagata, Akita, and Kyoto candidates do not survive.",
+    subsystem: "filter / personalized day-trip feasibility",
+    check: {
+      kind: "personalizedDayTrip",
+      availableHours: 4,
+      excludedIds: ["aomori-city", "yamagata-city", "akita-city", "kyoto-city"],
+    },
+  },
+  {
+    id: "C02",
+    title: "Chiba personalized half-day",
+    origin: "chiba",
+    tripDuration: "halfDay",
+    publicModes: ALL_PUBLIC_MODES,
+    topResults: 10,
+    expected:
+      "Half-day recommendations from Chiba exclude infeasible Lake Tazawa and Yamadera-style destinations and retain only known canonical travel within seven-and-a-half hours.",
+    subsystem: "filter / personalized day-trip feasibility",
+    check: {
+      kind: "personalizedDayTrip",
+      availableHours: 7.5,
+      excludedIds: ["lake-tazawa-akita", "yamadera-yamagata"],
+    },
+  },
+  {
+    id: "C03",
+    title: "Chiba personalized full-day",
+    origin: "chiba",
+    tripDuration: "fullDay",
+    publicModes: ALL_PUBLIC_MODES,
+    topResults: 10,
+    expected:
+      "Full-day recommendations from Chiba remain populated with sensible reachable destinations using known canonical travel rather than fabricated duration values.",
+    subsystem: "filter / personalized day-trip feasibility",
+    check: {
+      kind: "personalizedDayTrip",
+      availableHours: 14,
+      excludedIds: [
+        "aomori-city",
+        "yamagata-city",
+        "akita-city",
+        "kyoto-city",
+        "lake-tazawa-akita",
+        "yamadera-yamagata",
+      ],
+    },
   },
   {
     id: "T01",
@@ -910,6 +976,58 @@ function validate(
       );
       return { status: "PASS", severity: "none", notes };
     }
+    case "personalizedDayTrip": {
+      const context = contextFor(scenario);
+      const unknown: string[] = [];
+      const infeasible: string[] = [];
+      for (const result of results) {
+        const modes = modesFor(result, context);
+        const canonical = estimateFor(result, context, modes);
+        const estimate = estimateTripDuration(result, context, modes);
+        if (
+          !canonical ||
+          !estimate ||
+          estimate.bestTravelMinutes === undefined
+        ) {
+          unknown.push(result.id);
+          continue;
+        }
+        if (estimate.totalRangeHours[0] > scenario.check.availableHours) {
+          infeasible.push(
+            `${result.id}=${estimate.totalRangeHours[0].toFixed(1)}h+`,
+          );
+        }
+      }
+      const leaked = results.filter((result) =>
+        scenario.check.excludedIds.includes(result.id),
+      );
+      if (unknown.length > 0) {
+        return fail(
+          `${unknown.length} retained results have no canonical origin-aware duration: ${unknown
+            .slice(0, 8)
+            .join(", ")}`,
+          "P1",
+        );
+      }
+      if (infeasible.length > 0) {
+        return fail(
+          `${infeasible.length} retained results exceed ${scenario.check.availableHours}h at minimum: ${infeasible
+            .slice(0, 8)
+            .join(", ")}`,
+          "P1",
+        );
+      }
+      if (leaked.length > 0) {
+        return fail(
+          `Known distant candidates leaked: ${leaked.map((result) => result.id).join(", ")}`,
+          "P1",
+        );
+      }
+      notes.push(
+        `All ${results.length} retained results have canonical travel and fit the ${scenario.check.availableHours}h minimum-feasibility envelope; unknown travel is excluded rather than fabricated.`,
+      );
+      return { status: "PASS", severity: "none", notes };
+    }
     case "uiVisitRange": {
       const limits: Record<string, [number, number]> = {
         shortOuting: [0, 4],
@@ -1100,7 +1218,10 @@ for (const result of results) {
   console.log(`inputs=${printInputs(scenario, result.context)}`);
   console.log(`expected=${scenario.expected}`);
   console.log(`actualCount=${result.results.length}`);
-  for (const recommendation of result.results.slice(0, 5)) {
+  for (const recommendation of result.results.slice(
+    0,
+    scenario.topResults ?? 5,
+  )) {
     console.log(`result=${formatResult(recommendation, result.context)}`);
   }
   console.log(`notes=${result.notes.join(" ")}`);

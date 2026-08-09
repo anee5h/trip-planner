@@ -2,7 +2,10 @@ import type { Destination } from "@/shared/types/destination";
 import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService";
 import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
-import { matchesVisitDuration } from "./TripDurationService";
+import {
+  hasPersonalizedOrigin,
+  matchesPersonalizedDayTripDuration,
+} from "./TripDurationService";
 import { createRecommendationMatch } from "./RecommendationExplainability";
 import {
   calculateConfidence,
@@ -146,6 +149,7 @@ export function runRecommendationPipeline(
   const candidates = destinations.map((destination) =>
     buildRecommendationCandidate(destination, context),
   );
+  const hasOrigin = hasPersonalizedOrigin(context);
 
   // Cache weekend evaluations keyed by destination id
   const weekendEvalCache = new Map<string, WeekendCandidateEvaluation>();
@@ -153,19 +157,25 @@ export function runRecommendationPipeline(
   const eligible = candidates.filter((destination) => {
     if (!destination.id || context.visitedIds.includes(destination.id))
       return false;
-    const modes = getValidModes(
-      destination,
-      context.carMode,
-      context.publicModes,
-      context.homeStationCoords || undefined,
-      context.budgetTier,
-      context.originZoneId,
-      context.ferryTemporal,
-    );
-    if (modes.length === 0) return false;
+    // Without a personalized origin, day-trip browsing remains neutral: no
+    // topology or canonical travel claim can be evaluated yet. Weekend mode
+    // retains its existing conservative transport gate.
+    const modes = hasOrigin
+      ? getValidModes(
+          destination,
+          context.carMode,
+          context.publicModes,
+          context.homeStationCoords || undefined,
+          context.budgetTier,
+          context.originZoneId,
+          context.ferryTemporal,
+        )
+      : [];
+    if (modes.length === 0 && (hasOrigin || isWeekend)) return false;
     // Canonical trip-date transport eligibility: a ferry-only trip must be
     // covered on every travel day (outbound Day 1 / return Day 2).
     if (
+      hasOrigin &&
       context.travelDates &&
       !isTripDatesTransportEligible(
         destination,
@@ -177,9 +187,10 @@ export function runRecommendationPipeline(
       return false;
     }
 
-    // Weekend mode: skip duration-band match; use evaluateWeekendCandidate.
-    // Day-trip mode uses pure visit-duration matching (origin must not change
-    // the time-at-destination classification).
+    // Weekend mode: skip day-trip duration matching; use
+    // evaluateWeekendCandidate. Day trips keep the pure visit band as their
+    // on-site source, then apply canonical origin-aware feasibility when an
+    // origin and constrained duration are present.
     if (isWeekend) {
       const eval_ = evaluateWeekendCandidate(
         destination,
@@ -191,7 +202,14 @@ export function runRecommendationPipeline(
       weekendEvalCache.set(destination.id, eval_);
       if (!eval_.eligible) return false;
     } else {
-      if (!matchesVisitDuration(destination, context.tripDuration ?? "any"))
+      if (
+        !matchesPersonalizedDayTripDuration(
+          destination,
+          context,
+          modes,
+          context.tripDuration ?? "any",
+        )
+      )
         return false;
     }
 

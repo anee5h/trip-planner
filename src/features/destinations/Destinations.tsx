@@ -52,7 +52,8 @@ import {
 } from "@/shared/types/planner";
 import {
   getBestOneWayTravelMinutes,
-  matchesVisitDuration,
+  hasPersonalizedOrigin,
+  matchesPersonalizedDayTripDuration,
 } from "@/shared/services/recommendation/TripDurationService";
 import {
   evaluateWeekendTravelFit,
@@ -822,13 +823,17 @@ export default function Destinations() {
       tripDuration !== "any" ||
       hasRestrictedTransportSelection(carMode, publicModes)
     ) {
-      const hasOrigin = homeStationCoords || homeStationTransportZoneId;
+      const hasOrigin = hasPersonalizedOrigin(catalogContext);
       result = result.filter((dest) => {
-        // Time at destination: use pure visit-duration matching.
-        // Origin travel is evaluated separately for reachability;
-        // when no origin is set, browsing stays neutral (no mode gate).
-        if (!matchesVisitDuration(dest, tripDuration)) return false;
-        if (!hasOrigin) return true;
+        // Keep no-origin browsing neutral, while using the same personalized
+        // day-trip duration contract as Home when an origin is selected.
+        if (!hasOrigin)
+          return matchesPersonalizedDayTripDuration(
+            dest,
+            catalogContext,
+            [],
+            tripDuration,
+          );
         const modes = getValidModes(
           dest,
           carMode,
@@ -851,7 +856,12 @@ export default function Destinations() {
         ) {
           return false;
         }
-        return true;
+        return matchesPersonalizedDayTripDuration(
+          dest,
+          catalogContext,
+          modes,
+          tripDuration,
+        );
       });
     }
 
