@@ -488,6 +488,7 @@
     "originForecastHint": "予報は出発地付近の天気です"
   },
   "destination": {
+    "megurutoScore": "メグルートスコア",
     "tokyoWardsGroup": "東京23区",
     "tokyoWardsCount": "{{count}}区",
     "tokyoWardsBadge": "23区",

@@ -488,6 +488,7 @@
     "originForecastHint": "Forecast shows weather near your origin"
   },
   "destination": {
+    "megurutoScore": "Meguruto score",
     "tokyoWardsGroup": "Tokyo 23 Wards",
     "tokyoWardsCount": "{{count}} wards",
     "tokyoWardsBadge": "23 Wards",
