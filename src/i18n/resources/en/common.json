@@ -326,6 +326,7 @@
     },
     "vibe": "Vibe",
     "duration": "Duration",
+    "timeAvailable": "Time available",
     "party": "Travel party",
     "budget": "Budget",
     "transport": "Getting around",
@@ -354,6 +355,11 @@
       "shortOuting": "Short outing",
       "halfDay": "Half day",
       "fullDay": "Full day"
+    },
+    "durationHints": {
+      "shortOuting": "≤ 4h total",
+      "halfDay": "≤ 7.5h total",
+      "fullDay": "≤ 14h total"
     },
     "budgets": {
       "economy": "Economy",
@@ -447,7 +453,6 @@
       "reason": "Selected because it fits your {{duration}} plan, budget, and transport preference."
     },
     "tripLength": "Trip length",
-    "timeAtDestination": "Time at destination",
     "tripMode": "Trip type",
     "tripModes": {
       "day_trip": "Day trip",
@@ -481,6 +486,14 @@
       "any": "Any",
       "day_trip": "Day trip",
       "weekend_2d1n": "2 days / 1 night"
+    },
+    "tripDuration": "Trip duration",
+    "timeAvailable": "Time available",
+    "durationOptions": {
+      "any": "Any",
+      "shortOuting": "≤ 4h total",
+      "halfDay": "≤ 7.5h total",
+      "fullDay": "≤ 14h total"
     },
     "tripAreas": {
       "summary": "{{areas}} trip areas · {{places}} places",

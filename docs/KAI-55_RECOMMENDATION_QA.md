@@ -2,12 +2,13 @@
 
 Date: 2026-08-09
 
-Branch: fix/kai-55-f15-duration-semantics
+Branch: fix/kai-55-total-outing-semantics
 
-Base: latest main after merged PR #120 at 422fadf0
+Base: latest main after merged PR #121 at 530476b1
 
-Scope: deterministic KAI-55 audit plus regression coverage for evidence-aware
-day-trip feasibility. F15 and weekend/2D1N semantics remain outside this PR.
+Scope: deterministic KAI-55 audit plus F15 UI semantics for evidence-aware
+day-trip feasibility. Transport, budgets, ranking, and weekend/2D1N semantics
+remain unchanged.
 
 Reproduction command:
 
@@ -19,11 +20,11 @@ Targeted reproduction is available with KAI55_SCENARIO, for example:
 
 ## 2026-08-09 rerun
 
-The complete 42-scenario audit was rerun after PR #120. It produced:
+The complete 42-scenario audit was rerun after PR #121. It produced:
 
-- 29 PASS
+- 30 PASS
 - 12 REVIEW (manual ranking/product judgment)
-- 1 FAIL: F15, the pre-existing visible visit-range semantic mismatch
+- 0 FAIL
 
 The new day-trip checks passed:
 
@@ -40,6 +41,9 @@ The new day-trip checks passed:
   island candidates.
 - Estimated travel: no transport fare or complete budget range was derived
   from it.
+- F15: the Home and Explore day-trip selectors describe total available outing
+  time, including travel, visit time, and buffers; `recommendedVisitHours`
+  remains the on-site visit duration.
 - Home/shared evidence: verified, estimated, and unknown states agree across
   the pipeline/card contract; estimated cards are marked with `~`.
 
@@ -51,9 +55,6 @@ results are currently a catalogue-content gap, not a transport or
 recommendation defect. The end-to-end regression uses the catalogue-supported
 Half-day band, with a separate lower-level assertion covering all 9 nearby
 entries.
-
-F15 remains intentionally out of scope. The audit runner still reports it so
-the complete matrix stays honest; it is not a regression from this change.
 
 The sections below are the historical pre-fix baseline and are retained for
 traceability.

@@ -135,7 +135,7 @@ type Check =
       availableHours: number;
       excludedIds: string[];
     }
-  | { kind: "uiVisitRange" }
+  | { kind: "totalOutingEnvelope"; availableHours: number }
   | { kind: "islandTopology" }
   | { kind: "reasonConsistent" }
   | { kind: "diverse" }
@@ -306,13 +306,13 @@ const scenarios: Scenario[] = [
   },
   {
     id: "F15",
-    title: "Visit-time filter versus visible range labels",
+    title: "Total-outing duration selector semantics",
     origin: "tokyo",
     tripDuration: "halfDay",
     expected:
-      "The half-day filter should align with the visible 4–7.5h time-at-destination label.",
+      "The half-day selector represents a total outing envelope of up to 7.5h, including travel, visit time, and buffers.",
     subsystem: "filter / UI semantics",
-    check: { kind: "uiVisitRange" },
+    check: { kind: "totalOutingEnvelope", availableHours: 7.5 },
   },
   {
     id: "C01",
@@ -1217,31 +1217,48 @@ function validate(
       );
       return { status: "PASS", severity: "none", notes };
     }
-    case "uiVisitRange": {
-      const limits: Record<string, [number, number]> = {
-        shortOuting: [0, 4],
-        halfDay: [4, 7.5],
-        fullDay: [7.5, 14],
-      };
-      const requested = scenario.tripDuration ?? "any";
-      const [min, max] = limits[requested] ?? [0, Number.POSITIVE_INFINITY];
-      const mismatches = results.flatMap((result) => {
-        const visit = result.recommendedVisitHours;
-        if (!visit) return [];
-        const midpoint = (visit.min + visit.max) / 2;
-        return midpoint >= min && midpoint < max
-          ? []
-          : [`${result.id}=${midpoint.toFixed(1)}h`];
-      });
-      if (mismatches.length > 0) {
+    case "totalOutingEnvelope": {
+      const context = contextFor(scenario);
+      const unknown: string[] = [];
+      const infeasible: string[] = [];
+      for (const result of results) {
+        const estimate = estimateDayTripDuration(
+          result,
+          {
+            ...context,
+            availableTimeHours: scenario.check.availableHours,
+          },
+          modesFor(result, context),
+        );
+        if (!estimate || estimate.travelEvidence === "unknown") {
+          unknown.push(result.id);
+        } else if (
+          estimate.totalRangeHours[0] > scenario.check.availableHours
+        ) {
+          infeasible.push(
+            `${result.id}=${estimate.totalRangeHours[0].toFixed(1)}h+`,
+          );
+        }
+      }
+      if (unknown.length > 0) {
         return fail(
-          `${mismatches.length} results do not fit the visible ${min}-${max}h label: ${mismatches
+          `Total-outing semantics could not be evaluated for ${unknown
             .slice(0, 8)
             .join(", ")}`,
-          "P2",
+          "P1",
         );
       }
-      notes.push(`All results fit the visible ${min}-${max}h label.`);
+      if (infeasible.length > 0) {
+        return fail(
+          `${infeasible.length} results exceed the ${scenario.check.availableHours}h total-outing envelope: ${infeasible
+            .slice(0, 8)
+            .join(", ")}`,
+          "P1",
+        );
+      }
+      notes.push(
+        `All ${results.length} results fit the ${scenario.check.availableHours}h total-outing envelope; travel, visit time, and buffers are included while recommendedVisitHours remains on-site duration.`,
+      );
       return { status: "PASS", severity: "none", notes };
     }
     case "islandTopology": {

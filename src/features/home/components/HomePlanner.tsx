@@ -185,14 +185,11 @@ const VIBE_LABELS: Record<
   photography: { label: "Photography", icon: Camera, color: "text-rose-400" },
 };
 
-const DURATION_LABELS: Record<
-  HomepageTripDuration,
-  { label: string; hint: string }
-> = {
-  shortOuting: { label: "Short outing", hint: "< 4h" },
-  halfDay: { label: "Half day", hint: "4–7.5h" },
-  fullDay: { label: "Full day", hint: "7.5–14h" },
-};
+const DURATION_OPTIONS: HomepageTripDuration[] = [
+  "shortOuting",
+  "halfDay",
+  "fullDay",
+];
 
 const BUDGET_TIER_LABELS: Record<BudgetTier, { label: string; desc: string }> =
   {
@@ -258,10 +255,10 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
       label: translate(`home.vibes.${value}`),
       icon: item.icon,
     })),
-    duration: Object.entries(DURATION_LABELS).map(([value, item]) => ({
+    duration: DURATION_OPTIONS.map((value) => ({
       value,
       label: translate(`home.durations.${value}`),
-      description: item.hint,
+      description: translate(`home.durationHints.${value}`),
       icon: Clock,
     })),
     budget: Object.entries(BUDGET_TIER_LABELS).map(([value]) => ({
@@ -459,10 +456,10 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
 
           <div className="w-px h-8 bg-slate-200 dark:bg-slate-800 shrink-0" />
 
-          {/* Segment 2: Time at destination / Trip length */}
+          {/* Segment 2: Total available time / Trip length */}
           <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors flex flex-col justify-center">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
-              {isWeekend ? t("home.tripLength") : t("home.timeAtDestination")}
+              {isWeekend ? t("home.tripLength") : t("home.timeAvailable")}
             </span>
             {isWeekend ? (
               <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white">
@@ -485,7 +482,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                   </div>
                 </SelectTrigger>
                 <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
-                  {Object.entries(DURATION_LABELS).map(([key, item]) => (
+                  {DURATION_OPTIONS.map((key) => (
                     <SelectItem
                       key={key}
                       value={key}
@@ -494,7 +491,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                       <div className="flex w-full items-center justify-between gap-2 text-xs font-semibold">
                         <span>{translate(`home.durations.${key}`)}</span>
                         <span className="shrink-0 whitespace-nowrap text-[10px] text-slate-400">
-                          {item.hint}
+                          {translate(`home.durationHints.${key}`)}
                         </span>
                       </div>
                     </SelectItem>
@@ -693,7 +690,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                 className="flex h-14 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 text-left dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]"
               >
                 <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
-                  {t("home.duration")}
+                  {t("home.timeAvailable")}
                 </span>
                 <span className="flex min-w-0 items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[hsl(var(--text-primary))]">
                   <Clock className="h-3.5 w-3.5 shrink-0 text-emerald-500" />

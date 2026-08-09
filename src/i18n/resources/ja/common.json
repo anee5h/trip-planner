@@ -326,6 +326,7 @@
     },
     "vibe": "気分",
     "duration": "時間",
+    "timeAvailable": "使える時間",
     "party": "人数",
     "budget": "予算",
     "transport": "移動手段",
@@ -354,6 +355,11 @@
       "shortOuting": "短時間",
       "halfDay": "半日",
       "fullDay": "一日"
+    },
+    "durationHints": {
+      "shortOuting": "合計4時間以内",
+      "halfDay": "合計7.5時間以内",
+      "fullDay": "合計14時間以内"
     },
     "budgets": {
       "economy": "節約",
@@ -447,7 +453,6 @@
       "reason": "{{duration}}の予定、予算、移動手段に合うため選ばれました。"
     },
     "tripLength": "旅行長",
-    "timeAtDestination": "現地渻在時間",
     "tripMode": "旅行タイプ",
     "tripModes": {
       "day_trip": "日帰り",
@@ -481,6 +486,14 @@
       "any": "すべて",
       "day_trip": "日帰り",
       "weekend_2d1n": "2日間・1泊"
+    },
+    "tripDuration": "旅行時間",
+    "timeAvailable": "使える時間",
+    "durationOptions": {
+      "any": "指定なし",
+      "shortOuting": "合計4時間以内",
+      "halfDay": "合計7.5時間以内",
+      "fullDay": "合計14時間以内"
     },
     "tripAreas": {
       "summary": "旅行エリア{{areas}}件・スポット{{places}}件",
