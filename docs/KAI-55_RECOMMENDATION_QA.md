@@ -34,15 +34,23 @@ The new day-trip checks passed:
   leakage.
 - Sapporo/Hokkaido and Fukuoka/Kyushu Short outing: non-empty same-zone local
   ground rails using bounded estimated evidence.
-- Takamatsu/Shikoku: real-catalogue same-zone local ground evidence remains
-  available for short-outing planning; cross-zone coordinate estimation stays
-  blocked.
+- Takamatsu/Shikoku Half-day: non-empty same-zone local-ground results use
+  bounded estimated evidence; cross-zone coordinate estimation stays blocked.
 - Island topology: no estimated duration and no train/car feasibility for
   island candidates.
 - Estimated travel: no transport fare or complete budget range was derived
   from it.
 - Home/shared evidence: verified, estimated, and unknown states agree across
   the pipeline/card contract; estimated cards are marked with `~`.
+
+Takamatsu catalogue coverage note: Takamatsu has 9 nearby same-zone catalogue
+entries. All have usable estimated local-ground evidence, but none currently
+classify as Short outing because their published `recommendedVisitHours`
+midpoints are at least 2.5 hours. Therefore, zero Takamatsu Short outing
+results are currently a catalogue-content gap, not a transport or
+recommendation defect. The end-to-end regression uses the catalogue-supported
+Half-day band, with a separate lower-level assertion covering all 9 nearby
+entries.
 
 F15 remains intentionally out of scope. The audit runner still reports it so
 the complete matrix stays honest; it is not a regression from this change.

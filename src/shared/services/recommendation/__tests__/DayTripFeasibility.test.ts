@@ -159,9 +159,43 @@ describe("day-trip travel evidence", () => {
     },
   );
 
-  it("keeps Takamatsu's real-catalogue local ground rail populated for short-outing planning", () => {
-    const context = contextFor(TAKAMATSU, "shortOuting");
-    const localCatalogResults = catalog.filter((result) => {
+  it("keeps Takamatsu half-day recommendations populated with same-zone local travel", () => {
+    const context = {
+      ...contextFor(TAKAMATSU, "halfDay"),
+      publicModes: ["train", "bus"],
+    };
+    const results = getRecommendations(catalog, context);
+
+    expect(results.length).toBeGreaterThan(0);
+    expect(
+      results.some(
+        (result) => result.transportEstimate?.evidence === "estimated",
+      ),
+    ).toBe(true);
+    expect(
+      results.slice(0, 10).every((result) => {
+        if (!result.coordinates) return false;
+        return (
+          resolveDestinationTransportZone(result) === "mainland-shikoku" &&
+          getDistance(
+            TAKAMATSU.lat,
+            TAKAMATSU.lng,
+            result.coordinates.lat,
+            result.coordinates.lng,
+          ) <= 120
+        );
+      }),
+    ).toBe(true);
+    expect(
+      results.every(
+        (result) => evidenceFor(result, context).evidence !== "unknown",
+      ),
+    ).toBe(true);
+  });
+
+  it("keeps Takamatsu's nearby catalogue entries eligible for bounded local ground evidence", () => {
+    const context = contextFor(TAKAMATSU, "halfDay");
+    const nearbySameZone = catalog.filter((result) => {
       if (!result.coordinates) return false;
       return (
         resolveDestinationTransportZone(result) === context.originZoneId &&
@@ -173,25 +207,13 @@ describe("day-trip travel evidence", () => {
         ) <= 120
       );
     });
-    const results = getRecommendations(catalog, {
-      ...context,
-      tripDuration: "any",
-    });
-    const localRecommendations = results.filter((result) =>
-      localCatalogResults.some((local) => local.id === result.id),
-    );
-    const localEvidence = localCatalogResults.map((result) =>
-      evidenceFor(result, context),
-    );
 
-    expect(localCatalogResults.length).toBeGreaterThan(0);
-    expect(localRecommendations.length).toBeGreaterThan(0);
-    expect(localEvidence.some((item) => item.evidence === "estimated")).toBe(
-      true,
-    );
+    expect(nearbySameZone).toHaveLength(9);
     expect(
-      localRecommendations.some((result) =>
-        localCatalogResults.some((local) => local.id === result.id),
+      nearbySameZone.every(
+        (result) =>
+          evidenceFor(result, context).evidence === "estimated" &&
+          resolveDestinationTransportZone(result) === "mainland-shikoku",
       ),
     ).toBe(true);
   });
