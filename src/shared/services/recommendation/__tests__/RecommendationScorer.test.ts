@@ -10,6 +10,8 @@ import { normalizeWeatherDescription } from "../RecommendationContext";
 import { diversifyRecommendations } from "../RecommendationPipeline";
 import type { Destination } from "@/shared/types/destination";
 import type { PipelineRecommendation } from "../RecommendationTypes";
+import { getDestinationList } from "@/shared/services/destination/DestinationService";
+import { getDayTripTravelEfficiency } from "../TripDurationService";
 
 const mockDest = {
   id: "test-dest",
@@ -206,6 +208,58 @@ describe("RecommendationScorer Unit Tests", () => {
         "mainland-honshu",
       ),
     ).toEqual(["train", "car"]);
+  });
+
+  it("keeps day-trip efficiency on the selected usable transport mode", () => {
+    const destination = (getDestinationList("en") as Destination[]).find(
+      (candidate) => candidate.id === "karuizawa-town",
+    )!;
+    const context = {
+      vibe: "any",
+      budget: 40000,
+      budgetTier: "standard" as const,
+      carMode: "none",
+      publicModes: ["train", "shinkansen"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+      originZoneId: "mainland-honshu" as const,
+      tripMode: "day_trip" as const,
+      tripDuration: "fullDay" as const,
+    };
+    const result = calculateScore(destination, context);
+    const train = result.modeScoreBreakdown.train;
+    const shinkansen = result.modeScoreBreakdown.shinkansen;
+    const trainEfficiency = getDayTripTravelEfficiency(
+      destination,
+      context,
+      "train",
+    )!;
+    const shinkansenEfficiency = getDayTripTravelEfficiency(
+      destination,
+      context,
+      "shinkansen",
+    )!;
+
+    expect(train.usable).toBe(true);
+    expect(shinkansen.usable).toBe(true);
+    expect(train.budget + train.transport).toBeGreaterThan(
+      shinkansen.budget + shinkansen.transport,
+    );
+    expect(shinkansenEfficiency.oneWayMinutes).toBeLessThan(
+      trainEfficiency.oneWayMinutes,
+    );
+    expect(result.bestMode).toBe("train");
+    expect(result.dayTripTravelEfficiency?.mode).toBe(result.bestMode);
+    expect(result.dayTripTravelEfficiency?.oneWayMinutes).toBe(
+      trainEfficiency.oneWayMinutes,
+    );
+    expect(train.travelEfficiency).toBe(
+      result.dayTripTravelEfficiency?.contribution,
+    );
+    expect(result.modeScoreBreakdown.train.total).toBe(
+      train.budget + train.transport + train.travelEfficiency,
+    );
   });
 
   it("applies +25 boost for thumbs up and -1000 penalty for thumbs down", () => {

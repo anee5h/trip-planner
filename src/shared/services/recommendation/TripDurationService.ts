@@ -17,7 +17,8 @@ import type {
 /** Extra uncertainty allowance applied only to estimated one-way travel. */
 export const ESTIMATED_TRAVEL_PADDING_MINUTES = 30;
 export const DAY_TRIP_MAX_OUTING_HOURS = 14;
-export const DAY_TRIP_TRAVEL_EFFICIENCY_MAX_PENALTY = 18;
+// Keep the maximum burden below the existing +25 explicit-interest boost.
+export const DAY_TRIP_TRAVEL_EFFICIENCY_MAX_PENALTY = 24;
 
 export interface TripDurationEstimate {
   visitRangeHours: [number, number];
@@ -165,15 +166,17 @@ export function getDayTripTravelDurationEvidence(
 }
 
 export interface DayTripTravelEfficiency {
+  mode: string;
   evidence: Exclude<TravelDurationEvidence, "unknown">;
   travelEstimate: TravelDurationEstimate;
   oneWayMinutes: number;
   feasibilityOneWayMinutes: number;
+  availableTimeHours: number;
   visitHours: number;
   travelHours: number;
   totalOutingHours: number;
   travelShare: number;
-  utilization: number;
+  travelEnvelopeShare: number;
   contribution: number;
 }
 
@@ -184,18 +187,24 @@ export interface DayTripTravelEfficiency {
 export function getDayTripTravelEfficiency(
   destination: Destination,
   context: TripDurationContext | RecommendationContext,
-  modes: readonly string[],
+  mode: string,
 ): DayTripTravelEfficiency | undefined {
+  const requestedDuration =
+    "tripDuration" in context ? (context.tripDuration ?? "any") : "any";
+  const availableTimeHours =
+    getDayTripAvailableTimeHours(requestedDuration) ??
+    DAY_TRIP_MAX_OUTING_HOURS;
   const estimate = estimateDayTripDuration(
     destination,
-    { ...context, availableTimeHours: DAY_TRIP_MAX_OUTING_HOURS },
-    modes,
+    { ...context, availableTimeHours },
+    [mode],
   );
   if (
     !estimate?.travelEstimate ||
     !estimate.travelEvidence ||
     estimate.travelEvidence === "unknown" ||
-    estimate.feasibilityTravelMinutes === undefined
+    estimate.feasibilityTravelMinutes === undefined ||
+    estimate.isImpossible
   ) {
     return undefined;
   }
@@ -209,21 +218,23 @@ export function getDayTripTravelEfficiency(
     60;
   const totalOutingHours = visitHours + travelHours;
   const travelShare = totalOutingHours > 0 ? travelHours / totalOutingHours : 1;
-  const utilization = Math.min(1, totalOutingHours / DAY_TRIP_MAX_OUTING_HOURS);
-  // ponytail: one bounded quadratic curve keeps the heuristic explainable; replace with calibrated user-outcome data if available.
-  const burden = 0.55 * travelShare + 0.45 * utilization;
-  const contribution = -DAY_TRIP_TRAVEL_EFFICIENCY_MAX_PENALTY * burden ** 2;
+  const travelEnvelopeShare = Math.min(1, travelHours / availableTimeHours);
+  // ponytail: one bounded linear curve uses travel only; calibrate weights/cap from outcome data if available.
+  const burden = 0.6 * travelShare + 0.4 * travelEnvelopeShare;
+  const contribution = -DAY_TRIP_TRAVEL_EFFICIENCY_MAX_PENALTY * burden;
 
   return {
+    mode,
     evidence: estimate.travelEvidence,
     travelEstimate: estimate.travelEstimate,
     oneWayMinutes: estimate.bestTravelMinutes ?? 0,
     feasibilityOneWayMinutes: estimate.feasibilityTravelMinutes,
+    availableTimeHours,
     visitHours,
     travelHours,
     totalOutingHours,
     travelShare,
-    utilization,
+    travelEnvelopeShare,
     contribution,
   };
 }

@@ -362,8 +362,9 @@ describe("TripDurationService", () => {
       {
         homeStationCoords: { lat: 34.4, lng: 132.45 },
         tripMode: "day_trip",
+        tripDuration: "halfDay",
       } as never,
-      ["train"],
+      "train",
     );
 
     expect(efficiency?.evidence).toBe("verified");
@@ -371,7 +372,35 @@ describe("TripDurationService", () => {
     expect(efficiency?.totalOutingHours).toBeGreaterThan(
       efficiency!.visitHours,
     );
+    expect(efficiency?.availableTimeHours).toBe(7.5);
+    expect(efficiency?.travelEnvelopeShare).toBeGreaterThan(0);
     expect(efficiency?.contribution).toBeLessThan(0);
-    expect(efficiency?.contribution).toBeGreaterThan(-18);
+    expect(efficiency?.contribution).toBeGreaterThan(-24);
+  });
+
+  it("does not add a visit-duration utilization penalty", () => {
+    const origin = { lat: 34.4, lng: 132.45 };
+    const shortVisit = getDayTripTravelEfficiency(
+      { ...destination, recommendedVisitHours: { min: 2, max: 2 } },
+      {
+        homeStationCoords: origin,
+        tripMode: "day_trip",
+        tripDuration: "fullDay",
+      } as never,
+      "train",
+    )!;
+    const longVisit = getDayTripTravelEfficiency(
+      { ...destination, recommendedVisitHours: { min: 8, max: 8 } },
+      {
+        homeStationCoords: origin,
+        tripMode: "day_trip",
+        tripDuration: "fullDay",
+      } as never,
+      "train",
+    )!;
+
+    expect(longVisit.travelHours).toBe(shortVisit.travelHours);
+    expect(longVisit.travelEnvelopeShare).toBe(shortVisit.travelEnvelopeShare);
+    expect(longVisit.contribution).toBeGreaterThan(shortVisit.contribution);
   });
 });

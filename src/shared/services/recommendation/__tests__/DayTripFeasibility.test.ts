@@ -108,9 +108,6 @@ describe("day-trip travel evidence", () => {
     const tokyoStation = catalog.find(
       (destination) => destination.id === "tokyo-station-chiyoda",
     )!;
-    const abeno = catalog.find(
-      (destination) => destination.id === "abeno-harukas-300-osaka",
-    )!;
     const odawara = catalog.find(
       (destination) => destination.id === "odawara-city",
     )!;
@@ -159,11 +156,11 @@ describe("day-trip travel evidence", () => {
       ),
     ).toContain("car");
 
-    expect(scoreForCatalog(abeno, trainAndShinkansen)).toBeGreaterThan(
-      scoreForCatalog(abeno, trainOnly),
-    );
     expect(scoreForCatalog(odawara, allPublic)).toBeGreaterThan(
       scoreForCatalog(harryPotter, allPublic),
+    );
+    expect(scoreForCatalog(odawara, trainAndShinkansen)).toBeGreaterThan(
+      scoreForCatalog(harryPotter, trainAndShinkansen),
     );
     expect(scoreForCatalog(odawara, trainOnly)).toBeLessThan(
       scoreForCatalog(harryPotter, trainOnly),

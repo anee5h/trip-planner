@@ -19,6 +19,7 @@ import { getOriginAwareTransportEstimate } from "@/shared/services/transport/Ori
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { personalizationService } from "./PersonalizationService";
 import {
+  getDayTripTravelDurationEvidence,
   getDayTripTravelEfficiency,
   hasPersonalizedOrigin,
 } from "./TripDurationService";
@@ -181,6 +182,16 @@ export function calculateConfidence(score: number): number {
   return Math.max(15, Math.min(99, Math.round((score / 120) * 100)));
 }
 
+export interface ModeScoreBreakdown {
+  mode: string;
+  budget: number;
+  transport: number;
+  travelEfficiency: number;
+  total?: number;
+  usable: boolean;
+  travelEvidence?: "verified" | "estimated" | "unknown";
+}
+
 export function calculateScore(
   dest: Destination,
   context: RecommendationContext,
@@ -192,6 +203,7 @@ export function calculateScore(
   bestModeScore: number;
   bestModeBudget?: number;
   dayTripTravelEfficiency?: DayTripTravelEfficiency;
+  modeScoreBreakdown: Record<string, ModeScoreBreakdown>;
 } {
   const { budget, carMode, publicModes, partySize, userRatings } = context;
   const vibe = context.vibe ?? context.tripType ?? "any";
@@ -216,12 +228,19 @@ export function calculateScore(
   );
 
   // Budget and Transport Logic
-  let bestMode = validModesForDest[0];
+  const personalizedDayTrip =
+    context.tripMode === "day_trip" && hasPersonalizedOrigin(context);
+  let bestMode: string | undefined = personalizedDayTrip
+    ? undefined
+    : validModesForDest[0];
   let bestModeScore = 0;
   let bestModeBudget: number | undefined;
+  let bestModeTotal = personalizedDayTrip ? Number.NEGATIVE_INFINITY : 0;
+  let dayTripTravelEfficiency: DayTripTravelEfficiency | undefined;
+  const modeScoreBreakdown: Record<string, ModeScoreBreakdown> = {};
 
   for (const mode of validModesForDest) {
-    let modeScore = 0;
+    let budgetScore = 0;
 
     let adjustedBudget = 999999;
     if (dest.budgetRecommended) {
@@ -244,11 +263,11 @@ export function calculateScore(
         adjustedBudget =
           (estimatedResult.range[0] + estimatedResult.range[1]) / 2;
         if (adjustedBudget > budget) {
-          modeScore -=
+          budgetScore -=
             ((adjustedBudget - budget) / SCORING_WEIGHTS.BUDGET_OVER_DIVISOR) *
             SCORING_WEIGHTS.BUDGET_OVER_PENALTY_MULTIPLIER;
         } else {
-          modeScore += Math.min(
+          budgetScore += Math.min(
             SCORING_WEIGHTS.BUDGET_UNDER_BONUS_MAX,
             (budget - adjustedBudget) / SCORING_WEIGHTS.BUDGET_UNDER_DIVISOR,
           );
@@ -256,6 +275,7 @@ export function calculateScore(
       }
     }
 
+    let transportScore = 0;
     if (mode === "train") {
       const estimate = getOriginAwareTransportEstimate(
         dest,
@@ -266,7 +286,7 @@ export function calculateScore(
         ["train"],
       );
       if (estimate) {
-        modeScore +=
+        transportScore +=
           SCORING_WEIGHTS.TRANSPORT_TRAIN_BASE +
           Math.max(0, 12 - estimate.timeRange[0] / 10);
       }
@@ -274,25 +294,55 @@ export function calculateScore(
       // Car modes have no verified origin-aware duration registry; no bonus
       // is fabricated from unprovenanced catalogue times.
     } else if (mode === "shinkansen") {
-      modeScore += SCORING_WEIGHTS.TRANSPORT_SHINKANSEN_FLAT;
+      transportScore += SCORING_WEIGHTS.TRANSPORT_SHINKANSEN_FLAT;
     } else if (mode === "bus") {
-      modeScore += SCORING_WEIGHTS.TRANSPORT_BUS_FLAT;
+      transportScore += SCORING_WEIGHTS.TRANSPORT_BUS_FLAT;
     } else if (mode === "ferry") {
-      modeScore += SCORING_WEIGHTS.TRANSPORT_FERRY_FLAT;
+      transportScore += SCORING_WEIGHTS.TRANSPORT_FERRY_FLAT;
     }
 
-    if (
-      modeScore > bestModeScore ||
-      (Math.abs(modeScore - bestModeScore) < 0.1 &&
-        (bestModeBudget === undefined || adjustedBudget < bestModeBudget))
-    ) {
-      bestModeScore = modeScore;
+    const modeTravelEfficiency = personalizedDayTrip
+      ? getDayTripTravelEfficiency(dest, context, mode)
+      : undefined;
+    const modeTravelEvidence =
+      personalizedDayTrip && !dest.recommendedVisitHours
+        ? getDayTripTravelDurationEvidence(dest, context, [mode]).evidence
+        : modeTravelEfficiency?.evidence;
+    const usable =
+      !personalizedDayTrip ||
+      (dest.recommendedVisitHours
+        ? modeTravelEfficiency !== undefined
+        : modeTravelEvidence !== "unknown");
+    const travelEfficiencyScore = modeTravelEfficiency?.contribution ?? 0;
+    const total = budgetScore + transportScore + travelEfficiencyScore;
+    modeScoreBreakdown[mode] = {
+      mode,
+      budget: budgetScore,
+      transport: transportScore,
+      travelEfficiency: travelEfficiencyScore,
+      ...(usable ? { total } : {}),
+      usable,
+      travelEvidence: modeTravelEvidence,
+    };
+    if (!usable) continue;
+
+    const shouldSelect = personalizedDayTrip
+      ? total > bestModeTotal ||
+        (Math.abs(total - bestModeTotal) < 0.1 &&
+          (bestModeBudget === undefined || adjustedBudget < bestModeBudget))
+      : total > bestModeScore ||
+        (Math.abs(total - bestModeScore) < 0.1 &&
+          (bestModeBudget === undefined || adjustedBudget < bestModeBudget));
+    if (shouldSelect) {
+      bestModeTotal = total;
+      bestModeScore = budgetScore + transportScore;
       bestModeBudget = adjustedBudget;
       bestMode = mode;
+      dayTripTravelEfficiency = modeTravelEfficiency;
     }
   }
 
-  if (validModesForDest.length > 0) score += bestModeScore;
+  if (bestMode) score += personalizedDayTrip ? bestModeTotal : bestModeScore;
 
   // Trip Type Logic
   const ratings = dest.ratings || {
@@ -413,14 +463,6 @@ export function calculateScore(
   const seasonScore = dest.season?.[currentSeason] ?? 5;
   score += (seasonScore - 5) * SCORING_WEIGHTS.SEASON_MULTIPLIER;
 
-  const dayTripTravelEfficiency =
-    context.tripMode === "day_trip" && hasPersonalizedOrigin(context)
-      ? getDayTripTravelEfficiency(dest, context, validModesForDest)
-      : undefined;
-  if (dayTripTravelEfficiency) {
-    score += dayTripTravelEfficiency.contribution;
-  }
-
   // User Rating Adjustments (Netflix-style Thumbs Up / Down)
   if (userRatings?.[dest.id] === "up") {
     score += 25;
@@ -448,5 +490,6 @@ export function calculateScore(
     bestModeScore,
     bestModeBudget,
     dayTripTravelEfficiency,
+    modeScoreBreakdown,
   };
 }

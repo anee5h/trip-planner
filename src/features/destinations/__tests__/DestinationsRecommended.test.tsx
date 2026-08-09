@@ -3,7 +3,7 @@
  */
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { MemoryRouter } from "react-router-dom";
+import { MemoryRouter, useLocation } from "react-router-dom";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import Destinations from "../Destinations";
 
@@ -37,6 +37,9 @@ vi.mock("react-i18next", () => ({
           "destination.tripAreas.summary":
             "{{areas}} areas · {{places}} places",
           "destination.tripAreas.show": "Show {{count}}",
+          "destination.tripModes.any": "Any",
+          "destination.tripModes.day_trip": "Day trip",
+          "destination.tripModes.weekend_2d1n": "2D1N",
         }[key] ?? key;
       return options
         ? value.replace(/\{\{(\w+)\}\}/g, (_, name: string) =>
@@ -76,6 +79,11 @@ vi.mock("@/shared/components/StationInput", () => ({
 let root: Root | undefined;
 let host: HTMLDivElement | undefined;
 
+function LocationProbe() {
+  const location = useLocation();
+  return <output data-testid="location-search">{location.search}</output>;
+}
+
 beforeEach(() => {
   tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
   authMock.user = null;
@@ -95,11 +103,41 @@ function renderDestinations(entry: string) {
   act(() => {
     root!.render(
       <MemoryRouter initialEntries={[entry]}>
+        <LocationProbe />
         <Destinations />
       </MemoryRouter>,
     );
   });
   return host;
+}
+
+function snapshot(container: HTMLDivElement) {
+  return {
+    summary: container.querySelector("#results-grid span")?.textContent ?? "",
+    names: Array.from(container.querySelectorAll("h3"))
+      .map((heading) => heading.textContent ?? "")
+      .filter((name) => name !== "Trip preferences"),
+    search:
+      container.querySelector("[data-testid=location-search]")?.textContent ??
+      "",
+  };
+}
+
+async function clickExactButton(container: HTMLDivElement, label: string) {
+  const button = Array.from(container.querySelectorAll("button")).find(
+    (candidate) =>
+      candidate.textContent?.trim() === label ||
+      (label === "Filters" && candidate.textContent?.startsWith(label)),
+  );
+  expect(button, `Expected button: ${label}`).toBeDefined();
+  await act(async () => {
+    button!.click();
+  });
+}
+
+async function switchTripMode(container: HTMLDivElement, label: string) {
+  await clickExactButton(container, "Filters");
+  await clickExactButton(container, label);
 }
 
 describe("Explore Recommended Day Trip ranking", () => {
@@ -135,4 +173,37 @@ describe("Explore Recommended Day Trip ranking", () => {
     expect(names[0]).toBe("Harry Potter Studio");
     expect(names).not.toContain("Abeno Harukas 300 (Osaka Skyline)");
   }, 30000);
+
+  it.each([
+    ["day trip", "Day trip"],
+    ["2D1N", "2D1N"],
+  ])(
+    "clears hidden Half-day state when switching from %s to Any",
+    async (_label, intermediateMode) => {
+      const transitioned = renderDestinations(
+        "/destinations?sort=recommended&tripMode=day_trip&duration=halfDay",
+      );
+
+      if (intermediateMode === "2D1N") {
+        await switchTripMode(transitioned, "2D1N");
+      }
+      await switchTripMode(transitioned, "Any");
+      const transitionedSnapshot = snapshot(transitioned);
+
+      expect(transitionedSnapshot.search).toContain("duration=any");
+      expect(transitionedSnapshot.search).not.toContain("duration=halfDay");
+      expect(transitionedSnapshot.search).not.toContain("tripMode=day_trip");
+
+      act(() => root!.unmount());
+      root = undefined;
+      host?.remove();
+      host = undefined;
+
+      const cleanAny = renderDestinations("/destinations?sort=recommended");
+      const cleanSnapshot = snapshot(cleanAny);
+
+      expect(transitionedSnapshot.summary).toBe(cleanSnapshot.summary);
+      expect(transitionedSnapshot.names).toEqual(cleanSnapshot.names);
+    },
+  );
 });
