@@ -297,7 +297,7 @@ export function OnboardingFlow() {
                   <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
                     {t("ui.baseLocation")}
                   </label>
-                  <StationInput embedded={true} />
+                  <StationInput embedded={true} allowCurrentLocation={false} />
                 </div>
                 <div className="flex gap-2 pt-2">
                   <Button

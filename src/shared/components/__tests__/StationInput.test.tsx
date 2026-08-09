@@ -12,6 +12,10 @@ const setOriginLocation = vi.fn();
 const setCurrentLocationOrigin = vi.fn();
 const restoreSavedOrigin = vi.fn();
 const locale = vi.hoisted(() => ({ value: "en" as "en" | "ja" }));
+const originState = vi.hoisted(() => ({
+  homeStation: "",
+  savedHomeStation: "",
+}));
 
 vi.mock("react-i18next", async (importOriginal) => {
   const actual = await importOriginal<typeof import("react-i18next")>();
@@ -77,8 +81,8 @@ vi.mock("react-i18next", async (importOriginal) => {
 
 vi.mock("@/shared/hooks/useTripStore", () => ({
   useTripStore: () => ({
-    homeStation: "",
-    savedHomeStation: "",
+    homeStation: originState.homeStation,
+    savedHomeStation: originState.savedHomeStation,
     originSource: "saved",
     setOriginLocation,
     setCurrentLocationOrigin,
@@ -115,8 +119,15 @@ let root: Root;
 let host: HTMLDivElement;
 let getCurrentPosition: ReturnType<typeof vi.fn>;
 
-function render(embedded = true) {
-  act(() => root.render(<StationInput embedded={embedded} />));
+function render(embedded = true, allowCurrentLocation = true) {
+  act(() =>
+    root.render(
+      <StationInput
+        embedded={embedded}
+        allowCurrentLocation={allowCurrentLocation}
+      />,
+    ),
+  );
 }
 
 function selectElement(
@@ -158,6 +169,8 @@ beforeEach(() => {
   setOriginLocation.mockReset();
   setCurrentLocationOrigin.mockReset();
   restoreSavedOrigin.mockReset();
+  originState.homeStation = "";
+  originState.savedHomeStation = "";
   locale.value = "en";
   getCurrentPosition = vi.fn();
   Object.defineProperty(navigator, "geolocation", {
@@ -267,6 +280,28 @@ describe("StationInput — atomic origin selection", () => {
     expect(getCurrentPosition).toHaveBeenCalledOnce();
   });
 
+  it("hides current location for persistent embedded editors", () => {
+    render(true, false);
+
+    expect(host.textContent).not.toContain("Use current location");
+    expect(
+      Array.from(host.querySelectorAll("button")).some((button) =>
+        button.textContent?.includes("Use current location"),
+      ),
+    ).toBe(false);
+  });
+
+  it("uses bounded, fresh, low-accuracy geolocation options", () => {
+    render();
+    clickCurrentLocationButton(host);
+
+    expect(getCurrentPosition.mock.calls[0][2]).toEqual({
+      timeout: 10000,
+      maximumAge: 0,
+      enableHighAccuracy: false,
+    });
+  });
+
   it("commits a successful geolocation result only after the request succeeds", () => {
     render();
     clickCurrentLocationButton(host);
@@ -301,4 +336,23 @@ describe("StationInput — atomic origin selection", () => {
       expect(host.textContent).toContain(message);
     },
   );
+
+  it("does not replace the saved origin when geolocation times out", () => {
+    originState.homeStation = "Tokyo Station";
+    originState.savedHomeStation = "Tokyo Station";
+    render();
+    clickCurrentLocationButton(host);
+
+    const failure = getCurrentPosition.mock.calls[0][1] as (error: {
+      code: number;
+    }) => void;
+    act(() => failure({ code: 3 }));
+
+    expect(setCurrentLocationOrigin).not.toHaveBeenCalled();
+    expect(setOriginLocation).not.toHaveBeenCalled();
+    expect(originState).toEqual({
+      homeStation: "Tokyo Station",
+      savedHomeStation: "Tokyo Station",
+    });
+  });
 });

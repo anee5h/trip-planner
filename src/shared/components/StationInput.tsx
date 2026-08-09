@@ -61,9 +61,13 @@ const PREFECTURES = [
 
 interface StationInputProps {
   embedded?: boolean;
+  allowCurrentLocation?: boolean;
 }
 
-export default function StationInput({ embedded = false }: StationInputProps) {
+export default function StationInput({
+  embedded = false,
+  allowCurrentLocation = true,
+}: StationInputProps) {
   const { t } = useTranslation();
   const { locale } = useLocale();
   const {
@@ -208,7 +212,7 @@ export default function StationInput({ embedded = false }: StationInputProps) {
   };
 
   const handleUseCurrentLocation = () => {
-    if (!canSelectOrigin || isLocatingCurrent) return;
+    if (!allowCurrentLocation || !canSelectOrigin || isLocatingCurrent) return;
     setCurrentLocationError("");
 
     if (!navigator.geolocation) {
@@ -245,6 +249,11 @@ export default function StationInput({ embedded = false }: StationInputProps) {
                 : "origin.currentLocationUnavailable";
           setCurrentLocationError(t(messageKey));
           setIsLocatingCurrent(false);
+        },
+        {
+          timeout: 10000,
+          maximumAge: 0,
+          enableHighAccuracy: false,
         },
       );
     } catch {
@@ -393,25 +402,31 @@ export default function StationInput({ embedded = false }: StationInputProps) {
                 </button>
               )}
             </div>
-            <button
-              type="button"
-              onClick={handleUseCurrentLocation}
-              disabled={!canSelectOrigin || isLocatingCurrent || isFetchingZip}
-              className="inline-flex min-h-9 w-full items-center justify-center gap-2 rounded-lg border border-emerald-200 px-3 py-2 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-emerald-900 dark:text-emerald-300 dark:hover:bg-emerald-950/40"
-            >
-              {isLocatingCurrent ? (
-                <div className="h-4 w-4 animate-spin rounded-full border-2 border-emerald-500 border-t-transparent" />
-              ) : (
-                <LocateFixed className="size-4" />
-              )}
-              {isLocatingCurrent
-                ? t("origin.locatingCurrent")
-                : t("origin.useCurrentLocation")}
-            </button>
-            {currentLocationError && (
-              <p className="text-xs text-red-500" role="alert">
-                {currentLocationError}
-              </p>
+            {allowCurrentLocation && (
+              <>
+                <button
+                  type="button"
+                  onClick={handleUseCurrentLocation}
+                  disabled={
+                    !canSelectOrigin || isLocatingCurrent || isFetchingZip
+                  }
+                  className="inline-flex min-h-9 w-full items-center justify-center gap-2 rounded-lg border border-emerald-200 px-3 py-2 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-emerald-900 dark:text-emerald-300 dark:hover:bg-emerald-950/40"
+                >
+                  {isLocatingCurrent ? (
+                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-emerald-500 border-t-transparent" />
+                  ) : (
+                    <LocateFixed className="size-4" />
+                  )}
+                  {isLocatingCurrent
+                    ? t("origin.locatingCurrent")
+                    : t("origin.useCurrentLocation")}
+                </button>
+                {currentLocationError && (
+                  <p className="text-xs text-red-500" role="alert">
+                    {currentLocationError}
+                  </p>
+                )}
+              </>
             )}
           </div>
         </div>

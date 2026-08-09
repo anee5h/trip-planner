@@ -364,7 +364,7 @@ export default function Settings() {
                   <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-2">
                     {t("settings.baseLocationHelp")}
                   </p>
-                  <StationInput embedded={true} />
+                  <StationInput embedded={true} allowCurrentLocation={false} />
                 </div>
               </div>
             )}
