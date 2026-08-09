@@ -314,14 +314,14 @@ export default function DestinationFilters({
     });
   }
   if (tripDuration !== "any") {
-    const durationMap: Record<string, string> = {
-      shortOuting: isJa ? "1〜2時間" : "1–2 hours",
-      halfDay: isJa ? "半日" : "Half day",
-      fullDay: isJa ? "終日" : "Full day",
-    };
     activeChips.push({
       id: "duration",
-      label: durationMap[tripDuration] || tripDuration,
+      label:
+        tripDuration === "shortOuting" ||
+        tripDuration === "halfDay" ||
+        tripDuration === "fullDay"
+          ? t(`destination.durationOptions.${tripDuration}`)
+          : tripDuration,
       onRemove: () => setTripDuration("any"),
     });
   }
@@ -1063,10 +1063,10 @@ export default function DestinationFilters({
                     {isJa ? "マッチ度順に並び替え" : "Re-ranks destinations"}
                   </span>
                 </div>
-                {/* Trip length filter */}
+                {/* Trip duration filter */}
                 <div className="flex items-center justify-between pb-1 border-b border-slate-200 dark:border-slate-800">
                   <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                    {isJa ? "旅行長" : "Trip length"}
+                    {t("destination.tripDuration")}
                   </span>
                   <span className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold">
                     {isJa ? "フィルター" : "Filter"}
@@ -1110,20 +1110,29 @@ export default function DestinationFilters({
 
                 {tripMode === "day_trip" && (
                   <div className="grid grid-cols-1 sm:grid-cols-[11fr_9fr] gap-3">
-                    {/* Time at Destination Segmented Track */}
+                    {/* Total available time segmented track */}
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                        {isJa ? "現地滞在時間" : "Time at destination"}
+                        {t("destination.timeAvailable")}
                       </label>
                       <div className="min-h-[40px] p-1 bg-slate-100 dark:bg-slate-900 rounded-xl grid grid-cols-2 sm:grid-cols-4 gap-1">
                         {[
-                          { val: "any", label: isJa ? "指定なし" : "Any" },
+                          {
+                            val: "any",
+                            label: t("destination.durationOptions.any"),
+                          },
                           {
                             val: "shortOuting",
-                            label: isJa ? "1〜2時間" : "1–2 hrs",
+                            label: t("destination.durationOptions.shortOuting"),
                           },
-                          { val: "halfDay", label: isJa ? "半日" : "Half day" },
-                          { val: "fullDay", label: isJa ? "終日" : "Full day" },
+                          {
+                            val: "halfDay",
+                            label: t("destination.durationOptions.halfDay"),
+                          },
+                          {
+                            val: "fullDay",
+                            label: t("destination.durationOptions.fullDay"),
+                          },
                         ].map((opt) => {
                           const isSelected = tripDuration === opt.val;
                           return (

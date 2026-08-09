@@ -28,9 +28,13 @@ vi.mock("react-i18next", () => ({
         "home.customStayAllowance": "カスタム宿泊費目安",
         "home.weekendBadge": "2日間1泊",
         "home.duration": "所要時間",
+        "home.timeAvailable": "使える時間",
         "home.durations.shortOuting": "短時間",
         "home.durations.halfDay": "半日",
         "home.durations.fullDay": "1日",
+        "home.durationHints.shortOuting": "合計4時間以内",
+        "home.durationHints.halfDay": "合計7.5時間以内",
+        "home.durationHints.fullDay": "合計14時間以内",
         "home.vibe": "雰囲気",
         "home.vibes.any": "何でも",
         "home.party": "旅行人数",
@@ -103,6 +107,25 @@ function renderHomePlanner(
 
 // ── Tests ─────────────────────────────────────────────────────────────────────
 describe("HomePlanner (ja locale)", () => {
+  it("labels day-trip duration as total available time in Japanese", () => {
+    const container = renderHomePlanner();
+
+    expect(container.textContent).toContain("使える時間");
+    expect(container.textContent).not.toContain("現地滞在時間");
+
+    const durationButton = Array.from(
+      container.querySelectorAll("button"),
+    ).find(
+      (button) =>
+        button.textContent?.includes("使える時間") &&
+        button.textContent.includes("1日"),
+    );
+    expect(durationButton).toBeDefined();
+
+    act(() => durationButton?.click());
+    expect(container.textContent).toContain("合計14時間以内");
+  });
+
   it("renders day trip toggle in Japanese as default", () => {
     const container = renderHomePlanner();
 

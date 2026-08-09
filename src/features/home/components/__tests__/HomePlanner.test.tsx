@@ -26,9 +26,13 @@ vi.mock("react-i18next", () => ({
         "home.customStayAllowance": "Custom stay allowance",
         "home.weekendBadge": "2 days / 1 night",
         "home.duration": "Duration",
+        "home.timeAvailable": "Time available",
         "home.durations.shortOuting": "Short outing",
         "home.durations.halfDay": "Half day",
         "home.durations.fullDay": "Full day",
+        "home.durationHints.shortOuting": "≤ 4h total",
+        "home.durationHints.halfDay": "≤ 7.5h total",
+        "home.durationHints.fullDay": "≤ 14h total",
         "home.vibe": "Vibe",
         "home.vibes.any": "Anything goes",
         "home.party": "Travel party",
@@ -99,6 +103,25 @@ function renderHomePlanner(
 }
 
 describe("HomePlanner", () => {
+  it("labels day-trip duration as total available time", () => {
+    const container = renderHomePlanner();
+
+    expect(container.textContent).toContain("Time available");
+    expect(container.textContent).not.toContain("Time at destination");
+
+    const durationButton = Array.from(
+      container.querySelectorAll("button"),
+    ).find(
+      (button) =>
+        button.textContent?.includes("Time available") &&
+        button.textContent.includes("Full day"),
+    );
+    expect(durationButton).toBeDefined();
+
+    act(() => durationButton?.click());
+    expect(container.textContent).toContain("≤ 14h total");
+  });
+
   it("renders day trip as default mode", () => {
     const container = renderHomePlanner();
 
