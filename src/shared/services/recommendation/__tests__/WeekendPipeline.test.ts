@@ -716,35 +716,37 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
   // budget 200000 keeps the budget gate (pipeline lines 189-198) from
   // excluding candidates for unrelated reasons.
 
-  it("Osaka City base + Osaka City destination excluded in 2D1N; Kyoto kept", () => {
+  it("Osaka City base + Osaka City destination excluded in 2D1N; Fukuoka kept", () => {
     const results = runRecommendationPipeline(
-      [byId.get("osaka-city")!, byId.get("kyoto-city")!],
+      [byId.get("osaka-city")!, byId.get("fukuoka-city")!],
       ctx({
         tripMode: "weekend_2d1n",
         budget: 200000,
+        publicModes: ["train", "shinkansen"],
         homeStationCoords: OSAKA,
       }),
     );
     const ids = results.map((r) => r.id);
     expect(ids).not.toContain("osaka-city");
-    expect(ids).toContain("kyoto-city");
+    expect(ids).toContain("fukuoka-city");
   });
 
-  it("Shinjuku base + Shinjuku Ward excluded in 2D1N; Shibuya kept", () => {
+  it("Shinjuku base + Shinjuku Ward excluded in 2D1N; Nikko kept", () => {
     const results = runRecommendationPipeline(
-      [byId.get("shinjuku-city")!, byId.get("shibuya-city")!],
+      [byId.get("shinjuku-city")!, byId.get("nikko-city")!],
       ctx({
         tripMode: "weekend_2d1n",
         budget: 200000,
+        publicModes: ["train", "shinkansen"],
         homeStationCoords: SHINJUKU,
       }),
     );
     const ids = results.map((r) => r.id);
     expect(ids).not.toContain("shinjuku-city");
-    expect(ids).toContain("shibuya-city");
+    expect(ids).toContain("nikko-city");
   });
 
-  it("Shinjuku base + Shibuya Ward eligible (different municipality)", () => {
+  it("Shinjuku base + Shibuya Ward is too near for an overnight trip", () => {
     const results = runRecommendationPipeline(
       [byId.get("shinjuku-city")!, byId.get("shibuya-city")!],
       ctx({
@@ -753,10 +755,10 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
         homeStationCoords: SHINJUKU,
       }),
     );
-    expect(results.map((r) => r.id)).toContain("shibuya-city");
+    expect(results.map((r) => r.id)).not.toContain("shibuya-city");
   });
 
-  it("Shinjuku base + Taito Ward eligible (different municipality)", () => {
+  it("Shinjuku base + Taito Ward is too near for an overnight trip", () => {
     const results = runRecommendationPipeline(
       [byId.get("shinjuku-city")!, byId.get("taito-city")!],
       ctx({
@@ -765,7 +767,7 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
         homeStationCoords: SHINJUKU,
       }),
     );
-    expect(results.map((r) => r.id)).toContain("taito-city");
+    expect(results.map((r) => r.id)).not.toContain("taito-city");
   });
 
   it("day trip unaffected: Osaka City present from Osaka base", () => {
@@ -792,7 +794,7 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     expect(results.map((r) => r.id)).toContain("osaka-city");
   });
 
-  it("full catalogue, Osaka base: no Osaka:osaka results, kyoto-city present", () => {
+  it("full catalogue, Osaka base: no Osaka:osaka results, Fukuoka present", () => {
     const results = runRecommendationPipeline(
       destinationsIndex as Destination[],
       {
@@ -813,10 +815,11 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
       if (r.id === TOKYO_WARDS_GROUP_ID) continue;
       expect(byId.get(r.id)!.municipalityId).not.toBe("Osaka:osaka");
     }
-    expect(results.map((r) => r.id)).toContain("kyoto-city");
+    expect(results.map((r) => r.id)).toContain("fukuoka-city");
+    expect(results.map((r) => r.id)).not.toContain("kyoto-city");
   });
 
-  it("full catalogue, Shinjuku base: only Tokyo:shinjuku absent; other wards present", () => {
+  it("full catalogue, Shinjuku base: local wards absent and Nikko present", () => {
     const results = runRecommendationPipeline(
       destinationsIndex as Destination[],
       {
@@ -836,9 +839,36 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
       expect(byId.get(r.id)!.municipalityId).not.toBe("Tokyo:shinjuku");
     }
     const ids = results.map((r) => r.id);
-    // A Shinjuku base excludes only the Shinjuku ward, never all 23 wards.
-    expect(ids).toContain("shibuya-city");
-    expect(ids).toContain("taito-city");
+    expect(ids).not.toContain("shibuya-city");
+    expect(ids).not.toContain("taito-city");
+    expect(ids).toContain("nikko-city");
+  });
+
+  it("Chiba weekend ranking suppresses ordinary Tokyo rail results", () => {
+    const CHIBA = { lat: 35.6131, lng: 140.1133 };
+    const results = runRecommendationPipeline(
+      destinationsIndex as Destination[],
+      {
+        vibe: "any",
+        budget: 95000,
+        budgetTier: "standard",
+        carMode: "none",
+        publicModes: ["train", "shinkansen", "bus", "flight", "ferry"],
+        partySize: 2,
+        visitedIds: [],
+        homeStationCoords: CHIBA,
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 15000,
+      },
+    );
+    const topThreeIds = results.slice(0, 3).map((r) => r.id);
+
+    expect(results.length).toBeGreaterThan(0);
+    expect(topThreeIds).not.toContain("shibuya-city");
+    expect(topThreeIds).not.toContain("adachi-city");
+    expect(topThreeIds).not.toContain("tokyo-station-chiyoda");
+    expect(results[0].weekend?.travelFit.oneWayMinutes).toBeGreaterThan(90);
+    expect(results[0].id).toBe("hakodate-city");
   });
 });
 
@@ -849,40 +879,44 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
 
   it("explicit hubs return as primary trip areas with metadata", () => {
     const results = runRecommendationPipeline(
-      [byId.get("osaka-city")!, byId.get("kyoto-city")!],
+      [byId.get("osaka-city")!, byId.get("fukuoka-city")!],
       ctx({
         tripMode: "weekend_2d1n",
         budget: 200000,
+        publicModes: ["train", "shinkansen"],
         homeStationCoords: OSAKA,
       }),
     );
     const ids = results.map((r) => r.id);
     expect(ids).not.toContain("osaka-city"); // origin-local
-    expect(ids).toContain("kyoto-city");
-    const kyoto = results.find((r) => r.id === "kyoto-city")!;
-    expect(kyoto.weekend?.areaKind).toBe("trip_area");
+    expect(ids).toContain("fukuoka-city");
+    const fukuoka = results.find((r) => r.id === "fukuoka-city")!;
+    expect(fukuoka.weekend?.areaKind).toBe("trip_area");
     // Place counts come from the actual pool: no children in this two-record
     // pool, so the count is 0 (full-catalogue runs assert real counts).
-    expect(kyoto.weekend?.placeCount).toBe(0);
+    expect(fukuoka.weekend?.placeCount).toBe(0);
   });
 
   it("eligible child POI is suppressed when its parent hub is eligible", () => {
     const child = dest({
-      id: "kyoto-child-poi",
+      id: "fukuoka-child-poi",
       role: "poi",
-      relationships: { parentDestinationId: "kyoto-city" },
+      prefecture: "Fukuoka",
+      municipalityId: "Fukuoka:fukuoka",
+      relationships: { parentDestinationId: "fukuoka-city" },
       transportOptions: { train: 230 },
       recommendedVisitHours: { min: 1, max: 8 }, // 480 min — would pass alone
     });
     const results = runRecommendationPipeline(
-      [byId.get("kyoto-city")!, child],
+      [byId.get("fukuoka-city")!, child],
       ctx({
         tripMode: "weekend_2d1n",
         budget: 200000,
+        publicModes: ["train", "shinkansen"],
         homeStationCoords: OSAKA,
       }),
     );
-    expect(results.map((r) => r.id)).toEqual(["kyoto-city"]);
+    expect(results.map((r) => r.id)).toEqual(["fukuoka-city"]);
     expect(results[0].weekend?.placeCount).toBe(1);
   });
 
@@ -1051,10 +1085,10 @@ describe("runRecommendationPipeline — positive area classification", () => {
 
 describe("runRecommendationPipeline — estimate consistency", () => {
   it("ranking, display, and budget use the same origin-aware duration", () => {
-    const kyoto = byId.get("kyoto-city")!;
+    const fukuoka = byId.get("fukuoka-city")!;
     const OSAKA = { lat: 34.7025, lng: 135.4959 };
     const results = runRecommendationPipeline(
-      [kyoto],
+      [fukuoka],
       ctx({
         tripMode: "weekend_2d1n",
         budget: 200000,
@@ -1068,14 +1102,14 @@ describe("runRecommendationPipeline — estimate consistency", () => {
     // Display estimate.
     const estimate = result.transportEstimate!;
     expect(estimate.mode).toBe("shinkansen");
-    expect(estimate.timeRange).toEqual([15, 35]);
+    expect(estimate.timeRange).toEqual([150, 195]);
 
     // Ranking duration: midpoint of the same estimate.
     const mid = Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2);
     expect(result.weekend?.travelFit.oneWayMinutes).toBe(mid);
 
     // Budget duration: same estimate via the origin-aware cost path.
-    const budgetCost = getTransportCost(kyoto, estimate.mode, 2, OSAKA);
+    const budgetCost = getTransportCost(fukuoka, estimate.mode, 2, OSAKA);
     expect(budgetCost).not.toBeNull();
     const cfg = TRANSPORT_PRICING_CONFIG.shinkansen;
     const expectedCost = Math.floor(

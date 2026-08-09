@@ -58,6 +58,7 @@ import {
 import {
   evaluateWeekendTravelFit,
   evaluateWeekendCapacity,
+  hasOvernightWorthyWeekendSemantics,
   weekendTravelScoreDelta,
 } from "@/shared/services/recommendation/WeekendPolicy";
 import {
@@ -663,7 +664,15 @@ export default function Destinations() {
         // No origin-aware duration → excluded from personalized matching.
         const minutes = getBestOneWayTravelMinutes(dest, catalogContext, modes);
         if (minutes === undefined) return false;
-        if (!evaluateWeekendTravelFit(minutes).eligible) return false;
+        if (
+          !evaluateWeekendTravelFit(minutes, {
+            overnightWorthy: hasOvernightWorthyWeekendSemantics(
+              dest,
+              allDestinations,
+            ),
+          }).eligible
+        )
+          return false;
         // Capacity is required with or without an origin.
         return evaluateWeekendCapacity(dest, allDestinations).eligible;
       });
@@ -713,7 +722,12 @@ export default function Destinations() {
             const minutes = weekendTravelById.get(area.id)?.oneWayMinutes;
             if (minutes !== undefined) {
               delta += weekendTravelScoreDelta(
-                evaluateWeekendTravelFit(minutes),
+                evaluateWeekendTravelFit(minutes, {
+                  overnightWorthy: hasOvernightWorthyWeekendSemantics(
+                    area,
+                    allDestinations,
+                  ),
+                }),
               );
             }
             if (
