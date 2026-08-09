@@ -76,6 +76,7 @@ const nakayamaOrigin: OriginLocation = {
   source: "station",
   transportZoneId: "mainland-honshu",
 };
+const shibuyaCoordinates = { lat: 35.6595, lng: 139.7005 };
 
 beforeEach(() => {
   state.profileSyncStatus = "ready";
@@ -177,6 +178,49 @@ describe("TripStore — guest origin ownership (provider level)", () => {
     );
     expect(persisted.label).toBe("Nakayama Station, Kanagawa");
     expect(persisted.coordinates).toEqual({ lat: 35.5147, lng: 139.5393 });
+  });
+
+  it("keeps current location runtime-only and restores the saved origin", () => {
+    render();
+    act(() => store.setOriginLocation(nakayamaOrigin));
+    const savedBeforeCurrent = localStorage.getItem("meguruto-guest-origin");
+
+    act(() => store.setCurrentLocationOrigin(shibuyaCoordinates));
+
+    expect(store.originSource).toBe("current");
+    expect(store.homeStation).toBe("Current location");
+    expect(store.homeStationCoords).toEqual(shibuyaCoordinates);
+    expect(store.savedHomeStation).toBe(nakayamaOrigin.label);
+    expect(localStorage.getItem("meguruto-guest-origin")).toBe(
+      savedBeforeCurrent,
+    );
+    expect(localStorage.getItem("meguruto-guest-origin")).not.toContain(
+      String(shibuyaCoordinates.lat),
+    );
+
+    act(() => store.restoreSavedOrigin());
+    expect(store.originSource).toBe("saved");
+    expect(store.homeStation).toBe(nakayamaOrigin.label);
+    expect(store.homeStationCoords).toEqual(nakayamaOrigin.coordinates);
+  });
+
+  it("does not restore current location after provider reinitialization", () => {
+    render();
+    act(() => {
+      store.setOriginLocation(nakayamaOrigin);
+      store.setCurrentLocationOrigin(shibuyaCoordinates);
+    });
+
+    act(() => root.unmount());
+    host.remove();
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    render();
+
+    expect(store.originSource).toBe("saved");
+    expect(store.homeStation).toBe(nakayamaOrigin.label);
+    expect(store.homeStationCoords).toEqual(nakayamaOrigin.coordinates);
   });
 
   it("does not overwrite the persisted guest snapshot when an account changes origin", () => {

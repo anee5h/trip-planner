@@ -1,4 +1,4 @@
-import { MapPin } from "lucide-react";
+import { LocateFixed, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { resolveOriginTransportZone } from "@/shared/services/transport/TransportTopologyService";
@@ -66,20 +66,34 @@ interface StationInputProps {
 export default function StationInput({ embedded = false }: StationInputProps) {
   const { t } = useTranslation();
   const { locale } = useLocale();
-  const { homeStation, setOriginLocation, canSelectOrigin } = useTripStore();
+  const {
+    homeStation,
+    savedHomeStation,
+    originSource,
+    setOriginLocation,
+    setCurrentLocationOrigin,
+    restoreSavedOrigin,
+    canSelectOrigin,
+  } = useTripStore();
+  const savedOriginLabel = savedHomeStation || homeStation;
+  const isCurrentLocation = originSource === "current";
 
   type StationData = { name: string; lat: number; lng: number };
   const [stationsByPref, setStationsByPref] = useState<
     Record<string, StationData[]>
   >({});
 
-  const [isEditing, setIsEditing] = useState<boolean>(embedded || !homeStation);
+  const [isEditing, setIsEditing] = useState<boolean>(
+    embedded || !savedOriginLabel,
+  );
   const [mode, setMode] = useState<"station" | "zip">("station");
   const [selectedPref, setSelectedPref] = useState<string>("Tokyo");
   const [selectedStation, setSelectedStation] = useState<string>("");
   const [zipCode, setZipCode] = useState<string>("");
   const [isFetchingZip, setIsFetchingZip] = useState(false);
   const [zipError, setZipError] = useState("");
+  const [isLocatingCurrent, setIsLocatingCurrent] = useState(false);
+  const [currentLocationError, setCurrentLocationError] = useState("");
 
   useEffect(() => {
     if (embedded) {
@@ -104,13 +118,16 @@ export default function StationInput({ embedded = false }: StationInputProps) {
   }, []);
 
   useEffect(() => {
-    if (!homeStation) return;
+    if (!savedOriginLabel) return;
 
-    if (/^\d{3}-?\d{4}$/.test(homeStation) || /^\d+$/.test(homeStation)) {
+    if (
+      /^\d{3}-?\d{4}$/.test(savedOriginLabel) ||
+      /^\d+$/.test(savedOriginLabel)
+    ) {
       setMode("zip");
-      setZipCode(homeStation);
-    } else if (homeStation.includes(", ")) {
-      const parts = homeStation.split(", ");
+      setZipCode(savedOriginLabel);
+    } else if (savedOriginLabel.includes(", ")) {
+      const parts = savedOriginLabel.split(", ");
       setMode("station");
       if (PREFECTURES.includes(parts[1])) {
         setSelectedPref(parts[1]);
@@ -118,9 +135,9 @@ export default function StationInput({ embedded = false }: StationInputProps) {
       setSelectedStation(parts[0]);
     } else {
       setMode("station");
-      setSelectedStation(homeStation);
+      setSelectedStation(savedOriginLabel);
     }
-  }, [homeStation]);
+  }, [savedOriginLabel]);
 
   const handleStationChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedStation(e.target.value);
@@ -190,6 +207,52 @@ export default function StationInput({ embedded = false }: StationInputProps) {
     }
   };
 
+  const handleUseCurrentLocation = () => {
+    if (!canSelectOrigin || isLocatingCurrent) return;
+    setCurrentLocationError("");
+
+    if (!navigator.geolocation) {
+      setCurrentLocationError(t("origin.currentLocationUnsupported"));
+      return;
+    }
+
+    setIsLocatingCurrent(true);
+    try {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const coordinates = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          if (
+            !Number.isFinite(coordinates.lat) ||
+            !Number.isFinite(coordinates.lng)
+          ) {
+            setCurrentLocationError(t("origin.currentLocationUnavailable"));
+            setIsLocatingCurrent(false);
+            return;
+          }
+          setCurrentLocationOrigin(coordinates);
+          setIsLocatingCurrent(false);
+          setIsEditing(false);
+        },
+        (error) => {
+          const messageKey =
+            error.code === 1
+              ? "origin.currentLocationPermissionDenied"
+              : error.code === 3
+                ? "origin.currentLocationTimeout"
+                : "origin.currentLocationUnavailable";
+          setCurrentLocationError(t(messageKey));
+          setIsLocatingCurrent(false);
+        },
+      );
+    } catch {
+      setCurrentLocationError(t("origin.currentLocationUnavailable"));
+      setIsLocatingCurrent(false);
+    }
+  };
+
   const stations = useMemo(() => {
     return stationsByPref[selectedPref] || [];
   }, [stationsByPref, selectedPref]);
@@ -199,6 +262,8 @@ export default function StationInput({ embedded = false }: StationInputProps) {
       <OriginLocationDisplay
         origin={homeStation}
         onEdit={() => setIsEditing(true)}
+        isCurrentLocation={isCurrentLocation}
+        onRestoreSaved={restoreSavedOrigin}
         editDisabled={!canSelectOrigin}
       />
     );
@@ -299,31 +364,54 @@ export default function StationInput({ embedded = false }: StationInputProps) {
               )}
             </div>
           )}
-          <div className="flex gap-2">
-            <button
-              type="button"
-              onClick={handleSet}
-              disabled={
-                !canSelectOrigin ||
-                (mode === "station" && !selectedStation) ||
-                (mode === "zip" && !zipCode) ||
-                isFetchingZip
-              }
-              className="bg-emerald-500 hover:bg-emerald-600 text-white font-medium text-xs px-4 py-2 rounded-lg transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed flex-1 flex items-center justify-center gap-2"
-            >
-              {isFetchingZip && (
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              )}
-              {isFetchingZip ? t("origin.locating") : t("origin.setLocation")}
-            </button>
-            {homeStation && !embedded && (
+          <div className="flex flex-col gap-2">
+            <div className="flex gap-2">
               <button
                 type="button"
-                onClick={() => setIsEditing(false)}
-                className="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium text-xs px-4 py-2 rounded-lg transition-colors shadow-sm"
+                onClick={handleSet}
+                disabled={
+                  !canSelectOrigin ||
+                  (mode === "station" && !selectedStation) ||
+                  (mode === "zip" && !zipCode) ||
+                  isFetchingZip ||
+                  isLocatingCurrent
+                }
+                className="bg-emerald-500 hover:bg-emerald-600 text-white font-medium text-xs px-4 py-2 rounded-lg transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed flex-1 flex items-center justify-center gap-2"
               >
-                {t("origin.cancel")}
+                {isFetchingZip && (
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                )}
+                {isFetchingZip ? t("origin.locating") : t("origin.setLocation")}
               </button>
+              {savedOriginLabel && !embedded && (
+                <button
+                  type="button"
+                  onClick={() => setIsEditing(false)}
+                  className="bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium text-xs px-4 py-2 rounded-lg transition-colors shadow-sm"
+                >
+                  {t("origin.cancel")}
+                </button>
+              )}
+            </div>
+            <button
+              type="button"
+              onClick={handleUseCurrentLocation}
+              disabled={!canSelectOrigin || isLocatingCurrent || isFetchingZip}
+              className="inline-flex min-h-9 w-full items-center justify-center gap-2 rounded-lg border border-emerald-200 px-3 py-2 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-emerald-900 dark:text-emerald-300 dark:hover:bg-emerald-950/40"
+            >
+              {isLocatingCurrent ? (
+                <div className="h-4 w-4 animate-spin rounded-full border-2 border-emerald-500 border-t-transparent" />
+              ) : (
+                <LocateFixed className="size-4" />
+              )}
+              {isLocatingCurrent
+                ? t("origin.locatingCurrent")
+                : t("origin.useCurrentLocation")}
+            </button>
+            {currentLocationError && (
+              <p className="text-xs text-red-500" role="alert">
+                {currentLocationError}
+              </p>
             )}
           </div>
         </div>

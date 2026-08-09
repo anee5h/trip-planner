@@ -41,7 +41,7 @@ interface UseTripSyncProps {
   setLastSyncedDate?: (date: string | null) => void;
   compareList: string[];
   setCompareList: (val: string[] | ((prev: string[]) => string[])) => void;
-  homeStation: string;
+  savedHomeStation: string;
   guestOrigin: OriginLocation;
   setActiveOrigin: (origin: OriginLocation) => void;
   trips?: Trip[];
@@ -326,7 +326,7 @@ export function useTripSync({
   setVisitedDates,
   setLastSyncedDate,
   setCompareList,
-  homeStation,
+  savedHomeStation,
   guestOrigin,
   setActiveOrigin,
   trips = [],
@@ -393,6 +393,9 @@ export function useTripSync({
     } else if (currentUserId && currentUserId !== previousUserId) {
       hydratedUserIdRef.current = null;
       lastSyncedProfileRef.current = null;
+      // Current-location origin is runtime-only; account hydration starts from
+      // the saved guest snapshot until the account's saved origin is loaded.
+      setActiveOrigin(guestOrigin);
     }
 
     previousUserIdRef.current = currentUserId;
@@ -712,7 +715,7 @@ export function useTripSync({
       visitedPrefectures: safePrefectures,
       visitedDates: normalizedVisitedDates,
       destinationRatings: normalizedRatings,
-      homeStation,
+      homeStation: savedHomeStation,
     });
 
     if (lastSyncedProfileRef.current === snapshot) return;
@@ -739,7 +742,7 @@ export function useTripSync({
         visited_prefectures: safePrefectures,
         visited_dates: normalizedVisitedDates,
         destination_ratings: normalizedRatings,
-        home_station: homeStation,
+        home_station: savedHomeStation,
         updated_at: updatedAt,
       };
 
@@ -784,7 +787,7 @@ export function useTripSync({
     visitedPrefectures,
     visitedDates,
     destinationRatings,
-    homeStation,
+    savedHomeStation,
     user?.id,
     setLastSyncedDate,
   ]);

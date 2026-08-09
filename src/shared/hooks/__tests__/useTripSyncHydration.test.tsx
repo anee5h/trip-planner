@@ -108,7 +108,7 @@ function Harness({ user }: { user: User | null }) {
     setVisitedDates,
     compareList,
     setCompareList,
-    homeStation: activeOrigin.label,
+    savedHomeStation: activeOrigin.label,
     guestOrigin: DEFAULT_ORIGIN,
     setActiveOrigin,
     destinationRatings,

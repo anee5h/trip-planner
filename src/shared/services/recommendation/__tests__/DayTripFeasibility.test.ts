@@ -20,6 +20,7 @@ import { getDistance } from "@/shared/utils/distance";
 const catalog = getDestinationList("en") as Destination[];
 const NAKAYAMA = { lat: 35.514745, lng: 139.539692 };
 const SHIN_YOKOHAMA = { lat: 35.5073, lng: 139.6172 };
+const SHIBUYA_CURRENT_LOCATION = { lat: 35.6595, lng: 139.7005 };
 const CHIBA = { lat: 35.6131, lng: 140.1133 };
 const SAPPORO = { lat: 43.0687, lng: 141.3508 };
 const FUKUOKA = { lat: 33.5902, lng: 130.4017 };
@@ -69,6 +70,7 @@ describe("day-trip travel evidence", () => {
   it.each([
     ["Nakayama", NAKAYAMA],
     ["Shin-Yokohama", SHIN_YOKOHAMA],
+    ["Shibuya current location", SHIBUYA_CURRENT_LOCATION],
   ])(
     "keeps %s short-outing results populated with bounded local travel",
     (_label, origin) => {

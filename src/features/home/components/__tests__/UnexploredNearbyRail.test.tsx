@@ -83,7 +83,7 @@ function makeDestination(id: string, lat: number, lng: number): Destination {
 }
 
 const origin = { lat: 35.6812, lng: 139.7671 }; // Tokyo Station
-const origin2 = { lat: 35.4651, lng: 139.6224 }; // Yokohama
+const currentLocationOrigin = { lat: 35.4651, lng: 139.6224 }; // Yokohama
 
 let root: Root | undefined;
 let host: HTMLDivElement | undefined;
@@ -260,7 +260,7 @@ describe("UnexploredNearbyRail", () => {
     );
   });
 
-  it("updates when origin changes", () => {
+  it("uses temporary current-location coordinates for nearby ordering", () => {
     const dests = [
       makeDestination("yokohama", 35.4651, 139.6224),
       makeDestination("tokyo", 35.69, 139.78),
@@ -286,10 +286,10 @@ describe("UnexploredNearbyRail", () => {
     act(() => root!.unmount());
     host?.remove();
 
-    // Re-render with Yokohama origin
+    // Re-render with the temporary current-location origin in Yokohama.
     container = renderRail({
       destinations: dests,
-      homeStationCoords: origin2,
+      homeStationCoords: currentLocationOrigin,
       isVisited: () => false,
     });
 
@@ -313,7 +313,7 @@ describe("UnexploredNearbyRail", () => {
 
     const container = renderRail({
       destinations: [yokohamaPOI],
-      homeStationCoords: origin2,
+      homeStationCoords: currentLocationOrigin,
       isVisited: () => false,
     });
 

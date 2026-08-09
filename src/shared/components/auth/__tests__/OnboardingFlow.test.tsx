@@ -50,7 +50,7 @@ vi.mock("@/shared/hooks/useAuth", () => ({
 
 vi.mock("@/shared/hooks/useTripStore", () => ({
   useTripStore: () => ({
-    homeStation: "Tokyo Station",
+    savedHomeStation: "Tokyo Station",
   }),
 }));
 

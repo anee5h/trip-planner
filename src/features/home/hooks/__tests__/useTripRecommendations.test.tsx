@@ -19,6 +19,7 @@ vi.mock("@/shared/hooks/useTripStore", () => ({
 let root: Root | undefined;
 let host: HTMLDivElement | undefined;
 let latestRoulette: ReturnType<typeof useTripRecommendations> | undefined;
+const CURRENT_LOCATION = { lat: 35.6595, lng: 139.7005 };
 
 afterEach(() => {
   act(() => root?.unmount());
@@ -39,7 +40,7 @@ function Harness() {
     partySize: 2,
     budgetTier: "standard",
     tripDuration: "fullDay",
-    homeStationCoords: { lat: 35.68, lng: 139.76 },
+    homeStationCoords: CURRENT_LOCATION,
     isVisited: () => false,
     rouletteConstraints: {
       budget: 10_000,
@@ -67,7 +68,7 @@ function FallbackHarness() {
     partySize: 2,
     budgetTier: "standard",
     tripDuration: "fullDay",
-    homeStationCoords: { lat: 35.68, lng: 139.76 },
+    homeStationCoords: CURRENT_LOCATION,
     isVisited: () => false,
     rouletteConstraints: {
       budget: 10_000,
@@ -95,7 +96,7 @@ function WeekendHarness() {
     partySize: 2,
     budgetTier: "standard",
     tripDuration: "fullDay",
-    homeStationCoords: { lat: 35.68, lng: 139.76 },
+    homeStationCoords: CURRENT_LOCATION,
     isVisited: () => false,
     rouletteConstraints: {
       budget: 80_000,
@@ -154,6 +155,17 @@ describe("useTripRecommendations", () => {
       expect(weather).toEqual({ preferred: "any" });
       expect(weather).not.toHaveProperty("actual");
       expect(weather).not.toHaveProperty("days");
+    }
+  });
+
+  it("passes temporary current-location coordinates through the normal recommendation context", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => root!.render(<Harness />));
+
+    for (const [, context] of getRecommendations.mock.calls) {
+      expect(context).toMatchObject({ homeStationCoords: CURRENT_LOCATION });
     }
   });
 

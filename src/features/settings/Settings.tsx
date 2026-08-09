@@ -48,7 +48,8 @@ export default function Settings() {
   const { user, updateUserProfile } = useAuth();
   const { theme, setTheme } = useTheme();
   const { locale, setLocale } = useLocale();
-  const { homeStation, visited, visitedPrefectures, trips } = useTripStore();
+  const { savedHomeStation, visited, visitedPrefectures, trips } =
+    useTripStore();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
@@ -63,7 +64,7 @@ export default function Settings() {
   const [isDirty, setIsDirty] = useState(false);
 
   const [baseLocation, setBaseLocation] = useState(
-    homeStation || user?.user_metadata?.base_location || "Tokyo Station",
+    savedHomeStation || user?.user_metadata?.base_location || "Tokyo Station",
   );
   const [carMode, setCarMode] = useState(
     normalizeCarMode(user?.user_metadata?.preferences?.carMode),
@@ -107,8 +108,8 @@ export default function Settings() {
   }, [sectionParam]);
 
   useEffect(() => {
-    if (homeStation) setBaseLocation(homeStation);
-  }, [homeStation]);
+    if (savedHomeStation) setBaseLocation(savedHomeStation);
+  }, [savedHomeStation]);
 
   useEffect(() => {
     if (user?.user_metadata) {
@@ -206,7 +207,7 @@ export default function Settings() {
         home_city: user?.user_metadata?.home_city || "",
       },
       preferences: {
-        base_location: homeStation || baseLocation,
+        base_location: savedHomeStation || baseLocation,
         carMode,
         publicModes,
         partySize,
