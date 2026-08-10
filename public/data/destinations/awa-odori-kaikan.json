@@ -85,14 +85,14 @@
   "bestMonths": [6, 7, 8, 9, 10, 11],
   "bestSeason": "Summer",
   "weatherDependence": "low",
-  "reservation": "Recommended for performance seats",
+  "reservation": "Advance booking recommended for performance seats; day and evening schedules vary",
   "parking": "Paid parking available in the area",
   "notes": "Source-backed KAI-31 Shikoku expansion record for Tokushima City.",
   "notesJa": "【見どころ】阿波おどり会館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "09:00–20:00 (performances at fixed times); closed Dec 28–Jan 1",
-  "businessHours": "09:00–20:00 (performances at fixed times); closed Dec 28–Jan 1",
+  "openingHoursJa": "9:00～20:00。12月28日～1月1日、2・6・9・12月の第2水曜休館（祝日は翌日）。昼公演は11・14・15・16時、夜公演は20時。",
+  "businessHours": "09:00–20:00; closed Dec 28–Jan 1 and on the 2nd Wednesday of Feb, Jun, Sep, and Dec (next day if a holiday)",
   "officialWebsite": "https://www.awaodori-kaikan.jp/",
   "content": {
     "en": {
@@ -113,15 +113,15 @@
         "type": "official",
         "url": "https://www.awaodori-kaikan.jp/",
         "title": "Awa Odori Kaikan official site",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

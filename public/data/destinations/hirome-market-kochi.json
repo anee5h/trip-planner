@@ -91,8 +91,8 @@
   "notesJa": "【見どころ】ひろめ市場は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "08:00–23:00 (individual vendors vary)",
-  "businessHours": "08:00–23:00 (individual vendors vary)",
+  "openingHoursJa": "月～土10:00～23:00、日曜9:00～23:00。店舗により営業時間が異なります。",
+  "businessHours": "10:00–23:00 Monday–Saturday; 09:00–23:00 Sunday (individual vendors vary)",
   "officialWebsite": "https://www.hirome.co.jp/",
   "content": {
     "en": {
@@ -113,15 +113,15 @@
         "type": "official",
         "url": "https://www.hirome.co.jp/access.html",
         "title": "Hirome Ichiba official site",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

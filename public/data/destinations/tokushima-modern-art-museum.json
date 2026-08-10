@@ -15,7 +15,7 @@
   },
   "categories": ["Culture", "Museum", "Art"],
   "tags": ["Culture", "Museum", "Art", "Tokushima City"],
-  "description": "A prefectural museum of modern art in Tokushima's cultural forest park, showing Japanese modern masters and the manga-inspired works of local artist George Arikawa.",
+  "description": "A prefectural museum of modern art in Tokushima's cultural forest park, with collection and special exhibitions of Japanese and Western modern art.",
   "highlights": ["Culture", "Museum", "Art"],
   "status": "beta",
   "travelEstimate": {
@@ -40,8 +40,8 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Tokushima_21st_century_cultural_information_center01n3872.jpg/1280px-Tokushima_21st_century_cultural_information_center01n3872.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Tamago915",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokushima_21st_century_cultural_information_center01n3872.jpg"
   },
   "recommendedVisitHours": {
@@ -91,18 +91,18 @@
   "notesJa": "【見どころ】徳島県立近代美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "09:30–17:00 (last admission 16:30); closed Mondays",
-  "businessHours": "09:30–17:00 (last admission 16:30); closed Mondays",
+  "openingHoursJa": "9:30～17:00（最終入館16:30）。月曜（祝日の場合は翌日）、12月29日～1月4日休館。展示替えによる臨時休館あり。",
+  "businessHours": "09:30–17:00 (last admission 16:30); closed Mondays (next day if a holiday), Dec 29–Jan 4, and during exhibition changes",
   "officialWebsite": "https://art.bunmori.tokushima.jp/info/index_en.html",
   "content": {
     "en": {
       "name": "Tokushima Modern Art Museum",
-      "description": "A prefectural museum of modern art in Tokushima's cultural forest park, showing Japanese modern masters and the manga-inspired works of local artist George Arikawa.",
+      "description": "A prefectural museum of modern art in Tokushima's cultural forest park, with collection and special exhibitions of Japanese and Western modern art.",
       "highlights": ["Culture", "Museum", "Art"]
     },
     "ja": {
       "name": "徳島県立近代美術館",
-      "description": "文化の森総合公園内にある県立の近代美術館。日本の近現代美術や、徳島出身の漫画家・有川治男の作品を展示しています。",
+      "description": "文化の森総合公園内にある県立の近代美術館。日本や西洋の近現代美術を収蔵・展示し、企画展も開催しています。",
       "highlights": ["文化", "博物館", "アート"]
     }
   },
@@ -113,15 +113,15 @@
         "type": "official",
         "url": "https://art.bunmori.tokushima.jp/info/index_en.html",
         "title": "Tokushima Modern Art Museum official visitor information",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

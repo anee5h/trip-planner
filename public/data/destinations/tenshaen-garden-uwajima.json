@@ -15,7 +15,7 @@
   },
   "categories": ["Nature", "Garden", "History"],
   "tags": ["Nature", "Garden", "History", "Uwajima City"],
-  "description": "A strolling garden built in 1866 by the last Uwajima lord, Date Muneki, around a central pond, with plum trees and a two-story teahouse.",
+  "description": "A strolling garden established in 1866 for Uwajima's Date Munetada, centered on a pond with plum trees and a two-story teahouse.",
   "highlights": ["Nature", "Garden", "History"],
   "status": "beta",
   "travelEstimate": {
@@ -86,18 +86,18 @@
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
-  "parking": "Check local parking guidance",
-  "notes": "Source-backed KAI-31 Shikoku expansion record for Uwajima City.",
+  "parking": "Limited on-site parking; check the official access guidance",
+  "notes": "Adult admission is 500 yen; the official garden information says cash only and lists seasonal Monday and year-end closures.",
   "notesJa": "【見どころ】天赦園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "09:00–17:00 (last admission 16:30); closed Tuesdays",
-  "businessHours": "09:00–17:00 (last admission 16:30); closed Tuesdays",
+  "openingHoursJa": "8:30～16:30（4～6月は17:00まで）。12月第2月曜～2月末の月曜休園、12月28日～1月1日休園。",
+  "businessHours": "08:30–16:30 (to 17:00 Apr–Jun); closed Mondays from the 2nd Monday of Dec through Feb and Dec 28–Jan 1",
   "officialWebsite": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
   "content": {
     "en": {
       "name": "Tenshaen Garden",
-      "description": "A strolling garden built in 1866 by the last Uwajima lord, Date Muneki, around a central pond, with plum trees and a two-story teahouse.",
+      "description": "A strolling garden established in 1866 for Uwajima's Date Munetada, centered on a pond with plum trees and a two-story teahouse.",
       "highlights": ["Nature", "Garden", "History"]
     },
     "ja": {
@@ -113,15 +113,21 @@
         "type": "official",
         "url": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
         "title": "Tenshaen — Uwajima City official date-site information",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "official",
+        "url": "http://uwajima-date.sblo.jp/category/1129912-1.html",
+        "title": "Tenshaen — Date Museum official garden information",
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

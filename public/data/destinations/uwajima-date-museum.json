@@ -86,13 +86,13 @@
   "bestSeason": "All Year",
   "weatherDependence": "low",
   "reservation": "None required",
-  "parking": "Check local parking guidance",
-  "notes": "Source-backed KAI-31 Shikoku expansion record for Uwajima City.",
+  "parking": "Parking for about 15 cars and four buses is available; check current access guidance",
+  "notes": "Adult admission is 500 yen; university and senior admission is 400 yen, and high-school students and younger are free.",
   "notesJa": "【見どころ】宇和島市立伊達博物館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "09:00–17:00 (last admission 16:30); closed Tuesdays",
-  "businessHours": "09:00–17:00 (last admission 16:30); closed Tuesdays",
+  "openingHoursJa": "9:00～17:00（最終入館16:30）。火曜・12月29日～1月3日休館。展示替えによる臨時休館あり。",
+  "businessHours": "09:00–17:00 (last admission 16:30); closed Tuesdays and Dec 29–Jan 3; exhibition-change closures may apply",
   "officialWebsite": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
   "content": {
     "en": {
@@ -113,15 +113,15 @@
         "type": "official",
         "url": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
         "title": "Uwajima City Date Museum — Uwajima City official site",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

@@ -40,9 +40,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Whirlpools_fureai_park.JPG/1280px-Whirlpools_fureai_park.JPG",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "Hellbuny",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naruto_Whirlpools_taken_4-21-2008.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "アラツク",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whirlpools_fureai_park.JPG"
   },
   "recommendedVisitHours": {
     "min": 1,
@@ -85,14 +85,14 @@
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "high",
-  "reservation": "Recommended during peak seasons",
+  "reservation": "WONDER NARUTO requires no reservation; AQUA EDDY requires advance reservation",
   "parking": "Paid parking at Naruto Park Kameura port",
   "notes": "Source-backed KAI-31 Shikoku expansion record for Naruto City. The Aqua Eddy underwater-view boat requires advance reservation.",
   "notesJa": "【見どころ】うずしお観潮船は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "Departs approx 09:00–16:20 every 40 min; weather-dependent",
-  "businessHours": "Departs approx 09:00–16:20 every 40 min; weather-dependent",
+  "openingHoursJa": "運航時刻は公式時刻表を確認。潮流・天候により変更。通常船は予約不要、小型水中観潮船は要予約。",
+  "businessHours": "Schedule varies; check the official timetable; weather- and tide-dependent",
   "officialWebsite": "https://www.uzusio.com/en/geton/",
   "content": {
     "en": {
@@ -113,15 +113,15 @@
         "type": "official",
         "url": "https://www.uzusio.com/en/geton/",
         "title": "Naruto whirlpool sightseeing cruise — official operator site",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

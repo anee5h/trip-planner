@@ -91,7 +91,7 @@
   "notesJa": "【見どころ】大鳴門橋遊歩道 うずしお道は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "09:00–18:00 (Mar–Sep), 09:00–17:00 (Oct–Feb); closed 2nd Monday of Mar/Jun/Sep/Dec",
+  "openingHoursJa": "3～9月9:00～18:00、10～2月9:00～17:00。3・6・9・12月の第2月曜休館。",
   "businessHours": "09:00–18:00 (Mar–Sep), 09:00–17:00 (Oct–Feb); closed 2nd Monday of Mar/Jun/Sep/Dec",
   "officialWebsite": "https://www.uzunomichi.jp/lang_en/",
   "content": {
@@ -113,15 +113,15 @@
         "type": "official",
         "url": "https://www.uzunomichi.jp/lang_en/",
         "title": "Uzu no Michi official site",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

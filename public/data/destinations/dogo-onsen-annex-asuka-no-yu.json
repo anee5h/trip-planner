@@ -91,7 +91,7 @@
   "notesJa": "【見どころ】道後温泉別館 飛鳥乃湯泉は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "First-floor bath 06:00–23:00; upper floors 06:00–22:00",
+  "openingHoursJa": "1階浴室6:00～23:00、2階各室6:00～22:00。",
   "businessHours": "First-floor bath 06:00–23:00; upper floors 06:00–22:00",
   "officialWebsite": "https://dogo.jp/onsen/asuka",
   "content": {
@@ -113,15 +113,15 @@
         "type": "official",
         "url": "https://www.city.matsuyama.ehime.jp/kanko/kankoguide/kankomeisho/dogoonsen/info/dougo1126.html",
         "title": "Dogo Onsen Annex Asuka-no-Yu — Matsuyama City official site",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

@@ -32,9 +32,9 @@
   "budgetMax": 6000,
   "budgetBreakdown": {
     "transport": 1000,
-    "tickets": 500,
+    "tickets": 0,
     "food": 1000,
-    "cafe": 500
+    "cafe": 1000
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Uchiwa_Museum01.jpg/1280px-Uchiwa_Museum01.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Uchiwa_Museum01.jpg/1280px-Uchiwa_Museum01.jpg",
@@ -85,14 +85,14 @@
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "bestSeason": "All Year",
   "weatherDependence": "low",
-  "reservation": "Workshop participation may require booking",
-  "parking": "Check local parking guidance",
+  "reservation": "Museum admission is free; fan-making experience has a separate fee—check current availability",
+  "parking": "15 parking spaces; large buses should contact the museum in advance",
   "notes": "Source-backed KAI-31 Shikoku expansion record for Marugame City.",
   "notesJa": "【見どころ】丸亀うちわミュージアムは四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "09:30–17:00 (last entry 16:30); closed Wednesdays",
-  "businessHours": "09:30–17:00 (last entry 16:30); closed Wednesdays",
+  "openingHoursJa": "9:30～17:00（最終入館16:30）。水曜休館（祝日は開館し翌日休館）。年末年始休館。",
+  "businessHours": "09:30–17:00 (last entry 16:30); closed Wednesdays (open on public holidays, closed the following day); closed over New Year",
   "officialWebsite": "https://marugameuchiwa.jp/museum",
   "content": {
     "en": {
@@ -113,15 +113,15 @@
         "type": "tourism_board",
         "url": "https://www.come-marugame.jp/en/tourist-information/post-596/",
         "title": "Marugame Uchiwa Museum — Marugame City official tourism portal",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

@@ -86,13 +86,13 @@
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
-  "parking": "Paid parking available",
-  "notes": "Source-backed KAI-31 Shikoku expansion record for Kochi City.",
+  "parking": "Paid parking available; admission is normally 850 yen but special exhibitions can change the fee",
+  "notes": "The garden publishes maintenance closures and seasonal exhibition fees; verify the calendar before visiting.",
   "notesJa": "【見どころ】高知県立牧野植物園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "09:00–17:00 (last entry 16:30); closed Dec 27–Jan 1",
-  "businessHours": "09:00–17:00 (last entry 16:30); closed Dec 27–Jan 1",
+  "openingHoursJa": "9:00～17:00（最終入園16:30）。メンテナンス休園日あり。公式カレンダーを確認。",
+  "businessHours": "09:00–17:00 (last entry 16:30); maintenance closures vary—check the official calendar",
   "officialWebsite": "https://www.makino.or.jp/multilingual/?lang=en",
   "content": {
     "en": {
@@ -113,15 +113,15 @@
         "type": "official",
         "url": "https://www.makino.or.jp/guide/",
         "title": "Makino Botanical Garden official visitor information",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

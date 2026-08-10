@@ -91,7 +91,7 @@
   "notesJa": "【見どころ】霊山寺は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "07:00–17:00 daily",
+  "openingHoursJa": "7:00～17:00。年中無休。",
   "businessHours": "07:00–17:00 daily",
   "officialWebsite": "https://naruto-tourism.jp/en/spot/15466",
   "content": {
@@ -113,21 +113,21 @@
         "type": "tourism_board",
         "url": "https://naruto-tourism.jp/en/spot/15466",
         "title": "Ryozenji — Naruto City official travel guide",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       },
       {
         "type": "official",
         "url": "https://www.ryosenji.jp/",
         "title": "Ryozenji official site",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

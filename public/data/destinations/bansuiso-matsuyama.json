@@ -15,7 +15,7 @@
   },
   "categories": ["Culture", "Museum", "History"],
   "tags": ["Culture", "Museum", "History", "Matsuyama City"],
-  "description": "A French Renaissance-style mansion built in 1922 by the Iyo-Matsuyama Date family, designated an Important Cultural Property and now open as a museum.",
+  "description": "A French Renaissance-style mansion built in 1922 by Hisamatsu Sadakoto, a former lord of the Matsuyama domain, designated an Important Cultural Property and now open as a museum.",
   "highlights": ["Culture", "Museum", "History"],
   "status": "beta",
   "travelEstimate": {
@@ -91,18 +91,18 @@
   "notesJa": "【見どころ】萬翠荘は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "09:00–18:00; closed Mondays",
-  "businessHours": "09:00–18:00; closed Mondays",
+  "openingHoursJa": "9:00～18:00。月曜休館（祝日は開館）。展示により変更される場合があります。",
+  "businessHours": "09:00–18:00; closed Mondays (open on public holidays; exhibition schedules may change)",
   "officialWebsite": "https://www.bansuisou.org/",
   "content": {
     "en": {
       "name": "Bansuiso",
-      "description": "A French Renaissance-style mansion built in 1922 by the Iyo-Matsuyama Date family, designated an Important Cultural Property and now open as a museum.",
+      "description": "A French Renaissance-style mansion built in 1922 by Hisamatsu Sadakoto, a former lord of the Matsuyama domain, designated an Important Cultural Property and now open as a museum.",
       "highlights": ["Culture", "Museum", "History"]
     },
     "ja": {
       "name": "萬翠荘",
-      "description": "1922年に伊予松山藩主家の伊達家が建てたフランス・ルネサンス様式の邸宅。国の重要文化財に指定され、現在は美術館として公開されています。",
+      "description": "1922年に旧松山藩主・久松定謨が建てたフランス・ルネサンス様式の邸宅。国の重要文化財に指定され、現在は美術館として公開されています。",
       "highlights": ["文化", "博物館", "歴史"]
     }
   },
@@ -113,15 +113,15 @@
         "type": "official",
         "url": "https://www.bansuisou.org/information/",
         "title": "Bansuiso official visitor information",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

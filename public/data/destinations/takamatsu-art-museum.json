@@ -40,8 +40,8 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Takamatsu_City_Museum_of_Art_Building_1.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY 3.0",
-    "attribution": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "attribution": "MK Products",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takamatsu_City_Museum_of_Art_Building_1.jpg"
   },
   "recommendedVisitHours": {
@@ -91,8 +91,8 @@
   "notesJa": "【見どころ】高松市美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "09:30–17:00 (last admission 16:30); closed Mondays",
-  "businessHours": "09:30–17:00 (last admission 16:30); closed Mondays",
+  "openingHoursJa": "9:30～17:00（最終入館16:30）。特別展は火～土・祝日に19:00まで延長の場合あり。月曜・12月29日～1月3日休館。",
+  "businessHours": "09:30–17:00 (last admission 16:30); special exhibitions may run to 19:00 Tue–Sat and holidays; closed Mondays and Dec 29–Jan 3",
   "officialWebsite": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/general_info/info.html",
   "content": {
     "en": {
@@ -113,15 +113,15 @@
         "type": "official",
         "url": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/general_info/info.html",
         "title": "Takamatsu Art Museum official visitor information",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

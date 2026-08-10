@@ -15,7 +15,7 @@
   },
   "categories": ["History", "Culture", "Temple"],
   "tags": ["History", "Culture", "Temple", "Matsuyama City"],
-  "description": "Temple No. 51 of the Shikoku 88-temple pilgrimage, with a National Treasure Niomon gate and halls rebuilt in the Kamakura period, a 20-minute walk from Dogo Onsen.",
+  "description": "Temple No. 51 of the Shikoku 88-temple pilgrimage, with a National Treasure Niomon gate and important cultural-property halls, a 20-minute walk from Dogo Onsen.",
   "highlights": ["History", "Culture", "Temple"],
   "status": "beta",
   "travelEstimate": {
@@ -32,9 +32,9 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1500,
-    "tickets": 500,
-    "food": 1500,
-    "cafe": 500
+    "tickets": 0,
+    "food": 1800,
+    "cafe": 700
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Ishiteji_niomon.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Ishiteji_niomon.JPG",
@@ -91,18 +91,18 @@
   "notesJa": "【見どころ】石手寺は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "Sightseeing 07:00–17:00; treasure hall 08:00–17:00",
-  "businessHours": "Sightseeing 07:00–17:00; treasure hall 08:00–17:00",
+  "openingHoursJa": "観光7:00～17:00、祈祷6:00～19:00、宝物館・洞窟8:00～17:00。",
+  "businessHours": "Sightseeing 07:00–17:00; prayers 06:00–19:00; treasure hall and caves 08:00–17:00",
   "officialWebsite": "https://en.matsuyama-sightseeing.com/spot/31-2/",
   "content": {
     "en": {
       "name": "Ishite-ji",
-      "description": "Temple No. 51 of the Shikoku 88-temple pilgrimage, with a National Treasure Niomon gate and halls rebuilt in the Kamakura period, a 20-minute walk from Dogo Onsen.",
+      "description": "Temple No. 51 of the Shikoku 88-temple pilgrimage, with a National Treasure Niomon gate and important cultural-property halls, a 20-minute walk from Dogo Onsen.",
       "highlights": ["History", "Culture", "Temple"]
     },
     "ja": {
       "name": "石手寺",
-      "description": "四国八十八箇所第51番札所。国宝の仁王門や鎌倉時代に再建された堂宇が残り、道後温泉から徒歩約20分です。",
+      "description": "四国八十八箇所第51番札所。国宝の仁王門や重要文化財の堂宇が残り、道後温泉から徒歩約20分です。",
       "highlights": ["歴史", "文化", "寺院"]
     }
   },
@@ -113,15 +113,15 @@
         "type": "tourism_board",
         "url": "https://en.matsuyama-sightseeing.com/spot/31-2/",
         "title": "Ishite-ji — Tourism Matsuyama official listing",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

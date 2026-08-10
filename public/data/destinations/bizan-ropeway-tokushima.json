@@ -41,7 +41,7 @@
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 3.0",
-    "attribution": "Reggaeman",
+    "attribution": "Kansai explorer",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bizan01.jpg"
   },
   "recommendedVisitHours": {
@@ -91,8 +91,8 @@
   "notesJa": "【見どころ】眉山ロープウェイは四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "09:00–21:00 (Apr–Oct), 09:00–17:30 (Nov–Mar)",
-  "businessHours": "09:00–21:00 (Apr–Oct), 09:00–17:30 (Nov–Mar)",
+  "openingHoursJa": "4～10月9:00～21:00、11～3月9:00～17:30。1月1日は6:00～17:30。",
+  "businessHours": "09:00–21:00 (Apr–Oct), 09:00–17:30 (Nov–Mar); Jan 1 opens 06:00–17:30",
   "officialWebsite": "https://www.city.tokushima.tokushima.jp/multilingual/english_portal/tourism_culture/mt_bizan/ropeway.html",
   "content": {
     "en": {
@@ -113,15 +113,15 @@
         "type": "official",
         "url": "https://www.city.tokushima.tokushima.jp/multilingual/english_portal/tourism_culture/mt_bizan/ropeway.html",
         "title": "Awagin Bizan Ropeway — Tokushima City official site",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

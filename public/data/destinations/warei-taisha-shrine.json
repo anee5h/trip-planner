@@ -15,7 +15,7 @@
   },
   "categories": ["History", "Culture", "Shrine"],
   "tags": ["History", "Culture", "Shrine", "Uwajima City"],
-  "description": "The largest shrine in southern Ehime, dedicated to Date Munetoshi, with an autumn festival featuring a procession of portable shrines and the fierce Ushi-oni demon floats.",
+  "description": "A major shrine in southern Ehime dedicated to Yamabe Seibei Kinyori (山家清兵衛公頼), whose annual Warei festival includes portable shrines and Ushi-oni floats on July 23–24.",
   "highlights": ["History", "Culture", "Shrine"],
   "status": "beta",
   "travelEstimate": {
@@ -86,23 +86,23 @@
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
-  "parking": "Check local parking guidance",
-  "notes": "Source-backed KAI-31 Shikoku expansion record for Uwajima City.",
+  "parking": "Parking for about 60 cars is listed by the Ehime Shrine Association",
+  "notes": "The Ehime Shrine Association identifies Yamabe Seibei Kinyori as the enshrined deity and dates the main festival July 23–24.",
   "notesJa": "【見どころ】和霊神社は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "Grounds open daily",
-  "businessHours": "Grounds open daily",
+  "openingHoursJa": "境内は参拝可。和霊大祭は7月23・24日。",
+  "businessHours": "Shrine grounds open daily; the main Warei festival is July 23–24",
   "officialWebsite": "https://ehime-jinjacho.jp/jinja/?p=444",
   "content": {
     "en": {
       "name": "Warei Taisha",
-      "description": "The largest shrine in southern Ehime, dedicated to Date Munetoshi, with an autumn festival featuring a procession of portable shrines and the fierce Ushi-oni demon floats.",
+      "description": "A major shrine in southern Ehime dedicated to Yamabe Seibei Kinyori (山家清兵衛公頼), whose annual Warei festival includes portable shrines and Ushi-oni floats on July 23–24.",
       "highlights": ["History", "Culture", "Shrine"]
     },
     "ja": {
       "name": "和霊神社",
-      "description": "南予地方の総鎮守で、伊達宗利を祀る神社。秋の例大祭では神輿や牛鬼と呼ばれる鬼の練り物が練り歩きます。",
+      "description": "南予地方の総鎮守で、山家清兵衛公頼を祀る神社。和霊大祭は7月23・24日に行われ、神輿や牛鬼が登場します。",
       "highlights": ["歴史", "文化", "神社"]
     }
   },
@@ -113,15 +113,15 @@
         "type": "official",
         "url": "https://ehime-jinjacho.jp/jinja/?p=444",
         "title": "Warei Taisha — Ehime Shrine Association listing",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

@@ -91,9 +91,9 @@
   "notesJa": "【見どころ】落合集落は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "Open access; Nagaoka House 08:30–17:00 daily except Wednesday",
-  "businessHours": "Open access; Nagaoka House 08:30–17:00 daily except Wednesday",
-  "officialWebsite": "https://www.tougenkyo-iya.jp/?lang=en&page_id=7902",
+  "openingHoursJa": "集落は常時見学可。長岡家住宅9:00～16:00。水曜休館、1・2月休業。",
+  "businessHours": "Village paths are freely viewable; Nagaoka House 09:00–16:00 and closed Wednesdays and January–February",
+  "officialWebsite": "https://miyoshi-tourism.jp/en/spot/119/",
   "content": {
     "en": {
       "name": "Ochiai Folk Village",
@@ -111,17 +111,23 @@
     "sources": [
       {
         "type": "tourism_board",
-        "url": "https://www.tougenkyo-iya.jp/?lang=en&page_id=7902",
-        "title": "Ochiai Folk Village — Iya Tourism official site",
-        "accessedAt": "2026-08-12"
+        "url": "https://miyoshi-tourism.jp/en/spot/119/",
+        "title": "Ochiai Village — Miyoshi City official tourism site",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://miyoshi-tourism.jp/en/spot/23994/",
+        "title": "Nagaoka-ke Historic House — Miyoshi City official tourism site",
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

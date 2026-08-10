@@ -97238,8 +97238,8 @@
     "notesJa": "【見どころ】栗林公園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Open daily; seasonal opening hours",
-    "businessHours": "Open daily; seasonal opening hours",
+    "openingHoursJa": "1月7:00～17:00、2月7:00～17:30、3月6:30～18:00、4～5月5:30～18:30、6～8月5:30～19:00、9月5:30～18:30、10月6:00～17:30、11月6:30～17:00、12月7:00～19:00（年中無休）。",
+    "businessHours": "Open year-round; hours vary by month (07:00–17:00 in Jan, 07:00–19:00 in Dec)",
     "officialWebsite": "https://www.my-kagawa.jp/en/see-and-do/10077",
     "content": {
       "en": {
@@ -97260,21 +97260,21 @@
           "type": "tourism_board",
           "url": "https://www.my-kagawa.jp/en/see-and-do/10077",
           "title": "Ritsurin Garden — VISIT KAGAWA official tourism site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         },
         {
           "type": "tourism_board",
           "url": "https://www.art-takamatsu.com/en/spot/entry-642.html",
           "title": "Takamatsu City official art/tourism listing",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -97384,8 +97384,8 @@
     "notesJa": "【見どころ】高松城（玉藻公園）は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Open daily except Dec 29–31",
-    "businessHours": "Open daily except Dec 29–31",
+    "openingHoursJa": "西門は月により5:30～7:00開門、17:00～19:00閉門。東門は7:00～8:30開門、17:00～18:00閉門。12月29～31日は休園。",
+    "businessHours": "Open year-round; gate hours vary by month; closed Dec 29–31",
     "officialWebsite": "https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/shisetsu/park/tamamo/index.html",
     "content": {
       "en": {
@@ -97406,15 +97406,15 @@
           "type": "official",
           "url": "https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/shisetsu/park/tamamo/index.html",
           "title": "Takamatsu Castle (Tamamo Park) — Takamatsu City official site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -97524,7 +97524,7 @@
     "notesJa": "【見どころ】屋島は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Open access; Yashima-ji temple office 07:00–17:00",
+    "openingHoursJa": "屋島は常時開放。屋島寺の納経受付は7:00～17:00。",
     "businessHours": "Open access; Yashima-ji temple office 07:00–17:00",
     "officialWebsite": "https://www.yashima-navi.jp/en/about/",
     "content": {
@@ -97546,21 +97546,21 @@
           "type": "tourism_board",
           "url": "https://www.yashima-navi.jp/en/about/",
           "title": "all YASHIMA — Takamatsu City official Yashima tourism site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         },
         {
           "type": "tourism_board",
           "url": "https://www.my-kagawa.jp/point/280/",
           "title": "Yashima-ji — Kagawa Tourism official site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -97670,8 +97670,8 @@
     "notesJa": "【見どころ】四国村は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:30–17:00 (last admission 16:30); closed Tuesdays",
-    "businessHours": "09:30–17:00 (last admission 16:30); closed Tuesdays",
+    "openingHoursJa": "9:30～17:00（最終入場16:30）。火曜休館（祝日の場合は翌日）。臨時休館・荒天休館あり。",
+    "businessHours": "09:30–17:00 (last admission 16:30); closed Tuesdays (next day if Tuesday is a national holiday)",
     "officialWebsite": "https://www.shikokumura.or.jp/en/",
     "content": {
       "en": {
@@ -97692,15 +97692,15 @@
           "type": "official",
           "url": "https://www.shikokumura.or.jp/en/information/",
           "title": "Shikoku Mura official visitor information",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -97759,8 +97759,8 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Takamatsu_City_Museum_of_Art_Building_1.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY 3.0",
-      "attribution": "Wikimedia Commons contributor",
+      "license": "CC BY-SA 3.0",
+      "attribution": "MK Products",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takamatsu_City_Museum_of_Art_Building_1.jpg"
     },
     "recommendedVisitHours": {
@@ -97810,8 +97810,8 @@
     "notesJa": "【見どころ】高松市美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:30–17:00 (last admission 16:30); closed Mondays",
-    "businessHours": "09:30–17:00 (last admission 16:30); closed Mondays",
+    "openingHoursJa": "9:30～17:00（最終入館16:30）。特別展は火～土・祝日に19:00まで延長の場合あり。月曜・12月29日～1月3日休館。",
+    "businessHours": "09:30–17:00 (last admission 16:30); special exhibitions may run to 19:00 Tue–Sat and holidays; closed Mondays and Dec 29–Jan 3",
     "officialWebsite": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/general_info/info.html",
     "content": {
       "en": {
@@ -97832,15 +97832,15 @@
           "type": "official",
           "url": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/general_info/info.html",
           "title": "Takamatsu Art Museum official visitor information",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -97874,7 +97874,7 @@
     },
     "categories": ["History", "Culture", "Temple"],
     "tags": ["History", "Culture", "Temple", "Matsuyama City"],
-    "description": "Temple No. 51 of the Shikoku 88-temple pilgrimage, with a National Treasure Niomon gate and halls rebuilt in the Kamakura period, a 20-minute walk from Dogo Onsen.",
+    "description": "Temple No. 51 of the Shikoku 88-temple pilgrimage, with a National Treasure Niomon gate and important cultural-property halls, a 20-minute walk from Dogo Onsen.",
     "highlights": ["History", "Culture", "Temple"],
     "status": "beta",
     "travelEstimate": {
@@ -97891,9 +97891,9 @@
     "budgetMax": 7000,
     "budgetBreakdown": {
       "transport": 1500,
-      "tickets": 500,
-      "food": 1500,
-      "cafe": 500
+      "tickets": 0,
+      "food": 1800,
+      "cafe": 700
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Ishiteji_niomon.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Ishiteji_niomon.JPG",
@@ -97950,18 +97950,18 @@
     "notesJa": "【見どころ】石手寺は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Sightseeing 07:00–17:00; treasure hall 08:00–17:00",
-    "businessHours": "Sightseeing 07:00–17:00; treasure hall 08:00–17:00",
+    "openingHoursJa": "観光7:00～17:00、祈祷6:00～19:00、宝物館・洞窟8:00～17:00。",
+    "businessHours": "Sightseeing 07:00–17:00; prayers 06:00–19:00; treasure hall and caves 08:00–17:00",
     "officialWebsite": "https://en.matsuyama-sightseeing.com/spot/31-2/",
     "content": {
       "en": {
         "name": "Ishite-ji",
-        "description": "Temple No. 51 of the Shikoku 88-temple pilgrimage, with a National Treasure Niomon gate and halls rebuilt in the Kamakura period, a 20-minute walk from Dogo Onsen.",
+        "description": "Temple No. 51 of the Shikoku 88-temple pilgrimage, with a National Treasure Niomon gate and important cultural-property halls, a 20-minute walk from Dogo Onsen.",
         "highlights": ["History", "Culture", "Temple"]
       },
       "ja": {
         "name": "石手寺",
-        "description": "四国八十八箇所第51番札所。国宝の仁王門や鎌倉時代に再建された堂宇が残り、道後温泉から徒歩約20分です。",
+        "description": "四国八十八箇所第51番札所。国宝の仁王門や重要文化財の堂宇が残り、道後温泉から徒歩約20分です。",
         "highlights": ["歴史", "文化", "寺院"]
       }
     },
@@ -97972,15 +97972,15 @@
           "type": "tourism_board",
           "url": "https://en.matsuyama-sightseeing.com/spot/31-2/",
           "title": "Ishite-ji — Tourism Matsuyama official listing",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -98014,7 +98014,7 @@
     },
     "categories": ["Culture", "Museum", "History"],
     "tags": ["Culture", "Museum", "History", "Matsuyama City"],
-    "description": "A French Renaissance-style mansion built in 1922 by the Iyo-Matsuyama Date family, designated an Important Cultural Property and now open as a museum.",
+    "description": "A French Renaissance-style mansion built in 1922 by Hisamatsu Sadakoto, a former lord of the Matsuyama domain, designated an Important Cultural Property and now open as a museum.",
     "highlights": ["Culture", "Museum", "History"],
     "status": "beta",
     "travelEstimate": {
@@ -98090,18 +98090,18 @@
     "notesJa": "【見どころ】萬翠荘は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:00–18:00; closed Mondays",
-    "businessHours": "09:00–18:00; closed Mondays",
+    "openingHoursJa": "9:00～18:00。月曜休館（祝日は開館）。展示により変更される場合があります。",
+    "businessHours": "09:00–18:00; closed Mondays (open on public holidays; exhibition schedules may change)",
     "officialWebsite": "https://www.bansuisou.org/",
     "content": {
       "en": {
         "name": "Bansuiso",
-        "description": "A French Renaissance-style mansion built in 1922 by the Iyo-Matsuyama Date family, designated an Important Cultural Property and now open as a museum.",
+        "description": "A French Renaissance-style mansion built in 1922 by Hisamatsu Sadakoto, a former lord of the Matsuyama domain, designated an Important Cultural Property and now open as a museum.",
         "highlights": ["Culture", "Museum", "History"]
       },
       "ja": {
         "name": "萬翠荘",
-        "description": "1922年に伊予松山藩主家の伊達家が建てたフランス・ルネサンス様式の邸宅。国の重要文化財に指定され、現在は美術館として公開されています。",
+        "description": "1922年に旧松山藩主・久松定謨が建てたフランス・ルネサンス様式の邸宅。国の重要文化財に指定され、現在は美術館として公開されています。",
         "highlights": ["文化", "博物館", "歴史"]
       }
     },
@@ -98112,15 +98112,15 @@
           "type": "official",
           "url": "https://www.bansuisou.org/information/",
           "title": "Bansuiso official visitor information",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -98230,7 +98230,7 @@
     "notesJa": "【見どころ】道後温泉別館 飛鳥乃湯泉は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "First-floor bath 06:00–23:00; upper floors 06:00–22:00",
+    "openingHoursJa": "1階浴室6:00～23:00、2階各室6:00～22:00。",
     "businessHours": "First-floor bath 06:00–23:00; upper floors 06:00–22:00",
     "officialWebsite": "https://dogo.jp/onsen/asuka",
     "content": {
@@ -98252,15 +98252,15 @@
           "type": "official",
           "url": "https://www.city.matsuyama.ehime.jp/kanko/kankoguide/kankomeisho/dogoonsen/info/dougo1126.html",
           "title": "Dogo Onsen Annex Asuka-no-Yu — Matsuyama City official site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -98370,8 +98370,8 @@
     "notesJa": "【見どころ】坊っちゃん列車は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Weekends and holidays only; timetable published by Iyotetsu",
-    "businessHours": "Weekends and holidays only; timetable published by Iyotetsu",
+    "openingHoursJa": "土曜・日曜・祝日のみ運行。12月30日～1月3日は運休。",
+    "businessHours": "Runs on weekends and holidays; no service Dec 30–Jan 3; timetable published by Iyotetsu",
     "officialWebsite": "https://www.iyotetsu.co.jp/botchan/",
     "content": {
       "en": {
@@ -98392,15 +98392,15 @@
           "type": "official",
           "url": "https://www.iyotetsu.co.jp/botchan/",
           "title": "Botchan Train — Iyotetsu official site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -98510,7 +98510,7 @@
     "notesJa": "【見どころ】道後ハイカラ通りは四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Open access (shop hours vary)",
+    "openingHoursJa": "通りは通行可。各店舗の営業時間・定休日は店舗により異なります。",
     "businessHours": "Open access (shop hours vary)",
     "officialWebsite": "https://www.dogo.or.jp/experience/dogo-haikara-dori/",
     "content": {
@@ -98532,15 +98532,15 @@
           "type": "tourism_board",
           "url": "https://www.dogo.or.jp/experience/dogo-haikara-dori/",
           "title": "Dogo Haikara Dori — Dogo Onsen official area guide",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -98650,8 +98650,8 @@
     "notesJa": "【見どころ】道後公園（湯築城跡）は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Park open anytime; exhibition facility 09:00–17:00 (closed Mondays)",
-    "businessHours": "Park open anytime; exhibition facility 09:00–17:00 (closed Mondays)",
+    "openingHoursJa": "公園は常時開園。展示施設9:00～17:00。月曜休館（祝日は開館し翌平日休館）。",
+    "businessHours": "Park open anytime; exhibition facility 09:00–17:00; closed Mondays (open on public holidays, closed the following weekday)",
     "officialWebsite": "https://dogokouen.jp/",
     "content": {
       "en": {
@@ -98672,21 +98672,21 @@
           "type": "official",
           "url": "https://dogokouen.jp/",
           "title": "Dogo Park (Yuzuki Castle Ruins) official site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         },
         {
           "type": "tourism_board",
           "url": "https://en.matsuyama-sightseeing.com/spot/18-2/",
           "title": "Dogo-kōen Park — Tourism Matsuyama official listing",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -98720,7 +98720,7 @@
     },
     "categories": ["Culture", "Museum", "Art"],
     "tags": ["Culture", "Museum", "Art", "Matsuyama City"],
-    "description": "A prefectural museum in Matsuyama Castle's moat park, presenting Japanese and Western modern art and works by the local artist Himeji Kiyoshi, alongside the Natsume Soseki and Dogo collections.",
+    "description": "A prefectural museum in Matsuyama Castle's moat park, presenting Japanese and Western modern art and rotating exhibitions in a central Matsuyama setting.",
     "highlights": ["Culture", "Museum", "Art"],
     "status": "beta",
     "travelEstimate": {
@@ -98791,18 +98791,18 @@
     "bestSeason": "All Year",
     "weatherDependence": "low",
     "reservation": "None required",
-    "parking": "Paid parking in the moat park area",
+    "parking": "No parking at the museum; Kencho Nishi parking offers two hours free, with nearby paid lots",
     "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
     "notesJa": "【見どころ】愛媛県美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:40–18:00 (last admission 17:30); closed Mondays",
-    "businessHours": "09:40–18:00 (last admission 17:30); closed Mondays",
+    "openingHoursJa": "9:40～18:00（最終入館17:30）。月曜休館（祝日は翌日休館）。毎月第1月曜は開館し翌火曜休館。12月29日～1月3日休館。",
+    "businessHours": "09:40–18:00 (last admission 17:30); closed Mondays (holiday Monday closes the following day); closed Dec 29–Jan 3",
     "officialWebsite": "https://www.ehime-art.jp/en/guide",
     "content": {
       "en": {
         "name": "Ehime Prefectural Museum of Art",
-        "description": "A prefectural museum in Matsuyama Castle's moat park, presenting Japanese and Western modern art and works by the local artist Himeji Kiyoshi, alongside the Natsume Soseki and Dogo collections.",
+        "description": "A prefectural museum in Matsuyama Castle's moat park, presenting Japanese and Western modern art and rotating exhibitions in a central Matsuyama setting.",
         "highlights": ["Culture", "Museum", "Art"]
       },
       "ja": {
@@ -98818,15 +98818,15 @@
           "type": "official",
           "url": "https://www.ehime-art.jp/en/guide",
           "title": "Ehime Prefectural Museum of Art official visitor information",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -98930,14 +98930,14 @@
     "bestMonths": [6, 7, 8, 9, 10, 11],
     "bestSeason": "Summer",
     "weatherDependence": "low",
-    "reservation": "Recommended for performance seats",
+    "reservation": "Advance booking recommended for performance seats; day and evening schedules vary",
     "parking": "Paid parking available in the area",
     "notes": "Source-backed KAI-31 Shikoku expansion record for Tokushima City.",
     "notesJa": "【見どころ】阿波おどり会館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:00–20:00 (performances at fixed times); closed Dec 28–Jan 1",
-    "businessHours": "09:00–20:00 (performances at fixed times); closed Dec 28–Jan 1",
+    "openingHoursJa": "9:00～20:00。12月28日～1月1日、2・6・9・12月の第2水曜休館（祝日は翌日）。昼公演は11・14・15・16時、夜公演は20時。",
+    "businessHours": "09:00–20:00; closed Dec 28–Jan 1 and on the 2nd Wednesday of Feb, Jun, Sep, and Dec (next day if a holiday)",
     "officialWebsite": "https://www.awaodori-kaikan.jp/",
     "content": {
       "en": {
@@ -98958,15 +98958,15 @@
           "type": "official",
           "url": "https://www.awaodori-kaikan.jp/",
           "title": "Awa Odori Kaikan official site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -99026,7 +99026,7 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 3.0",
-      "attribution": "Reggaeman",
+      "attribution": "Kansai explorer",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bizan01.jpg"
     },
     "recommendedVisitHours": {
@@ -99076,8 +99076,8 @@
     "notesJa": "【見どころ】眉山ロープウェイは四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:00–21:00 (Apr–Oct), 09:00–17:30 (Nov–Mar)",
-    "businessHours": "09:00–21:00 (Apr–Oct), 09:00–17:30 (Nov–Mar)",
+    "openingHoursJa": "4～10月9:00～21:00、11～3月9:00～17:30。1月1日は6:00～17:30。",
+    "businessHours": "09:00–21:00 (Apr–Oct), 09:00–17:30 (Nov–Mar); Jan 1 opens 06:00–17:30",
     "officialWebsite": "https://www.city.tokushima.tokushima.jp/multilingual/english_portal/tourism_culture/mt_bizan/ropeway.html",
     "content": {
       "en": {
@@ -99098,15 +99098,15 @@
           "type": "official",
           "url": "https://www.city.tokushima.tokushima.jp/multilingual/english_portal/tourism_culture/mt_bizan/ropeway.html",
           "title": "Awagin Bizan Ropeway — Tokushima City official site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -99157,9 +99157,9 @@
     "budgetMax": 6000,
     "budgetBreakdown": {
       "transport": 1000,
-      "tickets": 0,
+      "tickets": 50,
       "food": 1300,
-      "cafe": 700
+      "cafe": 650
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Tokushima_Central_Park%2C_Tokushima_Prefecture%3B_April_2017_%2801%29.jpg/1280px-Tokushima_Central_Park%2C_Tokushima_Prefecture%3B_April_2017_%2801%29.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Tokushima_Central_Park%2C_Tokushima_Prefecture%3B_April_2017_%2801%29.jpg/1280px-Tokushima_Central_Park%2C_Tokushima_Prefecture%3B_April_2017_%2801%29.jpg",
@@ -99212,12 +99212,12 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Check local parking guidance",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Tokushima City.",
+    "notes": "Former garden admission is 50 yen for adults and 30 yen for children; museum admission is separate.",
     "notesJa": "【見どころ】徳島中央公園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Park open access; castle museum 09:00–17:00",
-    "businessHours": "Park open access; castle museum 09:00–17:00",
+    "openingHoursJa": "公園は常時開放。旧表御殿庭園9:00～17:00（最終入園16:30）。庭園は月曜・祝日の翌日・12月28日～1月4日休園（例外あり）。",
+    "businessHours": "Park open access; former garden 09:00–17:00 (last entry 16:30); museum hours vary",
     "officialWebsite": "https://www.city.tokushima.tokushima.jp/shisetsu/park/chuo.html",
     "content": {
       "en": {
@@ -99238,15 +99238,15 @@
           "type": "official",
           "url": "https://www.city.tokushima.tokushima.jp/shisetsu/park/chuo.html",
           "title": "Tokushima Central Park — Tokushima City official site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -99280,7 +99280,7 @@
     },
     "categories": ["Culture", "Museum", "Art"],
     "tags": ["Culture", "Museum", "Art", "Tokushima City"],
-    "description": "A prefectural museum of modern art in Tokushima's cultural forest park, showing Japanese modern masters and the manga-inspired works of local artist George Arikawa.",
+    "description": "A prefectural museum of modern art in Tokushima's cultural forest park, with collection and special exhibitions of Japanese and Western modern art.",
     "highlights": ["Culture", "Museum", "Art"],
     "status": "beta",
     "travelEstimate": {
@@ -99305,8 +99305,8 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Tokushima_21st_century_cultural_information_center01n3872.jpg/1280px-Tokushima_21st_century_cultural_information_center01n3872.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Tamago915",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokushima_21st_century_cultural_information_center01n3872.jpg"
     },
     "recommendedVisitHours": {
@@ -99356,18 +99356,18 @@
     "notesJa": "【見どころ】徳島県立近代美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:30–17:00 (last admission 16:30); closed Mondays",
-    "businessHours": "09:30–17:00 (last admission 16:30); closed Mondays",
+    "openingHoursJa": "9:30～17:00（最終入館16:30）。月曜（祝日の場合は翌日）、12月29日～1月4日休館。展示替えによる臨時休館あり。",
+    "businessHours": "09:30–17:00 (last admission 16:30); closed Mondays (next day if a holiday), Dec 29–Jan 4, and during exhibition changes",
     "officialWebsite": "https://art.bunmori.tokushima.jp/info/index_en.html",
     "content": {
       "en": {
         "name": "Tokushima Modern Art Museum",
-        "description": "A prefectural museum of modern art in Tokushima's cultural forest park, showing Japanese modern masters and the manga-inspired works of local artist George Arikawa.",
+        "description": "A prefectural museum of modern art in Tokushima's cultural forest park, with collection and special exhibitions of Japanese and Western modern art.",
         "highlights": ["Culture", "Museum", "Art"]
       },
       "ja": {
         "name": "徳島県立近代美術館",
-        "description": "文化の森総合公園内にある県立の近代美術館。日本の近現代美術や、徳島出身の漫画家・有川治男の作品を展示しています。",
+        "description": "文化の森総合公園内にある県立の近代美術館。日本や西洋の近現代美術を収蔵・展示し、企画展も開催しています。",
         "highlights": ["文化", "博物館", "アート"]
       }
     },
@@ -99378,15 +99378,15 @@
           "type": "official",
           "url": "https://art.bunmori.tokushima.jp/info/index_en.html",
           "title": "Tokushima Modern Art Museum official visitor information",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -99496,7 +99496,7 @@
     "notesJa": "【見どころ】大鳴門橋遊歩道 うずしお道は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:00–18:00 (Mar–Sep), 09:00–17:00 (Oct–Feb); closed 2nd Monday of Mar/Jun/Sep/Dec",
+    "openingHoursJa": "3～9月9:00～18:00、10～2月9:00～17:00。3・6・9・12月の第2月曜休館。",
     "businessHours": "09:00–18:00 (Mar–Sep), 09:00–17:00 (Oct–Feb); closed 2nd Monday of Mar/Jun/Sep/Dec",
     "officialWebsite": "https://www.uzunomichi.jp/lang_en/",
     "content": {
@@ -99518,15 +99518,15 @@
           "type": "official",
           "url": "https://www.uzunomichi.jp/lang_en/",
           "title": "Uzu no Michi official site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -99585,9 +99585,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Whirlpools_fureai_park.JPG/1280px-Whirlpools_fureai_park.JPG",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "attribution": "Hellbuny",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naruto_Whirlpools_taken_4-21-2008.jpg"
+      "license": "CC BY-SA 4.0",
+      "attribution": "アラツク",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whirlpools_fureai_park.JPG"
     },
     "recommendedVisitHours": {
       "min": 1,
@@ -99630,14 +99630,14 @@
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "high",
-    "reservation": "Recommended during peak seasons",
+    "reservation": "WONDER NARUTO requires no reservation; AQUA EDDY requires advance reservation",
     "parking": "Paid parking at Naruto Park Kameura port",
     "notes": "Source-backed KAI-31 Shikoku expansion record for Naruto City. The Aqua Eddy underwater-view boat requires advance reservation.",
     "notesJa": "【見どころ】うずしお観潮船は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Departs approx 09:00–16:20 every 40 min; weather-dependent",
-    "businessHours": "Departs approx 09:00–16:20 every 40 min; weather-dependent",
+    "openingHoursJa": "運航時刻は公式時刻表を確認。潮流・天候により変更。通常船は予約不要、小型水中観潮船は要予約。",
+    "businessHours": "Schedule varies; check the official timetable; weather- and tide-dependent",
     "officialWebsite": "https://www.uzusio.com/en/geton/",
     "content": {
       "en": {
@@ -99658,15 +99658,15 @@
           "type": "official",
           "url": "https://www.uzusio.com/en/geton/",
           "title": "Naruto whirlpool sightseeing cruise — official operator site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -99776,8 +99776,8 @@
     "notesJa": "【見どころ】大塚国際美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:30–17:00 (ticket sales until 16:00); closed Mondays",
-    "businessHours": "09:30–17:00 (ticket sales until 16:00); closed Mondays",
+    "openingHoursJa": "9:30～17:00（入館券販売16:00まで）。月曜休館（祝日の場合は翌日）。開館カレンダーを確認。",
+    "businessHours": "09:30–17:00 (ticket sales until 16:00); closed Mondays (next day if a holiday)",
     "officialWebsite": "https://o-museum.or.jp/",
     "content": {
       "en": {
@@ -99798,15 +99798,15 @@
           "type": "official",
           "url": "https://o-museum.or.jp/pages/187/",
           "title": "Otsuka Museum of Art official visitor information",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -99911,14 +99911,14 @@
     "bestSeason": "All Year",
     "weatherDependence": "low",
     "reservation": "None required",
-    "parking": "Free parking available",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Naruto City.",
+    "parking": "Free parking shared with Roadside Station Dai-san no Sato; about 100 spaces",
+    "notes": "Admission is 400 yen for adults and 100 yen for children; temporary closures can occur.",
     "notesJa": "【見どころ】鳴門市ドイツ館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:30–17:00 (last admission 16:30); closed 4th Monday of month",
-    "businessHours": "09:30–17:00 (last admission 16:30); closed 4th Monday of month",
-    "officialWebsite": "https://www.city.naruto.tokushima.jp/docs/2024100200038/file_contents/20241002.pdf",
+    "openingHoursJa": "9:30～17:00（最終入館16:30）。第4月曜休館（祝日の場合は翌日）、12月28日～31日休館。臨時休館あり。",
+    "businessHours": "09:30–17:00 (last admission 16:30); closed the 4th Monday (next day if a holiday) and Dec 28–31",
+    "officialWebsite": "https://doitsukan.com/",
     "content": {
       "en": {
         "name": "Naruto German House",
@@ -99936,17 +99936,23 @@
       "sources": [
         {
           "type": "official",
-          "url": "https://www.city.naruto.tokushima.jp/docs/2024100200038/file_contents/20241002.pdf",
-          "title": "Naruto German House — Naruto City official pamphlet",
-          "accessedAt": "2026-08-12"
+          "url": "https://doitsukan.com/spot.html",
+          "title": "Naruto German House — official visitor information",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "official",
+          "url": "https://www.city.naruto.lg.jp/map/info/95/",
+          "title": "Naruto German House — Naruto City facility map",
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -100056,7 +100062,7 @@
     "notesJa": "【見どころ】霊山寺は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "07:00–17:00 daily",
+    "openingHoursJa": "7:00～17:00。年中無休。",
     "businessHours": "07:00–17:00 daily",
     "officialWebsite": "https://naruto-tourism.jp/en/spot/15466",
     "content": {
@@ -100078,21 +100084,21 @@
           "type": "tourism_board",
           "url": "https://naruto-tourism.jp/en/spot/15466",
           "title": "Ryozenji — Naruto City official travel guide",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         },
         {
           "type": "official",
           "url": "https://www.ryosenji.jp/",
           "title": "Ryozenji official site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -100126,7 +100132,7 @@
     },
     "categories": ["Nature", "History", "Scenery"],
     "tags": ["Nature", "History", "Scenery", "Kochi City"],
-    "description": "A Pacific-coast beach of white sand and pines, crowned by the 1928 bronze statue of Sakamoto Ryoma gazing out to sea, with a small aquarium and the Ryoma museum nearby.",
+    "description": "A Pacific-coast beach of white sand and pines, with a bronze statue of Sakamoto Ryoma gazing out to sea, a small aquarium, and the Ryoma museum nearby.",
     "highlights": ["Nature", "History", "Scenery"],
     "status": "beta",
     "travelEstimate": {
@@ -100202,18 +100208,18 @@
     "notesJa": "【見どころ】桂浜は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Open access; beach is for sightseeing, not swimming",
+    "openingHoursJa": "常時開放。海水浴場ではなく観光向け。",
     "businessHours": "Open access; beach is for sightseeing, not swimming",
     "officialWebsite": "https://www.city.kochi.kochi.jp/kochi-city-travel-guide/katsurahama-beach/",
     "content": {
       "en": {
         "name": "Katsurahama Beach",
-        "description": "A Pacific-coast beach of white sand and pines, crowned by the 1928 bronze statue of Sakamoto Ryoma gazing out to sea, with a small aquarium and the Ryoma museum nearby.",
+        "description": "A Pacific-coast beach of white sand and pines, with a bronze statue of Sakamoto Ryoma gazing out to sea, a small aquarium, and the Ryoma museum nearby.",
         "highlights": ["Nature", "History", "Scenery"]
       },
       "ja": {
         "name": "桂浜",
-        "description": "白砂と松林が続く太平洋の海岸。1928年建立の坂本龍馬像が海を見つめ、近くに水族館や龍馬記念館があります。",
+        "description": "白砂と松林が続く太平洋の海岸。坂本龍馬像が海を見つめ、近くに水族館や龍馬記念館があります。",
         "highlights": ["自然", "歴史", "絶景"]
       }
     },
@@ -100224,15 +100230,15 @@
           "type": "tourism_board",
           "url": "https://www.city.kochi.kochi.jp/kochi-city-travel-guide/katsurahama-beach/",
           "title": "Katsurahama Beach — Kochi City official travel guide",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -100342,8 +100348,8 @@
     "notesJa": "【見どころ】ひろめ市場は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "08:00–23:00 (individual vendors vary)",
-    "businessHours": "08:00–23:00 (individual vendors vary)",
+    "openingHoursJa": "月～土10:00～23:00、日曜9:00～23:00。店舗により営業時間が異なります。",
+    "businessHours": "10:00–23:00 Monday–Saturday; 09:00–23:00 Sunday (individual vendors vary)",
     "officialWebsite": "https://www.hirome.co.jp/",
     "content": {
       "en": {
@@ -100364,15 +100370,15 @@
           "type": "official",
           "url": "https://www.hirome.co.jp/access.html",
           "title": "Hirome Ichiba official site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -100477,13 +100483,13 @@
     "bestSeason": "All Year",
     "weatherDependence": "low",
     "reservation": "None required",
-    "parking": "Paid parking available",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Kochi City.",
+    "parking": "Free on-site parking for 42 cars; bus parking is prioritized by advance reservation; fallback Katsurahama parking is paid",
+    "notes": "Adult admission is 500 yen outside special exhibitions and 900 yen during special exhibitions; group visits should reserve ahead.",
     "notesJa": "【見どころ】高知県立坂本龍馬記念館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:00–17:00 (enter by 16:30); open daily",
-    "businessHours": "09:00–17:00 (enter by 16:30); open daily",
+    "openingHoursJa": "9:00～17:00（最終入館16:30頃）。休館日なし。",
+    "businessHours": "09:00–17:00 (enter by about 16:30); no regular closing days",
     "officialWebsite": "https://ryoma-kinenkan.jp/visit/",
     "content": {
       "en": {
@@ -100504,15 +100510,15 @@
           "type": "official",
           "url": "https://ryoma-kinenkan.jp/visit/",
           "title": "Sakamoto Ryoma Memorial Museum official visitor information",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -100618,11 +100624,11 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Check local parking guidance",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Kochi City.",
+    "notes": "The main grounds are free; the scenic garden and treasure hall require a small admission fee.",
     "notesJa": "【見どころ】竹林寺は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Grounds 08:00–17:00; garden & treasure hall 08:30–17:00",
+    "openingHoursJa": "本堂周辺8:00～17:00、名勝庭園・宝物館8:30～17:00。年中無休。",
     "businessHours": "Grounds 08:00–17:00; garden & treasure hall 08:30–17:00",
     "officialWebsite": "https://visitkochijapan.com/en/activities/10056",
     "content": {
@@ -100642,17 +100648,17 @@
       "sources": [
         {
           "type": "tourism_board",
-          "url": "https://lb2.kochi-tabi.jp/search_spot.html?id=872",
+          "url": "https://visitkochijapan.com/en/activities/10056",
           "title": "Chikurin-ji — Kochi Prefecture official tourism site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -100757,13 +100763,13 @@
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "None required",
-    "parking": "Paid parking available",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Kochi City.",
+    "parking": "Paid parking available; admission is normally 850 yen but special exhibitions can change the fee",
+    "notes": "The garden publishes maintenance closures and seasonal exhibition fees; verify the calendar before visiting.",
     "notesJa": "【見どころ】高知県立牧野植物園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:00–17:00 (last entry 16:30); closed Dec 27–Jan 1",
-    "businessHours": "09:00–17:00 (last entry 16:30); closed Dec 27–Jan 1",
+    "openingHoursJa": "9:00～17:00（最終入園16:30）。メンテナンス休園日あり。公式カレンダーを確認。",
+    "businessHours": "09:00–17:00 (last entry 16:30); maintenance closures vary—check the official calendar",
     "officialWebsite": "https://www.makino.or.jp/multilingual/?lang=en",
     "content": {
       "en": {
@@ -100784,15 +100790,15 @@
           "type": "official",
           "url": "https://www.makino.or.jp/guide/",
           "title": "Makino Botanical Garden official visitor information",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -100902,7 +100908,7 @@
     "notesJa": "【見どころ】はりまや橋は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Open access",
+    "openingHoursJa": "常時開放。",
     "businessHours": "Open access",
     "officialWebsite": "https://www.city.kochi.kochi.jp/site/kanko/harimayabashi.html",
     "content": {
@@ -100924,15 +100930,15 @@
           "type": "tourism_board",
           "url": "https://www.city.kochi.kochi.jp/site/kanko/harimayabashi.html",
           "title": "Harimaya Bridge — Kochi City official tourism page",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -100966,7 +100972,7 @@
     },
     "categories": ["Nature", "Garden", "History"],
     "tags": ["Nature", "Garden", "History", "Marugame City"],
-    "description": "A daimyo garden built in 1688 for the Kyogoku clan, with a large pond and islands, now home to the Marugame Museum of Art.",
+    "description": "A daimyo garden built in 1688 for the Kyogoku clan, with a large pond and islands, plus painting, uchiwa, and ceramics exhibits.",
     "highlights": ["Nature", "Garden", "History"],
     "status": "beta",
     "travelEstimate": {
@@ -100983,9 +100989,9 @@
     "budgetMax": 9000,
     "budgetBreakdown": {
       "transport": 1500,
-      "tickets": 800,
+      "tickets": 1200,
       "food": 1500,
-      "cafe": 1200
+      "cafe": 800
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nakatsu-bansho-en_Marugame_Kagawa_pref01n4350.jpg/1280px-Nakatsu-bansho-en_Marugame_Kagawa_pref01n4350.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nakatsu-bansho-en_Marugame_Kagawa_pref01n4350.jpg/1280px-Nakatsu-bansho-en_Marugame_Kagawa_pref01n4350.jpg",
@@ -101037,23 +101043,23 @@
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "None required",
-    "parking": "Paid parking available",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Marugame City.",
+    "parking": "Parking available; the city listing links to the garden's official website",
+    "notes": "Garden plus painting-hall admission is 1,200 yen for adults and 500 yen for children; the official site has a certificate problem, so the secure city listing is the primary website link.",
     "notesJa": "【見どころ】中津万象園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:30–17:00 (last entry 16:30); closed Wednesdays",
-    "businessHours": "09:30–17:00 (last entry 16:30); closed Wednesdays",
-    "officialWebsite": "https://www.bansyouen.com/",
+    "openingHoursJa": "9:30～17:00。水曜休園（祝日は開園し翌日休園）。",
+    "businessHours": "09:30–17:00; closed Wednesdays",
+    "officialWebsite": "https://www.city.marugame.lg.jp/page/3065.html",
     "content": {
       "en": {
         "name": "Nakazu Banshoen",
-        "description": "A daimyo garden built in 1688 for the Kyogoku clan, with a large pond and islands, now home to the Marugame Museum of Art.",
+        "description": "A daimyo garden built in 1688 for the Kyogoku clan, with a large pond and islands, plus painting, uchiwa, and ceramics exhibits.",
         "highlights": ["Nature", "Garden", "History"]
       },
       "ja": {
         "name": "中津万象園",
-        "description": "1688年に京極氏が築いた大名庭園。大きな池と島々が配され、現在は丸亀美術館が併設されています。",
+        "description": "1688年に京極氏が築いた大名庭園。大きな池と島々が配され、絵画館・うちわの里・陶器館が併設されています。",
         "highlights": ["自然", "庭園", "歴史"]
       }
     },
@@ -101062,17 +101068,23 @@
       "sources": [
         {
           "type": "official",
-          "url": "https://www.bansyouen.com/",
-          "title": "Nakazu Banshoen / Marugame Museum of Art official site",
-          "accessedAt": "2026-08-12"
+          "url": "https://www.city.marugame.lg.jp/page/3065.html",
+          "title": "Nakazu Banshoen / Marugame Museum of Art — Marugame City official site",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "official",
+          "url": "http://www.bansyouen.com/",
+          "title": "Nakazu Banshoen official website",
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -101123,9 +101135,9 @@
     "budgetMax": 6000,
     "budgetBreakdown": {
       "transport": 1000,
-      "tickets": 500,
+      "tickets": 0,
       "food": 1000,
-      "cafe": 500
+      "cafe": 1000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Uchiwa_Museum01.jpg/1280px-Uchiwa_Museum01.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Uchiwa_Museum01.jpg/1280px-Uchiwa_Museum01.jpg",
@@ -101176,14 +101188,14 @@
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "bestSeason": "All Year",
     "weatherDependence": "low",
-    "reservation": "Workshop participation may require booking",
-    "parking": "Check local parking guidance",
+    "reservation": "Museum admission is free; fan-making experience has a separate fee—check current availability",
+    "parking": "15 parking spaces; large buses should contact the museum in advance",
     "notes": "Source-backed KAI-31 Shikoku expansion record for Marugame City.",
     "notesJa": "【見どころ】丸亀うちわミュージアムは四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:30–17:00 (last entry 16:30); closed Wednesdays",
-    "businessHours": "09:30–17:00 (last entry 16:30); closed Wednesdays",
+    "openingHoursJa": "9:30～17:00（最終入館16:30）。水曜休館（祝日は開館し翌日休館）。年末年始休館。",
+    "businessHours": "09:30–17:00 (last entry 16:30); closed Wednesdays (open on public holidays, closed the following day); closed over New Year",
     "officialWebsite": "https://marugameuchiwa.jp/museum",
     "content": {
       "en": {
@@ -101204,15 +101216,15 @@
           "type": "tourism_board",
           "url": "https://www.come-marugame.jp/en/tourist-information/post-596/",
           "title": "Marugame Uchiwa Museum — Marugame City official tourism portal",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -101263,9 +101275,9 @@
     "budgetMax": 10000,
     "budgetBreakdown": {
       "transport": 2000,
-      "tickets": 1800,
+      "tickets": 1500,
       "food": 1500,
-      "cafe": 700
+      "cafe": 1000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Oboke_gorge_pleasure_boat_2106_August_13.B.jpg/1280px-Oboke_gorge_pleasure_boat_2106_August_13.B.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Oboke_gorge_pleasure_boat_2106_August_13.B.jpg/1280px-Oboke_gorge_pleasure_boat_2106_August_13.B.jpg",
@@ -101316,14 +101328,14 @@
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "high",
-    "reservation": "Recommended during peak seasons",
+    "reservation": "Check current operation before travel; weather can suspend the boat",
     "parking": "Paid parking near the boat dock",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Miyoshi City.",
+    "notes": "Adult sightseeing-boat fare is 1,500 yen; children aged 3 through elementary school are 750 yen.",
     "notesJa": "【見どころ】大歩危・小歩危は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Boat 09:00–17:00 (last departure 16:30); weather-dependent",
-    "businessHours": "Boat 09:00–17:00 (last departure 16:30); weather-dependent",
+    "openingHoursJa": "観光遊覧船9:00～17:00（最終出航16:30）。年中運航（強風・荒天時を除く）。",
+    "businessHours": "Sightseeing boat 09:00–17:00 (last departure 16:30); open year-round except strong winds or bad weather",
     "officialWebsite": "https://discovertokushima.net/en/spots/obokeandkobokegorges/",
     "content": {
       "en": {
@@ -101344,15 +101356,15 @@
           "type": "tourism_board",
           "url": "https://discovertokushima.net/en/spots/obokeandkobokegorges/",
           "title": "Oboke and Koboke Gorges — Tokushima Tourism official site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -101462,9 +101474,9 @@
     "notesJa": "【見どころ】落合集落は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Open access; Nagaoka House 08:30–17:00 daily except Wednesday",
-    "businessHours": "Open access; Nagaoka House 08:30–17:00 daily except Wednesday",
-    "officialWebsite": "https://www.tougenkyo-iya.jp/?lang=en&page_id=7902",
+    "openingHoursJa": "集落は常時見学可。長岡家住宅9:00～16:00。水曜休館、1・2月休業。",
+    "businessHours": "Village paths are freely viewable; Nagaoka House 09:00–16:00 and closed Wednesdays and January–February",
+    "officialWebsite": "https://miyoshi-tourism.jp/en/spot/119/",
     "content": {
       "en": {
         "name": "Ochiai Folk Village",
@@ -101482,17 +101494,23 @@
       "sources": [
         {
           "type": "tourism_board",
-          "url": "https://www.tougenkyo-iya.jp/?lang=en&page_id=7902",
-          "title": "Ochiai Folk Village — Iya Tourism official site",
-          "accessedAt": "2026-08-12"
+          "url": "https://miyoshi-tourism.jp/en/spot/119/",
+          "title": "Ochiai Village — Miyoshi City official tourism site",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://miyoshi-tourism.jp/en/spot/23994/",
+          "title": "Nagaoka-ke Historic House — Miyoshi City official tourism site",
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -101543,8 +101561,8 @@
     "budgetMax": 10000,
     "budgetBreakdown": {
       "transport": 2000,
-      "tickets": 1800,
-      "food": 1500,
+      "tickets": 2300,
+      "food": 1000,
       "cafe": 700
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Mt.Tsurugisan.jpg/1280px-Mt.Tsurugisan.jpg",
@@ -101552,7 +101570,7 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "Public domain",
-      "attribution": "Public domain (original author unknown)",
+      "attribution": "As6673",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt.Tsurugisan.jpg"
     },
     "recommendedVisitHours": {
@@ -101602,8 +101620,8 @@
     "notesJa": "【見どころ】剣山は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Trails open year-round; lift mid-Apr to Nov 30, 09:00–16:30",
-    "businessHours": "Trails open year-round; lift mid-Apr to Nov 30, 09:00–16:30",
+    "openingHoursJa": "リフトは4月中旬～11月30日、通常9:00～16:30（8月は8:00から）。天候・営業日は公式サイトを確認。",
+    "businessHours": "Lift normally operates mid-April–Nov 30, 09:00–16:30 (08:00 in August); weather and seasonal trail conditions can change access",
     "officialWebsite": "https://www.rinya.maff.go.jp/e/national_forest/recreation_forest/tsurugisan.html",
     "content": {
       "en": {
@@ -101624,21 +101642,21 @@
           "type": "government",
           "url": "https://www.rinya.maff.go.jp/e/national_forest/recreation_forest/tsurugisan.html",
           "title": "Tsurugisan Recreation Forest — Forestry Agency official listing",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         },
         {
           "type": "official",
           "url": "https://turugirift.com/",
           "title": "Mt. Tsurugi sightseeing lift official site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -101743,13 +101761,13 @@
     "bestSeason": "All Year",
     "weatherDependence": "low",
     "reservation": "None required",
-    "parking": "Check local parking guidance",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Uwajima City.",
+    "parking": "Parking for about 15 cars and four buses is available; check current access guidance",
+    "notes": "Adult admission is 500 yen; university and senior admission is 400 yen, and high-school students and younger are free.",
     "notesJa": "【見どころ】宇和島市立伊達博物館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:00–17:00 (last admission 16:30); closed Tuesdays",
-    "businessHours": "09:00–17:00 (last admission 16:30); closed Tuesdays",
+    "openingHoursJa": "9:00～17:00（最終入館16:30）。火曜・12月29日～1月3日休館。展示替えによる臨時休館あり。",
+    "businessHours": "09:00–17:00 (last admission 16:30); closed Tuesdays and Dec 29–Jan 3; exhibition-change closures may apply",
     "officialWebsite": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
     "content": {
       "en": {
@@ -101770,15 +101788,15 @@
           "type": "official",
           "url": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
           "title": "Uwajima City Date Museum — Uwajima City official site",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -101812,7 +101830,7 @@
     },
     "categories": ["History", "Culture", "Shrine"],
     "tags": ["History", "Culture", "Shrine", "Uwajima City"],
-    "description": "The largest shrine in southern Ehime, dedicated to Date Munetoshi, with an autumn festival featuring a procession of portable shrines and the fierce Ushi-oni demon floats.",
+    "description": "A major shrine in southern Ehime dedicated to Yamabe Seibei Kinyori (山家清兵衛公頼), whose annual Warei festival includes portable shrines and Ushi-oni floats on July 23–24.",
     "highlights": ["History", "Culture", "Shrine"],
     "status": "beta",
     "travelEstimate": {
@@ -101883,23 +101901,23 @@
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "None required",
-    "parking": "Check local parking guidance",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Uwajima City.",
+    "parking": "Parking for about 60 cars is listed by the Ehime Shrine Association",
+    "notes": "The Ehime Shrine Association identifies Yamabe Seibei Kinyori as the enshrined deity and dates the main festival July 23–24.",
     "notesJa": "【見どころ】和霊神社は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "Grounds open daily",
-    "businessHours": "Grounds open daily",
+    "openingHoursJa": "境内は参拝可。和霊大祭は7月23・24日。",
+    "businessHours": "Shrine grounds open daily; the main Warei festival is July 23–24",
     "officialWebsite": "https://ehime-jinjacho.jp/jinja/?p=444",
     "content": {
       "en": {
         "name": "Warei Taisha",
-        "description": "The largest shrine in southern Ehime, dedicated to Date Munetoshi, with an autumn festival featuring a procession of portable shrines and the fierce Ushi-oni demon floats.",
+        "description": "A major shrine in southern Ehime dedicated to Yamabe Seibei Kinyori (山家清兵衛公頼), whose annual Warei festival includes portable shrines and Ushi-oni floats on July 23–24.",
         "highlights": ["History", "Culture", "Shrine"]
       },
       "ja": {
         "name": "和霊神社",
-        "description": "南予地方の総鎮守で、伊達宗利を祀る神社。秋の例大祭では神輿や牛鬼と呼ばれる鬼の練り物が練り歩きます。",
+        "description": "南予地方の総鎮守で、山家清兵衛公頼を祀る神社。和霊大祭は7月23・24日に行われ、神輿や牛鬼が登場します。",
         "highlights": ["歴史", "文化", "神社"]
       }
     },
@@ -101910,15 +101928,15 @@
           "type": "official",
           "url": "https://ehime-jinjacho.jp/jinja/?p=444",
           "title": "Warei Taisha — Ehime Shrine Association listing",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"
@@ -101952,7 +101970,7 @@
     },
     "categories": ["Nature", "Garden", "History"],
     "tags": ["Nature", "Garden", "History", "Uwajima City"],
-    "description": "A strolling garden built in 1866 by the last Uwajima lord, Date Muneki, around a central pond, with plum trees and a two-story teahouse.",
+    "description": "A strolling garden established in 1866 for Uwajima's Date Munetada, centered on a pond with plum trees and a two-story teahouse.",
     "highlights": ["Nature", "Garden", "History"],
     "status": "beta",
     "travelEstimate": {
@@ -102023,18 +102041,18 @@
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "None required",
-    "parking": "Check local parking guidance",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Uwajima City.",
+    "parking": "Limited on-site parking; check the official access guidance",
+    "notes": "Adult admission is 500 yen; the official garden information says cash only and lists seasonal Monday and year-end closures.",
     "notesJa": "【見どころ】天赦園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "09:00–17:00 (last admission 16:30); closed Tuesdays",
-    "businessHours": "09:00–17:00 (last admission 16:30); closed Tuesdays",
+    "openingHoursJa": "8:30～16:30（4～6月は17:00まで）。12月第2月曜～2月末の月曜休園、12月28日～1月1日休園。",
+    "businessHours": "08:30–16:30 (to 17:00 Apr–Jun); closed Mondays from the 2nd Monday of Dec through Feb and Dec 28–Jan 1",
     "officialWebsite": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
     "content": {
       "en": {
         "name": "Tenshaen Garden",
-        "description": "A strolling garden built in 1866 by the last Uwajima lord, Date Muneki, around a central pond, with plum trees and a two-story teahouse.",
+        "description": "A strolling garden established in 1866 for Uwajima's Date Munetada, centered on a pond with plum trees and a two-story teahouse.",
         "highlights": ["Nature", "Garden", "History"]
       },
       "ja": {
@@ -102050,15 +102068,21 @@
           "type": "official",
           "url": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
           "title": "Tenshaen — Uwajima City official date-site information",
-          "accessedAt": "2026-08-12"
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "official",
+          "url": "http://uwajima-date.sblo.jp/category/1129912-1.html",
+          "title": "Tenshaen — Date Museum official garden information",
+          "accessedAt": "2026-08-10"
         }
       ],
-      "checkedAt": "2026-08-12",
+      "checkedAt": "2026-08-10",
       "freshness": "current",
       "changeSummary": "KAI-31 Shikoku beta expansion",
       "changes": [
         {
-          "changedAt": "2026-08-12",
+          "changedAt": "2026-08-10",
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-31 Shikoku POI",
           "method": "assisted"

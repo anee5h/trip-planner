@@ -32,9 +32,9 @@
   "budgetMax": 10000,
   "budgetBreakdown": {
     "transport": 2000,
-    "tickets": 1800,
+    "tickets": 1500,
     "food": 1500,
-    "cafe": 700
+    "cafe": 1000
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Oboke_gorge_pleasure_boat_2106_August_13.B.jpg/1280px-Oboke_gorge_pleasure_boat_2106_August_13.B.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Oboke_gorge_pleasure_boat_2106_August_13.B.jpg/1280px-Oboke_gorge_pleasure_boat_2106_August_13.B.jpg",
@@ -85,14 +85,14 @@
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "high",
-  "reservation": "Recommended during peak seasons",
+  "reservation": "Check current operation before travel; weather can suspend the boat",
   "parking": "Paid parking near the boat dock",
-  "notes": "Source-backed KAI-31 Shikoku expansion record for Miyoshi City.",
+  "notes": "Adult sightseeing-boat fare is 1,500 yen; children aged 3 through elementary school are 750 yen.",
   "notesJa": "【見どころ】大歩危・小歩危は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "Boat 09:00–17:00 (last departure 16:30); weather-dependent",
-  "businessHours": "Boat 09:00–17:00 (last departure 16:30); weather-dependent",
+  "openingHoursJa": "観光遊覧船9:00～17:00（最終出航16:30）。年中運航（強風・荒天時を除く）。",
+  "businessHours": "Sightseeing boat 09:00–17:00 (last departure 16:30); open year-round except strong winds or bad weather",
   "officialWebsite": "https://discovertokushima.net/en/spots/obokeandkobokegorges/",
   "content": {
     "en": {
@@ -113,15 +113,15 @@
         "type": "tourism_board",
         "url": "https://discovertokushima.net/en/spots/obokeandkobokegorges/",
         "title": "Oboke and Koboke Gorges — Tokushima Tourism official site",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

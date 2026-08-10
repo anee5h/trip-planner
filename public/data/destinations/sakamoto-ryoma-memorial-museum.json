@@ -86,13 +86,13 @@
   "bestSeason": "All Year",
   "weatherDependence": "low",
   "reservation": "None required",
-  "parking": "Paid parking available",
-  "notes": "Source-backed KAI-31 Shikoku expansion record for Kochi City.",
+  "parking": "Free on-site parking for 42 cars; bus parking is prioritized by advance reservation; fallback Katsurahama parking is paid",
+  "notes": "Adult admission is 500 yen outside special exhibitions and 900 yen during special exhibitions; group visits should reserve ahead.",
   "notesJa": "【見どころ】高知県立坂本龍馬記念館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "09:00–17:00 (enter by 16:30); open daily",
-  "businessHours": "09:00–17:00 (enter by 16:30); open daily",
+  "openingHoursJa": "9:00～17:00（最終入館16:30頃）。休館日なし。",
+  "businessHours": "09:00–17:00 (enter by about 16:30); no regular closing days",
   "officialWebsite": "https://ryoma-kinenkan.jp/visit/",
   "content": {
     "en": {
@@ -113,15 +113,15 @@
         "type": "official",
         "url": "https://ryoma-kinenkan.jp/visit/",
         "title": "Sakamoto Ryoma Memorial Museum official visitor information",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

@@ -15,7 +15,7 @@
   },
   "categories": ["Culture", "Museum", "Art"],
   "tags": ["Culture", "Museum", "Art", "Matsuyama City"],
-  "description": "A prefectural museum in Matsuyama Castle's moat park, presenting Japanese and Western modern art and works by the local artist Himeji Kiyoshi, alongside the Natsume Soseki and Dogo collections.",
+  "description": "A prefectural museum in Matsuyama Castle's moat park, presenting Japanese and Western modern art and rotating exhibitions in a central Matsuyama setting.",
   "highlights": ["Culture", "Museum", "Art"],
   "status": "beta",
   "travelEstimate": {
@@ -86,18 +86,18 @@
   "bestSeason": "All Year",
   "weatherDependence": "low",
   "reservation": "None required",
-  "parking": "Paid parking in the moat park area",
+  "parking": "No parking at the museum; Kencho Nishi parking offers two hours free, with nearby paid lots",
   "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
   "notesJa": "【見どころ】愛媛県美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "09:40–18:00 (last admission 17:30); closed Mondays",
-  "businessHours": "09:40–18:00 (last admission 17:30); closed Mondays",
+  "openingHoursJa": "9:40～18:00（最終入館17:30）。月曜休館（祝日は翌日休館）。毎月第1月曜は開館し翌火曜休館。12月29日～1月3日休館。",
+  "businessHours": "09:40–18:00 (last admission 17:30); closed Mondays (holiday Monday closes the following day); closed Dec 29–Jan 3",
   "officialWebsite": "https://www.ehime-art.jp/en/guide",
   "content": {
     "en": {
       "name": "Ehime Prefectural Museum of Art",
-      "description": "A prefectural museum in Matsuyama Castle's moat park, presenting Japanese and Western modern art and works by the local artist Himeji Kiyoshi, alongside the Natsume Soseki and Dogo collections.",
+      "description": "A prefectural museum in Matsuyama Castle's moat park, presenting Japanese and Western modern art and rotating exhibitions in a central Matsuyama setting.",
       "highlights": ["Culture", "Museum", "Art"]
     },
     "ja": {
@@ -113,15 +113,15 @@
         "type": "official",
         "url": "https://www.ehime-art.jp/en/guide",
         "title": "Ehime Prefectural Museum of Art official visitor information",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

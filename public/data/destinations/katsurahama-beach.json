@@ -15,7 +15,7 @@
   },
   "categories": ["Nature", "History", "Scenery"],
   "tags": ["Nature", "History", "Scenery", "Kochi City"],
-  "description": "A Pacific-coast beach of white sand and pines, crowned by the 1928 bronze statue of Sakamoto Ryoma gazing out to sea, with a small aquarium and the Ryoma museum nearby.",
+  "description": "A Pacific-coast beach of white sand and pines, with a bronze statue of Sakamoto Ryoma gazing out to sea, a small aquarium, and the Ryoma museum nearby.",
   "highlights": ["Nature", "History", "Scenery"],
   "status": "beta",
   "travelEstimate": {
@@ -91,18 +91,18 @@
   "notesJa": "【見どころ】桂浜は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "Open access; beach is for sightseeing, not swimming",
+  "openingHoursJa": "常時開放。海水浴場ではなく観光向け。",
   "businessHours": "Open access; beach is for sightseeing, not swimming",
   "officialWebsite": "https://www.city.kochi.kochi.jp/kochi-city-travel-guide/katsurahama-beach/",
   "content": {
     "en": {
       "name": "Katsurahama Beach",
-      "description": "A Pacific-coast beach of white sand and pines, crowned by the 1928 bronze statue of Sakamoto Ryoma gazing out to sea, with a small aquarium and the Ryoma museum nearby.",
+      "description": "A Pacific-coast beach of white sand and pines, with a bronze statue of Sakamoto Ryoma gazing out to sea, a small aquarium, and the Ryoma museum nearby.",
       "highlights": ["Nature", "History", "Scenery"]
     },
     "ja": {
       "name": "桂浜",
-      "description": "白砂と松林が続く太平洋の海岸。1928年建立の坂本龍馬像が海を見つめ、近くに水族館や龍馬記念館があります。",
+      "description": "白砂と松林が続く太平洋の海岸。坂本龍馬像が海を見つめ、近くに水族館や龍馬記念館があります。",
       "highlights": ["自然", "歴史", "絶景"]
     }
   },
@@ -113,15 +113,15 @@
         "type": "tourism_board",
         "url": "https://www.city.kochi.kochi.jp/kochi-city-travel-guide/katsurahama-beach/",
         "title": "Katsurahama Beach — Kochi City official travel guide",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

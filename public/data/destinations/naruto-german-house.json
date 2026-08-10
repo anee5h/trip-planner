@@ -86,14 +86,14 @@
   "bestSeason": "All Year",
   "weatherDependence": "low",
   "reservation": "None required",
-  "parking": "Free parking available",
-  "notes": "Source-backed KAI-31 Shikoku expansion record for Naruto City.",
+  "parking": "Free parking shared with Roadside Station Dai-san no Sato; about 100 spaces",
+  "notes": "Admission is 400 yen for adults and 100 yen for children; temporary closures can occur.",
   "notesJa": "【見どころ】鳴門市ドイツ館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "09:30–17:00 (last admission 16:30); closed 4th Monday of month",
-  "businessHours": "09:30–17:00 (last admission 16:30); closed 4th Monday of month",
-  "officialWebsite": "https://www.city.naruto.tokushima.jp/docs/2024100200038/file_contents/20241002.pdf",
+  "openingHoursJa": "9:30～17:00（最終入館16:30）。第4月曜休館（祝日の場合は翌日）、12月28日～31日休館。臨時休館あり。",
+  "businessHours": "09:30–17:00 (last admission 16:30); closed the 4th Monday (next day if a holiday) and Dec 28–31",
+  "officialWebsite": "https://doitsukan.com/",
   "content": {
     "en": {
       "name": "Naruto German House",
@@ -111,17 +111,23 @@
     "sources": [
       {
         "type": "official",
-        "url": "https://www.city.naruto.tokushima.jp/docs/2024100200038/file_contents/20241002.pdf",
-        "title": "Naruto German House — Naruto City official pamphlet",
-        "accessedAt": "2026-08-12"
+        "url": "https://doitsukan.com/spot.html",
+        "title": "Naruto German House — official visitor information",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "official",
+        "url": "https://www.city.naruto.lg.jp/map/info/95/",
+        "title": "Naruto German House — Naruto City facility map",
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

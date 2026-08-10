@@ -32,8 +32,8 @@
   "budgetMax": 10000,
   "budgetBreakdown": {
     "transport": 2000,
-    "tickets": 1800,
-    "food": 1500,
+    "tickets": 2300,
+    "food": 1000,
     "cafe": 700
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Mt.Tsurugisan.jpg/1280px-Mt.Tsurugisan.jpg",
@@ -41,7 +41,7 @@
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "Public domain",
-    "attribution": "Public domain (original author unknown)",
+    "attribution": "As6673",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt.Tsurugisan.jpg"
   },
   "recommendedVisitHours": {
@@ -91,8 +91,8 @@
   "notesJa": "【見どころ】剣山は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "Trails open year-round; lift mid-Apr to Nov 30, 09:00–16:30",
-  "businessHours": "Trails open year-round; lift mid-Apr to Nov 30, 09:00–16:30",
+  "openingHoursJa": "リフトは4月中旬～11月30日、通常9:00～16:30（8月は8:00から）。天候・営業日は公式サイトを確認。",
+  "businessHours": "Lift normally operates mid-April–Nov 30, 09:00–16:30 (08:00 in August); weather and seasonal trail conditions can change access",
   "officialWebsite": "https://www.rinya.maff.go.jp/e/national_forest/recreation_forest/tsurugisan.html",
   "content": {
     "en": {
@@ -113,21 +113,21 @@
         "type": "government",
         "url": "https://www.rinya.maff.go.jp/e/national_forest/recreation_forest/tsurugisan.html",
         "title": "Tsurugisan Recreation Forest — Forestry Agency official listing",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       },
       {
         "type": "official",
         "url": "https://turugirift.com/",
         "title": "Mt. Tsurugi sightseeing lift official site",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"

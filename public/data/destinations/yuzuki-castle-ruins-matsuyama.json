@@ -91,8 +91,8 @@
   "notesJa": "【見どころ】道後公園（湯築城跡）は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "Park open anytime; exhibition facility 09:00–17:00 (closed Mondays)",
-  "businessHours": "Park open anytime; exhibition facility 09:00–17:00 (closed Mondays)",
+  "openingHoursJa": "公園は常時開園。展示施設9:00～17:00。月曜休館（祝日は開館し翌平日休館）。",
+  "businessHours": "Park open anytime; exhibition facility 09:00–17:00; closed Mondays (open on public holidays, closed the following weekday)",
   "officialWebsite": "https://dogokouen.jp/",
   "content": {
     "en": {
@@ -113,21 +113,21 @@
         "type": "official",
         "url": "https://dogokouen.jp/",
         "title": "Dogo Park (Yuzuki Castle Ruins) official site",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       },
       {
         "type": "tourism_board",
         "url": "https://en.matsuyama-sightseeing.com/spot/18-2/",
         "title": "Dogo-kōen Park — Tourism Matsuyama official listing",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-31 Shikoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"
