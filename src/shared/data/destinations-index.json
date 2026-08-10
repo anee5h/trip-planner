@@ -328,6 +328,34 @@
       "verifiedAt": "2026-08-11",
       "sourceUrl": "https://abukumado.com/",
       "lastAdmission": "16:30"
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://abukumado.com/",
+          "title": "Official website",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
     }
   },
   {
@@ -1033,7 +1061,35 @@
     "officialWebsite": "https://www.akiuonsensyokoukai.com/",
     "businessHours": "Open access (onsen district; ryokan day-use hours vary)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Miyagi:sendai"
+    "municipalityId": "Miyagi:sendai",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.akiuonsensyokoukai.com/",
+          "title": "Official website",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "akiyoshido-cave-yamaguchi",
@@ -1732,27 +1788,9 @@
           "accessedAt": "2026-07-29"
         }
       ],
-      "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Aoba_Castle",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Aoba_Castle",
-            "title": "Aoba Castle",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
         {
           "changedAt": "2026-07-29",
@@ -1764,6 +1802,18 @@
           "changedAt": "2026-07-29",
           "changedBy": "TabiMap data audit",
           "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
         }
       ]
@@ -7957,7 +8007,35 @@
     "officialWebsite": "https://www.city.semboku.akita.jp/sightseeing/spot/05_dakigaeri.html",
     "businessHours": "Open access (valley trail; seasonal closures)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Akita:semboku"
+    "municipalityId": "Akita:semboku",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.semboku.akita.jp/sightseeing/spot/05_dakigaeri.html",
+          "title": "Senboku City — Dakigaeri Valley",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "dazaifu-city",
@@ -8163,7 +8241,35 @@
     },
     "officialWebsite": "http://www.dewasanzan.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "http://www.dewasanzan.jp/",
+          "title": "Official website",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "disneyland",
@@ -12547,7 +12653,35 @@
     "officialWebsite": "https://www.geibikei.co.jp/",
     "businessHours": "08:30 - 16:00 (Apr 1–Nov 5) / 09:30 - 15:00 (Nov 21–Mar 31); open year-round",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Iwate:ichinoseki"
+    "municipalityId": "Iwate:ichinoseki",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.geibikei.co.jp/",
+          "title": "Official website",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "gero-city",
@@ -13707,7 +13841,35 @@
     "officialWebsite": "https://www.ginzanonsen.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Yamagata:obanazawa"
+    "municipalityId": "Yamagata:obanazawa",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.ginzanonsen.jp/",
+          "title": "Official website",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "golden-gai",
@@ -14004,7 +14166,35 @@
     "officialWebsite": "https://www.urabandai-inf.com/",
     "businessHours": "Open access (open-air ponds; 3.6 km one-way trail)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Fukushima:kitashiobara"
+    "municipalityId": "Fukushima:kitashiobara",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.urabandai-inf.com/",
+          "title": "Urabandai tourist information",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "gotemba-city",
@@ -17660,7 +17850,35 @@
     },
     "officialWebsite": "https://www.chusonji.or.jp/",
     "businessHours": "08:30 - 17:00 (Mar 1–Nov 3) / 08:30 - 16:30 (winter); open year-round",
-    "municipalityId": "Iwate:hiraizumi"
+    "municipalityId": "Iwate:hiraizumi",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.chusonji.or.jp/",
+          "title": "Official website",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "hirosaki-castle",
@@ -17761,7 +17979,35 @@
     },
     "officialWebsite": "https://www.hirosakijo.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "municipalityId": "Aomori:hirosaki"
+    "municipalityId": "Aomori:hirosaki",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.hirosakijo.jp/",
+          "title": "Official website",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "hirosaki-city",
@@ -22296,7 +22542,35 @@
     "officialWebsite": "https://www.city.miyako.iwate.jp/gyosei/soshiki/kanko/4/8/2/1/1154.html",
     "businessHours": "09:00 - 17:00 (Daily)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Iwate:miyako"
+    "municipalityId": "Iwate:miyako",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.miyako.iwate.jp/gyosei/soshiki/kanko/4/8/2/1/1154.html",
+          "title": "Official website",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "jogashima",
@@ -22722,27 +22996,9 @@
           "accessedAt": "2026-07-29"
         }
       ],
-      "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Sendai",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Sendai",
-            "title": "Sendai",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
         {
           "changedAt": "2026-07-29",
@@ -22754,6 +23010,18 @@
           "changedAt": "2026-07-29",
           "changedBy": "TabiMap data audit",
           "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
         }
       ]
@@ -23626,7 +23894,35 @@
     "officialWebsite": "https://www.city.semboku.akita.jp/sightseeing/spot/07_buke.html",
     "businessHours": "Open access (open street district; individual museums have their own hours)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Akita:semboku"
+    "municipalityId": "Akita:semboku",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.semboku.akita.jp/sightseeing/spot/07_buke.html",
+          "title": "Senboku City — Kakunodate samurai district",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "kamakura-city",
@@ -33495,7 +33791,35 @@
     "officialWebsite": "https://www.tazawako.org/",
     "businessHours": "Open access (open lake; no hours)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Akita:semboku"
+    "municipalityId": "Akita:semboku",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.semboku.akita.jp/sightseeing/spot/04_tazawako.html",
+          "title": "Senboku City — Lake Tazawa",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "lake-towada-aomori",
@@ -33588,7 +33912,35 @@
     },
     "officialWebsite": "https://www.towada.kanko.or.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://towadako.or.jp/",
+          "title": "Towadako Tourism Association",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "lazona-kawasaki-plaza",
@@ -35410,7 +35762,35 @@
     },
     "officialWebsite": "https://www.matsushima-kanko.org/",
     "businessHours": "Open access",
-    "municipalityId": "Miyagi:matsushima"
+    "municipalityId": "Miyagi:matsushima",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.town.miyagi-matsushima.lg.jp/",
+          "title": "Matsushima Town official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "matsuyama-castle-ehime",
@@ -38263,7 +38643,35 @@
     "officialWebsite": "https://www.bandaisan.or.jp/",
     "businessHours": "Open access (mountain; seasonal trail closures)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Fukushima:inawashiro"
+    "municipalityId": "Fukushima:inawashiro",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.bandaisan.or.jp/",
+          "title": "Bandaisan Tourism Association",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "mount-fuji",
@@ -43438,6 +43846,34 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-11",
       "sourceUrl": "https://www.nebuta.jp/warasse/"
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.nebuta.jp/warasse/",
+          "title": "Official website",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
     }
   },
   {
@@ -45594,7 +46030,35 @@
     "officialWebsite": "https://www.nyuto-onsenkyo.gr.jp/",
     "businessHours": "Day-use bathing hours vary by inn (e.g. Tsurunoyu 10:00–15:30, closed Mondays)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Akita:semboku"
+    "municipalityId": "Akita:semboku",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.semboku.akita.jp/sightseeing/spot/02.html",
+          "title": "Senboku City — Nyuto Onsen",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "oarai-marine-tower",
@@ -46651,7 +47115,35 @@
     "officialWebsite": "https://www.towada.kanko.or.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Aomori:towada"
+    "municipalityId": "Aomori:towada",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.towada.kanko.or.jp/",
+          "title": "Official website",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "okama-crater-yamagata",
@@ -46746,7 +47238,35 @@
     "officialWebsite": "https://zao-kochan.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Yamagata:yamagata"
+    "municipalityId": "Yamagata:yamagata",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.zaoropeway.co.jp/",
+          "title": "Zao Ropeway official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "okayama-city",
@@ -50163,7 +50683,35 @@
     "officialWebsite": "https://ouchi-juku.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Fukushima:shimogo"
+    "municipalityId": "Fukushima:shimogo",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://kunishitei.bunka.go.jp/heritage/detail/103/4",
+          "title": "Agency for Cultural Affairs — Ouchi-juku designation",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "oura-church-nagasaki",
@@ -50731,35 +51279,9 @@
           "accessedAt": "2026-07-29"
         }
       ],
-      "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Rakuten_Mobile_Saikyo_Park_Miyagi",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Rakuten_Mobile_Saikyo_Park_Miyagi",
-            "title": "Rakuten Mobile Saikyo Park Miyagi",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "officialWebsite": [
-          {
-            "type": "official",
-            "url": "https://www.rakuteneagles.jp/stadium/",
-            "title": "Official website for Rakuten Mobile Park Miyagi",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
         {
           "changedAt": "2026-07-29",
@@ -50771,6 +51293,18 @@
           "changedAt": "2026-07-29",
           "changedBy": "TabiMap data audit",
           "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
         }
       ]
@@ -51469,7 +52003,35 @@
     "officialWebsite": "https://www.iwate-ryusendo.jp/",
     "businessHours": "08:30 - 17:00 (May–Sep to 18:00)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Iwate:iwaizumi"
+    "municipalityId": "Iwate:iwaizumi",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.iwate-ryusendo.jp/",
+          "title": "Official website",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "sado-island",
@@ -53457,7 +54019,35 @@
     },
     "officialWebsite": "https://sannaimaruyama.pref.aomori.jp/",
     "businessHours": "09:00 - 17:00 (Jun–Sep to 18:00)",
-    "municipalityId": "Aomori:aomori"
+    "municipalityId": "Aomori:aomori",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://sannaimaruyama.pref.aomori.jp/",
+          "title": "Official website",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "sapporo-beer-museum",
@@ -54636,35 +55226,9 @@
           "accessedAt": "2026-07-29"
         }
       ],
-      "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Sendai_Station_(Miyagi)",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Sendai_Station_(Miyagi)",
-            "title": "Sendai Station (Miyagi)",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "officialWebsite": [
-          {
-            "type": "official",
-            "url": "https://sendaiasaichi.com/",
-            "title": "Official website for Sendai Asaichi Morning Market",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
         {
           "changedAt": "2026-07-29",
@@ -54676,6 +55240,18 @@
           "changedAt": "2026-07-29",
           "changedBy": "TabiMap data audit",
           "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
         }
       ]
@@ -54792,7 +55368,35 @@
     "businessHours": "Open access (grounds); site museum hours vary by season",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Miyagi:sendai",
-    "kind": "castle"
+    "kind": "castle",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.sendai-c.ed.jp/~museum/",
+          "title": "Official website",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "sendai-city",
@@ -55036,27 +55640,9 @@
           "accessedAt": "2026-07-29"
         }
       ],
-      "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Sendai_City_Museum",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Sendai_City_Museum",
-            "title": "Sendai City Museum",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
         {
           "changedAt": "2026-07-29",
@@ -55068,6 +55654,18 @@
           "changedAt": "2026-07-29",
           "changedBy": "TabiMap data audit",
           "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
         }
       ]
@@ -55211,27 +55809,9 @@
           "accessedAt": "2026-07-29"
         }
       ],
-      "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Sendai_Mediatheque",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Sendai_Mediatheque",
-            "title": "Sendai Mediatheque",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
         {
           "changedAt": "2026-07-29",
@@ -55243,6 +55823,18 @@
           "changedAt": "2026-07-29",
           "changedBy": "TabiMap data audit",
           "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
         }
       ]
@@ -55381,27 +55973,9 @@
           "accessedAt": "2026-07-29"
         }
       ],
-      "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Sendai_Umino-Mori_Aquarium",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Sendai_Umino-Mori_Aquarium",
-            "title": "Sendai Umino-Mori Aquarium",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
         {
           "changedAt": "2026-07-29",
@@ -55413,6 +55987,18 @@
           "changedAt": "2026-07-29",
           "changedBy": "TabiMap data audit",
           "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
         }
       ]
@@ -57492,7 +58078,35 @@
       "max": 7
     },
     "officialWebsite": "https://www.pref.aomori.lg.jp/soshiki/kankyo/kankyo/shirakami.html",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://rinya.maff.go.jp/j/sin_riyou/sekaiisan/sirakami_itimenseki.html",
+          "title": "Forestry Agency — Shirakami-Sanchi",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "shirakawa-village",
@@ -67004,6 +67618,34 @@
       "verifiedAt": "2026-08-11",
       "sourceUrl": "https://www.tsurugajo.com/",
       "lastAdmission": "16:30"
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.tsurugajo.com/",
+          "title": "Official website",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
     }
   },
   {
@@ -69371,7 +70013,35 @@
     "officialWebsite": "https://www.yamaderakankou.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Yamagata:yamagata"
+    "municipalityId": "Yamagata:yamagata",
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.yamaderakankou.com/",
+          "title": "Official website",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        }
+      ]
+    }
   },
   {
     "id": "yamagata-city",
@@ -72519,27 +73189,9 @@
           "accessedAt": "2026-07-29"
         }
       ],
-      "checkedAt": "2026-07-29",
-      "freshness": "review_due",
-      "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Zuih%C5%8Dden",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Zuih%C5%8Dden",
-            "title": "Zuihōden",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
         {
           "changedAt": "2026-07-29",
@@ -72551,6 +73203,18 @@
           "changedAt": "2026-07-29",
           "changedBy": "TabiMap data audit",
           "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
+          "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
         }
       ]

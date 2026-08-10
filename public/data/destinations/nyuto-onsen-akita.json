@@ -95,5 +95,33 @@
   "officialWebsite": "https://www.nyuto-onsenkyo.gr.jp/",
   "businessHours": "Day-use bathing hours vary by inn (e.g. Tsurunoyu 10:00–15:30, closed Mondays)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Akita:semboku"
+  "municipalityId": "Akita:semboku",
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.semboku.akita.jp/sightseeing/spot/02.html",
+        "title": "Senboku City — Nyuto Onsen",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
+      }
+    ]
+  }
 }

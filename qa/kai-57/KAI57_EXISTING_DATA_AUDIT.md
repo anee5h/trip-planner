@@ -125,8 +125,79 @@ transport issues | action
    nebuta-museum-wa-rasse (~31 km), sendai-castle-ruins (~0.7 km) — all to be
    verified against official addresses.
 
-## Merge status
+## Phase 2 outcomes — corrections applied (2026-08-11)
 
-Scout deep-fact verification (one per prefecture) in progress; cells marked
-`[pending]` will be resolved with source URLs in the final version of this
-document before Phase 3 starts.
+Deep factual verification was completed by six parallel per-prefecture audits
+(scout agents) against authoritative sources on 2026-08-11. Every `[pending]`
+mark above is resolved. All corrections below were applied by the deterministic
+generator `scripts/kai-57-tohoku-expansion.ts` (idempotent; second run = zero
+diff) and are recorded in `KAI57_SOURCE_LEDGER.md`-style provenance blocks.
+
+### Containment / relationship corrections (18 records)
+
+| id | fix applied | evidence basis |
+|---|---|---|
+| abukuma-cave-fukushima | gateway aizuwakamatsu-city → koriyama-city; muni Fukushima:tamura; station Kammata (神俣) | abukumado.com (Tamura operator) |
+| goshikinuma-ponds-fukushima | muni Fukushima:kitashiobara; gateway aizuwakamatsu-city; dropped false nearby (abukuma, ~90 km) | urabandai-inf.com; JA Wikipedia 五色沼 |
+| mount-bandai-fukushima | muni Fukushima:inawashiro; gateway aizuwakamatsu-city; trailhead Happodai | JMA 磐梯山; inawashiro Station access |
+| tsuruga-castle-fukushima | coords → keep (37.4876,139.9298); hours 08:30–17:00 (last entry 16:30) | tsurugajo.com |
+| ouchi-juku-fukushima | coords nudged to official district pin | kunishitei.bunka.go.jp |
+| lake-towada-aomori | muni removed (Towada City + Kosaka Town); parent dropped; gateway hachinohe-city; Oirase = outflow fix | towadako.or.jp; aomori-itc.or.jp |
+| nebuta-museum-wa-rasse-aomori | coords → (40.8296,140.7358); kind museum; seasonal hours | city.aomori.aomori.jp; NAVITIME |
+| oirase-gorge-aomori | muni Aomori:towada; gateway aomori-city → hachinohe-city | kunishitei.bunka.go.jp; JA Wikipedia |
+| shirakami-sanchi-aomori | muni + parent removed (multi-municipality WH); gateway hirosaki-city | rinya.maff.go.jp (Forestry Agency) |
+| dakigaeri-valley-akita | parent akita-city → semboku-city; muni Akita:semboku; officialWebsite domain fix (senboku→semboku) | city.semboku.akita.jp |
+| lake-tazawa-akita | gateway akita-city → parent semboku-city; muni Akita:semboku | city.semboku.akita.jp |
+| dewa-sanzan-yamagata | muni + parent removed (Tsuruoka/Nishikawa); gateway yamagata-city | Tsuruoka city addresses (Haguro/Gassan/Yudono) |
+| ginzan-onsen-yamagata | muni Yamagata:obanazawa added | Obanazawa city address |
+| geibikei-gorge-iwate | muni Iwate:ichinoseki; fare ¥2,000; seasonal hours | geibikei.co.jp |
+| hiraizumi-chusonji-iwate | muni Iwate:hiraizumi; official full name; pilgrimage collection dropped | chusonji.or.jp; online.bunka.go.jp |
+| jodogahama-beach-iwate | coords → (39.6523,141.9790); muni Iwate:miyako; Sanriku Fukko NP rename; dead website fixed | city.miyako.iwate.jp |
+| ryusendo-cave-iwate | muni Iwate:iwaizumi; illegal parent dropped → gateway morioka-city; coords → (39.8601,141.7971); verified hours/length/access | iwate-ryusendo.jp; NAVITIME |
+| matsushima-bay | muni Miyagi:matsushima; false sendai-city parent dropped → gateway; cross-region notes corruption removed (Matsuyama/Ehime) | town.miyagi-matsushima.lg.jp |
+
+### Name / factual / operational corrections (27 records)
+
+- Hubs nameJa → official city names: aomori-city 青森市, hirosaki-city 弘前市,
+  aizuwakamatsu-city 会津若松市, fukushima-city 福島市, koriyama-city 郡山市,
+  semboku-city 仙北市; sendai-city kind=city; hub notes junk
+  ("Municipal hub record reviewed…") replaced with real content.
+- sannai-maruyama-jomon-aomori renamed to the site (三内丸山遺跡) with real
+  description/hours; shirakami/lake-towada/dewa-sanzan real descriptions.
+- akiu-onsen-miyagi emperor Shomu → Kinmei (欽明天皇).
+- sendai-castle-ruins-miyagi: coords → Aoba Castle (38.2522,140.8560); 1793
+  earthquake claim corrected (fires 1616/1648/1668/1882 + WWII); kind castle.
+- jozenji-dori: kind temple → street; nameJa 定禅寺通; no ticket allowance;
+  rain fields consistent; categories Culture.
+- sendai-asaichi-morning-market: nameJa 仙台朝市 (was 仙台駅 — station template
+  contamination, incl. JA content); coords; no ticket allowance.
+- rakuten-mobile-park-miyagi: nameJa 楽天モバイルパーク宮城; rain rating fixed
+  (outdoor stadium); documented schema compromise (no stadium kind).
+- sendai-mediatheque/zuihoden/aoba-castle-museum/sendai-umino-mori:
+  categories fixed (Museum/Aquarium), JA highlights aligned, verified hours.
+- yamadera fee ¥300 → ¥500; hirosaki-castle keep-closure note (seismic repair
+  since Nov 2025); okama-crater border caveat documented.
+- Fabricated generic businessHours "09:00 - 17:00 (Daily)" removed from open-air
+  nature/onsen/district records (goshikinuma, mount-bandai, nyuto, kakunodate,
+  dakigaeri, akiu, lake-tazawa, sendai-castle-ruins).
+
+### Known limitations (documented, not silently fixed)
+
+- okama-crater: crater sits on the Yamagata–Miyagi border (VISIT YAMAGATA lists
+  Miyagi-side Kawasaki Town; boundary undetermined). Kept Yamagata-filed with a
+  caveat note — flagged for Sol review.
+- mount-zao: ropeway base + juhyo experience entirely in Yamagata City —
+  municipalityId Yamagata:yamagata retained (refutes original flag).
+- Gateway choices for southern Iwate (geibikei, hiraizumi) are forced to
+  morioka-city by the same-prefecture gateway rule though both are closer to
+  Sendai — recorded as a KAI-66 transport-topology gap.
+- rakuten-mobile-park: schema has no stadium kind; kind=park + ticket budget
+  warnings are a documented compromise.
+- 3 multi-municipality standalones (shirakami, lake-towada, dewa-sanzan) carry
+  no municipalityId by design; validator warning MUNICIPALITY_UNVERIFIED_
+  NON_CONTAINED remains (by design).
+- Provenance blocks (editorial.sources/checkedAt) were added to corrected
+  records via the generator's ensureProvenance path where sources were
+  available; remaining clean records still lack provenance (tracked in the
+  source ledger as deferred housekeeping).
+

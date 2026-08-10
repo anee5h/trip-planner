@@ -78,21 +78,29 @@ function ensureProvenance(id: string, sources: SourceDef[], summary: string) {
       const fresh = sources
         .filter((s) => !known.has(s.url))
         .map((s) => ({ ...s, accessedAt: AUDIT_DATE }));
+      const changes = d.editorial?.changes ?? [];
+      const last = changes[changes.length - 1];
+      const alreadyLogged =
+        last !== undefined &&
+        last.summary === summary &&
+        last.changedAt === AUDIT_DATE;
       d.editorial = {
         lifecycle: d.editorial?.lifecycle ?? "in_review",
         sources: [...existing, ...fresh],
         checkedAt: AUDIT_DATE,
         freshness: "current",
         changeSummary: summary,
-        changes: [
-          ...(d.editorial?.changes ?? []),
-          {
-            changedAt: AUDIT_DATE,
-            changedBy: "Meguruto editorial",
-            summary,
-            method: "assisted",
-          },
-        ],
+        changes: alreadyLogged
+          ? changes
+          : [
+              ...changes,
+              {
+                changedAt: AUDIT_DATE,
+                changedBy: "Meguruto editorial",
+                summary,
+                method: "assisted",
+              },
+            ],
       };
     },
     `provenance added (${sources.length} source${sources.length === 1 ? "" : "s"})`,
@@ -754,6 +762,110 @@ patch(
   },
   "JA highlights match categories",
 );
+
+// ===========================================================================
+// Provenance: every corrected record gains editorial.sources + checkedAt.
+// Primary source = the record's own officialWebsite when present, else the
+// scout-cited official source below.
+// ===========================================================================
+
+const PROVENANCE_FALLBACK: Record<string, SourceDef> = {
+  "matsushima-bay": {
+    type: "tourism_board",
+    url: "https://www.town.miyagi-matsushima.lg.jp/",
+    title: "Matsushima Town official site",
+  },
+  "goshikinuma-ponds-fukushima": {
+    type: "tourism_board",
+    url: "https://www.urabandai-inf.com/",
+    title: "Urabandai tourist information",
+  },
+  "mount-bandai-fukushima": {
+    type: "tourism_board",
+    url: "https://www.bandaisan.or.jp/",
+    title: "Bandaisan Tourism Association",
+  },
+  "shirakami-sanchi-aomori": {
+    type: "government",
+    url: "https://rinya.maff.go.jp/j/sin_riyou/sekaiisan/sirakami_itimenseki.html",
+    title: "Forestry Agency — Shirakami-Sanchi",
+  },
+  "lake-towada-aomori": {
+    type: "tourism_board",
+    url: "https://towadako.or.jp/",
+    title: "Towadako Tourism Association",
+  },
+  "dakigaeri-valley-akita": {
+    type: "government",
+    url: "https://www.city.semboku.akita.jp/sightseeing/spot/05_dakigaeri.html",
+    title: "Senboku City — Dakigaeri Valley",
+  },
+  "lake-tazawa-akita": {
+    type: "government",
+    url: "https://www.city.semboku.akita.jp/sightseeing/spot/04_tazawako.html",
+    title: "Senboku City — Lake Tazawa",
+  },
+  "kakunodate-samurai-district-akita": {
+    type: "government",
+    url: "https://www.city.semboku.akita.jp/sightseeing/spot/07_buke.html",
+    title: "Senboku City — Kakunodate samurai district",
+  },
+  "nyuto-onsen-akita": {
+    type: "government",
+    url: "https://www.city.semboku.akita.jp/sightseeing/spot/02.html",
+    title: "Senboku City — Nyuto Onsen",
+  },
+  "okama-crater-yamagata": {
+    type: "tourism_board",
+    url: "https://www.zaoropeway.co.jp/",
+    title: "Zao Ropeway official site",
+  },
+  "ouchi-juku-fukushima": {
+    type: "government",
+    url: "https://kunishitei.bunka.go.jp/heritage/detail/103/4",
+    title: "Agency for Cultural Affairs — Ouchi-juku designation",
+  },
+};
+
+const CORRECTED_IDS = [
+  "abukuma-cave-fukushima", "aizuwakamatsu-city", "fukushima-city",
+  "koriyama-city", "goshikinuma-ponds-fukushima", "mount-bandai-fukushima",
+  "tsuruga-castle-fukushima", "ouchi-juku-fukushima",
+  "aomori-city", "hirosaki-city", "hachinohe-city", "hirosaki-castle",
+  "lake-towada-aomori", "nebuta-museum-wa-rasse-aomori", "oirase-gorge-aomori",
+  "sannai-maruyama-jomon-aomori", "shirakami-sanchi-aomori",
+  "akita-city", "semboku-city", "dakigaeri-valley-akita", "lake-tazawa-akita",
+  "kakunodate-samurai-district-akita", "nyuto-onsen-akita",
+  "yamagata-city", "dewa-sanzan-yamagata", "ginzan-onsen-yamagata",
+  "yamadera-yamagata", "okama-crater-yamagata",
+  "morioka-city", "geibikei-gorge-iwate", "hiraizumi-chusonji-iwate",
+  "jodogahama-beach-iwate", "ryusendo-cave-iwate",
+  "sendai-city", "matsushima-bay", "jozenji-dori",
+  "sendai-asaichi-morning-market", "rakuten-mobile-park-miyagi",
+  "akiu-onsen-miyagi", "sendai-castle-ruins-miyagi", "sendai-mediatheque",
+  "sendai-umino-mori-aquarium", "zuihoden", "aoba-castle-museum",
+  "sendai-city-museum",
+];
+
+for (const id of CORRECTED_IDS) {
+  const d = byId.get(id);
+  if (!d) throw new Error(`provenance target missing: ${id}`);
+  const fallback = PROVENANCE_FALLBACK[id];
+  const url = d.officialWebsite ?? fallback?.url;
+  if (!url) {
+    console.log(`  (provenance skipped ${id}: no official website)`);
+    continue;
+  }
+  ensureProvenance(
+    id,
+    [
+      fallback
+        ? { type: fallback.type, url: fallback.url, title: fallback.title }
+        : { type: "official", url, title: "Official website" },
+    ],
+    "KAI-57 existing-data audit correction",
+  );
+}
 
 // ===========================================================================
 // Write
