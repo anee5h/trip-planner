@@ -1,0 +1,146 @@
+{
+  "id": "ritsurin-garden",
+  "name": "Ritsurin Garden",
+  "nameJa": "栗林公園",
+  "kind": "garden",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Kagawa:takamatsu",
+  "prefecture": "Kagawa",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 34.3295,
+    "lng": 134.0439
+  },
+  "categories": ["Nature", "Garden", "History"],
+  "tags": ["Nature", "Garden", "History", "Takamatsu City"],
+  "description": "One of Japan's finest surviving daimyo gardens, laid out in the 17th century around six ponds and thirteen hills, with the pine-covered Mount Shiun as borrowed scenery.",
+  "highlights": ["Nature", "Garden", "History"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 110,
+    "bus": 120,
+    "car": 130
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 500,
+    "food": 1500,
+    "cafe": 500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ritsurin.JPG/1280px-Ritsurin.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ritsurin.JPG/1280px-Ritsurin.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Leela Soden",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ritsurin.JPG"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 6000,
+  "walkingSunMin": 3500,
+  "walkingShadeMin": 2500,
+  "walkingIntensity": "medium",
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 9.2,
+    "couple": 9,
+    "summer": 8.2,
+    "winter": 8,
+    "rain": 7.4,
+    "food": 8,
+    "photography": 9.4,
+    "relaxation": 9.4,
+    "value": 8.6,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9.4,
+    "summer": 7.6,
+    "autumn": 9.2,
+    "winter": 8.6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Paid parking available near the garden",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Takamatsu City.",
+  "notesJa": "【見どころ】栗林公園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "Open daily; seasonal opening hours",
+  "businessHours": "Open daily; seasonal opening hours",
+  "officialWebsite": "https://www.my-kagawa.jp/en/see-and-do/10077",
+  "content": {
+    "en": {
+      "name": "Ritsurin Garden",
+      "description": "One of Japan's finest surviving daimyo gardens, laid out in the 17th century around six ponds and thirteen hills, with the pine-covered Mount Shiun as borrowed scenery.",
+      "highlights": ["Nature", "Garden", "History"]
+    },
+    "ja": {
+      "name": "栗林公園",
+      "description": "江戸時代から受け継がれる大名庭園で、6つの池と13の築山が配され、紫雲山を借景にした回遊式庭園の名園です。",
+      "highlights": ["自然", "庭園", "歴史"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.my-kagawa.jp/en/see-and-do/10077",
+        "title": "Ritsurin Garden — VISIT KAGAWA official tourism site",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://www.art-takamatsu.com/en/spot/entry-642.html",
+        "title": "Takamatsu City official art/tourism listing",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "takamatsu-city"
+  },
+  "schemaVersion": 2
+}

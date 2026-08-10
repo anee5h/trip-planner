@@ -1,0 +1,140 @@
+{
+  "id": "tenshaen-garden-uwajima",
+  "name": "Tenshaen Garden",
+  "nameJa": "天赦園",
+  "kind": "garden",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Ehime:uwajima",
+  "prefecture": "Ehime",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 33.2236,
+    "lng": 132.5684
+  },
+  "categories": ["Nature", "Garden", "History"],
+  "tags": ["Nature", "Garden", "History", "Uwajima City"],
+  "description": "A strolling garden built in 1866 by the last Uwajima lord, Date Muneki, around a central pond, with plum trees and a two-story teahouse.",
+  "highlights": ["Nature", "Garden", "History"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 115,
+    "bus": 125,
+    "car": 130
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1200,
+    "tickets": 500,
+    "food": 1500,
+    "cafe": 800
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Tenshaen.jpg/1280px-Tenshaen.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Tenshaen.jpg/1280px-Tenshaen.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "As6673",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tenshaen.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 4500,
+  "walkingSunMin": 2700,
+  "walkingShadeMin": 1800,
+  "walkingIntensity": "medium",
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.4,
+    "summer": 7.8,
+    "winter": 8,
+    "rain": 7,
+    "food": 7.6,
+    "photography": 8.8,
+    "relaxation": 8.8,
+    "value": 8.2,
+    "uniqueness": 8.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 8.8,
+    "summer": 7.8,
+    "autumn": 8.6,
+    "winter": 8
+  },
+  "bestMonths": [2, 3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Check local parking guidance",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Uwajima City.",
+  "notesJa": "【見どころ】天赦園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "09:00–17:00 (last admission 16:30); closed Tuesdays",
+  "businessHours": "09:00–17:00 (last admission 16:30); closed Tuesdays",
+  "officialWebsite": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
+  "content": {
+    "en": {
+      "name": "Tenshaen Garden",
+      "description": "A strolling garden built in 1866 by the last Uwajima lord, Date Muneki, around a central pond, with plum trees and a two-story teahouse.",
+      "highlights": ["Nature", "Garden", "History"]
+    },
+    "ja": {
+      "name": "天赦園",
+      "description": "1866年に宇和島藩最後の藩主・伊達宗城が築いた回遊式庭園。池を中心に梅や茶亭が配されています。",
+      "highlights": ["自然", "庭園", "歴史"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
+        "title": "Tenshaen — Uwajima City official date-site information",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "uwajima-city"
+  },
+  "schemaVersion": 2
+}

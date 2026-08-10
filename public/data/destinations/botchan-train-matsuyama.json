@@ -1,0 +1,140 @@
+{
+  "id": "botchan-train-matsuyama",
+  "name": "Botchan Train",
+  "nameJa": "坊っちゃん列車",
+  "kind": null,
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Ehime:matsuyama",
+  "prefecture": "Ehime",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 33.8504,
+    "lng": 132.7851
+  },
+  "categories": ["Experience", "History", "Culture"],
+  "tags": ["Experience", "History", "Culture", "Matsuyama City"],
+  "description": "A restored steam-era tram from Natsume Soseki's novel Botchan, running on weekends and holidays between Dogo Onsen and central Matsuyama.",
+  "highlights": ["Experience", "History", "Culture"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 100,
+    "bus": 115,
+    "car": 120
+  },
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 9000,
+  "budgetBreakdown": {
+    "transport": 1800,
+    "tickets": 1300,
+    "food": 1300,
+    "cafe": 600
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Botchan-ressha.jpg/1280px-Botchan-ressha.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Botchan-ressha.jpg/1280px-Botchan-ressha.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Daichan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Botchan-ressha.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 50,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.2,
+    "summer": 8,
+    "winter": 8,
+    "rain": 6.6,
+    "food": 7.4,
+    "photography": 8.8,
+    "relaxation": 8,
+    "value": 7.8,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 8,
+    "autumn": 8.4,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "Not required (no reservations; capacity 36)",
+  "parking": "Public transport recommended",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City. Does not run Dec 30–Jan 3.",
+  "notesJa": "【見どころ】坊っちゃん列車は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "Weekends and holidays only; timetable published by Iyotetsu",
+  "businessHours": "Weekends and holidays only; timetable published by Iyotetsu",
+  "officialWebsite": "https://www.iyotetsu.co.jp/botchan/",
+  "content": {
+    "en": {
+      "name": "Botchan Train",
+      "description": "A restored steam-era tram from Natsume Soseki's novel Botchan, running on weekends and holidays between Dogo Onsen and central Matsuyama.",
+      "highlights": ["Experience", "History", "Culture"]
+    },
+    "ja": {
+      "name": "坊っちゃん列車",
+      "description": "夏目漱石の小説『坊っちゃん』に登場する蒸気機関車時代の路面電車を復元した列車。週末・祝日に道後温泉と松山市街を結びます。",
+      "highlights": ["体験", "歴史", "文化"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.iyotetsu.co.jp/botchan/",
+        "title": "Botchan Train — Iyotetsu official site",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "matsuyama-city"
+  },
+  "schemaVersion": 2
+}

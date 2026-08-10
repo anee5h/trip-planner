@@ -1,0 +1,140 @@
+{
+  "id": "takamatsu-castle-tamamo",
+  "name": "Takamatsu Castle (Tamamo Park)",
+  "nameJa": "高松城（玉藻公園）",
+  "kind": "castle",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Kagawa:takamatsu",
+  "prefecture": "Kagawa",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 34.3504,
+    "lng": 134.0518
+  },
+  "categories": ["History", "Culture", "Sightseeing"],
+  "tags": ["Castle", "History", "Takamatsu City"],
+  "description": "A rare seaside castle whose inner moat opens directly onto the Seto Inland Sea; the surviving tower base and reconstructed yagura sit inside Tamamo Park.",
+  "highlights": ["History", "Culture", "Sightseeing"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 105,
+    "bus": 120,
+    "car": 125
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 300,
+    "food": 1500,
+    "cafe": 700
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Takamatsu_castle09s3872.jpg/1280px-Takamatsu_castle09s3872.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Takamatsu_castle09s3872.jpg/1280px-Takamatsu_castle09s3872.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takamatsu_castle09s3872.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 5000,
+  "walkingSunMin": 3000,
+  "walkingShadeMin": 2000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.4,
+    "summer": 7.8,
+    "winter": 7.6,
+    "rain": 6.8,
+    "food": 7.4,
+    "photography": 8.6,
+    "relaxation": 8,
+    "value": 8.2,
+    "uniqueness": 8.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8.8,
+    "summer": 7.4,
+    "autumn": 8.6,
+    "winter": 7.8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Paid parking available at the east gate area",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Takamatsu City.",
+  "notesJa": "【見どころ】高松城（玉藻公園）は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "Open daily except Dec 29–31",
+  "businessHours": "Open daily except Dec 29–31",
+  "officialWebsite": "https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/shisetsu/park/tamamo/index.html",
+  "content": {
+    "en": {
+      "name": "Takamatsu Castle (Tamamo Park)",
+      "description": "A rare seaside castle whose inner moat opens directly onto the Seto Inland Sea; the surviving tower base and reconstructed yagura sit inside Tamamo Park.",
+      "highlights": ["History", "Culture", "Sightseeing"]
+    },
+    "ja": {
+      "name": "高松城（玉藻公園）",
+      "description": "瀬戸内海に面した海城で、内堀が海に直接つながる珍しい構造。天守台や復元された櫓が玉藻公園内に残ります。",
+      "highlights": ["歴史", "文化", "城郭"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/shisetsu/park/tamamo/index.html",
+        "title": "Takamatsu Castle (Tamamo Park) — Takamatsu City official site",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "takamatsu-city"
+  },
+  "schemaVersion": 2
+}

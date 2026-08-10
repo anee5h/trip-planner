@@ -67,7 +67,13 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [],
+    "featuredDestinationIds": [
+      "ritsurin-garden",
+      "takamatsu-castle-tamamo",
+      "yashima-takamatsu",
+      "shikoku-mura",
+      "takamatsu-art-museum"
+    ],
     "nearbyDestinationIds": ["marugame-castle"]
   },
   "budgetBreakdown": {

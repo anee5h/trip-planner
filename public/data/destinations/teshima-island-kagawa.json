@@ -77,9 +77,7 @@
   "notes": "Teshima Art Island located in Kagawa Prefecture.",
   "status": "beta",
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": [],
-    "parentDestinationId": "takamatsu-city"
+    "gatewayHubId": "takamatsu-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Teshima_Art_Museum_exterior_view_201310.jpg/1920px-Teshima_Art_Museum_exterior_view_201310.jpg",
   "walkingIntensity": "low",
@@ -94,5 +92,5 @@
   "officialWebsite": "https://teshima-navi.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Kagawa:takamatsu"
+  "municipalityId": "Kagawa:tonosho"
 }

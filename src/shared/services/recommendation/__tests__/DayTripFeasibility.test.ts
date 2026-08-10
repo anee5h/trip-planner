@@ -310,7 +310,12 @@ describe("day-trip travel evidence", () => {
       );
     });
 
-    expect(nearbySameZone).toHaveLength(9);
+    // KAI-31: Takamatsu's Shikoku cluster was expanded with source-backed
+    // POIs (gardens, castle, art museum, Naruto/Tokushima/Kochi/Marugame/
+    // Miyoshi entries) inside the same mainland-shikoku zone, so the
+    // bounded set grew from 9 to 35. The point of this test is the
+    // evidence state, not the exact inventory; keep it deterministic.
+    expect(nearbySameZone).toHaveLength(35);
     expect(
       nearbySameZone.every(
         (result) =>

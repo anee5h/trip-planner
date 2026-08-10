@@ -67,7 +67,12 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [],
+    "featuredDestinationIds": [
+      "awa-odori-kaikan",
+      "bizan-ropeway-tokushima",
+      "tokushima-central-park",
+      "tokushima-modern-art-museum"
+    ],
     "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
   },
   "budgetBreakdown": {

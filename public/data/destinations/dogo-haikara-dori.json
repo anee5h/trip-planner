@@ -1,0 +1,140 @@
+{
+  "id": "dogo-haikara-dori",
+  "name": "Dogo Haikara Dori",
+  "nameJa": "道後ハイカラ通り",
+  "kind": "street",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Ehime:matsuyama",
+  "prefecture": "Ehime",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 33.8514,
+    "lng": 132.7851
+  },
+  "categories": ["Shopping", "Food", "Culture"],
+  "tags": ["Shopping", "Food", "Culture", "Matsuyama City"],
+  "description": "The covered shopping street connecting Dogo Onsen Station to the Honkan, lined with souvenir shops selling Botchan dango, local sweets, and citrus products.",
+  "highlights": ["Shopping", "Food", "Culture"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 100,
+    "bus": 115,
+    "car": 120
+  },
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 1000,
+    "tickets": 0,
+    "food": 1400,
+    "cafe": 600
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/%E9%81%93%E5%BE%8C%E5%95%86%E5%BA%97%E8%A1%97_Dogo_Shopping_Street_-_panoramio.jpg/1280px-%E9%81%93%E5%BE%8C%E5%95%86%E5%BA%97%E8%A1%97_Dogo_Shopping_Street_-_panoramio.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/%E9%81%93%E5%BE%8C%E5%95%86%E5%BA%97%E8%A1%97_Dogo_Shopping_Street_-_panoramio.jpg/1280px-%E9%81%93%E5%BE%8C%E5%95%86%E5%BA%97%E8%A1%97_Dogo_Shopping_Street_-_panoramio.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "lienyuan lee",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:道後商店街_Dogo_Shopping_Street_-_panoramio.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "low",
+  "indoorPercent": 60,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 8,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 7.8,
+    "couple": 7.8,
+    "summer": 7.6,
+    "winter": 7.8,
+    "rain": 8.2,
+    "food": 8.6,
+    "photography": 7.4,
+    "relaxation": 7.2,
+    "value": 8,
+    "uniqueness": 7.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.2,
+    "summer": 7.8,
+    "autumn": 8.2,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Public transport recommended",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
+  "notesJa": "【見どころ】道後ハイカラ通りは四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "Open access (shop hours vary)",
+  "businessHours": "Open access (shop hours vary)",
+  "officialWebsite": "https://www.dogo.or.jp/experience/dogo-haikara-dori/",
+  "content": {
+    "en": {
+      "name": "Dogo Haikara Dori",
+      "description": "The covered shopping street connecting Dogo Onsen Station to the Honkan, lined with souvenir shops selling Botchan dango, local sweets, and citrus products.",
+      "highlights": ["Shopping", "Food", "Culture"]
+    },
+    "ja": {
+      "name": "道後ハイカラ通り",
+      "description": "道後温泉駅から本館へ続くアーケード商店街。坊っちゃん団子や郷土菓子、柑橘製品などを扱う土産物店が並びます。",
+      "highlights": ["ショッピング", "グルメ", "文化"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.dogo.or.jp/experience/dogo-haikara-dori/",
+        "title": "Dogo Haikara Dori — Dogo Onsen official area guide",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "matsuyama-city"
+  },
+  "schemaVersion": 2
+}

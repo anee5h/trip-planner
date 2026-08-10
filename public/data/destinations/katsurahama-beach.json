@@ -1,0 +1,140 @@
+{
+  "id": "katsurahama-beach",
+  "name": "Katsurahama Beach",
+  "nameJa": "桂浜",
+  "kind": "beach",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Kochi:kochi",
+  "prefecture": "Kochi",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 33.4971,
+    "lng": 133.5744
+  },
+  "categories": ["Nature", "History", "Scenery"],
+  "tags": ["Nature", "History", "Scenery", "Kochi City"],
+  "description": "A Pacific-coast beach of white sand and pines, crowned by the 1928 bronze statue of Sakamoto Ryoma gazing out to sea, with a small aquarium and the Ryoma museum nearby.",
+  "highlights": ["Nature", "History", "Scenery"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 110,
+    "bus": 120,
+    "car": 130
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 0,
+    "food": 1700,
+    "cafe": 800
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/02/Katsurahama_Beach.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/0/02/Katsurahama_Beach.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Kotaro",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Katsurahama_Beach.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 5000,
+  "walkingSunMin": 3000,
+  "walkingShadeMin": 2000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.8,
+    "summer": 8.6,
+    "winter": 8,
+    "rain": 6.4,
+    "food": 8,
+    "photography": 9.2,
+    "relaxation": 9,
+    "value": 8.4,
+    "uniqueness": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.8,
+    "summer": 8.4,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Paid parking available",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Kochi City.",
+  "notesJa": "【見どころ】桂浜は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "Open access; beach is for sightseeing, not swimming",
+  "businessHours": "Open access; beach is for sightseeing, not swimming",
+  "officialWebsite": "https://www.city.kochi.kochi.jp/kochi-city-travel-guide/katsurahama-beach/",
+  "content": {
+    "en": {
+      "name": "Katsurahama Beach",
+      "description": "A Pacific-coast beach of white sand and pines, crowned by the 1928 bronze statue of Sakamoto Ryoma gazing out to sea, with a small aquarium and the Ryoma museum nearby.",
+      "highlights": ["Nature", "History", "Scenery"]
+    },
+    "ja": {
+      "name": "桂浜",
+      "description": "白砂と松林が続く太平洋の海岸。1928年建立の坂本龍馬像が海を見つめ、近くに水族館や龍馬記念館があります。",
+      "highlights": ["自然", "歴史", "絶景"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.city.kochi.kochi.jp/kochi-city-travel-guide/katsurahama-beach/",
+        "title": "Katsurahama Beach — Kochi City official travel guide",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "kochi-city"
+  },
+  "schemaVersion": 2
+}

@@ -70,9 +70,9 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
+    "parentDestinationId": "uwajima-city",
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": ["nachi-falls-wakayama", "osaka-city"],
-    "gatewayHubId": "matsuyama-city"
+    "nearbyDestinationIds": []
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg",
   "budgetBreakdown": {
@@ -99,5 +99,6 @@
   },
   "officialWebsite": "https://www.uwajima-jo.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "role": "standalone"
+  "role": "standalone",
+  "municipalityId": "Ehime:uwajima"
 }

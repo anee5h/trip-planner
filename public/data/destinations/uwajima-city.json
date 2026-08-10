@@ -1,0 +1,115 @@
+{
+  "id": "uwajima-city",
+  "name": "Uwajima City",
+  "nameJa": "宇和島市",
+  "kind": "city",
+  "role": "hub",
+  "placeType": "hub",
+  "importance": "notable",
+  "aliases": ["宇和島市"],
+  "municipalityId": "Ehime:uwajima",
+  "prefecture": "Ehime",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 33.2235,
+    "lng": 132.56
+  },
+  "categories": ["City", "History", "Culture"],
+  "tags": ["Uwajima City", "Castle", "Date Clan"],
+  "description": "A castle town in southern Ehime ruled by the Date clan, known for Uwajima Castle, the bull-sumai festivals, and a distinctive regional food culture.",
+  "highlights": ["Uwajima Castle", "Date Museum", "Regional Culture"],
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 115,
+    "bus": 125,
+    "car": 130
+  },
+  "budgetMin": 6000,
+  "budgetRecommended": 12000,
+  "budgetMax": 20000,
+  "budgetBreakdown": {
+    "transport": 3500,
+    "tickets": 2500,
+    "food": 4500,
+    "cafe": 1500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Uwajima-jo.JPG/1280px-Uwajima-jo.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Uwajima-jo.JPG/1280px-Uwajima-jo.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Vickerman625 (English Wikipedia)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uwajima-jo.JPG"
+  },
+  "recommendedVisitHours": {
+    "min": 8,
+    "max": 14
+  },
+  "walkingMin": 4000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 2500,
+  "walkingIntensity": "medium",
+  "indoorPercent": 40,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8,
+    "summer": 7.6,
+    "winter": 7.2,
+    "rain": 6.4,
+    "food": 8.2,
+    "photography": 8.2,
+    "relaxation": 7.8,
+    "value": 8.2,
+    "uniqueness": 8.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "Not usually required; reserve popular accommodation in advance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Municipal hub created in KAI-31 to give Uwajima Castle a correct home.",
+  "businessHours": "Open access",
+  "content": {
+    "en": {
+      "name": "Uwajima City",
+      "description": "A castle town in southern Ehime ruled by the Date clan, known for Uwajima Castle, the bull-sumai festivals, and a distinctive regional food culture.",
+      "highlights": ["Uwajima Castle", "Date Museum", "Regional Culture"]
+    },
+    "ja": {
+      "name": "宇和島市",
+      "description": "愛媛県南部の城下町。伊達家が治めた宇和島城を中心に、闘牛の祭りや独自の食文化で知られます。",
+      "highlights": ["宇和島城", "伊達博物館", "郷土文化"]
+    }
+  },
+  "relationships": {
+    "featuredDestinationIds": [
+      "uwajima-castle",
+      "uwajima-date-museum",
+      "warei-taisha-shrine",
+      "tenshaen-garden-uwajima"
+    ],
+    "nearbyDestinationIds": ["matsuyama-city"]
+  },
+  "schemaVersion": 2
+}

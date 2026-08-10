@@ -1,0 +1,140 @@
+{
+  "id": "hirome-market-kochi",
+  "name": "Hirome Ichiba",
+  "nameJa": "ひろめ市場",
+  "kind": "market",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Kochi:kochi",
+  "prefecture": "Kochi",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 33.5604,
+    "lng": 133.5356
+  },
+  "categories": ["Food", "Market", "Culture"],
+  "tags": ["Food", "Market", "Culture", "Kochi City"],
+  "description": "A lively covered food market with dozens of food stalls and open seating, famous for katsuo no tataki and other Kochi specialties, popular day and night.",
+  "highlights": ["Food", "Market", "Culture"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 100,
+    "bus": 115,
+    "car": 120
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1000,
+    "tickets": 0,
+    "food": 2200,
+    "cafe": 800
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Hirome-Ichiba%2CKochi-city%2CJapan.jpg/1280px-Hirome-Ichiba%2CKochi-city%2CJapan.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Hirome-Ichiba%2CKochi-city%2CJapan.jpg/1280px-Hirome-Ichiba%2CKochi-city%2CJapan.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "katorisi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hirome-Ichiba,Kochi-city,Japan.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 3000,
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200,
+  "walkingIntensity": "low",
+  "indoorPercent": 80,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 8.6,
+    "winter": 8.6,
+    "rain": 9,
+    "food": 9.4,
+    "photography": 8,
+    "relaxation": 7.8,
+    "value": 8.8,
+    "uniqueness": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 8.6,
+    "summer": 8.6,
+    "autumn": 8.6,
+    "winter": 8.4
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Check local parking guidance",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Kochi City.",
+  "notesJa": "【見どころ】ひろめ市場は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "08:00–23:00 (individual vendors vary)",
+  "businessHours": "08:00–23:00 (individual vendors vary)",
+  "officialWebsite": "https://www.hirome.co.jp/",
+  "content": {
+    "en": {
+      "name": "Hirome Ichiba",
+      "description": "A lively covered food market with dozens of food stalls and open seating, famous for katsuo no tataki and other Kochi specialties, popular day and night.",
+      "highlights": ["Food", "Market", "Culture"]
+    },
+    "ja": {
+      "name": "ひろめ市場",
+      "description": "多数の飲食店と開放的な座席が並ぶ市場。カツオのたたきなど高知名物を気軽に楽しめ、昼夜を問わず賑わいます。",
+      "highlights": ["グルメ", "市場", "文化"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.hirome.co.jp/access.html",
+        "title": "Hirome Ichiba official site",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "kochi-city"
+  },
+  "schemaVersion": 2
+}

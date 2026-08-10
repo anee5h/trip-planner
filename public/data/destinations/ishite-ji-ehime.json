@@ -1,0 +1,140 @@
+{
+  "id": "ishite-ji-ehime",
+  "name": "Ishite-ji",
+  "nameJa": "石手寺",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Ehime:matsuyama",
+  "prefecture": "Ehime",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 33.8468,
+    "lng": 132.7964
+  },
+  "categories": ["History", "Culture", "Temple"],
+  "tags": ["History", "Culture", "Temple", "Matsuyama City"],
+  "description": "Temple No. 51 of the Shikoku 88-temple pilgrimage, with a National Treasure Niomon gate and halls rebuilt in the Kamakura period, a 20-minute walk from Dogo Onsen.",
+  "highlights": ["History", "Culture", "Temple"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 105,
+    "bus": 115,
+    "car": 120
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 500,
+    "food": 1500,
+    "cafe": 500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Ishiteji_niomon.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Ishiteji_niomon.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "アイザール (ja.wikipedia)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ishiteji_niomon.JPG"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 4000,
+  "walkingSunMin": 2400,
+  "walkingShadeMin": 1600,
+  "walkingIntensity": "medium",
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.2,
+    "summer": 7.6,
+    "winter": 7.4,
+    "rain": 6.8,
+    "food": 7.6,
+    "photography": 8.4,
+    "relaxation": 8.2,
+    "value": 8.4,
+    "uniqueness": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 8.6,
+    "summer": 7.6,
+    "autumn": 8.8,
+    "winter": 7.6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Check local parking guidance",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
+  "notesJa": "【見どころ】石手寺は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "Sightseeing 07:00–17:00; treasure hall 08:00–17:00",
+  "businessHours": "Sightseeing 07:00–17:00; treasure hall 08:00–17:00",
+  "officialWebsite": "https://en.matsuyama-sightseeing.com/spot/31-2/",
+  "content": {
+    "en": {
+      "name": "Ishite-ji",
+      "description": "Temple No. 51 of the Shikoku 88-temple pilgrimage, with a National Treasure Niomon gate and halls rebuilt in the Kamakura period, a 20-minute walk from Dogo Onsen.",
+      "highlights": ["History", "Culture", "Temple"]
+    },
+    "ja": {
+      "name": "石手寺",
+      "description": "四国八十八箇所第51番札所。国宝の仁王門や鎌倉時代に再建された堂宇が残り、道後温泉から徒歩約20分です。",
+      "highlights": ["歴史", "文化", "寺院"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://en.matsuyama-sightseeing.com/spot/31-2/",
+        "title": "Ishite-ji — Tourism Matsuyama official listing",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "matsuyama-city"
+  },
+  "schemaVersion": 2
+}

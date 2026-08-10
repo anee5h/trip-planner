@@ -1,0 +1,146 @@
+{
+  "id": "ryozen-ji-naruto",
+  "name": "Ryozen-ji",
+  "nameJa": "霊山寺",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Tokushima:naruto",
+  "prefecture": "Tokushima",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 34.1594,
+    "lng": 134.5027
+  },
+  "categories": ["History", "Culture", "Temple"],
+  "tags": ["History", "Culture", "Temple", "Naruto City"],
+  "description": "Temple No. 1 of the Shikoku 88-temple pilgrimage, traditionally the starting point of the route, with a Daishido hall and the statue of Kobo Daishi at its entrance.",
+  "highlights": ["History", "Culture", "Temple"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 115,
+    "bus": 125,
+    "car": 130
+  },
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 1000,
+    "tickets": 0,
+    "food": 1300,
+    "cafe": 700
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Gate_of_Ryozenji_Temple_in_Naruto%2C_Tokushima.jpg/1280px-Gate_of_Ryozenji_Temple_in_Naruto%2C_Tokushima.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Gate_of_Ryozenji_Temple_in_Naruto%2C_Tokushima.jpg/1280px-Gate_of_Ryozenji_Temple_in_Naruto%2C_Tokushima.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gate_of_Ryozenji_Temple_in_Naruto,_Tokushima.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 3000,
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200,
+  "walkingIntensity": "medium",
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.2,
+    "summer": 7.8,
+    "winter": 7.4,
+    "rain": 6.8,
+    "food": 7.4,
+    "photography": 8.2,
+    "relaxation": 8.4,
+    "value": 8.6,
+    "uniqueness": 8.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8.6,
+    "summer": 7.8,
+    "autumn": 8.8,
+    "winter": 7.6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Check local parking guidance",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Naruto City (the temple is in Oasa-cho, Naruto City, not Tokushima City).",
+  "notesJa": "【見どころ】霊山寺は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "07:00–17:00 daily",
+  "businessHours": "07:00–17:00 daily",
+  "officialWebsite": "https://naruto-tourism.jp/en/spot/15466",
+  "content": {
+    "en": {
+      "name": "Ryozen-ji",
+      "description": "Temple No. 1 of the Shikoku 88-temple pilgrimage, traditionally the starting point of the route, with a Daishido hall and the statue of Kobo Daishi at its entrance.",
+      "highlights": ["History", "Culture", "Temple"]
+    },
+    "ja": {
+      "name": "霊山寺",
+      "description": "四国八十八箇所霊場の第1番札所で、遍路の出発点とされる寺院。本堂や大師堂があり、門前には空海の像が立っています。",
+      "highlights": ["歴史", "文化", "寺院"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://naruto-tourism.jp/en/spot/15466",
+        "title": "Ryozenji — Naruto City official travel guide",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://www.ryosenji.jp/",
+        "title": "Ryozenji official site",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "naruto-city"
+  },
+  "schemaVersion": 2
+}

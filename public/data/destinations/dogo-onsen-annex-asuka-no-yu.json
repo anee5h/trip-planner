@@ -1,0 +1,140 @@
+{
+  "id": "dogo-onsen-annex-asuka-no-yu",
+  "name": "Dogo Onsen Annex Asuka-no-Yu",
+  "nameJa": "道後温泉別館 飛鳥乃湯泉",
+  "kind": "onsen",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Ehime:matsuyama",
+  "prefecture": "Ehime",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 33.8517,
+    "lng": 132.7866
+  },
+  "categories": ["Onsen", "Wellness", "Culture"],
+  "tags": ["Onsen", "Wellness", "Matsuyama City"],
+  "description": "The newest bathhouse of Dogo Onsen, with a striking wooden lattice facade and bathing areas inspired by the Asuka period, offering modern baths beside the historic Honkan.",
+  "highlights": ["Onsen", "Wellness", "Culture"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 105,
+    "bus": 115,
+    "car": 120
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 610,
+    "food": 1300,
+    "cafe": 590
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Asuka-no_yu.jpg/1280px-Asuka-no_yu.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Asuka-no_yu.jpg/1280px-Asuka-no_yu.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Drivephotographer",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asuka-no_yu.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 3000,
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200,
+  "walkingIntensity": "low",
+  "indoorPercent": 80,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 8,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 9,
+    "summer": 8.2,
+    "winter": 9,
+    "rain": 8.6,
+    "food": 8,
+    "photography": 8.8,
+    "relaxation": 9.2,
+    "value": 8.2,
+    "uniqueness": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 8.2,
+    "autumn": 8.4,
+    "winter": 8.8
+  },
+  "bestMonths": [10, 11, 12, 1, 2, 3],
+  "bestSeason": "Winter",
+  "weatherDependence": "low",
+  "reservation": "Not required for first-floor bath; private rooms reserve in advance",
+  "parking": "Check local parking guidance",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
+  "notesJa": "【見どころ】道後温泉別館 飛鳥乃湯泉は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "First-floor bath 06:00–23:00; upper floors 06:00–22:00",
+  "businessHours": "First-floor bath 06:00–23:00; upper floors 06:00–22:00",
+  "officialWebsite": "https://dogo.jp/onsen/asuka",
+  "content": {
+    "en": {
+      "name": "Dogo Onsen Annex Asuka-no-Yu",
+      "description": "The newest bathhouse of Dogo Onsen, with a striking wooden lattice facade and bathing areas inspired by the Asuka period, offering modern baths beside the historic Honkan.",
+      "highlights": ["Onsen", "Wellness", "Culture"]
+    },
+    "ja": {
+      "name": "道後温泉別館 飛鳥乃湯泉",
+      "description": "道後温泉の新別館。飛鳥時代をイメージした木組みの外観が特徴で、歴史ある本館の隣で現代的な入浴体験ができます。",
+      "highlights": ["温泉", "癒し", "文化"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.matsuyama.ehime.jp/kanko/kankoguide/kankomeisho/dogoonsen/info/dougo1126.html",
+        "title": "Dogo Onsen Annex Asuka-no-Yu — Matsuyama City official site",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "matsuyama-city"
+  },
+  "schemaVersion": 2
+}

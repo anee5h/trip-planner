@@ -67,7 +67,15 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["kochi-castle"],
+    "featuredDestinationIds": [
+      "kochi-castle",
+      "katsurahama-beach",
+      "hirome-market-kochi",
+      "sakamoto-ryoma-memorial-museum",
+      "chikurin-ji-kochi",
+      "makino-botanical-garden",
+      "harimaya-bridge-kochi"
+    ],
     "nearbyDestinationIds": [
       "takamatsu-city",
       "matsuyama-city",

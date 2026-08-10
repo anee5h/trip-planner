@@ -67,7 +67,17 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["matsuyama-castle-ehime", "uwajima-castle"],
+    "featuredDestinationIds": [
+      "matsuyama-castle-ehime",
+      "dogo-onsen-ehime",
+      "ishite-ji-ehime",
+      "bansuiso-matsuyama",
+      "dogo-onsen-annex-asuka-no-yu",
+      "botchan-train-matsuyama",
+      "dogo-haikara-dori",
+      "yuzuki-castle-ruins-matsuyama",
+      "ehime-art-museum"
+    ],
     "nearbyDestinationIds": ["takamatsu-city", "kochi-city", "tokushima-city"]
   },
   "budgetBreakdown": {

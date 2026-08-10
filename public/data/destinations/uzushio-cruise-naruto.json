@@ -1,0 +1,140 @@
+{
+  "id": "uzushio-cruise-naruto",
+  "name": "Naruto Whirlpool Cruise",
+  "nameJa": "うずしお観潮船",
+  "kind": null,
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Tokushima:naruto",
+  "prefecture": "Tokushima",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 34.213,
+    "lng": 134.61
+  },
+  "categories": ["Nature", "Experience", "Viewpoint"],
+  "tags": ["Nature", "Experience", "Viewpoint", "Naruto City"],
+  "description": "Sightseeing boats that approach the Naruto whirlpools directly, offering close views of the tidal maelstroms from the water; departures from Naruto Park.",
+  "highlights": ["Nature", "Experience", "Viewpoint"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 115,
+    "bus": 125,
+    "car": 130
+  },
+  "budgetMin": 2500,
+  "budgetRecommended": 6000,
+  "budgetMax": 10000,
+  "budgetBreakdown": {
+    "transport": 1800,
+    "tickets": 2000,
+    "food": 1400,
+    "cafe": 800
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Whirlpools_fureai_park.JPG/1280px-Whirlpools_fureai_park.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Whirlpools_fureai_park.JPG/1280px-Whirlpools_fureai_park.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Hellbuny",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naruto_Whirlpools_taken_4-21-2008.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2000,
+  "walkingSunMin": 1200,
+  "walkingShadeMin": 800,
+  "walkingIntensity": "medium",
+  "indoorPercent": 50,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 4,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 8.6,
+    "winter": 7.8,
+    "rain": 6.2,
+    "food": 7.8,
+    "photography": 9.4,
+    "relaxation": 8,
+    "value": 7.8,
+    "uniqueness": 9.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.8,
+    "summer": 8.4,
+    "autumn": 9,
+    "winter": 7.6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "high",
+  "reservation": "Recommended during peak seasons",
+  "parking": "Paid parking at Naruto Park Kameura port",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Naruto City. The Aqua Eddy underwater-view boat requires advance reservation.",
+  "notesJa": "【見どころ】うずしお観潮船は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "Departs approx 09:00–16:20 every 40 min; weather-dependent",
+  "businessHours": "Departs approx 09:00–16:20 every 40 min; weather-dependent",
+  "officialWebsite": "https://www.uzusio.com/en/geton/",
+  "content": {
+    "en": {
+      "name": "Naruto Whirlpool Cruise",
+      "description": "Sightseeing boats that approach the Naruto whirlpools directly, offering close views of the tidal maelstroms from the water; departures from Naruto Park.",
+      "highlights": ["Nature", "Experience", "Viewpoint"]
+    },
+    "ja": {
+      "name": "うずしお観潮船",
+      "description": "鳴門の渦潮を間近で見学できる観潮船。鳴門公園の亀浦港から出航し、海面から渦の迫力を体感できます。",
+      "highlights": ["自然", "体験", "展望"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.uzusio.com/en/geton/",
+        "title": "Naruto whirlpool sightseeing cruise — official operator site",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "naruto-city"
+  },
+  "schemaVersion": 2
+}

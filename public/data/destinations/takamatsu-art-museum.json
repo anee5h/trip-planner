@@ -1,0 +1,140 @@
+{
+  "id": "takamatsu-art-museum",
+  "name": "Takamatsu Art Museum",
+  "nameJa": "高松市美術館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Kagawa:takamatsu",
+  "prefecture": "Kagawa",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 34.3441,
+    "lng": 134.0492
+  },
+  "categories": ["Culture", "Museum", "Art"],
+  "tags": ["Culture", "Museum", "Art", "Takamatsu City"],
+  "description": "Takamatsu's municipal museum of modern and contemporary art, home to the works of sculptor Genichiro Inokuma and a design collection in the city's arts district.",
+  "highlights": ["Culture", "Museum", "Art"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 100,
+    "bus": 115,
+    "car": 120
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 200,
+    "food": 1500,
+    "cafe": 800
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Takamatsu_City_Museum_of_Art_Building_1.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Takamatsu_City_Museum_of_Art_Building_1.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Wikimedia Commons contributor",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takamatsu_City_Museum_of_Art_Building_1.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 3000,
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200,
+  "walkingIntensity": "low",
+  "indoorPercent": 85,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 8,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8,
+    "summer": 7.6,
+    "winter": 7.8,
+    "rain": 8.4,
+    "food": 7.2,
+    "photography": 7.8,
+    "relaxation": 7.6,
+    "value": 7.8,
+    "uniqueness": 8.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 7.6,
+    "autumn": 8.6,
+    "winter": 7.8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Check local parking guidance",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Takamatsu City.",
+  "notesJa": "【見どころ】高松市美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "09:30–17:00 (last admission 16:30); closed Mondays",
+  "businessHours": "09:30–17:00 (last admission 16:30); closed Mondays",
+  "officialWebsite": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/general_info/info.html",
+  "content": {
+    "en": {
+      "name": "Takamatsu Art Museum",
+      "description": "Takamatsu's municipal museum of modern and contemporary art, home to the works of sculptor Genichiro Inokuma and a design collection in the city's arts district.",
+      "highlights": ["Culture", "Museum", "Art"]
+    },
+    "ja": {
+      "name": "高松市美術館",
+      "description": "猪熊弦一郎らの作品やデザインコレクションを収蔵する高松市の現代美術館。市街地のアートエリアに位置します。",
+      "highlights": ["文化", "博物館", "アート"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/general_info/info.html",
+        "title": "Takamatsu Art Museum official visitor information",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "takamatsu-city"
+  },
+  "schemaVersion": 2
+}

@@ -72,9 +72,7 @@
   "notes": "Ryugado Cave located in Kochi Prefecture.",
   "status": "beta",
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": [],
-    "parentDestinationId": "kochi-city"
+    "gatewayHubId": "kochi-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Kami_Kochi_Ryugado_East_Entrance_1.jpg/1920px-Kami_Kochi_Ryugado_East_Entrance_1.jpg",
   "walkingIntensity": "low",
@@ -89,5 +87,5 @@
   "officialWebsite": "https://ryugadou.or.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Kochi:kochi"
+  "municipalityId": "Kochi:kami"
 }

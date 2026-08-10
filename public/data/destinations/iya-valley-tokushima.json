@@ -75,9 +75,9 @@
   "notes": "Iya Valley & Vine Bridges located in Tokushima Prefecture.",
   "status": "beta",
   "relationships": {
+    "parentDestinationId": "miyoshi-city",
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": [],
-    "gatewayHubId": "tokushima-city"
+    "nearbyDestinationIds": []
   },
   "image": "https://upload.wikimedia.org/wikipedia/ja/thumb/4/42/Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG/1920px-Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG",
   "walkingIntensity": "low",
@@ -91,5 +91,6 @@
   },
   "officialWebsite": "https://miyoshi-tourism.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "municipalityId": "Tokushima:miyoshi"
 }
