@@ -73,3 +73,36 @@ Rows are appended per cluster batch as records land. Matsushima batch complete.
 | entsuin | new | — (mausoleum temple) | entuuin.or.jp | official | 2026-08-11 | script addition | ¥500; 9:00–16:00/15:30 |
 | matsushima-bay-cruise | new | — (bay cruise) | matsumshima.or.jp/timesheet | official | 2026-08-11 | script addition | ¥1,500; 50 min; hourly |
 | saigyo-modoshi-no-matsu | new | — (viewpoint park) | matsumshima-kanko.com | tourism_board | 2026-08-11 | script addition | free; winter road closure |
+| aomori-museum-of-art | new | — (art museum) | aomori-museum.jp | official | 2026-08-11 | script addition | 9:30–17:00, 2nd/4th Mon closed, ¥700 |
+| mount-hakkoda-ropeway | new | — (ropeway) | hakkoda-ropeway.jp | official | 2026-08-11 | script addition | fare ¥2,500 RT from 2026-08-01 |
+| asamushi-onsen | new | — (onsen district) | asamushi.com | tourism_board | 2026-08-11 | script addition | open access district |
+| kabushima-shrine | new | — (shrine + gull rookery) | kabushimajinja.com | official | 2026-08-11 | script addition | free; National Natural Monument |
+| tatehana-wharf-morning-market | new | — (Sunday market) | minatonichiyouasaichikai.com | official | 2026-08-11 | script addition | Sundays only, mid-Mar–Dec |
+| towada-art-center | new | — (art museum) | towadaartcenter.com | official | 2026-08-11 | script addition | closure 2027-04→2028-03 encoded; gateway hachinohe |
+| hirosaki-neputa-mura | new | — (neputa museum) | neputamura.com | official | 2026-08-11 | script addition | ¥600; open year-round |
+| fujita-memorial-garden | new | — (villa garden) | hirosakipark.or.jp/hujita | official | 2026-08-11 | script addition | ¥320; winter closure Nov 24–mid-Apr |
+| saisho-in | new | — (five-story pagoda temple) | saisyouin.jp | official | 2026-08-11 | script addition | free except festival periods |
+| iwate-park-morioka-castle-ruins | new | — (castle park) | city.morioka.iwate.jp | government | 2026-08-11 | script addition | free; 100 Famous Castles |
+| bank-of-iwate-red-brick | new | — (Meiji bank building) | iwagin-akarengakan.jp | official | 2026-08-11 | script addition | free; 1911 Tatsuno Kingo |
+| morioka-handiworks-square | new | — (craft village) | tezukurimura.com | official | 2026-08-11 | script addition | free entry; paid experiences |
+| koiwai-farm | new | — (farm, Shizukuishi) | koiwaifarm.com | official | 2026-08-11 | script addition | gateway morioka; winter weekends only |
+| motsu-ji | new | — (UNESCO temple garden) | motsuji.or.jp | official | 2026-08-11 | script addition | gateway morioka; ¥500 |
+| takkoku-no-iwa | new | — (cliff temple) | iwayabetto.com | official | 2026-08-11 | script addition | gateway morioka; ¥400 |
+| iizaka-onsen | new | — (onsen town) | iizaka.com | official | 2026-08-11 | script addition | Sakaba-yu ¥400, closed Mon |
+| fukushima-prefectural-museum-of-art | new | — (art museum) | art-museum.fcs.ed.jp | official | 2026-08-11 | script addition | ¥360 permanent (2025 revision) |
+| oga-namahage-kan | new | — (Namahage museum) | namahage.co.jp/namahagekan | official | 2026-08-11 | script addition | gateway akita; UNESCO ICH; ¥660 |
+| akita-senshu-park | new | — (Kubota castle park) | city.akita.lg.jp | government | 2026-08-11 | script addition | free park; watchtower ¥150 |
+| akita-museum-of-art | new | — (Ando/Fujita museum) | akita-museum-of-art.jp | official | 2026-08-11 | script addition | free permanent collection |
+| sendai-yagiyama-zoo | new | — (zoo) | city.sendai.jp/zoo | government | 2026-08-11 | script addition | ¥480; closed Wed |
+| sendai-ichibancho | new | — (arcade district) | sunmall-ichibancho.com | official | 2026-08-11 | script addition | open access |
+| sendai-daikannon | new | — (100 m statue) | daikannon.com | official | 2026-08-11 | script addition | interior ¥500 from 2026-01-01 |
+| yamagata-bunshokan | new | — (Taisho building) | gakushubunka.jp/bunsyokan | official | 2026-08-11 | script addition | free; assembly hall closed to Sep 2026 |
+| kajo-park | new | — (castle park) | city.yamagata-yamagata.lg.jp | government | 2026-08-11 | script addition | free; 100 Famous Castles |
+| kaminoyama-castle-town | new | — (castle + onsen town) | kaminoyama-castle.info | official | 2026-08-11 | script addition | gateway yamagata; ¥600 (2025) |
+| aizu-bukeyashiki | new | — (samurai residence) | bukeyashiki.com | official | 2026-08-11 | script addition | ¥1,000 |
+| nisshinkan | new | — (clan school museum) | nisshinkan.co.jp | official | 2026-08-11 | script addition | ¥1,800 (2025) |
+| sazae-do | new | — (double-helix pavilion) | aizukanko.com/spot/138 | tourism_board | 2026-08-11 | script addition | ¥400 |
+| kitakata-kura-district | new | — (storehouse town) | furusatosinkou.co.jp/sato | official | 2026-08-11 | script addition | gateway aizu; Kura no Sato ¥-based |
+
+Totals: 45 corrected existing records + 39 new records (1 hub + 38 POIs). All
+rows verified 2026-08-11; no future-dated provenance anywhere.

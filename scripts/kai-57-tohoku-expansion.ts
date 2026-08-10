@@ -1424,6 +1424,8 @@ const MATSUSHIMA_HUB_RECORD: Destination = {
   parking: "Pay parking near the station and waterfront",
   notes:
     "Compact waterfront cluster: Zuigan-ji, Godaido, Kanrantei, the cruise pier and museums are all within a 15-minute walk of Matsushima-Kaigan Station.",
+  notesJa:
+    "日本三景・松島湾の玄関口となる港町。瑞巌寺や五大堂、遊覧船の発着場がJR松島海岸駅から徒歩圏に集まります。",
   businessHours: "Open access",
   officialWebsite: "https://www.town.miyagi-matsushima.lg.jp/",
   openingHoursMetadata: { verifiedAt: AUDIT_DATE },
@@ -2954,6 +2956,30 @@ for (const id of CORRECTED_IDS) {
     ],
     "KAI-57 existing-data audit correction",
   );
+}
+
+// ===========================================================================
+// Japanese notes for hubs (JA pages fell back to EN notes — Luna-verified fix)
+// ===========================================================================
+
+const HUB_NOTES_JA: Record<string, string> = {
+  "aomori-city": "ねぶた祭りの拠点となる港町。青森駅周辺は徒歩圏で、北海道へのフェリーも発着します。",
+  "hirosaki-city": "弘前城と春の桜で知られる城下町。津軽地方の拠点です。",
+  "hachinohe-city": "太平洋側の港町で、三陸海岸と朝市文化の拠点。東北新幹線の終端に近い。",
+  "akita-city": "日本海側の秋田県都。竿燈まつりと千秋公園で知られます。",
+  "semboku-city": "角館の武家屋敷、田沢湖、乳頭温泉郷を擁する内陸の市。",
+  "morioka-city": "北上川と中津川が合流する城下町。東北新幹線で岩手の中心部へ。",
+  "sendai-city": "東北最大の都市。伊達家の城下町の歴史と活気ある食文化、新幹線の要衝です。",
+  "yamagata-city": "山形県の県都。山寺や蔵王方面への旅の拠点です。",
+  "aizuwakamatsu-city": "会津藩の歴史を伝える城下町。鶴ヶ城と武士の文化で知られます。",
+  "fukushima-city": "山あいの盆地に広がる福島県都。果物と温泉街で知られます。",
+  "koriyama-city": "福島県中央部の交通・商業の要衝。猪苗代湖や磐梯方面へのアクセス拠点です。",
+};
+for (const [hubId, notesJa] of Object.entries(HUB_NOTES_JA)) {
+  patch(hubId, (d) => {
+    d.notesJa = notesJa;
+    if (d.content?.ja) d.content.ja.notes = notesJa;
+  }, "Japanese notes added");
 }
 
 // ===========================================================================

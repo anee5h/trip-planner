@@ -619,7 +619,8 @@
           "method": "assisted"
         }
       ]
-    }
+    },
+    "notesJa": "会津藩の歴史を伝える城下町。鶴ヶ城と武士の文化で知られます。"
   },
   {
     "id": "akasaka-minato",
@@ -1018,7 +1019,8 @@
           "method": "assisted"
         }
       ]
-    }
+    },
+    "notesJa": "日本海側の秋田県都。竿燈まつりと千秋公園で知られます。"
   },
   {
     "id": "akiu-onsen-miyagi",
@@ -2000,7 +2002,8 @@
           "method": "assisted"
         }
       ]
-    }
+    },
+    "notesJa": "ねぶた祭りの拠点となる港町。青森駅周辺は徒歩圏で、北海道へのフェリーも発着します。"
   },
   {
     "id": "arakawa-city",
@@ -12180,7 +12183,8 @@
           "method": "assisted"
         }
       ]
-    }
+    },
+    "notesJa": "山あいの盆地に広がる福島県都。果物と温泉街で知られます。"
   },
   {
     "id": "funabashi-city",
@@ -15320,7 +15324,8 @@
           "method": "assisted"
         }
       ]
-    }
+    },
+    "notesJa": "太平洋側の港町で、三陸海岸と朝市文化の拠点。東北新幹線の終端に近い。"
   },
   {
     "id": "hachioji-castle-tokyo",
@@ -18252,7 +18257,8 @@
           "method": "assisted"
         }
       ]
-    }
+    },
+    "notesJa": "弘前城と春の桜で知られる城下町。津軽地方の拠点です。"
   },
   {
     "id": "hiroshima-city",
@@ -30789,7 +30795,8 @@
           "method": "assisted"
         }
       ]
-    }
+    },
+    "notesJa": "福島県中央部の交通・商業の要衝。猪苗代湖や磐梯方面へのアクセス拠点です。"
   },
   {
     "id": "koto-city",
@@ -38244,7 +38251,8 @@
           "method": "assisted"
         }
       ]
-    }
+    },
+    "notesJa": "北上川と中津川が合流する城下町。東北新幹線で岩手の中心部へ。"
   },
   {
     "id": "mother-farm-chiba",
@@ -55331,7 +55339,8 @@
           "method": "assisted"
         }
       ]
-    }
+    },
+    "notesJa": "角館の武家屋敷、田沢湖、乳頭温泉郷を擁する内陸の市。"
   },
   {
     "id": "sendai-asaichi-morning-market",
@@ -55768,7 +55777,8 @@
           "method": "assisted"
         }
       ]
-    }
+    },
+    "notesJa": "東北最大の都市。伊達家の城下町の歴史と活気ある食文化、新幹線の要衝です。"
   },
   {
     "id": "sendai-city-museum",
@@ -70416,7 +70426,8 @@
           "method": "assisted"
         }
       ]
-    }
+    },
+    "notesJa": "山形県の県都。山寺や蔵王方面への旅の拠点です。"
   },
   {
     "id": "yamanashi-fujiyoshida",
@@ -108351,6 +108362,7 @@
     "reservation": "No reservation required",
     "parking": "Pay parking near the station and waterfront",
     "notes": "Compact waterfront cluster: Zuigan-ji, Godaido, Kanrantei, the cruise pier and museums are all within a 15-minute walk of Matsushima-Kaigan Station.",
+    "notesJa": "日本三景・松島湾の玄関口となる港町。瑞巌寺や五大堂、遊覧船の発着場がJR松島海岸駅から徒歩圏に集まります。",
     "businessHours": "Open access",
     "officialWebsite": "https://www.town.miyagi-matsushima.lg.jp/",
     "openingHoursMetadata": {
