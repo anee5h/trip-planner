@@ -504,4 +504,66 @@ describe("catalogue integrity audit", () => {
     expect(findings.length).toBe(1);
     expect(findings[0].severity).toBe("warning");
   });
+
+  it("geo: island child falsely contained in a mainland city hub is an error (KAI-31)", () => {
+    // Teshima (34.48, 134.07) is inside the teshima island box; a mainland
+    // city hub like Takamatsu City cannot contain it.
+    const city = cityHub("takamatsu-city", {
+      municipalityId: "Kagawa:takamatsu",
+      coordinates: { lat: 34.3403, lng: 134.0433 },
+    });
+    const island = makeDestination({
+      id: "teshima-island-kagawa",
+      municipalityId: "Kagawa:takamatsu",
+      coordinates: { lat: 34.4812, lng: 134.0723 },
+      relationships: { parentDestinationId: "takamatsu-city" },
+    });
+    const report = runWith([city, island]);
+    const findings = report.findings.filter(
+      (f) => f.code === "GEO_ISLAND_FALSE_CONTAINMENT",
+    );
+    expect(findings).toHaveLength(1);
+    expect(findings[0].severity).toBe("error");
+    expect(findings[0].targetId).toBe("teshima-island-kagawa");
+  });
+
+  it("geo: island child contained in an on-island city hub passes (KAI-31)", () => {
+    // Naha City is on Okinawa main island, so an Okinawa child is fine.
+    const city = cityHub("naha-city", {
+      municipalityId: "Okinawa:naha",
+      coordinates: { lat: 26.2124, lng: 127.6809 },
+    });
+    const child = makeDestination({
+      id: "fukushuen-garden-naha",
+      municipalityId: "Okinawa:naha",
+      coordinates: { lat: 26.22, lng: 127.7 },
+      relationships: { parentDestinationId: "naha-city" },
+    });
+    const report = runWith([city, child]);
+    const findings = report.findings.filter(
+      (f) => f.code === "GEO_ISLAND_FALSE_CONTAINMENT",
+    );
+    expect(findings).toEqual([]);
+  });
+
+  it("geo: island child with explicit island zone is not double-flagged (KAI-31)", () => {
+    // Tomogashima is administered by Wakayama City; the explicit zone is
+    // editorial authority, so no false-containment error is emitted.
+    const city = cityHub("wakayama-city", {
+      municipalityId: "Wakayama:wakayama",
+      coordinates: { lat: 34.2308, lng: 135.1731 },
+    });
+    const islands = makeDestination({
+      id: "tomogashima-islands",
+      municipalityId: "Wakayama:wakayama",
+      transportZoneId: "tomogashima",
+      coordinates: { lat: 34.3, lng: 135.0 },
+      relationships: { parentDestinationId: "wakayama-city" },
+    });
+    const report = runWith([city, islands]);
+    const findings = report.findings.filter(
+      (f) => f.code === "GEO_ISLAND_FALSE_CONTAINMENT",
+    );
+    expect(findings).toEqual([]);
+  });
 });

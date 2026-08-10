@@ -98,6 +98,37 @@ const JAPAN_LNG = [122, 146] as const;
 /** Child-to-parent containment suspicion distance (km). */
 const SUSPICIOUS_CHILD_DISTANCE_KM = 60;
 
+/**
+ * Non-overlapping island bounding boxes (mirror of the transport-topology
+ * service). A destination whose coordinates fall inside an island box is
+ * not contained in any mainland municipality, so a mainland parent hub is
+ * a containment error unless the island is bridge-connected. KAI-31: this
+ * deterministically catches the Teshima class (island child falsely
+ * contained in Takamatsu City instead of gateway-accessed).
+ */
+const ISLAND_BOUNDS: Record<string, [number, number, number, number]> = {
+  "okinawa-main": [26.0, 127.5, 27.0, 128.5],
+  ogasawara: [26.5, 142.0, 27.8, 142.5],
+  sado: [37.8, 138.1, 38.4, 138.6],
+  ishigaki: [24.2, 124.0, 24.6, 124.4],
+  miyako: [24.6, 125.1, 25.0, 125.5],
+  amami: [27.5, 128.5, 29.0, 130.5],
+  yakushima: [30.1, 130.3, 30.5, 130.8],
+  tsushima: [34.0, 129.1, 34.7, 129.5],
+  naoshima: [34.42, 133.93, 34.49, 134.02],
+  teshima: [34.45, 134.05, 34.51, 134.12],
+  tomogashima: [34.2, 134.9, 34.4, 135.1],
+};
+
+/** Islands connected by a bridge or causeway to a mainland hub. */
+const BRIDGE_CONNECTED_ISLANDS = new Set([
+  "enoshima-island",
+  "tsunoshima-bridge-yamaguchi",
+  "aoshima-island-miyazaki",
+  "chiringashima-island",
+  "kouri-island-okinawa",
+]);
+
 /** Coordinate equality rounding for duplicate detection. */
 const COORD_ROUND = 3;
 
@@ -528,6 +559,38 @@ function checkGeography(
         details: { distanceKm: Math.round(d), parentId },
       });
     }
+
+    // Island containment: a child on island X can only be contained in a
+    // hub that is on the same island (e.g. Naha City on Okinawa main
+    // island) or bridge-connected. A child on an island parented to a hub
+    // on another island or on the mainland is a hard geography error, not
+    // a suspicion signal. KAI-31: this deterministically catches the
+    // Teshima class (island child falsely contained in Takamatsu City
+    // instead of gateway-accessed).
+    if (BRIDGE_CONNECTED_ISLANDS.has(dest.id)) continue;
+    // Records with an explicit island transport zone (e.g. tomogashima)
+    // carry editorial zone authority: the islands may be administered by
+    // the parent city even though they are offshore.
+    if (dest.transportZoneId) continue;
+    const c = dest.coordinates;
+    const pc = parent.coordinates;
+    if (!c || !pc) continue;
+    const islandOf = (lat: number, lng: number) =>
+      Object.entries(ISLAND_BOUNDS).find(
+        ([, [latMin, lngMin, latMax, lngMax]]) =>
+          lat >= latMin && lat <= latMax && lng >= lngMin && lng <= lngMax,
+      )?.[0];
+    const childIsland = islandOf(c.lat, c.lng);
+    const parentIsland = islandOf(pc.lat, pc.lng);
+    if (!childIsland || childIsland === parentIsland) continue;
+    findings.push({
+      code: "GEO_ISLAND_FALSE_CONTAINMENT",
+      severity: "error",
+      category: "B",
+      targetId: dest.id,
+      message: `Child '${dest.id}' is on island '${childIsland}' but is parented to hub '${parentId}' on island/mainland '${parentIsland ?? "mainland"}'; use gatewayHubId instead of parentDestinationId.`,
+      details: { island: childIsland, parentId },
+    });
   }
 }
 

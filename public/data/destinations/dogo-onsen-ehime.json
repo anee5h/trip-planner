@@ -4,19 +4,19 @@
   "nameJa": "道後温泉本館",
   "prefecture": "Ehime",
   "category": "Onsen & Wellness",
-  "description": "One of Japan's oldest and most iconic hot spring bathhouses, celebrated as the architectural inspiration for Studio Ghibli's Spirited Away.",
+  "description": "A symbol of Dogo Onsen with about 3,000 years of history, this nationally designated Important Cultural Property is regarded as one of Japan's oldest public bathhouses.",
   "coordinates": {
     "lat": 33.8521,
     "lng": 132.7865
   },
   "nearestStation": "Dogo Onsen Station",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Dogo_onsen_honkan_long_exposure.jpg/1920px-Dogo_onsen_honkan_long_exposure.jpg",
-  "tags": ["onsen", "ehime", "ghibli", "historic", "matsuyama"],
+  "tags": ["onsen", "ehime", "historic", "matsuyama"],
   "rating": 4.8,
   "bestSeasons": ["Spring", "Autumn", "Winter"],
   "travelEstimate": {
     "minutesFromBase": 220,
-    "confidence": "high"
+    "confidence": "beta"
   },
   "collections": [
     {
@@ -68,8 +68,8 @@
     "walkingIntensity": 3
   },
   "reservation": "None required",
-  "parking": "Available on site",
-  "notes": "Dogo Onsen Honkan located in Ehime Prefecture.",
+  "parking": "City-operated Dogo Onsen parking nearby: 94 spaces, 05:30–23:30; the first hour is free with a bath visit.",
+  "notes": "National Important Cultural Property; restoration completed in December 2024.",
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
@@ -84,8 +84,8 @@
     "min": 3,
     "max": 5
   },
-  "officialWebsite": "https://dogo.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "officialWebsite": "https://dogo.jp/onsen/honkan",
+  "businessHours": "Kami-no-Yu bathing 06:00–23:00 (last entry 22:30); Yushinden viewing 09:00–17:00 (last entry 16:30); other areas have separate hours",
   "ratingsSchemaVersion": 2,
   "municipalityId": "Ehime:matsuyama"
 }

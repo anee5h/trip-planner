@@ -57,7 +57,7 @@
     "high": 16000
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matsuyama_castle%28Iyo%296.JPG/330px-Matsuyama_castle%28Iyo%296.JPG",
-  "description": "Iyo Matsuyama Castle is one of Japan's most complex surviving hilltop castles, accessible via scenic chairlift or ropeway overlooking the Seto Inland Sea.",
+  "description": "One of Japan's twelve original castle keeps, Iyo Matsuyama Castle is a hilltop fortress reached by scenic chairlift or ropeway.",
   "notes": "Features 21 historically designated important cultural properties.",
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 4000,
@@ -86,9 +86,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matsuyama_castle%28Iyo%296.JPG/330px-Matsuyama_castle%28Iyo%296.JPG",
   "budgetBreakdown": {
     "transport": 3000,
-    "tickets": 2000,
-    "food": 3250,
-    "cafe": 1750
+    "tickets": 1040,
+    "food": 3890,
+    "cafe": 2070
   },
   "highlights": ["Explore Iyo Matsuyama Castle", "Local Culture & Scenery"],
   "bestSeason": "Spring & Autumn",
@@ -99,7 +99,7 @@
     "walkingIntensity": 3
   },
   "reservation": "None required",
-  "parking": "Available on site",
+  "parking": "Kiyo-machi parking near the ropeway: 2 hours ¥420, then ¥100 per 30 minutes; the ropeway entrance is about 2 minutes on foot.",
   "walkingIntensity": "medium",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -107,6 +107,6 @@
     "max": 5
   },
   "officialWebsite": "https://www.matsuyamajo.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "Keep 09:00–17:00; until 17:30 in August and until 16:30 in December–January; closed the third Wednesday of December; last entry 30 minutes before closing. Ropeway/lift hours vary seasonally.",
   "municipalityId": "Ehime:matsuyama"
 }

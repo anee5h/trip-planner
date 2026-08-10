@@ -1,0 +1,140 @@
+{
+  "id": "warei-taisha-shrine",
+  "name": "Warei Taisha",
+  "nameJa": "和霊神社",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Ehime:uwajima",
+  "prefecture": "Ehime",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 33.2297,
+    "lng": 132.5653
+  },
+  "categories": ["History", "Culture", "Shrine"],
+  "tags": ["History", "Culture", "Shrine", "Uwajima City"],
+  "description": "A major shrine in southern Ehime dedicated to Yamabe Seibei Kinyori (山家清兵衛公頼), whose annual Warei festival includes portable shrines and Ushi-oni floats on July 23–24.",
+  "highlights": ["History", "Culture", "Shrine"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 115,
+    "bus": 125,
+    "car": 130
+  },
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 1000,
+    "tickets": 0,
+    "food": 1300,
+    "cafe": 700
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Warei_Jinja_03.JPG/1280px-Warei_Jinja_03.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Warei_Jinja_03.JPG/1280px-Warei_Jinja_03.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Reggaeman",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Warei_Jinja_03.JPG"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 3000,
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200,
+  "walkingIntensity": "medium",
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.2,
+    "summer": 8,
+    "winter": 7.4,
+    "rain": 6.8,
+    "food": 7.6,
+    "photography": 8.4,
+    "relaxation": 8.2,
+    "value": 8.4,
+    "uniqueness": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 8,
+    "autumn": 8.8,
+    "winter": 7.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Parking for about 60 cars is listed by the Ehime Shrine Association",
+  "notes": "The Ehime Shrine Association identifies Yamabe Seibei Kinyori as the enshrined deity and dates the main festival July 23–24.",
+  "notesJa": "【見どころ】和霊神社は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "境内は参拝可。和霊大祭は7月23・24日。",
+  "businessHours": "Shrine grounds open daily; the main Warei festival is July 23–24",
+  "officialWebsite": "https://ehime-jinjacho.jp/jinja/?p=444",
+  "content": {
+    "en": {
+      "name": "Warei Taisha",
+      "description": "A major shrine in southern Ehime dedicated to Yamabe Seibei Kinyori (山家清兵衛公頼), whose annual Warei festival includes portable shrines and Ushi-oni floats on July 23–24.",
+      "highlights": ["History", "Culture", "Shrine"]
+    },
+    "ja": {
+      "name": "和霊神社",
+      "description": "南予地方の総鎮守で、山家清兵衛公頼を祀る神社。和霊大祭は7月23・24日に行われ、神輿や牛鬼が登場します。",
+      "highlights": ["歴史", "文化", "神社"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://ehime-jinjacho.jp/jinja/?p=444",
+        "title": "Warei Taisha — Ehime Shrine Association listing",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "uwajima-city"
+  },
+  "schemaVersion": 2
+}

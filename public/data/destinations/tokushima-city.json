@@ -9,7 +9,7 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/51/Tokushima_Montage2.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/5/51/Tokushima_Montage2.jpg",
-  "description": "Eastern Shikoku city world-famous for Awa Odori summer dance festival and Mount Bizan cable car.",
+  "description": "Eastern Shikoku city world-famous for the Awa Odori summer dance festival and the Mount Bizan ropeway.",
   "highlights": ["Explore Tokushima City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
@@ -67,7 +67,12 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [],
+    "featuredDestinationIds": [
+      "awa-odori-kaikan",
+      "bizan-ropeway-tokushima",
+      "tokushima-central-park",
+      "tokushima-modern-art-museum"
+    ],
     "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
   },
   "budgetBreakdown": {

@@ -1,0 +1,146 @@
+{
+  "id": "takamatsu-art-museum",
+  "name": "Takamatsu Art Museum",
+  "nameJa": "高松市美術館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Kagawa:takamatsu",
+  "prefecture": "Kagawa",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 34.3441,
+    "lng": 134.0492
+  },
+  "categories": ["Culture", "Museum", "Art"],
+  "tags": ["Culture", "Museum", "Art", "Takamatsu City"],
+  "description": "Takamatsu's municipal museum of modern and contemporary art, whose collection follows three pillars: post-war contemporary Japanese art, art in the world from the 20th century onward (prints), and the arts of Kagawa (lacquerware and metalwork).",
+  "highlights": ["Culture", "Museum", "Art"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 100,
+    "bus": 115,
+    "car": 120
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 200,
+    "food": 1500,
+    "cafe": 800
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Takamatsu_City_Museum_of_Art_Building_1.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Takamatsu_City_Museum_of_Art_Building_1.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "MK Products",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takamatsu_City_Museum_of_Art_Building_1.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 3000,
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200,
+  "walkingIntensity": "low",
+  "indoorPercent": 85,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 8,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8,
+    "summer": 7.6,
+    "winter": 7.8,
+    "rain": 8.4,
+    "food": 7.2,
+    "photography": 7.8,
+    "relaxation": 7.6,
+    "value": 7.8,
+    "uniqueness": 8.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 7.6,
+    "autumn": 8.6,
+    "winter": 7.8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Check local parking guidance",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Takamatsu City.",
+  "notesJa": "【見どころ】高松市美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:30～17:00（最終入館16:30）。特別展は火～土・祝日に19:00まで延長の場合あり。月曜・12月29日～1月3日休館。",
+  "businessHours": "09:30–17:00 (last admission 16:30); special exhibitions may run to 19:00 Tue–Sat and holidays; closed Mondays and Dec 29–Jan 3",
+  "officialWebsite": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/general_info/info.html",
+  "content": {
+    "en": {
+      "name": "Takamatsu Art Museum",
+      "description": "Takamatsu's municipal museum of modern and contemporary art, whose collection follows three pillars: post-war contemporary Japanese art, art in the world from the 20th century onward (prints), and the arts of Kagawa (lacquerware and metalwork).",
+      "highlights": ["Culture", "Museum", "Art"]
+    },
+    "ja": {
+      "name": "高松市美術館",
+      "description": "戦後日本の現代美術、20世紀以降の世界の美術（版画）、香川の美術（漆芸・金工）を3つの柱として収集する高松市の美術館です。",
+      "highlights": ["文化", "博物館", "アート"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/general_info/info.html",
+        "title": "Takamatsu Art Museum official visitor information",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "official",
+        "url": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/collection/collection.html",
+        "title": "Takamatsu Art Museum official collection overview",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "takamatsu-city"
+  },
+  "schemaVersion": 2
+}

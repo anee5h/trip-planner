@@ -72,7 +72,13 @@
     }
   ],
   "relationships": {
-    "featuredDestinationIds": [],
+    "featuredDestinationIds": [
+      "uzu-no-michi-naruto",
+      "uzushio-cruise-naruto",
+      "otsuka-museum-of-art-naruto",
+      "naruto-german-house",
+      "ryozen-ji-naruto"
+    ],
     "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
   },
   "budgetBreakdown": {

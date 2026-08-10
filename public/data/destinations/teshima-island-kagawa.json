@@ -17,7 +17,7 @@
   "bestSeasons": ["Spring", "Autumn"],
   "travelEstimate": {
     "minutesFromBase": 220,
-    "confidence": "high"
+    "confidence": "beta"
   },
   "collections": [
     {
@@ -35,7 +35,7 @@
   "budgetMax": 6000,
   "budgetRecommended": 3750,
   "transportOptions": {
-    "train": 180
+    "ferry": 180
   },
   "ratings": {
     "overall": 9,
@@ -73,13 +73,11 @@
     "walkingIntensity": 3
   },
   "reservation": "None required",
-  "parking": "Available on site",
-  "notes": "Teshima Art Island located in Kagawa Prefecture.",
+  "parking": "Parking varies by port and individual art site; check the official access guide.",
+  "notes": "Island access is open, but individual art sites have different opening days and hours; check the official calendar.",
   "status": "beta",
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": [],
-    "parentDestinationId": "takamatsu-city"
+    "gatewayHubId": "takamatsu-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Teshima_Art_Museum_exterior_view_201310.jpg/1920px-Teshima_Art_Museum_exterior_view_201310.jpg",
   "walkingIntensity": "low",
@@ -91,8 +89,8 @@
     "min": 3,
     "max": 5
   },
-  "officialWebsite": "https://teshima-navi.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "officialWebsite": "https://teshima-navi.jp/art/",
+  "businessHours": "Island access; individual art sites follow their own opening calendars and hours",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Kagawa:takamatsu"
+  "municipalityId": "Kagawa:tonosho"
 }

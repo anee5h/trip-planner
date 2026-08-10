@@ -1,0 +1,140 @@
+{
+  "id": "chikurin-ji-kochi",
+  "name": "Chikurin-ji",
+  "nameJa": "竹林寺",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Kochi:kochi",
+  "prefecture": "Kochi",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 33.5465,
+    "lng": 133.5767
+  },
+  "categories": ["History", "Culture", "Temple"],
+  "tags": ["History", "Culture", "Temple", "Kochi City"],
+  "description": "Temple No. 31 of the Shikoku pilgrimage on Mount Godaisan, with a noted scenic garden and treasure hall of Buddhist art.",
+  "highlights": ["History", "Culture", "Temple"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 105,
+    "bus": 115,
+    "car": 120
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1200,
+    "tickets": 500,
+    "food": 1500,
+    "cafe": 800
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Chikurinji_Kochi02s3872.jpg/1280px-Chikurinji_Kochi02s3872.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Chikurinji_Kochi02s3872.jpg/1280px-Chikurinji_Kochi02s3872.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chikurinji_Kochi02s3872.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 3500,
+  "walkingSunMin": 2100,
+  "walkingShadeMin": 1400,
+  "walkingIntensity": "medium",
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.2,
+    "summer": 7.8,
+    "winter": 7.4,
+    "rain": 7,
+    "food": 7.6,
+    "photography": 8.6,
+    "relaxation": 8.8,
+    "value": 8.2,
+    "uniqueness": 8.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 8.6,
+    "summer": 7.8,
+    "autumn": 8.8,
+    "winter": 7.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Check local parking guidance",
+  "notes": "The main grounds are free; the scenic garden and treasure hall require a small admission fee.",
+  "notesJa": "【見どころ】竹林寺は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "本堂周辺8:00～17:00、名勝庭園・宝物館8:30～17:00。年中無休。",
+  "businessHours": "Grounds 08:00–17:00; garden & treasure hall 08:30–17:00",
+  "officialWebsite": "https://visitkochijapan.com/en/activities/10056",
+  "content": {
+    "en": {
+      "name": "Chikurin-ji",
+      "description": "Temple No. 31 of the Shikoku pilgrimage on Mount Godaisan, with a noted scenic garden and treasure hall of Buddhist art.",
+      "highlights": ["History", "Culture", "Temple"]
+    },
+    "ja": {
+      "name": "竹林寺",
+      "description": "五台山にある四国八十八箇所第31番札所。名勝の庭園と仏教美術を収めた宝物館で知られます。",
+      "highlights": ["歴史", "文化", "寺院"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://visitkochijapan.com/en/activities/10056",
+        "title": "Chikurin-ji — Kochi Prefecture official tourism site",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "kochi-city"
+  },
+  "schemaVersion": 2
+}

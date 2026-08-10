@@ -1,0 +1,140 @@
+{
+  "id": "bizan-ropeway-tokushima",
+  "name": "Mount Bizan Ropeway",
+  "nameJa": "眉山ロープウェイ",
+  "kind": "viewpoint",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Tokushima:tokushima",
+  "prefecture": "Tokushima",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 34.0687,
+    "lng": 134.5413
+  },
+  "categories": ["Nature", "Viewpoint", "Experience"],
+  "tags": ["Nature", "Viewpoint", "Experience", "Tokushima City"],
+  "description": "A six-minute cable-car ride from beside the Awa Odori Kaikan to the summit of Mount Bizan, with sweeping views over Tokushima City and the Yoshino River delta.",
+  "highlights": ["Nature", "Viewpoint", "Experience"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 100,
+    "bus": 115,
+    "car": 120
+  },
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 9000,
+  "budgetBreakdown": {
+    "transport": 1800,
+    "tickets": 1500,
+    "food": 1000,
+    "cafe": 700
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/23/Bizan01.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/2/23/Bizan01.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Kansai explorer",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bizan01.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 3500,
+  "walkingSunMin": 2100,
+  "walkingShadeMin": 1400,
+  "walkingIntensity": "medium",
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.6,
+    "summer": 8.4,
+    "winter": 8,
+    "rain": 6.6,
+    "food": 7.6,
+    "photography": 9,
+    "relaxation": 8.4,
+    "value": 8,
+    "uniqueness": 8.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8.8,
+    "summer": 8.6,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Check local parking guidance",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Tokushima City.",
+  "notesJa": "【見どころ】眉山ロープウェイは四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "4～10月9:00～21:00、11～3月9:00～17:30。1月1日は6:00～17:30。",
+  "businessHours": "09:00–21:00 (Apr–Oct), 09:00–17:30 (Nov–Mar); Jan 1 opens 06:00–17:30",
+  "officialWebsite": "https://www.city.tokushima.tokushima.jp/multilingual/english_portal/tourism_culture/mt_bizan/ropeway.html",
+  "content": {
+    "en": {
+      "name": "Mount Bizan Ropeway",
+      "description": "A six-minute cable-car ride from beside the Awa Odori Kaikan to the summit of Mount Bizan, with sweeping views over Tokushima City and the Yoshino River delta.",
+      "highlights": ["Nature", "Viewpoint", "Experience"]
+    },
+    "ja": {
+      "name": "眉山ロープウェイ",
+      "description": "阿波おどり会館の隣から約6分で眉山山頂へ。徳島市街と吉野川のデルタを見渡す眺望が楽しめます。",
+      "highlights": ["自然", "展望", "体験"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.tokushima.tokushima.jp/multilingual/english_portal/tourism_culture/mt_bizan/ropeway.html",
+        "title": "Awagin Bizan Ropeway — Tokushima City official site",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "tokushima-city"
+  },
+  "schemaVersion": 2
+}

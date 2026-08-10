@@ -1,0 +1,146 @@
+{
+  "id": "mount-tsurugi-miyoshi",
+  "name": "Mount Tsurugi",
+  "nameJa": "剣山",
+  "kind": "mountain",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Tokushima:miyoshi",
+  "prefecture": "Tokushima",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 33.8536,
+    "lng": 134.0942
+  },
+  "categories": ["Nature", "Viewpoint", "Scenery"],
+  "tags": ["Nature", "Viewpoint", "Scenery", "Miyoshi City"],
+  "description": "Shikoku's second-highest mountain, a gently sloping peak with alpine plant fields, reached via a sightseeing lift from the Minokoshi trailhead.",
+  "highlights": ["Nature", "Viewpoint", "Scenery"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 115,
+    "bus": 125,
+    "car": 130
+  },
+  "budgetMin": 2500,
+  "budgetRecommended": 6000,
+  "budgetMax": 10000,
+  "budgetBreakdown": {
+    "transport": 2000,
+    "tickets": 2300,
+    "food": 1000,
+    "cafe": 700
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Mt.Tsurugisan.jpg/1280px-Mt.Tsurugisan.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Mt.Tsurugisan.jpg/1280px-Mt.Tsurugisan.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "As6673",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt.Tsurugisan.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  },
+  "walkingMin": 8000,
+  "walkingSunMin": 4800,
+  "walkingShadeMin": 3200,
+  "walkingIntensity": "high",
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 3,
+    "walkingIntensity": 7
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 9,
+    "winter": 5,
+    "rain": 5.6,
+    "food": 7.2,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 8.2,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 8.8,
+    "autumn": 8.6,
+    "winter": 5.4
+  },
+  "bestMonths": [6, 7, 8, 9, 10],
+  "bestSeason": "Summer",
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Paid parking at Minokoshi trailhead",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Miyoshi City.",
+  "notesJa": "【見どころ】剣山は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "リフトは4月中旬～11月30日、通常9:00～16:30（8月は8:00から）。天候・営業日は公式サイトを確認。",
+  "businessHours": "Lift normally operates mid-April–Nov 30, 09:00–16:30 (08:00 in August); weather and seasonal trail conditions can change access",
+  "officialWebsite": "https://www.rinya.maff.go.jp/e/national_forest/recreation_forest/tsurugisan.html",
+  "content": {
+    "en": {
+      "name": "Mount Tsurugi",
+      "description": "Shikoku's second-highest mountain, a gently sloping peak with alpine plant fields, reached via a sightseeing lift from the Minokoshi trailhead.",
+      "highlights": ["Nature", "Viewpoint", "Scenery"]
+    },
+    "ja": {
+      "name": "剣山",
+      "description": "四国第二の高峰。なだらかな山容と高山植物の群落で知られ、見ノ越登山口から観光リフトを利用できます。",
+      "highlights": ["自然", "展望", "絶景"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.rinya.maff.go.jp/e/national_forest/recreation_forest/tsurugisan.html",
+        "title": "Tsurugisan Recreation Forest — Forestry Agency official listing",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "official",
+        "url": "https://turugirift.com/",
+        "title": "Mt. Tsurugi sightseeing lift official site",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "miyoshi-city"
+  },
+  "schemaVersion": 2
+}

@@ -1,0 +1,146 @@
+{
+  "id": "yashima-takamatsu",
+  "name": "Yashima",
+  "nameJa": "屋島",
+  "kind": "mountain",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Kagawa:takamatsu",
+  "prefecture": "Kagawa",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 34.3366,
+    "lng": 134.1092
+  },
+  "categories": ["Nature", "History", "Viewpoint"],
+  "tags": ["Nature", "History", "Viewpoint", "Takamatsu City"],
+  "description": "A flat-topped lava mesa on the Seto Inland Sea, site of the 1185 Battle of Yashima and home to Yashima-ji, temple No. 84 of the Shikoku pilgrimage, with panoramic sea views.",
+  "highlights": ["Nature", "History", "Viewpoint"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 115,
+    "bus": 125,
+    "car": 130
+  },
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 9000,
+  "budgetBreakdown": {
+    "transport": 1800,
+    "tickets": 500,
+    "food": 1800,
+    "cafe": 900
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Yashimaji_06.JPG/1280px-Yashimaji_06.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Yashimaji_06.JPG/1280px-Yashimaji_06.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Reggaeman",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yashimaji_06.JPG"
+  },
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  },
+  "walkingMin": 8000,
+  "walkingSunMin": 4800,
+  "walkingShadeMin": 3200,
+  "walkingIntensity": "high",
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 4,
+    "walkingIntensity": 7
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 8.4,
+    "winter": 7.4,
+    "rain": 6.4,
+    "food": 7.8,
+    "photography": 9,
+    "relaxation": 8.8,
+    "value": 8.2,
+    "uniqueness": 9.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8.2,
+    "autumn": 9.2,
+    "winter": 7.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Paid parking near the summit shuttle bus stops",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Takamatsu City. The former Yashima ropeway is permanently closed; the summit shuttle bus is the current access.",
+  "notesJa": "【見どころ】屋島は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "屋島は常時開放。屋島寺の納経受付は7:00～17:00。",
+  "businessHours": "Open access; Yashima-ji temple office 07:00–17:00",
+  "officialWebsite": "https://www.yashima-navi.jp/en/about/",
+  "content": {
+    "en": {
+      "name": "Yashima",
+      "description": "A flat-topped lava mesa on the Seto Inland Sea, site of the 1185 Battle of Yashima and home to Yashima-ji, temple No. 84 of the Shikoku pilgrimage, with panoramic sea views.",
+      "highlights": ["Nature", "History", "Viewpoint"]
+    },
+    "ja": {
+      "name": "屋島",
+      "description": "瀬戸内海に浮かぶ溶岩台地。1185年の屋島の戦いの舞台で、四国霊場第84番札所・屋島寺があり、海を見渡す絶景が広がります。",
+      "highlights": ["自然", "歴史", "展望"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.yashima-navi.jp/en/about/",
+        "title": "all YASHIMA — Takamatsu City official Yashima tourism site",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://www.my-kagawa.jp/point/280/",
+        "title": "Yashima-ji — Kagawa Tourism official site",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "takamatsu-city"
+  },
+  "schemaVersion": 2
+}

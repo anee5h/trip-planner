@@ -1,0 +1,146 @@
+{
+  "id": "ochiai-folk-village",
+  "name": "Ochiai Folk Village",
+  "nameJa": "落合集落",
+  "kind": null,
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Tokushima:miyoshi",
+  "prefecture": "Tokushima",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 33.8803,
+    "lng": 133.9357
+  },
+  "categories": ["History", "Culture", "Scenery"],
+  "tags": ["History", "Culture", "Scenery", "Miyoshi City"],
+  "description": "A terraced village in the Iya valley designated as an Important Preservation District, where steep stone terraces and thatched roofs cascade down the mountainside.",
+  "highlights": ["History", "Culture", "Scenery"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 115,
+    "bus": 125,
+    "car": 130
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 0,
+    "food": 1500,
+    "cafe": 1000
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/A_mountainside_village%2C_built_on_terraces_%286551524129%29.jpg/1280px-A_mountainside_village%2C_built_on_terraces_%286551524129%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/A_mountainside_village%2C_built_on_terraces_%286551524129%29.jpg/1280px-A_mountainside_village%2C_built_on_terraces_%286551524129%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "attribution": "KimonBerlin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_mountainside_village,_built_on_terraces_(6551524129).jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 4500,
+  "walkingSunMin": 2700,
+  "walkingShadeMin": 1800,
+  "walkingIntensity": "high",
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 4,
+    "walkingIntensity": 7
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.8,
+    "summer": 8,
+    "winter": 7.2,
+    "rain": 6,
+    "food": 7.6,
+    "photography": 9.4,
+    "relaxation": 9,
+    "value": 8.4,
+    "uniqueness": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 8.8,
+    "summer": 8,
+    "autumn": 9.4,
+    "winter": 7.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Limited roadside parking; drive carefully",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Miyoshi City.",
+  "notesJa": "【見どころ】落合集落は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "集落は常時見学可。長岡家住宅9:00～16:00。水曜休館、1・2月休業。",
+  "businessHours": "Village paths are freely viewable; Nagaoka House 09:00–16:00 and closed Wednesdays and January–February",
+  "officialWebsite": "https://miyoshi-tourism.jp/en/spot/119/",
+  "content": {
+    "en": {
+      "name": "Ochiai Folk Village",
+      "description": "A terraced village in the Iya valley designated as an Important Preservation District, where steep stone terraces and thatched roofs cascade down the mountainside.",
+      "highlights": ["History", "Culture", "Scenery"]
+    },
+    "ja": {
+      "name": "落合集落",
+      "description": "祖谷渓の山中にある重要伝統的建造物群保存地区。石垣と茅葺き屋根の家々が急斜面に重なる棚田の山村です。",
+      "highlights": ["歴史", "文化", "絶景"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://miyoshi-tourism.jp/en/spot/119/",
+        "title": "Ochiai Village — Miyoshi City official tourism site",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://miyoshi-tourism.jp/en/spot/23994/",
+        "title": "Nagaoka-ke Historic House — Miyoshi City official tourism site",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "miyoshi-city"
+  },
+  "schemaVersion": 2
+}

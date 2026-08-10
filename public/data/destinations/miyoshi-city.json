@@ -1,0 +1,115 @@
+{
+  "id": "miyoshi-city",
+  "name": "Miyoshi City",
+  "nameJa": "三好市",
+  "kind": "city",
+  "role": "hub",
+  "placeType": "hub",
+  "importance": "notable",
+  "aliases": ["三好市"],
+  "municipalityId": "Tokushima:miyoshi",
+  "prefecture": "Tokushima",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 34.0263,
+    "lng": 133.8075
+  },
+  "categories": ["City", "Nature", "History"],
+  "tags": ["Miyoshi City", "Iya Valley", "Nature"],
+  "description": "A mountain city in western Tokushima encompassing the deep Iya Valley, the Oboke and Koboke gorges of the Yoshino River, and the trails of Mount Tsurugi.",
+  "highlights": ["Iya Valley", "Oboke & Koboke Gorges", "Mount Tsurugi"],
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 115,
+    "bus": 125,
+    "car": 130
+  },
+  "budgetMin": 7000,
+  "budgetRecommended": 14000,
+  "budgetMax": 22000,
+  "budgetBreakdown": {
+    "transport": 4000,
+    "tickets": 3000,
+    "food": 5000,
+    "cafe": 2000
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Iya_Valley_01.jpg/1280px-Iya_Valley_01.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Iya_Valley_01.jpg/1280px-Iya_Valley_01.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "na0905",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iya_Valley_01.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 8,
+    "max": 14
+  },
+  "walkingMin": 4000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 2500,
+  "walkingIntensity": "medium",
+  "indoorPercent": 40,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.4,
+    "summer": 8.2,
+    "winter": 6.8,
+    "rain": 5.8,
+    "food": 7.6,
+    "photography": 9.2,
+    "relaxation": 8.8,
+    "value": 8.2,
+    "uniqueness": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "Not usually required; reserve popular accommodation in advance.",
+  "parking": "Check local parking and public transport guidance.",
+  "notes": "Mountain roads and gorges require careful driving; check seasonal closures.",
+  "businessHours": "Open access",
+  "content": {
+    "en": {
+      "name": "Miyoshi City",
+      "description": "A mountain city in western Tokushima encompassing the deep Iya Valley, the Oboke and Koboke gorges of the Yoshino River, and the trails of Mount Tsurugi.",
+      "highlights": ["Iya Valley", "Oboke & Koboke Gorges", "Mount Tsurugi"]
+    },
+    "ja": {
+      "name": "三好市",
+      "description": "徳島県西部の山間都市。深い祖谷渓、吉野川の大歩危・小歩危峡、剣山の登山道などを擁します。",
+      "highlights": ["祖谷渓", "大歩危・小歩危", "剣山"]
+    }
+  },
+  "relationships": {
+    "featuredDestinationIds": [
+      "iya-valley-tokushima",
+      "oboke-koboke-gorge",
+      "ochiai-folk-village",
+      "mount-tsurugi-miyoshi"
+    ],
+    "nearbyDestinationIds": ["tokushima-city", "naruto-city"]
+  },
+  "schemaVersion": 2
+}

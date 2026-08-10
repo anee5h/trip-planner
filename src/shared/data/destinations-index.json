@@ -8454,19 +8454,19 @@
     "nameJa": "道後温泉本館",
     "prefecture": "Ehime",
     "category": "Onsen & Wellness",
-    "description": "One of Japan's oldest and most iconic hot spring bathhouses, celebrated as the architectural inspiration for Studio Ghibli's Spirited Away.",
+    "description": "A symbol of Dogo Onsen with about 3,000 years of history, this nationally designated Important Cultural Property is regarded as one of Japan's oldest public bathhouses.",
     "coordinates": {
       "lat": 33.8521,
       "lng": 132.7865
     },
     "nearestStation": "Dogo Onsen Station",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Dogo_onsen_honkan_long_exposure.jpg/1920px-Dogo_onsen_honkan_long_exposure.jpg",
-    "tags": ["onsen", "ehime", "ghibli", "historic", "matsuyama"],
+    "tags": ["onsen", "ehime", "historic", "matsuyama"],
     "rating": 4.8,
     "bestSeasons": ["Spring", "Autumn", "Winter"],
     "travelEstimate": {
       "minutesFromBase": 220,
-      "confidence": "high"
+      "confidence": "beta"
     },
     "collections": [
       {
@@ -8518,8 +8518,8 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
-    "notes": "Dogo Onsen Honkan located in Ehime Prefecture.",
+    "parking": "City-operated Dogo Onsen parking nearby: 94 spaces, 05:30–23:30; the first hour is free with a bath visit.",
+    "notes": "National Important Cultural Property; restoration completed in December 2024.",
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
@@ -8534,8 +8534,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://dogo.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "officialWebsite": "https://dogo.jp/onsen/honkan",
+    "businessHours": "Kami-no-Yu bathing 06:00–23:00 (last entry 22:30); Yushinden viewing 09:00–17:00 (last entry 16:30); other areas have separate hours",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Ehime:matsuyama"
   },
@@ -21565,7 +21565,7 @@
     "nameJa": "祖谷渓・かずら橋",
     "prefecture": "Tokushima",
     "category": "Nature & History",
-    "description": "A secluded mountain valley in Shikoku renowned for its deep forested gorges and historic mountain vine bridges (Kazurabashi).",
+    "description": "A secluded mountain valley in Shikoku renowned for its deep forested gorges and historic mountain vine bridges (Kazurabashi); individual attractions have separate seasonal hours.",
     "coordinates": {
       "lat": 33.8732,
       "lng": 133.8344
@@ -21577,7 +21577,7 @@
     "bestSeasons": ["Spring", "Autumn"],
     "travelEstimate": {
       "minutesFromBase": 230,
-      "confidence": "high"
+      "confidence": "beta"
     },
     "collections": [
       {
@@ -21632,13 +21632,13 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
-    "notes": "Iya Valley & Vine Bridges located in Tokushima Prefecture.",
+    "parking": "Parking varies by attraction; check the specific vine bridge or valley site before visiting.",
+    "notes": "The valley is in Miyoshi City; individual vine bridges and attractions can have seasonal closures.",
     "status": "beta",
     "relationships": {
+      "parentDestinationId": "miyoshi-city",
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": [],
-      "gatewayHubId": "tokushima-city"
+      "nearbyDestinationIds": []
     },
     "image": "https://upload.wikimedia.org/wikipedia/ja/thumb/4/42/Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG/1920px-Tokushima_Miyoshi_Okuiya_Double_Kazurabashi_5.JPG",
     "walkingIntensity": "low",
@@ -21651,8 +21651,9 @@
       "max": 5
     },
     "officialWebsite": "https://miyoshi-tourism.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "businessHours": "Valley open access; individual vine bridges and attractions have separate seasonal hours",
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "Tokushima:miyoshi"
   },
   {
     "id": "izu",
@@ -29641,9 +29642,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Kochi_Castle%2C_Outemon-3.jpg/1280px-Kochi_Castle%2C_Outemon-3.jpg",
     "budgetBreakdown": {
       "transport": 3000,
-      "tickets": 2000,
-      "food": 4225,
-      "cafe": 2275
+      "tickets": 500,
+      "food": 5225,
+      "cafe": 2775
     },
     "highlights": ["Explore Kochi Castle", "Local Culture & Scenery"],
     "bestSeason": "Spring & Autumn",
@@ -29654,15 +29655,15 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
+    "parking": "Kochi Park parking: 65 standard-car spaces, 07:30–18:30 year-round; paid parking.",
     "walkingIntensity": "medium",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://kochipark.jp/kochijo/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "officialWebsite": "https://kochipark.jp/kochijyo/",
+    "businessHours": "09:00–17:00 (last admission 16:30); closed Dec 26–Jan 1",
     "municipalityId": "Kochi:kochi"
   },
   {
@@ -29734,7 +29735,15 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": ["kochi-castle"],
+      "featuredDestinationIds": [
+        "kochi-castle",
+        "katsurahama-beach",
+        "hirome-market-kochi",
+        "sakamoto-ryoma-memorial-museum",
+        "chikurin-ji-kochi",
+        "makino-botanical-garden",
+        "harimaya-bridge-kochi"
+      ],
       "nearbyDestinationIds": [
         "takamatsu-city",
         "matsuyama-city",
@@ -34245,8 +34254,8 @@
       "high": 12000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
-    "description": "Marugame Castle features Japan's tallest combined stone wall foundations (60 meters high in total), supporting a compact original three-story wooden keep.",
-    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "description": "A 400-year-old hilltop castle famous for Japan's tallest stone walls and one of the twelve original castle keeps.",
+    "notes": "The official city site lists free castle-museum parking and nearby paid municipal lots; check restoration notices before visiting.",
     "categories": ["history", "culture", "sightseeing"],
     "budgetMin": 3000,
     "budgetMax": 12000,
@@ -34275,9 +34284,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
     "budgetBreakdown": {
       "transport": 3000,
-      "tickets": 2000,
-      "food": 1625,
-      "cafe": 875
+      "tickets": 400,
+      "food": 2692,
+      "cafe": 1408
     },
     "highlights": ["Explore Marugame Castle", "Local Culture & Scenery"],
     "bestSeason": "Spring & Autumn",
@@ -34288,14 +34297,14 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
+    "parking": "Free parking at the castle museum (about 50 spaces); nearby municipal lots are paid.",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.marugame-castle.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "officialWebsite": "https://www.city.marugame.lg.jp/site/castle/",
+    "businessHours": "09:00–16:30 (last entry 16:00); no regular closure, but temporary closures may occur for alerts, maintenance, works, or events",
     "municipalityId": "Kagawa:marugame"
   },
   {
@@ -34374,7 +34383,11 @@
     "parking": "Available around major attractions; confirm local restrictions.",
     "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
     "relationships": {
-      "featuredDestinationIds": []
+      "featuredDestinationIds": [
+        "marugame-castle",
+        "nakazu-banshoen-marugame",
+        "marugame-uchiwa-museum"
+      ]
     },
     "status": "verified",
     "travelEstimate": {
@@ -35365,7 +35378,7 @@
       "high": 16000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matsuyama_castle%28Iyo%296.JPG/330px-Matsuyama_castle%28Iyo%296.JPG",
-    "description": "Iyo Matsuyama Castle is one of Japan's most complex surviving hilltop castles, accessible via scenic chairlift or ropeway overlooking the Seto Inland Sea.",
+    "description": "One of Japan's twelve original castle keeps, Iyo Matsuyama Castle is a hilltop fortress reached by scenic chairlift or ropeway.",
     "notes": "Features 21 historically designated important cultural properties.",
     "categories": ["history", "culture", "sightseeing"],
     "budgetMin": 4000,
@@ -35394,9 +35407,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matsuyama_castle%28Iyo%296.JPG/330px-Matsuyama_castle%28Iyo%296.JPG",
     "budgetBreakdown": {
       "transport": 3000,
-      "tickets": 2000,
-      "food": 3250,
-      "cafe": 1750
+      "tickets": 1040,
+      "food": 3890,
+      "cafe": 2070
     },
     "highlights": ["Explore Iyo Matsuyama Castle", "Local Culture & Scenery"],
     "bestSeason": "Spring & Autumn",
@@ -35407,7 +35420,7 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
+    "parking": "Kiyo-machi parking near the ropeway: 2 hours ¥420, then ¥100 per 30 minutes; the ropeway entrance is about 2 minutes on foot.",
     "walkingIntensity": "medium",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -35415,7 +35428,7 @@
       "max": 5
     },
     "officialWebsite": "https://www.matsuyamajo.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Keep 09:00–17:00; until 17:30 in August and until 16:30 in December–January; closed the third Wednesday of December; last entry 30 minutes before closing. Ropeway/lift hours vary seasonally.",
     "municipalityId": "Ehime:matsuyama"
   },
   {
@@ -35487,7 +35500,17 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": ["matsuyama-castle-ehime", "uwajima-castle"],
+      "featuredDestinationIds": [
+        "matsuyama-castle-ehime",
+        "dogo-onsen-ehime",
+        "ishite-ji-ehime",
+        "bansuiso-matsuyama",
+        "dogo-onsen-annex-asuka-no-yu",
+        "botchan-train-matsuyama",
+        "dogo-haikara-dori",
+        "yuzuki-castle-ruins-matsuyama",
+        "ehime-art-museum"
+      ],
       "nearbyDestinationIds": ["takamatsu-city", "kochi-city", "tokushima-city"]
     },
     "budgetBreakdown": {
@@ -42851,7 +42874,13 @@
       }
     ],
     "relationships": {
-      "featuredDestinationIds": [],
+      "featuredDestinationIds": [
+        "uzu-no-michi-naruto",
+        "uzushio-cruise-naruto",
+        "otsuka-museum-of-art-naruto",
+        "naruto-german-house",
+        "ryozen-ji-naruto"
+      ],
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
     },
     "budgetBreakdown": {
@@ -51151,7 +51180,7 @@
     "nameJa": "龍河洞",
     "prefecture": "Kochi",
     "category": "Nature & Parks",
-    "description": "A 175-million-year-old limestone cavern in Shikoku containing ancient Yayoi earthenware encrusted in living stalagmites.",
+    "description": "A 175-million-year-old limestone cave with stalactites, Yayoi-period traces, and pottery integrated with the cave.",
     "coordinates": {
       "lat": 33.6033,
       "lng": 133.7431
@@ -51163,7 +51192,7 @@
     "bestSeasons": ["Spring", "Summer", "Autumn"],
     "travelEstimate": {
       "minutesFromBase": 250,
-      "confidence": "high"
+      "confidence": "beta"
     },
     "collections": [
       {
@@ -51215,13 +51244,11 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
-    "notes": "Ryugado Cave located in Kochi Prefecture.",
+    "parking": "Parking arrangements are described on the official access page; check current on-site guidance before visiting.",
+    "notes": "Official cave guidance gives seasonal final-entry hours; check weather and operating notices before visiting.",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [],
-      "parentDestinationId": "kochi-city"
+      "gatewayHubId": "kochi-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Kami_Kochi_Ryugado_East_Entrance_1.jpg/1920px-Kami_Kochi_Ryugado_East_Entrance_1.jpg",
     "walkingIntensity": "low",
@@ -51233,10 +51260,10 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://ryugadou.or.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "officialWebsite": "https://ryugadou.or.jp/attraction/sightseeing-course/",
+    "businessHours": "08:30–17:00 final entry (Feb 1–Oct 31); 08:30–16:30 final entry (Nov 1–Jan 31)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Kochi:kochi"
+    "municipalityId": "Kochi:kami"
   },
   {
     "id": "ryusendo-cave-iwate",
@@ -59916,7 +59943,13 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [],
+      "featuredDestinationIds": [
+        "ritsurin-garden",
+        "takamatsu-castle-tamamo",
+        "yashima-takamatsu",
+        "shikoku-mura",
+        "takamatsu-art-museum"
+      ],
       "nearbyDestinationIds": ["marugame-castle"]
     },
     "budgetBreakdown": {
@@ -61918,7 +61951,7 @@
     "bestSeasons": ["Spring", "Autumn"],
     "travelEstimate": {
       "minutesFromBase": 220,
-      "confidence": "high"
+      "confidence": "beta"
     },
     "collections": [
       {
@@ -61936,7 +61969,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180
+      "ferry": 180
     },
     "ratings": {
       "overall": 9,
@@ -61974,13 +62007,11 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
-    "notes": "Teshima Art Island located in Kagawa Prefecture.",
+    "parking": "Parking varies by port and individual art site; check the official access guide.",
+    "notes": "Island access is open, but individual art sites have different opening days and hours; check the official calendar.",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [],
-      "parentDestinationId": "takamatsu-city"
+      "gatewayHubId": "takamatsu-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Teshima_Art_Museum_exterior_view_201310.jpg/1920px-Teshima_Art_Museum_exterior_view_201310.jpg",
     "walkingIntensity": "low",
@@ -61992,10 +62023,10 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://teshima-navi.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "officialWebsite": "https://teshima-navi.jp/art/",
+    "businessHours": "Island access; individual art sites follow their own opening calendars and hours",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Kagawa:takamatsu"
+    "municipalityId": "Kagawa:tonosho"
   },
   {
     "id": "the-museum-of-modern-art-saitama",
@@ -63578,7 +63609,7 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/51/Tokushima_Montage2.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/5/51/Tokushima_Montage2.jpg",
-    "description": "Eastern Shikoku city world-famous for Awa Odori summer dance festival and Mount Bizan cable car.",
+    "description": "Eastern Shikoku city world-famous for the Awa Odori summer dance festival and the Mount Bizan ropeway.",
     "highlights": ["Explore Tokushima City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
     "budgetMin": 3500,
@@ -63636,7 +63667,12 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [],
+      "featuredDestinationIds": [
+        "awa-odori-kaikan",
+        "bizan-ropeway-tokushima",
+        "tokushima-central-park",
+        "tokushima-modern-art-museum"
+      ],
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
     },
     "budgetBreakdown": {
@@ -68808,8 +68844,8 @@
       "high": 15000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg",
-    "description": "Uwajima Castle, constructed by master castle architect Todo Takatora, stands atop a coastal hill in southern Ehime with its pristine three-story original keep.",
-    "notes": "Wakayama City travel hub in Wakayama Prefecture.",
+    "description": "Founded by master castle builder Tōdō Takatora in 1601, Uwajima Castle has a Date-family keep that is one of Japan's twelve original castle keeps.",
+    "notes": "The keep is an Important Cultural Property and the castle hill is a National Historic Site in Uwajima City, Ehime.",
     "categories": ["history", "culture", "sightseeing"],
     "budgetMin": 4000,
     "budgetMax": 15000,
@@ -68832,16 +68868,16 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {
+      "parentDestinationId": "uwajima-city",
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["nachi-falls-wakayama", "osaka-city"],
-      "gatewayHubId": "matsuyama-city"
+      "nearbyDestinationIds": []
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg",
     "budgetBreakdown": {
       "transport": 2375,
-      "tickets": 1187,
-      "food": 3859,
-      "cafe": 2079
+      "tickets": 200,
+      "food": 4517,
+      "cafe": 2408
     },
     "highlights": ["Explore Uwajima Castle", "Local Culture & Scenery"],
     "bestSeason": "Spring & Autumn",
@@ -68852,16 +68888,17 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
+    "parking": "Castle-base parking: open 24 hours, ¥100 per hour, 46 spaces.",
     "walkingIntensity": "low",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.uwajima-jo.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
-    "role": "standalone"
+    "officialWebsite": "https://www.city.uwajima.ehime.jp/site/uwajima-jo/ujouannnai3.html",
+    "businessHours": "Keep 09:00–17:00 (Mar–Oct) / 09:00–16:00 (Nov–Feb); hill access 06:00–18:30 / 06:00–17:00; no regular closure",
+    "role": "standalone",
+    "municipalityId": "Ehime:uwajima"
   },
   {
     "id": "wakayama-city",
@@ -97107,5 +97144,5201 @@
     },
     "officialWebsite": "https://www.kankou-nichinan.jp/tourisms/316/",
     "municipalityId": "Miyazaki:nichinan"
+  },
+  {
+    "id": "ritsurin-garden",
+    "name": "Ritsurin Garden",
+    "nameJa": "栗林公園",
+    "kind": "garden",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Kagawa:takamatsu",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.3295,
+      "lng": 134.0439
+    },
+    "categories": ["Nature", "Garden", "History"],
+    "tags": ["Nature", "Garden", "History", "Takamatsu City"],
+    "description": "One of Japan's finest surviving daimyo gardens, laid out in the 17th century around six ponds and thirteen hills, with the pine-covered Mount Shiun as borrowed scenery.",
+    "highlights": ["Nature", "Garden", "History"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 110,
+      "bus": 120,
+      "car": 130
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 500,
+      "food": 1500,
+      "cafe": 500
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ritsurin.JPG/1280px-Ritsurin.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ritsurin.JPG/1280px-Ritsurin.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Leela Soden",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ritsurin.JPG"
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "walkingMin": 6000,
+    "walkingSunMin": 3500,
+    "walkingShadeMin": 2500,
+    "walkingIntensity": "medium",
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 6,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 9.2,
+      "couple": 9,
+      "summer": 8.2,
+      "winter": 8,
+      "rain": 7.4,
+      "food": 8,
+      "photography": 9.4,
+      "relaxation": 9.4,
+      "value": 8.6,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9.4,
+      "summer": 7.6,
+      "autumn": 9.2,
+      "winter": 8.6
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Paid parking available near the garden",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Takamatsu City.",
+    "notesJa": "【見どころ】栗林公園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "1月7:00～17:00、2月7:00～17:30、3月6:30～18:00、4～5月5:30～18:30、6～8月5:30～19:00、9月5:30～18:30、10月6:00～17:30、11月6:30～17:00、12月7:00～17:00（年中無休）。",
+    "businessHours": "Open year-round; hours vary by month (07:00–17:00 in Jan and Dec)",
+    "officialWebsite": "https://www.art-takamatsu.com/en/spot/entry-642.html",
+    "content": {
+      "en": {
+        "name": "Ritsurin Garden",
+        "description": "One of Japan's finest surviving daimyo gardens, laid out in the 17th century around six ponds and thirteen hills, with the pine-covered Mount Shiun as borrowed scenery.",
+        "highlights": ["Nature", "Garden", "History"]
+      },
+      "ja": {
+        "name": "栗林公園",
+        "description": "江戸時代から受け継がれる大名庭園で、6つの池と13の築山が配され、紫雲山を借景にした回遊式庭園の名園です。",
+        "highlights": ["自然", "庭園", "歴史"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.my-kagawa.jp/ritsuringarden/feature/ritsuringarden/guide",
+          "title": "Ritsurin Garden usage guide — VISIT KAGAWA",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://www.art-takamatsu.com/en/spot/entry-642.html",
+          "title": "Ritsurin Garden — Experience Takamatsu (English)",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://www.art-takamatsu.com/jp/spot/entry-642.html",
+          "title": "栗林公園 — Experience Takamatsu (Japanese)",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "takamatsu-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "takamatsu-castle-tamamo",
+    "name": "Takamatsu Castle (Tamamo Park)",
+    "nameJa": "高松城（玉藻公園）",
+    "kind": "castle",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Kagawa:takamatsu",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.3504,
+      "lng": 134.0518
+    },
+    "categories": ["History", "Culture", "Sightseeing"],
+    "tags": ["Castle", "History", "Takamatsu City"],
+    "description": "A rare seaside castle whose inner moat opens directly onto the Seto Inland Sea; the surviving tower base and reconstructed yagura sit inside Tamamo Park.",
+    "highlights": ["History", "Culture", "Sightseeing"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 105,
+      "bus": 120,
+      "car": 125
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 300,
+      "food": 1500,
+      "cafe": 700
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Takamatsu_castle09s3872.jpg/1280px-Takamatsu_castle09s3872.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Takamatsu_castle09s3872.jpg/1280px-Takamatsu_castle09s3872.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takamatsu_castle09s3872.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 3
+    },
+    "walkingMin": 5000,
+    "walkingSunMin": 3000,
+    "walkingShadeMin": 2000,
+    "walkingIntensity": "medium",
+    "indoorPercent": 25,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 8.4,
+      "summer": 7.8,
+      "winter": 7.6,
+      "rain": 6.8,
+      "food": 7.4,
+      "photography": 8.6,
+      "relaxation": 8,
+      "value": 8.2,
+      "uniqueness": 8.6
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.8,
+      "summer": 7.4,
+      "autumn": 8.6,
+      "winter": 7.8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Paid parking available at the east gate area",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Takamatsu City.",
+    "notesJa": "【見どころ】高松城（玉藻公園）は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "西門は月により5:30～7:00開門、17:00～19:00閉門。東門は7:00～8:30開門、17:00～18:00閉門。12月29～31日は休園。",
+    "businessHours": "Open year-round; gate hours vary by month; closed Dec 29–31",
+    "officialWebsite": "https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/shisetsu/park/tamamo/index.html",
+    "content": {
+      "en": {
+        "name": "Takamatsu Castle (Tamamo Park)",
+        "description": "A rare seaside castle whose inner moat opens directly onto the Seto Inland Sea; the surviving tower base and reconstructed yagura sit inside Tamamo Park.",
+        "highlights": ["History", "Culture", "Sightseeing"]
+      },
+      "ja": {
+        "name": "高松城（玉藻公園）",
+        "description": "瀬戸内海に面した海城で、内堀が海に直接つながる珍しい構造。天守台や復元された櫓が玉藻公園内に残ります。",
+        "highlights": ["歴史", "文化", "城郭"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/shisetsu/park/tamamo/index.html",
+          "title": "Takamatsu Castle (Tamamo Park) — Takamatsu City official site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "takamatsu-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "yashima-takamatsu",
+    "name": "Yashima",
+    "nameJa": "屋島",
+    "kind": "mountain",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Kagawa:takamatsu",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.3366,
+      "lng": 134.1092
+    },
+    "categories": ["Nature", "History", "Viewpoint"],
+    "tags": ["Nature", "History", "Viewpoint", "Takamatsu City"],
+    "description": "A flat-topped lava mesa on the Seto Inland Sea, site of the 1185 Battle of Yashima and home to Yashima-ji, temple No. 84 of the Shikoku pilgrimage, with panoramic sea views.",
+    "highlights": ["Nature", "History", "Viewpoint"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 115,
+      "bus": 125,
+      "car": 130
+    },
+    "budgetMin": 2000,
+    "budgetRecommended": 5000,
+    "budgetMax": 9000,
+    "budgetBreakdown": {
+      "transport": 1800,
+      "tickets": 500,
+      "food": 1800,
+      "cafe": 900
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Yashimaji_06.JPG/1280px-Yashimaji_06.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Yashimaji_06.JPG/1280px-Yashimaji_06.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Reggaeman",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yashimaji_06.JPG"
+    },
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "walkingMin": 8000,
+    "walkingSunMin": 4800,
+    "walkingShadeMin": 3200,
+    "walkingIntensity": "high",
+    "indoorPercent": 20,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 4,
+      "walkingIntensity": 7
+    },
+    "ratings": {
+      "overall": 8.8,
+      "couple": 8.6,
+      "summer": 8.4,
+      "winter": 7.4,
+      "rain": 6.4,
+      "food": 7.8,
+      "photography": 9,
+      "relaxation": 8.8,
+      "value": 8.2,
+      "uniqueness": 9.2
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8.2,
+      "autumn": 9.2,
+      "winter": 7.4
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "high",
+    "reservation": "None required",
+    "parking": "Paid parking near the summit shuttle bus stops",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Takamatsu City. The former Yashima ropeway is permanently closed; the summit shuttle bus is the current access.",
+    "notesJa": "【見どころ】屋島は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "屋島は常時開放。屋島寺の納経受付は7:00～17:00。",
+    "businessHours": "Open access; Yashima-ji temple office 07:00–17:00",
+    "officialWebsite": "https://www.yashima-navi.jp/en/about/",
+    "content": {
+      "en": {
+        "name": "Yashima",
+        "description": "A flat-topped lava mesa on the Seto Inland Sea, site of the 1185 Battle of Yashima and home to Yashima-ji, temple No. 84 of the Shikoku pilgrimage, with panoramic sea views.",
+        "highlights": ["Nature", "History", "Viewpoint"]
+      },
+      "ja": {
+        "name": "屋島",
+        "description": "瀬戸内海に浮かぶ溶岩台地。1185年の屋島の戦いの舞台で、四国霊場第84番札所・屋島寺があり、海を見渡す絶景が広がります。",
+        "highlights": ["自然", "歴史", "展望"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.yashima-navi.jp/en/about/",
+          "title": "all YASHIMA — Takamatsu City official Yashima tourism site",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://www.my-kagawa.jp/point/280/",
+          "title": "Yashima-ji — Kagawa Tourism official site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "takamatsu-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "shikoku-mura",
+    "name": "Shikoku Mura",
+    "nameJa": "四国村",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Kagawa:takamatsu",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.344,
+      "lng": 134.1058
+    },
+    "categories": ["Culture", "Museum", "History"],
+    "tags": ["Culture", "Museum", "History", "Takamatsu City"],
+    "description": "An open-air museum of historic buildings moved from across Shikoku, including farmhouses, a kabuki stage, and sugar-mill structures, set in hillside woodland below Yashima.",
+    "highlights": ["Culture", "Museum", "History"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 115,
+      "bus": 125,
+      "car": 130
+    },
+    "budgetMin": 2500,
+    "budgetRecommended": 6000,
+    "budgetMax": 10000,
+    "budgetBreakdown": {
+      "transport": 1800,
+      "tickets": 1600,
+      "food": 1800,
+      "cafe": 800
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Shikokumura27s3200.jpg/1280px-Shikokumura27s3200.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Shikokumura27s3200.jpg/1280px-Shikokumura27s3200.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shikokumura27s3200.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "walkingMin": 6500,
+    "walkingSunMin": 4000,
+    "walkingShadeMin": 2500,
+    "walkingIntensity": "medium",
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 8.4,
+      "summer": 7.8,
+      "winter": 7.6,
+      "rain": 6.6,
+      "food": 7.6,
+      "photography": 8.6,
+      "relaxation": 8.4,
+      "value": 8,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.8,
+      "summer": 7.6,
+      "autumn": 9,
+      "winter": 7.6
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Takamatsu City.",
+    "notesJa": "【見どころ】四国村は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:30～17:00（最終入場16:30）。火曜休館（祝日の場合は翌日）。臨時休館・荒天休館あり。",
+    "businessHours": "09:30–17:00 (last admission 16:30); closed Tuesdays (next day if Tuesday is a national holiday)",
+    "officialWebsite": "https://www.shikokumura.or.jp/en/",
+    "content": {
+      "en": {
+        "name": "Shikoku Mura",
+        "description": "An open-air museum of historic buildings moved from across Shikoku, including farmhouses, a kabuki stage, and sugar-mill structures, set in hillside woodland below Yashima.",
+        "highlights": ["Culture", "Museum", "History"]
+      },
+      "ja": {
+        "name": "四国村",
+        "description": "四国各地から移築された歴史的建造物を展示する野外博物館。民家や芝居小屋、砂糖しぼり小屋などが屋島の麓の斜面に並びます。",
+        "highlights": ["文化", "博物館", "歴史"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.shikokumura.or.jp/en/information/",
+          "title": "Shikoku Mura official visitor information",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "takamatsu-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "takamatsu-art-museum",
+    "name": "Takamatsu Art Museum",
+    "nameJa": "高松市美術館",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Kagawa:takamatsu",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.3441,
+      "lng": 134.0492
+    },
+    "categories": ["Culture", "Museum", "Art"],
+    "tags": ["Culture", "Museum", "Art", "Takamatsu City"],
+    "description": "Takamatsu's municipal museum of modern and contemporary art, whose collection follows three pillars: post-war contemporary Japanese art, art in the world from the 20th century onward (prints), and the arts of Kagawa (lacquerware and metalwork).",
+    "highlights": ["Culture", "Museum", "Art"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 100,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 200,
+      "food": 1500,
+      "cafe": 800
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Takamatsu_City_Museum_of_Art_Building_1.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Takamatsu_City_Museum_of_Art_Building_1.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "MK Products",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takamatsu_City_Museum_of_Art_Building_1.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 3
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1800,
+    "walkingShadeMin": 1200,
+    "walkingIntensity": "low",
+    "indoorPercent": 85,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.2,
+      "couple": 8,
+      "summer": 7.6,
+      "winter": 7.8,
+      "rain": 8.4,
+      "food": 7.2,
+      "photography": 7.8,
+      "relaxation": 7.6,
+      "value": 7.8,
+      "uniqueness": 8.2
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 7.6,
+      "autumn": 8.6,
+      "winter": 7.8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "None required",
+    "parking": "Check local parking guidance",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Takamatsu City.",
+    "notesJa": "【見どころ】高松市美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:30～17:00（最終入館16:30）。特別展は火～土・祝日に19:00まで延長の場合あり。月曜・12月29日～1月3日休館。",
+    "businessHours": "09:30–17:00 (last admission 16:30); special exhibitions may run to 19:00 Tue–Sat and holidays; closed Mondays and Dec 29–Jan 3",
+    "officialWebsite": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/general_info/info.html",
+    "content": {
+      "en": {
+        "name": "Takamatsu Art Museum",
+        "description": "Takamatsu's municipal museum of modern and contemporary art, whose collection follows three pillars: post-war contemporary Japanese art, art in the world from the 20th century onward (prints), and the arts of Kagawa (lacquerware and metalwork).",
+        "highlights": ["Culture", "Museum", "Art"]
+      },
+      "ja": {
+        "name": "高松市美術館",
+        "description": "戦後日本の現代美術、20世紀以降の世界の美術（版画）、香川の美術（漆芸・金工）を3つの柱として収集する高松市の美術館です。",
+        "highlights": ["文化", "博物館", "アート"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/general_info/info.html",
+          "title": "Takamatsu Art Museum official visitor information",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "official",
+          "url": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/collection/collection.html",
+          "title": "Takamatsu Art Museum official collection overview",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "takamatsu-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "ishite-ji-ehime",
+    "name": "Ishite-ji",
+    "nameJa": "石手寺",
+    "kind": "temple",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Ehime:matsuyama",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.8468,
+      "lng": 132.7964
+    },
+    "categories": ["History", "Culture", "Temple"],
+    "tags": ["History", "Culture", "Temple", "Matsuyama City"],
+    "description": "Temple No. 51 of the Shikoku 88-temple pilgrimage, with a National Treasure Niomon gate and important cultural-property halls, a 20-minute walk from Dogo Onsen.",
+    "highlights": ["History", "Culture", "Temple"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 105,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 0,
+      "food": 1800,
+      "cafe": 700
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Ishiteji_niomon.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Ishiteji_niomon.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "アイザール (ja.wikipedia)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ishiteji_niomon.JPG"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 4000,
+    "walkingSunMin": 2400,
+    "walkingShadeMin": 1600,
+    "walkingIntensity": "medium",
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 8.2,
+      "summer": 7.6,
+      "winter": 7.4,
+      "rain": 6.8,
+      "food": 7.6,
+      "photography": 8.4,
+      "relaxation": 8.2,
+      "value": 8.4,
+      "uniqueness": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 4,
+      "holiday": 5
+    },
+    "season": {
+      "spring": 8.6,
+      "summer": 7.6,
+      "autumn": 8.8,
+      "winter": 7.6
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Check local parking guidance",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
+    "notesJa": "【見どころ】石手寺は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "観光7:00～17:00、祈祷6:00～19:00、宝物館・洞窟8:00～17:00。",
+    "businessHours": "Sightseeing 07:00–17:00; prayers 06:00–19:00; treasure hall and caves 08:00–17:00",
+    "officialWebsite": "https://en.matsuyama-sightseeing.com/spot/31-2/",
+    "content": {
+      "en": {
+        "name": "Ishite-ji",
+        "description": "Temple No. 51 of the Shikoku 88-temple pilgrimage, with a National Treasure Niomon gate and important cultural-property halls, a 20-minute walk from Dogo Onsen.",
+        "highlights": ["History", "Culture", "Temple"]
+      },
+      "ja": {
+        "name": "石手寺",
+        "description": "四国八十八箇所第51番札所。国宝の仁王門や重要文化財の堂宇が残り、道後温泉から徒歩約20分です。",
+        "highlights": ["歴史", "文化", "寺院"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://en.matsuyama-sightseeing.com/spot/31-2/",
+          "title": "Ishite-ji — Tourism Matsuyama official listing",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "matsuyama-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "bansuiso-matsuyama",
+    "name": "Bansuiso",
+    "nameJa": "萬翠荘",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Ehime:matsuyama",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.8425,
+      "lng": 132.7682
+    },
+    "categories": ["Culture", "Museum", "History"],
+    "tags": ["Culture", "Museum", "History", "Matsuyama City"],
+    "description": "A French Renaissance-style mansion built in 1922 by Count Sadakoto Hisamatsu, a descendant of the former lords of Matsuyama, designated an Important Cultural Property and now open as a museum.",
+    "highlights": ["Culture", "Museum", "History"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 100,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 400,
+      "food": 1500,
+      "cafe": 600
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Bansuiso%2CMatsuyama-city%2CJapan.jpg/1280px-Bansuiso%2CMatsuyama-city%2CJapan.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Bansuiso%2CMatsuyama-city%2CJapan.jpg/1280px-Bansuiso%2CMatsuyama-city%2CJapan.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "katorisi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bansuiso,Matsuyama-city,Japan.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1800,
+    "walkingShadeMin": 1200,
+    "walkingIntensity": "low",
+    "indoorPercent": 75,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8.2,
+      "summer": 7.6,
+      "winter": 8,
+      "rain": 8.2,
+      "food": 7.2,
+      "photography": 8.6,
+      "relaxation": 7.8,
+      "value": 7.8,
+      "uniqueness": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 7.8,
+      "autumn": 8.4,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "None required",
+    "parking": "About 20 parking spaces; public transport recommended",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
+    "notesJa": "【見どころ】萬翠荘は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:00～18:00。月曜休館（祝日は開館）。展示により変更される場合があります。",
+    "businessHours": "09:00–18:00; closed Mondays (open on public holidays; exhibition schedules may change)",
+    "officialWebsite": "https://www.bansuisou.org/",
+    "content": {
+      "en": {
+        "name": "Bansuiso",
+        "description": "A French Renaissance-style mansion built in 1922 by Count Sadakoto Hisamatsu, a descendant of the former lords of Matsuyama, designated an Important Cultural Property and now open as a museum.",
+        "highlights": ["Culture", "Museum", "History"]
+      },
+      "ja": {
+        "name": "萬翠荘",
+        "description": "1922年に旧松山藩主家の子孫・久松定謨伯爵が建てたフランス・ルネサンス様式の邸宅。国の重要文化財に指定され、現在は美術館として公開されています。",
+        "highlights": ["文化", "博物館", "歴史"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.bansuisou.org/information/",
+          "title": "Bansuiso official visitor information",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "matsuyama-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "dogo-onsen-annex-asuka-no-yu",
+    "name": "Dogo Onsen Annex Asuka-no-Yu",
+    "nameJa": "道後温泉別館 飛鳥乃湯泉",
+    "kind": "onsen",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Ehime:matsuyama",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.8517,
+      "lng": 132.7866
+    },
+    "categories": ["Onsen", "Wellness", "Culture"],
+    "tags": ["Onsen", "Wellness", "Matsuyama City"],
+    "description": "The newest bathhouse of Dogo Onsen, with a striking wooden lattice facade and bathing areas inspired by the Asuka period, offering modern baths beside the historic Honkan.",
+    "highlights": ["Onsen", "Wellness", "Culture"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 105,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 610,
+      "food": 1300,
+      "cafe": 590
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Asuka-no_yu.jpg/1280px-Asuka-no_yu.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Asuka-no_yu.jpg/1280px-Asuka-no_yu.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Drivephotographer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asuka-no_yu.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1800,
+    "walkingShadeMin": 1200,
+    "walkingIntensity": "low",
+    "indoorPercent": 80,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.8,
+      "couple": 9,
+      "summer": 8.2,
+      "winter": 9,
+      "rain": 8.6,
+      "food": 8,
+      "photography": 8.8,
+      "relaxation": 9.2,
+      "value": 8.2,
+      "uniqueness": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8.2,
+      "autumn": 8.4,
+      "winter": 8.8
+    },
+    "bestMonths": [10, 11, 12, 1, 2, 3],
+    "bestSeason": "Winter",
+    "weatherDependence": "low",
+    "reservation": "Not required for first-floor bath; private rooms reserve in advance",
+    "parking": "Check local parking guidance",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
+    "notesJa": "【見どころ】道後温泉別館 飛鳥乃湯泉は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "1階浴室6:00～23:00、2階各室6:00～22:00。",
+    "businessHours": "First-floor bath 06:00–23:00; upper floors 06:00–22:00",
+    "officialWebsite": "https://dogo.jp/onsen/asuka",
+    "content": {
+      "en": {
+        "name": "Dogo Onsen Annex Asuka-no-Yu",
+        "description": "The newest bathhouse of Dogo Onsen, with a striking wooden lattice facade and bathing areas inspired by the Asuka period, offering modern baths beside the historic Honkan.",
+        "highlights": ["Onsen", "Wellness", "Culture"]
+      },
+      "ja": {
+        "name": "道後温泉別館 飛鳥乃湯泉",
+        "description": "道後温泉の新別館。飛鳥時代をイメージした木組みの外観が特徴で、歴史ある本館の隣で現代的な入浴体験ができます。",
+        "highlights": ["温泉", "癒し", "文化"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.matsuyama.ehime.jp/kanko/kankoguide/kankomeisho/dogoonsen/info/dougo1126.html",
+          "title": "Dogo Onsen Annex Asuka-no-Yu — Matsuyama City official site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "matsuyama-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "botchan-train-matsuyama",
+    "name": "Botchan Train",
+    "nameJa": "坊っちゃん列車",
+    "kind": null,
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Ehime:matsuyama",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.8504,
+      "lng": 132.7851
+    },
+    "categories": ["Experience", "History", "Culture"],
+    "tags": ["Experience", "History", "Culture", "Matsuyama City"],
+    "description": "A restored steam-era tram from Natsume Soseki's novel Botchan, running on weekends and holidays between Dogo Onsen and central Matsuyama.",
+    "highlights": ["Experience", "History", "Culture"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 100,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 2000,
+    "budgetRecommended": 5000,
+    "budgetMax": 9000,
+    "budgetBreakdown": {
+      "transport": 1800,
+      "tickets": 1300,
+      "food": 1300,
+      "cafe": 600
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Botchan-ressha.jpg/1280px-Botchan-ressha.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Botchan-ressha.jpg/1280px-Botchan-ressha.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Daichan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Botchan-ressha.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2500,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1000,
+    "walkingIntensity": "medium",
+    "indoorPercent": 50,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8.2,
+      "summer": 8,
+      "winter": 8,
+      "rain": 6.6,
+      "food": 7.4,
+      "photography": 8.8,
+      "relaxation": 8,
+      "value": 7.8,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8,
+      "autumn": 8.4,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not required (no reservations; capacity 36)",
+    "parking": "Public transport recommended",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City. Does not run Dec 30–Jan 3.",
+    "notesJa": "【見どころ】坊っちゃん列車は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "土曜・日曜・祝日のみ運行。12月30日～1月3日は運休。",
+    "businessHours": "Runs on weekends and holidays; no service Dec 30–Jan 3; timetable published by Iyotetsu",
+    "officialWebsite": "https://www.iyotetsu.co.jp/botchan/",
+    "content": {
+      "en": {
+        "name": "Botchan Train",
+        "description": "A restored steam-era tram from Natsume Soseki's novel Botchan, running on weekends and holidays between Dogo Onsen and central Matsuyama.",
+        "highlights": ["Experience", "History", "Culture"]
+      },
+      "ja": {
+        "name": "坊っちゃん列車",
+        "description": "夏目漱石の小説『坊っちゃん』に登場する蒸気機関車時代の路面電車を復元した列車。週末・祝日に道後温泉と松山市街を結びます。",
+        "highlights": ["体験", "歴史", "文化"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.iyotetsu.co.jp/botchan/",
+          "title": "Botchan Train — Iyotetsu official site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "matsuyama-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "dogo-haikara-dori",
+    "name": "Dogo Haikara Dori",
+    "nameJa": "道後ハイカラ通り",
+    "kind": "street",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Ehime:matsuyama",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.8514,
+      "lng": 132.7851
+    },
+    "categories": ["Shopping", "Food", "Culture"],
+    "tags": ["Shopping", "Food", "Culture", "Matsuyama City"],
+    "description": "The covered shopping street connecting Dogo Onsen Station to the Honkan, lined with souvenir shops selling Botchan dango, local sweets, and citrus products.",
+    "highlights": ["Shopping", "Food", "Culture"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 100,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 1000,
+    "budgetRecommended": 3000,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 1000,
+      "tickets": 0,
+      "food": 1400,
+      "cafe": 600
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/%E9%81%93%E5%BE%8C%E5%95%86%E5%BA%97%E8%A1%97_Dogo_Shopping_Street_-_panoramio.jpg/1280px-%E9%81%93%E5%BE%8C%E5%95%86%E5%BA%97%E8%A1%97_Dogo_Shopping_Street_-_panoramio.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/%E9%81%93%E5%BE%8C%E5%95%86%E5%BA%97%E8%A1%97_Dogo_Shopping_Street_-_panoramio.jpg/1280px-%E9%81%93%E5%BE%8C%E5%95%86%E5%BA%97%E8%A1%97_Dogo_Shopping_Street_-_panoramio.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "lienyuan lee",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:道後商店街_Dogo_Shopping_Street_-_panoramio.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2500,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1000,
+    "walkingIntensity": "low",
+    "indoorPercent": 60,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 7.8,
+      "couple": 7.8,
+      "summer": 7.6,
+      "winter": 7.8,
+      "rain": 8.2,
+      "food": 8.6,
+      "photography": 7.4,
+      "relaxation": 7.2,
+      "value": 8,
+      "uniqueness": 7.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8.2,
+      "summer": 7.8,
+      "autumn": 8.2,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "None required",
+    "parking": "Public transport recommended",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
+    "notesJa": "【見どころ】道後ハイカラ通りは四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "通りは通行可。各店舗の営業時間・定休日は店舗により異なります。",
+    "businessHours": "Open access (shop hours vary)",
+    "officialWebsite": "https://www.dogo.or.jp/experience/dogo-haikara-dori/",
+    "content": {
+      "en": {
+        "name": "Dogo Haikara Dori",
+        "description": "The covered shopping street connecting Dogo Onsen Station to the Honkan, lined with souvenir shops selling Botchan dango, local sweets, and citrus products.",
+        "highlights": ["Shopping", "Food", "Culture"]
+      },
+      "ja": {
+        "name": "道後ハイカラ通り",
+        "description": "道後温泉駅から本館へ続くアーケード商店街。坊っちゃん団子や郷土菓子、柑橘製品などを扱う土産物店が並びます。",
+        "highlights": ["ショッピング", "グルメ", "文化"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.dogo.or.jp/experience/dogo-haikara-dori/",
+          "title": "Dogo Haikara Dori — Dogo Onsen official area guide",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "matsuyama-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "yuzuki-castle-ruins-matsuyama",
+    "name": "Yuzuki Castle Ruins (Dogo Park)",
+    "nameJa": "道後公園（湯築城跡）",
+    "kind": "park",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Ehime:matsuyama",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.8486,
+      "lng": 132.7871
+    },
+    "categories": ["History", "Nature", "Culture"],
+    "tags": ["History", "Nature", "Culture", "Matsuyama City"],
+    "description": "A National Historic Site and city park on the grounds of the Kono clan's medieval Yuzuki Castle, with restored moats, earthworks, samurai residences, and an exhibition hall.",
+    "highlights": ["History", "Nature", "Culture"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 105,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 1000,
+    "budgetRecommended": 3000,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 1000,
+      "tickets": 0,
+      "food": 1300,
+      "cafe": 700
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/%E9%81%93%E5%BE%8C%E5%85%AC%E5%9C%92%E3%83%BB%E6%B9%AF%E7%AF%89%E5%9F%8E%E8%B7%A1_%28%E6%88%A6%E5%9B%BD%E6%99%82%E4%BB%A3%E6%B2%B3%E9%87%8E%E6%B0%8F%E3%81%AE%E5%9F%8E%E9%A4%A8%E8%B7%A1%29_-_panoramio.jpg/1280px-%E9%81%93%E5%BE%8C%E5%85%AC%E5%9C%92%E3%83%BB%E6%B9%AF%E7%AF%89%E5%9F%8E%E8%B7%A1_%28%E6%88%A6%E5%9B%BD%E6%99%82%E4%BB%A3%E6%B2%B3%E9%87%8E%E6%B0%8F%E3%81%AE%E5%9F%8E%E9%A4%A8%E8%B7%A1%29_-_panoramio.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/%E9%81%93%E5%BE%8C%E5%85%AC%E5%9C%92%E3%83%BB%E6%B9%AF%E7%AF%89%E5%9F%8E%E8%B7%A1_%28%E6%88%A6%E5%9B%BD%E6%99%82%E4%BB%A3%E6%B2%B3%E9%87%8E%E6%B0%8F%E3%81%AE%E5%9F%8E%E9%A4%A8%E8%B7%A1%29_-_panoramio.jpg/1280px-%E9%81%93%E5%BE%8C%E5%85%AC%E5%9C%92%E3%83%BB%E6%B9%AF%E7%AF%89%E5%9F%8E%E8%B7%A1_%28%E6%88%A6%E5%9B%BD%E6%99%82%E4%BB%A3%E6%B2%B3%E9%87%8E%E6%B0%8F%E3%81%AE%E5%9F%8E%E9%A4%A8%E8%B7%A1%29_-_panoramio.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Yoshio Kohara",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:道後公園・湯築城跡_(戦国時代河野氏の城館跡)_-_panoramio.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 4500,
+    "walkingSunMin": 2700,
+    "walkingShadeMin": 1800,
+    "walkingIntensity": "medium",
+    "indoorPercent": 25,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8.2,
+      "couple": 8,
+      "summer": 7.4,
+      "winter": 7.4,
+      "rain": 6.4,
+      "food": 7.4,
+      "photography": 8.2,
+      "relaxation": 8.6,
+      "value": 8.6,
+      "uniqueness": 8.2
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9,
+      "summer": 7.6,
+      "autumn": 8.6,
+      "winter": 7.8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Check local parking guidance",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
+    "notesJa": "【見どころ】道後公園（湯築城跡）は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "公園は常時開園。展示施設9:00～17:00。月曜休館（祝日は開館し翌平日休館）。",
+    "businessHours": "Park open anytime; exhibition facility 09:00–17:00; closed Mondays (open on public holidays, closed the following weekday)",
+    "officialWebsite": "https://dogokouen.jp/",
+    "content": {
+      "en": {
+        "name": "Yuzuki Castle Ruins (Dogo Park)",
+        "description": "A National Historic Site and city park on the grounds of the Kono clan's medieval Yuzuki Castle, with restored moats, earthworks, samurai residences, and an exhibition hall.",
+        "highlights": ["History", "Nature", "Culture"]
+      },
+      "ja": {
+        "name": "道後公園（湯築城跡）",
+        "description": "中世に河野氏が居城とした湯築城の跡を整備した国史跡の公園。復元された堀や土塁、武家屋敷、展示館があります。",
+        "highlights": ["歴史", "自然", "文化"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://dogokouen.jp/",
+          "title": "Dogo Park (Yuzuki Castle Ruins) official site",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://en.matsuyama-sightseeing.com/spot/18-2/",
+          "title": "Dogo-kōen Park — Tourism Matsuyama official listing",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "matsuyama-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "ehime-art-museum",
+    "name": "Ehime Prefectural Museum of Art",
+    "nameJa": "愛媛県美術館",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Ehime:matsuyama",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.8406,
+      "lng": 132.7622
+    },
+    "categories": ["Culture", "Museum", "Art"],
+    "tags": ["Culture", "Museum", "Art", "Matsuyama City"],
+    "description": "A prefectural museum in Matsuyama Castle's moat park, presenting Japanese and Western modern art and rotating exhibitions in a central Matsuyama setting.",
+    "highlights": ["Culture", "Museum", "Art"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 100,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 340,
+      "food": 1400,
+      "cafe": 760
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Prefectual_Museum_of_Art1_%28Matuyama_City%29.JPG/1280px-Prefectual_Museum_of_Art1_%28Matuyama_City%29.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Prefectual_Museum_of_Art1_%28Matuyama_City%29.JPG/1280px-Prefectual_Museum_of_Art1_%28Matuyama_City%29.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Jyo81",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Prefectual_Museum_of_Art1_(Matuyama_City).JPG"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 3
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1800,
+    "walkingShadeMin": 1200,
+    "walkingIntensity": "low",
+    "indoorPercent": 85,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.2,
+      "couple": 8,
+      "summer": 7.6,
+      "winter": 7.8,
+      "rain": 8.4,
+      "food": 7.2,
+      "photography": 7.8,
+      "relaxation": 7.6,
+      "value": 7.8,
+      "uniqueness": 8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.2,
+      "summer": 7.6,
+      "autumn": 8.4,
+      "winter": 7.8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "None required",
+    "parking": "No parking at the museum; Kencho Nishi parking offers two hours free, with nearby paid lots",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
+    "notesJa": "【見どころ】愛媛県美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:40～18:00（最終入館17:30）。月曜休館（祝日は翌日休館）。毎月第1月曜は開館し翌火曜休館。12月29日～1月3日休館。",
+    "businessHours": "09:40–18:00 (last admission 17:30); closed Mondays, except the first Monday of each month is open and the following Tuesday is closed (a holiday Monday closes the following day); closed Dec 29–Jan 3",
+    "officialWebsite": "https://www.ehime-art.jp/en/guide",
+    "content": {
+      "en": {
+        "name": "Ehime Prefectural Museum of Art",
+        "description": "A prefectural museum in Matsuyama Castle's moat park, presenting Japanese and Western modern art and rotating exhibitions in a central Matsuyama setting.",
+        "highlights": ["Culture", "Museum", "Art"]
+      },
+      "ja": {
+        "name": "愛媛県美術館",
+        "description": "松山城の堀之内にある県立美術館。近現代の日本・西洋美術や、松山ゆかりの作品をコレクションとして展示しています。",
+        "highlights": ["文化", "博物館", "アート"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.ehime-art.jp/en/guide",
+          "title": "Ehime Prefectural Museum of Art official visitor information",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "matsuyama-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "awa-odori-kaikan",
+    "name": "Awa Odori Kaikan",
+    "nameJa": "阿波おどり会館",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Tokushima:tokushima",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.0702,
+      "lng": 134.545
+    },
+    "categories": ["Culture", "Museum", "Experience"],
+    "tags": ["Culture", "Museum", "Experience", "Tokushima City"],
+    "description": "A downtown hall where visitors can watch professional Awa Odori dance performances year-round and learn the history of the festival, at the foot of Mount Bizan.",
+    "highlights": ["Culture", "Museum", "Experience"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 100,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 2000,
+    "budgetRecommended": 5000,
+    "budgetMax": 9000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 1300,
+      "food": 1500,
+      "cafe": 700
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Awa-dance_memorial_hall01s3200.jpg/1280px-Awa-dance_memorial_hall01s3200.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Awa-dance_memorial_hall01s3200.jpg/1280px-Awa-dance_memorial_hall01s3200.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Awa-dance_memorial_hall01s3200.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1800,
+    "walkingShadeMin": 1200,
+    "walkingIntensity": "low",
+    "indoorPercent": 80,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 8.6,
+      "summer": 8.8,
+      "winter": 8,
+      "rain": 8.6,
+      "food": 8.2,
+      "photography": 8.2,
+      "relaxation": 7.8,
+      "value": 8,
+      "uniqueness": 9.2
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8.8,
+      "autumn": 8.4,
+      "winter": 8
+    },
+    "bestMonths": [6, 7, 8, 9, 10, 11],
+    "bestSeason": "Summer",
+    "weatherDependence": "low",
+    "reservation": "Advance booking recommended for performance seats; day and evening schedules vary",
+    "parking": "Paid parking available in the area",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Tokushima City.",
+    "notesJa": "【見どころ】阿波おどり会館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:00～20:00。12月28日～1月1日、2・6・9・12月の第2水曜休館（祝日は翌日）。昼公演は11・14・15・16時、夜公演は20時。",
+    "businessHours": "09:00–20:00; closed Dec 28–Jan 1 and on the 2nd Wednesday of Feb, Jun, Sep, and Dec (next day if a holiday)",
+    "officialWebsite": "https://www.awaodori-kaikan.jp/",
+    "content": {
+      "en": {
+        "name": "Awa Odori Kaikan",
+        "description": "A downtown hall where visitors can watch professional Awa Odori dance performances year-round and learn the history of the festival, at the foot of Mount Bizan.",
+        "highlights": ["Culture", "Museum", "Experience"]
+      },
+      "ja": {
+        "name": "阿波おどり会館",
+        "description": "徳島市中心部の会館で、一年を通じて阿波おどりの実演を鑑賞でき、踊りの歴史や装束も学べます。眉山のふもとに位置します。",
+        "highlights": ["文化", "博物館", "体験"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.awaodori-kaikan.jp/",
+          "title": "Awa Odori Kaikan official site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "tokushima-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "bizan-ropeway-tokushima",
+    "name": "Mount Bizan Ropeway",
+    "nameJa": "眉山ロープウェイ",
+    "kind": "viewpoint",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Tokushima:tokushima",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.0687,
+      "lng": 134.5413
+    },
+    "categories": ["Nature", "Viewpoint", "Experience"],
+    "tags": ["Nature", "Viewpoint", "Experience", "Tokushima City"],
+    "description": "A six-minute cable-car ride from beside the Awa Odori Kaikan to the summit of Mount Bizan, with sweeping views over Tokushima City and the Yoshino River delta.",
+    "highlights": ["Nature", "Viewpoint", "Experience"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 100,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 2000,
+    "budgetRecommended": 5000,
+    "budgetMax": 9000,
+    "budgetBreakdown": {
+      "transport": 1800,
+      "tickets": 1500,
+      "food": 1000,
+      "cafe": 700
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/23/Bizan01.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/23/Bizan01.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Kansai explorer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bizan01.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3500,
+    "walkingSunMin": 2100,
+    "walkingShadeMin": 1400,
+    "walkingIntensity": "medium",
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8.6,
+      "summer": 8.4,
+      "winter": 8,
+      "rain": 6.6,
+      "food": 7.6,
+      "photography": 9,
+      "relaxation": 8.4,
+      "value": 8,
+      "uniqueness": 8.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.8,
+      "summer": 8.6,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Check local parking guidance",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Tokushima City.",
+    "notesJa": "【見どころ】眉山ロープウェイは四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "4～10月9:00～21:00、11～3月9:00～17:30。1月1日は6:00～17:30。",
+    "businessHours": "09:00–21:00 (Apr–Oct), 09:00–17:30 (Nov–Mar); Jan 1 opens 06:00–17:30",
+    "officialWebsite": "https://www.city.tokushima.tokushima.jp/multilingual/english_portal/tourism_culture/mt_bizan/ropeway.html",
+    "content": {
+      "en": {
+        "name": "Mount Bizan Ropeway",
+        "description": "A six-minute cable-car ride from beside the Awa Odori Kaikan to the summit of Mount Bizan, with sweeping views over Tokushima City and the Yoshino River delta.",
+        "highlights": ["Nature", "Viewpoint", "Experience"]
+      },
+      "ja": {
+        "name": "眉山ロープウェイ",
+        "description": "阿波おどり会館の隣から約6分で眉山山頂へ。徳島市街と吉野川のデルタを見渡す眺望が楽しめます。",
+        "highlights": ["自然", "展望", "体験"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.tokushima.tokushima.jp/multilingual/english_portal/tourism_culture/mt_bizan/ropeway.html",
+          "title": "Awagin Bizan Ropeway — Tokushima City official site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "tokushima-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "tokushima-central-park",
+    "name": "Tokushima Central Park",
+    "nameJa": "徳島中央公園",
+    "kind": "park",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Tokushima:tokushima",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.0747,
+      "lng": 134.5549
+    },
+    "categories": ["History", "Nature", "Culture"],
+    "tags": ["History", "Nature", "Culture", "Tokushima City"],
+    "description": "A National Historic Site on the grounds of Tokushima Castle, with reconstructed stone walls, the Washinomon gate, a castle museum, and the former Omotegoten garden.",
+    "highlights": ["History", "Nature", "Culture"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 100,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 1000,
+    "budgetRecommended": 3000,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 1000,
+      "tickets": 50,
+      "food": 1300,
+      "cafe": 650
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Tokushima_Central_Park%2C_Tokushima_Prefecture%3B_April_2017_%2801%29.jpg/1280px-Tokushima_Central_Park%2C_Tokushima_Prefecture%3B_April_2017_%2801%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Tokushima_Central_Park%2C_Tokushima_Prefecture%3B_April_2017_%2801%29.jpg/1280px-Tokushima_Central_Park%2C_Tokushima_Prefecture%3B_April_2017_%2801%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "attribution": "wongwt",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokushima_Central_Park,_Tokushima_Prefecture;_April_2017_(01).jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 4000,
+    "walkingSunMin": 2400,
+    "walkingShadeMin": 1600,
+    "walkingIntensity": "medium",
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 7.8,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 6.4,
+      "food": 7.2,
+      "photography": 8,
+      "relaxation": 8.4,
+      "value": 8.6,
+      "uniqueness": 8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.8,
+      "summer": 7.6,
+      "autumn": 8.4,
+      "winter": 7.4
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Check local parking guidance",
+    "notes": "Former garden admission is 50 yen for adults and 30 yen for children; museum admission is separate.",
+    "notesJa": "【見どころ】徳島中央公園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "公園は常時開放。旧表御殿庭園9:00～17:00（最終入園16:30）。庭園は月曜・祝日の翌日・12月28日～1月4日休園（例外あり）。",
+    "businessHours": "Park open access; former garden 09:00–17:00 (last entry 16:30); museum hours vary",
+    "officialWebsite": "https://www.city.tokushima.tokushima.jp/shisetsu/park/chuo.html",
+    "content": {
+      "en": {
+        "name": "Tokushima Central Park",
+        "description": "A National Historic Site on the grounds of Tokushima Castle, with reconstructed stone walls, the Washinomon gate, a castle museum, and the former Omotegoten garden.",
+        "highlights": ["History", "Nature", "Culture"]
+      },
+      "ja": {
+        "name": "徳島中央公園",
+        "description": "徳島城跡に整備された国史跡の公園。石垣や復元された鷲の門、徳島城博物館、旧表御殿庭園などがあります。",
+        "highlights": ["歴史", "自然", "文化"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.tokushima.tokushima.jp/shisetsu/park/chuo.html",
+          "title": "Tokushima Central Park — Tokushima City official site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "tokushima-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "tokushima-modern-art-museum",
+    "name": "Tokushima Modern Art Museum",
+    "nameJa": "徳島県立近代美術館",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Tokushima:tokushima",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.0398,
+      "lng": 134.5267
+    },
+    "categories": ["Culture", "Museum", "Art"],
+    "tags": ["Culture", "Museum", "Art", "Tokushima City"],
+    "description": "A prefectural museum of modern art in Tokushima's cultural forest park, with collection and special exhibitions of Japanese and Western modern art.",
+    "highlights": ["Culture", "Museum", "Art"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 105,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 1000,
+    "budgetRecommended": 3000,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 1000,
+      "tickets": 200,
+      "food": 1200,
+      "cafe": 600
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Tokushima_21st_century_cultural_information_center01n3872.jpg/1280px-Tokushima_21st_century_cultural_information_center01n3872.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Tokushima_21st_century_cultural_information_center01n3872.jpg/1280px-Tokushima_21st_century_cultural_information_center01n3872.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokushima_21st_century_cultural_information_center01n3872.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1800,
+    "walkingShadeMin": 1200,
+    "walkingIntensity": "low",
+    "indoorPercent": 85,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 7.8,
+      "summer": 7.4,
+      "winter": 7.6,
+      "rain": 8.4,
+      "food": 7,
+      "photography": 7.6,
+      "relaxation": 7.6,
+      "value": 7.8,
+      "uniqueness": 8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.2,
+      "summer": 7.6,
+      "autumn": 8.2,
+      "winter": 7.6
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "None required",
+    "parking": "Free parking at the cultural forest park",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Tokushima City.",
+    "notesJa": "【見どころ】徳島県立近代美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:30～17:00（最終入館16:30）。月曜（祝日の場合は翌日）、12月29日～1月4日休館。展示替えによる臨時休館あり。",
+    "businessHours": "09:30–17:00 (last admission 16:30); closed Mondays (next day if a holiday), Dec 29–Jan 4, and during exhibition changes",
+    "officialWebsite": "https://art.bunmori.tokushima.jp/info/index_en.html",
+    "content": {
+      "en": {
+        "name": "Tokushima Modern Art Museum",
+        "description": "A prefectural museum of modern art in Tokushima's cultural forest park, with collection and special exhibitions of Japanese and Western modern art.",
+        "highlights": ["Culture", "Museum", "Art"]
+      },
+      "ja": {
+        "name": "徳島県立近代美術館",
+        "description": "文化の森総合公園内にある県立の近代美術館。日本や西洋の近現代美術を収蔵・展示し、企画展も開催しています。",
+        "highlights": ["文化", "博物館", "アート"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://art.bunmori.tokushima.jp/info/index_en.html",
+          "title": "Tokushima Modern Art Museum official visitor information",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "tokushima-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "uzu-no-michi-naruto",
+    "name": "Uzu no Michi (Naruto Whirlpool Walkway)",
+    "nameJa": "大鳴門橋遊歩道 うずしお道",
+    "kind": "viewpoint",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Tokushima:naruto",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.1728,
+      "lng": 134.6084
+    },
+    "categories": ["Nature", "Viewpoint", "Experience"],
+    "tags": ["Nature", "Viewpoint", "Experience", "Naruto City"],
+    "description": "A 450-meter enclosed walkway inside the Onaruto Bridge, 45 meters above the sea, with glass-floor sections overlooking the Naruto whirlpools.",
+    "highlights": ["Nature", "Viewpoint", "Experience"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 115,
+      "bus": 125,
+      "car": 130
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 510,
+      "food": 1300,
+      "cafe": 690
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Oh_Naruto_Bridge_inside.JPG/1280px-Oh_Naruto_Bridge_inside.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Oh_Naruto_Bridge_inside.JPG/1280px-Oh_Naruto_Bridge_inside.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "TEMPA WATARU",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oh_Naruto_Bridge_inside.JPG"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1800,
+    "walkingShadeMin": 1200,
+    "walkingIntensity": "medium",
+    "indoorPercent": 70,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 6,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.8,
+      "couple": 8.6,
+      "summer": 8.4,
+      "winter": 7.8,
+      "rain": 6.8,
+      "food": 7.6,
+      "photography": 9.2,
+      "relaxation": 8.2,
+      "value": 8,
+      "uniqueness": 9.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.8,
+      "summer": 8.2,
+      "autumn": 9,
+      "winter": 7.8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Paid parking at Naruto Park",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Naruto City. Whirlpool strength depends on tide; check the tide table before visiting.",
+    "notesJa": "【見どころ】大鳴門橋遊歩道 うずしお道は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "3～9月9:00～18:00、10～2月9:00～17:00。3・6・9・12月の第2月曜休館。",
+    "businessHours": "09:00–18:00 (Mar–Sep), 09:00–17:00 (Oct–Feb); closed 2nd Monday of Mar/Jun/Sep/Dec",
+    "officialWebsite": "https://www.uzunomichi.jp/lang_en/",
+    "content": {
+      "en": {
+        "name": "Uzu no Michi (Naruto Whirlpool Walkway)",
+        "description": "A 450-meter enclosed walkway inside the Onaruto Bridge, 45 meters above the sea, with glass-floor sections overlooking the Naruto whirlpools.",
+        "highlights": ["Nature", "Viewpoint", "Experience"]
+      },
+      "ja": {
+        "name": "大鳴門橋遊歩道 うずしお道",
+        "description": "大鳴門橋の橋桁の中を歩く全長450mの遊歩道。海面から45mの高さで、ガラス床から鳴門の渦潮を見下ろせます。",
+        "highlights": ["自然", "展望", "体験"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.uzunomichi.jp/lang_en/",
+          "title": "Uzu no Michi official site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "naruto-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "uzushio-cruise-naruto",
+    "name": "Naruto Whirlpool Cruise",
+    "nameJa": "うずしお観潮船",
+    "kind": null,
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Tokushima:naruto",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.213,
+      "lng": 134.61
+    },
+    "categories": ["Nature", "Experience", "Viewpoint"],
+    "tags": ["Nature", "Experience", "Viewpoint", "Naruto City"],
+    "description": "Sightseeing boats that approach the Naruto whirlpools directly, offering close views of the tidal maelstroms from the water; departures from Naruto Park.",
+    "highlights": ["Nature", "Experience", "Viewpoint"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 115,
+      "bus": 125,
+      "car": 130
+    },
+    "budgetMin": 2500,
+    "budgetRecommended": 6000,
+    "budgetMax": 10000,
+    "budgetBreakdown": {
+      "transport": 1800,
+      "tickets": 2000,
+      "food": 1400,
+      "cafe": 800
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Whirlpools_fureai_park.JPG/1280px-Whirlpools_fureai_park.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Whirlpools_fureai_park.JPG/1280px-Whirlpools_fureai_park.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "アラツク",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whirlpools_fureai_park.JPG"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2000,
+    "walkingSunMin": 1200,
+    "walkingShadeMin": 800,
+    "walkingIntensity": "medium",
+    "indoorPercent": 50,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 4,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8.6,
+      "winter": 7.8,
+      "rain": 6.2,
+      "food": 7.8,
+      "photography": 9.4,
+      "relaxation": 8,
+      "value": 7.8,
+      "uniqueness": 9.6
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8.8,
+      "summer": 8.4,
+      "autumn": 9,
+      "winter": 7.6
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "high",
+    "reservation": "WONDER NARUTO requires no reservation; AQUA EDDY requires advance reservation",
+    "parking": "Paid parking at Naruto Park Kameura port",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Naruto City. The Aqua Eddy underwater-view boat requires advance reservation.",
+    "notesJa": "【見どころ】うずしお観潮船は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "運航時刻は公式時刻表を確認。潮流・天候により変更。通常船は予約不要、小型水中観潮船は要予約。",
+    "businessHours": "Schedule varies; check the official timetable; weather- and tide-dependent",
+    "officialWebsite": "https://www.uzusio.com/en/geton/",
+    "content": {
+      "en": {
+        "name": "Naruto Whirlpool Cruise",
+        "description": "Sightseeing boats that approach the Naruto whirlpools directly, offering close views of the tidal maelstroms from the water; departures from Naruto Park.",
+        "highlights": ["Nature", "Experience", "Viewpoint"]
+      },
+      "ja": {
+        "name": "うずしお観潮船",
+        "description": "鳴門の渦潮を間近で見学できる観潮船。鳴門公園の亀浦港から出航し、海面から渦の迫力を体感できます。",
+        "highlights": ["自然", "体験", "展望"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.uzusio.com/en/geton/",
+          "title": "Naruto whirlpool sightseeing cruise — official operator site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "naruto-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "otsuka-museum-of-art-naruto",
+    "name": "Otsuka Museum of Art",
+    "nameJa": "大塚国際美術館",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Tokushima:naruto",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.2326,
+      "lng": 134.6375
+    },
+    "categories": ["Culture", "Museum", "Art"],
+    "tags": ["Culture", "Museum", "Art", "Naruto City"],
+    "description": "A museum of life-size ceramic reproductions of famous Western paintings, letting visitors walk through masterworks from the Sistine Chapel ceiling to modern art.",
+    "highlights": ["Culture", "Museum", "Art"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 115,
+      "bus": 125,
+      "car": 130
+    },
+    "budgetMin": 4500,
+    "budgetRecommended": 9000,
+    "budgetMax": 15000,
+    "budgetBreakdown": {
+      "transport": 2500,
+      "tickets": 3300,
+      "food": 2200,
+      "cafe": 1000
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/The_Otsuka_Museum_of_Art01s3200.jpg/1280px-The_Otsuka_Museum_of_Art01s3200.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/The_Otsuka_Museum_of_Art01s3200.jpg/1280px-The_Otsuka_Museum_of_Art01s3200.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Otsuka_Museum_of_Art01s3200.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "walkingMin": 6000,
+    "walkingSunMin": 3500,
+    "walkingShadeMin": 2500,
+    "walkingIntensity": "medium",
+    "indoorPercent": 90,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 9,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.8,
+      "couple": 8.8,
+      "summer": 8.2,
+      "winter": 8,
+      "rain": 9,
+      "food": 8,
+      "photography": 8.6,
+      "relaxation": 8.4,
+      "value": 7.6,
+      "uniqueness": 9.6
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8.2,
+      "autumn": 8.6,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "None required",
+    "parking": "Free parking available",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Naruto City.",
+    "notesJa": "【見どころ】大塚国際美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:30～17:00（入館券販売16:00まで）。月曜休館（祝日の場合は翌日）。開館カレンダーを確認。",
+    "businessHours": "09:30–17:00 (ticket sales until 16:00); closed Mondays (next day if a holiday)",
+    "officialWebsite": "https://o-museum.or.jp/",
+    "content": {
+      "en": {
+        "name": "Otsuka Museum of Art",
+        "description": "A museum of life-size ceramic reproductions of famous Western paintings, letting visitors walk through masterworks from the Sistine Chapel ceiling to modern art.",
+        "highlights": ["Culture", "Museum", "Art"]
+      },
+      "ja": {
+        "name": "大塚国際美術館",
+        "description": "西洋名画を原寸大の陶板で再現した世界唯一の陶板名画美術館。システィーナ礼拝堂の天井画から現代美術まで、原寸の名画を歩いて鑑賞できます。",
+        "highlights": ["文化", "博物館", "アート"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://o-museum.or.jp/pages/187/",
+          "title": "Otsuka Museum of Art official visitor information",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "naruto-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "naruto-german-house",
+    "name": "Naruto German House",
+    "nameJa": "鳴門市ドイツ館",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Tokushima:naruto",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.1647,
+      "lng": 134.499
+    },
+    "categories": ["Culture", "Museum", "History"],
+    "tags": ["Culture", "Museum", "History", "Naruto City"],
+    "description": "A museum on the site of the World War I Bando prisoner-of-war camp, telling the story of German POWs and their role in bringing Beethoven's Ninth and Western culture to Japan.",
+    "highlights": ["Culture", "Museum", "History"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 115,
+      "bus": 125,
+      "car": 130
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 400,
+      "food": 1400,
+      "cafe": 700
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/27/Naruto_German_House_20131014.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/27/Naruto_German_House_20131014.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naruto_German_House_20131014.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1800,
+    "walkingShadeMin": 1200,
+    "walkingIntensity": "low",
+    "indoorPercent": 75,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.2,
+      "couple": 7.8,
+      "summer": 7.6,
+      "winter": 7.6,
+      "rain": 8.2,
+      "food": 7.4,
+      "photography": 7.6,
+      "relaxation": 7.4,
+      "value": 8.2,
+      "uniqueness": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.2,
+      "summer": 7.8,
+      "autumn": 8.2,
+      "winter": 7.8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "None required",
+    "parking": "Free parking shared with Roadside Station Dai-san no Sato; about 100 spaces",
+    "notes": "Admission is 400 yen for adults and 100 yen for children; temporary closures can occur.",
+    "notesJa": "【見どころ】鳴門市ドイツ館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:30～17:00（最終入館16:30）。第4月曜休館（祝日の場合は翌日）、12月28日～31日休館。臨時休館あり。",
+    "businessHours": "09:30–17:00 (last admission 16:30); closed the 4th Monday (next day if a holiday) and Dec 28–31",
+    "officialWebsite": "https://doitsukan.com/",
+    "content": {
+      "en": {
+        "name": "Naruto German House",
+        "description": "A museum on the site of the World War I Bando prisoner-of-war camp, telling the story of German POWs and their role in bringing Beethoven's Ninth and Western culture to Japan.",
+        "highlights": ["Culture", "Museum", "History"]
+      },
+      "ja": {
+        "name": "鳴門市ドイツ館",
+        "description": "第一次世界大戦の板東俘虜収容所跡地に建つ博物館。ドイツ兵俘虜が日本に第九や西洋文化を伝えた歴史を紹介しています。",
+        "highlights": ["文化", "博物館", "歴史"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://doitsukan.com/spot.html",
+          "title": "Naruto German House — official visitor information",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "official",
+          "url": "https://www.city.naruto.lg.jp/map/info/95/",
+          "title": "Naruto German House — Naruto City facility map",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "naruto-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "ryozen-ji-naruto",
+    "name": "Ryozen-ji",
+    "nameJa": "霊山寺",
+    "kind": "temple",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Tokushima:naruto",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.1594,
+      "lng": 134.5027
+    },
+    "categories": ["History", "Culture", "Temple"],
+    "tags": ["History", "Culture", "Temple", "Naruto City"],
+    "description": "Temple No. 1 of the Shikoku 88-temple pilgrimage, traditionally the starting point of the route, with a Daishido hall and the statue of Kobo Daishi at its entrance.",
+    "highlights": ["History", "Culture", "Temple"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 115,
+      "bus": 125,
+      "car": 130
+    },
+    "budgetMin": 1000,
+    "budgetRecommended": 3000,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 1000,
+      "tickets": 0,
+      "food": 1300,
+      "cafe": 700
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Gate_of_Ryozenji_Temple_in_Naruto%2C_Tokushima.jpg/1280px-Gate_of_Ryozenji_Temple_in_Naruto%2C_Tokushima.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Gate_of_Ryozenji_Temple_in_Naruto%2C_Tokushima.jpg/1280px-Gate_of_Ryozenji_Temple_in_Naruto%2C_Tokushima.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gate_of_Ryozenji_Temple_in_Naruto,_Tokushima.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1800,
+    "walkingShadeMin": 1200,
+    "walkingIntensity": "medium",
+    "indoorPercent": 25,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8.2,
+      "summer": 7.8,
+      "winter": 7.4,
+      "rain": 6.8,
+      "food": 7.4,
+      "photography": 8.2,
+      "relaxation": 8.4,
+      "value": 8.6,
+      "uniqueness": 8.6
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.6,
+      "summer": 7.8,
+      "autumn": 8.8,
+      "winter": 7.6
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Check local parking guidance",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Naruto City (the temple is in Oasa-cho, Naruto City, not Tokushima City).",
+    "notesJa": "【見どころ】霊山寺は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "7:00～17:00。年中無休。",
+    "businessHours": "07:00–17:00 daily",
+    "officialWebsite": "https://naruto-tourism.jp/en/spot/15466",
+    "content": {
+      "en": {
+        "name": "Ryozen-ji",
+        "description": "Temple No. 1 of the Shikoku 88-temple pilgrimage, traditionally the starting point of the route, with a Daishido hall and the statue of Kobo Daishi at its entrance.",
+        "highlights": ["History", "Culture", "Temple"]
+      },
+      "ja": {
+        "name": "霊山寺",
+        "description": "四国八十八箇所霊場の第1番札所で、遍路の出発点とされる寺院。本堂や大師堂があり、門前には空海の像が立っています。",
+        "highlights": ["歴史", "文化", "寺院"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://naruto-tourism.jp/en/spot/15466",
+          "title": "Ryozenji — Naruto City official travel guide",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "official",
+          "url": "https://www.ryosenji.jp/",
+          "title": "Ryozenji official site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "naruto-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "katsurahama-beach",
+    "name": "Katsurahama Beach",
+    "nameJa": "桂浜",
+    "kind": "beach",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Kochi:kochi",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.4971,
+      "lng": 133.5744
+    },
+    "categories": ["Nature", "History", "Scenery"],
+    "tags": ["Nature", "History", "Scenery", "Kochi City"],
+    "description": "A Pacific-coast beach of white sand and pines, with a bronze statue of Sakamoto Ryoma gazing out to sea, a small aquarium, and the Ryoma museum nearby.",
+    "highlights": ["Nature", "History", "Scenery"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 110,
+      "bus": 120,
+      "car": 130
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 0,
+      "food": 1700,
+      "cafe": 800
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/02/Katsurahama_Beach.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/02/Katsurahama_Beach.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Kotaro",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Katsurahama_Beach.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 5000,
+    "walkingSunMin": 3000,
+    "walkingShadeMin": 2000,
+    "walkingIntensity": "medium",
+    "indoorPercent": 20,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 5,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8.8,
+      "couple": 8.8,
+      "summer": 8.6,
+      "winter": 8,
+      "rain": 6.4,
+      "food": 8,
+      "photography": 9.2,
+      "relaxation": 9,
+      "value": 8.4,
+      "uniqueness": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8.8,
+      "summer": 8.4,
+      "autumn": 9,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Paid parking available",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Kochi City.",
+    "notesJa": "【見どころ】桂浜は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "常時開放。海水浴場ではなく観光向け。",
+    "businessHours": "Open access; beach is for sightseeing, not swimming",
+    "officialWebsite": "https://www.city.kochi.kochi.jp/kochi-city-travel-guide/katsurahama-beach/",
+    "content": {
+      "en": {
+        "name": "Katsurahama Beach",
+        "description": "A Pacific-coast beach of white sand and pines, with a bronze statue of Sakamoto Ryoma gazing out to sea, a small aquarium, and the Ryoma museum nearby.",
+        "highlights": ["Nature", "History", "Scenery"]
+      },
+      "ja": {
+        "name": "桂浜",
+        "description": "白砂と松林が続く太平洋の海岸。坂本龍馬像が海を見つめ、近くに水族館や龍馬記念館があります。",
+        "highlights": ["自然", "歴史", "絶景"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.city.kochi.kochi.jp/kochi-city-travel-guide/katsurahama-beach/",
+          "title": "Katsurahama Beach — Kochi City official travel guide",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "kochi-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "hirome-market-kochi",
+    "name": "Hirome Ichiba",
+    "nameJa": "ひろめ市場",
+    "kind": "market",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Kochi:kochi",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.5604,
+      "lng": 133.5356
+    },
+    "categories": ["Food", "Market", "Culture"],
+    "tags": ["Food", "Market", "Culture", "Kochi City"],
+    "description": "A lively covered food market with dozens of food stalls and open seating, famous for katsuo no tataki and other Kochi specialties, popular day and night.",
+    "highlights": ["Food", "Market", "Culture"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 100,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1000,
+      "tickets": 0,
+      "food": 2200,
+      "cafe": 800
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Hirome-Ichiba%2CKochi-city%2CJapan.jpg/1280px-Hirome-Ichiba%2CKochi-city%2CJapan.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Hirome-Ichiba%2CKochi-city%2CJapan.jpg/1280px-Hirome-Ichiba%2CKochi-city%2CJapan.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "katorisi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hirome-Ichiba,Kochi-city,Japan.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1800,
+    "walkingShadeMin": 1200,
+    "walkingIntensity": "low",
+    "indoorPercent": 80,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 9,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.8,
+      "couple": 8.6,
+      "summer": 8.6,
+      "winter": 8.6,
+      "rain": 9,
+      "food": 9.4,
+      "photography": 8,
+      "relaxation": 7.8,
+      "value": 8.8,
+      "uniqueness": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 5,
+      "weekend": 8,
+      "holiday": 9
+    },
+    "season": {
+      "spring": 8.6,
+      "summer": 8.6,
+      "autumn": 8.6,
+      "winter": 8.4
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "None required",
+    "parking": "Check local parking guidance",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Kochi City.",
+    "notesJa": "【見どころ】ひろめ市場は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "月～土10:00～23:00、日曜9:00～23:00。店舗により営業時間が異なります。",
+    "businessHours": "10:00–23:00 Monday–Saturday; 09:00–23:00 Sunday (individual vendors vary)",
+    "officialWebsite": "https://www.hirome.co.jp/",
+    "content": {
+      "en": {
+        "name": "Hirome Ichiba",
+        "description": "A lively covered food market with dozens of food stalls and open seating, famous for katsuo no tataki and other Kochi specialties, popular day and night.",
+        "highlights": ["Food", "Market", "Culture"]
+      },
+      "ja": {
+        "name": "ひろめ市場",
+        "description": "多数の飲食店と開放的な座席が並ぶ市場。カツオのたたきなど高知名物を気軽に楽しめ、昼夜を問わず賑わいます。",
+        "highlights": ["グルメ", "市場", "文化"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.hirome.co.jp/access.html",
+          "title": "Hirome Ichiba official site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "kochi-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "sakamoto-ryoma-memorial-museum",
+    "name": "Sakamoto Ryoma Memorial Museum",
+    "nameJa": "高知県立坂本龍馬記念館",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Kochi:kochi",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.4964,
+      "lng": 133.5719
+    },
+    "categories": ["History", "Museum", "Culture"],
+    "tags": ["History", "Museum", "Culture", "Kochi City"],
+    "description": "A dramatic concrete museum above Katsurahama Beach devoted to Sakamoto Ryoma, with life-size exhibits and panoramic views of the Pacific.",
+    "highlights": ["History", "Museum", "Culture"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 110,
+      "bus": 120,
+      "car": 130
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 500,
+      "food": 1300,
+      "cafe": 700
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/The_Sakamoto_Ryoma_Memorial_Museum_01.jpg/1280px-The_Sakamoto_Ryoma_Memorial_Museum_01.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/The_Sakamoto_Ryoma_Memorial_Museum_01.jpg/1280px-The_Sakamoto_Ryoma_Memorial_Museum_01.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Mugu-shisai",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Sakamoto_Ryoma_Memorial_Museum_01.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 3
+    },
+    "walkingMin": 4000,
+    "walkingSunMin": 2400,
+    "walkingShadeMin": 1600,
+    "walkingIntensity": "medium",
+    "indoorPercent": 75,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 8,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 8.4,
+      "summer": 8,
+      "winter": 7.8,
+      "rain": 8.4,
+      "food": 7.6,
+      "photography": 8.2,
+      "relaxation": 7.8,
+      "value": 8.2,
+      "uniqueness": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8,
+      "autumn": 8.4,
+      "winter": 7.8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "None required",
+    "parking": "Free on-site parking for 42 cars; bus parking is prioritized by advance reservation; fallback Katsurahama parking is paid",
+    "notes": "Adult admission is 500 yen outside special exhibitions and 900 yen during special exhibitions; group visits should reserve ahead.",
+    "notesJa": "【見どころ】高知県立坂本龍馬記念館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:00～17:00（最終入館16:30頃）。休館日なし。",
+    "businessHours": "09:00–17:00 (enter by about 16:30); no regular closing days",
+    "officialWebsite": "https://ryoma-kinenkan.jp/visit/",
+    "content": {
+      "en": {
+        "name": "Sakamoto Ryoma Memorial Museum",
+        "description": "A dramatic concrete museum above Katsurahama Beach devoted to Sakamoto Ryoma, with life-size exhibits and panoramic views of the Pacific.",
+        "highlights": ["History", "Museum", "Culture"]
+      },
+      "ja": {
+        "name": "高知県立坂本龍馬記念館",
+        "description": "桂浜の高台にある坂本龍馬の生涯を紹介する博物館。等身大の展示や太平洋を望む眺望が特徴です。",
+        "highlights": ["歴史", "博物館", "文化"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://ryoma-kinenkan.jp/visit/",
+          "title": "Sakamoto Ryoma Memorial Museum official visitor information",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "kochi-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "chikurin-ji-kochi",
+    "name": "Chikurin-ji",
+    "nameJa": "竹林寺",
+    "kind": "temple",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Kochi:kochi",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.5465,
+      "lng": 133.5767
+    },
+    "categories": ["History", "Culture", "Temple"],
+    "tags": ["History", "Culture", "Temple", "Kochi City"],
+    "description": "Temple No. 31 of the Shikoku pilgrimage on Mount Godaisan, with a noted scenic garden and treasure hall of Buddhist art.",
+    "highlights": ["History", "Culture", "Temple"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 105,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1200,
+      "tickets": 500,
+      "food": 1500,
+      "cafe": 800
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Chikurinji_Kochi02s3872.jpg/1280px-Chikurinji_Kochi02s3872.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Chikurinji_Kochi02s3872.jpg/1280px-Chikurinji_Kochi02s3872.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chikurinji_Kochi02s3872.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3500,
+    "walkingSunMin": 2100,
+    "walkingShadeMin": 1400,
+    "walkingIntensity": "medium",
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 6,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8.2,
+      "summer": 7.8,
+      "winter": 7.4,
+      "rain": 7,
+      "food": 7.6,
+      "photography": 8.6,
+      "relaxation": 8.8,
+      "value": 8.2,
+      "uniqueness": 8.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 4,
+      "holiday": 5
+    },
+    "season": {
+      "spring": 8.6,
+      "summer": 7.8,
+      "autumn": 8.8,
+      "winter": 7.4
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Check local parking guidance",
+    "notes": "The main grounds are free; the scenic garden and treasure hall require a small admission fee.",
+    "notesJa": "【見どころ】竹林寺は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "本堂周辺8:00～17:00、名勝庭園・宝物館8:30～17:00。年中無休。",
+    "businessHours": "Grounds 08:00–17:00; garden & treasure hall 08:30–17:00",
+    "officialWebsite": "https://visitkochijapan.com/en/activities/10056",
+    "content": {
+      "en": {
+        "name": "Chikurin-ji",
+        "description": "Temple No. 31 of the Shikoku pilgrimage on Mount Godaisan, with a noted scenic garden and treasure hall of Buddhist art.",
+        "highlights": ["History", "Culture", "Temple"]
+      },
+      "ja": {
+        "name": "竹林寺",
+        "description": "五台山にある四国八十八箇所第31番札所。名勝の庭園と仏教美術を収めた宝物館で知られます。",
+        "highlights": ["歴史", "文化", "寺院"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://visitkochijapan.com/en/activities/10056",
+          "title": "Chikurin-ji — Kochi Prefecture official tourism site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "kochi-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "makino-botanical-garden",
+    "name": "Kochi Prefectural Makino Botanical Garden",
+    "nameJa": "高知県立牧野植物園",
+    "kind": "garden",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Kochi:kochi",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.5483,
+      "lng": 133.5791
+    },
+    "categories": ["Nature", "Garden", "Culture"],
+    "tags": ["Nature", "Garden", "Culture", "Kochi City"],
+    "description": "A botanical garden honoring the botanist Tomitaro Makino, with thousands of native and cultivated plant species on the slopes of Mount Godaisan.",
+    "highlights": ["Nature", "Garden", "Culture"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 105,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 2000,
+    "budgetRecommended": 5000,
+    "budgetMax": 9000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 850,
+      "food": 1500,
+      "cafe": 1150
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Kochi_Prefectural_Makino_Botanical_Garden02s5.jpg/1280px-Kochi_Prefectural_Makino_Botanical_Garden02s5.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Kochi_Prefectural_Makino_Botanical_Garden02s5.jpg/1280px-Kochi_Prefectural_Makino_Botanical_Garden02s5.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kochi_Prefectural_Makino_Botanical_Garden02s5.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "walkingMin": 6000,
+    "walkingSunMin": 3500,
+    "walkingShadeMin": 2500,
+    "walkingIntensity": "medium",
+    "indoorPercent": 20,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 6,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8.8,
+      "couple": 8.8,
+      "summer": 8.4,
+      "winter": 7.4,
+      "rain": 7.2,
+      "food": 7.6,
+      "photography": 9,
+      "relaxation": 9,
+      "value": 8.2,
+      "uniqueness": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9.2,
+      "summer": 8.6,
+      "autumn": 8.8,
+      "winter": 7.4
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Paid parking available; admission is normally 850 yen but special exhibitions can change the fee",
+    "notes": "The garden publishes maintenance closures and seasonal exhibition fees; verify the calendar before visiting.",
+    "notesJa": "【見どころ】高知県立牧野植物園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:00～17:00（最終入園16:30）。メンテナンス休園日あり。公式カレンダーを確認。",
+    "businessHours": "09:00–17:00 (last entry 16:30); maintenance closures vary—check the official calendar",
+    "officialWebsite": "https://www.makino.or.jp/multilingual/?lang=en",
+    "content": {
+      "en": {
+        "name": "Kochi Prefectural Makino Botanical Garden",
+        "description": "A botanical garden honoring the botanist Tomitaro Makino, with thousands of native and cultivated plant species on the slopes of Mount Godaisan.",
+        "highlights": ["Nature", "Garden", "Culture"]
+      },
+      "ja": {
+        "name": "高知県立牧野植物園",
+        "description": "植物学者・牧野富太郎を記念する植物園。五台山の斜面に数千種の植物が植えられています。",
+        "highlights": ["自然", "庭園", "文化"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.makino.or.jp/guide/",
+          "title": "Makino Botanical Garden official visitor information",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "kochi-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "harimaya-bridge-kochi",
+    "name": "Harimaya Bridge",
+    "nameJa": "はりまや橋",
+    "kind": null,
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Kochi:kochi",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.5596,
+      "lng": 133.5423
+    },
+    "categories": ["History", "Culture", "Landmark"],
+    "tags": ["History", "Culture", "Landmark", "Kochi City"],
+    "description": "Kochi's most famous landmark, a red bridge at the heart of the city made famous by the Yosakoi-bushi folk song, with a small park where the original river once flowed.",
+    "highlights": ["History", "Culture", "Landmark"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 100,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 500,
+    "budgetRecommended": 2000,
+    "budgetMax": 4000,
+    "budgetBreakdown": {
+      "transport": 500,
+      "tickets": 0,
+      "food": 1000,
+      "cafe": 500
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Kochi_Harimaya-bashi_Bridge.jpeg/1280px-Kochi_Harimaya-bashi_Bridge.jpeg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Kochi_Harimaya-bashi_Bridge.jpeg/1280px-Kochi_Harimaya-bashi_Bridge.jpeg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Nnh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kochi_Harimaya-bashi_Bridge.jpeg"
+    },
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1
+    },
+    "walkingMin": 2000,
+    "walkingSunMin": 1200,
+    "walkingShadeMin": 800,
+    "walkingIntensity": "low",
+    "indoorPercent": 40,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 7.6,
+      "couple": 7.4,
+      "summer": 7.2,
+      "winter": 7.2,
+      "rain": 7.4,
+      "food": 7.6,
+      "photography": 7.8,
+      "relaxation": 7,
+      "value": 8,
+      "uniqueness": 7.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 5,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 8.2,
+      "summer": 7.8,
+      "autumn": 8.2,
+      "winter": 7.6
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "None required",
+    "parking": "Public transport recommended",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Kochi City.",
+    "notesJa": "【見どころ】はりまや橋は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "常時開放。",
+    "businessHours": "Open access",
+    "officialWebsite": "https://www.city.kochi.kochi.jp/site/kanko/harimayabashi.html",
+    "content": {
+      "en": {
+        "name": "Harimaya Bridge",
+        "description": "Kochi's most famous landmark, a red bridge at the heart of the city made famous by the Yosakoi-bushi folk song, with a small park where the original river once flowed.",
+        "highlights": ["History", "Culture", "Landmark"]
+      },
+      "ja": {
+        "name": "はりまや橋",
+        "description": "よさこい節の歌で知られる高知のシンボル。市街の中心に赤い橋が架かり、かつての川の流れを再現した公園があります。",
+        "highlights": ["歴史", "文化", "名所"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.city.kochi.kochi.jp/site/kanko/harimayabashi.html",
+          "title": "Harimaya Bridge — Kochi City official tourism page",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "kochi-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "nakazu-banshoen-marugame",
+    "name": "Nakazu Banshoen",
+    "nameJa": "中津万象園",
+    "kind": "garden",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Kagawa:marugame",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.2855,
+      "lng": 133.7682
+    },
+    "categories": ["Nature", "Garden", "History"],
+    "tags": ["Nature", "Garden", "History", "Marugame City"],
+    "description": "A daimyo garden built in 1688 for the Kyogoku clan, with a large pond and islands, plus painting, uchiwa, and ceramics exhibits.",
+    "highlights": ["Nature", "Garden", "History"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 100,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 2000,
+    "budgetRecommended": 5000,
+    "budgetMax": 9000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 1200,
+      "food": 1500,
+      "cafe": 800
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nakatsu-bansho-en_Marugame_Kagawa_pref01n4350.jpg/1280px-Nakatsu-bansho-en_Marugame_Kagawa_pref01n4350.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nakatsu-bansho-en_Marugame_Kagawa_pref01n4350.jpg/1280px-Nakatsu-bansho-en_Marugame_Kagawa_pref01n4350.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nakatsu-bansho-en_Marugame_Kagawa_pref01n4350.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 5000,
+    "walkingSunMin": 3000,
+    "walkingShadeMin": 2000,
+    "walkingIntensity": "medium",
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 6,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8.4,
+      "summer": 7.8,
+      "winter": 7.6,
+      "rain": 7,
+      "food": 7.8,
+      "photography": 8.6,
+      "relaxation": 8.8,
+      "value": 8.2,
+      "uniqueness": 8.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9,
+      "summer": 7.8,
+      "autumn": 8.8,
+      "winter": 7.6
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Parking available; the city listing links to the garden's official website",
+    "notes": "Garden plus painting-hall admission is 1,200 yen for adults and 500 yen for children; the official site has a certificate problem, so the secure city listing is the primary website link.",
+    "notesJa": "【見どころ】中津万象園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:30～17:00。水曜休園（祝日は開園し翌日休園）。",
+    "businessHours": "09:30–17:00; closed Wednesdays",
+    "officialWebsite": "https://www.city.marugame.lg.jp/page/3065.html",
+    "content": {
+      "en": {
+        "name": "Nakazu Banshoen",
+        "description": "A daimyo garden built in 1688 for the Kyogoku clan, with a large pond and islands, plus painting, uchiwa, and ceramics exhibits.",
+        "highlights": ["Nature", "Garden", "History"]
+      },
+      "ja": {
+        "name": "中津万象園",
+        "description": "1688年に京極氏が築いた大名庭園。大きな池と島々が配され、絵画館・うちわの里・陶器館が併設されています。",
+        "highlights": ["自然", "庭園", "歴史"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.marugame.lg.jp/page/3065.html",
+          "title": "Nakazu Banshoen / Marugame Museum of Art — Marugame City official site",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "official",
+          "url": "http://www.bansyouen.com/",
+          "title": "Nakazu Banshoen official website",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "marugame-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "marugame-uchiwa-museum",
+    "name": "Marugame Uchiwa Museum",
+    "nameJa": "丸亀うちわミュージアム",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Kagawa:marugame",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.2855,
+      "lng": 133.7693
+    },
+    "categories": ["Culture", "Museum", "Shopping"],
+    "tags": ["Culture", "Museum", "Shopping", "Marugame City"],
+    "description": "A museum of Marugame's handmade bamboo fans, one of the city's traditional crafts, with workshops where visitors can make their own uchiwa.",
+    "highlights": ["Culture", "Museum", "Shopping"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 100,
+      "bus": 115,
+      "car": 120
+    },
+    "budgetMin": 1000,
+    "budgetRecommended": 3000,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 1000,
+      "tickets": 0,
+      "food": 1000,
+      "cafe": 1000
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Uchiwa_Museum01.jpg/1280px-Uchiwa_Museum01.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Uchiwa_Museum01.jpg/1280px-Uchiwa_Museum01.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Toto-tarou",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uchiwa_Museum01.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2500,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1000,
+    "walkingIntensity": "low",
+    "indoorPercent": 70,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 7.8,
+      "summer": 7.6,
+      "winter": 7.8,
+      "rain": 8.4,
+      "food": 7.4,
+      "photography": 7.8,
+      "relaxation": 7.4,
+      "value": 8,
+      "uniqueness": 8.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.2,
+      "summer": 7.8,
+      "autumn": 8.2,
+      "winter": 7.8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "Museum admission is free; fan-making experience has a separate fee—check current availability",
+    "parking": "15 parking spaces; large buses should contact the museum in advance",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Marugame City.",
+    "notesJa": "【見どころ】丸亀うちわミュージアムは四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:30～17:00（最終入館16:30）。水曜休館（祝日は開館し翌日休館）。年末年始休館。",
+    "businessHours": "09:30–17:00 (last entry 16:30); closed Wednesdays (open on public holidays, closed the following day); closed over New Year",
+    "officialWebsite": "https://marugameuchiwa.jp/museum",
+    "content": {
+      "en": {
+        "name": "Marugame Uchiwa Museum",
+        "description": "A museum of Marugame's handmade bamboo fans, one of the city's traditional crafts, with workshops where visitors can make their own uchiwa.",
+        "highlights": ["Culture", "Museum", "Shopping"]
+      },
+      "ja": {
+        "name": "丸亀うちわミュージアム",
+        "description": "丸亀の伝統工芸・うちわづくりを紹介するミュージアム。手作りうちわの体験教室も開催されています。",
+        "highlights": ["文化", "博物館", "ショッピング"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.come-marugame.jp/en/tourist-information/post-596/",
+          "title": "Marugame Uchiwa Museum — Marugame City official tourism portal",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "marugame-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "oboke-koboke-gorge",
+    "name": "Oboke and Koboke Gorges",
+    "nameJa": "大歩危・小歩危",
+    "kind": "waterfall",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Tokushima:miyoshi",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.8867,
+      "lng": 133.7606
+    },
+    "categories": ["Nature", "Scenery", "Experience"],
+    "tags": ["Nature", "Scenery", "Experience", "Miyoshi City"],
+    "description": "Dramatic granite gorges carved by the Yoshino River, best seen from the sightseeing boats that run through the rapids of Oboke.",
+    "highlights": ["Nature", "Scenery", "Experience"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 115,
+      "bus": 125,
+      "car": 130
+    },
+    "budgetMin": 2500,
+    "budgetRecommended": 6000,
+    "budgetMax": 10000,
+    "budgetBreakdown": {
+      "transport": 2000,
+      "tickets": 1500,
+      "food": 1500,
+      "cafe": 1000
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Oboke_gorge_pleasure_boat_2106_August_13.B.jpg/1280px-Oboke_gorge_pleasure_boat_2106_August_13.B.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Oboke_gorge_pleasure_boat_2106_August_13.B.jpg/1280px-Oboke_gorge_pleasure_boat_2106_August_13.B.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "さかおり",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oboke_gorge_pleasure_boat_2106_August_13.B.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 4000,
+    "walkingSunMin": 2400,
+    "walkingShadeMin": 1600,
+    "walkingIntensity": "medium",
+    "indoorPercent": 20,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 4,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8.8,
+      "couple": 8.6,
+      "summer": 8.4,
+      "winter": 7.2,
+      "rain": 6.2,
+      "food": 7.8,
+      "photography": 9.2,
+      "relaxation": 8.6,
+      "value": 8,
+      "uniqueness": 9.2
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.8,
+      "summer": 8.6,
+      "autumn": 9.2,
+      "winter": 7.4
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "high",
+    "reservation": "Check current operation before travel; weather can suspend the boat",
+    "parking": "Paid parking near the boat dock",
+    "notes": "Adult sightseeing-boat fare is 1,500 yen; children aged 3 through elementary school are 750 yen.",
+    "notesJa": "【見どころ】大歩危・小歩危は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "観光遊覧船9:00～17:00（最終出航16:30）。年中運航（強風・荒天時を除く）。",
+    "businessHours": "Sightseeing boat 09:00–17:00 (last departure 16:30); open year-round except strong winds or bad weather",
+    "officialWebsite": "https://discovertokushima.net/en/spots/obokeandkobokegorges/",
+    "content": {
+      "en": {
+        "name": "Oboke and Koboke Gorges",
+        "description": "Dramatic granite gorges carved by the Yoshino River, best seen from the sightseeing boats that run through the rapids of Oboke.",
+        "highlights": ["Nature", "Scenery", "Experience"]
+      },
+      "ja": {
+        "name": "大歩危・小歩危",
+        "description": "吉野川が削った花崗岩の大峡谷。大歩危の急流を観光船で下りながら迫力ある景観を楽しめます。",
+        "highlights": ["自然", "絶景", "体験"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://discovertokushima.net/en/spots/obokeandkobokegorges/",
+          "title": "Oboke and Koboke Gorges — Tokushima Tourism official site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "miyoshi-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "ochiai-folk-village",
+    "name": "Ochiai Folk Village",
+    "nameJa": "落合集落",
+    "kind": null,
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Tokushima:miyoshi",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.8803,
+      "lng": 133.9357
+    },
+    "categories": ["History", "Culture", "Scenery"],
+    "tags": ["History", "Culture", "Scenery", "Miyoshi City"],
+    "description": "A terraced village in the Iya valley designated as an Important Preservation District, where steep stone terraces and thatched roofs cascade down the mountainside.",
+    "highlights": ["History", "Culture", "Scenery"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 115,
+      "bus": 125,
+      "car": 130
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 0,
+      "food": 1500,
+      "cafe": 1000
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/A_mountainside_village%2C_built_on_terraces_%286551524129%29.jpg/1280px-A_mountainside_village%2C_built_on_terraces_%286551524129%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/A_mountainside_village%2C_built_on_terraces_%286551524129%29.jpg/1280px-A_mountainside_village%2C_built_on_terraces_%286551524129%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "attribution": "KimonBerlin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_mountainside_village,_built_on_terraces_(6551524129).jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 3
+    },
+    "walkingMin": 4500,
+    "walkingSunMin": 2700,
+    "walkingShadeMin": 1800,
+    "walkingIntensity": "high",
+    "indoorPercent": 20,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 4,
+      "walkingIntensity": 7
+    },
+    "ratings": {
+      "overall": 8.8,
+      "couple": 8.8,
+      "summer": 8,
+      "winter": 7.2,
+      "rain": 6,
+      "food": 7.6,
+      "photography": 9.4,
+      "relaxation": 9,
+      "value": 8.4,
+      "uniqueness": 9.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 4,
+      "holiday": 5
+    },
+    "season": {
+      "spring": 8.8,
+      "summer": 8,
+      "autumn": 9.4,
+      "winter": 7.2
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "high",
+    "reservation": "None required",
+    "parking": "Limited roadside parking; drive carefully",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Miyoshi City.",
+    "notesJa": "【見どころ】落合集落は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "集落は常時見学可。長岡家住宅9:00～16:00。水曜休館、1・2月休業。",
+    "businessHours": "Village paths are freely viewable; Nagaoka House 09:00–16:00 and closed Wednesdays and January–February",
+    "officialWebsite": "https://miyoshi-tourism.jp/en/spot/119/",
+    "content": {
+      "en": {
+        "name": "Ochiai Folk Village",
+        "description": "A terraced village in the Iya valley designated as an Important Preservation District, where steep stone terraces and thatched roofs cascade down the mountainside.",
+        "highlights": ["History", "Culture", "Scenery"]
+      },
+      "ja": {
+        "name": "落合集落",
+        "description": "祖谷渓の山中にある重要伝統的建造物群保存地区。石垣と茅葺き屋根の家々が急斜面に重なる棚田の山村です。",
+        "highlights": ["歴史", "文化", "絶景"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://miyoshi-tourism.jp/en/spot/119/",
+          "title": "Ochiai Village — Miyoshi City official tourism site",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://miyoshi-tourism.jp/en/spot/23994/",
+          "title": "Nagaoka-ke Historic House — Miyoshi City official tourism site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "miyoshi-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "mount-tsurugi-miyoshi",
+    "name": "Mount Tsurugi",
+    "nameJa": "剣山",
+    "kind": "mountain",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Tokushima:miyoshi",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.8536,
+      "lng": 134.0942
+    },
+    "categories": ["Nature", "Viewpoint", "Scenery"],
+    "tags": ["Nature", "Viewpoint", "Scenery", "Miyoshi City"],
+    "description": "Shikoku's second-highest mountain, a gently sloping peak with alpine plant fields, reached via a sightseeing lift from the Minokoshi trailhead.",
+    "highlights": ["Nature", "Viewpoint", "Scenery"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 115,
+      "bus": 125,
+      "car": 130
+    },
+    "budgetMin": 2500,
+    "budgetRecommended": 6000,
+    "budgetMax": 10000,
+    "budgetBreakdown": {
+      "transport": 2000,
+      "tickets": 2300,
+      "food": 1000,
+      "cafe": 700
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Mt.Tsurugisan.jpg/1280px-Mt.Tsurugisan.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Mt.Tsurugisan.jpg/1280px-Mt.Tsurugisan.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "As6673",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt.Tsurugisan.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "walkingMin": 8000,
+    "walkingSunMin": 4800,
+    "walkingShadeMin": 3200,
+    "walkingIntensity": "high",
+    "indoorPercent": 5,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 3,
+      "walkingIntensity": 7
+    },
+    "ratings": {
+      "overall": 8.8,
+      "couple": 8.6,
+      "summer": 9,
+      "winter": 5,
+      "rain": 5.6,
+      "food": 7.2,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 8.2,
+      "uniqueness": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 4,
+      "holiday": 5
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8.8,
+      "autumn": 8.6,
+      "winter": 5.4
+    },
+    "bestMonths": [6, 7, 8, 9, 10],
+    "bestSeason": "Summer",
+    "weatherDependence": "high",
+    "reservation": "None required",
+    "parking": "Paid parking at Minokoshi trailhead",
+    "notes": "Source-backed KAI-31 Shikoku expansion record for Miyoshi City.",
+    "notesJa": "【見どころ】剣山は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "リフトは4月中旬～11月30日、通常9:00～16:30（8月は8:00から）。天候・営業日は公式サイトを確認。",
+    "businessHours": "Lift normally operates mid-April–Nov 30, 09:00–16:30 (08:00 in August); weather and seasonal trail conditions can change access",
+    "officialWebsite": "https://www.rinya.maff.go.jp/e/national_forest/recreation_forest/tsurugisan.html",
+    "content": {
+      "en": {
+        "name": "Mount Tsurugi",
+        "description": "Shikoku's second-highest mountain, a gently sloping peak with alpine plant fields, reached via a sightseeing lift from the Minokoshi trailhead.",
+        "highlights": ["Nature", "Viewpoint", "Scenery"]
+      },
+      "ja": {
+        "name": "剣山",
+        "description": "四国第二の高峰。なだらかな山容と高山植物の群落で知られ、見ノ越登山口から観光リフトを利用できます。",
+        "highlights": ["自然", "展望", "絶景"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.rinya.maff.go.jp/e/national_forest/recreation_forest/tsurugisan.html",
+          "title": "Tsurugisan Recreation Forest — Forestry Agency official listing",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "official",
+          "url": "https://turugirift.com/",
+          "title": "Mt. Tsurugi sightseeing lift official site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "miyoshi-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "uwajima-date-museum",
+    "name": "Uwajima City Date Museum",
+    "nameJa": "宇和島市立伊達博物館",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Ehime:uwajima",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.2159,
+      "lng": 132.5626
+    },
+    "categories": ["History", "Museum", "Culture"],
+    "tags": ["History", "Museum", "Culture", "Uwajima City"],
+    "description": "A museum of the Date clan who ruled the Uwajima domain, displaying armor, swords, and documents from the feudal era.",
+    "highlights": ["History", "Museum", "Culture"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 115,
+      "bus": 125,
+      "car": 130
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 500,
+      "food": 1300,
+      "cafe": 700
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Uwajima_city_historical_museum.jpg/1280px-Uwajima_city_historical_museum.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Uwajima_city_historical_museum.jpg/1280px-Uwajima_city_historical_museum.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "As6022014",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uwajima_city_historical_museum.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1800,
+    "walkingShadeMin": 1200,
+    "walkingIntensity": "low",
+    "indoorPercent": 80,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.2,
+      "couple": 7.8,
+      "summer": 7.6,
+      "winter": 7.6,
+      "rain": 8.2,
+      "food": 7.4,
+      "photography": 7.8,
+      "relaxation": 7.4,
+      "value": 8.2,
+      "uniqueness": 8.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.2,
+      "summer": 7.8,
+      "autumn": 8.4,
+      "winter": 7.6
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "None required",
+    "parking": "Parking for about 15 cars and four buses is available; check current access guidance",
+    "notes": "Adult admission is 500 yen; university and senior admission is 400 yen, and high-school students and younger are free.",
+    "notesJa": "【見どころ】宇和島市立伊達博物館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:00～17:00（最終入館16:30）。火曜・12月29日～1月3日休館。展示替えによる臨時休館あり。",
+    "businessHours": "09:00–17:00 (last admission 16:30); closed Tuesdays and Dec 29–Jan 3; exhibition-change closures may apply",
+    "officialWebsite": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
+    "content": {
+      "en": {
+        "name": "Uwajima City Date Museum",
+        "description": "A museum of the Date clan who ruled the Uwajima domain, displaying armor, swords, and documents from the feudal era.",
+        "highlights": ["History", "Museum", "Culture"]
+      },
+      "ja": {
+        "name": "宇和島市立伊達博物館",
+        "description": "宇和島藩を治めた伊達家ゆかりの武具や刀剣、古文書などを展示する博物館です。",
+        "highlights": ["歴史", "博物館", "文化"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
+          "title": "Uwajima City Date Museum — Uwajima City official site",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "uwajima-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "warei-taisha-shrine",
+    "name": "Warei Taisha",
+    "nameJa": "和霊神社",
+    "kind": "shrine",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Ehime:uwajima",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.2297,
+      "lng": 132.5653
+    },
+    "categories": ["History", "Culture", "Shrine"],
+    "tags": ["History", "Culture", "Shrine", "Uwajima City"],
+    "description": "A major shrine in southern Ehime dedicated to Yamabe Seibei Kinyori (山家清兵衛公頼), whose annual Warei festival includes portable shrines and Ushi-oni floats on July 23–24.",
+    "highlights": ["History", "Culture", "Shrine"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 115,
+      "bus": 125,
+      "car": 130
+    },
+    "budgetMin": 1000,
+    "budgetRecommended": 3000,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 1000,
+      "tickets": 0,
+      "food": 1300,
+      "cafe": 700
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Warei_Jinja_03.JPG/1280px-Warei_Jinja_03.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Warei_Jinja_03.JPG/1280px-Warei_Jinja_03.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Reggaeman",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Warei_Jinja_03.JPG"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1800,
+    "walkingShadeMin": 1200,
+    "walkingIntensity": "medium",
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8.2,
+      "summer": 8,
+      "winter": 7.4,
+      "rain": 6.8,
+      "food": 7.6,
+      "photography": 8.4,
+      "relaxation": 8.2,
+      "value": 8.4,
+      "uniqueness": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8,
+      "autumn": 8.8,
+      "winter": 7.4
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Parking for about 60 cars is listed by the Ehime Shrine Association",
+    "notes": "The Ehime Shrine Association identifies Yamabe Seibei Kinyori as the enshrined deity and dates the main festival July 23–24.",
+    "notesJa": "【見どころ】和霊神社は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "境内は参拝可。和霊大祭は7月23・24日。",
+    "businessHours": "Shrine grounds open daily; the main Warei festival is July 23–24",
+    "officialWebsite": "https://ehime-jinjacho.jp/jinja/?p=444",
+    "content": {
+      "en": {
+        "name": "Warei Taisha",
+        "description": "A major shrine in southern Ehime dedicated to Yamabe Seibei Kinyori (山家清兵衛公頼), whose annual Warei festival includes portable shrines and Ushi-oni floats on July 23–24.",
+        "highlights": ["History", "Culture", "Shrine"]
+      },
+      "ja": {
+        "name": "和霊神社",
+        "description": "南予地方の総鎮守で、山家清兵衛公頼を祀る神社。和霊大祭は7月23・24日に行われ、神輿や牛鬼が登場します。",
+        "highlights": ["歴史", "文化", "神社"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://ehime-jinjacho.jp/jinja/?p=444",
+          "title": "Warei Taisha — Ehime Shrine Association listing",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "uwajima-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "tenshaen-garden-uwajima",
+    "name": "Tenshaen Garden",
+    "nameJa": "天赦園",
+    "kind": "garden",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Ehime:uwajima",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.2236,
+      "lng": 132.5684
+    },
+    "categories": ["Nature", "Garden", "History"],
+    "tags": ["Nature", "Garden", "History", "Uwajima City"],
+    "description": "A strolling garden established in 1866 for Uwajima's Date Munetada, centered on a pond with plum trees and a two-story teahouse.",
+    "highlights": ["Nature", "Garden", "History"],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 115,
+      "bus": 125,
+      "car": 130
+    },
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1200,
+      "tickets": 500,
+      "food": 1500,
+      "cafe": 800
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Tenshaen.jpg/1280px-Tenshaen.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Tenshaen.jpg/1280px-Tenshaen.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "As6673",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tenshaen.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 4500,
+    "walkingSunMin": 2700,
+    "walkingShadeMin": 1800,
+    "walkingIntensity": "medium",
+    "indoorPercent": 20,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 6,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8.4,
+      "summer": 7.8,
+      "winter": 8,
+      "rain": 7,
+      "food": 7.6,
+      "photography": 8.8,
+      "relaxation": 8.8,
+      "value": 8.2,
+      "uniqueness": 8.6
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 4,
+      "holiday": 5
+    },
+    "season": {
+      "spring": 8.8,
+      "summer": 7.8,
+      "autumn": 8.6,
+      "winter": 8
+    },
+    "bestMonths": [2, 3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Limited on-site parking; check the official access guidance",
+    "notes": "Adult admission is 500 yen; the official garden information says cash only and lists seasonal Monday and year-end closures.",
+    "notesJa": "【見どころ】天赦園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "8:30～16:30（4～6月は17:00まで）。12月第2月曜～2月末の月曜休園、12月28日～1月1日休園。",
+    "businessHours": "08:30–16:30 (to 17:00 Apr–Jun); closed Mondays from the 2nd Monday of Dec through Feb and Dec 28–Jan 1",
+    "officialWebsite": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
+    "content": {
+      "en": {
+        "name": "Tenshaen Garden",
+        "description": "A strolling garden established in 1866 for Uwajima's Date Munetada, centered on a pond with plum trees and a two-story teahouse.",
+        "highlights": ["Nature", "Garden", "History"]
+      },
+      "ja": {
+        "name": "天赦園",
+        "description": "1866年に宇和島藩第7代藩主・伊達宗紀（むねただ）が築いた回遊式庭園。池を中心に梅や茶亭が配されています。",
+        "highlights": ["自然", "庭園", "歴史"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
+          "title": "Tenshaen — Uwajima City official date-site information",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "official",
+          "url": "http://uwajima-date.sblo.jp/category/1129912-1.html",
+          "title": "Tenshaen — Date Museum official garden information",
+          "accessedAt": "2026-08-10"
+        }
+      ],
+      "checkedAt": "2026-08-10",
+      "freshness": "current",
+      "changeSummary": "KAI-31 Shikoku beta expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-10",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-31 Shikoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "uwajima-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "miyoshi-city",
+    "name": "Miyoshi City",
+    "nameJa": "三好市",
+    "kind": "city",
+    "role": "hub",
+    "placeType": "hub",
+    "importance": "notable",
+    "aliases": ["三好市"],
+    "municipalityId": "Tokushima:miyoshi",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 34.0263,
+      "lng": 133.8075
+    },
+    "categories": ["City", "Nature", "History"],
+    "tags": ["Miyoshi City", "Iya Valley", "Nature"],
+    "description": "A mountain city in western Tokushima encompassing the deep Iya Valley, the Oboke and Koboke gorges of the Yoshino River, and the trails of Mount Tsurugi.",
+    "highlights": ["Iya Valley", "Oboke & Koboke Gorges", "Mount Tsurugi"],
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 115,
+      "bus": 125,
+      "car": 130
+    },
+    "budgetMin": 7000,
+    "budgetRecommended": 14000,
+    "budgetMax": 22000,
+    "budgetBreakdown": {
+      "transport": 4000,
+      "tickets": 3000,
+      "food": 5000,
+      "cafe": 2000
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Iya_Valley_01.jpg/1280px-Iya_Valley_01.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Iya_Valley_01.jpg/1280px-Iya_Valley_01.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "na0905",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iya_Valley_01.jpg"
+    },
+    "recommendedVisitHours": {
+      "min": 8,
+      "max": 14
+    },
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "walkingIntensity": "medium",
+    "indoorPercent": 40,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 6,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8.4,
+      "summer": 8.2,
+      "winter": 6.8,
+      "rain": 5.8,
+      "food": 7.6,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 8.2,
+      "uniqueness": 9.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 7,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Check local parking and public transport guidance.",
+    "notes": "Mountain roads and gorges require careful driving; check seasonal closures.",
+    "businessHours": "Open access",
+    "content": {
+      "en": {
+        "name": "Miyoshi City",
+        "description": "A mountain city in western Tokushima encompassing the deep Iya Valley, the Oboke and Koboke gorges of the Yoshino River, and the trails of Mount Tsurugi.",
+        "highlights": ["Iya Valley", "Oboke & Koboke Gorges", "Mount Tsurugi"]
+      },
+      "ja": {
+        "name": "三好市",
+        "description": "徳島県西部の山間都市。深い祖谷渓、吉野川の大歩危・小歩危峡、剣山の登山道などを擁します。",
+        "highlights": ["祖谷渓", "大歩危・小歩危", "剣山"]
+      }
+    },
+    "relationships": {
+      "featuredDestinationIds": [
+        "iya-valley-tokushima",
+        "oboke-koboke-gorge",
+        "ochiai-folk-village",
+        "mount-tsurugi-miyoshi"
+      ],
+      "nearbyDestinationIds": ["tokushima-city", "naruto-city"]
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "uwajima-city",
+    "name": "Uwajima City",
+    "nameJa": "宇和島市",
+    "kind": "city",
+    "role": "hub",
+    "placeType": "hub",
+    "importance": "notable",
+    "aliases": ["宇和島市"],
+    "municipalityId": "Ehime:uwajima",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "coordinates": {
+      "lat": 33.2235,
+      "lng": 132.56
+    },
+    "categories": ["City", "History", "Culture"],
+    "tags": ["Uwajima City", "Castle", "Date Clan"],
+    "description": "A castle town in southern Ehime ruled by the Date clan, known for Uwajima Castle, its bullfighting festivals, and a distinctive regional food culture.",
+    "highlights": ["Uwajima Castle", "Date Museum", "Regional Culture"],
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 115,
+      "bus": 125,
+      "car": 130
+    },
+    "budgetMin": 6000,
+    "budgetRecommended": 12000,
+    "budgetMax": 20000,
+    "budgetBreakdown": {
+      "transport": 3500,
+      "tickets": 2500,
+      "food": 4500,
+      "cafe": 1500
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Uwajima-jo.JPG/1280px-Uwajima-jo.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Uwajima-jo.JPG/1280px-Uwajima-jo.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Vickerman625 (English Wikipedia)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uwajima-jo.JPG"
+    },
+    "recommendedVisitHours": {
+      "min": 8,
+      "max": 14
+    },
+    "walkingMin": 4000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 2500,
+    "walkingIntensity": "medium",
+    "indoorPercent": 40,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 6,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8.2,
+      "couple": 8,
+      "summer": 7.6,
+      "winter": 7.2,
+      "rain": 6.4,
+      "food": 8.2,
+      "photography": 8.2,
+      "relaxation": 7.8,
+      "value": 8.2,
+      "uniqueness": 8.6
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 7,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "Not usually required; reserve popular accommodation in advance.",
+    "parking": "Check local parking and public transport guidance.",
+    "notes": "Municipal hub created in KAI-31 to give Uwajima Castle a correct home.",
+    "businessHours": "Open access",
+    "content": {
+      "en": {
+        "name": "Uwajima City",
+        "description": "A castle town in southern Ehime ruled by the Date clan, known for Uwajima Castle, its bullfighting festivals, and a distinctive regional food culture.",
+        "highlights": ["Uwajima Castle", "Date Museum", "Regional Culture"]
+      },
+      "ja": {
+        "name": "宇和島市",
+        "description": "愛媛県南部の城下町。伊達家が治めた宇和島城を中心に、闘牛の祭りや独自の食文化で知られます。",
+        "highlights": ["宇和島城", "伊達博物館", "郷土文化"]
+      }
+    },
+    "relationships": {
+      "featuredDestinationIds": [
+        "uwajima-castle",
+        "uwajima-date-museum",
+        "warei-taisha-shrine",
+        "tenshaen-garden-uwajima"
+      ],
+      "nearbyDestinationIds": ["matsuyama-city"]
+    },
+    "schemaVersion": 2
   }
 ]

@@ -1,0 +1,140 @@
+{
+  "id": "otsuka-museum-of-art-naruto",
+  "name": "Otsuka Museum of Art",
+  "nameJa": "大塚国際美術館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Tokushima:naruto",
+  "prefecture": "Tokushima",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 34.2326,
+    "lng": 134.6375
+  },
+  "categories": ["Culture", "Museum", "Art"],
+  "tags": ["Culture", "Museum", "Art", "Naruto City"],
+  "description": "A museum of life-size ceramic reproductions of famous Western paintings, letting visitors walk through masterworks from the Sistine Chapel ceiling to modern art.",
+  "highlights": ["Culture", "Museum", "Art"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 115,
+    "bus": 125,
+    "car": 130
+  },
+  "budgetMin": 4500,
+  "budgetRecommended": 9000,
+  "budgetMax": 15000,
+  "budgetBreakdown": {
+    "transport": 2500,
+    "tickets": 3300,
+    "food": 2200,
+    "cafe": 1000
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/The_Otsuka_Museum_of_Art01s3200.jpg/1280px-The_Otsuka_Museum_of_Art01s3200.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/The_Otsuka_Museum_of_Art01s3200.jpg/1280px-The_Otsuka_Museum_of_Art01s3200.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Otsuka_Museum_of_Art01s3200.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 6000,
+  "walkingSunMin": 3500,
+  "walkingShadeMin": 2500,
+  "walkingIntensity": "medium",
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 9,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.8,
+    "summer": 8.2,
+    "winter": 8,
+    "rain": 9,
+    "food": 8,
+    "photography": 8.6,
+    "relaxation": 8.4,
+    "value": 7.6,
+    "uniqueness": 9.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 8.2,
+    "autumn": 8.6,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Free parking available",
+  "notes": "Source-backed KAI-31 Shikoku expansion record for Naruto City.",
+  "notesJa": "【見どころ】大塚国際美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:30～17:00（入館券販売16:00まで）。月曜休館（祝日の場合は翌日）。開館カレンダーを確認。",
+  "businessHours": "09:30–17:00 (ticket sales until 16:00); closed Mondays (next day if a holiday)",
+  "officialWebsite": "https://o-museum.or.jp/",
+  "content": {
+    "en": {
+      "name": "Otsuka Museum of Art",
+      "description": "A museum of life-size ceramic reproductions of famous Western paintings, letting visitors walk through masterworks from the Sistine Chapel ceiling to modern art.",
+      "highlights": ["Culture", "Museum", "Art"]
+    },
+    "ja": {
+      "name": "大塚国際美術館",
+      "description": "西洋名画を原寸大の陶板で再現した世界唯一の陶板名画美術館。システィーナ礼拝堂の天井画から現代美術まで、原寸の名画を歩いて鑑賞できます。",
+      "highlights": ["文化", "博物館", "アート"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://o-museum.or.jp/pages/187/",
+        "title": "Otsuka Museum of Art official visitor information",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "naruto-city"
+  },
+  "schemaVersion": 2
+}

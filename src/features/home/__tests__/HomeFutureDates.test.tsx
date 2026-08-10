@@ -243,7 +243,7 @@ describe("Home arbitrary future dates", () => {
     const labelA = formatMonthDayLabel(dateAIso);
 
     const d2 = new Date();
-    d2.setDate(d2.getDate() + 4);
+    d2.setDate(d2.getDate() + 8);
     const dateBIso = iso(d2);
     const labelB = formatMonthDayLabel(dateBIso);
 
@@ -291,7 +291,7 @@ describe("Home arbitrary future dates", () => {
     await waitForCondition(() => Boolean(params()?.get("date")) === false);
 
     const d = new Date();
-    d.setDate(d.getDate() + 5);
+    d.setDate(d.getDate() + 8);
     const dateIso = iso(d);
     const label = formatMonthDayLabel(dateIso);
 

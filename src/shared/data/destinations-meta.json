@@ -423,6 +423,30 @@
     }
   },
   {
+    "id": "awa-odori-kaikan",
+    "name": "Awa Odori Kaikan",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "tokushima-city"
+    }
+  },
+  {
+    "id": "bansuiso-matsuyama",
+    "name": "Bansuiso",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "matsuyama-city"
+    }
+  },
+  {
     "id": "beppu-city",
     "name": "Beppu City",
     "prefecture": "Oita",
@@ -503,6 +527,18 @@
     }
   },
   {
+    "id": "bizan-ropeway-tokushima",
+    "name": "Mount Bizan Ropeway",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "viewpoint",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "tokushima-city"
+    }
+  },
+  {
     "id": "boso-no-mura",
     "name": "Boso-no-Mura",
     "prefecture": "Chiba",
@@ -522,6 +558,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "kisarazu-city"
+    }
+  },
+  {
+    "id": "botchan-train-matsuyama",
+    "name": "Botchan Train",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "matsuyama-city"
     }
   },
   {
@@ -779,6 +827,18 @@
         "hakone-town"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
+    }
+  },
+  {
+    "id": "chikurin-ji-kochi",
+    "name": "Chikurin-ji",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "temple",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "kochi-city"
     }
   },
   {
@@ -1069,6 +1129,30 @@
     }
   },
   {
+    "id": "dogo-haikara-dori",
+    "name": "Dogo Haikara Dori",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "street",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "matsuyama-city"
+    }
+  },
+  {
+    "id": "dogo-onsen-annex-asuka-no-yu",
+    "name": "Dogo Onsen Annex Asuka-no-Yu",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "onsen",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "matsuyama-city"
+    }
+  },
+  {
     "id": "dogo-onsen-ehime",
     "name": "Dogo Onsen Honkan",
     "prefecture": "Ehime",
@@ -1122,6 +1206,18 @@
         "minato-city",
         "taito-city"
       ]
+    }
+  },
+  {
+    "id": "ehime-art-museum",
+    "name": "Ehime Prefectural Museum of Art",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "matsuyama-city"
     }
   },
   {
@@ -2058,6 +2154,18 @@
     }
   },
   {
+    "id": "harimaya-bridge-kochi",
+    "name": "Harimaya Bridge",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "kochi-city"
+    }
+  },
+  {
     "id": "harry-potter-studio",
     "name": "Harry Potter Studio",
     "prefecture": "Tokyo",
@@ -2250,6 +2358,18 @@
     "status": "verified",
     "relationships": {
       "gatewayHubId": "morioka-city"
+    }
+  },
+  {
+    "id": "hirome-market-kochi",
+    "name": "Hirome Ichiba",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "market",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "kochi-city"
     }
   },
   {
@@ -2716,6 +2836,18 @@
     }
   },
   {
+    "id": "ishite-ji-ehime",
+    "name": "Ishite-ji",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "temple",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "matsuyama-city"
+    }
+  },
+  {
     "id": "itabashi-city",
     "name": "Itabashi City",
     "prefecture": "Tokyo",
@@ -2795,9 +2927,9 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
+      "parentDestinationId": "miyoshi-city",
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": [],
-      "gatewayHubId": "tokushima-city"
+      "nearbyDestinationIds": []
     }
   },
   {
@@ -3301,6 +3433,18 @@
     "kind": "shrine",
     "status": "published",
     "relationships": {}
+  },
+  {
+    "id": "katsurahama-beach",
+    "name": "Katsurahama Beach",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "beach",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "kochi-city"
+    }
   },
   {
     "id": "katsushika-city",
@@ -3840,7 +3984,15 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": ["kochi-castle"],
+      "featuredDestinationIds": [
+        "kochi-castle",
+        "katsurahama-beach",
+        "hirome-market-kochi",
+        "sakamoto-ryoma-memorial-museum",
+        "chikurin-ji-kochi",
+        "makino-botanical-garden",
+        "harimaya-bridge-kochi"
+      ],
       "nearbyDestinationIds": [
         "takamatsu-city",
         "matsuyama-city",
@@ -4427,6 +4579,18 @@
     }
   },
   {
+    "id": "makino-botanical-garden",
+    "name": "Kochi Prefectural Makino Botanical Garden",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "garden",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "kochi-city"
+    }
+  },
+  {
     "id": "makuhari-seaside-park",
     "name": "Makuhari Seaside Park",
     "prefecture": "Chiba",
@@ -4472,7 +4636,23 @@
     "kind": "city",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": []
+      "featuredDestinationIds": [
+        "marugame-castle",
+        "nakazu-banshoen-marugame",
+        "marugame-uchiwa-museum"
+      ]
+    }
+  },
+  {
+    "id": "marugame-uchiwa-museum",
+    "name": "Marugame Uchiwa Museum",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "marugame-city"
     }
   },
   {
@@ -4604,7 +4784,17 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": ["matsuyama-castle-ehime", "uwajima-castle"],
+      "featuredDestinationIds": [
+        "matsuyama-castle-ehime",
+        "dogo-onsen-ehime",
+        "ishite-ji-ehime",
+        "bansuiso-matsuyama",
+        "dogo-onsen-annex-asuka-no-yu",
+        "botchan-train-matsuyama",
+        "dogo-haikara-dori",
+        "yuzuki-castle-ruins-matsuyama",
+        "ehime-art-museum"
+      ],
       "nearbyDestinationIds": ["takamatsu-city", "kochi-city", "tokushima-city"]
     }
   },
@@ -4891,6 +5081,24 @@
     }
   },
   {
+    "id": "miyoshi-city",
+    "name": "Miyoshi City",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
+    "relationships": {
+      "featuredDestinationIds": [
+        "iya-valley-tokushima",
+        "oboke-koboke-gorge",
+        "ochiai-folk-village",
+        "mount-tsurugi-miyoshi"
+      ],
+      "nearbyDestinationIds": ["tokushima-city", "naruto-city"]
+    }
+  },
+  {
     "id": "mojiko-retro-district",
     "name": "Mojiko Retro District",
     "prefecture": "Fukuoka",
@@ -5046,6 +5254,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "hachioji-tokyo"
+    }
+  },
+  {
+    "id": "mount-tsurugi-miyoshi",
+    "name": "Mount Tsurugi",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "mountain",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "miyoshi-city"
     }
   },
   {
@@ -5452,6 +5672,18 @@
     }
   },
   {
+    "id": "nakazu-banshoen-marugame",
+    "name": "Nakazu Banshoen",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "garden",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "marugame-city"
+    }
+  },
+  {
     "id": "nakijin-castle-ruins-motobu",
     "name": "Nakijin Castle Ruins",
     "prefecture": "Okinawa",
@@ -5628,8 +5860,26 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
+      "featuredDestinationIds": [
+        "uzu-no-michi-naruto",
+        "uzushio-cruise-naruto",
+        "otsuka-museum-of-art-naruto",
+        "naruto-german-house",
+        "ryozen-ji-naruto"
+      ],
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
+    }
+  },
+  {
+    "id": "naruto-german-house",
+    "name": "Naruto German House",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "naruto-city"
     }
   },
   {
@@ -5953,6 +6203,30 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "nichinan-city"
+    }
+  },
+  {
+    "id": "oboke-koboke-gorge",
+    "name": "Oboke and Koboke Gorges",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "waterfall",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "miyoshi-city"
+    }
+  },
+  {
+    "id": "ochiai-folk-village",
+    "name": "Ochiai Folk Village",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "miyoshi-city"
     }
   },
   {
@@ -6478,6 +6752,18 @@
     }
   },
   {
+    "id": "otsuka-museum-of-art-naruto",
+    "name": "Otsuka Museum of Art",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "naruto-city"
+    }
+  },
+  {
     "id": "ouchi-juku-fukushima",
     "name": "Ouchi-juku",
     "prefecture": "Fukushima",
@@ -6576,6 +6862,18 @@
     }
   },
   {
+    "id": "ritsurin-garden",
+    "name": "Ritsurin Garden",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "garden",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "takamatsu-city"
+    }
+  },
+  {
     "id": "ritsuunkyo-viewpoint",
     "name": "Ritsuunkyo Sea of Clouds Viewpoint",
     "prefecture": "Hyogo",
@@ -6624,6 +6922,18 @@
     }
   },
   {
+    "id": "ryozen-ji-naruto",
+    "name": "Ryozen-ji",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "temple",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "naruto-city"
+    }
+  },
+  {
     "id": "ryugado-cave-kochi",
     "name": "Ryugado Cave",
     "prefecture": "Kochi",
@@ -6632,9 +6942,7 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [],
-      "parentDestinationId": "kochi-city"
+      "gatewayHubId": "kochi-city"
     }
   },
   {
@@ -6771,6 +7079,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "sakai-city"
+    }
+  },
+  {
+    "id": "sakamoto-ryoma-memorial-museum",
+    "name": "Sakamoto Ryoma Memorial Museum",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "kochi-city"
     }
   },
   {
@@ -7157,6 +7477,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "shibuya-city"
+    }
+  },
+  {
+    "id": "shikoku-mura",
+    "name": "Shikoku Mura",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "takamatsu-city"
     }
   },
   {
@@ -7762,6 +8094,30 @@
     }
   },
   {
+    "id": "takamatsu-art-museum",
+    "name": "Takamatsu Art Museum",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "takamatsu-city"
+    }
+  },
+  {
+    "id": "takamatsu-castle-tamamo",
+    "name": "Takamatsu Castle (Tamamo Park)",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "castle",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "takamatsu-city"
+    }
+  },
+  {
     "id": "takamatsu-city",
     "name": "Takamatsu City",
     "prefecture": "Kagawa",
@@ -7770,7 +8126,13 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
+      "featuredDestinationIds": [
+        "ritsurin-garden",
+        "takamatsu-castle-tamamo",
+        "yashima-takamatsu",
+        "shikoku-mura",
+        "takamatsu-art-museum"
+      ],
       "nearbyDestinationIds": ["marugame-castle"]
     }
   },
@@ -8008,6 +8370,18 @@
     }
   },
   {
+    "id": "tenshaen-garden-uwajima",
+    "name": "Tenshaen Garden",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "garden",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "uwajima-city"
+    }
+  },
+  {
     "id": "teshima-island-kagawa",
     "name": "Teshima Art Island",
     "prefecture": "Kagawa",
@@ -8016,9 +8390,7 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [],
-      "parentDestinationId": "takamatsu-city"
+      "gatewayHubId": "takamatsu-city"
     }
   },
   {
@@ -8156,6 +8528,18 @@
     }
   },
   {
+    "id": "tokushima-central-park",
+    "name": "Tokushima Central Park",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "park",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "tokushima-city"
+    }
+  },
+  {
     "id": "tokushima-city",
     "name": "Tokushima City",
     "prefecture": "Tokushima",
@@ -8164,8 +8548,25 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
+      "featuredDestinationIds": [
+        "awa-odori-kaikan",
+        "bizan-ropeway-tokushima",
+        "tokushima-central-park",
+        "tokushima-modern-art-museum"
+      ],
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
+    }
+  },
+  {
+    "id": "tokushima-modern-art-museum",
+    "name": "Tokushima Modern Art Museum",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "tokushima-city"
     }
   },
   {
@@ -8720,9 +9121,63 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
+      "parentDestinationId": "uwajima-city",
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["nachi-falls-wakayama", "osaka-city"],
-      "gatewayHubId": "matsuyama-city"
+      "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "uwajima-city",
+    "name": "Uwajima City",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "hub",
+    "kind": "city",
+    "status": "verified",
+    "relationships": {
+      "featuredDestinationIds": [
+        "uwajima-castle",
+        "uwajima-date-museum",
+        "warei-taisha-shrine",
+        "tenshaen-garden-uwajima"
+      ],
+      "nearbyDestinationIds": ["matsuyama-city"]
+    }
+  },
+  {
+    "id": "uwajima-date-museum",
+    "name": "Uwajima City Date Museum",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "uwajima-city"
+    }
+  },
+  {
+    "id": "uzu-no-michi-naruto",
+    "name": "Uzu no Michi (Naruto Whirlpool Walkway)",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "viewpoint",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "naruto-city"
+    }
+  },
+  {
+    "id": "uzushio-cruise-naruto",
+    "name": "Naruto Whirlpool Cruise",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "naruto-city"
     }
   },
   {
@@ -8748,6 +9203,18 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["nachi-falls-wakayama", "osaka-city"]
+    }
+  },
+  {
+    "id": "warei-taisha-shrine",
+    "name": "Warei Taisha",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "shrine",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "uwajima-city"
     }
   },
   {
@@ -8900,6 +9367,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
+    "id": "yashima-takamatsu",
+    "name": "Yashima",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "mountain",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "takamatsu-city"
     }
   },
   {
@@ -9145,6 +9624,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "kamakura-city"
+    }
+  },
+  {
+    "id": "yuzuki-castle-ruins-matsuyama",
+    "name": "Yuzuki Castle Ruins (Dogo Park)",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "poi",
+    "kind": "park",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "matsuyama-city"
     }
   },
   {

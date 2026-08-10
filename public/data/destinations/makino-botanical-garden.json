@@ -1,0 +1,140 @@
+{
+  "id": "makino-botanical-garden",
+  "name": "Kochi Prefectural Makino Botanical Garden",
+  "nameJa": "高知県立牧野植物園",
+  "kind": "garden",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Kochi:kochi",
+  "prefecture": "Kochi",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 33.5483,
+    "lng": 133.5791
+  },
+  "categories": ["Nature", "Garden", "Culture"],
+  "tags": ["Nature", "Garden", "Culture", "Kochi City"],
+  "description": "A botanical garden honoring the botanist Tomitaro Makino, with thousands of native and cultivated plant species on the slopes of Mount Godaisan.",
+  "highlights": ["Nature", "Garden", "Culture"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 105,
+    "bus": 115,
+    "car": 120
+  },
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 9000,
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 850,
+    "food": 1500,
+    "cafe": 1150
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Kochi_Prefectural_Makino_Botanical_Garden02s5.jpg/1280px-Kochi_Prefectural_Makino_Botanical_Garden02s5.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Kochi_Prefectural_Makino_Botanical_Garden02s5.jpg/1280px-Kochi_Prefectural_Makino_Botanical_Garden02s5.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kochi_Prefectural_Makino_Botanical_Garden02s5.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 6000,
+  "walkingSunMin": 3500,
+  "walkingShadeMin": 2500,
+  "walkingIntensity": "medium",
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.8,
+    "summer": 8.4,
+    "winter": 7.4,
+    "rain": 7.2,
+    "food": 7.6,
+    "photography": 9,
+    "relaxation": 9,
+    "value": 8.2,
+    "uniqueness": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9.2,
+    "summer": 8.6,
+    "autumn": 8.8,
+    "winter": 7.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Paid parking available; admission is normally 850 yen but special exhibitions can change the fee",
+  "notes": "The garden publishes maintenance closures and seasonal exhibition fees; verify the calendar before visiting.",
+  "notesJa": "【見どころ】高知県立牧野植物園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:00～17:00（最終入園16:30）。メンテナンス休園日あり。公式カレンダーを確認。",
+  "businessHours": "09:00–17:00 (last entry 16:30); maintenance closures vary—check the official calendar",
+  "officialWebsite": "https://www.makino.or.jp/multilingual/?lang=en",
+  "content": {
+    "en": {
+      "name": "Kochi Prefectural Makino Botanical Garden",
+      "description": "A botanical garden honoring the botanist Tomitaro Makino, with thousands of native and cultivated plant species on the slopes of Mount Godaisan.",
+      "highlights": ["Nature", "Garden", "Culture"]
+    },
+    "ja": {
+      "name": "高知県立牧野植物園",
+      "description": "植物学者・牧野富太郎を記念する植物園。五台山の斜面に数千種の植物が植えられています。",
+      "highlights": ["自然", "庭園", "文化"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.makino.or.jp/guide/",
+        "title": "Makino Botanical Garden official visitor information",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "kochi-city"
+  },
+  "schemaVersion": 2
+}

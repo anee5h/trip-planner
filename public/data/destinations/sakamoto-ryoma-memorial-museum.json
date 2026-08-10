@@ -1,0 +1,140 @@
+{
+  "id": "sakamoto-ryoma-memorial-museum",
+  "name": "Sakamoto Ryoma Memorial Museum",
+  "nameJa": "高知県立坂本龍馬記念館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Kochi:kochi",
+  "prefecture": "Kochi",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 33.4964,
+    "lng": 133.5719
+  },
+  "categories": ["History", "Museum", "Culture"],
+  "tags": ["History", "Museum", "Culture", "Kochi City"],
+  "description": "A dramatic concrete museum above Katsurahama Beach devoted to Sakamoto Ryoma, with life-size exhibits and panoramic views of the Pacific.",
+  "highlights": ["History", "Museum", "Culture"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 110,
+    "bus": 120,
+    "car": 130
+  },
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 500,
+    "food": 1300,
+    "cafe": 700
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/The_Sakamoto_Ryoma_Memorial_Museum_01.jpg/1280px-The_Sakamoto_Ryoma_Memorial_Museum_01.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/The_Sakamoto_Ryoma_Memorial_Museum_01.jpg/1280px-The_Sakamoto_Ryoma_Memorial_Museum_01.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Mugu-shisai",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Sakamoto_Ryoma_Memorial_Museum_01.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 4000,
+  "walkingSunMin": 2400,
+  "walkingShadeMin": 1600,
+  "walkingIntensity": "medium",
+  "indoorPercent": 75,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 8,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.4,
+    "summer": 8,
+    "winter": 7.8,
+    "rain": 8.4,
+    "food": 7.6,
+    "photography": 8.2,
+    "relaxation": 7.8,
+    "value": 8.2,
+    "uniqueness": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 8,
+    "autumn": 8.4,
+    "winter": 7.8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "Free on-site parking for 42 cars; bus parking is prioritized by advance reservation; fallback Katsurahama parking is paid",
+  "notes": "Adult admission is 500 yen outside special exhibitions and 900 yen during special exhibitions; group visits should reserve ahead.",
+  "notesJa": "【見どころ】高知県立坂本龍馬記念館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:00～17:00（最終入館16:30頃）。休館日なし。",
+  "businessHours": "09:00–17:00 (enter by about 16:30); no regular closing days",
+  "officialWebsite": "https://ryoma-kinenkan.jp/visit/",
+  "content": {
+    "en": {
+      "name": "Sakamoto Ryoma Memorial Museum",
+      "description": "A dramatic concrete museum above Katsurahama Beach devoted to Sakamoto Ryoma, with life-size exhibits and panoramic views of the Pacific.",
+      "highlights": ["History", "Museum", "Culture"]
+    },
+    "ja": {
+      "name": "高知県立坂本龍馬記念館",
+      "description": "桂浜の高台にある坂本龍馬の生涯を紹介する博物館。等身大の展示や太平洋を望む眺望が特徴です。",
+      "highlights": ["歴史", "博物館", "文化"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://ryoma-kinenkan.jp/visit/",
+        "title": "Sakamoto Ryoma Memorial Museum official visitor information",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "kochi-city"
+  },
+  "schemaVersion": 2
+}

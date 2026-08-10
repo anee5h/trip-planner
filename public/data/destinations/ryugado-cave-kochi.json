@@ -4,7 +4,7 @@
   "nameJa": "龍河洞",
   "prefecture": "Kochi",
   "category": "Nature & Parks",
-  "description": "A 175-million-year-old limestone cavern in Shikoku containing ancient Yayoi earthenware encrusted in living stalagmites.",
+  "description": "A 175-million-year-old limestone cave with stalactites, Yayoi-period traces, and pottery integrated with the cave.",
   "coordinates": {
     "lat": 33.6033,
     "lng": 133.7431
@@ -16,7 +16,7 @@
   "bestSeasons": ["Spring", "Summer", "Autumn"],
   "travelEstimate": {
     "minutesFromBase": 250,
-    "confidence": "high"
+    "confidence": "beta"
   },
   "collections": [
     {
@@ -68,13 +68,11 @@
     "walkingIntensity": 3
   },
   "reservation": "None required",
-  "parking": "Available on site",
-  "notes": "Ryugado Cave located in Kochi Prefecture.",
+  "parking": "Parking arrangements are described on the official access page; check current on-site guidance before visiting.",
+  "notes": "Official cave guidance gives seasonal final-entry hours; check weather and operating notices before visiting.",
   "status": "beta",
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": [],
-    "parentDestinationId": "kochi-city"
+    "gatewayHubId": "kochi-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Kami_Kochi_Ryugado_East_Entrance_1.jpg/1920px-Kami_Kochi_Ryugado_East_Entrance_1.jpg",
   "walkingIntensity": "low",
@@ -86,8 +84,8 @@
     "min": 3,
     "max": 5
   },
-  "officialWebsite": "https://ryugadou.or.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "officialWebsite": "https://ryugadou.or.jp/attraction/sightseeing-course/",
+  "businessHours": "08:30–17:00 final entry (Feb 1–Oct 31); 08:30–16:30 final entry (Nov 1–Jan 31)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Kochi:kochi"
+  "municipalityId": "Kochi:kami"
 }

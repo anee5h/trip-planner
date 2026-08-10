@@ -1,0 +1,146 @@
+{
+  "id": "nakazu-banshoen-marugame",
+  "name": "Nakazu Banshoen",
+  "nameJa": "中津万象園",
+  "kind": "garden",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Kagawa:marugame",
+  "prefecture": "Kagawa",
+  "region": "Shikoku",
+  "coordinates": {
+    "lat": 34.2855,
+    "lng": 133.7682
+  },
+  "categories": ["Nature", "Garden", "History"],
+  "tags": ["Nature", "Garden", "History", "Marugame City"],
+  "description": "A daimyo garden built in 1688 for the Kyogoku clan, with a large pond and islands, plus painting, uchiwa, and ceramics exhibits.",
+  "highlights": ["Nature", "Garden", "History"],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 100,
+    "bus": 115,
+    "car": 120
+  },
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 9000,
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 1200,
+    "food": 1500,
+    "cafe": 800
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nakatsu-bansho-en_Marugame_Kagawa_pref01n4350.jpg/1280px-Nakatsu-bansho-en_Marugame_Kagawa_pref01n4350.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nakatsu-bansho-en_Marugame_Kagawa_pref01n4350.jpg/1280px-Nakatsu-bansho-en_Marugame_Kagawa_pref01n4350.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nakatsu-bansho-en_Marugame_Kagawa_pref01n4350.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 5000,
+  "walkingSunMin": 3000,
+  "walkingShadeMin": 2000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.4,
+    "summer": 7.8,
+    "winter": 7.6,
+    "rain": 7,
+    "food": 7.8,
+    "photography": 8.6,
+    "relaxation": 8.8,
+    "value": 8.2,
+    "uniqueness": 8.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7.8,
+    "autumn": 8.8,
+    "winter": 7.6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Parking available; the city listing links to the garden's official website",
+  "notes": "Garden plus painting-hall admission is 1,200 yen for adults and 500 yen for children; the official site has a certificate problem, so the secure city listing is the primary website link.",
+  "notesJa": "【見どころ】中津万象園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:30～17:00。水曜休園（祝日は開園し翌日休園）。",
+  "businessHours": "09:30–17:00; closed Wednesdays",
+  "officialWebsite": "https://www.city.marugame.lg.jp/page/3065.html",
+  "content": {
+    "en": {
+      "name": "Nakazu Banshoen",
+      "description": "A daimyo garden built in 1688 for the Kyogoku clan, with a large pond and islands, plus painting, uchiwa, and ceramics exhibits.",
+      "highlights": ["Nature", "Garden", "History"]
+    },
+    "ja": {
+      "name": "中津万象園",
+      "description": "1688年に京極氏が築いた大名庭園。大きな池と島々が配され、絵画館・うちわの里・陶器館が併設されています。",
+      "highlights": ["自然", "庭園", "歴史"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.marugame.lg.jp/page/3065.html",
+        "title": "Nakazu Banshoen / Marugame Museum of Art — Marugame City official site",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "official",
+        "url": "http://www.bansyouen.com/",
+        "title": "Nakazu Banshoen official website",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-31 Shikoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-31 Shikoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "marugame-city"
+  },
+  "schemaVersion": 2
+}
