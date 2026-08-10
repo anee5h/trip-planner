@@ -6,7 +6,7 @@
   "region": "Tohoku",
   "category": "Nature & Parks",
   "categories": ["Nature & Parks"],
-  "description": "One of Japan's top three limestone caves, featuring an ethereal underground lake so clear and deep it glows brilliant cobalt blue. The cave maintains a constant 10°C year-round and stretches at least 5 km into the mountain.",
+  "description": "One of Japan's top three limestone caves, featuring an ethereal underground lake so clear and deep it glows brilliant cobalt blue. The cave maintains a constant 10°C year-round and extends about 4 km into the mountain.",
   "highlights": [
     "Deep cobalt-blue underground lake",
     "Constant 10°C cool escape",
@@ -14,10 +14,10 @@
     "Year-round accessibility"
   ],
   "coordinates": {
-    "lat": 39.7389,
-    "lng": 141.7972
+    "lat": 39.8601,
+    "lng": 141.7971
   },
-  "nearestStation": "Iwaizumi Station (then bus)",
+  "nearestStation": "Morioka Station (then JR bus, ~110 min)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Ryusendo.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Ryusendo.jpg",
   "tags": ["cave", "limestone", "iwate", "nature", "underground", "tohoku"],
@@ -74,12 +74,11 @@
   "walkingIntensity": "low",
   "reservation": "None required",
   "parking": "Free at cave entrance",
-  "notes": "One of Japan's three great limestone caves along with Akiyoshido and Ryugado. Admission ¥1,100. The third underground lake is 98 m deep with visibility to the bottom.",
+  "notes": "One of Japan's three great limestone caves along with Akiyoshido and Ryugado. Admission ¥1,100. Explored passages total 4,088 m (700 m open to visitors); the third underground lake is 98 m deep with visibility to the bottom. Access is by JR bus from Morioka (Yamada Line through-service is suspended).",
   "status": "beta",
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": ["jodogahama-beach-iwate"],
-    "parentDestinationId": "morioka-city"
+    "gatewayHubId": "morioka-city",
+    "nearbyDestinationIds": ["jodogahama-beach-iwate"]
   },
   "budgetBreakdown": null,
   "role": "standalone",
@@ -89,7 +88,7 @@
     "max": 3
   },
   "officialWebsite": "https://www.iwate-ryusendo.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "08:30 - 17:00 (May–Sep to 18:00)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Iwate:morioka"
+  "municipalityId": "Iwate:iwaizumi"
 }

@@ -165,6 +165,11 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "09:30 - 17:00 (Closed Mondays)",
-  "municipalityId": "Miyagi:sendai"
+  "businessHours": "09:00 - 16:45 (last entry 16:15); closed Mondays (Tue if Mon is a holiday)",
+  "municipalityId": "Miyagi:sendai",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11",
+    "sourceUrl": "https://www.city.sendai.jp/museum/shisetsuannai/index.html",
+    "lastAdmission": "16:15"
+  }
 }

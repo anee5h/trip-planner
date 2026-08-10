@@ -72,12 +72,10 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "notes": "Oirase Mountain Stream & Gorge located in Aomori Prefecture.",
+  "notes": "14 km stream course from Nenokuchi (Lake Towada) to Ishigedo; walkable trail with a seasonal bus along the route.",
   "status": "beta",
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": [],
-    "gatewayHubId": "aomori-city"
+    "gatewayHubId": "hachinohe-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Oirase-keiryu.jpg/1920px-Oirase-keiryu.jpg",
   "walkingIntensity": "low",
@@ -91,5 +89,6 @@
   },
   "officialWebsite": "https://www.towada.kanko.or.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "municipalityId": "Aomori:towada"
 }

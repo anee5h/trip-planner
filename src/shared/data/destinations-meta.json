@@ -33,9 +33,7 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [],
-      "gatewayHubId": "aizuwakamatsu-city"
+      "gatewayHubId": "koriyama-city"
     }
   },
   {
@@ -1065,12 +1063,7 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [
-        "kakunodate-samurai-district-akita",
-        "lake-tazawa-akita"
-      ],
-      "parentDestinationId": "akita-city"
+      "parentDestinationId": "semboku-city"
     }
   },
   {
@@ -1135,9 +1128,7 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [],
-      "parentDestinationId": "yamagata-city"
+      "gatewayHubId": "yamagata-city"
     }
   },
   {
@@ -1935,12 +1926,8 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [
-        "mount-bandai-fukushima",
-        "abukuma-cave-fukushima"
-      ],
-      "parentDestinationId": "aizuwakamatsu-city"
+      "gatewayHubId": "aizuwakamatsu-city",
+      "nearbyDestinationIds": ["mount-bandai-fukushima"]
     }
   },
   {
@@ -2453,7 +2440,7 @@
   },
   {
     "id": "hiraizumi-chusonji-iwate",
-    "name": "Hiraizumi – Temples, Gardens and Archaeological Sites",
+    "name": "Hiraizumi – Temples, Gardens and Archaeological Sites Representing the Buddhist Pure Land",
     "prefecture": "Iwate",
     "region": "Tohoku",
     "role": "standalone",
@@ -3262,7 +3249,7 @@
     "prefecture": "Miyagi",
     "region": "Tohoku",
     "role": "poi",
-    "kind": "temple",
+    "kind": "street",
     "status": "beta",
     "relationships": {
       "parentDestinationId": "sendai-city"
@@ -4750,12 +4737,7 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [
-        "nyuto-onsen-akita",
-        "kakunodate-samurai-district-akita"
-      ],
-      "gatewayHubId": "akita-city"
+      "parentDestinationId": "semboku-city"
     }
   },
   {
@@ -4767,9 +4749,8 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["oirase-gorge-aomori"],
-      "parentDestinationId": "aomori-city"
+      "gatewayHubId": "hachinohe-city",
+      "nearbyDestinationIds": ["oirase-gorge-aomori"]
     }
   },
   {
@@ -5025,9 +5006,7 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [],
-      "parentDestinationId": "sendai-city"
+      "gatewayHubId": "sendai-city"
     }
   },
   {
@@ -5490,12 +5469,11 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
+      "gatewayHubId": "aizuwakamatsu-city",
       "nearbyDestinationIds": [
         "goshikinuma-ponds-fukushima",
         "tsuruga-castle-fukushima"
-      ],
-      "parentDestinationId": "aizuwakamatsu-city"
+      ]
     }
   },
   {
@@ -6218,7 +6196,7 @@
     "prefecture": "Aomori",
     "region": "Tohoku",
     "role": "poi",
-    "kind": "attraction",
+    "kind": "museum",
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
@@ -6616,9 +6594,7 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [],
-      "gatewayHubId": "aomori-city"
+      "gatewayHubId": "hachinohe-city"
     }
   },
   {
@@ -7314,9 +7290,8 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["jodogahama-beach-iwate"],
-      "parentDestinationId": "morioka-city"
+      "gatewayHubId": "morioka-city",
+      "nearbyDestinationIds": ["jodogahama-beach-iwate"]
     }
   },
   {
@@ -7505,7 +7480,7 @@
   },
   {
     "id": "sannai-maruyama-jomon-aomori",
-    "name": "Jomon Prehistoric Sites in Northern Japan",
+    "name": "Sannai-Maruyama Site",
     "prefecture": "Aomori",
     "region": "Tohoku",
     "role": "poi",
@@ -7668,7 +7643,7 @@
     "prefecture": "Miyagi",
     "region": "Tohoku",
     "role": "poi",
-    "kind": "attraction",
+    "kind": "castle",
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
@@ -7686,7 +7661,7 @@
     "prefecture": "Miyagi",
     "region": "Tohoku",
     "role": "hub",
-    "kind": "attraction",
+    "kind": "city",
     "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
@@ -8039,7 +8014,7 @@
     "kind": "attraction",
     "status": "verified",
     "relationships": {
-      "parentDestinationId": "hirosaki-city"
+      "gatewayHubId": "hirosaki-city"
     }
   },
   {

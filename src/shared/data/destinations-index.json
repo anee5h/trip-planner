@@ -245,7 +245,7 @@
       "lat": 37.3444,
       "lng": 140.6728
     },
-    "nearestStation": "Kanemata Station",
+    "nearestStation": "Kammata Station (then bus/car)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/14/Flowstones_and_Mushroom_Rocks_inside_Abukuma-do_Cave.JPG",
     "tags": ["cave", "limestone", "fukushima", "nature", "tohoku"],
     "rating": 4.6,
@@ -305,12 +305,10 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "notes": "Abukuma Cave located in Fukushima Prefecture.",
+    "notes": "Limestone cave in Tamura City; the 29 m Takigotono Hall is the largest chamber. Access via JR Kammata Station (then bus/car) toward Koriyama.",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [],
-      "gatewayHubId": "aizuwakamatsu-city"
+      "gatewayHubId": "koriyama-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Flowstones_and_Mushroom_Rocks_inside_Abukuma-do_Cave.JPG",
     "walkingIntensity": "low",
@@ -323,8 +321,14 @@
       "max": 5
     },
     "officialWebsite": "https://abukumado.com/",
-    "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "businessHours": "09:00 - 17:00 (last entry 16:30)",
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "Fukushima:tamura",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11",
+      "sourceUrl": "https://abukumado.com/",
+      "lastAdmission": "16:30"
+    }
   },
   {
     "id": "adachi-city",
@@ -476,7 +480,7 @@
   {
     "id": "aizuwakamatsu-city",
     "name": "Aizuwakamatsu City",
-    "nameJa": "会津若松",
+    "nameJa": "会津若松市",
     "prefecture": "Fukushima",
     "region": "Tohoku",
     "coordinates": {
@@ -921,7 +925,7 @@
     "weatherDependence": "moderate",
     "reservation": "Not usually required; reserve popular accommodation in advance.",
     "parking": "Available around major attractions; confirm local restrictions.",
-    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "notes": "Capital of Akita Prefecture on the Sea of Japan coast; home of the Kanto lantern festival and Senshu Park.",
     "relationships": {
       "featuredDestinationIds": []
     },
@@ -946,7 +950,7 @@
     "region": "Tohoku",
     "category": "Onsen & Wellness",
     "categories": ["Onsen & Wellness"],
-    "description": "One of Japan's oldest hot spring resorts just 30 minutes from Sendai, historically favoured by Emperor Shomu. Upscale ryokan line the Natori River canyon, with the nearby Akiu Waterfall and Rairaikyo Gorge as scenic highlights.",
+    "description": "One of Japan's oldest hot spring resorts just 30 minutes from Sendai, said to have been enjoyed since the Kinmei era (6th century). Upscale ryokan line the Natori River canyon, with the nearby Akiu Waterfall and Rairaikyo Gorge as scenic highlights.",
     "highlights": [
       "Sendai's closest major onsen",
       "Akiu Great Waterfall (55 m)",
@@ -1027,7 +1031,7 @@
       "max": 7
     },
     "officialWebsite": "https://www.akiuonsensyokoukai.com/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (onsen district; ryokan day-use hours vary)",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Miyagi:sendai"
   },
@@ -1617,7 +1621,7 @@
       "ja": {
         "name": "青葉城資料展示館",
         "description": "青葉城資料展示館は仙台市にある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-        "highlights": ["博物館"]
+        "highlights": ["博物館", "歴史"]
       }
     },
     "prefecture": "Miyagi",
@@ -1643,7 +1647,7 @@
       "lat": 38.25211,
       "lng": 140.855945
     },
-    "description": "Aoba Castle Museum is a visitor destination in Sendai City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Museum on the Aoba Castle hill presenting the history of Sendai and the Date clan, including a large diorama of the castle town and exhibits on the castle's 1616 construction.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
@@ -1704,7 +1708,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+    "notes": "On the castle grounds next to the equestrian statue; easy to combine with the castle ruins and the city-viewing deck.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -1771,12 +1775,16 @@
       "confidence": "low"
     },
     "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "municipalityId": "Miyagi:sendai"
+    "municipalityId": "Miyagi:sendai",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11",
+      "sourceUrl": "https://honmarukaikan.com/tenji/"
+    }
   },
   {
     "id": "aomori-city",
     "name": "Aomori City",
-    "nameJa": "青森",
+    "nameJa": "青森市",
     "prefecture": "Aomori",
     "region": "Tohoku",
     "coordinates": {
@@ -1852,7 +1860,7 @@
     "weatherDependence": "moderate",
     "reservation": "Not usually required; reserve popular accommodation in advance.",
     "parking": "Available around major attractions; confirm local restrictions.",
-    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "notes": "Port city at the north end of the Tohoku Shinkansen; base for the Nebuta Festival and ferries to Hokkaido.",
     "relationships": {
       "featuredDestinationIds": []
     },
@@ -7863,7 +7871,7 @@
       "Turquoise canyon river",
       "Spring cherry blossom gorge",
       "Autumn maple reflections",
-      "Kamihanazawa waterfall"
+      "Kaiko Falls"
     ],
     "coordinates": {
       "lat": 39.5917,
@@ -7937,12 +7945,7 @@
     "notes": "Name literally means \"embracing return valley\" — the narrow path forces walkers to embrace the cliff face to pass. Trail is about 4 km return to the waterfall.",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [
-        "kakunodate-samurai-district-akita",
-        "lake-tazawa-akita"
-      ],
-      "parentDestinationId": "akita-city"
+      "parentDestinationId": "semboku-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -7951,10 +7954,10 @@
       "min": 2,
       "max": 4
     },
-    "officialWebsite": "https://www.city.senboku.akita.jp/sightseeing/spot/05_dakigaeri.html",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "officialWebsite": "https://www.city.semboku.akita.jp/sightseeing/spot/05_dakigaeri.html",
+    "businessHours": "Open access (valley trail; seasonal closures)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Akita:akita"
+    "municipalityId": "Akita:semboku"
   },
   {
     "id": "dazaifu-city",
@@ -8143,12 +8146,10 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "notes": "Dewa Sanzan Three Sacred Mountains located in Yamagata Prefecture.",
+    "notes": "Multi-municipality pilgrimage: Haguro-san and Gassan are in Tsuruoka City, Yudono-san on the Tsuruoka/Nishikawa border. Haguro-san is the usual entry (five-story pagoda, stone steps); Gassan is climbable only in summer.",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [],
-      "parentDestinationId": "yamagata-city"
+      "gatewayHubId": "yamagata-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Torii_in_the_mist_v1.JPG/1920px-Torii_in_the_mist_v1.JPG",
     "walkingIntensity": "low",
@@ -8162,8 +8163,7 @@
     },
     "officialWebsite": "http://www.dewasanzan.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2,
-    "municipalityId": "Yamagata:yamagata"
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "disneyland",
@@ -11887,7 +11887,7 @@
   {
     "id": "fukushima-city",
     "name": "Fukushima City",
-    "nameJa": "福島",
+    "nameJa": "福島市",
     "prefecture": "Fukushima",
     "region": "Tohoku",
     "coordinates": {
@@ -12462,11 +12462,11 @@
     "region": "Tohoku",
     "category": "Nature & Parks",
     "categories": ["Nature & Parks"],
-    "description": "A dramatic limestone gorge on the Satetsu River where flat-bottomed boats are poled through towering 50-metre cliff walls by boatmen singing traditional folk songs. One of Iwate's most romantic natural landscapes.",
+    "description": "A dramatic limestone gorge on the Satetsu River where flat-bottomed boats are poled through towering roughly 100 m cliff walls by boatmen singing traditional folk songs. One of Iwate's most romantic natural landscapes.",
     "highlights": [
       "Flat-bottom boat gorge cruise",
       "Boatmen's folk songs",
-      "50 m limestone cliffs",
+      "100 m limestone cliffs",
       "Lucky rock toss at Unsuiiwa"
     ],
     "coordinates": {
@@ -12484,7 +12484,7 @@
       "confidence": "high"
     },
     "collections": [],
-    "budgetMin": 1800,
+    "budgetMin": 2000,
     "budgetRecommended": 4900,
     "budgetMax": 8000,
     "transportOptions": {
@@ -12545,8 +12545,9 @@
       "max": 4
     },
     "officialWebsite": "https://www.geibikei.co.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "businessHours": "08:30 - 16:00 (Apr 1–Nov 5) / 09:30 - 15:00 (Nov 21–Mar 31); open year-round",
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "Iwate:ichinoseki"
   },
   {
     "id": "gero-city",
@@ -13705,7 +13706,8 @@
     },
     "officialWebsite": "https://www.ginzanonsen.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "Yamagata:obanazawa"
   },
   {
     "id": "golden-gai",
@@ -13989,12 +13991,8 @@
     "notes": "Free entry. The 3.6 km one-way trail runs from Goshiki-numa visitor centre to Bandai-Kogen bus stop. Trail takes 1.5–2 hours. Rurikuma pond is the most vivid cobalt blue.",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [
-        "mount-bandai-fukushima",
-        "abukuma-cave-fukushima"
-      ],
-      "parentDestinationId": "aizuwakamatsu-city"
+      "gatewayHubId": "aizuwakamatsu-city",
+      "nearbyDestinationIds": ["mount-bandai-fukushima"]
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -14004,9 +14002,9 @@
       "max": 4
     },
     "officialWebsite": "https://www.urabandai-inf.com/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (open-air ponds; 3.6 km one-way trail)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Fukushima:aizuwakamatsu"
+    "municipalityId": "Fukushima:kitashiobara"
   },
   {
     "id": "gotemba-city",
@@ -14992,7 +14990,7 @@
     "weatherDependence": "moderate",
     "reservation": "Not usually required; reserve popular accommodation in advance.",
     "parking": "Available around major attractions; confirm local restrictions.",
-    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "notes": "Pacific port city at the eastern end of the Tohoku Shinkansen; base for the Sanriku coast and its morning markets.",
     "relationships": {
       "featuredDestinationIds": []
     },
@@ -17558,7 +17556,7 @@
   },
   {
     "id": "hiraizumi-chusonji-iwate",
-    "name": "Hiraizumi – Temples, Gardens and Archaeological Sites",
+    "name": "Hiraizumi – Temples, Gardens and Archaeological Sites Representing the Buddhist Pure Land",
     "prefecture": "Iwate",
     "region": "Tohoku",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
@@ -17615,7 +17613,7 @@
     ],
     "reservation": "Not required",
     "parking": "Available nearby",
-    "notes": "Official UNESCO World Heritage Site.",
+    "notes": "UNESCO World Heritage (inscribed 2011) centred on Chuson-ji and its Konjiki-do (Golden Hall). Also covers Motsu-ji, Kanjizai-o-in, Muryoko-in and Mount Kinkeisan. Access via JR Ichinoseki Station (then bus) or Tohoku Shinkansen to Ichinoseki.",
     "coordinates": {
       "lat": 38.9868,
       "lng": 141.1001
@@ -17635,10 +17633,6 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true
-      },
-      {
-        "collectionId": "pilgrimage-routes-japan",
-        "sortOrder": 4
       }
     ],
     "relationships": {
@@ -17650,7 +17644,7 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "平泉―仏国土を表す建築・庭園及び考古学的遺跡群―",
+    "nameJa": "平泉―仏国土（浄土）を表す建築・庭園及び考古学的遺跡群―",
     "comfort": {
       "heatTolerance": 7,
       "rainFriendly": 7,
@@ -17665,7 +17659,8 @@
       "max": 7
     },
     "officialWebsite": "https://www.chusonji.or.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "08:30 - 17:00 (Mar 1–Nov 3) / 08:30 - 16:30 (winter); open year-round",
+    "municipalityId": "Iwate:hiraizumi"
   },
   {
     "id": "hirosaki-castle",
@@ -17716,7 +17711,7 @@
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg",
     "description": "Hirosaki Castle in Aomori is the northernmost original keep in Japan, surrounded by over 2,600 cherry trees making it one of Japan's most celebrated spring destinations.",
-    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "notes": "One of Japan's 12 original surviving castle keeps (the northernmost). The keep interior is closed for seismic repair (since late 2025) — check before visiting; the park and cherry blossoms remain accessible.",
     "categories": ["history", "culture", "sightseeing"],
     "budgetMin": 4000,
     "budgetMax": 15000,
@@ -17771,7 +17766,7 @@
   {
     "id": "hirosaki-city",
     "name": "Hirosaki City",
-    "nameJa": "弘前",
+    "nameJa": "弘前市",
     "prefecture": "Aomori",
     "region": "Tohoku",
     "coordinates": {
@@ -17842,7 +17837,7 @@
     "weatherDependence": "moderate",
     "reservation": "Not usually required; reserve popular accommodation in advance.",
     "parking": "Available around major attractions; confirm local restrictions.",
-    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "notes": "Castle town famous for Hirosaki Castle and its spring cherry blossoms; Tsugaru regional base.",
     "relationships": {
       "featuredDestinationIds": []
     },
@@ -22224,8 +22219,8 @@
       "Sea kayaking & glass-bottom boats"
     ],
     "coordinates": {
-      "lat": 39.369,
-      "lng": 141.9672
+      "lat": 39.6523,
+      "lng": 141.979
     },
     "nearestStation": "Miyako Station (then bus)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Jodogahama_Beach_%2851971544590%29.jpg/1920px-Jodogahama_Beach_%2851971544590%29.jpg",
@@ -22284,7 +22279,7 @@
     "walkingIntensity": "low",
     "reservation": "None required (boats bookable on site)",
     "parking": "Visitor centre car park",
-    "notes": "Part of Rikuchū Kaigan National Park. Site of significant rebuilding after the 2011 Great East Japan Earthquake. Glass-bottom boat tours available in calm weather.",
+    "notes": "Part of Sanriku Fukko National Park. Site of significant rebuilding after the 2011 Great East Japan Earthquake. Glass-bottom boat tours available in calm weather.",
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
@@ -22298,9 +22293,10 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.city.miyako.iwate.jp/kanko/jodogahama.html",
+    "officialWebsite": "https://www.city.miyako.iwate.jp/gyosei/soshiki/kanko/4/8/2/1/1154.html",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "Iwate:miyako"
   },
   {
     "id": "jogashima",
@@ -22599,7 +22595,7 @@
   {
     "id": "jozenji-dori",
     "name": "Jozenji-dori",
-    "nameJa": "仙台市",
+    "nameJa": "定禅寺通",
     "aliases": ["Sendai", "仙台市"],
     "content": {
       "en": {
@@ -22608,14 +22604,14 @@
         "highlights": ["History"]
       },
       "ja": {
-        "name": "仙台市",
-        "description": "仙台市は仙台市にある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-        "highlights": ["歴史"]
+        "name": "定禅寺通",
+        "description": "仙台市街を東西に貫くケヤキ並木の通り。カフェやアートが点在し、9月上旬の定禅寺ストリートジャズフェスティバルや冬のイルミネーションで知られます。",
+        "highlights": ["文化"]
       }
     },
     "prefecture": "Miyagi",
     "region": "Tohoku",
-    "kind": "temple",
+    "kind": "street",
     "role": "poi",
     "placeType": "destination",
     "areaId": "aoba",
@@ -22624,7 +22620,7 @@
     },
     "officialWebsite": "https://www.city.sendai.jp/",
     "officialWebsiteRequirement": "optional",
-    "categories": ["History"],
+    "categories": ["Culture"],
     "tags": ["History", "Sendai City", "v1.9.2"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg",
     "imageMetadata": {
@@ -22637,14 +22633,18 @@
       "lat": 38.26822222,
       "lng": 140.86941667
     },
-    "description": "Jozenji-dori is a visitor destination in Sendai City.  Visitors can experience historic architecture and local culture.",
-    "highlights": ["History"],
+    "description": "Sendai's elegant tree-lined boulevard, shaded by 160+ zelkova trees and lined with cafes, shops and public art. It hosts the annual Jozenji Street Jazz Festival in early September and winter illuminations.",
+    "highlights": [
+      "Zelkova-lined boulevard",
+      "Jozenji Street Jazz Festival",
+      "Seasonal illuminations"
+    ],
     "budgetMin": 1500,
-    "budgetRecommended": 4000,
-    "budgetMax": 7000,
+    "budgetRecommended": 3200,
+    "budgetMax": 4500,
     "budgetBreakdown": {
       "transport": 1400,
-      "tickets": 800,
+      "tickets": 0,
       "food": 1400,
       "cafe": 400
     },
@@ -22665,7 +22665,7 @@
     "indoorPercent": 25,
     "comfort": {
       "heatTolerance": 3,
-      "rainFriendly": 3,
+      "rainFriendly": 4,
       "walkingIntensity": 6
     },
     "ratings": {
@@ -22698,7 +22698,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+    "notes": "Free open-air promenade connecting the city centre to Aoba Castle hill; the bronze statue of a boy on a bicycle is a local landmark.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -23623,8 +23623,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.city.senboku.akita.jp/sightseeing/spot/01_kakunodate.html",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "officialWebsite": "https://www.city.semboku.akita.jp/sightseeing/spot/07_buke.html",
+    "businessHours": "Open access (open street district; individual museums have their own hours)",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Akita:semboku"
   },
@@ -30227,7 +30227,7 @@
   {
     "id": "koriyama-city",
     "name": "Koriyama City",
-    "nameJa": "郡山",
+    "nameJa": "郡山市",
     "prefecture": "Fukushima",
     "region": "Tohoku",
     "coordinates": {
@@ -33485,12 +33485,7 @@
     "notes": "Japan's deepest lake at 423.4 m. The legendary Princess Tatsuko prayed for eternal beauty and was transformed into a dragon deity of the lake.",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [
-        "nyuto-onsen-akita",
-        "kakunodate-samurai-district-akita"
-      ],
-      "gatewayHubId": "akita-city"
+      "parentDestinationId": "semboku-city"
     },
     "budgetBreakdown": null,
     "recommendedVisitHours": {
@@ -33498,8 +33493,9 @@
       "max": 5
     },
     "officialWebsite": "https://www.tazawako.org/",
-    "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "businessHours": "Open access (open lake; no hours)",
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "Akita:semboku"
   },
   {
     "id": "lake-towada-aomori",
@@ -33509,7 +33505,7 @@
     "region": "Tohoku",
     "category": "Nature & Parks",
     "categories": ["Nature & Parks"],
-    "description": "A vast, crystalline caldera lake straddling Aomori and Akita, ringed by primeval beech forests and fed by the scenic Oirase Stream. Famous for autumn foliage and mirrored reflections.",
+    "description": "A vast, crystalline caldera lake straddling Aomori and Akita, ringed by primeval beech forests and drained by the scenic Oirase Stream. Famous for autumn foliage and mirrored reflections.",
     "highlights": [
       "Caldera lake cruise",
       "Oirase trailhead",
@@ -33580,9 +33576,8 @@
     "notes": "Shared between Aomori and Akita prefectures. The trailhead for Oirase Gorge walk starts at Nenokuchi on the lake shore.",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["oirase-gorge-aomori"],
-      "parentDestinationId": "aomori-city"
+      "gatewayHubId": "hachinohe-city",
+      "nearbyDestinationIds": ["oirase-gorge-aomori"]
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -33593,8 +33588,7 @@
     },
     "officialWebsite": "https://www.towada.kanko.or.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2,
-    "municipalityId": "Aomori:aomori"
+    "ratingsSchemaVersion": 2
   },
   {
     "id": "lazona-kawasaki-plaza",
@@ -35344,7 +35338,7 @@
       "value": 9.4,
       "uniqueness": 9.8
     },
-    "categories": ["nature", "sightseeing", "culture"],
+    "categories": ["Nature", "Sightseeing", "Culture"],
     "budgetMin": 3000,
     "budgetMax": 12000,
     "status": "beta",
@@ -35369,7 +35363,7 @@
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg",
     "description": "Matsushima Bay is one of Japan's Three Great Views (Nihon Sankei), celebrated for over 260 pine-clad islands scattered across tranquil coastal waters.",
-    "notes": "Matsuyama City travel hub in Ehime Prefecture.",
+    "notes": "One of Japan's Three Great Views (Nihon Sankei): 260+ pine-clad islands in Matsushima town's bay. The town is the usual base — Zuigan-ji, Godaido and the bay cruise are all here, about 40 min from Sendai.",
     "budgetRecommended": 7500,
     "crowd": {
       "weekday": 3,
@@ -35389,9 +35383,7 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [],
-      "parentDestinationId": "sendai-city"
+      "gatewayHubId": "sendai-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg",
     "budgetBreakdown": {
@@ -35418,7 +35410,7 @@
     },
     "officialWebsite": "https://www.matsushima-kanko.org/",
     "businessHours": "Open access",
-    "municipalityId": "Miyagi:sendai"
+    "municipalityId": "Miyagi:matsushima"
   },
   {
     "id": "matsuyama-castle-ehime",
@@ -37652,7 +37644,7 @@
     "weatherDependence": "moderate",
     "reservation": "Not usually required; reserve popular accommodation in advance.",
     "parking": "Available around major attractions; confirm local restrictions.",
-    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "notes": "Castle town where the Kitakami and Nakatsu rivers meet; the Tohoku Shinkansen hub for central Iwate.",
     "relationships": {
       "featuredDestinationIds": []
     },
@@ -38252,15 +38244,14 @@
     "walkingIntensity": "strenuous",
     "reservation": "None required",
     "parking": "Kawagoe Route trailhead parking",
-    "notes": "One of Japan's 100 Famous Mountains. The 1888 eruption produced lahars that killed 461 people and created over 300 ponds. Main summit trail (Kawagoe Route) takes 3–4 hours one way. Often paired with Goshikinuma ponds visit.",
+    "notes": "One of Japan's 100 Famous Mountains. The 1888 eruption produced lahars that killed 461 people and created over 300 ponds. Main summit trail from the Happodai trailhead takes 3–4 hours one way. Often paired with Goshikinuma ponds visit.",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
+      "gatewayHubId": "aizuwakamatsu-city",
       "nearbyDestinationIds": [
         "goshikinuma-ponds-fukushima",
         "tsuruga-castle-fukushima"
-      ],
-      "parentDestinationId": "aizuwakamatsu-city"
+      ]
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -38270,9 +38261,9 @@
       "max": 7
     },
     "officialWebsite": "https://www.bandaisan.or.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (mountain; seasonal trail closures)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Fukushima:aizuwakamatsu"
+    "municipalityId": "Fukushima:inawashiro"
   },
   {
     "id": "mount-fuji",
@@ -43367,8 +43358,8 @@
       "Waterfront location"
     ],
     "coordinates": {
-      "lat": 40.5448,
-      "lng": 140.7297
+      "lat": 40.8296,
+      "lng": 140.7358
     },
     "nearestStation": "Aomori Station",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/86/Nebuta_Museum_Wa_Rasse_exterior.jpg",
@@ -43440,9 +43431,14 @@
       "max": 3
     },
     "officialWebsite": "https://www.nebuta.jp/warasse/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "09:00 - 18:00 (Sep–Apr) / 09:00 - 19:00 (May–Aug)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Aomori:aomori"
+    "municipalityId": "Aomori:aomori",
+    "kind": "museum",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11",
+      "sourceUrl": "https://www.nebuta.jp/warasse/"
+    }
   },
   {
     "id": "nerima-city",
@@ -45596,7 +45592,7 @@
       "max": 9
     },
     "officialWebsite": "https://www.nyuto-onsenkyo.gr.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Day-use bathing hours vary by inn (e.g. Tsurunoyu 10:00–15:30, closed Mondays)",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Akita:semboku"
   },
@@ -46637,12 +46633,10 @@
     },
     "reservation": "None required",
     "parking": "Available on site",
-    "notes": "Oirase Mountain Stream & Gorge located in Aomori Prefecture.",
+    "notes": "14 km stream course from Nenokuchi (Lake Towada) to Ishigedo; walkable trail with a seasonal bus along the route.",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": [],
-      "gatewayHubId": "aomori-city"
+      "gatewayHubId": "hachinohe-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Oirase-keiryu.jpg/1920px-Oirase-keiryu.jpg",
     "walkingIntensity": "low",
@@ -46656,7 +46650,8 @@
     },
     "officialWebsite": "https://www.towada.kanko.or.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "municipalityId": "Aomori:towada"
   },
   {
     "id": "okama-crater-yamagata",
@@ -46734,7 +46729,7 @@
     "walkingIntensity": "low",
     "reservation": "None required",
     "parking": "Katta Pass observation deck parking",
-    "notes": "Access via Zao Echo Line toll road (closed Nov–Apr due to snow). On cloudy days the lake can be completely hidden. Best views are on clear summer mornings. Often visited same day as Mount Zao ropeway.",
+    "notes": "Access via Zao Echo Line toll road (closed Nov–Apr due to snow). The crater sits on the Yamagata–Miyagi prefectural border (officially listed as Kawasaki Town, Miyagi; boundary undetermined); the standard approach is the Zao Ropeway from Yamagata City's Zao Onsen. On cloudy days the lake can be completely hidden; best views are on clear summer mornings.",
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
@@ -50085,7 +50080,7 @@
     ],
     "coordinates": {
       "lat": 37.2319,
-      "lng": 139.8456
+      "lng": 139.8497
     },
     "nearestStation": "Yunokami Onsen Station (then bus)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Ouchijuku_2006-11-12.jpg/1920px-Ouchijuku_2006-11-12.jpg",
@@ -50614,7 +50609,7 @@
   {
     "id": "rakuten-mobile-park-miyagi",
     "name": "Rakuten Mobile Park Miyagi",
-    "nameJa": "宮城球場",
+    "nameJa": "楽天モバイルパーク宮城",
     "aliases": ["Rakuten Mobile Saikyo Park Miyagi", "宮城球場"],
     "content": {
       "en": {
@@ -50623,7 +50618,7 @@
         "highlights": ["Nature"]
       },
       "ja": {
-        "name": "宮城球場",
+        "name": "楽天モバイルパーク宮城",
         "description": "宮城球場は仙台市にある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
         "highlights": ["自然"]
       }
@@ -50638,7 +50633,7 @@
       "parentDestinationId": "sendai-city"
     },
     "officialWebsiteRequirement": "none",
-    "categories": ["Nature"],
+    "categories": ["Sports", "Nature"],
     "tags": ["Nature", "Sendai City", "v1.9.2"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobo%20Park%20Miyagi(2017).jpg?width=1600",
     "imageMetadata": {
@@ -50651,7 +50646,7 @@
       "lat": 38.25620556,
       "lng": 140.9025
     },
-    "description": "Rakuten Mobile Park Miyagi is a visitor destination in Sendai City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Home of the Tohoku Rakuten Golden Eagles baseball team. The stadium on Sendai's eastern edge is known for its fireworks, food stands and fan atmosphere.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -50687,7 +50682,7 @@
       "couple": 8.5,
       "summer": 8.2,
       "winter": 9.5,
-      "rain": 9.2,
+      "rain": 4,
       "food": 8.9,
       "photography": 8.6,
       "relaxation": 8.3,
@@ -50712,7 +50707,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+    "notes": "Open on game days only; gate times vary by schedule. Note: the catalogue has no stadium kind, so kind=park is a documented schema compromise.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -50786,7 +50781,7 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.rakuteneagles.jp/stadium/",
-    "businessHours": "Open access",
+    "businessHours": "Game days only; gate times vary by schedule",
     "municipalityId": "Miyagi:sendai"
   },
   {
@@ -51390,7 +51385,7 @@
     "region": "Tohoku",
     "category": "Nature & Parks",
     "categories": ["Nature & Parks"],
-    "description": "One of Japan's top three limestone caves, featuring an ethereal underground lake so clear and deep it glows brilliant cobalt blue. The cave maintains a constant 10°C year-round and stretches at least 5 km into the mountain.",
+    "description": "One of Japan's top three limestone caves, featuring an ethereal underground lake so clear and deep it glows brilliant cobalt blue. The cave maintains a constant 10°C year-round and extends about 4 km into the mountain.",
     "highlights": [
       "Deep cobalt-blue underground lake",
       "Constant 10°C cool escape",
@@ -51398,10 +51393,10 @@
       "Year-round accessibility"
     ],
     "coordinates": {
-      "lat": 39.7389,
-      "lng": 141.7972
+      "lat": 39.8601,
+      "lng": 141.7971
     },
-    "nearestStation": "Iwaizumi Station (then bus)",
+    "nearestStation": "Morioka Station (then JR bus, ~110 min)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Ryusendo.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Ryusendo.jpg",
     "tags": ["cave", "limestone", "iwate", "nature", "underground", "tohoku"],
@@ -51458,12 +51453,11 @@
     "walkingIntensity": "low",
     "reservation": "None required",
     "parking": "Free at cave entrance",
-    "notes": "One of Japan's three great limestone caves along with Akiyoshido and Ryugado. Admission ¥1,100. The third underground lake is 98 m deep with visibility to the bottom.",
+    "notes": "One of Japan's three great limestone caves along with Akiyoshido and Ryugado. Admission ¥1,100. Explored passages total 4,088 m (700 m open to visitors); the third underground lake is 98 m deep with visibility to the bottom. Access is by JR bus from Morioka (Yamada Line through-service is suspended).",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["jodogahama-beach-iwate"],
-      "parentDestinationId": "morioka-city"
+      "gatewayHubId": "morioka-city",
+      "nearbyDestinationIds": ["jodogahama-beach-iwate"]
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -51473,9 +51467,9 @@
       "max": 3
     },
     "officialWebsite": "https://www.iwate-ryusendo.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "08:30 - 17:00 (May–Sep to 18:00)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Iwate:morioka"
+    "municipalityId": "Iwate:iwaizumi"
   },
   {
     "id": "sado-island",
@@ -53361,12 +53355,12 @@
   },
   {
     "id": "sannai-maruyama-jomon-aomori",
-    "name": "Jomon Prehistoric Sites in Northern Japan",
+    "name": "Sannai-Maruyama Site",
     "prefecture": "Aomori",
     "region": "Tohoku",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg/1920px-140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg",
-    "description": "Jomon Prehistoric Sites in Northern Japan is a UNESCO World Heritage Site in Aomori, designated for its outstanding universal cultural or natural value.",
+    "description": "A large Jomon-period settlement site (c. 3900–2200 BC) in Aomori City, excavated from 1992 and now a museum park with reconstructed pit dwellings, a large six-pillared structure, and artifacts. A component of the UNESCO World Heritage 'Jomon Prehistoric Sites in Northern Japan' (2021).",
     "highlights": [
       "UNESCO Heritage Monument",
       "Historic Landmark",
@@ -53418,7 +53412,7 @@
     ],
     "reservation": "Not required",
     "parking": "Available nearby",
-    "notes": "Official UNESCO World Heritage Site.",
+    "notes": "Free outdoor areas; the site museum and special exhibits charge admission. Closed 2nd and 4th Monday (check official calendar).",
     "coordinates": {
       "lat": 40.8115,
       "lng": 140.6973
@@ -53449,7 +53443,7 @@
       "food": 3000,
       "cafe": 1500
     },
-    "nameJa": "北海道・北東北の縄文遺跡群",
+    "nameJa": "三内丸山遺跡",
     "comfort": {
       "heatTolerance": 7,
       "rainFriendly": 7,
@@ -53462,7 +53456,7 @@
       "max": 7
     },
     "officialWebsite": "https://sannaimaruyama.pref.aomori.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "09:00 - 17:00 (Jun–Sep to 18:00)",
     "municipalityId": "Aomori:aomori"
   },
   {
@@ -54429,7 +54423,7 @@
   {
     "id": "semboku-city",
     "name": "Semboku City",
-    "nameJa": "仙北",
+    "nameJa": "仙北市",
     "prefecture": "Akita",
     "region": "Tohoku",
     "coordinates": {
@@ -54520,7 +54514,7 @@
   {
     "id": "sendai-asaichi-morning-market",
     "name": "Sendai Asaichi Morning Market",
-    "nameJa": "仙台駅",
+    "nameJa": "仙台朝市",
     "aliases": ["Sendai Station (Miyagi)", "仙台駅"],
     "content": {
       "en": {
@@ -54529,8 +54523,8 @@
         "highlights": ["Food", "Market"]
       },
       "ja": {
-        "name": "仙台駅",
-        "description": "仙台駅は仙台市にある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "name": "仙台朝市",
+        "description": "仙台駅から徒歩5分、地元宮城の新鮮な食材が並ぶ商店街。「仙台の台所」と呼ばれ、お買い物から食事まで楽しめます。",
         "highlights": ["グルメ", "市場"]
       }
     },
@@ -54544,7 +54538,7 @@
       "parentDestinationId": "sendai-city"
     },
     "officialWebsiteRequirement": "none",
-    "categories": ["Food"],
+    "categories": ["Food", "Market"],
     "tags": ["Food", "Sendai City", "v1.9.2"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sendai%20Station%2020230806.jpg?width=1600",
     "imageMetadata": {
@@ -54554,17 +54548,17 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sendai_Station_20230806.jpg"
     },
     "coordinates": {
-      "lat": 38.26027778,
-      "lng": 140.88194444
+      "lat": 38.2588,
+      "lng": 140.8787
     },
-    "description": "Sendai Asaichi Morning Market is a visitor destination in Sendai City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+    "description": "Sendai's covered morning market arcade near the station's west exit, known as 'Sendai's kitchen' for its fresh Miyagi produce, seafood and casual eateries.",
     "highlights": ["Food", "Market"],
     "budgetMin": 1500,
-    "budgetRecommended": 4000,
-    "budgetMax": 7000,
+    "budgetRecommended": 3200,
+    "budgetMax": 4500,
     "budgetBreakdown": {
       "transport": 1400,
-      "tickets": 800,
+      "tickets": 0,
       "food": 1400,
       "cafe": 400
     },
@@ -54618,7 +54612,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+    "notes": "5-minute walk from Sendai Station; stall hours vary (typically morning to early evening) with scheduled monthly closure days — check the official calendar.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -54692,8 +54686,12 @@
       "confidence": "low"
     },
     "officialWebsite": "https://sendaiasaichi.com/",
-    "businessHours": "Open access",
-    "municipalityId": "Miyagi:sendai"
+    "businessHours": "Stall hours vary (typically ~08:00–18:00); scheduled monthly closures — see official calendar",
+    "municipalityId": "Miyagi:sendai",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11",
+      "sourceUrl": "https://sendaiasaichi.com/"
+    }
   },
   {
     "id": "sendai-castle-ruins-miyagi",
@@ -54711,8 +54709,8 @@
       "Gokoku Shrine within grounds"
     ],
     "coordinates": {
-      "lat": 38.2525,
-      "lng": 140.8626
+      "lat": 38.2522,
+      "lng": 140.856
     },
     "nearestStation": "Sendai Station (then Loople bus)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Waki-yagura_of_Sendai_Castle_20220910b.jpg/1920px-Waki-yagura_of_Sendai_Castle_20220910b.jpg",
@@ -54771,7 +54769,7 @@
     "walkingIntensity": "low",
     "reservation": "None required",
     "parking": "Limited; use Loople Sendai bus from station",
-    "notes": "Most of the castle was destroyed by earthquake (1793) and WWII bombing. Today the stone walls, turret foundations, and statue remain. Free admission to grounds; museum ¥700.",
+    "notes": "The castle's buildings were lost to fires in the 17th century and 1882, and the grounds were damaged in WWII bombing. Today the stone walls, turret foundations and the equestrian statue remain. Free admission to grounds; the site museum charges admission.",
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
@@ -54791,9 +54789,10 @@
     "placeType": "destination",
     "areaId": "aoba",
     "officialWebsite": "https://www.sendai-c.ed.jp/~museum/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (grounds); site museum hours vary by season",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Miyagi:sendai"
+    "municipalityId": "Miyagi:sendai",
+    "kind": "castle"
   },
   {
     "id": "sendai-city",
@@ -54852,7 +54851,7 @@
     "tags": ["Core Designated City", "Metropolis Hub", "Miyagi"],
     "reservation": "Not required",
     "parking": "Available at central station",
-    "notes": "Major JR Shinkansen / express rail transfer hub.",
+    "notes": "Tohoku's largest city; regional hub with the Date clan's castle-town heritage, vibrant food markets, and the Tohoku Shinkansen.",
     "coordinates": {
       "lat": 38.2688,
       "lng": 140.871
@@ -54908,7 +54907,8 @@
       "max": 14
     },
     "businessHours": "Open access",
-    "municipalityId": "Miyagi:sendai"
+    "municipalityId": "Miyagi:sendai",
+    "kind": "city"
   },
   {
     "id": "sendai-city-museum",
@@ -55077,8 +55077,13 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "municipalityId": "Miyagi:sendai"
+    "businessHours": "09:00 - 16:45 (last entry 16:15); closed Mondays (Tue if Mon is a holiday)",
+    "municipalityId": "Miyagi:sendai",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11",
+      "sourceUrl": "https://www.city.sendai.jp/museum/shisetsuannai/index.html",
+      "lastAdmission": "16:15"
+    }
   },
   {
     "id": "sendai-mediatheque",
@@ -55094,7 +55099,7 @@
       "ja": {
         "name": "せんだいメディアテーク",
         "description": "せんだいメディアテークは仙台市にある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-        "highlights": ["博物館"]
+        "highlights": ["文化", "博物館"]
       }
     },
     "prefecture": "Miyagi",
@@ -55108,7 +55113,7 @@
     },
     "officialWebsite": "https://www.smt.jp/",
     "officialWebsiteRequirement": "optional",
-    "categories": ["Culture"],
+    "categories": ["Culture", "Museum"],
     "tags": ["Culture", "Sendai City", "v1.9.2"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sendai%20Mediatheque%202009.jpg?width=1600",
     "imageMetadata": {
@@ -55121,7 +55126,7 @@
       "lat": 38.26555556,
       "lng": 140.86555556
     },
-    "description": "Sendai Mediatheque is a visitor destination in Sendai City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Toyo Ito's landmark glass-and-steel cultural building (2001), housing a library, galleries and event spaces; one of the defining works of contemporary Japanese architecture.",
     "highlights": ["Museum"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -55146,10 +55151,10 @@
     "walkingIntensity": "medium",
     "walkingSunMin": 4000,
     "walkingShadeMin": 2500,
-    "indoorPercent": 20,
+    "indoorPercent": 90,
     "comfort": {
       "heatTolerance": 2,
-      "rainFriendly": 2,
+      "rainFriendly": 9,
       "walkingIntensity": 6
     },
     "ratings": {
@@ -55182,7 +55187,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+    "notes": "Free public spaces; special exhibitions charge admission. Closed the 4th Tuesday of each month.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -55247,7 +55252,7 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "businessHours": "09:00 - 22:00 (closed 4th Tuesday of the month)",
     "municipalityId": "Miyagi:sendai"
   },
   {
@@ -55278,7 +55283,7 @@
     },
     "officialWebsite": "https://www.uminomori.jp/umino/",
     "officialWebsiteRequirement": "recommended",
-    "categories": ["Museum"],
+    "categories": ["Aquarium"],
     "tags": ["Museum", "Sendai City", "v1.9.2"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sendai%20Umino-Mori%20Aquarium.JPG?width=1600",
     "imageMetadata": {
@@ -55291,7 +55296,7 @@
       "lat": 38.27108333,
       "lng": 140.98066667
     },
-    "description": "Sendai Umino-Mori Aquarium is a visitor destination in Sendai City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Aquarium on Sendai's Miyagino seaside, featuring the huge 'Sendai Bay' tank and dolphin and seal shows built around Tohoku's marine life.",
     "highlights": ["Aquarium"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
@@ -55352,7 +55357,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+    "notes": "Near the port on the city's east side; combined trips with the nearby seaside park are easy. Check the official site for seasonal hours and feeding-show times.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -57393,7 +57398,7 @@
     "region": "Tohoku",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sirakami_santi.JPG/1920px-Sirakami_santi.JPG",
-    "description": "Shirakami-Sanchi is a UNESCO World Heritage Site in Aomori, designated for its outstanding universal cultural or natural value.",
+    "description": "A 130,000 ha UNESCO World Heritage beech forest (inscribed 1993) spanning Ajigasawa, Fukaura and Nishimeya in Aomori and Fujisato in Akita. Its primary beech forest is the largest in East Asia; access is via trailheads such as Aqua Green Village ANMON and the Juniko lakes.",
     "highlights": [
       "UNESCO Heritage Monument",
       "Historic Landmark",
@@ -57441,7 +57446,7 @@
     "tags": ["UNESCO World Heritage", "Shirakami-Sanchi", "Aomori"],
     "reservation": "Not required",
     "parking": "Available nearby",
-    "notes": "Official UNESCO World Heritage Site.",
+    "notes": "Multi-municipality natural World Heritage site; no single municipality contains it. Trail access is seasonal (typically Jun–Oct); the Juniko lakes and Anmon falls are the standard visitor entry points.",
     "coordinates": {
       "lat": 40.4688,
       "lng": 140.1264
@@ -57464,7 +57469,7 @@
       }
     ],
     "relationships": {
-      "parentDestinationId": "hirosaki-city"
+      "gatewayHubId": "hirosaki-city"
     },
     "budgetBreakdown": {
       "transport": 3000,
@@ -57487,8 +57492,7 @@
       "max": 7
     },
     "officialWebsite": "https://www.pref.aomori.lg.jp/soshiki/kankyo/kankyo/shirakami.html",
-    "businessHours": "09:00 - 17:00 (Daily)",
-    "municipalityId": "Aomori:hirosaki"
+    "businessHours": "09:00 - 17:00 (Daily)"
   },
   {
     "id": "shirakawa-village",
@@ -66917,8 +66921,8 @@
       "Panoramic views of Aizu Basin"
     ],
     "coordinates": {
-      "lat": 37.4928,
-      "lng": 139.9306
+      "lat": 37.4876,
+      "lng": 139.9298
     },
     "nearestStation": "Aizu-Wakamatsu Station (then bus)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Aizuwakamatsu_Castle_ac_%281%29.jpg/1920px-Aizuwakamatsu_Castle_ac_%281%29.jpg",
@@ -66993,9 +66997,14 @@
       "max": 4
     },
     "officialWebsite": "https://www.tsurugajo.com/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "08:30 - 17:00 (last entry 16:30)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Fukushima:aizuwakamatsu"
+    "municipalityId": "Fukushima:aizuwakamatsu",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11",
+      "sourceUrl": "https://www.tsurugajo.com/",
+      "lastAdmission": "16:30"
+    }
   },
   {
     "id": "tsurugaoka-hachimangu",
@@ -69345,7 +69354,7 @@
     "walkingIntensity": "moderate",
     "reservation": "None required",
     "parking": "Village parking near station",
-    "notes": "Admission ¥300 to climb beyond Sanmon gate. Counts 1,015 steps. Wear comfortable shoes. The Godaido viewing platform overhangs the cliff for dramatic valley photos. Easy train from Yamagata city (17 min).",
+    "notes": "Admission ¥500 to climb beyond Sanmon gate. Counts 1,015 steps. Wear comfortable shoes. The Godaido viewing platform overhangs the cliff for dramatic valley photos. Easy train from Yamagata city (17 min).",
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
@@ -69439,7 +69448,7 @@
     "weatherDependence": "moderate",
     "reservation": "Not usually required; reserve popular accommodation in advance.",
     "parking": "Available around major attractions; confirm local restrictions.",
-    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "notes": "Capital of Yamagata Prefecture; gateway to Yamadera, Zao, and the fruit orchards of the Murayama basin.",
     "relationships": {
       "featuredDestinationIds": []
     },
@@ -72398,7 +72407,7 @@
       "ja": {
         "name": "瑞鳳殿",
         "description": "瑞鳳殿は仙台市にある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-        "highlights": ["歴史"]
+        "highlights": ["文化", "博物館"]
       }
     },
     "prefecture": "Miyagi",
@@ -72412,7 +72421,7 @@
     },
     "officialWebsite": "https://www.zuihoden.com/",
     "officialWebsiteRequirement": "optional",
-    "categories": ["Culture"],
+    "categories": ["Culture", "Museum"],
     "tags": ["Culture", "Sendai City", "v1.9.2"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Zuiho-den17s3872.jpg?width=1600",
     "imageMetadata": {
@@ -72425,7 +72434,7 @@
       "lat": 38.250541604858974,
       "lng": 140.86670119031285
     },
-    "description": "Zuihoden is a visitor destination in Sendai City.  Visitors can experience historic architecture and local culture.",
+    "description": "The ornate mausoleum of Date Masamune, built in 1637 in the lavish Momoyama style and faithfully rebuilt after a 1945 fire. Its brilliantly coloured carvings make it one of Sendai's most visited sights.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -72486,7 +72495,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+    "notes": "Admission charged; about 15 minutes on foot from Zuihoden-mae bus stop or 25 minutes from Sendai Station by Loople Sendai bus.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -72551,8 +72560,12 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "municipalityId": "Miyagi:sendai"
+    "businessHours": "09:00 - 16:30",
+    "municipalityId": "Miyagi:sendai",
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11",
+      "sourceUrl": "https://www.zuihoden.com/"
+    }
   },
   {
     "id": "zushi",

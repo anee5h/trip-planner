@@ -6,7 +6,7 @@
   "region": "Tohoku",
   "category": "Nature & Parks",
   "categories": ["Nature & Parks"],
-  "description": "A vast, crystalline caldera lake straddling Aomori and Akita, ringed by primeval beech forests and fed by the scenic Oirase Stream. Famous for autumn foliage and mirrored reflections.",
+  "description": "A vast, crystalline caldera lake straddling Aomori and Akita, ringed by primeval beech forests and drained by the scenic Oirase Stream. Famous for autumn foliage and mirrored reflections.",
   "highlights": [
     "Caldera lake cruise",
     "Oirase trailhead",
@@ -77,9 +77,8 @@
   "notes": "Shared between Aomori and Akita prefectures. The trailhead for Oirase Gorge walk starts at Nenokuchi on the lake shore.",
   "status": "beta",
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": ["oirase-gorge-aomori"],
-    "parentDestinationId": "aomori-city"
+    "gatewayHubId": "hachinohe-city",
+    "nearbyDestinationIds": ["oirase-gorge-aomori"]
   },
   "budgetBreakdown": null,
   "role": "standalone",
@@ -90,6 +89,5 @@
   },
   "officialWebsite": "https://www.towada.kanko.or.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "ratingsSchemaVersion": 2,
-  "municipalityId": "Aomori:aomori"
+  "ratingsSchemaVersion": 2
 }

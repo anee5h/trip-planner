@@ -72,12 +72,10 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "notes": "Dewa Sanzan Three Sacred Mountains located in Yamagata Prefecture.",
+  "notes": "Multi-municipality pilgrimage: Haguro-san and Gassan are in Tsuruoka City, Yudono-san on the Tsuruoka/Nishikawa border. Haguro-san is the usual entry (five-story pagoda, stone steps); Gassan is climbable only in summer.",
   "status": "beta",
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": [],
-    "parentDestinationId": "yamagata-city"
+    "gatewayHubId": "yamagata-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Torii_in_the_mist_v1.JPG/1920px-Torii_in_the_mist_v1.JPG",
   "walkingIntensity": "low",
@@ -91,6 +89,5 @@
   },
   "officialWebsite": "http://www.dewasanzan.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "ratingsSchemaVersion": 2,
-  "municipalityId": "Yamagata:yamagata"
+  "ratingsSchemaVersion": 2
 }

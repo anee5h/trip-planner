@@ -14,8 +14,8 @@
     "Panoramic views of Aizu Basin"
   ],
   "coordinates": {
-    "lat": 37.4928,
-    "lng": 139.9306
+    "lat": 37.4876,
+    "lng": 139.9298
   },
   "nearestStation": "Aizu-Wakamatsu Station (then bus)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Aizuwakamatsu_Castle_ac_%281%29.jpg/1920px-Aizuwakamatsu_Castle_ac_%281%29.jpg",
@@ -90,7 +90,12 @@
     "max": 4
   },
   "officialWebsite": "https://www.tsurugajo.com/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "08:30 - 17:00 (last entry 16:30)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Fukushima:aizuwakamatsu"
+  "municipalityId": "Fukushima:aizuwakamatsu",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11",
+    "sourceUrl": "https://www.tsurugajo.com/",
+    "lastAdmission": "16:30"
+  }
 }

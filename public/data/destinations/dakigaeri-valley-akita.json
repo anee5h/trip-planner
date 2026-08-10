@@ -11,7 +11,7 @@
     "Turquoise canyon river",
     "Spring cherry blossom gorge",
     "Autumn maple reflections",
-    "Kamihanazawa waterfall"
+    "Kaiko Falls"
   ],
   "coordinates": {
     "lat": 39.5917,
@@ -77,12 +77,7 @@
   "notes": "Name literally means \"embracing return valley\" — the narrow path forces walkers to embrace the cliff face to pass. Trail is about 4 km return to the waterfall.",
   "status": "beta",
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": [
-      "kakunodate-samurai-district-akita",
-      "lake-tazawa-akita"
-    ],
-    "parentDestinationId": "akita-city"
+    "parentDestinationId": "semboku-city"
   },
   "budgetBreakdown": null,
   "role": "standalone",
@@ -91,8 +86,8 @@
     "min": 2,
     "max": 4
   },
-  "officialWebsite": "https://www.city.senboku.akita.jp/sightseeing/spot/05_dakigaeri.html",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "officialWebsite": "https://www.city.semboku.akita.jp/sightseeing/spot/05_dakigaeri.html",
+  "businessHours": "Open access (valley trail; seasonal closures)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Akita:akita"
+  "municipalityId": "Akita:semboku"
 }

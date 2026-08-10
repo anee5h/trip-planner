@@ -1,11 +1,11 @@
 {
   "id": "sannai-maruyama-jomon-aomori",
-  "name": "Jomon Prehistoric Sites in Northern Japan",
+  "name": "Sannai-Maruyama Site",
   "prefecture": "Aomori",
   "region": "Tohoku",
   "categories": ["World Heritage", "Culture", "Sightseeing"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg/1920px-140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg",
-  "description": "Jomon Prehistoric Sites in Northern Japan is a UNESCO World Heritage Site in Aomori, designated for its outstanding universal cultural or natural value.",
+  "description": "A large Jomon-period settlement site (c. 3900–2200 BC) in Aomori City, excavated from 1992 and now a museum park with reconstructed pit dwellings, a large six-pillared structure, and artifacts. A component of the UNESCO World Heritage 'Jomon Prehistoric Sites in Northern Japan' (2021).",
   "highlights": [
     "UNESCO Heritage Monument",
     "Historic Landmark",
@@ -57,7 +57,7 @@
   ],
   "reservation": "Not required",
   "parking": "Available nearby",
-  "notes": "Official UNESCO World Heritage Site.",
+  "notes": "Free outdoor areas; the site museum and special exhibits charge admission. Closed 2nd and 4th Monday (check official calendar).",
   "coordinates": {
     "lat": 40.8115,
     "lng": 140.6973
@@ -88,7 +88,7 @@
     "food": 3000,
     "cafe": 1500
   },
-  "nameJa": "北海道・北東北の縄文遺跡群",
+  "nameJa": "三内丸山遺跡",
   "comfort": {
     "heatTolerance": 7,
     "rainFriendly": 7,
@@ -101,6 +101,6 @@
     "max": 7
   },
   "officialWebsite": "https://sannaimaruyama.pref.aomori.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "09:00 - 17:00 (Jun–Sep to 18:00)",
   "municipalityId": "Aomori:aomori"
 }

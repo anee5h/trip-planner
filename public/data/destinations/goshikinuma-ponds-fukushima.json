@@ -85,12 +85,8 @@
   "notes": "Free entry. The 3.6 km one-way trail runs from Goshiki-numa visitor centre to Bandai-Kogen bus stop. Trail takes 1.5–2 hours. Rurikuma pond is the most vivid cobalt blue.",
   "status": "beta",
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": [
-      "mount-bandai-fukushima",
-      "abukuma-cave-fukushima"
-    ],
-    "parentDestinationId": "aizuwakamatsu-city"
+    "gatewayHubId": "aizuwakamatsu-city",
+    "nearbyDestinationIds": ["mount-bandai-fukushima"]
   },
   "budgetBreakdown": null,
   "role": "standalone",
@@ -100,7 +96,7 @@
     "max": 4
   },
   "officialWebsite": "https://www.urabandai-inf.com/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "Open access (open-air ponds; 3.6 km one-way trail)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Fukushima:aizuwakamatsu"
+  "municipalityId": "Fukushima:kitashiobara"
 }

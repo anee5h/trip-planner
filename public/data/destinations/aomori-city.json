@@ -1,7 +1,7 @@
 {
   "id": "aomori-city",
   "name": "Aomori City",
-  "nameJa": "青森",
+  "nameJa": "青森市",
   "prefecture": "Aomori",
   "region": "Tohoku",
   "coordinates": {
@@ -77,7 +77,7 @@
   "weatherDependence": "moderate",
   "reservation": "Not usually required; reserve popular accommodation in advance.",
   "parking": "Available around major attractions; confirm local restrictions.",
-  "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+  "notes": "Port city at the north end of the Tohoku Shinkansen; base for the Nebuta Festival and ferries to Hokkaido.",
   "relationships": {
     "featuredDestinationIds": []
   },

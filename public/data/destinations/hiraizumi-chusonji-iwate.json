@@ -1,6 +1,6 @@
 {
   "id": "hiraizumi-chusonji-iwate",
-  "name": "Hiraizumi – Temples, Gardens and Archaeological Sites",
+  "name": "Hiraizumi – Temples, Gardens and Archaeological Sites Representing the Buddhist Pure Land",
   "prefecture": "Iwate",
   "region": "Tohoku",
   "categories": ["World Heritage", "Culture", "Sightseeing"],
@@ -57,7 +57,7 @@
   ],
   "reservation": "Not required",
   "parking": "Available nearby",
-  "notes": "Official UNESCO World Heritage Site.",
+  "notes": "UNESCO World Heritage (inscribed 2011) centred on Chuson-ji and its Konjiki-do (Golden Hall). Also covers Motsu-ji, Kanjizai-o-in, Muryoko-in and Mount Kinkeisan. Access via JR Ichinoseki Station (then bus) or Tohoku Shinkansen to Ichinoseki.",
   "coordinates": {
     "lat": 38.9868,
     "lng": 141.1001
@@ -77,10 +77,6 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true
-    },
-    {
-      "collectionId": "pilgrimage-routes-japan",
-      "sortOrder": 4
     }
   ],
   "relationships": {
@@ -92,7 +88,7 @@
     "food": 3000,
     "cafe": 1500
   },
-  "nameJa": "平泉―仏国土を表す建築・庭園及び考古学的遺跡群―",
+  "nameJa": "平泉―仏国土（浄土）を表す建築・庭園及び考古学的遺跡群―",
   "comfort": {
     "heatTolerance": 7,
     "rainFriendly": 7,
@@ -107,5 +103,6 @@
     "max": 7
   },
   "officialWebsite": "https://www.chusonji.or.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "08:30 - 17:00 (Mar 1–Nov 3) / 08:30 - 16:30 (winter); open year-round",
+  "municipalityId": "Iwate:hiraizumi"
 }

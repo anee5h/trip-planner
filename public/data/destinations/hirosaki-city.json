@@ -1,7 +1,7 @@
 {
   "id": "hirosaki-city",
   "name": "Hirosaki City",
-  "nameJa": "弘前",
+  "nameJa": "弘前市",
   "prefecture": "Aomori",
   "region": "Tohoku",
   "coordinates": {
@@ -72,7 +72,7 @@
   "weatherDependence": "moderate",
   "reservation": "Not usually required; reserve popular accommodation in advance.",
   "parking": "Available around major attractions; confirm local restrictions.",
-  "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+  "notes": "Castle town famous for Hirosaki Castle and its spring cherry blossoms; Tsugaru regional base.",
   "relationships": {
     "featuredDestinationIds": []
   },

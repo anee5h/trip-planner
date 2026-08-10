@@ -14,8 +14,8 @@
     "Waterfront location"
   ],
   "coordinates": {
-    "lat": 40.5448,
-    "lng": 140.7297
+    "lat": 40.8296,
+    "lng": 140.7358
   },
   "nearestStation": "Aomori Station",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/86/Nebuta_Museum_Wa_Rasse_exterior.jpg",
@@ -87,7 +87,12 @@
     "max": 3
   },
   "officialWebsite": "https://www.nebuta.jp/warasse/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "09:00 - 18:00 (Sep–Apr) / 09:00 - 19:00 (May–Aug)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Aomori:aomori"
+  "municipalityId": "Aomori:aomori",
+  "kind": "museum",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11",
+    "sourceUrl": "https://www.nebuta.jp/warasse/"
+  }
 }

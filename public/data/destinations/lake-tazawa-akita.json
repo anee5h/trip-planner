@@ -77,12 +77,7 @@
   "notes": "Japan's deepest lake at 423.4 m. The legendary Princess Tatsuko prayed for eternal beauty and was transformed into a dragon deity of the lake.",
   "status": "beta",
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": [
-      "nyuto-onsen-akita",
-      "kakunodate-samurai-district-akita"
-    ],
-    "gatewayHubId": "akita-city"
+    "parentDestinationId": "semboku-city"
   },
   "budgetBreakdown": null,
   "recommendedVisitHours": {
@@ -90,6 +85,7 @@
     "max": 5
   },
   "officialWebsite": "https://www.tazawako.org/",
-  "businessHours": "09:00 - 17:00 (Daily)",
-  "ratingsSchemaVersion": 2
+  "businessHours": "Open access (open lake; no hours)",
+  "ratingsSchemaVersion": 2,
+  "municipalityId": "Akita:semboku"
 }

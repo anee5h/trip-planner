@@ -74,15 +74,14 @@
   "walkingIntensity": "strenuous",
   "reservation": "None required",
   "parking": "Kawagoe Route trailhead parking",
-  "notes": "One of Japan's 100 Famous Mountains. The 1888 eruption produced lahars that killed 461 people and created over 300 ponds. Main summit trail (Kawagoe Route) takes 3–4 hours one way. Often paired with Goshikinuma ponds visit.",
+  "notes": "One of Japan's 100 Famous Mountains. The 1888 eruption produced lahars that killed 461 people and created over 300 ponds. Main summit trail from the Happodai trailhead takes 3–4 hours one way. Often paired with Goshikinuma ponds visit.",
   "status": "beta",
   "relationships": {
-    "featuredDestinationIds": [],
+    "gatewayHubId": "aizuwakamatsu-city",
     "nearbyDestinationIds": [
       "goshikinuma-ponds-fukushima",
       "tsuruga-castle-fukushima"
-    ],
-    "parentDestinationId": "aizuwakamatsu-city"
+    ]
   },
   "budgetBreakdown": null,
   "role": "standalone",
@@ -92,7 +91,7 @@
     "max": 7
   },
   "officialWebsite": "https://www.bandaisan.or.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "Open access (mountain; seasonal trail closures)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Fukushima:aizuwakamatsu"
+  "municipalityId": "Fukushima:inawashiro"
 }
