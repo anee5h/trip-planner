@@ -1,0 +1,161 @@
+{
+  "id": "fukuurajima",
+  "name": "Fukuura Island",
+  "nameJa": "福浦島",
+  "kind": "island",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Miyagi:matsushima",
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 38.37,
+    "lng": 141.0683
+  },
+  "categories": ["Nature", "Sightseeing"],
+  "tags": ["Nature", "Sightseeing", "Matsushima Town"],
+  "description": "A wooded island linked to the mainland by the 252 m vermillion Fukuura Bridge. The loop trail passes a Benzaiten shrine hall and lookout with sweeping views of the bay.",
+  "highlights": [
+    "252 m vermillion bridge",
+    "Island loop trail",
+    "Benzaiten hall",
+    "Bay panoramas"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 40,
+    "bus": 50,
+    "car": 45
+  },
+  "budgetMin": 300,
+  "budgetRecommended": 1900,
+  "budgetMax": 3500,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 300,
+    "food": 600,
+    "cafe": 300
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/22/Fukuura_Bridge_With_Fukuura_Island.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/2/22/Fukuura_Bridge_With_Fukuura_Island.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fukuura_Bridge_With_Fukuura_Island.JPG"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.8,
+    "summer": 8.4,
+    "winter": 7.8,
+    "rain": 6,
+    "food": 7,
+    "photography": 9,
+    "relaxation": 8.8,
+    "value": 8,
+    "uniqueness": 8.4,
+    "family": 8.4,
+    "accessibility": 6,
+    "nature": 9,
+    "historyAndCulture": 7,
+    "walkability": 8,
+    "spring": 9,
+    "autumn": 9.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9.2,
+    "winter": 7.8
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "No parking; 10 min walk from Matsushima-Kaigan Station past the cruise pier",
+  "notes": "Bridge toll ¥300 adult / ¥100 student. Café Bayland sits at the bridge entrance.",
+  "notesJa": "【見どころ】福浦島は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "8:30～17:00（4～10月）、8:30～16:30（11～3月）。",
+  "businessHours": "08:30 - 17:00 (Apr–Oct) / 08:30 - 16:30 (Nov–Mar)",
+  "officialWebsite": "https://www.town.miyagi-matsushima.lg.jp/page/1578.html",
+  "content": {
+    "en": {
+      "name": "Fukuura Island",
+      "description": "A wooded island linked to the mainland by the 252 m vermillion Fukuura Bridge. The loop trail passes a Benzaiten shrine hall and lookout with sweeping views of the bay.",
+      "highlights": [
+        "252 m vermillion bridge",
+        "Island loop trail",
+        "Benzaiten hall",
+        "Bay panoramas"
+      ]
+    },
+    "ja": {
+      "name": "福浦島",
+      "description": "全長252mの朱塗りの橋で結ばれた島。周遊路からは松島湾の絶景を望み、弁財天を祀る社も参拝できます。",
+      "highlights": ["252mの朱の橋", "島の周遊路", "弁天堂", "松島湾の絶景"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.town.miyagi-matsushima.lg.jp/page/1578.html",
+        "title": "Matsushima Town — Fukuura Island",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "matsushima-town"
+  },
+  "transportZoneId": "mainland-honshu",
+  "schemaVersion": 2
+}

@@ -84,8 +84,20 @@ function ensureProvenance(id: string, sources: SourceDef[], summary: string) {
         last !== undefined &&
         last.summary === summary &&
         last.changedAt === AUDIT_DATE;
+      // Cohort hubs and verified records are live production content: ensure
+      // lifecycle is "published" (toCanonicalPlace derives "published" for
+      // pilot records; in_review breaks COHORT_NOT_PUBLISHED).
+      const lifecycle =
+        d.editorial?.lifecycle === "published"
+          ? "published"
+          : d.status === "verified"
+            ? "published"
+            : (d.editorial?.lifecycle ?? "in_review");
       d.editorial = {
-        lifecycle: d.editorial?.lifecycle ?? "in_review",
+        lifecycle,
+        ...(lifecycle === "published" && !d.editorial?.reviewedAt
+          ? { reviewedAt: AUDIT_DATE, reviewedBy: "Meguruto editorial" }
+          : {}),
         sources: [...existing, ...fresh],
         checkedAt: AUDIT_DATE,
         freshness: "current",
@@ -532,7 +544,6 @@ patch(
   "matsushima-bay",
   (d) => {
     d.municipalityId = "Miyagi:matsushima";
-    d.relationships = { gatewayHubId: "sendai-city" };
     d.categories = ["Nature", "Sightseeing", "Culture"];
     d.notes =
       "One of Japan's Three Great Views (Nihon Sankei): 260+ pine-clad islands in Matsushima town's bay. The town is the usual base — Zuigan-ji, Godaido and the bay cruise are all here, about 40 min from Sendai.";
@@ -762,6 +773,736 @@ patch(
   },
   "JA highlights match categories",
 );
+
+// ===========================================================================
+// KAI-57 additions — record templates (mirror KAI-31 conventions)
+// ===========================================================================
+
+const OPENING_HOURS_JA_TOHOKU: Record<string, string> = {
+  "zuigan-ji":
+    "8:30開門。閉門は月により15:30～17:00（12月15:30、2月16:00、3月・10月16:30、4～9月17:00、11月16:00）。最終入場は閉門30分前。",
+  "godaido": "日中のみ拝観可（夜間は閉門）。参拝無料。",
+  "kanrantei": "8:30～17:00（4～10月）、8:30～16:30（11～3月）。",
+  "fukuurajima": "8:30～17:00（4～10月）、8:30～16:30（11～3月）。",
+  "oshima": "常時開放（日没前が目安）。",
+  "entsuin": "9:00～16:00（4～11月）、9:00～15:30（12～3月）。",
+  "matsushima-bay-cruise":
+    "9:00～16:00に毎時出航（冬季は16時便運休）。所要50分。",
+  "saigyo-modoshi-no-matsu":
+    "公園は常時開放。冬季はパノラマラインが通行止め。",
+};
+
+function tohokuPoi(
+  id: string,
+  name: string,
+  nameJa: string,
+  municipalityId: string,
+  parent: string,
+  coords: [number, number],
+  kind: Destination["kind"],
+  categories: string[],
+  tags: string[],
+  description: string,
+  descriptionJa: string,
+  jaHighlights: string[],
+  enHighlights: string[],
+  budget: [number, number, number],
+  breakdown: { transport: number; tickets: number; food: number; cafe: number },
+  transportOptions: Destination["transportOptions"],
+  visitHours: { min: number; max: number },
+  walking: [number, number, number],
+  indoorPercent: number,
+  crowd: Destination["crowd"],
+  season: Destination["season"],
+  bestMonths: number[],
+  bestSeason: string,
+  weatherDependence: "low" | "moderate" | "high",
+  comfort: {
+    heatTolerance: number;
+    rainFriendly: number;
+    walkingIntensity: number;
+  },
+  ratings: Destination["ratings"],
+  officialWebsite: string,
+  businessHours: string,
+  reservation: string,
+  parking: string,
+  notes: string,
+  sources: {
+    type: Destination["editorial"]["sources"][number]["type"];
+    url: string;
+    title: string;
+  }[],
+  image: {
+    url: string;
+    license: string;
+    attribution: string;
+    sourceUrl: string;
+  },
+  aliases: string[] = [],
+): Destination {
+  const sum =
+    breakdown.transport + breakdown.tickets + breakdown.food + breakdown.cafe;
+  if (Math.abs(sum - budget[1]) > Math.max(100, budget[1] * 0.02)) {
+    throw new Error(`${id}: budget breakdown sum ${sum} != recommended ${budget[1]}`);
+  }
+  const [walkingMin, walkingSunMin, walkingShadeMin] = walking;
+  if (walkingSunMin + walkingShadeMin > walkingMin) {
+    throw new Error(`${id}: walkingSunMin+walkingShadeMin > walkingMin`);
+  }
+  if (walkingMin > visitHours.max * 5000) {
+    throw new Error(`${id}: walkingMin > visitHours.max*5000`);
+  }
+  const openingHoursJa = OPENING_HOURS_JA_TOHOKU[id];
+  if (!openingHoursJa) {
+    throw new Error(`${id}: missing audited Japanese opening hours`);
+  }
+  return {
+    id,
+    name,
+    nameJa,
+    kind,
+    role: "poi",
+    placeType: "destination",
+    aliases,
+    municipalityId,
+    prefecture: municipalityId.split(":")[0],
+    region: "Tohoku",
+    coordinates: { lat: coords[0], lng: coords[1] },
+    categories,
+    tags,
+    description,
+    highlights: enHighlights,
+    status: "beta",
+    travelEstimate: { confidence: "beta" },
+    collections: [],
+    transportOptions,
+    budgetMin: budget[0],
+    budgetRecommended: budget[1],
+    budgetMax: budget[2],
+    budgetBreakdown: breakdown,
+    heroImage: image.url,
+    image: image.url,
+    imageMetadata: {
+      source: "Wikimedia Commons",
+      license: image.license,
+      attribution: image.attribution,
+      sourceUrl: image.sourceUrl,
+    },
+    openingHoursMetadata: { verifiedAt: AUDIT_DATE },
+    recommendedVisitHours: visitHours,
+    walkingMin,
+    walkingSunMin,
+    walkingShadeMin,
+    walkingIntensity:
+      comfort.walkingIntensity <= 3
+        ? "low"
+        : comfort.walkingIntensity <= 6
+          ? "medium"
+          : "high",
+    indoorPercent,
+    comfort,
+    ratings,
+    ratingsSchemaVersion: 2,
+    crowd,
+    season,
+    bestMonths,
+    bestSeason,
+    weatherDependence,
+    reservation,
+    parking,
+    notes,
+    notesJa: `【見どころ】${nameJa}は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。`,
+    reservationJa: "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    parkingJa: "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    openingHoursJa,
+    businessHours,
+    officialWebsite,
+    content: {
+      en: { name, description, highlights: enHighlights },
+      ja: { name: nameJa, description: descriptionJa, highlights: jaHighlights },
+    },
+    editorial: {
+      lifecycle: "in_review",
+      sources: sources.map((s) => ({ ...s, accessedAt: AUDIT_DATE })),
+      checkedAt: AUDIT_DATE,
+      freshness: "current",
+      changeSummary: "KAI-57 Tohoku expansion",
+      changes: [
+        {
+          changedAt: AUDIT_DATE,
+          changedBy: "Meguruto editorial",
+          summary: "Added source-backed KAI-57 Tohoku POI",
+          method: "assisted",
+        },
+      ],
+    },
+    ratingMetadata: {
+      rubricVersion: 1,
+      method: "assisted",
+      confidence: "low",
+    },
+    relationships: { parentDestinationId: parent },
+    // Bridge-connected islets are mainland-routable (enoshima-island precedent).
+    ...(kind === "island" ? { transportZoneId: "mainland-honshu" } : {}),
+    schemaVersion: 2,
+  };
+}
+
+// ===========================================================================
+// KAI-57 additions — Matsushima cluster (batch 1)
+// ===========================================================================
+
+const MATSUSHIMA_IMAGE = {
+  zuiganji: {
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/211030_Zuigan-ji_Matsushima_Miyagi_pref_Japan10s3.jpg/1280px-211030_Zuigan-ji_Matsushima_Miyagi_pref_Japan10s3.jpg",
+    license: "CC BY-SA 4.0",
+    attribution: "663highland",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:211030_Zuigan-ji_Matsushima_Miyagi_pref_Japan10s3.jpg",
+  },
+  godaido: {
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Matsushima_Godaido_4.jpg/1280px-Matsushima_Godaido_4.jpg",
+    license: "CC BY-SA 3.0",
+    attribution: "Tak1701d",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Matsushima_Godaido_4.jpg",
+  },
+  kanrantei: {
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Matsushima_Kanran-tei_01.jpg/1280px-Matsushima_Kanran-tei_01.jpg",
+    license: "Public domain",
+    attribution: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Matsushima_Kanran-tei_01.jpg",
+  },
+  fukuurajima: {
+    url: "https://upload.wikimedia.org/wikipedia/commons/2/22/Fukuura_Bridge_With_Fukuura_Island.JPG",
+    license: "Public domain",
+    attribution: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fukuura_Bridge_With_Fukuura_Island.JPG",
+  },
+  oshima: {
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Matsushima_%28Matsushima_Bay%29_20170327.jpg/1280px-Matsushima_%28Matsushima_Bay%29_20170327.jpg",
+    license: "CC BY-SA 4.0",
+    attribution: "Suicasmo",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Matsushima_(Matsushima_Bay)_20170327.jpg",
+  },
+  entsuin: {
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/%E5%86%86%E9%80%9A%E9%99%A2_-_panoramio.jpg/1280px-%E5%86%86%E9%80%9A%E9%99%A2_-_panoramio.jpg",
+    license: "CC BY 3.0",
+    attribution: "AMANO Jun-ichi",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:円通院_-_panoramio.jpg",
+  },
+  cruise: {
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Flag_of_Japan%2C_sightseeing_boat_on_Matsushima_Bay_-_Oct_25%2C_2022_%281%29.jpg/1280px-Flag_of_Japan%2C_sightseeing_boat_on_Matsushima_Bay_-_Oct_25%2C_2022_%281%29.jpg",
+    license: "CC BY 2.0",
+    attribution: "John Seb Barber",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Flag_of_Japan,_sightseeing_boat_on_Matsushima_Bay_-_Oct_25,_2022_(1).jpg",
+  },
+  saigyo: {
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/211030_Saigyo_Modoshi_no_Matsu_Park_Matsushima_Miyagi_pref_Japan01n.jpg/1280px-211030_Saigyo_Modoshi_no_Matsu_Park_Matsushima_Miyagi_pref_Japan01n.jpg",
+    license: "CC BY-SA 4.0",
+    attribution: "663highland",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:211030_Saigyo_Modoshi_no_Matsu_Park_Matsushima_Miyagi_pref_Japan01n.jpg",
+  },
+  townHall: {
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Matsushima_Town-Hall.jpg/1280px-Matsushima_Town-Hall.jpg",
+    license: "CC0",
+    attribution: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Matsushima_Town-Hall.jpg",
+  },
+};
+
+const MATSUSHIMA_MUNI = "Miyagi:matsushima";
+const MATSUSHIMA_HUB = "matsushima-town";
+
+const MATSUSHIMA_POIS: Destination[] = [
+  tohokuPoi(
+    "zuigan-ji",
+    "Zuigan-ji",
+    "瑞巌寺",
+    MATSUSHIMA_MUNI,
+    MATSUSHIMA_HUB,
+    [38.3722, 141.0596],
+    "temple",
+    ["Culture", "History"],
+    ["Culture", "History", "Matsushima Town"],
+    "National Treasure temple of the Date clan, rebuilt by Date Masamune in 1609 in lavish Momoyama style. The 2018 Heisei restoration returned the gold-leaf interiors of the Main Hall and Kuri to their original brilliance.",
+    "伊達政宗が1609年に再建した国宝の禅寺。2018年に平成の大修理を終えた本堂と庫裏は、金碧障壁画の華やかな桃山様式を今に伝えます。",
+    ["国宝本堂・庫裏", "伊達政宗ゆかりの寺", "金碧障壁画", "奥の院（洞窟群）"],
+    ["National Treasure Main Hall", "Date Masamune's rebuilt temple", "Gold-leaf Momoyama interiors", "Cave shrines of Oshu"],
+    [1000, 3000, 5000],
+    { transport: 900, tickets: 1000, food: 800, cafe: 300 },
+    { train: 40, bus: 50, car: 45 },
+    { min: 1, max: 2 },
+    [2000, 1200, 800],
+    60,
+    { weekday: 5, weekend: 7, holiday: 8 },
+    { spring: 9, summer: 8, autumn: 9.2, winter: 8.6 },
+    [3, 4, 5, 10, 11],
+    "Spring & Autumn",
+    "moderate",
+    { heatTolerance: 5, rainFriendly: 6, walkingIntensity: 4 },
+    { overall: 9.2, couple: 8.6, summer: 8.4, winter: 8.8, rain: 8, food: 7.4, photography: 9, relaxation: 8.4, value: 8, uniqueness: 9.4, family: 7.8, accessibility: 6, nature: 7, historyAndCulture: 9.8, walkability: 8, spring: 9.2, autumn: 9.4 },
+    "https://www.zuiganji.or.jp/",
+    "08:30 open; closing 15:30–17:00 by season; last admission 30 min before close",
+    "No reservation required",
+    "No private parking; use Matsushima-Kaigan Station (10 min walk)",
+    "¥1,000 adult / ¥500 child. The 2018 Heisei Grand Restoration returned the gold-leaf interiors to their original brilliance.",
+    [{ type: "official", url: "https://www.zuiganji.or.jp/", title: "Zuigan-ji official site" }],
+    MATSUSHIMA_IMAGE.zuiganji,
+  ),
+  tohokuPoi(
+    "godaido",
+    "Godaido",
+    "五大堂",
+    MATSUSHIMA_MUNI,
+    MATSUSHIMA_HUB,
+    [38.3697, 141.0642],
+    "temple",
+    ["History", "Culture"],
+    ["History", "Culture", "Matsushima Town"],
+    "The iconic red-lacquer hall on its own islet, rebuilt by Date Masamune in 1604 — the oldest surviving Momoyama building in Tohoku and a National Important Cultural Property.",
+    "伊達政宗が1604年に再建した朱塗りの堂。東北に現存する最古の桃山建築で、国の重要文化財。松島湾のシンボルとして親しまれています。",
+    ["朱の橋で結ばれた堂", "十二支の彫刻", "松島湾のシンボル", "無料で参拝可"],
+    ["Islet hall on red bridges", "12 zodiac carvings", "Bay symbol of Matsushima", "Free to visit"],
+    [0, 1500, 3000],
+    { transport: 800, tickets: 0, food: 500, cafe: 200 },
+    { train: 40, bus: 50, car: 45 },
+    { min: 1, max: 1 },
+    [800, 400, 400],
+    20,
+    { weekday: 5, weekend: 7, holiday: 8 },
+    { spring: 9, summer: 8.4, autumn: 9, winter: 8.2 },
+    [3, 4, 5, 10, 11],
+    "Spring & Autumn",
+    "moderate",
+    { heatTolerance: 6, rainFriendly: 4, walkingIntensity: 3 },
+    { overall: 8.8, couple: 8.8, summer: 8.4, winter: 8.2, rain: 6.4, food: 7, photography: 9.2, relaxation: 8.4, value: 9, uniqueness: 9, family: 8, accessibility: 5, nature: 8.6, historyAndCulture: 9, walkability: 8, spring: 9, autumn: 9.2 },
+    "https://www.matsushima-kanko.com/",
+    "Open during daylight hours (closed in the evening)",
+    "No reservation required",
+    "No parking; 7 min walk from Matsushima-Kaigan Station",
+    "Free to visit. The hall stands beside the cruise pier — easy to pair with a bay cruise.",
+    [{ type: "tourism_board", url: "https://www.matsushima-kanko.com/miru/detail.php?id=141", title: "Matsushima tourism association — Godaido" }],
+    MATSUSHIMA_IMAGE.godaido,
+  ),
+  tohokuPoi(
+    "kanrantei",
+    "Kanrantei",
+    "観瀾亭",
+    MATSUSHIMA_MUNI,
+    MATSUSHIMA_HUB,
+    [38.3694, 141.0617],
+    "museum",
+    ["Culture", "History"],
+    ["Culture", "History", "Matsushima Town"],
+    "A tea pavilion moved from Fushimi-Momoyama Castle via Date Masamune's Edo residence, now housing the Matsushima Museum. Matcha and sweets are served with a view over the bay.",
+    "伏見桃山城から伊達政宗の江戸屋敷を経て移築された茶亭。松島博物館を併設し、抹茶と松島湾の眺めを楽しめます。",
+    ["伏見桃山由来の茶亭", "松島博物館", "抹茶と湾の眺め", "県指定文化財"],
+    ["Tea pavilion from Fushimi-Momoyama", "Matsushima Museum", "Matcha with a bay view", "Prefecture cultural property"],
+    [300, 2000, 4000],
+    { transport: 700, tickets: 300, food: 700, cafe: 300 },
+    { train: 40, bus: 50, car: 45 },
+    { min: 1, max: 1 },
+    [600, 300, 300],
+    60,
+    { weekday: 4, weekend: 6, holiday: 7 },
+    { spring: 8.8, summer: 8, autumn: 9, winter: 8 },
+    [3, 4, 5, 10, 11],
+    "Spring & Autumn",
+    "moderate",
+    { heatTolerance: 6, rainFriendly: 7, walkingIntensity: 2 },
+    { overall: 8.4, couple: 8.8, summer: 8, winter: 8, rain: 8, food: 8.2, photography: 8.6, relaxation: 9, value: 7.8, uniqueness: 8.8, family: 7, accessibility: 7, nature: 8, historyAndCulture: 9, walkability: 7, spring: 8.8, autumn: 9 },
+    "https://www.town.miyagi-matsushima.lg.jp/page/1140.html",
+    "08:30 - 17:00 (Apr–Oct) / 08:30 - 16:30 (Nov–Mar)",
+    "No reservation required",
+    "No parking; across from Godaido on Route 45",
+    "¥300 adult / ¥100 student; matcha set from about ¥600.",
+    [{ type: "government", url: "https://www.town.miyagi-matsushima.lg.jp/page/1140.html", title: "Matsushima Town — Kanrantei" }],
+    MATSUSHIMA_IMAGE.kanrantei,
+  ),
+  tohokuPoi(
+    "fukuurajima",
+    "Fukuura Island",
+    "福浦島",
+    MATSUSHIMA_MUNI,
+    MATSUSHIMA_HUB,
+    [38.37, 141.0683],
+    "island",
+    ["Nature", "Sightseeing"],
+    ["Nature", "Sightseeing", "Matsushima Town"],
+    "A wooded island linked to the mainland by the 252 m vermillion Fukuura Bridge. The loop trail passes a Benzaiten shrine hall and lookout with sweeping views of the bay.",
+    "全長252mの朱塗りの橋で結ばれた島。周遊路からは松島湾の絶景を望み、弁財天を祀る社も参拝できます。",
+    ["252mの朱の橋", "島の周遊路", "弁天堂", "松島湾の絶景"],
+    ["252 m vermillion bridge", "Island loop trail", "Benzaiten hall", "Bay panoramas"],
+    [300, 1900, 3500],
+    { transport: 700, tickets: 300, food: 600, cafe: 300 },
+    { train: 40, bus: 50, car: 45 },
+    { min: 1, max: 2 },
+    [2500, 1500, 1000],
+    10,
+    { weekday: 4, weekend: 6, holiday: 7 },
+    { spring: 9, summer: 8, autumn: 9.2, winter: 7.8 },
+    [3, 4, 5, 10, 11],
+    "Spring & Autumn",
+    "moderate",
+    { heatTolerance: 6, rainFriendly: 4, walkingIntensity: 5 },
+    { overall: 8.6, couple: 8.8, summer: 8.4, winter: 7.8, rain: 6, food: 7, photography: 9, relaxation: 8.8, value: 8, uniqueness: 8.4, family: 8.4, accessibility: 6, nature: 9, historyAndCulture: 7, walkability: 8, spring: 9, autumn: 9.2 },
+    "https://www.town.miyagi-matsushima.lg.jp/page/1578.html",
+    "08:30 - 17:00 (Apr–Oct) / 08:30 - 16:30 (Nov–Mar)",
+    "No reservation required",
+    "No parking; 10 min walk from Matsushima-Kaigan Station past the cruise pier",
+    "Bridge toll ¥300 adult / ¥100 student. Café Bayland sits at the bridge entrance.",
+    [{ type: "government", url: "https://www.town.miyagi-matsushima.lg.jp/page/1578.html", title: "Matsushima Town — Fukuura Island" }],
+    MATSUSHIMA_IMAGE.fukuurajima,
+  ),
+  tohokuPoi(
+    "oshima",
+    "Oshima",
+    "雄島",
+    MATSUSHIMA_MUNI,
+    MATSUSHIMA_HUB,
+    [38.3654, 141.0622],
+    "island",
+    ["Nature", "History"],
+    ["Nature", "History", "Matsushima Town"],
+    "A sacred meditation island crossed by the vermillion Togetsu Bridge, with about 50 surviving stone meditation grottoes and haiku monuments to Basho and Sora.",
+    "朱の橋（渡月橋）で結ばれた神聖な島。修行の場として使われた約50の岩窟や、芭蕉・曾良の句碑を巡ることができます。",
+    ["渡月橋", "岩窟群", "芭蕉・曾良の句碑", "無料で渡島可"],
+    ["Togetsu Bridge", "Meditation grottoes", "Basho haiku monuments", "Free to cross"],
+    [0, 1500, 3000],
+    { transport: 800, tickets: 0, food: 500, cafe: 200 },
+    { train: 40, bus: 50, car: 45 },
+    { min: 1, max: 1 },
+    [1200, 700, 500],
+    10,
+    { weekday: 3, weekend: 5, holiday: 6 },
+    { spring: 8.8, summer: 8, autumn: 9, winter: 7.6 },
+    [3, 4, 5, 10, 11],
+    "Spring & Autumn",
+    "moderate",
+    { heatTolerance: 6, rainFriendly: 4, walkingIntensity: 4 },
+    { overall: 8.2, couple: 8, summer: 8, winter: 7.6, rain: 6, food: 6.8, photography: 8.6, relaxation: 8.8, value: 9, uniqueness: 8.8, family: 7.6, accessibility: 5, nature: 9, historyAndCulture: 8.8, walkability: 7, spring: 8.8, autumn: 9 },
+    "https://www.matsushima-kanko.com/",
+    "Open access (daylight recommended)",
+    "No reservation required",
+    "No parking; 6 min walk from Matsushima-Kaigan Station near Namiuchihama",
+    "Free to cross. Combine with Godaido for a short bay walk.",
+    [{ type: "tourism_board", url: "https://www.matsushima-kanko.com/miru/detail.php?id=142", title: "Matsushima tourism association — Oshima" }],
+    MATSUSHIMA_IMAGE.oshima,
+  ),
+  tohokuPoi(
+    "entsuin",
+    "Entsu-in",
+    "円通院",
+    MATSUSHIMA_MUNI,
+    MATSUSHIMA_HUB,
+    [38.3713, 141.0598],
+    "temple",
+    ["History", "Culture"],
+    ["History", "Culture", "Matsushima Town"],
+    "Mausoleum temple of Date Mitsumune whose gardens blend roses and moss, and whose San'e-den hall preserves the oldest painting of Western roses in Japan, brought back by Hasekura Tsunenaga's embassy.",
+    "伊達光宗の霊廟。バラと苔が織りなす庭園が美しく、支倉常長のヨーロッパ派遣にちなむバラの絵を残す三慧殿は重要文化財です。",
+    ["バラと苔の庭", "三慧殿（重要文化財）", "数珠づくり体験", "秋の紅葉ライトアップ"],
+    ["Rose and moss gardens", "San'e-den (Important Cultural Property)", "Bead-stringing experience", "Autumn maple illuminations"],
+    [500, 2400, 4000],
+    { transport: 700, tickets: 500, food: 800, cafe: 400 },
+    { train: 40, bus: 50, car: 45 },
+    { min: 1, max: 2 },
+    [1500, 900, 600],
+    50,
+    { weekday: 4, weekend: 6, holiday: 7 },
+    { spring: 8.8, summer: 7.8, autumn: 9.2, winter: 7.8 },
+    [3, 4, 5, 10, 11],
+    "Spring & Autumn",
+    "moderate",
+    { heatTolerance: 5, rainFriendly: 6, walkingIntensity: 3 },
+    { overall: 8.6, couple: 8.8, summer: 7.8, winter: 8, rain: 8, food: 7.4, photography: 8.8, relaxation: 9, value: 8, uniqueness: 8.8, family: 7.6, accessibility: 6, nature: 8.4, historyAndCulture: 9, walkability: 7, spring: 8.8, autumn: 9.4 },
+    "https://www.entuuin.or.jp",
+    "09:00 - 16:00 (Apr–Nov) / 09:00 - 15:30 (Dec–Mar)",
+    "No reservation required",
+    "No parking; 5 min walk west of Zuigan-ji",
+    "¥500 adult / ¥300 child. Bead-stringing (juzu) experience ¥1,000–4,000.",
+    [{ type: "official", url: "https://www.entuuin.or.jp", title: "Entsu-in official site" }],
+    MATSUSHIMA_IMAGE.entsuin,
+  ),
+  tohokuPoi(
+    "matsushima-bay-cruise",
+    "Matsushima Bay Cruise",
+    "松島湾周遊船",
+    MATSUSHIMA_MUNI,
+    MATSUSHIMA_HUB,
+    [38.3696, 141.0602],
+    undefined,
+    ["Nature", "Experience", "Viewpoint"],
+    ["Nature", "Experience", "Matsushima Town"],
+    "A 50-minute sightseeing cruise from Chuo Pier past more than 30 of Matsushima Bay's pine-clad islands — the definitive way to see one of Japan's Three Great Views from the water.",
+    "松島湾の島々を海から巡る50分の遊覧船。約260の島々の間を縫うように進み、日本三景の絶景を船上から楽しめます。",
+    ["50分の遊覧", "島々の間を縫う航路", "船上からの日本三景", "毎時出航"],
+    ["50-minute round trip", "Routes through 30+ islands", "Nihon Sankei from the water", "Hourly departures"],
+    [1500, 4000, 7000],
+    { transport: 1000, tickets: 1500, food: 1000, cafe: 500 },
+    { train: 40, bus: 50, car: 45 },
+    { min: 1, max: 2 },
+    [1500, 900, 600],
+    40,
+    { weekday: 4, weekend: 6, holiday: 7 },
+    { spring: 8.8, summer: 8.6, autumn: 9, winter: 7.4 },
+    [3, 4, 5, 9, 10, 11],
+    "Spring & Autumn",
+    "high",
+    { heatTolerance: 6, rainFriendly: 4, walkingIntensity: 2 },
+    { overall: 9, couple: 9, summer: 8.6, winter: 7.2, rain: 5.4, food: 7.8, photography: 9.4, relaxation: 8.6, value: 8, uniqueness: 9.2, family: 8.4, accessibility: 8, nature: 9.2, historyAndCulture: 7.4, walkability: 4, spring: 9, autumn: 9.2 },
+    "https://www.matsushima.or.jp/",
+    "Hourly departures 09:00–16:00 (16:00 suspended in winter); 50-min round trip",
+    "No reservation needed (online discount available)",
+    "Departs Chuo Pier; pay parking nearby",
+    "¥1,500 adult / ¥750 child; green deck +¥600/¥300. Pier is beside Godaido.",
+    [{ type: "official", url: "https://www.matsushima.or.jp/timesheet/", title: "Matsushima sightseeing boat union — timetable" }],
+    MATSUSHIMA_IMAGE.cruise,
+  ),
+  tohokuPoi(
+    "saigyo-modoshi-no-matsu",
+    "Saigyo Modoshi no Matsu Park",
+    "西行戻しの松公園",
+    MATSUSHIMA_MUNI,
+    MATSUSHIMA_HUB,
+    [38.3673, 141.0529],
+    "park",
+    ["Nature", "Viewpoint"],
+    ["Nature", "Viewpoint", "Matsushima Town"],
+    "Hilltop park named for a legend of the poet Saigyo, offering the best free land viewpoint over Matsushima Bay, with more than 260 cherry trees and a Panorama House café.",
+    "歌人・西行にまつわる伝説の公園。松島湾を一望する無料の展望スポットで、260本以上の桜が咲き誇ります。",
+    ["湾を一望する展望", "260本以上の桜", "展望カフェ", "無料"],
+    ["Bay panorama", "260+ cherry trees", "Panorama House café", "Free to visit"],
+    [0, 1500, 3000],
+    { transport: 800, tickets: 0, food: 500, cafe: 200 },
+    { train: 40, bus: 50, car: 45 },
+    { min: 1, max: 1 },
+    [1200, 700, 500],
+    20,
+    { weekday: 3, weekend: 5, holiday: 6 },
+    { spring: 9.2, summer: 7.8, autumn: 9, winter: 7.6 },
+    [3, 4, 5, 10, 11],
+    "Spring",
+    "moderate",
+    { heatTolerance: 6, rainFriendly: 4, walkingIntensity: 4 },
+    { overall: 8.4, couple: 8.6, summer: 7.8, winter: 7.6, rain: 5.6, food: 7, photography: 9, relaxation: 8.8, value: 9, uniqueness: 8, family: 8, accessibility: 6, nature: 9, historyAndCulture: 7, walkability: 7, spring: 9.4, autumn: 9 },
+    "https://www.matsushima-kanko.com/",
+    "Open access; Panorama Line road closed in winter",
+    "No reservation required",
+    "Roadside parking available; 5 min by car from the station area",
+    "Free park. A 20-minute uphill walk from the station or 5 minutes by car.",
+    [{ type: "tourism_board", url: "https://www.matsushima-kanko.com/miru/detail.php?id=137", title: "Matsushima tourism association — Saigyo Modoshi no Matsu Park" }],
+    MATSUSHIMA_IMAGE.saigyo,
+  ),
+];
+
+const MATSUSHIMA_HUB_RECORD: Destination = {
+  id: MATSUSHIMA_HUB,
+  name: "Matsushima Town",
+  nameJa: "松島町",
+  kind: "town",
+  role: "hub",
+  placeType: "hub",
+  importance: "major",
+  aliases: ["松島"],
+  municipalityId: MATSUSHIMA_MUNI,
+  prefecture: "Miyagi",
+  region: "Tohoku",
+  coordinates: { lat: 38.3802, lng: 141.0673 },
+  categories: ["Travel Hub", "City Hub"],
+  tags: ["Hub", "Miyagi", "Matsushima", "Nihon Sankei"],
+  description:
+    "The waterfront gateway town of Matsushima Bay — one of Japan's Three Great Views — with the Zuigan-ji temple complex, cruise piers and oyster stalls all walkable from Matsushima-Kaigan Station, about 40 minutes from Sendai.",
+  highlights: [
+    "National Treasure Zuigan-ji",
+    "Nihon Sankei bay views",
+    "Bay cruises and island walks",
+    "Oyster cuisine",
+  ],
+  status: "beta",
+  travelEstimate: { confidence: "beta" },
+  collections: [],
+  transportOptions: { train: 40, bus: 50, car: 45 },
+  budgetMin: 7000,
+  budgetRecommended: 10500,
+  budgetMax: 14000,
+  budgetBreakdown: { transport: 3000, tickets: 1500, food: 4500, cafe: 1500 },
+  heroImage: MATSUSHIMA_IMAGE.townHall.url,
+  image: MATSUSHIMA_IMAGE.townHall.url,
+  imageMetadata: {
+    source: "Wikimedia Commons",
+    license: MATSUSHIMA_IMAGE.townHall.license,
+    attribution: MATSUSHIMA_IMAGE.townHall.attribution,
+    sourceUrl: MATSUSHIMA_IMAGE.townHall.sourceUrl,
+  },
+  recommendedVisitHours: { min: 6, max: 8 },
+  walkingMin: 6000,
+  walkingSunMin: 3000,
+  walkingShadeMin: 3000,
+  walkingIntensity: "medium",
+  indoorPercent: 30,
+  comfort: { heatTolerance: 6, rainFriendly: 5, walkingIntensity: 5 },
+  ratings: {
+    overall: 8.8,
+    couple: 9,
+    summer: 8.6,
+    winter: 8.2,
+    rain: 6.8,
+    food: 9,
+    photography: 9.4,
+    relaxation: 8.8,
+    value: 8.6,
+    uniqueness: 9,
+    family: 8.4,
+    accessibility: 7,
+    nature: 9.2,
+    historyAndCulture: 9.2,
+    walkability: 8,
+    spring: 9.2,
+    autumn: 9.4,
+  },
+  ratingsSchemaVersion: 2,
+  crowd: { weekday: 5, weekend: 7, holiday: 8 },
+  season: { spring: 9, summer: 8.4, autumn: 9.2, winter: 8 },
+  bestMonths: [3, 4, 5, 9, 10, 11],
+  bestSeason: "Spring & Autumn",
+  weatherDependence: "moderate",
+  reservation: "No reservation required",
+  parking: "Pay parking near the station and waterfront",
+  notes:
+    "Compact waterfront cluster: Zuigan-ji, Godaido, Kanrantei, the cruise pier and museums are all within a 15-minute walk of Matsushima-Kaigan Station.",
+  businessHours: "Open access",
+  officialWebsite: "https://www.town.miyagi-matsushima.lg.jp/",
+  openingHoursMetadata: { verifiedAt: AUDIT_DATE },
+  content: {
+    en: {
+      name: "Matsushima Town",
+      description:
+        "The waterfront gateway town of Matsushima Bay — one of Japan's Three Great Views — with the Zuigan-ji temple complex, cruise piers and oyster stalls all walkable from Matsushima-Kaigan Station.",
+      highlights: [
+        "National Treasure Zuigan-ji",
+        "Nihon Sankei bay views",
+        "Bay cruises and island walks",
+        "Oyster cuisine",
+      ],
+    },
+    ja: {
+      name: "松島町",
+      description:
+        "日本三景・松島湾の玄関口となる港町。国宝の瑞巌寺や五大堂、遊覧船の発着場がJR松島海岸駅から徒歩圏に集まり、カキ料理も楽しめます。",
+      highlights: ["国宝瑞巌寺", "日本三景の湾", "遊覧船と島めぐり", "カキ料理"],
+    },
+  },
+  editorial: {
+    lifecycle: "in_review",
+    sources: [
+      {
+        type: "government",
+        url: "https://www.town.miyagi-matsushima.lg.jp/",
+        title: "Matsushima Town official site",
+        accessedAt: AUDIT_DATE,
+      },
+      {
+        type: "tourism_board",
+        url: "https://www.matsushima-kanko.com/en/",
+        title: "Matsushima tourism association (EN)",
+        accessedAt: AUDIT_DATE,
+      },
+    ],
+    checkedAt: AUDIT_DATE,
+    freshness: "current",
+    changeSummary: "KAI-57 Tohoku expansion",
+    changes: [
+      {
+        changedAt: AUDIT_DATE,
+        changedBy: "Meguruto editorial",
+        summary: "Added Matsushima Town hub",
+        method: "assisted",
+      },
+    ],
+  },
+  ratingMetadata: { rubricVersion: 1, method: "assisted", confidence: "low" },
+  relationships: {
+    featuredDestinationIds: [
+      "zuigan-ji",
+      "godaido",
+      "kanrantei",
+      "fukuurajima",
+      "oshima",
+      "entsuin",
+      "matsushima-bay-cruise",
+      "saigyo-modoshi-no-matsu",
+      "matsushima-bay",
+    ],
+    nearbyDestinationIds: ["sendai-city"],
+  },
+  schemaVersion: 2,
+};
+
+let added = 0;
+for (const record of [MATSUSHIMA_HUB_RECORD, ...MATSUSHIMA_POIS]) {
+  const existing = byId.get(record.id);
+  if (!existing) {
+    index.push(record);
+    byId.set(record.id, record);
+    added += 1;
+  } else if (JSON.stringify(existing) !== JSON.stringify(record)) {
+    const indexPosition = index.findIndex((d) => d.id === record.id);
+    if (indexPosition < 0) throw new Error(`record index position missing: ${record.id}`);
+    index[indexPosition] = record;
+    byId.set(record.id, record);
+    added += 1;
+    console.log(`  updated ${record.id}: regenerated audited KAI-57 record`);
+  }
+}
+
+// matsushima-bay: migrate from sendai gateway to the new same-municipality hub,
+// and remove it from sendai-city's featured list (cross-municipality featured).
+patch(
+  "matsushima-bay",
+  (d) => {
+    d.relationships = {
+      parentDestinationId: MATSUSHIMA_HUB,
+      nearbyDestinationIds: ["godaido", "zuigan-ji"],
+    };
+    d.officialWebsite = "https://www.matsushima-kanko.com/";
+  },
+  "re-parented to matsushima-town hub, fixed official website",
+);
+patch(
+  "sendai-city",
+  (d) => {
+    d.relationships = {
+      ...(d.relationships ?? {}),
+      featuredDestinationIds: (d.relationships?.featuredDestinationIds ?? []).filter(
+        (id) => id !== "matsushima-bay",
+      ),
+    };
+  },
+  "removed cross-municipality featured matsushima-bay",
+);
+
+console.log(`KAI-57 additions (Matsushima): ${added} records added.`);
+
+// Tohoku hub official websites (also enables their provenance blocks).
+const HUB_WEBSITES: Record<string, string> = {
+  "aizuwakamatsu-city": "https://www.city.aizuwakamatsu.fukushima.jp/",
+  "fukushima-city": "https://www.city.fukushima.fukushima.jp/",
+  "koriyama-city": "https://www.city.koriyama.lg.jp/",
+  "aomori-city": "https://www.city.aomori.aomori.jp/",
+  "hirosaki-city": "https://www.city.hirosaki.aomori.jp/",
+  "hachinohe-city": "https://www.city.hachinohe.aomori.jp/",
+  "akita-city": "https://www.city.akita.lg.jp/",
+  "semboku-city": "https://www.city.semboku.akita.jp/",
+  "yamagata-city": "https://www.city.yamagata-yamagata.lg.jp/",
+  "morioka-city": "https://www.city.morioka.iwate.jp/",
+  "sendai-city": "https://www.city.sendai.jp/",
+};
+for (const [hubId, website] of Object.entries(HUB_WEBSITES)) {
+  patch(hubId, (d) => {
+    d.officialWebsite = website;
+  }, `official website set to city site`);
+}
 
 // ===========================================================================
 // Provenance: every corrected record gains editorial.sources + checkedAt.

@@ -70,7 +70,8 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
-    "gatewayHubId": "sendai-city"
+    "parentDestinationId": "matsushima-town",
+    "nearbyDestinationIds": ["godaido", "zuigan-ji"]
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg",
   "budgetBreakdown": {
@@ -95,7 +96,7 @@
     "min": 3,
     "max": 5
   },
-  "officialWebsite": "https://www.matsushima-kanko.org/",
+  "officialWebsite": "https://www.matsushima-kanko.com/",
   "businessHours": "Open access",
   "municipalityId": "Miyagi:matsushima",
   "editorial": {

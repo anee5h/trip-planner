@@ -1,0 +1,179 @@
+{
+  "id": "matsushima-town",
+  "name": "Matsushima Town",
+  "nameJa": "松島町",
+  "kind": "town",
+  "role": "hub",
+  "placeType": "hub",
+  "importance": "major",
+  "aliases": ["松島"],
+  "municipalityId": "Miyagi:matsushima",
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 38.3802,
+    "lng": 141.0673
+  },
+  "categories": ["Travel Hub", "City Hub"],
+  "tags": ["Hub", "Miyagi", "Matsushima", "Nihon Sankei"],
+  "description": "The waterfront gateway town of Matsushima Bay — one of Japan's Three Great Views — with the Zuigan-ji temple complex, cruise piers and oyster stalls all walkable from Matsushima-Kaigan Station, about 40 minutes from Sendai.",
+  "highlights": [
+    "National Treasure Zuigan-ji",
+    "Nihon Sankei bay views",
+    "Bay cruises and island walks",
+    "Oyster cuisine"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 40,
+    "bus": 50,
+    "car": 45
+  },
+  "budgetMin": 7000,
+  "budgetRecommended": 10500,
+  "budgetMax": 14000,
+  "budgetBreakdown": {
+    "transport": 3000,
+    "tickets": 1500,
+    "food": 4500,
+    "cafe": 1500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Matsushima_Town-Hall.jpg/1280px-Matsushima_Town-Hall.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Matsushima_Town-Hall.jpg/1280px-Matsushima_Town-Hall.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsushima_Town-Hall.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 6,
+    "max": 8
+  },
+  "walkingMin": 6000,
+  "walkingSunMin": 3000,
+  "walkingShadeMin": 3000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 9,
+    "summer": 8.6,
+    "winter": 8.2,
+    "rain": 6.8,
+    "food": 9,
+    "photography": 9.4,
+    "relaxation": 8.8,
+    "value": 8.6,
+    "uniqueness": 9,
+    "family": 8.4,
+    "accessibility": 7,
+    "nature": 9.2,
+    "historyAndCulture": 9.2,
+    "walkability": 8,
+    "spring": 9.2,
+    "autumn": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8.4,
+    "autumn": 9.2,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "Pay parking near the station and waterfront",
+  "notes": "Compact waterfront cluster: Zuigan-ji, Godaido, Kanrantei, the cruise pier and museums are all within a 15-minute walk of Matsushima-Kaigan Station.",
+  "businessHours": "Open access",
+  "officialWebsite": "https://www.town.miyagi-matsushima.lg.jp/",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "content": {
+    "en": {
+      "name": "Matsushima Town",
+      "description": "The waterfront gateway town of Matsushima Bay — one of Japan's Three Great Views — with the Zuigan-ji temple complex, cruise piers and oyster stalls all walkable from Matsushima-Kaigan Station.",
+      "highlights": [
+        "National Treasure Zuigan-ji",
+        "Nihon Sankei bay views",
+        "Bay cruises and island walks",
+        "Oyster cuisine"
+      ]
+    },
+    "ja": {
+      "name": "松島町",
+      "description": "日本三景・松島湾の玄関口となる港町。国宝の瑞巌寺や五大堂、遊覧船の発着場がJR松島海岸駅から徒歩圏に集まり、カキ料理も楽しめます。",
+      "highlights": [
+        "国宝瑞巌寺",
+        "日本三景の湾",
+        "遊覧船と島めぐり",
+        "カキ料理"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.town.miyagi-matsushima.lg.jp/",
+        "title": "Matsushima Town official site",
+        "accessedAt": "2026-08-11"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://www.matsushima-kanko.com/en/",
+        "title": "Matsushima tourism association (EN)",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added Matsushima Town hub",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "featuredDestinationIds": [
+      "zuigan-ji",
+      "godaido",
+      "kanrantei",
+      "fukuurajima",
+      "oshima",
+      "entsuin",
+      "matsushima-bay-cruise",
+      "saigyo-modoshi-no-matsu",
+      "matsushima-bay"
+    ],
+    "nearbyDestinationIds": ["sendai-city"]
+  },
+  "schemaVersion": 2
+}

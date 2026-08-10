@@ -1,0 +1,165 @@
+{
+  "id": "entsuin",
+  "name": "Entsu-in",
+  "nameJa": "円通院",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Miyagi:matsushima",
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 38.3713,
+    "lng": 141.0598
+  },
+  "categories": ["History", "Culture"],
+  "tags": ["History", "Culture", "Matsushima Town"],
+  "description": "Mausoleum temple of Date Mitsumune whose gardens blend roses and moss, and whose San'e-den hall preserves the oldest painting of Western roses in Japan, brought back by Hasekura Tsunenaga's embassy.",
+  "highlights": [
+    "Rose and moss gardens",
+    "San'e-den (Important Cultural Property)",
+    "Bead-stringing experience",
+    "Autumn maple illuminations"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 40,
+    "bus": 50,
+    "car": 45
+  },
+  "budgetMin": 500,
+  "budgetRecommended": 2400,
+  "budgetMax": 4000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 500,
+    "food": 800,
+    "cafe": 400
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/%E5%86%86%E9%80%9A%E9%99%A2_-_panoramio.jpg/1280px-%E5%86%86%E9%80%9A%E9%99%A2_-_panoramio.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/%E5%86%86%E9%80%9A%E9%99%A2_-_panoramio.jpg/1280px-%E5%86%86%E9%80%9A%E9%99%A2_-_panoramio.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "AMANO Jun-ichi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:円通院_-_panoramio.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 1500,
+  "walkingSunMin": 900,
+  "walkingShadeMin": 600,
+  "walkingIntensity": "low",
+  "indoorPercent": 50,
+  "comfort": {
+    "heatTolerance": 5,
+    "rainFriendly": 6,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.8,
+    "summer": 7.8,
+    "winter": 8,
+    "rain": 8,
+    "food": 7.4,
+    "photography": 8.8,
+    "relaxation": 9,
+    "value": 8,
+    "uniqueness": 8.8,
+    "family": 7.6,
+    "accessibility": 6,
+    "nature": 8.4,
+    "historyAndCulture": 9,
+    "walkability": 7,
+    "spring": 8.8,
+    "autumn": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.8,
+    "summer": 7.8,
+    "autumn": 9.2,
+    "winter": 7.8
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "No parking; 5 min walk west of Zuigan-ji",
+  "notes": "¥500 adult / ¥300 child. Bead-stringing (juzu) experience ¥1,000–4,000.",
+  "notesJa": "【見どころ】円通院は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:00～16:00（4～11月）、9:00～15:30（12～3月）。",
+  "businessHours": "09:00 - 16:00 (Apr–Nov) / 09:00 - 15:30 (Dec–Mar)",
+  "officialWebsite": "https://www.entuuin.or.jp",
+  "content": {
+    "en": {
+      "name": "Entsu-in",
+      "description": "Mausoleum temple of Date Mitsumune whose gardens blend roses and moss, and whose San'e-den hall preserves the oldest painting of Western roses in Japan, brought back by Hasekura Tsunenaga's embassy.",
+      "highlights": [
+        "Rose and moss gardens",
+        "San'e-den (Important Cultural Property)",
+        "Bead-stringing experience",
+        "Autumn maple illuminations"
+      ]
+    },
+    "ja": {
+      "name": "円通院",
+      "description": "伊達光宗の霊廟。バラと苔が織りなす庭園が美しく、支倉常長のヨーロッパ派遣にちなむバラの絵を残す三慧殿は重要文化財です。",
+      "highlights": [
+        "バラと苔の庭",
+        "三慧殿（重要文化財）",
+        "数珠づくり体験",
+        "秋の紅葉ライトアップ"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.entuuin.or.jp",
+        "title": "Entsu-in official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "matsushima-town"
+  },
+  "schemaVersion": 2
+}

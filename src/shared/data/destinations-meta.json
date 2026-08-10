@@ -1344,6 +1344,18 @@
     }
   },
   {
+    "id": "entsuin",
+    "name": "Entsu-in",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "temple",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "matsushima-town"
+    }
+  },
+  {
     "id": "former-hokkaido-government-office",
     "name": "Former Hokkaido Government Office",
     "prefecture": "Hokkaido",
@@ -1627,6 +1639,18 @@
     }
   },
   {
+    "id": "fukuurajima",
+    "name": "Fukuura Island",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "island",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "matsushima-town"
+    }
+  },
+  {
     "id": "funabashi-city",
     "name": "Funabashi City",
     "prefecture": "Chiba",
@@ -1903,6 +1927,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "nagasaki-city"
+    }
+  },
+  {
+    "id": "godaido",
+    "name": "Godaido",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "temple",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "matsushima-town"
     }
   },
   {
@@ -3477,6 +3513,18 @@
     }
   },
   {
+    "id": "kanrantei",
+    "name": "Kanrantei",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "matsushima-town"
+    }
+  },
+  {
     "id": "karato-market-shimonoseki",
     "name": "Karato Market",
     "prefecture": "Yamaguchi",
@@ -5006,7 +5054,43 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
-      "gatewayHubId": "sendai-city"
+      "parentDestinationId": "matsushima-town",
+      "nearbyDestinationIds": ["godaido", "zuigan-ji"]
+    }
+  },
+  {
+    "id": "matsushima-bay-cruise",
+    "name": "Matsushima Bay Cruise",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "attraction",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "matsushima-town"
+    }
+  },
+  {
+    "id": "matsushima-town",
+    "name": "Matsushima Town",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "hub",
+    "kind": "town",
+    "status": "beta",
+    "relationships": {
+      "featuredDestinationIds": [
+        "zuigan-ji",
+        "godaido",
+        "kanrantei",
+        "fukuurajima",
+        "oshima",
+        "entsuin",
+        "matsushima-bay-cruise",
+        "saigyo-modoshi-no-matsu",
+        "matsushima-bay"
+      ],
+      "nearbyDestinationIds": ["sendai-city"]
     }
   },
   {
@@ -7004,6 +7088,18 @@
     }
   },
   {
+    "id": "oshima",
+    "name": "Oshima",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "island",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "matsushima-town"
+    }
+  },
+  {
     "id": "osu-kannon",
     "name": "Osu Kannon",
     "prefecture": "Aichi",
@@ -7317,6 +7413,18 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["hakone-town", "yokohama-city", "fujisawa-city"]
+    }
+  },
+  {
+    "id": "saigyo-modoshi-no-matsu",
+    "name": "Saigyo Modoshi no Matsu Park",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "park",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "matsushima-town"
     }
   },
   {
@@ -7665,7 +7773,6 @@
     "status": "verified",
     "relationships": {
       "featuredDestinationIds": [
-        "matsushima-bay",
         "akiu-onsen-miyagi",
         "sendai-mediatheque",
         "sendai-umino-mori-aquarium",
@@ -10052,6 +10159,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "toshima-city"
+    }
+  },
+  {
+    "id": "zuigan-ji",
+    "name": "Zuigan-ji",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "temple",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "matsushima-town"
     }
   },
   {

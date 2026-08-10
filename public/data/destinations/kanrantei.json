@@ -1,0 +1,165 @@
+{
+  "id": "kanrantei",
+  "name": "Kanrantei",
+  "nameJa": "観瀾亭",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Miyagi:matsushima",
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 38.3694,
+    "lng": 141.0617
+  },
+  "categories": ["Culture", "History"],
+  "tags": ["Culture", "History", "Matsushima Town"],
+  "description": "A tea pavilion moved from Fushimi-Momoyama Castle via Date Masamune's Edo residence, now housing the Matsushima Museum. Matcha and sweets are served with a view over the bay.",
+  "highlights": [
+    "Tea pavilion from Fushimi-Momoyama",
+    "Matsushima Museum",
+    "Matcha with a bay view",
+    "Prefecture cultural property"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 40,
+    "bus": 50,
+    "car": 45
+  },
+  "budgetMin": 300,
+  "budgetRecommended": 2000,
+  "budgetMax": 4000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 300,
+    "food": 700,
+    "cafe": 300
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Matsushima_Kanran-tei_01.jpg/1280px-Matsushima_Kanran-tei_01.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Matsushima_Kanran-tei_01.jpg/1280px-Matsushima_Kanran-tei_01.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsushima_Kanran-tei_01.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 1
+  },
+  "walkingMin": 600,
+  "walkingSunMin": 300,
+  "walkingShadeMin": 300,
+  "walkingIntensity": "low",
+  "indoorPercent": 60,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 7,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.8,
+    "summer": 8,
+    "winter": 8,
+    "rain": 8,
+    "food": 8.2,
+    "photography": 8.6,
+    "relaxation": 9,
+    "value": 7.8,
+    "uniqueness": 8.8,
+    "family": 7,
+    "accessibility": 7,
+    "nature": 8,
+    "historyAndCulture": 9,
+    "walkability": 7,
+    "spring": 8.8,
+    "autumn": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.8,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "No parking; across from Godaido on Route 45",
+  "notes": "¥300 adult / ¥100 student; matcha set from about ¥600.",
+  "notesJa": "【見どころ】観瀾亭は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "8:30～17:00（4～10月）、8:30～16:30（11～3月）。",
+  "businessHours": "08:30 - 17:00 (Apr–Oct) / 08:30 - 16:30 (Nov–Mar)",
+  "officialWebsite": "https://www.town.miyagi-matsushima.lg.jp/page/1140.html",
+  "content": {
+    "en": {
+      "name": "Kanrantei",
+      "description": "A tea pavilion moved from Fushimi-Momoyama Castle via Date Masamune's Edo residence, now housing the Matsushima Museum. Matcha and sweets are served with a view over the bay.",
+      "highlights": [
+        "Tea pavilion from Fushimi-Momoyama",
+        "Matsushima Museum",
+        "Matcha with a bay view",
+        "Prefecture cultural property"
+      ]
+    },
+    "ja": {
+      "name": "観瀾亭",
+      "description": "伏見桃山城から伊達政宗の江戸屋敷を経て移築された茶亭。松島博物館を併設し、抹茶と松島湾の眺めを楽しめます。",
+      "highlights": [
+        "伏見桃山由来の茶亭",
+        "松島博物館",
+        "抹茶と湾の眺め",
+        "県指定文化財"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.town.miyagi-matsushima.lg.jp/page/1140.html",
+        "title": "Matsushima Town — Kanrantei",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "matsushima-town"
+  },
+  "schemaVersion": 2
+}

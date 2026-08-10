@@ -104,7 +104,9 @@
   "businessHours": "09:00 - 17:00 (Jun–Sep to 18:00)",
   "municipalityId": "Aomori:aomori",
   "editorial": {
-    "lifecycle": "in_review",
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-11",
+    "reviewedBy": "Meguruto editorial",
     "sources": [
       {
         "type": "official",

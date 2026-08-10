@@ -1,0 +1,165 @@
+{
+  "id": "godaido",
+  "name": "Godaido",
+  "nameJa": "五大堂",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Miyagi:matsushima",
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 38.3697,
+    "lng": 141.0642
+  },
+  "categories": ["History", "Culture"],
+  "tags": ["History", "Culture", "Matsushima Town"],
+  "description": "The iconic red-lacquer hall on its own islet, rebuilt by Date Masamune in 1604 — the oldest surviving Momoyama building in Tohoku and a National Important Cultural Property.",
+  "highlights": [
+    "Islet hall on red bridges",
+    "12 zodiac carvings",
+    "Bay symbol of Matsushima",
+    "Free to visit"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 40,
+    "bus": 50,
+    "car": 45
+  },
+  "budgetMin": 0,
+  "budgetRecommended": 1500,
+  "budgetMax": 3000,
+  "budgetBreakdown": {
+    "transport": 800,
+    "tickets": 0,
+    "food": 500,
+    "cafe": 200
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Matsushima_Godaido_4.jpg/1280px-Matsushima_Godaido_4.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Matsushima_Godaido_4.jpg/1280px-Matsushima_Godaido_4.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Tak1701d",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsushima_Godaido_4.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 1
+  },
+  "walkingMin": 800,
+  "walkingSunMin": 400,
+  "walkingShadeMin": 400,
+  "walkingIntensity": "low",
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 4,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.8,
+    "summer": 8.4,
+    "winter": 8.2,
+    "rain": 6.4,
+    "food": 7,
+    "photography": 9.2,
+    "relaxation": 8.4,
+    "value": 9,
+    "uniqueness": 9,
+    "family": 8,
+    "accessibility": 5,
+    "nature": 8.6,
+    "historyAndCulture": 9,
+    "walkability": 8,
+    "spring": 9,
+    "autumn": 9.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8.4,
+    "autumn": 9,
+    "winter": 8.2
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "No parking; 7 min walk from Matsushima-Kaigan Station",
+  "notes": "Free to visit. The hall stands beside the cruise pier — easy to pair with a bay cruise.",
+  "notesJa": "【見どころ】五大堂は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "日中のみ拝観可（夜間は閉門）。参拝無料。",
+  "businessHours": "Open during daylight hours (closed in the evening)",
+  "officialWebsite": "https://www.matsushima-kanko.com/",
+  "content": {
+    "en": {
+      "name": "Godaido",
+      "description": "The iconic red-lacquer hall on its own islet, rebuilt by Date Masamune in 1604 — the oldest surviving Momoyama building in Tohoku and a National Important Cultural Property.",
+      "highlights": [
+        "Islet hall on red bridges",
+        "12 zodiac carvings",
+        "Bay symbol of Matsushima",
+        "Free to visit"
+      ]
+    },
+    "ja": {
+      "name": "五大堂",
+      "description": "伊達政宗が1604年に再建した朱塗りの堂。東北に現存する最古の桃山建築で、国の重要文化財。松島湾のシンボルとして親しまれています。",
+      "highlights": [
+        "朱の橋で結ばれた堂",
+        "十二支の彫刻",
+        "松島湾のシンボル",
+        "無料で参拝可"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.matsushima-kanko.com/miru/detail.php?id=141",
+        "title": "Matsushima tourism association — Godaido",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "matsushima-town"
+  },
+  "schemaVersion": 2
+}
