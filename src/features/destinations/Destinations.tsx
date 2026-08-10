@@ -213,6 +213,15 @@ export default function Destinations() {
   );
 
   // Saved preferences provide defaults only when the URL has not specified one.
+  //
+  // KAI-63: publicModes is intentionally NOT loaded from saved preferences
+  // here. In Explore, the default state must be "no transport filter" (show
+  // all destinations). Loading ALL_PUBLIC_MODES from preferences would
+  // silently set hasRestrictedTransportSelection → true, activating the
+  // transport eligibility gate and hiding ~321 destinations the user never
+  // asked to exclude. carMode and partySize preferences are safe to inject
+  // because they only affect UI option display and sort weighting, not
+  // catalogue visibility.
   useEffect(() => {
     if (authLoading) return;
 
@@ -220,13 +229,9 @@ export default function Destinations() {
       if (!searchParams.has("car")) {
         setCarMode(user.user_metadata.preferences.carMode || "none");
       }
-      if (!searchParams.has("mode")) {
-        // Same default mode set as Home (includes verified ferry routes) so
-        // date-aware ferry availability reaches gates, sorts and cards.
-        setPublicModes(
-          user.user_metadata.preferences.publicModes || ALL_PUBLIC_MODES,
-        );
-      }
+      // publicModes: never injected from preferences — Explore must open with
+      // no transport filter unless the user explicitly selects one via the UI
+      // or the URL carries an explicit "mode" param.
       if (!searchParams.has("party")) {
         setPartySize(user.user_metadata.preferences.partySize || 2);
       }
