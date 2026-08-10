@@ -1427,7 +1427,6 @@ const MATSUSHIMA_HUB_RECORD: Destination = {
   notesJa:
     "日本三景・松島湾の玄関口となる港町。瑞巌寺や五大堂、遊覧船の発着場がJR松島海岸駅から徒歩圏に集まります。",
   businessHours: "Open access",
-  officialWebsite: "https://www.town.miyagi-matsushima.lg.jp/",
   openingHoursMetadata: { verifiedAt: AUDIT_DATE },
   content: {
     en: {
@@ -1572,28 +1571,29 @@ patch(
 
 console.log(`KAI-57 additions (Matsushima): ${added} records added.`);
 
-// Tohoku hub official websites (also enables their provenance blocks).
-const HUB_WEBSITES: Record<string, string> = {
-  "aizuwakamatsu-city": "https://www.city.aizuwakamatsu.fukushima.jp/",
-  "fukushima-city": "https://www.city.fukushima.fukushima.jp/",
-  "koriyama-city": "https://www.city.koriyama.lg.jp/",
-  "aomori-city": "https://www.city.aomori.aomori.jp/",
-  "hirosaki-city": "https://www.city.hirosaki.aomori.jp/",
-  "hachinohe-city": "https://www.city.hachinohe.aomori.jp/",
-  "akita-city": "https://www.city.akita.lg.jp/",
-  "semboku-city": "https://www.city.semboku.akita.jp/",
-  "yamagata-city": "https://www.city.yamagata-yamagata.lg.jp/",
-  "morioka-city": "https://www.city.morioka.iwate.jp/",
-  "sendai-city": "https://www.city.sendai.jp/",
-};
-for (const [hubId, website] of Object.entries(HUB_WEBSITES)) {
+// NOTE: hubs intentionally carry no officialWebsite (product invariant: only
+// destinations may; see PlaceCatalog test). Hub provenance uses the fallback
+// map in the provenance section below. Explicitly remove any previously added.
+for (const hubId of [
+  "aizuwakamatsu-city",
+  "fukushima-city",
+  "koriyama-city",
+  "aomori-city",
+  "hirosaki-city",
+  "hachinohe-city",
+  "akita-city",
+  "semboku-city",
+  "yamagata-city",
+  "morioka-city",
+  "sendai-city",
+]) {
   patch(hubId, (d) => {
-    d.officialWebsite = website;
-  }, `official website set to city site`);
+    delete d.officialWebsite;
+  }, "hub officialWebsite removed (destination-only invariant)");
 }
 
 // ===========================================================================
-// KAI-57 additions — Aomori / Hachinohe / Towada / Hirosaki (batch 2)
+// Provenance: every corrected record gains editorial.sources + checkedAt.
 // Coordinates verified by the Phase 9 coords scouts (see KAI57_SOURCE_LEDGER).
 // ===========================================================================
 
@@ -2915,6 +2915,61 @@ const PROVENANCE_FALLBACK: Record<string, SourceDef> = {
     type: "government",
     url: "https://kunishitei.bunka.go.jp/heritage/detail/103/4",
     title: "Agency for Cultural Affairs — Ouchi-juku designation",
+  },
+  "aizuwakamatsu-city": {
+    type: "government",
+    url: "https://www.city.aizuwakamatsu.fukushima.jp/",
+    title: "Aizuwakamatsu City official site",
+  },
+  "fukushima-city": {
+    type: "government",
+    url: "https://www.city.fukushima.fukushima.jp/",
+    title: "Fukushima City official site",
+  },
+  "koriyama-city": {
+    type: "government",
+    url: "https://www.city.koriyama.lg.jp/",
+    title: "Koriyama City official site",
+  },
+  "aomori-city": {
+    type: "government",
+    url: "https://www.city.aomori.aomori.jp/",
+    title: "Aomori City official site",
+  },
+  "hirosaki-city": {
+    type: "government",
+    url: "https://www.city.hirosaki.aomori.jp/",
+    title: "Hirosaki City official site",
+  },
+  "hachinohe-city": {
+    type: "government",
+    url: "https://www.city.hachinohe.aomori.jp/",
+    title: "Hachinohe City official site",
+  },
+  "akita-city": {
+    type: "government",
+    url: "https://www.city.akita.lg.jp/",
+    title: "Akita City official site",
+  },
+  "semboku-city": {
+    type: "government",
+    url: "https://www.city.semboku.akita.jp/",
+    title: "Senboku City official site",
+  },
+  "yamagata-city": {
+    type: "government",
+    url: "https://www.city.yamagata-yamagata.lg.jp/",
+    title: "Yamagata City official site",
+  },
+  "morioka-city": {
+    type: "government",
+    url: "https://www.city.morioka.iwate.jp/",
+    title: "Morioka City official site",
+  },
+  "sendai-city": {
+    type: "government",
+    url: "https://www.city.sendai.jp/",
+    title: "Sendai City official site",
   },
 };
 

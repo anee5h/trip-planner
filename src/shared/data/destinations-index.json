@@ -595,7 +595,6 @@
     },
     "businessHours": "Open access",
     "municipalityId": "Fukushima:aizuwakamatsu",
-    "officialWebsite": "https://www.city.aizuwakamatsu.fukushima.jp/",
     "editorial": {
       "lifecycle": "published",
       "reviewedAt": "2026-08-11",
@@ -995,7 +994,6 @@
     },
     "businessHours": "Open access",
     "municipalityId": "Akita:akita",
-    "officialWebsite": "https://www.city.akita.lg.jp/",
     "editorial": {
       "lifecycle": "published",
       "reviewedAt": "2026-08-11",
@@ -1978,7 +1976,6 @@
     },
     "businessHours": "Open access",
     "municipalityId": "Aomori:aomori",
-    "officialWebsite": "https://www.city.aomori.aomori.jp/",
     "editorial": {
       "lifecycle": "published",
       "reviewedAt": "2026-08-11",
@@ -12159,7 +12156,6 @@
     },
     "businessHours": "Open access",
     "municipalityId": "Fukushima:fukushima",
-    "officialWebsite": "https://www.city.fukushima.fukushima.jp/",
     "editorial": {
       "lifecycle": "published",
       "reviewedAt": "2026-08-11",
@@ -15300,7 +15296,6 @@
     },
     "businessHours": "Open access",
     "municipalityId": "Aomori:hachinohe",
-    "officialWebsite": "https://www.city.hachinohe.aomori.jp/",
     "editorial": {
       "lifecycle": "published",
       "reviewedAt": "2026-08-11",
@@ -18233,7 +18228,6 @@
     },
     "businessHours": "Open access",
     "municipalityId": "Aomori:hirosaki",
-    "officialWebsite": "https://www.city.hirosaki.aomori.jp/",
     "editorial": {
       "lifecycle": "published",
       "reviewedAt": "2026-08-11",
@@ -30771,7 +30765,6 @@
     },
     "businessHours": "Open access",
     "municipalityId": "Fukushima:koriyama",
-    "officialWebsite": "https://www.city.koriyama.lg.jp/",
     "editorial": {
       "lifecycle": "published",
       "reviewedAt": "2026-08-11",
@@ -38227,7 +38220,6 @@
     },
     "businessHours": "Open access",
     "municipalityId": "Iwate:morioka",
-    "officialWebsite": "https://www.city.morioka.iwate.jp/",
     "editorial": {
       "lifecycle": "published",
       "reviewedAt": "2026-08-11",
@@ -55315,7 +55307,6 @@
     },
     "businessHours": "Open access",
     "municipalityId": "Akita:semboku",
-    "officialWebsite": "https://www.city.semboku.akita.jp/",
     "editorial": {
       "lifecycle": "published",
       "reviewedAt": "2026-08-11",
@@ -55753,7 +55744,6 @@
     "businessHours": "Open access",
     "municipalityId": "Miyagi:sendai",
     "kind": "city",
-    "officialWebsite": "https://www.city.sendai.jp/",
     "editorial": {
       "lifecycle": "published",
       "reviewedAt": "2026-08-11",
@@ -70402,7 +70392,6 @@
     },
     "businessHours": "Open access",
     "municipalityId": "Yamagata:yamagata",
-    "officialWebsite": "https://www.city.yamagata-yamagata.lg.jp/",
     "editorial": {
       "lifecycle": "published",
       "reviewedAt": "2026-08-11",
@@ -108364,7 +108353,6 @@
     "notes": "Compact waterfront cluster: Zuigan-ji, Godaido, Kanrantei, the cruise pier and museums are all within a 15-minute walk of Matsushima-Kaigan Station.",
     "notesJa": "日本三景・松島湾の玄関口となる港町。瑞巌寺や五大堂、遊覧船の発着場がJR松島海岸駅から徒歩圏に集まります。",
     "businessHours": "Open access",
-    "officialWebsite": "https://www.town.miyagi-matsushima.lg.jp/",
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-11"
     },
