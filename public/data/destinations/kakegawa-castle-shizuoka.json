@@ -57,9 +57,7 @@
   },
   "transportOptions": {
     "train": 75,
-    "shinkansen": 60,
-    "bus": 80,
-    "car": 110
+    "shinkansen": 60
   },
   "highlights": [
     "Authentic 1994 Reconstructed Wooden Keep",

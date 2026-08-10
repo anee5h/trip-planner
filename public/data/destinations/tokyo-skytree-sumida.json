@@ -57,10 +57,7 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 25,
-    "shinkansen": 35,
-    "bus": 50,
-    "car": 35
+    "train": 25
   },
   "highlights": [
     "Tembo Deck (350m)",

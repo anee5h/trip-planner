@@ -57,10 +57,7 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "bus": 2600,
-    "train": 220,
-    "shinkansen": 140,
-    "car": 230
+    "bus": 2600
   },
   "reservation": "Highway bus reservation required",
   "parking": "Seseragi central parking lot",

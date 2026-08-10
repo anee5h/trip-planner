@@ -57,9 +57,7 @@
   },
   "transportOptions": {
     "train": 85,
-    "shinkansen": 75,
-    "bus": 95,
-    "car": 180
+    "shinkansen": 75
   },
   "highlights": [
     "Restored Yagura Turrets",

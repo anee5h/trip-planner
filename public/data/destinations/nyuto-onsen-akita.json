@@ -34,9 +34,7 @@
   "budgetMax": 40000,
   "transportOptions": {
     "shinkansen": 170,
-    "bus": 50,
-    "train": 180,
-    "car": 120
+    "bus": 50
   },
   "ratings": {
     "overall": 9.5,

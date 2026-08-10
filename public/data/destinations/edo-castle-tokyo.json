@@ -56,10 +56,7 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 15,
-    "shinkansen": 0,
-    "bus": 50,
-    "car": 0
+    "train": 15
   },
   "highlights": [
     "Massive Tenshudai Castle Base",

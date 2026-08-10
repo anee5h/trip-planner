@@ -14,12 +14,7 @@
   "budgetMin": 800,
   "budgetMax": 2500,
   "budgetRecommended": 1500,
-  "transportOptions": {
-    "train": 200,
-    "shinkansen": 240,
-    "bus": 260,
-    "car": 480
-  },
+  "transportOptions": {},
   "totalTripHours": 6,
   "walkingMin": 120,
   "walkingSunMin": 70,

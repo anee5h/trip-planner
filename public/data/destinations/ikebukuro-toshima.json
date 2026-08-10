@@ -49,10 +49,7 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg/3840px-Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg",
   "transportOptions": {
-    "train": 50,
-    "shinkansen": 35,
-    "bus": 50,
-    "car": 35
+    "train": 50
   },
   "highlights": [
     "Sunshine City Aquarium",

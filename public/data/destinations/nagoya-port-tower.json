@@ -57,9 +57,7 @@
   },
   "transportOptions": {
     "train": 100,
-    "car": 115,
-    "shinkansen": 89,
-    "bus": 130
+    "car": 115
   },
   "highlights": [
     "63m Sailboat Architecture Tower",

@@ -24,9 +24,7 @@
   },
   "transportOptions": {
     "train": 150,
-    "car": 160,
-    "shinkansen": 95,
-    "bus": 115
+    "car": 160
   },
   "totalTripHours": 10,
   "walkingMin": 120,

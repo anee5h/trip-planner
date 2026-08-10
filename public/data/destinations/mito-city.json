@@ -60,9 +60,7 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 200,
-    "bus": 85,
-    "car": 65
+    "train": 200
   },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",

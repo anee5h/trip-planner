@@ -115,8 +115,7 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "transportOptions": {
-    "bus": 350,
-    "car": 60
+    "bus": 350
   },
   "notes": "Free observation point with views of the Hirakubo Peninsula — best in clear morning light.",
   "totalTripHours": 1,

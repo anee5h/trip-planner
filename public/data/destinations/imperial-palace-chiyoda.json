@@ -49,10 +49,7 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg",
   "transportOptions": {
-    "train": 40,
-    "shinkansen": 0,
-    "bus": 50,
-    "car": 0
+    "train": 40
   },
   "highlights": [
     "Nijubashi Bridge",

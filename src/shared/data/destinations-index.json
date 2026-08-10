@@ -57,10 +57,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -154,9 +151,7 @@
     },
     "transportOptions": {
       "train": 180,
-      "shinkansen": 150,
-      "bus": 210,
-      "car": 210
+      "shinkansen": 150
     },
     "highlights": [
       "58F-60F Harukas 300 Observatory (300m)",
@@ -271,10 +266,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "shinkansen": 105,
-      "bus": 125,
-      "car": 180
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -396,10 +388,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 22,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 22
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -626,10 +615,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Akasaka_skyline_201806.jpg/960px-Akasaka_skyline_201806.jpg",
     "transportOptions": {
-      "train": 45,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 45
     },
     "highlights": ["Hie Shrine", "Tokyo Midtown", "Akasaka Sacas"],
     "description": "A sophisticated Minato district featuring Hie Shrine, luxury dining, Tokyo Midtown, and broadcasting headquarters.",
@@ -761,10 +747,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sotokanda%2C_Akihabara_Electric_Town_at_night_20231114.png/3840px-Sotokanda%2C_Akihabara_Electric_Town_at_night_20231114.png",
     "transportOptions": {
-      "train": 40,
-      "shinkansen": 0,
-      "bus": 50,
-      "car": 0
+      "train": 40
     },
     "highlights": [
       "Radio Kaikan",
@@ -990,9 +973,7 @@
     "budgetMax": 45000,
     "transportOptions": {
       "train": 80,
-      "bus": 60,
-      "shinkansen": 90,
-      "car": 44
+      "bus": 60
     },
     "ratings": {
       "overall": 9,
@@ -1082,10 +1063,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "shinkansen": 120,
-      "bus": 150,
-      "car": 120
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -1165,8 +1143,7 @@
     "transportOptions": {
       "train": 45,
       "bus": 50,
-      "car": 60,
-      "shinkansen": 430
+      "car": 60
     },
     "totalTripHours": 6,
     "walkingMin": 120,
@@ -1338,8 +1315,7 @@
     "transportOptions": {
       "train": 160,
       "bus": 190,
-      "car": 210,
-      "shinkansen": 150
+      "car": 210
     },
     "budget": {
       "low": 4000,
@@ -1505,10 +1481,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 16,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 60
+      "train": 16
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -1684,8 +1657,7 @@
     "transportOptions": {
       "train": 28,
       "bus": 38,
-      "car": 43,
-      "shinkansen": 90
+      "car": 43
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -1959,10 +1931,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -2079,9 +2048,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "bus": 150,
-      "car": 120
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -2198,8 +2165,7 @@
     "transportOptions": {
       "train": 190,
       "bus": 210,
-      "car": 240,
-      "shinkansen": 171
+      "car": 240
     },
     "budget": {
       "low": 7000,
@@ -2350,8 +2316,7 @@
     },
     "transportOptions": {
       "train": 75,
-      "car": 65,
-      "bus": 85
+      "car": 65
     },
     "highlights": [
       "100m Titanium Helix Tower",
@@ -2632,10 +2597,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -2715,10 +2677,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Day2-2_%2840909714314%29.jpg/3840px-Day2-2_%2840909714314%29.jpg",
     "transportOptions": {
-      "train": 50,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 60
+      "train": 50
     },
     "highlights": [
       "Senso-ji Temple & Kaminarimon",
@@ -2854,8 +2813,7 @@
     "transportOptions": {
       "car": 80,
       "train": 80,
-      "bus": 90,
-      "shinkansen": 50
+      "bus": 90
     },
     "crowd": {
       "weekday": 3,
@@ -3133,10 +3091,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "shinkansen": 120,
-      "bus": 150,
-      "car": 120
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -3307,10 +3262,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 430,
-      "bus": 450,
-      "car": 660
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -3563,9 +3515,7 @@
     },
     "transportOptions": {
       "train": 200,
-      "shinkansen": 40,
-      "bus": 60,
-      "car": 110
+      "shinkansen": 40
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -3636,8 +3586,7 @@
     "transportOptions": {
       "train": 110,
       "bus": 130,
-      "car": 120,
-      "shinkansen": 89
+      "car": 120
     },
     "budget": {
       "low": 2500,
@@ -3762,10 +3711,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 400,
-      "bus": 420,
-      "car": 630
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -3852,10 +3798,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "shinkansen": 400,
-      "bus": 420,
-      "car": 630
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -4009,10 +3952,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -4086,8 +4026,7 @@
     "transportOptions": {
       "shinkansen": 240,
       "train": 280,
-      "car": 320,
-      "bus": 150
+      "car": 320
     },
     "budget": {
       "low": 4000,
@@ -4225,9 +4164,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 49,
-      "bus": 69,
-      "car": 65
+      "train": 49
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -4561,10 +4498,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 16,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 16
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -4705,9 +4639,7 @@
     },
     "transportOptions": {
       "train": 198,
-      "shinkansen": 298,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 298
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -4868,8 +4800,7 @@
     },
     "transportOptions": {
       "train": 70,
-      "car": 60,
-      "bus": 90
+      "car": 60
     },
     "crowd": {
       "weekday": 3,
@@ -5058,8 +4989,7 @@
     },
     "transportOptions": {
       "train": 65,
-      "car": 55,
-      "bus": 85
+      "car": 55
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -5243,8 +5173,7 @@
     },
     "transportOptions": {
       "train": 67,
-      "car": 57,
-      "bus": 87
+      "car": 57
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -5392,8 +5321,7 @@
     },
     "transportOptions": {
       "train": 56,
-      "car": 85,
-      "bus": 76
+      "car": 85
     },
     "totalTripHours": 8,
     "walkingMin": 5,
@@ -5591,8 +5519,7 @@
     },
     "transportOptions": {
       "train": 75,
-      "car": 65,
-      "bus": 95
+      "car": 65
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -5776,8 +5703,7 @@
     },
     "transportOptions": {
       "train": 69,
-      "car": 59,
-      "bus": 89
+      "car": 59
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -5953,8 +5879,7 @@
     },
     "transportOptions": {
       "train": 45,
-      "car": 35,
-      "bus": 65
+      "car": 35
     },
     "highlights": [
       "125m Mirror Glass Facade",
@@ -6087,8 +6012,7 @@
     },
     "transportOptions": {
       "train": 90,
-      "car": 75,
-      "bus": 150
+      "car": 75
     },
     "totalTripHours": 6,
     "walkingMin": 70,
@@ -6281,8 +6205,7 @@
     },
     "transportOptions": {
       "train": 66,
-      "car": 56,
-      "bus": 86
+      "car": 56
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -6430,8 +6353,7 @@
     },
     "transportOptions": {
       "train": 115,
-      "car": 80,
-      "bus": 135
+      "car": 80
     },
     "totalTripHours": 7,
     "walkingMin": 100,
@@ -6613,8 +6535,7 @@
     },
     "transportOptions": {
       "train": 75,
-      "car": 65,
-      "bus": 95
+      "car": 65
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -6798,10 +6719,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 90
+      "train": 200
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -6951,10 +6869,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 50,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 50
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -7105,10 +7020,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 14,
-      "shinkansen": 0,
-      "bus": 50,
-      "car": 0
+      "train": 14
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -7213,9 +7125,7 @@
     "budgetRecommended": 9250,
     "transportOptions": {
       "train": 25,
-      "car": 35,
-      "shinkansen": 35,
-      "bus": 50
+      "car": 35
     },
     "totalTripHours": 5,
     "walkingMin": 40,
@@ -7370,8 +7280,7 @@
     "budgetRecommended": 14500,
     "transportOptions": {
       "train": 110,
-      "car": 110,
-      "bus": 150
+      "car": 110
     },
     "totalTripHours": 9,
     "walkingMin": 45,
@@ -7703,10 +7612,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 14,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 14
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -7851,10 +7757,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 25,
-      "shinkansen": 20,
-      "bus": 20,
-      "car": 40
+      "train": 25
     },
     "highlights": ["Museum", "Family", "Food"],
     "description": "Cup Noodles Museum Yokohama is a curated destination within Yokohama City.",
@@ -7990,9 +7893,7 @@
     "budgetMax": 5000,
     "transportOptions": {
       "shinkansen": 170,
-      "car": 30,
-      "train": 120,
-      "bus": 150
+      "car": 30
     },
     "ratings": {
       "overall": 8.8,
@@ -8113,10 +8014,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 320,
-      "bus": 340,
-      "car": 600
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -8203,10 +8101,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "shinkansen": 80,
-      "bus": 150,
-      "car": 120
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -8321,9 +8216,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg/1920px-Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg",
     "transportOptions": {
-      "train": 45,
-      "bus": 65,
-      "car": 65
+      "train": 45
     },
     "highlights": ["Cinderella Castle", "Space Mountain", "Electrical Parade"],
     "description": "Tokyo Disneyland is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
@@ -8469,9 +8362,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Tokyo_Disney_Sea_Aerial_2019.png/330px-Tokyo_Disney_Sea_Aerial_2019.png",
     "transportOptions": {
-      "train": 23,
-      "bus": 43,
-      "car": 65
+      "train": 23
     },
     "highlights": ["DisneySea Transit Steamer", "Soaring"],
     "description": "DisneySea is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
@@ -8590,9 +8481,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "bus": 115,
-      "car": 120
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -8706,8 +8595,7 @@
     "transportOptions": {
       "train": 189,
       "bus": 209,
-      "shinkansen": 149,
-      "car": 210
+      "shinkansen": 149
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -8856,10 +8744,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 15,
-      "shinkansen": 0,
-      "bus": 50,
-      "car": 0
+      "train": 15
     },
     "highlights": [
       "Massive Tenshudai Castle Base",
@@ -9023,10 +8908,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 20,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 20
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -9176,10 +9058,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 44,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 44
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -9362,10 +9241,7 @@
       "cafe": 550
     },
     "transportOptions": {
-      "train": 49,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 49
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -9539,10 +9415,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/8/83/EnoshimaAeralPhoto1988JP14.jpg",
     "transportOptions": {
-      "train": 60,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 60
     },
     "highlights": ["Enoshima Shrine", "Iwaya Caves", "Enoshima Sea Candle"],
     "description": "A delightfully pleasant island just off the coast, full of shrines, coastal cliffs, and sweeping views of Mt. Fuji.",
@@ -9692,10 +9565,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 50,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 50
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -9887,10 +9757,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 50,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 50
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -10072,10 +9939,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 50,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 50
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -10251,10 +10115,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 203,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 203
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -10527,9 +10388,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 120,
-      "car": 110
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -10628,10 +10487,7 @@
       "cafe": 550
     },
     "transportOptions": {
-      "train": 27,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 27
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -10811,10 +10667,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 75,
-      "bus": 95,
-      "car": 110
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -10909,10 +10762,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 47,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 47
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -11140,8 +10990,7 @@
     "transportOptions": {
       "car": 300,
       "train": 180,
-      "shinkansen": 170,
-      "bus": 190
+      "shinkansen": 170
     },
     "crowd": {
       "weekday": 3,
@@ -11247,9 +11096,7 @@
     },
     "transportOptions": {
       "train": 202,
-      "shinkansen": 302,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 302
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -11427,9 +11274,7 @@
     },
     "transportOptions": {
       "train": 204,
-      "shinkansen": 304,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 304
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -11610,9 +11455,7 @@
     },
     "transportOptions": {
       "train": 200,
-      "shinkansen": 300,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 300
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -11741,9 +11584,7 @@
     },
     "transportOptions": {
       "train": 197,
-      "shinkansen": 297,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 297
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -11921,9 +11762,7 @@
     },
     "transportOptions": {
       "train": 197,
-      "shinkansen": 297,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 297
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -12199,9 +12038,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 28,
-      "bus": 48,
-      "car": 65
+      "train": 28
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -12348,10 +12185,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -12440,8 +12274,7 @@
     "transportOptions": {
       "train": 229,
       "bus": 229,
-      "shinkansen": 129,
-      "car": 240
+      "shinkansen": 129
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -12571,9 +12404,7 @@
     },
     "transportOptions": {
       "train": 100,
-      "shinkansen": 60,
-      "bus": 80,
-      "car": 210
+      "shinkansen": 60
     },
     "crowd": {
       "weekday": 3,
@@ -12658,9 +12489,7 @@
     "budgetMax": 8000,
     "transportOptions": {
       "train": 120,
-      "car": 110,
-      "shinkansen": 150,
-      "bus": 50
+      "car": 110
     },
     "ratings": {
       "overall": 9,
@@ -12777,10 +12606,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 140,
-      "bus": 150,
-      "car": 140
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -12856,8 +12682,7 @@
     "transportOptions": {
       "train": 120,
       "bus": 150,
-      "car": 140,
-      "shinkansen": 140
+      "car": 140
     },
     "budget": {
       "low": 6000,
@@ -12975,10 +12800,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ghibli_Museum_2024.JPG/3840px-Ghibli_Museum_2024.JPG",
     "transportOptions": {
-      "train": 50,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 50
     },
     "highlights": [
       "Giant Robot Soldier",
@@ -13136,9 +12958,7 @@
     },
     "transportOptions": {
       "train": 95,
-      "car": 110,
-      "shinkansen": 140,
-      "bus": 160
+      "car": 110
     },
     "highlights": [
       "Mt. Kinka Ropeway Ride",
@@ -13244,10 +13064,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 140,
-      "bus": 160,
-      "car": 110
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -13311,9 +13128,7 @@
     },
     "transportOptions": {
       "train": 150,
-      "car": 160,
-      "shinkansen": 140,
-      "bus": 160
+      "car": 160
     },
     "totalTripHours": 10,
     "walkingMin": 90,
@@ -13418,9 +13233,7 @@
     },
     "transportOptions": {
       "train": 150,
-      "car": 160,
-      "shinkansen": 140,
-      "bus": 160
+      "car": 160
     },
     "totalTripHours": 10,
     "walkingMin": 100,
@@ -13554,8 +13367,7 @@
     "transportOptions": {
       "train": 230,
       "bus": 230,
-      "shinkansen": 130,
-      "car": 240
+      "shinkansen": 130
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -13706,10 +13518,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
     "transportOptions": {
-      "train": 40,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 40
     },
     "highlights": [
       "Itoya Stationery Store",
@@ -13838,10 +13647,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "shinkansen": 165,
-      "bus": 185,
-      "car": 260
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -13974,10 +13780,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -14142,9 +13945,7 @@
     "budgetMax": 5000,
     "transportOptions": {
       "shinkansen": 90,
-      "bus": 40,
-      "train": 120,
-      "car": 120
+      "bus": 40
     },
     "ratings": {
       "overall": 9.3,
@@ -14265,10 +14066,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 75,
-      "bus": 95,
-      "car": 110
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -14379,10 +14177,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 22,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 22
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -14523,8 +14318,7 @@
     "transportOptions": {
       "train": 45,
       "bus": 50,
-      "car": 60,
-      "shinkansen": 370
+      "car": 60
     },
     "totalTripHours": 6,
     "walkingMin": 120,
@@ -14676,8 +14470,7 @@
     "transportOptions": {
       "train": 130,
       "car": 140,
-      "shinkansen": 100,
-      "bus": 120
+      "shinkansen": 100
     },
     "totalTripHours": 10,
     "walkingMin": 80,
@@ -14830,8 +14623,7 @@
     "transportOptions": {
       "train": 150,
       "car": 180,
-      "shinkansen": 110,
-      "bus": 130
+      "shinkansen": 110
     },
     "totalTripHours": 12,
     "walkingMin": 60,
@@ -14994,9 +14786,7 @@
     },
     "transportOptions": {
       "train": 140,
-      "car": 150,
-      "shinkansen": 110,
-      "bus": 130
+      "car": 150
     },
     "totalTripHours": 11,
     "walkingMin": 70,
@@ -15287,10 +15077,7 @@
       "lng": 139.2553
     },
     "transportOptions": {
-      "train": 60,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 90
+      "train": 60
     },
     "walkingSunMin": 3,
     "walkingShadeMin": 2,
@@ -15386,9 +15173,7 @@
     "budgetRecommended": 10750,
     "transportOptions": {
       "train": 40,
-      "car": 50,
-      "shinkansen": 35,
-      "bus": 50
+      "car": 50
     },
     "totalTripHours": 7,
     "walkingMin": 60,
@@ -15583,9 +15368,7 @@
     },
     "transportOptions": {
       "train": 196,
-      "shinkansen": 296,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 296
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -15746,9 +15529,7 @@
     },
     "transportOptions": {
       "train": 45,
-      "car": 40,
-      "shinkansen": 20,
-      "bus": 20
+      "car": 40
     },
     "crowd": {
       "weekday": 3,
@@ -15913,9 +15694,7 @@
     },
     "transportOptions": {
       "train": 200,
-      "shinkansen": 260,
-      "bus": 420,
-      "car": 450
+      "shinkansen": 260
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -16000,8 +15779,7 @@
     "transportOptions": {
       "bus": 420,
       "train": 380,
-      "car": 450,
-      "shinkansen": 260
+      "car": 450
     },
     "budget": {
       "low": 3000,
@@ -16134,9 +15912,7 @@
     },
     "transportOptions": {
       "train": 1200,
-      "bus": 800,
-      "shinkansen": 50,
-      "car": 55
+      "bus": 800
     },
     "reservation": "Open access; no entrance reservation required.",
     "parking": "Park parking lot available on site.",
@@ -16285,10 +16061,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 95,
-      "bus": 115,
-      "car": 150
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -16385,9 +16158,7 @@
     },
     "transportOptions": {
       "train": 200,
-      "shinkansen": 80,
-      "bus": 100,
-      "car": 160
+      "shinkansen": 80
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -16481,10 +16252,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Warner_Bros._Studio_Tour_Tokyo_entrance_%282%29_2023-08-17.jpg/330px-Warner_Bros._Studio_Tour_Tokyo_entrance_%282%29_2023-08-17.jpg",
     "transportOptions": {
-      "train": 45,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 45
     },
     "highlights": [
       "Great Hall Set",
@@ -16638,10 +16406,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 47,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 47
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -16821,10 +16586,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 255,
-      "bus": 275,
-      "car": 480
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -16919,8 +16681,7 @@
     "transportOptions": {
       "train": 231,
       "bus": 231,
-      "shinkansen": 131,
-      "car": 240
+      "shinkansen": 131
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -17070,9 +16831,7 @@
     },
     "transportOptions": {
       "train": 95,
-      "car": 105,
-      "shinkansen": 89,
-      "bus": 130
+      "car": 105
     },
     "highlights": [
       "134m Pencil Sky Tower",
@@ -17181,9 +16940,7 @@
     },
     "transportOptions": {
       "train": 110,
-      "car": 120,
-      "shinkansen": 155,
-      "bus": 175
+      "car": 120
     },
     "highlights": [
       "Original 1622 Three-Story Tenshu Keep",
@@ -17318,10 +17075,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 155,
-      "bus": 175,
-      "car": 168
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -17438,8 +17192,7 @@
     "transportOptions": {
       "shinkansen": 180,
       "train": 210,
-      "car": 270,
-      "bus": 200
+      "car": 270
     },
     "budget": {
       "low": 3000,
@@ -17595,10 +17348,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 180,
-      "bus": 200,
-      "car": 270
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -17825,8 +17575,7 @@
     "transportOptions": {
       "train": 45,
       "bus": 50,
-      "car": 60,
-      "shinkansen": 150
+      "car": 60
     },
     "totalTripHours": 6,
     "walkingMin": 120,
@@ -17958,8 +17707,7 @@
     "transportOptions": {
       "shinkansen": 230,
       "train": 270,
-      "car": 360,
-      "bus": 150
+      "car": 360
     },
     "budget": {
       "low": 4000,
@@ -18170,9 +17918,7 @@
     },
     "transportOptions": {
       "train": 200,
-      "shinkansen": 240,
-      "bus": 260,
-      "car": 480
+      "shinkansen": 240
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -18239,12 +17985,7 @@
     "budgetMin": 800,
     "budgetMax": 2500,
     "budgetRecommended": 1500,
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 240,
-      "bus": 260,
-      "car": 480
-    },
+    "transportOptions": {},
     "totalTripHours": 6,
     "walkingMin": 120,
     "walkingSunMin": 70,
@@ -18431,10 +18172,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 195,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 195
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -18602,10 +18340,7 @@
       "cafe": 550
     },
     "transportOptions": {
-      "train": 199,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 199
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -18781,10 +18516,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 45,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 45
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -18960,9 +18692,7 @@
     },
     "transportOptions": {
       "train": 198,
-      "shinkansen": 88,
-      "bus": 130,
-      "car": 115
+      "shinkansen": 88
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -19244,8 +18974,7 @@
     },
     "transportOptions": {
       "train": 150,
-      "car": 120,
-      "bus": 170
+      "car": 120
     },
     "totalTripHours": 9,
     "walkingMin": 60,
@@ -19411,8 +19140,7 @@
     },
     "transportOptions": {
       "train": 90,
-      "car": 100,
-      "bus": 110
+      "car": 100
     },
     "totalTripHours": 8,
     "walkingMin": 90,
@@ -19574,8 +19302,7 @@
     },
     "transportOptions": {
       "train": 80,
-      "car": 90,
-      "bus": 100
+      "car": 90
     },
     "totalTripHours": 8,
     "walkingMin": 5,
@@ -19759,9 +19486,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 205,
-      "car": 240
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -19872,10 +19597,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg/3840px-Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg",
     "transportOptions": {
-      "train": 50,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 50
     },
     "highlights": [
       "Sunshine City Aquarium",
@@ -20031,10 +19753,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 28,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 28
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -20207,10 +19926,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg",
     "transportOptions": {
-      "train": 40,
-      "shinkansen": 0,
-      "bus": 50,
-      "car": 0
+      "train": 40
     },
     "highlights": [
       "Nijubashi Bridge",
@@ -20365,8 +20081,7 @@
     },
     "transportOptions": {
       "train": 67,
-      "car": 57,
-      "bus": 87
+      "car": 57
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -20548,10 +20263,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 48,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 48
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -20747,10 +20459,7 @@
       "lng": 136.9392
     },
     "transportOptions": {
-      "train": 110,
-      "shinkansen": 110,
-      "bus": 130,
-      "car": 210
+      "train": 110
     },
     "walkingSunMin": 72,
     "walkingShadeMin": 48,
@@ -20835,10 +20544,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 110,
-      "bus": 130,
-      "car": 210
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -21203,9 +20909,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 300,
-      "car": 60
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -21354,10 +21058,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 20,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 20
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -21500,10 +21201,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 75,
-      "bus": 95,
-      "car": 120
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -21799,10 +21497,7 @@
       "cafe": 550
     },
     "transportOptions": {
-      "train": 63,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 63
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -21956,9 +21651,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "bus": 125,
-      "car": 130
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -22062,9 +21755,7 @@
     },
     "transportOptions": {
       "train": 120,
-      "car": 120,
-      "shinkansen": 75,
-      "bus": 95
+      "car": 120
     },
     "crowd": {
       "weekday": 3,
@@ -22181,9 +21872,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 340,
-      "car": 390
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -22397,10 +22086,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 46,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 46
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -22557,9 +22243,7 @@
     "budgetMax": 7000,
     "transportOptions": {
       "train": 160,
-      "car": 180,
-      "shinkansen": 150,
-      "bus": 50
+      "car": 180
     },
     "ratings": {
       "overall": 9.2,
@@ -22659,8 +22343,7 @@
     "transportOptions": {
       "car": 70,
       "train": 70,
-      "bus": 85,
-      "shinkansen": 50
+      "bus": 85
     },
     "crowd": {
       "weekday": 3,
@@ -22820,10 +22503,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Sega_Joypolis_Odaiba.jpg/1920px-Sega_Joypolis_Odaiba.jpg",
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "highlights": [
       "Indoor Roller Coasters",
@@ -22971,8 +22651,7 @@
     "transportOptions": {
       "train": 26,
       "bus": 36,
-      "car": 41,
-      "shinkansen": 90
+      "car": 41
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -23156,10 +22835,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -23339,10 +23015,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 420,
-      "bus": 440,
-      "car": 720
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -23465,10 +23138,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -23814,9 +23484,7 @@
     },
     "transportOptions": {
       "train": 75,
-      "shinkansen": 60,
-      "bus": 80,
-      "car": 110
+      "shinkansen": 60
     },
     "highlights": [
       "Authentic 1994 Reconstructed Wooden Keep",
@@ -23898,10 +23566,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "shinkansen": 170,
-      "bus": 150,
-      "car": 120
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -24025,10 +23690,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 46,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 46
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -24193,10 +23855,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 49,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 49
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -24378,10 +24037,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 26,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 26
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -24553,8 +24209,7 @@
     "transportOptions": {
       "shinkansen": 140,
       "train": 150,
-      "car": 290,
-      "bus": 300
+      "car": 290
     },
     "crowd": {
       "weekday": 3,
@@ -24678,9 +24333,7 @@
     },
     "transportOptions": {
       "train": 150,
-      "shinkansen": 130,
-      "bus": 300,
-      "car": 360
+      "shinkansen": 130
     },
     "highlights": [
       "Hishi Yagura Diamond Turret",
@@ -24780,10 +24433,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 25,
-      "shinkansen": 20,
-      "bus": 20,
-      "car": 40
+      "train": 25
     },
     "highlights": ["History", "Food", "Baseball"],
     "description": "Kannai is a curated destination within Yokohama City.",
@@ -24931,9 +24581,7 @@
     },
     "transportOptions": {
       "train": 200,
-      "shinkansen": 65,
-      "bus": 85,
-      "car": 150
+      "shinkansen": 65
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -25030,10 +24678,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 41,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 41
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -25226,8 +24871,7 @@
     },
     "transportOptions": {
       "train": 68,
-      "car": 58,
-      "bus": 88
+      "car": 58
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -25410,10 +25054,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 49,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 49
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -25733,9 +25374,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 203,
-      "bus": 223,
-      "car": 65
+      "train": 203
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -25918,10 +25557,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 21,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 21
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -26059,10 +25695,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 45,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 45
     },
     "highlights": [
       "Only Surviving Main Palace in East Japan",
@@ -26229,10 +25862,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 41,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 41
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -26390,10 +26020,7 @@
       "cafe": 550
     },
     "transportOptions": {
-      "train": 41,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 41
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -26576,10 +26203,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 41,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 41
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -26763,10 +26387,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 24,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 24
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -26917,10 +26538,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 26,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 26
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -27076,10 +26694,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 25,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 25
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -27253,8 +26868,7 @@
     "transportOptions": {
       "train": 130,
       "bus": 150,
-      "car": 140,
-      "shinkansen": 110
+      "car": 140
     },
     "budget": {
       "low": 2500,
@@ -27416,8 +27030,7 @@
     "transportOptions": {
       "train": 229,
       "bus": 229,
-      "shinkansen": 129,
-      "car": 240
+      "shinkansen": 129
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -27564,8 +27177,7 @@
     "transportOptions": {
       "train": 235,
       "bus": 235,
-      "shinkansen": 135,
-      "car": 240
+      "shinkansen": 135
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -27713,8 +27325,7 @@
     "transportOptions": {
       "train": 240,
       "bus": 280,
-      "car": 320,
-      "shinkansen": 120
+      "car": 320
     },
     "budget": {
       "low": 8000,
@@ -27836,10 +27447,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "shinkansen": 120,
-      "bus": 150,
-      "car": 120
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -27943,8 +27551,7 @@
     "transportOptions": {
       "car": 160,
       "bus": 150,
-      "train": 120,
-      "shinkansen": 110
+      "train": 120
     },
     "crowd": {
       "weekday": 3,
@@ -28087,10 +27694,7 @@
       "cafe": 800
     },
     "transportOptions": {
-      "train": 30,
-      "shinkansen": 20,
-      "bus": 20,
-      "car": 40
+      "train": 30
     },
     "walkingMin": 25,
     "walkingSunMin": 15,
@@ -28275,9 +27879,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 40,
-      "bus": 100,
-      "car": 90
+      "train": 40
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -28407,8 +28009,7 @@
     "transportOptions": {
       "car": 210,
       "train": 180,
-      "bus": 210,
-      "shinkansen": 95
+      "bus": 210
     },
     "crowd": {
       "weekday": 3,
@@ -28529,10 +28130,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 20,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 20
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -28678,10 +28276,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 40,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 40
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -28861,10 +28456,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 320,
-      "bus": 340,
-      "car": 600
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -28974,9 +28566,7 @@
     },
     "transportOptions": {
       "train": 203,
-      "shinkansen": 173,
-      "bus": 240,
-      "car": 270
+      "shinkansen": 173
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -29108,10 +28698,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "shinkansen": 60,
-      "bus": 80,
-      "car": 210
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -29227,9 +28814,7 @@
     },
     "transportOptions": {
       "train": 203,
-      "shinkansen": 173,
-      "bus": 240,
-      "car": 270
+      "shinkansen": 173
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -29379,9 +28964,7 @@
     },
     "transportOptions": {
       "train": 200,
-      "shinkansen": 170,
-      "bus": 240,
-      "car": 270
+      "shinkansen": 170
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -29513,9 +29096,7 @@
     },
     "transportOptions": {
       "train": 199,
-      "shinkansen": 169,
-      "bus": 240,
-      "car": 270
+      "shinkansen": 169
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -29664,9 +29245,7 @@
     },
     "transportOptions": {
       "train": 204,
-      "shinkansen": 174,
-      "bus": 240,
-      "car": 270
+      "shinkansen": 174
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -29804,8 +29383,7 @@
     "transportOptions": {
       "train": 210,
       "bus": 240,
-      "car": 270,
-      "shinkansen": 171
+      "car": 270
     },
     "budget": {
       "low": 3000,
@@ -29958,9 +29536,7 @@
     },
     "transportOptions": {
       "train": 199,
-      "shinkansen": 169,
-      "bus": 240,
-      "car": 270
+      "shinkansen": 169
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -30221,9 +29797,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 115,
-      "car": 120
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -30322,9 +29896,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 220,
-      "car": 100
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -30422,10 +29994,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 46,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 46
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -30582,8 +30151,7 @@
     "transportOptions": {
       "shinkansen": 210,
       "train": 240,
-      "car": 300,
-      "bus": 230
+      "car": 300
     },
     "budget": {
       "low": 3000,
@@ -30810,10 +30378,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 17,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 17
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -30967,10 +30532,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 46,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 46
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -31310,9 +30872,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 270,
-      "car": 60
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -31420,8 +30980,7 @@
     "transportOptions": {
       "bus": 490,
       "train": 450,
-      "car": 530,
-      "shinkansen": 380
+      "car": 530
     },
     "budget": {
       "low": 4000,
@@ -31577,10 +31136,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 380,
-      "bus": 490,
-      "car": 530
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -31842,9 +31398,7 @@
     },
     "transportOptions": {
       "train": 200,
-      "shinkansen": 200,
-      "bus": 220,
-      "car": 380
+      "shinkansen": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -31944,10 +31498,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 41,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 41
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -32110,8 +31661,7 @@
     "transportOptions": {
       "car": 280,
       "shinkansen": 160,
-      "train": 200,
-      "bus": 180
+      "train": 200
     },
     "crowd": {
       "weekday": 3,
@@ -32226,8 +31776,7 @@
     "transportOptions": {
       "train": 194,
       "bus": 214,
-      "shinkansen": 154,
-      "car": 210
+      "shinkansen": 154
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -32380,10 +31929,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 110,
-      "bus": 130,
-      "car": 150
+      "train": 200
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -32527,9 +32073,7 @@
     },
     "transportOptions": {
       "train": 195,
-      "shinkansen": 295,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 295
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -32718,10 +32262,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -32816,8 +32357,7 @@
     "transportOptions": {
       "train": 230,
       "bus": 230,
-      "shinkansen": 130,
-      "car": 240
+      "shinkansen": 130
     },
     "reservation": "None required",
     "parking": "Limited city center parking",
@@ -32939,8 +32479,7 @@
     "transportOptions": {
       "shinkansen": 140,
       "train": 170,
-      "car": 240,
-      "bus": 230
+      "car": 240
     },
     "budget": {
       "low": 4000,
@@ -33090,8 +32629,7 @@
     "transportOptions": {
       "train": 235,
       "bus": 235,
-      "shinkansen": 135,
-      "car": 240
+      "shinkansen": 135
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -33239,8 +32777,7 @@
     "transportOptions": {
       "train": 235,
       "bus": 235,
-      "shinkansen": 135,
-      "car": 240
+      "shinkansen": 135
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -33385,8 +32922,7 @@
     "transportOptions": {
       "train": 235,
       "bus": 235,
-      "shinkansen": 135,
-      "car": 240
+      "shinkansen": 135
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -33531,8 +33067,7 @@
     "transportOptions": {
       "train": 234,
       "bus": 234,
-      "shinkansen": 134,
-      "car": 240
+      "shinkansen": 134
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -33664,8 +33199,7 @@
     "transportOptions": {
       "train": 130,
       "car": 160,
-      "shinkansen": 78,
-      "bus": 98
+      "shinkansen": 78
     },
     "crowd": {
       "weekday": 3,
@@ -33758,9 +33292,7 @@
     },
     "transportOptions": {
       "train": 75,
-      "car": 60,
-      "shinkansen": 50,
-      "bus": 70
+      "car": 60
     },
     "crowd": {
       "weekday": 3,
@@ -33909,9 +33441,7 @@
     "budgetMax": 8000,
     "transportOptions": {
       "shinkansen": 170,
-      "bus": 20,
-      "train": 290,
-      "car": 340
+      "bus": 20
     },
     "ratings": {
       "overall": 9,
@@ -34006,9 +33536,7 @@
     "budgetMax": 10000,
     "transportOptions": {
       "bus": 180,
-      "car": 160,
-      "train": 120,
-      "shinkansen": 180
+      "car": 160
     },
     "ratings": {
       "overall": 9.1,
@@ -34129,10 +33657,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 26,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 26
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -34273,9 +33798,7 @@
     "budgetRecommended": 8500,
     "transportOptions": {
       "train": 35,
-      "car": 45,
-      "shinkansen": 35,
-      "bus": 50
+      "car": 45
     },
     "totalTripHours": 6,
     "walkingMin": 45,
@@ -34463,9 +33986,7 @@
     },
     "transportOptions": {
       "train": 204,
-      "shinkansen": 304,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 304
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -34649,8 +34170,7 @@
     },
     "transportOptions": {
       "train": 70,
-      "car": 60,
-      "bus": 90
+      "car": 60
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -35028,9 +34548,7 @@
     },
     "transportOptions": {
       "train": 160,
-      "shinkansen": 140,
-      "bus": 160,
-      "car": 300
+      "shinkansen": 140
     },
     "highlights": [
       "Original 1576 Two-Story Wooden Keep",
@@ -35134,10 +34652,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 205,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 205
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -35314,9 +34829,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 26,
-      "bus": 46,
-      "car": 65
+      "train": 26
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -35454,8 +34967,7 @@
     "transportOptions": {
       "shinkansen": 270,
       "train": 330,
-      "car": 390,
-      "bus": 290
+      "car": 390
     },
     "budget": {
       "low": 4000,
@@ -35583,9 +35095,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 220,
-      "car": 390
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -35687,10 +35197,7 @@
       "lng": 137.9686
     },
     "transportOptions": {
-      "train": 160,
-      "shinkansen": 95,
-      "bus": 210,
-      "car": 210
+      "train": 160
     },
     "walkingSunMin": 72,
     "walkingShadeMin": 48,
@@ -35775,10 +35282,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 95,
-      "bus": 210,
-      "car": 210
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -35856,8 +35360,7 @@
     "transportOptions": {
       "train": 240,
       "bus": 280,
-      "car": 320,
-      "shinkansen": 90
+      "car": 320
     },
     "budget": {
       "low": 4000,
@@ -36087,9 +35590,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 115,
-      "car": 120
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -36190,10 +35691,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 19,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 19
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -36330,9 +35828,7 @@
     },
     "transportOptions": {
       "train": 201,
-      "shinkansen": 171,
-      "bus": 240,
-      "car": 270
+      "shinkansen": 171
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -36486,10 +35982,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 75,
-      "bus": 180,
-      "car": 200
+      "train": 200
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -36640,10 +36133,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 15,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 15
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -36779,10 +36269,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 25,
-      "shinkansen": 20,
-      "bus": 20,
-      "car": 40
+      "train": 25
     },
     "highlights": ["Waterfront", "Architecture", "Shopping"],
     "description": "Minato Mirai is a curated destination within Yokohama City.",
@@ -37028,9 +36515,7 @@
     },
     "transportOptions": {
       "train": 90,
-      "car": 110,
-      "shinkansen": 89,
-      "bus": 130
+      "car": 110
     },
     "highlights": [
       "Indoor Sky Deck (90m)",
@@ -37154,10 +36639,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 19,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 19
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -37338,8 +36820,7 @@
     },
     "transportOptions": {
       "train": 70,
-      "car": 65,
-      "bus": 85
+      "car": 65
     },
     "highlights": [
       "Kodokan Historic Han School",
@@ -37503,9 +36984,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 85,
-      "car": 65
+      "train": 200
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -37772,9 +37251,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 300,
-      "car": 60
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -37923,10 +37400,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 445,
-      "bus": 465,
-      "car": 700
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -38039,10 +37513,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 150,
-      "bus": 192,
-      "car": 212
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -38212,8 +37683,7 @@
     "budgetRecommended": 13000,
     "transportOptions": {
       "train": 50,
-      "car": 75,
-      "bus": 70
+      "car": 75
     },
     "totalTripHours": 8,
     "walkingMin": 55,
@@ -38396,9 +37866,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 400,
-      "car": 60
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -38517,10 +37985,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "shinkansen": 285,
-      "bus": 305,
-      "car": 540
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -38614,10 +38079,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "shinkansen": 430,
-      "bus": 450,
-      "car": 660
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -38749,9 +38211,7 @@
     "budgetMax": 8000,
     "transportOptions": {
       "shinkansen": 90,
-      "car": 50,
-      "train": 120,
-      "bus": 150
+      "car": 50
     },
     "ratings": {
       "overall": 8.9,
@@ -38855,8 +38315,7 @@
     "transportOptions": {
       "car": 120,
       "train": 110,
-      "bus": 120,
-      "shinkansen": 75
+      "bus": 120
     },
     "crowd": {
       "weekday": 3,
@@ -38971,8 +38430,7 @@
     "transportOptions": {
       "bus": 480,
       "train": 440,
-      "car": 520,
-      "shinkansen": 370
+      "car": 520
     },
     "budget": {
       "low": 3500,
@@ -39120,10 +38578,7 @@
       "cafe": 800
     },
     "transportOptions": {
-      "train": 203,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 203
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -39431,9 +38886,7 @@
     "budgetMax": 15000,
     "transportOptions": {
       "shinkansen": 80,
-      "bus": 50,
-      "train": 120,
-      "car": 120
+      "bus": 50
     },
     "ratings": {
       "overall": 9.3,
@@ -39516,8 +38969,7 @@
     "transportOptions": {
       "train": 45,
       "bus": 50,
-      "car": 60,
-      "shinkansen": 168
+      "car": 60
     },
     "totalTripHours": 6,
     "walkingMin": 120,
@@ -39698,10 +39150,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 62,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 62
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -39884,9 +39333,7 @@
       "cafe": 550
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 220,
-      "car": 65
+      "train": 200
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -40180,9 +39627,7 @@
     },
     "transportOptions": {
       "train": 130,
-      "car": 140,
-      "shinkansen": 95,
-      "bus": 115
+      "car": 140
     },
     "totalTripHours": 10,
     "walkingMin": 70,
@@ -40290,8 +39735,7 @@
     "transportOptions": {
       "train": 120,
       "car": 180,
-      "shinkansen": 85,
-      "bus": 105
+      "shinkansen": 85
     },
     "crowd": {
       "weekday": 3,
@@ -40381,9 +39825,7 @@
     },
     "transportOptions": {
       "train": 180,
-      "car": 190,
-      "shinkansen": 95,
-      "bus": 210
+      "car": 190
     },
     "totalTripHours": 12,
     "walkingMin": 180,
@@ -40483,9 +39925,7 @@
     },
     "transportOptions": {
       "train": 140,
-      "car": 150,
-      "shinkansen": 95,
-      "bus": 115
+      "car": 150
     },
     "totalTripHours": 9,
     "walkingMin": 80,
@@ -40589,9 +40029,7 @@
     },
     "transportOptions": {
       "train": 120,
-      "car": 130,
-      "shinkansen": 95,
-      "bus": 115
+      "car": 130
     },
     "totalTripHours": 9,
     "walkingMin": 80,
@@ -40690,9 +40128,7 @@
     },
     "transportOptions": {
       "train": 150,
-      "car": 160,
-      "shinkansen": 95,
-      "bus": 115
+      "car": 160
     },
     "totalTripHours": 10,
     "walkingMin": 120,
@@ -40829,10 +40265,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 370,
-      "bus": 50,
-      "car": 60
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -40945,9 +40378,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 350,
-      "car": 60
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -41099,9 +40530,7 @@
     },
     "transportOptions": {
       "train": 100,
-      "shinkansen": 40,
-      "bus": 130,
-      "car": 115
+      "shinkansen": 40
     },
     "walkingSunMin": 72,
     "walkingShadeMin": 48,
@@ -41190,9 +40619,7 @@
     },
     "transportOptions": {
       "train": 200,
-      "shinkansen": 90,
-      "bus": 130,
-      "car": 115
+      "shinkansen": 90
     },
     "reservation": "None required",
     "parking": "Paid parking available citywide",
@@ -41298,9 +40725,7 @@
     },
     "transportOptions": {
       "train": 195,
-      "shinkansen": 85,
-      "bus": 130,
-      "car": 115
+      "shinkansen": 85
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -41469,9 +40894,7 @@
     },
     "transportOptions": {
       "train": 199,
-      "shinkansen": 89,
-      "bus": 130,
-      "car": 115
+      "shinkansen": 89
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -41645,9 +41068,7 @@
     },
     "transportOptions": {
       "train": 100,
-      "car": 115,
-      "shinkansen": 89,
-      "bus": 130
+      "car": 115
     },
     "highlights": [
       "63m Sailboat Architecture Tower",
@@ -41754,9 +41175,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 50,
-      "car": 60
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -41905,10 +41324,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 21,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 21
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -42049,9 +41465,7 @@
     },
     "transportOptions": {
       "train": 198,
-      "shinkansen": 298,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 298
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -42226,9 +41640,7 @@
     },
     "transportOptions": {
       "train": 199,
-      "shinkansen": 169,
-      "bus": 240,
-      "car": 270
+      "shinkansen": 169
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -42378,8 +41790,7 @@
     "transportOptions": {
       "train": 229,
       "bus": 229,
-      "shinkansen": 129,
-      "car": 240
+      "shinkansen": 129
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -42507,9 +41918,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "bus": 200,
-      "car": 390
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -42630,9 +42039,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 200,
-      "car": 240
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -43038,9 +42445,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 205,
-      "bus": 225,
-      "car": 65
+      "train": 205
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -43224,9 +42629,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 220,
-      "car": 65
+      "train": 200
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -43376,9 +42779,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 198,
-      "bus": 218,
-      "car": 65
+      "train": 198
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -43567,9 +42968,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 125,
-      "car": 130
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -43670,10 +43069,7 @@
       "cafe": 550
     },
     "transportOptions": {
-      "train": 16,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 60
+      "train": 16
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -43814,8 +43210,7 @@
     "transportOptions": {
       "train": 45,
       "bus": 50,
-      "car": 60,
-      "shinkansen": 35
+      "car": 60
     },
     "totalTripHours": 6,
     "walkingMin": 120,
@@ -43991,9 +43386,7 @@
     "budgetMax": 5000,
     "transportOptions": {
       "shinkansen": 180,
-      "train": 200,
-      "bus": 150,
-      "car": 120
+      "train": 200
     },
     "ratings": {
       "overall": 8.9,
@@ -44113,10 +43506,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 23,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 23
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -44262,10 +43652,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 28,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 28
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -44409,8 +43796,7 @@
     "transportOptions": {
       "train": 30,
       "bus": 40,
-      "car": 45,
-      "shinkansen": 110
+      "car": 45
     },
     "totalTripHours": 8,
     "walkingMin": 90,
@@ -44544,8 +43930,7 @@
     "transportOptions": {
       "train": 140,
       "bus": 160,
-      "car": 190,
-      "shinkansen": 131
+      "car": 190
     },
     "budget": {
       "low": 3500,
@@ -44691,10 +44076,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 203,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 203
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -44873,9 +44255,7 @@
     },
     "transportOptions": {
       "train": 200,
-      "shinkansen": 110,
-      "bus": 150,
-      "car": 160
+      "shinkansen": 110
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -45036,10 +44416,7 @@
       "lng": 139.5989
     },
     "transportOptions": {
-      "train": 120,
-      "shinkansen": 110,
-      "bus": 150,
-      "car": 160
+      "train": 120
     },
     "walkingSunMin": 72,
     "walkingShadeMin": 48,
@@ -45166,8 +44543,7 @@
     "transportOptions": {
       "train": 228,
       "bus": 228,
-      "shinkansen": 128,
-      "car": 240
+      "shinkansen": 128
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -45325,10 +44701,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -45411,8 +44784,7 @@
     "transportOptions": {
       "train": 234,
       "bus": 234,
-      "shinkansen": 134,
-      "car": 240
+      "shinkansen": 134
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -45544,8 +44916,7 @@
     "transportOptions": {
       "car": 360,
       "train": 260,
-      "bus": 300,
-      "shinkansen": 140
+      "bus": 300
     },
     "crowd": {
       "weekday": 3,
@@ -45664,10 +45035,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 75,
-      "bus": 95,
-      "car": 110
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -45753,9 +45121,7 @@
     },
     "transportOptions": {
       "train": 203,
-      "shinkansen": 173,
-      "bus": 240,
-      "car": 270
+      "shinkansen": 173
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -45900,9 +45266,7 @@
     },
     "transportOptions": {
       "train": 199,
-      "shinkansen": 169,
-      "bus": 240,
-      "car": 270
+      "shinkansen": 169
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -46046,9 +45410,7 @@
     },
     "transportOptions": {
       "train": 205,
-      "shinkansen": 175,
-      "bus": 240,
-      "car": 270
+      "shinkansen": 175
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -46175,9 +45537,7 @@
     "budgetMax": 40000,
     "transportOptions": {
       "shinkansen": 170,
-      "bus": 50,
-      "train": 180,
-      "car": 120
+      "bus": 50
     },
     "ratings": {
       "overall": 9.5,
@@ -46299,8 +45659,7 @@
     },
     "transportOptions": {
       "train": 90,
-      "car": 75,
-      "bus": 110
+      "car": 75
     },
     "highlights": [
       "60m Glass Triangular Tower",
@@ -46459,10 +45818,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg/3840px-Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg",
     "transportOptions": {
-      "train": 50,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 50
     },
     "highlights": [
       "Gundam Statue",
@@ -46621,9 +45977,7 @@
     },
     "transportOptions": {
       "train": 66,
-      "shinkansen": 35,
-      "bus": 55,
-      "car": 55
+      "shinkansen": 35
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -46760,10 +46114,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 202,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 202
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -46898,8 +46249,7 @@
     "transportOptions": {
       "train": 45,
       "bus": 50,
-      "car": 60,
-      "shinkansen": 35
+      "car": 60
     },
     "totalTripHours": 6,
     "walkingMin": 120,
@@ -47091,9 +46441,7 @@
     },
     "transportOptions": {
       "train": 202,
-      "shinkansen": 302,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 302
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -47247,10 +46595,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "shinkansen": 210,
-      "bus": 230,
-      "car": 400
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -47348,9 +46693,7 @@
     "budgetMax": 5000,
     "transportOptions": {
       "shinkansen": 80,
-      "car": 60,
-      "train": 120,
-      "bus": 150
+      "car": 60
     },
     "ratings": {
       "overall": 9.2,
@@ -47470,9 +46813,7 @@
     },
     "transportOptions": {
       "train": 200,
-      "shinkansen": 200,
-      "bus": 220,
-      "car": 300
+      "shinkansen": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -47574,10 +46915,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 110,
-      "bus": 130,
-      "car": 210
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -47791,8 +47129,7 @@
     "transportOptions": {
       "car": 260,
       "bus": 240,
-      "train": 210,
-      "shinkansen": 130
+      "train": 210
     },
     "crowd": {
       "weekday": 3,
@@ -47863,9 +47200,7 @@
     "budgetRecommended": 11500,
     "transportOptions": {
       "train": 65,
-      "car": 75,
-      "shinkansen": 35,
-      "bus": 50
+      "car": 75
     },
     "totalTripHours": 8,
     "walkingMin": 55,
@@ -48057,10 +47392,7 @@
       "cafe": 550
     },
     "transportOptions": {
-      "train": 64,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 64
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -48243,10 +47575,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 61,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 61
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -48429,10 +47758,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 62,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 62
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -48605,10 +47931,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Namakubi0kei.JPG/330px-Namakubi0kei.JPG",
     "transportOptions": {
-      "train": 35,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 35
     },
     "highlights": [
       "36 Historic Railway Vehicles",
@@ -48777,10 +48100,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -48960,10 +48280,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 255,
-      "bus": 275,
-      "car": 480
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -49047,8 +48364,7 @@
     "transportOptions": {
       "train": 186,
       "bus": 206,
-      "shinkansen": 146,
-      "car": 210
+      "shinkansen": 146
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -49186,8 +48502,7 @@
     "transportOptions": {
       "train": 160,
       "bus": 180,
-      "car": 210,
-      "shinkansen": 150
+      "car": 210
     },
     "budget": {
       "low": 3000,
@@ -49339,8 +48654,7 @@
     "transportOptions": {
       "train": 191,
       "bus": 211,
-      "shinkansen": 151,
-      "car": 210
+      "shinkansen": 151
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -49506,8 +48820,7 @@
     "transportOptions": {
       "train": 190,
       "bus": 210,
-      "shinkansen": 150,
-      "car": 210
+      "shinkansen": 150
     },
     "reservation": "None required",
     "parking": "Paid parking garages",
@@ -49647,8 +48960,7 @@
     "transportOptions": {
       "train": 186,
       "bus": 206,
-      "shinkansen": 146,
-      "car": 210
+      "shinkansen": 146
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -49792,8 +49104,7 @@
     "transportOptions": {
       "train": 192,
       "bus": 212,
-      "shinkansen": 152,
-      "car": 210
+      "shinkansen": 152
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -49940,8 +49251,7 @@
     "transportOptions": {
       "train": 26,
       "bus": 36,
-      "car": 41,
-      "shinkansen": 90
+      "car": 41
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -50109,9 +49419,7 @@
     },
     "transportOptions": {
       "train": 201,
-      "shinkansen": 91,
-      "bus": 130,
-      "car": 115
+      "shinkansen": 91
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -50289,9 +49597,7 @@
     },
     "transportOptions": {
       "train": 205,
-      "shinkansen": 95,
-      "bus": 130,
-      "car": 115
+      "shinkansen": 95
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -50468,10 +49774,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 23,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 23
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -50614,10 +49917,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -50708,10 +50008,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 155,
-      "bus": 162,
-      "car": 175
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -50813,9 +50110,7 @@
     "budgetMax": 8000,
     "transportOptions": {
       "shinkansen": 80,
-      "car": 50,
-      "train": 150,
-      "bus": 100
+      "car": 50
     },
     "ratings": {
       "overall": 9.1,
@@ -50894,8 +50189,7 @@
     "transportOptions": {
       "train": 45,
       "bus": 50,
-      "car": 60,
-      "shinkansen": 370
+      "car": 60
     },
     "totalTripHours": 6,
     "walkingMin": 120,
@@ -51058,8 +50352,7 @@
     "transportOptions": {
       "car": 200,
       "train": 150,
-      "bus": 180,
-      "shinkansen": 75
+      "bus": 180
     },
     "crowd": {
       "weekday": 3,
@@ -51227,8 +50520,7 @@
     "transportOptions": {
       "train": 227,
       "bus": 227,
-      "shinkansen": 127,
-      "car": 240
+      "shinkansen": 127
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -51373,8 +50665,7 @@
     "transportOptions": {
       "train": 25,
       "bus": 35,
-      "car": 40,
-      "shinkansen": 90
+      "car": 40
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -51559,10 +50850,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 40,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 40
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -51742,10 +51030,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 15,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 15
     },
     "highlights": [
       "250m Panoramic Indoor Gallery",
@@ -51906,8 +51191,7 @@
     "transportOptions": {
       "train": 228,
       "bus": 228,
-      "shinkansen": 128,
-      "car": 240
+      "shinkansen": 128
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -52039,9 +51323,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "bus": 200,
-      "car": 480
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -52135,9 +51417,7 @@
     "budgetMax": 5000,
     "transportOptions": {
       "train": 160,
-      "car": 170,
-      "shinkansen": 120,
-      "bus": 150
+      "car": 170
     },
     "ratings": {
       "overall": 9,
@@ -52375,10 +51655,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 41,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 60
+      "train": 41
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -52505,10 +51782,7 @@
       "walkingIntensity": 5
     },
     "transportOptions": {
-      "train": 60,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 60
     },
     "crowd": {
       "weekday": 3,
@@ -52661,9 +51935,7 @@
     },
     "transportOptions": {
       "train": 100,
-      "car": 90,
-      "shinkansen": 45,
-      "bus": 65
+      "car": 90
     },
     "totalTripHours": 8,
     "walkingMin": 80,
@@ -52850,10 +52122,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 62,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 62
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -53036,10 +52305,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 64,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 64
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -53225,10 +52491,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 63,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 63
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -53408,10 +52671,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 168,
-      "bus": 212,
-      "car": 235
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -53535,8 +52795,7 @@
     },
     "transportOptions": {
       "train": 55,
-      "car": 45,
-      "bus": 75
+      "car": 45
     },
     "highlights": [
       "Historic Earthen Ramparts & Moats",
@@ -53833,10 +53092,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 50,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 50
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -54011,8 +53267,7 @@
     "transportOptions": {
       "train": 234,
       "bus": 234,
-      "shinkansen": 134,
-      "car": 240
+      "shinkansen": 134
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -54123,8 +53378,7 @@
     "transportOptions": {
       "train": 45,
       "bus": 50,
-      "car": 60,
-      "shinkansen": 180
+      "car": 60
     },
     "totalTripHours": 6,
     "walkingMin": 120,
@@ -54264,10 +53518,7 @@
       "cafe": 550
     },
     "transportOptions": {
-      "train": 203,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 203
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -54440,10 +53691,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -54543,10 +53791,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 203,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 203
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -54714,10 +53959,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 200
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -54893,10 +54135,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 46,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 46
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -55071,9 +54310,7 @@
     },
     "transportOptions": {
       "train": 205,
-      "shinkansen": 95,
-      "bus": 130,
-      "car": 115
+      "shinkansen": 95
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -55334,8 +54571,7 @@
     "transportOptions": {
       "train": 32,
       "bus": 42,
-      "car": 47,
-      "shinkansen": 90
+      "car": 47
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -55494,9 +54730,7 @@
     "budgetMax": 5000,
     "transportOptions": {
       "shinkansen": 90,
-      "train": 90,
-      "bus": 40,
-      "car": 44
+      "train": 90
     },
     "ratings": {
       "overall": 8.7,
@@ -55582,8 +54816,7 @@
     "transportOptions": {
       "train": 30,
       "bus": 40,
-      "car": 45,
-      "shinkansen": 90
+      "car": 45
     },
     "totalTripHours": 8,
     "walkingMin": 90,
@@ -55732,8 +54965,7 @@
     "transportOptions": {
       "train": 32,
       "bus": 42,
-      "car": 47,
-      "shinkansen": 90
+      "car": 47
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -55903,8 +55135,7 @@
     "transportOptions": {
       "train": 32,
       "bus": 42,
-      "car": 47,
-      "shinkansen": 90
+      "car": 47
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -56074,8 +55305,7 @@
     "transportOptions": {
       "train": 29,
       "bus": 39,
-      "car": 44,
-      "shinkansen": 90
+      "car": 44
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -56252,10 +55482,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 22,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 22
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -56403,10 +55630,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Commercial district paid parking garages available nearby.",
@@ -56551,10 +55775,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 5,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 5
     },
     "highlights": [
       "229m Open-Air Sky Stage",
@@ -56713,10 +55934,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 285,
-      "bus": 305,
-      "car": 540
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -56806,10 +56024,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 25,
-      "shinkansen": 20,
-      "bus": 20,
-      "car": 40
+      "train": 25
     },
     "highlights": ["Museum", "Food", "Indoor"],
     "description": "Shin-Yokohama Ramen Museum is a curated destination within Yokohama City.",
@@ -56964,10 +56179,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 20,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 20
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -57112,10 +56324,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 41,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 41
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -57308,10 +56517,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -57468,10 +56674,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -57645,8 +56848,7 @@
     "transportOptions": {
       "train": 192,
       "bus": 212,
-      "shinkansen": 152,
-      "car": 210
+      "shinkansen": 152
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -57792,8 +56994,7 @@
     "transportOptions": {
       "train": 189,
       "bus": 209,
-      "shinkansen": 149,
-      "car": 210
+      "shinkansen": 149
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -57945,9 +57146,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 201,
-      "bus": 221,
-      "car": 65
+      "train": 201
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -58127,9 +57326,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 308,
-      "car": 342
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -58208,8 +57405,7 @@
     "transportOptions": {
       "train": 45,
       "bus": 50,
-      "car": 60,
-      "shinkansen": 230
+      "car": 60
     },
     "totalTripHours": 6,
     "walkingMin": 120,
@@ -58353,10 +57549,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "bus": 2600,
-      "train": 220,
-      "shinkansen": 140,
-      "car": 230
+      "bus": 2600
     },
     "reservation": "Highway bus reservation required",
     "parking": "Seseragi central parking lot",
@@ -58416,8 +57609,7 @@
     "transportOptions": {
       "train": 45,
       "bus": 50,
-      "car": 60,
-      "shinkansen": 275
+      "car": 60
     },
     "totalTripHours": 6,
     "walkingMin": 120,
@@ -58564,9 +57756,7 @@
     },
     "transportOptions": {
       "train": 200,
-      "shinkansen": 60,
-      "bus": 80,
-      "car": 110
+      "shinkansen": 60
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -58666,10 +57856,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 49,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 49
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -59001,10 +58188,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 25,
-      "shinkansen": 20,
-      "bus": 20,
-      "car": 40
+      "train": 25
     },
     "highlights": ["Temple", "History", "Culture"],
     "description": "Soji-ji Temple is a curated destination within Yokohama City.",
@@ -59155,10 +58339,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 23,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 23
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -59305,10 +58486,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 17,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 17
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -59452,10 +58630,7 @@
       "walkingIntensity": 2
     },
     "transportOptions": {
-      "train": 15,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 15
     },
     "highlights": [
       "251m Indoor Sky Park",
@@ -59630,10 +58805,7 @@
       "cafe": 550
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -59828,10 +59000,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 19,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 19
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -60005,10 +59174,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 200
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -60150,9 +59316,7 @@
     "budgetRecommended": 10000,
     "transportOptions": {
       "train": 30,
-      "car": 40,
-      "shinkansen": 35,
-      "bus": 50
+      "car": 40
     },
     "totalTripHours": 6,
     "walkingMin": 50,
@@ -60349,10 +59513,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 40,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 40
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -60536,10 +59697,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 16,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 60
+      "train": 16
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -60686,10 +59844,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 465,
-      "bus": 485,
-      "car": 700
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -60902,9 +60057,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 120,
-      "car": 130
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -60995,10 +60148,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 15,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 15
     },
     "highlights": [
       "Kengo Kuma Wooden Architecture",
@@ -61138,8 +60288,7 @@
     "transportOptions": {
       "car": 300,
       "train": 160,
-      "shinkansen": 150,
-      "bus": 170
+      "shinkansen": 150
     },
     "crowd": {
       "weekday": 3,
@@ -61254,9 +60403,7 @@
     },
     "transportOptions": {
       "train": 120,
-      "car": 90,
-      "shinkansen": 95,
-      "bus": 115
+      "car": 90
     },
     "highlights": [
       "1,500 Kohigan Cherry Trees",
@@ -61369,9 +60516,7 @@
     },
     "transportOptions": {
       "train": 200,
-      "shinkansen": 130,
-      "bus": 240,
-      "car": 260
+      "shinkansen": 130
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -61442,10 +60587,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "shinkansen": 120,
-      "bus": 228,
-      "car": 200
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -61595,8 +60737,7 @@
     },
     "transportOptions": {
       "train": 90,
-      "car": 80,
-      "bus": 110
+      "car": 80
     },
     "highlights": [
       "Original Stone Wall & Moats",
@@ -61698,10 +60839,7 @@
     },
     "image": "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
     "transportOptions": {
-      "train": 35,
-      "shinkansen": 120,
-      "bus": 150,
-      "car": 120
+      "train": 35
     },
     "highlights": [
       "50-Hectare Hillside Enclosures",
@@ -61849,10 +60987,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 196,
-      "shinkansen": 275,
-      "bus": 295,
-      "car": 540
+      "train": 196
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -62028,10 +61163,7 @@
       "cafe": 550
     },
     "transportOptions": {
-      "train": 29,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 29
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -62204,10 +61336,7 @@
     },
     "image": "https://images.unsplash.com/photo-1593073862407-a3ce22748763?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbWxhYiUyMHBsYW5ldHMlMjB0b2t5b3xlbnwwfHwwfHx8MA%3D%3D",
     "transportOptions": {
-      "train": 50,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 50
     },
     "highlights": [
       "Boundaryless Digital Art Works",
@@ -62359,10 +61488,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Photos_at_teamlab_planets_tokyo.jpg"
     },
     "transportOptions": {
-      "train": 50,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 50
     },
     "highlights": [
       "Walk Barefoot Through Water Art",
@@ -62509,8 +61635,7 @@
     "transportOptions": {
       "train": 190,
       "bus": 210,
-      "shinkansen": 150,
-      "car": 210
+      "shinkansen": 150
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -62656,9 +61781,7 @@
     },
     "transportOptions": {
       "train": 198,
-      "shinkansen": 298,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 298
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -62843,8 +61966,7 @@
     "transportOptions": {
       "train": 192,
       "bus": 212,
-      "shinkansen": 152,
-      "car": 210
+      "shinkansen": 152
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -62972,10 +62094,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "ferry": 180,
-      "train": 310,
-      "bus": 330,
-      "car": 390
+      "ferry": 180
     },
     "ratings": {
       "overall": 9,
@@ -63095,10 +62214,7 @@
       "cafe": 550
     },
     "transportOptions": {
-      "train": 65,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 65
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -63274,8 +62390,7 @@
     "transportOptions": {
       "train": 195,
       "bus": 215,
-      "shinkansen": 155,
-      "car": 210
+      "shinkansen": 155
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -63422,9 +62537,7 @@
     },
     "transportOptions": {
       "train": 199,
-      "shinkansen": 299,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 299
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -63607,10 +62720,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 24,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 24
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -63764,10 +62874,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "shinkansen": 170,
-      "bus": 190,
-      "car": 300
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -63888,9 +62995,7 @@
     },
     "transportOptions": {
       "train": 130,
-      "shinkansen": 110,
-      "bus": 40,
-      "car": 45
+      "shinkansen": 110
     },
     "highlights": [
       "140.5m Free Observatory Deck",
@@ -64003,10 +63108,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 41,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 41
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -64199,10 +63301,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 35,
-      "shinkansen": 45,
-      "bus": 65,
-      "car": 60
+      "train": 35
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -64340,9 +63439,7 @@
     },
     "transportOptions": {
       "train": 199,
-      "shinkansen": 89,
-      "bus": 130,
-      "car": 115
+      "shinkansen": 89
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -64511,9 +63608,7 @@
     },
     "transportOptions": {
       "train": 195,
-      "shinkansen": 85,
-      "bus": 130,
-      "car": 115
+      "shinkansen": 85
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -64686,9 +63781,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 115,
-      "car": 120
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -64748,9 +63841,7 @@
     },
     "transportOptions": {
       "train": 105,
-      "car": 90,
-      "shinkansen": 35,
-      "bus": 50
+      "car": 90
     },
     "totalTripHours": 7,
     "walkingMin": 90,
@@ -64940,10 +64031,7 @@
       "walkingIntensity": 2
     },
     "transportOptions": {
-      "train": 10,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 10
     },
     "highlights": [
       "Free 45F Observation Deck",
@@ -65064,9 +64152,7 @@
     },
     "transportOptions": {
       "train": 85,
-      "car": 100,
-      "shinkansen": 35,
-      "bus": 50
+      "car": 100
     },
     "totalTripHours": 8,
     "walkingMin": 5,
@@ -65268,10 +64354,7 @@
       "cafe": 550
     },
     "transportOptions": {
-      "train": 16,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 60
+      "train": 16
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -65419,9 +64502,7 @@
     },
     "transportOptions": {
       "train": 95,
-      "car": 110,
-      "shinkansen": 35,
-      "bus": 50
+      "car": 110
     },
     "totalTripHours": 9,
     "walkingMin": 120,
@@ -65616,10 +64697,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 25,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 25
     },
     "highlights": [
       "Tembo Deck (350m)",
@@ -65787,8 +64865,7 @@
     "transportOptions": {
       "train": 0,
       "shinkansen": 0,
-      "car": 0,
-      "bus": 50
+      "car": 0
     },
     "highlights": [
       "Restored 1914 Red-Brick Station Building",
@@ -65940,10 +65017,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 20,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 20
     },
     "highlights": [
       "Main Deck (150m)",
@@ -66067,8 +65141,7 @@
     "transportOptions": {
       "train": 45,
       "bus": 50,
-      "car": 60,
-      "shinkansen": 75
+      "car": 60
     },
     "totalTripHours": 6,
     "walkingMin": 120,
@@ -66269,10 +65342,7 @@
       "cafe": 550
     },
     "transportOptions": {
-      "train": 26,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 26
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -66456,10 +65526,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -66610,9 +65677,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 220,
-      "car": 390
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -66678,9 +65743,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "bus": 200,
-      "car": 390
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -66783,8 +65846,7 @@
     "transportOptions": {
       "car": 280,
       "train": 200,
-      "shinkansen": 150,
-      "bus": 170
+      "shinkansen": 150
     },
     "crowd": {
       "weekday": 3,
@@ -67031,10 +66093,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 17,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 17
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -67214,10 +66273,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 110,
-      "bus": 130,
-      "car": 210
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -67303,9 +66359,7 @@
     },
     "transportOptions": {
       "train": 201,
-      "shinkansen": 91,
-      "bus": 130,
-      "car": 115
+      "shinkansen": 91
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -67481,10 +66535,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 49,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 49
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -67668,9 +66719,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 220,
-      "car": 90
+      "train": 200
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -67790,10 +66839,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180,
-      "shinkansen": 285,
-      "bus": 305,
-      "car": 540
+      "train": 180
     },
     "ratings": {
       "overall": 9,
@@ -67890,9 +66936,7 @@
     "budgetMax": 6000,
     "transportOptions": {
       "shinkansen": 80,
-      "train": 30,
-      "bus": 150,
-      "car": 120
+      "train": 30
     },
     "ratings": {
       "overall": 8.9,
@@ -68014,10 +67058,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 45,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 45
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -68193,8 +67234,7 @@
     "transportOptions": {
       "train": 190,
       "bus": 210,
-      "shinkansen": 150,
-      "car": 210
+      "shinkansen": 150
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -68349,9 +67389,7 @@
     },
     "transportOptions": {
       "train": 85,
-      "shinkansen": 75,
-      "bus": 95,
-      "car": 180
+      "shinkansen": 75
     },
     "highlights": [
       "Restored Yagura Turrets",
@@ -68470,10 +67508,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 16,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 60
+      "train": 16
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -68646,10 +67681,7 @@
     },
     "image": "https://images.unsplash.com/photo-1556326059-3cfc41f90fb1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "transportOptions": {
-      "train": 45,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 60
+      "train": 45
     },
     "highlights": ["Tokyo National Museum", "Ueno Zoo", "Ameyoko Street"],
     "description": "A cultural hub featuring a massive park, Japan's oldest zoo, major national museums, and the bustling Ameyoko market.",
@@ -68788,10 +67820,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Ueno_Zoo_20220414a1.jpg/1920px-Ueno_Zoo_20220414a1.jpg",
     "transportOptions": {
-      "train": 15,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 60
+      "train": 15
     },
     "highlights": [
       "Giant Panda Enclosures",
@@ -68944,10 +67973,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 147,
-      "bus": 247,
-      "car": 290
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -69062,8 +68088,7 @@
     "transportOptions": {
       "train": 187,
       "bus": 207,
-      "shinkansen": 147,
-      "car": 210
+      "shinkansen": 147
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -69218,8 +68243,7 @@
     "transportOptions": {
       "train": 192,
       "bus": 212,
-      "shinkansen": 152,
-      "car": 210
+      "shinkansen": 152
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -69372,9 +68396,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 23,
-      "bus": 43,
-      "car": 65
+      "train": 23
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -69497,8 +68519,7 @@
     },
     "transportOptions": {
       "train": 100,
-      "car": 80,
-      "bus": 120
+      "car": 80
     },
     "crowd": {
       "weekday": 3,
@@ -69669,9 +68690,7 @@
     },
     "transportOptions": {
       "train": 200,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 150
+      "shinkansen": 50
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -69807,9 +68826,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Utsunomiya_montage.jpg/250px-Utsunomiya_montage.jpg",
     "transportOptions": {
       "train": 100,
-      "car": 150,
-      "shinkansen": 50,
-      "bus": 70
+      "car": 150
     },
     "highlights": [
       "Oya Underground Stone Quarry Chamber",
@@ -70069,9 +69086,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "bus": 278,
-      "car": 285
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -70190,10 +69205,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 510,
-      "bus": 530,
-      "car": 720
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -70292,9 +69304,7 @@
     "budgetMax": 5000,
     "transportOptions": {
       "shinkansen": 80,
-      "train": 40,
-      "bus": 150,
-      "car": 120
+      "train": 40
     },
     "ratings": {
       "overall": 9.3,
@@ -70472,8 +69482,7 @@
     },
     "transportOptions": {
       "train": 100,
-      "car": 90,
-      "bus": 150
+      "car": 90
     },
     "totalTripHours": 10,
     "walkingMin": 80,
@@ -70573,8 +69582,7 @@
     },
     "transportOptions": {
       "train": 130,
-      "car": 110,
-      "bus": 150
+      "car": 110
     },
     "totalTripHours": 9,
     "walkingMin": 240,
@@ -70668,8 +69676,7 @@
     },
     "transportOptions": {
       "train": 110,
-      "car": 100,
-      "bus": 130
+      "car": 100
     },
     "totalTripHours": 8,
     "walkingMin": 120,
@@ -70795,10 +69802,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 25,
-      "shinkansen": 20,
-      "bus": 20,
-      "car": 40
+      "train": 25
     },
     "highlights": ["Park", "Waterfront", "Views"],
     "description": "Yamashita Park is a curated destination within Yokohama City.",
@@ -70955,10 +69959,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 17,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 60
+      "train": 17
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -71142,8 +70143,7 @@
     "transportOptions": {
       "train": 227,
       "bus": 227,
-      "shinkansen": 127,
-      "car": 240
+      "shinkansen": 127
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -71288,10 +70288,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 25,
-      "shinkansen": 20,
-      "bus": 20,
-      "car": 40
+      "train": 25
     },
     "highlights": ["Food", "Culture", "Shopping"],
     "description": "Yokohama Chinatown is a curated destination within Yokohama City.",
@@ -71436,9 +70433,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Minato_Mirai_In_Blue_%28cropped%29.jpg/1280px-Minato_Mirai_In_Blue_%28cropped%29.jpg",
     "transportOptions": {
       "train": 30,
-      "shinkansen": 20,
-      "bus": 20,
-      "car": 40
+      "shinkansen": 20
     },
     "highlights": [
       "Minato Mirai Waterfront",
@@ -71614,10 +70609,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 25,
-      "shinkansen": 20,
-      "bus": 20,
-      "car": 40
+      "train": 25
     },
     "highlights": ["Amusement Park", "Family", "Waterfront"],
     "description": "Yokohama Cosmo World is a curated destination within Yokohama City.",
@@ -71768,10 +70760,7 @@
       "walkingIntensity": 2
     },
     "transportOptions": {
-      "train": 30,
-      "shinkansen": 20,
-      "bus": 20,
-      "car": 40
+      "train": 30
     },
     "highlights": [
       "69F Sky Garden Observatory (273m)",
@@ -71934,10 +70923,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 25,
-      "shinkansen": 20,
-      "bus": 20,
-      "car": 40
+      "train": 25
     },
     "highlights": [
       "106m Waterfront Lattice Tower",
@@ -72092,10 +71078,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 25,
-      "shinkansen": 20,
-      "bus": 20,
-      "car": 40
+      "train": 25
     },
     "highlights": ["Architecture", "Shopping", "Waterfront"],
     "description": "Yokohama Red Brick Warehouse is a curated destination within Yokohama City.",
@@ -72240,9 +71223,7 @@
     "image": "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
     "transportOptions": {
       "train": 45,
-      "bus": 20,
-      "shinkansen": 20,
-      "car": 40
+      "bus": 20
     },
     "highlights": [
       "8 Global Climate Zone Habitats",
@@ -72399,10 +71380,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 46,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 46
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -72542,9 +71520,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Yomiuriland-20100411.jpg/1280px-Yomiuriland-20100411.jpg",
     "transportOptions": {
       "train": 60,
-      "car": 60,
-      "shinkansen": 35,
-      "bus": 50
+      "car": 60
     },
     "highlights": [
       "Jewellumination (Winter)",
@@ -72701,10 +71677,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 410,
-      "bus": 430,
-      "car": 630
+      "train": 200
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -72820,10 +71793,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 46,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 46
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -73006,10 +71976,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 46,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 46
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -73166,9 +72133,7 @@
     "budgetMax": 5000,
     "transportOptions": {
       "shinkansen": 40,
-      "car": 60,
-      "train": 210,
-      "bus": 60
+      "car": 60
     },
     "ratings": {
       "overall": 8.8,
@@ -73288,10 +72253,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 46,
-      "shinkansen": 50,
-      "bus": 70,
-      "car": 55
+      "train": 46
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -73477,8 +72439,7 @@
     "transportOptions": {
       "train": 29,
       "bus": 39,
-      "car": 44,
-      "shinkansen": 90
+      "car": 44
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -73633,9 +72594,7 @@
     },
     "transportOptions": {
       "train": 30,
-      "car": 40,
-      "shinkansen": 50,
-      "bus": 70
+      "car": 40
     },
     "crowd": {
       "weekday": 3,
@@ -73806,10 +72765,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -73966,10 +72922,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -74130,10 +73083,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -74294,10 +73244,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -74458,10 +73405,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 14,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 14
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -74622,10 +73566,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 15,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 15
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -74782,10 +73723,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 14,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 14
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -74942,10 +73880,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 14,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 14
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -75106,10 +74041,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 14,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 14
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -75278,10 +74210,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 16,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 16
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -75438,10 +74367,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 15,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 15
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -75602,10 +74528,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 16,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 16
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -75766,10 +74689,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 15,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 15
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -75930,10 +74850,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 16,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 16
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -76094,10 +75011,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 15,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 15
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -76258,10 +75172,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -76422,10 +75333,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 17,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 17
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -76586,10 +75494,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 20,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 20
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -76750,10 +75655,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -76914,10 +75816,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 18,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 18
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -77078,10 +75977,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 35,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 45
+      "train": 35
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -77236,10 +76132,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 37,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 45
+      "train": 37
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -77400,10 +76293,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 37,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 45
+      "train": 37
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -77560,10 +76450,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 34,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 45
+      "train": 34
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -77724,10 +76611,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 36,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 45
+      "train": 36
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -77890,10 +76774,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 48,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 90
+      "train": 48
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -78054,10 +76935,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 48,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 90
+      "train": 48
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -78226,10 +77104,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 46,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 90
+      "train": 46
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -78390,10 +77265,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 45,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 90
+      "train": 45
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -78548,10 +77420,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 37,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 90
+      "train": 37
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -78712,10 +77581,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 36,
-      "shinkansen": 120,
-      "bus": 150,
-      "car": 120
+      "train": 36
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -78876,10 +77742,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 37,
-      "shinkansen": 120,
-      "bus": 150,
-      "car": 120
+      "train": 37
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -79040,10 +77903,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 35,
-      "shinkansen": 120,
-      "bus": 150,
-      "car": 120
+      "train": 35
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -79206,10 +78066,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 28,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 28
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -79370,10 +78227,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 28,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 28
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -79528,10 +78382,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 28,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 28
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -79692,10 +78543,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 28,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 28
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -79856,10 +78704,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 28,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 35
+      "train": 28
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -80014,10 +78859,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 205,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 100
+      "train": 205
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -80172,10 +79014,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 205,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 100
+      "train": 205
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -80330,10 +79169,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 48,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 100
+      "train": 48
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -80494,10 +79330,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 48,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 100
+      "train": 48
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -80664,10 +79497,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 38,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 40
+      "train": 38
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -80828,10 +79658,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 37,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 40
+      "train": 37
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -81000,10 +79827,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 37,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 40
+      "train": 37
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -81164,10 +79988,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 36,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 40
+      "train": 36
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -81324,10 +80145,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 37,
-      "shinkansen": 35,
-      "bus": 50,
-      "car": 40
+      "train": 37
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -81470,10 +80288,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 205,
-      "shinkansen": 150,
-      "bus": 210,
-      "car": 210
+      "train": 205
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -81615,10 +80430,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 205,
-      "shinkansen": 150,
-      "bus": 210,
-      "car": 210
+      "train": 205
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -81760,10 +80572,7 @@
       "cafe": 1200
     },
     "transportOptions": {
-      "train": 205,
-      "shinkansen": 150,
-      "bus": 210,
-      "car": 210
+      "train": 205
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -81904,12 +80713,7 @@
       "food": 1400,
       "cafe": 1200
     },
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 240,
-      "bus": 260,
-      "car": 480
-    },
+    "transportOptions": {},
     "totalTripHours": 5,
     "recommendedVisitHours": {
       "min": 1,
@@ -82050,12 +80854,7 @@
       "food": 1400,
       "cafe": 850
     },
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 240,
-      "bus": 260,
-      "car": 480
-    },
+    "transportOptions": {},
     "totalTripHours": 5,
     "recommendedVisitHours": {
       "min": 1,
@@ -82196,12 +80995,7 @@
       "food": 1400,
       "cafe": 1200
     },
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 240,
-      "bus": 260,
-      "car": 480
-    },
+    "transportOptions": {},
     "totalTripHours": 5,
     "recommendedVisitHours": {
       "min": 1,
@@ -82342,12 +81136,7 @@
       "food": 1400,
       "cafe": 1200
     },
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 240,
-      "bus": 260,
-      "car": 480
-    },
+    "transportOptions": {},
     "totalTripHours": 5,
     "recommendedVisitHours": {
       "min": 1,
@@ -82487,12 +81276,7 @@
       "food": 400,
       "cafe": 0
     },
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 240,
-      "bus": 260,
-      "car": 480
-    },
+    "transportOptions": {},
     "totalTripHours": 5,
     "recommendedVisitHours": {
       "min": 1,
@@ -82633,12 +81417,7 @@
       "food": 1400,
       "cafe": 1200
     },
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 240,
-      "bus": 260,
-      "car": 480
-    },
+    "transportOptions": {},
     "totalTripHours": 5,
     "recommendedVisitHours": {
       "min": 1,
@@ -82816,8 +81595,7 @@
     "transportOptions": {
       "shinkansen": 175,
       "train": 200,
-      "bus": 220,
-      "car": 310
+      "bus": 220
     }
   },
   {
@@ -82904,8 +81682,7 @@
     "transportOptions": {
       "shinkansen": 147,
       "train": 247,
-      "bus": 247,
-      "car": 290
+      "bus": 247
     }
   },
   {
@@ -82992,8 +81769,7 @@
     "transportOptions": {
       "shinkansen": 147,
       "train": 247,
-      "bus": 247,
-      "car": 290
+      "bus": 247
     }
   },
   {
@@ -83080,8 +81856,7 @@
     "transportOptions": {
       "shinkansen": 152,
       "train": 252,
-      "bus": 252,
-      "car": 290
+      "bus": 252
     }
   },
   {
@@ -83168,8 +81943,7 @@
     "transportOptions": {
       "train": 195,
       "bus": 225,
-      "car": 245,
-      "shinkansen": 150
+      "car": 245
     }
   },
   {
@@ -83256,8 +82030,7 @@
     "transportOptions": {
       "train": 162,
       "bus": 192,
-      "car": 212,
-      "shinkansen": 150
+      "car": 212
     }
   },
   {
@@ -83344,8 +82117,7 @@
     "transportOptions": {
       "shinkansen": 180,
       "train": 210,
-      "car": 270,
-      "bus": 200
+      "car": 270
     }
   },
   {
@@ -83436,8 +82208,7 @@
     "transportOptions": {
       "shinkansen": 185,
       "train": 215,
-      "car": 275,
-      "bus": 205
+      "car": 275
     }
   },
   {
@@ -83528,8 +82299,7 @@
     "transportOptions": {
       "train": 255,
       "bus": 295,
-      "car": 325,
-      "shinkansen": 120
+      "car": 325
     }
   },
   {
@@ -83616,8 +82386,7 @@
     "transportOptions": {
       "train": 242,
       "bus": 282,
-      "car": 312,
-      "shinkansen": 120
+      "car": 312
     }
   },
   {
@@ -83707,9 +82476,7 @@
     "municipalityId": "Hyogo:asago",
     "transportOptions": {
       "train": 200,
-      "car": 200,
-      "shinkansen": 120,
-      "bus": 228
+      "car": 200
     }
   },
   {
@@ -83800,8 +82567,7 @@
     "transportOptions": {
       "train": 196,
       "bus": 228,
-      "car": 222,
-      "shinkansen": 120
+      "car": 222
     }
   },
   {
@@ -84070,8 +82836,7 @@
     "transportOptions": {
       "train": 150,
       "bus": 162,
-      "car": 170,
-      "shinkansen": 155
+      "car": 170
     }
   },
   {
@@ -84158,8 +82923,7 @@
     "transportOptions": {
       "train": 145,
       "bus": 160,
-      "car": 175,
-      "shinkansen": 155
+      "car": 175
     }
   },
   {
@@ -84249,9 +83013,7 @@
     "municipalityId": "Shiga:hikone",
     "transportOptions": {
       "train": 160,
-      "car": 168,
-      "shinkansen": 155,
-      "bus": 175
+      "car": 168
     }
   },
   {
@@ -84341,8 +83103,7 @@
     "transportOptions": {
       "train": 210,
       "bus": 245,
-      "car": 232,
-      "shinkansen": 155
+      "car": 232
     }
   },
   {
@@ -84610,8 +83371,7 @@
     "municipalityId": "Wakayama:koya",
     "transportOptions": {
       "train": 230,
-      "bus": 272,
-      "car": 60
+      "bus": 272
     }
   },
   {
@@ -84885,8 +83645,7 @@
     "transportOptions": {
       "train": 143,
       "bus": 160,
-      "car": 175,
-      "shinkansen": 155
+      "car": 175
     }
   },
   {
@@ -85245,8 +84004,7 @@
     "municipalityId": "Wakayama:koya",
     "transportOptions": {
       "train": 228,
-      "bus": 270,
-      "car": 60
+      "bus": 270
     }
   },
   {
@@ -85681,8 +84439,7 @@
     "transportOptions": {
       "train": 160,
       "bus": 175,
-      "car": 185,
-      "shinkansen": 155
+      "car": 185
     }
   },
   {
@@ -85773,8 +84530,7 @@
     "transportOptions": {
       "train": 175,
       "bus": 195,
-      "car": 205,
-      "shinkansen": 155
+      "car": 205
     }
   },
   {
@@ -85864,9 +84620,7 @@
     "municipalityId": "Shiga:otsu",
     "transportOptions": {
       "train": 152,
-      "car": 165,
-      "shinkansen": 155,
-      "bus": 162
+      "car": 165
     }
   },
   {
@@ -86261,9 +85015,7 @@
     },
     "bestMonths": [3, 4, 5, 10, 11],
     "transportOptions": {
-      "train": 200,
-      "bus": 50,
-      "car": 60
+      "train": 200
     },
     "notes": "Naha's main shopping street — great for Okinawan souvenirs and street food.",
     "totalTripHours": 3,
@@ -86396,9 +85148,7 @@
     },
     "bestMonths": [1, 3, 4, 5, 10, 11],
     "transportOptions": {
-      "train": 200,
-      "bus": 50,
-      "car": 60
+      "train": 200
     },
     "notes": "The only major Shinto shrine in Okinawa, perched on a clifftop overlooking Naminoue Beach.",
     "totalTripHours": 2,
@@ -86531,9 +85281,7 @@
     },
     "bestMonths": [1, 2, 3, 4, 10, 11, 12],
     "transportOptions": {
-      "train": 200,
-      "bus": 50,
-      "car": 60
+      "train": 200
     },
     "notes": "A tranquil Chinese garden near the city centre — a quiet escape from busy Kokusai Dori.",
     "totalTripHours": 2,
@@ -86666,8 +85414,7 @@
     },
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "transportOptions": {
-      "bus": 300,
-      "car": 60
+      "bus": 300
     },
     "notes": "A whimsical pineapple-themed park — great for families and pineapple lovers.",
     "totalTripHours": 4,
@@ -86800,8 +85547,7 @@
     },
     "bestMonths": [3, 4, 5, 6, 7, 8, 9, 10],
     "transportOptions": {
-      "bus": 350,
-      "car": 60
+      "bus": 350
     },
     "notes": "The underwater observation tower offers excellent views of coral and tropical fish without getting wet.",
     "totalTripHours": 3,
@@ -86934,8 +85680,7 @@
     },
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "transportOptions": {
-      "bus": 400,
-      "car": 60
+      "bus": 400
     },
     "notes": "Home to whale sharks — arrive early to avoid the heaviest crowds at the Kuroshio tank.",
     "totalTripHours": 5,
@@ -87068,8 +85813,7 @@
     },
     "bestMonths": [3, 4, 5, 10, 11],
     "transportOptions": {
-      "bus": 300,
-      "car": 60
+      "bus": 300
     },
     "notes": "A peaceful tree-lined lane near Churaumi — walk or rent a bicycle for the full experience.",
     "totalTripHours": 2,
@@ -87207,8 +85951,7 @@
     },
     "bestMonths": [1, 2, 3, 10, 11, 12],
     "transportOptions": {
-      "bus": 400,
-      "car": 60
+      "bus": 400
     },
     "notes": "One of nine Gusuku sites — visit in late January for Okinawa's earliest cherry blossoms.",
     "totalTripHours": 3,
@@ -87341,8 +86084,7 @@
     },
     "bestMonths": [3, 4, 5, 6, 7, 8, 9, 10],
     "transportOptions": {
-      "bus": 300,
-      "car": 60
+      "bus": 300
     },
     "notes": "Swimming is not allowed in the bay — take a glass-bottom boat to see the coral and pearls.",
     "totalTripHours": 2,
@@ -87474,8 +86216,7 @@
     },
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "transportOptions": {
-      "bus": 350,
-      "car": 60
+      "bus": 350
     },
     "notes": "Free observation point with views of the Hirakubo Peninsula — best in clear morning light.",
     "totalTripHours": 1,
@@ -87607,8 +86348,7 @@
     },
     "bestMonths": [4, 5, 6, 7, 8, 9, 10],
     "transportOptions": {
-      "bus": 300,
-      "car": 60
+      "bus": 300
     },
     "notes": "Bring your own snorkel gear — the coral starts just metres from the shore at low tide.",
     "totalTripHours": 3,
@@ -87742,8 +86482,7 @@
     },
     "bestMonths": [4, 5, 6, 7, 8, 9, 10],
     "transportOptions": {
-      "bus": 300,
-      "car": 60
+      "bus": 300
     },
     "notes": "One of Japan's top beaches — the shallow water extends far out, ideal for wading and families.",
     "totalTripHours": 4,
@@ -87877,8 +86616,7 @@
     },
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "transportOptions": {
-      "bus": 250,
-      "car": 60
+      "bus": 250
     },
     "notes": "Japan's longest toll-free bridge — stop at the roadside station for panoramic photos.",
     "totalTripHours": 2,
@@ -88012,8 +86750,7 @@
     },
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "transportOptions": {
-      "bus": 300,
-      "car": 60
+      "bus": 300
     },
     "notes": "A dramatic cape where two seas meet — arrive early for sunrise at the easternmost point.",
     "totalTripHours": 2,
@@ -88094,9 +86831,7 @@
     },
     "transportOptions": {
       "train": 195,
-      "shinkansen": 295,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 295
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -88255,9 +86990,7 @@
     },
     "transportOptions": {
       "train": 210,
-      "shinkansen": 310,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 310
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -88419,9 +87152,7 @@
     },
     "transportOptions": {
       "train": 270,
-      "shinkansen": 370,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 370
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -88580,9 +87311,7 @@
     },
     "transportOptions": {
       "train": 275,
-      "shinkansen": 375,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 375
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -88741,9 +87470,7 @@
     },
     "transportOptions": {
       "train": 270,
-      "shinkansen": 370,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 370
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -88902,9 +87629,7 @@
     },
     "transportOptions": {
       "train": 270,
-      "shinkansen": 370,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 370
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -89063,9 +87788,7 @@
     },
     "transportOptions": {
       "train": 270,
-      "shinkansen": 370,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 370
     },
     "totalTripHours": 2,
     "recommendedVisitHours": {
@@ -89218,9 +87941,7 @@
     },
     "transportOptions": {
       "train": 275,
-      "shinkansen": 375,
-      "bus": 490,
-      "car": 530
+      "shinkansen": 375
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -89379,9 +88100,7 @@
     },
     "transportOptions": {
       "train": 280,
-      "shinkansen": 380,
-      "bus": 490,
-      "car": 530
+      "shinkansen": 380
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -89540,9 +88259,7 @@
     },
     "transportOptions": {
       "train": 290,
-      "shinkansen": 400,
-      "bus": 420,
-      "car": 630
+      "shinkansen": 400
     },
     "totalTripHours": 2,
     "recommendedVisitHours": {
@@ -89695,9 +88412,7 @@
     },
     "transportOptions": {
       "train": 295,
-      "shinkansen": 405,
-      "bus": 425,
-      "car": 630
+      "shinkansen": 405
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -89850,9 +88565,7 @@
     },
     "transportOptions": {
       "train": 290,
-      "shinkansen": 400,
-      "bus": 420,
-      "car": 630
+      "shinkansen": 400
     },
     "totalTripHours": 2,
     "recommendedVisitHours": {
@@ -90011,9 +88724,7 @@
     },
     "transportOptions": {
       "train": 300,
-      "shinkansen": 410,
-      "bus": 430,
-      "car": 630
+      "shinkansen": 410
     },
     "totalTripHours": 2,
     "recommendedVisitHours": {
@@ -90166,9 +88877,7 @@
     },
     "transportOptions": {
       "train": 300,
-      "shinkansen": 410,
-      "bus": 430,
-      "car": 630
+      "shinkansen": 410
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -90327,9 +89036,7 @@
     },
     "transportOptions": {
       "train": 300,
-      "shinkansen": 410,
-      "bus": 430,
-      "car": 630
+      "shinkansen": 410
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -90482,9 +89189,7 @@
     },
     "transportOptions": {
       "train": 220,
-      "shinkansen": 320,
-      "bus": 340,
-      "car": 600
+      "shinkansen": 320
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -90643,9 +89348,7 @@
     },
     "transportOptions": {
       "train": 220,
-      "shinkansen": 320,
-      "bus": 340,
-      "car": 600
+      "shinkansen": 320
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -90804,9 +89507,7 @@
     },
     "transportOptions": {
       "train": 220,
-      "shinkansen": 320,
-      "bus": 340,
-      "car": 600
+      "shinkansen": 320
     },
     "totalTripHours": 2,
     "recommendedVisitHours": {
@@ -90959,9 +89660,7 @@
     },
     "transportOptions": {
       "train": 310,
-      "shinkansen": 420,
-      "bus": 440,
-      "car": 720
+      "shinkansen": 420
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -91120,9 +89819,7 @@
     },
     "transportOptions": {
       "train": 310,
-      "shinkansen": 420,
-      "bus": 440,
-      "car": 720
+      "shinkansen": 420
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -91281,9 +89978,7 @@
     },
     "transportOptions": {
       "train": 320,
-      "shinkansen": 430,
-      "bus": 450,
-      "car": 660
+      "shinkansen": 430
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -91442,9 +90137,7 @@
     },
     "transportOptions": {
       "train": 320,
-      "shinkansen": 430,
-      "bus": 450,
-      "car": 660
+      "shinkansen": 430
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -91597,9 +90290,7 @@
     },
     "transportOptions": {
       "train": 325,
-      "shinkansen": 435,
-      "bus": 455,
-      "car": 660
+      "shinkansen": 435
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -91752,9 +90443,7 @@
     },
     "transportOptions": {
       "train": 320,
-      "shinkansen": 430,
-      "bus": 450,
-      "car": 660
+      "shinkansen": 430
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -92069,9 +90758,7 @@
     },
     "transportOptions": {
       "train": 335,
-      "shinkansen": 445,
-      "bus": 465,
-      "car": 700
+      "shinkansen": 445
     },
     "totalTripHours": 2,
     "recommendedVisitHours": {
@@ -92224,9 +90911,7 @@
     },
     "transportOptions": {
       "train": 335,
-      "shinkansen": 445,
-      "bus": 465,
-      "car": 700
+      "shinkansen": 445
     },
     "totalTripHours": 2,
     "recommendedVisitHours": {
@@ -92385,9 +91070,7 @@
     },
     "transportOptions": {
       "train": 355,
-      "shinkansen": 465,
-      "bus": 485,
-      "car": 700
+      "shinkansen": 465
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -92546,9 +91229,7 @@
     },
     "transportOptions": {
       "train": 360,
-      "shinkansen": 470,
-      "bus": 490,
-      "car": 700
+      "shinkansen": 470
     },
     "totalTripHours": 2,
     "recommendedVisitHours": {
@@ -92701,9 +91382,7 @@
     },
     "transportOptions": {
       "train": 355,
-      "shinkansen": 465,
-      "bus": 485,
-      "car": 700
+      "shinkansen": 465
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -92863,9 +91542,7 @@
     },
     "transportOptions": {
       "train": 400,
-      "shinkansen": 510,
-      "bus": 530,
-      "car": 720
+      "shinkansen": 510
     },
     "totalTripHours": 10,
     "recommendedVisitHours": {
@@ -93025,9 +91702,7 @@
     },
     "transportOptions": {
       "train": 400,
-      "shinkansen": 510,
-      "bus": 530,
-      "car": 720
+      "shinkansen": 510
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -93181,9 +91856,7 @@
     },
     "transportOptions": {
       "train": 400,
-      "shinkansen": 510,
-      "bus": 530,
-      "car": 720
+      "shinkansen": 510
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -93342,9 +92015,7 @@
     },
     "transportOptions": {
       "train": 215,
-      "shinkansen": 315,
-      "bus": 335,
-      "car": 600
+      "shinkansen": 315
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -93503,9 +92174,7 @@
     },
     "transportOptions": {
       "train": 220,
-      "shinkansen": 320,
-      "bus": 340,
-      "car": 600
+      "shinkansen": 320
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -93664,9 +92333,7 @@
     },
     "transportOptions": {
       "train": 230,
-      "shinkansen": 330,
-      "bus": 350,
-      "car": 600
+      "shinkansen": 330
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -93828,9 +92495,7 @@
     },
     "transportOptions": {
       "train": 215,
-      "shinkansen": 315,
-      "bus": 50,
-      "car": 60
+      "shinkansen": 315
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -93996,10 +92661,7 @@
       "cafe": 50
     },
     "transportOptions": {
-      "train": 200,
-      "shinkansen": 320,
-      "bus": 340,
-      "car": 600
+      "train": 200
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -94161,10 +92823,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 250,
-      "shinkansen": 345,
-      "bus": 300,
-      "car": 620
+      "train": 250
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -94306,9 +92965,7 @@
     },
     "transportOptions": {
       "train": 250,
-      "bus": 150,
-      "shinkansen": 345,
-      "car": 620
+      "bus": 150
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -94466,10 +93123,7 @@
       "cafe": 150
     },
     "transportOptions": {
-      "bus": 300,
-      "train": 250,
-      "shinkansen": 345,
-      "car": 620
+      "bus": 300
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -94628,9 +93282,7 @@
     },
     "transportOptions": {
       "train": 250,
-      "bus": 150,
-      "shinkansen": 345,
-      "car": 620
+      "bus": 150
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -94789,10 +93441,7 @@
       "cafe": 200
     },
     "transportOptions": {
-      "bus": 400,
-      "train": 250,
-      "shinkansen": 345,
-      "car": 620
+      "bus": 400
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -94948,10 +93597,7 @@
       "cafe": 150
     },
     "transportOptions": {
-      "bus": 350,
-      "train": 250,
-      "shinkansen": 345,
-      "car": 620
+      "bus": 350
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -95106,10 +93752,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 280,
-      "shinkansen": 375,
-      "bus": 250,
-      "car": 660
+      "train": 280
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -95251,9 +93894,7 @@
     },
     "transportOptions": {
       "train": 280,
-      "bus": 200,
-      "shinkansen": 375,
-      "car": 660
+      "bus": 200
     },
     "totalTripHours": 8,
     "recommendedVisitHours": {
@@ -95412,10 +94053,7 @@
       "cafe": 250
     },
     "transportOptions": {
-      "bus": 250,
-      "train": 280,
-      "shinkansen": 375,
-      "car": 660
+      "bus": 250
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -95574,10 +94212,7 @@
       "cafe": 200
     },
     "transportOptions": {
-      "bus": 250,
-      "train": 280,
-      "shinkansen": 375,
-      "car": 660
+      "bus": 250
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -95735,10 +94370,7 @@
       "cafe": 100
     },
     "transportOptions": {
-      "bus": 250,
-      "train": 280,
-      "shinkansen": 375,
-      "car": 660
+      "bus": 250
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -95891,10 +94523,7 @@
       "cafe": 250
     },
     "transportOptions": {
-      "bus": 200,
-      "train": 280,
-      "shinkansen": 375,
-      "car": 660
+      "bus": 200
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -96055,10 +94684,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 310,
-      "shinkansen": 430,
-      "bus": 250,
-      "car": 720
+      "train": 310
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -96200,9 +94826,7 @@
     },
     "transportOptions": {
       "train": 310,
-      "bus": 200,
-      "shinkansen": 430,
-      "car": 720
+      "bus": 200
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -96360,10 +94984,7 @@
       "cafe": 100
     },
     "transportOptions": {
-      "bus": 250,
-      "train": 310,
-      "shinkansen": 430,
-      "car": 720
+      "bus": 250
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -96523,10 +95144,7 @@
       "cafe": 100
     },
     "transportOptions": {
-      "bus": 200,
-      "train": 310,
-      "shinkansen": 430,
-      "car": 720
+      "bus": 200
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -96684,10 +95302,7 @@
       "cafe": 100
     },
     "transportOptions": {
-      "bus": 250,
-      "train": 310,
-      "shinkansen": 430,
-      "car": 720
+      "bus": 250
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -96846,10 +95461,7 @@
       "cafe": 200
     },
     "transportOptions": {
-      "bus": 300,
-      "train": 310,
-      "shinkansen": 430,
-      "car": 720
+      "bus": 300
     },
     "totalTripHours": 7,
     "recommendedVisitHours": {
@@ -97010,10 +95622,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 220,
-      "shinkansen": 480,
-      "bus": 350,
-      "car": 700
+      "train": 220
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -97155,9 +95764,7 @@
     },
     "transportOptions": {
       "train": 220,
-      "bus": 200,
-      "shinkansen": 480,
-      "car": 700
+      "bus": 200
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -97316,10 +95923,7 @@
       "cafe": 150
     },
     "transportOptions": {
-      "bus": 350,
-      "train": 220,
-      "shinkansen": 480,
-      "car": 700
+      "bus": 350
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -97478,10 +96082,7 @@
       "cafe": 250
     },
     "transportOptions": {
-      "bus": 350,
-      "train": 220,
-      "shinkansen": 480,
-      "car": 700
+      "bus": 350
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -97642,10 +96243,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 240,
-      "shinkansen": 425,
-      "bus": 150,
-      "car": 630
+      "train": 240
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -97787,9 +96385,7 @@
     },
     "transportOptions": {
       "train": 240,
-      "bus": 150,
-      "shinkansen": 425,
-      "car": 630
+      "bus": 150
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -97949,10 +96545,7 @@
       "cafe": 150
     },
     "transportOptions": {
-      "bus": 150,
-      "train": 240,
-      "shinkansen": 425,
-      "car": 630
+      "bus": 150
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -98111,10 +96704,7 @@
       "cafe": 150
     },
     "transportOptions": {
-      "bus": 150,
-      "train": 240,
-      "shinkansen": 425,
-      "car": 630
+      "bus": 150
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -98272,10 +96862,7 @@
       "cafe": 50
     },
     "transportOptions": {
-      "bus": 500,
-      "train": 240,
-      "shinkansen": 425,
-      "car": 630
+      "bus": 500
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -98433,11 +97020,7 @@
       "cafe": 50
     },
     "transportOptions": {
-      "walk": 15,
-      "train": 240,
-      "shinkansen": 425,
-      "bus": 150,
-      "car": 630
+      "walk": 15
     },
     "totalTripHours": 3,
     "recommendedVisitHours": {
@@ -98596,11 +97179,7 @@
       "cafe": 50
     },
     "transportOptions": {
-      "walk": 10,
-      "train": 220,
-      "shinkansen": 480,
-      "bus": 350,
-      "car": 700
+      "walk": 10
     },
     "totalTripHours": 1.5,
     "recommendedVisitHours": {
@@ -103916,12 +102495,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 240,
-      "shinkansen": 210,
-      "bus": 230,
-      "car": 300
-    },
+    "transportOptions": {},
     "budgetMin": 3500,
     "budgetRecommended": 7000,
     "budgetMax": 12000,
@@ -104088,12 +102662,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 240,
-      "shinkansen": 210,
-      "bus": 230,
-      "car": 300
-    },
+    "transportOptions": {},
     "budgetMin": 1000,
     "budgetRecommended": 3000,
     "budgetMax": 6000,
@@ -104260,12 +102829,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 240,
-      "shinkansen": 210,
-      "bus": 230,
-      "car": 300
-    },
+    "transportOptions": {},
     "budgetMin": 2000,
     "budgetRecommended": 4000,
     "budgetMax": 8000,
@@ -104432,12 +102996,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 240,
-      "shinkansen": 210,
-      "bus": 230,
-      "car": 300
-    },
+    "transportOptions": {},
     "budgetMin": 1000,
     "budgetRecommended": 2500,
     "budgetMax": 5000,
@@ -104604,12 +103163,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 200,
-      "bus": 220,
-      "car": 380
-    },
+    "transportOptions": {},
     "budgetMin": 3500,
     "budgetRecommended": 7000,
     "budgetMax": 13000,
@@ -104776,12 +103330,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 200,
-      "bus": 220,
-      "car": 380
-    },
+    "transportOptions": {},
     "budgetMin": 2000,
     "budgetRecommended": 5000,
     "budgetMax": 10000,
@@ -104948,12 +103497,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 200,
-      "bus": 220,
-      "car": 380
-    },
+    "transportOptions": {},
     "budgetMin": 3000,
     "budgetRecommended": 8000,
     "budgetMax": 20000,
@@ -105120,12 +103664,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 200,
-      "bus": 220,
-      "car": 380
-    },
+    "transportOptions": {},
     "budgetMin": 2500,
     "budgetRecommended": 5000,
     "budgetMax": 9000,
@@ -105292,12 +103831,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 280,
-      "shinkansen": 240,
-      "bus": 150,
-      "car": 320
-    },
+    "transportOptions": {},
     "budgetMin": 2000,
     "budgetRecommended": 4500,
     "budgetMax": 8000,
@@ -105464,12 +103998,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 280,
-      "shinkansen": 240,
-      "bus": 150,
-      "car": 320
-    },
+    "transportOptions": {},
     "budgetMin": 3000,
     "budgetRecommended": 6000,
     "budgetMax": 11000,
@@ -105631,12 +104160,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 240,
-      "bus": 260,
-      "car": 480
-    },
+    "transportOptions": {},
     "budgetMin": 0,
     "budgetRecommended": 1000,
     "budgetMax": 2000,
@@ -105797,12 +104321,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 240,
-      "bus": 260,
-      "car": 480
-    },
+    "transportOptions": {},
     "budgetMin": 0,
     "budgetRecommended": 800,
     "budgetMax": 1500,
@@ -105952,12 +104471,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 240,
-      "bus": 260,
-      "car": 480
-    },
+    "transportOptions": {},
     "budgetMin": 0,
     "budgetRecommended": 700,
     "budgetMax": 1200,
@@ -106113,12 +104627,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 240,
-      "bus": 260,
-      "car": 480
-    },
+    "transportOptions": {},
     "budgetMin": 1000,
     "budgetRecommended": 2500,
     "budgetMax": 6000,
@@ -106268,12 +104777,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 255,
-      "bus": 275,
-      "car": 480
-    },
+    "transportOptions": {},
     "transportZoneId": "unknown",
     "budgetMin": 1000,
     "budgetRecommended": 2500,
@@ -106424,12 +104928,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 255,
-      "bus": 275,
-      "car": 480
-    },
+    "transportOptions": {},
     "transportZoneId": "unknown",
     "budgetMin": 0,
     "budgetRecommended": 1000,
@@ -106591,12 +105090,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 255,
-      "bus": 275,
-      "car": 480
-    },
+    "transportOptions": {},
     "transportZoneId": "unknown",
     "budgetMin": 0,
     "budgetRecommended": 800,
@@ -106758,12 +105252,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 255,
-      "bus": 275,
-      "car": 480
-    },
+    "transportOptions": {},
     "transportZoneId": "unknown",
     "budgetMin": 100,
     "budgetRecommended": 900,
@@ -106920,12 +105409,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 255,
-      "bus": 275,
-      "car": 480
-    },
+    "transportOptions": {},
     "transportZoneId": "unknown",
     "budgetMin": 0,
     "budgetRecommended": 2500,
@@ -107088,11 +105572,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 330,
-      "bus": 350,
-      "car": 390
-    },
+    "transportOptions": {},
     "budgetMin": 1200,
     "budgetRecommended": 3500,
     "budgetMax": 6000,
@@ -107254,11 +105734,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 330,
-      "bus": 350,
-      "car": 390
-    },
+    "transportOptions": {},
     "budgetMin": 1000,
     "budgetRecommended": 3000,
     "budgetMax": 5000,
@@ -107414,11 +105890,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 330,
-      "bus": 350,
-      "car": 390
-    },
+    "transportOptions": {},
     "budgetMin": 1000,
     "budgetRecommended": 3500,
     "budgetMax": 6000,
@@ -107580,11 +106052,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 330,
-      "bus": 350,
-      "car": 390
-    },
+    "transportOptions": {},
     "budgetMin": 1000,
     "budgetRecommended": 2800,
     "budgetMax": 4500,
@@ -107740,11 +106208,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 330,
-      "bus": 350,
-      "car": 390
-    },
+    "transportOptions": {},
     "budgetMin": 800,
     "budgetRecommended": 2500,
     "budgetMax": 4500,
@@ -107900,11 +106364,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 280,
-      "bus": 340,
-      "car": 390
-    },
+    "transportOptions": {},
     "budgetMin": 0,
     "budgetRecommended": 1000,
     "budgetMax": 2500,
@@ -108065,11 +106525,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 280,
-      "bus": 340,
-      "car": 390
-    },
+    "transportOptions": {},
     "budgetMin": 300,
     "budgetRecommended": 1800,
     "budgetMax": 4000,
@@ -108230,11 +106686,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 320,
-      "bus": 340,
-      "car": 390
-    },
+    "transportOptions": {},
     "budgetMin": 0,
     "budgetRecommended": 2500,
     "budgetMax": 5000,
@@ -108390,12 +106842,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 200,
-      "shinkansen": 285,
-      "bus": 305,
-      "car": 540
-    },
+    "transportOptions": {},
     "budgetMin": 1000,
     "budgetRecommended": 2500,
     "budgetMax": 5000,
@@ -108551,12 +106998,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 180,
-      "shinkansen": 120,
-      "bus": 150,
-      "car": 120
-    },
+    "transportOptions": {},
     "budgetMin": 0,
     "budgetRecommended": 2000,
     "budgetMax": 4000,
@@ -108718,12 +107160,7 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "train": 180,
-      "shinkansen": 120,
-      "bus": 150,
-      "car": 120
-    },
+    "transportOptions": {},
     "budgetMin": 800,
     "budgetRecommended": 2500,
     "budgetMax": 4500,

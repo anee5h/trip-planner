@@ -56,9 +56,7 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 200,
-    "bus": 120,
-    "car": 110
+    "train": 200
   },
   "reservation": "None required",
   "parking": "Public parking available",

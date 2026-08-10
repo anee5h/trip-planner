@@ -116,9 +116,7 @@
   },
   "bestMonths": [3, 4, 5, 10, 11],
   "transportOptions": {
-    "train": 200,
-    "bus": 50,
-    "car": 60
+    "train": 200
   },
   "notes": "Naha's main shopping street — great for Okinawan souvenirs and street food.",
   "totalTripHours": 3,

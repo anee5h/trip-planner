@@ -86,7 +86,6 @@
   "transportOptions": {
     "shinkansen": 185,
     "train": 215,
-    "car": 275,
-    "bus": 205
+    "car": 275
   }
 }

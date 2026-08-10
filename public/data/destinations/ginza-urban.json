@@ -49,10 +49,7 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
   "transportOptions": {
-    "train": 40,
-    "shinkansen": 35,
-    "bus": 50,
-    "car": 35
+    "train": 40
   },
   "highlights": [
     "Itoya Stationery Store",

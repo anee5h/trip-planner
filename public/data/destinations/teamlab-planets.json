@@ -55,10 +55,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Photos_at_teamlab_planets_tokyo.jpg"
   },
   "transportOptions": {
-    "train": 50,
-    "shinkansen": 35,
-    "bus": 50,
-    "car": 35
+    "train": 50
   },
   "highlights": [
     "Walk Barefoot Through Water Art",

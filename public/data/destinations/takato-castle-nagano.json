@@ -52,9 +52,7 @@
   },
   "transportOptions": {
     "train": 120,
-    "car": 90,
-    "shinkansen": 95,
-    "bus": 115
+    "car": 90
   },
   "highlights": [
     "1,500 Kohigan Cherry Trees",

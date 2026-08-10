@@ -37,8 +37,7 @@
   },
   "transportOptions": {
     "train": 100,
-    "car": 80,
-    "bus": 120
+    "car": 80
   },
   "crowd": {
     "weekday": 3,

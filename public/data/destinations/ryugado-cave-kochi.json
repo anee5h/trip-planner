@@ -30,9 +30,7 @@
   "budgetMax": 6000,
   "budgetRecommended": 3750,
   "transportOptions": {
-    "train": 180,
-    "bus": 200,
-    "car": 480
+    "train": 180
   },
   "ratings": {
     "overall": 9,

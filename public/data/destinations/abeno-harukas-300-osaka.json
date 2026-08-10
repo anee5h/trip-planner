@@ -63,9 +63,7 @@
   },
   "transportOptions": {
     "train": 180,
-    "shinkansen": 150,
-    "bus": 210,
-    "car": 210
+    "shinkansen": 150
   },
   "highlights": [
     "58F-60F Harukas 300 Observatory (300m)",

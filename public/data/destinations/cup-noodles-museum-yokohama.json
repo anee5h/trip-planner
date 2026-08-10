@@ -51,10 +51,7 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 25,
-    "shinkansen": 20,
-    "bus": 20,
-    "car": 40
+    "train": 25
   },
   "highlights": ["Museum", "Family", "Food"],
   "description": "Cup Noodles Museum Yokohama is a curated destination within Yokohama City.",

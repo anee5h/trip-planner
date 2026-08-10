@@ -116,8 +116,7 @@
   },
   "bestMonths": [3, 4, 5, 6, 7, 8, 9, 10],
   "transportOptions": {
-    "bus": 300,
-    "car": 60
+    "bus": 300
   },
   "notes": "Swimming is not allowed in the bay — take a glass-bottom boat to see the coral and pearls.",
   "totalTripHours": 2,

@@ -58,9 +58,7 @@
   },
   "transportOptions": {
     "train": 160,
-    "shinkansen": 140,
-    "bus": 160,
-    "car": 300
+    "shinkansen": 140
   },
   "highlights": [
     "Original 1576 Two-Story Wooden Keep",

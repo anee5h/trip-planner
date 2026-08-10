@@ -116,8 +116,7 @@
   },
   "bestMonths": [3, 4, 5, 10, 11],
   "transportOptions": {
-    "bus": 300,
-    "car": 60
+    "bus": 300
   },
   "notes": "A peaceful tree-lined lane near Churaumi — walk or rent a bicycle for the full experience.",
   "totalTripHours": 2,

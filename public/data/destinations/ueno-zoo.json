@@ -50,10 +50,7 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Ueno_Zoo_20220414a1.jpg/1920px-Ueno_Zoo_20220414a1.jpg",
   "transportOptions": {
-    "train": 15,
-    "shinkansen": 35,
-    "bus": 50,
-    "car": 60
+    "train": 15
   },
   "highlights": [
     "Giant Panda Enclosures",

@@ -57,9 +57,7 @@
   },
   "transportOptions": {
     "train": 150,
-    "shinkansen": 130,
-    "bus": 300,
-    "car": 360
+    "shinkansen": 130
   },
   "highlights": [
     "Hishi Yagura Diamond Turret",

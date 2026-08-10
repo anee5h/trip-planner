@@ -52,8 +52,7 @@
   },
   "transportOptions": {
     "train": 90,
-    "car": 80,
-    "bus": 110
+    "car": 80
   },
   "highlights": [
     "Original Stone Wall & Moats",

@@ -51,10 +51,7 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 20,
-    "shinkansen": 35,
-    "bus": 50,
-    "car": 35
+    "train": 20
   },
   "highlights": [
     "Main Deck (150m)",

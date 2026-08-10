@@ -26,12 +26,7 @@
     "confidence": "beta"
   },
   "collections": [],
-  "transportOptions": {
-    "train": 200,
-    "shinkansen": 255,
-    "bus": 275,
-    "car": 480
-  },
+  "transportOptions": {},
   "transportZoneId": "unknown",
   "budgetMin": 1000,
   "budgetRecommended": 2500,

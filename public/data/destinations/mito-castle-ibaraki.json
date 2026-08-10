@@ -52,8 +52,7 @@
   },
   "transportOptions": {
     "train": 70,
-    "car": 65,
-    "bus": 85
+    "car": 65
   },
   "highlights": [
     "Kodokan Historic Han School",

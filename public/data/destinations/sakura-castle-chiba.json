@@ -57,8 +57,7 @@
   },
   "transportOptions": {
     "train": 55,
-    "car": 45,
-    "bus": 75
+    "car": 45
   },
   "highlights": [
     "Historic Earthen Ramparts & Moats",

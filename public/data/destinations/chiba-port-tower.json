@@ -52,8 +52,7 @@
   },
   "transportOptions": {
     "train": 45,
-    "car": 35,
-    "bus": 65
+    "car": 35
   },
   "highlights": [
     "125m Mirror Glass Facade",

@@ -53,10 +53,7 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg/3840px-Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg",
   "transportOptions": {
-    "train": 50,
-    "shinkansen": 35,
-    "bus": 50,
-    "car": 35
+    "train": 50
   },
   "highlights": ["Gundam Statue", "Odaiba Seaside Park", "Rainbow Bridge View"],
   "description": "A high-tech entertainment hub on an artificial island in Tokyo Bay, featuring shopping malls, beaches, and a giant Gundam.",

@@ -56,10 +56,7 @@
     "walkingIntensity": 2
   },
   "transportOptions": {
-    "train": 30,
-    "shinkansen": 20,
-    "bus": 20,
-    "car": 40
+    "train": 30
   },
   "highlights": [
     "69F Sky Garden Observatory (273m)",

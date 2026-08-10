@@ -50,10 +50,7 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Sega_Joypolis_Odaiba.jpg/1920px-Sega_Joypolis_Odaiba.jpg",
   "transportOptions": {
-    "train": 18,
-    "shinkansen": 35,
-    "bus": 50,
-    "car": 35
+    "train": 18
   },
   "highlights": [
     "Indoor Roller Coasters",

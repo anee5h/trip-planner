@@ -57,9 +57,7 @@
   },
   "transportOptions": {
     "train": 130,
-    "shinkansen": 110,
-    "bus": 40,
-    "car": 45
+    "shinkansen": 110
   },
   "highlights": [
     "140.5m Free Observatory Deck",

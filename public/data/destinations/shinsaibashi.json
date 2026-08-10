@@ -51,8 +51,7 @@
   "transportOptions": {
     "train": 192,
     "bus": 212,
-    "shinkansen": 152,
-    "car": 210
+    "shinkansen": 152
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {

@@ -61,9 +61,7 @@
   },
   "transportOptions": {
     "train": 200,
-    "shinkansen": 110,
-    "bus": 150,
-    "car": 160
+    "shinkansen": 110
   },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
