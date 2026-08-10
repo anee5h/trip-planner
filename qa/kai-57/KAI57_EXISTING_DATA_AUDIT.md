@@ -183,9 +183,11 @@ diff) and are recorded in `KAI57_SOURCE_LEDGER.md`-style provenance blocks.
 
 ### Known limitations (documented, not silently fixed)
 
-- okama-crater: crater sits on the Yamagata–Miyagi border (VISIT YAMAGATA lists
-  Miyagi-side Kawasaki Town; boundary undetermined). Kept Yamagata-filed with a
-  caveat note — flagged for Sol review.
+- okama-crater: the crater sits on the Yamagata–Miyagi border (VISIT YAMAGATA
+  lists Miyagi-side Kawasaki Town; boundary undetermined). Per the Sol gate it
+  is now a parent-free standalone with gateway yamagata-city, consistent with
+  the other undetermined-municipality standalones (shirakami, lake-towada,
+  dewa-sanzan); the caveat note remains in the record.
 - mount-zao: ropeway base + juhyo experience entirely in Yamagata City —
   municipalityId Yamagata:yamagata retained (refutes original flag).
 - Gateway choices for southern Iwate (geibikei, hiraizumi) are forced to
