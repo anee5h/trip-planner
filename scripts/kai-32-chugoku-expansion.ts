@@ -53,7 +53,8 @@
  *      their actual open-access/seasonal operation.
  *  10. korakuen-okayama: 3840px hero thumbnail normalized to the repo's
  *      1280px convention and image metadata added (CC BY-SA 4.0, 663highland).
- *  11. Missing nameJa added for 12 Chugoku municipal hubs.
+ *  11. Missing nameJa added for 11 Chugoku municipal hubs (okayama-city
+ *      already had 岡山市).
  *
  * Transport truthfulness: no new train/ferry durations, fares, or bus
  * times are invented. New POIs carry transportOptions {} and their access
@@ -2750,7 +2751,7 @@ patch(
     d.nameJa = "広島平和記念資料館";
     d.kind = "museum";
     d.description =
-      "The Hiroshima Peace Memorial Museum documents the atomic bombing of August 6, 1945 through artifacts, survivor testimony and reconstructed scenes of the devastated city. The permanent exhibition is in the East Building (the Main Building reopened in April 2019 after renovation). The museum stands inside Hiroshima Peace Memorial Park, a short walk from the Genbaku Dome.";
+      "The Hiroshima Peace Memorial Museum documents the atomic bombing of August 6, 1945 through artifacts, survivor testimony and reconstructed scenes of the devastated city. The permanent exhibition is in the East Building (the Main Building reopened in April 2019 after renovation). The museum stands inside Hiroshima Peace Memorial Park beside the Motoyasu River.";
     d.notes =
       "Permanent exhibition in East Building; Main Building reopened 2019. Adjacent to Peace Park and the Genbaku Dome. This record is the museum; the Genbaku Dome is a separate record (genbaku-dome).";
     d.businessHours =
@@ -2786,8 +2787,9 @@ patch(
     d.highlights = [
       "Artifacts and testimony documenting August 6, 1945",
       "East Building permanent exhibition (¥200)",
-      "Peace education; a short walk from the Genbaku Dome",
+      "Peace education; exhibits on the August 6, 1945 bombing and its aftermath",
     ];
+    d.collections = [];
     d.content = {
       en: {
         name: d.name,

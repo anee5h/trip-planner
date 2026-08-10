@@ -5,11 +5,11 @@
   "region": "Chugoku",
   "categories": ["Museum", "History", "War Memorial", "Indoor"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Hiroshima_Peace_Memorial_Museum_2008_01.JPG/1280px-Hiroshima_Peace_Memorial_Museum_2008_01.JPG",
-  "description": "The Hiroshima Peace Memorial Museum documents the atomic bombing of August 6, 1945 through artifacts, survivor testimony and reconstructed scenes of the devastated city. The permanent exhibition is in the East Building (the Main Building reopened in April 2019 after renovation). The museum stands inside Hiroshima Peace Memorial Park, a short walk from the Genbaku Dome.",
+  "description": "The Hiroshima Peace Memorial Museum documents the atomic bombing of August 6, 1945 through artifacts, survivor testimony and reconstructed scenes of the devastated city. The permanent exhibition is in the East Building (the Main Building reopened in April 2019 after renovation). The museum stands inside Hiroshima Peace Memorial Park beside the Motoyasu River.",
   "highlights": [
     "Artifacts and testimony documenting August 6, 1945",
     "East Building permanent exhibition (¥200)",
-    "Peace education; a short walk from the Genbaku Dome"
+    "Peace education; exhibits on the August 6, 1945 bombing and its aftermath"
   ],
   "budgetMin": 800,
   "budgetMax": 2500,
@@ -71,12 +71,7 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "unesco-japan",
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "relationships": {
     "parentDestinationId": "hiroshima-city"
   },
@@ -106,11 +101,11 @@
   "content": {
     "en": {
       "name": "Hiroshima Peace Memorial Museum",
-      "description": "The Hiroshima Peace Memorial Museum documents the atomic bombing of August 6, 1945 through artifacts, survivor testimony and reconstructed scenes of the devastated city. The permanent exhibition is in the East Building (the Main Building reopened in April 2019 after renovation). The museum stands inside Hiroshima Peace Memorial Park, a short walk from the Genbaku Dome.",
+      "description": "The Hiroshima Peace Memorial Museum documents the atomic bombing of August 6, 1945 through artifacts, survivor testimony and reconstructed scenes of the devastated city. The permanent exhibition is in the East Building (the Main Building reopened in April 2019 after renovation). The museum stands inside Hiroshima Peace Memorial Park beside the Motoyasu River.",
       "highlights": [
         "Artifacts and testimony documenting August 6, 1945",
         "East Building permanent exhibition (¥200)",
-        "Peace education; a short walk from the Genbaku Dome"
+        "Peace education; exhibits on the August 6, 1945 bombing and its aftermath"
       ]
     },
     "ja": {
