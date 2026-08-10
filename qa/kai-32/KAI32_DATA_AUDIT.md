@@ -1,6 +1,6 @@
 # KAI-32 Chugoku POI claim-to-source audit
 
-Audit date: **2026-08-12** (the single source date used for every `accessedAt`,
+Audit date: **2026-08-10** (the single source date used for every `accessedAt`,
 `checkedAt`, and `changedAt` in `scripts/kai-32-chugoku-expansion.ts`; no
 pre-dated or future-dated provenance exists in this PR).
 
@@ -20,7 +20,7 @@ cluster, Hiroshima cluster, Shimane/Tottori/Yamaguchi cluster) that verified
 each fact against primary sources (municipal government sites, official
 attraction/operator sites, official tourism boards, UNESCO, Agency for
 Cultural Affairs / Cultural Heritage Online, Ramsar, MLIT) between
-2026-08-10 and 2026-08-12. All 30 new images and every corrected image
+2026-08-10 (the same day all provenance dates were checked). All 30 new images and every corrected image
 license were verified live against the Wikimedia Commons API (file exists,
 license, artist). Coordinates were cross-checked against OSM/Nominatim,
 Wikidata, and Commons geotags. LunaMax independently re-checked a sample of
@@ -177,26 +177,26 @@ Each row: record / claim | primary source | supported?
 
 ### Tottori / Yamaguchi clusters
 
-| Record                      | Claim                                                                                                                                     | Primary source                                                                                                                         | Supported  |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| `uradome-coast`             | 15-km ria coast in Iwami (Tottori); Place of Scenic Beauty & Natural Monument 1928; San'in Kaigan Geopark geosite; boats seasonal         | <https://www.torican.jp/en/spot/detail_1052.html> · <https://www.iwamikanko.org/> · <https://www.env.go.jp/park/content/000154324.pdf> | ✅         |
-| `uradome-coast`             | Municipality Tottori:iwami; gateway via tottori-city (no iwami hub record exists)                                                         | <https://www.japan.travel/en/spot/2278/>                                                                                               | ✅         |
-| `uradome-coast`             | Coords 35.59038,134.32622                                                                                                                 | Wikipedia                                                                                                                              | ✅/medium  |
-| `uradome-coast`             | Image `Uradome_Kaigan_-01.jpg` CC BY-SA 3.0 Aimaimyi                                                                                      | Commons API                                                                                                                            | ✅         |
-| `karato-market-shimonoseki` | Central fish market; Iki-iki Bakangai stalls Fri/Sat 08:00–15:00, Sun/holidays 07:00–15:00 (official 2026 calendar); wholesale from 04:00 | <https://www.karatoichiba.com/calendars/> · <https://www.karatoichiba.com/faq/>                                                        | ✅         |
-| `karato-market-shimonoseki` | Coords 33.95662,130.94582                                                                                                                 | OSM                                                                                                                                    | ✅/medium  |
-| `karato-market-shimonoseki` | Image `唐戸市場202309.jpg` CC BY-SA 4.0 なしはな                                                                                          | Commons API                                                                                                                            | ✅         |
-| `akiyoshidai-plateau`       | Japan's largest karst plateau (~130 km²), 400+ caves, Mine City; Quasi-National Park 1955; Ramsar groundwater; February Yamayaki          | <https://karusuto.com/spot/akiyoshido/> · <https://www.env.go.jp/en/nature/nps/park/system/> · <https://rsis.ramsar.org/>              | ✅         |
-| `akiyoshidai-plateau`       | Coords 34.2320,131.3027 (plateau centroid)                                                                                                | Wikipedia + karusuto.com                                                                                                               | ✅/derived |
-| `akiyoshidai-plateau`       | Image `Akiyoshidai_001.jpg` CC BY 2.0 monkist (Szabolcs Arany)                                                                            | Commons API                                                                                                                            | ✅         |
-| `iwakuni-castle`            | Built 1601–1608 by Kikkawa Hiroie; dismantled 1615; keep rebuilt 1962; 100 Fine Castles 2006; ¥270; ropeway ¥560 round; 09:00–16:45       | <https://kankou.iwakuni-city.net/iwakunijyo.html> · <https://kankou.iwakuni-city.net/ropeway.html>                                     | ✅         |
-| `iwakuni-castle`            | Coords 34.17526,132.17423                                                                                                                 | verified via city tourism                                                                                                              | ✅         |
-| `iwakuni-castle`            | Image `20100724_Iwakuni_Castle_5262.jpg` CC BY-SA 4.0 Jakub Hałun                                                                         | Commons API                                                                                                                            | ✅         |
+| Record                      | Claim                                                                                                                                                                                                                                        | Primary source                                                                                                                         | Supported  |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `uradome-coast`             | 15-km ria coast in Iwami (Tottori); Place of Scenic Beauty & Natural Monument 1928; San'in Kaigan Geopark geosite; boats seasonal                                                                                                            | <https://www.torican.jp/en/spot/detail_1052.html> · <https://www.iwamikanko.org/> · <https://www.env.go.jp/park/content/000154324.pdf> | ✅         |
+| `uradome-coast`             | Municipality Tottori:iwami; gateway via tottori-city (no iwami hub record exists)                                                                                                                                                            | <https://www.japan.travel/en/spot/2278/>                                                                                               | ✅         |
+| `uradome-coast`             | Coords 35.59038,134.32622                                                                                                                                                                                                                    | Wikipedia                                                                                                                              | ✅/medium  |
+| `uradome-coast`             | Image `Uradome_Kaigan_-01.jpg` CC BY-SA 3.0 Aimaimyi                                                                                                                                                                                         | Commons API                                                                                                                            | ✅         |
+| `karato-market-shimonoseki` | Central fish market; Iki-iki Bakangai stalls Fri/Sat 08:00–15:00, Sun/holidays 07:00–15:00 (official 2026 calendar); wholesale from 04:00                                                                                                    | <https://www.karatoichiba.com/calendars/> · <https://www.karatoichiba.com/faq/>                                                        | ✅         |
+| `karato-market-shimonoseki` | Coords 33.95662,130.94582                                                                                                                                                                                                                    | OSM                                                                                                                                    | ✅/medium  |
+| `karato-market-shimonoseki` | Image `唐戸市場202309.jpg` CC BY-SA 4.0 なしはな                                                                                                                                                                                             | Commons API                                                                                                                            | ✅         |
+| `akiyoshidai-plateau`       | Japan's largest karst plateau: limestone area ~100 km² and 450+ caves per the official Mine-Akiyoshidai Karst Plateau Geopark; Quasi-National Park 1955; Ramsar-registered groundwater system and cave-dwelling creatures; February Yamayaki | <https://en.mine-geo.com/> · <https://mine-geo.com/> · <https://www.env.go.jp/en/nature/nps/park/system/> · <https://rsis.ramsar.org/> | ✅         |
+| `akiyoshidai-plateau`       | Coords 34.2320,131.3027 (plateau centroid)                                                                                                                                                                                                   | OSM + Mine Geopark map                                                                                                                 | ✅/derived |
+| `akiyoshidai-plateau`       | Image `Akiyoshidai_001.jpg` CC BY 2.0 monkist (Szabolcs Arany)                                                                                                                                                                               | Commons API                                                                                                                            | ✅         |
+| `iwakuni-castle`            | Built 1601–1608 by Kikkawa Hiroie; dismantled 1615; keep rebuilt 1962; 100 Fine Castles 2006; ¥270; ropeway ¥560 round; 09:00–16:45                                                                                                          | <https://kankou.iwakuni-city.net/iwakunijyo.html> · <https://kankou.iwakuni-city.net/ropeway.html>                                     | ✅         |
+| `iwakuni-castle`            | Coords 34.17526,132.17423                                                                                                                                                                                                                    | verified via city tourism                                                                                                              | ✅         |
+| `iwakuni-castle`            | Image `20100724_Iwakuni_Castle_5262.jpg` CC BY-SA 4.0 Jakub Hałun                                                                                                                                                                            | Commons API                                                                                                                            | ✅         |
 
 ### Image provenance summary (new records)
 
 All 30 new records carry `imageMetadata` with license/attribution/sourceUrl
-verified against the Wikimedia Commons API on 2026-08-12. Licenses used:
+verified against the Wikimedia Commons API on 2026-08-10. Licenses used:
 CC BY-SA 4.0 (13), CC BY-SA 3.0 (3), CC BY-SA 2.0 (1), CC BY 2.5 (6), CC BY
 3.0 (2), CC BY 2.0 (1), CC0 (4). Every `sourceUrl` is the Commons file page
 for the exact asset in `heroImage`. No duplicate heroes were introduced;
@@ -298,8 +298,13 @@ Legend: 🔧 corrected in this PR · ✅ verified unchanged (no change needed).
 
 - `poil()` throws when `OPENING_HOURS_JA[id]` is missing, so no new record
   can silently fall back to English hours.
-- `AUDIT_DATE = "2026-08-12"` is the single provenance constant; every
+- `AUDIT_DATE = "2026-08-10"` is the single provenance constant; every
   `accessedAt`/`checkedAt`/`changedAt` derives from it.
+- New audit rule **E7 `SYNC_FUTURE_EDITORIAL_DATE`** (in
+  `scripts/audit/catalog-integrity.ts`, with deterministic unit tests in
+  `scripts/__tests__/audit-catalog-integrity.test.ts`) rejects any
+  `accessedAt`/`reviewedAt`/`checkedAt`/`changedAt`/`verifiedAt`/hours-verifiedAt
+  later than the audit reference date, so future-dated provenance cannot recur.
 - The generator was run twice: first run reported
   `added 30, corrected 40`; the second run reported `added 0, corrected 0`
   (byte-identical output). Derived detail files and `destinations-meta.json`

@@ -126,29 +126,29 @@
         "type": "official",
         "url": "https://okayama-castle.jp/guide/",
         "title": "利用案内 | 岡山城公式ウェブサイト",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       },
       {
         "type": "official",
         "url": "https://okayama-castle.jp/learn-history/",
         "title": "岡山城を知る｜歴史",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       },
       {
         "type": "government",
         "url": "https://online.bunka.go.jp/heritages/detail/202586",
         "title": "岡山城跡 文化遺産オンライン",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "reviewedAt": "2026-08-12",
+    "reviewedAt": "2026-08-10",
     "reviewedBy": "Meguruto editorial",
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-32 Chugoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"

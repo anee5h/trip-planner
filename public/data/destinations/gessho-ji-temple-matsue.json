@@ -121,23 +121,23 @@
         "type": "official",
         "url": "https://gesshoji-matsue.com/en/prices/",
         "title": "Visit information — Gesshoji (EN)",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       },
       {
         "type": "official",
         "url": "https://gesshoji-matsue.com/introduction/history/",
         "title": "歴史・伝承 — 月照寺",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "reviewedAt": "2026-08-12",
+    "reviewedAt": "2026-08-10",
     "reviewedBy": "Meguruto editorial",
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-32 Chugoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"

@@ -126,29 +126,29 @@
         "type": "official",
         "url": "https://www.ohara.or.jp/visitor_info/",
         "title": "入館案内｜大原美術館",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       },
       {
         "type": "official",
         "url": "https://www.ohara.or.jp/faq/",
         "title": "よくある質問｜大原美術館",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       },
       {
         "type": "tourism_board",
         "url": "https://www.kurashiki-tabi.jp/see/see-154/",
         "title": "大原美術館｜倉敷観光WEB",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "reviewedAt": "2026-08-12",
+    "reviewedAt": "2026-08-10",
     "reviewedBy": "Meguruto editorial",
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-32 Chugoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"

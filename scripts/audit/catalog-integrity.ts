@@ -44,6 +44,12 @@ export interface AuditOptions {
   destinationId?: string;
   /** Fixed timestamp for deterministic output; the CLI passes the real time. */
   generatedAt?: string;
+  /**
+   * Reference date (YYYY-MM-DD) for provenance-freshness checks. Defaults to
+   * the current UTC date so future-dated editorial provenance is always an
+   * audit error; tests inject a fixed date for determinism.
+   */
+  referenceDate?: string;
 }
 
 export interface AuditImpact {
@@ -860,6 +866,7 @@ function checkSync(
   details: DetailFileEntry[],
   metaEntries: { id: string; [k: string]: unknown }[],
   findings: AuditFinding[],
+  referenceDate = new Date().toISOString().slice(0, 10),
 ): void {
   const byId = new Map(destinations.map((d) => [d.id, d]));
   const detailById = new Map(details.map((d) => [d.id, d.record]));
@@ -1024,6 +1031,47 @@ function checkSync(
       });
     }
   }
+
+  // E7: provenance freshness — no editorial/audit date may be later than the
+  // reference date. A future-dated accessedAt/reviewedAt/checkedAt/changedAt
+  // (or verifiedAt / opening-hours metadata date) is fabricated provenance.
+  for (const dest of destinations) {
+    const dates: { field: string; value: string | undefined }[] = [];
+    for (const source of dest.editorial?.sources ?? []) {
+      dates.push({
+        field: "editorial.sources[].accessedAt",
+        value: source.accessedAt,
+      });
+    }
+    dates.push(
+      { field: "editorial.reviewedAt", value: dest.editorial?.reviewedAt },
+      { field: "editorial.checkedAt", value: dest.editorial?.checkedAt },
+      { field: "verifiedAt", value: dest.verifiedAt },
+      {
+        field: "openingHoursMetadata.verifiedAt",
+        value: dest.openingHoursMetadata?.verifiedAt,
+      },
+    );
+    for (const change of dest.editorial?.changes ?? []) {
+      dates.push({
+        field: "editorial.changes[].changedAt",
+        value: change.changedAt,
+      });
+    }
+    for (const { field, value } of dates) {
+      if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) continue;
+      if (value > referenceDate) {
+        findings.push({
+          code: "SYNC_FUTURE_EDITORIAL_DATE",
+          severity: "error",
+          category: "E",
+          targetId: dest.id,
+          message: `Destination '${dest.id}' has ${field} '${value}' later than the audit reference date '${referenceDate}'.`,
+          details: { field, value, referenceDate },
+        });
+      }
+    }
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -1117,7 +1165,13 @@ export function runAudit(
   checkGeography(destinations, byId, findings);
   checkTiming(destinations, byId, findings);
   checkMunicipality(destinations, byId, findings);
-  checkSync(destinations, details, metaEntries, findings);
+  checkSync(
+    destinations,
+    details,
+    metaEntries,
+    findings,
+    options.referenceDate,
+  );
 
   let filtered = findings;
   if (options.prefecture) {

@@ -126,23 +126,23 @@
         "type": "government",
         "url": "https://www.city.izumo.shimane.jp/www/contents/1769395852119/index.html",
         "title": "（3/1〜）出雲日御碕灯台 参観時間の変更について — 出雲市",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       },
       {
         "type": "tourism_board",
         "url": "https://www.kankou-shimane.com/destination/20253",
         "title": "出雲日御碕灯台 — しまね観光ナビ",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "reviewedAt": "2026-08-12",
+    "reviewedAt": "2026-08-10",
     "reviewedBy": "Meguruto editorial",
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-32 Chugoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"

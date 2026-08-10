@@ -126,29 +126,29 @@
         "type": "government",
         "url": "https://www.city.takahashi.lg.jp/soshiki/9/fukiya4240131.html",
         "title": "吹屋ふるさと村｜高梁市公式ホームページ",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       },
       {
         "type": "government",
         "url": "https://www.japan-heritage.bunka.go.jp/ja/culturalproperties/result/5402/",
         "title": "高梁市吹屋伝統的建造物群保存地区｜日本遺産ポータルサイト",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       },
       {
         "type": "tourism_board",
         "url": "https://takahasikanko.or.jp/modules/spot/index.php?content_id=21",
         "title": "吹屋ふるさと村｜備中たかはし",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "reviewedAt": "2026-08-12",
+    "reviewedAt": "2026-08-10",
     "reviewedBy": "Meguruto editorial",
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-32 Chugoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"

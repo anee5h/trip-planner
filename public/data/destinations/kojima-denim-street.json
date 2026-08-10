@@ -126,29 +126,29 @@
         "type": "official",
         "url": "http://www.jeans-street.com/access/index.html",
         "title": "アクセスマップ｜児島ジーンズストリート",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       },
       {
         "type": "tourism_board",
         "url": "https://www.kojima-cci.or.jp/sightseeing/look/jeansstreet.html",
         "title": "児島ジーンズストリート｜児島商工会議所",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       },
       {
         "type": "government",
         "url": "https://www.callcenter-kurashiki-city.jp/faq/detail.aspx?id=2585",
         "title": "ジーンズストリート駐車場FAQ｜倉敷市",
-        "accessedAt": "2026-08-12"
+        "accessedAt": "2026-08-10"
       }
     ],
-    "reviewedAt": "2026-08-12",
+    "reviewedAt": "2026-08-10",
     "reviewedBy": "Meguruto editorial",
-    "checkedAt": "2026-08-12",
+    "checkedAt": "2026-08-10",
     "freshness": "current",
     "changeSummary": "KAI-32 Chugoku beta expansion",
     "changes": [
       {
-        "changedAt": "2026-08-12",
+        "changedAt": "2026-08-10",
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"
