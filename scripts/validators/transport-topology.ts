@@ -78,6 +78,7 @@ const flightRoutes = (
       sourceUrl?: string;
       fareSourceUrl?: string;
       checkedAt?: string;
+      operatingPeriods?: Array<{ from: string; to: string }>;
     }>;
   }
 ).routes;
@@ -380,6 +381,22 @@ export const transportTopologyValidator: ValidatorModule = {
           code: "invalid_fare_source",
           message: `Flight route ${route.from}→${route.to} has an invalid fareSourceUrl`,
         });
+      }
+      // Seasonal routes must declare operating periods and they must be
+      // valid MM-DD ranges (inclusive; may wrap a year boundary).
+      if (route.operatingPeriods?.length) {
+        for (const period of route.operatingPeriods) {
+          if (
+            !MONTH_DAY_RE.test(period.from) ||
+            !MONTH_DAY_RE.test(period.to)
+          ) {
+            issues.push({
+              severity: "error",
+              code: "invalid_flight_operating_period",
+              message: `Flight route ${route.from}→${route.to} has invalid operatingPeriod '${period.from}–${period.to}'`,
+            });
+          }
+        }
       }
     }
 

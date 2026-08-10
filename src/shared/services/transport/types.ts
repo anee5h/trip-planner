@@ -51,6 +51,12 @@ export interface FlightRoute {
   fareSourceUrl?: string;
   /** Applies to the specific fact asserted (route or fare). */
   checkedAt?: string;
+  /**
+   * Annual operating periods (MM-DD, inclusive; may wrap a year boundary).
+   * Absent = year-round. Routes with operatingPeriods are seasonal and must
+   * not be presented as year-round availability.
+   */
+  operatingPeriods?: Array<{ from: string; to: string }>;
 }
 
 export interface FerryPort {

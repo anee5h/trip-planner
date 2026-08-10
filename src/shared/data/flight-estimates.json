@@ -4,236 +4,294 @@
     {
       "from": "HND",
       "to": "CTS",
-      "flightTime": [90, 105],
-      "fare": [9000, 18000]
+      "flightTime": [90, 110],
+      "fare": [9000, 18000],
+      "sourceUrl": "https://ana.co.jp/ja/jp/guide/plan/airinfo/dom-routeinfo/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "HND",
       "to": "FUK",
       "flightTime": [110, 125],
-      "fare": [10000, 20000]
+      "fare": [10000, 20000],
+      "sourceUrl": "https://ana.co.jp/ja/jp/guide/plan/airinfo/dom-routeinfo/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "HND",
       "to": "KMJ",
-      "flightTime": [100, 120],
-      "fare": [11000, 19000]
+      "flightTime": [105, 120],
+      "fare": [11000, 19000],
+      "sourceUrl": "https://solaseedair.jp/timetable/kuma-hane/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "HND",
       "to": "KOJ",
-      "flightTime": [105, 125],
-      "fare": [12000, 21000]
+      "flightTime": [110, 130],
+      "fare": [12000, 21000],
+      "sourceUrl": "https://solaseedair.jp/timetable/kago-hane/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "HND",
       "to": "OKA",
-      "flightTime": [150, 175],
-      "fare": [14000, 26000]
+      "flightTime": [155, 175],
+      "fare": [14000, 26000],
+      "sourceUrl": "https://ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_all_20260701_20261024.pdf",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "HND",
       "to": "ISG",
-      "flightTime": [195, 220],
-      "fare": [18000, 35000]
+      "flightTime": [165, 180],
+      "fare": [18000, 35000],
+      "sourceUrl": "https://ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_all_20260701_20261024.pdf",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "HND",
       "to": "MMY",
-      "flightTime": [180, 205],
-      "fare": [17000, 32000]
+      "flightTime": [170, 185],
+      "fare": [17000, 32000],
+      "sourceUrl": "https://ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_all_20260701_20261024.pdf",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "HND",
       "to": "HKD",
       "flightTime": [80, 95],
-      "fare": [9000, 17000]
+      "fare": [9000, 17000],
+      "sourceUrl": "https://airdo.jp/plan/timetable/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "HND",
       "to": "AKJ",
       "flightTime": [95, 110],
-      "fare": [10000, 19000]
+      "fare": [10000, 19000],
+      "sourceUrl": "https://airdo.jp/plan/timetable/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "HND",
       "to": "MYJ",
       "flightTime": [85, 100],
-      "fare": [9500, 17500]
+      "fare": [9500, 17500],
+      "sourceUrl": "https://matsuyama-airport.co.jp/flight/haneda/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "HND",
       "to": "TAK",
       "flightTime": [75, 90],
-      "fare": [8500, 16000]
+      "fare": [8500, 16000],
+      "sourceUrl": "https://takamatsu-airport.com/timetable/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "HND",
       "to": "HIJ",
       "flightTime": [80, 95],
-      "fare": [9000, 17000]
+      "fare": [9000, 17000],
+      "sourceUrl": "https://hij.airport.jp/flight/kokunai/tokyo.html",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "NRT",
       "to": "CTS",
       "flightTime": [95, 110],
-      "fare": [7000, 15000]
+      "fare": [7000, 15000],
+      "sourceUrl": "https://www.flypeach.com",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "NRT",
       "to": "FUK",
       "flightTime": [115, 130],
-      "fare": [8000, 16000]
+      "fare": [8000, 16000],
+      "sourceUrl": "https://www.flypeach.com",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "NRT",
       "to": "OKA",
       "flightTime": [160, 185],
-      "fare": [9000, 19000]
+      "fare": [9000, 19000],
+      "sourceUrl": "https://www.flypeach.com",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "ITM",
       "to": "CTS",
       "flightTime": [110, 125],
-      "fare": [11000, 22000]
+      "fare": [11000, 22000],
+      "sourceUrl": "https://osaka-airport.co.jp/flight/search",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "ITM",
       "to": "OKA",
-      "flightTime": [130, 150],
-      "fare": [13000, 25000]
+      "flightTime": [125, 140],
+      "fare": [13000, 25000],
+      "sourceUrl": "https://osaka-airport.co.jp/flight/itm_schedule/kyushu_okinawa",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "ITM",
       "to": "ISG",
-      "flightTime": [165, 185],
-      "fare": [17000, 33000]
+      "flightTime": [135, 145],
+      "fare": [17000, 33000],
+      "sourceUrl": "https://ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_all_20260701_20261024.pdf",
+      "checkedAt": "2026-08-10",
+      "operatingPeriods": [
+        {
+          "from": "07-17",
+          "to": "08-28"
+        }
+      ]
     },
     {
       "from": "KIX",
       "to": "CTS",
       "flightTime": [115, 130],
-      "fare": [8000, 18000]
+      "fare": [8000, 18000],
+      "sourceUrl": "https://www.flypeach.com",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "KIX",
       "to": "OKA",
       "flightTime": [130, 150],
-      "fare": [9000, 20000]
+      "fare": [9000, 20000],
+      "sourceUrl": "https://www.flypeach.com",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "NGO",
       "to": "CTS",
       "flightTime": [100, 115],
-      "fare": [10000, 20000]
+      "fare": [10000, 20000],
+      "sourceUrl": "https://ana.co.jp/ja/jp/guide/plan/airinfo/dom-routeinfo/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "NGO",
       "to": "OKA",
       "flightTime": [135, 155],
-      "fare": [12000, 23000]
+      "fare": [12000, 23000],
+      "sourceUrl": "https://ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_all_20260701_20261024.pdf",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "NGO",
       "to": "FUK",
       "flightTime": [85, 100],
-      "fare": [9000, 17000]
+      "fare": [9000, 17000],
+      "sourceUrl": "https://ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_kyushu_20260701_20261024.pdf",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "FUK",
       "to": "OKA",
       "flightTime": [100, 120],
       "fare": [8000, 25000],
-      "sourceUrl": "https://www.ana.co.jp/en-jp/flights-from-fukuoka-to-okinawa-naha",
-      "checkedAt": "2026-08-05"
+      "sourceUrl": "https://ana.co.jp/ja-jp/flights-from-fukuoka-to-okinawa-naha",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "OKA",
       "to": "ISG",
       "flightTime": [55, 65],
       "fare": [8000, 15000],
-      "sourceUrl": "https://www.ana.co.jp/en-jp/flights-from-okinawa-naha-to-ishigaki",
-      "checkedAt": "2026-08-05"
+      "sourceUrl": "https://pref.okinawa.jp/machizukuri/dorokotsu/1012558/1012560/1012568.html",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "OKA",
       "to": "MMY",
       "flightTime": [50, 60],
       "fare": [7000, 14000],
-      "sourceUrl": "https://visitokinawajapan.com/plan-your-trip/getting-around-okinawa/flights-between-islands/",
-      "checkedAt": "2026-08-05"
+      "sourceUrl": "https://pref.okinawa.jp/machizukuri/dorokotsu/1012558/1012560/1012568.html",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "TAK",
       "to": "OKA",
-      "flightTime": [60, 75],
+      "flightTime": [110, 120],
       "fare": null,
-      "sourceUrl": "https://www.ana.co.jp/en-jp/flights-from-takamatsu-to-okinawa-naha",
-      "checkedAt": "2026-08-05",
+      "sourceUrl": "https://ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_all_20260701_20261024.pdf",
+      "checkedAt": "2026-08-10",
       "fareStatus": "unverified"
     },
     {
       "from": "FUK",
       "to": "ISG",
-      "flightTime": [115, 140],
+      "flightTime": [130, 140],
       "fare": null,
-      "sourceUrl": "https://visitokinawajapan.com/plan-your-trip/getting-to-okinawa/domestic-flights/",
-      "checkedAt": "2026-08-05",
+      "sourceUrl": "https://fukuoka-airport.jp/flight/schedule/index.html",
+      "checkedAt": "2026-08-10",
       "fareStatus": "unverified"
     },
     {
       "from": "FUK",
       "to": "TSJ",
-      "flightTime": [35, 50],
+      "flightTime": [30, 45],
       "fare": null,
-      "sourceUrl": "https://www.ana.co.jp/en-jp/flights-from-fukuoka-to-tsushima",
-      "checkedAt": "2026-08-05",
+      "sourceUrl": "https://tsushima-airport.co.jp/flight",
+      "checkedAt": "2026-08-10",
       "fareStatus": "unverified"
     },
     {
       "from": "CTS",
       "to": "OKA",
-      "flightTime": [180, 210],
+      "flightTime": [200, 225],
       "fare": null,
-      "sourceUrl": "https://www.ana.co.jp/en/jp/guide/plan/airinfo/",
-      "checkedAt": "2026-08-05",
+      "sourceUrl": "https://www.flypeach.com",
+      "checkedAt": "2026-08-10",
       "fareStatus": "unverified"
     },
     {
       "from": "KOJ",
       "to": "ASJ",
-      "flightTime": [40, 55],
+      "flightTime": [70, 85],
       "fare": null,
-      "sourceUrl": "https://amami-airport.co.jp/en/top",
-      "checkedAt": "2026-08-05",
+      "sourceUrl": "https://ana.co.jp/ja-jp/flights-from-kagoshima-to-amami",
+      "checkedAt": "2026-08-10",
       "fareStatus": "unverified"
     },
     {
       "from": "KOJ",
       "to": "KUM",
-      "flightTime": [35, 50],
+      "flightTime": [35, 40],
       "fare": null,
-      "sourceUrl": "https://www.town.yakushima.kagoshima.jp/kanko/English/2379.html",
-      "checkedAt": "2026-08-05",
+      "sourceUrl": "https://jac.co.jp/network/",
+      "checkedAt": "2026-08-10",
       "fareStatus": "unverified"
     },
     {
       "from": "ITM",
       "to": "KUM",
-      "flightTime": [90, 110],
+      "flightTime": [100, 115],
       "fare": null,
-      "sourceUrl": "https://www.town.yakushima.kagoshima.jp/kanko/English/2379.html",
-      "checkedAt": "2026-08-05",
+      "sourceUrl": "https://jac.co.jp/network/",
+      "checkedAt": "2026-08-10",
       "fareStatus": "unverified"
     },
     {
       "from": "FUK",
       "to": "KUM",
-      "flightTime": [70, 90],
+      "flightTime": [70, 85],
       "fare": null,
-      "sourceUrl": "https://www.town.yakushima.kagoshima.jp/kanko/English/2379.html",
-      "checkedAt": "2026-08-05",
-      "fareStatus": "unverified"
+      "sourceUrl": "https://ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_all_20260701_20261024.pdf",
+      "checkedAt": "2026-08-10",
+      "fareStatus": "unverified",
+      "operatingPeriods": [
+        {
+          "from": "07-01",
+          "to": "08-31"
+        }
+      ]
     }
   ]
 }

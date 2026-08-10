@@ -46,6 +46,23 @@ const mockHakoneDestination = {
   description: "Famous shrine in Hakone",
 } as unknown as Destination;
 
+const ITM_COORDS = { lat: 34.7855, lng: 135.4382 };
+
+const mockIshigakiDestination = {
+  id: "ishigaki-beach-okinawa",
+  name: "Kabira Bay",
+  prefecture: "Okinawa",
+  region: "Okinawa",
+  categories: ["Beach"],
+  tags: ["island", "beach"],
+  coordinates: { lat: 24.4569, lng: 124.1944 },
+  ratings: {
+    overall: 4.8,
+  },
+  description: "Famous bay in Ishigaki",
+  transportZoneId: "ishigaki",
+} as unknown as Destination;
+
 describe("TransportEstimator", () => {
   it("formats transport time ranges cleanly", () => {
     expect(formatTransportTime([30, 45])).toBe("30–45 min");
@@ -122,6 +139,26 @@ describe("TransportEstimator", () => {
       TOKYO_STATION_COORDS,
     );
     expect(flightEst).toBeNull();
+  });
+
+  it("excludes seasonal routes outside their operating period", () => {
+    // ITM→ISG operates Jul 17–Aug 28 only (ANA NH1165/1166); with a travel
+    // date in December the route must not be offered.
+    const flightEst = getFlightTransportEstimate(
+      mockIshigakiDestination,
+      ITM_COORDS,
+      new Date("2026-12-10T12:00:00"),
+    );
+    expect(flightEst).toBeNull();
+  });
+
+  it("offers seasonal routes inside their operating period", () => {
+    const flightEst = getFlightTransportEstimate(
+      mockIshigakiDestination,
+      ITM_COORDS,
+      new Date("2026-08-01T12:00:00"),
+    );
+    expect(flightEst).not.toBeNull();
   });
 
   it("provides getBestEstimateBetween between any two Locations", () => {

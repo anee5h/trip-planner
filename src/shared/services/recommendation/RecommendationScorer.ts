@@ -125,7 +125,11 @@ export function getValidModes(
       ? topologyModes.localModes
       : topologyModes.crossZoneModes,
   );
-  const flightEstimate = getFlightTransportEstimate(dest, homeCoords);
+  const flightEstimate = getFlightTransportEstimate(
+    dest,
+    homeCoords,
+    ferryTemporal?.travelDate,
+  );
   if (flightEstimate) authorized.add("flight");
   const ferryEstimate = getFerryTransportEstimate(
     dest,

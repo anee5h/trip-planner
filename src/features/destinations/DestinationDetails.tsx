@@ -435,14 +435,6 @@ export default function DestinationDetails() {
     homeStationTransportZoneId,
   ]);
 
-  const flightEstimate = useMemo(() => {
-    if (!destination) return null;
-    return getFlightTransportEstimate(
-      destination,
-      homeStationCoords || undefined,
-    );
-  }, [destination, homeStationCoords]);
-
   /**
    * Planned travel date from the planner (via link state). Ferry availability
    * is evaluated against this — never the system clock.
@@ -452,6 +444,15 @@ export default function DestinationDetails() {
     if (!travelDate) return undefined;
     return { travelDate: new Date(`${travelDate}T12:00:00`) };
   }, [navState]);
+
+  const flightEstimate = useMemo(() => {
+    if (!destination) return null;
+    return getFlightTransportEstimate(
+      destination,
+      homeStationCoords || undefined,
+      ferryTemporal?.travelDate,
+    );
+  }, [destination, homeStationCoords, ferryTemporal]);
 
   const ferryEstimate = useMemo(() => {
     if (!destination) return null;

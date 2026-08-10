@@ -339,7 +339,11 @@ export function getTransportCost(
   }
 
   if (mode === "flight") {
-    const flightEst = getFlightTransportEstimate(dest, homeCoords);
+    const flightEst = getFlightTransportEstimate(
+      dest,
+      homeCoords,
+      ferryTemporal?.travelDate,
+    );
     if (flightEst && !flightEst.costUnavailable) {
       const avgOneWayPerPerson = Math.round(
         (flightEst.costRange[0] + flightEst.costRange[1]) / 2,
