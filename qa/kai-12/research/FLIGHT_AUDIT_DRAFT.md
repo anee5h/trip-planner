@@ -1,0 +1,105 @@
+# FLIGHT_AUDIT_DRAFT — KAI-12 Japan domestic direct-flight audit
+
+**Audit date:** 2026-08-10 · **Registry audited:** `src/shared/data/flight-estimates.json` (34 routes) · **Airports audited:** `src/shared/data/airports.json` (21 airports)
+**Method:** every registry route verified against official airline timetable/fare pages (ana.co.jp, jal.co.jp, jac.co.jp, jta-okinawa.com, flypeach.com, jetstar.com, airdo.jp, solaseedair.jp, skymark.co.jp, orc-air.co.jp), official airport sites (tokyo-haneda.com, narita-airport.jp, fukuoka-airport.jp, ishigaki-airport.co.jp, tsushima-airport.co.jp, matsuyama-airport.co.jp, hij.airport.jp, takamatsu-airport.com, kumamoto-airport.co.jp, sendai-airport.co.jp, miyazaki-airport.co.jp, oita-airport.jp, nagasaki-airport.jp, pref.okinawa.jp, pref.miyagi.jp, city.sado.niigata.jp), ANA 2026 summer official fare PDFs (26s_standard_oneway_250529.pdf), and airline press releases. Wikipedia/Rome2Rio NOT used.
+**Fare convention:** standard published one-way economy fares (ANA スタンダード, JAL フレックス/普通運賃) per ANA 26S official table; LCC-only routes have no published standard fare → fare=NULL (promo/dynamic pricing never scraped). All fares exclude PFC (airport facility fee).
+**Seasonality:** S26 = 2026-03-29→10-24; W26 = 2026-10-25→2027-03-27. checkedAt=2026-08-10 throughout.
+
+## 1. Route ledger (all 34 registry entries)
+
+| from | to | DIRECT? | operators (2026-08-10) | typical flight time (min) | source URL | seasonal? | frequency | fare (standard, one-way, JPY) | fare source URL | source type |
+|---|---|---|---|---|---|---|---|---|---|---|
+| HND | CTS | yes | ANA, JAL, ADO, Skymark | 90–110 | ana.co.jp/ja/jp/guide/plan/airinfo/dom-routeinfo/ | year-round | multiple daily (~18–19 RT ANA, 12 RT ADO, 9/day Skymark, JAL) | 13,420–48,290 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| HND | FUK | yes | ANA, JAL, Skymark, StarFlyer | 110–125 | ana.co.jp/ja/jp/guide/plan/airinfo/dom-routeinfo/ | year-round | multiple daily (19 RT ANA, 12 RT Skymark, 8 RT SFJ) | 14,740–52,250 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| HND | KMJ | yes | ANA, Solaseed, JAL | 105–120 | solaseedair.jp/timetable/kuma-hane/ · kumamoto-airport.co.jp/timetable-dom/ | year-round | multiple daily (5 RT Solaseed + ANA + JAL) | 14,850–52,580 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| HND | KOJ | yes | ANA, JAL, Solaseed | 110–130 | solaseedair.jp/timetable/kago-hane/ | year-round | multiple daily (4 RT Solaseed, ANA/JAL) | 14,080–55,440 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| HND | OKA | yes | ANA, JAL, Skymark | 155–175 | ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_all_20260701_20261024.pdf | year-round | multiple daily (6 RT Skymark; ANA/JAL many) | 13,090–58,850 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| HND | ISG | yes | ANA only | 165–180 | ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_all_20260701_20261024.pdf | year-round (W26 on sale) | 1–2 daily (NH89/NH91) | 16,720–76,780 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| HND | MMY | yes | ANA only | 170–185 | ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_all_20260701_20261024.pdf | year-round (W26 on sale; 10-yr route anniv. 2026) | 2 daily S26 (NH1079/NH87) | 17,160–79,310 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| HND | HKD | yes | ANA, JAL, ADO | 80–95 | airdo.jp/plan/timetable/ | year-round | multiple daily (2 RT ADO, ANA/JAL) | 13,090–45,430 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| HND | AKJ | yes | JAL, ADO (ANA codeshares ADO only) | 95–110 | airdo.jp/plan/timetable/ | year-round | 3 RT ADO, JAL daily | 15,290–56,210 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| HND | MYJ | yes | ANA, JAL | 85–100 | matsuyama-airport.co.jp/flight/haneda/ | year-round | multiple daily (~6/day ANA, JAL) | 12,320–47,520 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| HND | TAK | yes | ANA, JAL | 75–90 | takamatsu-airport.com/timetable/ | year-round | multiple daily (ANA NH531-539, JAL JL475-487) | 12,540–42,350 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| HND | HIJ | yes | ANA, JAL | 80–95 | hij.airport.jp/flight/kokunai/tokyo.html | year-round | multiple daily (10/day ANA, 6/day JAL) | 11,880–39,820 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| NRT | CTS | yes | Peach, Jetstar; Spring Japan NOT operating at audit date (Apr 23–Jun 26/28 only) | 95–110 | flypeach.com (S26 dom timetable) · files.jetstar.com (gk_timetable_26nsdom) | year-round (Peach/Jetstar) | multiple daily (Jetstar up to 9 RT) | NULL (LCC dynamic only; no published standard fare) | flypeach.com | operator-page |
+| NRT | FUK | yes | Peach, Jetstar | 115–130 | flypeach.com (S26 dom timetable) | year-round | multiple daily (~5/day Peach, Jetstar) | NULL (LCC) | flypeach.com | operator-page |
+| NRT | OKA | yes | Peach, Jetstar | 160–185 | flypeach.com (S26 dom timetable) | year-round | 3 RT Peach, 4 RT Jetstar | NULL (LCC) | flypeach.com | operator-page |
+| ITM | CTS | yes | ANA, JAL | 110–125 | osaka-airport.co.jp/flight/search | year-round | multiple daily | 13,420–54,560 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| ITM | OKA | yes | ANA, JAL | 125–140 | osaka-airport.co.jp/flight/itm_schedule/kyushu_okinawa | year-round | multiple daily | 12,210–50,380 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| ITM | ISG | **seasonal** | ANA only (NH1165/1166) | 135–145 | ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_all_20260701_20261024.pdf · ishigaki-airport.co.jp/fly/network/ | **seasonal: Jul 17–Aug 28 only, 1 RT/day** | few per week (1/day in season) | 14,740–69,630 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| KIX | CTS | yes | Peach, Jetstar (Spring Japan KIX-CTS is Yamato CARGO-only IJ438/439 — not passenger) | 115–130 | kansai-airports.co.jp (cargo press release) · flypeach.com | year-round (Peach/Jetstar) | multiple daily | NULL (LCC) | flypeach.com | operator-page + press-release |
+| KIX | OKA | yes | Peach, Jetstar | 130–150 | flypeach.com (S26 dom timetable) | year-round | multiple daily | NULL (LCC) | flypeach.com | operator-page |
+| NGO | CTS | yes | ANA, Peach (JAL: none) | 100–115 | ana.co.jp/ja/jp/guide/plan/airinfo/dom-routeinfo/ · flypeach.com | year-round | multiple daily (5–8 RT ANA, 3 RT Peach) | 11,990–55,220 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| NGO | OKA | yes | ANA, Peach | 135–155 | ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_all_20260701_20261024.pdf | year-round | multiple daily (4 RT ANA, 3 RT Peach) | 14,190–57,200 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| NGO | FUK | yes | ANA only (incl. SFJ/IBEX/ANA Wings/ORC codeshares); **Peach does NOT fly this route** | 85–100 | ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_kyushu_20260701_20261024.pdf | year-round | multiple daily (6+/day ANA codeshare) | 12,320–37,180 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| FUK | OKA | yes | ANA, JAL, Skymark, Peach | 100–120 | ana.co.jp/ja-jp/flights-from-fukuoka-to-okinawa-naha | year-round | multiple daily (3 RT Skymark, ANA/JAL/Peach) | 12,540–40,260 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| OKA | ISG | yes | JTA, ANA (+SNA codeshare); RAC/Peach: no | 55–65 | pref.okinawa.jp/machizukuri/dorokotsu/1012558/1012560/1012568.html | year-round | multiple daily (JTA/ANA/SNA) | 7,260–31,350 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | airport/operator-page |
+| OKA | MMY | yes | JTA, RAC, ANA; Peach: no | 50–60 | pref.okinawa.jp/machizukuri/dorokotsu/1012558/1012560/1012568.html | year-round | multiple daily | 6,490–22,990 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | airport/operator-page |
+| TAK | OKA | yes | ANA only (NH1621/1622) | **110–120** (registry [60,75] WRONG — see §4) | ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_all_20260701_20261024.pdf | year-round | 1 RT/day | 13,530–49,610 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page |
+| FUK | ISG | yes | Peach only (MM295/296), 1 RT/day | 130–140 | fukuoka-airport.jp/flight/schedule/index.html · flypeach.com W26 sale page | year-round (S26 + W26 on sale) | 1 RT/day | NULL (LCC) | flypeach.com | airport-page |
+| FUK | TSJ | yes | ORC (ANA codeshare), DHC-8-400 | 35 (30–45) | tsushima-airport.co.jp/flight · orc-air.co.jp | year-round | 5 RT/day (ORC79/81 + ANA) | 9,350–21,120 | ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf | operator-page + airport-page |
+| CTS | OKA | yes | Peach only (daily year-round) | **200–225** (registry [180,210] understated — see §4) | flypeach.com/application/files/7517/7854/7644/20260514_S26_20260329-20261024_dom_JP.pdf | year-round (daily, both S26 periods) | 1 RT/day | NULL (LCC; ANA/JAL sell via connection only) | flypeach.com | operator-page |
+| KOJ | ASJ | yes | JAL, ANA (ANA = JAC-operated NH4371/4375) | **70–85** (registry [40,55] WRONG — see §4) | ana.co.jp/ja-jp/flights-from-kagoshima-to-amami · jal.co.jp/jp/ja/dom/special/newtrip-amami/ | year-round | 2 RT/day | ~12,540+ (JAL published from-price; promo-driven) | jal.co.jp/domestic/ja-jp/flights-from-kagoshima-to-amami | operator-page |
+| KOJ | KUM | yes | JAC (JAL codeshare JL) | 35–40 | jac.co.jp/network/ | year-round | 5 RT/day | ~17,600+ ordinary (JAC/JAL) | jac.co.jp · kichikintrek.com/access (JAL-group fare ref.) | operator-page |
+| ITM | KUM | yes | JAC (JAL2451/2450, JAL codeshare) | 100–115 | jac.co.jp/network/ · jal.co.jp/domestic/ja-jp/flights-from-osaka-itami-to-yakushima | year-round | 1 RT/day | ~20,250+ (JAL from-price) | jal.co.jp/domestic/ja-jp/flights-from-osaka-itami-to-yakushima | operator-page |
+| FUK | KUM | **seasonal** | JAC (NH4377/4390, ANA/JAL codeshare) | 70–85 | ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_all_20260701_20261024.pdf · jac.co.jp/network/ | **seasonal: Jul 1–Aug 31 only, 1 RT/day** | few per week (1 RT/day in season) | ~22,880+ ordinary (JAC/JAL) | jac.co.jp · kichikintrek.com/access | operator-page |
+
+## 2. Airport mapping audit (catalogue destinations)
+
+| Destination | airport code | in registry? | verdict | access note |
+|---|---|---|---|---|
+| Sendai | SDJ | **MISSING** | ✅ HND–SDJ exists: ANA, JAL, ADO (3 RT), IBEX (3 RT), Peach (2 RT); ~70 min | add SDJ; airport: sendai-airport.co.jp; source pref.miyagi.jp/soshiki/kurin/unkojyokyo.html (official route status) |
+| Matsuyama | MYJ | yes | ✅ correct (HND–MYJ ANA/JAL, 12 RT/day combined) | matsuyama-airport.co.jp |
+| Takamatsu | TAK | yes | ✅ correct (HND–TAK ANA/JAL; TAK–OKA ANA 1 RT/day) | takamatsu-airport.com |
+| Hiroshima | HIJ | yes | ✅ correct (HND–HIJ ANA 10/day, JAL 6/day) | hij.airport.jp |
+| Kumamoto | KMJ | yes | ✅ correct (HND–KMJ Solaseed 5 RT + ANA + JAL) | kumamoto-airport.co.jp |
+| Kagoshima | KOJ | yes | ✅ correct (HND–KOJ ANA/JAL/Solaseed 4 RT) | solaseedair.jp |
+| Miyazaki | KMI | **MISSING** | ✅ HND–KMI exists: ANA (12/day), JAL (6/day), Solaseed (7/day); ~105–120 min | add KMI; miyazaki-airport.co.jp, solaseedair.jp/timetable/miya-hane/ |
+| Oita | OIT | **MISSING** | ✅ HND–OIT exists: ANA, JAL, Solaseed (4 RT); ~95–110 min | add OIT; oita-airport.jp/timetable/, solaseedair.jp/timetable/oita-hane/ |
+| Nagasaki | NGS | **MISSING** | ✅ HND–NGS exists: ANA, JAL, Solaseed (4 RT); ~115–130 min | add NGS; nagasaki-airport.jp/flight/timetable/ |
+| Sapporo | CTS | yes | ✅ correct (hub: HND/NRT/ITM/KIX/NGO direct) | |
+| Asahikawa | AKJ | yes | ✅ correct (HND–AKJ JAL + ADO 3 RT; ANA=ADO codeshare) | airdo.jp |
+| Hakodate | HKD | yes | ✅ correct (HND–HKD ANA/JAL/ADO) | airdo.jp |
+| Okinawa | OKA | yes | ✅ correct (hub) | |
+| Ishigaki | ISG | yes | ✅ correct (OKA–ISG JTA/ANA/SNA; HND–ISG ANA; ITM–ISG seasonal ANA) | ishigaki-airport.co.jp |
+| Miyako | MMY | yes | ✅ correct (OKA–MMY JTA/RAC/ANA; HND–MMY ANA) | |
+| Amami | ASJ | yes | ✅ correct (KOJ–ASJ JAL/ANA(JAC)) | amami-airport.co.jp |
+| Yakushima | KUM | yes | ✅ **KUM is the correct code for Yakushima Airport** (JAC-only airport; KOJ/ITM/FUK direct verified) | town.yakushima.kagoshima.jp |
+| Tsushima | TSJ | yes | ✅ correct (FUK–TSJ ORC 5 RT/day) | tsushima-airport.co.jp |
+| Sado | SDO | yes | ❌ **NO scheduled service** — Sado Airport (SDO) has had zero scheduled flights since April 2014; Toki Air charter (Kobe–Sado, May 28 2026) was a non-scheduled test flight; regular service unannounced | flag SDO as unusable / ferry-only (Niigata–Sado jetfoil); city.sado.niigata.jp, tokiair.com/news/6685/ |
+
+## 3. FALSE-DIRECT / data-quality flags (registry vs. verified reality)
+
+1. **TAK→OKA flightTime [60,75] is wrong** — actual ANA NH1621 block ≈110–120 min. Route itself is real (ANA, 1 RT/day year-round), but the time is off by ~50 min.
+2. **CTS→OKA flightTime [180,210] understated** — actual Peach block ≈200–225 min (CTS 11:30→OKA 15:05). Also operator is Peach-only; ANA/JAL sell this only as a connection via HND — the registry's ANA airinfo sourceUrl implied ANA, which is misleading.
+3. **KOJ→ASJ flightTime [40,55] wrong** — actual ≈70–85 min (NH4371 KOJ 07:40→ASJ 08:55). Route real (JAL + ANA/JAC).
+4. **HND→ISG/MMY registry times [195,220]/[180,205] overstate** — actual ANA blocks ≈165–185 min (NH89 HND 08:30→ISG 11:20) and ≈170–185 min (NH1079 HND 07:45→MMY 10:35–45). Both ARE direct (ANA-only), year-round incl. W26 — not connection-only as the brief suspected.
+5. **ITM→ISG is seasonal only** (ANA NH1165/1166, Jul 17–Aug 28, 1 RT/day) — must not be shown as year-round.
+6. **FUK→KUM is seasonal only** (JAC, Jul 1–Aug 31, 1 RT/day) — must not be shown as year-round. KOJ→KUM and ITM→KUM are year-round.
+7. **NRT→CTS Spring Japan is NOT operating at audit date** (Apr 23–Jun 26/28 only in S26) — only Peach/Jetstar valid.
+8. **KIX→CTS Spring Japan is cargo-only** (IJ438/439, Yamato freighter) — not a passenger option.
+9. **NGO→FUK has no Peach** (registry fare from 9,000 implies LCC); ANA-only incl. codeshares.
+10. **OKA→ISG: RAC and Peach do NOT fly it** (JTA/ANA/SNA only); **OKA→MMY: Peach does NOT fly it** (JTA/RAC/ANA). FUK→ISG is Peach-only.
+11. **HND→AKJ: ANA sells it as an ADO codeshare** — physical operator ADO; JAL operates own flights. Codeshare-only risk flagged.
+12. **SDO (Sado) in airport registry has no scheduled service** — see §2; ferry is the real access mode.
+
+## 4. UNVERIFIED — EXCLUDED (no official source found at audit time)
+
+- **None of the 34 registry routes were excluded** — every route was verifiable against an official source. Fares marked NULL are deliberate (LCC-only routes have no published standard fare, and promo/dynamic prices are out of scope per audit rules).
+- JAL published standard-fare (フレックス) exact figures were only captured for HND–CTS (~30,850–35,690) and HND–MYJ (~49,510); JAL fares for other routes are cited as official from-price pages (route exists + fare available) rather than full tables. ANA standard fares are used as the authoritative range where ANA operates.
+- FUK→ISG W26 (Oct 25 2026 onward) is on Peach's winter-sale route list but exact W26 schedule not yet published → treated as year-round with a note.
+- HND→MMY W26 frequency not yet published (confirmed on sale) → frequency class recorded from S26.
+
+## 5. Key sources (canonical set)
+
+- ANA domestic timetable PDFs: `ana.co.jp/guide/plan/airinfo/dom-timetable/pdf/timetable_all_20260701_20261024.pdf` (S26 all routes)
+- ANA standard one-way fare table: `ana.co.jp/guide/plan/fare/domestic/pdf/26s_standard_oneway_250529.pdf` (S26, 2026/5/19–10/24)
+- JAL route booking pages: `jal.co.jp/domestic/ja-jp/flights-from-*` (Tokyo-haneda→sapporo-new-chitose, →kumamoto, →matsuyama; osaka-itami→yakushima; kagoshima→amami; fukuoka→okinawa)
+- JAC network: `jac.co.jp/network/`; ANA/JAC timetable entries NH4371/4375/4377/4390
+- Okinawa prefecture route list: `pref.okinawa.jp/machizukuri/dorokotsu/1012558/1012560/1012568.html`
+- Airport official pages: ishigaki-airport.co.jp, tsushima-airport.co.jp, fukuoka-airport.jp, matsuyama-airport.co.jp, takamatsu-airport.com, hij.airport.jp, kumamoto-airport.co.jp, osaka-airport.co.jp, sendai-airport.co.jp, miyazaki-airport.co.jp, oita-airport.jp, nagasaki-airport.jp, amami-airport.co.jp
+- LCC timetables: `flypeach.com/application/files/.../S26_20260329-20261024_dom_JP.pdf`; `files.jetstar.com/api/public/content/gk_timetable_26nsdom`; Spring Japan news page jp.ch.com; KIX cargo press release kansai-airports.co.jp
+- Sado: city.sado.niigata.jp (scheduled service suspended since 2014); tokiair.com/news/6685/ (charter only)
+- Sendai route status: pref.miyagi.jp/soshiki/kurin/unkojyokyo.html
+
+*Draft ends. Next step (not in scope): update flight-estimates.json / airports.json per §1–§3 flags, then re-verify with a reviewer.*
