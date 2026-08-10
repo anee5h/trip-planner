@@ -395,6 +395,49 @@ describe("Explicit URL transport filter", () => {
   }, 15000);
 });
 
+describe("Clear/Reset Behavior (KAI-63)", () => {
+  it("clearing filters restores the full catalogue state exactly like fresh Explore", () => {
+    // 1. Get baseline fresh Explore count (with origin so topology runs)
+    tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+
+    const containerFresh = renderDestinations("/destinations");
+    const freshCount = getResultCount(containerFresh);
+    act(() => root!.unmount());
+    root = undefined;
+    host?.remove();
+    host = undefined;
+
+    // 2. Render with active URL filters
+    tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+
+    const containerFiltered = renderDestinations(
+      "/destinations?budget=3&party=4&car=rental&mode=train",
+    );
+    const filteredCount = getResultCount(containerFiltered);
+    expect(filteredCount).toBeGreaterThan(0);
+    expect(filteredCount).toBeLessThan(freshCount);
+
+    // 3. Click "Clear all"
+    const clearBtn = Array.from(
+      containerFiltered.querySelectorAll("button"),
+    ).find(
+      (btn) =>
+        btn.textContent?.includes("Clear all") ||
+        btn.textContent?.includes("すべてクリア"),
+    );
+    expect(clearBtn).not.toBeUndefined();
+    act(() => {
+      clearBtn?.click();
+    });
+
+    // 4. Assert count equals fresh Explore baseline
+    const resetCount = getResultCount(containerFiltered);
+    expect(resetCount).toBe(freshCount);
+  }, 15000);
+});
+
 // ---------------------------------------------------------------------------
 // Invariant 5: URL restoration does not re-inject transport defaults
 // ---------------------------------------------------------------------------
