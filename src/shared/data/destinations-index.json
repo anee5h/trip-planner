@@ -598,6 +598,8 @@
     "officialWebsite": "https://www.city.aizuwakamatsu.fukushima.jp/",
     "editorial": {
       "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "official",
@@ -995,6 +997,8 @@
     "officialWebsite": "https://www.city.akita.lg.jp/",
     "editorial": {
       "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "official",
@@ -1975,6 +1979,8 @@
     "officialWebsite": "https://www.city.aomori.aomori.jp/",
     "editorial": {
       "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "official",
@@ -12153,6 +12159,8 @@
     "officialWebsite": "https://www.city.fukushima.fukushima.jp/",
     "editorial": {
       "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "official",
@@ -15291,6 +15299,8 @@
     "officialWebsite": "https://www.city.hachinohe.aomori.jp/",
     "editorial": {
       "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "official",
@@ -17968,6 +17978,8 @@
     "municipalityId": "Iwate:hiraizumi",
     "editorial": {
       "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "official",
@@ -18097,6 +18109,8 @@
     "municipalityId": "Aomori:hirosaki",
     "editorial": {
       "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "official",
@@ -18217,6 +18231,8 @@
     "officialWebsite": "https://www.city.hirosaki.aomori.jp/",
     "editorial": {
       "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "official",
@@ -30752,6 +30768,8 @@
     "officialWebsite": "https://www.city.koriyama.lg.jp/",
     "editorial": {
       "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "official",
@@ -38205,6 +38223,8 @@
     "officialWebsite": "https://www.city.morioka.iwate.jp/",
     "editorial": {
       "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "official",
@@ -54207,6 +54227,8 @@
     "municipalityId": "Aomori:aomori",
     "editorial": {
       "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "official",
@@ -55288,6 +55310,8 @@
     "officialWebsite": "https://www.city.semboku.akita.jp/",
     "editorial": {
       "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "official",
@@ -55723,6 +55747,8 @@
     "officialWebsite": "https://www.city.sendai.jp/",
     "editorial": {
       "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "official",
@@ -58311,6 +58337,8 @@
     "businessHours": "09:00 - 17:00 (Daily)",
     "editorial": {
       "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "government",
@@ -70367,6 +70395,8 @@
     "officialWebsite": "https://www.city.yamagata-yamagata.lg.jp/",
     "editorial": {
       "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "official",

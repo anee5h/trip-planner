@@ -94,6 +94,7 @@ function ensureProvenance(id: string, sources: SourceDef[], summary: string) {
             ? "published"
             : (d.editorial?.lifecycle ?? "in_review");
       d.editorial = {
+        ...(d.editorial ?? {}),
         lifecycle,
         ...(lifecycle === "published" && !d.editorial?.reviewedAt
           ? { reviewedAt: AUDIT_DATE, reviewedBy: "Meguruto editorial" }
