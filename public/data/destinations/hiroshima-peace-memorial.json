@@ -7,9 +7,9 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Hiroshima_Peace_Memorial_Museum_2008_01.JPG/1280px-Hiroshima_Peace_Memorial_Museum_2008_01.JPG",
   "description": "The Hiroshima Peace Memorial Museum documents the atomic bombing of August 6, 1945 through artifacts, survivor testimony and reconstructed scenes of the devastated city. The permanent exhibition is in the East Building (the Main Building reopened in April 2019 after renovation). The museum stands inside Hiroshima Peace Memorial Park, a short walk from the Genbaku Dome.",
   "highlights": [
-    "UNESCO Heritage Monument",
-    "Historic Landmark",
-    "Cultural Preservation Area"
+    "Artifacts and testimony documenting August 6, 1945",
+    "East Building permanent exhibition (¥200)",
+    "Peace education; a short walk from the Genbaku Dome"
   ],
   "budgetMin": 800,
   "budgetMax": 2500,
@@ -47,9 +47,10 @@
   "bestSeason": "Autumn",
   "weatherDependence": "moderate",
   "tags": [
-    "UNESCO World Heritage",
-    "Hiroshima Peace Memorial (Genbaku Dome)",
-    "Hiroshima"
+    "Hiroshima Peace Memorial Museum",
+    "Genbaku",
+    "Peace Park",
+    "Museum"
   ],
   "reservation": "Online advance reservation required for the first hour after opening and the final hour before close; standard hours can be entered with a same-day ticket.",
   "parking": "No dedicated visitor lot; nearest paid lots are around Peace Memorial Park (Heiwa Odori side). Use Hiroden tram to Genbaku Dome-mae or Hiroshima Bus.",
@@ -107,9 +108,9 @@
       "name": "Hiroshima Peace Memorial Museum",
       "description": "The Hiroshima Peace Memorial Museum documents the atomic bombing of August 6, 1945 through artifacts, survivor testimony and reconstructed scenes of the devastated city. The permanent exhibition is in the East Building (the Main Building reopened in April 2019 after renovation). The museum stands inside Hiroshima Peace Memorial Park, a short walk from the Genbaku Dome.",
       "highlights": [
-        "UNESCO Heritage Monument",
-        "Historic Landmark",
-        "Cultural Preservation Area"
+        "Artifacts and testimony documenting August 6, 1945",
+        "East Building permanent exhibition (¥200)",
+        "Peace education; a short walk from the Genbaku Dome"
       ]
     },
     "ja": {

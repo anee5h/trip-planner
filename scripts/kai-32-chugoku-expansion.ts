@@ -103,14 +103,14 @@ const OPENING_HOURS_JA: Record<string, string> = {
   "hiroshima-peace-memorial-park":
     "公園は24時間開放・無料。8月6日の平和記念式典前後は一部立入制限あり。",
   "hiroshima-national-peace-memorial-hall":
-    "3月〜7月 8:30〜18:00、8月 8:30〜19:00（8月5・6日は20:00まで）、9月〜11月 8:30〜18:00、12月〜2月 8:30〜17:00。入館無料。12月29日〜31日は休館（要確認）。",
+    "3月〜7月 8:30〜18:00、8月 8:30〜19:00（8月5・6日は20:00まで）、9月〜11月 8:30〜18:00、12月〜2月 8:30〜17:00。入館無料。12月30・31日は休館。",
   hondori:
     "アーケード全体の定時はありません。各店舗ごとに異なり、多くは10:00〜20:00、飲食店は22:00頃まで営業します。",
   "miyajima-omotesando":
     "店舗により異なりますが、多くは9:00〜17:30〜18:00頃。冬期は早めに閉まる店もあります。",
   "daisho-in": "毎日 8:00〜17:00。拝観無料。",
   "miyajima-gojunoto":
-    "外観は常時見学可能。内部非公開。2026年12月頃まで保存修理工事中（足場設置のため一部見えにくい場合あり）。",
+    "外観は2026年12月頃まで保存修理工事中のため、足場・シートに覆われており見学できません（工事終了後に再開予定）。内部は非公開。",
   senjokaku: "毎日 8:30〜16:30。拝観料 大人100円・小中学生50円。",
   "momijidani-park":
     "公園：無料・常時開放。ロープウエー：上り9:00〜16:00、下り最終16:30（季節・天候により変動、強風・雷雨時運休）。往復 大人2,000円・子供1,000円。",
@@ -119,17 +119,17 @@ const OPENING_HOURS_JA: Record<string, string> = {
   "lafcadio-hearn-memorial-museum":
     "4月〜9月 9:00〜18:00（最終入館17:30）。10月〜3月 9:00〜17:00（最終入館16:30）。年中無休ですが、年に数回臨時休館があります。",
   "horikawa-pleasure-boat":
-    "3月〜9月 9:00〜17:00、10月〜2月 9:00〜16:00。15〜25分間隔で出発。荒天時は運休となる場合があります。",
+    "3月1日〜6月30日 9:00〜17:00、7月1日〜8月15日 9:00〜18:00、8月16日〜10月10日 9:00〜17:00、10月11日〜11月30日 9:00〜16:00、12月1日〜2月末 9:00〜16:00。3〜11月は20分間隔、12〜2月は30分間隔で出発。荒天時は運休となる場合があります。",
   "tanabe-museum-matsue":
     "9:00〜17:00（最終入館16:30）。月曜休館（祝日の場合は開館）。年末年始・展示替えによる臨時休館あり。",
   "gessho-ji-temple-matsue":
     "10:00〜16:00（最終受付15:30）。6月のみ8:30〜17:30（最終受付17:00）。年中無休。入場料は現金のみ。",
   "inasa-beach-izumo": "終日開放。",
   "hinomisaki-lighthouse-izumo":
-    "通年 9:00〜12:00。午後は3月〜9月 平日13:00〜16:30・土日祝13:00〜17:00、10月〜2月 13:00〜16:30。入場は終了20分前まで。12月30日・31日は休業。荒天時は参観中止の場合あり。",
+    "通年 9:00〜12:00。午後は3月〜9月 平日13:00〜16:30・土日祝13:00〜17:00、10月〜2月 13:00〜16:30。入場は終了20分前まで。荒天時は参観中止の場合あり。",
   "uradome-coast": "海岸は終日開放。遊覧船は季節運航（おおむね3月〜11月）。",
   "karato-market-shimonoseki":
-    "卸売場は月〜土の早朝（4時頃）から。活きいき馬関街は金・土 9:00〜15:00、日・祝 8:00〜15:00。営業カレンダーを公式サイトでご確認ください。",
+    "卸売場は月〜土の早朝（4時頃）から。活きいき馬関街は金・土 8:00〜15:00、日・祝 7:00〜15:00。営業カレンダーを公式サイトでご確認ください。",
   "akiyoshidai-plateau":
     "終日開放。山焼きは毎年2月に開催（日程は公式サイトで要確認）。",
   "iwakuni-castle":
@@ -195,7 +195,7 @@ function poil(
   const sum =
     breakdown.transport + breakdown.tickets + breakdown.food + breakdown.cafe;
   const recommended = budget[1];
-  if (Math.abs(sum - recommended) > Math.max(100, recommended * 0.02)) {
+  if (sum !== recommended) {
     throw new Error(
       `${id}: budget breakdown sum ${sum} != recommended ${recommended}`,
     );
@@ -1336,7 +1336,7 @@ newRecords.push(
       uniqueness: 7.5,
     },
     "https://www.hiro-tsuitokinenkan.go.jp/en/",
-    "Mar–Jul 08:30–18:00; Aug 08:30–19:00 (until 20:00 Aug 5–6); Sep–Nov 08:30–18:00; Dec–Feb 08:30–17:00. Free. Closed Dec 29–31 (verify current).",
+    "Mar–Jul 08:30–18:00; Aug 08:30–19:00 (until 20:00 Aug 5–6); Sep–Nov 08:30–18:00; Dec–Feb 08:30–17:00. Free. Closed Dec 30–31.",
     "None required.",
     "No dedicated lot; use Peace Park area parking.",
     "Free national memorial; pairs with Museum and Park in one itinerary.",
@@ -1597,17 +1597,17 @@ newRecords.push(
       "Important Cultural Property",
       "Miyajima",
     ],
-    "The vermilion Five-Story Pagoda beside Senjokaku dates to 1407 and is designated an Important Cultural Property of Japan (not a National Treasure). Its interior is normally closed to the public and it is appreciated from the outside, framing the Itsukushima Shrine skyline. NOTE: as of 2026 the pagoda is under scaffolding for repair work, with restoration scheduled through December 2026, so the exterior may be partly obscured.",
-    "千畳閣に隣接する朱塗りの五重塔は1407年の建立で、日本の重要文化財に指定されています（国宝ではありません）。内部は通常非公開で、厳島神社の景観を引き立てる姿を外から鑑賞します。※2026年現在、保存修理工事中で、2026年12月頃までの工期が予定されており、足場等で一部見えにくくなっています。",
+    "The vermilion Five-Story Pagoda beside Senjokaku dates to 1407 and is designated an Important Cultural Property of Japan (not a National Treasure). Its interior is normally closed to the public. NOTE: the pagoda is currently hidden under full scaffolding and sheeting for restoration work through December 2026, so the exterior is not viewable until the work ends.",
+    "千畳閣に隣接する朱塗りの五重塔は1407年の建立で、日本の重要文化財に指定されています（国宝ではありません）。内部は通常非公開です。※現在は保存修理工事のため全面足場とシートで覆われており、2026年12月頃までの工事期間中は外観も見学できません。",
     [
       "1407年建立の朱塗りの塔",
       "重要文化財（国宝ではない）",
-      "神社・海と合わせた絶好の撮影ポイント",
+      "2026年12月頃まで修理工事中のため見学不可",
     ],
     [
       "Built 1407; vermilion landmark beside Senjokaku",
       "Important Cultural Property (not National Treasure)",
-      "Best photo pairing with Itsukushima Shrine & sea",
+      "Fully scaffolded for restoration through Dec 2026 — not viewable until work ends",
     ],
     [0, 800, 1500],
     { transport: 200, tickets: 0, food: 400, cafe: 200 },
@@ -1634,7 +1634,7 @@ newRecords.push(
       uniqueness: 8,
     },
     "https://www.miyajima.or.jp/sightseeing/ss_goju.html",
-    "Exterior viewable at all times; interior closed to the public. Under restoration through ~Dec 2026 (scaffolding may obscure views).",
+    "Exterior not viewable during restoration: full scaffolding and sheeting from 2026 through ~Dec 2026 (official notice); interior normally closed. Check the association page before visiting.",
     "None.",
     "No cars on Miyajima; walk from shrine precincts.",
     "Heritage status: Important Cultural Property, NOT National Treasure (Senjokaku and pagoda both).",
@@ -1992,8 +1992,8 @@ newRecords.push(
     "cruise" as Destination["kind"],
     ["Sightseeing", "Boat Tour", "History"],
     ["Moat Cruise", "Matsue Castle", "Samurai Town", "Boat Tour"],
-    "The Horikawa Pleasure Boat is a low-roofed sightseeing boat that cruises Matsue's moats and canals for about 50 minutes, passing under low bridges where passengers duck below the roof. Boats depart roughly every 15–25 minutes from landings near Matsue Castle. A one-day pass allows unlimited rides.",
-    "堀川遊覧船は、松江城周辺の堀や運河を約50分かけて巡る屋根の低い遊覧船です。橋の下では屋根を下げてくぐり抜けます。松江城近くの乗り場から15〜25分間隔で出発し、1日乗船券で何度でも乗船できます。",
+    "The Horikawa Pleasure Boat is a low-roofed sightseeing boat that cruises Matsue's moats and canals for about 50 minutes, passing under low bridges where passengers duck below the roof. Boats depart roughly every 20 minutes from March to November and every 30 minutes in winter from landings near Matsue Castle. A one-day pass allows unlimited rides.",
+    "堀川遊覧船は、松江城周辺の堀や運河を約50分かけて巡る屋根の低い遊覧船です。橋の下では屋根を下げてくぐり抜けます。3月〜11月は約20分間隔、冬期（12〜2月）は約30分間隔で出発し、1日乗船券で何度でも乗船できます。",
     [
       "橋の下をくぐる約50分の堀めぐり",
       "水面上から見る城下町の風景",
@@ -2029,20 +2029,25 @@ newRecords.push(
       uniqueness: 8.8,
     },
     "https://www.matsue-horikawameguri.jp/",
-    "Mar–Sep 9:00–17:00; Oct–Feb 9:00–16:00; departures every ~15–25 min; may suspend in severe weather",
+    "Mar 1–Jun 30 9:00–17:00; Jul 1–Aug 15 9:00–18:00; Aug 16–Oct 10 9:00–17:00; Oct 11–Nov 30 9:00–16:00; Dec 1–Feb 28 9:00–16:00; departures every ~20 min (30 min Dec–Feb); may suspend in severe weather",
     "None required (boarding on day; arrive 5 min early)",
     "Public lots near Matsue Castle",
-    "Coordinates are Matsue Castle moat reference (landing area); exact landings vary. Adult ¥2,000 day pass.",
+    "Coordinates are Matsue Castle moat reference (landing area); exact landings vary. Adult ¥2,000 day pass per the operator's current booking page (tourist-board pages list ¥1,500/¥1,600 legacy rates; booking page is authoritative).",
     [
       {
         type: "official",
+        url: "https://matsue-horikawameguri-kankou.book.ntmg.com/",
+        title: "堀川遊覧船 公式予約（乗船料）",
+      },
+      {
+        type: "official",
         url: "https://www.matsue-horikawameguri.jp/language/en/",
-        title: "Horikawa Pleasure Boat (EN)",
+        title: "Horikawa Pleasure Boat (EN) — hours",
       },
       {
         type: "tourism_board",
-        url: "https://www.visit-matsue.com/discover/city_centre/north_side/castle_area/horikawa",
-        title: "Horikawa — VISIT MATSUE",
+        url: "https://www.kankou-shimane.com/en/destinations/9294",
+        title: "Horikawa Pleasure Boat — Shimane Tourism (hours)",
       },
     ],
     {
@@ -2322,7 +2327,7 @@ newRecords.push(
       uniqueness: 9,
     },
     "https://www.city.izumo.shimane.jp/www/contents/1769395852119/index.html",
-    "Year-round 9:00–12:00; afternoons Mar–Sep weekdays 13:00–16:30, weekends/holidays 13:00–17:00; Oct–Feb 13:00–16:30; last entry 20 min before close; closed Dec 30–31; may close in rough weather",
+    "Year-round 9:00–12:00; afternoons Mar–Sep weekdays 13:00–16:30, weekends/holidays 13:00–17:00; Oct–Feb 13:00–16:30; last entry 20 min before close; may close in rough weather",
     "None required",
     "Free lots (first 65 cars, second 175 cars)",
     "Hours (from 2026-03-01 change) verified from Izumo City site. Observation donation ¥300 jr-high+, under 13 free.",
@@ -2476,10 +2481,10 @@ newRecords.push(
       uniqueness: 8.8,
     },
     "https://www.karatoichiba.com/",
-    "Wholesale Mon–Sat from 4:00; Iki-iki Bakangai stalls Fri–Sat 9:00–15:00, Sun & holidays 8:00–15:00 (check the published calendar)",
+    "Wholesale Mon–Sat from 4:00; Iki-iki Bakangai stalls Fri–Sat 8:00–15:00, Sun & holidays 7:00–15:00 (check the published calendar; stall start/end times vary with fish supply)",
     "None",
     "Paid lots nearby (Karato district)",
-    "Bakangai hours verified from official calendar; wholesale times are morning-start, 5:00–8:00 busiest per official FAQ.",
+    "Bakangai hours verified from the official 2026 calendar (Fri/Sat 08:00, Sun/holiday 07:00); wholesale times are morning-start, 5:00–8:00 busiest per official FAQ.",
     [
       {
         type: "official",
@@ -2772,6 +2777,17 @@ patch(
     d.budgetBreakdown = { transport: 300, tickets: 200, food: 800, cafe: 200 };
     d.transportOptions = {};
     d.coordinates = { lat: 34.3916, lng: 132.4531 };
+    d.tags = [
+      "Hiroshima Peace Memorial Museum",
+      "Genbaku",
+      "Peace Park",
+      "Museum",
+    ];
+    d.highlights = [
+      "Artifacts and testimony documenting August 6, 1945",
+      "East Building permanent exhibition (¥200)",
+      "Peace education; a short walk from the Genbaku Dome",
+    ];
     d.content = {
       en: {
         name: d.name,
@@ -2960,7 +2976,7 @@ patch(
   "matsue-castle",
   (d) => {
     ((d.notes =
-      "National Treasure keep, one of Japan's five original wooden castle keeps (designated 2015); nicknamed Chidori-jo (Black Plover Castle). Adjacent to Horikawa moat and Shiomi Nawate samurai street."),
+      "National Treasure keep, one of Japan's 12 surviving original wooden castle keeps (five of which are National Treasures, designated 2015); nicknamed Chidori-jo (Black Plover Castle). Adjacent to Horikawa moat and Shiomi Nawate samurai street."),
       (d.businessHours =
         "Apr 1–Sep 30: 08:30–18:00 (last entry 17:30); Oct 1–Mar 31: 08:30–17:00 (last entry 16:30). Open daily."),
       (d.openingHoursJa =

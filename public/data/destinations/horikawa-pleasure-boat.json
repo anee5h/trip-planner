@@ -15,7 +15,7 @@
   },
   "categories": ["Sightseeing", "Boat Tour", "History"],
   "tags": ["Moat Cruise", "Matsue Castle", "Samurai Town", "Boat Tour"],
-  "description": "The Horikawa Pleasure Boat is a low-roofed sightseeing boat that cruises Matsue's moats and canals for about 50 minutes, passing under low bridges where passengers duck below the roof. Boats depart roughly every 15–25 minutes from landings near Matsue Castle. A one-day pass allows unlimited rides.",
+  "description": "The Horikawa Pleasure Boat is a low-roofed sightseeing boat that cruises Matsue's moats and canals for about 50 minutes, passing under low bridges where passengers duck below the roof. Boats depart roughly every 20 minutes from March to November and every 30 minutes in winter from landings near Matsue Castle. A one-day pass allows unlimited rides.",
   "highlights": [
     "50-minute moat cruise with duck-under bridges",
     "Castle-town views from water level",
@@ -87,17 +87,17 @@
   "weatherDependence": "high",
   "reservation": "None required (boarding on day; arrive 5 min early)",
   "parking": "Public lots near Matsue Castle",
-  "notes": "Coordinates are Matsue Castle moat reference (landing area); exact landings vary. Adult ¥2,000 day pass.",
+  "notes": "Coordinates are Matsue Castle moat reference (landing area); exact landings vary. Adult ¥2,000 day pass per the operator's current booking page (tourist-board pages list ¥1,500/¥1,600 legacy rates; booking page is authoritative).",
   "notesJa": "【見どころ】堀川遊覧船は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "3月〜9月 9:00〜17:00、10月〜2月 9:00〜16:00。15〜25分間隔で出発。荒天時は運休となる場合があります。",
-  "businessHours": "Mar–Sep 9:00–17:00; Oct–Feb 9:00–16:00; departures every ~15–25 min; may suspend in severe weather",
+  "openingHoursJa": "3月1日〜6月30日 9:00〜17:00、7月1日〜8月15日 9:00〜18:00、8月16日〜10月10日 9:00〜17:00、10月11日〜11月30日 9:00〜16:00、12月1日〜2月末 9:00〜16:00。3〜11月は20分間隔、12〜2月は30分間隔で出発。荒天時は運休となる場合があります。",
+  "businessHours": "Mar 1–Jun 30 9:00–17:00; Jul 1–Aug 15 9:00–18:00; Aug 16–Oct 10 9:00–17:00; Oct 11–Nov 30 9:00–16:00; Dec 1–Feb 28 9:00–16:00; departures every ~20 min (30 min Dec–Feb); may suspend in severe weather",
   "officialWebsite": "https://www.matsue-horikawameguri.jp/",
   "content": {
     "en": {
       "name": "Horikawa Pleasure Boat",
-      "description": "The Horikawa Pleasure Boat is a low-roofed sightseeing boat that cruises Matsue's moats and canals for about 50 minutes, passing under low bridges where passengers duck below the roof. Boats depart roughly every 15–25 minutes from landings near Matsue Castle. A one-day pass allows unlimited rides.",
+      "description": "The Horikawa Pleasure Boat is a low-roofed sightseeing boat that cruises Matsue's moats and canals for about 50 minutes, passing under low bridges where passengers duck below the roof. Boats depart roughly every 20 minutes from March to November and every 30 minutes in winter from landings near Matsue Castle. A one-day pass allows unlimited rides.",
       "highlights": [
         "50-minute moat cruise with duck-under bridges",
         "Castle-town views from water level",
@@ -106,7 +106,7 @@
     },
     "ja": {
       "name": "堀川遊覧船",
-      "description": "堀川遊覧船は、松江城周辺の堀や運河を約50分かけて巡る屋根の低い遊覧船です。橋の下では屋根を下げてくぐり抜けます。松江城近くの乗り場から15〜25分間隔で出発し、1日乗船券で何度でも乗船できます。",
+      "description": "堀川遊覧船は、松江城周辺の堀や運河を約50分かけて巡る屋根の低い遊覧船です。橋の下では屋根を下げてくぐり抜けます。3月〜11月は約20分間隔、冬期（12〜2月）は約30分間隔で出発し、1日乗船券で何度でも乗船できます。",
       "highlights": [
         "橋の下をくぐる約50分の堀めぐり",
         "水面上から見る城下町の風景",
@@ -119,14 +119,20 @@
     "sources": [
       {
         "type": "official",
+        "url": "https://matsue-horikawameguri-kankou.book.ntmg.com/",
+        "title": "堀川遊覧船 公式予約（乗船料）",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
         "url": "https://www.matsue-horikawameguri.jp/language/en/",
-        "title": "Horikawa Pleasure Boat (EN)",
+        "title": "Horikawa Pleasure Boat (EN) — hours",
         "accessedAt": "2026-08-12"
       },
       {
         "type": "tourism_board",
-        "url": "https://www.visit-matsue.com/discover/city_centre/north_side/castle_area/horikawa",
-        "title": "Horikawa — VISIT MATSUE",
+        "url": "https://www.kankou-shimane.com/en/destinations/9294",
+        "title": "Horikawa Pleasure Boat — Shimane Tourism (hours)",
         "accessedAt": "2026-08-12"
       }
     ],

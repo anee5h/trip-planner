@@ -20,11 +20,11 @@
     "Important Cultural Property",
     "Miyajima"
   ],
-  "description": "The vermilion Five-Story Pagoda beside Senjokaku dates to 1407 and is designated an Important Cultural Property of Japan (not a National Treasure). Its interior is normally closed to the public and it is appreciated from the outside, framing the Itsukushima Shrine skyline. NOTE: as of 2026 the pagoda is under scaffolding for repair work, with restoration scheduled through December 2026, so the exterior may be partly obscured.",
+  "description": "The vermilion Five-Story Pagoda beside Senjokaku dates to 1407 and is designated an Important Cultural Property of Japan (not a National Treasure). Its interior is normally closed to the public. NOTE: the pagoda is currently hidden under full scaffolding and sheeting for restoration work through December 2026, so the exterior is not viewable until the work ends.",
   "highlights": [
     "Built 1407; vermilion landmark beside Senjokaku",
     "Important Cultural Property (not National Treasure)",
-    "Best photo pairing with Itsukushima Shrine & sea"
+    "Fully scaffolded for restoration through Dec 2026 — not viewable until work ends"
   ],
   "status": "published",
   "travelEstimate": {
@@ -97,26 +97,26 @@
   "notesJa": "【見どころ】五重塔は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-  "openingHoursJa": "外観は常時見学可能。内部非公開。2026年12月頃まで保存修理工事中（足場設置のため一部見えにくい場合あり）。",
-  "businessHours": "Exterior viewable at all times; interior closed to the public. Under restoration through ~Dec 2026 (scaffolding may obscure views).",
+  "openingHoursJa": "外観は2026年12月頃まで保存修理工事中のため、足場・シートに覆われており見学できません（工事終了後に再開予定）。内部は非公開。",
+  "businessHours": "Exterior not viewable during restoration: full scaffolding and sheeting from 2026 through ~Dec 2026 (official notice); interior normally closed. Check the association page before visiting.",
   "officialWebsite": "https://www.miyajima.or.jp/sightseeing/ss_goju.html",
   "content": {
     "en": {
       "name": "Five-Story Pagoda (Gojunoto)",
-      "description": "The vermilion Five-Story Pagoda beside Senjokaku dates to 1407 and is designated an Important Cultural Property of Japan (not a National Treasure). Its interior is normally closed to the public and it is appreciated from the outside, framing the Itsukushima Shrine skyline. NOTE: as of 2026 the pagoda is under scaffolding for repair work, with restoration scheduled through December 2026, so the exterior may be partly obscured.",
+      "description": "The vermilion Five-Story Pagoda beside Senjokaku dates to 1407 and is designated an Important Cultural Property of Japan (not a National Treasure). Its interior is normally closed to the public. NOTE: the pagoda is currently hidden under full scaffolding and sheeting for restoration work through December 2026, so the exterior is not viewable until the work ends.",
       "highlights": [
         "Built 1407; vermilion landmark beside Senjokaku",
         "Important Cultural Property (not National Treasure)",
-        "Best photo pairing with Itsukushima Shrine & sea"
+        "Fully scaffolded for restoration through Dec 2026 — not viewable until work ends"
       ]
     },
     "ja": {
       "name": "五重塔",
-      "description": "千畳閣に隣接する朱塗りの五重塔は1407年の建立で、日本の重要文化財に指定されています（国宝ではありません）。内部は通常非公開で、厳島神社の景観を引き立てる姿を外から鑑賞します。※2026年現在、保存修理工事中で、2026年12月頃までの工期が予定されており、足場等で一部見えにくくなっています。",
+      "description": "千畳閣に隣接する朱塗りの五重塔は1407年の建立で、日本の重要文化財に指定されています（国宝ではありません）。内部は通常非公開です。※現在は保存修理工事のため全面足場とシートで覆われており、2026年12月頃までの工事期間中は外観も見学できません。",
       "highlights": [
         "1407年建立の朱塗りの塔",
         "重要文化財（国宝ではない）",
-        "神社・海と合わせた絶好の撮影ポイント"
+        "2026年12月頃まで修理工事中のため見学不可"
       ]
     }
   },
