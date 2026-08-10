@@ -87,7 +87,7 @@ describe("getOriginAwareTransportEstimate — required real route checks", () =>
     const estimate = estimateFor(nagoya, OSAKA, ["train", "shinkansen"]);
     expect(estimate).not.toBeNull();
     expect(estimate!.mode).toBe("shinkansen");
-    expect(estimate!.timeRange).toEqual([35, 75]);
+    expect(estimate!.timeRange).toEqual([50, 75]);
   });
 
   it("Osaka → Kusatsu: verified train corridor", () => {
