@@ -1,0 +1,167 @@
+{
+  "id": "kibitsu-shrine",
+  "name": "Kibitsu Shrine",
+  "nameJa": "吉備津神社",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Okayama:okayama",
+  "prefecture": "Okayama",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.6707,
+    "lng": 133.8508
+  },
+  "categories": ["Culture", "History", "Spiritual"],
+  "tags": [
+    "National Treasure",
+    "Kibi-zukuri Architecture",
+    "Momotaro Legend",
+    "398m Covered Corridor"
+  ],
+  "description": "Kibitsu Shrine, the ichinomiya (first shrine) of Bitchu Province, enshrines Okibitsuhiko-no-Mikoto, the deity associated with the Momotaro legend. Its main hall and worship hall, rebuilt in 1425, are a National Treasure and the only surviving example of the kibi-zukuri architectural style. A 398-meter covered corridor connects the main hall to the Kamado Shrine, site of the famous Nakama-gama rice-cooking divination rite.",
+  "highlights": [
+    "Walk the 398m covered corridor, one of Japan's longest shrine corridors",
+    "View the National Treasure main hall, sole survivor of the kibi-zukuri style",
+    "See hydrangeas (mid-June) and peonies (late April–early May) in the grounds"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 2000,
+    "tickets": 0,
+    "food": 600,
+    "cafe": 400
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/250505_Kibitsu-jinja_Okayama_Japan01s3.jpg/1280px-250505_Kibitsu-jinja_Okayama_Japan01s3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/250505_Kibitsu-jinja_Okayama_Japan01s3.jpg/1280px-250505_Kibitsu-jinja_Okayama_Japan01s3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:250505_Kibitsu-jinja_Okayama_Japan01s3.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1200,
+  "walkingShadeMin": 1300,
+  "walkingIntensity": "medium",
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 7.8,
+    "winter": 7.6,
+    "rain": 6.8,
+    "food": 7,
+    "photography": 9,
+    "relaxation": 9,
+    "value": 9.2,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 3,
+    "holiday": 4
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 6
+  },
+  "bestMonths": [4, 5, 6, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "Not required; prayers (kito) by application, from ¥5,000",
+  "parking": "Free shrine parking available; wheelchair-accessible spaces at the auto-purification area",
+  "notes": "No admission fee. 398m corridor length per Okayama City official page (some sources say ~360m/400m). Access: JR Kibi Line to Kibitsu Station (~10 min walk).",
+  "notesJa": "【見どころ】吉備津神社は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "開門5:00〜閉門18:00（参拝自由）／御祈祷・御朱印受付は9:00〜14:00頃。",
+  "businessHours": "Grounds open 05:00–18:00 daily; prayer/goshuin office approx 09:00–14:00",
+  "officialWebsite": "https://www.kibitujinja.com/",
+  "content": {
+    "en": {
+      "name": "Kibitsu Shrine",
+      "description": "Kibitsu Shrine, the ichinomiya (first shrine) of Bitchu Province, enshrines Okibitsuhiko-no-Mikoto, the deity associated with the Momotaro legend. Its main hall and worship hall, rebuilt in 1425, are a National Treasure and the only surviving example of the kibi-zukuri architectural style. A 398-meter covered corridor connects the main hall to the Kamado Shrine, site of the famous Nakama-gama rice-cooking divination rite.",
+      "highlights": [
+        "Walk the 398m covered corridor, one of Japan's longest shrine corridors",
+        "View the National Treasure main hall, sole survivor of the kibi-zukuri style",
+        "See hydrangeas (mid-June) and peonies (late April–early May) in the grounds"
+      ]
+    },
+    "ja": {
+      "name": "吉備津神社",
+      "description": "吉備津神社は備中国の一宮で、桃太郎伝説のモデルとされる大吉備津彦大神を祀ります。1425年に再建された本殿・拝殿は国宝に指定され、「吉備津造」と呼ばれる独自の様式を今に伝える唯一の例です。全長約398メートルの廻廊は本殿から御竈殿まで続き、御竈殿では古くから知られる「鳴釜神事」が行われています。",
+      "highlights": [
+        "全長約398mの廻廊を歩く",
+        "吉備津造唯一の遺構である国宝本殿を見学",
+        "境内のあじさい（6月中旬）とぼたん（4月下旬〜5月上旬）を鑑賞"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kibitujinja.com/faq/",
+        "title": "よくあるご質問｜吉備津神社",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "government",
+        "url": "https://www.city.okayama.jp/life/0000041642.html",
+        "title": "吉備津神社回廊｜岡山市",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://okayama-kanko.jp/spot/detail_10047.html",
+        "title": "吉備津神社｜岡山観光WEB",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "reviewedAt": "2026-08-10",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "okayama-city"
+  },
+  "schemaVersion": 2
+}

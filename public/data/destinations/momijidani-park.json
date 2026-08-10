@@ -1,0 +1,157 @@
+{
+  "id": "momijidani-park",
+  "name": "Momijidani Park & Miyajima Ropeway to Mt. Misen",
+  "nameJa": "紅葉谷公園・宮島ロープウエー",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Hiroshima:hatsukaichi",
+  "prefecture": "Hiroshima",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.2938,
+    "lng": 132.325
+  },
+  "categories": ["Park", "Nature", "Viewpoint", "Experience"],
+  "tags": ["Momijidani", "Maple valley", "Ropeway", "Mt Misen", "Autumn"],
+  "description": "Momijidani (Maple Valley) Park is a free maple-forest park at the foot of Mount Misen and the starting point of the Miyajima Ropeway, with a free shuttle from the park entrance. The ropeway runs 09:00–16:00 uphill (last down 16:30, weather permitting; round trip ¥2,000 adults / ¥1,000 children) to Shishiiwa, near the 535 m summit of Mount Misen with views over the Seto Inland Sea. The park is famous for autumn foliage.",
+  "highlights": [
+    "Free maple-valley park, famous autumn foliage",
+    "Ropeway to Mt. Misen summit area (¥2,000 round trip)",
+    "Views over Seto Inland Sea from Shishiiwa"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "transportZoneId": "unknown",
+  "budgetMin": 0,
+  "budgetRecommended": 2500,
+  "budgetMax": 4500,
+  "budgetBreakdown": {
+    "transport": 2000,
+    "tickets": 0,
+    "food": 300,
+    "cafe": 200
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Momijidani_park2.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Momijidani_park2.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "耕太郎, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Momijidani_park2.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 3500,
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 1500,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 9,
+    "summer": 8,
+    "winter": 6.5,
+    "rain": 5,
+    "food": 6,
+    "photography": 9,
+    "relaxation": 8.5,
+    "value": 8,
+    "uniqueness": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 7,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 5
+  },
+  "bestMonths": [10, 11],
+  "bestSeason": "Autumn",
+  "weatherDependence": "high",
+  "reservation": "Not required; same-day tickets at Momijidani Station or the pier Information Center.",
+  "parking": "No cars on Miyajima; free shuttle bus runs from the park entrance to Momijidani Station (not during 12:05–13:10).",
+  "notes": "Mt. Misen primeval forest registered as World Heritage in 1996 (part of Itsukushima inscription); ropeway weather-dependent.",
+  "notesJa": "【見どころ】紅葉谷公園・宮島ロープウエーは中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "公園：無料・常時開放。ロープウエー：上り9:00〜16:00、下り最終16:30（季節・天候により変動、強風・雷雨時運休）。往復 大人2,000円・子供1,000円。",
+  "businessHours": "Park: free, always open. Ropeway: uphill 09:00–16:00, last downhill 16:30 (varies by season/weather; suspended in strong wind/storm). Round trip ¥2,000 adult, ¥1,000 child.",
+  "officialWebsite": "https://miyajima-ropeway.info/english/",
+  "content": {
+    "en": {
+      "name": "Momijidani Park & Miyajima Ropeway to Mt. Misen",
+      "description": "Momijidani (Maple Valley) Park is a free maple-forest park at the foot of Mount Misen and the starting point of the Miyajima Ropeway, with a free shuttle from the park entrance. The ropeway runs 09:00–16:00 uphill (last down 16:30, weather permitting; round trip ¥2,000 adults / ¥1,000 children) to Shishiiwa, near the 535 m summit of Mount Misen with views over the Seto Inland Sea. The park is famous for autumn foliage.",
+      "highlights": [
+        "Free maple-valley park, famous autumn foliage",
+        "Ropeway to Mt. Misen summit area (¥2,000 round trip)",
+        "Views over Seto Inland Sea from Shishiiwa"
+      ]
+    },
+    "ja": {
+      "name": "紅葉谷公園・宮島ロープウエー",
+      "description": "紅葉谷公園は弥山の麓にある無料のカエデ林の公園で、宮島ロープウエーの乗り場があります（園内入口から無料シャトルバス）。ロープウエーは9:00〜16:00に上り運行（下り最終16:30、荒天時運休、往復大人2,000円・子供1,000円）で、標高535mの弥山山頂近くの獅子岩へ向かいます。紅葉の名所としても知られます。",
+      "highlights": [
+        "無料の紅葉谷・秋の紅葉名所",
+        "弥山山頂方面へのロープウエー（往復2,000円）",
+        "獅子岩から瀬戸内海を一望"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://miyajima-ropeway.info/english/fare/",
+        "title": "Miyajima Ropeway – Hours, Fares & Facilities",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "official",
+        "url": "https://miyajima-ropeway.info/english/access/",
+        "title": "Miyajima Ropeway – Access & Free Shuttle Bus",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "reviewedAt": "2026-08-10",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "hatsukaichi-city"
+  },
+  "schemaVersion": 2
+}

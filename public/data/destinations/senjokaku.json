@@ -1,0 +1,162 @@
+{
+  "id": "senjokaku",
+  "name": "Senjokaku (Toyokuni Shrine)",
+  "nameJa": "千畳閣（豊国神社）",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Hiroshima:hatsukaichi",
+  "prefecture": "Hiroshima",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.2973,
+    "lng": 132.3203
+  },
+  "categories": ["Shrine", "History", "Culture", "Landmark"],
+  "tags": [
+    "Senjokaku",
+    "Toyokuni Shrine",
+    "Important Cultural Property",
+    "Hideyoshi"
+  ],
+  "description": "Senjokaku, the thousand-mat hall, is a vast unfinished hall begun in 1587 at Toyotomi Hideyoshi's order to recite sutras for fallen warriors; it was never completed. It is designated an Important Cultural Property (not a National Treasure) and houses a large image of Hideyoshi plus a sacred mount. It is managed by nearby Toyokuni Shrine; admission is ¥100 (¥50 for children), open 08:30–16:30.",
+  "highlights": [
+    "Unfinished 1587 hall built by Hideyoshi's order",
+    "Thousand-mat interior with Hideyoshi statue",
+    "Important Cultural Property; ¥100 entry"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "transportZoneId": "unknown",
+  "budgetMin": 100,
+  "budgetRecommended": 900,
+  "budgetMax": 1500,
+  "budgetBreakdown": {
+    "transport": 200,
+    "tickets": 100,
+    "food": 400,
+    "cafe": 200
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Senjokaku_2011.JPG/1280px-Senjokaku_2011.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Senjokaku_2011.JPG/1280px-Senjokaku_2011.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Taisyo, CC BY 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senjokaku_2011.JPG"
+  },
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1
+  },
+  "walkingMin": 400,
+  "walkingSunMin": 200,
+  "walkingShadeMin": 200,
+  "walkingIntensity": "low",
+  "indoorPercent": 60,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 7,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 7.5,
+    "summer": 7.5,
+    "winter": 7,
+    "rain": 7.5,
+    "food": 5,
+    "photography": 8,
+    "relaxation": 7,
+    "value": 8,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None.",
+  "parking": "No cars on Miyajima; beside the Five-Story Pagoda in the shrine precincts.",
+  "notes": "Managed by Toyokuni Shrine; combined visit with pagoda and Itsukushima Shrine.",
+  "notesJa": "【見どころ】千畳閣（豊国神社）は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "毎日 8:30〜16:30。拝観料 大人100円・小中学生50円。",
+  "businessHours": "Daily 08:30–16:30. Admission ¥100 adult, ¥50 elementary/junior-high.",
+  "officialWebsite": "https://itsukushimajinja.jp/en/admission.html",
+  "content": {
+    "en": {
+      "name": "Senjokaku (Toyokuni Shrine)",
+      "description": "Senjokaku, the thousand-mat hall, is a vast unfinished hall begun in 1587 at Toyotomi Hideyoshi's order to recite sutras for fallen warriors; it was never completed. It is designated an Important Cultural Property (not a National Treasure) and houses a large image of Hideyoshi plus a sacred mount. It is managed by nearby Toyokuni Shrine; admission is ¥100 (¥50 for children), open 08:30–16:30.",
+      "highlights": [
+        "Unfinished 1587 hall built by Hideyoshi's order",
+        "Thousand-mat interior with Hideyoshi statue",
+        "Important Cultural Property; ¥100 entry"
+      ]
+    },
+    "ja": {
+      "name": "千畳閣（豊国神社）",
+      "description": "千畳閣は、1587年に豊臣秀吉が戦没者供養のために建立を命じた未完成の大広間で、畳千枚分の広さからその名がつきました。重要文化財に指定され、内部には秀吉の木像や神輿を安置します。豊国神社が管理し、拝観料は大人100円・小中学生50円、8:30〜16:30に拝観できます。",
+      "highlights": [
+        "秀吉が建立を命じた未完成の大広間",
+        "畳千枚の内部と秀吉像",
+        "重要文化財・拝観100円"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://itsukushimajinja.jp/en/admission.html",
+        "title": "Itsukushima Shrine – Admission (Senjokaku hours/fees)",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "government",
+        "url": "https://www.pref.hiroshima.lg.jp/uploaded/attachment/655530.pdf",
+        "title": "広島県 – 文化財指定（重要文化財）",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "reviewedAt": "2026-08-10",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "hatsukaichi-city"
+  },
+  "schemaVersion": 2
+}

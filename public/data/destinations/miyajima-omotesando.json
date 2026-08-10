@@ -1,0 +1,151 @@
+{
+  "id": "miyajima-omotesando",
+  "name": "Miyajima Omotesando",
+  "nameJa": "宮島表参道商店街",
+  "kind": "district",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Hiroshima:hatsukaichi",
+  "prefecture": "Hiroshima",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.2956,
+    "lng": 132.3193
+  },
+  "categories": ["Shopping", "Food", "Experience", "District"],
+  "tags": ["Omotesando", "Momiji manju", "Oysters", "Deer"],
+  "description": "Miyajima Omotesando is the island's main shopping street running from the ferry pier to the Itsukushima Shrine approach. It is lined with momiji-manju sweet shops, oyster (kaki) restaurants, souvenir stores and the famous fried momiji-manju stalls. Wild sika deer roam freely along the street — the tourist association warns they are wild, may bite, and must not be fed.",
+  "highlights": [
+    "Momiji-manju and fried momiji-manju stalls",
+    "Fresh Hiroshima oysters (kaki) at restaurants",
+    "Wild deer — don't feed them (official warning)"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "transportZoneId": "unknown",
+  "budgetMin": 1000,
+  "budgetRecommended": 2500,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 200,
+    "tickets": 0,
+    "food": 1800,
+    "cafe": 500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Evening_shops%2C_Miyajima_-_DSC02522.JPG/1280px-Evening_shops%2C_Miyajima_-_DSC02522.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Evening_shops%2C_Miyajima_-_DSC02522.JPG/1280px-Evening_shops%2C_Miyajima_-_DSC02522.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Daderot, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Evening_shops,_Miyajima_-_DSC02522.JPG"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 900,
+  "walkingSunMin": 450,
+  "walkingShadeMin": 450,
+  "walkingIntensity": "low",
+  "indoorPercent": 60,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 8,
+    "summer": 7.5,
+    "winter": 7.5,
+    "rain": 7,
+    "food": 9,
+    "photography": 7.5,
+    "relaxation": 6.5,
+    "value": 8,
+    "uniqueness": 7.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8,
+    "summer": 6,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None.",
+  "parking": "No cars on Miyajima. Access by ferry (JR West Miyajima Ferry or Matsudai) from Miyajimaguchi.",
+  "notes": "Wild deer are protected; feeding banned per Miyajima Tourist Association. Island is in Hatsukaichi City.",
+  "notesJa": "【見どころ】宮島表参道商店街は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "店舗により異なりますが、多くは9:00〜17:30〜18:00頃。冬期は早めに閉まる店もあります。",
+  "businessHours": "No fixed hours; shops generally 09:00–17:30–18:00, some later on weekends; stalls close earlier in winter.",
+  "officialWebsite": "https://www.miyajima.or.jp/english/",
+  "content": {
+    "en": {
+      "name": "Miyajima Omotesando",
+      "description": "Miyajima Omotesando is the island's main shopping street running from the ferry pier to the Itsukushima Shrine approach. It is lined with momiji-manju sweet shops, oyster (kaki) restaurants, souvenir stores and the famous fried momiji-manju stalls. Wild sika deer roam freely along the street — the tourist association warns they are wild, may bite, and must not be fed.",
+      "highlights": [
+        "Momiji-manju and fried momiji-manju stalls",
+        "Fresh Hiroshima oysters (kaki) at restaurants",
+        "Wild deer — don't feed them (official warning)"
+      ]
+    },
+    "ja": {
+      "name": "宮島表参道商店街",
+      "description": "宮島表参道商店街は、宮島港から厳島神社の参道へと続く島のメインストリートです。もみじ饅頭のお店やかき料理店、土産物店が軒を連ね、揚げもみじ饅頭の屋台も人気です。野生のシカが街中を歩いており、宮島観光協会は「野生のため噛むことがあり、餌を与えないでください」と呼びかけています。",
+      "highlights": [
+        "もみじ饅頭と揚げもみじ饅頭",
+        "広島かきの名店",
+        "野生のシカ（餌やり禁止）"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.miyajima.or.jp/english/nature/nature_animal.html",
+        "title": "Miyajima Tourist Assoc – Deer warning",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "reviewedAt": "2026-08-10",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "hatsukaichi-city"
+  },
+  "schemaVersion": 2
+}

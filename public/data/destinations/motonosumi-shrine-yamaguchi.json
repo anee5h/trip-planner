@@ -87,7 +87,8 @@
     "max": 5
   },
   "officialWebsite": "https://nanavi.jp/sightseeing/motonosumijinja/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "Shrine grounds open 24 hours, free of charge.",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Yamaguchi:nagato"
+  "municipalityId": "Yamaguchi:nagato",
+  "openingHoursJa": "神社境内は24時間・無料で参拝可能。"
 }

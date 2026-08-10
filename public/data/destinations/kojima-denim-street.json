@@ -1,0 +1,167 @@
+{
+  "id": "kojima-denim-street",
+  "name": "Kojima Jeans Street",
+  "nameJa": "児島ジーンズストリート",
+  "kind": "street",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Okayama:kurashiki",
+  "prefecture": "Okayama",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.4702,
+    "lng": 133.8025
+  },
+  "categories": ["Street", "Shopping", "Culture"],
+  "tags": [
+    "Denim Birthplace",
+    "Local Manufacturers",
+    "Kojima Ward",
+    "Japan Blue"
+  ],
+  "description": "Kojima Jeans Street is an approximately 400-meter shopping street in the Ajino district of Kojima, Kurashiki — the area recognized as the birthplace of Japanese denim. Local jeans manufacturers operate shops along the retro arcade, where visitors can buy selvedge denim and custom items. The street is about a 15-minute walk from JR Kojima Station on the Seto-Ohashi Line, or a short ride on the themed Jeans Bus (Fri–Sun/holidays).",
+  "highlights": [
+    "Shop selvedge denim directly from local manufacturers along the 400m arcade",
+    "Ride the Jeans Bus (Fri–Sun/holidays, ¥200) dressed in denim-themed livery",
+    "Combine with a visit to the former Nozaki residence, a Kurashiki City-designated historic house"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 3000,
+  "budgetRecommended": 8000,
+  "budgetMax": 20000,
+  "budgetBreakdown": {
+    "transport": 1000,
+    "tickets": 0,
+    "food": 2500,
+    "cafe": 4500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Kojima_Jeans_Street_2021-08_ac_%285%29.jpg/1280px-Kojima_Jeans_Street_2021-08_ac_%285%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Kojima_Jeans_Street_2021-08_ac_%285%29.jpg/1280px-Kojima_Jeans_Street_2021-08_ac_%285%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Asturio Cantabrio, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kojima_Jeans_Street_2021-08_ac_(5).jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 3000,
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 40,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8,
+    "summer": 8,
+    "winter": 7.8,
+    "rain": 7,
+    "food": 8.2,
+    "photography": 8.6,
+    "relaxation": 7.6,
+    "value": 8.6,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "Not required",
+  "parking": "Free dedicated lot (10 spaces, at Kojima Mino 1-13-10) plus municipal parking (¥100/hour, Kojima Mino 2-2-38); ¥3,000+ purchase at member shops earns parking validation",
+  "notes": "Kojima is a ward of Kurashiki City (official address: Kurashiki-shi, Kojima, Ajino). Jeans Bus ¥200 adult one ride / ¥620 day pass, 6 departures/day, ~35-min loop, Fri–Sun & holidays (daily during Obon).",
+  "notesJa": "【見どころ】児島ジーンズストリートは中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "商店街は終日通行可能（店舗により営業時間・定休日が異なります。土日祝は10:00〜18:00を目安）。",
+  "businessHours": "Open-air street, accessible anytime; shop hours vary by store (many Sat/Sun/holidays 10:00–18:00; some closed on weekdays)",
+  "officialWebsite": "http://jeans-street.com/",
+  "content": {
+    "en": {
+      "name": "Kojima Jeans Street",
+      "description": "Kojima Jeans Street is an approximately 400-meter shopping street in the Ajino district of Kojima, Kurashiki — the area recognized as the birthplace of Japanese denim. Local jeans manufacturers operate shops along the retro arcade, where visitors can buy selvedge denim and custom items. The street is about a 15-minute walk from JR Kojima Station on the Seto-Ohashi Line, or a short ride on the themed Jeans Bus (Fri–Sun/holidays).",
+      "highlights": [
+        "Shop selvedge denim directly from local manufacturers along the 400m arcade",
+        "Ride the Jeans Bus (Fri–Sun/holidays, ¥200) dressed in denim-themed livery",
+        "Combine with a visit to the former Nozaki residence, a Kurashiki City-designated historic house"
+      ]
+    },
+    "ja": {
+      "name": "児島ジーンズストリート",
+      "description": "児島ジーンズストリートは、国産ジーンズ発祥の地として知られる倉敷市児島・味野地区にある、全長約400メートルの商店街です。レトロな雰囲気のアーケード沿いに地元ジーンズメーカーのショップが軒を連ね、セルビッチデニムやオーダーメイドの製品を購入できます。JR児島駅から徒歩約15分、金・土・日・祝日には「ジーンズバス」も運行しています。",
+      "highlights": [
+        "全長約400mのアーケードで地元メーカーのセルビッチデニムを購入",
+        "金・土・日・祝日運行のジーンズバスに乗車（200円）",
+        "旧野﨑家住宅など児島の歴史スポットと合わせて周遊"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "http://www.jeans-street.com/access/index.html",
+        "title": "アクセスマップ｜児島ジーンズストリート",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://www.kojima-cci.or.jp/sightseeing/look/jeansstreet.html",
+        "title": "児島ジーンズストリート｜児島商工会議所",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "government",
+        "url": "https://www.callcenter-kurashiki-city.jp/faq/detail.aspx?id=2585",
+        "title": "ジーンズストリート駐車場FAQ｜倉敷市",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "reviewedAt": "2026-08-10",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "kurashiki-city"
+  },
+  "schemaVersion": 2
+}

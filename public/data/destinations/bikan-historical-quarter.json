@@ -1,0 +1,167 @@
+{
+  "id": "bikan-historical-quarter",
+  "name": "Kurashiki Bikan Historical Quarter",
+  "nameJa": "倉敷美観地区",
+  "kind": "district",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Okayama:kurashiki",
+  "prefecture": "Okayama",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.5966,
+    "lng": 133.7717
+  },
+  "categories": ["District", "History", "Sightseeing"],
+  "tags": [
+    "Important Preservation District",
+    "White-Walled Warehouses",
+    "Canal & Willow Trees",
+    "Kurashiki River Boat"
+  ],
+  "description": "The Bikan Historical Quarter preserves a townscape of white-walled kura storehouses, namako plaster walls, and willow-lined canals that grew from Kurashiki's Edo-period rice-trading prosperity. In 1979 the Kurashiki River waterfront area was designated a national Important Preservation District for Groups of Traditional Buildings. Visitors stroll the streets, shop for Kurashiki canvas and washi tape, and ride the Kurashiki River boat along the canal.",
+  "highlights": [
+    "Ride the Kurashiki River boat along the willow-lined canal (¥700, ~20 min)",
+    "Wander streets of white-walled storehouses and namako walls, nationally preserved since 1979",
+    "Shop local crafts: Kurashiki canvas, washi tape, and jeans"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 2000,
+  "budgetRecommended": 5000,
+  "budgetMax": 10000,
+  "budgetBreakdown": {
+    "transport": 1000,
+    "tickets": 700,
+    "food": 2000,
+    "cafe": 1300
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Kurashiki_Bikan_historical_quarter_20190324-3.jpg/1280px-Kurashiki_Bikan_historical_quarter_20190324-3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Kurashiki_Bikan_historical_quarter_20190324-3.jpg/1280px-Kurashiki_Bikan_historical_quarter_20190324-3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Suicasmo, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kurashiki_Bikan_historical_quarter_20190324-3.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 4000,
+  "walkingSunMin": 2500,
+  "walkingShadeMin": 1500,
+  "walkingIntensity": "medium",
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9.4,
+    "couple": 9.4,
+    "summer": 8.6,
+    "winter": 8.8,
+    "rain": 7.8,
+    "food": 9,
+    "photography": 9.6,
+    "relaxation": 9,
+    "value": 8.8,
+    "uniqueness": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "River boat: day-of tickets at Kurashiki-kan Tourist Information Center (¥700 adult / ¥350 child); partial web reservation from Oct 2026",
+  "parking": "Paid coin parking around the district (no dedicated large lot)",
+  "notes": "Night illumination by designer Motoko Ishii; events: Heartland Kurashiki (summer), Kurashiki Haruyoi Akari (spring). ~15-min walk from JR Kurashiki Station.",
+  "notesJa": "【見どころ】倉敷美観地区は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "町並みは終日散策可能（店舗・施設により異なる）／川舟流しは目安9:30〜17:00、約30分間隔で出航（季節により変動）。",
+  "businessHours": "Open access (streets); individual shops/museums have their own hours; river boat operates approx 09:30–17:00, departures every ~30 min (seasonal)",
+  "officialWebsite": "https://www.kurashiki-tabi.jp/standard/kurashiki-bikan-historical-quarter/",
+  "content": {
+    "en": {
+      "name": "Kurashiki Bikan Historical Quarter",
+      "description": "The Bikan Historical Quarter preserves a townscape of white-walled kura storehouses, namako plaster walls, and willow-lined canals that grew from Kurashiki's Edo-period rice-trading prosperity. In 1979 the Kurashiki River waterfront area was designated a national Important Preservation District for Groups of Traditional Buildings. Visitors stroll the streets, shop for Kurashiki canvas and washi tape, and ride the Kurashiki River boat along the canal.",
+      "highlights": [
+        "Ride the Kurashiki River boat along the willow-lined canal (¥700, ~20 min)",
+        "Wander streets of white-walled storehouses and namako walls, nationally preserved since 1979",
+        "Shop local crafts: Kurashiki canvas, washi tape, and jeans"
+      ]
+    },
+    "ja": {
+      "name": "倉敷美観地区",
+      "description": "倉敷美観地区は、江戸時代の米の集散地として栄えた倉敷に残る、白壁の蔵屋敷やなまこ壁、柳並木の町並みです。1979年（昭和54年）に倉敷川畔一帯が国の重要伝統的建造物群保存地区に選定されました。町歩きのほか、倉敷帆布やマスキングテープのショップ、倉敷川を巡る「くらしき川舟流し」が楽しめます。",
+      "highlights": [
+        "倉敷川の川舟流しに乗船（700円・約20分）",
+        "白壁の蔵屋敷となまこ壁の町並みを散策（1979年・国選定）",
+        "倉敷帆布やマスキングテープなどの地元クラフトを買い物"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.kurashiki-tabi.jp/standard/kurashiki-bikan-historical-quarter/",
+        "title": "倉敷美観地区｜倉敷観光WEB",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "government",
+        "url": "https://kunishitei.bunka.go.jp/bsys/maindetails/103/24",
+        "title": "倉敷市倉敷川畔伝統的建造物群保存地区｜国指定文化財等データベース",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://www.kurashiki-tabi.jp/see/see-3598/",
+        "title": "くらしき川舟流し｜倉敷観光WEB",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "reviewedAt": "2026-08-10",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "kurashiki-city"
+  },
+  "schemaVersion": 2
+}

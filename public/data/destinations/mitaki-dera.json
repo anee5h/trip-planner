@@ -48,9 +48,7 @@
     "food": 1400,
     "cafe": 1200
   },
-  "transportOptions": {
-    "train": 205
-  },
+  "transportOptions": {},
   "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
@@ -94,7 +92,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "notes": "Historic temple in the mountains northwest of Hiroshima City; grounds generally open 08:00–17:00 with a ¥200 offering (third-party source; no official temple site exists).",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -129,8 +127,7 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "officialWebsite": "https://dive-hiroshima.com/en/",
-  "businessHours": "Open access",
+  "businessHours": "Grounds open daily approx 08:00–17:00 (third-party source).",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Mitaki_dera_-_panoramio.jpg/1920px-Mitaki_dera_-_panoramio.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -138,5 +135,6 @@
     "attribution": "Max Nossin",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mitaki_dera_-_panoramio.jpg"
   },
-  "municipalityId": "Hiroshima:hiroshima"
+  "municipalityId": "Hiroshima:hiroshima",
+  "openingHoursJa": "境内は毎日おおむね8:00〜17:00まで拝観可能（公的な寺院サイトが存在しないため、第三者の情報による目安）。"
 }

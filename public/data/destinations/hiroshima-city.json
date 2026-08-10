@@ -75,12 +75,16 @@
   "relationships": {
     "featuredDestinationIds": [
       "hiroshima-peace-memorial",
+      "genbaku-dome",
+      "hiroshima-peace-memorial-park",
+      "hiroshima-national-peace-memorial-hall",
       "hiroshima-castle",
       "shukkeien",
       "hiroshima-museum-art",
       "mitaki-dera",
       "orizuru-tower",
-      "okonomimura"
+      "okonomimura",
+      "hondori"
     ],
     "nearbyDestinationIds": [
       "onomichi-city",
@@ -101,5 +105,6 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Hiroshima:hiroshima"
+  "municipalityId": "Hiroshima:hiroshima",
+  "nameJa": "広島市"
 }

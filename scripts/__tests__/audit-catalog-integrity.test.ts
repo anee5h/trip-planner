@@ -567,3 +567,110 @@ describe("catalogue integrity audit", () => {
     expect(findings).toEqual([]);
   });
 });
+
+describe("catalogue integrity audit — E7 provenance freshness", () => {
+  const REF = "2026-08-10";
+  const base = () =>
+    makeDestination({
+      id: "provenance-dest",
+      editorial: {
+        lifecycle: "published",
+        reviewedAt: REF,
+        checkedAt: REF,
+        sources: [
+          {
+            type: "official",
+            url: "https://example.com",
+            title: "x",
+            accessedAt: REF,
+          },
+        ],
+        changes: [
+          {
+            changedAt: REF,
+            changedBy: "editorial",
+            summary: "x",
+            method: "manual",
+          },
+        ],
+      },
+    });
+
+  it("accepts provenance on or before the reference date", () => {
+    const report = runAudit([base()], [], [], { referenceDate: REF });
+    expect(
+      report.findings.filter((f) => f.code === "SYNC_FUTURE_EDITORIAL_DATE"),
+    ).toEqual([]);
+  });
+
+  it("flags future-dated accessedAt (deterministic with fixed reference date)", () => {
+    const dest = base();
+    dest.editorial!.sources[0].accessedAt = "2026-08-12";
+    const report = runAudit([dest], [], [], { referenceDate: REF });
+    const hits = report.findings.filter(
+      (f) => f.code === "SYNC_FUTURE_EDITORIAL_DATE",
+    );
+    expect(hits).toHaveLength(1);
+    expect(hits[0].severity).toBe("error");
+    expect(hits[0].message).toContain("editorial.sources[].accessedAt");
+    expect(hits[0].message).toContain("2026-08-12");
+    expect(hits[0].message).toContain(REF);
+  });
+
+  it("flags future-dated reviewedAt, checkedAt, changedAt, verifiedAt and opening-hours dates", () => {
+    const cases: { field: string; apply: (d: Destination) => void }[] = [
+      {
+        field: "editorial.reviewedAt",
+        apply: (d) => {
+          d.editorial!.reviewedAt = "2026-08-11";
+        },
+      },
+      {
+        field: "editorial.checkedAt",
+        apply: (d) => {
+          d.editorial!.checkedAt = "2026-08-11";
+        },
+      },
+      {
+        field: "editorial.changes[].changedAt",
+        apply: (d) => {
+          d.editorial!.changes![0].changedAt = "2026-08-11";
+        },
+      },
+      {
+        field: "verifiedAt",
+        apply: (d) => {
+          d.verifiedAt = "2026-08-11";
+        },
+      },
+      {
+        field: "openingHoursMetadata.verifiedAt",
+        apply: (d) => {
+          d.openingHoursMetadata = { verifiedAt: "2026-08-11" };
+        },
+      },
+    ];
+    for (const c of cases) {
+      const dest = base();
+      c.apply(dest);
+      const report = runAudit([dest], [], [], { referenceDate: REF });
+      const hits = report.findings.filter(
+        (f) => f.code === "SYNC_FUTURE_EDITORIAL_DATE",
+      );
+      expect(hits, c.field).toHaveLength(1);
+      expect(hits[0].message, c.field).toContain(c.field);
+    }
+  });
+
+  it("defaults the reference date to today (no explicit option)", () => {
+    // With no referenceDate the audit uses the real current date; a far-future
+    // date must always be flagged regardless of the machine clock.
+    const dest = base();
+    dest.editorial!.sources[0].accessedAt = "2999-01-01";
+    const report = runAudit([dest], [], []);
+    const hits = report.findings.filter(
+      (f) => f.code === "SYNC_FUTURE_EDITORIAL_DATE",
+    );
+    expect(hits).toHaveLength(1);
+  });
+});

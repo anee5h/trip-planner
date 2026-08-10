@@ -67,7 +67,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [],
+    "featuredDestinationIds": ["tottori-sand-dunes"],
     "nearbyDestinationIds": [
       "hiroshima-city",
       "onomichi-city",
@@ -87,5 +87,6 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Tottori:tottori"
+  "municipalityId": "Tottori:tottori",
+  "nameJa": "鳥取市"
 }

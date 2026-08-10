@@ -1,0 +1,157 @@
+{
+  "id": "daisho-in",
+  "name": "Daisho-in Temple",
+  "nameJa": "大聖院",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Hiroshima:hatsukaichi",
+  "prefecture": "Hiroshima",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.2919,
+    "lng": 132.3185
+  },
+  "categories": ["Temple", "History", "Culture", "Nature"],
+  "tags": ["Daisho-in", "Shingon", "Mt Misen", "Henro"],
+  "description": "Daisho-in is the head temple of Shingon Buddhism on Miyajima, founded in 806 by Kukai and long the temple overseeing Mount Misen's sacred grounds. Its hillside complex includes the Kannon Hall, the Henjokutsu cave lined with 88 small statues echoing the Shikoku pilgrimage, and lantern-lined corridors. It is free to enter and open daily, and sits on the route up toward Mount Misen.",
+  "highlights": [
+    "Founded 806; Kukai's Shingon head temple on Miyajima",
+    "Henjokutsu cave with 88 Shikoku-style statues",
+    "Free entry; quiet forest setting"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "transportZoneId": "unknown",
+  "budgetMin": 0,
+  "budgetRecommended": 1000,
+  "budgetMax": 2000,
+  "budgetBreakdown": {
+    "transport": 200,
+    "tickets": 0,
+    "food": 600,
+    "cafe": 200
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/%E5%A4%A7%E8%81%96%E9%99%A2.jpg/1280px-%E5%A4%A7%E8%81%96%E9%99%A2.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/%E5%A4%A7%E8%81%96%E9%99%A2.jpg/1280px-%E5%A4%A7%E8%81%96%E9%99%A2.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Syced, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E8%81%96%E9%99%A2.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2000,
+  "walkingSunMin": 1200,
+  "walkingShadeMin": 800,
+  "walkingIntensity": "medium",
+  "indoorPercent": 40,
+  "comfort": {
+    "heatTolerance": 5,
+    "rainFriendly": 6,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8,
+    "summer": 8,
+    "winter": 7.5,
+    "rain": 7,
+    "food": 5.5,
+    "photography": 8.5,
+    "relaxation": 8.5,
+    "value": 9,
+    "uniqueness": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None for general entry; experience programs (e.g. sutra copying) may need booking.",
+  "parking": "No cars on Miyajima; walk from Miyajima pier (~15 min) or via Omotesando.",
+  "notes": "On the Mt Misen trailhead route; combine with ropeway/Momijidani.",
+  "notesJa": "【見どころ】大聖院は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "毎日 8:00〜17:00。拝観無料。",
+  "businessHours": "Daily 08:00–17:00. Free admission.",
+  "officialWebsite": "https://daisho-in.com/",
+  "content": {
+    "en": {
+      "name": "Daisho-in Temple",
+      "description": "Daisho-in is the head temple of Shingon Buddhism on Miyajima, founded in 806 by Kukai and long the temple overseeing Mount Misen's sacred grounds. Its hillside complex includes the Kannon Hall, the Henjokutsu cave lined with 88 small statues echoing the Shikoku pilgrimage, and lantern-lined corridors. It is free to enter and open daily, and sits on the route up toward Mount Misen.",
+      "highlights": [
+        "Founded 806; Kukai's Shingon head temple on Miyajima",
+        "Henjokutsu cave with 88 Shikoku-style statues",
+        "Free entry; quiet forest setting"
+      ]
+    },
+    "ja": {
+      "name": "大聖院",
+      "description": "大聖院は宮島の真言宗の本山で、806年に弘法大師空海が開いたと伝わる古刹です。観音堂や、四国遍路を模した88体の石仏が並ぶ「遍照窟」、灯籠が連なる回廊などがあり、弥山参詣の道に位置します。入堂無料で毎日8:00〜17:00に拝観できます。",
+      "highlights": [
+        "806年創建・空海ゆかりの真言宗本山",
+        "88体の石仏が並ぶ遍照窟",
+        "無料拝観・静かな山あいの境内"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://daisho-in.com/keidaiannai.html",
+        "title": "大聖院 境内案内 (hours)",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "official",
+        "url": "https://daisho-in.com/",
+        "title": "大聖院 公式サイト",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "reviewedAt": "2026-08-10",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "hatsukaichi-city"
+  },
+  "schemaVersion": 2
+}

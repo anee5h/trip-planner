@@ -1,0 +1,162 @@
+{
+  "id": "akiyoshidai-plateau",
+  "name": "Akiyoshidai Plateau",
+  "nameJa": "秋吉台",
+  "kind": "nature",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Yamaguchi:mine",
+  "prefecture": "Yamaguchi",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.232,
+    "lng": 131.3027
+  },
+  "categories": ["Nature", "Geology", "National Park"],
+  "tags": ["Karst", "Akiyoshidai Quasi-National Park", "Ramsar", "Yamayaki"],
+  "description": "Akiyoshidai is Japan's largest karst plateau: the Mine-Akiyoshidai Karst Plateau Geopark states its limestone area is approximately 100 square kilometers with more than 450 densely distributed limestone caves. It is a Quasi-National Park (est. 1955), and its groundwater system, together with the cave-dwelling creatures that inhabit it, is registered under the Ramsar Convention on Wetlands. The treeless grassland, dotted with limestone pinnacles, is burned each February in the traditional Yamayaki grass fire festival.",
+  "highlights": [
+    "Japan's largest karst plateau (~100 km²)",
+    "450+ limestone caves, pinnacles and dolines",
+    "Ramsar-listed groundwater system; February Yamayaki festival"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 0,
+  "budgetRecommended": 2000,
+  "budgetMax": 4000,
+  "budgetBreakdown": {
+    "transport": 1200,
+    "tickets": 0,
+    "food": 500,
+    "cafe": 300
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Akiyoshidai_001.jpg/1280px-Akiyoshidai_001.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Akiyoshidai_001.jpg/1280px-Akiyoshidai_001.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "monkist (Szabolcs Arany), CC BY 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akiyoshidai_001.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 6000,
+  "walkingSunMin": 4500,
+  "walkingShadeMin": 1500,
+  "walkingIntensity": "low",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 4,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 8.4,
+    "winter": 7,
+    "rain": 4.5,
+    "food": 6.5,
+    "photography": 9.4,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None",
+  "parking": "Free lots at Akiyoshidai resthouse/viewpoints",
+  "notes": "Limestone area ~100 km² and 450+ caves per the official Mine-Akiyoshidai Karst Plateau Geopark (en.mine-geo.com); groundwater system and cave-dwelling creatures are Ramsar-registered. Quasi-National Park area is 45.02 km² per env.go.jp — the record describes the limestone plateau figure.",
+  "notesJa": "【見どころ】秋吉台は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "終日開放。山焼きは毎年2月に開催（日程は公式サイトで要確認）。",
+  "businessHours": "Open access (parkland)",
+  "officialWebsite": "https://en.mine-geo.com/",
+  "content": {
+    "en": {
+      "name": "Akiyoshidai Plateau",
+      "description": "Akiyoshidai is Japan's largest karst plateau: the Mine-Akiyoshidai Karst Plateau Geopark states its limestone area is approximately 100 square kilometers with more than 450 densely distributed limestone caves. It is a Quasi-National Park (est. 1955), and its groundwater system, together with the cave-dwelling creatures that inhabit it, is registered under the Ramsar Convention on Wetlands. The treeless grassland, dotted with limestone pinnacles, is burned each February in the traditional Yamayaki grass fire festival.",
+      "highlights": [
+        "Japan's largest karst plateau (~100 km²)",
+        "450+ limestone caves, pinnacles and dolines",
+        "Ramsar-listed groundwater system; February Yamayaki festival"
+      ]
+    },
+    "ja": {
+      "name": "秋吉台",
+      "description": "秋吉台は日本最大のカルスト台地で、美祢市ジオパークの公式情報によると、石灰岩の広がりは約100平方キロメートル、450以上の鍾乳洞が密集して分布しています。1955年指定の国定公園で、地下水系とそこに生息する洞窟生物はラムサール条約湿地に登録されています。石灰岩の尖塔が点在する草原は、毎年2月に伝統行事「山焼き」で焼かれます。",
+      "highlights": [
+        "日本最大のカルスト台地（約100km²）",
+        "450以上の鍾乳洞と石灰岩の尖塔・ドリーネ",
+        "ラムサール登録の地下水系と2月の山焼き"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://en.mine-geo.com/",
+        "title": "Mine-Akiyoshidai Karst Plateau Geopark — official (EN)",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "official",
+        "url": "https://mine-geo.com/",
+        "title": "美祢市ジオパーク（公式）",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/en/nature/nps/park/system/",
+        "title": "Akiyoshidai Quasi-National Park — Ministry of the Environment",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "reviewedAt": "2026-08-10",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "mine-city"
+  },
+  "schemaVersion": 2
+}

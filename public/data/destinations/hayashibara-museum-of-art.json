@@ -1,0 +1,167 @@
+{
+  "id": "hayashibara-museum-of-art",
+  "name": "Hayashibara Museum of Art",
+  "nameJa": "林原美術館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Okayama:okayama",
+  "prefecture": "Okayama",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.6636,
+    "lng": 133.9333
+  },
+  "categories": ["Museum", "Culture", "Art"],
+  "tags": [
+    "Ikeda Daimyo Collection",
+    "National Treasures",
+    "Swords & Noh Costumes",
+    "Okayama Castle Moat Area"
+  ],
+  "description": "Opened in 1964 inside the former guesthouse site of Okayama Castle's ninomaru, Hayashibara Museum of Art displays the collection of entrepreneur Hayashibara Ichiro together with treasures of the Ikeda family, the daimyo of Bizen-Okayama. The roughly 9,000 works include three National Treasures and 26 Important Cultural Properties spanning swords, armor, paintings, and Noh masks and costumes. There is no permanent gallery; works rotate through themed exhibitions.",
+  "highlights": [
+    "See National Treasure and Important Cultural Property works from the Ikeda daimyo collection",
+    "Admire swords, armor, and Noh costumes in a former castle-guesthouse setting",
+    "Pair with Okayama Castle and Korakuen via the ¥1,280 three-site ticket"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 2000,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 1000,
+    "tickets": 600,
+    "food": 1600,
+    "cafe": 800
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/160319_Hayashibara_Museum_of_Art_Okayama_Japan02n.jpg/1280px-160319_Hayashibara_Museum_of_Art_Okayama_Japan02n.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/160319_Hayashibara_Museum_of_Art_Okayama_Japan02n.jpg/1280px-160319_Hayashibara_Museum_of_Art_Okayama_Japan02n.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:160319_Hayashibara_Museum_of_Art_Okayama_Japan02n.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 1500,
+  "walkingSunMin": 700,
+  "walkingShadeMin": 800,
+  "walkingIntensity": "low",
+  "indoorPercent": 95,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8,
+    "summer": 8,
+    "winter": 8,
+    "rain": 8.4,
+    "food": 7.4,
+    "photography": 7,
+    "relaxation": 8.2,
+    "value": 8,
+    "uniqueness": 8.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 3,
+    "holiday": 4
+  },
+  "season": {
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year (indoor)",
+  "weatherDependence": "low",
+  "reservation": "Not required; group guide requests by prior application",
+  "parking": "Small on-site lot (7 standard cars); otherwise nearby paid parking",
+  "notes": "General admission ¥600 from April 2026 (was ¥500); middle-school students and under free. Walk from Okayama Castle ~10 min.",
+  "notesJa": "【見どころ】林原美術館は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "10:00〜17:00（入館受付16:30まで）／休館日：毎週月曜日（祝日の場合は翌日）、年末年始、展示替期間。",
+  "businessHours": "10:00–17:00 (last entry 16:30); closed Mondays (or following day if Monday is a holiday), year-end/New Year, and between exhibitions",
+  "officialWebsite": "https://www.hayashibara-museumofart.jp/",
+  "content": {
+    "en": {
+      "name": "Hayashibara Museum of Art",
+      "description": "Opened in 1964 inside the former guesthouse site of Okayama Castle's ninomaru, Hayashibara Museum of Art displays the collection of entrepreneur Hayashibara Ichiro together with treasures of the Ikeda family, the daimyo of Bizen-Okayama. The roughly 9,000 works include three National Treasures and 26 Important Cultural Properties spanning swords, armor, paintings, and Noh masks and costumes. There is no permanent gallery; works rotate through themed exhibitions.",
+      "highlights": [
+        "See National Treasure and Important Cultural Property works from the Ikeda daimyo collection",
+        "Admire swords, armor, and Noh costumes in a former castle-guesthouse setting",
+        "Pair with Okayama Castle and Korakuen via the ¥1,280 three-site ticket"
+      ]
+    },
+    "ja": {
+      "name": "林原美術館",
+      "description": "林原美術館は1964年に開館し、岡山城二の丸の対面所跡に位置します。岡山の実業家・林原一郎氏の蒐集品と、備前岡山藩主・池田家に伝わる大名調度品を中心に、刀剣・武具・絵画・能面・能装束など約9,000件を収蔵し、そのうち国宝3件・重要文化財26件を含みます。常設展示はなく、テーマを変えた企画展・特別展で作品を公開しています。",
+      "highlights": [
+        "池田家伝来の国宝・重要文化財を鑑賞",
+        "岡山城の客殿跡という風情ある館内で刀剣・能装束を鑑賞",
+        "岡山城・後楽園との3館共通券（1,280円）で周遊"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.hayashibara-museumofart.jp/data/guide/",
+        "title": "利用案内｜林原美術館",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "official",
+        "url": "https://www.hayashibara-museumofart.jp/data/en/",
+        "title": "Hayashibara Museum of Art (English)",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://www.okayama-kanko.jp/spot/detail_10115.html",
+        "title": "林原美術館｜岡山観光WEB",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "reviewedAt": "2026-08-10",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "okayama-city"
+  },
+  "schemaVersion": 2
+}

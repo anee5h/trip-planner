@@ -74,7 +74,13 @@
     }
   ],
   "relationships": {
-    "featuredDestinationIds": ["korakuen-okayama"],
+    "featuredDestinationIds": [
+      "korakuen-okayama",
+      "okayama-castle",
+      "kibitsu-shrine",
+      "hayashibara-museum-of-art",
+      "orient-museum"
+    ],
     "nearbyDestinationIds": [
       "hiroshima-city",
       "onomichi-city",

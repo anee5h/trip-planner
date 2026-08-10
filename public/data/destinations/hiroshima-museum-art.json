@@ -48,9 +48,7 @@
     "food": 1400,
     "cafe": 1200
   },
-  "transportOptions": {
-    "train": 205
-  },
+  "transportOptions": {},
   "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
@@ -94,7 +92,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "notes": "Opened 1978 in Hiroshima City; admission varies by exhibition (collection included). Closed Mondays.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -130,7 +128,7 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.hiroshima-museum.jp/en/",
-  "businessHours": "Open access",
+  "businessHours": "09:00–17:00, last entry 16:30; closed Mondays (open on holiday Mondays, closed following weekday) and New Year.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Hiroshima_Museum_of_Art.jpg/1920px-Hiroshima_Museum_of_Art.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -138,5 +136,6 @@
     "attribution": "Taisyo at Japanese Wikipedia",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hiroshima_Museum_of_Art.jpg"
   },
-  "municipalityId": "Hiroshima:hiroshima"
+  "municipalityId": "Hiroshima:hiroshima",
+  "openingHoursJa": "9:00〜17:00（入館は16:30まで）。休館日：毎週月曜日（月曜が祝日の場合は開館し翌平日休館）、年末年始。"
 }

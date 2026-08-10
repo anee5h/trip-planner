@@ -90,8 +90,9 @@
     "min": 3,
     "max": 5
   },
-  "officialWebsite": "https://www.yamaguchi-city.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "officialWebsite": "https://shimonoseki.travel/about-en/",
+  "businessHours": "Toll-free bridge open 24 hours.",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Yamaguchi:shimonoseki"
+  "municipalityId": "Yamaguchi:shimonoseki",
+  "openingHoursJa": "無料の橋で24時間通行可能。"
 }

@@ -1,0 +1,91 @@
+# KAI-32 Chugoku rec QA · 731 destinations
+Chugoku total: 30
+
+## Okayama · Any / Recommended (3 Chugoku in top25)
+  #17 hiroshima-city                     shinkansen unknown      oneWay=—          score=68.0
+  #20 kurashiki-city                     shinkansen estimated    oneWay=27–35m     score=68.0
+  #25 okayama-city                       shinkansen estimated    oneWay=23–29m     score=68.0
+
+## Okayama · Day Trip + Any (7 Chugoku in top25)
+  # 2 okayama-city                       shinkansen estimated    oneWay=23–29m     score=64.1
+  # 3 kurashiki-city                     shinkansen estimated    oneWay=27–35m     score=63.7
+  # 8 takahashi-city                     shinkansen estimated    oneWay=32–41m     score=50.6
+  # 9 korakuen-okayama                   shinkansen estimated    oneWay=23–30m     score=50.4
+  #11 bitchu-matsuyama-castle            shinkansen estimated    oneWay=32–41m     score=49.6
+  #13 onomichi-city                      train estimated    oneWay=65–83m     score=49.2
+  #17 tottori-city                       train estimated    oneWay=85–108m    score=48.0
+
+## Okayama · Day Trip + Half-day (2 Chugoku in top25)
+  # 4 korakuen-okayama                   shinkansen estimated    oneWay=23–30m     score=49.2
+  # 6 bitchu-matsuyama-castle            shinkansen estimated    oneWay=32–41m     score=48.2
+
+## Okayama · Day Trip + Full-day (5 Chugoku in top25)
+  # 1 okayama-city                       shinkansen estimated    oneWay=23–29m     score=64.1
+  # 2 kurashiki-city                     shinkansen estimated    oneWay=27–35m     score=63.7
+  # 5 takahashi-city                     shinkansen estimated    oneWay=32–41m     score=50.6
+  # 6 onomichi-city                      train estimated    oneWay=65–83m     score=49.2
+  # 9 tottori-city                       train estimated    oneWay=85–108m    score=48.0
+
+## Okayama · 2D1N (3 Chugoku in top25)
+  #17 hiroshima-city                     shinkansen unknown      oneWay=—          score=68.0
+  #20 kurashiki-city                     shinkansen estimated    oneWay=27–35m     score=68.0
+  #25 okayama-city                       shinkansen estimated    oneWay=23–29m     score=68.0
+
+## Hiroshima · Any / Recommended (2 Chugoku in top25)
+  # 1 hatsukaichi-city                   train verified     oneWay=25–50m     score=76.1
+  # 3 miyajima-itsukushima               train verified     oneWay=25–50m     score=68.7
+
+## Hiroshima · Day Trip + Any (2 Chugoku in top25)
+  # 1 hatsukaichi-city                   train verified     oneWay=25–50m     score=73.5
+  # 2 miyajima-itsukushima               train verified     oneWay=25–50m     score=64.4
+
+## Hiroshima · Day Trip + Half-day (1 Chugoku in top25)
+  # 1 miyajima-itsukushima               train verified     oneWay=25–50m     score=63.6
+
+## Hiroshima · Day Trip + Full-day (1 Chugoku in top25)
+  # 1 hatsukaichi-city                   train verified     oneWay=25–50m     score=73.5
+
+## Hiroshima · 2D1N (2 Chugoku in top25)
+  # 1 hatsukaichi-city                   train verified     oneWay=25–50m     score=76.1
+  # 3 miyajima-itsukushima               train verified     oneWay=25–50m     score=68.7
+
+## Osaka · Any / Recommended (0 Chugoku in top25)
+
+## Osaka · Day Trip + Any (0 Chugoku in top25)
+
+## Osaka · Day Trip + Half-day (1 Chugoku in top25)
+  #25 korakuen-okayama                   shinkansen verified     oneWay=40–75m     score=50.1
+
+## Osaka · Day Trip + Full-day (2 Chugoku in top25)
+  #19 kurashiki-city                     shinkansen verified     oneWay=40–75m     score=60.2
+  #20 okayama-city                       shinkansen verified     oneWay=40–75m     score=60.2
+
+## Osaka · 2D1N (0 Chugoku in top25)
+
+## Fukuoka · Any / Recommended (0 Chugoku in top25)
+
+## Fukuoka · Day Trip + Any (1 Chugoku in top25)
+  #22 hiroshima-city                     shinkansen verified     oneWay=60–95m     score=51.3
+
+## Fukuoka · Day Trip + Half-day (3 Chugoku in top25)
+  # 8 miyajima-itsukushima               shinkansen verified     oneWay=60–95m     score=45.5
+  #14 korakuen-okayama                   shinkansen verified     oneWay=110–150m   score=18.3
+  #15 bitchu-matsuyama-castle            shinkansen verified     oneWay=110–150m   score=17.5
+
+## Fukuoka · Day Trip + Full-day (4 Chugoku in top25)
+  # 7 hiroshima-city                     shinkansen verified     oneWay=60–95m     score=51.3
+  #18 kurashiki-city                     shinkansen verified     oneWay=110–150m   score=28.3
+  #19 okayama-city                       shinkansen verified     oneWay=110–150m   score=28.3
+  #20 takahashi-city                     shinkansen verified     oneWay=110–150m   score=18.7
+
+## Fukuoka · 2D1N (0 Chugoku in top25)
+
+## Tokyo · Any / Recommended (0 Chugoku in top25)
+
+## Tokyo · Day Trip + Any (0 Chugoku in top25)
+
+## Tokyo · Day Trip + Half-day (0 Chugoku in top25)
+
+## Tokyo · Day Trip + Full-day (0 Chugoku in top25)
+
+## Tokyo · 2D1N (0 Chugoku in top25)

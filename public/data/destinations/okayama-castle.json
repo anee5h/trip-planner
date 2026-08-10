@@ -1,0 +1,167 @@
+{
+  "id": "okayama-castle",
+  "name": "Okayama Castle (Crow Castle)",
+  "nameJa": "岡山城",
+  "kind": "castle",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Okayama:okayama",
+  "prefecture": "Okayama",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.6653,
+    "lng": 133.9361
+  },
+  "categories": ["History", "Culture", "Sightseeing"],
+  "tags": [
+    "Ujo (Crow Castle)",
+    "Reconstructed Keep",
+    "Ukita Hideie",
+    "Japan 100 Castles"
+  ],
+  "description": "Okayama Castle's black keep, nicknamed Ujo (Crow Castle) for its dark exterior, was built by daimyo Ukita Hideie with the keep completed in 1597. The original keep was destroyed in an air raid in 1945, and the present concrete reconstruction was completed in 1966. From the top floor visitors overlook Korakuen Garden and the Asahi River.",
+  "highlights": [
+    "Climb the reconstructed five-story keep for views over Korakuen and the Asahi River",
+    "See the scalene pentagonal keep design unique to Okayama Castle",
+    "Combine entry with Korakuen Garden using the ¥800 combined ticket"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 3500,
+  "budgetRecommended": 7000,
+  "budgetMax": 12000,
+  "budgetBreakdown": {
+    "transport": 2000,
+    "tickets": 500,
+    "food": 3000,
+    "cafe": 1500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Okayama_Castle%2C_November_2016_-02.jpg/1280px-Okayama_Castle%2C_November_2016_-02.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Okayama_Castle%2C_November_2016_-02.jpg/1280px-Okayama_Castle%2C_November_2016_-02.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Martin Falbisoner, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Okayama_Castle,_November_2016_-02.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 60,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8,
+    "summer": 7.6,
+    "winter": 7.8,
+    "rain": 7.2,
+    "food": 8,
+    "photography": 8.6,
+    "relaxation": 7.8,
+    "value": 8.4,
+    "uniqueness": 8.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 8,
+    "summer": 6,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "low",
+  "reservation": "None required for individuals; group visitors (20+) advised to notify in advance",
+  "parking": "No dedicated castle parking; nearest is Ujo Park parking (¥300 first hour, +¥100/30 min, ¥150 discount for castle visitors with validated ticket); ~15 min walk to keep",
+  "notes": "Adult admission ¥500 from Apr 2026 (was ¥400); junior high and under free. Combined Korakuen ticket ¥800. Access: tram (Higashiyama line) ~5 min to Shiroshita + ~10 min walk, or bus to Kenchomae + ~5 min walk.",
+  "notesJa": "【見どころ】岡山城は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:00〜17:30（最終入場17:00）／休城日：12月29日〜12月31日※荒天・点検による臨時休城の場合あり。",
+  "businessHours": "09:00–17:30 (last admission 17:00); closed Dec 29–31; occasional closure for weather/inspection",
+  "officialWebsite": "https://okayama-castle.jp/",
+  "content": {
+    "en": {
+      "name": "Okayama Castle (Crow Castle)",
+      "description": "Okayama Castle's black keep, nicknamed Ujo (Crow Castle) for its dark exterior, was built by daimyo Ukita Hideie with the keep completed in 1597. The original keep was destroyed in an air raid in 1945, and the present concrete reconstruction was completed in 1966. From the top floor visitors overlook Korakuen Garden and the Asahi River.",
+      "highlights": [
+        "Climb the reconstructed five-story keep for views over Korakuen and the Asahi River",
+        "See the scalene pentagonal keep design unique to Okayama Castle",
+        "Combine entry with Korakuen Garden using the ¥800 combined ticket"
+      ]
+    },
+    "ja": {
+      "name": "岡山城",
+      "description": "岡山城は、黒い外観から「烏城（うじょう）」の愛称で知られる城で、慶長2年（1597年）に宇喜多秀家によって天守が完成しました。天守は1945年の空襲で焼失し、現在の天守は1966年に再建されたものです。最上階からは後楽園や旭川を一望できます。",
+      "highlights": [
+        "五重の天守に登り、後楽園と旭川を一望",
+        "不等辺五角形の独特な天守の姿を観賞",
+        "後楽園との共通入場券（800円）で効率よく周遊"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://okayama-castle.jp/guide/",
+        "title": "利用案内 | 岡山城公式ウェブサイト",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "official",
+        "url": "https://okayama-castle.jp/learn-history/",
+        "title": "岡山城を知る｜歴史",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "government",
+        "url": "https://online.bunka.go.jp/heritages/detail/202586",
+        "title": "岡山城跡 文化遺産オンライン",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "reviewedAt": "2026-08-10",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "okayama-city"
+  },
+  "schemaVersion": 2
+}

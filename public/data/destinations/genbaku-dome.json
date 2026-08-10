@@ -1,0 +1,156 @@
+{
+  "id": "genbaku-dome",
+  "name": "Atomic Bomb Dome (Genbaku Dome)",
+  "nameJa": "原爆ドーム",
+  "kind": "monument",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Hiroshima:hiroshima",
+  "prefecture": "Hiroshima",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.3956,
+    "lng": 132.4536
+  },
+  "categories": ["UNESCO World Heritage", "History", "Landmark"],
+  "tags": ["Genbaku Dome", "UNESCO", "Hiroshima Peace Memorial", "Open-air"],
+  "description": "The Atomic Bomb Dome is the skeletal remains of the Hiroshima Prefectural Industrial Promotion Hall, one of the few structures left standing after the atomic bomb exploded nearly directly above it on August 6, 1945. It was inscribed on the UNESCO World Heritage List in 1996 (criterion vi) as the Hiroshima Peace Memorial and is preserved exactly as it was after the bombing. The monument stands beside the Motoyasu River and is freely viewable at any time.",
+  "highlights": [
+    "UNESCO World Heritage (inscribed 1996)",
+    "Symbol of peace preserved as it was after 1945",
+    "Best views from the Motoyasu riverbank and Peace Park side"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 0,
+  "budgetRecommended": 1000,
+  "budgetMax": 2000,
+  "budgetBreakdown": {
+    "transport": 200,
+    "tickets": 0,
+    "food": 600,
+    "cafe": 200
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Genbaku_Dome04-r.JPG/1280px-Genbaku_Dome04-r.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Genbaku_Dome04-r.JPG/1280px-Genbaku_Dome04-r.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "Oilstreet, CC BY 2.5, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genbaku_Dome04-r.JPG"
+  },
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingMin": 600,
+  "walkingSunMin": 300,
+  "walkingShadeMin": 300,
+  "walkingIntensity": "low",
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 4,
+    "rainFriendly": 4,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 9.8,
+    "couple": 8.8,
+    "summer": 8.5,
+    "winter": 8,
+    "rain": 7,
+    "food": 5,
+    "photography": 9.5,
+    "relaxation": 7,
+    "value": 9.5,
+    "uniqueness": 10
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required.",
+  "parking": "No on-site lot; use Peace Park area parking or public transport (Hiroden tram: Genbaku Dome-mae).",
+  "notes": "UNESCO World Heritage since 1996. Do NOT conflate with the Peace Memorial Museum (separate record).",
+  "notesJa": "【見どころ】原爆ドームは中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "屋外施設のため、常時見学可能・無料。",
+  "businessHours": "Open-air monument; accessible 24 hours, free of charge.",
+  "officialWebsite": "https://www.city.hiroshima.lg.jp/english/peace/1029869/1009932.html",
+  "content": {
+    "en": {
+      "name": "Atomic Bomb Dome (Genbaku Dome)",
+      "description": "The Atomic Bomb Dome is the skeletal remains of the Hiroshima Prefectural Industrial Promotion Hall, one of the few structures left standing after the atomic bomb exploded nearly directly above it on August 6, 1945. It was inscribed on the UNESCO World Heritage List in 1996 (criterion vi) as the Hiroshima Peace Memorial and is preserved exactly as it was after the bombing. The monument stands beside the Motoyasu River and is freely viewable at any time.",
+      "highlights": [
+        "UNESCO World Heritage (inscribed 1996)",
+        "Symbol of peace preserved as it was after 1945",
+        "Best views from the Motoyasu riverbank and Peace Park side"
+      ]
+    },
+    "ja": {
+      "name": "原爆ドーム",
+      "description": "原爆ドームは、1945年8月6日の原爆投下直上にあった広島県産業奨励館の残骸で、爆心地近くで倒壊を免れた数少ない建物の一つです。1996年に「広島平和記念碑（原爆ドーム）」としてUNESCO世界遺産に登録され、被爆当時の姿のまま保存されています。元安川沿いに位置し、いつでも無料で見学できます。",
+      "highlights": [
+        "1996年登録の世界遺産",
+        "被爆当時の姿を残す平和の象徴",
+        "元安川対岸からの眺望"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://whc.unesco.org/en/list/775",
+        "title": "UNESCO WHC – Hiroshima Peace Memorial (Genbaku Dome)",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "government",
+        "url": "https://www.city.hiroshima.lg.jp/english/peace/1029869/1009932.html",
+        "title": "Hiroshima City – Atomic Bomb Dome",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "reviewedAt": "2026-08-10",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "hiroshima-city"
+  },
+  "schemaVersion": 2
+}

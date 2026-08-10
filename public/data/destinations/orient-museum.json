@@ -1,0 +1,167 @@
+{
+  "id": "orient-museum",
+  "name": "Okayama Orient Museum",
+  "nameJa": "岡山市立オリエント美術館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Okayama:okayama",
+  "prefecture": "Okayama",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.6664,
+    "lng": 133.93
+  },
+  "categories": ["Museum", "Culture", "Art"],
+  "tags": [
+    "Ancient Near East",
+    "Yasuhara Collection",
+    "Est. 1979",
+    "City Museum"
+  ],
+  "description": "Okayama Orient Museum opened in April 1979 to house the Yasuhara Collection of ancient Near Eastern art donated to the city, the first municipal museum in Japan dedicated to the Orient. Its collection spans Mesopotamia, Persia, Egypt, and Central Asia, including Assyrian reliefs and Persian pottery. The museum is a 15-minute walk from Okayama Station.",
+  "highlights": [
+    "View Assyrian reliefs and ancient Near Eastern artifacts in a dedicated city museum",
+    "See the Yasuhara Collection, donated to the city at the museum's 1979 founding",
+    "Stop by on a rainy day — 15-min walk from Okayama Station, low-cost admission"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 1000,
+  "budgetRecommended": 2500,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 1000,
+    "tickets": 310,
+    "food": 800,
+    "cafe": 390
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/160319_Okayama_Orient_Museum_Okayama_Japan02n.jpg/1280px-160319_Okayama_Orient_Museum_Okayama_Japan02n.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/160319_Okayama_Orient_Museum_Okayama_Japan02n.jpg/1280px-160319_Okayama_Orient_Museum_Okayama_Japan02n.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:160319_Okayama_Orient_Museum_Okayama_Japan02n.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 1500,
+  "walkingSunMin": 700,
+  "walkingShadeMin": 800,
+  "walkingIntensity": "low",
+  "indoorPercent": 95,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 7.8,
+    "couple": 7.4,
+    "summer": 7.6,
+    "winter": 7.6,
+    "rain": 8.2,
+    "food": 7.2,
+    "photography": 7.4,
+    "relaxation": 7.8,
+    "value": 8.8,
+    "uniqueness": 8.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 3,
+    "holiday": 4
+  },
+  "season": {
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year (indoor)",
+  "weatherDependence": "low",
+  "reservation": "Not required",
+  "parking": "No dedicated parking; Tenjin-cho municipal lot nearby (¥100 discount ticket issued at the museum counter)",
+  "notes": "General ¥310 / high school & university ¥210 / elementary & junior high ¥100. ~15-min walk from JR Okayama Station (official).",
+  "notesJa": "【見どころ】岡山市立オリエント美術館は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:00〜17:00（入館16:30まで）／休館日：毎週月曜日（祝日の場合は翌平日）、12月28日〜1月4日、展示替期間。",
+  "businessHours": "09:00–17:00 (last entry 16:30); closed Mondays (or next weekday if Monday is a holiday), Dec 28–Jan 4, and during exhibition changes",
+  "officialWebsite": "https://www.city.okayama.jp/orientmuseum/",
+  "content": {
+    "en": {
+      "name": "Okayama Orient Museum",
+      "description": "Okayama Orient Museum opened in April 1979 to house the Yasuhara Collection of ancient Near Eastern art donated to the city, the first municipal museum in Japan dedicated to the Orient. Its collection spans Mesopotamia, Persia, Egypt, and Central Asia, including Assyrian reliefs and Persian pottery. The museum is a 15-minute walk from Okayama Station.",
+      "highlights": [
+        "View Assyrian reliefs and ancient Near Eastern artifacts in a dedicated city museum",
+        "See the Yasuhara Collection, donated to the city at the museum's 1979 founding",
+        "Stop by on a rainy day — 15-min walk from Okayama Station, low-cost admission"
+      ]
+    },
+    "ja": {
+      "name": "岡山市立オリエント美術館",
+      "description": "岡山市立オリエント美術館は、1979年4月に開館した、日本で初めてオリエント（中近東）に特化した市立美術館です。学校法人岡山学園の安原真二郎氏が収集した「安原コレクション」の岡山市への寄贈を機に設立され、メソポタミアやペルシア、エジプト、中央アジアの美術・考古資料を収蔵しています。JR岡山駅から徒歩約15分です。",
+      "highlights": [
+        "アッシリアの浮き彫りなど古代オリエントの資料を鑑賞",
+        "1979年の開館時に市へ寄贈された安原コレクションを観覧",
+        "駅から徒歩約15分、雨の日にも便利な低料金の市立美術館"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.okayama.jp/orientmuseum/0000022022.html",
+        "title": "ご利用案内｜岡山市立オリエント美術館",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "government",
+        "url": "https://www.city.okayama.jp/orientmuseum/0000022216.html",
+        "title": "オリエント美術館とは｜岡山市",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://www.okayama-kanko.jp/spot/detail_10009.html",
+        "title": "岡山市立オリエント美術館｜岡山観光WEB",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "reviewedAt": "2026-08-10",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "okayama-city"
+  },
+  "schemaVersion": 2
+}

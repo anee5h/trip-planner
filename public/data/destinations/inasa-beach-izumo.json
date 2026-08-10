@@ -1,0 +1,156 @@
+{
+  "id": "inasa-beach-izumo",
+  "name": "Inasa Beach",
+  "nameJa": "稲佐の浜",
+  "kind": "beach",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Shimane:izumo",
+  "prefecture": "Shimane",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 35.39578,
+    "lng": 132.67361
+  },
+  "categories": ["Nature", "Beach", "Religion"],
+  "tags": ["Inasa no Hama", "Izumo Taisha", "Kamiari Festival", "Bentenjima"],
+  "description": "Inasa Beach is the sacred beach west of Izumo Taisha, where during the Kamiari Festival each November all of Japan's Shinto deities are traditionally believed to arrive by sea before gathering at the shrine. The rocky islet Bentenjima stands just offshore with its own small shrine. It is about a 12-minute walk from the main hall of Izumo Taisha.",
+  "highlights": [
+    "Sacred arrival beach of the Kamiari Festival deities",
+    "Bentenjima islet with its offshore shrine",
+    "Sunset and Sea of Japan views from Izumo Taisha's doorstep"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 0,
+  "budgetRecommended": 1000,
+  "budgetMax": 2500,
+  "budgetBreakdown": {
+    "transport": 600,
+    "tickets": 0,
+    "food": 300,
+    "cafe": 100
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Bentenjima_on_Inasa_Beach.jpg/1280px-Bentenjima_on_Inasa_Beach.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Bentenjima_on_Inasa_Beach.jpg/1280px-Bentenjima_on_Inasa_Beach.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Qurren, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bentenjima_on_Inasa_Beach.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 0.8,
+    "max": 1.5
+  },
+  "walkingMin": 3000,
+  "walkingSunMin": 2500,
+  "walkingShadeMin": 500,
+  "walkingIntensity": "low",
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 2,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.6,
+    "summer": 9,
+    "winter": 5.5,
+    "rain": 3,
+    "food": 6.5,
+    "photography": 9,
+    "relaxation": 8.8,
+    "value": 9.4,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8,
+    "summer": 9,
+    "autumn": 8,
+    "winter": 5
+  },
+  "bestMonths": [5, 6, 7, 8, 9, 10],
+  "bestSeason": "Summer",
+  "weatherDependence": "high",
+  "reservation": "None",
+  "parking": "Izumo Taisha area parking lots",
+  "notes": "Coordinates from OSM (beach node). Kamiari Festival description kept conservative per shrine source.",
+  "notesJa": "【見どころ】稲佐の浜は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "終日開放。",
+  "businessHours": "Open access",
+  "officialWebsite": "https://izumooyashiro.or.jp/en/",
+  "content": {
+    "en": {
+      "name": "Inasa Beach",
+      "description": "Inasa Beach is the sacred beach west of Izumo Taisha, where during the Kamiari Festival each November all of Japan's Shinto deities are traditionally believed to arrive by sea before gathering at the shrine. The rocky islet Bentenjima stands just offshore with its own small shrine. It is about a 12-minute walk from the main hall of Izumo Taisha.",
+      "highlights": [
+        "Sacred arrival beach of the Kamiari Festival deities",
+        "Bentenjima islet with its offshore shrine",
+        "Sunset and Sea of Japan views from Izumo Taisha's doorstep"
+      ]
+    },
+    "ja": {
+      "name": "稲佐の浜",
+      "description": "稲佐の浜は出雲大社の西方に広がる神聖な砂浜で、毎年11月の神在祭には全国の神々がこの浜から上陸し、出雲大社へ向かうと伝えられています。沖には小さな祠のある弁天島が浮かびます。出雲大社本殿から徒歩約12分です。",
+      "highlights": [
+        "神在祭で神々が上陸する神聖な浜",
+        "沖に浮かぶ弁天島",
+        "出雲大社のすぐそばで楽しむ夕日と日本海"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://izumooyashiro.or.jp/en/archives/religious/kamiari-festival-the-myriad-deities-arrive-at-izumo-oyashiro-shrine",
+        "title": "Kamiari Festival — Izumo Oyashiro Shrine (EN)",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://www.kankou-shimane.com/en/?destinations=inasa-no-hama-inasa-beach",
+        "title": "Inasa-no-hama Beach — Shimane Tourism",
+        "accessedAt": "2026-08-10"
+      }
+    ],
+    "reviewedAt": "2026-08-10",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-10",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-10",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "izumo-city"
+  },
+  "schemaVersion": 2
+}

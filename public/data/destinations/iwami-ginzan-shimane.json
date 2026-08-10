@@ -66,8 +66,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Shimizudani_Refinery_Ruins_at_Iwami_Ginzan_Silver_Mine_001.jpg/960px-Shimizudani_Refinery_Ruins_at_Iwami_Ginzan_Silver_Mine_001.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Iwami Ginzan Silver Mine and its Cultural Landscape via Wikipedia/Wikimedia Commons"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Naokijp, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shimizudani_Refinery_Ruins_at_Iwami_Ginzan_Silver_Mine_001.jpg"
   },
   "status": "verified",
   "travelEstimate": {
@@ -103,6 +104,7 @@
     "max": 7
   },
   "officialWebsite": "https://www.ginzan-wm.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Shimane:oda"
+  "businessHours": "Ryugenji Mabu tunnel: 09:00–17:00 (Dec–Feb 09:00–16:00), last entry 10 min before close, closed Jan 1. World Heritage Center: 08:30–17:30 (exhibits 09:00–17:00, last 16:30), closed last Tue monthly + New Year.",
+  "municipalityId": "Shimane:oda",
+  "openingHoursJa": "龍源寺間歩：9:00〜17:00（12〜2月は9:00〜16:00）、最終入場は閉場10分前、1月1日休み。世界遺産センター：8:30〜17:30（展示は9:00〜17:00・最終16:30）、毎月最終火曜日と年末年始休館。"
 }

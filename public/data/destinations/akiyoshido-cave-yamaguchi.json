@@ -4,7 +4,7 @@
   "nameJa": "秋芳洞",
   "prefecture": "Yamaguchi",
   "category": "Nature & Parks",
-  "description": "Japan's largest limestone cave, stretching 10 km underground with 100-plateau limestone pools and soaring subterranean chambers.",
+  "description": "Japan's largest limestone cave, with over 10 km of surveyed passages (public course about 1 km) and soaring subterranean chambers, at the south edge of the Akiyoshidai karst plateau in Mine City.",
   "coordinates": {
     "lat": 34.2275,
     "lng": 131.3021
@@ -85,7 +85,8 @@
     "max": 5
   },
   "officialWebsite": "https://akiyoshi-dai.com/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "Regular season entry 09:00–16:30; Jul 1–Sep 30 09:00–17:30; GW & Obon dates 08:30–17:30. Open daily incl. year-end.",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Yamaguchi:mine"
+  "municipalityId": "Yamaguchi:mine",
+  "openingHoursJa": "通常期は入場9:00〜16:30。7月1日〜9月30日は9:00〜17:30。GW・お盆期間は8:30〜17:30。年末年始も開洞。"
 }

@@ -119,6 +119,18 @@
     }
   },
   {
+    "id": "akiyoshidai-plateau",
+    "name": "Akiyoshidai Plateau",
+    "prefecture": "Yamaguchi",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "mine-city"
+    }
+  },
+  {
     "id": "akiyoshido-cave-yamaguchi",
     "name": "Akiyoshido Cave",
     "prefecture": "Yamaguchi",
@@ -500,6 +512,18 @@
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
+    }
+  },
+  {
+    "id": "bikan-historical-quarter",
+    "name": "Kurashiki Bikan Historical Quarter",
+    "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "district",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "kurashiki-city"
     }
   },
   {
@@ -1021,6 +1045,18 @@
     }
   },
   {
+    "id": "daisho-in",
+    "name": "Daisho-in Temple",
+    "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "temple",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "hatsukaichi-city"
+    }
+  },
+  {
     "id": "dakigaeri-valley-akita",
     "name": "Dakigaeri Valley",
     "prefecture": "Akita",
@@ -1452,6 +1488,18 @@
     }
   },
   {
+    "id": "fukiya-village",
+    "name": "Fukiya Village (Fukiya Furusato Village)",
+    "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "district",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "takahashi-city"
+    }
+  },
+  {
     "id": "fukui",
     "name": "Fukui City",
     "prefecture": "Fukui",
@@ -1655,6 +1703,18 @@
     }
   },
   {
+    "id": "genbaku-dome",
+    "name": "Atomic Bomb Dome (Genbaku Dome)",
+    "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "monument",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "hiroshima-city"
+    }
+  },
+  {
     "id": "genbudo-cave-park",
     "name": "Genbudo Basalt Cave Park",
     "prefecture": "Hyogo",
@@ -1710,6 +1770,18 @@
     "status": "verified",
     "relationships": {
       "parentDestinationId": "gero-city"
+    }
+  },
+  {
+    "id": "gessho-ji-temple-matsue",
+    "name": "Gessho-ji Temple",
+    "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "temple",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "matsue-city"
     }
   },
   {
@@ -2198,12 +2270,31 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": ["miyajima-itsukushima"],
+      "featuredDestinationIds": [
+        "miyajima-itsukushima",
+        "miyajima-omotesando",
+        "daisho-in",
+        "miyajima-gojunoto",
+        "senjokaku",
+        "momijidani-park"
+      ],
       "nearbyDestinationIds": [
         "hiroshima-city",
         "onomichi-city",
         "okayama-city"
       ]
+    }
+  },
+  {
+    "id": "hayashibara-museum-of-art",
+    "name": "Hayashibara Museum of Art",
+    "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "okayama-city"
     }
   },
   {
@@ -2349,6 +2440,18 @@
     }
   },
   {
+    "id": "hinomisaki-lighthouse-izumo",
+    "name": "Hinomisaki Lighthouse",
+    "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "tower",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "izumo-city"
+    }
+  },
+  {
     "id": "hiraizumi-chusonji-iwate",
     "name": "Hiraizumi – Temples, Gardens and Archaeological Sites",
     "prefecture": "Iwate",
@@ -2420,12 +2523,16 @@
     "relationships": {
       "featuredDestinationIds": [
         "hiroshima-peace-memorial",
+        "genbaku-dome",
+        "hiroshima-peace-memorial-park",
+        "hiroshima-national-peace-memorial-hall",
         "hiroshima-castle",
         "shukkeien",
         "hiroshima-museum-art",
         "mitaki-dera",
         "orizuru-tower",
-        "okonomimura"
+        "okonomimura",
+        "hondori"
       ],
       "nearbyDestinationIds": [
         "onomichi-city",
@@ -2447,13 +2554,37 @@
     }
   },
   {
-    "id": "hiroshima-peace-memorial",
-    "name": "Hiroshima Peace Memorial (Genbaku Dome)",
+    "id": "hiroshima-national-peace-memorial-hall",
+    "name": "Hiroshima National Peace Memorial Hall for the Atomic Bomb Victims",
     "prefecture": "Hiroshima",
     "region": "Chugoku",
     "role": "poi",
-    "kind": "attraction",
-    "status": "verified",
+    "kind": "memorial",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "hiroshima-city"
+    }
+  },
+  {
+    "id": "hiroshima-peace-memorial",
+    "name": "Hiroshima Peace Memorial Museum",
+    "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "hiroshima-city"
+    }
+  },
+  {
+    "id": "hiroshima-peace-memorial-park",
+    "name": "Hiroshima Peace Memorial Park",
+    "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "park",
+    "status": "published",
     "relationships": {
       "parentDestinationId": "hiroshima-city"
     }
@@ -2544,6 +2675,18 @@
     }
   },
   {
+    "id": "hondori",
+    "name": "Hondori Shopping Arcade",
+    "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "district",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "hiroshima-city"
+    }
+  },
+  {
     "id": "honmaru-palace",
     "name": "Honmaru Palace",
     "prefecture": "Aichi",
@@ -2565,6 +2708,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "nichinan-city"
+    }
+  },
+  {
+    "id": "horikawa-pleasure-boat",
+    "name": "Horikawa Pleasure Boat",
+    "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "cruise",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "matsue-city"
     }
   },
   {
@@ -2726,6 +2881,18 @@
     }
   },
   {
+    "id": "inasa-beach-izumo",
+    "name": "Inasa Beach",
+    "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "beach",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "izumo-city"
+    }
+  },
+  {
     "id": "ine-funaya-boathouses",
     "name": "Ine Funaya Boathouses",
     "prefecture": "Kyoto",
@@ -2883,6 +3050,18 @@
     }
   },
   {
+    "id": "iwakuni-castle",
+    "name": "Iwakuni Castle",
+    "prefecture": "Yamaguchi",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "iwakuni-city"
+    }
+  },
+  {
     "id": "iwakuni-city",
     "name": "Iwakuni City",
     "prefecture": "Yamaguchi",
@@ -2891,7 +3070,7 @@
     "kind": "city",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": []
+      "featuredDestinationIds": ["kintai-bridge-yamaguchi", "iwakuni-castle"]
     }
   },
   {
@@ -2953,7 +3132,11 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": ["izumo-taisha", "matsue-castle"],
+      "featuredDestinationIds": [
+        "izumo-taisha",
+        "inasa-beach-izumo",
+        "hinomisaki-lighthouse-izumo"
+      ],
       "nearbyDestinationIds": [
         "hiroshima-city",
         "onomichi-city",
@@ -2971,7 +3154,7 @@
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["ryusendo-cave-iwate"],
+      "nearbyDestinationIds": [],
       "parentDestinationId": "izumo-city"
     }
   },
@@ -3307,6 +3490,18 @@
     }
   },
   {
+    "id": "karato-market-shimonoseki",
+    "name": "Karato Market",
+    "prefecture": "Yamaguchi",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "market",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "shimonoseki-city"
+    }
+  },
+  {
     "id": "karatsu-castle",
     "name": "Karatsu Castle",
     "prefecture": "Saga",
@@ -3637,6 +3832,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
+    "id": "kibitsu-shrine",
+    "name": "Kibitsu Shrine",
+    "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "shrine",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "okayama-city"
     }
   },
   {
@@ -4022,6 +4229,18 @@
     }
   },
   {
+    "id": "kojima-denim-street",
+    "name": "Kojima Jeans Street",
+    "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "street",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "kurashiki-city"
+    }
+  },
+  {
     "id": "koko-en-garden",
     "name": "Koko-en Garden",
     "prefecture": "Hyogo",
@@ -4237,12 +4456,29 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": ["korakuen-okayama"],
+      "featuredDestinationIds": [
+        "ohara-museum-of-art",
+        "bikan-historical-quarter",
+        "kojima-denim-street",
+        "kurashiki-museum-of-folkcraft"
+      ],
       "nearbyDestinationIds": [
         "hiroshima-city",
         "onomichi-city",
         "hatsukaichi-city"
       ]
+    }
+  },
+  {
+    "id": "kurashiki-museum-of-folkcraft",
+    "name": "Kurashiki Museum of Folkcraft",
+    "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "kurashiki-city"
     }
   },
   {
@@ -4443,6 +4679,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "dazaifu-city"
+    }
+  },
+  {
+    "id": "lafcadio-hearn-memorial-museum",
+    "name": "Lafcadio Hearn Memorial Museum",
+    "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "matsue-city"
     }
   },
   {
@@ -4718,8 +4966,27 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": ["matsue-castle"],
+      "featuredDestinationIds": [
+        "matsue-castle",
+        "matsue-vogel-park",
+        "lafcadio-hearn-memorial-museum",
+        "horikawa-pleasure-boat",
+        "tanabe-museum-matsue",
+        "gessho-ji-temple-matsue"
+      ],
       "nearbyDestinationIds": ["izumo-taisha"]
+    }
+  },
+  {
+    "id": "matsue-vogel-park",
+    "name": "Matsue Vogel Park",
+    "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "park",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "matsue-city"
     }
   },
   {
@@ -4943,7 +5210,10 @@
     "kind": "city",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": []
+      "featuredDestinationIds": [
+        "akiyoshido-cave-yamaguchi",
+        "akiyoshidai-plateau"
+      ]
     }
   },
   {
@@ -5012,16 +5282,40 @@
     }
   },
   {
+    "id": "miyajima-gojunoto",
+    "name": "Five-Story Pagoda (Gojunoto)",
+    "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "tower",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "hatsukaichi-city"
+    }
+  },
+  {
     "id": "miyajima-itsukushima",
     "name": "Itsukushima Shrine (Miyajima Island)",
     "prefecture": "Hiroshima",
     "region": "Chugoku",
     "role": "poi",
-    "kind": "attraction",
+    "kind": "island",
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"],
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "hatsukaichi-city"
+    }
+  },
+  {
+    "id": "miyajima-omotesando",
+    "name": "Miyajima Omotesando",
+    "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "district",
+    "status": "published",
+    "relationships": {
       "parentDestinationId": "hatsukaichi-city"
     }
   },
@@ -5108,6 +5402,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "kitakyushu-city"
+    }
+  },
+  {
+    "id": "momijidani-park",
+    "name": "Momijidani Park & Miyajima Ropeway to Mt. Misen",
+    "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "park",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "hatsukaichi-city"
     }
   },
   {
@@ -6278,6 +6584,18 @@
     "relationships": {}
   },
   {
+    "id": "ohara-museum-of-art",
+    "name": "Ohara Museum of Art",
+    "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "kurashiki-city"
+    }
+  },
+  {
     "id": "ohori-park",
     "name": "Ohori Park",
     "prefecture": "Fukuoka",
@@ -6330,6 +6648,18 @@
     }
   },
   {
+    "id": "okayama-castle",
+    "name": "Okayama Castle (Crow Castle)",
+    "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "okayama-city"
+    }
+  },
+  {
     "id": "okayama-city",
     "name": "Okayama City",
     "prefecture": "Okayama",
@@ -6338,7 +6668,13 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": ["korakuen-okayama"],
+      "featuredDestinationIds": [
+        "korakuen-okayama",
+        "okayama-castle",
+        "kibitsu-shrine",
+        "hayashibara-museum-of-art",
+        "orient-museum"
+      ],
       "nearbyDestinationIds": [
         "hiroshima-city",
         "onomichi-city",
@@ -6544,6 +6880,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "hita-city"
+    }
+  },
+  {
+    "id": "orient-museum",
+    "name": "Okayama Orient Museum",
+    "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "okayama-city"
     }
   },
   {
@@ -6835,6 +7183,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "tachikawa-tokyo"
+    }
+  },
+  {
+    "id": "raikyuji-temple",
+    "name": "Raikyuji Temple",
+    "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "temple",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "takahashi-city"
     }
   },
   {
@@ -7406,6 +7766,18 @@
     }
   },
   {
+    "id": "senjokaku",
+    "name": "Senjokaku (Toyokuni Shrine)",
+    "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "shrine",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "hatsukaichi-city"
+    }
+  },
+  {
     "id": "serigaya-park",
     "name": "Serigaya Park",
     "prefecture": "Tokyo",
@@ -7500,7 +7872,10 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
+      "featuredDestinationIds": [
+        "karato-market-shimonoseki",
+        "tsunoshima-bridge-yamaguchi"
+      ],
       "nearbyDestinationIds": [
         "hiroshima-city",
         "onomichi-city",
@@ -8078,7 +8453,11 @@
     "kind": "city",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": ["bitchu-matsuyama-castle"]
+      "featuredDestinationIds": [
+        "bitchu-matsuyama-castle",
+        "raikyuji-temple",
+        "fukiya-village"
+      ]
     }
   },
   {
@@ -8283,6 +8662,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "ishigaki-city"
+    }
+  },
+  {
+    "id": "tanabe-museum-matsue",
+    "name": "Tanabe Museum of Art",
+    "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "matsue-city"
     }
   },
   {
@@ -8758,7 +9149,7 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
+      "featuredDestinationIds": ["tottori-sand-dunes"],
       "nearbyDestinationIds": [
         "hiroshima-city",
         "onomichi-city",
@@ -9062,6 +9453,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "osaka-city"
+    }
+  },
+  {
+    "id": "uradome-coast",
+    "name": "Uradome Coast",
+    "prefecture": "Tottori",
+    "region": "Chugoku",
+    "role": "poi",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {
+      "gatewayHubId": "tottori-city"
     }
   },
   {
