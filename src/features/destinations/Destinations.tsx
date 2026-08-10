@@ -213,20 +213,19 @@ export default function Destinations() {
   );
 
   // Saved preferences provide defaults only when the URL has not specified one.
+  //
+  // KAI-63: Both carMode and publicModes are intentionally NOT loaded from saved
+  // preferences here. In Explore, the default state must be "no transport filter"
+  // (show all destinations). Inheriting either of them would silently set
+  // hasRestrictedTransportSelection → true, activating the transport eligibility
+  // gate and hiding destinations the user never asked to exclude.
   useEffect(() => {
     if (authLoading) return;
 
     if (user?.user_metadata?.preferences) {
-      if (!searchParams.has("car")) {
-        setCarMode(user.user_metadata.preferences.carMode || "none");
-      }
-      if (!searchParams.has("mode")) {
-        // Same default mode set as Home (includes verified ferry routes) so
-        // date-aware ferry availability reaches gates, sorts and cards.
-        setPublicModes(
-          user.user_metadata.preferences.publicModes || ALL_PUBLIC_MODES,
-        );
-      }
+      // KAI-63: carMode and publicModes are NEVER injected from preferences.
+      // Explore must open with no transport filter (showing all destinations)
+      // unless explicitly selected via UI or URL param.
       if (!searchParams.has("party")) {
         setPartySize(user.user_metadata.preferences.partySize || 2);
       }

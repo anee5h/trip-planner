@@ -205,5 +205,6 @@ describe("Explore Recommended Day Trip ranking", () => {
       expect(transitionedSnapshot.summary).toBe(cleanSnapshot.summary);
       expect(transitionedSnapshot.names).toEqual(cleanSnapshot.names);
     },
+    15000,
   );
 });

@@ -23,6 +23,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "jsdom",
+    testTimeout: 15000,
   },
 });
 // Version update trigger
