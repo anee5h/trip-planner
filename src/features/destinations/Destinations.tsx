@@ -226,12 +226,9 @@ export default function Destinations() {
     if (authLoading) return;
 
     if (user?.user_metadata?.preferences) {
-      if (!searchParams.has("car")) {
-        setCarMode(user.user_metadata.preferences.carMode || "none");
-      }
-      // publicModes: never injected from preferences — Explore must open with
-      // no transport filter unless the user explicitly selects one via the UI
-      // or the URL carries an explicit "mode" param.
+      // KAI-63: carMode and publicModes are NEVER injected from preferences.
+      // Explore must open with no transport filter (showing all destinations)
+      // unless explicitly selected via UI or URL param.
       if (!searchParams.has("party")) {
         setPartySize(user.user_metadata.preferences.partySize || 2);
       }

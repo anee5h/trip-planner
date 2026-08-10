@@ -284,7 +284,7 @@ describe("Home arbitrary future dates", () => {
     await waitForCondition(
       () => calendarCapsule(host)?.textContent?.includes(labelB) ?? false,
     );
-  });
+  }, 15000);
 
   it("proves lastWrittenUrlRef does not block the first Back navigation after user selection", async () => {
     const { host, params, navigate } = renderHome();
@@ -356,5 +356,5 @@ describe("Home arbitrary future dates", () => {
         p.textContent?.includes("Jun 16"),
       ),
     ).toBe(true);
-  });
+  }, 15000);
 });

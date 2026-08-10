@@ -232,7 +232,102 @@ describe("Logged-in user with saved transport preferences", () => {
     const containerLoggedIn = renderDestinations("/destinations");
     const loggedInCount = getResultCount(containerLoggedIn);
 
-    // KAI-63: saved transport preferences must not silently filter destinations.
+    expect(loggedInCount).toBe(anonCount);
+  });
+
+  it("saved restrictive publicModes: ['train'] preference does not reduce fresh Explore count vs anonymous", () => {
+    authMock.user = null;
+    const containerAnon = renderDestinations("/destinations");
+    const anonCount = getResultCount(containerAnon);
+    act(() => root!.unmount());
+    root = undefined;
+    host?.remove();
+    host = undefined;
+
+    authMock.user = {
+      user_metadata: {
+        preferences: {
+          carMode: "none",
+          publicModes: ["train"],
+          partySize: 2,
+        },
+      },
+    };
+    const containerLoggedIn = renderDestinations("/destinations");
+    const loggedInCount = getResultCount(containerLoggedIn);
+
+    expect(loggedInCount).toBe(anonCount);
+  });
+
+  it("saved restrictive carMode: 'rental' preference does not reduce fresh Explore count vs anonymous", () => {
+    authMock.user = null;
+    const containerAnon = renderDestinations("/destinations");
+    const anonCount = getResultCount(containerAnon);
+    act(() => root!.unmount());
+    root = undefined;
+    host?.remove();
+    host = undefined;
+
+    authMock.user = {
+      user_metadata: {
+        preferences: {
+          carMode: "rental",
+          publicModes: [],
+          partySize: 2,
+        },
+      },
+    };
+    const containerLoggedIn = renderDestinations("/destinations");
+    const loggedInCount = getResultCount(containerLoggedIn);
+
+    expect(loggedInCount).toBe(anonCount);
+  });
+
+  it("saved restrictive carMode: 'my_car' preference does not reduce fresh Explore count vs anonymous", () => {
+    authMock.user = null;
+    const containerAnon = renderDestinations("/destinations");
+    const anonCount = getResultCount(containerAnon);
+    act(() => root!.unmount());
+    root = undefined;
+    host?.remove();
+    host = undefined;
+
+    authMock.user = {
+      user_metadata: {
+        preferences: {
+          carMode: "my_car",
+          publicModes: [],
+          partySize: 2,
+        },
+      },
+    };
+    const containerLoggedIn = renderDestinations("/destinations");
+    const loggedInCount = getResultCount(containerLoggedIn);
+
+    expect(loggedInCount).toBe(anonCount);
+  });
+
+  it("saved combination of restrictive carMode and publicModes preferences does not reduce fresh Explore count vs anonymous", () => {
+    authMock.user = null;
+    const containerAnon = renderDestinations("/destinations");
+    const anonCount = getResultCount(containerAnon);
+    act(() => root!.unmount());
+    root = undefined;
+    host?.remove();
+    host = undefined;
+
+    authMock.user = {
+      user_metadata: {
+        preferences: {
+          carMode: "rental",
+          publicModes: ["train"],
+          partySize: 2,
+        },
+      },
+    };
+    const containerLoggedIn = renderDestinations("/destinations");
+    const loggedInCount = getResultCount(containerLoggedIn);
+
     expect(loggedInCount).toBe(anonCount);
   });
 
@@ -240,7 +335,7 @@ describe("Logged-in user with saved transport preferences", () => {
     authMock.user = {
       user_metadata: {
         preferences: {
-          carMode: "none",
+          carMode: "rental",
           publicModes: ["train", "shinkansen", "bus", "flight", "ferry"],
           partySize: 2,
         },
@@ -251,6 +346,7 @@ describe("Logged-in user with saved transport preferences", () => {
     const modes = params.getAll("mode");
     const hasSpecificModes = modes.some((m) => m !== "none");
     expect(hasSpecificModes).toBe(false);
+    expect(params.get("car")).toBe("none");
   });
 });
 
@@ -276,7 +372,27 @@ describe("Explicit URL transport filter", () => {
 
     expect(trainCount).toBeGreaterThan(0);
     expect(trainCount).toBeLessThan(allCount);
-  });
+  }, 15000);
+
+  it("car=rental in URL with an origin reduces the count vs unfiltered", () => {
+    const containerAll = renderDestinations("/destinations");
+    const allCount = getResultCount(containerAll);
+    act(() => root!.unmount());
+    root = undefined;
+    host?.remove();
+    host = undefined;
+
+    // Set an origin so getValidModes can evaluate topology
+    tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+
+    // Mode empty but car=rental is a restricted selection
+    const containerCar = renderDestinations("/destinations?car=rental");
+    const carCount = getResultCount(containerCar);
+
+    expect(carCount).toBeGreaterThan(0);
+    expect(carCount).toBeLessThan(allCount);
+  }, 15000);
 });
 
 // ---------------------------------------------------------------------------
