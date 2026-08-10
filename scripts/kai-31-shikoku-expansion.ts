@@ -40,7 +40,7 @@ const AUDIT_DATE = "2026-08-10";
 
 const OPENING_HOURS_JA: Record<string, string> = {
   "ritsurin-garden":
-    "1月7:00～17:00、2月7:00～17:30、3月6:30～18:00、4～5月5:30～18:30、6～8月5:30～19:00、9月5:30～18:30、10月6:00～17:30、11月6:30～17:00、12月7:00～19:00（年中無休）。",
+    "1月7:00～17:00、2月7:00～17:30、3月6:30～18:00、4～5月5:30～18:30、6～8月5:30～19:00、9月5:30～18:30、10月6:00～17:30、11月6:30～17:00、12月7:00～17:00（年中無休）。",
   "takamatsu-castle-tamamo":
     "西門は月により5:30～7:00開門、17:00～19:00閉門。東門は7:00～8:30開門、17:00～18:00閉門。12月29～31日は休園。",
   "yashima-takamatsu": "屋島は常時開放。屋島寺の納経受付は7:00～17:00。",
@@ -436,21 +436,26 @@ newRecords.push(
       value: 8.6,
       uniqueness: 9,
     },
-    "https://www.my-kagawa.jp/en/see-and-do/10077",
-    "Open year-round; hours vary by month (07:00–17:00 in Jan, 07:00–19:00 in Dec)",
+    "https://www.art-takamatsu.com/en/spot/entry-642.html",
+    "Open year-round; hours vary by month (07:00–17:00 in Jan and Dec)",
     "None required",
     "Paid parking available near the garden",
     "Source-backed KAI-31 Shikoku expansion record for Takamatsu City.",
     [
       {
         type: "tourism_board",
-        url: "https://www.my-kagawa.jp/en/see-and-do/10077",
-        title: "Ritsurin Garden — VISIT KAGAWA official tourism site",
+        url: "https://www.my-kagawa.jp/ritsuringarden/feature/ritsuringarden/guide",
+        title: "Ritsurin Garden usage guide — VISIT KAGAWA",
       },
       {
         type: "tourism_board",
         url: "https://www.art-takamatsu.com/en/spot/entry-642.html",
-        title: "Takamatsu City official art/tourism listing",
+        title: "Ritsurin Garden — Experience Takamatsu (English)",
+      },
+      {
+        type: "tourism_board",
+        url: "https://www.art-takamatsu.com/jp/spot/entry-642.html",
+        title: "栗林公園 — Experience Takamatsu (Japanese)",
       },
     ],
     {

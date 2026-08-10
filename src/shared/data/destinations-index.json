@@ -97238,9 +97238,9 @@
     "notesJa": "【見どころ】栗林公園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "1月7:00～17:00、2月7:00～17:30、3月6:30～18:00、4～5月5:30～18:30、6～8月5:30～19:00、9月5:30～18:30、10月6:00～17:30、11月6:30～17:00、12月7:00～19:00（年中無休）。",
-    "businessHours": "Open year-round; hours vary by month (07:00–17:00 in Jan, 07:00–19:00 in Dec)",
-    "officialWebsite": "https://www.my-kagawa.jp/en/see-and-do/10077",
+    "openingHoursJa": "1月7:00～17:00、2月7:00～17:30、3月6:30～18:00、4～5月5:30～18:30、6～8月5:30～19:00、9月5:30～18:30、10月6:00～17:30、11月6:30～17:00、12月7:00～17:00（年中無休）。",
+    "businessHours": "Open year-round; hours vary by month (07:00–17:00 in Jan and Dec)",
+    "officialWebsite": "https://www.art-takamatsu.com/en/spot/entry-642.html",
     "content": {
       "en": {
         "name": "Ritsurin Garden",
@@ -97258,14 +97258,20 @@
       "sources": [
         {
           "type": "tourism_board",
-          "url": "https://www.my-kagawa.jp/en/see-and-do/10077",
-          "title": "Ritsurin Garden — VISIT KAGAWA official tourism site",
+          "url": "https://www.my-kagawa.jp/ritsuringarden/feature/ritsuringarden/guide",
+          "title": "Ritsurin Garden usage guide — VISIT KAGAWA",
           "accessedAt": "2026-08-10"
         },
         {
           "type": "tourism_board",
           "url": "https://www.art-takamatsu.com/en/spot/entry-642.html",
-          "title": "Takamatsu City official art/tourism listing",
+          "title": "Ritsurin Garden — Experience Takamatsu (English)",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://www.art-takamatsu.com/jp/spot/entry-642.html",
+          "title": "栗林公園 — Experience Takamatsu (Japanese)",
           "accessedAt": "2026-08-10"
         }
       ],
