@@ -1,0 +1,165 @@
+{
+  "id": "mount-hakkoda-ropeway",
+  "name": "Mount Hakkoda Ropeway",
+  "nameJa": "八甲田ロープウェー",
+  "kind": "viewpoint",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Aomori:aomori",
+  "prefecture": "Aomori",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 40.6808,
+    "lng": 140.8317
+  },
+  "categories": ["Nature", "Viewpoint"],
+  "tags": ["Nature", "Viewpoint", "Aomori City"],
+  "description": "Gondola access to the Hakkoda highlands inside Towada-Hachimantai National Park: 10 minutes to the summit park station, with walking loops among the winter 'juhyo' ice monsters, summer alpine flowers and autumn colour.",
+  "highlights": [
+    "Winter juhyo ice monsters",
+    "Summit walking loops",
+    "Alpine flowers and autumn colour",
+    "Near Sukayu Onsen"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 80,
+    "bus": 60,
+    "car": 50
+  },
+  "budgetMin": 2500,
+  "budgetRecommended": 5000,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 2500,
+    "food": 700,
+    "cafe": 300
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hakkoda_Ropeway_2019.jpg/1280px-Hakkoda_Ropeway_2019.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hakkoda_Ropeway_2019.jpg/1280px-Hakkoda_Ropeway_2019.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Marho",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hakkoda_Ropeway_2019.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 4000,
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 2000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 4,
+    "rainFriendly": 3,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 8.2,
+    "winter": 8.8,
+    "rain": 4.6,
+    "food": 7,
+    "photography": 9.2,
+    "relaxation": 8.4,
+    "value": 8,
+    "uniqueness": 9,
+    "family": 7.8,
+    "accessibility": 7,
+    "nature": 9.4,
+    "historyAndCulture": 6,
+    "walkability": 6,
+    "spring": 8,
+    "autumn": 9.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8.2,
+    "autumn": 9,
+    "winter": 8.6
+  },
+  "bestMonths": [2, 3, 7, 8, 9, 10],
+  "bestSeason": "Autumn & Winter",
+  "weatherDependence": "high",
+  "reservation": "No reservation required",
+  "parking": "Free parking at the base station",
+  "notes": "Adult round trip ¥2,500 (from 2026-08-01), one-way ¥1,550; child ¥700/¥450. 40 min by car or 60 min by bus from Aomori Station.",
+  "notesJa": "【見どころ】八甲田ロープウェーは東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:00始発。最終上りは3月～11月上旬16:20、11月中旬～2月15:40。20分間隔。強風（25m/s以上）で運休。大人往復2,500円（2026年8月1日改定）。",
+  "businessHours": "First car 09:00; last up 16:20 (Mar–early Nov) / 15:40 (mid-Nov–Feb); stops in wind ≥25 m/s",
+  "officialWebsite": "https://hakkoda-ropeway.jp/",
+  "content": {
+    "en": {
+      "name": "Mount Hakkoda Ropeway",
+      "description": "Gondola access to the Hakkoda highlands inside Towada-Hachimantai National Park: 10 minutes to the summit park station, with walking loops among the winter 'juhyo' ice monsters, summer alpine flowers and autumn colour.",
+      "highlights": [
+        "Winter juhyo ice monsters",
+        "Summit walking loops",
+        "Alpine flowers and autumn colour",
+        "Near Sukayu Onsen"
+      ]
+    },
+    "ja": {
+      "name": "八甲田ロープウェー",
+      "description": "十和田八幡平国立公園の八甲田山へ向かうロープウェー。山頂駅からは冬の樹氷、夏の高山植物、秋の紅葉を楽しむ遊歩道が広がります。",
+      "highlights": [
+        "樹氷（スノーモンスター）",
+        "山頂の遊歩道",
+        "高山植物と紅葉",
+        "荒湯・酸ヶ湯温泉と近接"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://hakkoda-ropeway.jp/",
+        "title": "Hakkoda Ropeway official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "aomori-city"
+  },
+  "schemaVersion": 2
+}

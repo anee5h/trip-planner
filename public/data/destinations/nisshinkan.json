@@ -1,0 +1,165 @@
+{
+  "id": "nisshinkan",
+  "name": "Nisshinkan",
+  "nameJa": "日新館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Fukushima:aizuwakamatsu",
+  "prefecture": "Fukushima",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 37.5589,
+    "lng": 139.9419
+  },
+  "categories": ["History", "Culture"],
+  "tags": ["History", "Culture", "Aizuwakamatsu City"],
+  "description": "A full-scale reconstruction of the Aizu clan's 1803 school, where the Byakkotai youths studied. The complex includes a Confucius hall, Japan's oldest swimming pool and an observatory, with hands-on kyudo, zazen and tea experiences.",
+  "highlights": [
+    "Full-scale clan school reconstruction",
+    "Confucius hall",
+    "Japan's oldest pool",
+    "Byakkotai heritage"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 35,
+    "bus": 45,
+    "car": 40
+  },
+  "budgetMin": 1800,
+  "budgetRecommended": 4500,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 900,
+    "tickets": 1800,
+    "food": 1100,
+    "cafe": 700
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nisshinkan_Samurai_School_exterior_in_2013-10-18.jpg/1280px-Nisshinkan_Samurai_School_exterior_in_2013-10-18.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nisshinkan_Samurai_School_exterior_in_2013-10-18.jpg/1280px-Nisshinkan_Samurai_School_exterior_in_2013-10-18.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Mukasora",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nisshinkan_Samurai_School_exterior_in_2013-10-18.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 70,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 8,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8,
+    "summer": 8.2,
+    "winter": 8,
+    "rain": 8,
+    "food": 7.6,
+    "photography": 8.6,
+    "relaxation": 7.8,
+    "value": 8,
+    "uniqueness": 9,
+    "family": 8.2,
+    "accessibility": 8,
+    "nature": 5.6,
+    "historyAndCulture": 9.6,
+    "walkability": 7,
+    "spring": 8.6,
+    "autumn": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 8.2,
+    "autumn": 8.6,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "No reservation required",
+  "parking": "Free parking on site",
+  "notes": "Adult ¥1,800 (2025 revision). Links with the Byakkotai story at Iimoriyama and Sazae-do.",
+  "notesJa": "【見どころ】日新館は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:00～17:00（最終入場16:00）。年中無休。大人1,800円。",
+  "businessHours": "09:00 - 17:00 (last entry 16:00); open year-round",
+  "officialWebsite": "https://www.nisshinkan.co.jp/",
+  "content": {
+    "en": {
+      "name": "Nisshinkan",
+      "description": "A full-scale reconstruction of the Aizu clan's 1803 school, where the Byakkotai youths studied. The complex includes a Confucius hall, Japan's oldest swimming pool and an observatory, with hands-on kyudo, zazen and tea experiences.",
+      "highlights": [
+        "Full-scale clan school reconstruction",
+        "Confucius hall",
+        "Japan's oldest pool",
+        "Byakkotai heritage"
+      ]
+    },
+    "ja": {
+      "name": "日新館",
+      "description": "1803年創設の会津藩校を全面復元した施設。白虎隊の少年たちも学んだ学び舎で、大成殿や日本最古のプール、天文台を見学でき、弓道や座禅、茶道の体験もできます。",
+      "highlights": [
+        "会津藩校の全面復元",
+        "大成殿",
+        "日本最古のプール",
+        "白虎隊ゆかり"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.nisshinkan.co.jp/",
+        "title": "Nisshinkan official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "aizuwakamatsu-city"
+  },
+  "schemaVersion": 2
+}

@@ -1,0 +1,165 @@
+{
+  "id": "sendai-daikannon",
+  "name": "Sendai Daikannon",
+  "nameJa": "仙台大観音",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Miyagi:sendai",
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 38.3009,
+    "lng": 140.8231
+  },
+  "categories": ["Culture", "Sightseeing"],
+  "tags": ["Culture", "Sightseeing", "Sendai City"],
+  "description": "A 100-metre Byakue Kannon statue — among Japan's tallest — built in 1991 and visible from the Tohoku Expressway. Visitors can walk up 12 floors inside the statue past 108 Buddha figures to an observation room with city and Pacific views.",
+  "highlights": [
+    "100 m Kannon statue",
+    "12-floor interior",
+    "108 Buddha figures",
+    "Observation room views"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 40,
+    "bus": 45,
+    "car": 30
+  },
+  "budgetMin": 500,
+  "budgetRecommended": 2500,
+  "budgetMax": 4500,
+  "budgetBreakdown": {
+    "transport": 800,
+    "tickets": 500,
+    "food": 800,
+    "cafe": 400
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sendai_Daikannon_%281870523730%29.jpg/1280px-Sendai_Daikannon_%281870523730%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sendai_Daikannon_%281870523730%29.jpg/1280px-Sendai_Daikannon_%281870523730%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "attribution": "Hideyuki KAMON",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sendai_Daikannon_(1870523730).jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2000,
+  "walkingSunMin": 1200,
+  "walkingShadeMin": 800,
+  "walkingIntensity": "medium",
+  "indoorPercent": 70,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 8,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.2,
+    "summer": 8,
+    "winter": 8,
+    "rain": 8.2,
+    "food": 7.4,
+    "photography": 8.6,
+    "relaxation": 8,
+    "value": 8,
+    "uniqueness": 9.2,
+    "family": 7.8,
+    "accessibility": 7,
+    "nature": 6,
+    "historyAndCulture": 8.4,
+    "walkability": 5,
+    "spring": 8.4,
+    "autumn": 8.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8.2,
+    "summer": 8,
+    "autumn": 8.4,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "No reservation required",
+  "parking": "Pay parking on site",
+  "notes": "Interior ¥500 (from 2026-01-01); grounds free. North of the centre (Izumi-ku) — about 30 minutes from downtown by bus or car.",
+  "notesJa": "【見どころ】仙台大観音は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "境内は無料。内部拝観は平日10:00～15:00、土日祝10:00～15:30（最終受付）。2026年1月より拝観料大人500円。",
+  "businessHours": "Interior 10:00 - 15:00 (weekdays) / 10:00 - 15:30 (weekends & holidays); grounds free",
+  "officialWebsite": "https://www.daikannon.com/",
+  "content": {
+    "en": {
+      "name": "Sendai Daikannon",
+      "description": "A 100-metre Byakue Kannon statue — among Japan's tallest — built in 1991 and visible from the Tohoku Expressway. Visitors can walk up 12 floors inside the statue past 108 Buddha figures to an observation room with city and Pacific views.",
+      "highlights": [
+        "100 m Kannon statue",
+        "12-floor interior",
+        "108 Buddha figures",
+        "Observation room views"
+      ]
+    },
+    "ja": {
+      "name": "仙台大観音",
+      "description": "1991年に建立された高さ100mの白衣観音像。日本有数の高さを誇り、内部は12階建てで108体の仏像を巡りながら展望室まで登れます。",
+      "highlights": [
+        "高さ100mの観音像",
+        "内部12階の見学",
+        "108体の仏像",
+        "展望室からの眺望"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.daikannon.com/",
+        "title": "Sendai Daikannon official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "sendai-city"
+  },
+  "schemaVersion": 2
+}

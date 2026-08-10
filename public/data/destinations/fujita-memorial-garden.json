@@ -1,0 +1,165 @@
+{
+  "id": "fujita-memorial-garden",
+  "name": "Fujita Memorial Garden",
+  "nameJa": "藤田記念庭園",
+  "kind": "garden",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Aomori:hirosaki",
+  "prefecture": "Aomori",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 40.603566,
+    "lng": 140.458778
+  },
+  "categories": ["Nature", "Garden"],
+  "tags": ["Nature", "Garden", "Hirosaki City"],
+  "description": "Pond-stroll Japanese garden of the former Fujita family villa at Hirosaki Castle's west moat, with a Registered Tangible Cultural Property western-style house housing the Taisho Romantic tea room — famous for apple pie.",
+  "highlights": [
+    "Pond-stroll garden",
+    "Taisho Romantic tea room",
+    "Beside the castle's west moat",
+    "Autumn colour"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 30,
+    "bus": 40,
+    "car": 35
+  },
+  "budgetMin": 320,
+  "budgetRecommended": 2120,
+  "budgetMax": 3500,
+  "budgetBreakdown": {
+    "transport": 600,
+    "tickets": 320,
+    "food": 800,
+    "cafe": 400
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Fujita_Memorial_Garden_in_June_2022_%282%29.jpg/1280px-Fujita_Memorial_Garden_in_June_2022_%282%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Fujita_Memorial_Garden_in_June_2022_%282%29.jpg/1280px-Fujita_Memorial_Garden_in_June_2022_%282%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "掬茶",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fujita_Memorial_Garden_in_June_2022_(2).jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2000,
+  "walkingSunMin": 1200,
+  "walkingShadeMin": 800,
+  "walkingIntensity": "low",
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 5,
+    "rainFriendly": 6,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8.6,
+    "summer": 7.8,
+    "winter": 6.8,
+    "rain": 7,
+    "food": 8.4,
+    "photography": 8.8,
+    "relaxation": 9,
+    "value": 8.2,
+    "uniqueness": 8,
+    "family": 7.4,
+    "accessibility": 6,
+    "nature": 9,
+    "historyAndCulture": 8,
+    "walkability": 7,
+    "spring": 9.2,
+    "autumn": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7.8,
+    "autumn": 9.2,
+    "winter": 6.8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "No dedicated parking; use castle-area parking",
+  "notes": "Adult ¥320 / child ¥100. Five minutes from the castle's west gate — bundle with Hirosaki Castle and Saisho-in.",
+  "notesJa": "【見どころ】藤田記念庭園は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:00～17:00（最終入園16:30）。11月24日～4月中旬は洋館・茶室のみ（無料）。大人320円。",
+  "businessHours": "09:00 - 17:00 (last entry 16:30); western house closed Nov 24 – mid-Apr (free in winter)",
+  "officialWebsite": "https://www.hirosakipark.or.jp/hujita/",
+  "content": {
+    "en": {
+      "name": "Fujita Memorial Garden",
+      "description": "Pond-stroll Japanese garden of the former Fujita family villa at Hirosaki Castle's west moat, with a Registered Tangible Cultural Property western-style house housing the Taisho Romantic tea room — famous for apple pie.",
+      "highlights": [
+        "Pond-stroll garden",
+        "Taisho Romantic tea room",
+        "Beside the castle's west moat",
+        "Autumn colour"
+      ]
+    },
+    "ja": {
+      "name": "藤田記念庭園",
+      "description": "弘前城西堀に面する旧藤田家の池泉回遊式庭園。登録有形文化財の洋館「大正浪漫喫茶室」ではアップルパイが味わえます。",
+      "highlights": [
+        "池泉回遊式庭園",
+        "大正浪漫喫茶室",
+        "弘前城西堀に隣接",
+        "秋の紅葉"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.hirosaki-kanko.or.jp/",
+        "title": "Hirosaki Tourism Association — Fujita Memorial Garden",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "hirosaki-city"
+  },
+  "schemaVersion": 2
+}

@@ -1,0 +1,165 @@
+{
+  "id": "kabushima-shrine",
+  "name": "Kabushima Shrine",
+  "nameJa": "蕪島神社",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Aomori:hachinohe",
+  "prefecture": "Aomori",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 40.5369,
+    "lng": 141.5542
+  },
+  "categories": ["History", "Nature"],
+  "tags": ["History", "Nature", "Hachinohe City"],
+  "description": "Shrine on a small island off Hachinohe where thousands of black-tailed gulls nest each spring — a National Natural Monument. The red shrine was rebuilt after the 2015 fire and is a pilgrimage circuit for good fortune.",
+  "highlights": [
+    "Black-tailed gull rookery",
+    "National Natural Monument",
+    "Fortune-bringing shrine",
+    "Island shrine by the sea"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 15,
+    "bus": 25,
+    "car": 20
+  },
+  "budgetMin": 0,
+  "budgetRecommended": 1500,
+  "budgetMax": 3000,
+  "budgetBreakdown": {
+    "transport": 800,
+    "tickets": 0,
+    "food": 500,
+    "cafe": 200
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Kabushima-Shrine.jpg/1280px-Kabushima-Shrine.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Kabushima-Shrine.jpg/1280px-Kabushima-Shrine.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "MaedaAkihiko",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kabushima-Shrine.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2000,
+  "walkingSunMin": 1200,
+  "walkingShadeMin": 800,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 4,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.4,
+    "summer": 8,
+    "winter": 7.4,
+    "rain": 6,
+    "food": 7.4,
+    "photography": 9.2,
+    "relaxation": 8,
+    "value": 8.6,
+    "uniqueness": 9.4,
+    "family": 8.6,
+    "accessibility": 6,
+    "nature": 9.2,
+    "historyAndCulture": 8.4,
+    "walkability": 7,
+    "spring": 9.2,
+    "autumn": 8.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 7.4
+  },
+  "bestMonths": [3, 4, 5, 6, 7, 9, 10],
+  "bestSeason": "Spring",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "Parking near the island approach",
+  "notes": "Free entry. Peak gull season is March–July. 15 minutes by train from Hachinohe (JR Same Station) — pairs with the Sunday Tatehana morning market.",
+  "notesJa": "【見どころ】蕪島神社は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "境内は自由参拝。日の出から日没まで（時期により変動）。",
+  "businessHours": "Free to visit; grounds open daylight hours (seasonal)",
+  "officialWebsite": "http://kabushimajinja.com/",
+  "content": {
+    "en": {
+      "name": "Kabushima Shrine",
+      "description": "Shrine on a small island off Hachinohe where thousands of black-tailed gulls nest each spring — a National Natural Monument. The red shrine was rebuilt after the 2015 fire and is a pilgrimage circuit for good fortune.",
+      "highlights": [
+        "Black-tailed gull rookery",
+        "National Natural Monument",
+        "Fortune-bringing shrine",
+        "Island shrine by the sea"
+      ]
+    },
+    "ja": {
+      "name": "蕪島神社",
+      "description": "八戸の沖合、蕪島に立つ神社。春にはウミネコの大群が営巣する国指定天然記念物の景勝地で、2015年の火災後に再建された朱塗りの社殿は縁起物の参拝地として親しまれています。",
+      "highlights": [
+        "ウミネコの繁殖地",
+        "国指定天然記念物",
+        "縁起物の参拝",
+        "海沿いの島神社"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://visithachinohe.com/spot/kabushima-jinja/",
+        "title": "Visit Hachinohe — Kabushima Shrine",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "hachinohe-city"
+  },
+  "schemaVersion": 2
+}

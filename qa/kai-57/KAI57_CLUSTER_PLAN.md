@@ -169,6 +169,42 @@ Combined with Phase 2 legacy corrections (15 records) this lands at roughly
 40–45 new records total or a documented evidence-based lower count; Phase 4
 rejection is expected to trim weak candidates.
 
+## Phase 4 outcome (2026-08-11)
+
+All proposed candidates were researched by parallel cluster scouts against
+official operator/municipal/national sources; every ACCEPT is evidenced in
+`KAI57_SOURCE_LEDGER.md`. Final pool:
+
+- **Matsushima (1 hub + 8 POIs, DONE):** matsushima-town (hub), zuigan-ji,
+  godaido, kanrantei, fukuurajima, oshima, entsuin, matsushima-bay-cruise,
+  saigyo-modoshi-no-matsu.
+- **Sendai (3):** sendai-yagiyama-zoo, sendai-ichibancho, sendai-daikannon.
+- **Aomori city (3):** aomori-museum-of-art, mount-hakkoda-ropeway,
+  asamushi-onsen.
+- **Hachinohe (2):** kabushima-shrine, tatehana-wharf-morning-market.
+- **Towada (1):** towada-art-center (closure 2027-04→2028-03 encoded).
+- **Hirosaki (3):** hirosaki-neputa-mura, fujita-memorial-garden, saisho-in.
+- **Morioka (4):** iwate-park-morioka-castle-ruins, bank-of-iwate-red-brick,
+  morioka-handiworks-square, koiwai-farm.
+- **Hiraizumi (2):** motsu-ji, takkoku-no-iwa.
+- **Yamagata (3):** yamagata-bunshokan, kajo-park, kaminoyama-castle-town.
+- **Aizu (4):** aizu-bukeyashiki, nisshinkan, sazae-do, kitakata-kura-district.
+- **Fukushima city (2):** iizaka-onsen, fukushima-prefectural-museum-of-art.
+- **Akita (2):** oga-namahage-kan, akita-senshu-park.
+
+Total: **1 hub + 37 POIs = 38 new records** — a documented evidence-based
+count at the lower edge of the 40–45 target; quality gate rejected weak
+candidates rather than padding (see below).
+
+### Rejected / not added
+
+- sokanzan, shin-tomiyama (Matsushima viewpoints — filler; Saigyo park covers
+  the slot); tenrinin (blog-tier); Kyohei Fujita Glass Museum (out of cluster
+  scope); UNESCO claim for Matsushima (not on any WH list — verified);
+  nishi-park, Yagiyama Beny Land (Sendai filler); duplicate Date Masamune
+  statue / Aobayama viewpoint (already in sendai-castle-ruins record);
+  Koriyama in-city POIs (no strong non-filler candidate cleared the gate).
+
 ## Batch order (Phase 15)
 
 1. Sendai → 2. Matsushima → 3. Aomori (incl. Hachinohe, Towada) →

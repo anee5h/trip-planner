@@ -1,0 +1,165 @@
+{
+  "id": "iwate-park-morioka-castle-ruins",
+  "name": "Iwate Park (Morioka Castle Ruins)",
+  "nameJa": "盛岡城跡公園（岩手公園）",
+  "kind": "castle",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Iwate:morioka",
+  "prefecture": "Iwate",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 39.699947,
+    "lng": 141.150111
+  },
+  "categories": ["History", "Nature"],
+  "tags": ["History", "Nature", "Morioka City"],
+  "description": "Hilltop site of Morioka Castle, one of Japan's 100 Famous Castles, now a public park ringed by massive granite stone walls and moats. The Honmaru ruins offer views over the city where the Kitakami and Nakatsu rivers meet.",
+  "highlights": [
+    "One of Japan's 100 Castles",
+    "Granite stone walls",
+    "Honmaru views",
+    "Sakura and autumn colour"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 25,
+    "bus": 30,
+    "car": 30
+  },
+  "budgetMin": 0,
+  "budgetRecommended": 1500,
+  "budgetMax": 3000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 0,
+    "food": 500,
+    "cafe": 300
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg/1280px-171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg/1280px-171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.4,
+    "summer": 7.8,
+    "winter": 7.4,
+    "rain": 6,
+    "food": 7.2,
+    "photography": 8.8,
+    "relaxation": 8.6,
+    "value": 9,
+    "uniqueness": 8.2,
+    "family": 8,
+    "accessibility": 6,
+    "nature": 8.4,
+    "historyAndCulture": 9,
+    "walkability": 8,
+    "spring": 9.2,
+    "autumn": 9.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7.8,
+    "autumn": 9,
+    "winter": 7.4
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "Parking nearby (paid)",
+  "notes": "Free park on the castle ruins; about 15 minutes on foot from Morioka Station.",
+  "notesJa": "【見どころ】盛岡城跡公園（岩手公園）は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "公園は常時開園。入園無料。",
+  "businessHours": "Open access (park); free entry",
+  "officialWebsite": "https://www.city.morioka.iwate.jp/kurashi/midori/koen/1010491.html",
+  "content": {
+    "en": {
+      "name": "Iwate Park (Morioka Castle Ruins)",
+      "description": "Hilltop site of Morioka Castle, one of Japan's 100 Famous Castles, now a public park ringed by massive granite stone walls and moats. The Honmaru ruins offer views over the city where the Kitakami and Nakatsu rivers meet.",
+      "highlights": [
+        "One of Japan's 100 Castles",
+        "Granite stone walls",
+        "Honmaru views",
+        "Sakura and autumn colour"
+      ]
+    },
+    "ja": {
+      "name": "盛岡城跡公園（岩手公園）",
+      "description": "日本100名城の一つ・盛岡城の本丸跡を整備した公園。迫力ある花崗岩の石垣と堀に囲まれ、城山からは北上川と中津川が合流する街並みを望めます。",
+      "highlights": [
+        "日本100名城",
+        "花崗岩の石垣",
+        "本丸跡の展望",
+        "春の桜と秋の紅葉"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.morioka.iwate.jp/kurashi/midori/koen/1010491.html",
+        "title": "Morioka City — Iwate Park",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "morioka-city"
+  },
+  "schemaVersion": 2
+}

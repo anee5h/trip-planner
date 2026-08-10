@@ -1,0 +1,165 @@
+{
+  "id": "bank-of-iwate-red-brick",
+  "name": "Bank of Iwate Red Brick Building",
+  "nameJa": "岩手銀行赤レンガ館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Iwate:morioka",
+  "prefecture": "Iwate",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 39.700611,
+    "lng": 141.155167
+  },
+  "categories": ["History", "Culture", "Architecture"],
+  "tags": ["History", "Architecture", "Morioka City"],
+  "description": "The former Bank of Iwate head office (1911), a Meiji-era red-brick landmark designed by Tokyo Station architect Tatsuno Kingo. The restored hall now hosts a museum, cafe and event space.",
+  "highlights": [
+    "Designed by Tatsuno Kingo",
+    "Built 1911",
+    "Red-brick landmark",
+    "Restored banking hall"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 25,
+    "bus": 30,
+    "car": 30
+  },
+  "budgetMin": 0,
+  "budgetRecommended": 2000,
+  "budgetMax": 4000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 0,
+    "food": 800,
+    "cafe": 500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/171103_Former_Morioka_Bank_Head_Office_Morioka_Iwate_pref_Japan01bs5.jpg/1280px-171103_Former_Morioka_Bank_Head_Office_Morioka_Iwate_pref_Japan01bs5.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/171103_Former_Morioka_Bank_Head_Office_Morioka_Iwate_pref_Japan01bs5.jpg/1280px-171103_Former_Morioka_Bank_Head_Office_Morioka_Iwate_pref_Japan01bs5.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:171103_Former_Morioka_Bank_Head_Office_Morioka_Iwate_pref_Japan01bs5.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2000,
+  "walkingSunMin": 1200,
+  "walkingShadeMin": 800,
+  "walkingIntensity": "low",
+  "indoorPercent": 70,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 8,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.8,
+    "summer": 8,
+    "winter": 8.2,
+    "rain": 8.4,
+    "food": 8,
+    "photography": 8.8,
+    "relaxation": 8,
+    "value": 8.6,
+    "uniqueness": 8.8,
+    "family": 7.6,
+    "accessibility": 8,
+    "nature": 6,
+    "historyAndCulture": 9.2,
+    "walkability": 8,
+    "spring": 8.6,
+    "autumn": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 8,
+    "autumn": 8.6,
+    "winter": 8.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "No reservation required",
+  "parking": "No dedicated parking; use city-centre parking",
+  "notes": "Free entry to the hall; special exhibitions may charge. On the corner of Naka-no-bashi-dori and Chuodori.",
+  "notesJa": "【見どころ】岩手銀行赤レンガ館は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:30～17:00。月曜休館（祝日の場合は翌日）、年末年始休館。",
+  "businessHours": "09:30 - 17:00; closed Mondays (Tue if Mon holiday) and year-end",
+  "officialWebsite": "https://www.iwagin-akarengakan.jp/",
+  "content": {
+    "en": {
+      "name": "Bank of Iwate Red Brick Building",
+      "description": "The former Bank of Iwate head office (1911), a Meiji-era red-brick landmark designed by Tokyo Station architect Tatsuno Kingo. The restored hall now hosts a museum, cafe and event space.",
+      "highlights": [
+        "Designed by Tatsuno Kingo",
+        "Built 1911",
+        "Red-brick landmark",
+        "Restored banking hall"
+      ]
+    },
+    "ja": {
+      "name": "岩手銀行赤レンガ館",
+      "description": "1911年竣工の旧岩手銀行本店。東京駅を設計した辰野金吾による赤レンガ建築の傑作で、現在は資料館とカフェとして公開されています。",
+      "highlights": [
+        "辰野金吾設計",
+        "1911年竣工",
+        "赤レンガの外観",
+        "復元された銀行ホール"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.iwagin-akarengakan.jp/",
+        "title": "Bank of Iwate Red Brick Building official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "morioka-city"
+  },
+  "schemaVersion": 2
+}

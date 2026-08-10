@@ -109737,5 +109737,4945 @@
       "parentDestinationId": "matsushima-town"
     },
     "schemaVersion": 2
+  },
+  {
+    "id": "aomori-museum-of-art",
+    "name": "Aomori Museum of Art",
+    "nameJa": "青森県立美術館",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Aomori:aomori",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 40.8073,
+      "lng": 140.7009
+    },
+    "categories": ["Culture", "Museum", "Art"],
+    "tags": ["Culture", "Museum", "Aomori City"],
+    "description": "Aomori's major art museum, designed by Aoki Jun beside the Sannai-Maruyama Jomon site. Its collection spans Chagall's monumental 'Aleko' backdrops, Munakata Shiko's woodblock prints and a famous giant white-dog sculpture by Nara Yoshitomo.",
+    "highlights": [
+      "Nara Yoshitomo's white dog",
+      "Chagall's 'Aleko' backdrops",
+      "Munakata Shiko collection",
+      "Beside the Jomon site"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 60,
+      "bus": 70,
+      "car": 50
+    },
+    "budgetMin": 700,
+    "budgetRecommended": 2800,
+    "budgetMax": 5000,
+    "budgetBreakdown": {
+      "transport": 800,
+      "tickets": 700,
+      "food": 900,
+      "cafe": 400
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/140913_Aomori_Museum_of_Art_Japan02bs3.jpg/1280px-140913_Aomori_Museum_of_Art_Japan02bs3.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/140913_Aomori_Museum_of_Art_Japan02bs3.jpg/1280px-140913_Aomori_Museum_of_Art_Japan02bs3.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:140913_Aomori_Museum_of_Art_Japan02bs3.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "walkingMin": 3500,
+    "walkingSunMin": 2000,
+    "walkingShadeMin": 1500,
+    "walkingIntensity": "medium",
+    "indoorPercent": 80,
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 9,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.8,
+      "couple": 8.2,
+      "summer": 8.2,
+      "winter": 8,
+      "rain": 9,
+      "food": 7.8,
+      "photography": 8.8,
+      "relaxation": 8,
+      "value": 8,
+      "uniqueness": 9.2,
+      "family": 7.8,
+      "accessibility": 8,
+      "nature": 7.4,
+      "historyAndCulture": 8.6,
+      "walkability": 7,
+      "spring": 8.6,
+      "autumn": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8.2,
+      "autumn": 8.6,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "No reservation required",
+    "parking": "Free parking on site",
+    "notes": "Permanent collection ¥700 adult / ¥400 high-school and university; free for junior high and below. Pairs with the adjacent Sannai-Maruyama site.",
+    "notesJa": "【見どころ】青森県立美術館は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:30～17:00（最終入館16:30）。第2・第4月曜休館（祝日の場合は翌日）。常設展大人700円。",
+    "businessHours": "09:30 - 17:00 (last entry 16:30); closed 2nd & 4th Monday",
+    "officialWebsite": "https://www.aomori-museum.jp/",
+    "content": {
+      "en": {
+        "name": "Aomori Museum of Art",
+        "description": "Aomori's major art museum, designed by Aoki Jun beside the Sannai-Maruyama Jomon site. Its collection spans Chagall's monumental 'Aleko' backdrops, Munakata Shiko's woodblock prints and a famous giant white-dog sculpture by Nara Yoshitomo.",
+        "highlights": [
+          "Nara Yoshitomo's white dog",
+          "Chagall's 'Aleko' backdrops",
+          "Munakata Shiko collection",
+          "Beside the Jomon site"
+        ]
+      },
+      "ja": {
+        "name": "青森県立美術館",
+        "description": "三内丸山遺跡の隣に建つ青森県立美術館。シャガールの大作「アレコ」、棟方志功の版画、奈良美智の巨大な白い犬のオブジェなどが楽しめます。",
+        "highlights": [
+          "奈良美智の白い犬",
+          "シャガール「アレコ」",
+          "棟方志功コレクション",
+          "三内丸山遺跡と隣接"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.aomori-museum.jp/",
+          "title": "Aomori Museum of Art official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "aomori-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "mount-hakkoda-ropeway",
+    "name": "Mount Hakkoda Ropeway",
+    "nameJa": "八甲田ロープウェー",
+    "kind": "viewpoint",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Aomori:aomori",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 40.6808,
+      "lng": 140.8317
+    },
+    "categories": ["Nature", "Viewpoint"],
+    "tags": ["Nature", "Viewpoint", "Aomori City"],
+    "description": "Gondola access to the Hakkoda highlands inside Towada-Hachimantai National Park: 10 minutes to the summit park station, with walking loops among the winter 'juhyo' ice monsters, summer alpine flowers and autumn colour.",
+    "highlights": [
+      "Winter juhyo ice monsters",
+      "Summit walking loops",
+      "Alpine flowers and autumn colour",
+      "Near Sukayu Onsen"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 80,
+      "bus": 60,
+      "car": 50
+    },
+    "budgetMin": 2500,
+    "budgetRecommended": 5000,
+    "budgetMax": 8000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 2500,
+      "food": 700,
+      "cafe": 300
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hakkoda_Ropeway_2019.jpg/1280px-Hakkoda_Ropeway_2019.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hakkoda_Ropeway_2019.jpg/1280px-Hakkoda_Ropeway_2019.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Marho",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hakkoda_Ropeway_2019.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "walkingMin": 4000,
+    "walkingSunMin": 2000,
+    "walkingShadeMin": 2000,
+    "walkingIntensity": "medium",
+    "indoorPercent": 20,
+    "comfort": {
+      "heatTolerance": 4,
+      "rainFriendly": 3,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8.8,
+      "couple": 8.6,
+      "summer": 8.2,
+      "winter": 8.8,
+      "rain": 4.6,
+      "food": 7,
+      "photography": 9.2,
+      "relaxation": 8.4,
+      "value": 8,
+      "uniqueness": 9,
+      "family": 7.8,
+      "accessibility": 7,
+      "nature": 9.4,
+      "historyAndCulture": 6,
+      "walkability": 6,
+      "spring": 8,
+      "autumn": 9.2
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8,
+      "summer": 8.2,
+      "autumn": 9,
+      "winter": 8.6
+    },
+    "bestMonths": [2, 3, 7, 8, 9, 10],
+    "bestSeason": "Autumn & Winter",
+    "weatherDependence": "high",
+    "reservation": "No reservation required",
+    "parking": "Free parking at the base station",
+    "notes": "Adult round trip ¥2,500 (from 2026-08-01), one-way ¥1,550; child ¥700/¥450. 40 min by car or 60 min by bus from Aomori Station.",
+    "notesJa": "【見どころ】八甲田ロープウェーは東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:00始発。最終上りは3月～11月上旬16:20、11月中旬～2月15:40。20分間隔。強風（25m/s以上）で運休。大人往復2,500円（2026年8月1日改定）。",
+    "businessHours": "First car 09:00; last up 16:20 (Mar–early Nov) / 15:40 (mid-Nov–Feb); stops in wind ≥25 m/s",
+    "officialWebsite": "https://hakkoda-ropeway.jp/",
+    "content": {
+      "en": {
+        "name": "Mount Hakkoda Ropeway",
+        "description": "Gondola access to the Hakkoda highlands inside Towada-Hachimantai National Park: 10 minutes to the summit park station, with walking loops among the winter 'juhyo' ice monsters, summer alpine flowers and autumn colour.",
+        "highlights": [
+          "Winter juhyo ice monsters",
+          "Summit walking loops",
+          "Alpine flowers and autumn colour",
+          "Near Sukayu Onsen"
+        ]
+      },
+      "ja": {
+        "name": "八甲田ロープウェー",
+        "description": "十和田八幡平国立公園の八甲田山へ向かうロープウェー。山頂駅からは冬の樹氷、夏の高山植物、秋の紅葉を楽しむ遊歩道が広がります。",
+        "highlights": [
+          "樹氷（スノーモンスター）",
+          "山頂の遊歩道",
+          "高山植物と紅葉",
+          "荒湯・酸ヶ湯温泉と近接"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://hakkoda-ropeway.jp/",
+          "title": "Hakkoda Ropeway official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "aomori-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "asamushi-onsen",
+    "name": "Asamushi Onsen",
+    "nameJa": "浅虫温泉",
+    "kind": "onsen",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Aomori:aomori",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 40.8892,
+      "lng": 140.8614
+    },
+    "categories": ["Onsen & Wellness"],
+    "tags": ["Onsen", "Aomori City"],
+    "description": "A 1,200-year-old hot spring town on the Mutsu Bay coast, nicknamed 'Aomori's inner parlour'. Free footbaths, the Asamushi Gensen Park with self-made onsen eggs, and twilight views over Yunoshima island.",
+    "highlights": [
+      "1,200-year history",
+      "Free footbaths",
+      "Onsen-egg park",
+      "Yunoshima twilight views"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 35,
+      "bus": 50,
+      "car": 40
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 2000,
+    "budgetMax": 4000,
+    "budgetBreakdown": {
+      "transport": 700,
+      "tickets": 0,
+      "food": 900,
+      "cafe": 400
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Asamushi_hot_spring_and_Yonoshima_island_aerial_photo.jpg/1280px-Asamushi_hot_spring_and_Yonoshima_island_aerial_photo.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Asamushi_hot_spring_and_Yonoshima_island_aerial_photo.jpg/1280px-Asamushi_hot_spring_and_Yonoshima_island_aerial_photo.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "ブルーノ・プラス",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asamushi_hot_spring_and_Yonoshima_island_aerial_photo.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1500,
+    "walkingIntensity": "low",
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 7,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 8.4,
+      "summer": 8.4,
+      "winter": 8.2,
+      "rain": 7.6,
+      "food": 8.4,
+      "photography": 8.2,
+      "relaxation": 9,
+      "value": 8.4,
+      "uniqueness": 7.8,
+      "family": 8,
+      "accessibility": 7,
+      "nature": 8.4,
+      "historyAndCulture": 7,
+      "walkability": 7,
+      "spring": 8.2,
+      "autumn": 8.6
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8,
+      "summer": 8.4,
+      "autumn": 8.4,
+      "winter": 8.2
+    },
+    "bestMonths": [4, 5, 6, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required for the district",
+    "parking": "Pay parking in the town",
+    "notes": "25 minutes from Aomori Station on the Aoimori Railway. The record is the onsen town itself; the nearby Asamushi Aquarium is separate.",
+    "notesJa": "【見どころ】浅虫温泉は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "温泉街は常時散策可。足湯は無料。各旅館の日帰り入浴時間は施設により異なります。",
+    "businessHours": "Open access (district); ryokan day-use bathing hours vary",
+    "officialWebsite": "https://www.asamushi.com/",
+    "content": {
+      "en": {
+        "name": "Asamushi Onsen",
+        "description": "A 1,200-year-old hot spring town on the Mutsu Bay coast, nicknamed 'Aomori's inner parlour'. Free footbaths, the Asamushi Gensen Park with self-made onsen eggs, and twilight views over Yunoshima island.",
+        "highlights": [
+          "1,200-year history",
+          "Free footbaths",
+          "Onsen-egg park",
+          "Yunoshima twilight views"
+        ]
+      },
+      "ja": {
+        "name": "浅虫温泉",
+        "description": "陸奥湾に面する1200年の歴史を持つ温泉街。「青森の奥座敷」と呼ばれ、足湯や浅虫源泉公園での温泉卵づくり、湯の島越しの夕景が楽しめます。",
+        "highlights": [
+          "1200年の歴史",
+          "無料の足湯",
+          "源泉公園の温泉卵",
+          "湯の島の夕景"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.asamushi.com/",
+          "title": "Asamushi Onsen Tourism Association",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "aomori-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "kabushima-shrine",
+    "name": "Kabushima Shrine",
+    "nameJa": "蕪島神社",
+    "kind": "shrine",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Aomori:hachinohe",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 40.5369,
+      "lng": 141.5542
+    },
+    "categories": ["History", "Nature"],
+    "tags": ["History", "Nature", "Hachinohe City"],
+    "description": "Shrine on a small island off Hachinohe where thousands of black-tailed gulls nest each spring — a National Natural Monument. The red shrine was rebuilt after the 2015 fire and is a pilgrimage circuit for good fortune.",
+    "highlights": [
+      "Black-tailed gull rookery",
+      "National Natural Monument",
+      "Fortune-bringing shrine",
+      "Island shrine by the sea"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 15,
+      "bus": 25,
+      "car": 20
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 1500,
+    "budgetMax": 3000,
+    "budgetBreakdown": {
+      "transport": 800,
+      "tickets": 0,
+      "food": 500,
+      "cafe": 200
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Kabushima-Shrine.jpg/1280px-Kabushima-Shrine.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Kabushima-Shrine.jpg/1280px-Kabushima-Shrine.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "MaedaAkihiko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kabushima-Shrine.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2000,
+    "walkingSunMin": 1200,
+    "walkingShadeMin": 800,
+    "walkingIntensity": "medium",
+    "indoorPercent": 10,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 4,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 8.4,
+      "summer": 8,
+      "winter": 7.4,
+      "rain": 6,
+      "food": 7.4,
+      "photography": 9.2,
+      "relaxation": 8,
+      "value": 8.6,
+      "uniqueness": 9.4,
+      "family": 8.6,
+      "accessibility": 6,
+      "nature": 9.2,
+      "historyAndCulture": 8.4,
+      "walkability": 7,
+      "spring": 9.2,
+      "autumn": 8.2
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 8,
+      "winter": 7.4
+    },
+    "bestMonths": [3, 4, 5, 6, 7, 9, 10],
+    "bestSeason": "Spring",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "Parking near the island approach",
+    "notes": "Free entry. Peak gull season is March–July. 15 minutes by train from Hachinohe (JR Same Station) — pairs with the Sunday Tatehana morning market.",
+    "notesJa": "【見どころ】蕪島神社は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "境内は自由参拝。日の出から日没まで（時期により変動）。",
+    "businessHours": "Free to visit; grounds open daylight hours (seasonal)",
+    "officialWebsite": "http://kabushimajinja.com/",
+    "content": {
+      "en": {
+        "name": "Kabushima Shrine",
+        "description": "Shrine on a small island off Hachinohe where thousands of black-tailed gulls nest each spring — a National Natural Monument. The red shrine was rebuilt after the 2015 fire and is a pilgrimage circuit for good fortune.",
+        "highlights": [
+          "Black-tailed gull rookery",
+          "National Natural Monument",
+          "Fortune-bringing shrine",
+          "Island shrine by the sea"
+        ]
+      },
+      "ja": {
+        "name": "蕪島神社",
+        "description": "八戸の沖合、蕪島に立つ神社。春にはウミネコの大群が営巣する国指定天然記念物の景勝地で、2015年の火災後に再建された朱塗りの社殿は縁起物の参拝地として親しまれています。",
+        "highlights": [
+          "ウミネコの繁殖地",
+          "国指定天然記念物",
+          "縁起物の参拝",
+          "海沿いの島神社"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://visithachinohe.com/spot/kabushima-jinja/",
+          "title": "Visit Hachinohe — Kabushima Shrine",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "hachinohe-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "tatehana-wharf-morning-market",
+    "name": "Tatehana Wharf Morning Market",
+    "nameJa": "館鼻岸壁朝市",
+    "kind": "market",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Aomori:hachinohe",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 40.5279,
+      "lng": 141.5293
+    },
+    "categories": ["Food", "Shopping"],
+    "tags": ["Food", "Market", "Hachinohe City"],
+    "description": "Japan's largest-class morning market: roughly 300–360 stalls strung along an 800-metre wharf, selling seafood, vegetables and oddities. The market runs before dawn to mid-morning — an iconic Hachinohe experience.",
+    "highlights": [
+      "Japan's largest-class market",
+      "800 m of stalls",
+      "Seafood and local produce",
+      "Sunday dawn only"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 20,
+      "bus": 30,
+      "car": 25
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 2000,
+    "budgetMax": 4000,
+    "budgetBreakdown": {
+      "transport": 700,
+      "tickets": 0,
+      "food": 1000,
+      "cafe": 300
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/%E9%A4%A8%E9%BC%BB%E5%B2%B8%E5%A3%81%E6%9C%9D%E5%B8%82%EF%BC%88%E5%85%AB%E6%88%B8%E5%B8%82%EF%BC%8920250928-P1073508.jpg/1280px-%E9%A4%A8%E9%BC%BB%E5%B2%B8%E5%A3%81%E6%9C%9D%E5%B8%82%EF%BC%88%E5%85%AB%E6%88%B8%E5%B8%82%EF%BC%8920250928-P1073508.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/%E9%A4%A8%E9%BC%BB%E5%B2%B8%E5%A3%81%E6%9C%9D%E5%B8%82%EF%BC%88%E5%85%AB%E6%88%B8%E5%B8%82%EF%BC%8920250928-P1073508.jpg/1280px-%E9%A4%A8%E9%BC%BB%E5%B2%B8%E5%A3%81%E6%9C%9D%E5%B8%82%EF%BC%88%E5%85%AB%E6%88%B8%E5%B8%82%EF%BC%8920250928-P1073508.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "くろふね",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:館鼻岸壁朝市（八戸市）20250928-P1073508.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2500,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1000,
+    "walkingIntensity": "medium",
+    "indoorPercent": 10,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 4,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.8,
+      "couple": 8.6,
+      "summer": 8.4,
+      "winter": 4.6,
+      "rain": 5,
+      "food": 9.4,
+      "photography": 9,
+      "relaxation": 7.6,
+      "value": 9.4,
+      "uniqueness": 9.6,
+      "family": 8.4,
+      "accessibility": 6,
+      "nature": 6.4,
+      "historyAndCulture": 7.4,
+      "walkability": 7,
+      "spring": 8.8,
+      "autumn": 8.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 0,
+      "weekend": 7,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8.6,
+      "summer": 8.4,
+      "autumn": 8.2,
+      "winter": 5
+    },
+    "bestMonths": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "Spring & Summer",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "Free parking near the wharf",
+    "notes": "Plan the trip for a Sunday; the market is closed January–February. Free entry; food and drink at the stalls. Pairs with Kabushima Shrine for a dawn-to-morning circuit.",
+    "notesJa": "【見どころ】館鼻岸壁朝市は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "毎週日曜のみ開催（3月中旬～12月末）。早朝3時頃～9時頃。1～2月は休止。",
+    "businessHours": "Sundays only, mid-March to end-December; ~03:00 to ~09:00; free entry",
+    "officialWebsite": "https://minatonichiyouasaichikai.com/",
+    "content": {
+      "en": {
+        "name": "Tatehana Wharf Morning Market",
+        "description": "Japan's largest-class morning market: roughly 300–360 stalls strung along an 800-metre wharf, selling seafood, vegetables and oddities. The market runs before dawn to mid-morning — an iconic Hachinohe experience.",
+        "highlights": [
+          "Japan's largest-class market",
+          "800 m of stalls",
+          "Seafood and local produce",
+          "Sunday dawn only"
+        ]
+      },
+      "ja": {
+        "name": "館鼻岸壁朝市",
+        "description": "約300～360店が800mの岸壁に並ぶ、日本最大級の朝市。魚介や野菜、珍品が早朝から並び、八戸の「朝市文化」を代表する風景です。",
+        "highlights": [
+          "日本最大級の朝市",
+          "800mの屋台列",
+          "海産物と地元野菜",
+          "日曜早朝のみ"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://visithachinohe.com/stories/tatehanaganpeki-asaichi/",
+          "title": "Visit Hachinohe — Tatehana Wharf Asaichi",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "hachinohe-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "towada-art-center",
+    "name": "Towada Art Center",
+    "nameJa": "十和田市現代美術館",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Aomori:towada",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 40.614,
+      "lng": 141.209
+    },
+    "categories": ["Culture", "Museum", "Art"],
+    "tags": ["Culture", "Museum", "Towada City"],
+    "description": "International contemporary-art museum and heart of the Arts Towada town-wide project. Commissioned works include Yayoi Kusama's outdoor 'Love Forever, Singing in Towada', Ron Mueck's 'Standing Woman' and Nara Yoshitomo's 'Night Dew Girl 2012'.",
+    "highlights": [
+      "Kusama outdoor sculpture",
+      "Ron Mueck's Standing Woman",
+      "Nara Yoshitomo",
+      "Town-wide art project"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 100,
+      "bus": 60,
+      "car": 45
+    },
+    "budgetMin": 1000,
+    "budgetRecommended": 4000,
+    "budgetMax": 7000,
+    "budgetBreakdown": {
+      "transport": 1000,
+      "tickets": 1800,
+      "food": 800,
+      "cafe": 400
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Towada_Art_Center_in_Aomori.jpg/1280px-Towada_Art_Center_in_Aomori.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Towada_Art_Center_in_Aomori.jpg/1280px-Towada_Art_Center_in_Aomori.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Coffee1000mg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Towada_Art_Center_in_Aomori.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1500,
+    "walkingIntensity": "medium",
+    "indoorPercent": 80,
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 9,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 8.8,
+      "summer": 8.2,
+      "winter": 8,
+      "rain": 9,
+      "food": 7.8,
+      "photography": 9.2,
+      "relaxation": 8,
+      "value": 8.2,
+      "uniqueness": 9.6,
+      "family": 7.6,
+      "accessibility": 8,
+      "nature": 7,
+      "historyAndCulture": 8.4,
+      "walkability": 7,
+      "spring": 8.6,
+      "autumn": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8.2,
+      "autumn": 8.6,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "No reservation required",
+    "parking": "Parking at the Art Plaza",
+    "notes": "Adult ¥1,800 with a special exhibition, ¥1,000 permanent only; high school and below free. IMPORTANT: full closure 2027-04-01 to 2028-03-31 for air-conditioning renovation — outdoor Kusama works and street furniture remain viewable. 40 min by bus from Shichinohe-Towada Shinkansen Station.",
+    "notesJa": "【見どころ】十和田市現代美術館は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:00～17:00（最終入館16:30）。月曜休館（祝日の場合は翌日）、年末年始休館。※2027年4月1日～2028年3月31日は空調改修のため全館休館（屋外作品は鑑賞可）。",
+    "businessHours": "09:00 - 17:00 (entry to 16:30); closed Mondays (Tue if Mon holiday) and year-end",
+    "officialWebsite": "https://towadaartcenter.com/",
+    "content": {
+      "en": {
+        "name": "Towada Art Center",
+        "description": "International contemporary-art museum and heart of the Arts Towada town-wide project. Commissioned works include Yayoi Kusama's outdoor 'Love Forever, Singing in Towada', Ron Mueck's 'Standing Woman' and Nara Yoshitomo's 'Night Dew Girl 2012'.",
+        "highlights": [
+          "Kusama outdoor sculpture",
+          "Ron Mueck's Standing Woman",
+          "Nara Yoshitomo",
+          "Town-wide art project"
+        ]
+      },
+      "ja": {
+        "name": "十和田市現代美術館",
+        "description": "「アートで町を元気に」を掲げる十和田市現代美術館。草間彌生の野外作品「愛はとこしえ十和田でうたう」、ロン・ミュエクの「スタンディング・ウーマン」、奈良美智の作品などが街なかと一体で楽しめます。",
+        "highlights": [
+          "草間彌生の野外作品",
+          "ロン・ミュエク",
+          "奈良美智",
+          "街なかアート"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://towadaartcenter.com/",
+          "title": "Towada Art Center official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "gatewayHubId": "hachinohe-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "hirosaki-neputa-mura",
+    "name": "Hirosaki Neputa Mura",
+    "nameJa": "津軽藩ねぷた村",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Aomori:hirosaki",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 40.611311,
+      "lng": 140.469757
+    },
+    "categories": ["Culture", "Museum"],
+    "tags": ["Culture", "Museum", "Hirosaki City"],
+    "description": "Year-round home of Hirosaki's fan-shaped neputa floats: 10-metre floats and painted frames in the Neputa Hall, daily Tsugaru shamisen performances, and hands-on Tsugaru-nuri, kogin and kingyo-neputa craft workshops.",
+    "highlights": [
+      "10 m fan-shaped neputa",
+      "Live Tsugaru shamisen",
+      "Craft workshops",
+      "Open year-round"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 30,
+      "bus": 40,
+      "car": 35
+    },
+    "budgetMin": 600,
+    "budgetRecommended": 3000,
+    "budgetMax": 5000,
+    "budgetBreakdown": {
+      "transport": 800,
+      "tickets": 600,
+      "food": 1100,
+      "cafe": 500
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/16/Neputamura-gaikan.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/16/Neputamura-gaikan.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "津軽藩ねぷた村",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neputamura-gaikan.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2500,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1000,
+    "walkingIntensity": "medium",
+    "indoorPercent": 70,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 8,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 8.2,
+      "summer": 8.8,
+      "winter": 8,
+      "rain": 8.6,
+      "food": 8.2,
+      "photography": 8.8,
+      "relaxation": 7.6,
+      "value": 8.4,
+      "uniqueness": 9.2,
+      "family": 8.4,
+      "accessibility": 8,
+      "nature": 6.4,
+      "historyAndCulture": 9,
+      "walkability": 7,
+      "spring": 8.8,
+      "autumn": 8.6
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8.6,
+      "summer": 8.8,
+      "autumn": 8.4,
+      "winter": 8
+    },
+    "bestMonths": [2, 3, 4, 5, 7, 8, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "No reservation required",
+    "parking": "Free parking on site",
+    "notes": "Adult ¥600, high school ¥400, elementary ¥300. Two minutes from Hirosaki Park (Chuo-koko gate) — pairs with Hirosaki Castle.",
+    "notesJa": "【見どころ】津軽藩ねぷた村は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:00～17:00（最終入場17:00）。年中無休。大人600円。",
+    "businessHours": "Exhibit area 09:00 - 17:00 (last entry 17:00); open year-round",
+    "officialWebsite": "http://neputamura.com/",
+    "content": {
+      "en": {
+        "name": "Hirosaki Neputa Mura",
+        "description": "Year-round home of Hirosaki's fan-shaped neputa floats: 10-metre floats and painted frames in the Neputa Hall, daily Tsugaru shamisen performances, and hands-on Tsugaru-nuri, kogin and kingyo-neputa craft workshops.",
+        "highlights": [
+          "10 m fan-shaped neputa",
+          "Live Tsugaru shamisen",
+          "Craft workshops",
+          "Open year-round"
+        ]
+      },
+      "ja": {
+        "name": "津軽藩ねぷた村",
+        "description": "弘前の扇ねぷたを一年中見られる施設。10m級のねぷたや絵組を展示するねぷたの館のほか、津軽三味線の生演奏、津軽塗やこぎん刺し、金魚ねぷたの体験教室が開かれています。",
+        "highlights": [
+          "10m級の扇ねぷた",
+          "津軽三味線の生演奏",
+          "工芸体験",
+          "年中無休"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "http://neputamura.com/",
+          "title": "Tsugaru-han Neputa-mura official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "hirosaki-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "fujita-memorial-garden",
+    "name": "Fujita Memorial Garden",
+    "nameJa": "藤田記念庭園",
+    "kind": "garden",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Aomori:hirosaki",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 40.603566,
+      "lng": 140.458778
+    },
+    "categories": ["Nature", "Garden"],
+    "tags": ["Nature", "Garden", "Hirosaki City"],
+    "description": "Pond-stroll Japanese garden of the former Fujita family villa at Hirosaki Castle's west moat, with a Registered Tangible Cultural Property western-style house housing the Taisho Romantic tea room — famous for apple pie.",
+    "highlights": [
+      "Pond-stroll garden",
+      "Taisho Romantic tea room",
+      "Beside the castle's west moat",
+      "Autumn colour"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 30,
+      "bus": 40,
+      "car": 35
+    },
+    "budgetMin": 320,
+    "budgetRecommended": 2120,
+    "budgetMax": 3500,
+    "budgetBreakdown": {
+      "transport": 600,
+      "tickets": 320,
+      "food": 800,
+      "cafe": 400
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Fujita_Memorial_Garden_in_June_2022_%282%29.jpg/1280px-Fujita_Memorial_Garden_in_June_2022_%282%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Fujita_Memorial_Garden_in_June_2022_%282%29.jpg/1280px-Fujita_Memorial_Garden_in_June_2022_%282%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "掬茶",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fujita_Memorial_Garden_in_June_2022_(2).jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2000,
+    "walkingSunMin": 1200,
+    "walkingShadeMin": 800,
+    "walkingIntensity": "low",
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 5,
+      "rainFriendly": 6,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.2,
+      "couple": 8.6,
+      "summer": 7.8,
+      "winter": 6.8,
+      "rain": 7,
+      "food": 8.4,
+      "photography": 8.8,
+      "relaxation": 9,
+      "value": 8.2,
+      "uniqueness": 8,
+      "family": 7.4,
+      "accessibility": 6,
+      "nature": 9,
+      "historyAndCulture": 8,
+      "walkability": 7,
+      "spring": 9.2,
+      "autumn": 9.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9,
+      "summer": 7.8,
+      "autumn": 9.2,
+      "winter": 6.8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "No dedicated parking; use castle-area parking",
+    "notes": "Adult ¥320 / child ¥100. Five minutes from the castle's west gate — bundle with Hirosaki Castle and Saisho-in.",
+    "notesJa": "【見どころ】藤田記念庭園は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:00～17:00（最終入園16:30）。11月24日～4月中旬は洋館・茶室のみ（無料）。大人320円。",
+    "businessHours": "09:00 - 17:00 (last entry 16:30); western house closed Nov 24 – mid-Apr (free in winter)",
+    "officialWebsite": "https://www.hirosakipark.or.jp/hujita/",
+    "content": {
+      "en": {
+        "name": "Fujita Memorial Garden",
+        "description": "Pond-stroll Japanese garden of the former Fujita family villa at Hirosaki Castle's west moat, with a Registered Tangible Cultural Property western-style house housing the Taisho Romantic tea room — famous for apple pie.",
+        "highlights": [
+          "Pond-stroll garden",
+          "Taisho Romantic tea room",
+          "Beside the castle's west moat",
+          "Autumn colour"
+        ]
+      },
+      "ja": {
+        "name": "藤田記念庭園",
+        "description": "弘前城西堀に面する旧藤田家の池泉回遊式庭園。登録有形文化財の洋館「大正浪漫喫茶室」ではアップルパイが味わえます。",
+        "highlights": [
+          "池泉回遊式庭園",
+          "大正浪漫喫茶室",
+          "弘前城西堀に隣接",
+          "秋の紅葉"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.hirosaki-kanko.or.jp/",
+          "title": "Hirosaki Tourism Association — Fujita Memorial Garden",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "hirosaki-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "saisho-in",
+    "name": "Saisho-in",
+    "nameJa": "最勝院",
+    "kind": "temple",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Aomori:hirosaki",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 40.596469,
+      "lng": 140.468542
+    },
+    "categories": ["History", "Culture"],
+    "tags": ["History", "Culture", "Hirosaki City"],
+    "description": "Shingon temple whose five-story pagoda, completed in 1667, is a National Important Cultural Property and often called Tohoku's most beautiful. The pagoda anchors the Zairai samurai-district walking area south of the castle.",
+    "highlights": [
+      "ICP five-story pagoda",
+      "Built 1667",
+      "Samurai-district anchor",
+      "Free normally"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 30,
+      "bus": 40,
+      "car": 35
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 1500,
+    "budgetMax": 3000,
+    "budgetBreakdown": {
+      "transport": 700,
+      "tickets": 0,
+      "food": 500,
+      "cafe": 300
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/191208_Saishoin_Hirosaki_Aomori_pref_Japan02s3.jpg/1280px-191208_Saishoin_Hirosaki_Aomori_pref_Japan02s3.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/191208_Saishoin_Hirosaki_Aomori_pref_Japan02s3.jpg/1280px-191208_Saishoin_Hirosaki_Aomori_pref_Japan02s3.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:191208_Saishoin_Hirosaki_Aomori_pref_Japan02s3.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 1
+    },
+    "walkingMin": 1500,
+    "walkingSunMin": 900,
+    "walkingShadeMin": 600,
+    "walkingIntensity": "low",
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8.4,
+      "summer": 7.8,
+      "winter": 7.6,
+      "rain": 6.6,
+      "food": 7,
+      "photography": 9,
+      "relaxation": 8.4,
+      "value": 9,
+      "uniqueness": 8.8,
+      "family": 7.6,
+      "accessibility": 6,
+      "nature": 8,
+      "historyAndCulture": 9.4,
+      "walkability": 8,
+      "spring": 9,
+      "autumn": 9.2
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.8,
+      "summer": 7.8,
+      "autumn": 9,
+      "winter": 7.6
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "Street parking nearby",
+    "notes": "Free normally; entrance fee (~¥800 adult) applies during cherry-blossom, neputa and chrysanthemum-maple festival periods. About 1.5 km south of Hirosaki Castle.",
+    "notesJa": "【見どころ】最勝院は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "境内は9:00～16:30。通常無料（桜・ねぷた・菊もみじ時期は入場料あり）。",
+    "businessHours": "Grounds 09:00 - 16:30 (seasonal); free normally, paid during festival seasons",
+    "officialWebsite": "https://saisyouin.jp/",
+    "content": {
+      "en": {
+        "name": "Saisho-in",
+        "description": "Shingon temple whose five-story pagoda, completed in 1667, is a National Important Cultural Property and often called Tohoku's most beautiful. The pagoda anchors the Zairai samurai-district walking area south of the castle.",
+        "highlights": [
+          "ICP five-story pagoda",
+          "Built 1667",
+          "Samurai-district anchor",
+          "Free normally"
+        ]
+      },
+      "ja": {
+        "name": "最勝院",
+        "description": "1667年建立の五重塔が重要文化財に指定されている弘前の寺院。「東北一美しい五重塔」と呼ばれ、城の南側の在府侍町の散策エリアにあります。",
+        "highlights": [
+          "国指定重要文化財の五重塔",
+          "1667年建立",
+          "在府侍町エリア",
+          "通常無料"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://saisyouin.jp/",
+          "title": "Saisho-in official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "hirosaki-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "iwate-park-morioka-castle-ruins",
+    "name": "Iwate Park (Morioka Castle Ruins)",
+    "nameJa": "盛岡城跡公園（岩手公園）",
+    "kind": "castle",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Iwate:morioka",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 39.699947,
+      "lng": 141.150111
+    },
+    "categories": ["History", "Nature"],
+    "tags": ["History", "Nature", "Morioka City"],
+    "description": "Hilltop site of Morioka Castle, one of Japan's 100 Famous Castles, now a public park ringed by massive granite stone walls and moats. The Honmaru ruins offer views over the city where the Kitakami and Nakatsu rivers meet.",
+    "highlights": [
+      "One of Japan's 100 Castles",
+      "Granite stone walls",
+      "Honmaru views",
+      "Sakura and autumn colour"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 25,
+      "bus": 30,
+      "car": 30
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 1500,
+    "budgetMax": 3000,
+    "budgetBreakdown": {
+      "transport": 700,
+      "tickets": 0,
+      "food": 500,
+      "cafe": 300
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg/1280px-171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg/1280px-171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:171103_Morioka_Castle_Morioka_Iwate_pref_Japan20s3.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2500,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1000,
+    "walkingIntensity": "medium",
+    "indoorPercent": 20,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 4,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8.4,
+      "summer": 7.8,
+      "winter": 7.4,
+      "rain": 6,
+      "food": 7.2,
+      "photography": 8.8,
+      "relaxation": 8.6,
+      "value": 9,
+      "uniqueness": 8.2,
+      "family": 8,
+      "accessibility": 6,
+      "nature": 8.4,
+      "historyAndCulture": 9,
+      "walkability": 8,
+      "spring": 9.2,
+      "autumn": 9.2
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9,
+      "summer": 7.8,
+      "autumn": 9,
+      "winter": 7.4
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "Parking nearby (paid)",
+    "notes": "Free park on the castle ruins; about 15 minutes on foot from Morioka Station.",
+    "notesJa": "【見どころ】盛岡城跡公園（岩手公園）は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "公園は常時開園。入園無料。",
+    "businessHours": "Open access (park); free entry",
+    "officialWebsite": "https://www.city.morioka.iwate.jp/kurashi/midori/koen/1010491.html",
+    "content": {
+      "en": {
+        "name": "Iwate Park (Morioka Castle Ruins)",
+        "description": "Hilltop site of Morioka Castle, one of Japan's 100 Famous Castles, now a public park ringed by massive granite stone walls and moats. The Honmaru ruins offer views over the city where the Kitakami and Nakatsu rivers meet.",
+        "highlights": [
+          "One of Japan's 100 Castles",
+          "Granite stone walls",
+          "Honmaru views",
+          "Sakura and autumn colour"
+        ]
+      },
+      "ja": {
+        "name": "盛岡城跡公園（岩手公園）",
+        "description": "日本100名城の一つ・盛岡城の本丸跡を整備した公園。迫力ある花崗岩の石垣と堀に囲まれ、城山からは北上川と中津川が合流する街並みを望めます。",
+        "highlights": [
+          "日本100名城",
+          "花崗岩の石垣",
+          "本丸跡の展望",
+          "春の桜と秋の紅葉"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.morioka.iwate.jp/kurashi/midori/koen/1010491.html",
+          "title": "Morioka City — Iwate Park",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "morioka-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "bank-of-iwate-red-brick",
+    "name": "Bank of Iwate Red Brick Building",
+    "nameJa": "岩手銀行赤レンガ館",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Iwate:morioka",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 39.700611,
+      "lng": 141.155167
+    },
+    "categories": ["History", "Culture", "Architecture"],
+    "tags": ["History", "Architecture", "Morioka City"],
+    "description": "The former Bank of Iwate head office (1911), a Meiji-era red-brick landmark designed by Tokyo Station architect Tatsuno Kingo. The restored hall now hosts a museum, cafe and event space.",
+    "highlights": [
+      "Designed by Tatsuno Kingo",
+      "Built 1911",
+      "Red-brick landmark",
+      "Restored banking hall"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 25,
+      "bus": 30,
+      "car": 30
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 2000,
+    "budgetMax": 4000,
+    "budgetBreakdown": {
+      "transport": 700,
+      "tickets": 0,
+      "food": 800,
+      "cafe": 500
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/171103_Former_Morioka_Bank_Head_Office_Morioka_Iwate_pref_Japan01bs5.jpg/1280px-171103_Former_Morioka_Bank_Head_Office_Morioka_Iwate_pref_Japan01bs5.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/171103_Former_Morioka_Bank_Head_Office_Morioka_Iwate_pref_Japan01bs5.jpg/1280px-171103_Former_Morioka_Bank_Head_Office_Morioka_Iwate_pref_Japan01bs5.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:171103_Former_Morioka_Bank_Head_Office_Morioka_Iwate_pref_Japan01bs5.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2000,
+    "walkingSunMin": 1200,
+    "walkingShadeMin": 800,
+    "walkingIntensity": "low",
+    "indoorPercent": 70,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 8.8,
+      "summer": 8,
+      "winter": 8.2,
+      "rain": 8.4,
+      "food": 8,
+      "photography": 8.8,
+      "relaxation": 8,
+      "value": 8.6,
+      "uniqueness": 8.8,
+      "family": 7.6,
+      "accessibility": 8,
+      "nature": 6,
+      "historyAndCulture": 9.2,
+      "walkability": 8,
+      "spring": 8.6,
+      "autumn": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8,
+      "autumn": 8.6,
+      "winter": 8.2
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "No reservation required",
+    "parking": "No dedicated parking; use city-centre parking",
+    "notes": "Free entry to the hall; special exhibitions may charge. On the corner of Naka-no-bashi-dori and Chuodori.",
+    "notesJa": "【見どころ】岩手銀行赤レンガ館は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:30～17:00。月曜休館（祝日の場合は翌日）、年末年始休館。",
+    "businessHours": "09:30 - 17:00; closed Mondays (Tue if Mon holiday) and year-end",
+    "officialWebsite": "https://www.iwagin-akarengakan.jp/",
+    "content": {
+      "en": {
+        "name": "Bank of Iwate Red Brick Building",
+        "description": "The former Bank of Iwate head office (1911), a Meiji-era red-brick landmark designed by Tokyo Station architect Tatsuno Kingo. The restored hall now hosts a museum, cafe and event space.",
+        "highlights": [
+          "Designed by Tatsuno Kingo",
+          "Built 1911",
+          "Red-brick landmark",
+          "Restored banking hall"
+        ]
+      },
+      "ja": {
+        "name": "岩手銀行赤レンガ館",
+        "description": "1911年竣工の旧岩手銀行本店。東京駅を設計した辰野金吾による赤レンガ建築の傑作で、現在は資料館とカフェとして公開されています。",
+        "highlights": [
+          "辰野金吾設計",
+          "1911年竣工",
+          "赤レンガの外観",
+          "復元された銀行ホール"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.iwagin-akarengakan.jp/",
+          "title": "Bank of Iwate Red Brick Building official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "morioka-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "morioka-handiworks-square",
+    "name": "Morioka Handi-Works Square",
+    "nameJa": "盛岡手づくり村",
+    "kind": "shopping",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Iwate:morioka",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 39.692838,
+      "lng": 141.024696
+    },
+    "categories": ["Culture", "Shopping", "Experience"],
+    "tags": ["Culture", "Experience", "Morioka City"],
+    "description": "A craft village west of the city where visitors can watch and try Iwate's traditional crafts — Nanbu ironware, Nanbu-bijin sake tasting, senbei baking, soba-making and more — in a cluster of workshops and shops.",
+    "highlights": [
+      "Nanbu ironware workshops",
+      "Hands-on craft experiences",
+      "Local food and sake",
+      "Souvenir shopping"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 35,
+      "bus": 40,
+      "car": 30
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 3000,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 800,
+      "tickets": 0,
+      "food": 1400,
+      "cafe": 800
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Morioka_Handi-Works_Square_20170715a.jpg/1280px-Morioka_Handi-Works_Square_20170715a.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Morioka_Handi-Works_Square_20170715a.jpg/1280px-Morioka_Handi-Works_Square_20170715a.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "掬茶",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Morioka_Handi-Works_Square_20170715a.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "walkingMin": 4000,
+    "walkingSunMin": 2500,
+    "walkingShadeMin": 1500,
+    "walkingIntensity": "medium",
+    "indoorPercent": 50,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 7,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8,
+      "summer": 8,
+      "winter": 8,
+      "rain": 8,
+      "food": 8.8,
+      "photography": 7.8,
+      "relaxation": 7.8,
+      "value": 8.4,
+      "uniqueness": 8.6,
+      "family": 8.6,
+      "accessibility": 7,
+      "nature": 6.4,
+      "historyAndCulture": 8.8,
+      "walkability": 6,
+      "spring": 8.4,
+      "autumn": 8.6
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.2,
+      "summer": 8,
+      "autumn": 8.4,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required for entry; some workshops need booking",
+    "parking": "Free parking on site",
+    "notes": "Free entry; craft experiences and food are paid individually. About 20 minutes by car or bus from Morioka Station.",
+    "notesJa": "【見どころ】盛岡手づくり村は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:00～17:00。年中無休（12月31日～1月2日を除く）。",
+    "businessHours": "09:00 - 17:00; closed year-end (Dec 31 – Jan 2)",
+    "officialWebsite": "https://tezukurimura.com/",
+    "content": {
+      "en": {
+        "name": "Morioka Handi-Works Square",
+        "description": "A craft village west of the city where visitors can watch and try Iwate's traditional crafts — Nanbu ironware, Nanbu-bijin sake tasting, senbei baking, soba-making and more — in a cluster of workshops and shops.",
+        "highlights": [
+          "Nanbu ironware workshops",
+          "Hands-on craft experiences",
+          "Local food and sake",
+          "Souvenir shopping"
+        ]
+      },
+      "ja": {
+        "name": "盛岡手づくり村",
+        "description": "盛岡の伝統工芸を体験できる施設群。南部鉄器の制作見学や南部美人の利き酒、せんべい焼き、そば打ちなどの体験が楽しめます。",
+        "highlights": [
+          "南部鉄器の制作見学",
+          "体験工房",
+          "郷土料理",
+          "お土産選び"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://tezukurimura.com/",
+          "title": "Morioka Handi-Works Square official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "morioka-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "koiwai-farm",
+    "name": "Koiwai Farm",
+    "nameJa": "小岩井農場",
+    "kind": "park",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Iwate:shizukuishi",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 39.751694,
+      "lng": 141.016049
+    },
+    "categories": ["Nature", "Family", "Food"],
+    "tags": ["Nature", "Family", "Shizukuishi Town"],
+    "description": "One of Japan's great working farms on the slopes of Mount Iwate, with the famous one-row cherry trees, dairy and ranch experiences, the old stone barn, and sweeping views across the Iwate plain.",
+    "highlights": [
+      "One-row cherry trees and Mt Iwate",
+      "Ranch experiences",
+      "Dairy products",
+      "Old stone barn"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 35,
+      "bus": 40,
+      "car": 35
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 2500,
+    "budgetMax": 5000,
+    "budgetBreakdown": {
+      "transport": 1000,
+      "tickets": 0,
+      "food": 1000,
+      "cafe": 500
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Cherry_tree_and_Mount_Iwate.jpg/1280px-Cherry_tree_and_Mount_Iwate.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Cherry_tree_and_Mount_Iwate.jpg/1280px-Cherry_tree_and_Mount_Iwate.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "掬茶",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cherry_tree_and_Mount_Iwate.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "walkingMin": 5000,
+    "walkingSunMin": 3000,
+    "walkingShadeMin": 2000,
+    "walkingIntensity": "medium",
+    "indoorPercent": 25,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8.8,
+      "couple": 8.6,
+      "summer": 8.6,
+      "winter": 7.6,
+      "rain": 5.6,
+      "food": 9,
+      "photography": 9.2,
+      "relaxation": 8.6,
+      "value": 8.6,
+      "uniqueness": 9,
+      "family": 9,
+      "accessibility": 7,
+      "nature": 9.4,
+      "historyAndCulture": 7,
+      "walkability": 7,
+      "spring": 9.2,
+      "autumn": 8.6
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8.6,
+      "autumn": 8.4,
+      "winter": 7.6
+    },
+    "bestMonths": [4, 5, 6, 7, 8, 9, 10],
+    "bestSeason": "Spring & Summer",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "Free parking on site",
+    "notes": "Entry fee applies at the Makiba-en ranch park (adult ~¥800); other areas vary. In Shizukuishi Town — gateway access via Morioka.",
+    "notesJa": "【見どころ】小岩井農場は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:00～17:00（時期により変動）。12月～2月は土日祝のみ営業。",
+    "businessHours": "09:00 - 17:00 (varies by season); winter (Dec–Feb) weekends and holidays only",
+    "officialWebsite": "https://www.koiwaifarm.com/",
+    "content": {
+      "en": {
+        "name": "Koiwai Farm",
+        "description": "One of Japan's great working farms on the slopes of Mount Iwate, with the famous one-row cherry trees, dairy and ranch experiences, the old stone barn, and sweeping views across the Iwate plain.",
+        "highlights": [
+          "One-row cherry trees and Mt Iwate",
+          "Ranch experiences",
+          "Dairy products",
+          "Old stone barn"
+        ]
+      },
+      "ja": {
+        "name": "小岩井農場",
+        "description": "岩手山の麓に広がる日本有数の大農場。一本桜や石造りの牛舎を眺めながら、乳製品づくりや牧場体験を楽しめます。",
+        "highlights": [
+          "一本桜と岩手山",
+          "牧場体験",
+          "乳製品とソフトクリーム",
+          "石造りの牛舎"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.koiwaifarm.com/",
+          "title": "Koiwai Farm official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "gatewayHubId": "morioka-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "motsu-ji",
+    "name": "Motsu-ji",
+    "nameJa": "毛越寺",
+    "kind": "temple",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Iwate:hiraizumi",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 38.988471,
+      "lng": 141.105052
+    },
+    "categories": ["History", "Culture", "Nature"],
+    "tags": ["History", "Culture", "Hiraizumi Town"],
+    "description": "Temple whose Pure Land garden and ruins are part of the UNESCO Hiraizumi World Heritage property. The Heian-era Jodo garden, laid out beside a large pond, is one of Japan's finest surviving examples of Pure Land landscape design.",
+    "highlights": [
+      "UNESCO Pure Land garden",
+      "Oizumi-ga-ike pond",
+      "Heian garden design",
+      "Sakura and autumn colour"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 60,
+      "bus": 65,
+      "car": 75
+    },
+    "budgetMin": 500,
+    "budgetRecommended": 2500,
+    "budgetMax": 4000,
+    "budgetBreakdown": {
+      "transport": 800,
+      "tickets": 500,
+      "food": 800,
+      "cafe": 400
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/230728_Motsuji_Hiraizumi_Iwate_pref_Japan37s3.jpg/1280px-230728_Motsuji_Hiraizumi_Iwate_pref_Japan37s3.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/230728_Motsuji_Hiraizumi_Iwate_pref_Japan37s3.jpg/1280px-230728_Motsuji_Hiraizumi_Iwate_pref_Japan37s3.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:230728_Motsuji_Hiraizumi_Iwate_pref_Japan37s3.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1800,
+    "walkingShadeMin": 1200,
+    "walkingIntensity": "medium",
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 5,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 9,
+      "summer": 8,
+      "winter": 7.6,
+      "rain": 6.4,
+      "food": 7.6,
+      "photography": 9.4,
+      "relaxation": 9,
+      "value": 8.8,
+      "uniqueness": 9.4,
+      "family": 7.8,
+      "accessibility": 7,
+      "nature": 9,
+      "historyAndCulture": 9.8,
+      "walkability": 8,
+      "spring": 9.2,
+      "autumn": 9.6
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 9.4,
+      "winter": 7.6
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "Pay parking near the temple",
+    "notes": "Garden admission ¥500 adult. Gateway access via Morioka; also reachable from Ichinoseki. Pairs with Chuson-ji in the same Hiraizumi visit.",
+    "notesJa": "【見どころ】毛越寺は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "8:30～17:00（3月1日～11月3日）、8:30～16:30（冬季）。拝観料大人500円。",
+    "businessHours": "08:30 - 17:00 (Mar–Nov) / 08:30 - 16:30 (winter)",
+    "officialWebsite": "https://www.motsuji.or.jp/",
+    "content": {
+      "en": {
+        "name": "Motsu-ji",
+        "description": "Temple whose Pure Land garden and ruins are part of the UNESCO Hiraizumi World Heritage property. The Heian-era Jodo garden, laid out beside a large pond, is one of Japan's finest surviving examples of Pure Land landscape design.",
+        "highlights": [
+          "UNESCO Pure Land garden",
+          "Oizumi-ga-ike pond",
+          "Heian garden design",
+          "Sakura and autumn colour"
+        ]
+      },
+      "ja": {
+        "name": "毛越寺",
+        "description": "世界遺産「平泉」を構成する寺院。平安時代の浄土庭園が池のほとりに広がり、極楽浄土を表した庭園様式の傑作として知られています。",
+        "highlights": [
+          "世界遺産の浄土庭園",
+          "大泉が池",
+          "平安様式の庭園",
+          "春の桜と秋の紅葉"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.motsuji.or.jp/",
+          "title": "Motsu-ji official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "gatewayHubId": "morioka-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "takkoku-no-iwa",
+    "name": "Takkoku-no-Iwa",
+    "nameJa": "達谷窟毘沙門堂",
+    "kind": "temple",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Iwate:hiraizumi",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 38.968167,
+      "lng": 141.058444
+    },
+    "categories": ["History", "Culture"],
+    "tags": ["History", "Culture", "Hiraizumi Town"],
+    "description": "A hall built against a sheer cliff face in a wooded valley south of Hiraizumi, said to date from a 9th-century temple carved into the rock. The vermillion Bishamon-do clings to the crag above the valley floor.",
+    "highlights": [
+      "Cliffside hall",
+      "Legendary 9th-century temple",
+      "Valley setting",
+      "Hidden Tohoku gem"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 60,
+      "bus": 65,
+      "car": 75
+    },
+    "budgetMin": 400,
+    "budgetRecommended": 2200,
+    "budgetMax": 4000,
+    "budgetBreakdown": {
+      "transport": 800,
+      "tickets": 400,
+      "food": 700,
+      "cafe": 300
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/230728_Takkoku-no-iwaya_Bishamondo_Hiraizumi_Iwate_pref_Japan01s3.jpg/1280px-230728_Takkoku-no-iwaya_Bishamondo_Hiraizumi_Iwate_pref_Japan01s3.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/230728_Takkoku-no-iwaya_Bishamondo_Hiraizumi_Iwate_pref_Japan01s3.jpg/1280px-230728_Takkoku-no-iwaya_Bishamondo_Hiraizumi_Iwate_pref_Japan01s3.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:230728_Takkoku-no-iwaya_Bishamondo_Hiraizumi_Iwate_pref_Japan01s3.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 1
+    },
+    "walkingMin": 1500,
+    "walkingSunMin": 900,
+    "walkingShadeMin": 600,
+    "walkingIntensity": "low",
+    "indoorPercent": 20,
+    "comfort": {
+      "heatTolerance": 5,
+      "rainFriendly": 5,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 8.6,
+      "summer": 8,
+      "winter": 7.4,
+      "rain": 6.2,
+      "food": 7,
+      "photography": 9.2,
+      "relaxation": 8.6,
+      "value": 8.6,
+      "uniqueness": 9.4,
+      "family": 7.6,
+      "accessibility": 6,
+      "nature": 8.8,
+      "historyAndCulture": 9.4,
+      "walkability": 7,
+      "spring": 8.8,
+      "autumn": 9.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 2,
+      "weekend": 4,
+      "holiday": 5
+    },
+    "season": {
+      "spring": 8.6,
+      "summer": 8,
+      "autumn": 9.2,
+      "winter": 7.4
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "Pay parking at the site",
+    "notes": "Admission ¥400 adult. About 10 minutes by car south of Hiraizumi.",
+    "notesJa": "【見どころ】達谷窟毘沙門堂は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "8:00～17:00。拝観料大人400円。",
+    "businessHours": "Open daylight hours; see official site for seasonal hours",
+    "officialWebsite": "http://www.iwayabetto.com/",
+    "content": {
+      "en": {
+        "name": "Takkoku-no-Iwa",
+        "description": "A hall built against a sheer cliff face in a wooded valley south of Hiraizumi, said to date from a 9th-century temple carved into the rock. The vermillion Bishamon-do clings to the crag above the valley floor.",
+        "highlights": [
+          "Cliffside hall",
+          "Legendary 9th-century temple",
+          "Valley setting",
+          "Hidden Tohoku gem"
+        ]
+      },
+      "ja": {
+        "name": "達谷窟毘沙門堂",
+        "description": "切り立った岩壁に張り付くように建つ毘沙門堂。9世紀の創建と伝わる岩窟寺院で、谷間に架かる朱塗りの堂と岩肌の対比が印象的です。",
+        "highlights": ["岩壁に建つ堂", "伝承の古刹", "渓谷の景観", "東北の秘所"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "http://www.iwayabetto.com/",
+          "title": "Takkoku-no-Iwa official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "gatewayHubId": "morioka-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "iizaka-onsen",
+    "name": "Iizaka Onsen",
+    "nameJa": "飯坂温泉",
+    "kind": "onsen",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Fukushima:fukushima",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 37.831944,
+      "lng": 140.454444
+    },
+    "categories": ["Onsen & Wellness"],
+    "tags": ["Onsen", "Fukushima City"],
+    "description": "One of Tohoku's three great old springs, with roughly 1,200 years of history and Japan's oldest wooden communal bathhouse, Sakaba-yu, still in daily use. Communal baths and footbaths cluster around the riverside town.",
+    "highlights": [
+      "Japan's oldest wooden bathhouse",
+      "Communal bath circuit",
+      "Riverside onsen town",
+      "~1,200-year history"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 25,
+      "bus": 40,
+      "car": 30
+    },
+    "budgetMin": 400,
+    "budgetRecommended": 2500,
+    "budgetMax": 5000,
+    "budgetBreakdown": {
+      "transport": 600,
+      "tickets": 400,
+      "food": 1000,
+      "cafe": 500
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Iizaka_Onsen_Hakoyu.JPG/1280px-Iizaka_Onsen_Hakoyu.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Iizaka_Onsen_Hakoyu.JPG/1280px-Iizaka_Onsen_Hakoyu.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Abasaa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iizaka_Onsen_Hakoyu.JPG"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1500,
+    "walkingIntensity": "low",
+    "indoorPercent": 30,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8.8,
+      "summer": 8.4,
+      "winter": 8.6,
+      "rain": 8,
+      "food": 8.8,
+      "photography": 8,
+      "relaxation": 9.4,
+      "value": 9,
+      "uniqueness": 8.8,
+      "family": 8,
+      "accessibility": 7,
+      "nature": 7.6,
+      "historyAndCulture": 8.6,
+      "walkability": 8,
+      "spring": 8.8,
+      "autumn": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8.6,
+      "summer": 8.4,
+      "autumn": 8.8,
+      "winter": 8.6
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required for communal baths",
+    "parking": "Pay parking in the town",
+    "notes": "Sakaba-yu ¥400 adult. About 20 minutes from Fukushima Station on the Iizaka Line; a 5-minute walk from Iizaka-Onsen Station.",
+    "notesJa": "【見どころ】飯坂温泉は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "温泉街は常時散策可。共同浴場の営業時間は施設により異なります。",
+    "businessHours": "District open access; Sakaba-yu 06:00–21:00 (last entry 20:40), closed Mondays",
+    "officialWebsite": "https://iizaka.com/",
+    "content": {
+      "en": {
+        "name": "Iizaka Onsen",
+        "description": "One of Tohoku's three great old springs, with roughly 1,200 years of history and Japan's oldest wooden communal bathhouse, Sakaba-yu, still in daily use. Communal baths and footbaths cluster around the riverside town.",
+        "highlights": [
+          "Japan's oldest wooden bathhouse",
+          "Communal bath circuit",
+          "Riverside onsen town",
+          "~1,200-year history"
+        ]
+      },
+      "ja": {
+        "name": "飯坂温泉",
+        "description": "東北三名湯の一つに数えられる1200年の歴史を持つ温泉街。日本最古の木造共同浴場・波来湯が今も現役で、川沿いに共同浴場や足湯が点在します。",
+        "highlights": [
+          "日本最古の木造浴場・波来湯",
+          "共同浴場めぐり",
+          "川沿いの温泉街",
+          "約1200年の歴史"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://iizaka.com/",
+          "title": "Iizaka Onsen official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "fukushima-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "fukushima-prefectural-museum-of-art",
+    "name": "Fukushima Prefectural Museum of Art",
+    "nameJa": "福島県立美術館",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Fukushima:fukushima",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 37.767942,
+      "lng": 140.456506
+    },
+    "categories": ["Culture", "Museum", "Art"],
+    "tags": ["Culture", "Museum", "Fukushima City"],
+    "description": "Prefectural art museum at the foot of Mount Shinobu, opened in 1984, with a strong collection of modern Japanese painting including Takahashi Yuichi. Hosts major special exhibitions and offers free parking.",
+    "highlights": [
+      "Modern Japanese painting",
+      "Takahashi Yuichi works",
+      "Major special exhibitions",
+      "Free parking"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 20,
+      "bus": 30,
+      "car": 25
+    },
+    "budgetMin": 360,
+    "budgetRecommended": 2200,
+    "budgetMax": 4000,
+    "budgetBreakdown": {
+      "transport": 700,
+      "tickets": 360,
+      "food": 700,
+      "cafe": 400
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Fukushima-Pref-Museum-of-Art02.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Fukushima-Pref-Museum-of-Art02.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Hasec",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fukushima-Pref-Museum-of-Art02.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2500,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1000,
+    "walkingIntensity": "low",
+    "indoorPercent": 90,
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 9,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8,
+      "couple": 7.8,
+      "summer": 7.8,
+      "winter": 8,
+      "rain": 9,
+      "food": 7.6,
+      "photography": 7.8,
+      "relaxation": 7.8,
+      "value": 8.4,
+      "uniqueness": 7.6,
+      "family": 7.4,
+      "accessibility": 9,
+      "nature": 6.4,
+      "historyAndCulture": 8.6,
+      "walkability": 7,
+      "spring": 8.2,
+      "autumn": 8.4
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8,
+      "summer": 7.8,
+      "autumn": 8.2,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "No reservation required",
+    "parking": "Free parking (unavailable during large special exhibitions)",
+    "notes": "Permanent collection ¥360 adult / ¥280 group; high school and below free. Three minutes from Fukushima Station on the Iizaka Line (Museum-mae stop).",
+    "notesJa": "【見どころ】福島県立美術館は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:30～17:00（最終入館16:30）。月曜休館（祝日の場合は翌日）。",
+    "businessHours": "09:30 - 17:00 (last entry 16:30); closed Mondays (except holidays), day after holidays, year-end",
+    "officialWebsite": "https://art-museum.fcs.ed.jp/",
+    "content": {
+      "en": {
+        "name": "Fukushima Prefectural Museum of Art",
+        "description": "Prefectural art museum at the foot of Mount Shinobu, opened in 1984, with a strong collection of modern Japanese painting including Takahashi Yuichi. Hosts major special exhibitions and offers free parking.",
+        "highlights": [
+          "Modern Japanese painting",
+          "Takahashi Yuichi works",
+          "Major special exhibitions",
+          "Free parking"
+        ]
+      },
+      "ja": {
+        "name": "福島県立美術館",
+        "description": "信夫山の麓に建つ県立美術館。高橋由一など近代日本画のコレクションが充実し、大型の特別展も開催されます。",
+        "highlights": [
+          "近代日本画のコレクション",
+          "高橋由一",
+          "特別展",
+          "無料駐車場"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://art-museum.fcs.ed.jp/",
+          "title": "Fukushima Prefectural Museum of Art official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "fukushima-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "oga-namahage-kan",
+    "name": "Namahage Museum (Oga Shinzan Folklore Museum)",
+    "nameJa": "なまはげ館（男鹿真山伝承館）",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Akita:oga",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 39.929167,
+      "lng": 139.766583
+    },
+    "categories": ["Culture", "Museum"],
+    "tags": ["Culture", "Museum", "Oga City"],
+    "description": "Home of the Namahage, the fearsome New Year visitors of the Oga Peninsula — a UNESCO Intangible Cultural Heritage (2018). The museum displays roughly 150 masks and costumes, with live Namahage performances at the adjacent Shinzan Folklore Museum.",
+    "highlights": [
+      "UNESCO Intangible Cultural Heritage",
+      "~150 masks and costumes",
+      "Live performances",
+      "Beside Shinzan Shrine"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 80,
+      "bus": 90,
+      "car": 60
+    },
+    "budgetMin": 660,
+    "budgetRecommended": 3500,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 1500,
+      "tickets": 660,
+      "food": 900,
+      "cafe": 400
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Entrance_of_Namahage_Museum%2C_Oga%2C_Akita.JPG/1280px-Entrance_of_Namahage_Museum%2C_Oga%2C_Akita.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Entrance_of_Namahage_Museum%2C_Oga%2C_Akita.JPG/1280px-Entrance_of_Namahage_Museum%2C_Oga%2C_Akita.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Kumpei Shiraishi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Entrance_of_Namahage_Museum,_Oga,_Akita.JPG"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2000,
+    "walkingSunMin": 1200,
+    "walkingShadeMin": 800,
+    "walkingIntensity": "low",
+    "indoorPercent": 70,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 8,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 9,
+      "couple": 8.8,
+      "summer": 8,
+      "winter": 9,
+      "rain": 8.4,
+      "food": 7.6,
+      "photography": 9.4,
+      "relaxation": 7.4,
+      "value": 8.6,
+      "uniqueness": 9.8,
+      "family": 8.6,
+      "accessibility": 8,
+      "nature": 6.8,
+      "historyAndCulture": 9.6,
+      "walkability": 6,
+      "spring": 8.6,
+      "autumn": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8,
+      "autumn": 8.6,
+      "winter": 9
+    },
+    "bestMonths": [1, 2, 3, 5, 8, 10, 11, 12],
+    "bestSeason": "Winter & Autumn",
+    "weatherDependence": "low",
+    "reservation": "Reservations advised on holidays",
+    "parking": "Free parking on site",
+    "notes": "Namahage-kan ¥660 adult / ¥330 student; combined ticket with the Shinzan Folklore Museum ¥1,100/¥660. Gateway access via Akita City (JR Oga Line + shuttle); allow 5–6 hours round trip.",
+    "notesJa": "【見どころ】なまはげ館（男鹿真山伝承館）は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "8:30～17:00（最終入場16:30）。年中無休。",
+    "businessHours": "08:30 - 17:00 year-round; performance slots ~13/day (fewer in winter)",
+    "officialWebsite": "https://www.namahage.co.jp/namahagekan/",
+    "content": {
+      "en": {
+        "name": "Namahage Museum (Oga Shinzan Folklore Museum)",
+        "description": "Home of the Namahage, the fearsome New Year visitors of the Oga Peninsula — a UNESCO Intangible Cultural Heritage (2018). The museum displays roughly 150 masks and costumes, with live Namahage performances at the adjacent Shinzan Folklore Museum.",
+        "highlights": [
+          "UNESCO Intangible Cultural Heritage",
+          "~150 masks and costumes",
+          "Live performances",
+          "Beside Shinzan Shrine"
+        ]
+      },
+      "ja": {
+        "name": "なまはげ館（男鹿真山伝承館）",
+        "description": "ユネスコ無形文化遺産に登録された「なまはげ」の博物館。約150点の面と衣装を展示し、隣接する男鹿真山伝承館では迫力の実演も行われます。",
+        "highlights": [
+          "ユネスコ無形文化遺産",
+          "約150点の面と衣装",
+          "なまはげの実演",
+          "真山神社に隣接"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.namahage.co.jp/namahagekan/",
+          "title": "Namahage-kan official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "gatewayHubId": "akita-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "akita-senshu-park",
+    "name": "Senshu Park (Kubota Castle Ruins)",
+    "nameJa": "千秋公園",
+    "kind": "castle",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Akita:akita",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 39.723481,
+      "lng": 140.123242
+    },
+    "categories": ["History", "Nature"],
+    "tags": ["History", "Nature", "Akita City"],
+    "description": "Ruin site of Kubota Castle, seat of the Satake clan for 267 years, now a scenic park with moats, a reconstructed corner watchtower, the Satake Historical Museum and one of Japan's top cherry-blossom spots.",
+    "highlights": [
+      "Kubota Castle moats",
+      "Reconstructed watchtower",
+      "Satake Historical Museum",
+      "Cherry-blossom spot"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 15,
+      "bus": 20,
+      "car": 20
+    },
+    "budgetMin": 150,
+    "budgetRecommended": 1650,
+    "budgetMax": 3000,
+    "budgetBreakdown": {
+      "transport": 700,
+      "tickets": 150,
+      "food": 500,
+      "cafe": 300
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Kogetsu-pond_in_Senshu_Park_20180520.jpg/1280px-Kogetsu-pond_in_Senshu_Park_20180520.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Kogetsu-pond_in_Senshu_Park_20180520.jpg/1280px-Kogetsu-pond_in_Senshu_Park_20180520.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "掬茶",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kogetsu-pond_in_Senshu_Park_20180520.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1800,
+    "walkingShadeMin": 1200,
+    "walkingIntensity": "medium",
+    "indoorPercent": 20,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 4,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 8.6,
+      "summer": 7.8,
+      "winter": 7.6,
+      "rain": 5.8,
+      "food": 7.6,
+      "photography": 9,
+      "relaxation": 8.8,
+      "value": 9,
+      "uniqueness": 8.2,
+      "family": 8.4,
+      "accessibility": 7,
+      "nature": 8.8,
+      "historyAndCulture": 9.2,
+      "walkability": 8,
+      "spring": 9.4,
+      "autumn": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9.2,
+      "summer": 7.8,
+      "autumn": 8.8,
+      "winter": 7.6
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "bestSeason": "Spring",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "No dedicated parking; use city-centre parking",
+    "notes": "Park free; watchtower ¥150 adult. 10–15 minutes on foot from Akita Station.",
+    "notesJa": "【見どころ】千秋公園は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "公園は常時開園。佐竹資料館は9:30～16:30（月曜休館）。",
+    "businessHours": "Park open all day; watchtower 09:00 - 16:30 (closed Dec 1 – Mar 31)",
+    "officialWebsite": "https://www.city.akita.lg.jp/kurashi/doro-koen/1003685/1007159/index.html",
+    "content": {
+      "en": {
+        "name": "Senshu Park (Kubota Castle Ruins)",
+        "description": "Ruin site of Kubota Castle, seat of the Satake clan for 267 years, now a scenic park with moats, a reconstructed corner watchtower, the Satake Historical Museum and one of Japan's top cherry-blossom spots.",
+        "highlights": [
+          "Kubota Castle moats",
+          "Reconstructed watchtower",
+          "Satake Historical Museum",
+          "Cherry-blossom spot"
+        ]
+      },
+      "ja": {
+        "name": "千秋公園",
+        "description": "佐竹氏267年の居城・久保田城の跡地を整備した公園。堀や復元された隅櫓、佐竹史料館があり、桜の名所としても知られます。",
+        "highlights": [
+          "久保田城の石垣と堀",
+          "復元隅櫓",
+          "佐竹史料館",
+          "桜の名所"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.akita.lg.jp/kurashi/doro-koen/1003685/1007159/index.html",
+          "title": "Akita City — Senshu Park",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "akita-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "akita-museum-of-art",
+    "name": "Akita Museum of Art",
+    "nameJa": "秋田県立美術館",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Akita:akita",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 39.717428,
+      "lng": 140.1215
+    },
+    "categories": ["Culture", "Museum", "Art"],
+    "tags": ["Culture", "Museum", "Akita City"],
+    "description": "Tadao Ando-designed museum (2013) housing the Hirano Masakichi collection, crowned by Tsuguharu Fujita's 20-metre mural 'Akita's Festivals'. The geometric concrete building and free permanent collection make it a destination in its own right.",
+    "highlights": [
+      "Tadao Ando architecture",
+      "Fujita's 'Akita's Festivals' mural",
+      "Free permanent collection",
+      "Beside Senshu Park"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 15,
+      "bus": 20,
+      "car": 20
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 2000,
+    "budgetMax": 4000,
+    "budgetBreakdown": {
+      "transport": 700,
+      "tickets": 0,
+      "food": 800,
+      "cafe": 500
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Akita_Museum_of_Art_20180520.jpg/1280px-Akita_Museum_of_Art_20180520.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Akita_Museum_of_Art_20180520.jpg/1280px-Akita_Museum_of_Art_20180520.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "掬茶",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akita_Museum_of_Art_20180520.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2500,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1000,
+    "walkingIntensity": "low",
+    "indoorPercent": 90,
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 9,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.8,
+      "couple": 8.6,
+      "summer": 7.8,
+      "winter": 8,
+      "rain": 9,
+      "food": 8,
+      "photography": 8.8,
+      "relaxation": 8,
+      "value": 9.2,
+      "uniqueness": 8.8,
+      "family": 7.6,
+      "accessibility": 9,
+      "nature": 6.6,
+      "historyAndCulture": 9,
+      "walkability": 8,
+      "spring": 8.4,
+      "autumn": 8.6
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.2,
+      "summer": 7.8,
+      "autumn": 8.4,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "No reservation required",
+    "parking": "No dedicated parking; use city-centre parking",
+    "notes": "Permanent collection free; special exhibitions ¥1,300 adult / ¥1,000 student. Ten minutes from Akita Station, adjacent to Senshu Park.",
+    "notesJa": "【見どころ】秋田県立美術館は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "10:00～18:00（最終入館17:30）。不定休のため公式カレンダーをご確認ください。",
+    "businessHours": "10:00 - 18:00 (tickets to 17:30); irregular closures — check official calendar",
+    "officialWebsite": "https://www.akita-museum-of-art.jp/",
+    "content": {
+      "en": {
+        "name": "Akita Museum of Art",
+        "description": "Tadao Ando-designed museum (2013) housing the Hirano Masakichi collection, crowned by Tsuguharu Fujita's 20-metre mural 'Akita's Festivals'. The geometric concrete building and free permanent collection make it a destination in its own right.",
+        "highlights": [
+          "Tadao Ando architecture",
+          "Fujita's 'Akita's Festivals' mural",
+          "Free permanent collection",
+          "Beside Senshu Park"
+        ]
+      },
+      "ja": {
+        "name": "秋田県立美術館",
+        "description": "安藤忠雄設計の建物（2013年開館）に、藤田嗣治の大作「秋田の行事」を擁する平野政吉コレクションを収蔵。常設展は無料で、ジオメトリックなコンクリート建築も見どころです。",
+        "highlights": [
+          "安藤忠雄設計",
+          "藤田嗣治「秋田の行事」",
+          "無料の常設展",
+          "千秋公園に隣接"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.akita-museum-of-art.jp/",
+          "title": "Akita Museum of Art official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "akita-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "sendai-yagiyama-zoo",
+    "name": "Sendai Yagiyama Zoological Park",
+    "nameJa": "八木山動物公園フジサキの杜",
+    "kind": "zoo",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Miyagi:sendai",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 38.2443,
+      "lng": 140.8443
+    },
+    "categories": ["Nature", "Family"],
+    "tags": ["Nature", "Family", "Sendai City"],
+    "description": "One of Tohoku's largest zoos, on Yagiyama hill above the city since 1965. The Africa savanna exhibit, polar bear and tiger viewing, and a walk-through encounter area make it a top family destination, two minutes from the Tozai Line terminus.",
+    "highlights": [
+      "Africa savanna exhibit",
+      "Polar bears and tigers",
+      "Encounter area",
+      "Top family spot"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 30,
+      "bus": 40,
+      "car": 40
+    },
+    "budgetMin": 480,
+    "budgetRecommended": 3500,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 900,
+      "tickets": 480,
+      "food": 1400,
+      "cafe": 700
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/%E5%85%AB%E6%9C%A8%E5%B1%B1%E5%8B%95%E7%89%A9%E5%85%AC%E5%9C%92_Yagiyama_Zoological_Park_%2855089719967%29.jpg/1280px-%E5%85%AB%E6%9C%A8%E5%B1%B1%E5%8B%95%E7%89%A9%E5%85%AC%E5%9C%92_Yagiyama_Zoological_Park_%2855089719967%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/%E5%85%AB%E6%9C%A8%E5%B1%B1%E5%8B%95%E7%89%A9%E5%85%AC%E5%9C%92_Yagiyama_Zoological_Park_%2855089719967%29.jpg/1280px-%E5%85%AB%E6%9C%A8%E5%B1%B1%E5%8B%95%E7%89%A9%E5%85%AC%E5%9C%92_Yagiyama_Zoological_Park_%2855089719967%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "nagi usano",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:八木山動物公園_Yagiyama_Zoological_Park_(55089719967).jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "walkingMin": 5000,
+    "walkingSunMin": 2500,
+    "walkingShadeMin": 2500,
+    "walkingIntensity": "medium",
+    "indoorPercent": 40,
+    "comfort": {
+      "heatTolerance": 5,
+      "rainFriendly": 5,
+      "walkingIntensity": 6
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 7.4,
+      "summer": 8.2,
+      "winter": 7.6,
+      "rain": 5.4,
+      "food": 8,
+      "photography": 8.4,
+      "relaxation": 7.8,
+      "value": 8.8,
+      "uniqueness": 8,
+      "family": 9.4,
+      "accessibility": 7,
+      "nature": 8.8,
+      "historyAndCulture": 6.4,
+      "walkability": 6,
+      "spring": 9,
+      "autumn": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 8.8,
+      "summer": 8.2,
+      "autumn": 8.8,
+      "winter": 7.6
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "Pay parking at the park",
+    "notes": "Adult ¥480, child (elem–jr high) ¥120, preschool free. Two minutes from Yagiyama Zoological Park Station (Tozai Line).",
+    "notesJa": "【見どころ】八木山動物公園フジサキの杜は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:00～16:45（最終入園16:00、3～10月）。11～2月は9:00～16:00（最終入園15:00）。毎週水曜休園（祝日の場合は翌日）、12月28日～1月4日休園。",
+    "businessHours": "09:00 - 16:45 (last entry 16:00, Mar–Oct); 09:00 - 16:00 (last entry 15:00, Nov–Feb); closed Wednesdays and year-end",
+    "officialWebsite": "https://www.city.sendai.jp/zoo/",
+    "content": {
+      "en": {
+        "name": "Sendai Yagiyama Zoological Park",
+        "description": "One of Tohoku's largest zoos, on Yagiyama hill above the city since 1965. The Africa savanna exhibit, polar bear and tiger viewing, and a walk-through encounter area make it a top family destination, two minutes from the Tozai Line terminus.",
+        "highlights": [
+          "Africa savanna exhibit",
+          "Polar bears and tigers",
+          "Encounter area",
+          "Top family spot"
+        ]
+      },
+      "ja": {
+        "name": "八木山動物公園フジサキの杜",
+        "description": "1965年開園の東北有数の動物園。アフリカサバンナの展示やホッキョクグマ、トラの観察、ふれあい広場などがあり、地下鉄東西線の終点から徒歩2分です。",
+        "highlights": [
+          "アフリカサバンナ",
+          "ホッキョクグマとトラ",
+          "ふれあい広場",
+          "家族向けの名所"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.sendai.jp/zoo/",
+          "title": "Sendai City — Yagiyama Zoological Park",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "sendai-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "sendai-ichibancho",
+    "name": "Sendai Ichibancho",
+    "nameJa": "仙台一番町",
+    "kind": "shopping",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Miyagi:sendai",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 38.2597,
+      "lng": 140.8722
+    },
+    "categories": ["Shopping", "Food"],
+    "tags": ["Shopping", "Food", "Sendai City"],
+    "description": "Sendai's main downtown shopping district: six covered arcades — Sun Mall, Vlandome, Clis Road, Marble Road Omachi, Hapina Nakakecho and Iroha Yokocho — linking Jozenji-dori to Sendai Station, with Tohoku's first arcade and a main venue of the Tanabata Festival.",
+    "highlights": [
+      "Six covered arcades",
+      "Tohoku's first arcade",
+      "Tanabata Festival venue",
+      "Shopping and dining"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 15,
+      "bus": 20,
+      "car": 25
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 3000,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 800,
+      "tickets": 0,
+      "food": 1400,
+      "cafe": 800
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sun_Mall_Ichibancho_202209.jpg/1280px-Sun_Mall_Ichibancho_202209.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sun_Mall_Ichibancho_202209.jpg/1280px-Sun_Mall_Ichibancho_202209.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "掬茶",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sun_Mall_Ichibancho_202209.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 3
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1500,
+    "walkingIntensity": "medium",
+    "indoorPercent": 70,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 8,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8,
+      "summer": 8.8,
+      "winter": 8,
+      "rain": 8.4,
+      "food": 9,
+      "photography": 8,
+      "relaxation": 7.6,
+      "value": 8.4,
+      "uniqueness": 7.8,
+      "family": 8.2,
+      "accessibility": 8,
+      "nature": 5,
+      "historyAndCulture": 7.4,
+      "walkability": 8,
+      "spring": 8.6,
+      "autumn": 8.6
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 4,
+      "weekend": 7,
+      "holiday": 8
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8.8,
+      "autumn": 8.4,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "No dedicated parking; use downtown parking",
+    "notes": "Free to stroll; shops and restaurants are individually priced. The north end meets Jozenji-dori.",
+    "notesJa": "【見どころ】仙台一番町は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "通りは常時通行可。各店舗の営業時間は店舗により異なります。",
+    "businessHours": "Open access; individual shops typically ~10:00 - 20:00",
+    "officialWebsite": "http://sunmall-ichibancho.com/",
+    "content": {
+      "en": {
+        "name": "Sendai Ichibancho",
+        "description": "Sendai's main downtown shopping district: six covered arcades — Sun Mall, Vlandome, Clis Road, Marble Road Omachi, Hapina Nakakecho and Iroha Yokocho — linking Jozenji-dori to Sendai Station, with Tohoku's first arcade and a main venue of the Tanabata Festival.",
+        "highlights": [
+          "Six covered arcades",
+          "Tohoku's first arcade",
+          "Tanabata Festival venue",
+          "Shopping and dining"
+        ]
+      },
+      "ja": {
+        "name": "仙台一番町",
+        "description": "仙台駅と定禅寺通を結ぶ中心商店街。サンモール一番町、ハピナ名掛丁など6つのアーケードが連なり、東北初のアーケードや七夕まつりの主会場として知られます。",
+        "highlights": [
+          "6つのアーケード",
+          "東北初のアーケード",
+          "七夕まつりの会場",
+          "買い物とグルメ"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.sentabi.jp/en/spots/324",
+          "title": "Sendai Tourism — Ichibancho",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "sendai-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "sendai-daikannon",
+    "name": "Sendai Daikannon",
+    "nameJa": "仙台大観音",
+    "kind": "temple",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Miyagi:sendai",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 38.3009,
+      "lng": 140.8231
+    },
+    "categories": ["Culture", "Sightseeing"],
+    "tags": ["Culture", "Sightseeing", "Sendai City"],
+    "description": "A 100-metre Byakue Kannon statue — among Japan's tallest — built in 1991 and visible from the Tohoku Expressway. Visitors can walk up 12 floors inside the statue past 108 Buddha figures to an observation room with city and Pacific views.",
+    "highlights": [
+      "100 m Kannon statue",
+      "12-floor interior",
+      "108 Buddha figures",
+      "Observation room views"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 40,
+      "bus": 45,
+      "car": 30
+    },
+    "budgetMin": 500,
+    "budgetRecommended": 2500,
+    "budgetMax": 4500,
+    "budgetBreakdown": {
+      "transport": 800,
+      "tickets": 500,
+      "food": 800,
+      "cafe": 400
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sendai_Daikannon_%281870523730%29.jpg/1280px-Sendai_Daikannon_%281870523730%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sendai_Daikannon_%281870523730%29.jpg/1280px-Sendai_Daikannon_%281870523730%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "attribution": "Hideyuki KAMON",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sendai_Daikannon_(1870523730).jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2000,
+    "walkingSunMin": 1200,
+    "walkingShadeMin": 800,
+    "walkingIntensity": "medium",
+    "indoorPercent": 70,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 8,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8.2,
+      "summer": 8,
+      "winter": 8,
+      "rain": 8.2,
+      "food": 7.4,
+      "photography": 8.6,
+      "relaxation": 8,
+      "value": 8,
+      "uniqueness": 9.2,
+      "family": 7.8,
+      "accessibility": 7,
+      "nature": 6,
+      "historyAndCulture": 8.4,
+      "walkability": 5,
+      "spring": 8.4,
+      "autumn": 8.6
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.2,
+      "summer": 8,
+      "autumn": 8.4,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "No reservation required",
+    "parking": "Pay parking on site",
+    "notes": "Interior ¥500 (from 2026-01-01); grounds free. North of the centre (Izumi-ku) — about 30 minutes from downtown by bus or car.",
+    "notesJa": "【見どころ】仙台大観音は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "境内は無料。内部拝観は平日10:00～15:00、土日祝10:00～15:30（最終受付）。2026年1月より拝観料大人500円。",
+    "businessHours": "Interior 10:00 - 15:00 (weekdays) / 10:00 - 15:30 (weekends & holidays); grounds free",
+    "officialWebsite": "https://www.daikannon.com/",
+    "content": {
+      "en": {
+        "name": "Sendai Daikannon",
+        "description": "A 100-metre Byakue Kannon statue — among Japan's tallest — built in 1991 and visible from the Tohoku Expressway. Visitors can walk up 12 floors inside the statue past 108 Buddha figures to an observation room with city and Pacific views.",
+        "highlights": [
+          "100 m Kannon statue",
+          "12-floor interior",
+          "108 Buddha figures",
+          "Observation room views"
+        ]
+      },
+      "ja": {
+        "name": "仙台大観音",
+        "description": "1991年に建立された高さ100mの白衣観音像。日本有数の高さを誇り、内部は12階建てで108体の仏像を巡りながら展望室まで登れます。",
+        "highlights": [
+          "高さ100mの観音像",
+          "内部12階の見学",
+          "108体の仏像",
+          "展望室からの眺望"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.daikannon.com/",
+          "title": "Sendai Daikannon official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "sendai-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "yamagata-bunshokan",
+    "name": "Yamagata Bunshokan",
+    "nameJa": "山形県郷土館文翔館",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Yamagata:yamagata",
+    "prefecture": "Yamagata",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 38.2575,
+      "lng": 140.3412
+    },
+    "categories": ["History", "Culture", "Architecture"],
+    "tags": ["History", "Architecture", "Yamagata City"],
+    "description": "The 1916 English neo-Renaissance former prefectural office and assembly hall, a National Important Cultural Property and the finest Taisho-era Western public building in Tohoku. The restored interior features a clock tower, barrel-vaulted ceiling and stained glass.",
+    "highlights": [
+      "Taisho-era Western building",
+      "Clock tower and stained glass",
+      "National Important Cultural Property",
+      "Free entry"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 20,
+      "bus": 25,
+      "car": 25
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 1500,
+    "budgetMax": 3000,
+    "budgetBreakdown": {
+      "transport": 600,
+      "tickets": 0,
+      "food": 600,
+      "cafe": 300
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Bunshokan%2C_Yamagata_20170401-3.jpg/1280px-Bunshokan%2C_Yamagata_20170401-3.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Bunshokan%2C_Yamagata_20170401-3.jpg/1280px-Bunshokan%2C_Yamagata_20170401-3.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Suicasmo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bunshokan,_Yamagata_20170401-3.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2500,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1000,
+    "walkingIntensity": "low",
+    "indoorPercent": 80,
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 9,
+      "walkingIntensity": 3
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 8.6,
+      "summer": 8,
+      "winter": 8.2,
+      "rain": 9,
+      "food": 8,
+      "photography": 8.8,
+      "relaxation": 8,
+      "value": 9.2,
+      "uniqueness": 8.8,
+      "family": 7.6,
+      "accessibility": 8,
+      "nature": 5.6,
+      "historyAndCulture": 9.4,
+      "walkability": 8,
+      "spring": 8.6,
+      "autumn": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8,
+      "autumn": 8.6,
+      "winter": 8.2
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "No reservation required",
+    "parking": "Pay parking nearby",
+    "notes": "Free entry. The assembly hall is closed for construction until September 2026 — check before visiting. Pairs with Kajo Park.",
+    "notesJa": "【見どころ】山形県郷土館文翔館は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:00～16:30。第1・第3月曜休館（祝日の場合は翌日）、12月29日～1月3日休館。入館無料。",
+    "businessHours": "09:00 - 16:30; closed 1st & 3rd Mondays (Tue if holiday) and Dec 29 – Jan 3; free",
+    "officialWebsite": "https://www.gakushubunka.jp/bunsyokan/",
+    "content": {
+      "en": {
+        "name": "Yamagata Bunshokan",
+        "description": "The 1916 English neo-Renaissance former prefectural office and assembly hall, a National Important Cultural Property and the finest Taisho-era Western public building in Tohoku. The restored interior features a clock tower, barrel-vaulted ceiling and stained glass.",
+        "highlights": [
+          "Taisho-era Western building",
+          "Clock tower and stained glass",
+          "National Important Cultural Property",
+          "Free entry"
+        ]
+      },
+      "ja": {
+        "name": "山形県郷土館文翔館",
+        "description": "1916年竣工の旧県庁舎と県会議事堂。国指定重要文化財で、東北を代表する大正時代の洋風建築。時計塔やアーチ天井、ステンドグラスが復元公開されています。",
+        "highlights": [
+          "大正ロマンの洋館",
+          "時計塔とステンドグラス",
+          "国指定重要文化財",
+          "入館無料"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gakushubunka.jp/bunsyokan/",
+          "title": "Yamagata Bunshokan official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "yamagata-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "kajo-park",
+    "name": "Kajo Park (Yamagata Castle Ruins)",
+    "nameJa": "霞城公園（山形城跡）",
+    "kind": "castle",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Yamagata:yamagata",
+    "prefecture": "Yamagata",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 38.2553,
+      "lng": 140.3308
+    },
+    "categories": ["History", "Nature"],
+    "tags": ["History", "Nature", "Yamagata City"],
+    "description": "The sprawling ruins of Yamagata Castle, one of Japan's 100 Famous Castles, in the heart of the city. Triple moats, the rebuilt East Otemon gate and more than 1,000 cherry trees make it a landmark park and blossom spot.",
+    "highlights": [
+      "One of Japan's 100 Castles",
+      "Triple moats",
+      "Rebuilt East Otemon gate",
+      "1,000+ cherry trees"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 15,
+      "bus": 20,
+      "car": 20
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 1500,
+    "budgetMax": 3000,
+    "budgetBreakdown": {
+      "transport": 600,
+      "tickets": 0,
+      "food": 600,
+      "cafe": 300
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan01s3.jpg/1280px-220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan01s3.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan01s3.jpg/1280px-220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan01s3.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan01s3.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1800,
+    "walkingShadeMin": 1200,
+    "walkingIntensity": "medium",
+    "indoorPercent": 20,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 4,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 8.6,
+      "summer": 7.6,
+      "winter": 7.4,
+      "rain": 5.6,
+      "food": 7.6,
+      "photography": 9.2,
+      "relaxation": 8.8,
+      "value": 9.2,
+      "uniqueness": 8,
+      "family": 8.4,
+      "accessibility": 7,
+      "nature": 8.6,
+      "historyAndCulture": 9.2,
+      "walkability": 8,
+      "spring": 9.6,
+      "autumn": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 9.4,
+      "summer": 7.6,
+      "autumn": 8.8,
+      "winter": 7.4
+    },
+    "bestMonths": [3, 4, 5, 10, 11],
+    "bestSeason": "Spring",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "Pay parking near the park",
+    "notes": "Free park. Ten minutes' walk from Yamagata Station; the East Otemon gate is the main entrance.",
+    "notesJa": "【見どころ】霞城公園（山形城跡）は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "公園は4～10月5:00～22:00、11～3月5:30～22:00。入園無料。",
+    "businessHours": "Park 05:00 - 22:00 (Apr–Oct) / 05:30 - 22:00 (Nov–Mar); free",
+    "officialWebsite": "https://www.city.yamagata-yamagata.lg.jp/kurashi/koen/1006541/1006544/1003675.html",
+    "content": {
+      "en": {
+        "name": "Kajo Park (Yamagata Castle Ruins)",
+        "description": "The sprawling ruins of Yamagata Castle, one of Japan's 100 Famous Castles, in the heart of the city. Triple moats, the rebuilt East Otemon gate and more than 1,000 cherry trees make it a landmark park and blossom spot.",
+        "highlights": [
+          "One of Japan's 100 Castles",
+          "Triple moats",
+          "Rebuilt East Otemon gate",
+          "1,000+ cherry trees"
+        ]
+      },
+      "ja": {
+        "name": "霞城公園（山形城跡）",
+        "description": "日本100名城の山形城の跡地を整備した公園。三重の堀と復元された東大手門を備え、1,000本以上の桜が咲く市街地の名所です。",
+        "highlights": ["日本100名城", "三重の堀", "復元東大手門", "1,000本の桜"]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.yamagata-yamagata.lg.jp/kurashi/koen/1006541/1006544/1003675.html",
+          "title": "Yamagata City — Kajo Park",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "yamagata-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "kaminoyama-castle-town",
+    "name": "Kaminoyama Castle Town",
+    "nameJa": "上山城と温泉街",
+    "kind": "castle",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Yamagata:kaminoyama",
+    "prefecture": "Yamagata",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 38.1575,
+      "lng": 140.2766
+    },
+    "categories": ["History", "Onsen & Wellness"],
+    "tags": ["History", "Onsen", "Kaminoyama City"],
+    "description": "The reconstructed keep of Kaminoyama Castle houses a city history museum, and the surrounding onsen town — with more than 1,200 years of springs — offers footbaths and ryokan stays. A compact castle-plus-onsen stop on the Yamagata Shinkansen.",
+    "highlights": [
+      "Reconstructed keep and museum",
+      "1,200-year onsen town",
+      "Footbath circuit",
+      "Shinkansen stop nearby"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 20,
+      "bus": 30,
+      "car": 25
+    },
+    "budgetMin": 600,
+    "budgetRecommended": 2500,
+    "budgetMax": 5000,
+    "budgetBreakdown": {
+      "transport": 700,
+      "tickets": 600,
+      "food": 800,
+      "cafe": 400
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Kaminoyama_Castle_20230806b.jpg/1280px-Kaminoyama_Castle_20230806b.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Kaminoyama_Castle_20230806b.jpg/1280px-Kaminoyama_Castle_20230806b.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "掬茶",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaminoyama_Castle_20230806b.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "walkingMin": 3000,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1500,
+    "walkingIntensity": "medium",
+    "indoorPercent": 40,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 7,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.2,
+      "couple": 8.4,
+      "summer": 8,
+      "winter": 8.4,
+      "rain": 7.4,
+      "food": 8.6,
+      "photography": 8.4,
+      "relaxation": 8.8,
+      "value": 8.6,
+      "uniqueness": 8,
+      "family": 8,
+      "accessibility": 7,
+      "nature": 7.6,
+      "historyAndCulture": 8.8,
+      "walkability": 7,
+      "spring": 8.8,
+      "autumn": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.6,
+      "summer": 8,
+      "autumn": 8.8,
+      "winter": 8.4
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11, 12],
+    "bestSeason": "All Year",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "Pay parking in the town",
+    "notes": "Keep ¥600 adult (2025 revision). A half-day pairing with Yamagata City; the onsen town itself is open access.",
+    "notesJa": "【見どころ】上山城と温泉街は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "天守閣は9:00～17:15（最終入館16:45）。木曜休館（祝日の場合は翌日）、12月29日～31日休館。大人600円。",
+    "businessHours": "Keep 09:00 - 17:15 (last entry 16:45); closed Thursdays (Tue if holiday) and Dec 29 – 31",
+    "officialWebsite": "https://kaminoyama-castle.info/",
+    "content": {
+      "en": {
+        "name": "Kaminoyama Castle Town",
+        "description": "The reconstructed keep of Kaminoyama Castle houses a city history museum, and the surrounding onsen town — with more than 1,200 years of springs — offers footbaths and ryokan stays. A compact castle-plus-onsen stop on the Yamagata Shinkansen.",
+        "highlights": [
+          "Reconstructed keep and museum",
+          "1,200-year onsen town",
+          "Footbath circuit",
+          "Shinkansen stop nearby"
+        ]
+      },
+      "ja": {
+        "name": "上山城と温泉街",
+        "description": "再建された上山城の天守閣には郷土資料館が入り、城下に広がる1200年余りの歴史を持つ温泉街には足湯が点在します。山形新幹線のかみのやま温泉駅からも近いコンパクトな城下町です。",
+        "highlights": [
+          "再建天守と資料館",
+          "1200年の温泉街",
+          "足湯めぐり",
+          "山形新幹線の駅に近接"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://kaminoyama-castle.info/",
+          "title": "Kaminoyama Castle official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "gatewayHubId": "yamagata-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "aizu-bukeyashiki",
+    "name": "Aizu Bukeyashiki",
+    "nameJa": "会津武家屋敷",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Fukushima:aizuwakamatsu",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 37.4852,
+      "lng": 139.9537
+    },
+    "categories": ["History", "Culture"],
+    "tags": ["History", "Culture", "Aizuwakamatsu City"],
+    "description": "A reconstructed samurai residence complex centred on the 1975 rebuild of chief retainer Saigo Tanomo's home, with relocated Edo-period buildings, a samurai museum and hands-on akabeko and archery experiences.",
+    "highlights": [
+      "Rebuilt Saigo Tanomo residence",
+      "Relocated Edo buildings",
+      "Akabeko painting experience",
+      "Aizu history museum"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 30,
+      "bus": 40,
+      "car": 35
+    },
+    "budgetMin": 1000,
+    "budgetRecommended": 3500,
+    "budgetMax": 6000,
+    "budgetBreakdown": {
+      "transport": 800,
+      "tickets": 1000,
+      "food": 1100,
+      "cafe": 600
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Aizu_Bukeyashiki_Garden.jpg/1280px-Aizu_Bukeyashiki_Garden.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Aizu_Bukeyashiki_Garden.jpg/1280px-Aizu_Bukeyashiki_Garden.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Miyuki Meinaka",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aizu_Bukeyashiki_Garden.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2500,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1000,
+    "walkingIntensity": "medium",
+    "indoorPercent": 60,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 7,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.4,
+      "couple": 8,
+      "summer": 8.2,
+      "winter": 8,
+      "rain": 7.6,
+      "food": 8,
+      "photography": 8.4,
+      "relaxation": 7.8,
+      "value": 8.2,
+      "uniqueness": 8.6,
+      "family": 8.4,
+      "accessibility": 7,
+      "nature": 6,
+      "historyAndCulture": 9.4,
+      "walkability": 7,
+      "spring": 8.6,
+      "autumn": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8.2,
+      "autumn": 8.6,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "Free parking on site",
+    "notes": "Adult ¥1,000. On the Aizu loop bus (Akabe); gateway to Higashiyama Onsen.",
+    "notesJa": "【見どころ】会津武家屋敷は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "4～11月8:30～17:00、12～3月9:00～16:30。年中無休。大人1,000円。",
+    "businessHours": "08:30 - 17:00 (Apr–Nov) / 09:00 - 16:30 (Dec–Mar); open year-round",
+    "officialWebsite": "https://bukeyashiki.com/",
+    "content": {
+      "en": {
+        "name": "Aizu Bukeyashiki",
+        "description": "A reconstructed samurai residence complex centred on the 1975 rebuild of chief retainer Saigo Tanomo's home, with relocated Edo-period buildings, a samurai museum and hands-on akabeko and archery experiences.",
+        "highlights": [
+          "Rebuilt Saigo Tanomo residence",
+          "Relocated Edo buildings",
+          "Akabeko painting experience",
+          "Aizu history museum"
+        ]
+      },
+      "ja": {
+        "name": "会津武家屋敷",
+        "description": "家老・西郷頼母邸を1975年に復元した武家屋敷群。移築された江戸時代の建物や資料館のほか、赤べこ絵付けや弓矢体験ができます。",
+        "highlights": [
+          "西郷頼母邸の復元",
+          "江戸時代の移築建物",
+          "赤べこ絵付け体験",
+          "会津の歴史資料"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://bukeyashiki.com/",
+          "title": "Aizu Bukeyashiki official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "aizuwakamatsu-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "nisshinkan",
+    "name": "Nisshinkan",
+    "nameJa": "日新館",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Fukushima:aizuwakamatsu",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 37.5589,
+      "lng": 139.9419
+    },
+    "categories": ["History", "Culture"],
+    "tags": ["History", "Culture", "Aizuwakamatsu City"],
+    "description": "A full-scale reconstruction of the Aizu clan's 1803 school, where the Byakkotai youths studied. The complex includes a Confucius hall, Japan's oldest swimming pool and an observatory, with hands-on kyudo, zazen and tea experiences.",
+    "highlights": [
+      "Full-scale clan school reconstruction",
+      "Confucius hall",
+      "Japan's oldest pool",
+      "Byakkotai heritage"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 35,
+      "bus": 45,
+      "car": 40
+    },
+    "budgetMin": 1800,
+    "budgetRecommended": 4500,
+    "budgetMax": 8000,
+    "budgetBreakdown": {
+      "transport": 900,
+      "tickets": 1800,
+      "food": 1100,
+      "cafe": 700
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nisshinkan_Samurai_School_exterior_in_2013-10-18.jpg/1280px-Nisshinkan_Samurai_School_exterior_in_2013-10-18.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nisshinkan_Samurai_School_exterior_in_2013-10-18.jpg/1280px-Nisshinkan_Samurai_School_exterior_in_2013-10-18.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Mukasora",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nisshinkan_Samurai_School_exterior_in_2013-10-18.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingMin": 2500,
+    "walkingSunMin": 1500,
+    "walkingShadeMin": 1000,
+    "walkingIntensity": "medium",
+    "indoorPercent": 70,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 8,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 8,
+      "summer": 8.2,
+      "winter": 8,
+      "rain": 8,
+      "food": 7.6,
+      "photography": 8.6,
+      "relaxation": 7.8,
+      "value": 8,
+      "uniqueness": 9,
+      "family": 8.2,
+      "accessibility": 8,
+      "nature": 5.6,
+      "historyAndCulture": 9.6,
+      "walkability": 7,
+      "spring": 8.6,
+      "autumn": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8.2,
+      "autumn": 8.6,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "low",
+    "reservation": "No reservation required",
+    "parking": "Free parking on site",
+    "notes": "Adult ¥1,800 (2025 revision). Links with the Byakkotai story at Iimoriyama and Sazae-do.",
+    "notesJa": "【見どころ】日新館は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "9:00～17:00（最終入場16:00）。年中無休。大人1,800円。",
+    "businessHours": "09:00 - 17:00 (last entry 16:00); open year-round",
+    "officialWebsite": "https://www.nisshinkan.co.jp/",
+    "content": {
+      "en": {
+        "name": "Nisshinkan",
+        "description": "A full-scale reconstruction of the Aizu clan's 1803 school, where the Byakkotai youths studied. The complex includes a Confucius hall, Japan's oldest swimming pool and an observatory, with hands-on kyudo, zazen and tea experiences.",
+        "highlights": [
+          "Full-scale clan school reconstruction",
+          "Confucius hall",
+          "Japan's oldest pool",
+          "Byakkotai heritage"
+        ]
+      },
+      "ja": {
+        "name": "日新館",
+        "description": "1803年創設の会津藩校を全面復元した施設。白虎隊の少年たちも学んだ学び舎で、大成殿や日本最古のプール、天文台を見学でき、弓道や座禅、茶道の体験もできます。",
+        "highlights": [
+          "会津藩校の全面復元",
+          "大成殿",
+          "日本最古のプール",
+          "白虎隊ゆかり"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.nisshinkan.co.jp/",
+          "title": "Nisshinkan official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "aizuwakamatsu-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "sazae-do",
+    "name": "Sazae-do",
+    "nameJa": "さざえ堂",
+    "kind": "temple",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Fukushima:aizuwakamatsu",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 37.5045,
+      "lng": 139.9539
+    },
+    "categories": ["History", "Culture"],
+    "tags": ["History", "Culture", "Aizuwakamatsu City"],
+    "description": "A 1796 hexagonal wooden pavilion — the world's only surviving double-helix building, where the paths up and down never cross. A National Important Cultural Property atop Iimoriyama beside the Byakkotai graves.",
+    "highlights": [
+      "World's only double-helix building",
+      "Built 1796",
+      "National Important Cultural Property",
+      "Beside the Byakkotai graves"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 30,
+      "bus": 35,
+      "car": 30
+    },
+    "budgetMin": 400,
+    "budgetRecommended": 2000,
+    "budgetMax": 3500,
+    "budgetBreakdown": {
+      "transport": 700,
+      "tickets": 400,
+      "food": 600,
+      "cafe": 300
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Sazaedou_Aidu_Japan01.jpg/1280px-Sazaedou_Aidu_Japan01.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Sazaedou_Aidu_Japan01.jpg/1280px-Sazaedou_Aidu_Japan01.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Kounosu",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sazaedou_Aidu_Japan01.jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 1
+    },
+    "walkingMin": 1500,
+    "walkingSunMin": 900,
+    "walkingShadeMin": 600,
+    "walkingIntensity": "medium",
+    "indoorPercent": 40,
+    "comfort": {
+      "heatTolerance": 6,
+      "rainFriendly": 6,
+      "walkingIntensity": 4
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 8.4,
+      "summer": 8,
+      "winter": 8,
+      "rain": 7,
+      "food": 7,
+      "photography": 9,
+      "relaxation": 8.2,
+      "value": 8.4,
+      "uniqueness": 9.8,
+      "family": 7.8,
+      "accessibility": 6,
+      "nature": 7.4,
+      "historyAndCulture": 9.4,
+      "walkability": 7,
+      "spring": 8.6,
+      "autumn": 8.8
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 5,
+      "holiday": 6
+    },
+    "season": {
+      "spring": 8.4,
+      "summer": 8,
+      "autumn": 8.6,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "Parking at the base of Iimoriyama",
+    "notes": "¥400. A 15-minute walk from Aizuwakamatsu Station, or via the Iimoriyama slope (183 steps or escalator).",
+    "notesJa": "【見どころ】さざえ堂は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "4～11月は8:15～日没、12～3月は9:00～16:00。拝観料400円。",
+    "businessHours": "08:15 - sunset (Apr–Nov) / 09:00 - 16:00 (Dec–Mar)",
+    "officialWebsite": "https://www.aizukanko.com/spot/138",
+    "content": {
+      "en": {
+        "name": "Sazae-do",
+        "description": "A 1796 hexagonal wooden pavilion — the world's only surviving double-helix building, where the paths up and down never cross. A National Important Cultural Property atop Iimoriyama beside the Byakkotai graves.",
+        "highlights": [
+          "World's only double-helix building",
+          "Built 1796",
+          "National Important Cultural Property",
+          "Beside the Byakkotai graves"
+        ]
+      },
+      "ja": {
+        "name": "さざえ堂",
+        "description": "1796年建立の六角三層の木造建築。上りと下りが交差しない「二重螺旋」の構造を持つ世界唯一の建物で、飯盛山の白虎隊の墓のそばに建つ重要文化財です。",
+        "highlights": [
+          "世界唯一の二重螺旋",
+          "1796年建立",
+          "重要文化財",
+          "飯盛山に隣接"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.aizukanko.com/spot/138",
+          "title": "Aizu Tourism — Sazae-do",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "parentDestinationId": "aizuwakamatsu-city"
+    },
+    "schemaVersion": 2
+  },
+  {
+    "id": "kitakata-kura-district",
+    "name": "Kitakata Kura District",
+    "nameJa": "喜多方蔵のまち",
+    "kind": "district",
+    "role": "poi",
+    "placeType": "destination",
+    "aliases": [],
+    "municipalityId": "Fukushima:kitakata",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "coordinates": {
+      "lat": 37.6513,
+      "lng": 139.8623
+    },
+    "categories": ["Culture", "History", "Food"],
+    "tags": ["Culture", "History", "Kitakata City"],
+    "description": "One of Japan's great kura (storehouse) towns, with roughly 4,000 warehouses, sake breweries and the famous Kitakata ramen and morning-ramen culture. Kura no Sato concentrates relocated cultural-property storehouses in one park.",
+    "highlights": [
+      "~4,000 storehouses",
+      "Sake breweries",
+      "Kitakata ramen",
+      "Kura no Sato park"
+    ],
+    "status": "beta",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "transportOptions": {
+      "train": 50,
+      "bus": 60,
+      "car": 55
+    },
+    "budgetMin": 0,
+    "budgetRecommended": 2500,
+    "budgetMax": 5000,
+    "budgetBreakdown": {
+      "transport": 900,
+      "tickets": 0,
+      "food": 1200,
+      "cafe": 400
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c7/%E5%9C%9F%E8%94%B5_%281389928661%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/%E5%9C%9F%E8%94%B5_%281389928661%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "attribution": "contri",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:土蔵_(1389928661).jpg"
+    },
+    "openingHoursMetadata": {
+      "verifiedAt": "2026-08-11"
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "walkingMin": 4000,
+    "walkingSunMin": 2000,
+    "walkingShadeMin": 2000,
+    "walkingIntensity": "medium",
+    "indoorPercent": 40,
+    "comfort": {
+      "heatTolerance": 5,
+      "rainFriendly": 6,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8.6,
+      "couple": 8.4,
+      "summer": 8.2,
+      "winter": 8,
+      "rain": 6.8,
+      "food": 9.4,
+      "photography": 9,
+      "relaxation": 8.2,
+      "value": 8.8,
+      "uniqueness": 9,
+      "family": 8,
+      "accessibility": 6,
+      "nature": 6.4,
+      "historyAndCulture": 9.2,
+      "walkability": 7,
+      "spring": 8.8,
+      "autumn": 9
+    },
+    "ratingsSchemaVersion": 2,
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8.6,
+      "summer": 8.2,
+      "autumn": 8.8,
+      "winter": 8
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "All Year",
+    "weatherDependence": "moderate",
+    "reservation": "No reservation required",
+    "parking": "Pay parking at Kura no Sato",
+    "notes": "Town strolling is free; Kura no Sato and individual museums charge entry. About 15 minutes from Aizuwakamatsu on the JR Ban-etsu West Line.",
+    "notesJa": "【見どころ】喜多方蔵のまちは東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+    "openingHoursJa": "町並みは常時散策可。蔵の里は9:00～17:00（最終入場16:30）。年末年始休業。",
+    "businessHours": "Town open access; Kura no Sato 09:00 - 17:00 (last entry 16:30), closed year-end",
+    "officialWebsite": "http://www.furusatosinkou.co.jp/sato/",
+    "content": {
+      "en": {
+        "name": "Kitakata Kura District",
+        "description": "One of Japan's great kura (storehouse) towns, with roughly 4,000 warehouses, sake breweries and the famous Kitakata ramen and morning-ramen culture. Kura no Sato concentrates relocated cultural-property storehouses in one park.",
+        "highlights": [
+          "~4,000 storehouses",
+          "Sake breweries",
+          "Kitakata ramen",
+          "Kura no Sato park"
+        ]
+      },
+      "ja": {
+        "name": "喜多方蔵のまち",
+        "description": "約4,000棟の蔵が建ち並ぶ日本有数の蔵の町。酒蔵や喜多方ラーメン、朝ラー文化でも知られ、押切の蔵の里には移築された文化財の蔵が集まっています。",
+        "highlights": [
+          "約4,000棟の蔵",
+          "酒蔵めぐり",
+          "喜多方ラーメン",
+          "蔵の里"
+        ]
+      }
+    },
+    "editorial": {
+      "lifecycle": "in_review",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "http://www.furusatosinkou.co.jp/sato/",
+          "title": "Kura no Sato official site",
+          "accessedAt": "2026-08-11"
+        }
+      ],
+      "checkedAt": "2026-08-11",
+      "freshness": "current",
+      "changeSummary": "KAI-57 Tohoku expansion",
+      "changes": [
+        {
+          "changedAt": "2026-08-11",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added source-backed KAI-57 Tohoku POI",
+          "method": "assisted"
+        }
+      ]
+    },
+    "ratingMetadata": {
+      "rubricVersion": 1,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "relationships": {
+      "gatewayHubId": "aizuwakamatsu-city"
+    },
+    "schemaVersion": 2
   }
 ]

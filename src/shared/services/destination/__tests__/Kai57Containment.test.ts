@@ -133,6 +133,16 @@ describe("KAI-57 Tohoku containment", () => {
     expectGateway("ginzan-onsen-yamagata", "yamagata-city", "Yamagata:obanazawa");
   });
 
+  it("gateways cross-municipality additions instead of containing them", () => {
+    expectGateway("towada-art-center", "hachinohe-city", "Aomori:towada");
+    expectGateway("koiwai-farm", "morioka-city", "Iwate:shizukuishi");
+    expectGateway("motsu-ji", "morioka-city", "Iwate:hiraizumi");
+    expectGateway("takkoku-no-iwa", "morioka-city", "Iwate:hiraizumi");
+    expectGateway("oga-namahage-kan", "akita-city", "Akita:oga");
+    expectGateway("kaminoyama-castle-town", "yamagata-city", "Yamagata:kaminoyama");
+    expectGateway("kitakata-kura-district", "aizuwakamatsu-city", "Fukushima:kitakata");
+  });
+
   it("keeps every Tohoku record with a municipal parent inside that municipality", () => {
     for (const d of destinationsIndex as Destination[]) {
       if (d.region !== "Tohoku") continue;

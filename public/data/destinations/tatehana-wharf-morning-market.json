@@ -1,0 +1,165 @@
+{
+  "id": "tatehana-wharf-morning-market",
+  "name": "Tatehana Wharf Morning Market",
+  "nameJa": "館鼻岸壁朝市",
+  "kind": "market",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Aomori:hachinohe",
+  "prefecture": "Aomori",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 40.5279,
+    "lng": 141.5293
+  },
+  "categories": ["Food", "Shopping"],
+  "tags": ["Food", "Market", "Hachinohe City"],
+  "description": "Japan's largest-class morning market: roughly 300–360 stalls strung along an 800-metre wharf, selling seafood, vegetables and oddities. The market runs before dawn to mid-morning — an iconic Hachinohe experience.",
+  "highlights": [
+    "Japan's largest-class market",
+    "800 m of stalls",
+    "Seafood and local produce",
+    "Sunday dawn only"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 20,
+    "bus": 30,
+    "car": 25
+  },
+  "budgetMin": 0,
+  "budgetRecommended": 2000,
+  "budgetMax": 4000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 0,
+    "food": 1000,
+    "cafe": 300
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/%E9%A4%A8%E9%BC%BB%E5%B2%B8%E5%A3%81%E6%9C%9D%E5%B8%82%EF%BC%88%E5%85%AB%E6%88%B8%E5%B8%82%EF%BC%8920250928-P1073508.jpg/1280px-%E9%A4%A8%E9%BC%BB%E5%B2%B8%E5%A3%81%E6%9C%9D%E5%B8%82%EF%BC%88%E5%85%AB%E6%88%B8%E5%B8%82%EF%BC%8920250928-P1073508.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/%E9%A4%A8%E9%BC%BB%E5%B2%B8%E5%A3%81%E6%9C%9D%E5%B8%82%EF%BC%88%E5%85%AB%E6%88%B8%E5%B8%82%EF%BC%8920250928-P1073508.jpg/1280px-%E9%A4%A8%E9%BC%BB%E5%B2%B8%E5%A3%81%E6%9C%9D%E5%B8%82%EF%BC%88%E5%85%AB%E6%88%B8%E5%B8%82%EF%BC%8920250928-P1073508.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "くろふね",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:館鼻岸壁朝市（八戸市）20250928-P1073508.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 4,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 8.4,
+    "winter": 4.6,
+    "rain": 5,
+    "food": 9.4,
+    "photography": 9,
+    "relaxation": 7.6,
+    "value": 9.4,
+    "uniqueness": 9.6,
+    "family": 8.4,
+    "accessibility": 6,
+    "nature": 6.4,
+    "historyAndCulture": 7.4,
+    "walkability": 7,
+    "spring": 8.8,
+    "autumn": 8.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 0,
+    "weekend": 7,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.6,
+    "summer": 8.4,
+    "autumn": 8.2,
+    "winter": 5
+  },
+  "bestMonths": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "Spring & Summer",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "Free parking near the wharf",
+  "notes": "Plan the trip for a Sunday; the market is closed January–February. Free entry; food and drink at the stalls. Pairs with Kabushima Shrine for a dawn-to-morning circuit.",
+  "notesJa": "【見どころ】館鼻岸壁朝市は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "毎週日曜のみ開催（3月中旬～12月末）。早朝3時頃～9時頃。1～2月は休止。",
+  "businessHours": "Sundays only, mid-March to end-December; ~03:00 to ~09:00; free entry",
+  "officialWebsite": "https://minatonichiyouasaichikai.com/",
+  "content": {
+    "en": {
+      "name": "Tatehana Wharf Morning Market",
+      "description": "Japan's largest-class morning market: roughly 300–360 stalls strung along an 800-metre wharf, selling seafood, vegetables and oddities. The market runs before dawn to mid-morning — an iconic Hachinohe experience.",
+      "highlights": [
+        "Japan's largest-class market",
+        "800 m of stalls",
+        "Seafood and local produce",
+        "Sunday dawn only"
+      ]
+    },
+    "ja": {
+      "name": "館鼻岸壁朝市",
+      "description": "約300～360店が800mの岸壁に並ぶ、日本最大級の朝市。魚介や野菜、珍品が早朝から並び、八戸の「朝市文化」を代表する風景です。",
+      "highlights": [
+        "日本最大級の朝市",
+        "800mの屋台列",
+        "海産物と地元野菜",
+        "日曜早朝のみ"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://visithachinohe.com/stories/tatehanaganpeki-asaichi/",
+        "title": "Visit Hachinohe — Tatehana Wharf Asaichi",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "hachinohe-city"
+  },
+  "schemaVersion": 2
+}

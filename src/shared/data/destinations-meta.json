@@ -55,6 +55,18 @@
     }
   },
   {
+    "id": "aizu-bukeyashiki",
+    "name": "Aizu Bukeyashiki",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "aizuwakamatsu-city"
+    }
+  },
+  {
     "id": "aizuwakamatsu-city",
     "name": "Aizuwakamatsu City",
     "prefecture": "Fukushima",
@@ -100,6 +112,30 @@
     "status": "verified",
     "relationships": {
       "featuredDestinationIds": []
+    }
+  },
+  {
+    "id": "akita-museum-of-art",
+    "name": "Akita Museum of Art",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "akita-city"
+    }
+  },
+  {
+    "id": "akita-senshu-park",
+    "name": "Senshu Park (Kubota Castle Ruins)",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "castle",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "akita-city"
     }
   },
   {
@@ -216,6 +252,18 @@
     }
   },
   {
+    "id": "aomori-museum-of-art",
+    "name": "Aomori Museum of Art",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "aomori-city"
+    }
+  },
+  {
     "id": "aoshima-island-miyazaki",
     "name": "Aoshima Island & Devil's Washboard",
     "prefecture": "Miyazaki",
@@ -318,6 +366,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "taito-city"
+    }
+  },
+  {
+    "id": "asamushi-onsen",
+    "name": "Asamushi Onsen",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "onsen",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "aomori-city"
     }
   },
   {
@@ -442,6 +502,18 @@
     "status": "beta",
     "relationships": {
       "parentDestinationId": "tokushima-city"
+    }
+  },
+  {
+    "id": "bank-of-iwate-red-brick",
+    "name": "Bank of Iwate Red Brick Building",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "morioka-city"
     }
   },
   {
@@ -1467,6 +1539,18 @@
     }
   },
   {
+    "id": "fujita-memorial-garden",
+    "name": "Fujita Memorial Garden",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "garden",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "hirosaki-city"
+    }
+  },
+  {
     "id": "fujiyoshida-city",
     "name": "Fujiyoshida City",
     "prefecture": "Yamanashi",
@@ -1624,6 +1708,18 @@
     "status": "verified",
     "relationships": {
       "featuredDestinationIds": []
+    }
+  },
+  {
+    "id": "fukushima-prefectural-museum-of-art",
+    "name": "Fukushima Prefectural Museum of Art",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "fukushima-city"
     }
   },
   {
@@ -2524,6 +2620,18 @@
     }
   },
   {
+    "id": "hirosaki-neputa-mura",
+    "name": "Hirosaki Neputa Mura",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "hirosaki-city"
+    }
+  },
+  {
     "id": "hiroshima-castle",
     "name": "Hiroshima Castle",
     "prefecture": "Hiroshima",
@@ -2819,6 +2927,18 @@
     }
   },
   {
+    "id": "iizaka-onsen",
+    "name": "Iizaka Onsen",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "onsen",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "fukushima-city"
+    }
+  },
+  {
     "id": "ikaruga-town",
     "name": "Ikaruga Town",
     "prefecture": "Nara",
@@ -3109,6 +3229,18 @@
     }
   },
   {
+    "id": "iwate-park-morioka-castle-ruins",
+    "name": "Iwate Park (Morioka Castle Ruins)",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "castle",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "morioka-city"
+    }
+  },
+  {
     "id": "iwatsuki-ningyo-museum",
     "name": "Iwatsuki Ningyo Museum",
     "prefecture": "Saitama",
@@ -3328,6 +3460,18 @@
     }
   },
   {
+    "id": "kabushima-shrine",
+    "name": "Kabushima Shrine",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "shrine",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "hachinohe-city"
+    }
+  },
+  {
     "id": "kagoshima-city",
     "name": "Kagoshima City",
     "prefecture": "Kagoshima",
@@ -3378,6 +3522,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "mito-city"
+    }
+  },
+  {
+    "id": "kajo-park",
+    "name": "Kajo Park (Yamagata Castle Ruins)",
+    "prefecture": "Yamagata",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "castle",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "yamagata-city"
     }
   },
   {
@@ -3442,6 +3598,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "kamakura-city"
+    }
+  },
+  {
+    "id": "kaminoyama-castle-town",
+    "name": "Kaminoyama Castle Town",
+    "prefecture": "Yamagata",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "castle",
+    "status": "beta",
+    "relationships": {
+      "gatewayHubId": "yamagata-city"
     }
   },
   {
@@ -4040,6 +4208,18 @@
     }
   },
   {
+    "id": "kitakata-kura-district",
+    "name": "Kitakata Kura District",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "district",
+    "status": "beta",
+    "relationships": {
+      "gatewayHubId": "aizuwakamatsu-city"
+    }
+  },
+  {
     "id": "kitakyushu-city",
     "name": "Kitakyushu City",
     "prefecture": "Fukuoka",
@@ -4261,6 +4441,18 @@
         "shirakawa-village",
         "nagano-city"
       ]
+    }
+  },
+  {
+    "id": "koiwai-farm",
+    "name": "Koiwai Farm",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "park",
+    "status": "beta",
+    "relationships": {
+      "gatewayHubId": "morioka-city"
     }
   },
   {
@@ -5492,6 +5684,18 @@
     }
   },
   {
+    "id": "morioka-handiworks-square",
+    "name": "Morioka Handi-Works Square",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "shopping",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "morioka-city"
+    }
+  },
+  {
     "id": "mother-farm-chiba",
     "name": "Mother Farm (Futtsu)",
     "prefecture": "Chiba",
@@ -5528,6 +5732,18 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [],
       "gatewayHubId": "shimonoseki-city"
+    }
+  },
+  {
+    "id": "motsu-ji",
+    "name": "Motsu-ji",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "temple",
+    "status": "beta",
+    "relationships": {
+      "gatewayHubId": "morioka-city"
     }
   },
   {
@@ -5569,6 +5785,18 @@
     "kind": "mountain",
     "status": "verified",
     "relationships": {}
+  },
+  {
+    "id": "mount-hakkoda-ropeway",
+    "name": "Mount Hakkoda Ropeway",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "viewpoint",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "aomori-city"
+    }
   },
   {
     "id": "mount-inasa-nagasaki",
@@ -6457,6 +6685,18 @@
     }
   },
   {
+    "id": "nisshinkan",
+    "name": "Nisshinkan",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "aizuwakamatsu-city"
+    }
+  },
+  {
     "id": "noto",
     "name": "Noto Peninsula",
     "prefecture": "Ishikawa",
@@ -6633,6 +6873,18 @@
     "status": "beta",
     "relationships": {
       "parentDestinationId": "sapporo-city"
+    }
+  },
+  {
+    "id": "oga-namahage-kan",
+    "name": "Namahage Museum (Oga Shinzan Folklore Museum)",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "gatewayHubId": "akita-city"
     }
   },
   {
@@ -7428,6 +7680,18 @@
     }
   },
   {
+    "id": "saisho-in",
+    "name": "Saisho-in",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "temple",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "hirosaki-city"
+    }
+  },
+  {
     "id": "saitama-city",
     "name": "Saitama City",
     "prefecture": "Saitama",
@@ -7698,6 +7962,18 @@
     }
   },
   {
+    "id": "sazae-do",
+    "name": "Sazae-do",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "temple",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "aizuwakamatsu-city"
+    }
+  },
+  {
     "id": "scmaglev-and-railway-park",
     "name": "SCMaglev and Railway Park",
     "prefecture": "Aichi",
@@ -7800,6 +8076,30 @@
     }
   },
   {
+    "id": "sendai-daikannon",
+    "name": "Sendai Daikannon",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "temple",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "sendai-city"
+    }
+  },
+  {
+    "id": "sendai-ichibancho",
+    "name": "Sendai Ichibancho",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "shopping",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "sendai-city"
+    }
+  },
+  {
     "id": "sendai-mediatheque",
     "name": "Sendai Mediatheque",
     "prefecture": "Miyagi",
@@ -7818,6 +8118,18 @@
     "region": "Tohoku",
     "role": "poi",
     "kind": "aquarium",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "sendai-city"
+    }
+  },
+  {
+    "id": "sendai-yagiyama-zoo",
+    "name": "Sendai Yagiyama Zoological Park",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "zoo",
     "status": "beta",
     "relationships": {
       "parentDestinationId": "sendai-city"
@@ -8711,6 +9023,18 @@
     }
   },
   {
+    "id": "takkoku-no-iwa",
+    "name": "Takkoku-no-Iwa",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "temple",
+    "status": "beta",
+    "relationships": {
+      "gatewayHubId": "morioka-city"
+    }
+  },
+  {
     "id": "tama-forest-science-garden",
     "name": "Tama Forest Science Garden",
     "prefecture": "Tokyo",
@@ -8780,6 +9104,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "kawasaki-city"
+    }
+  },
+  {
+    "id": "tatehana-wharf-morning-market",
+    "name": "Tatehana Wharf Morning Market",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "market",
+    "status": "beta",
+    "relationships": {
+      "parentDestinationId": "hachinohe-city"
     }
   },
   {
@@ -9251,6 +9587,18 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [],
       "parentDestinationId": "tottori-city"
+    }
+  },
+  {
+    "id": "towada-art-center",
+    "name": "Towada Art Center",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
+      "gatewayHubId": "hachinohe-city"
     }
   },
   {
@@ -9767,6 +10115,18 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["ginzan-onsen-yamagata", "mount-zao-yamagata"],
+      "parentDestinationId": "yamagata-city"
+    }
+  },
+  {
+    "id": "yamagata-bunshokan",
+    "name": "Yamagata Bunshokan",
+    "prefecture": "Yamagata",
+    "region": "Tohoku",
+    "role": "poi",
+    "kind": "museum",
+    "status": "beta",
+    "relationships": {
       "parentDestinationId": "yamagata-city"
     }
   },

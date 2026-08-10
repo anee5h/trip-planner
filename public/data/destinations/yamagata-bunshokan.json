@@ -1,0 +1,165 @@
+{
+  "id": "yamagata-bunshokan",
+  "name": "Yamagata Bunshokan",
+  "nameJa": "山形県郷土館文翔館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Yamagata:yamagata",
+  "prefecture": "Yamagata",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 38.2575,
+    "lng": 140.3412
+  },
+  "categories": ["History", "Culture", "Architecture"],
+  "tags": ["History", "Architecture", "Yamagata City"],
+  "description": "The 1916 English neo-Renaissance former prefectural office and assembly hall, a National Important Cultural Property and the finest Taisho-era Western public building in Tohoku. The restored interior features a clock tower, barrel-vaulted ceiling and stained glass.",
+  "highlights": [
+    "Taisho-era Western building",
+    "Clock tower and stained glass",
+    "National Important Cultural Property",
+    "Free entry"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 20,
+    "bus": 25,
+    "car": 25
+  },
+  "budgetMin": 0,
+  "budgetRecommended": 1500,
+  "budgetMax": 3000,
+  "budgetBreakdown": {
+    "transport": 600,
+    "tickets": 0,
+    "food": 600,
+    "cafe": 300
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Bunshokan%2C_Yamagata_20170401-3.jpg/1280px-Bunshokan%2C_Yamagata_20170401-3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Bunshokan%2C_Yamagata_20170401-3.jpg/1280px-Bunshokan%2C_Yamagata_20170401-3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Suicasmo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bunshokan,_Yamagata_20170401-3.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "low",
+  "indoorPercent": 80,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.6,
+    "summer": 8,
+    "winter": 8.2,
+    "rain": 9,
+    "food": 8,
+    "photography": 8.8,
+    "relaxation": 8,
+    "value": 9.2,
+    "uniqueness": 8.8,
+    "family": 7.6,
+    "accessibility": 8,
+    "nature": 5.6,
+    "historyAndCulture": 9.4,
+    "walkability": 8,
+    "spring": 8.6,
+    "autumn": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 8,
+    "autumn": 8.6,
+    "winter": 8.2
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "No reservation required",
+  "parking": "Pay parking nearby",
+  "notes": "Free entry. The assembly hall is closed for construction until September 2026 — check before visiting. Pairs with Kajo Park.",
+  "notesJa": "【見どころ】山形県郷土館文翔館は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:00～16:30。第1・第3月曜休館（祝日の場合は翌日）、12月29日～1月3日休館。入館無料。",
+  "businessHours": "09:00 - 16:30; closed 1st & 3rd Mondays (Tue if holiday) and Dec 29 – Jan 3; free",
+  "officialWebsite": "https://www.gakushubunka.jp/bunsyokan/",
+  "content": {
+    "en": {
+      "name": "Yamagata Bunshokan",
+      "description": "The 1916 English neo-Renaissance former prefectural office and assembly hall, a National Important Cultural Property and the finest Taisho-era Western public building in Tohoku. The restored interior features a clock tower, barrel-vaulted ceiling and stained glass.",
+      "highlights": [
+        "Taisho-era Western building",
+        "Clock tower and stained glass",
+        "National Important Cultural Property",
+        "Free entry"
+      ]
+    },
+    "ja": {
+      "name": "山形県郷土館文翔館",
+      "description": "1916年竣工の旧県庁舎と県会議事堂。国指定重要文化財で、東北を代表する大正時代の洋風建築。時計塔やアーチ天井、ステンドグラスが復元公開されています。",
+      "highlights": [
+        "大正ロマンの洋館",
+        "時計塔とステンドグラス",
+        "国指定重要文化財",
+        "入館無料"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.gakushubunka.jp/bunsyokan/",
+        "title": "Yamagata Bunshokan official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "yamagata-city"
+  },
+  "schemaVersion": 2
+}

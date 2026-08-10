@@ -1,0 +1,160 @@
+{
+  "id": "takkoku-no-iwa",
+  "name": "Takkoku-no-Iwa",
+  "nameJa": "達谷窟毘沙門堂",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Iwate:hiraizumi",
+  "prefecture": "Iwate",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 38.968167,
+    "lng": 141.058444
+  },
+  "categories": ["History", "Culture"],
+  "tags": ["History", "Culture", "Hiraizumi Town"],
+  "description": "A hall built against a sheer cliff face in a wooded valley south of Hiraizumi, said to date from a 9th-century temple carved into the rock. The vermillion Bishamon-do clings to the crag above the valley floor.",
+  "highlights": [
+    "Cliffside hall",
+    "Legendary 9th-century temple",
+    "Valley setting",
+    "Hidden Tohoku gem"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 60,
+    "bus": 65,
+    "car": 75
+  },
+  "budgetMin": 400,
+  "budgetRecommended": 2200,
+  "budgetMax": 4000,
+  "budgetBreakdown": {
+    "transport": 800,
+    "tickets": 400,
+    "food": 700,
+    "cafe": 300
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/230728_Takkoku-no-iwaya_Bishamondo_Hiraizumi_Iwate_pref_Japan01s3.jpg/1280px-230728_Takkoku-no-iwaya_Bishamondo_Hiraizumi_Iwate_pref_Japan01s3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/230728_Takkoku-no-iwaya_Bishamondo_Hiraizumi_Iwate_pref_Japan01s3.jpg/1280px-230728_Takkoku-no-iwaya_Bishamondo_Hiraizumi_Iwate_pref_Japan01s3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:230728_Takkoku-no-iwaya_Bishamondo_Hiraizumi_Iwate_pref_Japan01s3.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 1
+  },
+  "walkingMin": 1500,
+  "walkingSunMin": 900,
+  "walkingShadeMin": 600,
+  "walkingIntensity": "low",
+  "indoorPercent": 20,
+  "comfort": {
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.6,
+    "summer": 8,
+    "winter": 7.4,
+    "rain": 6.2,
+    "food": 7,
+    "photography": 9.2,
+    "relaxation": 8.6,
+    "value": 8.6,
+    "uniqueness": 9.4,
+    "family": 7.6,
+    "accessibility": 6,
+    "nature": 8.8,
+    "historyAndCulture": 9.4,
+    "walkability": 7,
+    "spring": 8.8,
+    "autumn": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 8.6,
+    "summer": 8,
+    "autumn": 9.2,
+    "winter": 7.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "Pay parking at the site",
+  "notes": "Admission ¥400 adult. About 10 minutes by car south of Hiraizumi.",
+  "notesJa": "【見どころ】達谷窟毘沙門堂は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "8:00～17:00。拝観料大人400円。",
+  "businessHours": "Open daylight hours; see official site for seasonal hours",
+  "officialWebsite": "http://www.iwayabetto.com/",
+  "content": {
+    "en": {
+      "name": "Takkoku-no-Iwa",
+      "description": "A hall built against a sheer cliff face in a wooded valley south of Hiraizumi, said to date from a 9th-century temple carved into the rock. The vermillion Bishamon-do clings to the crag above the valley floor.",
+      "highlights": [
+        "Cliffside hall",
+        "Legendary 9th-century temple",
+        "Valley setting",
+        "Hidden Tohoku gem"
+      ]
+    },
+    "ja": {
+      "name": "達谷窟毘沙門堂",
+      "description": "切り立った岩壁に張り付くように建つ毘沙門堂。9世紀の創建と伝わる岩窟寺院で、谷間に架かる朱塗りの堂と岩肌の対比が印象的です。",
+      "highlights": ["岩壁に建つ堂", "伝承の古刹", "渓谷の景観", "東北の秘所"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "http://www.iwayabetto.com/",
+        "title": "Takkoku-no-Iwa official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "gatewayHubId": "morioka-city"
+  },
+  "schemaVersion": 2
+}

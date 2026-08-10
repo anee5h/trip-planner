@@ -1,0 +1,165 @@
+{
+  "id": "towada-art-center",
+  "name": "Towada Art Center",
+  "nameJa": "十和田市現代美術館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Aomori:towada",
+  "prefecture": "Aomori",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 40.614,
+    "lng": 141.209
+  },
+  "categories": ["Culture", "Museum", "Art"],
+  "tags": ["Culture", "Museum", "Towada City"],
+  "description": "International contemporary-art museum and heart of the Arts Towada town-wide project. Commissioned works include Yayoi Kusama's outdoor 'Love Forever, Singing in Towada', Ron Mueck's 'Standing Woman' and Nara Yoshitomo's 'Night Dew Girl 2012'.",
+  "highlights": [
+    "Kusama outdoor sculpture",
+    "Ron Mueck's Standing Woman",
+    "Nara Yoshitomo",
+    "Town-wide art project"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 100,
+    "bus": 60,
+    "car": 45
+  },
+  "budgetMin": 1000,
+  "budgetRecommended": 4000,
+  "budgetMax": 7000,
+  "budgetBreakdown": {
+    "transport": 1000,
+    "tickets": 1800,
+    "food": 800,
+    "cafe": 400
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Towada_Art_Center_in_Aomori.jpg/1280px-Towada_Art_Center_in_Aomori.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Towada_Art_Center_in_Aomori.jpg/1280px-Towada_Art_Center_in_Aomori.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Coffee1000mg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Towada_Art_Center_in_Aomori.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "walkingMin": 3000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1500,
+  "walkingIntensity": "medium",
+  "indoorPercent": 80,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.8,
+    "summer": 8.2,
+    "winter": 8,
+    "rain": 9,
+    "food": 7.8,
+    "photography": 9.2,
+    "relaxation": 8,
+    "value": 8.2,
+    "uniqueness": 9.6,
+    "family": 7.6,
+    "accessibility": 8,
+    "nature": 7,
+    "historyAndCulture": 8.4,
+    "walkability": 7,
+    "spring": 8.6,
+    "autumn": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 8.2,
+    "autumn": 8.6,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "No reservation required",
+  "parking": "Parking at the Art Plaza",
+  "notes": "Adult ¥1,800 with a special exhibition, ¥1,000 permanent only; high school and below free. IMPORTANT: full closure 2027-04-01 to 2028-03-31 for air-conditioning renovation — outdoor Kusama works and street furniture remain viewable. 40 min by bus from Shichinohe-Towada Shinkansen Station.",
+  "notesJa": "【見どころ】十和田市現代美術館は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:00～17:00（最終入館16:30）。月曜休館（祝日の場合は翌日）、年末年始休館。※2027年4月1日～2028年3月31日は空調改修のため全館休館（屋外作品は鑑賞可）。",
+  "businessHours": "09:00 - 17:00 (entry to 16:30); closed Mondays (Tue if Mon holiday) and year-end",
+  "officialWebsite": "https://towadaartcenter.com/",
+  "content": {
+    "en": {
+      "name": "Towada Art Center",
+      "description": "International contemporary-art museum and heart of the Arts Towada town-wide project. Commissioned works include Yayoi Kusama's outdoor 'Love Forever, Singing in Towada', Ron Mueck's 'Standing Woman' and Nara Yoshitomo's 'Night Dew Girl 2012'.",
+      "highlights": [
+        "Kusama outdoor sculpture",
+        "Ron Mueck's Standing Woman",
+        "Nara Yoshitomo",
+        "Town-wide art project"
+      ]
+    },
+    "ja": {
+      "name": "十和田市現代美術館",
+      "description": "「アートで町を元気に」を掲げる十和田市現代美術館。草間彌生の野外作品「愛はとこしえ十和田でうたう」、ロン・ミュエクの「スタンディング・ウーマン」、奈良美智の作品などが街なかと一体で楽しめます。",
+      "highlights": [
+        "草間彌生の野外作品",
+        "ロン・ミュエク",
+        "奈良美智",
+        "街なかアート"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://towadaartcenter.com/",
+        "title": "Towada Art Center official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "gatewayHubId": "hachinohe-city"
+  },
+  "schemaVersion": 2
+}

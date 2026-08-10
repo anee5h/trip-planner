@@ -1,0 +1,165 @@
+{
+  "id": "koiwai-farm",
+  "name": "Koiwai Farm",
+  "nameJa": "小岩井農場",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Iwate:shizukuishi",
+  "prefecture": "Iwate",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 39.751694,
+    "lng": 141.016049
+  },
+  "categories": ["Nature", "Family", "Food"],
+  "tags": ["Nature", "Family", "Shizukuishi Town"],
+  "description": "One of Japan's great working farms on the slopes of Mount Iwate, with the famous one-row cherry trees, dairy and ranch experiences, the old stone barn, and sweeping views across the Iwate plain.",
+  "highlights": [
+    "One-row cherry trees and Mt Iwate",
+    "Ranch experiences",
+    "Dairy products",
+    "Old stone barn"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 35,
+    "bus": 40,
+    "car": 35
+  },
+  "budgetMin": 0,
+  "budgetRecommended": 2500,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 1000,
+    "tickets": 0,
+    "food": 1000,
+    "cafe": 500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Cherry_tree_and_Mount_Iwate.jpg/1280px-Cherry_tree_and_Mount_Iwate.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Cherry_tree_and_Mount_Iwate.jpg/1280px-Cherry_tree_and_Mount_Iwate.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "掬茶",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cherry_tree_and_Mount_Iwate.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 5000,
+  "walkingSunMin": 3000,
+  "walkingShadeMin": 2000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 8.6,
+    "winter": 7.6,
+    "rain": 5.6,
+    "food": 9,
+    "photography": 9.2,
+    "relaxation": 8.6,
+    "value": 8.6,
+    "uniqueness": 9,
+    "family": 9,
+    "accessibility": 7,
+    "nature": 9.4,
+    "historyAndCulture": 7,
+    "walkability": 7,
+    "spring": 9.2,
+    "autumn": 8.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8.6,
+    "autumn": 8.4,
+    "winter": 7.6
+  },
+  "bestMonths": [4, 5, 6, 7, 8, 9, 10],
+  "bestSeason": "Spring & Summer",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "Free parking on site",
+  "notes": "Entry fee applies at the Makiba-en ranch park (adult ~¥800); other areas vary. In Shizukuishi Town — gateway access via Morioka.",
+  "notesJa": "【見どころ】小岩井農場は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:00～17:00（時期により変動）。12月～2月は土日祝のみ営業。",
+  "businessHours": "09:00 - 17:00 (varies by season); winter (Dec–Feb) weekends and holidays only",
+  "officialWebsite": "https://www.koiwaifarm.com/",
+  "content": {
+    "en": {
+      "name": "Koiwai Farm",
+      "description": "One of Japan's great working farms on the slopes of Mount Iwate, with the famous one-row cherry trees, dairy and ranch experiences, the old stone barn, and sweeping views across the Iwate plain.",
+      "highlights": [
+        "One-row cherry trees and Mt Iwate",
+        "Ranch experiences",
+        "Dairy products",
+        "Old stone barn"
+      ]
+    },
+    "ja": {
+      "name": "小岩井農場",
+      "description": "岩手山の麓に広がる日本有数の大農場。一本桜や石造りの牛舎を眺めながら、乳製品づくりや牧場体験を楽しめます。",
+      "highlights": [
+        "一本桜と岩手山",
+        "牧場体験",
+        "乳製品とソフトクリーム",
+        "石造りの牛舎"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.koiwaifarm.com/",
+        "title": "Koiwai Farm official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "gatewayHubId": "morioka-city"
+  },
+  "schemaVersion": 2
+}

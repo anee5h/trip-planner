@@ -1,0 +1,165 @@
+{
+  "id": "aomori-museum-of-art",
+  "name": "Aomori Museum of Art",
+  "nameJa": "青森県立美術館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Aomori:aomori",
+  "prefecture": "Aomori",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 40.8073,
+    "lng": 140.7009
+  },
+  "categories": ["Culture", "Museum", "Art"],
+  "tags": ["Culture", "Museum", "Aomori City"],
+  "description": "Aomori's major art museum, designed by Aoki Jun beside the Sannai-Maruyama Jomon site. Its collection spans Chagall's monumental 'Aleko' backdrops, Munakata Shiko's woodblock prints and a famous giant white-dog sculpture by Nara Yoshitomo.",
+  "highlights": [
+    "Nara Yoshitomo's white dog",
+    "Chagall's 'Aleko' backdrops",
+    "Munakata Shiko collection",
+    "Beside the Jomon site"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 60,
+    "bus": 70,
+    "car": 50
+  },
+  "budgetMin": 700,
+  "budgetRecommended": 2800,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 800,
+    "tickets": 700,
+    "food": 900,
+    "cafe": 400
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/140913_Aomori_Museum_of_Art_Japan02bs3.jpg/1280px-140913_Aomori_Museum_of_Art_Japan02bs3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/140913_Aomori_Museum_of_Art_Japan02bs3.jpg/1280px-140913_Aomori_Museum_of_Art_Japan02bs3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:140913_Aomori_Museum_of_Art_Japan02bs3.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "walkingMin": 3500,
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 1500,
+  "walkingIntensity": "medium",
+  "indoorPercent": 80,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.2,
+    "summer": 8.2,
+    "winter": 8,
+    "rain": 9,
+    "food": 7.8,
+    "photography": 8.8,
+    "relaxation": 8,
+    "value": 8,
+    "uniqueness": 9.2,
+    "family": 7.8,
+    "accessibility": 8,
+    "nature": 7.4,
+    "historyAndCulture": 8.6,
+    "walkability": 7,
+    "spring": 8.6,
+    "autumn": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 8.2,
+    "autumn": 8.6,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "No reservation required",
+  "parking": "Free parking on site",
+  "notes": "Permanent collection ¥700 adult / ¥400 high-school and university; free for junior high and below. Pairs with the adjacent Sannai-Maruyama site.",
+  "notesJa": "【見どころ】青森県立美術館は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:30～17:00（最終入館16:30）。第2・第4月曜休館（祝日の場合は翌日）。常設展大人700円。",
+  "businessHours": "09:30 - 17:00 (last entry 16:30); closed 2nd & 4th Monday",
+  "officialWebsite": "https://www.aomori-museum.jp/",
+  "content": {
+    "en": {
+      "name": "Aomori Museum of Art",
+      "description": "Aomori's major art museum, designed by Aoki Jun beside the Sannai-Maruyama Jomon site. Its collection spans Chagall's monumental 'Aleko' backdrops, Munakata Shiko's woodblock prints and a famous giant white-dog sculpture by Nara Yoshitomo.",
+      "highlights": [
+        "Nara Yoshitomo's white dog",
+        "Chagall's 'Aleko' backdrops",
+        "Munakata Shiko collection",
+        "Beside the Jomon site"
+      ]
+    },
+    "ja": {
+      "name": "青森県立美術館",
+      "description": "三内丸山遺跡の隣に建つ青森県立美術館。シャガールの大作「アレコ」、棟方志功の版画、奈良美智の巨大な白い犬のオブジェなどが楽しめます。",
+      "highlights": [
+        "奈良美智の白い犬",
+        "シャガール「アレコ」",
+        "棟方志功コレクション",
+        "三内丸山遺跡と隣接"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.aomori-museum.jp/",
+        "title": "Aomori Museum of Art official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "aomori-city"
+  },
+  "schemaVersion": 2
+}

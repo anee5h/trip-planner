@@ -1,0 +1,165 @@
+{
+  "id": "asamushi-onsen",
+  "name": "Asamushi Onsen",
+  "nameJa": "浅虫温泉",
+  "kind": "onsen",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Aomori:aomori",
+  "prefecture": "Aomori",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 40.8892,
+    "lng": 140.8614
+  },
+  "categories": ["Onsen & Wellness"],
+  "tags": ["Onsen", "Aomori City"],
+  "description": "A 1,200-year-old hot spring town on the Mutsu Bay coast, nicknamed 'Aomori's inner parlour'. Free footbaths, the Asamushi Gensen Park with self-made onsen eggs, and twilight views over Yunoshima island.",
+  "highlights": [
+    "1,200-year history",
+    "Free footbaths",
+    "Onsen-egg park",
+    "Yunoshima twilight views"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 35,
+    "bus": 50,
+    "car": 40
+  },
+  "budgetMin": 0,
+  "budgetRecommended": 2000,
+  "budgetMax": 4000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 0,
+    "food": 900,
+    "cafe": 400
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Asamushi_hot_spring_and_Yonoshima_island_aerial_photo.jpg/1280px-Asamushi_hot_spring_and_Yonoshima_island_aerial_photo.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Asamushi_hot_spring_and_Yonoshima_island_aerial_photo.jpg/1280px-Asamushi_hot_spring_and_Yonoshima_island_aerial_photo.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "ブルーノ・プラス",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asamushi_hot_spring_and_Yonoshima_island_aerial_photo.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1500,
+  "walkingIntensity": "low",
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 7,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 8.4,
+    "summer": 8.4,
+    "winter": 8.2,
+    "rain": 7.6,
+    "food": 8.4,
+    "photography": 8.2,
+    "relaxation": 9,
+    "value": 8.4,
+    "uniqueness": 7.8,
+    "family": 8,
+    "accessibility": 7,
+    "nature": 8.4,
+    "historyAndCulture": 7,
+    "walkability": 7,
+    "spring": 8.2,
+    "autumn": 8.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8.4,
+    "autumn": 8.4,
+    "winter": 8.2
+  },
+  "bestMonths": [4, 5, 6, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required for the district",
+  "parking": "Pay parking in the town",
+  "notes": "25 minutes from Aomori Station on the Aoimori Railway. The record is the onsen town itself; the nearby Asamushi Aquarium is separate.",
+  "notesJa": "【見どころ】浅虫温泉は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "温泉街は常時散策可。足湯は無料。各旅館の日帰り入浴時間は施設により異なります。",
+  "businessHours": "Open access (district); ryokan day-use bathing hours vary",
+  "officialWebsite": "https://www.asamushi.com/",
+  "content": {
+    "en": {
+      "name": "Asamushi Onsen",
+      "description": "A 1,200-year-old hot spring town on the Mutsu Bay coast, nicknamed 'Aomori's inner parlour'. Free footbaths, the Asamushi Gensen Park with self-made onsen eggs, and twilight views over Yunoshima island.",
+      "highlights": [
+        "1,200-year history",
+        "Free footbaths",
+        "Onsen-egg park",
+        "Yunoshima twilight views"
+      ]
+    },
+    "ja": {
+      "name": "浅虫温泉",
+      "description": "陸奥湾に面する1200年の歴史を持つ温泉街。「青森の奥座敷」と呼ばれ、足湯や浅虫源泉公園での温泉卵づくり、湯の島越しの夕景が楽しめます。",
+      "highlights": [
+        "1200年の歴史",
+        "無料の足湯",
+        "源泉公園の温泉卵",
+        "湯の島の夕景"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.asamushi.com/",
+        "title": "Asamushi Onsen Tourism Association",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "aomori-city"
+  },
+  "schemaVersion": 2
+}
