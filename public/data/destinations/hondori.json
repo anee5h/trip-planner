@@ -1,0 +1,150 @@
+{
+  "id": "hondori",
+  "name": "Hondori Shopping Arcade",
+  "nameJa": "本通商店街",
+  "kind": "district",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Hiroshima:hiroshima",
+  "prefecture": "Hiroshima",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.3932,
+    "lng": 132.457
+  },
+  "categories": ["Shopping", "Food", "Experience", "District"],
+  "tags": ["Hondori", "Arcade", "Okonomiyaki", "Rain-friendly"],
+  "description": "Hondori is Hiroshima's 577-meter covered shopping arcade running through the Kamiyacho–Hatchobori area, with roughly 200 shops including department stores (Sogo, Parco), souvenir shops, cafes and restaurants. The arcade connects to Kamiyacho Shareo and leads toward Okonomimura, making it the city's main covered shopping and dining spine. Each shop sets its own hours; most open around 10:00 and close 20:00–22:00.",
+  "highlights": [
+    "~577 m covered arcade, ~200 shops",
+    "Connects Sogo/Parco, Kamiyacho Shareo, Okonomimura",
+    "Rain-friendly shopping and street food"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 1000,
+  "budgetRecommended": 2500,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 200,
+    "tickets": 0,
+    "food": 1600,
+    "cafe": 700
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Hiroshima-Hondori_Shopping_Street_at_dusk.jpg/1280px-Hiroshima-Hondori_Shopping_Street_at_dusk.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Hiroshima-Hondori_Shopping_Street_at_dusk.jpg/1280px-Hiroshima-Hondori_Shopping_Street_at_dusk.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hiroshima-Hondori_Shopping_Street_at_dusk.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 1600,
+  "walkingSunMin": 200,
+  "walkingShadeMin": 1400,
+  "walkingIntensity": "low",
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 7.5,
+    "couple": 7,
+    "summer": 7.5,
+    "winter": 7.5,
+    "rain": 8.5,
+    "food": 8.5,
+    "photography": 6.5,
+    "relaxation": 6.5,
+    "value": 8,
+    "uniqueness": 6.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "None.",
+  "parking": "No arcade parking; use Kamiyacho/Hatchobori paid lots or Hiroden tram (Kamiyacho-nishi, Hatchobori).",
+  "notes": "City's main covered arcade; walk to Okonomimura and Peace Park.",
+  "notesJa": "【見どころ】本通商店街は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "アーケード全体の定時はありません。各店舗ごとに異なり、多くは10:00〜20:00、飲食店は22:00頃まで営業します。",
+  "businessHours": "No arcade-wide hours; each shop sets its own. Most shops 10:00–20:00, restaurants often until 22:00.",
+  "officialWebsite": "https://www.hondori.or.jp/en/",
+  "content": {
+    "en": {
+      "name": "Hondori Shopping Arcade",
+      "description": "Hondori is Hiroshima's 577-meter covered shopping arcade running through the Kamiyacho–Hatchobori area, with roughly 200 shops including department stores (Sogo, Parco), souvenir shops, cafes and restaurants. The arcade connects to Kamiyacho Shareo and leads toward Okonomimura, making it the city's main covered shopping and dining spine. Each shop sets its own hours; most open around 10:00 and close 20:00–22:00.",
+      "highlights": [
+        "~577 m covered arcade, ~200 shops",
+        "Connects Sogo/Parco, Kamiyacho Shareo, Okonomimura",
+        "Rain-friendly shopping and street food"
+      ]
+    },
+    "ja": {
+      "name": "本通商店街",
+      "description": "本通商店街は、広島の紙屋町・八丁堀エリアを東西に貫く全長約577メートルのアーケード商店街です。そごう・パルコなどの百貨店をはじめ約200店舗が軒を連ね、カミヤチョウ・シェアオとも直結します。お好み村にも近く、広島の買い物と食の中心です。営業時間は店舗ごとに異なり、多くは10時頃から20〜22時までです。",
+      "highlights": [
+        "全長約577m・約200店舗のアーケード",
+        "そごう・パルコ・シェアオ・お好み村と直結",
+        "雨天でも楽しめる買い物とグルメ"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.hondori.or.jp/en/",
+        "title": "Hiroshima Hondori Shopping Street (official)",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "hiroshima-city"
+  },
+  "schemaVersion": 2
+}

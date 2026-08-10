@@ -1,0 +1,156 @@
+{
+  "id": "gessho-ji-temple-matsue",
+  "name": "Gessho-ji Temple",
+  "nameJa": "月照寺",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Shimane:matsue",
+  "prefecture": "Shimane",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 35.47158,
+    "lng": 133.03986
+  },
+  "categories": ["Culture", "History", "Temple"],
+  "tags": ["Matsudaira Clan", "Matsue Domain", "Graves of Daimyo", "Fumai"],
+  "description": "Gessho-ji is the family temple of the Matsudaira clan, lords of Matsue Domain, where nine generations of daimyo are buried in large stone-terraced compounds. Established in the 17th century, the Jodo-sect temple takes its name from Gessho-in, mother of the first lord Matsudaira Naomasa. The grounds hold ornate mausoleum gates, stone lanterns and the famous Great Turtle of Gessho-ji described by Lafcadio Hearn.",
+  "highlights": [
+    "Nine Matsudaira daimyo mausoleums",
+    "The Great Turtle from Hearn's essays",
+    "Quiet garden and temple grounds"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 800,
+  "budgetRecommended": 2500,
+  "budgetMax": 4500,
+  "budgetBreakdown": {
+    "transport": 900,
+    "tickets": 700,
+    "food": 600,
+    "cafe": 300
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/080720_Gessho-ji_Matsue_Shimane_pref_Japan13s5.jpg/1280px-080720_Gessho-ji_Matsue_Shimane_pref_Japan13s5.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/080720_Gessho-ji_Matsue_Shimane_pref_Japan13s5.jpg/1280px-080720_Gessho-ji_Matsue_Shimane_pref_Japan13s5.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:080720_Gessho-ji_Matsue_Shimane_pref_Japan13s5.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 3000,
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 1200,
+  "walkingIntensity": "low",
+  "indoorPercent": 25,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8,
+    "summer": 7.6,
+    "winter": 7.8,
+    "rain": 6.8,
+    "food": 7,
+    "photography": 8.8,
+    "relaxation": 9,
+    "value": 8.2,
+    "uniqueness": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Small lot; cash only",
+  "notes": "Verified hours/fees from official site. Adult ¥700; ¥600 groups 30+. Cash-only admission.",
+  "notesJa": "【見どころ】月照寺は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "10:00〜16:00（最終受付15:30）。6月のみ8:30〜17:30（最終受付17:00）。年中無休。入場料は現金のみ。",
+  "businessHours": "10:00–16:00 (last entry 15:30) Jan–May & Jul–Dec; June 8:30–17:30 (last entry 17:00); open year-round",
+  "officialWebsite": "https://gesshoji-matsue.com/",
+  "content": {
+    "en": {
+      "name": "Gessho-ji Temple",
+      "description": "Gessho-ji is the family temple of the Matsudaira clan, lords of Matsue Domain, where nine generations of daimyo are buried in large stone-terraced compounds. Established in the 17th century, the Jodo-sect temple takes its name from Gessho-in, mother of the first lord Matsudaira Naomasa. The grounds hold ornate mausoleum gates, stone lanterns and the famous Great Turtle of Gessho-ji described by Lafcadio Hearn.",
+      "highlights": [
+        "Nine Matsudaira daimyo mausoleums",
+        "The Great Turtle from Hearn's essays",
+        "Quiet garden and temple grounds"
+      ]
+    },
+    "ja": {
+      "name": "月照寺",
+      "description": "月照寺は、松江藩を治めた松平家の菩提寺で、歴代藩主9人の墓所が石段の上に整えられています。初代藩主松平直政の母・月照院にちなんで名付けられた浄土宗の寺院です。境内には精巧な廟門や石灯籠が立ち並び、ラフカディオ・ハーンの随筆にも登場する「月照寺の大亀」があります。",
+      "highlights": [
+        "松平家歴代藩主9人の廟所",
+        "ハーンの随筆にも登場する大亀",
+        "静かな境内と庭園"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://gesshoji-matsue.com/en/prices/",
+        "title": "Visit information — Gesshoji (EN)",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://gesshoji-matsue.com/introduction/history/",
+        "title": "歴史・伝承 — 月照寺",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "matsue-city"
+  },
+  "schemaVersion": 2
+}

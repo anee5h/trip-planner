@@ -48,9 +48,7 @@
     "food": 1400,
     "cafe": 1200
   },
-  "transportOptions": {
-    "train": 205
-  },
+  "transportOptions": {},
   "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
@@ -94,7 +92,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "notes": "Main keep permanently closed since Mar 22, 2026 (exterior viewable only); ninomaru grounds remain open and free. In Hiroshima City's Chuo-ku.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -130,7 +128,7 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.rijo-castle.jp/rijo/",
-  "businessHours": "Open access",
+  "businessHours": "Ninomaru grounds Apr–Sep 09:00–17:30 (last entry 17:00), Oct–Mar 09:00–16:30 (last entry 16:00); closed Dec 8 & Dec 29–31. Keep interior closed.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg/1920px-Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -138,5 +136,6 @@
     "attribution": "DXR",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ninomaru,_Hiroshima_Castle,_West_view_20190417_1.jpg"
   },
-  "municipalityId": "Hiroshima:hiroshima"
+  "municipalityId": "Hiroshima:hiroshima",
+  "openingHoursJa": "二の丸跡は4〜9月 9:00〜17:30（最終入場17:00）、10〜3月 9:00〜16:30（最終入場16:00）。12月8日・12月29日〜31日は休城。天守内部は2026年3月22日から長期閉鎖中（外観のみ見学可）。"
 }

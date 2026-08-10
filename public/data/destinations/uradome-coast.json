@@ -1,0 +1,156 @@
+{
+  "id": "uradome-coast",
+  "name": "Uradome Coast",
+  "nameJa": "浦富海岸",
+  "kind": "nature",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Tottori:iwami",
+  "prefecture": "Tottori",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 35.59038,
+    "lng": 134.32622
+  },
+  "categories": ["Nature", "Coast", "National Park"],
+  "tags": ["San'in Kaigan Geopark", "Ria Coast", "Sea Caves", "Scenic Beauty"],
+  "description": "The Uradome Coast is a 15-kilometer ria coastline of eroded cliffs, sea caves, arches and white-sand coves on the Sea of Japan in Iwami, Tottori, known as the San'in Matsushima. It was nationally designated a Place of Scenic Beauty and Natural Monument in 1928 and is a major geosite of the San'in Kaigan Global Geopark. Glass-bottom sightseeing boats run from the Uradome fishing port in season (roughly March–November).",
+  "highlights": [
+    "San'in Matsushima ria coastline with sea caves and arches",
+    "Place of Scenic Beauty & Natural Monument (1928)",
+    "Glass-bottom sightseeing boats in season"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 0,
+  "budgetRecommended": 2500,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 0,
+    "food": 700,
+    "cafe": 300
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Uradome_Kaigan_-01.jpg/1280px-Uradome_Kaigan_-01.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Uradome_Kaigan_-01.jpg/1280px-Uradome_Kaigan_-01.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Aimaimyi, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uradome_Kaigan_-01.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 5000,
+  "walkingSunMin": 4000,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "low",
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 3,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.8,
+    "summer": 9.2,
+    "winter": 5.5,
+    "rain": 3.5,
+    "food": 7,
+    "photography": 9.4,
+    "relaxation": 9,
+    "value": 8.8,
+    "uniqueness": 9.2
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 5
+  },
+  "bestMonths": [4, 5, 6, 7, 8, 9, 10],
+  "bestSeason": "Summer & Autumn",
+  "weatherDependence": "high",
+  "reservation": "Boats: check port schedule in season",
+  "parking": "Free lots near Uradome fishing port",
+  "notes": "Coordinates from Wikipedia. Boat schedule UNKNOWN — do not state times. Iwami is a separate town from Tottori City; reached via gateway hub.",
+  "notesJa": "【見どころ】浦富海岸は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "海岸は終日開放。遊覧船は季節運航（おおむね3月〜11月）。",
+  "businessHours": "Open access (coast); boats seasonal",
+  "officialWebsite": "https://www.iwamikanko.org/",
+  "content": {
+    "en": {
+      "name": "Uradome Coast",
+      "description": "The Uradome Coast is a 15-kilometer ria coastline of eroded cliffs, sea caves, arches and white-sand coves on the Sea of Japan in Iwami, Tottori, known as the San'in Matsushima. It was nationally designated a Place of Scenic Beauty and Natural Monument in 1928 and is a major geosite of the San'in Kaigan Global Geopark. Glass-bottom sightseeing boats run from the Uradome fishing port in season (roughly March–November).",
+      "highlights": [
+        "San'in Matsushima ria coastline with sea caves and arches",
+        "Place of Scenic Beauty & Natural Monument (1928)",
+        "Glass-bottom sightseeing boats in season"
+      ]
+    },
+    "ja": {
+      "name": "浦富海岸",
+      "description": "浦富海岸は鳥取県岩美町の日本海に面した約15kmに及ぶリアス式海岸で、侵食された断崖や海食洞、白砂の入り江が続き「山陰の松島」と呼ばれます。1928年に国の名勝・天然記念物に指定され、山陰海岸ジオパークの主要ジオサイトです。浦富漁港からは季節により遊覧船が運航します（おおむね3月〜11月）。",
+      "highlights": [
+        "海食洞や岩柱が続く「山陰の松島」",
+        "国の名勝・天然記念物（1928年指定）",
+        "季節運航の海中遊覧船"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.torican.jp/en/spot/detail_1052.html",
+        "title": "Uradome Coast — VISIT TOTTORI",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://www.japan.travel/en/spot/2278/",
+        "title": "Uradome Coast — JNTO",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "gatewayHubId": "tottori-city"
+  },
+  "schemaVersion": 2
+}

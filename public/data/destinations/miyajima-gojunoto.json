@@ -1,0 +1,162 @@
+{
+  "id": "miyajima-gojunoto",
+  "name": "Five-Story Pagoda (Gojunoto)",
+  "nameJa": "五重塔",
+  "kind": "tower",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Hiroshima:hatsukaichi",
+  "prefecture": "Hiroshima",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.2972,
+    "lng": 132.3207
+  },
+  "categories": ["Landmark", "History", "Culture"],
+  "tags": [
+    "Gojunoto",
+    "Five-story pagoda",
+    "Important Cultural Property",
+    "Miyajima"
+  ],
+  "description": "The vermilion Five-Story Pagoda beside Senjokaku dates to 1407 and is designated an Important Cultural Property of Japan (not a National Treasure). Its interior is normally closed to the public and it is appreciated from the outside, framing the Itsukushima Shrine skyline. NOTE: as of 2026 the pagoda is under scaffolding for repair work, with restoration scheduled through December 2026, so the exterior may be partly obscured.",
+  "highlights": [
+    "Built 1407; vermilion landmark beside Senjokaku",
+    "Important Cultural Property (not National Treasure)",
+    "Best photo pairing with Itsukushima Shrine & sea"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "transportZoneId": "unknown",
+  "budgetMin": 0,
+  "budgetRecommended": 800,
+  "budgetMax": 1500,
+  "budgetBreakdown": {
+    "transport": 200,
+    "tickets": 0,
+    "food": 400,
+    "cafe": 200
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Autumnal_leaves_and_Itsukushima_shrine_five-storied_pagoda.jpg/1280px-Autumnal_leaves_and_Itsukushima_shrine_five-storied_pagoda.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Autumnal_leaves_and_Itsukushima_shrine_five-storied_pagoda.jpg/1280px-Autumnal_leaves_and_Itsukushima_shrine_five-storied_pagoda.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "さかおり, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Autumnal_leaves_and_Itsukushima_shrine_five-storied_pagoda.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1
+  },
+  "walkingMin": 500,
+  "walkingSunMin": 300,
+  "walkingShadeMin": 200,
+  "walkingIntensity": "low",
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 8,
+    "summer": 7.5,
+    "winter": 7,
+    "rain": 5.5,
+    "food": 5,
+    "photography": 8.5,
+    "relaxation": 7,
+    "value": 7.5,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None.",
+  "parking": "No cars on Miyajima; walk from shrine precincts.",
+  "notes": "Heritage status: Important Cultural Property, NOT National Treasure (Senjokaku and pagoda both).",
+  "notesJa": "【見どころ】五重塔は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "外観は常時見学可能。内部非公開。2026年12月頃まで保存修理工事中（足場設置のため一部見えにくい場合あり）。",
+  "businessHours": "Exterior viewable at all times; interior closed to the public. Under restoration through ~Dec 2026 (scaffolding may obscure views).",
+  "officialWebsite": "https://www.miyajima.or.jp/sightseeing/ss_goju.html",
+  "content": {
+    "en": {
+      "name": "Five-Story Pagoda (Gojunoto)",
+      "description": "The vermilion Five-Story Pagoda beside Senjokaku dates to 1407 and is designated an Important Cultural Property of Japan (not a National Treasure). Its interior is normally closed to the public and it is appreciated from the outside, framing the Itsukushima Shrine skyline. NOTE: as of 2026 the pagoda is under scaffolding for repair work, with restoration scheduled through December 2026, so the exterior may be partly obscured.",
+      "highlights": [
+        "Built 1407; vermilion landmark beside Senjokaku",
+        "Important Cultural Property (not National Treasure)",
+        "Best photo pairing with Itsukushima Shrine & sea"
+      ]
+    },
+    "ja": {
+      "name": "五重塔",
+      "description": "千畳閣に隣接する朱塗りの五重塔は1407年の建立で、日本の重要文化財に指定されています（国宝ではありません）。内部は通常非公開で、厳島神社の景観を引き立てる姿を外から鑑賞します。※2026年現在、保存修理工事中で、2026年12月頃までの工期が予定されており、足場等で一部見えにくくなっています。",
+      "highlights": [
+        "1407年建立の朱塗りの塔",
+        "重要文化財（国宝ではない）",
+        "神社・海と合わせた絶好の撮影ポイント"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.miyajima.or.jp/sightseeing/ss_goju.html",
+        "title": "宮島観光協会 – 五重塔（工事情報）",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.pref.hiroshima.lg.jp/uploaded/attachment/655530.pdf",
+        "title": "広島県 – 文化財指定（重要文化財）",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "hatsukaichi-city"
+  },
+  "schemaVersion": 2
+}

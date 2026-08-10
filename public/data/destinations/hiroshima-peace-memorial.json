@@ -1,24 +1,20 @@
 {
   "id": "hiroshima-peace-memorial",
-  "name": "Hiroshima Peace Memorial (Genbaku Dome)",
+  "name": "Hiroshima Peace Memorial Museum",
   "prefecture": "Hiroshima",
   "region": "Chugoku",
-  "categories": ["World Heritage", "Culture", "Sightseeing"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Genbaku_Dome04-r.JPG/960px-Genbaku_Dome04-r.JPG",
-  "description": "Hiroshima Peace Memorial (Genbaku Dome) is a UNESCO World Heritage Site in Hiroshima, designated for its outstanding universal cultural or natural value.",
+  "categories": ["Museum", "History", "War Memorial", "Indoor"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Hiroshima_Peace_Memorial_Museum_2008_01.JPG/1280px-Hiroshima_Peace_Memorial_Museum_2008_01.JPG",
+  "description": "The Hiroshima Peace Memorial Museum documents the atomic bombing of August 6, 1945 through artifacts, survivor testimony and reconstructed scenes of the devastated city. The permanent exhibition is in the East Building (the Main Building reopened in April 2019 after renovation). The museum stands inside Hiroshima Peace Memorial Park, a short walk from the Genbaku Dome.",
   "highlights": [
     "UNESCO Heritage Monument",
     "Historic Landmark",
     "Cultural Preservation Area"
   ],
-  "budgetMin": 4000,
-  "budgetMax": 15000,
-  "budgetRecommended": 9500,
-  "transportOptions": {
-    "train": 45,
-    "bus": 50,
-    "car": 60
-  },
+  "budgetMin": 800,
+  "budgetMax": 2500,
+  "budgetRecommended": 1500,
+  "transportOptions": {},
   "totalTripHours": 6,
   "walkingMin": 120,
   "walkingSunMin": 70,
@@ -55,21 +51,22 @@
     "Hiroshima Peace Memorial (Genbaku Dome)",
     "Hiroshima"
   ],
-  "reservation": "Not required",
-  "parking": "Available nearby",
-  "notes": "Official UNESCO World Heritage Site.",
+  "reservation": "Online advance reservation required for the first hour after opening and the final hour before close; standard hours can be entered with a same-day ticket.",
+  "parking": "No dedicated visitor lot; nearest paid lots are around Peace Memorial Park (Heiwa Odori side). Use Hiroden tram to Genbaku Dome-mae or Hiroshima Bus.",
+  "notes": "Permanent exhibition in East Building; Main Building reopened 2019. Adjacent to Peace Park and the Genbaku Dome. This record is the museum; the Genbaku Dome is a separate record (genbaku-dome).",
   "coordinates": {
-    "lat": 34.3955,
-    "lng": 132.4536
+    "lat": 34.3916,
+    "lng": 132.4531
   },
   "schemaVersion": 2,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Genbaku_Dome04-r.JPG/960px-Genbaku_Dome04-r.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Hiroshima_Peace_Memorial_Museum_2008_01.JPG/1280px-Hiroshima_Peace_Memorial_Museum_2008_01.JPG",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Hiroshima Peace Memorial (Genbaku Dome) via Wikipedia/Wikimedia Commons"
+    "license": "CC BY-SA 3.0",
+    "attribution": "Taisyo, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hiroshima_Peace_Memorial_Museum_2008_01.JPG"
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -83,12 +80,12 @@
     "parentDestinationId": "hiroshima-city"
   },
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 3000,
-    "cafe": 1500
+    "transport": 300,
+    "tickets": 200,
+    "food": 800,
+    "cafe": 200
   },
-  "nameJa": "原爆ドーム",
+  "nameJa": "広島平和記念資料館",
   "comfort": {
     "heatTolerance": 7,
     "rainFriendly": 7,
@@ -97,10 +94,61 @@
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 5,
-    "max": 7
+    "min": 2,
+    "max": 4
   },
   "officialWebsite": "https://pcf.city.hiroshima.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Hiroshima:hiroshima"
+  "businessHours": "Mar–Nov 07:30–19:00 (Aug until 20:00; Aug 5–6 until 21:00); Dec–Feb 07:30–18:00; last entry 30 min before close; closed Dec 30–31. Online reservation required for the 07:30–08:30 window and the last hour of the day.",
+  "municipalityId": "Hiroshima:hiroshima",
+  "kind": "museum",
+  "openingHoursJa": "3月〜11月 7:30〜19:00（8月は20:00まで、8月5・6日は21:00まで）、12月〜2月 7:30〜18:00、入館は閉館30分前まで。12月30・31日休館。開館直後1時間と閉館前1時間はオンライン予約制。",
+  "content": {
+    "en": {
+      "name": "Hiroshima Peace Memorial Museum",
+      "description": "The Hiroshima Peace Memorial Museum documents the atomic bombing of August 6, 1945 through artifacts, survivor testimony and reconstructed scenes of the devastated city. The permanent exhibition is in the East Building (the Main Building reopened in April 2019 after renovation). The museum stands inside Hiroshima Peace Memorial Park, a short walk from the Genbaku Dome.",
+      "highlights": [
+        "UNESCO Heritage Monument",
+        "Historic Landmark",
+        "Cultural Preservation Area"
+      ]
+    },
+    "ja": {
+      "name": "広島平和記念資料館",
+      "description": "広島平和記念資料館は、1945年8月6日の原爆投下の実相を、遺品・被爆者の証言・復元資料によって伝える施設です。常設展示は東館で行われており、本館は2019年4月に改修を終えて再開しました。広島平和記念公園の中にあり、原爆ドームから徒歩数分です。",
+      "highlights": [
+        "原爆の実相を伝える遺品の展示",
+        "被爆者の証言と平和学習",
+        "東館の常設展示（200円）"
+      ]
+    }
+  },
+  "notesJa": "【見どころ】広島平和記念資料館は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.hiroshima.lg.jp/english/peace/1029920/1009860.html",
+        "title": "Hiroshima City – Peace Memorial Museum"
+      },
+      {
+        "type": "government",
+        "url": "https://whc.unesco.org/en/list/775",
+        "title": "UNESCO WHC – Hiroshima Peace Memorial (Genbaku Dome)"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Split Genbaku Dome from the museum record; source-backed KAI-32 correction",
+        "method": "assisted"
+      }
+    ]
+  }
 }

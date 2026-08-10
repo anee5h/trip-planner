@@ -44,13 +44,11 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
-    "food": 1400,
-    "cafe": 1200
+    "tickets": 2200,
+    "food": 400,
+    "cafe": 0
   },
-  "transportOptions": {
-    "train": 205
-  },
+  "transportOptions": {},
   "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
@@ -94,7 +92,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "notes": "Observation tower beside the Genbaku Dome in Hiroshima City; admission adult (18+) ¥2,200, 12–17 ¥1,400, 6–11 ¥900, 4–5 ¥600; orizuru wall ¥100 extra.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -129,8 +127,8 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "officialWebsite": "https://dive-hiroshima.com/en/",
-  "businessHours": "Open access",
+  "officialWebsite": "https://www.orizurutower.jp/",
+  "businessHours": "10:00–18:00, last entry 17:30.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/HIROSHIMA_ORIZURU_TOWER_2016-1006-1.jpg/1920px-HIROSHIMA_ORIZURU_TOWER_2016-1006-1.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -138,5 +136,6 @@
     "attribution": "Taisyo",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:HIROSHIMA_ORIZURU_TOWER_2016-1006-1.jpg"
   },
-  "municipalityId": "Hiroshima:hiroshima"
+  "municipalityId": "Hiroshima:hiroshima",
+  "openingHoursJa": "10:00〜18:00（最終入場17:30）。"
 }

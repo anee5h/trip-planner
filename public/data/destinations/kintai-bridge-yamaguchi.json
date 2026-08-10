@@ -4,7 +4,7 @@
   "nameJa": "錦帯橋",
   "prefecture": "Yamaguchi",
   "category": "Architecture & History",
-  "description": "An extraordinary five-arched wooden bridge built in 1673 without using a single nail, spanning the Nishiki River in Iwakuni.",
+  "description": "An extraordinary five-arched wooden bridge built in 1673 (the current bridge is a 1953 reconstruction of the original design), spanning the Nishiki River in Iwakuni without using a single nail.",
   "coordinates": {
     "lat": 34.1678,
     "lng": 132.1783
@@ -88,7 +88,8 @@
     "max": 5
   },
   "officialWebsite": "https://kintaikyo.iwakuni-city.net/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "Bridge passable 24 hours; toll booth 08:00–17:00 (extended 18:00 peak, 19:00 summer). Night lighting until 22:00.",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Yamaguchi:iwakuni"
+  "municipalityId": "Yamaguchi:iwakuni",
+  "openingHoursJa": "橋は24時間通行可。渡橋料金所は8:00〜17:00（繁忙期は18:00、夏期は19:00まで延長）。ライトアップは22:00まで。"
 }

@@ -1,0 +1,156 @@
+{
+  "id": "karato-market-shimonoseki",
+  "name": "Karato Market",
+  "nameJa": "唐戸市場",
+  "kind": "market",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Yamaguchi:shimonoseki",
+  "prefecture": "Yamaguchi",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 33.95662,
+    "lng": 130.94582
+  },
+  "categories": ["Food", "Market", "Seafood"],
+  "tags": ["Fugu", "Bakangai", "Seafood Market", "Karato"],
+  "description": "Karato Market is Shimonoseki's central fish market, whose Iki-iki Bakangai street stalls sell sushi and seafood boxes directly to visitors, a highlight of the city's fugu (blowfish) culture. The wholesale area operates from early morning on weekdays, while the Bakangai food stalls run on Fridays, weekends and public holidays.",
+  "highlights": [
+    "Iki-iki Bakangai fresh sushi stalls (Fri–Sun & holidays)",
+    "Fugu dishes — Shimonoseki's signature",
+    "Working wholesale market atmosphere from early morning"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 1000,
+  "budgetRecommended": 2500,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 500,
+    "tickets": 0,
+    "food": 1500,
+    "cafe": 500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/%E5%94%90%E6%88%B8%E5%B8%82%E5%A0%B4202309.jpg/1280px-%E5%94%90%E6%88%B8%E5%B8%82%E5%A0%B4202309.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/%E5%94%90%E6%88%B8%E5%B8%82%E5%A0%B4202309.jpg/1280px-%E5%94%90%E6%88%B8%E5%B8%82%E5%A0%B4202309.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "なしはな, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:唐戸市場202309.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 500,
+  "walkingIntensity": "low",
+  "indoorPercent": 60,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 8,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 8.2,
+    "winter": 9.2,
+    "rain": 8.6,
+    "food": 9.6,
+    "photography": 8.6,
+    "relaxation": 7.4,
+    "value": 9,
+    "uniqueness": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 8
+  },
+  "bestMonths": [1, 2, 3, 10, 11, 12],
+  "bestSeason": "Winter (fugu)",
+  "weatherDependence": "low",
+  "reservation": "None",
+  "parking": "Paid lots nearby (Karato district)",
+  "notes": "Bakangai hours verified from official calendar; wholesale times are morning-start, 5:00–8:00 busiest per official FAQ.",
+  "notesJa": "【見どころ】唐戸市場は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "卸売場は月〜土の早朝（4時頃）から。活きいき馬関街は金・土 9:00〜15:00、日・祝 8:00〜15:00。営業カレンダーを公式サイトでご確認ください。",
+  "businessHours": "Wholesale Mon–Sat from 4:00; Iki-iki Bakangai stalls Fri–Sat 9:00–15:00, Sun & holidays 8:00–15:00 (check the published calendar)",
+  "officialWebsite": "https://www.karatoichiba.com/",
+  "content": {
+    "en": {
+      "name": "Karato Market",
+      "description": "Karato Market is Shimonoseki's central fish market, whose Iki-iki Bakangai street stalls sell sushi and seafood boxes directly to visitors, a highlight of the city's fugu (blowfish) culture. The wholesale area operates from early morning on weekdays, while the Bakangai food stalls run on Fridays, weekends and public holidays.",
+      "highlights": [
+        "Iki-iki Bakangai fresh sushi stalls (Fri–Sun & holidays)",
+        "Fugu dishes — Shimonoseki's signature",
+        "Working wholesale market atmosphere from early morning"
+      ]
+    },
+    "ja": {
+      "name": "唐戸市場",
+      "description": "唐戸市場は下関市の中央卸売市場で、旬の魚介を使った寿司や海鮮丼をその場で味わえる「活きいき馬関街」が名物です。ふぐの街・下関の食文化を代表するスポットで、週末・祝日には鮮度抜群の寿司が並びます。",
+      "highlights": [
+        "「活きいき馬関街」の新鮮な寿司（金・土・日祝）",
+        "下関名物ふぐ料理",
+        "早朝から活気づく市場"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.karatoichiba.com/calendars/",
+        "title": "営業カレンダー — 唐戸市場",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://www.karatoichiba.com/faq/",
+        "title": "よくあるご質問 — 唐戸市場",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "shimonoseki-city"
+  },
+  "schemaVersion": 2
+}

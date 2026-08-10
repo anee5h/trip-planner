@@ -56,7 +56,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Izumo-taisha14bs4592.jpg/3840px-Izumo-taisha14bs4592.jpg",
   "description": "Izumo Taisha is one of Japan's oldest Shinto shrines, famed for its massive 5.2-ton straw Shimenawa rope hanging at the Kaguraden hall and its deity of marriage and destiny.",
-  "notes": "Part of Rikuchū Kaigan National Park. Site of significant rebuilding after the 2011 Great East Japan Earthquake. Glass-bottom boat tours available in calm weather.",
+  "notes": "One of Japan's oldest and most important Shinto shrines; the main hall (rebuilt 1744) is a National Treasure. Deity: Okuninushi no Mikoto, god of enmusubi (relationships).",
   "budgetRecommended": 6500,
   "crowd": {
     "weekday": 3,
@@ -77,7 +77,7 @@
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
     "featuredDestinationIds": [],
-    "nearbyDestinationIds": ["ryusendo-cave-iwate"],
+    "nearbyDestinationIds": [],
     "parentDestinationId": "izumo-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Izumo-taisha14bs4592.jpg/3840px-Izumo-taisha14bs4592.jpg",
@@ -102,7 +102,14 @@
     "min": 3,
     "max": 5
   },
-  "officialWebsite": "https://www.izumo-kankou.gr.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Shimane:izumo"
+  "officialWebsite": "https://izumooyashiro.or.jp/",
+  "businessHours": "Precinct open 06:00–19:00 daily; area behind the Main Sanctuary closes at 16:30; Treasure Hall has separate hours.",
+  "municipalityId": "Shimane:izumo",
+  "openingHoursJa": "境内は毎日6:00〜19:00まで参拝可。本殿背後は16:30まで。宝物殿は別時間（公式サイトで要確認）。",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Izumo-taisha14bs4592.jpg"
+  }
 }

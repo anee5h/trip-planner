@@ -67,7 +67,14 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["matsue-castle"],
+    "featuredDestinationIds": [
+      "matsue-castle",
+      "matsue-vogel-park",
+      "lafcadio-hearn-memorial-museum",
+      "horikawa-pleasure-boat",
+      "tanabe-museum-matsue",
+      "gessho-ji-temple-matsue"
+    ],
     "nearbyDestinationIds": ["izumo-taisha"]
   },
   "budgetBreakdown": {
@@ -83,5 +90,6 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Shimane:matsue"
+  "municipalityId": "Shimane:matsue",
+  "nameJa": "松江市"
 }

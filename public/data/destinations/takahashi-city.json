@@ -1,7 +1,7 @@
 {
   "id": "takahashi-city",
   "name": "Takahashi City",
-  "nameJa": "高梁",
+  "nameJa": "高梁市",
   "prefecture": "Okayama",
   "region": "Chugoku",
   "coordinates": {
@@ -74,7 +74,11 @@
   "parking": "Available around major attractions; confirm local restrictions.",
   "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
   "relationships": {
-    "featuredDestinationIds": ["bitchu-matsuyama-castle"]
+    "featuredDestinationIds": [
+      "bitchu-matsuyama-castle",
+      "raikyuji-temple",
+      "fukiya-village"
+    ]
   },
   "status": "verified",
   "travelEstimate": {

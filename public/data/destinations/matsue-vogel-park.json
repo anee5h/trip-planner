@@ -1,0 +1,162 @@
+{
+  "id": "matsue-vogel-park",
+  "name": "Matsue Vogel Park",
+  "nameJa": "松江フォーゲルパーク",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Shimane:matsue",
+  "prefecture": "Shimane",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 35.47625,
+    "lng": 132.94403
+  },
+  "categories": ["Nature", "Family", "Attraction"],
+  "tags": [
+    "Bird Park",
+    "Penguin Parade",
+    "Lake Shinji",
+    "Flower Greenhouse",
+    "Matsue"
+  ],
+  "description": "Matsue Vogel Park is an aviary and flower park on the north shore of Lake Shinji, opened in 1997. It features one of Japan's largest greenhouses with year-round flowers and walk-through tropical bird aviaries. The park is famous for its daily costumed penguin parades and owl flight shows.",
+  "highlights": [
+    "Costumed penguin parade (multiple daily shows)",
+    "Walk-through tropical bird aviaries",
+    "Japan's largest-class flower greenhouse"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 1200,
+  "budgetRecommended": 3500,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 1000,
+    "tickets": 1750,
+    "food": 500,
+    "cafe": 250
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Matsue_Vogel_Park_-_Center_Greenhouse_2.jpg/1280px-Matsue_Vogel_Park_-_Center_Greenhouse_2.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Matsue_Vogel_Park_-_Center_Greenhouse_2.jpg/1280px-Matsue_Vogel_Park_-_Center_Greenhouse_2.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Tzu-hsun Hsu, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsue_Vogel_Park_-_Center_Greenhouse_2.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 4000,
+  "walkingSunMin": 2500,
+  "walkingShadeMin": 1500,
+  "walkingIntensity": "low",
+  "indoorPercent": 45,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 8,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.2,
+    "summer": 8.4,
+    "winter": 8,
+    "rain": 8.4,
+    "food": 7.5,
+    "photography": 8.8,
+    "relaxation": 8.6,
+    "value": 8.4,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free parking on site",
+  "notes": "Verified hours/admission from official site. Adult admission ¥1,750.",
+  "notesJa": "【見どころ】松江フォーゲルパークは中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:00〜17:00（最終入園16:00）。12月〜3月の第2・第4金曜日は休園。イベント開催時は延長営業の場合あり。",
+  "businessHours": "9:00–17:00 (last entry 16:00); closed 2nd & 4th Friday Dec–Mar; event-period extensions possible",
+  "officialWebsite": "https://www.ichibata.co.jp/vogelpark/",
+  "content": {
+    "en": {
+      "name": "Matsue Vogel Park",
+      "description": "Matsue Vogel Park is an aviary and flower park on the north shore of Lake Shinji, opened in 1997. It features one of Japan's largest greenhouses with year-round flowers and walk-through tropical bird aviaries. The park is famous for its daily costumed penguin parades and owl flight shows.",
+      "highlights": [
+        "Costumed penguin parade (multiple daily shows)",
+        "Walk-through tropical bird aviaries",
+        "Japan's largest-class flower greenhouse"
+      ]
+    },
+    "ja": {
+      "name": "松江フォーゲルパーク",
+      "description": "松江フォーゲルパークは、宍道湖の北岸に1997年に開園した鳥と花のテーマパークです。日本有数の規模を誇る大温室では一年中花を楽しめ、熱帯の鳥たちが放し飼いにされたアビアリを歩いて見学できます。毎日行われるペンギンのお散歩とフクロウのフライトショーが人気です。",
+      "highlights": [
+        "かわいいペンギンのお散歩（1日複数回）",
+        "熱帯の鳥が放し飼いのアビアリ体験",
+        "日本有数の大温室の花々"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ichibata.co.jp/vogelpark/info",
+        "title": "開園時間・入園料・アクセス — 松江フォーゲルパーク",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://www.kankou-shimane.com/en/destinations/9300",
+        "title": "Matsue Vogel Park — Shimane Tourism",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "matsue-city"
+  },
+  "schemaVersion": 2
+}

@@ -67,7 +67,14 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["miyajima-itsukushima"],
+    "featuredDestinationIds": [
+      "miyajima-itsukushima",
+      "miyajima-omotesando",
+      "daisho-in",
+      "miyajima-gojunoto",
+      "senjokaku",
+      "momijidani-park"
+    ],
     "nearbyDestinationIds": ["hiroshima-city", "onomichi-city", "okayama-city"]
   },
   "budgetBreakdown": {
@@ -83,5 +90,6 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Hiroshima:hatsukaichi"
+  "municipalityId": "Hiroshima:hatsukaichi",
+  "nameJa": "廿日市市"
 }

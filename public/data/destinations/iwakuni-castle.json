@@ -1,0 +1,156 @@
+{
+  "id": "iwakuni-castle",
+  "name": "Iwakuni Castle",
+  "nameJa": "岩国城",
+  "kind": "castle",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Yamaguchi:iwakuni",
+  "prefecture": "Yamaguchi",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.17526,
+    "lng": 132.17423
+  },
+  "categories": ["History", "Castle", "Viewpoint"],
+  "tags": ["100 Fine Castles", "Kikkawa Clan", "Ropeway", "Kintai Bridge"],
+  "description": "Iwakuni Castle was first built by Kikkawa Hiroie between 1601 and 1608, then dismantled under the 1615 one-castle-per-province rule. The present tower, reconstructed in 1962, stands on Shiro-yama above the Nishiki River with views over Kintai Bridge and the city, reached by ropeway or hiking trail. It was selected among Japan's 100 Fine Castles in 2006.",
+  "highlights": [
+    "Reconstructed 1962 keep above the Nishiki River",
+    "Panoramic views of Kintai Bridge from the top",
+    "Ropeway ride up Mt. Shiro (3 min)"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 800,
+  "budgetRecommended": 2500,
+  "budgetMax": 4500,
+  "budgetBreakdown": {
+    "transport": 830,
+    "tickets": 270,
+    "food": 900,
+    "cafe": 500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/20100724_Iwakuni_Castle_5262.jpg/1280px-20100724_Iwakuni_Castle_5262.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/20100724_Iwakuni_Castle_5262.jpg/1280px-20100724_Iwakuni_Castle_5262.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Jakub Hałun, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:20100724_Iwakuni_Castle_5262.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 2.5
+  },
+  "walkingMin": 3500,
+  "walkingSunMin": 2500,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "low",
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.4,
+    "summer": 7.8,
+    "winter": 8,
+    "rain": 6,
+    "food": 7.5,
+    "photography": 9,
+    "relaxation": 8,
+    "value": 8.4,
+    "uniqueness": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None",
+  "parking": "Paid lots near Kintai Bridge / ropeway base",
+  "notes": "Fees/hours verified from Iwakuni City tourism. Castle ¥270; ropeway ¥560 round trip; set ticket ¥970. Ropeway final departure is 17:00 down.",
+  "notesJa": "【見どころ】岩国城は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "天守 9:00〜16:45（入館16:30まで）。ロープウェイ 9:00〜17:00（15分間隔、最終17:00）。1月〜2月の点検期間は運休・休館あり。",
+  "businessHours": "Castle 9:00–16:45 (entry by 16:30); ropeway 9:00–17:00 every 15 min (last up 17:00); closed on ropeway inspection days (Jan–Feb period)",
+  "officialWebsite": "https://kankou.iwakuni-city.net/iwakunijyo.html",
+  "content": {
+    "en": {
+      "name": "Iwakuni Castle",
+      "description": "Iwakuni Castle was first built by Kikkawa Hiroie between 1601 and 1608, then dismantled under the 1615 one-castle-per-province rule. The present tower, reconstructed in 1962, stands on Shiro-yama above the Nishiki River with views over Kintai Bridge and the city, reached by ropeway or hiking trail. It was selected among Japan's 100 Fine Castles in 2006.",
+      "highlights": [
+        "Reconstructed 1962 keep above the Nishiki River",
+        "Panoramic views of Kintai Bridge from the top",
+        "Ropeway ride up Mt. Shiro (3 min)"
+      ]
+    },
+    "ja": {
+      "name": "岩国城",
+      "description": "岩国城は1601年から1608年にかけて吉川広家によって築かれましたが、1615年の一国一城令で取り壊されました。現在の天守は1962年に再建されたもので、錦川を見下ろす城山に立ち、錦帯橋や市街を一望できます。ロープウェイか徒歩で登れます。2006年には日本100名城に選定されました。",
+      "highlights": [
+        "錦川を見下ろす1962年再建の天守",
+        "頂上からの錦帯橋の絶景",
+        "約3分のロープウェイ"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://kankou.iwakuni-city.net/iwakunijyo.html",
+        "title": "岩国城 — 岩国観光振興課",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://kankou.iwakuni-city.net/ropeway.html",
+        "title": "岩国城ロープウエー — 岩国観光振興課",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "iwakuni-city"
+  },
+  "schemaVersion": 2
+}

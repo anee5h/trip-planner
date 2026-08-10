@@ -44,13 +44,11 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
+    "tickets": 350,
     "food": 1400,
-    "cafe": 1200
+    "cafe": 850
   },
-  "transportOptions": {
-    "train": 205
-  },
+  "transportOptions": {},
   "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
@@ -94,7 +92,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+  "notes": "Edo-period strolling garden in Hiroshima City; admission ¥350 adult (from Apr 14, 2025), ¥150 university, free high school and under.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -130,13 +128,14 @@
     "confidence": "low"
   },
   "officialWebsite": "https://shukkeien.jp/en/",
-  "businessHours": "Open access",
+  "businessHours": "09:00–18:00 (Mar 16–Sep 15); 09:00–17:00 (Sep 16–Mar 15); closed Dec 29–31.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Hiroshima_Shukkei-en_Pond.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "Public domain",
-    "attribution": "No machine-readable author provided. Fg2 assumed (based on copyright claims).",
+    "attribution": "Fg2, public domain, via Wikimedia Commons",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hiroshima_Shukkei-en_Pond.jpg"
   },
-  "municipalityId": "Hiroshima:hiroshima"
+  "municipalityId": "Hiroshima:hiroshima",
+  "openingHoursJa": "3月16日〜9月15日 9:00〜18:00、9月16日〜3月15日 9:00〜17:00。12月29日〜31日は休園。"
 }

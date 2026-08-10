@@ -67,7 +67,11 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["izumo-taisha", "matsue-castle"],
+    "featuredDestinationIds": [
+      "izumo-taisha",
+      "inasa-beach-izumo",
+      "hinomisaki-lighthouse-izumo"
+    ],
     "nearbyDestinationIds": [
       "hiroshima-city",
       "onomichi-city",
@@ -87,5 +91,6 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Shimane:izumo"
+  "municipalityId": "Shimane:izumo",
+  "nameJa": "出雲市"
 }

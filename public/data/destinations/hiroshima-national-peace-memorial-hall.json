@@ -1,0 +1,156 @@
+{
+  "id": "hiroshima-national-peace-memorial-hall",
+  "name": "Hiroshima National Peace Memorial Hall for the Atomic Bomb Victims",
+  "nameJa": "国立広島原爆死没者追悼平和祈念館",
+  "kind": "memorial",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Hiroshima:hiroshima",
+  "prefecture": "Hiroshima",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.3933,
+    "lng": 132.4535
+  },
+  "categories": ["Memorial", "History", "Museum", "Indoor"],
+  "tags": ["National Peace Memorial Hall", "Genbaku", "Free admission"],
+  "description": "The National Peace Memorial Hall, opened in 2002, remembers the atomic-bomb victims with a Hall of Remembrance whose panoramic image shows the city at the moment of the bombing. Personal records of more than 20,000 victims are on display, and visitors can search a digital archive of survivors' memories. Admission is free; it stands at the south end of Peace Memorial Park near the museum.",
+  "highlights": [
+    "Hall of Remembrance with panorama of the bombing moment",
+    "Victims' name registers and digital memory archive",
+    "Free admission, rain-friendly"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 0,
+  "budgetRecommended": 700,
+  "budgetMax": 1200,
+  "budgetBreakdown": {
+    "transport": 200,
+    "tickets": 0,
+    "food": 300,
+    "cafe": 200
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Hiroshima_National_Peace_Memorial_Hall_for_the_Atomic_Bomb_Victims_20170310.jpg/1280px-Hiroshima_National_Peace_Memorial_Hall_for_the_Atomic_Bomb_Victims_20170310.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Hiroshima_National_Peace_Memorial_Hall_for_the_Atomic_Bomb_Victims_20170310.jpg/1280px-Hiroshima_National_Peace_Memorial_Hall_for_the_Atomic_Bomb_Victims_20170310.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hiroshima_National_Peace_Memorial_Hall_for_the_Atomic_Bomb_Victims_20170310.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 1000,
+  "walkingSunMin": 400,
+  "walkingShadeMin": 600,
+  "walkingIntensity": "low",
+  "indoorPercent": 95,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 1
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 7,
+    "summer": 8,
+    "winter": 7.5,
+    "rain": 8.5,
+    "food": 5,
+    "photography": 6,
+    "relaxation": 6.5,
+    "value": 9,
+    "uniqueness": 7.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 3,
+    "holiday": 4
+  },
+  "season": {
+    "spring": 6,
+    "summer": 7,
+    "autumn": 6,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "None required.",
+  "parking": "No dedicated lot; use Peace Park area parking.",
+  "notes": "Free national memorial; pairs with Museum and Park in one itinerary.",
+  "notesJa": "【見どころ】国立広島原爆死没者追悼平和祈念館は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "3月〜7月 8:30〜18:00、8月 8:30〜19:00（8月5・6日は20:00まで）、9月〜11月 8:30〜18:00、12月〜2月 8:30〜17:00。入館無料。12月29日〜31日は休館（要確認）。",
+  "businessHours": "Mar–Jul 08:30–18:00; Aug 08:30–19:00 (until 20:00 Aug 5–6); Sep–Nov 08:30–18:00; Dec–Feb 08:30–17:00. Free. Closed Dec 29–31 (verify current).",
+  "officialWebsite": "https://www.hiro-tsuitokinenkan.go.jp/en/",
+  "content": {
+    "en": {
+      "name": "Hiroshima National Peace Memorial Hall for the Atomic Bomb Victims",
+      "description": "The National Peace Memorial Hall, opened in 2002, remembers the atomic-bomb victims with a Hall of Remembrance whose panoramic image shows the city at the moment of the bombing. Personal records of more than 20,000 victims are on display, and visitors can search a digital archive of survivors' memories. Admission is free; it stands at the south end of Peace Memorial Park near the museum.",
+      "highlights": [
+        "Hall of Remembrance with panorama of the bombing moment",
+        "Victims' name registers and digital memory archive",
+        "Free admission, rain-friendly"
+      ]
+    },
+    "ja": {
+      "name": "国立広島原爆死没者追悼平和祈念館",
+      "description": "国立広島原爆死没者追悼平和祈念館は2002年に開館し、被爆時刻の広島市街を再現したパノラマ映像で知られる追悼施設です。2万人を超える原爆死没者の名簿を収蔵・展示し、被爆体験記のデジタル検索もできます。入館無料で、平和記念公園の南端に位置します。",
+      "highlights": [
+        "被爆時刻を再現した追悼の間",
+        "死没者名簿と体験記アーカイブ",
+        "入館無料・雨天でも安心"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.hiro-tsuitokinenkan.go.jp/en/visit/index.html",
+        "title": "National Peace Memorial Hall – Visit (hours, fees)",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.hiro-tsuitokinenkan.go.jp/en/",
+        "title": "National Peace Memorial Hall – Home",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "hiroshima-city"
+  },
+  "schemaVersion": 2
+}

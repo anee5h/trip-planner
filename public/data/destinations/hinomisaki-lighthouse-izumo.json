@@ -1,0 +1,161 @@
+{
+  "id": "hinomisaki-lighthouse-izumo",
+  "name": "Hinomisaki Lighthouse",
+  "nameJa": "出雲日御碕灯台",
+  "kind": "tower",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Shimane:izumo",
+  "prefecture": "Shimane",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 35.43374,
+    "lng": 132.62927
+  },
+  "categories": ["Landmark", "History", "Viewpoint"],
+  "tags": [
+    "Lighthouse",
+    "Important Cultural Property",
+    "Sea of Japan",
+    "Sunset"
+  ],
+  "description": "Hinomisaki Lighthouse, completed in 1903 at the western tip of the Shimane Peninsula, is Japan's tallest stone lighthouse at 43.65 m. The white granite tower is an Important Cultural Property and was chosen among the world's 100 historic lighthouses. Visitors can climb the spiral staircase to the gallery for a panoramic view of the Sea of Japan.",
+  "highlights": [
+    "Japan's tallest stone lighthouse (43.65 m)",
+    "Important Cultural Property since 1998",
+    "Sunset views over the Sea of Japan"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 300,
+  "budgetRecommended": 1800,
+  "budgetMax": 4000,
+  "budgetBreakdown": {
+    "transport": 900,
+    "tickets": 300,
+    "food": 400,
+    "cafe": 200
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Hinomisaki_lighthouse_Izumo01bs3200.jpg/1280px-Hinomisaki_lighthouse_Izumo01bs3200.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Hinomisaki_lighthouse_Izumo01bs3200.jpg/1280px-Hinomisaki_lighthouse_Izumo01bs3200.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hinomisaki_lighthouse_Izumo01bs3200.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 1.5
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1800,
+  "walkingShadeMin": 700,
+  "walkingIntensity": "low",
+  "indoorPercent": 40,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 4,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.6,
+    "summer": 8.6,
+    "winter": 7,
+    "rain": 4.5,
+    "food": 6.8,
+    "photography": 9.2,
+    "relaxation": 8.2,
+    "value": 8.8,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 6
+  },
+  "bestMonths": [4, 5, 6, 7, 8, 9, 10],
+  "bestSeason": "Autumn",
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Free lots (first 65 cars, second 175 cars)",
+  "notes": "Hours (from 2026-03-01 change) verified from Izumo City site. Observation donation ¥300 jr-high+, under 13 free.",
+  "notesJa": "【見どころ】出雲日御碕灯台は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "通年 9:00〜12:00。午後は3月〜9月 平日13:00〜16:30・土日祝13:00〜17:00、10月〜2月 13:00〜16:30。入場は終了20分前まで。12月30日・31日は休業。荒天時は参観中止の場合あり。",
+  "businessHours": "Year-round 9:00–12:00; afternoons Mar–Sep weekdays 13:00–16:30, weekends/holidays 13:00–17:00; Oct–Feb 13:00–16:30; last entry 20 min before close; closed Dec 30–31; may close in rough weather",
+  "officialWebsite": "https://www.city.izumo.shimane.jp/www/contents/1769395852119/index.html",
+  "content": {
+    "en": {
+      "name": "Hinomisaki Lighthouse",
+      "description": "Hinomisaki Lighthouse, completed in 1903 at the western tip of the Shimane Peninsula, is Japan's tallest stone lighthouse at 43.65 m. The white granite tower is an Important Cultural Property and was chosen among the world's 100 historic lighthouses. Visitors can climb the spiral staircase to the gallery for a panoramic view of the Sea of Japan.",
+      "highlights": [
+        "Japan's tallest stone lighthouse (43.65 m)",
+        "Important Cultural Property since 1998",
+        "Sunset views over the Sea of Japan"
+      ]
+    },
+    "ja": {
+      "name": "出雲日御碕灯台",
+      "description": "出雲日御碕灯台は1903年に島根半島の西端に完成した、高さ43.65mの日本一高い石造灯台です。白い花崗岩の塔は重要文化財に指定され、世界の歴史的灯台100選にも選ばれています。螺旋階段を上って回廊から日本海の絶景を眺められます。",
+      "highlights": [
+        "日本一高い石造灯台（43.65m）",
+        "重要文化財に指定",
+        "日本海に沈む夕日"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.izumo.shimane.jp/www/contents/1769395852119/index.html",
+        "title": "（3/1〜）出雲日御碕灯台 参観時間の変更について — 出雲市",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://www.kankou-shimane.com/destination/20253",
+        "title": "出雲日御碕灯台 — しまね観光ナビ",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "izumo-city"
+  },
+  "schemaVersion": 2
+}

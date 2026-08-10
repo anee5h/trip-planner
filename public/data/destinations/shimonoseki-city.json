@@ -67,7 +67,10 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [],
+    "featuredDestinationIds": [
+      "karato-market-shimonoseki",
+      "tsunoshima-bridge-yamaguchi"
+    ],
     "nearbyDestinationIds": [
       "hiroshima-city",
       "onomichi-city",
@@ -87,5 +90,6 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Yamaguchi:shimonoseki"
+  "municipalityId": "Yamaguchi:shimonoseki",
+  "nameJa": "下関市"
 }

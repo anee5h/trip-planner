@@ -60,7 +60,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/1280px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg",
   "description": "Matsue Castle, completed in 1611, is one of Japan's five castles designated as National Treasures, featuring striking black wooden siding nicknamed the Black Plover Castle.",
-  "notes": "Matsue City travel hub in Shimane Prefecture.",
+  "notes": "National Treasure keep, one of Japan's five original wooden castle keeps (designated 2015); nicknamed Chidori-jo (Black Plover Castle). Adjacent to Horikawa moat and Shiomi Nawate samurai street.",
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 4000,
   "budgetMax": 15000,
@@ -111,6 +111,13 @@
     "max": 5
   },
   "officialWebsite": "https://www.matsue-castle.jp/",
-  "businessHours": "08:30 - 18:30 (Oct-Mar: 08:30 - 17:00)",
-  "municipalityId": "Shimane:matsue"
+  "businessHours": "Apr 1–Sep 30: 08:30–18:00 (last entry 17:30); Oct 1–Mar 31: 08:30–17:00 (last entry 16:30). Open daily.",
+  "municipalityId": "Shimane:matsue",
+  "openingHoursJa": "4月1日〜9月30日 8:30〜18:00（最終入場17:30）。10月1日〜3月31日 8:30〜17:00（最終入場16:30）。年中無休。",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg"
+  }
 }

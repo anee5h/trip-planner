@@ -1,0 +1,162 @@
+{
+  "id": "lafcadio-hearn-memorial-museum",
+  "name": "Lafcadio Hearn Memorial Museum",
+  "nameJa": "小泉八雲記念館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Shimane:matsue",
+  "prefecture": "Shimane",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 35.47917,
+    "lng": 133.04917
+  },
+  "categories": ["Culture", "Museum", "History"],
+  "tags": [
+    "Lafcadio Hearn",
+    "Koizumi Yakumo",
+    "Literature",
+    "Shiomi Nawate",
+    "Matsue"
+  ],
+  "description": "The Lafcadio Hearn Memorial Museum, established in 1933, honors Lafcadio Hearn (Koizumi Yakumo), the writer who taught English in Matsue from 1890 to 1891 and later chronicled Japan. The collection includes his personal belongings, manuscripts and materials on his life, with about 150,000 visitors a year. Hearn's former residence, a National Historic Site on Shiomi Nawate, stands next door.",
+  "highlights": [
+    "Hearn's personal belongings, manuscripts and first editions",
+    "Adjacent National Historic Site former residence (Shiomi Nawate)",
+    "Samurai-street setting on the castle moat"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 900,
+    "tickets": 800,
+    "food": 800,
+    "cafe": 500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Lafcadio_Hearn_Memorial_Hall01st3200.jpg/1280px-Lafcadio_Hearn_Memorial_Hall01st3200.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Lafcadio_Hearn_Memorial_Hall01st3200.jpg/1280px-Lafcadio_Hearn_Memorial_Hall01st3200.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lafcadio_Hearn_Memorial_Hall01st3200.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "low",
+  "indoorPercent": 85,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 9,
+    "walkingIntensity": 2
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 7.8,
+    "winter": 8.4,
+    "rain": 9,
+    "food": 7,
+    "photography": 8.6,
+    "relaxation": 8.2,
+    "value": 8.6,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "No dedicated parking; use nearby public lots or buses",
+  "notes": "Fees/hours verified from official site. Adult ¥600; former residence admission separate (adult ¥300) or common ticket ¥800.",
+  "notesJa": "【見どころ】小泉八雲記念館は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "4月〜9月 9:00〜18:00（最終入館17:30）。10月〜3月 9:00〜17:00（最終入館16:30）。年中無休ですが、年に数回臨時休館があります。",
+  "businessHours": "Apr–Sep 9:00–18:00 (last entry 17:30); Oct–Mar 9:00–17:00 (last entry 16:30); open year-round except occasional maintenance closures",
+  "officialWebsite": "https://www.hearn-museum-matsue.jp/",
+  "content": {
+    "en": {
+      "name": "Lafcadio Hearn Memorial Museum",
+      "description": "The Lafcadio Hearn Memorial Museum, established in 1933, honors Lafcadio Hearn (Koizumi Yakumo), the writer who taught English in Matsue from 1890 to 1891 and later chronicled Japan. The collection includes his personal belongings, manuscripts and materials on his life, with about 150,000 visitors a year. Hearn's former residence, a National Historic Site on Shiomi Nawate, stands next door.",
+      "highlights": [
+        "Hearn's personal belongings, manuscripts and first editions",
+        "Adjacent National Historic Site former residence (Shiomi Nawate)",
+        "Samurai-street setting on the castle moat"
+      ]
+    },
+    "ja": {
+      "name": "小泉八雲記念館",
+      "description": "小泉八雲記念館は1933年に開館し、1890年から1891年に松江で英語教師を務めた文筆家ラフカディオ・ハーン（小泉八雲）を顕彰する文学館です。遺品や原稿など約1,500点を収蔵し、年間約15万人が訪れます。隣接する旧居（塩見縄手）は国の史跡に指定されています。",
+      "highlights": [
+        "八雲の遺品・原稿・初版本の展示",
+        "隣接する国史跡・小泉八雲旧居",
+        "堀沿いの武家町・塩見縄手の風情"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.hearn-museum-matsue.jp/english.html",
+        "title": "Lafcadio Hearn Memorial Museum — Official (EN)",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://www.hearn-museum-matsue.jp/userguide.html",
+        "title": "入館料・利用案内 — 小泉八雲記念館",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "matsue-city"
+  },
+  "schemaVersion": 2
+}

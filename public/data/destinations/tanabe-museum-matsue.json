@@ -1,0 +1,156 @@
+{
+  "id": "tanabe-museum-matsue",
+  "name": "Tanabe Museum of Art",
+  "nameJa": "田部美術館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Shimane:matsue",
+  "prefecture": "Shimane",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 35.47913,
+    "lng": 133.04984
+  },
+  "categories": ["Culture", "Museum", "Art"],
+  "tags": ["Tea Ceremony", "Matsudaira Fumai", "Izumo Crafts", "Art Museum"],
+  "description": "The Tanabe Museum of Art, opened in 1979 on a former samurai residence block in Matsue, displays tea-ceremony utensils associated with Lord Matsudaira Fumai and crafts from the Izumo region. The collection was built up over 24 generations of the Tanabe family, including calligraphy, ceramics and lacquerware. Three exhibition rooms rotate seasonal tea-theme displays roughly every two months.",
+  "highlights": [
+    "Tea utensils connected to Lord Matsudaira Fumai",
+    "Izumo ceramics and lacquerware collection",
+    "Former samurai residence district setting"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 1000,
+  "budgetRecommended": 2800,
+  "budgetMax": 4500,
+  "budgetBreakdown": {
+    "transport": 900,
+    "tickets": 700,
+    "food": 700,
+    "cafe": 500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/%E7%94%B0%E9%83%A8%E7%BE%8E%E8%A1%93%E9%A4%A8_-_panoramio.jpg/1280px-%E7%94%B0%E9%83%A8%E7%BE%8E%E8%A1%93%E9%A4%A8_-_panoramio.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/%E7%94%B0%E9%83%A8%E7%BE%8E%E8%A1%93%E9%A4%A8_-_panoramio.jpg/1280px-%E7%94%B0%E9%83%A8%E7%BE%8E%E8%A1%93%E9%A4%A8_-_panoramio.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Yoshio Kohara, CC BY 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:田部美術館_-_panoramio.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 1.5
+  },
+  "walkingMin": 2000,
+  "walkingSunMin": 1200,
+  "walkingShadeMin": 800,
+  "walkingIntensity": "low",
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 9,
+    "walkingIntensity": 1
+  },
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8,
+    "summer": 7.6,
+    "winter": 8.2,
+    "rain": 8.8,
+    "food": 7.2,
+    "photography": 8.2,
+    "relaxation": 8.4,
+    "value": 8,
+    "uniqueness": 8.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "None required",
+  "parking": "No dedicated parking (city center)",
+  "notes": "Verified hours/fees from official site. Adult ¥700; special exhibitions extra.",
+  "notesJa": "【見どころ】田部美術館は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:00〜17:00（最終入館16:30）。月曜休館（祝日の場合は開館）。年末年始・展示替えによる臨時休館あり。",
+  "businessHours": "9:00–17:00 (last entry 16:30); closed Mondays (open if Monday is a public holiday); year-end/New Year and temporary closures",
+  "officialWebsite": "https://www.tanabe-museum.or.jp/",
+  "content": {
+    "en": {
+      "name": "Tanabe Museum of Art",
+      "description": "The Tanabe Museum of Art, opened in 1979 on a former samurai residence block in Matsue, displays tea-ceremony utensils associated with Lord Matsudaira Fumai and crafts from the Izumo region. The collection was built up over 24 generations of the Tanabe family, including calligraphy, ceramics and lacquerware. Three exhibition rooms rotate seasonal tea-theme displays roughly every two months.",
+      "highlights": [
+        "Tea utensils connected to Lord Matsudaira Fumai",
+        "Izumo ceramics and lacquerware collection",
+        "Former samurai residence district setting"
+      ]
+    },
+    "ja": {
+      "name": "田部美術館",
+      "description": "田部美術館は1979年、松江の旧武家屋敷地に開館しました。松平不昧公ゆかりの茶道具や出雲地方の美術工芸品を中心に、田部家24代にわたり伝来した調度品を収蔵・展示しています。3つの展示室では季節ごとに茶道具の組み合わせ展示が行われます。",
+      "highlights": [
+        "松平不昧公ゆかりの茶道具",
+        "出雲の焼物・漆器コレクション",
+        "旧武家屋敷街の立地"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.tanabe-museum.or.jp/information/",
+        "title": "ご利用案内 — 田部美術館",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://www.tanabe-museum.or.jp/guide/",
+        "title": "常設展 — 田部美術館",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "matsue-city"
+  },
+  "schemaVersion": 2
+}

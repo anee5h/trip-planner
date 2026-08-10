@@ -1,0 +1,167 @@
+{
+  "id": "fukiya-village",
+  "name": "Fukiya Village (Fukiya Furusato Village)",
+  "nameJa": "吹屋ふるさと村",
+  "kind": "district",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Okayama:takahashi",
+  "prefecture": "Okayama",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.862,
+    "lng": 133.469
+  },
+  "categories": ["District", "History", "Culture"],
+  "tags": [
+    "Bengara Red Pigment",
+    "Copper Mining Town",
+    "Important Preservation District",
+    "Japan Heritage"
+  ],
+  "description": "Fukiya is a mountain village at about 550 meters elevation in the Nariwa area of Takahashi City, which prospered from copper mining and the production of bengara (red iron-oxide pigment). Its unified townscape of red-ocher facades and sekishu-tile roofs was designated a national Important Preservation District for Groups of Traditional Buildings in 1977 and a Japan Heritage site in 2020. Visitors can tour the Bengara-kan museum, the restored Sasanoe mine tunnel, and a bengara pottery studio.",
+  "highlights": [
+    "Walk the unified red-ocher streetscape, a national preservation district since 1977",
+    "Tour the Bengara-kan museum and the restored Sasanoe copper-mine tunnel",
+    "Try bengara pottery painting at the adjacent pottery hall"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 3000,
+  "budgetRecommended": 6000,
+  "budgetMax": 11000,
+  "budgetBreakdown": {
+    "transport": 1600,
+    "tickets": 1000,
+    "food": 2000,
+    "cafe": 1400
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Fukiya01s3200.jpg/1280px-Fukiya01s3200.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Fukiya01s3200.jpg/1280px-Fukiya01s3200.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fukiya01s3200.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 4000,
+  "walkingSunMin": 3000,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 6
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 7.6,
+    "winter": 6.8,
+    "rain": 5.8,
+    "food": 7.8,
+    "photography": 9.4,
+    "relaxation": 8.6,
+    "value": 8.6,
+    "uniqueness": 9.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 1,
+    "weekend": 2,
+    "holiday": 3
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 5
+  },
+  "bestMonths": [4, 5, 6, 10, 11],
+  "bestSeason": "Autumn",
+  "weatherDependence": "high",
+  "reservation": "Not required for the village; confirm facility hours before visiting",
+  "parking": "Village parking: 85 spaces incl. 5 buses (at old Fukiya Elementary School area)",
+  "notes": "Bus service is infrequent (~3 departures/day outbound); plan around the timetable. Bihoku Bus from Takahashi Bus Center ~58 min, ¥800 one way. Part of Japan Heritage Japan Red story since 2020.",
+  "notesJa": "【見どころ】吹屋ふるさと村は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "町並みは自由に散策可能（ベンガラ館・笹畝坑道などの施設はそれぞれ開館時間が異なります。吹屋観光協会でご確認ください）。",
+  "businessHours": "Village streets open access; individual facilities (Bengara-kan, Sasanoe tunnel) have their own hours — check the tourism association site",
+  "officialWebsite": "https://sites.google.com/site/fukiyakankou/home",
+  "content": {
+    "en": {
+      "name": "Fukiya Village (Fukiya Furusato Village)",
+      "description": "Fukiya is a mountain village at about 550 meters elevation in the Nariwa area of Takahashi City, which prospered from copper mining and the production of bengara (red iron-oxide pigment). Its unified townscape of red-ocher facades and sekishu-tile roofs was designated a national Important Preservation District for Groups of Traditional Buildings in 1977 and a Japan Heritage site in 2020. Visitors can tour the Bengara-kan museum, the restored Sasanoe mine tunnel, and a bengara pottery studio.",
+      "highlights": [
+        "Walk the unified red-ocher streetscape, a national preservation district since 1977",
+        "Tour the Bengara-kan museum and the restored Sasanoe copper-mine tunnel",
+        "Try bengara pottery painting at the adjacent pottery hall"
+      ]
+    },
+    "ja": {
+      "name": "吹屋ふるさと村",
+      "description": "吹屋ふるさと村は、高梁市成羽町の標高約550メートルの山間にある集落で、銅山の開発と「ベンガラ（紅色顔料）」の生産で栄えました。ベンガラ色の外壁と石州瓦の屋根で統一された町並みは、1977年に国の重要伝統的建造物群保存地区に選定され、2020年には日本遺産に認定されました。ベンガラ館や復元された笹畝坑道、ベンガラ陶芸館などを見学できます。",
+      "highlights": [
+        "1977年選定の国重伝建地区・ベンガラ色の統一された町並みを散策",
+        "ベンガラ館と復元された笹畝坑道を見学",
+        "隣接するベンガラ陶芸館でベンガラ絵付けを体験"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.takahashi.lg.jp/soshiki/9/fukiya4240131.html",
+        "title": "吹屋ふるさと村｜高梁市公式ホームページ",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.japan-heritage.bunka.go.jp/ja/culturalproperties/result/5402/",
+        "title": "高梁市吹屋伝統的建造物群保存地区｜日本遺産ポータルサイト",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://takahasikanko.or.jp/modules/spot/index.php?content_id=21",
+        "title": "吹屋ふるさと村｜備中たかはし",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "takahashi-city"
+  },
+  "schemaVersion": 2
+}

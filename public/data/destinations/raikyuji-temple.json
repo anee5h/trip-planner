@@ -1,0 +1,167 @@
+{
+  "id": "raikyuji-temple",
+  "name": "Raikyuji Temple",
+  "nameJa": "頼久寺",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Okayama:takahashi",
+  "prefecture": "Okayama",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.7973,
+    "lng": 133.6189
+  },
+  "categories": ["Temple", "Garden", "Culture"],
+  "tags": [
+    "Kobori Enshu Garden",
+    "National Scenic Spot",
+    "Crane & Turtle Garden",
+    "Bitchu-Takahashi"
+  ],
+  "description": "Raikyuji is a Rinzai Zen temple in Takahashi, revived in 1339 by Ashikaga Takauji as one of the Ankokuji temples. Its dry landscape garden, created around 1605 by garden master Kobori Enshu during his time as governor of Bitchu Province, is a nationally designated Place of Scenic Beauty known as the Crane and Turtle Garden for its island rock arrangements. The garden uses Mt. Atago as borrowed scenery and features large clipped azalea mounds.",
+  "highlights": [
+    "Contemplate the nationally designated dry garden attributed to Kobori Enshu",
+    "See azaleas in bloom late April–late May (about 1,000 sq m of clipped mounds)",
+    "Visit as part of the Takahashi three-site ticket (¥1,000 with castle and samurai residences)"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 2000,
+  "budgetRecommended": 4500,
+  "budgetMax": 8000,
+  "budgetBreakdown": {
+    "transport": 2500,
+    "tickets": 400,
+    "food": 1200,
+    "cafe": 400
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/220101_Raikyuji_Takahashi_Okayama_pref_Japan09s3.jpg/1280px-220101_Raikyuji_Takahashi_Okayama_pref_Japan09s3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/220101_Raikyuji_Takahashi_Okayama_pref_Japan09s3.jpg/1280px-220101_Raikyuji_Takahashi_Okayama_pref_Japan09s3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:220101_Raikyuji_Takahashi_Okayama_pref_Japan09s3.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 0.8,
+    "max": 1.5
+  },
+  "walkingMin": 1500,
+  "walkingSunMin": 700,
+  "walkingShadeMin": 800,
+  "walkingIntensity": "medium",
+  "indoorPercent": 40,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.8,
+    "summer": 7.4,
+    "winter": 7.2,
+    "rain": 6.6,
+    "food": 7.4,
+    "photography": 9,
+    "relaxation": 9.2,
+    "value": 8.8,
+    "uniqueness": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 1,
+    "weekend": 2,
+    "holiday": 3
+  },
+  "season": {
+    "spring": 9,
+    "summer": 6,
+    "autumn": 8,
+    "winter": 5
+  },
+  "bestMonths": [4, 5, 10, 11],
+  "bestSeason": "Spring (azaleas) & Autumn (foliage)",
+  "weatherDependence": "moderate",
+  "reservation": "Not required",
+  "parking": "Free parking available",
+  "notes": "Garden admission ¥400 adults / ¥200 middle & high school; elementary and under free. National Scenic Spot designated under the Cultural Properties law. ~15-min walk from JR Bitchu-Takahashi Station.",
+  "notesJa": "【見どころ】頼久寺は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "庭園拝観 9:00〜17:00（年中無休）。",
+  "businessHours": "Garden open 09:00–17:00, open every day of the year",
+  "officialWebsite": "https://raikyuji.com/",
+  "content": {
+    "en": {
+      "name": "Raikyuji Temple",
+      "description": "Raikyuji is a Rinzai Zen temple in Takahashi, revived in 1339 by Ashikaga Takauji as one of the Ankokuji temples. Its dry landscape garden, created around 1605 by garden master Kobori Enshu during his time as governor of Bitchu Province, is a nationally designated Place of Scenic Beauty known as the Crane and Turtle Garden for its island rock arrangements. The garden uses Mt. Atago as borrowed scenery and features large clipped azalea mounds.",
+      "highlights": [
+        "Contemplate the nationally designated dry garden attributed to Kobori Enshu",
+        "See azaleas in bloom late April–late May (about 1,000 sq m of clipped mounds)",
+        "Visit as part of the Takahashi three-site ticket (¥1,000 with castle and samurai residences)"
+      ]
+    },
+    "ja": {
+      "name": "頼久寺",
+      "description": "頼久寺は高梁市にある臨済宗永源寺派の寺院で、暦応2年（1339年）に足利尊氏により安国寺の一つとして再興されました。慶長5年（1600年）頃に備中国奉行として赴任した小堀遠州が作庭したと伝わる庭園は、国の名勝に指定され、「鶴亀の庭」と呼ばれる蓬莱式枯山水庭園です。愛宕山を借景とし、サツキの大刈込みで大海の波を表現しています。",
+      "highlights": [
+        "小堀遠州作と伝わる国指定名勝の枯山水庭園を鑑賞",
+        "4月下旬〜5月下旬に見頃を迎えるサツキの大刈込みを観賞",
+        "備中松山城・武家屋敷との3館共通券（1,000円）で周遊"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.takahashi.lg.jp/soshiki/9/raikyuuji4240131.html",
+        "title": "頼久寺（庭園）｜高梁市公式ホームページ",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://takahasikanko.or.jp/modules/spot/index.php?content_id=2",
+        "title": "頼久寺庭園｜備中たかはし",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://raikyuji.com/",
+        "title": "天柱山 頼久寺",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "takahashi-city"
+  },
+  "schemaVersion": 2
+}

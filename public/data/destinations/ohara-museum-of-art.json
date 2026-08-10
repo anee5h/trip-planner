@@ -1,0 +1,167 @@
+{
+  "id": "ohara-museum-of-art",
+  "name": "Ohara Museum of Art",
+  "nameJa": "大原美術館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Okayama:kurashiki",
+  "prefecture": "Okayama",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.5962,
+    "lng": 133.7707
+  },
+  "categories": ["Museum", "Culture", "Art"],
+  "tags": [
+    "First Western-Art Museum in Japan",
+    "El Greco & Monet",
+    "Ohara Magosaburo",
+    "Bikan Quarter"
+  ],
+  "description": "Founded in 1930 by industrialist Ohara Magosaburo, the Ohara Museum of Art was Japan's first museum devoted to Western art and remains the country's best-known private art museum. Its collection includes El Greco's Annunciation, works by Monet, Gauguin, and Picasso, and Japanese Western-style paintings. The museum comprises the Main Gallery, the Crafts & Oriental Gallery, and the Kojima Torajiro Memorial Hall beside the Kurashiki canal.",
+  "highlights": [
+    "See El Greco's Annunciation and works by Monet and Gauguin at Japan's first Western-art museum",
+    "Walk the three galleries beside the Bikan quarter canal",
+    "Visit during the annual August no-closed-day period for flexible scheduling"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 3500,
+  "budgetRecommended": 7000,
+  "budgetMax": 13000,
+  "budgetBreakdown": {
+    "transport": 1000,
+    "tickets": 2000,
+    "food": 2500,
+    "cafe": 1500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Ohara_Museum_of_Art_20190324.jpg/1280px-Ohara_Museum_of_Art_20190324.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Ohara_Museum_of_Art_20190324.jpg/1280px-Ohara_Museum_of_Art_20190324.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Suicasmo, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ohara_Museum_of_Art_20190324.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1200,
+  "walkingShadeMin": 1300,
+  "walkingIntensity": "medium",
+  "indoorPercent": 80,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 8,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9.2,
+    "couple": 9,
+    "summer": 8.8,
+    "winter": 8.6,
+    "rain": 8.8,
+    "food": 7.6,
+    "photography": 8.4,
+    "relaxation": 8.8,
+    "value": 8.2,
+    "uniqueness": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "low",
+  "reservation": "Not required for individuals; group arrival notice smoothens ticket issuance; wheelchair/stroller rental by prior form",
+  "parking": "No dedicated lot; use paid parking around the Bikan quarter",
+  "notes": "Closed for facility renovation Feb 9–Apr 24, 2026; reopened Apr 25, 2026. Annex long-term closed. Audio guide ¥600. ~15-min walk from JR Kurashiki Station through the Bikan quarter.",
+  "notesJa": "【見どころ】大原美術館は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "3月〜11月 9:00〜17:00（最終入館16:30）、12月〜2月 9:00〜15:00（最終入館14:30）／休館日：毎週月曜日（祝日は開館）、年末／8月は無休。",
+  "businessHours": "Mar–Nov 09:00–17:00 (last entry 16:30); Dec–Feb 09:00–15:00 (last entry 14:30); closed Mondays (open when Monday is a holiday), open every day in August, closed over year-end",
+  "officialWebsite": "https://www.ohara.or.jp/",
+  "content": {
+    "en": {
+      "name": "Ohara Museum of Art",
+      "description": "Founded in 1930 by industrialist Ohara Magosaburo, the Ohara Museum of Art was Japan's first museum devoted to Western art and remains the country's best-known private art museum. Its collection includes El Greco's Annunciation, works by Monet, Gauguin, and Picasso, and Japanese Western-style paintings. The museum comprises the Main Gallery, the Crafts & Oriental Gallery, and the Kojima Torajiro Memorial Hall beside the Kurashiki canal.",
+      "highlights": [
+        "See El Greco's Annunciation and works by Monet and Gauguin at Japan's first Western-art museum",
+        "Walk the three galleries beside the Bikan quarter canal",
+        "Visit during the annual August no-closed-day period for flexible scheduling"
+      ]
+    },
+    "ja": {
+      "name": "大原美術館",
+      "description": "大原美術館は1930年、実業家・大原孫三郎によって創立された、日本初の西洋美術を中心とする私立美術館です。エル・グレコの「受胎告知」をはじめ、モネ、ゴーギャン、ピカソなどの作品と、日本近代洋画を収蔵しています。倉敷川畔に本館、工芸・東洋館、児島虎次郎記念館の3館が並びます。",
+      "highlights": [
+        "日本初の西洋美術館でエル・グレコ「受胎告知」やモネを鑑賞",
+        "美観地区の倉敷川畔に並ぶ3つの館を巡る",
+        "8月無休の時期を利用してゆったり鑑賞"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ohara.or.jp/visitor_info/",
+        "title": "入館案内｜大原美術館",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://www.ohara.or.jp/faq/",
+        "title": "よくある質問｜大原美術館",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://www.kurashiki-tabi.jp/see/see-154/",
+        "title": "大原美術館｜倉敷観光WEB",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "kurashiki-city"
+  },
+  "schemaVersion": 2
+}

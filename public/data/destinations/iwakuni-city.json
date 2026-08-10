@@ -1,7 +1,7 @@
 {
   "id": "iwakuni-city",
   "name": "Iwakuni City",
-  "nameJa": "岩国",
+  "nameJa": "岩国市",
   "prefecture": "Yamaguchi",
   "region": "Chugoku",
   "coordinates": {
@@ -75,7 +75,7 @@
   "parking": "Available around major attractions; confirm local restrictions.",
   "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
   "relationships": {
-    "featuredDestinationIds": []
+    "featuredDestinationIds": ["kintai-bridge-yamaguchi", "iwakuni-castle"]
   },
   "status": "verified",
   "travelEstimate": {

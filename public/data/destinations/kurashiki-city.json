@@ -68,7 +68,12 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["korakuen-okayama"],
+    "featuredDestinationIds": [
+      "ohara-museum-of-art",
+      "bikan-historical-quarter",
+      "kojima-denim-street",
+      "kurashiki-museum-of-folkcraft"
+    ],
     "nearbyDestinationIds": [
       "hiroshima-city",
       "onomichi-city",
@@ -88,5 +93,6 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Okayama:kurashiki"
+  "municipalityId": "Okayama:kurashiki",
+  "nameJa": "倉敷市"
 }

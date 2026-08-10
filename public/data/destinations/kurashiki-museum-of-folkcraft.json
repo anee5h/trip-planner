@@ -1,0 +1,167 @@
+{
+  "id": "kurashiki-museum-of-folkcraft",
+  "name": "Kurashiki Museum of Folkcraft",
+  "nameJa": "倉敷民藝館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Okayama:kurashiki",
+  "prefecture": "Okayama",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.5955,
+    "lng": 133.7716
+  },
+  "categories": ["Museum", "Culture", "Art"],
+  "tags": [
+    "Mingei Movement",
+    "Folkcraft",
+    "Kurashiki Bikan",
+    "Warehouse Museum"
+  ],
+  "description": "Housed in a former storehouse in the Bikan quarter, the Kurashiki Museum of Folkcraft displays everyday craft objects — ceramics, textiles, woodwork, and lacquerware — collected in the spirit of the mingei (folk craft) movement. The collection spans works by Shoji Hamada and Kanjiro Kawai alongside traditional crafts from Japan and abroad. Kurashiki is known as a city of mingei, and this museum is its centerpiece.",
+  "highlights": [
+    "View folkcraft by Hamada Shoji and Kawai Kanjiro in a converted warehouse",
+    "See daily-use crafts from across Japan and abroad through the mingei lens",
+    "Short walk from the canal and Ohara Museum in the Bikan quarter"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 2500,
+  "budgetRecommended": 5000,
+  "budgetMax": 9000,
+  "budgetBreakdown": {
+    "transport": 1000,
+    "tickets": 1200,
+    "food": 1800,
+    "cafe": 1000
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/211203_Kurashiki_Museum_of_Folkcraft_Kurashiki_Okayama_pref_Japan01s3.jpg/1280px-211203_Kurashiki_Museum_of_Folkcraft_Kurashiki_Okayama_pref_Japan01s3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/211203_Kurashiki_Museum_of_Folkcraft_Kurashiki_Okayama_pref_Japan01s3.jpg/1280px-211203_Kurashiki_Museum_of_Folkcraft_Kurashiki_Okayama_pref_Japan01s3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:211203_Kurashiki_Museum_of_Folkcraft_Kurashiki_Okayama_pref_Japan01s3.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 1800,
+  "walkingSunMin": 900,
+  "walkingShadeMin": 900,
+  "walkingIntensity": "low",
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 9,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8,
+    "summer": 8,
+    "winter": 8,
+    "rain": 8.6,
+    "food": 7.6,
+    "photography": 7.6,
+    "relaxation": 8.4,
+    "value": 8.4,
+    "uniqueness": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 2,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year (indoor)",
+  "weatherDependence": "low",
+  "reservation": "Groups of 20+ asked to reserve in advance; max 35 per group at one entry",
+  "parking": "None — use paid parking around the Bikan quarter",
+  "notes": "Hours changed from 09:00 to 10:00 opening since Sep 2023; admission general ¥1,200 / high school & university ¥500 / elementary & junior high ¥300.",
+  "notesJa": "【見どころ】倉敷民藝館は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "10:00〜17:00（入館受付16:30まで）／休館日：月曜日（祝日は開館、GW・お盆期間は開館）、12月29日〜1月1日。",
+  "businessHours": "10:00–17:00 (last entry 16:30); closed Mondays (open on holidays; open during GW and Obon), Dec 29–Jan 1; shop entrance free",
+  "officialWebsite": "https://kurashiki-mingeikan.com/",
+  "content": {
+    "en": {
+      "name": "Kurashiki Museum of Folkcraft",
+      "description": "Housed in a former storehouse in the Bikan quarter, the Kurashiki Museum of Folkcraft displays everyday craft objects — ceramics, textiles, woodwork, and lacquerware — collected in the spirit of the mingei (folk craft) movement. The collection spans works by Shoji Hamada and Kanjiro Kawai alongside traditional crafts from Japan and abroad. Kurashiki is known as a city of mingei, and this museum is its centerpiece.",
+      "highlights": [
+        "View folkcraft by Hamada Shoji and Kawai Kanjiro in a converted warehouse",
+        "See daily-use crafts from across Japan and abroad through the mingei lens",
+        "Short walk from the canal and Ohara Museum in the Bikan quarter"
+      ]
+    },
+    "ja": {
+      "name": "倉敷民藝館",
+      "description": "倉敷民藝館は、美観地区内の旧倉庫を改装した建物で、民藝運動の理念に基づいて蒐集された日常の工芸品を展示する美術館です。柳宗悦らが評価した浜田庄司や河井寛次郎の作品をはじめ、国内外の陶磁器・染織・木工・漆芸などを収蔵しています。「民藝のまち」倉敷を代表する施設です。",
+      "highlights": [
+        "浜田庄司・河井寛次郎らの作品を旧倉庫の館内で鑑賞",
+        "国内外の日用品の工芸を民藝の視点で観覧",
+        "美観地区の川畔・大原美術館から徒歩圏"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://kurashiki-mingeikan.com/welcome.html",
+        "title": "来館案内｜倉敷民藝館公式ホームページ",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.city.kurashiki.okayama.jp/kosodate/youth/1013063/1013064/1013067/1007503/1015025/1007511.html",
+        "title": "倉敷民藝館｜倉敷市公式ホームページ",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://www.kurashiki-tabi.jp/see/see-1214/",
+        "title": "倉敷民藝館｜倉敷観光WEB",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "kurashiki-city"
+  },
+  "schemaVersion": 2
+}

@@ -40,9 +40,9 @@
     "mid": 6000,
     "high": 12000
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/250505_Korakuen_Okayama_Japan06s3.jpg/3840px-250505_Korakuen_Okayama_Japan06s3.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/250505_Korakuen_Okayama_Japan06s3.jpg/1280px-250505_Korakuen_Okayama_Japan06s3.jpg",
   "description": "Korakuen in Okayama is a celebrated landscape garden built by feudal lord Ikeda Tsunamasa in 1700, featuring spacious lawns, ponds, tea trees, and borrowed scenery of Okayama Castle.",
-  "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+  "notes": "Special Place of Scenic Beauty (designated 1952). Admission: adults (15–64) ¥500; 65+ ¥200; high-school students and under free until Mar 31, 2027. Combined Korakuen+Okayama Castle ¥800.",
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 3000,
   "budgetMax": 12000,
@@ -68,7 +68,7 @@
     "featuredDestinationIds": [],
     "parentDestinationId": "okayama-city"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/250505_Korakuen_Okayama_Japan06s3.jpg/3840px-250505_Korakuen_Okayama_Japan06s3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/250505_Korakuen_Okayama_Japan06s3.jpg/1280px-250505_Korakuen_Okayama_Japan06s3.jpg",
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,
@@ -91,11 +91,18 @@
     "max": 5
   },
   "officialWebsite": "https://okayama-korakuen.jp/",
-  "businessHours": "07:30 - 18:00 (Mar 20-Sep 30) / 08:00 - 17:00 (Oct 1-Mar 19)",
+  "businessHours": "07:30–18:00 (Mar 20–Sep 30, last entry 17:45) / 08:00–17:00 (Oct 1–Mar 19, last entry 16:45); open every day of the year. Aug 1–23 summer night opening 07:30–21:30 (entry to 21:00).",
   "municipalityId": "Okayama:okayama",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-06",
     "sourceUrl": "https://www.okayama-korakuen.jp/",
     "lastAdmission": "17:45 (Mar 20-Sep 30) / 16:45 (Oct 1-Mar 19)"
-  }
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:250505_Korakuen_Okayama_Japan06s3.jpg"
+  },
+  "openingHoursJa": "3月20日〜9月30日 7:30〜18:00（最終入園17:45）、10月1日〜3月19日 8:00〜17:00（最終入園16:45）。年中無休。8月1日〜23日は夜間開園 7:30〜21:30（入園21:00まで）。"
 }

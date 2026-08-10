@@ -1,0 +1,155 @@
+{
+  "id": "hiroshima-peace-memorial-park",
+  "name": "Hiroshima Peace Memorial Park",
+  "nameJa": "広島平和記念公園",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Hiroshima:hiroshima",
+  "prefecture": "Hiroshima",
+  "region": "Chugoku",
+  "coordinates": {
+    "lat": 34.3932,
+    "lng": 132.4523
+  },
+  "categories": ["Park", "History", "Memorial", "Sightseeing"],
+  "tags": [
+    "Peace Park",
+    "Cenotaph",
+    "Flame of Peace",
+    "Children's Peace Monument"
+  ],
+  "description": "Hiroshima Peace Memorial Park is the riverside green space at the former Nakajima district, the epicenter of the atomic bombing on August 6, 1945. It contains the Memorial Cenotaph, the Flame of Peace, the Children's Peace Monument and the Peace Memorial Museum, arranged on a single axis from the Cenotaph to the Genbaku Dome. The park is open 24 hours and free, with access restrictions only around the August 6 Peace Memorial Ceremony.",
+  "highlights": [
+    "Memorial Cenotaph and Flame of Peace",
+    "Children's Peace Monument (Sadako Sasaki)",
+    "Free, open-air, 24-hour access"
+  ],
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {},
+  "budgetMin": 0,
+  "budgetRecommended": 800,
+  "budgetMax": 1500,
+  "budgetBreakdown": {
+    "transport": 200,
+    "tickets": 0,
+    "food": 400,
+    "cafe": 200
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Hiroshima_Peace_Memorial_Park_cenotaph.jpg/1280px-Hiroshima_Peace_Memorial_Park_cenotaph.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Hiroshima_Peace_Memorial_Park_cenotaph.jpg/1280px-Hiroshima_Peace_Memorial_Park_cenotaph.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "TimMilesWright, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hiroshima_Peace_Memorial_Park_cenotaph.jpg"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "low",
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 4,
+    "rainFriendly": 4,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.5,
+    "summer": 8,
+    "winter": 7.5,
+    "rain": 6.5,
+    "food": 5,
+    "photography": 9,
+    "relaxation": 8.5,
+    "value": 9.5,
+    "uniqueness": 8.5
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None.",
+  "parking": "Paid lots around the park (Heiwa Odori, Chuo Park); limited on Aug 6.",
+  "notes": "Contains Cenotaph, Flame of Peace, Children's Peace Monument; connects Museum and Dome.",
+  "notesJa": "【見どころ】広島平和記念公園は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "公園は24時間開放・無料。8月6日の平和記念式典前後は一部立入制限あり。",
+  "businessHours": "Park open 24 hours, free. Access may be restricted during the Aug 6 Peace Memorial Ceremony.",
+  "officialWebsite": "https://www.city.hiroshima.lg.jp/english/peace/1029871/1009572.html",
+  "content": {
+    "en": {
+      "name": "Hiroshima Peace Memorial Park",
+      "description": "Hiroshima Peace Memorial Park is the riverside green space at the former Nakajima district, the epicenter of the atomic bombing on August 6, 1945. It contains the Memorial Cenotaph, the Flame of Peace, the Children's Peace Monument and the Peace Memorial Museum, arranged on a single axis from the Cenotaph to the Genbaku Dome. The park is open 24 hours and free, with access restrictions only around the August 6 Peace Memorial Ceremony.",
+      "highlights": [
+        "Memorial Cenotaph and Flame of Peace",
+        "Children's Peace Monument (Sadako Sasaki)",
+        "Free, open-air, 24-hour access"
+      ]
+    },
+    "ja": {
+      "name": "広島平和記念公園",
+      "description": "広島平和記念公園は、1945年8月6日の原爆投下の爆心地となった旧中島地区に整備された河畔公園です。原爆死没者慰霊碑、平和の灯、原爆の子の像、平和記念資料館が一直線上に配置され、原爆ドームへと続きます。年中無休・入場無料で、8月6日の平和記念式典の前後に一部立ち入り制限があります。",
+      "highlights": [
+        "原爆死没者慰霊碑と平和の灯",
+        "原爆の子の像",
+        "24時間無料の屋外公園"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.hiroshima.lg.jp/english/peace/1029871/1009572.html",
+        "title": "Hiroshima City – Peace Memorial Park",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "KAI-32 Chugoku beta expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-32 Chugoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "hiroshima-city"
+  },
+  "schemaVersion": 2
+}
