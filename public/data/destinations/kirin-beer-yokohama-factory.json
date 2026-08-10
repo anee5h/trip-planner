@@ -25,7 +25,10 @@
     "cafe": 800
   },
   "transportOptions": {
-    "train": 30
+    "train": 30,
+    "shinkansen": 20,
+    "bus": 20,
+    "car": 40
   },
   "walkingMin": 25,
   "walkingSunMin": 15,

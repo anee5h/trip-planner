@@ -59,7 +59,9 @@
   },
   "transportOptions": {
     "train": 110,
-    "car": 120
+    "car": 120,
+    "shinkansen": 155,
+    "bus": 175
   },
   "highlights": [
     "Original 1622 Three-Story Tenshu Keep",

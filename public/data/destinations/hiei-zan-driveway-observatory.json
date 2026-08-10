@@ -85,6 +85,8 @@
   "municipalityId": "Shiga:otsu",
   "transportOptions": {
     "train": 152,
-    "car": 165
+    "car": 165,
+    "shinkansen": 155,
+    "bus": 162
   }
 }

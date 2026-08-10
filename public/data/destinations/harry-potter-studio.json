@@ -49,7 +49,10 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Warner_Bros._Studio_Tour_Tokyo_entrance_%282%29_2023-08-17.jpg/330px-Warner_Bros._Studio_Tour_Tokyo_entrance_%282%29_2023-08-17.jpg",
   "transportOptions": {
-    "train": 45
+    "train": 45,
+    "shinkansen": 35,
+    "bus": 50,
+    "car": 35
   },
   "highlights": [
     "Great Hall Set",

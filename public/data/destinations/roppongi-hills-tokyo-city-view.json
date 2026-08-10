@@ -56,7 +56,10 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 15
+    "train": 15,
+    "shinkansen": 35,
+    "bus": 50,
+    "car": 35
   },
   "highlights": [
     "250m Panoramic Indoor Gallery",

@@ -49,7 +49,10 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Namakubi0kei.JPG/330px-Namakubi0kei.JPG",
   "transportOptions": {
-    "train": 35
+    "train": 35,
+    "shinkansen": 45,
+    "bus": 65,
+    "car": 60
   },
   "highlights": [
     "36 Historic Railway Vehicles",

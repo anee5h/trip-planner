@@ -24,7 +24,8 @@
   },
   "transportOptions": {
     "train": 115,
-    "car": 80
+    "car": 80,
+    "bus": 135
   },
   "totalTripHours": 7,
   "walkingMin": 100,

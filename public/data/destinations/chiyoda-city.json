@@ -60,7 +60,10 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 14
+    "train": 14,
+    "shinkansen": 0,
+    "bus": 50,
+    "car": 0
   },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",

@@ -57,7 +57,9 @@
   },
   "transportOptions": {
     "train": 90,
-    "car": 110
+    "car": 110,
+    "shinkansen": 89,
+    "bus": 130
   },
   "highlights": [
     "Indoor Sky Deck (90m)",

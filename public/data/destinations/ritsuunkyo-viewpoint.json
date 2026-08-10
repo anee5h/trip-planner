@@ -85,6 +85,8 @@
   "municipalityId": "Hyogo:asago",
   "transportOptions": {
     "train": 200,
-    "car": 200
+    "car": 200,
+    "shinkansen": 120,
+    "bus": 228
   }
 }

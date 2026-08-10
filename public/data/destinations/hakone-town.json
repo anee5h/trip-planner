@@ -62,7 +62,9 @@
   },
   "transportOptions": {
     "train": 1200,
-    "bus": 800
+    "bus": 800,
+    "shinkansen": 50,
+    "car": 55
   },
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",

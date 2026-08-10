@@ -52,7 +52,8 @@
   },
   "transportOptions": {
     "train": 75,
-    "car": 65
+    "car": 65,
+    "bus": 85
   },
   "highlights": [
     "100m Titanium Helix Tower",

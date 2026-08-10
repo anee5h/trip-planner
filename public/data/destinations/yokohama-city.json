@@ -50,7 +50,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Minato_Mirai_In_Blue_%28cropped%29.jpg/1280px-Minato_Mirai_In_Blue_%28cropped%29.jpg",
   "transportOptions": {
     "train": 30,
-    "shinkansen": 20
+    "shinkansen": 20,
+    "bus": 20,
+    "car": 40
   },
   "highlights": [
     "Minato Mirai Waterfront",

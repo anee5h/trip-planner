@@ -57,7 +57,9 @@
   },
   "transportOptions": {
     "train": 200,
-    "shinkansen": 40
+    "shinkansen": 40,
+    "bus": 60,
+    "car": 110
   },
   "reservation": "None required",
   "parking": "Public parking available",

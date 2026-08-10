@@ -39,7 +39,8 @@
   "transportOptions": {
     "car": 200,
     "train": 150,
-    "bus": 180
+    "bus": 180,
+    "shinkansen": 75
   },
   "crowd": {
     "weekday": 3,

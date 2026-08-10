@@ -56,7 +56,10 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 5
+    "train": 5,
+    "shinkansen": 35,
+    "bus": 50,
+    "car": 35
   },
   "highlights": [
     "229m Open-Air Sky Stage",

@@ -57,7 +57,9 @@
   },
   "transportOptions": {
     "train": 95,
-    "car": 110
+    "car": 110,
+    "shinkansen": 140,
+    "bus": 160
   },
   "highlights": [
     "Mt. Kinka Ropeway Ride",

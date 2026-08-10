@@ -116,7 +116,8 @@
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "transportOptions": {
-    "bus": 300
+    "bus": 300,
+    "car": 60
   },
   "notes": "A whimsical pineapple-themed park — great for families and pineapple lovers.",
   "totalTripHours": 4,

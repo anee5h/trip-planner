@@ -50,7 +50,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Yomiuriland-20100411.jpg/1280px-Yomiuriland-20100411.jpg",
   "transportOptions": {
     "train": 60,
-    "car": 60
+    "car": 60,
+    "shinkansen": 35,
+    "bus": 50
   },
   "highlights": [
     "Jewellumination (Winter)",

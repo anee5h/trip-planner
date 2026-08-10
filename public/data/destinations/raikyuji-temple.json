@@ -31,7 +31,12 @@
     "confidence": "beta"
   },
   "collections": [],
-  "transportOptions": {},
+  "transportOptions": {
+    "train": 280,
+    "shinkansen": 240,
+    "bus": 150,
+    "car": 320
+  },
   "budgetMin": 2000,
   "budgetRecommended": 4500,
   "budgetMax": 8000,

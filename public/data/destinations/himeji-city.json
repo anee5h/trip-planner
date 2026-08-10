@@ -56,7 +56,10 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 200
+    "train": 200,
+    "shinkansen": 180,
+    "bus": 200,
+    "car": 270
   },
   "reservation": "None required",
   "parking": "Public parking available",

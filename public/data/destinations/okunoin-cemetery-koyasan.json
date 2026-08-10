@@ -81,6 +81,7 @@
   "municipalityId": "Wakayama:koya",
   "transportOptions": {
     "train": 230,
-    "bus": 272
+    "bus": 272,
+    "car": 60
   }
 }

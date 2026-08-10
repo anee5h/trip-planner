@@ -52,7 +52,8 @@
   },
   "transportOptions": {
     "train": 90,
-    "car": 75
+    "car": 75,
+    "bus": 110
   },
   "highlights": [
     "60m Glass Triangular Tower",

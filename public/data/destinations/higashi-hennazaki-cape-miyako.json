@@ -117,7 +117,8 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "transportOptions": {
-    "bus": 300
+    "bus": 300,
+    "car": 60
   },
   "notes": "A dramatic cape where two seas meet — arrive early for sunrise at the easternmost point.",
   "totalTripHours": 2,

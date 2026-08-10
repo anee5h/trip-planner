@@ -57,7 +57,10 @@
     "walkingIntensity": 2
   },
   "transportOptions": {
-    "train": 10
+    "train": 10,
+    "shinkansen": 35,
+    "bus": 50,
+    "car": 35
   },
   "highlights": [
     "Free 45F Observation Deck",

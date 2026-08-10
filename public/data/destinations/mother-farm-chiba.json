@@ -12,7 +12,8 @@
   "budgetRecommended": 13000,
   "transportOptions": {
     "train": 50,
-    "car": 75
+    "car": 75,
+    "bus": 70
   },
   "totalTripHours": 8,
   "walkingMin": 55,

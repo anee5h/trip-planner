@@ -116,7 +116,9 @@
   },
   "bestMonths": [1, 3, 4, 5, 10, 11],
   "transportOptions": {
-    "train": 200
+    "train": 200,
+    "bus": 50,
+    "car": 60
   },
   "notes": "The only major Shinto shrine in Okinawa, perched on a clifftop overlooking Naminoue Beach.",
   "totalTripHours": 2,

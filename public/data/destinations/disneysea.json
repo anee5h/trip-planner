@@ -49,7 +49,9 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Tokyo_Disney_Sea_Aerial_2019.png/330px-Tokyo_Disney_Sea_Aerial_2019.png",
   "transportOptions": {
-    "train": 23
+    "train": 23,
+    "bus": 43,
+    "car": 65
   },
   "highlights": ["DisneySea Transit Steamer", "Soaring"],
   "description": "DisneySea is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",

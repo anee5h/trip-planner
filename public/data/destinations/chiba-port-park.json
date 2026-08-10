@@ -60,7 +60,8 @@
   },
   "transportOptions": {
     "train": 69,
-    "car": 59
+    "car": 59,
+    "bus": 89
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {

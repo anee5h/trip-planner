@@ -49,7 +49,10 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Akasaka_skyline_201806.jpg/960px-Akasaka_skyline_201806.jpg",
   "transportOptions": {
-    "train": 45
+    "train": 45,
+    "shinkansen": 35,
+    "bus": 50,
+    "car": 35
   },
   "highlights": ["Hie Shrine", "Tokyo Midtown", "Akasaka Sacas"],
   "description": "A sophisticated Minato district featuring Hie Shrine, luxury dining, Tokyo Midtown, and broadcasting headquarters.",

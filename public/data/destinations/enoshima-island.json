@@ -50,7 +50,10 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/8/83/EnoshimaAeralPhoto1988JP14.jpg",
   "transportOptions": {
-    "train": 60
+    "train": 60,
+    "shinkansen": 50,
+    "bus": 70,
+    "car": 55
   },
   "highlights": ["Enoshima Shrine", "Iwaya Caves", "Enoshima Sea Candle"],
   "description": "A delightfully pleasant island just off the coast, full of shrines, coastal cliffs, and sweeping views of Mt. Fuji.",

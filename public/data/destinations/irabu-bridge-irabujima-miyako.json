@@ -117,7 +117,8 @@
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "transportOptions": {
-    "bus": 250
+    "bus": 250,
+    "car": 60
   },
   "notes": "Japan's longest toll-free bridge — stop at the roadside station for panoramic photos.",
   "totalTripHours": 2,

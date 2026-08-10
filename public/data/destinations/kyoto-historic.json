@@ -41,7 +41,8 @@
   "transportOptions": {
     "shinkansen": 140,
     "train": 170,
-    "car": 240
+    "car": 240,
+    "bus": 230
   },
   "budget": {
     "low": 4000,

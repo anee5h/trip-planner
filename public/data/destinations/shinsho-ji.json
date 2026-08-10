@@ -59,7 +59,9 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 201
+    "train": 201,
+    "bus": 221,
+    "car": 65
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {

@@ -50,7 +50,9 @@
   "image": "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
   "transportOptions": {
     "train": 45,
-    "bus": 20
+    "bus": 20,
+    "shinkansen": 20,
+    "car": 40
   },
   "highlights": [
     "8 Global Climate Zone Habitats",

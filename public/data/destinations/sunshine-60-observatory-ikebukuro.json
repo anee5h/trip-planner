@@ -51,7 +51,10 @@
     "walkingIntensity": 2
   },
   "transportOptions": {
-    "train": 15
+    "train": 15,
+    "shinkansen": 35,
+    "bus": 50,
+    "car": 35
   },
   "highlights": [
     "251m Indoor Sky Park",

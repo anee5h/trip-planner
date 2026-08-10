@@ -76,7 +76,10 @@
     "lng": 139.5989
   },
   "transportOptions": {
-    "train": 120
+    "train": 120,
+    "shinkansen": 110,
+    "bus": 150,
+    "car": 160
   },
   "walkingSunMin": 72,
   "walkingShadeMin": 48,

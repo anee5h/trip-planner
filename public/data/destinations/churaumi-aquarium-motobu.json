@@ -116,7 +116,8 @@
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "transportOptions": {
-    "bus": 400
+    "bus": 400,
+    "car": 60
   },
   "notes": "Home to whale sharks — arrive early to avoid the heaviest crowds at the Kuroshio tank.",
   "totalTripHours": 5,

@@ -49,7 +49,10 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sotokanda%2C_Akihabara_Electric_Town_at_night_20231114.png/3840px-Sotokanda%2C_Akihabara_Electric_Town_at_night_20231114.png",
   "transportOptions": {
-    "train": 40
+    "train": 40,
+    "shinkansen": 0,
+    "bus": 50,
+    "car": 0
   },
   "highlights": [
     "Radio Kaikan",

@@ -50,7 +50,10 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 200
+    "train": 200,
+    "shinkansen": 275,
+    "bus": 295,
+    "car": 540
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {

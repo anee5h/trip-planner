@@ -49,7 +49,10 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ghibli_Museum_2024.JPG/3840px-Ghibli_Museum_2024.JPG",
   "transportOptions": {
-    "train": 50
+    "train": 50,
+    "shinkansen": 35,
+    "bus": 50,
+    "car": 35
   },
   "highlights": ["Giant Robot Soldier", "Catbus Room", "Exclusive Short Films"],
   "description": "Ghibli Museum is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",

@@ -51,7 +51,10 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 45
+    "train": 45,
+    "shinkansen": 45,
+    "bus": 65,
+    "car": 60
   },
   "highlights": [
     "Only Surviving Main Palace in East Japan",

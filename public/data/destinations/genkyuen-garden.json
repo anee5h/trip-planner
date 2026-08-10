@@ -85,6 +85,8 @@
   "municipalityId": "Shiga:hikone",
   "transportOptions": {
     "train": 160,
-    "car": 168
+    "car": 168,
+    "shinkansen": 155,
+    "bus": 175
   }
 }

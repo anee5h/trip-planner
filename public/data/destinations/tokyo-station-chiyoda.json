@@ -51,7 +51,8 @@
   "transportOptions": {
     "train": 0,
     "shinkansen": 0,
-    "car": 0
+    "car": 0,
+    "bus": 50
   },
   "highlights": [
     "Restored 1914 Red-Brick Station Building",
