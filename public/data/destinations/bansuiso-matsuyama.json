@@ -15,7 +15,7 @@
   },
   "categories": ["Culture", "Museum", "History"],
   "tags": ["Culture", "Museum", "History", "Matsuyama City"],
-  "description": "A French Renaissance-style mansion built in 1922 by Hisamatsu Sadakoto, a former lord of the Matsuyama domain, designated an Important Cultural Property and now open as a museum.",
+  "description": "A French Renaissance-style mansion built in 1922 by Count Sadakoto Hisamatsu, a descendant of the former lords of Matsuyama, designated an Important Cultural Property and now open as a museum.",
   "highlights": ["Culture", "Museum", "History"],
   "status": "beta",
   "travelEstimate": {
@@ -97,12 +97,12 @@
   "content": {
     "en": {
       "name": "Bansuiso",
-      "description": "A French Renaissance-style mansion built in 1922 by Hisamatsu Sadakoto, a former lord of the Matsuyama domain, designated an Important Cultural Property and now open as a museum.",
+      "description": "A French Renaissance-style mansion built in 1922 by Count Sadakoto Hisamatsu, a descendant of the former lords of Matsuyama, designated an Important Cultural Property and now open as a museum.",
       "highlights": ["Culture", "Museum", "History"]
     },
     "ja": {
       "name": "萬翠荘",
-      "description": "1922年に旧松山藩主・久松定謨が建てたフランス・ルネサンス様式の邸宅。国の重要文化財に指定され、現在は美術館として公開されています。",
+      "description": "1922年に旧松山藩主家の子孫・久松定謨伯爵が建てたフランス・ルネサンス様式の邸宅。国の重要文化財に指定され、現在は美術館として公開されています。",
       "highlights": ["文化", "博物館", "歴史"]
     }
   },

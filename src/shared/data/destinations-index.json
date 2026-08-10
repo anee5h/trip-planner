@@ -8454,19 +8454,19 @@
     "nameJa": "道後温泉本館",
     "prefecture": "Ehime",
     "category": "Onsen & Wellness",
-    "description": "One of Japan's oldest and most iconic hot spring bathhouses, celebrated as the architectural inspiration for Studio Ghibli's Spirited Away.",
+    "description": "A symbol of Dogo Onsen with about 3,000 years of history, this nationally designated Important Cultural Property is regarded as one of Japan's oldest public bathhouses.",
     "coordinates": {
       "lat": 33.8521,
       "lng": 132.7865
     },
     "nearestStation": "Dogo Onsen Station",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Dogo_onsen_honkan_long_exposure.jpg/1920px-Dogo_onsen_honkan_long_exposure.jpg",
-    "tags": ["onsen", "ehime", "ghibli", "historic", "matsuyama"],
+    "tags": ["onsen", "ehime", "historic", "matsuyama"],
     "rating": 4.8,
     "bestSeasons": ["Spring", "Autumn", "Winter"],
     "travelEstimate": {
       "minutesFromBase": 220,
-      "confidence": "high"
+      "confidence": "beta"
     },
     "collections": [
       {
@@ -8518,8 +8518,8 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
-    "notes": "Dogo Onsen Honkan located in Ehime Prefecture.",
+    "parking": "City-operated Dogo Onsen parking nearby: 94 spaces, 05:30–23:30; the first hour is free with a bath visit.",
+    "notes": "National Important Cultural Property; restoration completed in December 2024.",
     "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
@@ -8534,8 +8534,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://dogo.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "officialWebsite": "https://dogo.jp/onsen/honkan",
+    "businessHours": "Kami-no-Yu bathing 06:00–23:00 (last entry 22:30); Yushinden viewing 09:00–17:00 (last entry 16:30); other areas have separate hours",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Ehime:matsuyama"
   },
@@ -21565,7 +21565,7 @@
     "nameJa": "祖谷渓・かずら橋",
     "prefecture": "Tokushima",
     "category": "Nature & History",
-    "description": "A secluded mountain valley in Shikoku renowned for its deep forested gorges and historic mountain vine bridges (Kazurabashi).",
+    "description": "A secluded mountain valley in Shikoku renowned for its deep forested gorges and historic mountain vine bridges (Kazurabashi); individual attractions have separate seasonal hours.",
     "coordinates": {
       "lat": 33.8732,
       "lng": 133.8344
@@ -21577,7 +21577,7 @@
     "bestSeasons": ["Spring", "Autumn"],
     "travelEstimate": {
       "minutesFromBase": 230,
-      "confidence": "high"
+      "confidence": "beta"
     },
     "collections": [
       {
@@ -21632,8 +21632,8 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
-    "notes": "Iya Valley & Vine Bridges located in Tokushima Prefecture.",
+    "parking": "Parking varies by attraction; check the specific vine bridge or valley site before visiting.",
+    "notes": "The valley is in Miyoshi City; individual vine bridges and attractions can have seasonal closures.",
     "status": "beta",
     "relationships": {
       "parentDestinationId": "miyoshi-city",
@@ -21651,7 +21651,7 @@
       "max": 5
     },
     "officialWebsite": "https://miyoshi-tourism.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Valley open access; individual vine bridges and attractions have separate seasonal hours",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Tokushima:miyoshi"
   },
@@ -29642,9 +29642,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Kochi_Castle%2C_Outemon-3.jpg/1280px-Kochi_Castle%2C_Outemon-3.jpg",
     "budgetBreakdown": {
       "transport": 3000,
-      "tickets": 2000,
-      "food": 4225,
-      "cafe": 2275
+      "tickets": 500,
+      "food": 5225,
+      "cafe": 2775
     },
     "highlights": ["Explore Kochi Castle", "Local Culture & Scenery"],
     "bestSeason": "Spring & Autumn",
@@ -29655,15 +29655,15 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
+    "parking": "Kochi Park parking: 65 standard-car spaces, 07:30–18:30 year-round; paid parking.",
     "walkingIntensity": "medium",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://kochipark.jp/kochijo/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "officialWebsite": "https://kochipark.jp/kochijyo/",
+    "businessHours": "09:00–17:00 (last admission 16:30); closed Dec 26–Jan 1",
     "municipalityId": "Kochi:kochi"
   },
   {
@@ -34254,8 +34254,8 @@
       "high": 12000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
-    "description": "Marugame Castle features Japan's tallest combined stone wall foundations (60 meters high in total), supporting a compact original three-story wooden keep.",
-    "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+    "description": "A 400-year-old hilltop castle famous for Japan's tallest stone walls and one of the twelve original castle keeps.",
+    "notes": "The official city site lists free castle-museum parking and nearby paid municipal lots; check restoration notices before visiting.",
     "categories": ["history", "culture", "sightseeing"],
     "budgetMin": 3000,
     "budgetMax": 12000,
@@ -34284,9 +34284,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
     "budgetBreakdown": {
       "transport": 3000,
-      "tickets": 2000,
-      "food": 1625,
-      "cafe": 875
+      "tickets": 400,
+      "food": 2692,
+      "cafe": 1408
     },
     "highlights": ["Explore Marugame Castle", "Local Culture & Scenery"],
     "bestSeason": "Spring & Autumn",
@@ -34297,14 +34297,14 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
+    "parking": "Free parking at the castle museum (about 50 spaces); nearby municipal lots are paid.",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.marugame-castle.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "officialWebsite": "https://www.city.marugame.lg.jp/site/castle/",
+    "businessHours": "09:00–16:30 (last entry 16:00); no regular closure, but temporary closures may occur for alerts, maintenance, works, or events",
     "municipalityId": "Kagawa:marugame"
   },
   {
@@ -35378,7 +35378,7 @@
       "high": 16000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matsuyama_castle%28Iyo%296.JPG/330px-Matsuyama_castle%28Iyo%296.JPG",
-    "description": "Iyo Matsuyama Castle is one of Japan's most complex surviving hilltop castles, accessible via scenic chairlift or ropeway overlooking the Seto Inland Sea.",
+    "description": "One of Japan's twelve original castle keeps, Iyo Matsuyama Castle is a hilltop fortress reached by scenic chairlift or ropeway.",
     "notes": "Features 21 historically designated important cultural properties.",
     "categories": ["history", "culture", "sightseeing"],
     "budgetMin": 4000,
@@ -35407,9 +35407,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matsuyama_castle%28Iyo%296.JPG/330px-Matsuyama_castle%28Iyo%296.JPG",
     "budgetBreakdown": {
       "transport": 3000,
-      "tickets": 2000,
-      "food": 3250,
-      "cafe": 1750
+      "tickets": 1040,
+      "food": 3890,
+      "cafe": 2070
     },
     "highlights": ["Explore Iyo Matsuyama Castle", "Local Culture & Scenery"],
     "bestSeason": "Spring & Autumn",
@@ -35420,7 +35420,7 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
+    "parking": "Kiyo-machi parking near the ropeway: 2 hours ¥420, then ¥100 per 30 minutes; the ropeway entrance is about 2 minutes on foot.",
     "walkingIntensity": "medium",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -35428,7 +35428,7 @@
       "max": 5
     },
     "officialWebsite": "https://www.matsuyamajo.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Keep 09:00–17:00; until 17:30 in August and until 16:30 in December–January; closed the third Wednesday of December; last entry 30 minutes before closing. Ropeway/lift hours vary seasonally.",
     "municipalityId": "Ehime:matsuyama"
   },
   {
@@ -51180,7 +51180,7 @@
     "nameJa": "龍河洞",
     "prefecture": "Kochi",
     "category": "Nature & Parks",
-    "description": "A 175-million-year-old limestone cavern in Shikoku containing ancient Yayoi earthenware encrusted in living stalagmites.",
+    "description": "A 175-million-year-old limestone cave with stalactites, Yayoi-period traces, and pottery integrated with the cave.",
     "coordinates": {
       "lat": 33.6033,
       "lng": 133.7431
@@ -51192,7 +51192,7 @@
     "bestSeasons": ["Spring", "Summer", "Autumn"],
     "travelEstimate": {
       "minutesFromBase": 250,
-      "confidence": "high"
+      "confidence": "beta"
     },
     "collections": [
       {
@@ -51244,8 +51244,8 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
-    "notes": "Ryugado Cave located in Kochi Prefecture.",
+    "parking": "Parking arrangements are described on the official access page; check current on-site guidance before visiting.",
+    "notes": "Official cave guidance gives seasonal final-entry hours; check weather and operating notices before visiting.",
     "status": "beta",
     "relationships": {
       "gatewayHubId": "kochi-city"
@@ -51260,8 +51260,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://ryugadou.or.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "officialWebsite": "https://ryugadou.or.jp/attraction/sightseeing-course/",
+    "businessHours": "08:30–17:00 final entry (Feb 1–Oct 31); 08:30–16:30 final entry (Nov 1–Jan 31)",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Kochi:kami"
   },
@@ -61951,7 +61951,7 @@
     "bestSeasons": ["Spring", "Autumn"],
     "travelEstimate": {
       "minutesFromBase": 220,
-      "confidence": "high"
+      "confidence": "beta"
     },
     "collections": [
       {
@@ -61969,7 +61969,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180
+      "ferry": 180
     },
     "ratings": {
       "overall": 9,
@@ -62007,8 +62007,8 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
-    "notes": "Teshima Art Island located in Kagawa Prefecture.",
+    "parking": "Parking varies by port and individual art site; check the official access guide.",
+    "notes": "Island access is open, but individual art sites have different opening days and hours; check the official calendar.",
     "status": "beta",
     "relationships": {
       "gatewayHubId": "takamatsu-city"
@@ -62023,8 +62023,8 @@
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://teshima-navi.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "officialWebsite": "https://teshima-navi.jp/art/",
+    "businessHours": "Island access; individual art sites follow their own opening calendars and hours",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Kagawa:tonosho"
   },
@@ -63609,7 +63609,7 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/51/Tokushima_Montage2.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/5/51/Tokushima_Montage2.jpg",
-    "description": "Eastern Shikoku city world-famous for Awa Odori summer dance festival and Mount Bizan cable car.",
+    "description": "Eastern Shikoku city world-famous for the Awa Odori summer dance festival and the Mount Bizan ropeway.",
     "highlights": ["Explore Tokushima City", "Local Culture & Cuisine"],
     "totalTripHours": 6,
     "budgetMin": 3500,
@@ -68844,8 +68844,8 @@
       "high": 15000
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg",
-    "description": "Uwajima Castle, constructed by master castle architect Todo Takatora, stands atop a coastal hill in southern Ehime with its pristine three-story original keep.",
-    "notes": "Wakayama City travel hub in Wakayama Prefecture.",
+    "description": "Founded by master castle builder Tōdō Takatora in 1601, Uwajima Castle has a Date-family keep that is one of Japan's twelve original castle keeps.",
+    "notes": "The keep is an Important Cultural Property and the castle hill is a National Historic Site in Uwajima City, Ehime.",
     "categories": ["history", "culture", "sightseeing"],
     "budgetMin": 4000,
     "budgetMax": 15000,
@@ -68875,9 +68875,9 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg",
     "budgetBreakdown": {
       "transport": 2375,
-      "tickets": 1187,
-      "food": 3859,
-      "cafe": 2079
+      "tickets": 200,
+      "food": 4517,
+      "cafe": 2408
     },
     "highlights": ["Explore Uwajima Castle", "Local Culture & Scenery"],
     "bestSeason": "Spring & Autumn",
@@ -68888,15 +68888,15 @@
       "walkingIntensity": 3
     },
     "reservation": "None required",
-    "parking": "Available on site",
+    "parking": "Castle-base parking: open 24 hours, ¥100 per hour, 46 spaces.",
     "walkingIntensity": "low",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
       "min": 3,
       "max": 5
     },
-    "officialWebsite": "https://www.uwajima-jo.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "officialWebsite": "https://www.city.uwajima.ehime.jp/site/uwajima-jo/ujouannnai3.html",
+    "businessHours": "Keep 09:00–17:00 (Mar–Oct) / 09:00–16:00 (Nov–Feb); hill access 06:00–18:30 / 06:00–17:00; no regular closure",
     "role": "standalone",
     "municipalityId": "Ehime:uwajima"
   },
@@ -97734,7 +97734,7 @@
     },
     "categories": ["Culture", "Museum", "Art"],
     "tags": ["Culture", "Museum", "Art", "Takamatsu City"],
-    "description": "Takamatsu's municipal museum of modern and contemporary art, home to the works of sculptor Genichiro Inokuma and a design collection in the city's arts district.",
+    "description": "Takamatsu's municipal museum of modern and contemporary art, whose collection follows three pillars: post-war contemporary Japanese art, art in the world from the 20th century onward (prints), and the arts of Kagawa (lacquerware and metalwork).",
     "highlights": ["Culture", "Museum", "Art"],
     "status": "beta",
     "travelEstimate": {
@@ -97816,12 +97816,12 @@
     "content": {
       "en": {
         "name": "Takamatsu Art Museum",
-        "description": "Takamatsu's municipal museum of modern and contemporary art, home to the works of sculptor Genichiro Inokuma and a design collection in the city's arts district.",
+        "description": "Takamatsu's municipal museum of modern and contemporary art, whose collection follows three pillars: post-war contemporary Japanese art, art in the world from the 20th century onward (prints), and the arts of Kagawa (lacquerware and metalwork).",
         "highlights": ["Culture", "Museum", "Art"]
       },
       "ja": {
         "name": "高松市美術館",
-        "description": "猪熊弦一郎らの作品やデザインコレクションを収蔵する高松市の現代美術館。市街地のアートエリアに位置します。",
+        "description": "戦後日本の現代美術、20世紀以降の世界の美術（版画）、香川の美術（漆芸・金工）を3つの柱として収集する高松市の美術館です。",
         "highlights": ["文化", "博物館", "アート"]
       }
     },
@@ -97832,6 +97832,12 @@
           "type": "official",
           "url": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/general_info/info.html",
           "title": "Takamatsu Art Museum official visitor information",
+          "accessedAt": "2026-08-10"
+        },
+        {
+          "type": "official",
+          "url": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/collection/collection.html",
+          "title": "Takamatsu Art Museum official collection overview",
           "accessedAt": "2026-08-10"
         }
       ],
@@ -98014,7 +98020,7 @@
     },
     "categories": ["Culture", "Museum", "History"],
     "tags": ["Culture", "Museum", "History", "Matsuyama City"],
-    "description": "A French Renaissance-style mansion built in 1922 by Hisamatsu Sadakoto, a former lord of the Matsuyama domain, designated an Important Cultural Property and now open as a museum.",
+    "description": "A French Renaissance-style mansion built in 1922 by Count Sadakoto Hisamatsu, a descendant of the former lords of Matsuyama, designated an Important Cultural Property and now open as a museum.",
     "highlights": ["Culture", "Museum", "History"],
     "status": "beta",
     "travelEstimate": {
@@ -98096,12 +98102,12 @@
     "content": {
       "en": {
         "name": "Bansuiso",
-        "description": "A French Renaissance-style mansion built in 1922 by Hisamatsu Sadakoto, a former lord of the Matsuyama domain, designated an Important Cultural Property and now open as a museum.",
+        "description": "A French Renaissance-style mansion built in 1922 by Count Sadakoto Hisamatsu, a descendant of the former lords of Matsuyama, designated an Important Cultural Property and now open as a museum.",
         "highlights": ["Culture", "Museum", "History"]
       },
       "ja": {
         "name": "萬翠荘",
-        "description": "1922年に旧松山藩主・久松定謨が建てたフランス・ルネサンス様式の邸宅。国の重要文化財に指定され、現在は美術館として公開されています。",
+        "description": "1922年に旧松山藩主家の子孫・久松定謨伯爵が建てたフランス・ルネサンス様式の邸宅。国の重要文化財に指定され、現在は美術館として公開されています。",
         "highlights": ["文化", "博物館", "歴史"]
       }
     },
@@ -98797,7 +98803,7 @@
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
     "openingHoursJa": "9:40～18:00（最終入館17:30）。月曜休館（祝日は翌日休館）。毎月第1月曜は開館し翌火曜休館。12月29日～1月3日休館。",
-    "businessHours": "09:40–18:00 (last admission 17:30); closed Mondays (holiday Monday closes the following day); closed Dec 29–Jan 3",
+    "businessHours": "09:40–18:00 (last admission 17:30); closed Mondays, except the first Monday of each month is open and the following Tuesday is closed (a holiday Monday closes the following day); closed Dec 29–Jan 3",
     "officialWebsite": "https://www.ehime-art.jp/en/guide",
     "content": {
       "en": {
@@ -102057,7 +102063,7 @@
       },
       "ja": {
         "name": "天赦園",
-        "description": "1866年に宇和島藩最後の藩主・伊達宗城が築いた回遊式庭園。池を中心に梅や茶亭が配されています。",
+        "description": "1866年に宇和島藩第7代藩主・伊達宗紀（むねただ）が築いた回遊式庭園。池を中心に梅や茶亭が配されています。",
         "highlights": ["自然", "庭園", "歴史"]
       }
     },
@@ -102232,7 +102238,7 @@
     },
     "categories": ["City", "History", "Culture"],
     "tags": ["Uwajima City", "Castle", "Date Clan"],
-    "description": "A castle town in southern Ehime ruled by the Date clan, known for Uwajima Castle, the bull-sumai festivals, and a distinctive regional food culture.",
+    "description": "A castle town in southern Ehime ruled by the Date clan, known for Uwajima Castle, its bullfighting festivals, and a distinctive regional food culture.",
     "highlights": ["Uwajima Castle", "Date Museum", "Regional Culture"],
     "status": "verified",
     "travelEstimate": {
@@ -102309,7 +102315,7 @@
     "content": {
       "en": {
         "name": "Uwajima City",
-        "description": "A castle town in southern Ehime ruled by the Date clan, known for Uwajima Castle, the bull-sumai festivals, and a distinctive regional food culture.",
+        "description": "A castle town in southern Ehime ruled by the Date clan, known for Uwajima Castle, its bullfighting festivals, and a distinctive regional food culture.",
         "highlights": ["Uwajima Castle", "Date Museum", "Regional Culture"]
       },
       "ja": {

@@ -46,8 +46,8 @@
     "high": 15000
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg",
-  "description": "Uwajima Castle, constructed by master castle architect Todo Takatora, stands atop a coastal hill in southern Ehime with its pristine three-story original keep.",
-  "notes": "Wakayama City travel hub in Wakayama Prefecture.",
+  "description": "Founded by master castle builder Tōdō Takatora in 1601, Uwajima Castle has a Date-family keep that is one of Japan's twelve original castle keeps.",
+  "notes": "The keep is an Important Cultural Property and the castle hill is a National Historic Site in Uwajima City, Ehime.",
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 4000,
   "budgetMax": 15000,
@@ -77,9 +77,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg",
   "budgetBreakdown": {
     "transport": 2375,
-    "tickets": 1187,
-    "food": 3859,
-    "cafe": 2079
+    "tickets": 200,
+    "food": 4517,
+    "cafe": 2408
   },
   "highlights": ["Explore Uwajima Castle", "Local Culture & Scenery"],
   "bestSeason": "Spring & Autumn",
@@ -90,15 +90,15 @@
     "walkingIntensity": 3
   },
   "reservation": "None required",
-  "parking": "Available on site",
+  "parking": "Castle-base parking: open 24 hours, ¥100 per hour, 46 spaces.",
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
   },
-  "officialWebsite": "https://www.uwajima-jo.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "officialWebsite": "https://www.city.uwajima.ehime.jp/site/uwajima-jo/ujouannnai3.html",
+  "businessHours": "Keep 09:00–17:00 (Mar–Oct) / 09:00–16:00 (Nov–Feb); hill access 06:00–18:30 / 06:00–17:00; no regular closure",
   "role": "standalone",
   "municipalityId": "Ehime:uwajima"
 }

@@ -15,7 +15,7 @@
   },
   "categories": ["Culture", "Museum", "Art"],
   "tags": ["Culture", "Museum", "Art", "Takamatsu City"],
-  "description": "Takamatsu's municipal museum of modern and contemporary art, home to the works of sculptor Genichiro Inokuma and a design collection in the city's arts district.",
+  "description": "Takamatsu's municipal museum of modern and contemporary art, whose collection follows three pillars: post-war contemporary Japanese art, art in the world from the 20th century onward (prints), and the arts of Kagawa (lacquerware and metalwork).",
   "highlights": ["Culture", "Museum", "Art"],
   "status": "beta",
   "travelEstimate": {
@@ -97,12 +97,12 @@
   "content": {
     "en": {
       "name": "Takamatsu Art Museum",
-      "description": "Takamatsu's municipal museum of modern and contemporary art, home to the works of sculptor Genichiro Inokuma and a design collection in the city's arts district.",
+      "description": "Takamatsu's municipal museum of modern and contemporary art, whose collection follows three pillars: post-war contemporary Japanese art, art in the world from the 20th century onward (prints), and the arts of Kagawa (lacquerware and metalwork).",
       "highlights": ["Culture", "Museum", "Art"]
     },
     "ja": {
       "name": "高松市美術館",
-      "description": "猪熊弦一郎らの作品やデザインコレクションを収蔵する高松市の現代美術館。市街地のアートエリアに位置します。",
+      "description": "戦後日本の現代美術、20世紀以降の世界の美術（版画）、香川の美術（漆芸・金工）を3つの柱として収集する高松市の美術館です。",
       "highlights": ["文化", "博物館", "アート"]
     }
   },
@@ -113,6 +113,12 @@
         "type": "official",
         "url": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/general_info/info.html",
         "title": "Takamatsu Art Museum official visitor information",
+        "accessedAt": "2026-08-10"
+      },
+      {
+        "type": "official",
+        "url": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/collection/collection.html",
+        "title": "Takamatsu Art Museum official collection overview",
         "accessedAt": "2026-08-10"
       }
     ],

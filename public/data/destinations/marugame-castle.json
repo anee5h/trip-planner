@@ -46,8 +46,8 @@
     "high": 12000
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
-  "description": "Marugame Castle features Japan's tallest combined stone wall foundations (60 meters high in total), supporting a compact original three-story wooden keep.",
-  "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+  "description": "A 400-year-old hilltop castle famous for Japan's tallest stone walls and one of the twelve original castle keeps.",
+  "notes": "The official city site lists free castle-museum parking and nearby paid municipal lots; check restoration notices before visiting.",
   "categories": ["history", "culture", "sightseeing"],
   "budgetMin": 3000,
   "budgetMax": 12000,
@@ -76,9 +76,9 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
   "budgetBreakdown": {
     "transport": 3000,
-    "tickets": 2000,
-    "food": 1625,
-    "cafe": 875
+    "tickets": 400,
+    "food": 2692,
+    "cafe": 1408
   },
   "highlights": ["Explore Marugame Castle", "Local Culture & Scenery"],
   "bestSeason": "Spring & Autumn",
@@ -89,13 +89,13 @@
     "walkingIntensity": 3
   },
   "reservation": "None required",
-  "parking": "Available on site",
+  "parking": "Free parking at the castle museum (about 50 spaces); nearby municipal lots are paid.",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
   },
-  "officialWebsite": "https://www.marugame-castle.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "officialWebsite": "https://www.city.marugame.lg.jp/site/castle/",
+  "businessHours": "09:00–16:30 (last entry 16:00); no regular closure, but temporary closures may occur for alerts, maintenance, works, or events",
   "municipalityId": "Kagawa:marugame"
 }

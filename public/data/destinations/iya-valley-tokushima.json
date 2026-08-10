@@ -4,7 +4,7 @@
   "nameJa": "祖谷渓・かずら橋",
   "prefecture": "Tokushima",
   "category": "Nature & History",
-  "description": "A secluded mountain valley in Shikoku renowned for its deep forested gorges and historic mountain vine bridges (Kazurabashi).",
+  "description": "A secluded mountain valley in Shikoku renowned for its deep forested gorges and historic mountain vine bridges (Kazurabashi); individual attractions have separate seasonal hours.",
   "coordinates": {
     "lat": 33.8732,
     "lng": 133.8344
@@ -16,7 +16,7 @@
   "bestSeasons": ["Spring", "Autumn"],
   "travelEstimate": {
     "minutesFromBase": 230,
-    "confidence": "high"
+    "confidence": "beta"
   },
   "collections": [
     {
@@ -71,8 +71,8 @@
     "walkingIntensity": 3
   },
   "reservation": "None required",
-  "parking": "Available on site",
-  "notes": "Iya Valley & Vine Bridges located in Tokushima Prefecture.",
+  "parking": "Parking varies by attraction; check the specific vine bridge or valley site before visiting.",
+  "notes": "The valley is in Miyoshi City; individual vine bridges and attractions can have seasonal closures.",
   "status": "beta",
   "relationships": {
     "parentDestinationId": "miyoshi-city",
@@ -90,7 +90,7 @@
     "max": 5
   },
   "officialWebsite": "https://miyoshi-tourism.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "Valley open access; individual vine bridges and attractions have separate seasonal hours",
   "ratingsSchemaVersion": 2,
   "municipalityId": "Tokushima:miyoshi"
 }

@@ -16,7 +16,7 @@
   },
   "categories": ["City", "History", "Culture"],
   "tags": ["Uwajima City", "Castle", "Date Clan"],
-  "description": "A castle town in southern Ehime ruled by the Date clan, known for Uwajima Castle, the bull-sumai festivals, and a distinctive regional food culture.",
+  "description": "A castle town in southern Ehime ruled by the Date clan, known for Uwajima Castle, its bullfighting festivals, and a distinctive regional food culture.",
   "highlights": ["Uwajima Castle", "Date Museum", "Regional Culture"],
   "status": "verified",
   "travelEstimate": {
@@ -93,7 +93,7 @@
   "content": {
     "en": {
       "name": "Uwajima City",
-      "description": "A castle town in southern Ehime ruled by the Date clan, known for Uwajima Castle, the bull-sumai festivals, and a distinctive regional food culture.",
+      "description": "A castle town in southern Ehime ruled by the Date clan, known for Uwajima Castle, its bullfighting festivals, and a distinctive regional food culture.",
       "highlights": ["Uwajima Castle", "Date Museum", "Regional Culture"]
     },
     "ja": {
