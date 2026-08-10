@@ -6954,9 +6954,7 @@
     "kind": "attraction",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["mount-zao-yamagata"],
-      "parentDestinationId": "yamagata-city"
+      "gatewayHubId": "yamagata-city"
     }
   },
   {

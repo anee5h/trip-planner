@@ -190,9 +190,9 @@ official operator/municipal/national sources; every ACCEPT is evidenced in
 - **Yamagata (3):** yamagata-bunshokan, kajo-park, kaminoyama-castle-town.
 - **Aizu (4):** aizu-bukeyashiki, nisshinkan, sazae-do, kitakata-kura-district.
 - **Fukushima city (2):** iizaka-onsen, fukushima-prefectural-museum-of-art.
-- **Akita (2):** oga-namahage-kan, akita-senshu-park.
+- **Akita (3):** oga-namahage-kan, akita-senshu-park, akita-museum-of-art.
 
-Total: **1 hub + 37 POIs = 38 new records** — a documented evidence-based
+Total: **1 hub + 38 POIs = 39 new records** — a documented evidence-based
 count at the lower edge of the 40–45 target; quality gate rejected weak
 candidates rather than padding (see below).
 

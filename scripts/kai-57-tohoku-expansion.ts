@@ -274,8 +274,6 @@ patch(
     d.description =
       "A large Jomon-period settlement site (c. 3900–2200 BC) in Aomori City, excavated from 1992 and now a museum park with reconstructed pit dwellings, a large six-pillared structure, and artifacts. A component of the UNESCO World Heritage 'Jomon Prehistoric Sites in Northern Japan' (2021).";
     d.businessHours = "09:00 - 17:00 (Jun–Sep to 18:00)";
-    d.notes =
-      "Free outdoor areas; the site museum and special exhibits charge admission. Closed 2nd and 4th Monday (check official calendar).";
   },
   "renamed to the site itself, real description/hours",
 );
@@ -1032,10 +1030,10 @@ const MATSUSHIMA_IMAGE = {
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Fukuura_Bridge_With_Fukuura_Island.JPG",
   },
   oshima: {
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Matsushima_%28Matsushima_Bay%29_20170327.jpg/1280px-Matsushima_%28Matsushima_Bay%29_20170327.jpg",
-    license: "CC BY-SA 4.0",
-    attribution: "Suicasmo",
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Matsushima_(Matsushima_Bay)_20170327.jpg",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/%E9%9B%84%E5%B3%B6_Oshima_Island_-_panoramio.jpg/1280px-%E9%9B%84%E5%B3%B6_Oshima_Island_-_panoramio.jpg",
+    license: "CC BY 3.0",
+    attribution: "lienyuan lee",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:雄島_Oshima_Island_-_panoramio.jpg",
   },
   entsuin: {
     url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/%E5%86%86%E9%80%9A%E9%99%A2_-_panoramio.jpg/1280px-%E5%86%86%E9%80%9A%E9%99%A2_-_panoramio.jpg",
@@ -1940,7 +1938,7 @@ const AOMORI_GROUP_POIS: Destination[] = [
     "moderate",
     { heatTolerance: 5, rainFriendly: 6, walkingIntensity: 3 },
     { overall: 8.2, couple: 8.6, summer: 7.8, winter: 6.8, rain: 7, food: 8.4, photography: 8.8, relaxation: 9, value: 8.2, uniqueness: 8, family: 7.4, accessibility: 6, nature: 9, historyAndCulture: 8, walkability: 7, spring: 9.2, autumn: 9.4 },
-    "https://www.hirosakipark.or.jp/hujita/",
+    "http://www.hirosakipark.or.jp/hujita/",
     "09:00 - 17:00 (last entry 16:30); western house closed Nov 24 – mid-Apr (free in winter)",
     "No reservation required",
     "No dedicated parking; use castle-area parking",
@@ -2660,8 +2658,8 @@ const TOHOKU_WEST_POIS: Destination[] = [
     "castle",
     ["History", "Onsen & Wellness"],
     ["History", "Onsen", "Kaminoyama City"],
-    "The reconstructed keep of Kaminoyama Castle houses a city history museum, and the surrounding onsen town — with more than 1,200 years of springs — offers footbaths and ryokan stays. A compact castle-plus-onsen stop on the Yamagata Shinkansen.",
-    "再建された上山城の天守閣には郷土資料館が入り、城下に広がる1200年余りの歴史を持つ温泉街には足湯が点在します。山形新幹線のかみのやま温泉駅からも近いコンパクトな城下町です。",
+    "The reconstructed keep of Kaminoyama Castle houses a city history museum, and the surrounding onsen town — with springs discovered in 1458 — offers footbaths and ryokan stays. A compact castle-plus-onsen stop on the Yamagata Shinkansen.",
+    "再建された上山城の天守閣には郷土資料館が入り、城下に広がる1458年に発見された温泉街には足湯が点在します。山形新幹線のかみのやま温泉駅からも近いコンパクトな城下町です。",
     ["再建天守と資料館", "1200年の温泉街", "足湯めぐり", "山形新幹線の駅に近接"],
     ["Reconstructed keep and museum", "1,200-year onsen town", "Footbath circuit", "Shinkansen stop nearby"],
     [600, 2500, 5000],
@@ -2678,7 +2676,7 @@ const TOHOKU_WEST_POIS: Destination[] = [
     { heatTolerance: 6, rainFriendly: 7, walkingIntensity: 4 },
     { overall: 8.2, couple: 8.4, summer: 8, winter: 8.4, rain: 7.4, food: 8.6, photography: 8.4, relaxation: 8.8, value: 8.6, uniqueness: 8, family: 8, accessibility: 7, nature: 7.6, historyAndCulture: 8.8, walkability: 7, spring: 8.8, autumn: 9 },
     "https://kaminoyama-castle.info/",
-    "Keep 09:00 - 17:15 (last entry 16:45); closed Thursdays (Tue if holiday) and Dec 29 – 31",
+    "Keep 09:00 - 17:15 (last entry 16:45); closed Thursdays (preceding Wednesday if Thursday is a holiday) and Dec 29 – 31",
     "No reservation required",
     "Pay parking in the town",
     "Keep ¥600 adult (2025 revision). A half-day pairing with Yamagata City; the onsen town itself is open access.",
@@ -3036,6 +3034,162 @@ for (const [hubId, notesJa] of Object.entries(HUB_NOTES_JA)) {
     if (d.content?.ja) d.content.ja.notes = notesJa;
   }, "Japanese notes added");
 }
+
+// ===========================================================================
+// Review round 2 — adversarial + Sol gate fixes (2026-08-11)
+// ===========================================================================
+
+// Kaminoyama: onsen springs date from 1458, not "1,200 years"; substitute
+// holiday rule for a Thursday-closed venue is the preceding Wednesday.
+patch(
+  "kaminoyama-castle-town",
+  (d) => {
+    d.description = d.description?.replace(
+      "with more than 1,200 years of springs",
+      "with springs discovered in 1458",
+    );
+    if (d.content?.ja) {
+      d.content.ja.description = d.content.ja.description?.replace(
+        "1200年余りの歴史を持つ温泉街",
+        "1458年に発見された歴史を持つ温泉街",
+      );
+    }
+    d.businessHours = d.businessHours?.replace(
+      "closed Thursdays (Tue if holiday)",
+      "closed Thursdays (preceding Wednesday if Thursday is a holiday)",
+    );
+  },
+  "onsen history corrected to 1458, holiday rule to preceding Wednesday",
+);
+
+// Asaichi: finish de-contaminating the station-template record (aliases, hero
+// image, imageMetadata, tags).
+patch(
+  "sendai-asaichi-morning-market",
+  (d) => {
+    d.aliases = ["仙台朝市"];
+    d.tags = (d.tags ?? []).filter((t) => t !== "v1.9.2");
+    d.heroImage =
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Sendai_Asaichi_01.jpg/1280px-Sendai_Asaichi_01.jpg";
+    d.image = d.heroImage;
+    d.imageMetadata = {
+      source: "Wikimedia Commons",
+      license: "CC BY-SA 3.0",
+      attribution: "Neuropower",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Sendai_Asaichi_01.jpg",
+    };
+  },
+  "station aliases/hero removed, real market image",
+);
+
+// Sannai-Maruyama: site-wide viewing fee since 2019; 4th Monday closure only.
+patch(
+  "sannai-maruyama-jomon-aomori",
+  (d) => {
+    d.notes =
+      "Site-wide viewing fee ¥500 adult since April 2019 (includes the outdoor reconstructed area). Closed the 4th Monday (next day if holiday) and Dec 30 – Jan 1.";
+  },
+  "site-wide fee and true closure days",
+);
+
+// Rakuten Mobile Park: stale nature-park JA template.
+patch(
+  "rakuten-mobile-park-miyagi",
+  (d) => {
+    if (d.content?.ja) {
+      d.content.ja.description =
+        "東北楽天ゴールデンイーグルスの本拠地球場。花火やグルメ、熱気あふれる応援が楽しめる仙台東部の野球場です。";
+      d.content.ja.highlights = ["スポーツ", "野球観戦"];
+    }
+  },
+  "stadium JA content (was park template)",
+);
+
+// Open-air records: replace fabricated daily 9-to-5 businessHours with honest
+// open-access strings.
+const OPEN_AIR_HOURS: Record<string, string> = {
+  "dewa-sanzan-yamagata":
+    "Open access (mountain pilgrimage; Gassan climbable only in summer)",
+  "ginzan-onsen-yamagata":
+    "Open access (onsen town); ryokan day-use hours vary",
+  "hirosaki-castle":
+    "Park open access; keep interior closed for seismic repair (since Nov 2025)",
+  "jodogahama-beach-iwate":
+    "Open access (beach); visitor-centre hours vary by season",
+  "lake-towada-aomori":
+    "Open access (lake); cruises and visitor centres have their own hours",
+  "mount-zao-yamagata":
+    "Open access (mountain); ropeway hours and winter access vary",
+  "oirase-gorge-aomori":
+    "Open access (stream trail); shuttle bus runs seasonally",
+  "okama-crater-yamagata":
+    "Open access (crater); Zao Echo Line closed Nov–Apr",
+  "ouchi-juku-fukushima":
+    "Open access (post town); individual museums have their own hours",
+  "shirakami-sanchi-aomori":
+    "Open access (forest); trail access typically Jun–Oct",
+  "yamadera-yamagata": "Open daily from 08:00; closing time varies by season",
+  "zao-fox-village-miyagi": "09:00 - 17:00",
+};
+for (const [id, hours] of Object.entries(OPEN_AIR_HOURS)) {
+  patch(id, (d) => {
+    d.businessHours = hours;
+  }, "honest open-air hours");
+}
+
+// Fujita Memorial Garden: the official site only serves HTTP.
+patch(
+  "fujita-memorial-garden",
+  (d) => {
+    d.officialWebsite = "http://www.hirosakipark.or.jp/hujita/";
+  },
+  "official website scheme http (HTTPS not served)",
+);
+
+// Okama crater: border-location evidence (Sol gate) → parent-free standalone
+// with gateway, consistent with the other undetermined-municipality records.
+patch(
+  "okama-crater-yamagata",
+  (d) => {
+    delete d.municipalityId;
+    d.relationships = { gatewayHubId: "yamagata-city" };
+  },
+  "parent/municipality removed (undetermined border crater), gateway yamagata",
+);
+
+// Zuihoden: hero image 404s on Commons → valid replacement.
+patch(
+  "zuihoden",
+  (d) => {
+    d.heroImage =
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Zuiho-den12s3200.jpg/1280px-Zuiho-den12s3200.jpg";
+    d.image = d.heroImage;
+    d.imageMetadata = {
+      source: "Wikimedia Commons",
+      license: "CC BY 2.5",
+      attribution: "663highland",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Zuiho-den12s3200.jpg",
+    };
+  },
+  "hero image replaced (old URL 404ed)",
+);
+
+// Oshima: hero was a generic bay view → actual Oshima island photo.
+patch(
+  "oshima",
+  (d) => {
+    d.heroImage =
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/%E9%9B%84%E5%B3%B6_Oshima_Island_-_panoramio.jpg/1280px-%E9%9B%84%E5%B3%B6_Oshima_Island_-_panoramio.jpg";
+    d.image = d.heroImage;
+    d.imageMetadata = {
+      source: "Wikimedia Commons",
+      license: "CC BY 3.0",
+      attribution: "lienyuan lee",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:雄島_Oshima_Island_-_panoramio.jpg",
+    };
+  },
+  "hero image shows Oshima island",
+);
 
 // ===========================================================================
 // Write

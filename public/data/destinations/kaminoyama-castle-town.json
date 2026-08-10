@@ -15,7 +15,7 @@
   },
   "categories": ["History", "Onsen & Wellness"],
   "tags": ["History", "Onsen", "Kaminoyama City"],
-  "description": "The reconstructed keep of Kaminoyama Castle houses a city history museum, and the surrounding onsen town — with more than 1,200 years of springs — offers footbaths and ryokan stays. A compact castle-plus-onsen stop on the Yamagata Shinkansen.",
+  "description": "The reconstructed keep of Kaminoyama Castle houses a city history museum, and the surrounding onsen town — with springs discovered in 1458 — offers footbaths and ryokan stays. A compact castle-plus-onsen stop on the Yamagata Shinkansen.",
   "highlights": [
     "Reconstructed keep and museum",
     "1,200-year onsen town",
@@ -107,12 +107,12 @@
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
   "openingHoursJa": "天守閣は9:00～17:15（最終入館16:45）。木曜休館（祝日の場合は翌日）、12月29日～31日休館。大人600円。",
-  "businessHours": "Keep 09:00 - 17:15 (last entry 16:45); closed Thursdays (Tue if holiday) and Dec 29 – 31",
+  "businessHours": "Keep 09:00 - 17:15 (last entry 16:45); closed Thursdays (preceding Wednesday if Thursday is a holiday) and Dec 29 – 31",
   "officialWebsite": "https://kaminoyama-castle.info/",
   "content": {
     "en": {
       "name": "Kaminoyama Castle Town",
-      "description": "The reconstructed keep of Kaminoyama Castle houses a city history museum, and the surrounding onsen town — with more than 1,200 years of springs — offers footbaths and ryokan stays. A compact castle-plus-onsen stop on the Yamagata Shinkansen.",
+      "description": "The reconstructed keep of Kaminoyama Castle houses a city history museum, and the surrounding onsen town — with springs discovered in 1458 — offers footbaths and ryokan stays. A compact castle-plus-onsen stop on the Yamagata Shinkansen.",
       "highlights": [
         "Reconstructed keep and museum",
         "1,200-year onsen town",
@@ -122,7 +122,7 @@
     },
     "ja": {
       "name": "上山城と温泉街",
-      "description": "再建された上山城の天守閣には郷土資料館が入り、城下に広がる1200年余りの歴史を持つ温泉街には足湯が点在します。山形新幹線のかみのやま温泉駅からも近いコンパクトな城下町です。",
+      "description": "再建された上山城の天守閣には郷土資料館が入り、城下に広がる1458年に発見された温泉街には足湯が点在します。山形新幹線のかみのやま温泉駅からも近いコンパクトな城下町です。",
       "highlights": [
         "再建天守と資料館",
         "1200年の温泉街",

@@ -8315,7 +8315,7 @@
       "max": 5
     },
     "officialWebsite": "http://www.dewasanzan.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (mountain pilgrimage; Gassan climbable only in summer)",
     "ratingsSchemaVersion": 2,
     "editorial": {
       "lifecycle": "in_review",
@@ -13939,7 +13939,7 @@
       "max": 5
     },
     "officialWebsite": "https://www.ginzanonsen.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (onsen town); ryokan day-use hours vary",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Yamagata:obanazawa",
     "editorial": {
@@ -18105,7 +18105,7 @@
       "max": 5
     },
     "officialWebsite": "https://www.hirosakijo.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Park open access; keep interior closed for seismic repair (since Nov 2025)",
     "municipalityId": "Aomori:hirosaki",
     "editorial": {
       "lifecycle": "published",
@@ -22694,7 +22694,7 @@
       "max": 5
     },
     "officialWebsite": "https://www.city.miyako.iwate.jp/gyosei/soshiki/kanko/4/8/2/1/1154.html",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (beach); visitor-centre hours vary by season",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Iwate:miyako",
     "editorial": {
@@ -34090,7 +34090,7 @@
       "max": 6
     },
     "officialWebsite": "https://www.towada.kanko.or.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (lake); cruises and visitor centres have their own hours",
     "ratingsSchemaVersion": 2,
     "editorial": {
       "lifecycle": "in_review",
@@ -39550,7 +39550,7 @@
       "max": 6
     },
     "officialWebsite": "https://www.zao-spa.or.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (mountain); ropeway hours and winter access vary",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Yamagata:yamagata"
   },
@@ -47318,7 +47318,7 @@
       "max": 5
     },
     "officialWebsite": "https://www.towada.kanko.or.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (stream trail); shuttle bus runs seasonally",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Aomori:towada",
     "editorial": {
@@ -47429,9 +47429,7 @@
     "notes": "Access via Zao Echo Line toll road (closed Nov–Apr due to snow). The crater sits on the Yamagata–Miyagi prefectural border (officially listed as Kawasaki Town, Miyagi; boundary undetermined); the standard approach is the Zao Ropeway from Yamagata City's Zao Onsen. On cloudy days the lake can be completely hidden; best views are on clear summer mornings.",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": [],
-      "nearbyDestinationIds": ["mount-zao-yamagata"],
-      "parentDestinationId": "yamagata-city"
+      "gatewayHubId": "yamagata-city"
     },
     "budgetBreakdown": null,
     "role": "standalone",
@@ -47441,9 +47439,8 @@
       "max": 3
     },
     "officialWebsite": "https://zao-kochan.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (crater); Zao Echo Line closed Nov–Apr",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Yamagata:yamagata",
     "editorial": {
       "lifecycle": "in_review",
       "sources": [
@@ -50886,7 +50883,7 @@
       "max": 4
     },
     "officialWebsite": "https://ouchi-juku.com/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (post town); individual museums have their own hours",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Fukushima:shimogo",
     "editorial": {
@@ -51372,8 +51369,8 @@
       },
       "ja": {
         "name": "楽天モバイルパーク宮城",
-        "description": "宮城球場は仙台市にある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-        "highlights": ["自然"]
+        "description": "東北楽天ゴールデンイーグルスの本拠地球場。花火やグルメ、熱気あふれる応援が楽しめる仙台東部の野球場です。",
+        "highlights": ["スポーツ", "野球観戦"]
       }
     },
     "prefecture": "Miyagi",
@@ -54179,7 +54176,7 @@
     ],
     "reservation": "Not required",
     "parking": "Available nearby",
-    "notes": "Free outdoor areas; the site museum and special exhibits charge admission. Closed 2nd and 4th Monday (check official calendar).",
+    "notes": "Site-wide viewing fee ¥500 adult since April 2019 (includes the outdoor reconstructed area). Closed the 4th Monday (next day if holiday) and Dec 30 – Jan 1.",
     "coordinates": {
       "lat": 40.8115,
       "lng": 140.6973
@@ -55337,7 +55334,7 @@
     "id": "sendai-asaichi-morning-market",
     "name": "Sendai Asaichi Morning Market",
     "nameJa": "仙台朝市",
-    "aliases": ["Sendai Station (Miyagi)", "仙台駅"],
+    "aliases": ["仙台朝市"],
     "content": {
       "en": {
         "name": "Sendai Asaichi Morning Market",
@@ -55361,13 +55358,13 @@
     },
     "officialWebsiteRequirement": "none",
     "categories": ["Food", "Market"],
-    "tags": ["Food", "Sendai City", "v1.9.2"],
-    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sendai%20Station%2020230806.jpg?width=1600",
+    "tags": ["Food", "Sendai City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Sendai_Asaichi_01.jpg/1280px-Sendai_Asaichi_01.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "掬茶",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sendai_Station_20230806.jpg"
+      "license": "CC BY-SA 3.0",
+      "attribution": "Neuropower",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sendai_Asaichi_01.jpg"
     },
     "coordinates": {
       "lat": 38.2588,
@@ -55499,7 +55496,8 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-11",
       "sourceUrl": "https://sendaiasaichi.com/"
-    }
+    },
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Sendai_Asaichi_01.jpg/1280px-Sendai_Asaichi_01.jpg"
   },
   {
     "id": "sendai-castle-ruins-miyagi",
@@ -58334,7 +58332,7 @@
       "max": 7
     },
     "officialWebsite": "https://www.pref.aomori.lg.jp/soshiki/kankyo/kankyo/shirakami.html",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (forest); trail access typically Jun–Oct",
     "editorial": {
       "lifecycle": "published",
       "reviewedAt": "2026-08-11",
@@ -70269,7 +70267,7 @@
       "max": 4
     },
     "officialWebsite": "https://www.yamaderakankou.com/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open daily from 08:00; closing time varies by season",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Yamagata:yamagata",
     "editorial": {
@@ -73151,7 +73149,7 @@
       "max": 3
     },
     "officialWebsite": "http://zao-fox-village.com/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "09:00 - 17:00",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Miyagi:shiroishi"
   },
@@ -73376,12 +73374,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture", "Museum"],
     "tags": ["Culture", "Sendai City", "v1.9.2"],
-    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Zuiho-den17s3872.jpg?width=1600",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Zuiho-den12s3200.jpg/1280px-Zuiho-den12s3200.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY 2.5",
       "attribution": "663highland",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zuiho-den17s3872.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zuiho-den12s3200.jpg"
     },
     "coordinates": {
       "lat": 38.250541604858974,
@@ -73512,7 +73510,8 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-11",
       "sourceUrl": "https://www.zuihoden.com/"
-    }
+    },
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Zuiho-den12s3200.jpg/1280px-Zuiho-den12s3200.jpg"
   },
   {
     "id": "zushi",
@@ -109126,13 +109125,13 @@
       "food": 500,
       "cafe": 200
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Matsushima_%28Matsushima_Bay%29_20170327.jpg/1280px-Matsushima_%28Matsushima_Bay%29_20170327.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Matsushima_%28Matsushima_Bay%29_20170327.jpg/1280px-Matsushima_%28Matsushima_Bay%29_20170327.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/%E9%9B%84%E5%B3%B6_Oshima_Island_-_panoramio.jpg/1280px-%E9%9B%84%E5%B3%B6_Oshima_Island_-_panoramio.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/%E9%9B%84%E5%B3%B6_Oshima_Island_-_panoramio.jpg/1280px-%E9%9B%84%E5%B3%B6_Oshima_Island_-_panoramio.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Suicasmo",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsushima_(Matsushima_Bay)_20170327.jpg"
+      "license": "CC BY 3.0",
+      "attribution": "lienyuan lee",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:雄島_Oshima_Island_-_panoramio.jpg"
     },
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-11"
@@ -111003,7 +111002,7 @@
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
     "openingHoursJa": "9:00～17:00（最終入園16:30）。11月24日～4月中旬は洋館・茶室のみ（無料）。大人320円。",
     "businessHours": "09:00 - 17:00 (last entry 16:30); western house closed Nov 24 – mid-Apr (free in winter)",
-    "officialWebsite": "https://www.hirosakipark.or.jp/hujita/",
+    "officialWebsite": "http://www.hirosakipark.or.jp/hujita/",
     "content": {
       "en": {
         "name": "Fujita Memorial Garden",
@@ -113870,7 +113869,7 @@
     },
     "categories": ["History", "Onsen & Wellness"],
     "tags": ["History", "Onsen", "Kaminoyama City"],
-    "description": "The reconstructed keep of Kaminoyama Castle houses a city history museum, and the surrounding onsen town — with more than 1,200 years of springs — offers footbaths and ryokan stays. A compact castle-plus-onsen stop on the Yamagata Shinkansen.",
+    "description": "The reconstructed keep of Kaminoyama Castle houses a city history museum, and the surrounding onsen town — with springs discovered in 1458 — offers footbaths and ryokan stays. A compact castle-plus-onsen stop on the Yamagata Shinkansen.",
     "highlights": [
       "Reconstructed keep and museum",
       "1,200-year onsen town",
@@ -113962,12 +113961,12 @@
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
     "openingHoursJa": "天守閣は9:00～17:15（最終入館16:45）。木曜休館（祝日の場合は翌日）、12月29日～31日休館。大人600円。",
-    "businessHours": "Keep 09:00 - 17:15 (last entry 16:45); closed Thursdays (Tue if holiday) and Dec 29 – 31",
+    "businessHours": "Keep 09:00 - 17:15 (last entry 16:45); closed Thursdays (preceding Wednesday if Thursday is a holiday) and Dec 29 – 31",
     "officialWebsite": "https://kaminoyama-castle.info/",
     "content": {
       "en": {
         "name": "Kaminoyama Castle Town",
-        "description": "The reconstructed keep of Kaminoyama Castle houses a city history museum, and the surrounding onsen town — with more than 1,200 years of springs — offers footbaths and ryokan stays. A compact castle-plus-onsen stop on the Yamagata Shinkansen.",
+        "description": "The reconstructed keep of Kaminoyama Castle houses a city history museum, and the surrounding onsen town — with springs discovered in 1458 — offers footbaths and ryokan stays. A compact castle-plus-onsen stop on the Yamagata Shinkansen.",
         "highlights": [
           "Reconstructed keep and museum",
           "1,200-year onsen town",
@@ -113977,7 +113976,7 @@
       },
       "ja": {
         "name": "上山城と温泉街",
-        "description": "再建された上山城の天守閣には郷土資料館が入り、城下に広がる1200年余りの歴史を持つ温泉街には足湯が点在します。山形新幹線のかみのやま温泉駅からも近いコンパクトな城下町です。",
+        "description": "再建された上山城の天守閣には郷土資料館が入り、城下に広がる1458年に発見された温泉街には足湯が点在します。山形新幹線のかみのやま温泉駅からも近いコンパクトな城下町です。",
         "highlights": [
           "再建天守と資料館",
           "1200年の温泉街",

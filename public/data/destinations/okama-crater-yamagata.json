@@ -77,9 +77,7 @@
   "notes": "Access via Zao Echo Line toll road (closed Nov–Apr due to snow). The crater sits on the Yamagata–Miyagi prefectural border (officially listed as Kawasaki Town, Miyagi; boundary undetermined); the standard approach is the Zao Ropeway from Yamagata City's Zao Onsen. On cloudy days the lake can be completely hidden; best views are on clear summer mornings.",
   "status": "beta",
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": ["mount-zao-yamagata"],
-    "parentDestinationId": "yamagata-city"
+    "gatewayHubId": "yamagata-city"
   },
   "budgetBreakdown": null,
   "role": "standalone",
@@ -89,9 +87,8 @@
     "max": 3
   },
   "officialWebsite": "https://zao-kochan.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "Open access (crater); Zao Echo Line closed Nov–Apr",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Yamagata:yamagata",
   "editorial": {
     "lifecycle": "in_review",
     "sources": [

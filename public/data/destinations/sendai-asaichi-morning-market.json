@@ -2,7 +2,7 @@
   "id": "sendai-asaichi-morning-market",
   "name": "Sendai Asaichi Morning Market",
   "nameJa": "仙台朝市",
-  "aliases": ["Sendai Station (Miyagi)", "仙台駅"],
+  "aliases": ["仙台朝市"],
   "content": {
     "en": {
       "name": "Sendai Asaichi Morning Market",
@@ -26,13 +26,13 @@
   },
   "officialWebsiteRequirement": "none",
   "categories": ["Food", "Market"],
-  "tags": ["Food", "Sendai City", "v1.9.2"],
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sendai%20Station%2020230806.jpg?width=1600",
+  "tags": ["Food", "Sendai City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Sendai_Asaichi_01.jpg/1280px-Sendai_Asaichi_01.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "掬茶",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sendai_Station_20230806.jpg"
+    "license": "CC BY-SA 3.0",
+    "attribution": "Neuropower",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sendai_Asaichi_01.jpg"
   },
   "coordinates": {
     "lat": 38.2588,
@@ -164,5 +164,6 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-11",
     "sourceUrl": "https://sendaiasaichi.com/"
-  }
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Sendai_Asaichi_01.jpg/1280px-Sendai_Asaichi_01.jpg"
 }

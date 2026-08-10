@@ -28,12 +28,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture", "Museum"],
   "tags": ["Culture", "Sendai City", "v1.9.2"],
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Zuiho-den17s3872.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Zuiho-den12s3200.jpg/1280px-Zuiho-den12s3200.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY 2.5",
     "attribution": "663highland",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zuiho-den17s3872.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zuiho-den12s3200.jpg"
   },
   "coordinates": {
     "lat": 38.250541604858974,
@@ -164,5 +164,6 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-11",
     "sourceUrl": "https://www.zuihoden.com/"
-  }
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Zuiho-den12s3200.jpg/1280px-Zuiho-den12s3200.jpg"
 }

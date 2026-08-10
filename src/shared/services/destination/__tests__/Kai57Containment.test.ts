@@ -120,10 +120,15 @@ describe("KAI-57 Tohoku containment", () => {
     expectGateway("shirakami-sanchi-aomori", "hirosaki-city");
     expectGateway("lake-towada-aomori", "hachinohe-city");
     expectGateway("dewa-sanzan-yamagata", "yamagata-city");
+    // Okama crater sits on the Yamagata–Miyagi border (officially listed as
+    // Kawasaki Town, Miyagi; boundary undetermined) — parent-free with gateway,
+    // consistent with the other undetermined-municipality standalones.
+    expectGateway("okama-crater-yamagata", "yamagata-city");
     for (const id of [
       "shirakami-sanchi-aomori",
       "lake-towada-aomori",
       "dewa-sanzan-yamagata",
+      "okama-crater-yamagata",
     ]) {
       expect(byId.get(id)!.municipalityId).toBeUndefined();
     }
