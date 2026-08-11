@@ -508,18 +508,23 @@ function getGroundEstimate(
     .toLowerCase();
   if (!destinationPrefecture) return null;
 
-  // Same-prefecture trips resolve at municipality granularity (metro
-  // corridors); cross-prefecture trips use the prefecture-pair registry.
-  const route =
-    originPrefecture === destinationPrefecture &&
-    originMunicipalityId &&
-    destination.municipalityId
+  // Municipality-pair rows are the precise representation (KAI-66): a
+  // verified corridor between two specific cities must never be widened
+  // into a whole-prefecture claim (an Aichi→Gifu prefecture row would
+  // present a Nagoya→Gifu-city time as a Nagoya→Takayama time). Prefer the
+  // exact municipality pair whenever both sides are known; fall back to the
+  // prefecture-pair registry only when no municipality row exists.
+  const municipalityRoute =
+    originMunicipalityId && destination.municipalityId
       ? getMunicipalityGroundRoute(
           originMunicipalityId,
           destination.municipalityId,
           mode,
         )
-      : getGroundRoute(originPrefecture, destinationPrefecture, mode);
+      : null;
+  const route =
+    municipalityRoute ??
+    getGroundRoute(originPrefecture, destinationPrefecture, mode);
   if (!route) return null;
   return {
     mode,

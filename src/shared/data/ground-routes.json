@@ -512,6 +512,24 @@
       "fare": [6470, 6470],
       "fareBasis": "reserved",
       "fareSourceUrl": "https://railway.jr-central.co.jp/ticket-rule/rule31.html"
+    },
+    {
+      "from": "tokyo",
+      "to": "fukuoka",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [285, 295],
+      "sourceUrl": "https://railway.jr-central.co.jp/jikoku/",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "hiroshima",
+      "to": "okayama",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [35, 41],
+      "sourceUrl": "https://railway.jr-central.co.jp/jikoku/",
+      "checkedAt": "2026-08-12"
     }
   ],
   "municipalityRoutes": [
@@ -649,6 +667,96 @@
       "timeRange": [50, 60],
       "sourceUrl": "https://timetables.jreast.co.jp/timetable/list1227.html",
       "checkedAt": "2026-08-10"
+    },
+    {
+      "from": "Aichi:nagoya",
+      "to": "Gifu:gifu",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [20, 30],
+      "sourceUrl": "https://railway.jr-central.co.jp/timetable/nr_doc/search.html",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "Aichi:nagoya",
+      "to": "Gifu:takayama",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [140, 165],
+      "sourceUrl": "https://global.jr-central.co.jp/en/goldenroute/itineraries/takayama-gero-craftsmanship-onsen/",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "Aichi:nagoya",
+      "to": "Mie:ise",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [75, 90],
+      "sourceUrl": "https://www.kintetsu.co.jp/railway/Dia/pdf/price_limited_express_c.pdf",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "Aichi:nagoya",
+      "to": "Nagano:matsumoto",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [110, 125],
+      "sourceUrl": "https://railway.jr-central.co.jp/timetable/nr_doc/search.html",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "Hiroshima:hiroshima",
+      "to": "Yamaguchi:iwakuni",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [45, 70],
+      "sourceUrl": "https://timetable.jr-odekake.net/station-timetable/3863022001",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "Kyoto:kyoto",
+      "to": "Nara:nara",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [34, 55],
+      "sourceUrl": "https://eki.kintetsu.co.jp/english/N2",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "Okayama:okayama",
+      "to": "Kagawa:takamatsu",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [52, 63],
+      "sourceUrl": "https://www.jr-odekake.net/railroad/train/marineliner/",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "Fukuoka:fukuoka",
+      "to": "Fukuoka:kitakyushu",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [50, 75],
+      "sourceUrl": "https://timetable.jr-odekake.net/cgi-bin/mydia_sp.cgi?MD=3&FN=0&EID=0910106&EN=%91%E5%8D%E3",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "Okayama:okayama",
+      "to": "Okayama:kurashiki",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [15, 25],
+      "sourceUrl": "https://timetable.jr-odekake.net/station-timetable/3449046001",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "Miyagi:sendai",
+      "to": "Miyagi:matsushima",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [25, 45],
+      "sourceUrl": "https://timetables.jreast.co.jp/en/2608/timetable/tt0913/0913061.html",
+      "checkedAt": "2026-08-12"
     }
   ]
 }
