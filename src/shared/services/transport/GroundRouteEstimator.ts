@@ -14,7 +14,7 @@ export interface GroundRoute {
    * classes actually represented; absent = fare unknown.
    */
   fare?: [number, number] | null;
-  /** What the fare buys; null fare may still carry the basis. */
+  /** What the fare buys (seat product, fare basis); only stored with a fare. */
   fareBasis?:
     "base" | "base-plus-lex" | "integrated-total" | "non-reserved" | "reserved";
   /** Supports the fare range specifically, when distinct from route source. */

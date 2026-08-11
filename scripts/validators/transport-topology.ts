@@ -657,10 +657,20 @@ export const transportTopologyValidator: ValidatorModule = {
       }
     }
 
-    // Verified ground fares (FARE_POLICY §0/§2): a stored fare must be a
+    // Verified ground fares (FARE_POLICY §0/§2/§5): a stored fare must be a
     // nonnegative range with a valid basis and its own provenance; a null
-    // fare must not carry a basis that implies a price.
-    for (const route of groundRoutes) {
+    // fare must not carry a basis that implies a price; and a
+    // conventional-train row must never carry a fare (no verified
+    // conventional fares exist — a train duration with a shinkansen price
+    // is a mixed product). Municipality routes are covered too.
+    for (const route of [...groundRoutes, ...groundMunicipalityRoutes]) {
+      if (route.mode === "train" && route.fare !== undefined) {
+        issues.push({
+          severity: "error",
+          code: "mixed_product_train_fare",
+          message: `Ground route ${route.from}→${route.to} is a train corridor but carries a fare — no verified conventional-rail fares exist (FARE_POLICY §5)`,
+        });
+      }
       if (route.fare !== undefined && route.fare !== null) {
         if (
           !Array.isArray(route.fare) ||

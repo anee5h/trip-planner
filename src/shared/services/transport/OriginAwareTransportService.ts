@@ -46,8 +46,8 @@ export interface OriginAwareTransportEstimate {
   fareVariability?: "fixed" | "range" | "variable" | "dynamic" | null;
   /**
    * What the fare buys: seat product and fare basis (FARE_POLICY §0/§2).
-   * null fare may still carry the basis when the route exists but no
-   * verified fare does.
+   * Only present together with a fare — a basis without a price implies a
+   * product that has no verified fare.
    */
   fareBasis?:
     "base" | "base-plus-lex" | "integrated-total" | "non-reserved" | "reserved";

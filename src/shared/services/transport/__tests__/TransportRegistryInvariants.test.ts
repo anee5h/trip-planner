@@ -265,6 +265,12 @@ describe("KAI-12 transport registry invariants", () => {
     ]);
     for (const route of [...groundRoutes, ...groundMunicipalityRoutes]) {
       if (route.fare === undefined) continue;
+      if (route.fare === null) {
+        // A null fare must not carry a basis that implies a price (mirrors
+        // the validator's null_ground_fare_with_basis).
+        expect(route.fareBasis).toBeUndefined();
+        continue;
+      }
       expect(route.fareBasis).toBeDefined();
       expect(validBases.has(route.fareBasis!)).toBe(true);
       expect(route.fareSourceUrl).toMatch(/^https?:\/\//);
