@@ -59,12 +59,30 @@ interface OriginCase {
 }
 
 const ORIGINS: Record<string, OriginCase> = {
-  sendai: { label: "Sendai Station", coordinates: { lat: 38.2601, lng: 140.882 } },
-  tokyo: { label: "Tokyo Station", coordinates: { lat: 35.6812, lng: 139.7671 } },
-  yokohama: { label: "Yokohama Station", coordinates: { lat: 35.4662, lng: 139.6227 } },
-  osaka: { label: "Osaka Station", coordinates: { lat: 34.7025, lng: 135.4959 } },
-  fukuoka: { label: "Hakata Station", coordinates: { lat: 33.5902, lng: 130.4207 } },
-  sapporo: { label: "Sapporo Station", coordinates: { lat: 43.0687, lng: 141.3508 } },
+  sendai: {
+    label: "Sendai Station",
+    coordinates: { lat: 38.2601, lng: 140.882 },
+  },
+  tokyo: {
+    label: "Tokyo Station",
+    coordinates: { lat: 35.6812, lng: 139.7671 },
+  },
+  yokohama: {
+    label: "Yokohama Station",
+    coordinates: { lat: 35.4662, lng: 139.6227 },
+  },
+  osaka: {
+    label: "Osaka Station",
+    coordinates: { lat: 34.7025, lng: 135.4959 },
+  },
+  fukuoka: {
+    label: "Hakata Station",
+    coordinates: { lat: 33.5902, lng: 130.4207 },
+  },
+  sapporo: {
+    label: "Sapporo Station",
+    coordinates: { lat: 43.0687, lng: 141.3508 },
+  },
 };
 
 const DURATIONS: TripDuration[] = ["shortOuting", "halfDay", "fullDay"];
@@ -140,7 +158,12 @@ for (const [originKey, origin] of Object.entries(ORIGINS)) {
     const seen = new Set<string>();
     for (const r of results) {
       if (seen.has(r.id)) {
-        addFinding("error", scenario, "duplicate-card", `id ${r.id} appears more than once`);
+        addFinding(
+          "error",
+          scenario,
+          "duplicate-card",
+          `id ${r.id} appears more than once`,
+        );
       }
       seen.add(r.id);
     }
@@ -259,7 +282,9 @@ const errors = findings.filter((f) => f.severity === "error");
 const warnings = findings.filter((f) => f.severity === "warning");
 
 console.log("# KAI-57 recommendation QA");
-console.log(`catalogue=${destinations.length} findings=${findings.length} (${errors.length} errors, ${warnings.length} warnings)`);
+console.log(
+  `catalogue=${destinations.length} findings=${findings.length} (${errors.length} errors, ${warnings.length} warnings)`,
+);
 console.log("");
 for (const f of findings) {
   console.log(`[${f.severity}] ${f.scenario} ${f.check}: ${f.detail}`);

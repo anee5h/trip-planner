@@ -86,7 +86,11 @@ describe("KAI-57 Tohoku containment", () => {
 
   it("gateways Geibikei and Hiraizumi via Morioka with their true municipalities", () => {
     expectGateway("geibikei-gorge-iwate", "morioka-city", "Iwate:ichinoseki");
-    expectGateway("hiraizumi-chusonji-iwate", "morioka-city", "Iwate:hiraizumi");
+    expectGateway(
+      "hiraizumi-chusonji-iwate",
+      "morioka-city",
+      "Iwate:hiraizumi",
+    );
   });
 
   it("contains Lake Tazawa and Dakigaeri under Senboku City, not Akita City", () => {
@@ -109,7 +113,11 @@ describe("KAI-57 Tohoku containment", () => {
 
   it("gateways Abukuma Cave via Koriyama, not Aizuwakamatsu", () => {
     // Abukuma-do is in Tamura City (central Fukushima), not the Aizu region.
-    expectGateway("abukuma-cave-fukushima", "koriyama-city", "Fukushima:tamura");
+    expectGateway(
+      "abukuma-cave-fukushima",
+      "koriyama-city",
+      "Fukushima:tamura",
+    );
   });
 
   it("gateways Oirase Gorge via Hachinohe with Towada City municipality", () => {
@@ -135,7 +143,11 @@ describe("KAI-57 Tohoku containment", () => {
   });
 
   it("gateways Ginzan Onsen via Yamagata City with Obanazawa municipality", () => {
-    expectGateway("ginzan-onsen-yamagata", "yamagata-city", "Yamagata:obanazawa");
+    expectGateway(
+      "ginzan-onsen-yamagata",
+      "yamagata-city",
+      "Yamagata:obanazawa",
+    );
   });
 
   it("gateways cross-municipality additions instead of containing them", () => {
@@ -144,8 +156,16 @@ describe("KAI-57 Tohoku containment", () => {
     expectGateway("motsu-ji", "morioka-city", "Iwate:hiraizumi");
     expectGateway("takkoku-no-iwa", "morioka-city", "Iwate:hiraizumi");
     expectGateway("oga-namahage-kan", "akita-city", "Akita:oga");
-    expectGateway("kaminoyama-castle-town", "yamagata-city", "Yamagata:kaminoyama");
-    expectGateway("kitakata-kura-district", "aizuwakamatsu-city", "Fukushima:kitakata");
+    expectGateway(
+      "kaminoyama-castle-town",
+      "yamagata-city",
+      "Yamagata:kaminoyama",
+    );
+    expectGateway(
+      "kitakata-kura-district",
+      "aizuwakamatsu-city",
+      "Fukushima:kitakata",
+    );
   });
 
   it("keeps every Tohoku record with a municipal parent inside that municipality", () => {

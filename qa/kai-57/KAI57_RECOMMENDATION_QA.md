@@ -13,14 +13,14 @@ against the Tohoku slice of results.
 
 ## Results summary
 
-| Origin | shortOuting | halfDay | fullDay | Tohoku results |
-|---|---|---|---|---|
-| Sendai | 18 | 15 | — | 18 / 15 (all) |
-| Tokyo | 65 | 120 | — | 0 |
-| Yokohama | 79 | 101 | — | 0 |
-| Osaka | 67 | 28 | — | 0 |
-| Fukuoka | 21 | 11 | — | 0 |
-| Sapporo | 7 | 6 | — | 0 |
+| Origin   | shortOuting | halfDay | fullDay | Tohoku results |
+| -------- | ----------- | ------- | ------- | -------------- |
+| Sendai   | 18          | 15      | —       | 18 / 15 (all)  |
+| Tokyo    | 65          | 120     | —       | 0              |
+| Yokohama | 79          | 101     | —       | 0              |
+| Osaka    | 67          | 28      | —       | 0              |
+| Fukuoka  | 21          | 11      | —       | 0              |
+| Sapporo  | 7           | 6       | —       | 0              |
 
 Findings: **0 errors, 40 warnings**. No duplicate cards. No one-municipality
 monopoly in any Tohoku slice (Sendai-origin results span Miyagi, Yamagata,

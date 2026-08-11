@@ -348,12 +348,6 @@
           "changedBy": "Meguruto editorial",
           "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
         }
       ]
     }
@@ -583,7 +577,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -982,7 +976,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -1126,12 +1120,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -1859,12 +1847,6 @@
           "changedBy": "Meguruto editorial",
           "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
         }
       ]
     },
@@ -1964,7 +1946,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -8102,12 +8084,6 @@
           "changedBy": "Meguruto editorial",
           "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
         }
       ]
     }
@@ -8315,7 +8291,7 @@
       "max": 5
     },
     "officialWebsite": "http://www.dewasanzan.jp/",
-    "businessHours": "Open access (mountain pilgrimage; Gassan climbable only in summer)",
+    "businessHours": "Mountain pilgrimage; Gassan climbable only in summer",
     "ratingsSchemaVersion": 2,
     "editorial": {
       "lifecycle": "in_review",
@@ -8331,12 +8307,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -12144,7 +12114,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -12768,12 +12738,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -13939,7 +13903,7 @@
       "max": 5
     },
     "officialWebsite": "https://www.ginzanonsen.jp/",
-    "businessHours": "Open access (onsen town); ryokan day-use hours vary",
+    "businessHours": "Onsen town; ryokan day-use hours vary by inn",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Yamagata:obanazawa",
     "editorial": {
@@ -13956,12 +13920,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -14281,12 +14239,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -15284,7 +15236,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -17940,7 +17892,7 @@
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Hiraizumi – Temples, Gardens and Archaeological Sites via Wikipedia/Wikimedia Commons"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -17997,12 +17949,6 @@
           "changedBy": "Meguruto editorial",
           "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
         }
       ]
     }
@@ -18034,7 +17980,7 @@
       "value": 9.4,
       "uniqueness": 9.6
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -18105,7 +18051,7 @@
       "max": 5
     },
     "officialWebsite": "https://www.hirosakijo.jp/",
-    "businessHours": "Park open access; keep interior closed for seismic repair (since Nov 2025)",
+    "businessHours": "Park freely walkable; the keep interior is closed for seismic repair (since Nov 2025)",
     "municipalityId": "Aomori:hirosaki",
     "editorial": {
       "lifecycle": "published",
@@ -18123,12 +18069,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -18216,7 +18156,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -22694,7 +22634,7 @@
       "max": 5
     },
     "officialWebsite": "https://www.city.miyako.iwate.jp/gyosei/soshiki/kanko/4/8/2/1/1154.html",
-    "businessHours": "Open access (beach); visitor-centre hours vary by season",
+    "businessHours": "Beach freely accessible; visitor-centre hours vary by season",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Iwate:miyako",
     "editorial": {
@@ -22711,12 +22651,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -23164,12 +23098,6 @@
           "changedAt": "2026-07-29",
           "changedBy": "TabiMap data audit",
           "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
         },
         {
@@ -24063,12 +23991,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -30753,7 +30675,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -33990,12 +33912,6 @@
           "changedBy": "Meguruto editorial",
           "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
         }
       ]
     }
@@ -34090,7 +34006,7 @@
       "max": 6
     },
     "officialWebsite": "https://www.towada.kanko.or.jp/",
-    "businessHours": "Open access (lake); cruises and visitor centres have their own hours",
+    "businessHours": "Lake freely accessible; cruises and visitor centres have their own hours",
     "ratingsSchemaVersion": 2,
     "editorial": {
       "lifecycle": "in_review",
@@ -34106,12 +34022,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -35957,12 +35867,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -38208,7 +38112,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -38863,12 +38767,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -39550,7 +39448,7 @@
       "max": 6
     },
     "officialWebsite": "https://www.zao-spa.or.jp/",
-    "businessHours": "Open access (mountain); ropeway hours and winter access vary",
+    "businessHours": "Mountain; ropeway hours and winter access vary",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Yamagata:yamagata"
   },
@@ -44071,12 +43969,6 @@
           "changedBy": "Meguruto editorial",
           "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
         }
       ]
     }
@@ -46255,12 +46147,6 @@
           "changedBy": "Meguruto editorial",
           "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
         }
       ]
     }
@@ -47318,7 +47204,7 @@
       "max": 5
     },
     "officialWebsite": "https://www.towada.kanko.or.jp/",
-    "businessHours": "Open access (stream trail); shuttle bus runs seasonally",
+    "businessHours": "Stream trail freely walkable; shuttle bus runs seasonally",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Aomori:towada",
     "editorial": {
@@ -47335,12 +47221,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -47439,7 +47319,7 @@
       "max": 3
     },
     "officialWebsite": "https://zao-kochan.jp/",
-    "businessHours": "Open access (crater); Zao Echo Line closed Nov–Apr",
+    "businessHours": "Crater walkable when accessible; Zao Echo Line road closed Nov–Apr",
     "ratingsSchemaVersion": 2,
     "editorial": {
       "lifecycle": "in_review",
@@ -47455,12 +47335,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -50883,7 +50757,7 @@
       "max": 4
     },
     "officialWebsite": "https://ouchi-juku.com/",
-    "businessHours": "Open access (post town); individual museums have their own hours",
+    "businessHours": "Post town freely walkable; individual museums have their own hours",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Fukushima:shimogo",
     "editorial": {
@@ -50900,12 +50774,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -51495,12 +51363,6 @@
           "changedAt": "2026-07-29",
           "changedBy": "TabiMap data audit",
           "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
         },
         {
@@ -52220,12 +52082,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -54188,7 +54044,7 @@
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Jomon Prehistoric Sites in Northern Japan via Wikipedia/Wikimedia Commons"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -54238,12 +54094,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -55292,7 +55142,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -55476,12 +55326,6 @@
           "changedBy": "Meguruto editorial",
           "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
         }
       ]
     },
@@ -55515,8 +55359,8 @@
       "Gokoku Shrine within grounds"
     ],
     "coordinates": {
-      "lat": 38.2522,
-      "lng": 140.856
+      "lat": 38.253418,
+      "lng": 140.856766
     },
     "nearestStation": "Sendai Station (then Loople bus)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Waki-yagura_of_Sendai_Castle_20220910b.jpg/1920px-Waki-yagura_of_Sendai_Castle_20220910b.jpg",
@@ -55618,12 +55462,6 @@
           "changedBy": "Meguruto editorial",
           "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
         }
       ]
     }
@@ -55697,7 +55535,7 @@
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Sendai City via Wikipedia/Wikimedia Commons"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -55915,12 +55753,6 @@
           "changedBy": "Meguruto editorial",
           "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
         }
       ]
     },
@@ -56084,12 +55916,6 @@
           "changedBy": "Meguruto editorial",
           "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
         }
       ]
     },
@@ -56241,12 +56067,6 @@
           "changedAt": "2026-07-29",
           "changedBy": "TabiMap data audit",
           "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
         },
         {
@@ -58298,7 +58118,7 @@
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Shirakami-Sanchi via Wikipedia/Wikimedia Commons"
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "high"
     },
@@ -58332,7 +58152,7 @@
       "max": 7
     },
     "officialWebsite": "https://www.pref.aomori.lg.jp/soshiki/kankyo/kankyo/shirakami.html",
-    "businessHours": "Open access (forest); trail access typically Jun–Oct",
+    "businessHours": "Forest; trail access typically Jun–Oct",
     "editorial": {
       "lifecycle": "published",
       "reviewedAt": "2026-08-11",
@@ -58349,12 +58169,6 @@
       "freshness": "current",
       "changeSummary": "KAI-57 existing-data audit correction",
       "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
-        },
         {
           "changedAt": "2026-08-11",
           "changedBy": "Meguruto editorial",
@@ -67894,12 +67708,6 @@
           "changedBy": "Meguruto editorial",
           "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
         }
       ]
     }
@@ -70289,12 +70097,6 @@
           "changedBy": "Meguruto editorial",
           "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
-          "method": "assisted"
         }
       ]
     }
@@ -70378,7 +70180,7 @@
     "relationships": {
       "featuredDestinationIds": []
     },
-    "status": "verified",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -73484,12 +73286,6 @@
           "changedAt": "2026-07-29",
           "changedBy": "TabiMap data audit",
           "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
         },
         {
@@ -108272,7 +108068,7 @@
       "Bay cruises and island walks",
       "Oyster cuisine"
     ],
-    "status": "beta",
+    "status": "published",
     "travelEstimate": {
       "confidence": "beta"
     },
@@ -108378,7 +108174,9 @@
       }
     },
     "editorial": {
-      "lifecycle": "in_review",
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "Meguruto editorial",
       "sources": [
         {
           "type": "government",
@@ -109681,7 +109479,7 @@
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
     "openingHoursJa": "公園は常時開放。冬季はパノラマラインが通行止め。",
-    "businessHours": "Open access; Panorama Line road closed in winter",
+    "businessHours": "Park freely walkable; Panorama Line road closed in winter",
     "officialWebsite": "https://www.matsushima-kanko.com/",
     "content": {
       "en": {
@@ -112316,7 +112114,7 @@
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
     "openingHoursJa": "温泉街は常時散策可。共同浴場の営業時間は施設により異なります。",
-    "businessHours": "District open access; Sakaba-yu 06:00–21:00 (last entry 20:40), closed Mondays",
+    "businessHours": "Sakaba-yu 06:00–21:00 (last entry 20:40), closed Mondays; the district is freely walkable otherwise",
     "officialWebsite": "https://iizaka.com/",
     "content": {
       "en": {
@@ -114621,7 +114419,7 @@
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
     "openingHoursJa": "町並みは常時散策可。蔵の里は9:00～17:00（最終入場16:30）。年末年始休業。",
-    "businessHours": "Town open access; Kura no Sato 09:00 - 17:00 (last entry 16:30), closed year-end",
+    "businessHours": "Kura no Sato 09:00 - 17:00 (last entry 16:30), closed year-end; the town streets are freely walkable",
     "officialWebsite": "http://www.furusatosinkou.co.jp/sato/",
     "content": {
       "en": {

@@ -11,29 +11,29 @@ driven by real Chromium. Locale switched through the app's own language control
 All 21 pages rendered in BOTH locales (EN + JA), desktop (1440×900), with the
 canonical name verified in each:
 
-| Page | EN H1 | JA H1 |
-|---|---|---|
-| matsushima-town | Matsushima Town | 松島町 |
-| sendai-city | Sendai City | 仙台市 |
-| aomori-city | Aomori City | 青森市 |
-| hirosaki-city | Hirosaki City | 弘前市 |
-| morioka-city | Morioka City | 盛岡市 |
-| yamagata-city | Yamagata City | 山形市 |
-| aizuwakamatsu-city | Aizuwakamatsu City | 会津若松市 |
-| fukushima-city | Fukushima City | 福島市 |
-| akita-city | Akita City | 秋田市 |
-| zuigan-ji | Zuigan-ji | 瑞巌寺 |
-| ryusendo-cave-iwate | Ryusendo Cave | 龍泉洞 |
-| sazae-do | Sazae-do | さざえ堂 |
-| towada-art-center | Towada Art Center | 十和田市現代美術館 |
-| oga-namahage-kan | Namahage Museum (Oga Shinzan Folklore Museum) | なまはげ館（男鹿真山伝承館） |
-| yamadera-yamagata | Yamadera (Risshakuji Temple) | 山寺（立石寺） |
-| goshikinuma-ponds-fukushima | Goshikinuma Ponds | 五色沼 |
-| sendai-yagiyama-zoo | Sendai Yagiyama Zoological Park | 八木山動物公園フジサキの杜 |
-| motsu-ji | Motsu-ji | 毛越寺 |
-| aomori-museum-of-art | Aomori Museum of Art | 青森県立美術館 |
-| koiwai-farm | Koiwai Farm | 小岩井農場 |
-| tatehana-wharf-morning-market | Tatehana Wharf Morning Market | 館鼻岸壁朝市 |
+| Page                          | EN H1                                         | JA H1                        |
+| ----------------------------- | --------------------------------------------- | ---------------------------- |
+| matsushima-town               | Matsushima Town                               | 松島町                       |
+| sendai-city                   | Sendai City                                   | 仙台市                       |
+| aomori-city                   | Aomori City                                   | 青森市                       |
+| hirosaki-city                 | Hirosaki City                                 | 弘前市                       |
+| morioka-city                  | Morioka City                                  | 盛岡市                       |
+| yamagata-city                 | Yamagata City                                 | 山形市                       |
+| aizuwakamatsu-city            | Aizuwakamatsu City                            | 会津若松市                   |
+| fukushima-city                | Fukushima City                                | 福島市                       |
+| akita-city                    | Akita City                                    | 秋田市                       |
+| zuigan-ji                     | Zuigan-ji                                     | 瑞巌寺                       |
+| ryusendo-cave-iwate           | Ryusendo Cave                                 | 龍泉洞                       |
+| sazae-do                      | Sazae-do                                      | さざえ堂                     |
+| towada-art-center             | Towada Art Center                             | 十和田市現代美術館           |
+| oga-namahage-kan              | Namahage Museum (Oga Shinzan Folklore Museum) | なまはげ館（男鹿真山伝承館） |
+| yamadera-yamagata             | Yamadera (Risshakuji Temple)                  | 山寺（立石寺）               |
+| goshikinuma-ponds-fukushima   | Goshikinuma Ponds                             | 五色沼                       |
+| sendai-yagiyama-zoo           | Sendai Yagiyama Zoological Park               | 八木山動物公園フジサキの杜   |
+| motsu-ji                      | Motsu-ji                                      | 毛越寺                       |
+| aomori-museum-of-art          | Aomori Museum of Art                          | 青森県立美術館               |
+| koiwai-farm                   | Koiwai Farm                                   | 小岩井農場                   |
+| tatehana-wharf-morning-market | Tatehana Wharf Morning Market                 | 館鼻岸壁朝市                 |
 
 Mobile (390×844): matsushima-town, sendai-city, zuigan-ji, saze-do — EN + JA,
 all rendered without overflow errors.

@@ -69,7 +69,7 @@
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Jomon Prehistoric Sites in Northern Japan via Wikipedia/Wikimedia Commons"
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -119,12 +119,6 @@
     "freshness": "current",
     "changeSummary": "KAI-57 existing-data audit correction",
     "changes": [
-      {
-        "changedAt": "2026-08-11",
-        "changedBy": "Meguruto editorial",
-        "summary": "KAI-57 existing-data audit correction",
-        "method": "assisted"
-      },
       {
         "changedAt": "2026-08-11",
         "changedBy": "Meguruto editorial",

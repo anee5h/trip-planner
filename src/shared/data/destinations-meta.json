@@ -73,7 +73,7 @@
     "region": "Tohoku",
     "role": "hub",
     "kind": "city",
-    "status": "verified",
+    "status": "published",
     "relationships": {
       "featuredDestinationIds": []
     }
@@ -109,7 +109,7 @@
     "region": "Tohoku",
     "role": "hub",
     "kind": "city",
-    "status": "verified",
+    "status": "published",
     "relationships": {
       "featuredDestinationIds": []
     }
@@ -246,7 +246,7 @@
     "region": "Tohoku",
     "role": "hub",
     "kind": "city",
-    "status": "verified",
+    "status": "published",
     "relationships": {
       "featuredDestinationIds": []
     }
@@ -1705,7 +1705,7 @@
     "region": "Tohoku",
     "role": "hub",
     "kind": "city",
-    "status": "verified",
+    "status": "published",
     "relationships": {
       "featuredDestinationIds": []
     }
@@ -2163,7 +2163,7 @@
     "region": "Tohoku",
     "role": "hub",
     "kind": "city",
-    "status": "verified",
+    "status": "published",
     "relationships": {
       "featuredDestinationIds": []
     }
@@ -2577,7 +2577,7 @@
     "region": "Tohoku",
     "role": "standalone",
     "kind": "attraction",
-    "status": "verified",
+    "status": "published",
     "relationships": {
       "gatewayHubId": "morioka-city"
     }
@@ -2601,7 +2601,7 @@
     "region": "Tohoku",
     "role": "poi",
     "kind": "attraction",
-    "status": "verified",
+    "status": "published",
     "relationships": {
       "featuredDestinationIds": [],
       "parentDestinationId": "hirosaki-city"
@@ -2614,7 +2614,7 @@
     "region": "Tohoku",
     "role": "hub",
     "kind": "city",
-    "status": "verified",
+    "status": "published",
     "relationships": {
       "featuredDestinationIds": []
     }
@@ -4535,7 +4535,7 @@
     "region": "Tohoku",
     "role": "hub",
     "kind": "city",
-    "status": "verified",
+    "status": "published",
     "relationships": {
       "featuredDestinationIds": []
     }
@@ -5269,7 +5269,7 @@
     "region": "Tohoku",
     "role": "hub",
     "kind": "town",
-    "status": "beta",
+    "status": "published",
     "relationships": {
       "featuredDestinationIds": [
         "zuigan-ji",
@@ -5678,7 +5678,7 @@
     "region": "Tohoku",
     "role": "hub",
     "kind": "city",
-    "status": "verified",
+    "status": "published",
     "relationships": {
       "featuredDestinationIds": []
     }
@@ -7855,7 +7855,7 @@
     "region": "Tohoku",
     "role": "poi",
     "kind": "attraction",
-    "status": "verified",
+    "status": "published",
     "relationships": {
       "parentDestinationId": "aomori-city"
     }
@@ -8002,7 +8002,7 @@
     "region": "Tohoku",
     "role": "hub",
     "kind": "city",
-    "status": "verified",
+    "status": "published",
     "relationships": {
       "featuredDestinationIds": []
     }
@@ -8044,7 +8044,7 @@
     "region": "Tohoku",
     "role": "hub",
     "kind": "city",
-    "status": "verified",
+    "status": "published",
     "relationships": {
       "featuredDestinationIds": [
         "akiu-onsen-miyagi",
@@ -8429,7 +8429,7 @@
     "region": "Tohoku",
     "role": "standalone",
     "kind": "attraction",
-    "status": "verified",
+    "status": "published",
     "relationships": {
       "gatewayHubId": "hirosaki-city"
     }
@@ -10135,7 +10135,7 @@
     "region": "Tohoku",
     "role": "hub",
     "kind": "city",
-    "status": "verified",
+    "status": "published",
     "relationships": {
       "featuredDestinationIds": []
     }

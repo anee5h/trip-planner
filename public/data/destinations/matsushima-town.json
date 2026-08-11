@@ -23,7 +23,7 @@
     "Bay cruises and island walks",
     "Oyster cuisine"
   ],
-  "status": "beta",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -129,7 +129,9 @@
     }
   },
   "editorial": {
-    "lifecycle": "in_review",
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-11",
+    "reviewedBy": "Meguruto editorial",
     "sources": [
       {
         "type": "government",

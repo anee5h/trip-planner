@@ -81,7 +81,7 @@
   "relationships": {
     "featuredDestinationIds": []
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
