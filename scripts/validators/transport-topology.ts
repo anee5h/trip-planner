@@ -15,6 +15,7 @@ import {
 import type { TransportZoneId } from "../../src/shared/types/transportTopology";
 import flightRoutesData from "../../src/shared/data/flight-estimates.json";
 import groundRoutesData from "../../src/shared/data/ground-routes.json";
+import busRoutesData from "../../src/shared/data/bus-routes.json";
 import airportsData from "../../src/shared/data/airports.json";
 import airportZonesData from "../../src/shared/data/airport-zones.json";
 import ferryRoutesData from "../../src/shared/data/ferry-routes.json";
@@ -29,6 +30,13 @@ const VALID_RAIL_ROAD_BUS = new Set([
 ]);
 
 const VALID_GROUND_MODES = new Set(["train", "shinkansen"]);
+
+const VALID_FARE_VARIABILITY = new Set([
+  "fixed",
+  "range",
+  "variable",
+  "dynamic",
+]);
 
 const groundRoutes = (
   groundRoutesData as unknown as {
@@ -52,6 +60,7 @@ const groundRoutes = (
     }>;
   }
 ).routes;
+
 const groundMunicipalityRoutes =
   (
     groundRoutesData as unknown as {
@@ -66,6 +75,25 @@ const groundMunicipalityRoutes =
       }>;
     }
   ).municipalityRoutes ?? [];
+
+const busRoutes = (
+  busRoutesData as unknown as {
+    routes: Array<{
+      from: string;
+      to: string;
+      bidirectional?: boolean;
+      mode?: string;
+      serviceName?: string;
+      operator?: string;
+      durationMinutes?: [number, number];
+      reservationRequired?: boolean;
+      fare?: [number, number | null] | null;
+      fareVariability?: string;
+      sourceUrl?: string;
+      checkedAt?: string;
+    }>;
+  }
+).routes;
 
 const flightRoutes = (
   flightRoutesData as unknown as {
@@ -140,6 +168,14 @@ const ISO_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
  * dropped list would silently re-present a seasonal fact as year-round.
  */
 const KNOWN_SEASONAL_FLIGHT_ROUTES = new Set(["ITM→ISG", "FUK→KUM"]);
+/**
+ * Corridors the KAI-12 highway-bus audit marked as operating on specific
+ * dates only (HIGHWAY_BUS_AUDIT §1: Tokyo↔Matsuyama オレンジライナーえひめ
+ * night, ~12.1 h). The bus runtime has no date gating, so these must never
+ * be registered as verified availability — a future edit cannot silently
+ * re-add them until bus operatingPeriods/date gating exists.
+ */
+const KNOWN_NON_DAILY_BUS_ROUTES = new Set(["tokyo→matsuyama"]);
 /**
  * Canonical "today" for provenance checks (Japan local date at last
  * verification round). checkedAt must never be in the future relative to
@@ -494,6 +530,113 @@ export const transportTopologyValidator: ValidatorModule = {
           severity: "error",
           code: "duplicate_ground_corridor",
           message: `Ground corridor ${dup.route.from}→${dup.route.to} (${dup.route.mode}) duplicates ${dup.existing.from}→${dup.existing.to} in ${registryName}`,
+        });
+      }
+    }
+
+    // Verified intercity/highway-bus corridors: provenance, duration
+    // ranges, fare integrity (per FARE_POLICY §3), and reservation flags.
+    // Bus corridors are city-pair facts — a local city bus or airport
+    // limousine must never appear here (MODE_SEMANTICS §3).
+    for (const route of busRoutes) {
+      if (route.mode !== "bus") {
+        issues.push({
+          severity: "error",
+          code: "invalid_bus_mode",
+          message: `Bus route ${route.from}→${route.to} has unsupported mode '${route.mode}'`,
+        });
+      }
+      if (
+        KNOWN_NON_DAILY_BUS_ROUTES.has(`${route.from}→${route.to}`) ||
+        KNOWN_NON_DAILY_BUS_ROUTES.has(`${route.to}→${route.from}`)
+      ) {
+        issues.push({
+          severity: "error",
+          code: "non_daily_bus_corridor_registered",
+          message: `Bus route ${route.from}→${route.to} is audited specific-dates-only (HIGHWAY_BUS_AUDIT §1) and must not be registered without bus date gating`,
+        });
+      }
+      if (
+        !Array.isArray(route.durationMinutes) ||
+        route.durationMinutes.length !== 2 ||
+        typeof route.durationMinutes[0] !== "number" ||
+        typeof route.durationMinutes[1] !== "number" ||
+        route.durationMinutes[0] < 0 ||
+        route.durationMinutes[1] < route.durationMinutes[0]
+      ) {
+        issues.push({
+          severity: "error",
+          code: "invalid_bus_duration",
+          message: `Bus route ${route.from}→${route.to} has an invalid durationMinutes range`,
+        });
+      }
+      if (
+        typeof route.sourceUrl !== "string" ||
+        !/^https?:\/\//.test(route.sourceUrl)
+      ) {
+        issues.push({
+          severity: "error",
+          code: "missing_bus_source",
+          message: `Bus route ${route.from}→${route.to} requires a sourceUrl`,
+        });
+      }
+      if (typeof route.checkedAt !== "string" || !route.checkedAt) {
+        issues.push({
+          severity: "error",
+          code: "missing_bus_checked_at",
+          message: `Bus route ${route.from}→${route.to} requires checkedAt`,
+        });
+      } else if (!ISO_DATE_RE.test(route.checkedAt)) {
+        issues.push({
+          severity: "error",
+          code: "invalid_bus_checked_at",
+          message: `Bus route ${route.from}→${route.to} has non-ISO checkedAt '${route.checkedAt}'`,
+        });
+      } else if (route.checkedAt > REFERENCE_TODAY) {
+        issues.push({
+          severity: "error",
+          code: "future_bus_checked_at",
+          message: `Bus route ${route.from}→${route.to} has future checkedAt '${route.checkedAt}' (today is ${REFERENCE_TODAY})`,
+        });
+      }
+      if (typeof route.reservationRequired !== "boolean") {
+        issues.push({
+          severity: "error",
+          code: "missing_bus_reservation",
+          message: `Bus route ${route.from}→${route.to} requires reservationRequired`,
+        });
+      }
+      if (route.fare !== null && Array.isArray(route.fare)) {
+        if (
+          typeof route.fare[0] !== "number" ||
+          route.fare[0] < 0 ||
+          (route.fare[1] !== null &&
+            (typeof route.fare[1] !== "number" ||
+              route.fare[1] < route.fare[0]))
+        ) {
+          issues.push({
+            severity: "error",
+            code: "invalid_bus_fare",
+            message: `Bus route ${route.from}→${route.to} has an invalid fare range`,
+          });
+        }
+      }
+      if (
+        route.fareVariability !== undefined &&
+        route.fareVariability !== null &&
+        !VALID_FARE_VARIABILITY.has(route.fareVariability)
+      ) {
+        issues.push({
+          severity: "error",
+          code: "invalid_bus_fare_variability",
+          message: `Bus route ${route.from}→${route.to} has invalid fareVariability '${route.fareVariability}'`,
+        });
+      }
+      if (route.fare !== null && !route.fareVariability) {
+        issues.push({
+          severity: "error",
+          code: "missing_bus_fare_variability",
+          message: `Bus route ${route.from}→${route.to} carries a fare without fareVariability`,
         });
       }
     }

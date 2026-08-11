@@ -1,7 +1,10 @@
 import { describe, expect, it } from "vitest";
 import groundRoutesData from "@/shared/data/ground-routes.json";
 import flightRoutesData from "@/shared/data/flight-estimates.json";
+import busRoutesData from "@/shared/data/bus-routes.json";
+import destinationsData from "@/shared/data/destinations-index.json";
 import airportsData from "@/shared/data/airports.json";
+import { MUNICIPALITY_BUS_SLUG } from "../BusRouteEstimator";
 import { getAuditReferenceToday } from "../../../../../scripts/config/audit-reference";
 import { findContradictoryGroundDuplicates } from "../../../../../scripts/validators/ground-duplicates";
 
@@ -51,6 +54,22 @@ const flightRoutes = (
       to: string;
       flightTime?: [number, number];
       checkedAt?: string;
+    }>;
+  }
+).routes;
+
+const busRoutes = (
+  busRoutesData as unknown as {
+    routes: Array<{
+      from: string;
+      to: string;
+      mode?: string;
+      durationMinutes?: [number, number];
+      sourceUrl?: string;
+      checkedAt?: string;
+      fare?: [number, number | null] | null;
+      fareVariability?: string;
+      operator?: string;
     }>;
   }
 ).routes;
@@ -166,6 +185,85 @@ describe("KAI-12 transport registry invariants", () => {
     for (const route of flightRoutes) {
       expect(codes.has(route.from)).toBe(true);
       expect(codes.has(route.to)).toBe(true);
+    }
+  });
+
+  it("bus corridors carry a valid duration range", () => {
+    for (const route of busRoutes) {
+      expect(route.durationMinutes?.length).toBe(2);
+      expect(route.durationMinutes![0]).toBeGreaterThanOrEqual(0);
+      expect(route.durationMinutes![1]).toBeGreaterThanOrEqual(
+        route.durationMinutes![0],
+      );
+    }
+  });
+
+  it("bus corridors carry provenance and no future checkedAt", () => {
+    for (const route of busRoutes) {
+      expect(route.sourceUrl).toMatch(/^https?:\/\//);
+      expect(route.checkedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(route.checkedAt! <= REFERENCE_TODAY).toBe(true);
+    }
+  });
+
+  it("bus fares are valid ranges or null with variability", () => {
+    for (const route of busRoutes) {
+      if (route.fare !== null) {
+        // Dynamic fares may have a null upper bound ("from ¥X"); a range
+        // must never be empty or negative, and never have a null lower bound.
+        expect(route.fare!.length).toBe(2);
+        expect(route.fare![0]).not.toBeNull();
+        expect(route.fare![0]!).toBeGreaterThanOrEqual(0);
+        if (route.fare![1] !== null) {
+          expect(route.fare![1]).toBeGreaterThanOrEqual(route.fare![0]!);
+        }
+        expect(route.fareVariability).toBeTruthy();
+      }
+    }
+  });
+
+  it("bus corridors have no duplicate operator rows per pair", () => {
+    const pairs = new Set<string>();
+    for (const route of busRoutes) {
+      const key =
+        [route.from, route.to].sort().join("↔") + "|" + (route.operator ?? "");
+      expect(pairs.has(key)).toBe(false);
+      pairs.add(key);
+    }
+  });
+
+  it("specific-dates-only corridors are not registered as verified availability", () => {
+    // Regression (KAI-12): Tokyo↔Matsuyama (オレンジライナーえひめ night) is
+    // audited specific-dates-only and the bus runtime has no date gating —
+    // it must not surface as a verified daily corridor. The validator
+    // rejects the pair; this live-registry check mirrors it.
+    const nonDaily = new Set(["tokyo→matsuyama"]);
+    for (const route of busRoutes) {
+      const pair = `${route.from}→${route.to}`;
+      expect(nonDaily.has(pair)).toBe(false);
+    }
+  });
+
+  it("municipality bus slugs reference real catalogue municipalities and registered corridor endpoints", () => {
+    // Regression (KAI-12): a mapping like "Miyagi:yamagata" (Yamagata is in
+    // Yamagata prefecture), a slug with no corridor ("yokohama"), or a key
+    // for a municipality that does not exist in the catalogue would be a
+    // dead or misleading wiring — never evidence of an intercity corridor.
+    const municipalityIds = new Set(
+      (destinationsData as unknown as Array<{ municipalityId?: string }>)
+        .map((d) => d.municipalityId)
+        .filter((m): m is string => Boolean(m)),
+    );
+    const corridorEndpoints = new Set<string>();
+    for (const route of busRoutes) {
+      corridorEndpoints.add(route.from);
+      corridorEndpoints.add(route.to);
+    }
+    for (const [municipalityId, slug] of Object.entries(
+      MUNICIPALITY_BUS_SLUG,
+    )) {
+      expect(municipalityIds.has(municipalityId)).toBe(true);
+      expect(corridorEndpoints.has(slug)).toBe(true);
     }
   });
 });

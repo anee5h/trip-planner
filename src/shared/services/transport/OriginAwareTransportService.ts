@@ -5,6 +5,7 @@ import {
   getGroundRoute,
   getMunicipalityGroundRoute,
 } from "./GroundRouteEstimator";
+import { getBusRoute, MUNICIPALITY_BUS_SLUG } from "./BusRouteEstimator";
 import { getFlightTransportEstimate } from "./FlightTransportEstimator";
 import { getFerryTransportEstimate } from "./FerryTransportEstimator";
 import { resolveDestinationTransportZone } from "./TransportTopologyService";
@@ -34,6 +35,15 @@ export interface OriginAwareTransportEstimate {
   destinationZoneId?: TransportZoneId;
   sourceUrl?: string;
   checkedAt?: string;
+  /** Verified one-way adult fare range [min, max] in JPY. For dynamic bus
+   *  fares the upper bound may be null ("from ¥X") — a dynamic fare is
+   *  never a fixed price. null = no verified standard fare (FARE_POLICY
+   *  §3). Budget consumers must not treat an estimate without this field
+   *  as having a verified fare. */
+  fare?: [number, number | null] | null;
+  /** Fare behavior: fixed / range / variable / dynamic (bus policy §3);
+   *  null when no fare is stored. */
+  fareVariability?: "fixed" | "range" | "variable" | "dynamic" | null;
 }
 
 /**
@@ -99,14 +109,43 @@ function resolveOriginArea(homeStationCoords: { lat: number; lng: number }): {
 
 /**
  * Ground-mode registry lookup. Only train/shinkansen corridors carry
- * verified prefecture-pair durations; bus has no verified intercity
- * registry entries and therefore returns no duration.
+ * verified prefecture-pair durations; bus corridors are verified city-pair
+ * facts (bus-routes.json) and resolve at municipality granularity only — a
+ * prefecture-pair bus key would overgeneralize local/limousine service into
+ * intercity availability (MODE_SEMANTICS §3).
  */
 function getGroundEstimate(
   destination: Destination,
   context: OriginAwareEstimateContext,
-  mode: "train" | "shinkansen",
+  mode: "train" | "shinkansen" | "bus",
 ): OriginAwareTransportEstimate | null {
+  if (mode === "bus") {
+    const resolvedOrigin = context.homeStationCoords
+      ? resolveOriginArea(context.homeStationCoords)
+      : undefined;
+    const originMunicipalityId =
+      context.originMunicipalityId ?? resolvedOrigin?.municipalityId;
+    if (!originMunicipalityId || !destination.municipalityId) return null;
+    const fromSlug = MUNICIPALITY_BUS_SLUG[originMunicipalityId];
+    const toSlug = MUNICIPALITY_BUS_SLUG[destination.municipalityId];
+    if (!fromSlug || !toSlug) return null;
+    const route = getBusRoute(fromSlug, toSlug);
+    if (!route) return null;
+    return {
+      mode,
+      timeRange: route.timeRange,
+      source: "verified_ground_route",
+      evidence: "verified",
+      destinationZoneId: resolveDestinationTransportZone(destination),
+      sourceUrl: route.sourceUrl,
+      checkedAt: route.checkedAt,
+      // Verified fare metadata rides along so budget consumers can prefer
+      // it over duration heuristics (FARE_POLICY §3; consumed in #135).
+      // Dynamic fares stay ranges with variability — never fixed truth.
+      fare: route.fare,
+      fareVariability: route.fareVariability,
+    };
+  }
   const resolvedOrigin = context.homeStationCoords
     ? resolveOriginArea(context.homeStationCoords)
     : undefined;
@@ -189,10 +228,10 @@ export function getOriginAwareTransportEstimate(
           destinationZoneId: resolveDestinationTransportZone(destination),
         };
       }
-    } else if (mode === "train" || mode === "shinkansen") {
+    } else if (mode === "train" || mode === "shinkansen" || mode === "bus") {
       estimate = getGroundEstimate(destination, context, mode);
     }
-    // bus and car/my_car have no verified origin-aware durations.
+    // car/my_car have no verified origin-aware durations.
     if (estimate && (!best || estimate.timeRange[0] < best.timeRange[0])) {
       best = estimate;
     }
