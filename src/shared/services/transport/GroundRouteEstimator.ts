@@ -8,6 +8,17 @@ export interface GroundRoute {
   timeRange: [number, number];
   sourceUrl?: string;
   checkedAt?: string;
+  /**
+   * Verified one-way adult fare (JPY) for the ordinary seat product the
+   * timeRange describes (FARE_POLICY §1/§2). Range spans the service
+   * classes actually represented; absent = fare unknown.
+   */
+  fare?: [number, number] | null;
+  /** What the fare buys; null fare may still carry the basis. */
+  fareBasis?:
+    "base" | "base-plus-lex" | "integrated-total" | "non-reserved" | "reserved";
+  /** Supports the fare range specifically, when distinct from route source. */
+  fareSourceUrl?: string;
 }
 
 export interface GroundRouteEstimate {
@@ -15,6 +26,9 @@ export interface GroundRouteEstimate {
   timeRange: [number, number];
   sourceUrl?: string;
   checkedAt?: string;
+  fare?: [number, number] | null;
+  fareBasis?: GroundRoute["fareBasis"];
+  fareSourceUrl?: string;
 }
 
 // JSON modules are untyped at the import boundary; validate shape once here.
@@ -53,6 +67,9 @@ export function getGroundRoute(
     timeRange: match.timeRange,
     sourceUrl: match.sourceUrl,
     checkedAt: match.checkedAt,
+    fare: match.fare,
+    fareBasis: match.fareBasis,
+    fareSourceUrl: match.fareSourceUrl,
   };
 }
 
@@ -80,5 +97,8 @@ export function getMunicipalityGroundRoute(
     timeRange: match.timeRange,
     sourceUrl: match.sourceUrl,
     checkedAt: match.checkedAt,
+    fare: match.fare,
+    fareBasis: match.fareBasis,
+    fareSourceUrl: match.fareSourceUrl,
   };
 }

@@ -243,22 +243,29 @@ describe("RecommendationScorer Unit Tests", () => {
 
     expect(train.usable).toBe(true);
     expect(shinkansen.usable).toBe(true);
-    expect(train.budget + train.transport).toBeGreaterThan(
+    // Verified corridor fares (KAI-12): a reserved shinkansen fare is
+    // published (Tokyo→Osaka ¥14,720 one-way) while the train corridor has
+    // no verified fare, so the train heuristic remains cheaper than the
+    // verified shinkansen price.
+    expect(train.budget + train.transport).toBeLessThan(
       shinkansen.budget + shinkansen.transport,
     );
     expect(shinkansenEfficiency.oneWayMinutes).toBeLessThan(
       trainEfficiency.oneWayMinutes,
     );
-    expect(result.bestMode).toBe("train");
+    // KAI-12 verified-fare behavior: Tokyo→Nagano shinkansen now carries a
+    // verified corridor fare (¥7,920–8,250 one-way), so the fastest
+    // authorized mode wins the budget-consistent choice.
+    expect(result.bestMode).toBe("shinkansen");
     expect(result.dayTripTravelEfficiency?.mode).toBe(result.bestMode);
     expect(result.dayTripTravelEfficiency?.oneWayMinutes).toBe(
-      trainEfficiency.oneWayMinutes,
+      shinkansenEfficiency.oneWayMinutes,
     );
-    expect(train.travelEfficiency).toBe(
+    expect(shinkansen.travelEfficiency).toBe(
       result.dayTripTravelEfficiency?.contribution,
     );
-    expect(result.modeScoreBreakdown.train.total).toBe(
-      train.budget + train.transport + train.travelEfficiency,
+    expect(result.modeScoreBreakdown.shinkansen.total).toBe(
+      shinkansen.budget + shinkansen.transport + shinkansen.travelEfficiency,
     );
   });
 

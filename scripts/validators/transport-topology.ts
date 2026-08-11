@@ -38,6 +38,14 @@ const VALID_FARE_VARIABILITY = new Set([
   "dynamic",
 ]);
 
+const VALID_GROUND_FARE_BASIS = new Set([
+  "base",
+  "base-plus-lex",
+  "integrated-total",
+  "non-reserved",
+  "reserved",
+]);
+
 const groundRoutes = (
   groundRoutesData as unknown as {
     routes: Array<{
@@ -48,6 +56,9 @@ const groundRoutes = (
       timeRange?: [number, number];
       sourceUrl?: string;
       checkedAt?: string;
+      fare?: [number, number] | null;
+      fareBasis?: string;
+      fareSourceUrl?: string;
     }>;
     municipalityRoutes?: Array<{
       from: string;
@@ -57,6 +68,9 @@ const groundRoutes = (
       timeRange?: [number, number];
       sourceUrl?: string;
       checkedAt?: string;
+      fare?: [number, number] | null;
+      fareBasis?: string;
+      fareSourceUrl?: string;
     }>;
   }
 ).routes;
@@ -72,6 +86,9 @@ const groundMunicipalityRoutes =
         timeRange?: [number, number];
         sourceUrl?: string;
         checkedAt?: string;
+        fare?: [number, number] | null;
+        fareBasis?: string;
+        fareSourceUrl?: string;
       }>;
     }
   ).municipalityRoutes ?? [];
@@ -94,7 +111,6 @@ const busRoutes = (
     }>;
   }
 ).routes;
-
 const flightRoutes = (
   flightRoutesData as unknown as {
     routes: Array<{
@@ -637,6 +653,51 @@ export const transportTopologyValidator: ValidatorModule = {
           severity: "error",
           code: "missing_bus_fare_variability",
           message: `Bus route ${route.from}→${route.to} carries a fare without fareVariability`,
+        });
+      }
+    }
+
+    // Verified ground fares (FARE_POLICY §0/§2): a stored fare must be a
+    // nonnegative range with a valid basis and its own provenance; a null
+    // fare must not carry a basis that implies a price.
+    for (const route of groundRoutes) {
+      if (route.fare !== undefined && route.fare !== null) {
+        if (
+          !Array.isArray(route.fare) ||
+          route.fare.length !== 2 ||
+          typeof route.fare[0] !== "number" ||
+          typeof route.fare[1] !== "number" ||
+          route.fare[0] < 0 ||
+          route.fare[1] < route.fare[0]
+        ) {
+          issues.push({
+            severity: "error",
+            code: "invalid_ground_fare_range",
+            message: `Ground route ${route.from}→${route.to} has an invalid fare range`,
+          });
+        }
+        if (!VALID_GROUND_FARE_BASIS.has(route.fareBasis ?? "")) {
+          issues.push({
+            severity: "error",
+            code: "invalid_ground_fare_basis",
+            message: `Ground route ${route.from}→${route.to} has invalid fareBasis '${route.fareBasis}'`,
+          });
+        }
+        if (
+          typeof route.fareSourceUrl !== "string" ||
+          !/^https?:\/\//.test(route.fareSourceUrl)
+        ) {
+          issues.push({
+            severity: "error",
+            code: "missing_ground_fare_source",
+            message: `Ground route ${route.from}→${route.to} requires a fareSourceUrl supporting the fare`,
+          });
+        }
+      } else if (route.fare === null && route.fareBasis) {
+        issues.push({
+          severity: "error",
+          code: "null_ground_fare_with_basis",
+          message: `Ground route ${route.from}→${route.to} declares fareBasis but has no fare`,
         });
       }
     }

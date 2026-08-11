@@ -319,7 +319,28 @@ export function getTransportCost(
     return Math.floor(roundTripPerPerson * partySize);
   }
 
-  // 2. Duration-based Fallback Pricing Heuristics
+  // 2. Verified origin-aware registry fare (ground modes only): when the
+  // corridor registry carries a verified one-way adult fare for the same
+  // product the duration describes, it wins over heuristics (FARE_POLICY
+  // §0–§2). Unknown stays unknown — never a fabricated price.
+  if (
+    homeCoords &&
+    (mode === "train" || mode === "shinkansen" || mode === "bus")
+  ) {
+    const estimate = getOriginAwareTransportEstimate(
+      dest,
+      { homeStationCoords: homeCoords, ferryTemporal },
+      [mode as TransportMode],
+    );
+    if (estimate?.fare) {
+      const avgOneWayPerPerson = Math.round(
+        (estimate.fare[0] + estimate.fare[1]) / 2,
+      );
+      return Math.floor(avgOneWayPerPerson * 2 * partySize);
+    }
+  }
+
+  // 3. Duration-based Fallback Pricing Heuristics
   const cfg = TRANSPORT_PRICING_CONFIG;
 
   // With an explicit origin, ground pricing must use the verified
