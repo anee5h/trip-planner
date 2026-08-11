@@ -4,8 +4,22 @@ import type { FerryTemporalContext, TransportMode } from "./types";
 import {
   getGroundRoute,
   getMunicipalityGroundRoute,
+  MUNICIPALITY_SHINKANSEN_HUB_IDS,
+  SHINKANSEN_ACCESS_HUBS,
+  SHINKANSEN_ACCESS_RADIUS_KM,
+  SHINKANSEN_ARRIVAL_RADIUS_KM,
 } from "./GroundRouteEstimator";
-import { getBusRoute, MUNICIPALITY_BUS_SLUG } from "./BusRouteEstimator";
+import {
+  BUS_ACCESS_HUBS,
+  BUS_ACCESS_RADIUS_KM,
+  BUS_ARRIVAL_RADIUS_KM,
+  getBusRoutes,
+  MUNICIPALITY_BUS_SLUG,
+} from "./BusRouteEstimator";
+import {
+  resolveNearbyAccessHubs,
+  type ResolvedIntercityAccessHub,
+} from "./IntercityAccessHubResolver";
 import { getFlightTransportEstimate } from "./FlightTransportEstimator";
 import { getFerryTransportEstimate } from "./FerryTransportEstimator";
 import {
@@ -33,8 +47,12 @@ export interface OriginAwareTransportEstimate {
   mode: TransportMode;
   timeRange: [number, number];
   source: OriginAwareEstimateSource;
-  /** Explicit provenance for consumers that also accept bounded estimates. */
-  evidence: "verified";
+  /** Evidence for the complete origin-to-destination duration. */
+  evidence: "verified" | "estimated";
+  /** The intercity corridor remains verified when access is estimated. */
+  corridorEvidence?: "verified";
+  /** Straight-line access distances used only to derive bounded time overhead. */
+  accessDistanceKm?: { origin?: number; destination?: number };
   originZoneId?: TransportZoneId;
   destinationZoneId?: TransportZoneId;
   sourceUrl?: string;
@@ -121,11 +139,156 @@ function resolveOriginArea(homeStationCoords: { lat: number; lng: number }): {
 }
 
 /**
- * Ground-mode registry lookup. Only train/shinkansen corridors carry
- * verified prefecture-pair durations; bus corridors are verified city-pair
- * facts (bus-routes.json) and resolve at municipality granularity only — a
+ * Bounded origin/destination access time (minutes) to an intercity hub,
+ * derived from the straight-line distance. This is deliberately NOT a
+ * feeder-mode claim: it models no explicit mode, creates no corridor, and
+ * carries no fare. ~45 km/h average with a fixed walk/wait base is a
+ * conservative urban transit bound — it overstates short distances only
+ * slightly and keeps long access conservative for day-trip feasibility.
+ */
+export function estimateHubAccessMinutes(distanceKm: number): [number, number] {
+  const min = Math.round(10 + (Math.max(0, distanceKm) / 45) * 60);
+  const max = Math.round(min * 1.25 + 5);
+  return [min, max];
+}
+
+function applyAccessOverhead(
+  corridorTimeRange: [number, number],
+  originHub: ResolvedIntercityAccessHub | undefined,
+  destinationHub: ResolvedIntercityAccessHub | undefined,
+  originLocation: { lat: number; lng: number } | undefined,
+  destinationLocation: { lat: number; lng: number } | undefined,
+): {
+  timeRange: [number, number];
+  evidence: "verified" | "estimated";
+  accessDistanceKm?: { origin?: number; destination?: number };
+} {
+  // Future ticket: replace this bounded assumption with explicit feeder legs,
+  // transfer time, feeder mode, and combined fare/duration display. This PR
+  // intentionally keeps those multimodal itinerary semantics out of scope.
+  let min = corridorTimeRange[0];
+  let max = corridorTimeRange[1];
+  let accessUsed = false;
+  let corridorStationMismatch = false;
+  const accessDistanceKm: { origin?: number; destination?: number } = {};
+
+  const addAccess = (
+    side: "origin" | "destination",
+    hub: ResolvedIntercityAccessHub | undefined,
+    location: { lat: number; lng: number } | undefined,
+  ) => {
+    if (!hub) return;
+    // A physical station that shares a prefecture-keyed corridor endpoint
+    // (e.g. Omiya/Shinagawa for `tokyo`) cannot claim the endpoint's exact
+    // verified duration/fare as its own product (KAI-12). The corridor stays
+    // verified; the complete journey becomes estimated without inventing a
+    // station-specific time.
+    if (hub.hub.isCanonicalCorridorStation === false)
+      corridorStationMismatch = true;
+    if (!hub.usedCatchment || !location) return;
+    const access = estimateHubAccessMinutes(hub.distanceKm);
+    min += access[0];
+    max += access[1];
+    accessUsed = true;
+    accessDistanceKm[side] = hub.distanceKm;
+  };
+
+  addAccess("origin", originHub, originLocation);
+  addAccess("destination", destinationHub, destinationLocation);
+
+  return {
+    timeRange: [min, max],
+    evidence: accessUsed || corridorStationMismatch ? "estimated" : "verified",
+    ...(accessUsed ? { accessDistanceKm } : {}),
+  };
+}
+
+function accessMinutesFor(
+  hub: ResolvedIntercityAccessHub,
+  location: { lat: number; lng: number } | undefined,
+): [number, number] | null {
+  if (!hub.usedCatchment || !location) return null;
+  return estimateHubAccessMinutes(hub.distanceKm);
+}
+
+/**
+ * Evaluates every (origin hub, destination hub, corridor row) combination
+ * and selects the best defensible route. The score is corridor midpoint +
+ * bounded origin access + bounded destination access, so a slightly farther
+ * hub with a much faster corridor beats a nearer hub with a slow one. Each
+ * candidate keeps its own duration and fare together — duration from route A
+ * is never mixed with the fare from route B.
+ */
+function selectGroundCandidate<
+  T extends { timeRange: [number, number] },
+>(options: {
+  fromHubs: readonly ResolvedIntercityAccessHub[];
+  toHubs: readonly ResolvedIntercityAccessHub[];
+  originLocation?: { lat: number; lng: number };
+  destinationLocation?: { lat: number; lng: number };
+  routesFor: (fromEndpoint: string, toEndpoint: string) => readonly T[];
+}): {
+  route: T;
+  fromHub: ResolvedIntercityAccessHub;
+  destinationHub: ResolvedIntercityAccessHub;
+} | null {
+  let best:
+    | {
+        route: T;
+        fromHub: ResolvedIntercityAccessHub;
+        destinationHub: ResolvedIntercityAccessHub;
+        score: number;
+      }
+    | undefined;
+  for (const fromHub of options.fromHubs) {
+    for (const destinationHub of options.toHubs) {
+      const routes = options.routesFor(
+        fromHub.hub.corridorEndpoint,
+        destinationHub.hub.corridorEndpoint,
+      );
+      for (const route of routes) {
+        const corridorMidpoint = (route.timeRange[0] + route.timeRange[1]) / 2;
+        const originAccess = accessMinutesFor(fromHub, options.originLocation);
+        const destinationAccess = accessMinutesFor(
+          destinationHub,
+          options.destinationLocation,
+        );
+        const score =
+          corridorMidpoint +
+          (originAccess?.[0] ?? 0) +
+          (destinationAccess?.[0] ?? 0);
+        if (!best || score < best.score) {
+          best = { route, fromHub, destinationHub, score };
+        }
+      }
+    }
+  }
+  return best
+    ? {
+        route: best.route,
+        fromHub: best.fromHub,
+        destinationHub: best.destinationHub,
+      }
+    : null;
+}
+
+function resolveExactHubIds(
+  municipalityId: string | undefined,
+  mapping: Record<string, string | string[]>,
+): string[] {
+  if (!municipalityId) return [];
+  const mapped = mapping[municipalityId];
+  return mapped ? (Array.isArray(mapped) ? mapped : [mapped]) : [];
+}
+
+/**
+ * Ground-mode registry lookup. Conventional train corridors carry verified
+ * prefecture-pair durations; Shinkansen uses the curated physical
+ * access-hub registry. Bus corridors are verified city-pair facts
+ * (bus-routes.json) and resolve at municipality granularity only — a
  * prefecture-pair bus key would overgeneralize local/limousine service into
- * intercity availability (MODE_SEMANTICS §3).
+ * intercity availability (MODE_SEMANTICS §3). Neither access radius can
+ * create a corridor without a registry row.
  */
 function getGroundEstimate(
   destination: Destination,
@@ -158,27 +321,140 @@ function getGroundEstimate(
       : undefined;
     const originMunicipalityId =
       context.originMunicipalityId ?? resolvedOrigin?.municipalityId;
-    if (!originMunicipalityId || !destination.municipalityId) return null;
-    const fromSlug = MUNICIPALITY_BUS_SLUG[originMunicipalityId];
-    const toSlug = MUNICIPALITY_BUS_SLUG[destination.municipalityId];
-    if (!fromSlug || !toSlug) return null;
-    const route = getBusRoute(fromSlug, toSlug);
-    if (!route) return null;
+    if (!context.homeStationCoords && !originMunicipalityId) return null;
+    if (!destination.coordinates && !destination.municipalityId) return null;
+    const fromHubs = resolveNearbyAccessHubs({
+      location: context.homeStationCoords,
+      mode: "bus",
+      hubs: BUS_ACCESS_HUBS,
+      exactHubIds: resolveExactHubIds(
+        originMunicipalityId,
+        MUNICIPALITY_BUS_SLUG,
+      ),
+      radiusKm: BUS_ACCESS_RADIUS_KM,
+      transportZoneId: context.originZoneId,
+    });
+    const toHubs = resolveNearbyAccessHubs({
+      location: destination.coordinates,
+      mode: "bus",
+      hubs: BUS_ACCESS_HUBS,
+      exactHubIds: resolveExactHubIds(
+        destination.municipalityId,
+        MUNICIPALITY_BUS_SLUG,
+      ),
+      radiusKm: BUS_ARRIVAL_RADIUS_KM,
+      transportZoneId: destinationZoneId,
+    });
+    const selected = selectGroundCandidate({
+      fromHubs,
+      toHubs,
+      originLocation: context.homeStationCoords ?? undefined,
+      destinationLocation: destination.coordinates,
+      routesFor: (fromEndpoint, toEndpoint) =>
+        getBusRoutes(fromEndpoint, toEndpoint),
+    });
+    if (!selected) return null;
+    const adjusted = applyAccessOverhead(
+      selected.route.timeRange,
+      selected.fromHub,
+      selected.destinationHub,
+      context.homeStationCoords ?? undefined,
+      destination.coordinates,
+    );
     return {
       mode,
-      timeRange: route.timeRange,
+      timeRange: adjusted.timeRange,
       source: "verified_ground_route",
-      evidence: "verified",
-      destinationZoneId: resolveDestinationTransportZone(destination),
-      sourceUrl: route.sourceUrl,
-      checkedAt: route.checkedAt,
+      evidence: adjusted.evidence,
+      corridorEvidence: "verified",
+      accessDistanceKm: adjusted.accessDistanceKm,
+      originZoneId: context.originZoneId,
+      destinationZoneId,
+      sourceUrl: selected.route.sourceUrl,
+      checkedAt: selected.route.checkedAt,
       // Verified fare metadata rides along so budget consumers can prefer
-      // it over duration heuristics (FARE_POLICY §3; consumed in #135).
+      // the intercity corridor fare (access fare is deliberately not modeled).
       // Dynamic fares stay ranges with variability — never fixed truth.
-      fare: route.fare,
-      fareVariability: route.fareVariability,
+      fare: selected.route.fare,
+      fareVariability: selected.route.fareVariability,
     };
   }
+  if (mode === "shinkansen") {
+    const resolvedOrigin = context.homeStationCoords
+      ? resolveOriginArea(context.homeStationCoords)
+      : undefined;
+    const originMunicipalityId =
+      context.originMunicipalityId ?? resolvedOrigin?.municipalityId;
+    const fromHubIds = resolveExactHubIds(
+      originMunicipalityId,
+      MUNICIPALITY_SHINKANSEN_HUB_IDS,
+    );
+    const toHubIds = resolveExactHubIds(
+      destination.municipalityId,
+      MUNICIPALITY_SHINKANSEN_HUB_IDS,
+    );
+    const canResolveAccessHubs =
+      Boolean(context.homeStationCoords || fromHubIds.length > 0) &&
+      Boolean(destination.coordinates || toHubIds.length > 0);
+
+    if (canResolveAccessHubs) {
+      const fromHubs = resolveNearbyAccessHubs({
+        location: context.homeStationCoords,
+        mode: "shinkansen",
+        hubs: SHINKANSEN_ACCESS_HUBS,
+        exactHubIds: fromHubIds,
+        radiusKm: SHINKANSEN_ACCESS_RADIUS_KM,
+        transportZoneId: context.originZoneId,
+      });
+      const toHubs = resolveNearbyAccessHubs({
+        location: destination.coordinates,
+        mode: "shinkansen",
+        hubs: SHINKANSEN_ACCESS_HUBS,
+        exactHubIds: toHubIds,
+        radiusKm: SHINKANSEN_ARRIVAL_RADIUS_KM,
+        transportZoneId: destinationZoneId,
+      });
+      const selected = selectGroundCandidate({
+        fromHubs,
+        toHubs,
+        originLocation: context.homeStationCoords ?? undefined,
+        destinationLocation: destination.coordinates,
+        routesFor: (fromEndpoint, toEndpoint) => {
+          const route = getGroundRoute(fromEndpoint, toEndpoint, mode);
+          return route ? [route] : [];
+        },
+      });
+      if (!selected) return null;
+      const adjusted = applyAccessOverhead(
+        selected.route.timeRange,
+        selected.fromHub,
+        selected.destinationHub,
+        context.homeStationCoords ?? undefined,
+        destination.coordinates,
+      );
+      return {
+        mode,
+        timeRange: adjusted.timeRange,
+        source: "verified_ground_route",
+        evidence: adjusted.evidence,
+        corridorEvidence: "verified",
+        accessDistanceKm: adjusted.accessDistanceKm,
+        originZoneId: context.originZoneId,
+        destinationZoneId,
+        sourceUrl: selected.route.sourceUrl,
+        checkedAt: selected.route.checkedAt,
+        fare: selected.route.fare,
+        fareBasis: selected.route.fareBasis,
+        fareSourceUrl: selected.route.fareSourceUrl,
+      };
+    }
+
+    // A physical boarding/arrival hub is required for personalized
+    // Shinkansen access. A prefecture pair alone cannot prove that the user's
+    // location reaches the represented station.
+    return null;
+  }
+
   const resolvedOrigin = context.homeStationCoords
     ? resolveOriginArea(context.homeStationCoords)
     : undefined;
@@ -191,6 +467,7 @@ function getGroundEstimate(
     .trim()
     .toLowerCase();
   if (!destinationPrefecture) return null;
+
   // Same-prefecture trips resolve at municipality granularity (metro
   // corridors); cross-prefecture trips use the prefecture-pair registry.
   const route =
@@ -209,7 +486,8 @@ function getGroundEstimate(
     timeRange: route.timeRange,
     source: "verified_ground_route",
     evidence: "verified",
-    destinationZoneId: resolveDestinationTransportZone(destination),
+    originZoneId: context.originZoneId,
+    destinationZoneId,
     sourceUrl: route.sourceUrl,
     checkedAt: route.checkedAt,
     fare: route.fare,
@@ -219,9 +497,9 @@ function getGroundEstimate(
 }
 
 /**
- * Returns the fastest verified origin-aware estimate across the requested
- * modes, or null when no mode has a verified duration for this origin.
- * Never fabricates a duration from distance or generic speeds.
+ * Returns the fastest canonical origin-aware estimate across the requested
+ * modes. A catchment-adjusted result is bounded/estimated for the complete
+ * journey while retaining verified corridor provenance.
  */
 export function getOriginAwareTransportEstimate(
   destination: Destination,

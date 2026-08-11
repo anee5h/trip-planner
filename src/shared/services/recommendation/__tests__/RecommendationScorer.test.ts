@@ -581,4 +581,116 @@ describe("getValidModes topology authorization", () => {
     // Transport zone intersection must prevent the "train" default
     expect(modes).not.toContain("train");
   });
+
+  it("canonical origin-aware Shinkansen evidence outranks stale transportOptions", () => {
+    const osaka = {
+      ...mockDest,
+      id: "osaka-canonical-shinkansen",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 34.6937, lng: 135.5023 },
+      transportOptions: {},
+    } as unknown as Destination;
+
+    expect(
+      getValidModes(
+        osaka,
+        "none",
+        ["shinkansen"],
+        { lat: 35.6285, lng: 139.7387 },
+        undefined,
+        "mainland-honshu",
+      ),
+    ).toContain("shinkansen");
+
+    const osakaBus = {
+      ...osaka,
+      id: "osaka-canonical-bus",
+    } as Destination;
+    expect(
+      getValidModes(
+        osakaBus,
+        "none",
+        ["bus"],
+        { lat: 35.6285, lng: 139.7387 },
+        undefined,
+        "mainland-honshu",
+      ),
+    ).toContain("bus");
+  });
+
+  it("stale transportOptions.bus cannot authorize a missing personalized bus corridor", () => {
+    // KAI-12: with coordinates, canonical bus evidence is authoritative.
+    // transportOptions.bus present but canonical corridor null → NOT valid.
+    const staleBus = {
+      ...mockDest,
+      id: "stale-bus-dest",
+      prefecture: "Nagano",
+      municipalityId: "Nagano:karuizawa",
+      coordinates: { lat: 36.342, lng: 138.635 },
+      transportOptions: { bus: 240 },
+    } as unknown as Destination;
+    // From Omiya, Karuizawa is beyond every bus terminal catchment and no
+    // tokyo↔karuizawa bus corridor exists — the stale metadata must not
+    // resurrect Bus.
+    expect(
+      getValidModes(
+        staleBus,
+        "none",
+        ["bus"],
+        { lat: 35.9063, lng: 139.6239 },
+        undefined,
+        "mainland-honshu",
+      ),
+    ).toEqual([]);
+  });
+
+  it("stale transportOptions.shinkansen cannot authorize a missing personalized shinkansen corridor", () => {
+    // KAI-12: Choshi (Chiba) is on mainland-honshu so topology authorizes
+    // shinkansen, but no physical station is within the 50 km access radius
+    // and no corridor exists — the stale metadata must not resurrect it.
+    const staleShinkansen = {
+      ...mockDest,
+      id: "stale-shinkansen-dest",
+      prefecture: "Chiba",
+      municipalityId: "Chiba:choshi",
+      coordinates: { lat: 35.7, lng: 140.87 },
+      transportOptions: { shinkansen: 180 },
+    } as unknown as Destination;
+    expect(
+      getValidModes(
+        staleShinkansen,
+        "none",
+        ["shinkansen"],
+        { lat: 35.6812, lng: 139.7671 },
+        undefined,
+        "mainland-honshu",
+      ),
+    ).toEqual([]);
+  });
+
+  it("bus topology local-mode alone cannot prove an intercity highway bus", () => {
+    // KAI-12: a zone's localModes ["bus"] (Ogasawara, Tomogashima) is local
+    // bus semantics, never intercity highway-bus authorization. With
+    // coordinates, canonical bus must be absent for such islands.
+    const localBusOnly = {
+      ...mockDest,
+      id: "local-bus-only-island",
+      prefecture: "Tokyo",
+      municipalityId: "Tokyo:ogasawara",
+      coordinates: { lat: 27.0966, lng: 142.1917 },
+      transportZoneId: "ogasawara",
+      transportOptions: { bus: 30 },
+    } as unknown as Destination;
+    expect(
+      getValidModes(
+        localBusOnly,
+        "none",
+        ["bus"],
+        { lat: 35.6812, lng: 139.7671 },
+        undefined,
+        "mainland-honshu",
+      ),
+    ).toEqual([]);
+  });
 });

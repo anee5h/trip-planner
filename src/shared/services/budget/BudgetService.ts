@@ -26,9 +26,10 @@ export const MAX_ACCOMMODATION_ALLOWANCE = 500000;
 
 /**
  * Runtime-derived trip duration in hours. Uses the canonical visit duration
- * and adds verified origin-aware round-trip travel for exactly the requested
- * mode. Returns `undefined` when the destination cannot be duration-planned
- * or the requested mode has no verified origin-aware estimate.
+ * and adds canonical origin-aware round-trip travel for exactly the requested
+ * mode. Catchment access is already included as bounded/estimated time;
+ * returns `undefined` when the destination cannot be duration-planned or the
+ * requested mode has no origin-aware estimate.
  */
 function deriveTripDurationHours(
   dest: Destination,
@@ -134,17 +135,40 @@ export function getDiningFoodRange(
 }
 
 export interface EstimatedBudgetRangeResult {
-  /**
-   * Complete cost range for this mode, or null when trip duration is
-   * unknown and meal/rental-dependent costs cannot be derived.
-   */
+  /** Cost range for this mode; complete only when both inclusion flags are true. */
   range: PriceRange | null;
-  /** True when origin transport cost is verified and included. */
+  /** True when the verified corridor fare is included; access fare may be unmodeled. */
   transportIncluded: boolean;
+  /** Whether the included transport fare covers the complete OD or corridor only. */
+  transportFareScope: "complete" | "corridor_only" | "unknown";
   /** True when trip duration was derived for exactly this mode. */
   durationIncluded: boolean;
   /** Meal range for this mode, or null when trip duration is unknown. */
   food: PriceRange | null;
+}
+
+function getTransportFareScope(
+  dest: Destination,
+  mode: string,
+  homeCoords: { lat: number; lng: number } | undefined,
+  ferryTemporal: FerryTemporalContext | undefined,
+  transportIncluded: boolean,
+): EstimatedBudgetRangeResult["transportFareScope"] {
+  if (!transportIncluded || !homeCoords) return "unknown";
+  // Flight and ferry fares cover the complete origin-destination journey
+  // (verified airport/port-to-port products); only ground intercity fares
+  // can be corridor-only when bounded access is estimated.
+  if (mode === "flight" || mode === "ferry") return "complete";
+  if (mode !== "train" && mode !== "shinkansen" && mode !== "bus") {
+    return "unknown";
+  }
+  const estimate = getOriginAwareTransportEstimate(
+    dest,
+    { homeStationCoords: homeCoords, ferryTemporal },
+    [mode as TransportMode],
+  );
+  if (!estimate?.fare) return "unknown";
+  return estimate.evidence === "estimated" ? "corridor_only" : "complete";
 }
 
 export function getEstimatedBudgetRange(
@@ -172,6 +196,13 @@ export function getEstimatedBudgetRange(
     effectiveTripDurationHours,
   );
   const transportIncluded = rawTransport !== null;
+  const transportFareScope = getTransportFareScope(
+    dest,
+    mode,
+    homeCoords,
+    ferryTemporal,
+    transportIncluded,
+  );
   const transport = rawTransport ?? 0;
   const food =
     effectiveTripDurationHours === undefined
@@ -181,6 +212,7 @@ export function getEstimatedBudgetRange(
     return {
       range: null,
       transportIncluded,
+      transportFareScope,
       durationIncluded: false,
       food: null,
     };
@@ -200,19 +232,20 @@ export function getEstimatedBudgetRange(
       Math.round((transport + tickets + food[1] + cafe + transfer[1]) * 1.05),
     ],
     transportIncluded,
+    transportFareScope,
     durationIncluded: true,
     food,
   };
 }
 
 /**
- * Lowest verified complete trip cost across the given modes, for sorting.
+ * Lowest corridor-backed trip cost across the given modes, for sorting.
  *
  * Estimates whose origin transport is unavailable (expired or unverified
  * fares, no verified route) are NEVER treated as zero-cost: they are
- * excluded entirely, and a destination with no verified estimate sorts
- * after every verified-cost candidate (PositiveInfinity). On-site-only
- * budgets (transport excluded) are never rewarded in a sort.
+ * excluded entirely, and a destination with no usable estimate sorts after
+ * every priced candidate (PositiveInfinity). On-site-only budgets (transport
+ * excluded) are never rewarded in a sort.
  */
 export function getSortableVerifiedBudget(
   dest: Destination,
@@ -322,7 +355,8 @@ export function getTransportCost(
   // 2. Verified origin-aware registry fare (ground modes only): when the
   // corridor registry carries a verified one-way adult fare for the same
   // product the duration describes, it wins over heuristics (FARE_POLICY
-  // §0–§2). Unknown stays unknown — never a fabricated price.
+  // §0–§2). A catchment estimate may use this corridor fare, but never adds
+  // an invented access fare.
   if (
     homeCoords &&
     (mode === "train" || mode === "shinkansen" || mode === "bus")
@@ -341,6 +375,8 @@ export function getTransportCost(
       const avgOneWayPerPerson = Math.round((lower + upper) / 2);
       return Math.floor(avgOneWayPerPerson * 2 * partySize);
     }
+    // A bounded access duration is not evidence for a duration-priced fare.
+    if (estimate?.evidence === "estimated") return null;
   }
 
   // 3. Duration-based Fallback Pricing Heuristics
@@ -495,15 +531,35 @@ export function getAdjustedBudget(
       ? resolveOriginTransportZone({ coordinates: homeCoords })
       : undefined);
   const destinationZoneId = resolveDestinationTransportZone(dest);
+  const canonicalActiveMode =
+    homeCoords && (activeMode === "bus" || activeMode === "shinkansen")
+      ? Boolean(
+          getOriginAwareTransportEstimate(
+            dest,
+            {
+              homeStationCoords: homeCoords,
+              originZoneId: effectiveOriginZoneId,
+              ferryTemporal,
+            },
+            [activeMode],
+          ),
+        )
+      : false;
+  // With a personalized coordinate origin, Bus/Shinkansen mode selection is
+  // canonical-only: stale transportOptions must not resurrect a missing
+  // personalized corridor. Without coordinates (neutral/zone-only) the
+  // legacy metadata display path remains.
+  const activeModeSupported =
+    homeCoords && (activeMode === "bus" || activeMode === "shinkansen")
+      ? canonicalActiveMode
+      : dest.transportOptions?.[
+          activeMode as keyof typeof dest.transportOptions
+        ] !== undefined;
 
   if (
     activeMode !== "all" &&
     activeMode !== "any" &&
-    (dest.transportOptions?.[
-      activeMode as keyof typeof dest.transportOptions
-    ] !== undefined ||
-      activeMode === "flight" ||
-      activeMode === "ferry")
+    (activeModeSupported || activeMode === "flight" || activeMode === "ferry")
   ) {
     mode = activeMode;
   } else if (effectiveOriginZoneId && destinationZoneId !== "unknown") {

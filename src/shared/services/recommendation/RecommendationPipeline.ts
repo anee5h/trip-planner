@@ -231,16 +231,25 @@ export function runRecommendationPipeline(
       ),
     );
 
-    // Filter by budget only using complete verified estimates (origin
-    // transport included and mode-specific duration known).
-    const verifiedEstimates = modeBudgetEstimates.filter(
-      (b) => b.transportIncluded && b.durationIncluded && b.range !== null,
+    // Filter by budget only using COMPLETE corridor-backed estimates (origin
+    // transport evidence included, mode-specific duration known, and the
+    // included fare covers the complete origin-destination journey). A
+    // corridor-only fare is verified intercity cost with unknown local access
+    // cost — it cannot hard-pass affordability (¥29,000 corridor + unknown
+    // access must not fit a ¥30,000 budget) and is also never hard-failed
+    // for the same reason (KAI-12 budget policy).
+    const completeEstimates = modeBudgetEstimates.filter(
+      (b) =>
+        b.transportIncluded &&
+        b.durationIncluded &&
+        b.range !== null &&
+        b.transportFareScope === "complete",
     );
-    if (verifiedEstimates.length > 0) {
-      const lowestVerifiedCost = Math.min(
-        ...verifiedEstimates.map((b) => b.range![1]),
+    if (completeEstimates.length > 0) {
+      const lowestCompleteCost = Math.min(
+        ...completeEstimates.map((b) => b.range![1]),
       );
-      return lowestVerifiedCost <= context.budget;
+      return lowestCompleteCost <= context.budget;
     }
 
     // Retain as affordability-unknown under the neutral policy (do NOT filter out,
@@ -322,8 +331,9 @@ export function runRecommendationPipeline(
         : getDayTripTravelDurationEvidence(candidate, context, validModes)
             .estimate;
       // Card travel and cost must describe one transport choice. The scored
-      // mode remains a ranking input; the displayed verified estimate is the
-      // source of truth for the card's mode and matching budget status.
+      // mode remains a ranking input; the displayed canonical estimate is the
+      // source of truth for the card's mode and matching budget status. Its
+      // evidence still distinguishes bounded access from a verified corridor.
       const cardTransportMode =
         transportEstimate?.mode ?? scoreResult.bestMode ?? "train";
       const budgetResult = getEstimatedBudgetRange(
@@ -335,10 +345,13 @@ export function runRecommendationPipeline(
         context.ferryTemporal,
       );
       const estimatedCostRange =
-        budgetResult.durationIncluded && budgetResult.range
+        budgetResult.transportIncluded &&
+        budgetResult.durationIncluded &&
+        budgetResult.range
           ? budgetResult.range
           : undefined;
       const estimatedCostTransportIncluded = budgetResult.transportIncluded;
+      const estimatedCostTransportScope = budgetResult.transportFareScope;
 
       // Append weekendTransportExcluded reason if applicable
       if (weekend && !budgetResult.transportIncluded) {
@@ -374,6 +387,7 @@ export function runRecommendationPipeline(
         bestTransportMode: scoreResult.bestMode,
         estimatedCostRange,
         estimatedCostTransportIncluded,
+        estimatedCostTransportScope,
         condition,
         weekend: weekend
           ? {
@@ -382,6 +396,7 @@ export function runRecommendationPipeline(
               weatherDays: weekend.weatherDays,
               accommodationAllowance: context.accommodationAllowance,
               estimatedCostTransportIncluded,
+              estimatedCostTransportScope,
               areaKind: weekendAreas?.kindById.get(candidate.id),
               placeCount: weekendAreas?.placeCountById.get(candidate.id) ?? 0,
             }
@@ -391,6 +406,7 @@ export function runRecommendationPipeline(
           estimatedCost: estimatedCostRange?.[0],
           estimatedCostRange,
           estimatedCostTransportIncluded,
+          estimatedCostTransportScope,
           bestTransportMode: scoreResult.bestMode,
           scoreContributions,
           confidence: calculateConfidence(totalScore),

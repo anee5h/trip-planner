@@ -15,7 +15,10 @@ import CollectionBadge from "@/shared/components/ui/CollectionBadge";
 import { getCollectionById } from "@/shared/data/collections";
 import { sortCollections } from "@/shared/utils/collections";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationService";
-import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import {
+  getOriginAwareTransportEstimate,
+  type OriginAwareTransportEstimate,
+} from "@/shared/services/transport/OriginAwareTransportService";
 import {
   getEligibleOriginModes,
   hasFerryRoute,
@@ -210,6 +213,7 @@ const DETAIL_COPY = {
     localAccessUnestimated:
       "Local access available — time and cost unavailable",
     costUnavailable: "Cost unavailable",
+    corridorFareOnly: "Intercity fare only; local access cost is not modeled",
   },
   ja: {
     notFound: "目的地が見つかりません",
@@ -248,6 +252,7 @@ const DETAIL_COPY = {
     onsiteBudget: "現地予算（往復交通費を除く）",
     localAccessUnestimated: "現地アクセスあり — 所要時間・料金は利用できません",
     costUnavailable: "料金不明",
+    corridorFareOnly: "都市間交通の料金のみ（現地アクセス費は未算出）",
   },
 } as const;
 
@@ -657,31 +662,66 @@ export default function DestinationDetails() {
     ferryTemporal,
   ]);
 
-  // Origin-aware ground durations: with an explicit origin, rows show only
-  // verified estimates; without an origin they show catalogue reference
-  // values (neutral browsing makes no personalized claim).
-  const groundMinutesFor = (
-    mode: "train" | "shinkansen" | "bus" | "car" | "my_car",
-  ): number | undefined => {
+  // Origin-aware ground durations: with an explicit origin, rows show the
+  // canonical estimate and mark catchment-adjusted journeys as approximate;
+  // without an origin they show catalogue reference values (neutral browsing
+  // makes no personalized claim).
+  type GroundMode = "train" | "shinkansen" | "bus" | "car" | "my_car";
+  const groundEstimateFor = (
+    mode: GroundMode,
+  ): OriginAwareTransportEstimate | undefined => {
     if (homeStationCoords && destination) {
-      const estimate = getOriginAwareTransportEstimate(
-        destination,
-        { homeStationCoords },
-        [mode],
+      return (
+        getOriginAwareTransportEstimate(destination, { homeStationCoords }, [
+          mode,
+        ]) ?? undefined
       );
-      return estimate
-        ? Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2)
-        : undefined;
     }
+    return undefined;
+  };
+
+  const groundMinutesFor = (mode: GroundMode): number | undefined => {
+    const estimate = groundEstimateFor(mode);
+    if (estimate) {
+      return Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2);
+    }
+    if (homeStationCoords && destination) return undefined;
     return destination?.transportOptions?.[mode];
   };
 
-  const formatTravelTimeMinutes = (minutes: number | undefined): string => {
+  const formatTravelTimeMinutes = (
+    minutes: number | undefined,
+    evidence?: "verified" | "estimated",
+  ): string => {
     if (minutes === undefined || minutes <= 0) return "N/A";
-    if (minutes < 60) return `${minutes}m`;
+    const prefix =
+      evidence === "estimated" ? (locale === "ja" ? "約" : "~") : "";
+    if (minutes < 60) return `${prefix}${minutes}m`;
     const hours = Math.floor(minutes / 60);
     const mins = minutes % 60;
-    return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
+    return mins > 0 ? `${prefix}${hours}h ${mins}m` : `${prefix}${hours}h`;
+  };
+
+  const formatGroundTime = (mode: GroundMode): string =>
+    formatTravelTimeMinutes(
+      groundMinutesFor(mode),
+      groundEstimateFor(mode)?.evidence,
+    );
+
+  const formatGroundCost = (mode: GroundMode): string => {
+    if (!destination) return copy.costUnavailable;
+    const cost = budgetService.getTransportCost(
+      destination,
+      mode,
+      partySize,
+      homeStationCoords ?? undefined,
+    );
+    if (cost === null) return copy.costUnavailable;
+    const label =
+      groundEstimateFor(mode)?.evidence === "estimated"
+        ? copy.corridorFareOnly
+        : copy.estimated;
+    return `${label} ¥${(cost / 1000).toFixed(1)}k`;
   };
 
   const isModeVisible = (mode: string) => {
@@ -1305,22 +1345,10 @@ export default function DestinationDetails() {
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {formatTravelTimeMinutes(
-                                    groundMinutesFor("train"),
-                                  )}
+                                  {formatGroundTime("train")}
                                 </div>
                                 <div className="text-xs text-slate-400">
-                                  {copy.estimated}{" "}
-                                  <JapaneseYen className="inline w-3 h-3" />
-                                  {(
-                                    (budgetService.getTransportCost(
-                                      destination,
-                                      "train",
-                                      partySize,
-                                      homeStationCoords ?? undefined,
-                                    ) ?? 0) / 1000
-                                  ).toFixed(1)}
-                                  k
+                                  {formatGroundCost("train")}
                                 </div>
                               </div>
                             </div>
@@ -1334,22 +1362,10 @@ export default function DestinationDetails() {
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {formatTravelTimeMinutes(
-                                    groundMinutesFor("shinkansen"),
-                                  )}
+                                  {formatGroundTime("shinkansen")}
                                 </div>
                                 <div className="text-xs text-slate-400">
-                                  {copy.estimated}{" "}
-                                  <JapaneseYen className="inline w-3 h-3" />
-                                  {(
-                                    (budgetService.getTransportCost(
-                                      destination,
-                                      "shinkansen",
-                                      partySize,
-                                      homeStationCoords ?? undefined,
-                                    ) ?? 0) / 1000
-                                  ).toFixed(1)}
-                                  k
+                                  {formatGroundCost("shinkansen")}
                                 </div>
                               </div>
                             </div>
@@ -1363,22 +1379,10 @@ export default function DestinationDetails() {
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {formatTravelTimeMinutes(
-                                    groundMinutesFor("bus"),
-                                  )}
+                                  {formatGroundTime("bus")}
                                 </div>
                                 <div className="text-xs text-slate-400">
-                                  {copy.estimated}{" "}
-                                  <JapaneseYen className="inline w-3 h-3" />
-                                  {(
-                                    (budgetService.getTransportCost(
-                                      destination,
-                                      "bus",
-                                      partySize,
-                                      homeStationCoords ?? undefined,
-                                    ) ?? 0) / 1000
-                                  ).toFixed(1)}
-                                  k
+                                  {formatGroundCost("bus")}
                                 </div>
                               </div>
                             </div>
@@ -1392,22 +1396,10 @@ export default function DestinationDetails() {
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {formatTravelTimeMinutes(
-                                    groundMinutesFor("car"),
-                                  )}
+                                  {formatGroundTime("car")}
                                 </div>
                                 <div className="text-xs text-slate-400">
-                                  {copy.estimated}{" "}
-                                  <JapaneseYen className="inline w-3 h-3" />
-                                  {(
-                                    (budgetService.getTransportCost(
-                                      destination,
-                                      "car",
-                                      partySize,
-                                      homeStationCoords ?? undefined,
-                                    ) ?? 0) / 1000
-                                  ).toFixed(1)}
-                                  k
+                                  {formatGroundCost("car")}
                                 </div>
                               </div>
                             </div>
@@ -1421,22 +1413,10 @@ export default function DestinationDetails() {
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {formatTravelTimeMinutes(
-                                    groundMinutesFor("my_car"),
-                                  )}
+                                  {formatGroundTime("my_car")}
                                 </div>
                                 <div className="text-xs text-slate-400">
-                                  {copy.estimated}{" "}
-                                  <JapaneseYen className="inline w-3 h-3" />
-                                  {(
-                                    (budgetService.getTransportCost(
-                                      destination,
-                                      "my_car",
-                                      partySize,
-                                      homeStationCoords ?? undefined,
-                                    ) ?? 0) / 1000
-                                  ).toFixed(1)}
-                                  k
+                                  {formatGroundCost("my_car")}
                                 </div>
                               </div>
                             </div>

@@ -96,9 +96,10 @@ export function isTripDatesTransportEligible(
 ): boolean {
   if (!modes.includes("ferry")) return true;
   // A non-ferry alternative is independently valid ONLY when the canonical
-  // origin-aware transport service returns a verified estimate for one of
-  // the non-ferry modes. Static transportOptions support or a topology
-  // presence alone is not a route.
+  // origin-aware transport service returns an estimate for one of the
+  // non-ferry modes. Static transportOptions support or a topology presence
+  // alone is not a route; catchment estimates retain verified corridor
+  // provenance in the returned object.
   if (homeCoords) {
     const nonFerryModes = modes.filter((mode) => mode !== "ferry");
     if (nonFerryModes.length > 0) {

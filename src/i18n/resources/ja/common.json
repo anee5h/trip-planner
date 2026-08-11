@@ -448,7 +448,8 @@
       "car": "レンタカー",
       "my_car": "マイカー",
       "travel": "移動",
-      "travelUnavailable": "所要時間は利用できません"
+      "travelUnavailable": "所要時間は利用できません",
+      "corridorFareOnly": "都市間交通の料金のみ（現地アクセス費は未算出）"
     },
     "roulette": {
       "title": "行き先ルーレット",

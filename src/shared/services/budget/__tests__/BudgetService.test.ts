@@ -4,6 +4,7 @@ import {
   MAX_ACCOMMODATION_ALLOWANCE,
   isValidAccommodationAllowance,
   calculateItemizedTripCost,
+  getAdjustedBudget,
   getEstimatedBudgetRange,
   getDiningFoodRange,
   getTransportCost,
@@ -100,6 +101,7 @@ describe("BudgetService", () => {
       id: "kyoto-two-mode",
       prefecture: "Kyoto",
       municipalityId: "Kyoto:kyoto",
+      coordinates: { lat: 34.9858, lng: 135.7588 }, // Kyoto Station
       recommendedVisitHours: { min: 4, max: 4 },
       transportOptions: { train: 60, shinkansen: 30 },
       budgetBreakdown: {
@@ -109,7 +111,9 @@ describe("BudgetService", () => {
         cafe: 500,
       },
     } as unknown as Destination;
-    const osaka = { lat: 34.6937, lng: 135.5023 };
+    // Shin-Osaka: at the station, so the shinkansen corridor carries no
+    // fabricated access overhead and genuinely beats the direct train.
+    const osaka = { lat: 34.7335, lng: 135.5001 };
 
     const trainBudget = getEstimatedBudgetRange(
       twoModeDest,
@@ -280,6 +284,7 @@ describe("BudgetService", () => {
   describe("KAI-12 verified fare precedence", () => {
     const OSAKA_COORDS = { lat: 34.7025, lng: 135.4959 };
     const TOKYO_COORDS = { lat: 35.6812, lng: 139.7671 };
+    const SHINAGAWA_COORDS = { lat: 35.6285, lng: 139.7387 };
     const SENDAI_COORDS = { lat: 38.268, lng: 140.87 };
 
     const dest = (id: string, prefecture: string, municipalityId?: string) =>
@@ -327,6 +332,34 @@ describe("BudgetService", () => {
       // the budget uses the verified lower bound, not a fabricated upper.
       const cost = getTransportCost(nagano, "bus", 1, TOKYO_COORDS);
       expect(cost).toBe(Math.floor(3500 * 2 * 1));
+    });
+
+    it("catchment bus fare stays corridor-only and never includes access cost", () => {
+      const osaka = dest("osaka-dest", "Osaka", "Osaka:osaka");
+      const cost = getTransportCost(osaka, "bus", 1, SHINAGAWA_COORDS);
+      expect(cost).toBe(Math.floor(((3300 + 19000) / 2) * 2));
+      expect(
+        getEstimatedBudgetRange(
+          {
+            ...osaka,
+            recommendedVisitHours: { min: 1, max: 2 },
+          } as Destination,
+          "bus",
+          1,
+          "standard",
+          SHINAGAWA_COORDS,
+        ).transportFareScope,
+      ).toBe("corridor_only");
+    });
+
+    it("canonical catchment mode is not vetoed by stale transportOptions", () => {
+      const osaka = dest("osaka-dest", "Osaka", "Osaka:osaka");
+      const onsiteBudget = (5000 - 3000) / 2;
+      const corridorFare = Math.floor(((3300 + 19000) / 2) * 2);
+
+      expect(
+        getAdjustedBudget(osaka, "bus", 1, SHINAGAWA_COORDS, "mainland-honshu"),
+      ).toBe(onsiteBudget + corridorFare);
     });
 
     it("round-trip × party scaling applies to the verified fare", () => {

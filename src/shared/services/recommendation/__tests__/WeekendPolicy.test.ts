@@ -477,6 +477,8 @@ describe("evaluateWeekendCandidate", () => {
     const d = dest({
       id: "test",
       prefecture: "Kyoto",
+      municipalityId: "Kyoto:kyoto",
+      coordinates: { lat: 35.0116, lng: 135.7681 },
       recommendedVisitHours: { min: 1, max: 10 }, // 600 min → strong capacity
       indoorPercent: 50,
       transportOptions: { shinkansen: 180 },
@@ -551,6 +553,8 @@ describe("evaluateWeekendCandidate", () => {
     const d = dest({
       id: "test",
       prefecture: "Kyoto",
+      municipalityId: "Kyoto:kyoto",
+      coordinates: { lat: 35.0116, lng: 135.7681 },
       recommendedVisitHours: { min: 1, max: 10 },
       transportOptions: { shinkansen: 180 },
     });

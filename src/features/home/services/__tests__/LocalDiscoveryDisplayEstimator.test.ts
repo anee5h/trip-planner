@@ -140,14 +140,17 @@ describe("getSafeDisplayEstimate", () => {
     expect(result).toBeNull();
   });
 
-  it("produces bus estimate when localAccessModes excludes train but bus is authorized", () => {
+  it("does not produce a personalized bus display estimate without a canonical corridor", () => {
+    // KAI-12: Sankeien's localAccessModes allow bus, but no verified
+    // intercity highway-bus corridor exists for this personalized origin.
+    // With coordinates, Bus authorization is canonical-only — the display
+    // estimator must not substitute a generic bus-shaped duration.
     const result = getSafeDisplayEstimate(BUS_ONLY_YOKOHAMA_POI, {
       homeStationCoords: YOKOHAMA_NAKAYAMA,
       publicModes: ["train", "bus"],
       allDestinations: mockCatalog,
     });
-    expect(result).not.toBeNull();
-    expect(result?.mode).toBe("bus");
+    expect(result).toBeNull();
   });
 
   it("returns null when publicModes has no authorized ground mode", () => {

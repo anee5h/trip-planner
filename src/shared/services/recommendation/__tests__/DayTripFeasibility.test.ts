@@ -70,7 +70,34 @@ function evidenceFor(
   return getDayTripTravelDurationEvidence(result, context, modes);
 }
 
+type RecommendationResult = ReturnType<typeof getRecommendations>[number];
+
+function hasCanonicalIntercityEvidence(result: RecommendationResult): boolean {
+  const estimate = result.transportEstimate;
+  return Boolean(
+    estimate &&
+    (estimate.evidence === "verified" ||
+      ("corridorEvidence" in estimate &&
+        estimate.corridorEvidence === "verified")),
+  );
+}
+
 describe("day-trip travel evidence", () => {
+  it("propagates bounded catchment evidence while retaining corridor provenance", () => {
+    const nara = catalog.find((destination) => destination.id === "nara-city")!;
+    const context = contextFor({ lat: 35.6812, lng: 139.7671 }, "halfDay");
+    const travel = getDayTripTravelDurationEvidence(nara, context, ["bus"]);
+
+    expect(travel.evidence).toBe("estimated");
+    expect(travel.estimate?.evidence).toBe("estimated");
+    expect("corridorEvidence" in (travel.estimate ?? {})).toBe(true);
+    const corridorEvidence =
+      travel.estimate && "corridorEvidence" in travel.estimate
+        ? travel.estimate.corridorEvidence
+        : undefined;
+    expect(corridorEvidence).toBe("verified");
+  });
+
   it("does not recommend unknown travel for Nakayama Day Trip + Any", () => {
     const source = catalog.find(
       (destination) => destination.id === "yokohama-city",
@@ -102,9 +129,12 @@ describe("day-trip travel evidence", () => {
       ...allPublic,
       publicModes: ["train", "shinkansen"],
     };
-    const shinkansenOnly = catalog.find(
-      (destination) => destination.id === "dakigaeri-valley-akita",
-    )!;
+    const shinkansenOnly = {
+      ...catalog.find((destination) => destination.id === "akita-city")!,
+      // Clear legacy metadata: only the canonical tokyo↔akita shinkansen
+      // corridor may authorize this destination from the Nakayama origin.
+      transportOptions: {},
+    } as Destination;
     const tokyoStation = catalog.find(
       (destination) => destination.id === "tokyo-station-chiyoda",
     )!;
@@ -156,10 +186,14 @@ describe("day-trip travel evidence", () => {
       ),
     ).toContain("car");
 
-    expect(scoreForCatalog(odawara, allPublic)).toBeGreaterThan(
+    // Odawara is ~54 km from the origin and has no canonical Shinkansen
+    // arrival (no hub within the 30 km arrival catchment), so enabling more
+    // modes must not fabricate a faster journey for it. Harry Potter (Tokyo)
+    // is closer and stays the higher-scoring candidate in both selections.
+    expect(scoreForCatalog(odawara, allPublic)).toBeLessThan(
       scoreForCatalog(harryPotter, allPublic),
     );
-    expect(scoreForCatalog(odawara, trainAndShinkansen)).toBeGreaterThan(
+    expect(scoreForCatalog(odawara, trainAndShinkansen)).toBeLessThan(
       scoreForCatalog(harryPotter, trainAndShinkansen),
     );
     expect(scoreForCatalog(odawara, trainOnly)).toBeLessThan(
@@ -228,7 +262,7 @@ describe("day-trip travel evidence", () => {
     ["Sapporo", SAPPORO],
     ["Fukuoka", FUKUOKA],
   ])(
-    "keeps %s short-outing recommendations populated with same-zone local travel",
+    "keeps %s short-outing recommendations populated with local or verified intercity travel",
     (_label, origin) => {
       const context = contextFor(origin, "shortOuting");
       const results = getRecommendations(catalog, context);
@@ -242,15 +276,15 @@ describe("day-trip travel evidence", () => {
       expect(
         results.slice(0, 10).every((result) => {
           if (!result.coordinates) return false;
-          return (
+          const local =
             resolveDestinationTransportZone(result) === context.originZoneId &&
             getDistance(
               origin.lat,
               origin.lng,
               result.coordinates.lat,
               result.coordinates.lng,
-            ) <= 120
-          );
+            ) <= 120;
+          return local || hasCanonicalIntercityEvidence(result);
         }),
       ).toBe(true);
       expect(
@@ -278,13 +312,14 @@ describe("day-trip travel evidence", () => {
       results.slice(0, 10).every((result) => {
         if (!result.coordinates) return false;
         return (
-          resolveDestinationTransportZone(result) === "mainland-shikoku" &&
-          getDistance(
-            TAKAMATSU.lat,
-            TAKAMATSU.lng,
-            result.coordinates.lat,
-            result.coordinates.lng,
-          ) <= 120
+          (resolveDestinationTransportZone(result) === "mainland-shikoku" &&
+            getDistance(
+              TAKAMATSU.lat,
+              TAKAMATSU.lng,
+              result.coordinates.lat,
+              result.coordinates.lng,
+            ) <= 120) ||
+          hasCanonicalIntercityEvidence(result)
         );
       }),
     ).toBe(true);

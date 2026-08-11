@@ -9,14 +9,16 @@ export interface PreferredTransport {
   mode: string;
   timeRange: [number, number];
   estimatedBudget: number;
+  evidence: "verified" | "estimated";
+  corridorEvidence?: "verified";
 }
 
 /**
- * Finds the fastest verified origin-aware journey among the travel methods a
- * visitor has enabled. The returned budget always belongs to that same
- * transport mode, and eligibility is topology/route-authorized. Without a
- * verified origin-aware duration the candidate is not returned — cards never
- * display unprovenanced `transportOptions` times as personalized claims.
+ * Finds the fastest canonical origin-aware journey among the travel methods a
+ * visitor has enabled. Catchment access remains bounded/estimated, and the
+ * returned budget always belongs to that same transport mode. Eligibility is
+ * topology/route-authorized; cards never display unprovenanced
+ * `transportOptions` times as personalized claims.
  */
 export function getFastestPreferredTransport(
   destination: Destination,
@@ -46,6 +48,8 @@ export function getFastestPreferredTransport(
   return {
     mode: estimate.mode,
     timeRange: estimate.timeRange,
+    evidence: estimate.evidence,
+    corridorEvidence: estimate.corridorEvidence,
     estimatedBudget: getAdjustedBudget(
       destination,
       estimate.mode,

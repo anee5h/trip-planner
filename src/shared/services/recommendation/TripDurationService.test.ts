@@ -322,12 +322,16 @@ describe("TripDurationService", () => {
   });
 
   it("derives mode-specific totals for train vs shinkansen", () => {
-    const osaka = { lat: 34.6937, lng: 135.5023 };
+    // Station-level endpoints: Shin-Osaka origin, Kyoto Station destination.
+    // Shinkansen [15,35] then genuinely beats the direct train [28,45] and
+    // keeps the 4h visit under the 5h food-duration threshold.
+    const osaka = { lat: 34.7335, lng: 135.5001 };
     const twoMode = {
       ...destination,
       id: "kyoto-two-mode",
       prefecture: "Kyoto",
       municipalityId: "Kyoto:kyoto",
+      coordinates: { lat: 34.9858, lng: 135.7588 },
       recommendedVisitHours: { min: 4, max: 4 },
       travelBuffers: undefined,
     };
