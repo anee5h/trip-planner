@@ -232,10 +232,25 @@ describe("flight registry expansion (PR #102)", () => {
 
   it("Kagoshima, Osaka and Fukuoka → Yakushima select KUM", () => {
     const dest = byId.get("yakushima-town")!;
-    for (const origin of [KAGOSHIMA, OSAKA, FUKUOKA]) {
+    // KOJ→KUM and ITM→KUM are year-round: available without a travel date.
+    for (const origin of [KAGOSHIMA, OSAKA]) {
       const estimate = getFlightTransportEstimate(dest, origin);
       expect(estimate?.details?.arrivalAirportCode).toBe("KUM");
     }
+    // FUK→KUM is seasonal (Jul 1–Aug 31, JAC): available only inside the
+    // window; with no date (or out of season) the route is not offered.
+    const inSeason = getFlightTransportEstimate(
+      dest,
+      FUKUOKA,
+      new Date("2026-08-01T12:00:00"),
+    );
+    expect(inSeason?.details?.arrivalAirportCode).toBe("KUM");
+    const offSeason = getFlightTransportEstimate(
+      dest,
+      FUKUOKA,
+      new Date("2026-12-10T12:00:00"),
+    );
+    expect(offSeason).toBeNull();
   });
 
   it("Sado has SDO in the airport registry but still returns no Flight", () => {
