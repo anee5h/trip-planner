@@ -5,6 +5,7 @@ import type {
   ValidationContext,
 } from "./types";
 import { getAuditReferenceToday } from "../config/audit-reference";
+import { findContradictoryGroundDuplicates } from "./ground-duplicates";
 import {
   getAirportZone,
   resolveDestinationTransportZone,
@@ -440,25 +441,22 @@ export const transportTopologyValidator: ValidatorModule = {
     }
 
     // Contradictory duplicate detection: the same ordered pair+mode may
-    // appear at most once per registry (prefecture vs municipality are
-    // separate namespaces and are compared within their own registry).
+    // appear at most once per registry, and a bidirectional record may not
+    // coexist with its reverse (prefecture vs municipality are separate
+    // namespaces and are compared within their own registry). Two opposite
+    // directional records (both bidirectional:false) are legal —
+    // GroundRouteEstimator resolves them as distinct services. Logic lives
+    // in ground-duplicates.ts, shared with TransportRegistryInvariants.
     for (const [registryName, registry] of [
       ["ground-routes.json", groundRoutes],
       ["ground-routes.json municipalityRoutes", groundMunicipalityRoutes],
     ] as const) {
-      const seen = new Map<string, string>();
-      for (const route of registry) {
-        const key = `${route.mode}:${route.from}→${route.to}`;
-        const reverseKey = `${route.mode}:${route.to}→${route.from}`;
-        const existing = seen.get(key) ?? seen.get(reverseKey);
-        if (existing !== undefined) {
-          issues.push({
-            severity: "error",
-            code: "duplicate_ground_corridor",
-            message: `Ground corridor ${route.from}→${route.to} (${route.mode}) duplicates ${existing} in ${registryName}`,
-          });
-        }
-        seen.set(key, existing ?? `${route.from}→${route.to}`);
+      for (const dup of findContradictoryGroundDuplicates(registry)) {
+        issues.push({
+          severity: "error",
+          code: "duplicate_ground_corridor",
+          message: `Ground corridor ${dup.route.from}→${dup.route.to} (${dup.route.mode}) duplicates ${dup.existing.from}→${dup.existing.to} in ${registryName}`,
+        });
       }
     }
 

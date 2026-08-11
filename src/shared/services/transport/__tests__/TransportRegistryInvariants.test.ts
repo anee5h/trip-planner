@@ -3,6 +3,7 @@ import groundRoutesData from "@/shared/data/ground-routes.json";
 import flightRoutesData from "@/shared/data/flight-estimates.json";
 import airportsData from "@/shared/data/airports.json";
 import { getAuditReferenceToday } from "../../../../../scripts/config/audit-reference";
+import { findContradictoryGroundDuplicates } from "../../../../../scripts/validators/ground-duplicates";
 
 /**
  * KAI-12 regression gate: deterministic invariants on the live transport
@@ -60,16 +61,63 @@ const airports = (
 
 describe("KAI-12 transport registry invariants", () => {
   it("ground corridors have no contradictory duplicates per registry", () => {
+    // Same shared logic as the validator (ground-duplicates.ts). A reverse
+    // pair is only a duplicate when one of the two records is
+    // bidirectional; two opposite directional records are legal.
     for (const registry of [groundRoutes, groundMunicipalityRoutes]) {
-      const keys = new Map<string, string>();
-      for (const route of registry) {
-        const key = `${route.mode}:${route.from}→${route.to}`;
-        const reverse = `${route.mode}:${route.to}→${route.from}`;
-        const existing = keys.get(key) ?? keys.get(reverse);
-        expect(existing).toBeUndefined();
-        keys.set(key, `${route.from}→${route.to}`);
-      }
+      expect(findContradictoryGroundDuplicates(registry)).toEqual([]);
     }
+  });
+
+  it("ground duplicate semantics: same ordered pair twice is a duplicate", () => {
+    const registry = [
+      { from: "a", to: "b", mode: "train", bidirectional: false },
+      { from: "a", to: "b", mode: "train", bidirectional: false },
+    ];
+    const dups = findContradictoryGroundDuplicates(registry);
+    expect(dups).toHaveLength(1);
+    expect(dups[0]).toMatchObject({
+      route: { from: "a", to: "b" },
+      existing: { from: "a", to: "b" },
+    });
+  });
+
+  it("ground duplicate semantics: bidirectional A→B plus B→A is a duplicate", () => {
+    const registry = [
+      { from: "a", to: "b", mode: "train", bidirectional: true },
+      { from: "b", to: "a", mode: "train", bidirectional: false },
+    ];
+    const dups = findContradictoryGroundDuplicates(registry);
+    expect(dups).toHaveLength(1);
+    expect(dups[0].route.from).toBe("b");
+  });
+
+  it("ground duplicate semantics: A→B plus bidirectional B→A is a duplicate", () => {
+    const registry = [
+      { from: "a", to: "b", mode: "train", bidirectional: false },
+      { from: "b", to: "a", mode: "train", bidirectional: true },
+    ];
+    const dups = findContradictoryGroundDuplicates(registry);
+    expect(dups).toHaveLength(1);
+    expect(dups[0].route.from).toBe("b");
+  });
+
+  it("ground duplicate semantics: opposite directional records are valid", () => {
+    // Regression: GroundRouteEstimator supports directional routes, so
+    // A→B and B→A with bidirectional:false are two distinct services.
+    const registry = [
+      { from: "a", to: "b", mode: "shinkansen", bidirectional: false },
+      { from: "b", to: "a", mode: "shinkansen", bidirectional: false },
+    ];
+    expect(findContradictoryGroundDuplicates(registry)).toEqual([]);
+  });
+
+  it("ground duplicate semantics: different modes on the same pair are valid", () => {
+    const registry = [
+      { from: "a", to: "b", mode: "train", bidirectional: true },
+      { from: "a", to: "b", mode: "shinkansen", bidirectional: true },
+    ];
+    expect(findContradictoryGroundDuplicates(registry)).toEqual([]);
   });
 
   it("ground corridors carry a valid time range", () => {
