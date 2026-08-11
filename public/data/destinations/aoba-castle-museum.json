@@ -12,7 +12,7 @@
     "ja": {
       "name": "青葉城資料展示館",
       "description": "青葉城資料展示館は仙台市にある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["博物館"]
+      "highlights": ["博物館", "歴史"]
     }
   },
   "prefecture": "Miyagi",
@@ -38,7 +38,7 @@
     "lat": 38.25211,
     "lng": 140.855945
   },
-  "description": "Aoba Castle Museum is a visitor destination in Sendai City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Museum on the Aoba Castle hill presenting the history of Sendai and the Date clan, including a large diorama of the castle town and exhibits on the castle's 1616 construction.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -99,7 +99,7 @@
   "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+  "notes": "On the castle grounds next to the equestrian statue; easy to combine with the castle ruins and the city-viewing deck.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -123,27 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://en.wikipedia.org/wiki/Aoba_Castle",
-          "title": "Beta editorial scoring from source-backed attributes",
-          "accessedAt": "2026-07-29"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Aoba_Castle",
-          "title": "Aoba Castle",
-          "accessedAt": "2026-07-29"
-        }
-      ]
-    },
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
     "changes": [
       {
         "changedAt": "2026-07-29",
@@ -156,6 +138,12 @@
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
       }
     ]
   },
@@ -166,5 +154,9 @@
     "confidence": "low"
   },
   "businessHours": "09:30 - 17:00 (Closed Mondays)",
-  "municipalityId": "Miyagi:sendai"
+  "municipalityId": "Miyagi:sendai",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11",
+    "sourceUrl": "https://honmarukaikan.com/tenji/"
+  }
 }

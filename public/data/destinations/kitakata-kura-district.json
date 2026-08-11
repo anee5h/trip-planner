@@ -1,0 +1,160 @@
+{
+  "id": "kitakata-kura-district",
+  "name": "Kitakata Kura District",
+  "nameJa": "喜多方蔵のまち",
+  "kind": "district",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Fukushima:kitakata",
+  "prefecture": "Fukushima",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 37.6513,
+    "lng": 139.8623
+  },
+  "categories": ["Culture", "History", "Food"],
+  "tags": ["Culture", "History", "Kitakata City"],
+  "description": "One of Japan's great kura (storehouse) towns, with roughly 4,000 warehouses, sake breweries and the famous Kitakata ramen and morning-ramen culture. Kura no Sato concentrates relocated cultural-property storehouses in one park.",
+  "highlights": [
+    "~4,000 storehouses",
+    "Sake breweries",
+    "Kitakata ramen",
+    "Kura no Sato park"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 50,
+    "bus": 60,
+    "car": 55
+  },
+  "budgetMin": 0,
+  "budgetRecommended": 2500,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 900,
+    "tickets": 0,
+    "food": 1200,
+    "cafe": 400
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c7/%E5%9C%9F%E8%94%B5_%281389928661%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/%E5%9C%9F%E8%94%B5_%281389928661%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "attribution": "contri",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:土蔵_(1389928661).jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 4000,
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 2000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 40,
+  "comfort": {
+    "heatTolerance": 5,
+    "rainFriendly": 6,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.4,
+    "summer": 8.2,
+    "winter": 8,
+    "rain": 6.8,
+    "food": 9.4,
+    "photography": 9,
+    "relaxation": 8.2,
+    "value": 8.8,
+    "uniqueness": 9,
+    "family": 8,
+    "accessibility": 6,
+    "nature": 6.4,
+    "historyAndCulture": 9.2,
+    "walkability": 7,
+    "spring": 8.8,
+    "autumn": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.6,
+    "summer": 8.2,
+    "autumn": 8.8,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "Pay parking at Kura no Sato",
+  "notes": "Town strolling is free; Kura no Sato and individual museums charge entry. About 15 minutes from Aizuwakamatsu on the JR Ban-etsu West Line.",
+  "notesJa": "【見どころ】喜多方蔵のまちは東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "町並みは常時散策可。蔵の里は9:00～17:00（最終入場16:30）。年末年始休業。",
+  "businessHours": "Kura no Sato 09:00 - 17:00 (last entry 16:30), closed year-end; the town streets are freely walkable",
+  "officialWebsite": "http://www.furusatosinkou.co.jp/sato/",
+  "content": {
+    "en": {
+      "name": "Kitakata Kura District",
+      "description": "One of Japan's great kura (storehouse) towns, with roughly 4,000 warehouses, sake breweries and the famous Kitakata ramen and morning-ramen culture. Kura no Sato concentrates relocated cultural-property storehouses in one park.",
+      "highlights": [
+        "~4,000 storehouses",
+        "Sake breweries",
+        "Kitakata ramen",
+        "Kura no Sato park"
+      ]
+    },
+    "ja": {
+      "name": "喜多方蔵のまち",
+      "description": "約4,000棟の蔵が建ち並ぶ日本有数の蔵の町。酒蔵や喜多方ラーメン、朝ラー文化でも知られ、押切の蔵の里には移築された文化財の蔵が集まっています。",
+      "highlights": ["約4,000棟の蔵", "酒蔵めぐり", "喜多方ラーメン", "蔵の里"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "http://www.furusatosinkou.co.jp/sato/",
+        "title": "Kura no Sato official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "gatewayHubId": "aizuwakamatsu-city"
+  },
+  "schemaVersion": 2
+}

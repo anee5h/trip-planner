@@ -1,0 +1,160 @@
+{
+  "id": "morioka-handiworks-square",
+  "name": "Morioka Handi-Works Square",
+  "nameJa": "盛岡手づくり村",
+  "kind": "shopping",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Iwate:morioka",
+  "prefecture": "Iwate",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 39.692838,
+    "lng": 141.024696
+  },
+  "categories": ["Culture", "Shopping", "Experience"],
+  "tags": ["Culture", "Experience", "Morioka City"],
+  "description": "A craft village west of the city where visitors can watch and try Iwate's traditional crafts — Nanbu ironware, Nanbu-bijin sake tasting, senbei baking, soba-making and more — in a cluster of workshops and shops.",
+  "highlights": [
+    "Nanbu ironware workshops",
+    "Hands-on craft experiences",
+    "Local food and sake",
+    "Souvenir shopping"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 35,
+    "bus": 40,
+    "car": 30
+  },
+  "budgetMin": 0,
+  "budgetRecommended": 3000,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 800,
+    "tickets": 0,
+    "food": 1400,
+    "cafe": 800
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Morioka_Handi-Works_Square_20170715a.jpg/1280px-Morioka_Handi-Works_Square_20170715a.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Morioka_Handi-Works_Square_20170715a.jpg/1280px-Morioka_Handi-Works_Square_20170715a.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "掬茶",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Morioka_Handi-Works_Square_20170715a.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "walkingMin": 4000,
+  "walkingSunMin": 2500,
+  "walkingShadeMin": 1500,
+  "walkingIntensity": "medium",
+  "indoorPercent": 50,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 7,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8,
+    "summer": 8,
+    "winter": 8,
+    "rain": 8,
+    "food": 8.8,
+    "photography": 7.8,
+    "relaxation": 7.8,
+    "value": 8.4,
+    "uniqueness": 8.6,
+    "family": 8.6,
+    "accessibility": 7,
+    "nature": 6.4,
+    "historyAndCulture": 8.8,
+    "walkability": 6,
+    "spring": 8.4,
+    "autumn": 8.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8.2,
+    "summer": 8,
+    "autumn": 8.4,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required for entry; some workshops need booking",
+  "parking": "Free parking on site",
+  "notes": "Free entry; craft experiences and food are paid individually. About 20 minutes by car or bus from Morioka Station.",
+  "notesJa": "【見どころ】盛岡手づくり村は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:00～17:00。年中無休（12月31日～1月2日を除く）。",
+  "businessHours": "09:00 - 17:00; closed year-end (Dec 31 – Jan 2)",
+  "officialWebsite": "https://tezukurimura.com/",
+  "content": {
+    "en": {
+      "name": "Morioka Handi-Works Square",
+      "description": "A craft village west of the city where visitors can watch and try Iwate's traditional crafts — Nanbu ironware, Nanbu-bijin sake tasting, senbei baking, soba-making and more — in a cluster of workshops and shops.",
+      "highlights": [
+        "Nanbu ironware workshops",
+        "Hands-on craft experiences",
+        "Local food and sake",
+        "Souvenir shopping"
+      ]
+    },
+    "ja": {
+      "name": "盛岡手づくり村",
+      "description": "盛岡の伝統工芸を体験できる施設群。南部鉄器の制作見学や南部美人の利き酒、せんべい焼き、そば打ちなどの体験が楽しめます。",
+      "highlights": ["南部鉄器の制作見学", "体験工房", "郷土料理", "お土産選び"]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://tezukurimura.com/",
+        "title": "Morioka Handi-Works Square official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "morioka-city"
+  },
+  "schemaVersion": 2
+}

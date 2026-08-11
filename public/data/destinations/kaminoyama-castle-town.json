@@ -1,0 +1,165 @@
+{
+  "id": "kaminoyama-castle-town",
+  "name": "Kaminoyama Castle Town",
+  "nameJa": "上山城と温泉街",
+  "kind": "castle",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Yamagata:kaminoyama",
+  "prefecture": "Yamagata",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 38.1575,
+    "lng": 140.2766
+  },
+  "categories": ["History", "Onsen & Wellness"],
+  "tags": ["History", "Onsen", "Kaminoyama City"],
+  "description": "The reconstructed keep of Kaminoyama Castle houses a city history museum, and the surrounding onsen town — with springs discovered in 1458 — offers footbaths and ryokan stays. A compact castle-plus-onsen stop on the Yamagata Shinkansen.",
+  "highlights": [
+    "Reconstructed keep and museum",
+    "1,200-year onsen town",
+    "Footbath circuit",
+    "Shinkansen stop nearby"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 20,
+    "bus": 30,
+    "car": 25
+  },
+  "budgetMin": 600,
+  "budgetRecommended": 2500,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Kaminoyama_Castle_20230806b.jpg/1280px-Kaminoyama_Castle_20230806b.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Kaminoyama_Castle_20230806b.jpg/1280px-Kaminoyama_Castle_20230806b.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "掬茶",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaminoyama_Castle_20230806b.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "walkingMin": 3000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1500,
+  "walkingIntensity": "medium",
+  "indoorPercent": 40,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 7,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8.4,
+    "summer": 8,
+    "winter": 8.4,
+    "rain": 7.4,
+    "food": 8.6,
+    "photography": 8.4,
+    "relaxation": 8.8,
+    "value": 8.6,
+    "uniqueness": 8,
+    "family": 8,
+    "accessibility": 7,
+    "nature": 7.6,
+    "historyAndCulture": 8.8,
+    "walkability": 7,
+    "spring": 8.8,
+    "autumn": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8.6,
+    "summer": 8,
+    "autumn": 8.8,
+    "winter": 8.4
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11, 12],
+  "bestSeason": "All Year",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "Pay parking in the town",
+  "notes": "Keep ¥600 adult (2025 revision). A half-day pairing with Yamagata City; the onsen town itself is open access.",
+  "notesJa": "【見どころ】上山城と温泉街は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "天守閣は9:00～17:15（最終入館16:45）。木曜休館（祝日の場合は翌日）、12月29日～31日休館。大人600円。",
+  "businessHours": "Keep 09:00 - 17:15 (last entry 16:45); closed Thursdays (preceding Wednesday if Thursday is a holiday) and Dec 29 – 31",
+  "officialWebsite": "https://kaminoyama-castle.info/",
+  "content": {
+    "en": {
+      "name": "Kaminoyama Castle Town",
+      "description": "The reconstructed keep of Kaminoyama Castle houses a city history museum, and the surrounding onsen town — with springs discovered in 1458 — offers footbaths and ryokan stays. A compact castle-plus-onsen stop on the Yamagata Shinkansen.",
+      "highlights": [
+        "Reconstructed keep and museum",
+        "1,200-year onsen town",
+        "Footbath circuit",
+        "Shinkansen stop nearby"
+      ]
+    },
+    "ja": {
+      "name": "上山城と温泉街",
+      "description": "再建された上山城の天守閣には郷土資料館が入り、城下に広がる1458年に発見された温泉街には足湯が点在します。山形新幹線のかみのやま温泉駅からも近いコンパクトな城下町です。",
+      "highlights": [
+        "再建天守と資料館",
+        "1200年の温泉街",
+        "足湯めぐり",
+        "山形新幹線の駅に近接"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://kaminoyama-castle.info/",
+        "title": "Kaminoyama Castle official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "gatewayHubId": "yamagata-city"
+  },
+  "schemaVersion": 2
+}

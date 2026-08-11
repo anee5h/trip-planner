@@ -1,0 +1,100 @@
+# KAI-57 recommendation QA
+catalogue=800 findings=40 (0 errors, 40 warnings)
+
+[warning] sendai/shortOuting isolated-poi-above-hub: okama-crater-yamagata ranks #1 but its hub yamagata-city is not in the result set
+[warning] sendai/shortOuting isolated-poi-above-hub: sendai-castle-ruins-miyagi ranks #2 but its hub sendai-city is not in the result set
+[warning] sendai/shortOuting isolated-poi-above-hub: matsushima-bay-cruise ranks #4 but its hub matsushima-town is not in the result set
+[warning] sendai/shortOuting isolated-poi-above-hub: sendai-ichibancho ranks #5 but its hub sendai-city is not in the result set
+[warning] sendai/shortOuting isolated-poi-above-hub: sendai-daikannon ranks #6 but its hub sendai-city is not in the result set
+[warning] sendai/shortOuting isolated-poi-above-hub: sendai-asaichi-morning-market ranks #7 but its hub sendai-city is not in the result set
+[warning] sendai/shortOuting isolated-poi-above-hub: zuigan-ji ranks #8 but its hub matsushima-town is not in the result set
+[warning] sendai/shortOuting isolated-poi-above-hub: godaido ranks #9 but its hub matsushima-town is not in the result set
+[warning] sendai/shortOuting isolated-poi-above-hub: sendai-mediatheque ranks #10 but its hub sendai-city is not in the result set
+[warning] sendai/shortOuting missing-travel-evidence: okama-crater-yamagata (Yamagata) ranks #1 with no origin-aware travel estimate
+[warning] sendai/shortOuting missing-travel-evidence: sendai-castle-ruins-miyagi (Miyagi) ranks #2 with no origin-aware travel estimate
+[warning] sendai/shortOuting missing-travel-evidence: zao-fox-village-miyagi (Miyagi) ranks #3 with no origin-aware travel estimate
+[warning] sendai/shortOuting missing-travel-evidence: matsushima-bay-cruise (Miyagi) ranks #4 with no origin-aware travel estimate
+[warning] sendai/shortOuting missing-travel-evidence: sendai-ichibancho (Miyagi) ranks #5 with no origin-aware travel estimate
+[warning] sendai/shortOuting missing-travel-evidence: sendai-daikannon (Miyagi) ranks #6 with no origin-aware travel estimate
+[warning] sendai/shortOuting missing-travel-evidence: sendai-asaichi-morning-market (Miyagi) ranks #7 with no origin-aware travel estimate
+[warning] sendai/shortOuting missing-travel-evidence: zuigan-ji (Miyagi) ranks #8 with no origin-aware travel estimate
+[warning] sendai/halfDay isolated-poi-above-hub: yamadera-yamagata ranks #1 but its hub yamagata-city is not in the result set
+[warning] sendai/halfDay isolated-poi-above-hub: tsuruga-castle-fukushima ranks #3 but its hub aizuwakamatsu-city is not in the result set
+[warning] sendai/halfDay isolated-poi-above-hub: matsushima-bay ranks #4 but its hub matsushima-town is not in the result set
+[warning] sendai/halfDay isolated-poi-above-hub: aoba-castle-museum ranks #5 but its hub sendai-city is not in the result set
+[warning] sendai/halfDay isolated-poi-above-hub: sendai-yagiyama-zoo ranks #9 but its hub sendai-city is not in the result set
+[warning] sendai/halfDay missing-travel-evidence: yamadera-yamagata (Yamagata) ranks #1 with no origin-aware travel estimate
+[warning] sendai/halfDay missing-travel-evidence: goshikinuma-ponds-fukushima (Fukushima) ranks #2 with no origin-aware travel estimate
+[warning] sendai/halfDay missing-travel-evidence: tsuruga-castle-fukushima (Fukushima) ranks #3 with no origin-aware travel estimate
+[warning] sendai/halfDay missing-travel-evidence: matsushima-bay (Miyagi) ranks #4 with no origin-aware travel estimate
+[warning] sendai/halfDay missing-travel-evidence: aoba-castle-museum (Miyagi) ranks #5 with no origin-aware travel estimate
+[warning] sendai/halfDay missing-travel-evidence: ginzan-onsen-yamagata (Yamagata) ranks #6 with no origin-aware travel estimate
+[warning] sendai/halfDay missing-travel-evidence: dewa-sanzan-yamagata (Yamagata) ranks #7 with no origin-aware travel estimate
+[warning] sendai/halfDay missing-travel-evidence: geibikei-gorge-iwate (Iwate) ranks #8 with no origin-aware travel estimate
+[warning] sendai/fullDay poi-above-hub: mount-zao-yamagata ranks #2 above its hub yamagata-city (#9)
+[warning] sendai/fullDay poi-above-hub: akiu-onsen-miyagi ranks #3 above its hub sendai-city (#10)
+[warning] sendai/fullDay missing-travel-evidence: mount-bandai-fukushima (Fukushima) ranks #1 with no origin-aware travel estimate
+[warning] sendai/fullDay missing-travel-evidence: mount-zao-yamagata (Yamagata) ranks #2 with no origin-aware travel estimate
+[warning] sendai/fullDay missing-travel-evidence: akiu-onsen-miyagi (Miyagi) ranks #3 with no origin-aware travel estimate
+[warning] sendai/fullDay missing-travel-evidence: fukushima-city (Fukushima) ranks #4 with no origin-aware travel estimate
+[warning] sendai/fullDay missing-travel-evidence: matsushima-town (Miyagi) ranks #5 with no origin-aware travel estimate
+[warning] sendai/fullDay missing-travel-evidence: koriyama-city (Fukushima) ranks #6 with no origin-aware travel estimate
+[warning] sendai/fullDay missing-travel-evidence: aizuwakamatsu-city (Fukushima) ranks #7 with no origin-aware travel estimate
+[warning] sendai/fullDay missing-travel-evidence: hiraizumi-chusonji-iwate (Iwate) ranks #8 with no origin-aware travel estimate
+
+## sendai/shortOuting
+- results=18 tohokuTop=18
+- topTohoku=okama-crater-yamagata(Yamagata), sendai-castle-ruins-miyagi(Miyagi), zao-fox-village-miyagi(Miyagi), matsushima-bay-cruise(Miyagi), sendai-ichibancho(Miyagi)
+## sendai/halfDay
+- results=15 tohokuTop=15
+- topTohoku=yamadera-yamagata(Yamagata), goshikinuma-ponds-fukushima(Fukushima), tsuruga-castle-fukushima(Fukushima), matsushima-bay(Miyagi), aoba-castle-museum(Miyagi)
+## sendai/fullDay
+- results=10 tohokuTop=10
+- topTohoku=mount-bandai-fukushima(Fukushima), mount-zao-yamagata(Yamagata), akiu-onsen-miyagi(Miyagi), fukushima-city(Fukushima), matsushima-town(Miyagi)
+## tokyo/shortOuting
+- results=91 tohokuTop=0
+- topTohoku=none
+## tokyo/halfDay
+- results=65 tohokuTop=0
+- topTohoku=none
+## tokyo/fullDay
+- results=120 tohokuTop=0
+- topTohoku=none
+## yokohama/shortOuting
+- results=79 tohokuTop=0
+- topTohoku=none
+## yokohama/halfDay
+- results=60 tohokuTop=0
+- topTohoku=none
+## yokohama/fullDay
+- results=101 tohokuTop=0
+- topTohoku=none
+## osaka/shortOuting
+- results=67 tohokuTop=0
+- topTohoku=none
+## osaka/halfDay
+- results=35 tohokuTop=0
+- topTohoku=none
+## osaka/fullDay
+- results=28 tohokuTop=0
+- topTohoku=none
+## fukuoka/shortOuting
+- results=21 tohokuTop=0
+- topTohoku=none
+## fukuoka/halfDay
+- results=11 tohokuTop=0
+- topTohoku=none
+## fukuoka/fullDay
+- results=15 tohokuTop=0
+- topTohoku=none
+## sapporo/shortOuting
+- results=7 tohokuTop=0
+- topTohoku=none
+## sapporo/halfDay
+- results=5 tohokuTop=0
+- topTohoku=none
+## sapporo/fullDay
+- results=6 tohokuTop=0
+- topTohoku=none
+(node:3450340) ExperimentalWarning: localStorage is not available because --localstorage-file was not provided.
+(Use `node --trace-warnings ...` to show where the warning was created)

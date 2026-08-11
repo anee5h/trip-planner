@@ -5,7 +5,7 @@
   "region": "Tohoku",
   "categories": ["World Heritage", "Culture", "Sightseeing"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sirakami_santi.JPG/1920px-Sirakami_santi.JPG",
-  "description": "Shirakami-Sanchi is a UNESCO World Heritage Site in Aomori, designated for its outstanding universal cultural or natural value.",
+  "description": "A 130,000 ha UNESCO World Heritage beech forest (inscribed 1993) spanning Ajigasawa, Fukaura and Nishimeya in Aomori and Fujisato in Akita. Its primary beech forest is the largest in East Asia; access is via trailheads such as Aqua Green Village ANMON and the Juniko lakes.",
   "highlights": [
     "UNESCO Heritage Monument",
     "Historic Landmark",
@@ -53,7 +53,7 @@
   "tags": ["UNESCO World Heritage", "Shirakami-Sanchi", "Aomori"],
   "reservation": "Not required",
   "parking": "Available nearby",
-  "notes": "Official UNESCO World Heritage Site.",
+  "notes": "Multi-municipality natural World Heritage site; no single municipality contains it. Trail access is seasonal (typically Jun–Oct); the Juniko lakes and Anmon falls are the standard visitor entry points.",
   "coordinates": {
     "lat": 40.4688,
     "lng": 140.1264
@@ -65,7 +65,7 @@
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Shirakami-Sanchi via Wikipedia/Wikimedia Commons"
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -76,7 +76,7 @@
     }
   ],
   "relationships": {
-    "parentDestinationId": "hirosaki-city"
+    "gatewayHubId": "hirosaki-city"
   },
   "budgetBreakdown": {
     "transport": 3000,
@@ -99,6 +99,29 @@
     "max": 7
   },
   "officialWebsite": "https://www.pref.aomori.lg.jp/soshiki/kankyo/kankyo/shirakami.html",
-  "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Aomori:hirosaki"
+  "businessHours": "Forest; trail access typically Jun–Oct",
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-11",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://rinya.maff.go.jp/j/sin_riyou/sekaiisan/sirakami_itimenseki.html",
+        "title": "Forestry Agency — Shirakami-Sanchi",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
+      }
+    ]
+  }
 }

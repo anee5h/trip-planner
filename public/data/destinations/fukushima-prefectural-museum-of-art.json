@@ -1,0 +1,165 @@
+{
+  "id": "fukushima-prefectural-museum-of-art",
+  "name": "Fukushima Prefectural Museum of Art",
+  "nameJa": "福島県立美術館",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Fukushima:fukushima",
+  "prefecture": "Fukushima",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 37.767942,
+    "lng": 140.456506
+  },
+  "categories": ["Culture", "Museum", "Art"],
+  "tags": ["Culture", "Museum", "Fukushima City"],
+  "description": "Prefectural art museum at the foot of Mount Shinobu, opened in 1984, with a strong collection of modern Japanese painting including Takahashi Yuichi. Hosts major special exhibitions and offers free parking.",
+  "highlights": [
+    "Modern Japanese painting",
+    "Takahashi Yuichi works",
+    "Major special exhibitions",
+    "Free parking"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 20,
+    "bus": 30,
+    "car": 25
+  },
+  "budgetMin": 360,
+  "budgetRecommended": 2200,
+  "budgetMax": 4000,
+  "budgetBreakdown": {
+    "transport": 700,
+    "tickets": 360,
+    "food": 700,
+    "cafe": 400
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Fukushima-Pref-Museum-of-Art02.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Fukushima-Pref-Museum-of-Art02.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Hasec",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fukushima-Pref-Museum-of-Art02.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "low",
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8,
+    "couple": 7.8,
+    "summer": 7.8,
+    "winter": 8,
+    "rain": 9,
+    "food": 7.6,
+    "photography": 7.8,
+    "relaxation": 7.8,
+    "value": 8.4,
+    "uniqueness": 7.6,
+    "family": 7.4,
+    "accessibility": 9,
+    "nature": 6.4,
+    "historyAndCulture": 8.6,
+    "walkability": 7,
+    "spring": 8.2,
+    "autumn": 8.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7.8,
+    "autumn": 8.2,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "No reservation required",
+  "parking": "Free parking (unavailable during large special exhibitions)",
+  "notes": "Permanent collection ¥360 adult / ¥280 group; high school and below free. Three minutes from Fukushima Station on the Iizaka Line (Museum-mae stop).",
+  "notesJa": "【見どころ】福島県立美術館は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:30～17:00（最終入館16:30）。月曜休館（祝日の場合は翌日）。",
+  "businessHours": "09:30 - 17:00 (last entry 16:30); closed Mondays (except holidays), day after holidays, year-end",
+  "officialWebsite": "https://art-museum.fcs.ed.jp/",
+  "content": {
+    "en": {
+      "name": "Fukushima Prefectural Museum of Art",
+      "description": "Prefectural art museum at the foot of Mount Shinobu, opened in 1984, with a strong collection of modern Japanese painting including Takahashi Yuichi. Hosts major special exhibitions and offers free parking.",
+      "highlights": [
+        "Modern Japanese painting",
+        "Takahashi Yuichi works",
+        "Major special exhibitions",
+        "Free parking"
+      ]
+    },
+    "ja": {
+      "name": "福島県立美術館",
+      "description": "信夫山の麓に建つ県立美術館。高橋由一など近代日本画のコレクションが充実し、大型の特別展も開催されます。",
+      "highlights": [
+        "近代日本画のコレクション",
+        "高橋由一",
+        "特別展",
+        "無料駐車場"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://art-museum.fcs.ed.jp/",
+        "title": "Fukushima Prefectural Museum of Art official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "fukushima-city"
+  },
+  "schemaVersion": 2
+}

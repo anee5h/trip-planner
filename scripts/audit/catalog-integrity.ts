@@ -866,7 +866,9 @@ function checkSync(
   details: DetailFileEntry[],
   metaEntries: { id: string; [k: string]: unknown }[],
   findings: AuditFinding[],
-  referenceDate = new Date().toISOString().slice(0, 10),
+  referenceDate = new Date(Date.now() + 9 * 60 * 60 * 1000)
+    .toISOString()
+    .slice(0, 10),
 ): void {
   const byId = new Map(destinations.map((d) => [d.id, d]));
   const detailById = new Map(details.map((d) => [d.id, d.record]));

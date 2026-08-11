@@ -55,7 +55,7 @@
   "tags": ["Core Designated City", "Metropolis Hub", "Miyagi"],
   "reservation": "Not required",
   "parking": "Available at central station",
-  "notes": "Major JR Shinkansen / express rail transfer hub.",
+  "notes": "Tohoku's largest city; regional hub with the Date clan's castle-town heritage, vibrant food markets, and the Tohoku Shinkansen.",
   "coordinates": {
     "lat": 38.2688,
     "lng": 140.871
@@ -67,7 +67,7 @@
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Sendai City via Wikipedia/Wikimedia Commons"
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -79,7 +79,6 @@
   ],
   "relationships": {
     "featuredDestinationIds": [
-      "matsushima-bay",
       "akiu-onsen-miyagi",
       "sendai-mediatheque",
       "sendai-umino-mori-aquarium",
@@ -111,5 +110,31 @@
     "max": 14
   },
   "businessHours": "Open access",
-  "municipalityId": "Miyagi:sendai"
+  "municipalityId": "Miyagi:sendai",
+  "kind": "city",
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-11",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.sendai.jp/",
+        "title": "Official website",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
+      }
+    ]
+  },
+  "notesJa": "東北最大の都市。伊達家の城下町の歴史と活気ある食文化、新幹線の要衝です。"
 }

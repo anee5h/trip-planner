@@ -1,7 +1,7 @@
 {
   "id": "hirosaki-city",
   "name": "Hirosaki City",
-  "nameJa": "弘前",
+  "nameJa": "弘前市",
   "prefecture": "Aomori",
   "region": "Tohoku",
   "coordinates": {
@@ -72,11 +72,11 @@
   "weatherDependence": "moderate",
   "reservation": "Not usually required; reserve popular accommodation in advance.",
   "parking": "Available around major attractions; confirm local restrictions.",
-  "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+  "notes": "Castle town famous for Hirosaki Castle and its spring cherry blossoms; Tsugaru regional base.",
   "relationships": {
     "featuredDestinationIds": []
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -87,5 +87,30 @@
     "max": 14
   },
   "businessHours": "Open access",
-  "municipalityId": "Aomori:hirosaki"
+  "municipalityId": "Aomori:hirosaki",
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-11",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.hirosaki.aomori.jp/",
+        "title": "Official website",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
+      }
+    ]
+  },
+  "notesJa": "弘前城と春の桜で知られる城下町。津軽地方の拠点です。"
 }

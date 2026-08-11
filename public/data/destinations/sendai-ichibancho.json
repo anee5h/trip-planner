@@ -1,0 +1,165 @@
+{
+  "id": "sendai-ichibancho",
+  "name": "Sendai Ichibancho",
+  "nameJa": "仙台一番町",
+  "kind": "shopping",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Miyagi:sendai",
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 38.2597,
+    "lng": 140.8722
+  },
+  "categories": ["Shopping", "Food"],
+  "tags": ["Shopping", "Food", "Sendai City"],
+  "description": "Sendai's main downtown shopping district: six covered arcades — Sun Mall, Vlandome, Clis Road, Marble Road Omachi, Hapina Nakakecho and Iroha Yokocho — linking Jozenji-dori to Sendai Station, with Tohoku's first arcade and a main venue of the Tanabata Festival.",
+  "highlights": [
+    "Six covered arcades",
+    "Tohoku's first arcade",
+    "Tanabata Festival venue",
+    "Shopping and dining"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 15,
+    "bus": 20,
+    "car": 25
+  },
+  "budgetMin": 0,
+  "budgetRecommended": 3000,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 800,
+    "tickets": 0,
+    "food": 1400,
+    "cafe": 800
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sun_Mall_Ichibancho_202209.jpg/1280px-Sun_Mall_Ichibancho_202209.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sun_Mall_Ichibancho_202209.jpg/1280px-Sun_Mall_Ichibancho_202209.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "掬茶",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sun_Mall_Ichibancho_202209.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "walkingMin": 3000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1500,
+  "walkingIntensity": "medium",
+  "indoorPercent": 70,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 8,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8,
+    "summer": 8.8,
+    "winter": 8,
+    "rain": 8.4,
+    "food": 9,
+    "photography": 8,
+    "relaxation": 7.6,
+    "value": 8.4,
+    "uniqueness": 7.8,
+    "family": 8.2,
+    "accessibility": 8,
+    "nature": 5,
+    "historyAndCulture": 7.4,
+    "walkability": 8,
+    "spring": 8.6,
+    "autumn": 8.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 8.8,
+    "autumn": 8.4,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "No dedicated parking; use downtown parking",
+  "notes": "Free to stroll; shops and restaurants are individually priced. The north end meets Jozenji-dori.",
+  "notesJa": "【見どころ】仙台一番町は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "通りは常時通行可。各店舗の営業時間は店舗により異なります。",
+  "businessHours": "Open access; individual shops typically ~10:00 - 20:00",
+  "officialWebsite": "http://sunmall-ichibancho.com/",
+  "content": {
+    "en": {
+      "name": "Sendai Ichibancho",
+      "description": "Sendai's main downtown shopping district: six covered arcades — Sun Mall, Vlandome, Clis Road, Marble Road Omachi, Hapina Nakakecho and Iroha Yokocho — linking Jozenji-dori to Sendai Station, with Tohoku's first arcade and a main venue of the Tanabata Festival.",
+      "highlights": [
+        "Six covered arcades",
+        "Tohoku's first arcade",
+        "Tanabata Festival venue",
+        "Shopping and dining"
+      ]
+    },
+    "ja": {
+      "name": "仙台一番町",
+      "description": "仙台駅と定禅寺通を結ぶ中心商店街。サンモール一番町、ハピナ名掛丁など6つのアーケードが連なり、東北初のアーケードや七夕まつりの主会場として知られます。",
+      "highlights": [
+        "6つのアーケード",
+        "東北初のアーケード",
+        "七夕まつりの会場",
+        "買い物とグルメ"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.sentabi.jp/en/spots/324",
+        "title": "Sendai Tourism — Ichibancho",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "sendai-city"
+  },
+  "schemaVersion": 2
+}

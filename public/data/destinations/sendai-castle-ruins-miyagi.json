@@ -14,8 +14,8 @@
     "Gokoku Shrine within grounds"
   ],
   "coordinates": {
-    "lat": 38.2525,
-    "lng": 140.8626
+    "lat": 38.253418,
+    "lng": 140.856766
   },
   "nearestStation": "Sendai Station (then Loople bus)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Waki-yagura_of_Sendai_Castle_20220910b.jpg/1920px-Waki-yagura_of_Sendai_Castle_20220910b.jpg",
@@ -74,7 +74,7 @@
   "walkingIntensity": "low",
   "reservation": "None required",
   "parking": "Limited; use Loople Sendai bus from station",
-  "notes": "Most of the castle was destroyed by earthquake (1793) and WWII bombing. Today the stone walls, turret foundations, and statue remain. Free admission to grounds; museum ¥700.",
+  "notes": "The castle's buildings were lost to fires in the 17th century and 1882, and the grounds were damaged in WWII bombing. Today the stone walls, turret foundations and the equestrian statue remain. Free admission to grounds; the site museum charges admission.",
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
@@ -94,7 +94,30 @@
   "placeType": "destination",
   "areaId": "aoba",
   "officialWebsite": "https://www.sendai-c.ed.jp/~museum/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "Open access (grounds); site museum hours vary by season",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Miyagi:sendai"
+  "municipalityId": "Miyagi:sendai",
+  "kind": "castle",
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.sendai-c.ed.jp/~museum/",
+        "title": "Official website",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
+      }
+    ]
+  }
 }

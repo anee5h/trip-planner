@@ -77,12 +77,7 @@
   "notes": "Japan's deepest lake at 423.4 m. The legendary Princess Tatsuko prayed for eternal beauty and was transformed into a dragon deity of the lake.",
   "status": "beta",
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": [
-      "nyuto-onsen-akita",
-      "kakunodate-samurai-district-akita"
-    ],
-    "gatewayHubId": "akita-city"
+    "parentDestinationId": "semboku-city"
   },
   "budgetBreakdown": null,
   "recommendedVisitHours": {
@@ -90,6 +85,29 @@
     "max": 5
   },
   "officialWebsite": "https://www.tazawako.org/",
-  "businessHours": "09:00 - 17:00 (Daily)",
-  "ratingsSchemaVersion": 2
+  "businessHours": "Open access (open lake; no hours)",
+  "ratingsSchemaVersion": 2,
+  "municipalityId": "Akita:semboku",
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.semboku.akita.jp/sightseeing/spot/04_tazawako.html",
+        "title": "Senboku City — Lake Tazawa",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
+      }
+    ]
+  }
 }

@@ -1,0 +1,165 @@
+{
+  "id": "oga-namahage-kan",
+  "name": "Namahage Museum (Oga Shinzan Folklore Museum)",
+  "nameJa": "なまはげ館（男鹿真山伝承館）",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Akita:oga",
+  "prefecture": "Akita",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 39.929167,
+    "lng": 139.766583
+  },
+  "categories": ["Culture", "Museum"],
+  "tags": ["Culture", "Museum", "Oga City"],
+  "description": "Home of the Namahage, the fearsome New Year visitors of the Oga Peninsula — a UNESCO Intangible Cultural Heritage (2018). The museum displays roughly 150 masks and costumes, with live Namahage performances at the adjacent Shinzan Folklore Museum.",
+  "highlights": [
+    "UNESCO Intangible Cultural Heritage",
+    "~150 masks and costumes",
+    "Live performances",
+    "Beside Shinzan Shrine"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 80,
+    "bus": 90,
+    "car": 60
+  },
+  "budgetMin": 660,
+  "budgetRecommended": 3500,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 660,
+    "food": 900,
+    "cafe": 400
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Entrance_of_Namahage_Museum%2C_Oga%2C_Akita.JPG/1280px-Entrance_of_Namahage_Museum%2C_Oga%2C_Akita.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Entrance_of_Namahage_Museum%2C_Oga%2C_Akita.JPG/1280px-Entrance_of_Namahage_Museum%2C_Oga%2C_Akita.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Kumpei Shiraishi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Entrance_of_Namahage_Museum,_Oga,_Akita.JPG"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2000,
+  "walkingSunMin": 1200,
+  "walkingShadeMin": 800,
+  "walkingIntensity": "low",
+  "indoorPercent": 70,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 8,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.8,
+    "summer": 8,
+    "winter": 9,
+    "rain": 8.4,
+    "food": 7.6,
+    "photography": 9.4,
+    "relaxation": 7.4,
+    "value": 8.6,
+    "uniqueness": 9.8,
+    "family": 8.6,
+    "accessibility": 8,
+    "nature": 6.8,
+    "historyAndCulture": 9.6,
+    "walkability": 6,
+    "spring": 8.6,
+    "autumn": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 8,
+    "autumn": 8.6,
+    "winter": 9
+  },
+  "bestMonths": [1, 2, 3, 5, 8, 10, 11, 12],
+  "bestSeason": "Winter & Autumn",
+  "weatherDependence": "low",
+  "reservation": "Reservations advised on holidays",
+  "parking": "Free parking on site",
+  "notes": "Namahage-kan ¥660 adult / ¥330 student; combined ticket with the Shinzan Folklore Museum ¥1,100/¥660. Gateway access via Akita City (JR Oga Line + shuttle); allow 5–6 hours round trip.",
+  "notesJa": "【見どころ】なまはげ館（男鹿真山伝承館）は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "8:30～17:00（最終入場16:30）。年中無休。",
+  "businessHours": "08:30 - 17:00 year-round; performance slots ~13/day (fewer in winter)",
+  "officialWebsite": "https://www.namahage.co.jp/namahagekan/",
+  "content": {
+    "en": {
+      "name": "Namahage Museum (Oga Shinzan Folklore Museum)",
+      "description": "Home of the Namahage, the fearsome New Year visitors of the Oga Peninsula — a UNESCO Intangible Cultural Heritage (2018). The museum displays roughly 150 masks and costumes, with live Namahage performances at the adjacent Shinzan Folklore Museum.",
+      "highlights": [
+        "UNESCO Intangible Cultural Heritage",
+        "~150 masks and costumes",
+        "Live performances",
+        "Beside Shinzan Shrine"
+      ]
+    },
+    "ja": {
+      "name": "なまはげ館（男鹿真山伝承館）",
+      "description": "ユネスコ無形文化遺産に登録された「なまはげ」の博物館。約150点の面と衣装を展示し、隣接する男鹿真山伝承館では迫力の実演も行われます。",
+      "highlights": [
+        "ユネスコ無形文化遺産",
+        "約150点の面と衣装",
+        "なまはげの実演",
+        "真山神社に隣接"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.namahage.co.jp/namahagekan/",
+        "title": "Namahage-kan official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "gatewayHubId": "akita-city"
+  },
+  "schemaVersion": 2
+}

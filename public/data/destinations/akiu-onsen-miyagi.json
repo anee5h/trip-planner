@@ -6,7 +6,7 @@
   "region": "Tohoku",
   "category": "Onsen & Wellness",
   "categories": ["Onsen & Wellness"],
-  "description": "One of Japan's oldest hot spring resorts just 30 minutes from Sendai, historically favoured by Emperor Shomu. Upscale ryokan line the Natori River canyon, with the nearby Akiu Waterfall and Rairaikyo Gorge as scenic highlights.",
+  "description": "One of Japan's oldest hot spring resorts just 30 minutes from Sendai, said to have been enjoyed since the Kinmei era (6th century). Upscale ryokan line the Natori River canyon, with the nearby Akiu Waterfall and Rairaikyo Gorge as scenic highlights.",
   "highlights": [
     "Sendai's closest major onsen",
     "Akiu Great Waterfall (55 m)",
@@ -87,7 +87,29 @@
     "max": 7
   },
   "officialWebsite": "https://www.akiuonsensyokoukai.com/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "Open access (onsen district; ryokan day-use hours vary)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Miyagi:sendai"
+  "municipalityId": "Miyagi:sendai",
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.akiuonsensyokoukai.com/",
+        "title": "Official website",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
+      }
+    ]
+  }
 }

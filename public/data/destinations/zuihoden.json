@@ -12,7 +12,7 @@
     "ja": {
       "name": "瑞鳳殿",
       "description": "瑞鳳殿は仙台市にある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["歴史"]
+      "highlights": ["文化", "博物館"]
     }
   },
   "prefecture": "Miyagi",
@@ -26,20 +26,20 @@
   },
   "officialWebsite": "https://www.zuihoden.com/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
+  "categories": ["Culture", "Museum"],
   "tags": ["Culture", "Sendai City", "v1.9.2"],
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Zuiho-den17s3872.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Zuiho-den12s3200.jpg/1280px-Zuiho-den12s3200.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY 2.5",
     "attribution": "663highland",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zuiho-den17s3872.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zuiho-den12s3200.jpg"
   },
   "coordinates": {
     "lat": 38.250541604858974,
     "lng": 140.86670119031285
   },
-  "description": "Zuihoden is a visitor destination in Sendai City.  Visitors can experience historic architecture and local culture.",
+  "description": "The ornate mausoleum of Date Masamune, built in 1637 in the lavish Momoyama style and faithfully rebuilt after a 1945 fire. Its brilliantly coloured carvings make it one of Sendai's most visited sights.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -100,7 +100,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+  "notes": "Admission charged; about 15 minutes on foot from Zuihoden-mae bus stop or 25 minutes from Sendai Station by Loople Sendai bus.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -124,27 +124,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://en.wikipedia.org/wiki/Zuih%C5%8Dden",
-          "title": "Beta editorial scoring from source-backed attributes",
-          "accessedAt": "2026-07-29"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Zuih%C5%8Dden",
-          "title": "Zuihōden",
-          "accessedAt": "2026-07-29"
-        }
-      ]
-    },
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
     "changes": [
       {
         "changedAt": "2026-07-29",
@@ -157,6 +139,12 @@
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
       }
     ]
   },
@@ -165,6 +153,11 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "09:30 - 17:00 (Closed Mondays)",
-  "municipalityId": "Miyagi:sendai"
+  "businessHours": "09:00 - 16:30",
+  "municipalityId": "Miyagi:sendai",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11",
+    "sourceUrl": "https://www.zuihoden.com/"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Zuiho-den12s3200.jpg/1280px-Zuiho-den12s3200.jpg"
 }

@@ -12,7 +12,7 @@
     "ja": {
       "name": "せんだいメディアテーク",
       "description": "せんだいメディアテークは仙台市にある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["博物館"]
+      "highlights": ["文化", "博物館"]
     }
   },
   "prefecture": "Miyagi",
@@ -26,7 +26,7 @@
   },
   "officialWebsite": "https://www.smt.jp/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["Culture"],
+  "categories": ["Culture", "Museum"],
   "tags": ["Culture", "Sendai City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sendai%20Mediatheque%202009.jpg?width=1600",
   "imageMetadata": {
@@ -39,7 +39,7 @@
     "lat": 38.26555556,
     "lng": 140.86555556
   },
-  "description": "Sendai Mediatheque is a visitor destination in Sendai City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Toyo Ito's landmark glass-and-steel cultural building (2001), housing a library, galleries and event spaces; one of the defining works of contemporary Japanese architecture.",
   "highlights": ["Museum"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -64,10 +64,10 @@
   "walkingIntensity": "medium",
   "walkingSunMin": 4000,
   "walkingShadeMin": 2500,
-  "indoorPercent": 20,
+  "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 2,
-    "rainFriendly": 2,
+    "rainFriendly": 9,
     "walkingIntensity": 6
   },
   "ratings": {
@@ -100,7 +100,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+  "notes": "Free public spaces; special exhibitions charge admission. Closed the 4th Tuesday of each month.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -124,27 +124,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://en.wikipedia.org/wiki/Sendai_Mediatheque",
-          "title": "Beta editorial scoring from source-backed attributes",
-          "accessedAt": "2026-07-29"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Sendai_Mediatheque",
-          "title": "Sendai Mediatheque",
-          "accessedAt": "2026-07-29"
-        }
-      ]
-    },
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
     "changes": [
       {
         "changedAt": "2026-07-29",
@@ -157,6 +139,12 @@
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
       }
     ]
   },
@@ -165,6 +153,6 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "businessHours": "09:00 - 22:00 (closed 4th Tuesday of the month)",
   "municipalityId": "Miyagi:sendai"
 }

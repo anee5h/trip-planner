@@ -25,7 +25,7 @@
     "value": 9.4,
     "uniqueness": 9.8
   },
-  "categories": ["nature", "sightseeing", "culture"],
+  "categories": ["Nature", "Sightseeing", "Culture"],
   "budgetMin": 3000,
   "budgetMax": 12000,
   "status": "beta",
@@ -50,7 +50,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg",
   "description": "Matsushima Bay is one of Japan's Three Great Views (Nihon Sankei), celebrated for over 260 pine-clad islands scattered across tranquil coastal waters.",
-  "notes": "Matsuyama City travel hub in Ehime Prefecture.",
+  "notes": "One of Japan's Three Great Views (Nihon Sankei): 260+ pine-clad islands in Matsushima town's bay. The town is the usual base — Zuigan-ji, Godaido and the bay cruise are all here, about 40 min from Sendai.",
   "budgetRecommended": 7500,
   "crowd": {
     "weekday": 3,
@@ -70,9 +70,8 @@
   "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": [],
-    "parentDestinationId": "sendai-city"
+    "parentDestinationId": "matsushima-town",
+    "nearbyDestinationIds": ["godaido", "zuigan-ji"]
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg",
   "budgetBreakdown": {
@@ -97,7 +96,29 @@
     "min": 3,
     "max": 5
   },
-  "officialWebsite": "https://www.matsushima-kanko.org/",
+  "officialWebsite": "https://www.matsushima-kanko.com/",
   "businessHours": "Open access",
-  "municipalityId": "Miyagi:sendai"
+  "municipalityId": "Miyagi:matsushima",
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://www.town.miyagi-matsushima.lg.jp/",
+        "title": "Matsushima Town official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
+      }
+    ]
+  }
 }

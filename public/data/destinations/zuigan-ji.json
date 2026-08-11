@@ -1,0 +1,165 @@
+{
+  "id": "zuigan-ji",
+  "name": "Zuigan-ji",
+  "nameJa": "瑞巌寺",
+  "kind": "temple",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Miyagi:matsushima",
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 38.3722,
+    "lng": 141.0596
+  },
+  "categories": ["Culture", "History"],
+  "tags": ["Culture", "History", "Matsushima Town"],
+  "description": "National Treasure temple of the Date clan, rebuilt by Date Masamune in 1609 in lavish Momoyama style. The 2018 Heisei restoration returned the gold-leaf interiors of the Main Hall and Kuri to their original brilliance.",
+  "highlights": [
+    "National Treasure Main Hall",
+    "Date Masamune's rebuilt temple",
+    "Gold-leaf Momoyama interiors",
+    "Cave shrines of Oshu"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 40,
+    "bus": 50,
+    "car": 45
+  },
+  "budgetMin": 1000,
+  "budgetRecommended": 3000,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 900,
+    "tickets": 1000,
+    "food": 800,
+    "cafe": 300
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/211030_Zuigan-ji_Matsushima_Miyagi_pref_Japan10s3.jpg/1280px-211030_Zuigan-ji_Matsushima_Miyagi_pref_Japan10s3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/211030_Zuigan-ji_Matsushima_Miyagi_pref_Japan10s3.jpg/1280px-211030_Zuigan-ji_Matsushima_Miyagi_pref_Japan10s3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:211030_Zuigan-ji_Matsushima_Miyagi_pref_Japan10s3.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2000,
+  "walkingSunMin": 1200,
+  "walkingShadeMin": 800,
+  "walkingIntensity": "medium",
+  "indoorPercent": 60,
+  "comfort": {
+    "heatTolerance": 5,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9.2,
+    "couple": 8.6,
+    "summer": 8.4,
+    "winter": 8.8,
+    "rain": 8,
+    "food": 7.4,
+    "photography": 9,
+    "relaxation": 8.4,
+    "value": 8,
+    "uniqueness": 9.4,
+    "family": 7.8,
+    "accessibility": 6,
+    "nature": 7,
+    "historyAndCulture": 9.8,
+    "walkability": 8,
+    "spring": 9.2,
+    "autumn": 9.4
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9.2,
+    "winter": 8.6
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "No private parking; use Matsushima-Kaigan Station (10 min walk)",
+  "notes": "¥1,000 adult / ¥500 child. The 2018 Heisei Grand Restoration returned the gold-leaf interiors to their original brilliance.",
+  "notesJa": "【見どころ】瑞巌寺は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "8:30開門。閉門は月により15:30～17:00（12月15:30、2月16:00、3月・10月16:30、4～9月17:00、11月16:00）。最終入場は閉門30分前。",
+  "businessHours": "08:30 open; closing 15:30–17:00 by season; last admission 30 min before close",
+  "officialWebsite": "https://www.zuiganji.or.jp/",
+  "content": {
+    "en": {
+      "name": "Zuigan-ji",
+      "description": "National Treasure temple of the Date clan, rebuilt by Date Masamune in 1609 in lavish Momoyama style. The 2018 Heisei restoration returned the gold-leaf interiors of the Main Hall and Kuri to their original brilliance.",
+      "highlights": [
+        "National Treasure Main Hall",
+        "Date Masamune's rebuilt temple",
+        "Gold-leaf Momoyama interiors",
+        "Cave shrines of Oshu"
+      ]
+    },
+    "ja": {
+      "name": "瑞巌寺",
+      "description": "伊達政宗が1609年に再建した国宝の禅寺。2018年に平成の大修理を終えた本堂と庫裏は、金碧障壁画の華やかな桃山様式を今に伝えます。",
+      "highlights": [
+        "国宝本堂・庫裏",
+        "伊達政宗ゆかりの寺",
+        "金碧障壁画",
+        "奥の院（洞窟群）"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.zuiganji.or.jp/",
+        "title": "Zuigan-ji official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "matsushima-town"
+  },
+  "schemaVersion": 2
+}

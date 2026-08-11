@@ -1,7 +1,7 @@
 {
   "id": "jozenji-dori",
   "name": "Jozenji-dori",
-  "nameJa": "仙台市",
+  "nameJa": "定禅寺通",
   "aliases": ["Sendai", "仙台市"],
   "content": {
     "en": {
@@ -10,14 +10,14 @@
       "highlights": ["History"]
     },
     "ja": {
-      "name": "仙台市",
-      "description": "仙台市は仙台市にある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["歴史"]
+      "name": "定禅寺通",
+      "description": "仙台市街を東西に貫くケヤキ並木の通り。カフェやアートが点在し、9月上旬の定禅寺ストリートジャズフェスティバルや冬のイルミネーションで知られます。",
+      "highlights": ["文化"]
     }
   },
   "prefecture": "Miyagi",
   "region": "Tohoku",
-  "kind": "temple",
+  "kind": "street",
   "role": "poi",
   "placeType": "destination",
   "areaId": "aoba",
@@ -26,7 +26,7 @@
   },
   "officialWebsite": "https://www.city.sendai.jp/",
   "officialWebsiteRequirement": "optional",
-  "categories": ["History"],
+  "categories": ["Culture"],
   "tags": ["History", "Sendai City", "v1.9.2"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg",
   "imageMetadata": {
@@ -39,14 +39,18 @@
     "lat": 38.26822222,
     "lng": 140.86941667
   },
-  "description": "Jozenji-dori is a visitor destination in Sendai City.  Visitors can experience historic architecture and local culture.",
-  "highlights": ["History"],
+  "description": "Sendai's elegant tree-lined boulevard, shaded by 160+ zelkova trees and lined with cafes, shops and public art. It hosts the annual Jozenji Street Jazz Festival in early September and winter illuminations.",
+  "highlights": [
+    "Zelkova-lined boulevard",
+    "Jozenji Street Jazz Festival",
+    "Seasonal illuminations"
+  ],
   "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
+  "budgetRecommended": 3200,
+  "budgetMax": 4500,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
+    "tickets": 0,
     "food": 1400,
     "cafe": 400
   },
@@ -67,7 +71,7 @@
   "indoorPercent": 25,
   "comfort": {
     "heatTolerance": 3,
-    "rainFriendly": 3,
+    "rainFriendly": 4,
     "walkingIntensity": 6
   },
   "ratings": {
@@ -100,7 +104,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+  "notes": "Free open-air promenade connecting the city centre to Aoba Castle hill; the bronze statue of a boy on a bicycle is a local landmark.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -124,27 +128,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://en.wikipedia.org/wiki/Sendai",
-          "title": "Beta editorial scoring from source-backed attributes",
-          "accessedAt": "2026-07-29"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Sendai",
-          "title": "Sendai",
-          "accessedAt": "2026-07-29"
-        }
-      ]
-    },
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
     "changes": [
       {
         "changedAt": "2026-07-29",
@@ -156,6 +142,12 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
         "method": "assisted"
       }
     ]

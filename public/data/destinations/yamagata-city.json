@@ -73,11 +73,11 @@
   "weatherDependence": "moderate",
   "reservation": "Not usually required; reserve popular accommodation in advance.",
   "parking": "Available around major attractions; confirm local restrictions.",
-  "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
+  "notes": "Capital of Yamagata Prefecture; gateway to Yamadera, Zao, and the fruit orchards of the Murayama basin.",
   "relationships": {
     "featuredDestinationIds": []
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -88,5 +88,30 @@
     "max": 14
   },
   "businessHours": "Open access",
-  "municipalityId": "Yamagata:yamagata"
+  "municipalityId": "Yamagata:yamagata",
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-11",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.yamagata-yamagata.lg.jp/",
+        "title": "Official website",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
+      }
+    ]
+  },
+  "notesJa": "山形県の県都。山寺や蔵王方面への旅の拠点です。"
 }

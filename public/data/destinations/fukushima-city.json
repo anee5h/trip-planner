@@ -1,7 +1,7 @@
 {
   "id": "fukushima-city",
   "name": "Fukushima City",
-  "nameJa": "福島",
+  "nameJa": "福島市",
   "prefecture": "Fukushima",
   "region": "Tohoku",
   "coordinates": {
@@ -77,7 +77,7 @@
   "relationships": {
     "featuredDestinationIds": []
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -88,5 +88,30 @@
     "max": 14
   },
   "businessHours": "Open access",
-  "municipalityId": "Fukushima:fukushima"
+  "municipalityId": "Fukushima:fukushima",
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-11",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.fukushima.fukushima.jp/",
+        "title": "Official website",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
+      }
+    ]
+  },
+  "notesJa": "山あいの盆地に広がる福島県都。果物と温泉街で知られます。"
 }

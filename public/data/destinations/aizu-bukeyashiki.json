@@ -1,0 +1,165 @@
+{
+  "id": "aizu-bukeyashiki",
+  "name": "Aizu Bukeyashiki",
+  "nameJa": "会津武家屋敷",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Fukushima:aizuwakamatsu",
+  "prefecture": "Fukushima",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 37.4852,
+    "lng": 139.9537
+  },
+  "categories": ["History", "Culture"],
+  "tags": ["History", "Culture", "Aizuwakamatsu City"],
+  "description": "A reconstructed samurai residence complex centred on the 1975 rebuild of chief retainer Saigo Tanomo's home, with relocated Edo-period buildings, a samurai museum and hands-on akabeko and archery experiences.",
+  "highlights": [
+    "Rebuilt Saigo Tanomo residence",
+    "Relocated Edo buildings",
+    "Akabeko painting experience",
+    "Aizu history museum"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 30,
+    "bus": 40,
+    "car": 35
+  },
+  "budgetMin": 1000,
+  "budgetRecommended": 3500,
+  "budgetMax": 6000,
+  "budgetBreakdown": {
+    "transport": 800,
+    "tickets": 1000,
+    "food": 1100,
+    "cafe": 600
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Aizu_Bukeyashiki_Garden.jpg/1280px-Aizu_Bukeyashiki_Garden.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Aizu_Bukeyashiki_Garden.jpg/1280px-Aizu_Bukeyashiki_Garden.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Miyuki Meinaka",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aizu_Bukeyashiki_Garden.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 60,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 7,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8,
+    "summer": 8.2,
+    "winter": 8,
+    "rain": 7.6,
+    "food": 8,
+    "photography": 8.4,
+    "relaxation": 7.8,
+    "value": 8.2,
+    "uniqueness": 8.6,
+    "family": 8.4,
+    "accessibility": 7,
+    "nature": 6,
+    "historyAndCulture": 9.4,
+    "walkability": 7,
+    "spring": 8.6,
+    "autumn": 8.8
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.4,
+    "summer": 8.2,
+    "autumn": 8.6,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required",
+  "parking": "Free parking on site",
+  "notes": "Adult ¥1,000. On the Aizu loop bus (Akabe); gateway to Higashiyama Onsen.",
+  "notesJa": "【見どころ】会津武家屋敷は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "4～11月8:30～17:00、12～3月9:00～16:30。年中無休。大人1,000円。",
+  "businessHours": "08:30 - 17:00 (Apr–Nov) / 09:00 - 16:30 (Dec–Mar); open year-round",
+  "officialWebsite": "https://bukeyashiki.com/",
+  "content": {
+    "en": {
+      "name": "Aizu Bukeyashiki",
+      "description": "A reconstructed samurai residence complex centred on the 1975 rebuild of chief retainer Saigo Tanomo's home, with relocated Edo-period buildings, a samurai museum and hands-on akabeko and archery experiences.",
+      "highlights": [
+        "Rebuilt Saigo Tanomo residence",
+        "Relocated Edo buildings",
+        "Akabeko painting experience",
+        "Aizu history museum"
+      ]
+    },
+    "ja": {
+      "name": "会津武家屋敷",
+      "description": "家老・西郷頼母邸を1975年に復元した武家屋敷群。移築された江戸時代の建物や資料館のほか、赤べこ絵付けや弓矢体験ができます。",
+      "highlights": [
+        "西郷頼母邸の復元",
+        "江戸時代の移築建物",
+        "赤べこ絵付け体験",
+        "会津の歴史資料"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://bukeyashiki.com/",
+        "title": "Aizu Bukeyashiki official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "aizuwakamatsu-city"
+  },
+  "schemaVersion": 2
+}

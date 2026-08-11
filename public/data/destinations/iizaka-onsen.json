@@ -1,0 +1,165 @@
+{
+  "id": "iizaka-onsen",
+  "name": "Iizaka Onsen",
+  "nameJa": "飯坂温泉",
+  "kind": "onsen",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Fukushima:fukushima",
+  "prefecture": "Fukushima",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 37.831944,
+    "lng": 140.454444
+  },
+  "categories": ["Onsen & Wellness"],
+  "tags": ["Onsen", "Fukushima City"],
+  "description": "One of Tohoku's three great old springs, with roughly 1,200 years of history and Japan's oldest wooden communal bathhouse, Sakaba-yu, still in daily use. Communal baths and footbaths cluster around the riverside town.",
+  "highlights": [
+    "Japan's oldest wooden bathhouse",
+    "Communal bath circuit",
+    "Riverside onsen town",
+    "~1,200-year history"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 25,
+    "bus": 40,
+    "car": 30
+  },
+  "budgetMin": 400,
+  "budgetRecommended": 2500,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 600,
+    "tickets": 400,
+    "food": 1000,
+    "cafe": 500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Iizaka_Onsen_Hakoyu.JPG/1280px-Iizaka_Onsen_Hakoyu.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Iizaka_Onsen_Hakoyu.JPG/1280px-Iizaka_Onsen_Hakoyu.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Abasaa",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iizaka_Onsen_Hakoyu.JPG"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 3000,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1500,
+  "walkingIntensity": "low",
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 6,
+    "rainFriendly": 8,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.8,
+    "summer": 8.4,
+    "winter": 8.6,
+    "rain": 8,
+    "food": 8.8,
+    "photography": 8,
+    "relaxation": 9.4,
+    "value": 9,
+    "uniqueness": 8.8,
+    "family": 8,
+    "accessibility": 7,
+    "nature": 7.6,
+    "historyAndCulture": 8.6,
+    "walkability": 8,
+    "spring": 8.8,
+    "autumn": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.6,
+    "summer": 8.4,
+    "autumn": 8.8,
+    "winter": 8.6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11, 12],
+  "bestSeason": "All Year",
+  "weatherDependence": "moderate",
+  "reservation": "No reservation required for communal baths",
+  "parking": "Pay parking in the town",
+  "notes": "Sakaba-yu ¥400 adult. About 20 minutes from Fukushima Station on the Iizaka Line; a 5-minute walk from Iizaka-Onsen Station.",
+  "notesJa": "【見どころ】飯坂温泉は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "温泉街は常時散策可。共同浴場の営業時間は施設により異なります。",
+  "businessHours": "Sakaba-yu 06:00–21:00 (last entry 20:40), closed Mondays; the district is freely walkable otherwise",
+  "officialWebsite": "https://iizaka.com/",
+  "content": {
+    "en": {
+      "name": "Iizaka Onsen",
+      "description": "One of Tohoku's three great old springs, with roughly 1,200 years of history and Japan's oldest wooden communal bathhouse, Sakaba-yu, still in daily use. Communal baths and footbaths cluster around the riverside town.",
+      "highlights": [
+        "Japan's oldest wooden bathhouse",
+        "Communal bath circuit",
+        "Riverside onsen town",
+        "~1,200-year history"
+      ]
+    },
+    "ja": {
+      "name": "飯坂温泉",
+      "description": "東北三名湯の一つに数えられる1200年の歴史を持つ温泉街。日本最古の木造共同浴場・波来湯が今も現役で、川沿いに共同浴場や足湯が点在します。",
+      "highlights": [
+        "日本最古の木造浴場・波来湯",
+        "共同浴場めぐり",
+        "川沿いの温泉街",
+        "約1200年の歴史"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://iizaka.com/",
+        "title": "Iizaka Onsen official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "fukushima-city"
+  },
+  "schemaVersion": 2
+}

@@ -9,7 +9,7 @@
     "lat": 37.3444,
     "lng": 140.6728
   },
-  "nearestStation": "Kanemata Station",
+  "nearestStation": "Kammata Station (then bus/car)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/14/Flowstones_and_Mushroom_Rocks_inside_Abukuma-do_Cave.JPG",
   "tags": ["cave", "limestone", "fukushima", "nature", "tohoku"],
   "rating": 4.6,
@@ -69,12 +69,10 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "notes": "Abukuma Cave located in Fukushima Prefecture.",
+  "notes": "Limestone cave in Tamura City; the 29 m Takigotono Hall is the largest chamber. Access via JR Kammata Station (then bus/car) toward Koriyama.",
   "status": "beta",
   "relationships": {
-    "featuredDestinationIds": [],
-    "nearbyDestinationIds": [],
-    "gatewayHubId": "aizuwakamatsu-city"
+    "gatewayHubId": "koriyama-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Flowstones_and_Mushroom_Rocks_inside_Abukuma-do_Cave.JPG",
   "walkingIntensity": "low",
@@ -87,6 +85,34 @@
     "max": 5
   },
   "officialWebsite": "https://abukumado.com/",
-  "businessHours": "09:00 - 17:00 (Daily)",
-  "ratingsSchemaVersion": 2
+  "businessHours": "09:00 - 17:00 (last entry 16:30)",
+  "ratingsSchemaVersion": 2,
+  "municipalityId": "Fukushima:tamura",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11",
+    "sourceUrl": "https://abukumado.com/",
+    "lastAdmission": "16:30"
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://abukumado.com/",
+        "title": "Official website",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
+      }
+    ]
+  }
 }

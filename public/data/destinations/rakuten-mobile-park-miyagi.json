@@ -1,7 +1,7 @@
 {
   "id": "rakuten-mobile-park-miyagi",
   "name": "Rakuten Mobile Park Miyagi",
-  "nameJa": "宮城球場",
+  "nameJa": "楽天モバイルパーク宮城",
   "aliases": ["Rakuten Mobile Saikyo Park Miyagi", "宮城球場"],
   "content": {
     "en": {
@@ -10,9 +10,9 @@
       "highlights": ["Nature"]
     },
     "ja": {
-      "name": "宮城球場",
-      "description": "宮城球場は仙台市にある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["自然"]
+      "name": "楽天モバイルパーク宮城",
+      "description": "東北楽天ゴールデンイーグルスの本拠地球場。花火やグルメ、熱気あふれる応援が楽しめる仙台東部の野球場です。",
+      "highlights": ["スポーツ", "野球観戦"]
     }
   },
   "prefecture": "Miyagi",
@@ -25,7 +25,7 @@
     "parentDestinationId": "sendai-city"
   },
   "officialWebsiteRequirement": "none",
-  "categories": ["Nature"],
+  "categories": ["Sports", "Nature"],
   "tags": ["Nature", "Sendai City", "v1.9.2"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobo%20Park%20Miyagi(2017).jpg?width=1600",
   "imageMetadata": {
@@ -38,7 +38,7 @@
     "lat": 38.25620556,
     "lng": 140.9025
   },
-  "description": "Rakuten Mobile Park Miyagi is a visitor destination in Sendai City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Home of the Tohoku Rakuten Golden Eagles baseball team. The stadium on Sendai's eastern edge is known for its fireworks, food stands and fan atmosphere.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -74,7 +74,7 @@
     "couple": 8.5,
     "summer": 8.2,
     "winter": 9.5,
-    "rain": 9.2,
+    "rain": 4,
     "food": 8.9,
     "photography": 8.6,
     "relaxation": 8.3,
@@ -99,7 +99,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+  "notes": "Open on game days only; gate times vary by schedule. Note: the catalogue has no stadium kind, so kind=park is a documented schema compromise.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -123,35 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
-    "fieldSources": {
-      "ratings": [
-        {
-          "type": "calculated",
-          "url": "https://en.wikipedia.org/wiki/Rakuten_Mobile_Saikyo_Park_Miyagi",
-          "title": "Beta editorial scoring from source-backed attributes",
-          "accessedAt": "2026-07-29"
-        }
-      ],
-      "heroImage": [
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Rakuten_Mobile_Saikyo_Park_Miyagi",
-          "title": "Rakuten Mobile Saikyo Park Miyagi",
-          "accessedAt": "2026-07-29"
-        }
-      ],
-      "officialWebsite": [
-        {
-          "type": "official",
-          "url": "https://www.rakuteneagles.jp/stadium/",
-          "title": "Official website for Rakuten Mobile Park Miyagi",
-          "accessedAt": "2026-07-29"
-        }
-      ]
-    },
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
     "changes": [
       {
         "changedAt": "2026-07-29",
@@ -164,6 +138,12 @@
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
       }
     ]
   },
@@ -173,6 +153,6 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.rakuteneagles.jp/stadium/",
-  "businessHours": "Open access",
+  "businessHours": "Game days only; gate times vary by schedule",
   "municipalityId": "Miyagi:sendai"
 }

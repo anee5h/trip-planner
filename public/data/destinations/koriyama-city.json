@@ -1,7 +1,7 @@
 {
   "id": "koriyama-city",
   "name": "Koriyama City",
-  "nameJa": "郡山",
+  "nameJa": "郡山市",
   "prefecture": "Fukushima",
   "region": "Tohoku",
   "coordinates": {
@@ -77,7 +77,7 @@
   "relationships": {
     "featuredDestinationIds": []
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "beta"
   },
@@ -88,5 +88,30 @@
     "max": 14
   },
   "businessHours": "Open access",
-  "municipalityId": "Fukushima:koriyama"
+  "municipalityId": "Fukushima:koriyama",
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-11",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.koriyama.lg.jp/",
+        "title": "Official website",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
+      }
+    ]
+  },
+  "notesJa": "福島県中央部の交通・商業の要衝。猪苗代湖や磐梯方面へのアクセス拠点です。"
 }

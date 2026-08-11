@@ -1,11 +1,11 @@
 {
   "id": "sannai-maruyama-jomon-aomori",
-  "name": "Jomon Prehistoric Sites in Northern Japan",
+  "name": "Sannai-Maruyama Site",
   "prefecture": "Aomori",
   "region": "Tohoku",
   "categories": ["World Heritage", "Culture", "Sightseeing"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg/1920px-140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg",
-  "description": "Jomon Prehistoric Sites in Northern Japan is a UNESCO World Heritage Site in Aomori, designated for its outstanding universal cultural or natural value.",
+  "description": "A large Jomon-period settlement site (c. 3900–2200 BC) in Aomori City, excavated from 1992 and now a museum park with reconstructed pit dwellings, a large six-pillared structure, and artifacts. A component of the UNESCO World Heritage 'Jomon Prehistoric Sites in Northern Japan' (2021).",
   "highlights": [
     "UNESCO Heritage Monument",
     "Historic Landmark",
@@ -57,7 +57,7 @@
   ],
   "reservation": "Not required",
   "parking": "Available nearby",
-  "notes": "Official UNESCO World Heritage Site.",
+  "notes": "Site-wide viewing fee ¥500 adult since April 2019 (includes the outdoor reconstructed area). Closed the 4th Monday (next day if holiday) and Dec 30 – Jan 1.",
   "coordinates": {
     "lat": 40.8115,
     "lng": 140.6973
@@ -69,7 +69,7 @@
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Jomon Prehistoric Sites in Northern Japan via Wikipedia/Wikimedia Commons"
   },
-  "status": "verified",
+  "status": "published",
   "travelEstimate": {
     "confidence": "high"
   },
@@ -88,7 +88,7 @@
     "food": 3000,
     "cafe": 1500
   },
-  "nameJa": "北海道・北東北の縄文遺跡群",
+  "nameJa": "三内丸山遺跡",
   "comfort": {
     "heatTolerance": 7,
     "rainFriendly": 7,
@@ -101,6 +101,30 @@
     "max": 7
   },
   "officialWebsite": "https://sannaimaruyama.pref.aomori.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Aomori:aomori"
+  "businessHours": "09:00 - 17:00 (Jun–Sep to 18:00)",
+  "municipalityId": "Aomori:aomori",
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-11",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://sannaimaruyama.pref.aomori.jp/",
+        "title": "Official website",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 existing-data audit correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-57 existing-data audit correction",
+        "method": "assisted"
+      }
+    ]
+  }
 }

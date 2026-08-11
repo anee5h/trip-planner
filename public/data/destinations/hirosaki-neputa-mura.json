@@ -1,0 +1,165 @@
+{
+  "id": "hirosaki-neputa-mura",
+  "name": "Hirosaki Neputa Mura",
+  "nameJa": "津軽藩ねぷた村",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "aliases": [],
+  "municipalityId": "Aomori:hirosaki",
+  "prefecture": "Aomori",
+  "region": "Tohoku",
+  "coordinates": {
+    "lat": 40.611311,
+    "lng": 140.469757
+  },
+  "categories": ["Culture", "Museum"],
+  "tags": ["Culture", "Museum", "Hirosaki City"],
+  "description": "Year-round home of Hirosaki's fan-shaped neputa floats: 10-metre floats and painted frames in the Neputa Hall, daily Tsugaru shamisen performances, and hands-on Tsugaru-nuri, kogin and kingyo-neputa craft workshops.",
+  "highlights": [
+    "10 m fan-shaped neputa",
+    "Live Tsugaru shamisen",
+    "Craft workshops",
+    "Open year-round"
+  ],
+  "status": "beta",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "transportOptions": {
+    "train": 30,
+    "bus": 40,
+    "car": 35
+  },
+  "budgetMin": 600,
+  "budgetRecommended": 3000,
+  "budgetMax": 5000,
+  "budgetBreakdown": {
+    "transport": 800,
+    "tickets": 600,
+    "food": 1100,
+    "cafe": 500
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/16/Neputamura-gaikan.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/1/16/Neputamura-gaikan.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "津軽藩ねぷた村",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neputamura-gaikan.jpg"
+  },
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-11"
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingMin": 2500,
+  "walkingSunMin": 1500,
+  "walkingShadeMin": 1000,
+  "walkingIntensity": "medium",
+  "indoorPercent": 70,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 8,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.2,
+    "summer": 8.8,
+    "winter": 8,
+    "rain": 8.6,
+    "food": 8.2,
+    "photography": 8.8,
+    "relaxation": 7.6,
+    "value": 8.4,
+    "uniqueness": 9.2,
+    "family": 8.4,
+    "accessibility": 8,
+    "nature": 6.4,
+    "historyAndCulture": 9,
+    "walkability": 7,
+    "spring": 8.8,
+    "autumn": 8.6
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8.6,
+    "summer": 8.8,
+    "autumn": 8.4,
+    "winter": 8
+  },
+  "bestMonths": [2, 3, 4, 5, 7, 8, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "low",
+  "reservation": "No reservation required",
+  "parking": "Free parking on site",
+  "notes": "Adult ¥600, high school ¥400, elementary ¥300. Two minutes from Hirosaki Park (Chuo-koko gate) — pairs with Hirosaki Castle.",
+  "notesJa": "【見どころ】津軽藩ねぷた村は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
+  "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
+  "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
+  "openingHoursJa": "9:00～17:00（最終入場17:00）。年中無休。大人600円。",
+  "businessHours": "Exhibit area 09:00 - 17:00 (last entry 17:00); open year-round",
+  "officialWebsite": "http://neputamura.com/",
+  "content": {
+    "en": {
+      "name": "Hirosaki Neputa Mura",
+      "description": "Year-round home of Hirosaki's fan-shaped neputa floats: 10-metre floats and painted frames in the Neputa Hall, daily Tsugaru shamisen performances, and hands-on Tsugaru-nuri, kogin and kingyo-neputa craft workshops.",
+      "highlights": [
+        "10 m fan-shaped neputa",
+        "Live Tsugaru shamisen",
+        "Craft workshops",
+        "Open year-round"
+      ]
+    },
+    "ja": {
+      "name": "津軽藩ねぷた村",
+      "description": "弘前の扇ねぷたを一年中見られる施設。10m級のねぷたや絵組を展示するねぷたの館のほか、津軽三味線の生演奏、津軽塗やこぎん刺し、金魚ねぷたの体験教室が開かれています。",
+      "highlights": [
+        "10m級の扇ねぷた",
+        "津軽三味線の生演奏",
+        "工芸体験",
+        "年中無休"
+      ]
+    }
+  },
+  "editorial": {
+    "lifecycle": "in_review",
+    "sources": [
+      {
+        "type": "official",
+        "url": "http://neputamura.com/",
+        "title": "Tsugaru-han Neputa-mura official site",
+        "accessedAt": "2026-08-11"
+      }
+    ],
+    "checkedAt": "2026-08-11",
+    "freshness": "current",
+    "changeSummary": "KAI-57 Tohoku expansion",
+    "changes": [
+      {
+        "changedAt": "2026-08-11",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed KAI-57 Tohoku POI",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 1,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "relationships": {
+    "parentDestinationId": "hirosaki-city"
+  },
+  "schemaVersion": 2
+}
