@@ -231,4 +231,91 @@ describe("getOriginAwareTransportEstimate — verified bus corridors (KAI-12)", 
       ]),
     ).toBeNull();
   });
+
+  it("ferry/flight-dependent islands never inherit mainland ground corridors", () => {
+    // Regression (KAI-12): a prefecture-pair corridor (tokyo→niigata,
+    // fukuoka→kagoshima, osaka→wakayama) must never apply to an island in
+    // that prefecture — Sado, Yakushima, Amami, Tomogashima and Miyajima
+    // have no rail (MODE_SEMANTICS §1; KAI-32). The destination transport
+    // zone gates ground corridors (localModes ∪ edge modes); a
+    // non-routable "unknown" zone (Miyajima's unmodeled ferry last leg)
+    // yields no ground corridor either.
+    const sado = dest({
+      id: "sado-island",
+      prefecture: "Niigata",
+      municipalityId: "Niigata:sado",
+      transportZoneId: "sado",
+    });
+    const yakushima = dest({
+      id: "yakushima-town",
+      prefecture: "Kagoshima",
+      municipalityId: "Kagoshima:yakushima",
+      transportZoneId: "yakushima",
+    });
+    const amami = dest({
+      id: "amami-iriomote-natural-site",
+      prefecture: "Kagoshima",
+      transportZoneId: "amami",
+    });
+    const tomogashima = dest({
+      id: "tomogashima-islands",
+      prefecture: "Wakayama",
+      transportZoneId: "tomogashima",
+    });
+    const miyajima = dest({
+      id: "miyajima-itsukushima",
+      prefecture: "Hiroshima",
+      kind: "island",
+    });
+    // tokyo→niigata, fukuoka→kagoshima and osaka→wakayama corridors all
+    // exist — none may surface for these islands.
+    expect(
+      getOriginAwareTransportEstimate(sado, busContext("Tokyo:chiyoda"), [
+        "shinkansen",
+        "train",
+      ]),
+    ).toBeNull();
+    expect(
+      getOriginAwareTransportEstimate(
+        yakushima,
+        busContext("Fukuoka:fukuoka"),
+        ["shinkansen", "train"],
+      ),
+    ).toBeNull();
+    expect(
+      getOriginAwareTransportEstimate(amami, busContext("Fukuoka:fukuoka"), [
+        "shinkansen",
+        "train",
+      ]),
+    ).toBeNull();
+    expect(
+      getOriginAwareTransportEstimate(tomogashima, busContext("Osaka:osaka"), [
+        "shinkansen",
+        "train",
+      ]),
+    ).toBeNull();
+    // Miyajima (ferry last leg unmodeled, non-routable zone) must not
+    // inherit the tokyo/osaka→hiroshima corridor.
+    expect(
+      getOriginAwareTransportEstimate(miyajima, busContext("Osaka:osaka"), [
+        "shinkansen",
+        "train",
+      ]),
+    ).toBeNull();
+  });
+
+  it("Hokkaido keeps its legitimate shinkansen corridor", () => {
+    // Hakodate is the Hokkaido shinkansen terminus — the honshu↔hokkaido
+    // edge carries shinkansen, so the prefecture-pair corridor stands.
+    const hakodate = dest({
+      id: "hakodate-city",
+      prefecture: "Hokkaido",
+      transportZoneId: "hokkaido",
+    });
+    expect(
+      getOriginAwareTransportEstimate(hakodate, busContext("Tokyo:chiyoda"), [
+        "shinkansen",
+      ]),
+    ).not.toBeNull();
+  });
 });
