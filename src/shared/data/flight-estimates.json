@@ -292,6 +292,78 @@
           "to": "08-31"
         }
       ]
+    },
+    {
+      "from": "SDJ",
+      "to": "CTS",
+      "flightTime": [65, 80],
+      "fare": null,
+      "fareStatus": "unverified",
+      "sourceUrl": "https://www.sendai-airport.co.jp/flight/monthly.html",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "SDJ",
+      "to": "NGO",
+      "flightTime": [65, 80],
+      "fare": null,
+      "fareStatus": "unverified",
+      "sourceUrl": "https://www.sendai-airport.co.jp/flight/monthly.html",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "SDJ",
+      "to": "ITM",
+      "flightTime": [70, 95],
+      "fare": null,
+      "fareStatus": "unverified",
+      "sourceUrl": "https://www.sendai-airport.co.jp/flight/monthly.html",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "SDJ",
+      "to": "KIX",
+      "flightTime": [80, 95],
+      "fare": null,
+      "fareStatus": "unverified",
+      "sourceUrl": "https://www.sendai-airport.co.jp/flight/monthly.html",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "SDJ",
+      "to": "UKB",
+      "flightTime": [80, 85],
+      "fare": null,
+      "fareStatus": "unverified",
+      "sourceUrl": "https://www.sendai-airport.co.jp/flight/monthly.html",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "SDJ",
+      "to": "HIJ",
+      "flightTime": [80, 95],
+      "fare": null,
+      "fareStatus": "unverified",
+      "sourceUrl": "https://www.sendai-airport.co.jp/flight/monthly.html",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "SDJ",
+      "to": "FUK",
+      "flightTime": [105, 130],
+      "fare": null,
+      "fareStatus": "unverified",
+      "sourceUrl": "https://www.sendai-airport.co.jp/flight/monthly.html",
+      "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "SDJ",
+      "to": "OKA",
+      "flightTime": [155, 185],
+      "fare": null,
+      "fareStatus": "unverified",
+      "sourceUrl": "https://www.sendai-airport.co.jp/flight/monthly.html",
+      "checkedAt": "2026-08-12"
     }
   ]
 }
