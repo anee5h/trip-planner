@@ -333,9 +333,12 @@ export function getTransportCost(
       [mode as TransportMode],
     );
     if (estimate?.fare) {
-      const avgOneWayPerPerson = Math.round(
-        (estimate.fare[0] + estimate.fare[1]) / 2,
-      );
+      // Dynamic bus fares may have a null upper bound ("from ¥X"): the
+      // verified lower bound is the advertised minimum — never treat a
+      // dynamic fare as fixed truth above it.
+      const lower = estimate.fare[0];
+      const upper = estimate.fare[1] ?? lower;
+      const avgOneWayPerPerson = Math.round((lower + upper) / 2);
       return Math.floor(avgOneWayPerPerson * 2 * partySize);
     }
   }

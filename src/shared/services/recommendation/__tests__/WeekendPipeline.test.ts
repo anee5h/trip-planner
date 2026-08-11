@@ -1129,11 +1129,12 @@ describe("runRecommendationPipeline — estimate consistency", () => {
     expect(result.weekend?.travelFit.oneWayMinutes).toBe(mid);
 
     // Budget duration: same estimate via the origin-aware cost path. The
-    // verified corridor fare (osaka→fukuoka reserved ¥15,020–16,020) now
-    // takes precedence over the heuristic (FARE_POLICY §0/§2).
+    // verified corridor fare (osaka→fukuoka reserved ¥15,520–16,020 —
+    // Sakura/Kodama → Nozomi/Mizuho reserved, FARE_POLICY §2) takes
+    // precedence over the heuristic (FARE_POLICY §0/§2).
     const budgetCost = getTransportCost(fukuoka, estimate.mode, 2, OSAKA);
     expect(budgetCost).not.toBeNull();
-    const verifiedAvg = Math.round((15020 + 16020) / 2);
+    const verifiedAvg = Math.round((15520 + 16020) / 2);
     expect(budgetCost).toBe(Math.floor(verifiedAvg * 2 * 2));
   });
 

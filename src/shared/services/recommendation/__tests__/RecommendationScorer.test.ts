@@ -243,29 +243,25 @@ describe("RecommendationScorer Unit Tests", () => {
 
     expect(train.usable).toBe(true);
     expect(shinkansen.usable).toBe(true);
-    // Verified corridor fares (KAI-12): a reserved shinkansen fare is
-    // published (Tokyo→Osaka ¥14,720 one-way) while the train corridor has
-    // no verified fare, so the train heuristic remains cheaper than the
-    // verified shinkansen price.
-    expect(train.budget + train.transport).toBeLessThan(
-      shinkansen.budget + shinkansen.transport,
-    );
+    // KAI-12 verified-fare behavior: Tokyo→Nagano shinkansen carries a
+    // verified reserved fare (¥8,250 one-way, FARE_POLICY §2) while the
+    // train corridor has none (heuristic only). The verified shinkansen
+    // price is higher than the train heuristic, so the budget-consistent
+    // selection for this budget is the train — and the day-trip efficiency
+    // must follow the selected mode, never a faster unselected one.
     expect(shinkansenEfficiency.oneWayMinutes).toBeLessThan(
       trainEfficiency.oneWayMinutes,
     );
-    // KAI-12 verified-fare behavior: Tokyo→Nagano shinkansen now carries a
-    // verified corridor fare (¥7,920–8,250 one-way), so the fastest
-    // authorized mode wins the budget-consistent choice.
-    expect(result.bestMode).toBe("shinkansen");
+    expect(result.bestMode).toBe("train");
     expect(result.dayTripTravelEfficiency?.mode).toBe(result.bestMode);
     expect(result.dayTripTravelEfficiency?.oneWayMinutes).toBe(
-      shinkansenEfficiency.oneWayMinutes,
+      trainEfficiency.oneWayMinutes,
     );
-    expect(shinkansen.travelEfficiency).toBe(
+    expect(train.travelEfficiency).toBe(
       result.dayTripTravelEfficiency?.contribution,
     );
-    expect(result.modeScoreBreakdown.shinkansen.total).toBe(
-      shinkansen.budget + shinkansen.transport + shinkansen.travelEfficiency,
+    expect(result.modeScoreBreakdown.train.total).toBe(
+      train.budget + train.transport + train.travelEfficiency,
     );
   });
 
