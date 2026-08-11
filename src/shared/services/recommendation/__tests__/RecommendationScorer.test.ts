@@ -581,4 +581,41 @@ describe("getValidModes topology authorization", () => {
     // Transport zone intersection must prevent the "train" default
     expect(modes).not.toContain("train");
   });
+
+  it("canonical origin-aware Shinkansen evidence outranks stale transportOptions", () => {
+    const osaka = {
+      ...mockDest,
+      id: "osaka-canonical-shinkansen",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 34.6937, lng: 135.5023 },
+      transportOptions: {},
+    } as unknown as Destination;
+
+    expect(
+      getValidModes(
+        osaka,
+        "none",
+        ["shinkansen"],
+        { lat: 35.6285, lng: 139.7387 },
+        undefined,
+        "mainland-honshu",
+      ),
+    ).toContain("shinkansen");
+
+    const osakaBus = {
+      ...osaka,
+      id: "osaka-canonical-bus",
+    } as Destination;
+    expect(
+      getValidModes(
+        osakaBus,
+        "none",
+        ["bus"],
+        { lat: 35.6285, lng: 139.7387 },
+        undefined,
+        "mainland-honshu",
+      ),
+    ).toContain("bus");
+  });
 });

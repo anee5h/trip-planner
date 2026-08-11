@@ -426,7 +426,15 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
                 <span className="hidden px-1 font-bold text-slate-300 dark:text-slate-700 sm:inline">
                   ·
                 </span>
-                <span className="flex items-center gap-1 truncate">
+                <span
+                  className="flex items-center gap-1 truncate"
+                  title={
+                    scoredDestination.estimatedCostTransportScope ===
+                    "corridor_only"
+                      ? t("home.transportModes.corridorFareOnly")
+                      : undefined
+                  }
+                >
                   <JapaneseYen className="h-3 w-3 shrink-0 text-slate-400 sm:h-3.5 sm:w-3.5" />
                   <span className="truncate">
                     {formatLocalizedJPYRange(

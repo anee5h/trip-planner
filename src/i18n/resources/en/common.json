@@ -448,7 +448,8 @@
       "car": "Rental car",
       "my_car": "Personal car",
       "travel": "Travel",
-      "travelUnavailable": "Travel time unavailable"
+      "travelUnavailable": "Travel time unavailable",
+      "corridorFareOnly": "Intercity fare only; local access cost is not modeled"
     },
     "roulette": {
       "title": "Destination Roulette",

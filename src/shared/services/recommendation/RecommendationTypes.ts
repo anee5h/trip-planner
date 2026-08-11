@@ -1,6 +1,7 @@
 import type { ActualWeatherCondition } from "./RecommendationContext";
 import type { Destination } from "@/shared/types/destination";
 import type { PriceRange } from "@/shared/types/planner";
+import type { EstimatedBudgetRangeResult } from "@/shared/services/budget/BudgetService";
 import type { WeekendTravelFit } from "./WeekendPolicy";
 import type { WeekendCapacityResult } from "./WeekendPolicy";
 import type { WeekendResultKind } from "./WeekendAreaPolicy";
@@ -101,6 +102,7 @@ export interface ScoredDestination extends Destination {
   bestTransportMode?: string;
   estimatedCostRange?: PriceRange;
   estimatedCostTransportIncluded?: boolean;
+  estimatedCostTransportScope?: EstimatedBudgetRangeResult["transportFareScope"];
   /** The shared origin-aware duration used by cards and roulette. */
   transportEstimate?: TravelDurationEstimate;
   /** Present only on the virtual Tokyo 23 Wards super-hub result. */
@@ -118,6 +120,7 @@ export interface RecommendationStageResult {
   estimatedCost?: number;
   estimatedCostRange?: PriceRange;
   estimatedCostTransportIncluded?: boolean;
+  estimatedCostTransportScope?: EstimatedBudgetRangeResult["transportFareScope"];
   bestTransportMode?: string;
   scoreContributions: Record<string, number>;
   confidence: number;

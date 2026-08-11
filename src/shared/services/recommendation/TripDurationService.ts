@@ -133,7 +133,7 @@ export function getDayTripTravelDurationEvidence(
     return { evidence: "unknown" };
   }
 
-  const verified = getOriginAwareTransportEstimate(
+  const originAware = getOriginAwareTransportEstimate(
     destination,
     {
       homeStationCoords: context.homeStationCoords ?? undefined,
@@ -143,10 +143,10 @@ export function getDayTripTravelDurationEvidence(
     },
     modes,
   );
-  if (verified) {
+  if (originAware) {
     return {
-      evidence: "verified",
-      estimate: { ...verified, evidence: "verified" },
+      evidence: originAware.evidence,
+      estimate: originAware,
     };
   }
 
@@ -317,11 +317,10 @@ export function formatTripDurationLabel(
 }
 
 /**
- * Returns the fastest verified origin-aware one-way travel time (midpoint of
+ * Returns the fastest canonical origin-aware one-way travel time (midpoint of
  * the estimate range) for a destination across all authorised transport
- * modes. Returns `undefined` when no origin-aware duration exists — the
- * caller must then exclude the candidate from personalized matching, never
- * fall back to unprovenanced `transportOptions` values.
+ * modes. Catchment access is already represented as bounded/estimated in the
+ * canonical result. Returns `undefined` when no origin-aware duration exists.
  */
 export function getBestOneWayTravelMinutes(
   destination: Destination,
@@ -358,8 +357,8 @@ export function estimateTripDuration(
   let representativeHours: number;
   let bestMode: string | undefined;
   let bestTravelMinutes: number | undefined;
-  let verifiedTravelEstimate:
-    ReturnType<typeof getOriginAwareTransportEstimate> | undefined;
+  let originAwareTravelEstimate:
+    NonNullable<ReturnType<typeof getOriginAwareTransportEstimate>> | undefined;
 
   if (!context.homeStationCoords) {
     totalRangeHours = visitRange;
@@ -377,7 +376,7 @@ export function estimateTripDuration(
     );
 
     if (!estimate) return null;
-    verifiedTravelEstimate = estimate;
+    originAwareTravelEstimate = estimate;
     bestMode = estimate.mode;
     bestTravelMinutes = Math.round(
       (estimate.timeRange[0] + estimate.timeRange[1]) / 2,
@@ -428,10 +427,8 @@ export function estimateTripDuration(
     band: getBand(representativeHours),
     mode: bestMode,
     bestTravelMinutes,
-    travelEvidence: verifiedTravelEstimate ? "verified" : undefined,
-    travelEstimate: verifiedTravelEstimate
-      ? { ...verifiedTravelEstimate, evidence: "verified" }
-      : undefined,
+    travelEvidence: originAwareTravelEstimate?.evidence,
+    travelEstimate: originAwareTravelEstimate,
     isImpossible,
     isBorderline,
     warningMessage,
@@ -439,9 +436,10 @@ export function estimateTripDuration(
 }
 
 /**
- * Day-trip duration model. It shares canonical verified estimates with the
- * budget-safe model, but permits the explicit bounded estimate only for a
- * constrained day-trip feasibility/display decision.
+ * Day-trip duration model. It shares canonical corridor-backed estimates with
+ * the budget-safe model, including bounded access evidence, and permits the
+ * separate safe coordinate estimate only for constrained day-trip
+ * feasibility/display decisions.
  */
 export function estimateDayTripDuration(
   destination: Destination,
@@ -522,9 +520,9 @@ export function estimateDayTripDuration(
 
 /**
  * Representative runtime total trip duration in hours, derived from the
- * canonical visit duration plus verified origin-aware round-trip travel and
- * buffers. Returns `undefined` when the destination cannot be
- * duration-planned (no canonical visit duration).
+ * canonical visit duration plus origin-aware round-trip travel and buffers.
+ * Catchment access remains marked estimated in the underlying result.
+ * Returns `undefined` when the destination cannot be duration-planned.
  */
 export function getDerivedTripDurationHours(
   destination: Destination,

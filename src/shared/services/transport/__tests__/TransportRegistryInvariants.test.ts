@@ -5,6 +5,10 @@ import busRoutesData from "@/shared/data/bus-routes.json";
 import destinationsData from "@/shared/data/destinations-index.json";
 import airportsData from "@/shared/data/airports.json";
 import { MUNICIPALITY_BUS_SLUG } from "../BusRouteEstimator";
+import {
+  MUNICIPALITY_SHINKANSEN_HUB_IDS,
+  SHINKANSEN_ACCESS_HUBS,
+} from "../GroundRouteEstimator";
 import { getAuditReferenceToday } from "../../../../../scripts/config/audit-reference";
 import { findContradictoryGroundDuplicates } from "../../../../../scripts/validators/ground-duplicates";
 
@@ -300,6 +304,32 @@ describe("KAI-12 transport registry invariants", () => {
     )) {
       expect(municipalityIds.has(municipalityId)).toBe(true);
       expect(corridorEndpoints.has(slug)).toBe(true);
+    }
+  });
+
+  it("Shinkansen access hubs reference real corridor endpoints and municipalities", () => {
+    const municipalityIds = new Set(
+      (destinationsData as unknown as Array<{ municipalityId?: string }>)
+        .map((d) => d.municipalityId)
+        .filter((m): m is string => Boolean(m)),
+    );
+    const shinkansenEndpoints = new Set<string>();
+    for (const route of groundRoutes) {
+      if (route.mode !== "shinkansen") continue;
+      shinkansenEndpoints.add(route.from);
+      shinkansenEndpoints.add(route.to);
+    }
+    const hubIds = new Set(SHINKANSEN_ACCESS_HUBS.map((hub) => hub.id));
+    for (const hub of SHINKANSEN_ACCESS_HUBS) {
+      expect(shinkansenEndpoints.has(hub.corridorEndpoint)).toBe(true);
+    }
+    for (const [municipalityId, hubIdsForMunicipality] of Object.entries(
+      MUNICIPALITY_SHINKANSEN_HUB_IDS,
+    )) {
+      expect(municipalityIds.has(municipalityId)).toBe(true);
+      for (const hubId of hubIdsForMunicipality) {
+        expect(hubIds.has(hubId)).toBe(true);
+      }
     }
   });
 });

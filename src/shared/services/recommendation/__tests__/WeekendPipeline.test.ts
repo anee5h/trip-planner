@@ -868,7 +868,16 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     expect(topThreeIds).not.toContain("adachi-city");
     expect(topThreeIds).not.toContain("tokyo-station-chiyoda");
     expect(results[0].weekend?.travelFit.oneWayMinutes).toBeGreaterThan(90);
-    expect(results[0].id).toBe("hakodate-city");
+    // Chiba is within the Tokyo-area Shinkansen origin catchment. The top
+    // result may therefore be a verified Tokyo-endpoint corridor destination
+    // rather than the former prefecture-only Hakodate result.
+    const topEstimate = results[0].transportEstimate;
+    expect(topEstimate?.mode).toBe("shinkansen");
+    expect(
+      topEstimate && "corridorEvidence" in topEstimate
+        ? topEstimate.corridorEvidence
+        : undefined,
+    ).toBe("verified");
   });
 });
 

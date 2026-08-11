@@ -1,6 +1,9 @@
 import busRoutesData from "../../data/bus-routes.json";
-import { getDistanceKm } from "./TransportEstimator";
 import { resolveOriginTransportZone } from "./TransportTopologyService";
+import {
+  resolveNearbyAccessHubs,
+  type IntercityAccessHub,
+} from "./IntercityAccessHubResolver";
 
 /**
  * Bus catchment radius (km) around a verified corridor terminal for the
@@ -138,6 +141,20 @@ export const MUNICIPALITY_BUS_SLUG: Record<string, string> = {
 };
 
 /**
+ * Bus terminal registry expressed in the shared access-hub shape. The
+ * corridor endpoint is still the verified bus-routes.json city slug.
+ */
+export const BUS_ACCESS_HUBS: readonly IntercityAccessHub[] = Object.entries(
+  BUS_TERMINAL_COORDS,
+).map(([id, coordinates]) => ({
+  id,
+  mode: "bus" as const,
+  coordinates,
+  transportZoneId: resolveOriginTransportZone({ coordinates }),
+  corridorEndpoint: id,
+}));
+
+/**
  * Verified intercity/highway-bus corridor lookup, keyed on municipality
  * slugs (e.g. "tokyo"→"osaka"). Bus corridors are city-pair facts, never
  * prefecture-pair: a local city bus or airport limousine is not evidence of
@@ -183,31 +200,13 @@ export function resolveBusTerminalSlugs(
   municipalityId?: string,
   radiusKm: number = BUS_ACCESS_RADIUS_KM,
 ): string[] {
-  const slugs: string[] = [];
-  if (municipalityId && MUNICIPALITY_BUS_SLUG[municipalityId]) {
-    slugs.push(MUNICIPALITY_BUS_SLUG[municipalityId]);
-  }
-  const locationZone = resolveOriginTransportZone({ coordinates: location });
-  if (locationZone === "unknown") return slugs;
-  const candidates = Object.entries(BUS_TERMINAL_COORDS)
-    .filter(
-      ([, coords]) =>
-        resolveOriginTransportZone({ coordinates: coords }) === locationZone,
-    )
-    .map(([slug, coords]) => ({
-      slug,
-      distanceKm: getDistanceKm(
-        location.lat,
-        location.lng,
-        coords.lat,
-        coords.lng,
-      ),
-    }))
-    .filter((c) => c.distanceKm <= radiusKm)
-    .sort((a, b) => a.distanceKm - b.distanceKm)
-    .map((c) => c.slug);
-  for (const slug of candidates) {
-    if (!slugs.includes(slug)) slugs.push(slug);
-  }
-  return slugs;
+  return resolveNearbyAccessHubs({
+    location,
+    mode: "bus",
+    hubs: BUS_ACCESS_HUBS,
+    exactHubIds: municipalityId
+      ? [MUNICIPALITY_BUS_SLUG[municipalityId]].filter(Boolean)
+      : [],
+    radiusKm,
+  }).map(({ hub }) => hub.corridorEndpoint);
 }

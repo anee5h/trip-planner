@@ -282,6 +282,8 @@ describe("RecommendationService Unit Tests", () => {
       ...mockDestinations[1],
       id: "infeasible-half-day",
       prefecture: "Kyoto",
+      municipalityId: "Kyoto:kyoto",
+      coordinates: { lat: 35.0116, lng: 135.7681 },
       transportOptions: { shinkansen: 180 },
       recommendedVisitHours: { min: 3, max: 4 },
     };
