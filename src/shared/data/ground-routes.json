@@ -601,7 +601,7 @@
       "to": "Tokyo:chuo",
       "bidirectional": true,
       "mode": "train",
-      "timeRange": [46, 60],
+      "timeRange": [50, 60],
       "sourceUrl": "https://timetables.jreast.co.jp/timetable/list1227.html",
       "checkedAt": "2026-08-10"
     }
