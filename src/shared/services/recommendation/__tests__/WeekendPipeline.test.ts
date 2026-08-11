@@ -1123,7 +1123,7 @@ describe("runRecommendationPipeline — estimate consistency", () => {
     // Display estimate.
     const estimate = result.transportEstimate!;
     expect(estimate.mode).toBe("shinkansen");
-    expect(estimate.timeRange).toEqual([150, 195]);
+    expect(estimate.timeRange).toEqual([140, 240]);
 
     // Ranking duration: midpoint of the same estimate.
     const mid = Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2);

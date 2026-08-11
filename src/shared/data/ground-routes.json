@@ -23,9 +23,9 @@
       "to": "aichi",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [35, 75],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Tokaido_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [50, 75],
+      "sourceUrl": "https://global.jr-central.co.jp/en/info/timetable/index.html",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "osaka",
@@ -50,36 +50,36 @@
       "to": "fukuoka",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [150, 195],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Nozomi_(train)",
-      "checkedAt": "2026-08-06"
+      "timeRange": [140, 240],
+      "sourceUrl": "https://timetable.jr-odekake.net/station-timetable/2815002001",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "osaka",
       "to": "hiroshima",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [65, 105],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Sanyo_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [80, 105],
+      "sourceUrl": "https://timetable.jr-odekake.net/station-timetable/2815002001",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "osaka",
       "to": "okayama",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [40, 75],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Sanyo_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [44, 75],
+      "sourceUrl": "https://timetable.jr-odekake.net/station-timetable/2815002001",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "osaka",
       "to": "nara",
       "bidirectional": true,
       "mode": "train",
-      "timeRange": [30, 55],
-      "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
-      "checkedAt": "2026-08-06"
+      "timeRange": [33, 55],
+      "sourceUrl": "https://www.westjr.co.jp/global/en/ir/library/fact-sheets/2025/pdf/fact09.pdf",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "osaka",
@@ -167,9 +167,9 @@
       "to": "osaka",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [150, 270],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Tokaido_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [141, 270],
+      "sourceUrl": "https://global.jr-central.co.jp/en/info/timetable/index.html",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "tokyo",
@@ -177,26 +177,26 @@
       "bidirectional": true,
       "mode": "shinkansen",
       "timeRange": [100, 185],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Tokaido_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "sourceUrl": "https://global.jr-central.co.jp/en/info/timetable/index.html",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "tokyo",
       "to": "miyagi",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [90, 160],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Tohoku_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [89, 160],
+      "sourceUrl": "https://timetables.jreast.co.jp/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "tokyo",
       "to": "ishikawa",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [150, 210],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Hokuriku_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [144, 210],
+      "sourceUrl": "https://timetables.jreast.co.jp/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "tokyo",
@@ -230,63 +230,63 @@
       "to": "aomori",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [180, 250],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Tohoku_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [179, 250],
+      "sourceUrl": "https://timetables.jreast.co.jp/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "tokyo",
       "to": "akita",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [215, 250],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Akita_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [228, 250],
+      "sourceUrl": "https://timetables.jreast.co.jp/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "tokyo",
       "to": "yamagata",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [160, 210],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Yamagata_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [158, 210],
+      "sourceUrl": "https://timetables.jreast.co.jp/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "tokyo",
       "to": "niigata",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [95, 160],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Joetsu_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [97, 160],
+      "sourceUrl": "https://timetables.jreast.co.jp/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "tokyo",
       "to": "fukushima",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [90, 140],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Tohoku_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [95, 140],
+      "sourceUrl": "https://timetables.jreast.co.jp/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "tokyo",
       "to": "nagano",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [90, 150],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Hokuriku_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [77, 150],
+      "sourceUrl": "https://timetables.jreast.co.jp/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "tokyo",
       "to": "iwate",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [125, 180],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Tohoku_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [135, 180],
+      "sourceUrl": "https://timetables.jreast.co.jp/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "tokyo",
@@ -294,8 +294,8 @@
       "bidirectional": true,
       "mode": "shinkansen",
       "timeRange": [125, 180],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Hokuriku_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "sourceUrl": "https://timetables.jreast.co.jp/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "tokyo",
@@ -321,8 +321,8 @@
       "bidirectional": true,
       "mode": "shinkansen",
       "timeRange": [60, 95],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Sanyo_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "sourceUrl": "https://timetable.jr-odekake.net/station-timetable/2815002001",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "fukuoka",
@@ -330,35 +330,35 @@
       "bidirectional": true,
       "mode": "shinkansen",
       "timeRange": [110, 150],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Sanyo_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "sourceUrl": "https://timetable.jr-odekake.net/station-timetable/2815002001",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "fukuoka",
       "to": "kagoshima",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [85, 140],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Kyushu_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [76, 140],
+      "sourceUrl": "https://www.jrkyushu.co.jp/trains/sp/800/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "fukuoka",
       "to": "kumamoto",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [35, 60],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Kyushu_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [33, 60],
+      "sourceUrl": "https://www.jrkyushu.co.jp/trains/sp/800/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "fukuoka",
       "to": "nagasaki",
       "bidirectional": true,
       "mode": "shinkansen",
-      "timeRange": [90, 140],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Nishi_Kyushu_Shinkansen",
-      "checkedAt": "2026-08-06"
+      "timeRange": [80, 140],
+      "sourceUrl": "https://www.jrkyushu.co.jp/railway/netyoyaku/route/nagasaki/",
+      "checkedAt": "2026-08-10"
     },
     {
       "from": "fukuoka",
@@ -458,6 +458,15 @@
       "timeRange": [110, 170],
       "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
       "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "tokyo",
+      "to": "shizuoka",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [60, 75],
+      "sourceUrl": "https://global.jr-central.co.jp/en/info/timetable/index.html",
+      "checkedAt": "2026-08-10"
     }
   ],
   "municipalityRoutes": [
@@ -586,6 +595,15 @@
       "timeRange": [15, 40],
       "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
       "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "Tokyo:hachioji",
+      "to": "Tokyo:chuo",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [50, 60],
+      "sourceUrl": "https://timetables.jreast.co.jp/timetable/list1227.html",
+      "checkedAt": "2026-08-10"
     }
   ]
 }
