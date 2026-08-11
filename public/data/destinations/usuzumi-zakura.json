@@ -1,0 +1,162 @@
+{
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "placeType": "destination",
+  "id": "usuzumi-zakura",
+  "name": "Usuzumi-zakura (Rootani Usuzumi Cherry)",
+  "nameJa": "根尾谷淡墨桜",
+  "aliases": ["Neodani Usuzumi Zakura", "根尾谷淡墨ザクラ"],
+  "prefecture": "Gifu",
+  "region": "Chubu",
+  "kind": "natural",
+  "role": "standalone",
+  "coordinates": {
+    "lat": 35.6321,
+    "lng": 136.6089
+  },
+  "categories": ["nature", "seasonal", "sightseeing"],
+  "tags": [
+    "Japan's Three Great Cherry Trees",
+    "National Natural Monument",
+    "Cherry Blossom",
+    "Gifu"
+  ],
+  "description": "The Usuzumi-zakura is a National Natural Monument and one of Japan's Three Great Cherry Trees, standing in Usuzumi Park in Motosu City. This ~1,500-year-old Edo-higan cherry blooms in pale buds that deepen to white and fade to an ink-like shade before falling — the 'light ink' color that gives it its name.",
+  "highlights": [
+    "One of Japan's Three Great Cherry Trees",
+    "National Natural Monument, ~1,500 years old",
+    "Blossoms that fade to pale ink",
+    "Bloom in early-to-mid April"
+  ],
+  "notes": "Free to view; the tree stands beside the Itadori River in Usuzumi Park. Best seen late March to early April; the surrounding Motosu area also offers a local railway museum. Access is by car (about 50 min from Gifu City); no direct train service. The tree is said to have been planted by legendary figure Prince Yamatotakeru.",
+  "budgetMin": 2000,
+  "budgetRecommended": 4500,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 2000,
+    "mid": 4500,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2500,
+    "tickets": 0,
+    "food": 1500,
+    "cafe": 500
+  },
+  "transportOptions": {
+    "car": 50
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2.5
+  },
+  "walkingMin": 90,
+  "walkingSunMin": 60,
+  "walkingShadeMin": 30,
+  "walkingIntensity": "medium",
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 5,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9.1,
+    "summer": 7,
+    "winter": 6.5,
+    "rain": 6.5,
+    "food": 7.5,
+    "photography": 9.7,
+    "relaxation": 8.6,
+    "value": 8.9,
+    "uniqueness": 9.5
+  },
+  "crowd": {
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 10,
+    "summer": 6,
+    "autumn": 6,
+    "winter": 5
+  },
+  "bestMonths": [3, 4],
+  "bestSeason": "Late March – early April (bloom)",
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Free parking at Usuzumi Park",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Usuzumi_zakura.jpg/1920px-Usuzumi_zakura.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Usuzumi_zakura.jpg/1920px-Usuzumi_zakura.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Alpsdake, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Usuzumi_zakura.jpg"
+  },
+  "officialWebsite": "https://www.city.motosu.lg.jp/category/1-4-1-0-0.html",
+  "businessHours": "Open access (park)",
+  "openingHoursJa": "淡墨公園内、自由に見学できます。",
+  "municipalityId": "Gifu:motosu",
+  "collections": [
+    {
+      "collectionId": "three-cherry-blossom-spots",
+      "sortOrder": 3
+    }
+  ],
+  "relationships": {
+    "gatewayHubId": "gifu-city",
+    "nearbyDestinationIds": ["gifu-city"]
+  },
+  "content": {
+    "en": {
+      "name": "Usuzumi-zakura (Rootani Usuzumi Cherry)",
+      "description": "A ~1,500-year-old cherry tree and National Natural Monument, one of Japan's Three Great Cherry Trees, whose blossoms fade to a pale ink shade before falling.",
+      "highlights": [
+        "One of Japan's Three Great Cherry Trees",
+        "National Natural Monument"
+      ],
+      "notes": "Free to view. About 50 min by car from Gifu City.",
+      "reservation": "None required",
+      "parking": "Free parking at park",
+      "openingHours": "Open access"
+    },
+    "ja": {
+      "name": "根尾谷淡墨桜",
+      "description": "樹齢約1,500年のエドヒガンザクラの巨木で、国の天然記念物。日本三大桜の一つ。つぼみは薄紅、満開は白、散り際は淡い墨色を帯びることから名付けられました。",
+      "highlights": ["日本三大桜の一つ", "国の天然記念物"],
+      "notes": "見学無料。岐阜市から車で約50分。",
+      "reservation": "予約不要",
+      "parking": "淡墨公園の無料駐車場あり",
+      "openingHours": "公園は自由に開放"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.motosu.lg.jp/category/1-4-1-0-0.html",
+        "title": "Motosu City official page: Neodani Usuzumi-zakura",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://motosukankou.gr.jp/",
+        "title": "Motosu tourism association",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR A fixed-set audit: new Usuzumi-zakura record for three-cherry-blossom-spots",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial"
+  }
+}

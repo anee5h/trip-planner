@@ -112,7 +112,12 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "three-great-buddhas",
+      "sortOrder": 2
+    }
+  ],
   "addedAt": "2026-07-29",
   "editorial": {
     "lifecycle": "published",

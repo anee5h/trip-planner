@@ -71,13 +71,7 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [
-    {
-      "collectionId": "three-great-buddhas",
-      "sortOrder": 3,
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "relationships": {},
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Takaoka_montage.JPG/330px-Takaoka_montage.JPG",
   "bestSeason": "Spring & Autumn",

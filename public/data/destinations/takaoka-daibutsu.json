@@ -1,0 +1,157 @@
+{
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "placeType": "destination",
+  "id": "takaoka-daibutsu",
+  "name": "Takaoka Daibutsu",
+  "nameJa": "高岡大仏",
+  "aliases": ["Daibutsuji Great Buddha", "高岡大仏（大佛寺）"],
+  "prefecture": "Toyama",
+  "region": "Chubu",
+  "kind": "monument",
+  "role": "standalone",
+  "coordinates": {
+    "lat": 36.7456,
+    "lng": 137.0172
+  },
+  "categories": ["monument", "culture", "history"],
+  "tags": ["Three Great Buddhas", "Bronze Statue", "Toyama", "Daibutsuji"],
+  "description": "The Takaoka Daibutsu is a monumental bronze Amida Buddha at Daibutsuji temple in Takaoka City, completed in 1933 after 26 years of casting using the city's renowned copper-work tradition. It is the tourism-standard holder of the third seat in Japan's Three Great Buddhas (Nihon Sandaibutsu) alongside Nara and Kamakura.",
+  "highlights": [
+    "One of Japan's Three Great Buddhas",
+    "16 m bronze Amida statue",
+    "Crafted with Takaoka copper-casting craft",
+    "Peaceful temple grounds"
+  ],
+  "notes": "Free to view; the statue is about 16 m tall. Takaoka has been a center of bronze casting since the early Edo period, and the Daibutsu is a celebrated product of that craft. About 20 min on foot or a short bus ride from Takaoka Station. Note: the third seat of 三大仏 has competing claimants (Gifu, Kobe); Takaoka is the widely used tourism convention.",
+  "budgetMin": 1500,
+  "budgetRecommended": 3500,
+  "budgetMax": 7000,
+  "budget": {
+    "low": 1500,
+    "mid": 3500,
+    "high": 7000
+  },
+  "budgetBreakdown": {
+    "transport": 1500,
+    "tickets": 0,
+    "food": 1500,
+    "cafe": 500
+  },
+  "transportOptions": {
+    "bus": 15,
+    "car": 8
+  },
+  "totalTripHours": 2,
+  "recommendedVisitHours": {
+    "min": 0.8,
+    "max": 2
+  },
+  "walkingMin": 60,
+  "walkingSunMin": 40,
+  "walkingShadeMin": 20,
+  "walkingIntensity": "medium",
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 8,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8,
+    "summer": 8.2,
+    "winter": 8,
+    "rain": 7.4,
+    "food": 8,
+    "photography": 8.8,
+    "relaxation": 8.6,
+    "value": 9.2,
+    "uniqueness": 8.7
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 4,
+    "holiday": 5
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 8
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "All Year",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free temple parking",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Takaoka_Daibutsu_1.jpg/1920px-Takaoka_Daibutsu_1.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Takaoka_Daibutsu_1.jpg/1920px-Takaoka_Daibutsu_1.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Zairon, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takaoka_Daibutsu_1.jpg"
+  },
+  "officialWebsite": "https://www.info-toyama.com/attractions/21108",
+  "businessHours": "Open access (temple grounds)",
+  "openingHoursJa": "境内は自由に見学できます。",
+  "municipalityId": "Toyama:takaoka",
+  "collections": [
+    {
+      "collectionId": "three-great-buddhas",
+      "sortOrder": 3
+    }
+  ],
+  "relationships": {
+    "nearbyDestinationIds": ["takaoka"]
+  },
+  "content": {
+    "en": {
+      "name": "Takaoka Daibutsu",
+      "description": "A monumental bronze Amida Buddha at Daibutsuji temple, one of Japan's Three Great Buddhas and a masterpiece of Takaoka's copper-casting craft.",
+      "highlights": [
+        "One of Japan's Three Great Buddhas",
+        "16 m bronze statue"
+      ],
+      "notes": "Free to view. About 20 min on foot from Takaoka Station.",
+      "reservation": "None required",
+      "parking": "Free temple parking",
+      "openingHours": "Open access"
+    },
+    "ja": {
+      "name": "高岡大仏",
+      "description": "高岡市大佛寺にある高さ約16mの銅造阿弥陀如来坐像。日本三大仏の一つとされ、銅器のまち高岡の鋳造技術の粋を集めて1933年に完成しました。",
+      "highlights": ["日本三大仏の一つ", "高岡の銅器技術の結晶"],
+      "notes": "見学無料。高岡駅から徒歩約20分。",
+      "reservation": "予約不要",
+      "parking": "無料の寺駐車場あり",
+      "openingHours": "境内自由"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.info-toyama.com/attractions/21108",
+        "title": "Toyama Prefecture official tourism: Takaoka Daibutsu",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://www.city.takaoka.toyama.jp/",
+        "title": "Takaoka City official site",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR A fixed-set audit: new Takaoka Daibutsu record replacing city-hub proxy in three-great-buddhas",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial"
+  }
+}

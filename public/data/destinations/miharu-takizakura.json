@@ -1,0 +1,163 @@
+{
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "placeType": "destination",
+  "id": "miharu-takizakura",
+  "name": "Miharu Takizakura",
+  "nameJa": "三春滝桜",
+  "aliases": ["Miharu no Takizakura", "三春滝桜（ベニシダレザクラ）"],
+  "prefecture": "Fukushima",
+  "region": "Tohoku",
+  "kind": "natural",
+  "role": "standalone",
+  "coordinates": {
+    "lat": 37.408,
+    "lng": 140.4998
+  },
+  "categories": ["nature", "seasonal", "sightseeing"],
+  "tags": [
+    "Japan's Three Great Cherry Trees",
+    "National Natural Monument",
+    "Cherry Blossom",
+    "Fukushima"
+  ],
+  "description": "Miharu Takizakura is a roughly 1,000-year-old weeping cherry (beni-shidare-zakura) in Miharu town, designated a National Natural Monument and one of Japan's Three Great Cherry Trees. In mid-April its cascading branches burst into a waterfall of pink blossoms.",
+  "highlights": [
+    "One of Japan's Three Great Cherry Trees",
+    "National Natural Monument, ~1,000 years old",
+    "Waterfall-like weeping cherry blossoms",
+    "Night illumination during peak bloom"
+  ],
+  "notes": "Viewing fee ¥500 during the peak season (middle-school age and under free). Blossoms peak around mid-April; the tree is illuminated at night during the season. About 15 min by bus from JR Miharu Station (Ban-etsu East Line) or 20 min by car from Joban Expressway Funahiki-Miharu IC. Best visited with flexible timing as bloom dates shift yearly.",
+  "budgetMin": 2000,
+  "budgetRecommended": 4500,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 2000,
+    "mid": 4500,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2500,
+    "tickets": 500,
+    "food": 1100,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "bus": 45,
+    "car": 30
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2.5
+  },
+  "walkingMin": 90,
+  "walkingSunMin": 60,
+  "walkingShadeMin": 30,
+  "walkingIntensity": "medium",
+  "indoorPercent": 0,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 5,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9.3,
+    "couple": 9.4,
+    "summer": 7,
+    "winter": 6.5,
+    "rain": 6.5,
+    "food": 7.5,
+    "photography": 9.9,
+    "relaxation": 8.5,
+    "value": 8.8,
+    "uniqueness": 9.7
+  },
+  "crowd": {
+    "weekday": 5,
+    "weekend": 9,
+    "holiday": 10
+  },
+  "season": {
+    "spring": 10,
+    "summer": 5,
+    "autumn": 6,
+    "winter": 5
+  },
+  "bestMonths": [4],
+  "bestSeason": "Mid-April (bloom)",
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Paid parking near the tree (peak season)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Miharu_Takizakura_02.jpg/1920px-Miharu_Takizakura_02.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Miharu_Takizakura_02.jpg/1920px-Miharu_Takizakura_02.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Σ64, CC BY 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miharu_Takizakura_02.jpg"
+  },
+  "officialWebsite": "https://www.town.miharu.fukushima.jp/soshiki/7/02-0101setumei1.html",
+  "businessHours": "Open access (tree park); seasonal viewing fee and night illumination during bloom",
+  "openingHoursJa": "見頃の時期のみ有料（観桜料500円、中学生以下無料）。夜間ライトアップあり。",
+  "municipalityId": "Fukushima:miharu",
+  "collections": [
+    {
+      "collectionId": "three-cherry-blossom-spots",
+      "sortOrder": 1
+    }
+  ],
+  "relationships": {
+    "gatewayHubId": "koriyama-city",
+    "nearbyDestinationIds": ["koriyama-city"]
+  },
+  "content": {
+    "en": {
+      "name": "Miharu Takizakura",
+      "description": "A ~1,000-year-old weeping cherry tree and National Natural Monument, one of Japan's Three Great Cherry Trees, blooming in a pink cascade each mid-April.",
+      "highlights": [
+        "One of Japan's Three Great Cherry Trees",
+        "National Natural Monument"
+      ],
+      "notes": "Viewing fee ¥500 in season. About 15 min by bus from Miharu Station.",
+      "reservation": "None required",
+      "parking": "Paid parking in season",
+      "openingHours": "Open access in season"
+    },
+    "ja": {
+      "name": "三春滝桜",
+      "description": "樹齢1,000年以上と推定されるベニシダレザクラの巨木で、国の天然記念物。日本三大桜の一つに数えられ、4月中旬には枝垂れ桜の花が滝のように咲き誇ります。",
+      "highlights": ["日本三大桜の一つ", "国の天然記念物", "ライトアップ"],
+      "notes": "見頃の時期のみ観桜料500円（中学生以下無料）。三春駅からバス約15分。",
+      "reservation": "予約不要",
+      "parking": "見頃時期は有料駐車場あり",
+      "openingHours": "シーズン中は開放"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.town.miharu.fukushima.jp/soshiki/7/02-0101setumei1.html",
+        "title": "Miharu Town official page: Miharu Takizakura",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://www.tohokukanko.jp/attractions/detail_1324.html",
+        "title": "Tohoku tourism (prefecture-promoted): Takizakura as 日本三大桜",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR A fixed-set audit: new Miharu Takizakura record for three-cherry-blossom-spots",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial"
+  }
+}

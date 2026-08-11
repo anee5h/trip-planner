@@ -1,0 +1,173 @@
+{
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "placeType": "destination",
+  "id": "kenroku-en",
+  "name": "Kenrokuen Garden",
+  "nameJa": "兼六園",
+  "aliases": ["Kenroku-en", "兼六園"],
+  "prefecture": "Ishikawa",
+  "region": "Chubu",
+  "kind": "garden",
+  "role": "standalone",
+  "coordinates": {
+    "lat": 36.5621,
+    "lng": 136.6625
+  },
+  "categories": ["garden", "history", "sightseeing"],
+  "tags": [
+    "Three Great Gardens",
+    "Landscape Garden",
+    "Special Place of Scenic Beauty",
+    "Kanazawa"
+  ],
+  "description": "Kenrokuen in Kanazawa is one of Japan's Three Great Gardens (Nihon Sanmeien), a vast strolling garden built up by the Maeda lords over nearly two centuries. Its name means 'garden of the six qualities' — spaciousness, seclusion, artifice, antiquity, watercourses, and panoramic views — and its winter yukitsuri rope cones are iconic.",
+  "highlights": [
+    "One of Japan's Three Great Gardens",
+    "Iconic winter yukitsuri rope cones",
+    "Kasumiga-ike pond and Kotoji-toro lantern",
+    "Borrowed scenery of Kanazawa Castle"
+  ],
+  "notes": "Admission: adults ¥320 (65+ free, 6-18 ¥100). Open 7:00-18:00 (Mar 1-Oct 15) and 8:00-17:00 (Oct 16-end Feb). Kenrokuen is a Special Place of Scenic Beauty (designated 1985). Adjacent to Kanazawa Castle Park; about 15 min by bus or 25 min on foot from Kanazawa Station.",
+  "budgetMin": 2000,
+  "budgetRecommended": 4500,
+  "budgetMax": 9000,
+  "budget": {
+    "low": 2000,
+    "mid": 4500,
+    "high": 9000
+  },
+  "budgetBreakdown": {
+    "transport": 2500,
+    "tickets": 400,
+    "food": 1200,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "bus": 15,
+    "car": 10
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 90,
+  "walkingShadeMin": 30,
+  "walkingIntensity": "low",
+  "indoorPercent": 5,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 9.5,
+    "couple": 9.3,
+    "summer": 9,
+    "winter": 8.8,
+    "rain": 7.8,
+    "food": 8.2,
+    "photography": 9.7,
+    "relaxation": 9.2,
+    "value": 8.6,
+    "uniqueness": 9.4
+  },
+  "crowd": {
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 9
+  },
+  "season": {
+    "spring": 9,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Paid parking at nearby municipal lots",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Kenrokuen_garden_2.jpg/1920px-Kenrokuen_garden_2.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Kenrokuen_garden_2.jpg/1920px-Kenrokuen_garden_2.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Motokoka, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kenrokuen_garden_2.jpg"
+  },
+  "officialWebsite": "https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/",
+  "businessHours": "07:00–18:00 (Mar 1–Oct 15) / 08:00–17:00 (Oct 16–end Feb)",
+  "openingHoursJa": "3月1日〜10月15日 7:00〜18:00、10月16日〜2月末日 8:00〜17:00。",
+  "municipalityId": "Ishikawa:kanazawa",
+  "collections": [
+    {
+      "collectionId": "three-great-gardens",
+      "sortOrder": 1
+    }
+  ],
+  "relationships": {
+    "nearbyDestinationIds": ["kanazawa-castle-ishikawa", "kanazawa"]
+  },
+  "content": {
+    "en": {
+      "name": "Kenrokuen Garden",
+      "description": "One of Japan's Three Great Gardens, a sweeping strolling garden in Kanazawa shaped by the Maeda lords, famed for its ponds, teahouses, and winter yukitsuri rope cones.",
+      "highlights": [
+        "One of Japan's Three Great Gardens",
+        "Winter yukitsuri rope cones",
+        "Kasumiga-ike pond and Kotoji-toro lantern"
+      ],
+      "notes": "Admission adults ¥320 (65+ free, 6-18 ¥100). Open 7:00-18:00 Mar-Oct, 8:00-17:00 Nov-Feb.",
+      "reservation": "None required",
+      "parking": "Paid parking at nearby municipal lots",
+      "openingHours": "07:00–18:00 (Mar–Oct) / 08:00–17:00 (Nov–Feb)"
+    },
+    "ja": {
+      "name": "兼六園",
+      "description": "日本三名園の一つ。加賀藩主が長い年月をかけて築いた広大な回遊式庭園で、池泉・築山・雪吊りなど四季折々の景観が楽しめます。",
+      "highlights": [
+        "日本三名園の一つ",
+        "冬の名物・雪吊り",
+        "霞ヶ池とことじ燈籠"
+      ],
+      "notes": "入園料：大人320円（65歳以上無料、6歳〜18歳未満100円）。開園時間：3月1日〜10月15日 7:00〜18:00、10月16日〜2月末日 8:00〜17:00。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場をご利用ください",
+      "openingHours": "3月〜10月 7:00〜18:00 / 11月〜2月 8:00〜17:00"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/",
+        "title": "Ishikawa Prefecture: Kanazawa Castle & Kenrokuen (official)",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://kenrokuen.or.jp/information/",
+        "title": "Kenrokuen Tourism Association: hours and admission",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://www.japan.travel/en/spot/1399/",
+        "title": "JNTO Kenrokuen page (Three Great Gardens)",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR A fixed-set audit: new Kenroku-en record completing three-great-gardens",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial"
+  }
+}
