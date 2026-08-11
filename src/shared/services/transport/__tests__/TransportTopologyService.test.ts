@@ -72,6 +72,69 @@ describe("resolveOriginTransportZone", () => {
       }),
     ).toBe("mainland-honshu");
   });
+
+  // KAI-12 regression: coordinate-only origins on the Honshu side of the
+  // straits must never resolve into another mainland zone. The previous
+  // shikoku bounding box (lat ≤ 34.5) overlapped Hiroshima, mis-resolving a
+  // major origin and zeroing its shinkansen eligibility.
+  it.each([
+    ["Hiroshima Station", 34.398, 132.475],
+    ["Okayama Station", 34.666, 133.919],
+    ["Tottori Station", 35.494, 134.234],
+    ["Shimonoseki Station", 33.95, 130.94],
+    ["Onomichi Station", 34.409, 133.199],
+    ["Kure Station", 34.248, 132.556],
+  ])(
+    "coordinate-only origin %s resolves to mainland-honshu",
+    (_n, lat, lng) => {
+      expect(resolveOriginTransportZone({ coordinates: { lat, lng } })).toBe(
+        "mainland-honshu",
+      );
+    },
+  );
+
+  it.each([
+    ["Kokura Station", 33.885, 130.883],
+    ["Oita Station", 33.239, 131.604],
+    ["Kagoshima-Chuo Station", 31.583, 130.542],
+  ])(
+    "coordinate-only origin %s resolves to mainland-kyushu",
+    (_n, lat, lng) => {
+      expect(resolveOriginTransportZone({ coordinates: { lat, lng } })).toBe(
+        "mainland-kyushu",
+      );
+    },
+  );
+
+  it.each([
+    ["Takamatsu Station", 34.351, 134.047],
+    ["Matsuyama Station", 33.84, 132.76],
+    ["Kochi Station", 33.567, 133.544],
+    ["Tokushima Station", 34.073, 134.552],
+    ["Uwajima Station", 33.225, 132.568],
+  ])(
+    "coordinate-only origin %s resolves to mainland-shikoku",
+    (_n, lat, lng) => {
+      expect(resolveOriginTransportZone({ coordinates: { lat, lng } })).toBe(
+        "mainland-shikoku",
+      );
+    },
+  );
+
+  it.each([
+    ["Hakodate Station", 41.774, 140.728],
+    ["Sapporo Station", 43.068, 141.351],
+  ])("coordinate-only origin %s resolves to hokkaido", (_n, lat, lng) => {
+    expect(resolveOriginTransportZone({ coordinates: { lat, lng } })).toBe(
+      "hokkaido",
+    );
+  });
+
+  it("coordinate-only origin Mutsu (Honshu side of Tsugaru) resolves to mainland-honshu", () => {
+    expect(
+      resolveOriginTransportZone({ coordinates: { lat: 41.29, lng: 141.21 } }),
+    ).toBe("mainland-honshu");
+  });
 });
 
 describe("resolveDestinationTransportZone", () => {

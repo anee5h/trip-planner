@@ -67,10 +67,27 @@ const MAINLAND_BOUNDS: Record<
   string,
   { latRange: [number, number]; lngRange: [number, number] }
 > = {
-  hokkaido: { latRange: [41.2, 45.6], lngRange: [139.3, 145.9] },
-  "mainland-kyushu": { latRange: [30.0, 34.0], lngRange: [128.4, 131.8] },
-  "mainland-shikoku": { latRange: [32.5, 34.5], lngRange: [132.2, 134.9] },
+  // Bounds are deliberately narrower than the geographic islands so a
+  // coordinate-only origin on the Honshu side of a strait (Shimonoseki,
+  // Hiroshima, Onomichi, Mutsu) never resolves into another mainland zone.
+  // KAI-12: boxes must be disjoint — the previous shikoku box (lat up to
+  // 34.5) overlapped Hiroshima, mis-resolving a major origin.
+  hokkaido: { latRange: [41.5, 45.6], lngRange: [139.3, 145.9] },
+  "mainland-kyushu": { latRange: [30.0, 33.93], lngRange: [128.4, 131.9] },
+  "mainland-shikoku": { latRange: [32.5, 34.36], lngRange: [132.2, 134.9] },
 };
+
+/**
+ * Honshu Seto-coast strip that falls inside the shikoku mainland box
+ * (Kure, southern Hiroshima wards). Checked before the shikoku box so a
+ * coordinate-only origin there resolves to mainland-honshu. No catalogue
+ * Shikoku city lies inside it (Matsuyama/Kochi/Tokushima/Uwajima are south
+ * of lat 34.2; Takamatsu is east of lng 132.95).
+ */
+const SETO_HONSHU_EXCLUSION_BOX: {
+  latRange: [number, number];
+  lngRange: [number, number];
+} = { latRange: [34.2, 34.36], lngRange: [132.2, 132.95] };
 
 const JAPAN_BOUNDS: {
   latRange: [number, number];
@@ -163,6 +180,9 @@ function resolveFromMainlandBoxes(coordinates: {
   lat: number;
   lng: number;
 }): TransportZoneId {
+  if (pointInBox(coordinates, SETO_HONSHU_EXCLUSION_BOX)) {
+    return "mainland-honshu";
+  }
   for (const [zoneId, box] of Object.entries(MAINLAND_BOUNDS)) {
     if (pointInBox(coordinates, box)) {
       return zoneId as TransportZoneId;

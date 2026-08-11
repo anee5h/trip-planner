@@ -317,15 +317,6 @@
     },
     {
       "from": "fukuoka",
-      "to": "osaka",
-      "bidirectional": true,
-      "mode": "shinkansen",
-      "timeRange": [150, 195],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Nozomi_(train)",
-      "checkedAt": "2026-08-06"
-    },
-    {
-      "from": "fukuoka",
       "to": "hiroshima",
       "bidirectional": true,
       "mode": "shinkansen",
