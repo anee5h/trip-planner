@@ -25,17 +25,17 @@ No Meguruto lifecycle bug was found in the hydration/account-switch/sign-out rac
 
 ## Root-cause classification
 
-| hypothesis | status | evidence |
-|---|---|---|
-| local machine clock wrong | EXCLUDED | server-side check only; observed NTP-synchronized clock; client clock does not enter PostgREST's comparison (PostgREST `Jwt.hs` `checkForErrors`, `now` = server UTC) |
-| JWT genuinely minted with future `iat` | HIGHLY LIKELY | only way to trigger `JWTIssuedAtFuture`; requires minting clock ahead of PostgREST by >30s |
-| stale/corrupt client session | HIGHLY LIKELY (as carrier) | the rejected token was a stored session token; it stayed in use because client expiry bookkeeping considered it valid; refresh on reload produced a fresh token and cleared the error |
-| token refresh race | EXCLUDED | auth-js single-flights refresh (`refreshingDeferred`) and rotates atomically; a concurrent refresh would have produced a fresh token, not a future-iat rejection |
-| resumed-tab/session lifecycle issue | POSSIBLE (secondary) | visibilitychange triggers `_recoverAndRefresh` only within the expiry margin; a long-idle tab holding a future-iat token resumes and reuses it until margin hits |
-| upstream/server clock skew | POSSIBLE — primary suspect for root mechanism | documented real incident class (PostgREST/GoTrue skew within Supabase infra, e.g. answeroverflow m/1448859178981654701); not directly observable from client logs |
-| other identified cause | — | none found; single Supabase client, no manual token plumbing, no `setSession`, no Authorization header handling, no RLS weakening |
+| hypothesis                             | status                                        | evidence                                                                                                                                                                              |
+| -------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| local machine clock wrong              | EXCLUDED                                      | server-side check only; observed NTP-synchronized clock; client clock does not enter PostgREST's comparison (PostgREST `Jwt.hs` `checkForErrors`, `now` = server UTC)                 |
+| JWT genuinely minted with future `iat` | HIGHLY LIKELY                                 | only way to trigger `JWTIssuedAtFuture`; requires minting clock ahead of PostgREST by >30s                                                                                            |
+| stale/corrupt client session           | HIGHLY LIKELY (as carrier)                    | the rejected token was a stored session token; it stayed in use because client expiry bookkeeping considered it valid; refresh on reload produced a fresh token and cleared the error |
+| token refresh race                     | EXCLUDED                                      | auth-js single-flights refresh (`refreshingDeferred`) and rotates atomically; a concurrent refresh would have produced a fresh token, not a future-iat rejection                      |
+| resumed-tab/session lifecycle issue    | POSSIBLE (secondary)                          | visibilitychange triggers `_recoverAndRefresh` only within the expiry margin; a long-idle tab holding a future-iat token resumes and reuses it until margin hits                      |
+| upstream/server clock skew             | POSSIBLE — primary suspect for root mechanism | documented real incident class (PostgREST/GoTrue skew within Supabase infra, e.g. answeroverflow m/1448859178981654701); not directly observable from client logs                     |
+| other identified cause                 | —                                             | none found; single Supabase client, no manual token plumbing, no `setSession`, no Authorization header handling, no RLS weakening                                                     |
 
-Confidence: the *mechanism* (future-iat token rejected server-side, resolved by refresh) is CONFIRMED from primary sources + code. The *original trigger* (which node's clock was skewed, or whether the token came from another environment) is not observable from the client and remains POSSIBLE.
+Confidence: the _mechanism_ (future-iat token rejected server-side, resolved by refresh) is CONFIRMED from primary sources + code. The _original trigger_ (which node's clock was skewed, or whether the token came from another environment) is not observable from the client and remains POSSIBLE.
 
 ## Current auth/sync architecture
 
