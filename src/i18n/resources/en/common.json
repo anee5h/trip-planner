@@ -44,7 +44,12 @@
   },
   "search": {
     "placeholder": "Search destinations, collections...",
-    "label": "Search"
+    "label": "Search",
+    "placeholderMobile": "Search Meguruto",
+    "placeholderDesktop": "Search destinations, collections, actions... (e.g., 'Kyoto', 'UNESCO')",
+    "clear": "Clear search input",
+    "close": "Close search",
+    "cancel": "Cancel"
   },
   "auth": {
     "signInTitle": "Welcome back",

@@ -78,7 +78,9 @@ export function GlobalSearch() {
           <div className="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center gap-1">
             {query ? (
               <button
+                type="button"
                 onClick={() => setQuery("")}
+                aria-label={t("search.clear")}
                 className="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
               >
                 <X className="w-3.5 h-3.5" />
