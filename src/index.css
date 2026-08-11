@@ -191,6 +191,17 @@
     background: #64748b;
   }
 
+  /* KAI-65: search fields that render their own clear button must show
+     exactly one X control. Suppress the browser-native search cancel and
+     decoration pseudo-elements ONLY for inputs opted in via this class —
+     native search decorations stay untouched everywhere else. */
+  input.no-native-search-cancel::-webkit-search-cancel-button,
+  input.no-native-search-cancel::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+  }
+
   /* Duration tiers: fast=150ms, normal=250ms, slow=400ms */
 
   @keyframes page-enter {

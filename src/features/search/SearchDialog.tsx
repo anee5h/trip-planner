@@ -1,6 +1,7 @@
 import { createPortal } from "react-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Search, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import type { SearchGroup, SearchDocument } from "./types";
 import { SearchResults } from "./SearchResults";
 
@@ -42,6 +43,8 @@ export function SearchDialog({
 }: SearchDialogProps) {
   const [viewportHeight, setViewportHeight] = useState<number | null>(null);
   const isMobile = useIsMobile();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -63,8 +66,8 @@ export function SearchDialog({
   if (!isOpen) return null;
 
   const placeholderText = isMobile
-    ? "Search Meguruto"
-    : "Search destinations, collections, actions... (e.g., 'Kyoto', 'UNESCO')";
+    ? t("search.placeholderMobile")
+    : t("search.placeholderDesktop");
 
   return createPortal(
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-2 sm:pt-16 p-2 sm:p-4">
@@ -84,7 +87,7 @@ export function SearchDialog({
         }
       >
         {/* Header Search Bar with 3-column grid layout */}
-        <div className="grid grid-cols-[44px_minmax(0,1fr)_44px] items-center border-b border-slate-100 dark:border-slate-800 h-14 sm:h-16 px-1">
+        <div className="grid grid-cols-[44px_minmax(0,1fr)_auto] items-center border-b border-slate-100 dark:border-slate-800 h-14 sm:h-16 px-1">
           {/* Col 1: Centered Search Icon in 44px tap target */}
           <div className="flex items-center justify-center w-11 h-11">
             <Search className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
@@ -93,40 +96,46 @@ export function SearchDialog({
           {/* Col 2: Shrinkable Input */}
           <div className="min-w-0 px-1 flex items-center gap-2">
             <input
+              ref={inputRef}
               type="text"
               autoFocus
+              aria-label={t("search.label")}
               value={query}
               onChange={(e) => onQueryChange(e.target.value)}
               onKeyDown={onKeyDown}
               placeholder={placeholderText}
-              className="w-full bg-transparent text-sm sm:text-base font-semibold text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none truncate"
+              className="w-full bg-transparent text-base font-semibold text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none truncate"
             />
             {query && (
               <button
                 type="button"
-                onClick={() => onQueryChange("")}
-                aria-label="Clear search input"
-                className="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0"
+                onClick={() => {
+                  onQueryChange("");
+                  inputRef.current?.focus();
+                }}
+                aria-label={t("search.clear")}
+                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0"
               >
                 <X className="w-4 h-4" />
               </button>
             )}
           </div>
 
-          {/* Col 3: Close control - X icon on mobile, ESC badge on desktop */}
-          <div className="flex items-center justify-center w-11 h-11">
+          {/* Col 3: Close control - "Cancel" text on mobile, ESC badge on desktop.
+              Distinct from the in-field clear (X) so there is exactly one X icon. */}
+          <div className="flex items-center justify-end">
             <button
               type="button"
               onClick={onClose}
-              aria-label="Close search"
-              className="sm:hidden flex items-center justify-center w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              aria-label={t("search.close")}
+              className="sm:hidden flex items-center h-9 px-3 rounded-full bg-slate-100 dark:bg-slate-800 text-sm font-semibold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
             >
-              <X className="w-5 h-5" />
+              {t("search.cancel")}
             </button>
             <button
               type="button"
               onClick={onClose}
-              aria-label="Close search"
+              aria-label={t("search.close")}
               className="hidden sm:flex text-xs font-bold px-2.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shrink-0"
             >
               ESC

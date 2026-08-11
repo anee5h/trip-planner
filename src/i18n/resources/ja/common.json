@@ -44,7 +44,12 @@
   },
   "search": {
     "placeholder": "目的地・コレクションを検索…",
-    "label": "検索"
+    "label": "検索",
+    "placeholderMobile": "めぐるとを検索",
+    "placeholderDesktop": "目的地・コレクション・アクションを検索（例：京都、UNESCO）",
+    "clear": "検索をクリア",
+    "close": "検索を閉じる",
+    "cancel": "キャンセル"
   },
   "auth": {
     "signInTitle": "おかえりなさい",

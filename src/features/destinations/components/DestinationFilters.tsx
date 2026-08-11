@@ -176,6 +176,7 @@ export default function DestinationFilters({
   const [modalOpen, setModalOpen] = useState(false);
   const [collectionPopoverOpen, setCollectionPopoverOpen] = useState(false);
   const collectionPopoverRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const availableCollections = getCollections();
 
@@ -471,13 +472,15 @@ export default function DestinationFilters({
         <div className="relative flex-1 min-w-[200px]">
           <Search className="absolute left-3.5 top-2.5 h-4 w-4 text-slate-400" />
           <Input
+            ref={searchInputRef}
             type="search"
+            aria-label={t("search.label")}
             placeholder={
               isJa
                 ? "目的地、キーワードで検索..."
                 : "Search destination, keyword..."
             }
-            className="pl-10 pr-8 h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 focus-visible:ring-emerald-500 rounded-xl text-xs font-medium"
+            className="no-native-search-cancel pl-10 pr-8 h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 focus-visible:ring-emerald-500 rounded-xl text-base md:text-base lg:text-xs font-medium"
             value={searchQuery}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setSearchQuery(e.target.value)
@@ -485,8 +488,13 @@ export default function DestinationFilters({
           />
           {searchQuery && (
             <button
-              onClick={() => setSearchQuery("")}
-              className="absolute right-2.5 top-2 p-0.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+              type="button"
+              aria-label={t("search.clear")}
+              onClick={() => {
+                setSearchQuery("");
+                searchInputRef.current?.focus();
+              }}
+              className="absolute right-2.5 top-1.5 p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
             >
               <X className="w-3.5 h-3.5" />
             </button>
