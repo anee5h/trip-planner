@@ -231,6 +231,28 @@
         "lat": 38.0602,
         "lng": 138.4141
       }
+    },
+    {
+      "id": "SDJ",
+      "code": "SDJ",
+      "name": "Sendai Airport",
+      "city": "Sendai",
+      "prefecture": "Miyagi",
+      "coordinates": {
+        "lat": 38.1397,
+        "lng": 140.917
+      }
+    },
+    {
+      "id": "UKB",
+      "code": "UKB",
+      "name": "Kobe Airport",
+      "city": "Kobe",
+      "prefecture": "Hyogo",
+      "coordinates": {
+        "lat": 34.6328,
+        "lng": 135.2239
+      }
     }
   ]
 }
