@@ -8,7 +8,11 @@ import {
 import { getBusRoute, MUNICIPALITY_BUS_SLUG } from "./BusRouteEstimator";
 import { getFlightTransportEstimate } from "./FlightTransportEstimator";
 import { getFerryTransportEstimate } from "./FerryTransportEstimator";
-import { resolveDestinationTransportZone } from "./TransportTopologyService";
+import {
+  resolveDestinationTransportZone,
+  topology,
+  zoneById,
+} from "./TransportTopologyService";
 import { resolveOriginMunicipalityId } from "../recommendation/OriginAreaService";
 import { getDestinationList } from "../destination/DestinationService";
 
@@ -128,6 +132,26 @@ function getGroundEstimate(
   context: OriginAwareEstimateContext,
   mode: "train" | "shinkansen" | "bus",
 ): OriginAwareTransportEstimate | null {
+  // Ground corridors are prefecture/municipality-pair claims. They are only
+  // valid when the destination's transport zone is actually reachable by
+  // this mode: an island/remote zone (Sado, Yakushima, Amami, Tomogashima,
+  // Ogasawara…) must never inherit a mainland corridor just because its
+  // prefecture has one — ferry/flight-dependent islands have no rail
+  // (MODE_SEMANTICS §1, KAI-12). Zone reachability = localModes ∪ edge
+  // modes (Hokkaido gets shinkansen via the honshu↔hokkaido edge; Shikoku
+  // has no shinkansen edge). An unroutable/unknown zone yields no ground
+  // corridor at all.
+  const destinationZoneId = resolveDestinationTransportZone(destination);
+  const destinationZone = zoneById.get(destinationZoneId);
+  if (!destinationZone) return null;
+  const zoneModes = new Set<TransportMode>(destinationZone.localModes);
+  for (const edge of topology.edges) {
+    if (edge.from === destinationZoneId || edge.to === destinationZoneId) {
+      for (const edgeMode of edge.modes) zoneModes.add(edgeMode);
+    }
+  }
+  if (!zoneModes.has(mode)) return null;
+
   if (mode === "bus") {
     const resolvedOrigin = context.homeStationCoords
       ? resolveOriginArea(context.homeStationCoords)
