@@ -602,7 +602,7 @@
       "bidirectional": true,
       "mode": "train",
       "timeRange": [46, 60],
-      "sourceUrl": "https://www.jreast.co.jp/2026unchin-kaitei/assets/pdf/dentoku_yamate.pdf",
+      "sourceUrl": "https://timetables.jreast.co.jp/timetable/list1227.html",
       "checkedAt": "2026-08-10"
     }
   ]
