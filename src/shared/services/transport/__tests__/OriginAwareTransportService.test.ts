@@ -214,4 +214,21 @@ describe("getOriginAwareTransportEstimate — verified bus corridors (KAI-12)", 
     );
     expect(estimate).toBeNull();
   });
+
+  it("Tokyo → Matsuyama: specific-dates-only corridor stays unknown (no bus date gating)", () => {
+    // Regression (KAI-12): オレンジライナーえひめ night (Tokyo↔Matsuyama) is
+    // audited specific-dates-only; with no bus operatingPeriods/date gating
+    // the corridor is removed from the registry and must not surface as
+    // verified availability for any date.
+    const matsuyama = dest({
+      id: "matsuyama-city",
+      prefecture: "Ehime",
+      municipalityId: "Ehime:matsuyama",
+    });
+    expect(
+      getOriginAwareTransportEstimate(matsuyama, busContext("Tokyo:chiyoda"), [
+        "bus",
+      ]),
+    ).toBeNull();
+  });
 });

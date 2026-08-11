@@ -232,6 +232,18 @@ describe("KAI-12 transport registry invariants", () => {
     }
   });
 
+  it("specific-dates-only corridors are not registered as verified availability", () => {
+    // Regression (KAI-12): Tokyo↔Matsuyama (オレンジライナーえひめ night) is
+    // audited specific-dates-only and the bus runtime has no date gating —
+    // it must not surface as a verified daily corridor. The validator
+    // rejects the pair; this live-registry check mirrors it.
+    const nonDaily = new Set(["tokyo→matsuyama"]);
+    for (const route of busRoutes) {
+      const pair = `${route.from}→${route.to}`;
+      expect(nonDaily.has(pair)).toBe(false);
+    }
+  });
+
   it("municipality bus slugs reference real catalogue municipalities and registered corridor endpoints", () => {
     // Regression (KAI-12): a mapping like "Miyagi:yamagata" (Yamagata is in
     // Yamagata prefecture), a slug with no corridor ("yokohama"), or a key

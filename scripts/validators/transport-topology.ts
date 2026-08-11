@@ -169,6 +169,14 @@ const ISO_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
  */
 const KNOWN_SEASONAL_FLIGHT_ROUTES = new Set(["ITM→ISG", "FUK→KUM"]);
 /**
+ * Corridors the KAI-12 highway-bus audit marked as operating on specific
+ * dates only (HIGHWAY_BUS_AUDIT §1: Tokyo↔Matsuyama オレンジライナーえひめ
+ * night, ~12.1 h). The bus runtime has no date gating, so these must never
+ * be registered as verified availability — a future edit cannot silently
+ * re-add them until bus operatingPeriods/date gating exists.
+ */
+const KNOWN_NON_DAILY_BUS_ROUTES = new Set(["tokyo→matsuyama"]);
+/**
  * Canonical "today" for provenance checks (Japan local date at last
  * verification round). checkedAt must never be in the future relative to
  * this reference. Centralized in scripts/config/audit-reference.ts (KAI-12
@@ -536,6 +544,16 @@ export const transportTopologyValidator: ValidatorModule = {
           severity: "error",
           code: "invalid_bus_mode",
           message: `Bus route ${route.from}→${route.to} has unsupported mode '${route.mode}'`,
+        });
+      }
+      if (
+        KNOWN_NON_DAILY_BUS_ROUTES.has(`${route.from}→${route.to}`) ||
+        KNOWN_NON_DAILY_BUS_ROUTES.has(`${route.to}→${route.from}`)
+      ) {
+        issues.push({
+          severity: "error",
+          code: "non_daily_bus_corridor_registered",
+          message: `Bus route ${route.from}→${route.to} is audited specific-dates-only (HIGHWAY_BUS_AUDIT §1) and must not be registered without bus date gating`,
         });
       }
       if (

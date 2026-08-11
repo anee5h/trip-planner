@@ -254,20 +254,6 @@
       "checkedAt": "2026-08-10"
     },
     {
-      "from": "tokyo",
-      "to": "matsuyama",
-      "bidirectional": true,
-      "mode": "bus",
-      "serviceName": "オレンジライナーえひめ (night)",
-      "operator": "Iyotetsu",
-      "durationMinutes": [726, 726],
-      "reservationRequired": true,
-      "fare": [11000, 18000],
-      "fareVariability": "variable",
-      "sourceUrl": "https://www.iyotetsu.co.jp/bus/kousoku/tokyo.html",
-      "checkedAt": "2026-08-10"
-    },
-    {
       "from": "fukuoka",
       "to": "kagoshima",
       "bidirectional": true,
