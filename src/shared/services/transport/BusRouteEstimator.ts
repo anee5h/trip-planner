@@ -10,6 +10,16 @@ import { resolveOriginTransportZone } from "./TransportTopologyService";
  * flight catchment (250 km): you travel *to* a bus. Access legs themselves
  * are not modeled (no multi-leg journeys yet) — the corridor remains the
  * verified fact.
+ *
+ * The asymmetry vs BUS_ARRIVAL_RADIUS_KM is intentional: origin access is
+ * the traveler's own deliberate choice to reach the terminal (the same
+ * access assumption the flight model makes with its 250 km airport
+ * catchment — e.g. a Hakone resident may drive 43 km to the Kawaguchiko
+ * terminal to catch the Tokyo coach, an unmodeled access leg), while the
+ * arrival side is a product claim about what the corridor *reaches* and is
+ * kept conservative so a corridor never silently serves a destination far
+ * from its arrival terminal (Hakone must not be "reached" by the
+ * tokyo→kawaguchiko coach).
  */
 export const BUS_ACCESS_RADIUS_KM = 50;
 
