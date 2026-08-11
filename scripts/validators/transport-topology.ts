@@ -4,6 +4,7 @@ import type {
   ValidationIssue,
   ValidationContext,
 } from "./types";
+import { getAuditReferenceToday } from "../config/audit-reference";
 import {
   getAirportZone,
   resolveDestinationTransportZone,
@@ -12,6 +13,7 @@ import {
 } from "../../src/shared/services/transport/TransportTopologyService";
 import type { TransportZoneId } from "../../src/shared/types/transportTopology";
 import flightRoutesData from "../../src/shared/data/flight-estimates.json";
+import groundRoutesData from "../../src/shared/data/ground-routes.json";
 import airportsData from "../../src/shared/data/airports.json";
 import airportZonesData from "../../src/shared/data/airport-zones.json";
 import ferryRoutesData from "../../src/shared/data/ferry-routes.json";
@@ -25,11 +27,51 @@ const VALID_RAIL_ROAD_BUS = new Set([
   "bus",
 ]);
 
+const VALID_GROUND_MODES = new Set(["train", "shinkansen"]);
+
+const groundRoutes = (
+  groundRoutesData as unknown as {
+    routes: Array<{
+      from: string;
+      to: string;
+      bidirectional?: boolean;
+      mode?: string;
+      timeRange?: [number, number];
+      sourceUrl?: string;
+      checkedAt?: string;
+    }>;
+    municipalityRoutes?: Array<{
+      from: string;
+      to: string;
+      bidirectional?: boolean;
+      mode?: string;
+      timeRange?: [number, number];
+      sourceUrl?: string;
+      checkedAt?: string;
+    }>;
+  }
+).routes;
+const groundMunicipalityRoutes =
+  (
+    groundRoutesData as unknown as {
+      municipalityRoutes?: Array<{
+        from: string;
+        to: string;
+        bidirectional?: boolean;
+        mode?: string;
+        timeRange?: [number, number];
+        sourceUrl?: string;
+        checkedAt?: string;
+      }>;
+    }
+  ).municipalityRoutes ?? [];
+
 const flightRoutes = (
   flightRoutesData as unknown as {
     routes: Array<{
       from: string;
       to: string;
+      flightTime?: [number, number];
       fare?: [number, number] | null;
       fareStatus?: "verified" | "unverified";
       sourceUrl?: string;
@@ -92,9 +134,11 @@ const ISO_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 /**
  * Canonical "today" for provenance checks (Japan local date at last
  * verification round). checkedAt must never be in the future relative to
- * this reference.
+ * this reference. Centralized in scripts/config/audit-reference.ts (KAI-12
+ * hard gate 1) — computed from the current clock, never a manually bumped
+ * constant.
  */
-const REFERENCE_TODAY = "2026-08-05";
+const REFERENCE_TODAY = getAuditReferenceToday();
 const airportZones = (
   airportZonesData as unknown as { airports: Record<string, string> }
 ).airports;
@@ -251,6 +295,29 @@ export const transportTopologyValidator: ValidatorModule = {
           code: "invalid_route_checked_at",
           message: `Flight route ${route.from}→${route.to} has an invalid checkedAt`,
         });
+      } else if (
+        typeof route.checkedAt === "string" &&
+        route.checkedAt > REFERENCE_TODAY
+      ) {
+        issues.push({
+          severity: "error",
+          code: "future_route_checked_at",
+          message: `Flight route ${route.from}→${route.to} has future checkedAt '${route.checkedAt}' (today is ${REFERENCE_TODAY})`,
+        });
+      }
+      if (
+        !Array.isArray(route.flightTime) ||
+        route.flightTime.length !== 2 ||
+        typeof route.flightTime[0] !== "number" ||
+        typeof route.flightTime[1] !== "number" ||
+        route.flightTime[0] < 0 ||
+        route.flightTime[1] < route.flightTime[0]
+      ) {
+        issues.push({
+          severity: "error",
+          code: "invalid_flight_time_range",
+          message: `Flight route ${route.from}→${route.to} has an invalid flightTime range`,
+        });
       }
       // Fare provenance: an unverified fare must be null; a numeric fare
       // must be verified. Unverified routes must not present prices.
@@ -312,6 +379,86 @@ export const transportTopologyValidator: ValidatorModule = {
           code: "invalid_fare_source",
           message: `Flight route ${route.from}→${route.to} has an invalid fareSourceUrl`,
         });
+      }
+    }
+
+    // Verified ground corridors (prefecture-pair and municipality-pair):
+    // deterministic checks that prevent new rows from silently breaking the
+    // evidence contract — provenance required, no future checkedAt, valid
+    // time range, supported mode, no contradictory duplicates.
+    for (const route of [...groundRoutes, ...groundMunicipalityRoutes]) {
+      if (!VALID_GROUND_MODES.has(route.mode ?? "")) {
+        issues.push({
+          severity: "error",
+          code: "invalid_ground_mode",
+          message: `Ground route ${route.from}→${route.to} has unsupported mode '${route.mode}'`,
+        });
+      }
+      if (
+        !Array.isArray(route.timeRange) ||
+        route.timeRange.length !== 2 ||
+        typeof route.timeRange[0] !== "number" ||
+        typeof route.timeRange[1] !== "number" ||
+        route.timeRange[0] < 0 ||
+        route.timeRange[1] < route.timeRange[0]
+      ) {
+        issues.push({
+          severity: "error",
+          code: "invalid_ground_time_range",
+          message: `Ground route ${route.from}→${route.to} has an invalid timeRange`,
+        });
+      }
+      if (
+        typeof route.sourceUrl !== "string" ||
+        !/^https?:\/\//.test(route.sourceUrl)
+      ) {
+        issues.push({
+          severity: "error",
+          code: "missing_ground_source",
+          message: `Ground route ${route.from}→${route.to} requires a sourceUrl`,
+        });
+      }
+      if (typeof route.checkedAt !== "string" || !route.checkedAt) {
+        issues.push({
+          severity: "error",
+          code: "missing_ground_checked_at",
+          message: `Ground route ${route.from}→${route.to} requires checkedAt`,
+        });
+      } else if (!ISO_DATE_RE.test(route.checkedAt)) {
+        issues.push({
+          severity: "error",
+          code: "invalid_ground_checked_at",
+          message: `Ground route ${route.from}→${route.to} has non-ISO checkedAt '${route.checkedAt}'`,
+        });
+      } else if (route.checkedAt > REFERENCE_TODAY) {
+        issues.push({
+          severity: "error",
+          code: "future_ground_checked_at",
+          message: `Ground route ${route.from}→${route.to} has future checkedAt '${route.checkedAt}' (today is ${REFERENCE_TODAY})`,
+        });
+      }
+    }
+
+    // Contradictory duplicate detection: the same ordered pair+mode may
+    // appear at most once per registry (prefecture vs municipality are
+    // separate namespaces and are compared within their own registry).
+    for (const [registryName, registry] of [
+      ["ground-routes.json", groundRoutes],
+      ["ground-routes.json municipalityRoutes", groundMunicipalityRoutes],
+    ] as const) {
+      const seen = new Map<string, string>();
+      for (const route of registry) {
+        const key = `${route.mode}:${route.from}→${route.to}`;
+        const reverseKey = `${route.mode}:${route.to}→${route.from}`;
+        const existing = seen.get(key) ?? seen.get(reverseKey);
+        if (existing !== undefined) {
+          issues.push({
+            severity: "error",
+            code: "duplicate_ground_corridor",
+            message: `Ground corridor ${route.from}→${route.to} (${route.mode}) duplicates ${existing} in ${registryName}`,
+          });
+        }
+        seen.set(key, existing ?? `${route.from}→${route.to}`);
       }
     }
 
