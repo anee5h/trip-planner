@@ -155,6 +155,10 @@ function getTransportFareScope(
   transportIncluded: boolean,
 ): EstimatedBudgetRangeResult["transportFareScope"] {
   if (!transportIncluded || !homeCoords) return "unknown";
+  // Flight and ferry fares cover the complete origin-destination journey
+  // (verified airport/port-to-port products); only ground intercity fares
+  // can be corridor-only when bounded access is estimated.
+  if (mode === "flight" || mode === "ferry") return "complete";
   if (mode !== "train" && mode !== "shinkansen" && mode !== "bus") {
     return "unknown";
   }
@@ -541,16 +545,21 @@ export function getAdjustedBudget(
           ),
         )
       : false;
+  // With a personalized coordinate origin, Bus/Shinkansen mode selection is
+  // canonical-only: stale transportOptions must not resurrect a missing
+  // personalized corridor. Without coordinates (neutral/zone-only) the
+  // legacy metadata display path remains.
+  const activeModeSupported =
+    homeCoords && (activeMode === "bus" || activeMode === "shinkansen")
+      ? canonicalActiveMode
+      : dest.transportOptions?.[
+          activeMode as keyof typeof dest.transportOptions
+        ] !== undefined;
 
   if (
     activeMode !== "all" &&
     activeMode !== "any" &&
-    (dest.transportOptions?.[
-      activeMode as keyof typeof dest.transportOptions
-    ] !== undefined ||
-      canonicalActiveMode ||
-      activeMode === "flight" ||
-      activeMode === "ferry")
+    (activeModeSupported || activeMode === "flight" || activeMode === "ferry")
   ) {
     mode = activeMode;
   } else if (effectiveOriginZoneId && destinationZoneId !== "unknown") {

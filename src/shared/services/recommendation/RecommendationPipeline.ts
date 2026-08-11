@@ -231,18 +231,25 @@ export function runRecommendationPipeline(
       ),
     );
 
-    // Filter by budget only using complete corridor-backed estimates (origin
-    // transport evidence included and mode-specific duration known). A
-    // catchment fare remains the verified intercity fare; access fare is not
-    // silently invented.
-    const usableEstimates = modeBudgetEstimates.filter(
-      (b) => b.transportIncluded && b.durationIncluded && b.range !== null,
+    // Filter by budget only using COMPLETE corridor-backed estimates (origin
+    // transport evidence included, mode-specific duration known, and the
+    // included fare covers the complete origin-destination journey). A
+    // corridor-only fare is verified intercity cost with unknown local access
+    // cost — it cannot hard-pass affordability (¥29,000 corridor + unknown
+    // access must not fit a ¥30,000 budget) and is also never hard-failed
+    // for the same reason (KAI-12 budget policy).
+    const completeEstimates = modeBudgetEstimates.filter(
+      (b) =>
+        b.transportIncluded &&
+        b.durationIncluded &&
+        b.range !== null &&
+        b.transportFareScope === "complete",
     );
-    if (usableEstimates.length > 0) {
-      const lowestUsableCost = Math.min(
-        ...usableEstimates.map((b) => b.range![1]),
+    if (completeEstimates.length > 0) {
+      const lowestCompleteCost = Math.min(
+        ...completeEstimates.map((b) => b.range![1]),
       );
-      return lowestUsableCost <= context.budget;
+      return lowestCompleteCost <= context.budget;
     }
 
     // Retain as affordability-unknown under the neutral policy (do NOT filter out,

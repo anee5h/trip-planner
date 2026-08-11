@@ -8,21 +8,18 @@ import {
   SHINKANSEN_ACCESS_HUBS,
   SHINKANSEN_ACCESS_RADIUS_KM,
   SHINKANSEN_ARRIVAL_RADIUS_KM,
-  type GroundRouteEstimate,
 } from "./GroundRouteEstimator";
 import {
   BUS_ACCESS_HUBS,
   BUS_ACCESS_RADIUS_KM,
   BUS_ARRIVAL_RADIUS_KM,
-  getBusRoute,
+  getBusRoutes,
   MUNICIPALITY_BUS_SLUG,
-  type BusRouteEstimate,
 } from "./BusRouteEstimator";
 import {
   resolveNearbyAccessHubs,
   type ResolvedIntercityAccessHub,
 } from "./IntercityAccessHubResolver";
-import { estimateBetween } from "./TransportEstimator";
 import { getFlightTransportEstimate } from "./FlightTransportEstimator";
 import { getFerryTransportEstimate } from "./FerryTransportEstimator";
 import {
@@ -141,6 +138,20 @@ function resolveOriginArea(homeStationCoords: { lat: number; lng: number }): {
   return originAreaCache;
 }
 
+/**
+ * Bounded origin/destination access time (minutes) to an intercity hub,
+ * derived from the straight-line distance. This is deliberately NOT a
+ * feeder-mode claim: it models no explicit mode, creates no corridor, and
+ * carries no fare. ~45 km/h average with a fixed walk/wait base is a
+ * conservative urban transit bound — it overstates short distances only
+ * slightly and keeps long access conservative for day-trip feasibility.
+ */
+export function estimateHubAccessMinutes(distanceKm: number): [number, number] {
+  const min = Math.round(10 + (Math.max(0, distanceKm) / 45) * 60);
+  const max = Math.round(min * 1.25 + 5);
+  return [min, max];
+}
+
 function applyAccessOverhead(
   corridorTimeRange: [number, number],
   originHub: ResolvedIntercityAccessHub | undefined,
@@ -157,7 +168,8 @@ function applyAccessOverhead(
   // intentionally keeps those multimodal itinerary semantics out of scope.
   let min = corridorTimeRange[0];
   let max = corridorTimeRange[1];
-  let usedCatchment = false;
+  let accessUsed = false;
+  let corridorStationMismatch = false;
   const accessDistanceKm: { origin?: number; destination?: number } = {};
 
   const addAccess = (
@@ -165,17 +177,19 @@ function applyAccessOverhead(
     hub: ResolvedIntercityAccessHub | undefined,
     location: { lat: number; lng: number } | undefined,
   ) => {
-    if (!hub?.usedCatchment || !location) return;
-    const access = estimateBetween(
-      { coordinates: location },
-      { coordinates: hub.hub.coordinates },
-      // The feeder mode is deliberately not modeled. Bus-shaped local
-      // estimation is only a conservative time bound; its fare is discarded.
-      "bus",
-    ).timeRange;
+    if (!hub) return;
+    // A physical station that shares a prefecture-keyed corridor endpoint
+    // (e.g. Omiya/Shinagawa for `tokyo`) cannot claim the endpoint's exact
+    // verified duration/fare as its own product (KAI-12). The corridor stays
+    // verified; the complete journey becomes estimated without inventing a
+    // station-specific time.
+    if (hub.hub.isCanonicalCorridorStation === false)
+      corridorStationMismatch = true;
+    if (!hub.usedCatchment || !location) return;
+    const access = estimateHubAccessMinutes(hub.distanceKm);
     min += access[0];
     max += access[1];
-    usedCatchment = true;
+    accessUsed = true;
     accessDistanceKm[side] = hub.distanceKm;
   };
 
@@ -184,9 +198,78 @@ function applyAccessOverhead(
 
   return {
     timeRange: [min, max],
-    evidence: usedCatchment ? "estimated" : "verified",
-    ...(usedCatchment ? { accessDistanceKm } : {}),
+    evidence: accessUsed || corridorStationMismatch ? "estimated" : "verified",
+    ...(accessUsed ? { accessDistanceKm } : {}),
   };
+}
+
+function accessMinutesFor(
+  hub: ResolvedIntercityAccessHub,
+  location: { lat: number; lng: number } | undefined,
+): [number, number] | null {
+  if (!hub.usedCatchment || !location) return null;
+  return estimateHubAccessMinutes(hub.distanceKm);
+}
+
+/**
+ * Evaluates every (origin hub, destination hub, corridor row) combination
+ * and selects the best defensible route. The score is corridor midpoint +
+ * bounded origin access + bounded destination access, so a slightly farther
+ * hub with a much faster corridor beats a nearer hub with a slow one. Each
+ * candidate keeps its own duration and fare together — duration from route A
+ * is never mixed with the fare from route B.
+ */
+function selectGroundCandidate<
+  T extends { timeRange: [number, number] },
+>(options: {
+  fromHubs: readonly ResolvedIntercityAccessHub[];
+  toHubs: readonly ResolvedIntercityAccessHub[];
+  originLocation?: { lat: number; lng: number };
+  destinationLocation?: { lat: number; lng: number };
+  routesFor: (fromEndpoint: string, toEndpoint: string) => readonly T[];
+}): {
+  route: T;
+  fromHub: ResolvedIntercityAccessHub;
+  destinationHub: ResolvedIntercityAccessHub;
+} | null {
+  let best:
+    | {
+        route: T;
+        fromHub: ResolvedIntercityAccessHub;
+        destinationHub: ResolvedIntercityAccessHub;
+        score: number;
+      }
+    | undefined;
+  for (const fromHub of options.fromHubs) {
+    for (const destinationHub of options.toHubs) {
+      const routes = options.routesFor(
+        fromHub.hub.corridorEndpoint,
+        destinationHub.hub.corridorEndpoint,
+      );
+      for (const route of routes) {
+        const corridorMidpoint = (route.timeRange[0] + route.timeRange[1]) / 2;
+        const originAccess = accessMinutesFor(fromHub, options.originLocation);
+        const destinationAccess = accessMinutesFor(
+          destinationHub,
+          options.destinationLocation,
+        );
+        const score =
+          corridorMidpoint +
+          (originAccess?.[0] ?? 0) +
+          (destinationAccess?.[0] ?? 0);
+        if (!best || score < best.score) {
+          best = { route, fromHub, destinationHub, score };
+        }
+      }
+    }
+  }
+  return best
+    ? {
+        route: best.route,
+        fromHub: best.fromHub,
+        destinationHub: best.destinationHub,
+      }
+    : null;
 }
 
 function resolveExactHubIds(
@@ -262,26 +345,14 @@ function getGroundEstimate(
       radiusKm: BUS_ARRIVAL_RADIUS_KM,
       transportZoneId: destinationZoneId,
     });
-    let selected:
-      | {
-          route: BusRouteEstimate;
-          fromHub: ResolvedIntercityAccessHub;
-          destinationHub: ResolvedIntercityAccessHub;
-        }
-      | undefined;
-    for (const fromHub of fromHubs) {
-      for (const destinationHub of toHubs) {
-        const route = getBusRoute(
-          fromHub.hub.corridorEndpoint,
-          destinationHub.hub.corridorEndpoint,
-        );
-        if (route) {
-          selected = { route, fromHub, destinationHub };
-          break;
-        }
-      }
-      if (selected) break;
-    }
+    const selected = selectGroundCandidate({
+      fromHubs,
+      toHubs,
+      originLocation: context.homeStationCoords ?? undefined,
+      destinationLocation: destination.coordinates,
+      routesFor: (fromEndpoint, toEndpoint) =>
+        getBusRoutes(fromEndpoint, toEndpoint),
+    });
     if (!selected) return null;
     const adjusted = applyAccessOverhead(
       selected.route.timeRange,
@@ -343,27 +414,16 @@ function getGroundEstimate(
         radiusKm: SHINKANSEN_ARRIVAL_RADIUS_KM,
         transportZoneId: destinationZoneId,
       });
-      let selected:
-        | {
-            route: GroundRouteEstimate;
-            fromHub: ResolvedIntercityAccessHub;
-            destinationHub: ResolvedIntercityAccessHub;
-          }
-        | undefined;
-      for (const fromHub of fromHubs) {
-        for (const destinationHub of toHubs) {
-          const route = getGroundRoute(
-            fromHub.hub.corridorEndpoint,
-            destinationHub.hub.corridorEndpoint,
-            mode,
-          );
-          if (route) {
-            selected = { route, fromHub, destinationHub };
-            break;
-          }
-        }
-        if (selected) break;
-      }
+      const selected = selectGroundCandidate({
+        fromHubs,
+        toHubs,
+        originLocation: context.homeStationCoords ?? undefined,
+        destinationLocation: destination.coordinates,
+        routesFor: (fromEndpoint, toEndpoint) => {
+          const route = getGroundRoute(fromEndpoint, toEndpoint, mode);
+          return route ? [route] : [];
+        },
+      });
       if (!selected) return null;
       const adjusted = applyAccessOverhead(
         selected.route.timeRange,

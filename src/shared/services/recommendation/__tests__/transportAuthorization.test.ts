@@ -440,6 +440,84 @@ describe("pipeline-level budget filtering and metadata", () => {
     expect(highResults[0].estimatedCostTransportIncluded).toBe(true);
     expect(highResults[0].pipeline.estimatedCostTransportIncluded).toBe(true);
   });
+
+  it("corridor-only fare cannot hard-pass affordability (retained as unknown)", () => {
+    // KAI-12: Omiya → Sendai shinkansen is a verified tokyo-endpoint corridor
+    // with a corridor fare (~¥11,000 one-way) but no station-specific or
+    // local-access cost. Complete affordability is unknown: the candidate
+    // must be retained even when the corridor fare alone exceeds the budget
+    // (¥20,000 < ¥44,780 round trip for two), never hard-passed or hard-failed.
+    const dest = byId.get("sendai-city")!;
+    const omiya = { lat: 35.9063, lng: 139.6239 };
+    const scopeCheck = getEstimatedBudgetRange(
+      dest,
+      "shinkansen",
+      2,
+      "standard",
+      omiya,
+    );
+    expect(scopeCheck.transportFareScope).toBe("corridor_only");
+
+    const results = runRecommendationPipeline([dest], {
+      vibe: "any",
+      budget: 20000,
+      carMode: "none",
+      publicModes: ["shinkansen"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: omiya,
+      originZoneId: "mainland-honshu",
+      tripMode: "weekend_2d1n",
+    });
+    expect(results.length).toBe(1);
+    expect(results[0].estimatedCostTransportScope).toBe("corridor_only");
+  });
+
+  it("complete fare still participates in hard affordability", () => {
+    // KAI-12: a user at Tokyo Station with a destination at Nagoya Station
+    // has a verified COMPLETE shinkansen fare (no access overhead). A
+    // ¥20,000 budget must exclude it; a ¥60,000 budget admits it.
+    const dest = {
+      ...byId.get("nagoya-city")!,
+      coordinates: { lat: 35.1709, lng: 136.8815 },
+      municipalityId: "Aichi:nagoya",
+    } as Destination;
+    const tokyo = { lat: 35.6812, lng: 139.7671 };
+    const scopeCheck = getEstimatedBudgetRange(
+      dest,
+      "shinkansen",
+      2,
+      "standard",
+      tokyo,
+    );
+    expect(scopeCheck.transportFareScope).toBe("complete");
+
+    const low = runRecommendationPipeline([dest], {
+      vibe: "any",
+      budget: 20000,
+      carMode: "none",
+      publicModes: ["shinkansen"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: tokyo,
+      originZoneId: "mainland-honshu",
+      tripMode: "weekend_2d1n",
+    });
+    expect(low.length).toBe(0);
+
+    const high = runRecommendationPipeline([dest], {
+      vibe: "any",
+      budget: 80000,
+      carMode: "none",
+      publicModes: ["shinkansen"],
+      partySize: 2,
+      visitedIds: [],
+      homeStationCoords: tokyo,
+      originZoneId: "mainland-honshu",
+      tripMode: "weekend_2d1n",
+    });
+    expect(high.length).toBe(1);
+  });
   it("ASJ→OKA is absent (Yoron multi-stop service is not a nonstop)", () => {
     expect(getFlightRoute("ASJ", "OKA")).toBeNull();
     expect(getFlightRoute("OKA", "ASJ")).toBeNull();

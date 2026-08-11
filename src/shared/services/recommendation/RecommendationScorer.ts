@@ -147,23 +147,30 @@ export function getValidModes(
     if (mode === "ferry") return Boolean(ferryEstimate);
     // my_car uses the same road-support check as car
     const checkMode = mode === "my_car" ? "car" : mode;
-    if (homeCoords && (checkMode === "shinkansen" || checkMode === "bus")) {
-      // Canonical origin-aware Bus/Shinkansen evidence outranks stale
-      // transportOptions. The legacy field remains a neutral/no-coordinate
-      // fallback for conventional train and other display paths.
-      if (
-        getOriginAwareTransportEstimate(
-          dest,
-          {
-            homeStationCoords: homeCoords,
-            originZoneId: effectiveOriginZoneId,
-            ferryTemporal,
-          },
-          [checkMode],
-        )
-      ) {
-        return true;
+    if (checkMode === "shinkansen" || checkMode === "bus") {
+      if (homeCoords) {
+        // Personalized origin with coordinates: the canonical origin-aware
+        // system is authoritative. A null canonical result means unsupported —
+        // stale transportOptions must not resurrect a missing personalized
+        // corridor (KAI-12).
+        return Boolean(
+          getOriginAwareTransportEstimate(
+            dest,
+            {
+              homeStationCoords: homeCoords,
+              originZoneId: effectiveOriginZoneId,
+              ferryTemporal,
+            },
+            [checkMode],
+          ),
+        );
       }
+      // Zone-only / neutral browsing keeps the legacy metadata display gate.
+      return (
+        dest.transportOptions?.[
+          checkMode as keyof typeof dest.transportOptions
+        ] !== undefined
+      );
     }
     return (
       dest.transportOptions?.[

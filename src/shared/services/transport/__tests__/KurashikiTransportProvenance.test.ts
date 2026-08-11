@@ -47,7 +47,13 @@ describe("Kurashiki transport provenance", () => {
     );
     expect(estimate).not.toBeNull();
     // tokyo→okayama shinkansen corridor in ground-routes.json: [210, 300].
-    expect(estimate!.timeRange).toEqual([210, 300]);
+    // Kurashiki city is ~8.5 km from Shin-Kurashiki station (and the station
+    // is not the corridor's canonical endpoint), so the complete journey is
+    // bounded/estimated while the corridor stays verified.
+    expect(estimate!.timeRange).toEqual([232, 333]);
+    expect(estimate!.evidence).toBe("estimated");
+    expect(estimate!.corridorEvidence).toBe("verified");
+    expect(estimate!.accessDistanceKm?.destination).toBeGreaterThan(5);
     expect(estimate!.source).toBe("verified_ground_route");
     // The static 200 never enters the origin-aware estimate.
     expect(estimate!.timeRange).not.toContain(200);

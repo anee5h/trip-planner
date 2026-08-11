@@ -58,11 +58,13 @@ describe("getOriginAwareTransportEstimate — required real route checks", () =>
       coordinates: { lat: 35.0116, lng: 135.7681 },
     });
     const estimate = estimateFor(kyoto, OSAKA, ["train", "shinkansen"]);
-    // Verified osaka ↔ kyoto shinkansen corridor [15, 35] — NOT transportOptions.train 230.
+    // With bounded access to Shin-Osaka/Kyoto stations now added, the direct
+    // JR train corridor [28,45] is the fastest canonical estimate — NOT
+    // transportOptions.train 230.
     expect(estimate).not.toBeNull();
     expect(estimate!.source).toBe("verified_ground_route");
-    expect(estimate!.mode).toBe("shinkansen");
-    expect(estimate!.timeRange).toEqual([15, 35]);
+    expect(estimate!.mode).toBe("train");
+    expect(estimate!.timeRange).toEqual([28, 45]);
     expect(estimate!.sourceUrl).toBeTruthy();
     expect(estimate!.checkedAt).toBeTruthy();
   });
@@ -95,7 +97,7 @@ describe("getOriginAwareTransportEstimate — required real route checks", () =>
     expect(estimate!.timeRange).toEqual([240, 300]);
   });
 
-  it("Osaka → Nagoya: verified shinkansen corridor", () => {
+  it("Osaka → Nagoya: verified shinkansen corridor with bounded access", () => {
     const nagoya = dest({
       id: "nagoya-city",
       prefecture: "Aichi",
@@ -105,7 +107,12 @@ describe("getOriginAwareTransportEstimate — required real route checks", () =>
     const estimate = estimateFor(nagoya, OSAKA, ["train", "shinkansen"]);
     expect(estimate).not.toBeNull();
     expect(estimate!.mode).toBe("shinkansen");
-    expect(estimate!.timeRange).toEqual([50, 75]);
+    // osaka↔aichi corridor [50,75] + bounded access (Umeda→Shin-Osaka and
+    // Nagoya-city→Nagoya Station): the complete journey is estimated while
+    // the corridor stays verified.
+    expect(estimate!.timeRange).toEqual([78, 120]);
+    expect(estimate!.evidence).toBe("estimated");
+    expect(estimate!.corridorEvidence).toBe("verified");
   });
 
   it("Osaka → Kusatsu: verified train corridor", () => {
@@ -120,7 +127,7 @@ describe("getOriginAwareTransportEstimate — required real route checks", () =>
     expect(estimate!.timeRange).toEqual([240, 300]);
   });
 
-  it("Tokyo → Kyoto: verified shinkansen corridor [135, 220]", () => {
+  it("Tokyo → Kyoto: verified shinkansen corridor with bounded arrival access", () => {
     const kyoto = dest({
       id: "kyoto-city",
       prefecture: "Kyoto",
@@ -130,10 +137,14 @@ describe("getOriginAwareTransportEstimate — required real route checks", () =>
     const estimate = estimateFor(kyoto, TOKYO, ["train", "shinkansen"]);
     expect(estimate).not.toBeNull();
     expect(estimate!.mode).toBe("shinkansen");
-    expect(estimate!.timeRange).toEqual([135, 220]);
+    // tokyo↔kyoto corridor [135,220] + ~3 km arrival access to Kyoto
+    // Station: estimated complete journey, verified corridor.
+    expect(estimate!.timeRange).toEqual([149, 243]);
+    expect(estimate!.evidence).toBe("estimated");
+    expect(estimate!.corridorEvidence).toBe("verified");
   });
 
-  it("Fukuoka → Kyoto: verified shinkansen corridor [160, 200]", () => {
+  it("Fukuoka → Kyoto: verified shinkansen corridor with bounded access", () => {
     const kyoto = dest({
       id: "kyoto-city",
       prefecture: "Kyoto",
@@ -143,7 +154,10 @@ describe("getOriginAwareTransportEstimate — required real route checks", () =>
     const estimate = estimateFor(kyoto, FUKUOKA, ["train", "shinkansen"]);
     expect(estimate).not.toBeNull();
     expect(estimate!.mode).toBe("shinkansen");
-    expect(estimate!.timeRange).toEqual([160, 200]);
+    // fukuoka↔kyoto corridor [160,200] + bounded Hakata/Kyoto access.
+    expect(estimate!.timeRange).toEqual([186, 243]);
+    expect(estimate!.evidence).toBe("estimated");
+    expect(estimate!.corridorEvidence).toBe("verified");
   });
 });
 
@@ -194,8 +208,11 @@ describe("getOriginAwareTransportEstimate — policy", () => {
 });
 
 describe("getOriginAwareTransportEstimate — verified bus corridors (KAI-12)", () => {
-  const busContext = (originMunicipalityId: string) => ({
-    homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+  const busContext = (
+    originMunicipalityId: string,
+    coords = { lat: 35.6812, lng: 139.7671 },
+  ) => ({
+    homeStationCoords: coords,
     originMunicipalityId,
   });
 
@@ -207,7 +224,10 @@ describe("getOriginAwareTransportEstimate — verified bus corridors (KAI-12)", 
     });
     const estimate = getOriginAwareTransportEstimate(
       yamagata,
-      busContext("Miyagi:sendai"),
+      busContext(
+        "Miyagi:sendai",
+        { lat: 38.268, lng: 140.87 }, // Sendai bus terminal
+      ),
       ["bus"],
     );
     expect(estimate).not.toBeNull();
@@ -346,21 +366,46 @@ describe("getOriginAwareTransportEstimate — verified bus corridors (KAI-12)", 
     ).toBeNull();
   });
 
-  it("Hokkaido keeps its legitimate shinkansen corridor", () => {
-    // Hakodate is the Hokkaido shinkansen terminus — the honshu↔hokkaido
-    // edge carries shinkansen, so the prefecture-pair corridor stands.
+  it("Hakodate Shinkansen uses Shin-Hakodate-Hokuto with bounded onward access", () => {
+    // KAI-12: the Shinkansen hub for Hakodate is Shin-Hakodate-Hokuto
+    // station, NOT ordinary Hakodate Station. A Hakodate-city destination is
+    // ~18 km from the actual Shinkansen terminus, so it gets bounded onward
+    // access and the complete journey is estimated.
     const hakodate = dest({
       id: "hakodate-city",
       prefecture: "Hokkaido",
       municipalityId: "Hokkaido:hakodate",
-      coordinates: { lat: 41.774, lng: 140.728 },
+      coordinates: { lat: 41.7737, lng: 140.7264 }, // Hakodate Station
       transportZoneId: "hokkaido",
     });
-    expect(
-      getOriginAwareTransportEstimate(hakodate, busContext("Tokyo:chiyoda"), [
-        "shinkansen",
-      ]),
-    ).not.toBeNull();
+    const estimate = getOriginAwareTransportEstimate(
+      hakodate,
+      busContext("Tokyo:chiyoda"),
+      ["shinkansen"],
+    );
+    expect(estimate).not.toBeNull();
+    expect(estimate!.evidence).toBe("estimated");
+    expect(estimate!.corridorEvidence).toBe("verified");
+    expect(estimate!.accessDistanceKm?.destination).toBeGreaterThan(10);
+    expect(estimate!.timeRange[0]).toBeGreaterThan(235);
+  });
+
+  it("a location at Shin-Hakodate-Hokuto itself keeps corridor time", () => {
+    const atTerminus = dest({
+      id: "shin-hakodate-hokuto-area",
+      prefecture: "Hokkaido",
+      municipalityId: "Hokkaido:hakodate",
+      coordinates: { lat: 41.9268, lng: 140.6479 }, // at the Shinkansen station
+      transportZoneId: "hokkaido",
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      atTerminus,
+      busContext("Tokyo:chiyoda"),
+      ["shinkansen"],
+    );
+    expect(estimate).not.toBeNull();
+    // 0.1 km is within the station tolerance → no fabricated access.
+    expect(estimate!.accessDistanceKm).toBeUndefined();
   });
 });
 
@@ -464,7 +509,7 @@ describe("getOriginAwareTransportEstimate — 50 km bus catchment (KAI-12)", () 
     ).toBeNull();
   });
 
-  it("exact municipality wiring still wins over the radius", () => {
+  it("a location at the wired terminal keeps verified zero-access evidence", () => {
     const osaka = dest({
       id: "osaka-city",
       prefecture: "Osaka",
@@ -482,6 +527,31 @@ describe("getOriginAwareTransportEstimate — 50 km bus catchment (KAI-12)", () 
     expect(estimate!.accessDistanceKm).toBeUndefined();
   });
 
+  it("preferred municipality hub still obeys actual physical distance", () => {
+    // Osaka City (Namba-side destination, ~3.5 km from Shin-Osaka) must not
+    // resolve to zero distance just because Osaka:osaka is wired to the
+    // shin-osaka hub: the preferred hub is a canonical mapping, not proof
+    // the user stands at the terminal (KAI-12).
+    const namba = dest({
+      id: "osaka-namba",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 34.665, lng: 135.5012 },
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      namba,
+      { homeStationCoords: TOKYO },
+      ["shinkansen"],
+    );
+    expect(estimate).not.toBeNull();
+    expect(estimate!.evidence).toBe("estimated");
+    expect(estimate!.corridorEvidence).toBe("verified");
+    expect(estimate!.accessDistanceKm?.destination).toBeGreaterThan(1);
+    // Complete time exceeds the raw tokyo↔osaka corridor [141,270].
+    expect(estimate!.timeRange[0]).toBeGreaterThan(141);
+    expect(estimate!.timeRange[1]).toBeGreaterThan(270);
+  });
+
   it("destination catchment must not bridge natural barriers (Hakone ≠ Kawaguchiko)", () => {
     // Hakone is ~42 km from the Kawaguchiko terminal — beyond the 30 km
     // arrival catchment — so the tokyo→kawaguchiko coach must not be
@@ -497,6 +567,132 @@ describe("getOriginAwareTransportEstimate — 50 km bus catchment (KAI-12)", () 
         "bus",
       ]),
     ).toBeNull();
+  });
+
+  it("Hiroshima bus coverage is corridor-graph bound, not radius-inflated", () => {
+    // KAI-12 outcome audit: Hiroshima participates in exactly the verified
+    // corridors registered for it (tokyo, osaka day+night, fukuoka, okayama,
+    // takamatsu, izumo, matsue, kobe). A catchment exposes only registry
+    // corridors — it must never fabricate new ones, and the Osaka corridor
+    // must not dominate the distribution the way it did when it was the only
+    // day-trip-feasible route.
+    const HIROSHIMA = { lat: 34.3983, lng: 132.4756 };
+    const osakaDest = dest({
+      id: "osaka-city",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 34.7025, lng: 135.4959 },
+    });
+    const okayamaDest = dest({
+      id: "okayama-city",
+      prefecture: "Okayama",
+      municipalityId: "Okayama:okayama",
+      coordinates: { lat: 34.6663, lng: 133.918 },
+    });
+    const fukuokaDest = dest({
+      id: "fukuoka-city",
+      prefecture: "Fukuoka",
+      municipalityId: "Fukuoka:fukuoka",
+      coordinates: { lat: 33.5902, lng: 130.4017 },
+    });
+    const matsueDest = dest({
+      id: "matsue-city",
+      prefecture: "Shimane",
+      municipalityId: "Shimane:matsue",
+      coordinates: { lat: 35.4646, lng: 133.064 },
+    });
+    // Newly registered corridors are usable from Hiroshima.
+    for (const d of [osakaDest, okayamaDest, fukuokaDest, matsueDest]) {
+      expect(
+        getOriginAwareTransportEstimate(d, { homeStationCoords: HIROSHIMA }, [
+          "bus",
+        ]),
+      ).not.toBeNull();
+    }
+    // A city with NO registered corridor (Nagoya) stays unknown even though
+    // it is on the mainland — distance alone never creates a corridor.
+    const nagoyaDest = dest({
+      id: "nagoya-city",
+      prefecture: "Aichi",
+      municipalityId: "Aichi:nagoya",
+      coordinates: { lat: 35.1815, lng: 136.9066 },
+    });
+    expect(
+      getOriginAwareTransportEstimate(
+        nagoyaDest,
+        { homeStationCoords: HIROSHIMA },
+        ["bus"],
+      ),
+    ).toBeNull();
+  });
+
+  it("Kochi and Koriyama bus coverage comes from newly registered corridors", () => {
+    // KAI-12 extended audit: Kochi previously had ZERO bus corridors and
+    // Koriyama was mis-served through the Aizu-Wakamatsu hub. Both now have
+    // their own verified corridors (osaka/hiroshima/matsuyama for Kochi;
+    // sendai/tokyo for Koriyama).
+    const kochi = { lat: 33.5597, lng: 133.5311 };
+    const koriyama = { lat: 37.4, lng: 140.36 };
+    const osakaDest = dest({
+      id: "osaka-city",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 34.7025, lng: 135.4959 },
+    });
+    const matsuyamaDest = dest({
+      id: "matsuyama-city",
+      prefecture: "Ehime",
+      municipalityId: "Ehime:matsuyama",
+      coordinates: { lat: 33.8404, lng: 132.7657 },
+    });
+    const sendaiDest = dest({
+      id: "sendai-city",
+      prefecture: "Miyagi",
+      municipalityId: "Miyagi:sendai",
+      coordinates: { lat: 38.268, lng: 140.87 },
+    });
+    const tokyoDest = dest({
+      id: "tokyo-station-area",
+      prefecture: "Tokyo",
+      municipalityId: "Tokyo:chiyoda",
+      coordinates: { lat: 35.6812, lng: 139.7671 },
+    });
+    expect(
+      getOriginAwareTransportEstimate(osakaDest, { homeStationCoords: kochi }, [
+        "bus",
+      ]),
+    ).not.toBeNull();
+    expect(
+      getOriginAwareTransportEstimate(
+        matsuyamaDest,
+        { homeStationCoords: kochi },
+        ["bus"],
+      ),
+    ).not.toBeNull();
+    expect(
+      getOriginAwareTransportEstimate(
+        sendaiDest,
+        { homeStationCoords: koriyama },
+        ["bus"],
+      ),
+    ).not.toBeNull();
+    expect(
+      getOriginAwareTransportEstimate(
+        tokyoDest,
+        { homeStationCoords: koriyama },
+        ["bus"],
+      ),
+    ).not.toBeNull();
+    // Koriyama's own hub now beats the 39 km Aizu-Wakamatsu alternative for
+    // Sendai: the selection must prefer the real 郡山⇔仙台 corridor.
+    const koriyamaToSendai = getOriginAwareTransportEstimate(
+      sendaiDest,
+      { homeStationCoords: koriyama },
+      ["bus"],
+    );
+    expect(koriyamaToSendai).not.toBeNull();
+    expect(koriyamaToSendai!.timeRange[0]).toBeLessThan(130);
+    expect(koriyamaToSendai!.fare).toEqual([2500, 2500]);
   });
 });
 
@@ -522,13 +718,18 @@ describe("getOriginAwareTransportEstimate — Shinkansen access hubs", () => {
       ["shinkansen"],
     );
     expect(estimate).not.toBeNull();
-    expect(estimate!.timeRange).toEqual([141, 270]);
-    expect(estimate!.evidence).toBe("verified");
+    // Shinagawa is a physical boarding station, but the tokyo-endpoint
+    // corridor row describes Tokyo Station's product. The complete journey
+    // is bounded/estimated; the corridor stays verified. Arrival access to
+    // Shin-Osaka from the Osaka city-center fixture is also included.
+    expect(estimate!.timeRange).toEqual([157, 295]);
+    expect(estimate!.evidence).toBe("estimated");
     expect(estimate!.corridorEvidence).toBe("verified");
+    expect(estimate!.accessDistanceKm?.destination).toBeGreaterThan(0);
     expect(estimate!.fare).toEqual([14400, 14720]);
   });
 
-  it("Nakayama/Yokohama reaches Shin-Yokohama for verified corridors", () => {
+  it("Nakayama/Yokohama reaches Shin-Yokohama with real bounded access", () => {
     const estimate = getOriginAwareTransportEstimate(
       osaka(),
       { homeStationCoords: NAKAYAMA },
@@ -536,10 +737,17 @@ describe("getOriginAwareTransportEstimate — Shinkansen access hubs", () => {
     );
     expect(estimate).not.toBeNull();
     expect(estimate!.corridorEvidence).toBe("verified");
-    expect(estimate!.timeRange[0]).toBeGreaterThanOrEqual(141);
+    // Nakayama is ~7.1 km from Shin-Yokohama: mapped-hub wiring must not
+    // collapse to zero physical distance. Access is recorded and the
+    // complete journey is estimated (KAI-12).
+    expect(estimate!.accessDistanceKm?.origin).toBeGreaterThan(5);
+    expect(estimate!.accessDistanceKm?.origin).toBeLessThan(10);
+    expect(estimate!.evidence).toBe("estimated");
+    expect(estimate!.timeRange[0]).toBeGreaterThan(141);
+    expect(estimate!.timeRange[1]).toBeGreaterThan(270);
   });
 
-  it("Kawasaki can use its supported Tokyo-area Shinkansen hubs", () => {
+  it("Kawasaki mapped hubs never become zero-distance", () => {
     const estimate = getOriginAwareTransportEstimate(
       osaka(),
       { homeStationCoords: KAWASAKI },
@@ -547,9 +755,15 @@ describe("getOriginAwareTransportEstimate — Shinkansen access hubs", () => {
     );
     expect(estimate).not.toBeNull();
     expect(estimate!.corridorEvidence).toBe("verified");
+    // Kawasaki Station is ~8-11 km from Shinagawa/Shin-Yokohama: whichever
+    // hub wins the candidate comparison, the access distance is materially
+    // nonzero and the complete journey is estimated.
+    expect(estimate!.accessDistanceKm?.origin).toBeGreaterThan(5);
+    expect(estimate!.evidence).toBe("estimated");
+    expect(estimate!.timeRange[0]).toBeGreaterThan(141);
   });
 
-  it("Omiya reaches the Tokyo-endpoint Tohoku corridor", () => {
+  it("Omiya reaches the Tokyo-endpoint Tohoku corridor as bounded access", () => {
     const sendai = dest({
       id: "sendai-city",
       prefecture: "Miyagi",
@@ -562,7 +776,12 @@ describe("getOriginAwareTransportEstimate — Shinkansen access hubs", () => {
       ["shinkansen"],
     );
     expect(estimate).not.toBeNull();
-    expect(estimate!.timeRange).toEqual([89, 160]);
+    // Omiya is not Tokyo Station: the tokyo-endpoint corridor's verified
+    // duration/fare must not be presented as an Omiya-specific verified
+    // product. The corridor stays verified; the journey is estimated, and
+    // the fare remains corridor-only provenance.
+    expect(estimate!.timeRange).toEqual([101, 180]);
+    expect(estimate!.evidence).toBe("estimated");
     expect(estimate!.corridorEvidence).toBe("verified");
     expect(estimate!.fare).toEqual([11110, 11430]);
   });
@@ -625,5 +844,108 @@ describe("getOriginAwareTransportEstimate — Shinkansen access hubs", () => {
         "shinkansen",
       ]),
     ).toBeNull();
+  });
+
+  it("ferry-dependent islands never inherit mainland highway-bus corridors", () => {
+    // KAI-12: localModes ["bus"] on an island is local-bus semantics.
+    // Sado, Yakushima, Ogasawara and Miyajima must not receive a mainland
+    // intercity coach corridor from any origin.
+    const HIROSHIMA = { lat: 34.3983, lng: 132.4756 };
+    const sado = dest({
+      id: "sado-island",
+      prefecture: "Niigata",
+      municipalityId: "Niigata:sado",
+      coordinates: { lat: 38.0, lng: 138.3 },
+      transportZoneId: "sado",
+    });
+    const yakushima = dest({
+      id: "yakushima-town",
+      prefecture: "Kagoshima",
+      municipalityId: "Kagoshima:yakushima",
+      transportZoneId: "yakushima",
+    });
+    const ogasawara = dest({
+      id: "ogasawara-islands",
+      prefecture: "Tokyo",
+      municipalityId: "Tokyo:ogasawara",
+      coordinates: { lat: 27.0966, lng: 142.1917 },
+      transportZoneId: "ogasawara",
+    });
+    const miyajima = dest({
+      id: "miyajima-itsukushima",
+      prefecture: "Hiroshima",
+      kind: "island",
+      coordinates: { lat: 34.2963, lng: 132.3196 },
+    });
+    expect(
+      getOriginAwareTransportEstimate(sado, { homeStationCoords: TOKYO }, [
+        "bus",
+      ]),
+    ).toBeNull();
+    expect(
+      getOriginAwareTransportEstimate(
+        yakushima,
+        { homeStationCoords: { lat: 33.5902, lng: 130.4017 } },
+        ["bus"],
+      ),
+    ).toBeNull();
+    expect(
+      getOriginAwareTransportEstimate(ogasawara, { homeStationCoords: TOKYO }, [
+        "bus",
+      ]),
+    ).toBeNull();
+    expect(
+      getOriginAwareTransportEstimate(
+        miyajima,
+        { homeStationCoords: HIROSHIMA },
+        ["bus"],
+      ),
+    ).toBeNull();
+  });
+
+  it("candidate selection compares corridor + access, not first match", () => {
+    // A Shinjuku-area location is ~6.3 km from both the Tokyo and Ikebukuro
+    // terminals. The tokyo→osaka corridor [438,498] is ~90 minutes faster
+    // than ikebukuro→osaka [552,570]; selection must pick the Tokyo corridor
+    // rather than stopping at the nearest/first registry match.
+    const shinjuku = { lat: 35.6909, lng: 139.7003 };
+    const osaka = dest({
+      id: "osaka-city",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 34.7025, lng: 135.4959 },
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      osaka,
+      { homeStationCoords: shinjuku },
+      ["bus"],
+    );
+    expect(estimate).not.toBeNull();
+    expect(estimate!.timeRange[0]).toBeLessThan(500);
+    // The selected corridor is the fast tokyo→osaka JR row: its fare must be
+    // the JR row's fare ([3300,19000]), not the ikebukuro night bus's.
+    expect(estimate!.fare).toEqual([3300, 19000]);
+  });
+
+  it("duration and fare always come from the same selected corridor row", () => {
+    // KAI-12 invariant: the returned duration and fare describe one product.
+    // Tokyo→Osaka has a JR row ([438,498], ¥3,300–19,000) and a Willer row
+    // ([420,540], ¥4,000–7,500). Whatever row the candidate selection picks,
+    // the fare must be that row's fare — never a mix.
+    const osaka = dest({
+      id: "osaka-city",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 34.7025, lng: 135.4959 },
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      osaka,
+      { homeStationCoords: TOKYO },
+      ["bus"],
+    );
+    expect(estimate).not.toBeNull();
+    // Midpoint comparison favors the JR row (468 vs 480 for Willer).
+    expect(estimate!.fare).toEqual([3300, 19000]);
+    expect(estimate!.timeRange).toEqual([438, 498]);
   });
 });

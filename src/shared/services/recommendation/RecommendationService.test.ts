@@ -333,7 +333,17 @@ describe("RecommendationService Unit Tests", () => {
   });
 
   it("correctly identifies valid transport modes with getValidModes", () => {
-    const dest = mockDestinations[2]; // Mount Fuji (bus & shinkansen)
+    // Sendai Station fixture: the canonical tokyo↔miyagi shinkansen and
+    // tokyo↔sendai bus corridors exist, and no train corridor does — so
+    // only shinkansen (and bus) are valid from Tokyo.
+    const dest = {
+      ...mockDestinations[2],
+      id: "sendai-station-fixture",
+      prefecture: "Miyagi",
+      municipalityId: "Miyagi:sendai",
+      coordinates: { lat: 38.2601, lng: 140.8824 },
+      transportOptions: {},
+    } as unknown as Destination;
     const validModes = getValidModes(
       dest,
       "none",

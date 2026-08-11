@@ -150,9 +150,13 @@ describe("Explore Recommended Day Trip ranking", () => {
     );
 
     expect(names).not.toContain("Abeno Harukas 300 (Osaka Skyline)");
+    // KAI-12: without a canonical Shinkansen corridor, Odawara/Atami-type
+    // destinations no longer rank via a 180 km/h display estimate. The
+    // honest top of the list is bus-reachable Yamanashi plus Kanto local
+    // POIs — Kanto names appear within the top 10.
     expect(
       names
-        .slice(0, 5)
+        .slice(0, 10)
         .some((name) => /Yokohama|Kamakura|Kawasaki|Tokyo/i.test(name)),
     ).toBe(true);
   }, 30000);

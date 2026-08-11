@@ -101,6 +101,7 @@ describe("BudgetService", () => {
       id: "kyoto-two-mode",
       prefecture: "Kyoto",
       municipalityId: "Kyoto:kyoto",
+      coordinates: { lat: 34.9858, lng: 135.7588 }, // Kyoto Station
       recommendedVisitHours: { min: 4, max: 4 },
       transportOptions: { train: 60, shinkansen: 30 },
       budgetBreakdown: {
@@ -110,7 +111,9 @@ describe("BudgetService", () => {
         cafe: 500,
       },
     } as unknown as Destination;
-    const osaka = { lat: 34.6937, lng: 135.5023 };
+    // Shin-Osaka: at the station, so the shinkansen corridor carries no
+    // fabricated access overhead and genuinely beats the direct train.
+    const osaka = { lat: 34.7335, lng: 135.5001 };
 
     const trainBudget = getEstimatedBudgetRange(
       twoModeDest,

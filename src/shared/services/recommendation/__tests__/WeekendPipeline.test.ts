@@ -1131,7 +1131,9 @@ describe("runRecommendationPipeline — estimate consistency", () => {
     // Display estimate.
     const estimate = result.transportEstimate!;
     expect(estimate.mode).toBe("shinkansen");
-    expect(estimate.timeRange).toEqual([140, 240]);
+    // osaka↔fukuoka corridor [140,240] + bounded access from Umeda to
+    // Shin-Osaka and from Fukuoka city to Hakata.
+    expect(estimate.timeRange).toEqual([167, 284]);
 
     // Ranking duration: midpoint of the same estimate.
     const mid = Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2);

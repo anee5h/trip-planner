@@ -129,9 +129,12 @@ describe("day-trip travel evidence", () => {
       ...allPublic,
       publicModes: ["train", "shinkansen"],
     };
-    const shinkansenOnly = catalog.find(
-      (destination) => destination.id === "dakigaeri-valley-akita",
-    )!;
+    const shinkansenOnly = {
+      ...catalog.find((destination) => destination.id === "akita-city")!,
+      // Clear legacy metadata: only the canonical tokyo↔akita shinkansen
+      // corridor may authorize this destination from the Nakayama origin.
+      transportOptions: {},
+    } as Destination;
     const tokyoStation = catalog.find(
       (destination) => destination.id === "tokyo-station-chiyoda",
     )!;
@@ -183,10 +186,14 @@ describe("day-trip travel evidence", () => {
       ),
     ).toContain("car");
 
-    expect(scoreForCatalog(odawara, allPublic)).toBeGreaterThan(
+    // Odawara is ~54 km from the origin and has no canonical Shinkansen
+    // arrival (no hub within the 30 km arrival catchment), so enabling more
+    // modes must not fabricate a faster journey for it. Harry Potter (Tokyo)
+    // is closer and stays the higher-scoring candidate in both selections.
+    expect(scoreForCatalog(odawara, allPublic)).toBeLessThan(
       scoreForCatalog(harryPotter, allPublic),
     );
-    expect(scoreForCatalog(odawara, trainAndShinkansen)).toBeGreaterThan(
+    expect(scoreForCatalog(odawara, trainAndShinkansen)).toBeLessThan(
       scoreForCatalog(harryPotter, trainAndShinkansen),
     );
     expect(scoreForCatalog(odawara, trainOnly)).toBeLessThan(

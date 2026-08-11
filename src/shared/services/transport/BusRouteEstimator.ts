@@ -56,8 +56,13 @@ export const BUS_TERMINAL_COORDS: Record<string, { lat: number; lng: number }> =
     takamatsu: { lat: 34.3503, lng: 134.0469 }, // Takamatsu
     matsuyama: { lat: 33.8404, lng: 132.7657 }, // Matsuyama
     hiroshima: { lat: 34.3983, lng: 132.4756 }, // Hiroshima
+    okayama: { lat: 34.6663, lng: 133.918 }, // Okayama Station
+    matsue: { lat: 35.4646, lng: 133.064 }, // Matsue Station
+    izumo: { lat: 35.3597, lng: 132.7547 }, // Izumo Station
     kanazawa: { lat: 36.5782, lng: 136.6485 }, // Kanazawa
     tottori: { lat: 35.4927, lng: 134.2256 }, // Tottori
+    kochi: { lat: 33.5597, lng: 133.5311 }, // Kochi Station
+    koriyama: { lat: 37.4, lng: 140.36 }, // Koriyama Station
     sapporo: { lat: 43.068, lng: 141.351 }, // Sapporo
     asahikawa: { lat: 43.7627, lng: 142.3626 }, // Asahikawa
     hakodate: { lat: 41.774, lng: 140.728 }, // Hakodate
@@ -132,6 +137,11 @@ export const MUNICIPALITY_BUS_SLUG: Record<string, string> = {
   "Yamanashi:kofu": "kofu",
   "Yamanashi:fujikawaguchiko": "kawaguchiko",
   "Tottori:tottori": "tottori",
+  "Kochi:kochi": "kochi",
+  "Fukushima:koriyama": "koriyama",
+  "Okayama:okayama": "okayama",
+  "Shimane:matsue": "matsue",
+  "Shimane:izumo": "izumo",
   "Osaka:osaka": "osaka",
   "Kyoto:kyoto": "kyoto",
   "Tokyo:chiyoda": "tokyo",
@@ -170,6 +180,29 @@ export function getBusRoute(
       (r.bidirectional && r.from === toSlug && r.to === fromSlug),
   );
   if (!match) return null;
+  return toBusRouteEstimate(match);
+}
+
+/**
+ * Every verified row for a corridor pair (multiple operators/services can
+ * share a pair, e.g. tokyo→osaka). Candidate selection evaluates all of them
+ * and picks the best corridor by duration — never mixes the duration of one
+ * operator's row with the fare of another's.
+ */
+export function getBusRoutes(
+  fromSlug: string,
+  toSlug: string,
+): BusRouteEstimate[] {
+  return routes
+    .filter(
+      (r) =>
+        (r.from === fromSlug && r.to === toSlug) ||
+        (r.bidirectional && r.from === toSlug && r.to === fromSlug),
+    )
+    .map(toBusRouteEstimate);
+}
+
+function toBusRouteEstimate(match: BusRoute): BusRouteEstimate {
   return {
     mode: "bus",
     timeRange: match.durationMinutes,

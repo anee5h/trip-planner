@@ -52,6 +52,7 @@ function shinkansenHub(
   coordinates: { lat: number; lng: number },
   corridorEndpoint: string,
   transportZoneId: IntercityAccessHub["transportZoneId"],
+  isCanonicalCorridorStation: boolean = true,
 ): IntercityAccessHub {
   return {
     id,
@@ -59,6 +60,7 @@ function shinkansenHub(
     coordinates,
     corridorEndpoint,
     transportZoneId,
+    isCanonicalCorridorStation,
   };
 }
 
@@ -83,24 +85,28 @@ export const SHINKANSEN_ACCESS_HUBS: readonly IntercityAccessHub[] = [
     { lat: 35.7138, lng: 139.7773 },
     "tokyo",
     "mainland-honshu",
+    false,
   ),
   shinkansenHub(
     "omiya",
     { lat: 35.9063, lng: 139.6239 },
     "tokyo",
     "mainland-honshu",
+    false,
   ),
   shinkansenHub(
     "shinagawa",
     { lat: 35.6285, lng: 139.7387 },
     "tokyo",
     "mainland-honshu",
+    false,
   ),
   shinkansenHub(
     "shin-yokohama",
     { lat: 35.5073, lng: 139.6172 },
     "tokyo",
     "mainland-honshu",
+    false,
   ),
   shinkansenHub(
     "shizuoka",
@@ -143,6 +149,7 @@ export const SHINKANSEN_ACCESS_HUBS: readonly IntercityAccessHub[] = [
     { lat: 34.8268, lng: 134.6906 },
     "hyogo",
     "mainland-honshu",
+    false,
   ),
   shinkansenHub(
     "okayama",
@@ -155,6 +162,7 @@ export const SHINKANSEN_ACCESS_HUBS: readonly IntercityAccessHub[] = [
     { lat: 34.6016, lng: 133.679 },
     "okayama",
     "mainland-honshu",
+    false,
   ),
   shinkansenHub(
     "hiroshima",
@@ -239,6 +247,7 @@ export const SHINKANSEN_ACCESS_HUBS: readonly IntercityAccessHub[] = [
     { lat: 36.342, lng: 138.635 },
     "nagano",
     "mainland-honshu",
+    false,
   ),
   shinkansenHub(
     "toyama",
@@ -253,8 +262,8 @@ export const SHINKANSEN_ACCESS_HUBS: readonly IntercityAccessHub[] = [
     "mainland-honshu",
   ),
   shinkansenHub(
-    "hakodate",
-    { lat: 41.7737, lng: 140.7264 },
+    "shin-hakodate-hokuto",
+    { lat: 41.9268, lng: 140.6479 },
     "hokkaido",
     "hokkaido",
   ),
@@ -294,7 +303,7 @@ export const MUNICIPALITY_SHINKANSEN_HUB_IDS: Record<string, string[]> = {
   "Niigata:niigata": ["niigata"],
   "Nagano:nagano": ["nagano"],
   "Nagano:karuizawa": ["karuizawa"],
-  "Hokkaido:hakodate": ["hakodate"],
+  "Hokkaido:hakodate": ["shin-hakodate-hokuto"],
 };
 
 /**

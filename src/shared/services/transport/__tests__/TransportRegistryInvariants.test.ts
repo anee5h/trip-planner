@@ -80,6 +80,7 @@ const busRoutes = (
       fare?: [number, number | null] | null;
       fareVariability?: string;
       operator?: string;
+      serviceName?: string;
     }>;
   }
 ).routes;
@@ -233,10 +234,18 @@ describe("KAI-12 transport registry invariants", () => {
   });
 
   it("bus corridors have no duplicate operator rows per pair", () => {
+    // Distinct products (e.g. day vs night service on the same pair, or a
+    // second operator) are legitimate separate rows with their own verified
+    // duration/fare. An exact duplicate (same pair + same service) is a
+    // registry error.
     const pairs = new Set<string>();
     for (const route of busRoutes) {
       const key =
-        [route.from, route.to].sort().join("↔") + "|" + (route.operator ?? "");
+        [route.from, route.to].sort().join("↔") +
+        "|" +
+        (route.operator ?? "") +
+        "|" +
+        route.serviceName;
       expect(pairs.has(key)).toBe(false);
       pairs.add(key);
     }

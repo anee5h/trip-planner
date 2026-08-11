@@ -425,7 +425,11 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
     expect(text).toContain("home.transportModes.travelUnavailable");
   });
 
-  it("shows an approximate bus duration when topology authorizes local bus access", async () => {
+  it("does not show a personalized bus duration for a local POI without a canonical corridor", async () => {
+    // KAI-12: Sankeien is a bus-only local POI with no verified intercity
+    // highway-bus corridor. With a personalized origin, stale
+    // transportOptions.bus must not fabricate a personalized Bus duration —
+    // the canonical system is authoritative and the display stays unknown.
     const { HomeMatchCard } = await import("../HomeMatchCard");
 
     await act(async () => {
@@ -434,7 +438,7 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
 
     const text = host.textContent ?? "";
     expect(text).not.toMatch(/Est\.\s*\d+/);
-    expect(text).toContain("~");
+    expect(text).toContain("home.transportModes.travelUnavailable");
   });
 
   it("recommendation leakage proof: canonical OriginAwareTransportService remains null for same-municipality without verified route", async () => {
