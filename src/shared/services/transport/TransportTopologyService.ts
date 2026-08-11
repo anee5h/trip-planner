@@ -94,11 +94,27 @@ const SETO_HONSHU_EXCLUSION_BOX: {
 } = { latRange: [34.2, 34.38], lngRange: [132.2, 132.95] };
 
 /**
+ * Geiyo-islands strip that falls inside the shikoku mainland box (southern
+ * coast of Mukaishima island, Onomichi/Hiroshima — lat 34.36–34.38 between
+ * the Seto coast exclusion and lng 133.5). No Shikoku land lies in this
+ * band (Imabari is at lat 34.06; Shikoku's north coast is south of 34.2), so
+ * it resolves to mainland-honshu. Checked before the shikoku box.
+ */
+const GEIYO_HONSHU_EXCLUSION_BOX: {
+  latRange: [number, number];
+  lngRange: [number, number];
+} = { latRange: [34.36, 34.38], lngRange: [132.95, 133.5] };
+
+/**
  * Kyushu-side Kanmon-strait strip: Mojiko/Moji ward, Kitakyushu (lat
  * 33.93–33.96) sits below the kyushu box ceiling (33.93) that keeps
  * Shimonoseki Station (33.9505, Honshu) out. Moji lies east of lng 130.95;
  * Shimonoseki's station and port lie west of it, so an lng floor separates
- * the two sides of the strait. Checked before the kyushu box.
+ * the two sides of the strait. The floor cannot move below 130.95 without
+ * swallowing Shimonoseki port (130.935) — the strip west of it (strait
+ * water, Hikoshima-side coast) resolves by the lat/lng boxes; Moji/Mojiko
+ * are the catalogue-relevant coordinates on the Kyushu side. Checked before
+ * the kyushu box.
  */
 const KANMON_KYUSHU_BOX: {
   latRange: [number, number];
@@ -209,6 +225,9 @@ function resolveFromMainlandBoxes(coordinates: {
   lng: number;
 }): TransportZoneId {
   if (pointInBox(coordinates, SETO_HONSHU_EXCLUSION_BOX)) {
+    return "mainland-honshu";
+  }
+  if (pointInBox(coordinates, GEIYO_HONSHU_EXCLUSION_BOX)) {
     return "mainland-honshu";
   }
   if (pointInBox(coordinates, KANMON_KYUSHU_BOX)) {

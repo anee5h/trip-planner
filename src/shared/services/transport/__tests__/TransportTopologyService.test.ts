@@ -87,6 +87,8 @@ describe("resolveOriginTransportZone", () => {
     ["Onomichi Station", 34.409, 133.199],
     ["Kure Station", 34.248, 132.556],
     ["Ujina Port (Hiroshima)", 34.373, 132.456],
+    ["Mukaishima south coast (Hiroshima, Geiyo)", 34.37, 133.22],
+    ["Shimonoseki Port (Honshu, Kanmon)", 33.949, 130.935],
     ["Tappi Cape (Honshu, Tsugaru)", 41.43, 140.34],
   ])(
     "coordinate-only origin %s resolves to mainland-honshu",
