@@ -71,23 +71,51 @@ const MAINLAND_BOUNDS: Record<
   // coordinate-only origin on the Honshu side of a strait (Shimonoseki,
   // Hiroshima, Onomichi, Mutsu) never resolves into another mainland zone.
   // KAI-12: boxes must be disjoint — the previous shikoku box (lat up to
-  // 34.5) overlapped Hiroshima, mis-resolving a major origin.
+  // 34.5) overlapped Hiroshima, mis-resolving a major origin. Strait-edge
+  // strips that a single lat/lng cutoff cannot separate are handled by the
+  // dedicated boxes below (SETO_HONSHU_EXCLUSION_BOX, KANMON_KYUSHU_BOX,
+  // TSUGARU_HOKKAIDO_BOX).
   hokkaido: { latRange: [41.5, 45.6], lngRange: [139.3, 145.9] },
   "mainland-kyushu": { latRange: [30.0, 33.93], lngRange: [128.4, 131.9] },
-  "mainland-shikoku": { latRange: [32.5, 34.36], lngRange: [132.2, 134.9] },
+  "mainland-shikoku": { latRange: [32.5, 34.38], lngRange: [132.2, 134.9] },
 };
 
 /**
  * Honshu Seto-coast strip that falls inside the shikoku mainland box
- * (Kure, southern Hiroshima wards). Checked before the shikoku box so a
- * coordinate-only origin there resolves to mainland-honshu. No catalogue
- * Shikoku city lies inside it (Matsuyama/Kochi/Tokushima/Uwajima are south
- * of lat 34.2; Takamatsu is east of lng 132.95).
+ * (Kure, Ujina, southern Hiroshima wards). Checked before the shikoku box so
+ * a coordinate-only origin there resolves to mainland-honshu. The latRange
+ * ceiling tracks the shikoku box top (34.38); lng ≤ 132.95 keeps every real
+ * Shikoku city out (Matsuyama/Kochi/Tokushima/Uwajima are south of lat 34.2;
+ * Takamatsu, including its port at lat 34.367, is east of lng 132.95).
  */
 const SETO_HONSHU_EXCLUSION_BOX: {
   latRange: [number, number];
   lngRange: [number, number];
-} = { latRange: [34.2, 34.36], lngRange: [132.2, 132.95] };
+} = { latRange: [34.2, 34.38], lngRange: [132.2, 132.95] };
+
+/**
+ * Kyushu-side Kanmon-strait strip: Mojiko/Moji ward, Kitakyushu (lat
+ * 33.93–33.96) sits below the kyushu box ceiling (33.93) that keeps
+ * Shimonoseki Station (33.9505, Honshu) out. Moji lies east of lng 130.95;
+ * Shimonoseki's station and port lie west of it, so an lng floor separates
+ * the two sides of the strait. Checked before the kyushu box.
+ */
+const KANMON_KYUSHU_BOX: {
+  latRange: [number, number];
+  lngRange: [number, number];
+} = { latRange: [33.93, 33.96], lngRange: [130.95, 131.2] };
+
+/**
+ * Hokkaido-side Tsugaru-strait strip: Matsumae and Fukushima-cho (the Oshima
+ * peninsula, lat 41.2–41.5) sit below the hokkaido box floor (41.5) that
+ * keeps Mutsu (41.29, Honshu) out. Hokkaido's Oshima peninsula lies west of
+ * lng 140.3; Honshu's Tappi cape (41.43) lies east of it. Checked before the
+ * hokkaido box.
+ */
+const TSUGARU_HOKKAIDO_BOX: {
+  latRange: [number, number];
+  lngRange: [number, number];
+} = { latRange: [41.2, 41.5], lngRange: [139.9, 140.3] };
 
 const JAPAN_BOUNDS: {
   latRange: [number, number];
@@ -182,6 +210,12 @@ function resolveFromMainlandBoxes(coordinates: {
 }): TransportZoneId {
   if (pointInBox(coordinates, SETO_HONSHU_EXCLUSION_BOX)) {
     return "mainland-honshu";
+  }
+  if (pointInBox(coordinates, KANMON_KYUSHU_BOX)) {
+    return "mainland-kyushu";
+  }
+  if (pointInBox(coordinates, TSUGARU_HOKKAIDO_BOX)) {
+    return "hokkaido";
   }
   for (const [zoneId, box] of Object.entries(MAINLAND_BOUNDS)) {
     if (pointInBox(coordinates, box)) {

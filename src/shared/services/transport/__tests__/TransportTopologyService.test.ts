@@ -73,10 +73,12 @@ describe("resolveOriginTransportZone", () => {
     ).toBe("mainland-honshu");
   });
 
-  // KAI-12 regression: coordinate-only origins on the Honshu side of the
-  // straits must never resolve into another mainland zone. The previous
-  // shikoku bounding box (lat ≤ 34.5) overlapped Hiroshima, mis-resolving a
-  // major origin and zeroing its shinkansen eligibility.
+  // KAI-12 regression: coordinate-only origins on the strait edges must
+  // resolve to the correct mainland zone. The previous shikoku bounding box
+  // (lat ≤ 34.5) overlapped Hiroshima, mis-resolving a major origin and
+  // zeroing its shinkansen eligibility; the narrowed boxes must not trade
+  // that for mis-resolving the Kyushu/Hokkaido sides of the Kanmon/Tsugaru
+  // straits or Shikoku's Takamatsu waterfront.
   it.each([
     ["Hiroshima Station", 34.398, 132.475],
     ["Okayama Station", 34.666, 133.919],
@@ -84,6 +86,8 @@ describe("resolveOriginTransportZone", () => {
     ["Shimonoseki Station", 33.95, 130.94],
     ["Onomichi Station", 34.409, 133.199],
     ["Kure Station", 34.248, 132.556],
+    ["Ujina Port (Hiroshima)", 34.373, 132.456],
+    ["Tappi Cape (Honshu, Tsugaru)", 41.43, 140.34],
   ])(
     "coordinate-only origin %s resolves to mainland-honshu",
     (_n, lat, lng) => {
@@ -95,6 +99,7 @@ describe("resolveOriginTransportZone", () => {
 
   it.each([
     ["Kokura Station", 33.885, 130.883],
+    ["Mojiko Station (Kyushu, Kanmon)", 33.945, 130.961],
     ["Oita Station", 33.239, 131.604],
     ["Kagoshima-Chuo Station", 31.583, 130.542],
   ])(
@@ -108,6 +113,7 @@ describe("resolveOriginTransportZone", () => {
 
   it.each([
     ["Takamatsu Station", 34.351, 134.047],
+    ["Takamatsu Port (ferry terminal)", 34.367, 134.05],
     ["Matsuyama Station", 33.84, 132.76],
     ["Kochi Station", 33.567, 133.544],
     ["Tokushima Station", 34.073, 134.552],
@@ -124,6 +130,8 @@ describe("resolveOriginTransportZone", () => {
   it.each([
     ["Hakodate Station", 41.774, 140.728],
     ["Sapporo Station", 43.068, 141.351],
+    ["Matsumae (Hokkaido, Tsugaru)", 41.43, 140.11],
+    ["Fukushima-cho (Hokkaido, Tsugaru)", 41.48, 140.25],
   ])("coordinate-only origin %s resolves to hokkaido", (_n, lat, lng) => {
     expect(resolveOriginTransportZone({ coordinates: { lat, lng } })).toBe(
       "hokkaido",
