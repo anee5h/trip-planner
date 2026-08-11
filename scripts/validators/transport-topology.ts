@@ -38,6 +38,8 @@ const VALID_FARE_VARIABILITY = new Set([
   "dynamic",
 ]);
 
+const VALID_BUS_SERVICE_PERIOD = new Set(["day", "night", "mixed"]);
+
 const VALID_GROUND_FARE_BASIS = new Set([
   "base",
   "base-plus-lex",
@@ -106,6 +108,7 @@ const busRoutes = (
       reservationRequired?: boolean;
       fare?: [number, number | null] | null;
       fareVariability?: string;
+      servicePeriod?: string;
       sourceUrl?: string;
       checkedAt?: string;
     }>;
@@ -653,6 +656,16 @@ export const transportTopologyValidator: ValidatorModule = {
           severity: "error",
           code: "missing_bus_fare_variability",
           message: `Bus route ${route.from}→${route.to} carries a fare without fareVariability`,
+        });
+      }
+      if (
+        route.servicePeriod !== undefined &&
+        !VALID_BUS_SERVICE_PERIOD.has(route.servicePeriod)
+      ) {
+        issues.push({
+          severity: "error",
+          code: "invalid_bus_service_period",
+          message: `Bus route ${route.from}→${route.to} has invalid servicePeriod '${route.servicePeriod}' (day|night|mixed)`,
         });
       }
     }

@@ -1,6 +1,7 @@
 import type { Destination } from "@/shared/types/destination";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { FerryTemporalContext, TransportMode } from "./types";
+import { getDistanceKm } from "./TransportEstimator";
 import {
   getGroundRoute,
   getMunicipalityGroundRoute,
@@ -66,6 +67,9 @@ export interface OriginAwareTransportEstimate {
   /** Fare behavior: fixed / range / variable / dynamic (bus policy §3);
    *  null when no fare is stored. */
   fareVariability?: "fixed" | "range" | "variable" | "dynamic" | null;
+  /** Bus-only operating window of the corridor product (KAI-66). A
+   *  night-only coach must not make a same-day day trip feasible. */
+  servicePeriod?: "day" | "night" | "mixed";
   /**
    * What the fare buys: seat product and fare basis (FARE_POLICY §0/§2).
    * Only present together with a fare — a basis without a price implies a
@@ -241,7 +245,42 @@ function selectGroundCandidate<
       }
     | undefined;
   for (const fromHub of options.fromHubs) {
+    // A boarding hub materially farther from home than the destination
+    // itself means the corridor is being reversed: the trip would detour
+    // past the destination to board (e.g. a Sendai resident "boarding" the
+    // Sendai↔Yamagata coach at the Yamagata terminal to reach a Sendai-area
+    // destination). Such a candidate is never a defensible journey.
+    if (
+      options.originLocation &&
+      options.destinationLocation &&
+      fromHub.distanceKm >
+        getDistanceKm(
+          options.originLocation.lat,
+          options.originLocation.lng,
+          options.destinationLocation.lat,
+          options.destinationLocation.lng,
+        )
+    ) {
+      continue;
+    }
     for (const destinationHub of options.toHubs) {
+      // The arrival hub must not lie farther from the destination than the
+      // boarding hub does: otherwise the corridor runs past the destination
+      // and the trip doubles back (e.g. an Osaka-area destination "served"
+      // by riding the Osaka↔Kobe corridor to Shin-Kobe and returning 27 km).
+      if (
+        options.originLocation &&
+        options.destinationLocation &&
+        destinationHub.distanceKm >
+          getDistanceKm(
+            options.destinationLocation.lat,
+            options.destinationLocation.lng,
+            fromHub.hub.coordinates.lat,
+            fromHub.hub.coordinates.lng,
+          )
+      ) {
+        continue;
+      }
       const routes = options.routesFor(
         fromHub.hub.corridorEndpoint,
         destinationHub.hub.corridorEndpoint,
@@ -377,6 +416,7 @@ function getGroundEstimate(
       // Dynamic fares stay ranges with variability — never fixed truth.
       fare: selected.route.fare,
       fareVariability: selected.route.fareVariability,
+      servicePeriod: selected.route.servicePeriod,
     };
   }
   if (mode === "shinkansen") {

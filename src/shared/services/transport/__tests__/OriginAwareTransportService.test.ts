@@ -949,3 +949,77 @@ describe("getOriginAwareTransportEstimate — Shinkansen access hubs", () => {
     expect(estimate!.timeRange).toEqual([438, 498]);
   });
 });
+
+describe("KAI-66 bus corridor-reversal and service-period semantics", () => {
+  it("same-city destinations never ride a reversed intercity corridor (Sendai → Sendai)", () => {
+    // Regression (KAI-66): the sendai↔yamagata corridor was usable in
+    // reverse by "boarding" at the Yamagata terminal 48 km away to reach a
+    // Sendai-area destination, fabricating a 2.5h bus to one's own city.
+    const sendaiCity = dest({
+      id: "sendai-city",
+      prefecture: "Miyagi",
+      municipalityId: "Miyagi:sendai",
+      coordinates: { lat: 38.268, lng: 140.87 },
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      sendaiCity,
+      {
+        homeStationCoords: { lat: 38.268, lng: 140.87 },
+        originMunicipalityId: "Miyagi:sendai",
+      },
+      ["bus"],
+    );
+    expect(estimate).toBeNull();
+  });
+
+  it("nearby same-prefecture destinations do not detour through a far boarding hub (Sendai → Matsushima)", () => {
+    const matsushima = dest({
+      id: "matsushima-bay",
+      prefecture: "Miyagi",
+      municipalityId: "Miyagi:matsushima",
+      coordinates: { lat: 38.3312, lng: 141.0958 },
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      matsushima,
+      {
+        homeStationCoords: { lat: 38.268, lng: 140.87 },
+        originMunicipalityId: "Miyagi:sendai",
+      },
+      ["bus"],
+    );
+    expect(estimate).toBeNull();
+  });
+
+  it("night-only corridors propagate servicePeriod for the day-trip gate", () => {
+    const fukuoka = dest({
+      id: "canal-city-hakata",
+      prefecture: "Fukuoka",
+      municipalityId: "Fukuoka:fukuoka",
+      coordinates: { lat: 33.5892, lng: 130.4011 },
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      fukuoka,
+      { homeStationCoords: TOKYO, originMunicipalityId: "Tokyo:chiyoda" },
+      ["bus"],
+    );
+    expect(estimate).not.toBeNull();
+    expect(estimate!.servicePeriod).toBe("night");
+  });
+
+  it("day-split Sendai corridor exposes the day product", () => {
+    const sendaiCity = dest({
+      id: "sendai-city",
+      prefecture: "Miyagi",
+      municipalityId: "Miyagi:sendai",
+      coordinates: { lat: 38.268, lng: 140.87 },
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      sendaiCity,
+      { homeStationCoords: TOKYO, originMunicipalityId: "Tokyo:chiyoda" },
+      ["bus"],
+    );
+    expect(estimate).not.toBeNull();
+    expect(estimate!.timeRange).toEqual([330, 342]);
+    expect(estimate!.servicePeriod).toBe("day");
+  });
+});

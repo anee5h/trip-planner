@@ -1,5 +1,5 @@
 {
-  "transportVersion": 1,
+  "transportVersion": 2,
   "routes": [
     {
       "from": "tokyo",
@@ -13,7 +13,8 @@
       "fare": [3300, 19000],
       "fareVariability": "variable",
       "sourceUrl": "https://timetable.nishinihonjrbus.co.jp/faretable/1-2-N.html",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "mixed"
     },
     {
       "from": "tokyo",
@@ -27,7 +28,8 @@
       "fare": [3300, 19000],
       "fareVariability": "variable",
       "sourceUrl": "https://timetable.nishinihonjrbus.co.jp/faretable/1-2-N.html",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "mixed"
     },
     {
       "from": "tokyo",
@@ -41,7 +43,8 @@
       "fare": [3900, null],
       "fareVariability": "dynamic",
       "sourceUrl": "https://travel.willer.co.jp/bus_search/tokyo/shinjuku/kyoto/kyoto/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "mixed"
     },
     {
       "from": "tokyo",
@@ -55,7 +58,8 @@
       "fare": [4000, 7500],
       "fareVariability": "dynamic",
       "sourceUrl": "https://travel.willer.co.jp/wex/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "mixed"
     },
     {
       "from": "ikebukuro",
@@ -69,7 +73,8 @@
       "fare": [6700, 13000],
       "fareVariability": "variable",
       "sourceUrl": "https://www.kintetsu-bus.co.jp/highway/routelist/18",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "night"
     },
     {
       "from": "ikebukuro",
@@ -83,7 +88,8 @@
       "fare": [6700, 13000],
       "fareVariability": "variable",
       "sourceUrl": "https://www.kintetsu-bus.co.jp/highway/routelist/18",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "night"
     },
     {
       "from": "tokyo",
@@ -97,7 +103,8 @@
       "fare": [6210, 7020],
       "fareVariability": "variable",
       "sourceUrl": "https://www.jrtbinm.co.jp/topics/e/post_825.html",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "night"
     },
     {
       "from": "tokyo",
@@ -111,7 +118,8 @@
       "fare": [5200, 8000],
       "fareVariability": "variable",
       "sourceUrl": "https://meitetsu-bus.co.jp/express/shinjuku",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "tokyo",
@@ -125,7 +133,8 @@
       "fare": [7200, null],
       "fareVariability": "dynamic",
       "sourceUrl": "https://travel.willer.co.jp/wex/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "mixed"
     },
     {
       "from": "tokyo",
@@ -139,21 +148,38 @@
       "fare": [7400, 19000],
       "fareVariability": "variable",
       "sourceUrl": "https://chugoku-jrbus.co.jp/express/detail/0315/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "night"
     },
     {
       "from": "tokyo",
       "to": "sendai",
       "bidirectional": true,
       "mode": "bus",
-      "serviceName": "仙台・東京号 (day)/ドリーム仙台・東京号 (night)",
+      "serviceName": "仙台・東京号 (day)",
       "operator": "JR Bus Tohoku",
-      "durationMinutes": [336, 366],
+      "durationMinutes": [330, 342],
       "reservationRequired": true,
       "fare": [3000, null],
       "fareVariability": "variable",
       "sourceUrl": "https://www.jrbustohoku.co.jp/express/52/454/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "day"
+    },
+    {
+      "from": "tokyo",
+      "to": "sendai",
+      "bidirectional": true,
+      "mode": "bus",
+      "serviceName": "ドリーム仙台・東京号 (night)",
+      "operator": "JR Bus Tohoku",
+      "durationMinutes": [360, 366],
+      "reservationRequired": true,
+      "fare": [3000, null],
+      "fareVariability": "variable",
+      "sourceUrl": "https://www.jrbustohoku.co.jp/express/52/454/",
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "night"
     },
     {
       "from": "tokyo",
@@ -167,7 +193,8 @@
       "fare": [9000, 25000],
       "fareVariability": "dynamic",
       "sourceUrl": "https://www.nishitetsu.jp/bus/highwaybus/rosen2/hakata/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "night"
     },
     {
       "from": "osaka",
@@ -181,7 +208,8 @@
       "fare": [3500, 8500],
       "fareVariability": "variable",
       "sourceUrl": "https://www.h-buscenter.com/timetable/schedule_kengai.php?id=25",
-      "checkedAt": "2026-08-11"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "day"
     },
     {
       "from": "osaka",
@@ -195,7 +223,8 @@
       "fare": [4500, 10000],
       "fareVariability": "variable",
       "sourceUrl": "https://www.h-buscenter.com/timetable/schedule_kengai.php?id=25",
-      "checkedAt": "2026-08-11"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "night"
     },
     {
       "from": "fukuoka",
@@ -209,7 +238,8 @@
       "fare": [4500, 5000],
       "fareVariability": "variable",
       "sourceUrl": "https://www.h-buscenter.com/timetable/schedule_kengai.php?id=19",
-      "checkedAt": "2026-08-11"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "day"
     },
     {
       "from": "okayama",
@@ -223,7 +253,8 @@
       "fare": [3100, 3100],
       "fareVariability": "fixed",
       "sourceUrl": "https://www.h-buscenter.com/timetable/schedule_kengai.php?id=15",
-      "checkedAt": "2026-08-11"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "day"
     },
     {
       "from": "takamatsu",
@@ -237,7 +268,8 @@
       "fare": [5000, 5000],
       "fareVariability": "fixed",
       "sourceUrl": "https://www.h-buscenter.com/timetable/schedule_kengai.php?id=23",
-      "checkedAt": "2026-08-11"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "day"
     },
     {
       "from": "izumo",
@@ -251,7 +283,8 @@
       "fare": [4400, 4800],
       "fareVariability": "variable",
       "sourceUrl": "https://www.h-buscenter.com/timetable/schedule_kengai.php?id=11",
-      "checkedAt": "2026-08-11"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "day"
     },
     {
       "from": "matsue",
@@ -265,7 +298,8 @@
       "fare": [3400, 4800],
       "fareVariability": "variable",
       "sourceUrl": "https://www.h-buscenter.com/timetable/schedule_kengai.php?id=12",
-      "checkedAt": "2026-08-11"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "day"
     },
     {
       "from": "kobe",
@@ -279,7 +313,8 @@
       "fare": [5500, 5500],
       "fareVariability": "fixed",
       "sourceUrl": "https://www.h-buscenter.com/timetable/schedule_kengai.php?id=27",
-      "checkedAt": "2026-08-11"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "day"
     },
     {
       "from": "hiroshima",
@@ -293,7 +328,8 @@
       "fare": [7500, 7500],
       "fareVariability": "fixed",
       "sourceUrl": "https://www.h-buscenter.com/timetable/schedule_kengai.php?id=22",
-      "checkedAt": "2026-08-11"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "day"
     },
     {
       "from": "osaka",
@@ -307,7 +343,8 @@
       "fare": [6900, 6900],
       "fareVariability": "fixed",
       "sourceUrl": "https://tosaden-highway.com/rosen-osaka.html",
-      "checkedAt": "2026-08-11"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "day"
     },
     {
       "from": "osaka",
@@ -321,7 +358,8 @@
       "fare": [6900, 6900],
       "fareVariability": "fixed",
       "sourceUrl": "https://tosaden-highway.com/rosen-osaka.html",
-      "checkedAt": "2026-08-11"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "night"
     },
     {
       "from": "matsuyama",
@@ -335,7 +373,8 @@
       "fare": [4000, 4000],
       "fareVariability": "fixed",
       "sourceUrl": "https://www.iyotetsu.co.jp/sp/bus/kousoku/kochi.html",
-      "checkedAt": "2026-08-11"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "day"
     },
     {
       "from": "sendai",
@@ -349,7 +388,8 @@
       "fare": [2500, 2500],
       "fareVariability": "fixed",
       "sourceUrl": "https://www.fukushima-koutu.co.jp/express/line/05.html",
-      "checkedAt": "2026-08-11"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "day"
     },
     {
       "from": "tokyo",
@@ -363,7 +403,8 @@
       "fare": [4300, 4750],
       "fareVariability": "variable",
       "sourceUrl": "https://www.fukushima-koutu.co.jp/express/line/08.html",
-      "checkedAt": "2026-08-11"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "day"
     },
     {
       "from": "osaka",
@@ -377,7 +418,8 @@
       "fare": [3400, 10500],
       "fareVariability": "dynamic",
       "sourceUrl": "https://travel.willer.co.jp/bus_search/osaka/umeda/fukuoka/hakata/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "night"
     },
     {
       "from": "osaka",
@@ -391,7 +433,8 @@
       "fare": [1600, 3100],
       "fareVariability": "variable",
       "sourceUrl": "https://timetable.nishinihonjrbus.co.jp/faretable/3-1-DN.html",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "osaka",
@@ -405,7 +448,8 @@
       "fare": [3800, 4500],
       "fareVariability": "variable",
       "sourceUrl": "https://www.hankyu-kankobus.co.jp/highway/timetable/TK/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "osaka",
@@ -419,7 +463,8 @@
       "fare": [6000, 7500],
       "fareVariability": "variable",
       "sourceUrl": "https://www.jr-shikokubus.co.jp/businfo/matsuyama_ex/osaka.html",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "mixed"
     },
     {
       "from": "osaka",
@@ -433,7 +478,8 @@
       "fare": null,
       "fareVariability": null,
       "sourceUrl": "https://www.iyotetsu.co.jp/sp/bus/kousoku/osaka.html",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "fukuoka",
@@ -447,7 +493,8 @@
       "fare": [3000, 7000],
       "fareVariability": "variable",
       "sourceUrl": "https://www.jrkbus.co.jp/kousoku/detail/4",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "fukuoka",
@@ -461,7 +508,8 @@
       "fare": [2900, 2900],
       "fareVariability": "fixed",
       "sourceUrl": "https://nishitetsu.jp/bus/highwaybus/rosen/kyushugo/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "fukuoka",
@@ -475,7 +523,8 @@
       "fare": [2500, 2500],
       "fareVariability": "fixed",
       "sourceUrl": "https://www.nishitetsu.jp/bus/highwaybus/rosen/hinokuni/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "sapporo",
@@ -489,7 +538,8 @@
       "fare": [3530, 5990],
       "fareVariability": "variable",
       "sourceUrl": "https://www.chuo-bus.co.jp/highway/index.cgi?n=0&o=2&ope=det",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "sapporo",
@@ -503,7 +553,8 @@
       "fare": [2500, 2500],
       "fareVariability": "fixed",
       "sourceUrl": "https://www.chuo-bus.co.jp/highway/?o=1&ope=list&t=170",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "sapporo",
@@ -517,7 +568,8 @@
       "fare": [2800, 3800],
       "fareVariability": "variable",
       "sourceUrl": "https://www.donanbus.co.jp/map/sap_onsen/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "sendai",
@@ -531,7 +583,8 @@
       "fare": [1100, 1100],
       "fareVariability": "fixed",
       "sourceUrl": "https://www.yamagatakotsu.jp/highwaybus/sy/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "sendai",
@@ -545,21 +598,38 @@
       "fare": [3300, 3300],
       "fareVariability": "fixed",
       "sourceUrl": "https://www.aizubus.com/highway/sendai/sendai_line_down",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "tokyo",
       "to": "niigata",
       "bidirectional": true,
       "mode": "bus",
-      "serviceName": "東京線 新潟⇔新宿・池袋",
+      "serviceName": "東京線 新潟⇔新宿・池袋 (day)",
       "operator": "Niigata Kotsu/Echigo Kotsu/Seibu",
-      "durationMinutes": [318, 408],
+      "durationMinutes": [317, 347],
       "reservationRequired": true,
       "fare": [3200, 7900],
       "fareVariability": "variable",
       "sourceUrl": "https://www.niigata-kotsu.co.jp/~noriai/highway-bus/inter-pref/tokyo.html",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "day"
+    },
+    {
+      "from": "tokyo",
+      "to": "niigata",
+      "bidirectional": true,
+      "mode": "bus",
+      "serviceName": "東京線 新潟⇔新宿・池袋 (night)",
+      "operator": "Niigata Kotsu/Echigo Kotsu/Seibu",
+      "durationMinutes": [360, 410],
+      "reservationRequired": true,
+      "fare": [3200, 7900],
+      "fareVariability": "variable",
+      "sourceUrl": "https://www.niigata-kotsu.co.jp/~noriai/highway-bus/inter-pref/tokyo.html",
+      "checkedAt": "2026-08-11",
+      "servicePeriod": "night"
     },
     {
       "from": "tokyo",
@@ -573,7 +643,8 @@
       "fare": [6000, 12000],
       "fareVariability": "variable",
       "sourceUrl": "https://timetable.nishinihonjrbus.co.jp/images/pdf/faretable/8-2-DN.pdf",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "night"
     },
     {
       "from": "osaka",
@@ -587,7 +658,8 @@
       "fare": [2500, 9800],
       "fareVariability": "variable",
       "sourceUrl": "https://timetable.nishinihonjrbus.co.jp/faretable/4-1-DN.html",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "mixed"
     },
     {
       "from": "tokyo",
@@ -601,7 +673,8 @@
       "fare": [3500, null],
       "fareVariability": "dynamic",
       "sourceUrl": "https://www.alpico.co.jp/traffic/express/nagano_shinjuku/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "mixed"
     },
     {
       "from": "tokyo",
@@ -615,7 +688,8 @@
       "fare": [3300, 4500],
       "fareVariability": "variable",
       "sourceUrl": "https://www.alpico.co.jp/traffic/express/matsumoto_shinjuku/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "tokyo",
@@ -629,7 +703,8 @@
       "fare": [2300, 2500],
       "fareVariability": "fixed",
       "sourceUrl": "https://www.highwaybus.com/gp/info/lineDetail?lineGroupNo=7&lineId=120",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "tokyo",
@@ -643,7 +718,8 @@
       "fare": [2000, 2200],
       "fareVariability": "fixed",
       "sourceUrl": "https://fuji.highwaybus.com/kawaguchiko/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "osaka",
@@ -657,7 +733,8 @@
       "fare": [4200, 4200],
       "fareVariability": "fixed",
       "sourceUrl": "https://www.nihonkotsu.co.jp/bus/highway/timetable/tottori-kobe_osaka.html",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "mixed"
     },
     {
       "from": "takamatsu",
@@ -671,7 +748,8 @@
       "fare": [4400, 4400],
       "fareVariability": "fixed",
       "sourceUrl": "https://www.jr-shikokubus.co.jp/businfo/bocchan_ex/matsuyama.html",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     },
     {
       "from": "kobe",
@@ -685,7 +763,8 @@
       "fare": [3600, 4300],
       "fareVariability": "variable",
       "sourceUrl": "https://www.jr-shikokubus.co.jp/businfo/takamatsu_ex/kobe.html",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "servicePeriod": "day"
     }
   ]
 }

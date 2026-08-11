@@ -459,6 +459,20 @@ export function estimateDayTripDuration(
   const travel = getDayTripTravelDurationEvidence(destination, context, modes);
   if (!travel.estimate) return null;
 
+  // A night-only highway coach (e.g. はかた号, ドリーム号系) cannot support
+  // a same-day round trip: its duration would only be "feasible" because the
+  // model has no departure/arrival dates. KAI-66: night-only rows are
+  // excluded from day-trip feasibility while remaining available for generic
+  // browsing and weekend one-way evaluation. Mixed rows keep their day
+  // service's day-trip behavior.
+  if (
+    travel.estimate.mode === "bus" &&
+    "servicePeriod" in travel.estimate &&
+    travel.estimate.servicePeriod === "night"
+  ) {
+    return null;
+  }
+
   const visitRange: [number, number] = [
     destination.recommendedVisitHours.min,
     destination.recommendedVisitHours.max,
