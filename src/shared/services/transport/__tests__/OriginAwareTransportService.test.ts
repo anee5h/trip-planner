@@ -155,3 +155,63 @@ describe("getOriginAwareTransportEstimate — policy", () => {
     expect(estimate).toBeNull();
   });
 });
+
+describe("getOriginAwareTransportEstimate — verified bus corridors (KAI-12)", () => {
+  const busContext = (originMunicipalityId: string) => ({
+    homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+    originMunicipalityId,
+  });
+
+  it("Sendai → Yamagata: verified fixed bus fare propagates", () => {
+    const yamagata = dest({
+      id: "yamagata-city",
+      prefecture: "Yamagata",
+      municipalityId: "Yamagata:yamagata",
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      yamagata,
+      busContext("Miyagi:sendai"),
+      ["bus"],
+    );
+    expect(estimate).not.toBeNull();
+    expect(estimate!.mode).toBe("bus");
+    expect(estimate!.source).toBe("verified_ground_route");
+    expect(estimate!.timeRange).toEqual([66, 66]);
+    expect(estimate!.fare).toEqual([1100, 1100]);
+    expect(estimate!.fareVariability).toBe("fixed");
+    expect(estimate!.sourceUrl).toMatch(/^https?:\/\//);
+    expect(estimate!.checkedAt).toBeTruthy();
+  });
+
+  it("Tokyo → Nagano: dynamic bus fare stays a range, never fixed truth", () => {
+    const nagano = dest({
+      id: "nagano-city",
+      prefecture: "Nagano",
+      municipalityId: "Nagano:nagano",
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      nagano,
+      busContext("Tokyo:chiyoda"),
+      ["bus"],
+    );
+    expect(estimate).not.toBeNull();
+    // Dynamic "from ¥X" fare: lower bound set, upper bound null, marked
+    // dynamic — a range/dynamic fare must never be presented as fixed.
+    expect(estimate!.fare![0]).toBeGreaterThan(0);
+    expect(estimate!.fareVariability).toBe("dynamic");
+  });
+
+  it("pair without a verified corridor stays unknown", () => {
+    const sapporo = dest({
+      id: "sapporo-city",
+      prefecture: "Hokkaido",
+      municipalityId: "Hokkaido:sapporo",
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      sapporo,
+      busContext("Aichi:nagoya"),
+      ["bus"],
+    );
+    expect(estimate).toBeNull();
+  });
+});

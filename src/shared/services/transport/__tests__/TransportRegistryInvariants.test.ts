@@ -2,7 +2,9 @@ import { describe, expect, it } from "vitest";
 import groundRoutesData from "@/shared/data/ground-routes.json";
 import flightRoutesData from "@/shared/data/flight-estimates.json";
 import busRoutesData from "@/shared/data/bus-routes.json";
+import destinationsData from "@/shared/data/destinations-index.json";
 import airportsData from "@/shared/data/airports.json";
+import { MUNICIPALITY_BUS_SLUG } from "../BusRouteEstimator";
 import { getAuditReferenceToday } from "../../../../../scripts/config/audit-reference";
 import { findContradictoryGroundDuplicates } from "../../../../../scripts/validators/ground-duplicates";
 
@@ -227,6 +229,29 @@ describe("KAI-12 transport registry invariants", () => {
         [route.from, route.to].sort().join("↔") + "|" + (route.operator ?? "");
       expect(pairs.has(key)).toBe(false);
       pairs.add(key);
+    }
+  });
+
+  it("municipality bus slugs reference real catalogue municipalities and registered corridor endpoints", () => {
+    // Regression (KAI-12): a mapping like "Miyagi:yamagata" (Yamagata is in
+    // Yamagata prefecture), a slug with no corridor ("yokohama"), or a key
+    // for a municipality that does not exist in the catalogue would be a
+    // dead or misleading wiring — never evidence of an intercity corridor.
+    const municipalityIds = new Set(
+      (destinationsData as unknown as Array<{ municipalityId?: string }>)
+        .map((d) => d.municipalityId)
+        .filter((m): m is string => Boolean(m)),
+    );
+    const corridorEndpoints = new Set<string>();
+    for (const route of busRoutes) {
+      corridorEndpoints.add(route.from);
+      corridorEndpoints.add(route.to);
+    }
+    for (const [municipalityId, slug] of Object.entries(
+      MUNICIPALITY_BUS_SLUG,
+    )) {
+      expect(municipalityIds.has(municipalityId)).toBe(true);
+      expect(corridorEndpoints.has(slug)).toBe(true);
     }
   });
 });
