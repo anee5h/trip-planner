@@ -5,7 +5,6 @@ import { TOKYO_WARDS_GROUP_ID } from "../TokyoWardsConsolidation";
 import {
   getEstimatedBudgetRange,
   getTransportCost,
-  TRANSPORT_PRICING_CONFIG,
 } from "@/shared/services/budget/BudgetService";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { RecommendationContext } from "../RecommendationContext";
@@ -1129,14 +1128,14 @@ describe("runRecommendationPipeline — estimate consistency", () => {
     const mid = Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2);
     expect(result.weekend?.travelFit.oneWayMinutes).toBe(mid);
 
-    // Budget duration: same estimate via the origin-aware cost path.
+    // Budget duration: same estimate via the origin-aware cost path. The
+    // verified corridor fare (osaka→fukuoka reserved ¥15,520–16,020 —
+    // Sakura/Kodama → Nozomi/Mizuho reserved, FARE_POLICY §2) takes
+    // precedence over the heuristic (FARE_POLICY §0/§2).
     const budgetCost = getTransportCost(fukuoka, estimate.mode, 2, OSAKA);
     expect(budgetCost).not.toBeNull();
-    const cfg = TRANSPORT_PRICING_CONFIG.shinkansen;
-    const expectedCost = Math.floor(
-      Math.round(cfg.baseFare + mid * cfg.perMinRate) * 2 * 2,
-    );
-    expect(budgetCost).toBe(expectedCost);
+    const verifiedAvg = Math.round((15520 + 16020) / 2);
+    expect(budgetCost).toBe(Math.floor(verifiedAvg * 2 * 2));
   });
 
   it.each(["hakodate-city", "fukuoka-city"])(

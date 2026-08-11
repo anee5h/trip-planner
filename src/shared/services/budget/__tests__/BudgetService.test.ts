@@ -276,4 +276,68 @@ describe("BudgetService", () => {
       expect(withAllowance.transport).toBe(0);
     });
   });
+
+  describe("KAI-12 verified fare precedence", () => {
+    const OSAKA_COORDS = { lat: 34.7025, lng: 135.4959 };
+    const TOKYO_COORDS = { lat: 35.6812, lng: 139.7671 };
+    const SENDAI_COORDS = { lat: 38.268, lng: 140.87 };
+
+    const dest = (id: string, prefecture: string, municipalityId?: string) =>
+      ({
+        id,
+        prefecture,
+        municipalityId,
+        transportOptions: {},
+      }) as unknown as Destination;
+
+    it("verified shinkansen fare wins over the heuristic (Osaka→Fukuoka)", () => {
+      const fukuoka = dest("fukuoka-dest", "Fukuoka", "Fukuoka:fukuoka");
+      // Verified osaka→fukuoka shinkansen [140,240] fare [15520,16020]
+      // reserved (Sakura/Kodama → Nozomi/Mizuho, FARE_POLICY §2).
+      const cost = getTransportCost(fukuoka, "shinkansen", 1, OSAKA_COORDS);
+      expect(cost).toBe(Math.floor(((15520 + 16020) / 2) * 2 * 1));
+    });
+
+    it("heuristic fallback when no verified fare exists (Tokyo→Kyoto)", () => {
+      const kyoto = dest("kyoto-dest", "Kyoto", "Kyoto:kyoto");
+      // tokyo→kyoto shinkansen [135,220] has no verified fare → heuristic.
+      const cost = getTransportCost(kyoto, "shinkansen", 1, TOKYO_COORDS);
+      const mins = Math.round((135 + 220) / 2);
+      const oneWayHeuristic = Math.round(2200 + mins * 62);
+      expect(cost).toBe(Math.floor(oneWayHeuristic * 2 * 1));
+    });
+
+    it("unknown fare stays unknown (no corridor → no fabricated price)", () => {
+      const kagawa = dest("kagawa-dest", "Kagawa", "Kagawa:takamatsu");
+      expect(
+        getTransportCost(kagawa, "shinkansen", 1, TOKYO_COORDS),
+      ).toBeNull();
+    });
+
+    it("verified fixed bus fare flows through (Sendai→Yamagata)", () => {
+      const yamagata = dest("yamagata-dest", "Yamagata", "Yamagata:yamagata");
+      // Verified sendai→yamagata bus fare [1100,1100] fixed.
+      const cost = getTransportCost(yamagata, "bus", 1, SENDAI_COORDS);
+      expect(cost).toBe(Math.floor(1100 * 2 * 1));
+    });
+
+    it("dynamic bus fare uses the verified floor, never an invented fixed price", () => {
+      const nagano = dest("nagano-dest", "Nagano", "Nagano:nagano");
+      // tokyo→nagano bus [240,330] fare [3500, null] dynamic ("from ¥3,500"):
+      // the budget uses the verified lower bound, not a fabricated upper.
+      const cost = getTransportCost(nagano, "bus", 1, TOKYO_COORDS);
+      expect(cost).toBe(Math.floor(3500 * 2 * 1));
+    });
+
+    it("round-trip × party scaling applies to the verified fare", () => {
+      const fukuoka = dest("fukuoka-dest", "Fukuoka", "Fukuoka:fukuoka");
+      const perPersonRoundTrip = Math.floor(((15520 + 16020) / 2) * 2);
+      expect(getTransportCost(fukuoka, "shinkansen", 3, OSAKA_COORDS)).toBe(
+        perPersonRoundTrip * 3,
+      );
+      expect(getTransportCost(fukuoka, "shinkansen", 1, OSAKA_COORDS)).toBe(
+        perPersonRoundTrip,
+      );
+    });
+  });
 });

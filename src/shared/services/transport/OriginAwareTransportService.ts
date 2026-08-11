@@ -44,6 +44,15 @@ export interface OriginAwareTransportEstimate {
   /** Fare behavior: fixed / range / variable / dynamic (bus policy §3);
    *  null when no fare is stored. */
   fareVariability?: "fixed" | "range" | "variable" | "dynamic" | null;
+  /**
+   * What the fare buys: seat product and fare basis (FARE_POLICY §0/§2).
+   * Only present together with a fare — a basis without a price implies a
+   * product that has no verified fare.
+   */
+  fareBasis?:
+    "base" | "base-plus-lex" | "integrated-total" | "non-reserved" | "reserved";
+  /** Supports the fare range specifically, when distinct from route source. */
+  fareSourceUrl?: string;
 }
 
 /**
@@ -179,6 +188,9 @@ function getGroundEstimate(
     destinationZoneId: resolveDestinationTransportZone(destination),
     sourceUrl: route.sourceUrl,
     checkedAt: route.checkedAt,
+    fare: route.fare,
+    fareBasis: route.fareBasis,
+    fareSourceUrl: route.fareSourceUrl,
   };
 }
 

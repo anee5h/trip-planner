@@ -243,6 +243,13 @@ describe("RecommendationScorer Unit Tests", () => {
 
     expect(train.usable).toBe(true);
     expect(shinkansen.usable).toBe(true);
+    // KAI-12 verified-fare behavior: Tokyo→Nagano shinkansen carries a
+    // verified reserved fare (¥8,250 one-way, FARE_POLICY §2) while the
+    // train corridor has none (heuristic only). For party 2 the verified
+    // shinkansen round trip is ¥33,000 vs the train heuristic ¥13,680, so
+    // the train's budget+transport score is higher — the budget-consistent
+    // selection is the train, and the day-trip efficiency must follow the
+    // selected mode, never a faster unselected one.
     expect(train.budget + train.transport).toBeGreaterThan(
       shinkansen.budget + shinkansen.transport,
     );

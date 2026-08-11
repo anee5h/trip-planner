@@ -27,6 +27,9 @@ const groundRoutes = (
       timeRange?: [number, number];
       sourceUrl?: string;
       checkedAt?: string;
+      fare?: [number, number] | null;
+      fareBasis?: string;
+      fareSourceUrl?: string;
     }>;
     municipalityRoutes?: Array<{
       from: string;
@@ -36,6 +39,9 @@ const groundRoutes = (
       timeRange?: [number, number];
       sourceUrl?: string;
       checkedAt?: string;
+      fare?: [number, number] | null;
+      fareBasis?: string;
+      fareSourceUrl?: string;
     }>;
   }
 ).routes;
@@ -241,6 +247,36 @@ describe("KAI-12 transport registry invariants", () => {
     for (const route of busRoutes) {
       const pair = `${route.from}→${route.to}`;
       expect(nonDaily.has(pair)).toBe(false);
+    }
+  });
+
+  it("verified ground fares carry basis/source and never mix products", () => {
+    // Regression (KAI-12, FARE_POLICY §5): every stored fare must describe
+    // the same transport product as the duration. Conventional-train rows
+    // (tokyo→nagano, tokyo→shizuoka) previously carried shinkansen fares —
+    // a train duration with a shinkansen price is a mixed product and must
+    // not exist. Fare rows must carry a basis and a fare-specific source.
+    const validBases = new Set([
+      "base",
+      "base-plus-lex",
+      "integrated-total",
+      "non-reserved",
+      "reserved",
+    ]);
+    for (const route of [...groundRoutes, ...groundMunicipalityRoutes]) {
+      if (route.fare === undefined) continue;
+      if (route.fare === null) {
+        // A null fare must not carry a basis that implies a price (mirrors
+        // the validator's null_ground_fare_with_basis).
+        expect(route.fareBasis).toBeUndefined();
+        continue;
+      }
+      expect(route.fareBasis).toBeDefined();
+      expect(validBases.has(route.fareBasis!)).toBe(true);
+      expect(route.fareSourceUrl).toMatch(/^https?:\/\//);
+      if (route.mode === "train") {
+        expect(route.fare).toBeUndefined();
+      }
     }
   });
 

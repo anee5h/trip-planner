@@ -52,7 +52,10 @@
       "mode": "shinkansen",
       "timeRange": [140, 240],
       "sourceUrl": "https://timetable.jr-odekake.net/station-timetable/2815002001",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "fare": [15520, 16020],
+      "fareBasis": "reserved",
+      "fareSourceUrl": "https://www.westjr.co.jp/press/article/items/230530_00_press_pricereview.pdf"
     },
     {
       "from": "osaka",
@@ -169,7 +172,10 @@
       "mode": "shinkansen",
       "timeRange": [141, 270],
       "sourceUrl": "https://global.jr-central.co.jp/en/info/timetable/index.html",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "fare": [14400, 14720],
+      "fareBasis": "reserved",
+      "fareSourceUrl": "https://global.jr-central.co.jp/en/tickets/"
     },
     {
       "from": "tokyo",
@@ -178,7 +184,10 @@
       "mode": "shinkansen",
       "timeRange": [100, 185],
       "sourceUrl": "https://global.jr-central.co.jp/en/info/timetable/index.html",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "fare": [11090, 11300],
+      "fareBasis": "reserved",
+      "fareSourceUrl": "https://railway.jr-central.co.jp/ticket-rule/rule31.html"
     },
     {
       "from": "tokyo",
@@ -187,7 +196,10 @@
       "mode": "shinkansen",
       "timeRange": [89, 160],
       "sourceUrl": "https://timetables.jreast.co.jp/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "fare": [11110, 11430],
+      "fareBasis": "reserved",
+      "fareSourceUrl": "https://www.eki-net.com/top/e-ticket/pdf/pr_tohoku_hokkaido_hayabusa_normal.pdf"
     },
     {
       "from": "tokyo",
@@ -196,7 +208,10 @@
       "mode": "shinkansen",
       "timeRange": [144, 210],
       "sourceUrl": "https://timetables.jreast.co.jp/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "fare": [14400, 14400],
+      "fareBasis": "reserved",
+      "fareSourceUrl": "https://www.eki-net.com/top/e-ticket/waribiki.html"
     },
     {
       "from": "tokyo",
@@ -232,7 +247,10 @@
       "mode": "shinkansen",
       "timeRange": [179, 250],
       "sourceUrl": "https://timetables.jreast.co.jp/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "fare": [17390, 17910],
+      "fareBasis": "reserved",
+      "fareSourceUrl": "https://www.eki-net.com/top/e-ticket/pdf/pr_tohoku_hokkaido_hayabusa_normal.pdf"
     },
     {
       "from": "tokyo",
@@ -241,7 +259,10 @@
       "mode": "shinkansen",
       "timeRange": [228, 250],
       "sourceUrl": "https://timetables.jreast.co.jp/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "fare": [18260, 18260],
+      "fareBasis": "reserved",
+      "fareSourceUrl": "https://www.eki-net.com/top/e-ticket/pdf/pr_tohoku_hokkaido_hayabusa_normal.pdf"
     },
     {
       "from": "tokyo",
@@ -250,7 +271,10 @@
       "mode": "shinkansen",
       "timeRange": [158, 210],
       "sourceUrl": "https://timetables.jreast.co.jp/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "fare": [11470, 11470],
+      "fareBasis": "reserved",
+      "fareSourceUrl": "https://www.eki-net.com/top/e-ticket/pdf/pr_yamagata_normal.pdf"
     },
     {
       "from": "tokyo",
@@ -259,7 +283,10 @@
       "mode": "shinkansen",
       "timeRange": [97, 160],
       "sourceUrl": "https://timetables.jreast.co.jp/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "fare": [10780, 10780],
+      "fareBasis": "reserved",
+      "fareSourceUrl": "https://www.eki-net.com/top/e-ticket/pdf/pr_joetsu_normal.pdf"
     },
     {
       "from": "tokyo",
@@ -277,7 +304,10 @@
       "mode": "shinkansen",
       "timeRange": [77, 150],
       "sourceUrl": "https://timetables.jreast.co.jp/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "fare": [8250, 8250],
+      "fareBasis": "reserved",
+      "fareSourceUrl": "https://www.eki-net.com/top/e-ticket/waribiki.html"
     },
     {
       "from": "tokyo",
@@ -295,7 +325,10 @@
       "mode": "shinkansen",
       "timeRange": [125, 180],
       "sourceUrl": "https://timetables.jreast.co.jp/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "fare": [12980, 12980],
+      "fareBasis": "reserved",
+      "fareSourceUrl": "https://www.eki-net.com/top/e-ticket/waribiki.html"
     },
     {
       "from": "tokyo",
@@ -340,7 +373,10 @@
       "mode": "shinkansen",
       "timeRange": [76, 140],
       "sourceUrl": "https://www.jrkyushu.co.jp/trains/sp/800/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "fare": [11950, 11950],
+      "fareBasis": "reserved",
+      "fareSourceUrl": "https://www.jrkyushu.co.jp/railway/kaitei/pdf/20241129_fare_revision.pdf"
     },
     {
       "from": "fukuoka",
@@ -349,7 +385,10 @@
       "mode": "shinkansen",
       "timeRange": [33, 60],
       "sourceUrl": "https://www.jrkyushu.co.jp/trains/sp/800/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "fare": [5840, 5840],
+      "fareBasis": "reserved",
+      "fareSourceUrl": "https://www.jrkyushu.co.jp/railway/kaitei/pdf/20241129_fare_revision.pdf"
     },
     {
       "from": "fukuoka",
@@ -358,7 +397,10 @@
       "mode": "shinkansen",
       "timeRange": [80, 140],
       "sourceUrl": "https://www.jrkyushu.co.jp/railway/netyoyaku/route/nagasaki/",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "fare": [6490, 6490],
+      "fareBasis": "reserved",
+      "fareSourceUrl": "https://www.jrkyushu.co.jp/railway/kaitei/pdf/20241129_fare_revision.pdf"
     },
     {
       "from": "fukuoka",
@@ -466,7 +508,10 @@
       "mode": "shinkansen",
       "timeRange": [60, 75],
       "sourceUrl": "https://global.jr-central.co.jp/en/info/timetable/index.html",
-      "checkedAt": "2026-08-10"
+      "checkedAt": "2026-08-10",
+      "fare": [6470, 6470],
+      "fareBasis": "reserved",
+      "fareSourceUrl": "https://railway.jr-central.co.jp/ticket-rule/rule31.html"
     }
   ],
   "municipalityRoutes": [
