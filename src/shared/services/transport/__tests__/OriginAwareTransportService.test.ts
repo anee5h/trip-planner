@@ -319,3 +319,111 @@ describe("getOriginAwareTransportEstimate — verified bus corridors (KAI-12)", 
     ).not.toBeNull();
   });
 });
+
+describe("getOriginAwareTransportEstimate — 50 km bus catchment (KAI-12)", () => {
+  const SHINAGAWA = { lat: 35.6285, lng: 139.7387 }; // unwired municipality
+  const OMIYA = { lat: 35.9063, lng: 139.6236 }; // unwired (Saitama)
+  const TOKYO = { lat: 35.6812, lng: 139.7671 };
+
+  it("origin within 50 km of a terminal uses its corridors (Shinagawa → Osaka bus)", () => {
+    const osaka = dest({
+      id: "osaka-city",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 34.7025, lng: 135.4959 },
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      osaka,
+      { homeStationCoords: SHINAGAWA },
+      ["bus"],
+    );
+    expect(estimate).not.toBeNull();
+    expect(estimate!.mode).toBe("bus");
+    expect(estimate!.timeRange).toEqual([438, 498]);
+    expect(estimate!.fare).toEqual([3300, 19000]);
+  });
+
+  it("origin within 50 km of a terminal uses its corridors (Omiya → Sendai bus)", () => {
+    const sendai = dest({
+      id: "sendai-city",
+      prefecture: "Miyagi",
+      municipalityId: "Miyagi:sendai",
+      coordinates: { lat: 38.268, lng: 140.87 },
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      sendai,
+      { homeStationCoords: OMIYA },
+      ["bus"],
+    );
+    expect(estimate).not.toBeNull();
+    expect(estimate!.mode).toBe("bus");
+  });
+
+  it("destination within 50 km of the arrival terminal is reachable (Nara via Osaka)", () => {
+    const nara = dest({
+      id: "nara-city",
+      prefecture: "Nara",
+      municipalityId: "Nara:nara",
+      coordinates: { lat: 34.6851, lng: 135.8048 },
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      nara,
+      { homeStationCoords: TOKYO },
+      ["bus"],
+    );
+    expect(estimate).not.toBeNull();
+    // Nara is ~27 km from the Osaka terminal → tokyo→osaka corridor applies.
+    expect(estimate!.timeRange).toEqual([438, 498]);
+  });
+
+  it("locations beyond 50 km of every terminal stay unknown", () => {
+    const abashiri = dest({
+      id: "abashiri-city",
+      prefecture: "Hokkaido",
+      coordinates: { lat: 43.99, lng: 144.26 },
+    });
+    expect(
+      getOriginAwareTransportEstimate(abashiri, { homeStationCoords: TOKYO }, [
+        "bus",
+      ]),
+    ).toBeNull();
+    expect(
+      getOriginAwareTransportEstimate(
+        abashiri,
+        { homeStationCoords: { lat: 43.99, lng: 144.26 } },
+        ["bus"],
+      ),
+    ).toBeNull();
+  });
+
+  it("exact municipality wiring still wins over the radius", () => {
+    const osaka = dest({
+      id: "osaka-city",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 34.7025, lng: 135.4959 },
+    });
+    expect(
+      getOriginAwareTransportEstimate(osaka, { homeStationCoords: TOKYO }, [
+        "bus",
+      ]),
+    ).not.toBeNull();
+  });
+
+  it("destination catchment must not bridge natural barriers (Hakone ≠ Kawaguchiko)", () => {
+    // Hakone is ~42 km from the Kawaguchiko terminal — beyond the 30 km
+    // arrival catchment — so the tokyo→kawaguchiko coach must not be
+    // claimed for Hakone (cross-mountain pairing, no real connection).
+    const hakone = dest({
+      id: "hakone-town",
+      prefecture: "Kanagawa",
+      municipalityId: "Kanagawa:hakone",
+      coordinates: { lat: 35.2324, lng: 139.1069 },
+    });
+    expect(
+      getOriginAwareTransportEstimate(hakone, { homeStationCoords: TOKYO }, [
+        "bus",
+      ]),
+    ).toBeNull();
+  });
+});

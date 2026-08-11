@@ -1,4 +1,63 @@
 import busRoutesData from "../../data/bus-routes.json";
+import { getDistanceKm } from "./TransportEstimator";
+import { resolveOriginTransportZone } from "./TransportTopologyService";
+
+/**
+ * Bus catchment radius (km) around a verified corridor terminal for the
+ * ORIGIN side. A traveler within this radius of a terminal may reasonably
+ * travel to it to use its intercity coach corridors (e.g. a Kawasaki
+ * resident catching the Tokyo-departing bus). Deliberately smaller than the
+ * flight catchment (250 km): you travel *to* a bus. Access legs themselves
+ * are not modeled (no multi-leg journeys yet) — the corridor remains the
+ * verified fact.
+ */
+export const BUS_ACCESS_RADIUS_KM = 50;
+
+/**
+ * Bus catchment radius (km) for the DESTINATION side — the onward leg after
+ * getting off the coach. Kept tighter than the origin radius (30 km): a
+ * 50 km destination catchment fabricates pairings across natural barriers
+ * (e.g. Hakone is 42 km from Kawaguchiko yet the tokyo→kawaguchiko coach
+ * does not serve it), while ~30 km covers genuine onward day-trips like
+ * Nara from the Osaka-arriving bus (~28 km).
+ */
+export const BUS_ARRIVAL_RADIUS_KM = 30;
+
+/**
+ * Representative coordinates of each registered corridor terminal (station
+ * or bus-terminal city center). Used by the catchment resolver; static
+ * geography, matching the station-label resolution elsewhere in the app.
+ */
+export const BUS_TERMINAL_COORDS: Record<string, { lat: number; lng: number }> =
+  {
+    tokyo: { lat: 35.6812, lng: 139.7671 }, // Tokyo Station (Yaesu)
+    ikebukuro: { lat: 35.7295, lng: 139.7109 }, // Ikebukuro
+    osaka: { lat: 34.7025, lng: 135.4959 }, // Osaka/Umeda
+    kyoto: { lat: 34.9858, lng: 135.7588 }, // Kyoto Station
+    nagoya: { lat: 35.1709, lng: 136.8815 }, // Nagoya
+    fukuoka: { lat: 33.5902, lng: 130.4207 }, // Hakata
+    kagoshima: { lat: 31.583, lng: 130.542 }, // Kagoshima-Chuo
+    kumamoto: { lat: 32.7897, lng: 130.6867 }, // Kumamoto
+    nagasaki: { lat: 32.7503, lng: 129.8776 }, // Nagasaki
+    kobe: { lat: 34.6932, lng: 135.1954 }, // Sannomiya
+    takamatsu: { lat: 34.3503, lng: 134.0469 }, // Takamatsu
+    matsuyama: { lat: 33.8404, lng: 132.7657 }, // Matsuyama
+    hiroshima: { lat: 34.3983, lng: 132.4756 }, // Hiroshima
+    kanazawa: { lat: 36.5782, lng: 136.6485 }, // Kanazawa
+    tottori: { lat: 35.4927, lng: 134.2256 }, // Tottori
+    sapporo: { lat: 43.068, lng: 141.351 }, // Sapporo
+    asahikawa: { lat: 43.7627, lng: 142.3626 }, // Asahikawa
+    hakodate: { lat: 41.774, lng: 140.728 }, // Hakodate
+    noboribetsu: { lat: 42.4446, lng: 141.0426 }, // Noboribetsu
+    sendai: { lat: 38.268, lng: 140.87 }, // Sendai
+    yamagata: { lat: 38.2484, lng: 140.3213 }, // Yamagata
+    "aizu-wakamatsu": { lat: 37.4952, lng: 139.9292 }, // Aizu-Wakamatsu
+    kawaguchiko: { lat: 35.4993, lng: 138.7684 }, // Kawaguchiko
+    kofu: { lat: 35.6673, lng: 138.5688 }, // Kofu
+    matsumoto: { lat: 36.2308, lng: 137.9705 }, // Matsumoto
+    nagano: { lat: 36.6431, lng: 138.1888 }, // Nagano
+    niigata: { lat: 37.9121, lng: 139.0614 }, // Niigata
+  };
 
 export interface BusRoute {
   from: string;
@@ -95,4 +154,50 @@ export function getBusRoute(
     sourceUrl: match.sourceUrl,
     checkedAt: match.checkedAt,
   };
+}
+
+/**
+ * Resolves a location (origin or destination) to the corridor slugs it may
+ * use, nearest first. Exact municipality wiring leads; then every registered
+ * terminal within BUS_ACCESS_RADIUS_KM (50 km) in the same transport zone
+ * qualifies — a Kawasaki resident can catch the Tokyo-departing coach, a
+ * Nara destination is reachable from the Osaka-arriving one. Multiple
+ * candidates matter: the nearest terminal may serve different corridors
+ * than the next (Omiya is closer to Ikebukuro but the Tokyo-departing
+ * Sendai coach is the usable one). No terminal within the radius (or
+ * cross-zone) → empty: unknown stays unknown, and a 50 km catchment can
+ * never bridge water to an island (zone gate).
+ */
+export function resolveBusTerminalSlugs(
+  location: { lat: number; lng: number },
+  municipalityId?: string,
+  radiusKm: number = BUS_ACCESS_RADIUS_KM,
+): string[] {
+  const slugs: string[] = [];
+  if (municipalityId && MUNICIPALITY_BUS_SLUG[municipalityId]) {
+    slugs.push(MUNICIPALITY_BUS_SLUG[municipalityId]);
+  }
+  const locationZone = resolveOriginTransportZone({ coordinates: location });
+  if (locationZone === "unknown") return slugs;
+  const candidates = Object.entries(BUS_TERMINAL_COORDS)
+    .filter(
+      ([, coords]) =>
+        resolveOriginTransportZone({ coordinates: coords }) === locationZone,
+    )
+    .map(([slug, coords]) => ({
+      slug,
+      distanceKm: getDistanceKm(
+        location.lat,
+        location.lng,
+        coords.lat,
+        coords.lng,
+      ),
+    }))
+    .filter((c) => c.distanceKm <= radiusKm)
+    .sort((a, b) => a.distanceKm - b.distanceKm)
+    .map((c) => c.slug);
+  for (const slug of candidates) {
+    if (!slugs.includes(slug)) slugs.push(slug);
+  }
+  return slugs;
 }

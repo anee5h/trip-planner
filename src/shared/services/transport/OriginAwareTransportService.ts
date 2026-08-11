@@ -5,7 +5,13 @@ import {
   getGroundRoute,
   getMunicipalityGroundRoute,
 } from "./GroundRouteEstimator";
-import { getBusRoute, MUNICIPALITY_BUS_SLUG } from "./BusRouteEstimator";
+import {
+  BUS_ARRIVAL_RADIUS_KM,
+  getBusRoute,
+  MUNICIPALITY_BUS_SLUG,
+  resolveBusTerminalSlugs,
+  type BusRouteEstimate,
+} from "./BusRouteEstimator";
 import { getFlightTransportEstimate } from "./FlightTransportEstimator";
 import { getFerryTransportEstimate } from "./FerryTransportEstimator";
 import {
@@ -158,11 +164,36 @@ function getGroundEstimate(
       : undefined;
     const originMunicipalityId =
       context.originMunicipalityId ?? resolvedOrigin?.municipalityId;
-    if (!originMunicipalityId || !destination.municipalityId) return null;
-    const fromSlug = MUNICIPALITY_BUS_SLUG[originMunicipalityId];
-    const toSlug = MUNICIPALITY_BUS_SLUG[destination.municipalityId];
-    if (!fromSlug || !toSlug) return null;
-    const route = getBusRoute(fromSlug, toSlug);
+    if (!context.homeStationCoords && !originMunicipalityId) return null;
+    if (!destination.coordinates && !destination.municipalityId) return null;
+    // Slugs resolve by exact municipality wiring first, then by the 50 km
+    // terminal catchment (KAI-12): a traveler near a terminal may use its
+    // corridors, and a destination near the arrival terminal is reachable.
+    // Access legs are not modeled — the corridor stays the verified fact.
+    // Candidates are nearest-first; try them until a corridor matches (the
+    // nearest terminal may serve different corridors than the next).
+    const fromSlugs = context.homeStationCoords
+      ? resolveBusTerminalSlugs(context.homeStationCoords, originMunicipalityId)
+      : originMunicipalityId
+        ? [MUNICIPALITY_BUS_SLUG[originMunicipalityId]]
+        : [];
+    const toSlugs = destination.coordinates
+      ? resolveBusTerminalSlugs(
+          destination.coordinates,
+          destination.municipalityId,
+          BUS_ARRIVAL_RADIUS_KM,
+        )
+      : destination.municipalityId
+        ? [MUNICIPALITY_BUS_SLUG[destination.municipalityId]]
+        : [];
+    let route: BusRouteEstimate | null = null;
+    for (const fromSlug of fromSlugs) {
+      for (const toSlug of toSlugs) {
+        route = getBusRoute(fromSlug, toSlug);
+        if (route) break;
+      }
+      if (route) break;
+    }
     if (!route) return null;
     return {
       mode,
