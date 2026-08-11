@@ -3,10 +3,10 @@
 ## KAI-40 status
 
 - base SHA: `c3fb7078f0ef31c50ffd1457af563d2a5df16d19` (origin/main @ 2026-08-11)
-- head SHA: (filled at commit time)
+- head SHA: `f19edbc2` (final head; first functional commit `c131bac1`)
 - branch: `aneeshpatil8/kai-40-investigate-intermittent-supabase-jwt-issued-at-future-sync`
-- PR: (filled at PR time)
-- CI state: (filled after push)
+- PR: https://github.com/aneesh-patil/trip-planner/pull/141
+- CI state: all required checks pass on final head — Fast Validation, validate-title, integrity, quality, tests, test-and-build, build, catalogue-fast, changed-external (Full Remote Validation intentionally skips without its trigger)
 - Working tree at branch start: clean worktree from `origin/main`
 - Installed versions: `@supabase/supabase-js@2.111.0`, `@supabase/auth-js@2.111.0`
 - Auth/session files identified: `src/lib/supabase.ts`, `src/shared/hooks/useAuth.tsx`, `src/shared/hooks/useTripSync.ts`, `src/shared/hooks/useTripStore.tsx`, `src/shared/services/trips/TripRepository.ts`, `src/shared/hooks/clearProfileOrchestration.ts`
