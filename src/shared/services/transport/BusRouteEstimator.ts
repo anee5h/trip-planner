@@ -9,9 +9,10 @@ export interface BusRoute {
   operator: string;
   durationMinutes: [number, number];
   reservationRequired: boolean;
-  /** null = no verified standard fare (see FARE_POLICY §3). */
-  fare: [number, number] | null;
-  fareVariability?: "fixed" | "range" | "variable" | "dynamic";
+  /** Verified one-way adult fare. The upper bound may be null for dynamic
+   *  "from ¥X" fares (FARE_POLICY §3); null = no verified standard fare. */
+  fare: [number, number | null] | null;
+  fareVariability?: "fixed" | "range" | "variable" | "dynamic" | null;
   sourceUrl: string;
   checkedAt: string;
 }
@@ -22,8 +23,8 @@ export interface BusRouteEstimate {
   serviceName: string;
   operator: string;
   reservationRequired: boolean;
-  fare: [number, number] | null;
-  fareVariability?: "fixed" | "range" | "variable" | "dynamic";
+  fare: [number, number | null] | null;
+  fareVariability?: "fixed" | "range" | "variable" | "dynamic" | null;
   sourceUrl: string;
   checkedAt: string;
 }

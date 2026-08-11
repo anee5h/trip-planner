@@ -67,7 +67,7 @@ const busRoutes = (
       durationMinutes?: [number, number];
       sourceUrl?: string;
       checkedAt?: string;
-      fare?: [number, number] | null;
+      fare?: [number, number | null] | null;
       fareVariability?: string;
       operator?: string;
     }>;

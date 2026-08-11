@@ -40,9 +40,10 @@ export interface OriginAwareTransportEstimate {
    *  never a fixed price. null = no verified standard fare (FARE_POLICY
    *  §3). Budget consumers must not treat an estimate without this field
    *  as having a verified fare. */
-  fare?: [number, number] | null;
-  /** Fare behavior: fixed / range / variable / dynamic (bus policy §3). */
-  fareVariability?: "fixed" | "range" | "variable" | "dynamic";
+  fare?: [number, number | null] | null;
+  /** Fare behavior: fixed / range / variable / dynamic (bus policy §3);
+   *  null when no fare is stored. */
+  fareVariability?: "fixed" | "range" | "variable" | "dynamic" | null;
 }
 
 /**
