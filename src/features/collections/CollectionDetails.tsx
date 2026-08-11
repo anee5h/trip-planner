@@ -2,12 +2,20 @@ import { useParams, Link } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { getCollectionBySlug } from "@/shared/data/collections";
 import {
+  getCollectionDestinationGroups,
   getDestinationsForCollection,
   getCollectionProgress,
   getCollectionContent,
+  UNESCO_COLLECTION_ID,
 } from "@/shared/utils/collections";
 import DestinationCard from "@/features/destinations/components/DestinationCard";
-import { ArrowLeft, ExternalLink, Frown, CheckCircle2 } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ExternalLink,
+  Frown,
+  CheckCircle2,
+} from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { useTranslation } from "react-i18next";
@@ -40,6 +48,11 @@ export default function CollectionDetails() {
   }
 
   const destinations = getDestinationsForCollection(collection.id, locale);
+  const destinationGroups = getCollectionDestinationGroups(
+    collection.id,
+    locale,
+  );
+  const isUNESCOCollection = collection.id === UNESCO_COLLECTION_ID;
   const progress = getCollectionProgress(collection.id, visited, locale);
   const content = getCollectionContent(collection, locale);
 
@@ -77,7 +90,9 @@ export default function CollectionDetails() {
             <span className="text-slate-800 dark:text-slate-200 flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-500" />
               {progress.visited} / {progress.total}{" "}
-              {t("ui.visited").toLowerCase()}
+              {isUNESCOCollection
+                ? t("ui.unescoVisited").toLowerCase()
+                : t("ui.visited").toLowerCase()}
             </span>
             <span className="text-emerald-600 dark:text-emerald-400">
               {progress.percent}%
@@ -144,7 +159,13 @@ export default function CollectionDetails() {
                     {t("ui.expected")}:
                   </span>{" "}
                   <span className="font-semibold text-slate-700 dark:text-slate-200">
-                    {collection.metadata.expectedMembers} {t("ui.destinations")}
+                    {isUNESCOCollection
+                      ? t("ui.unescoPlaces", {
+                          count: collection.metadata.expectedMembers,
+                        })
+                      : `${collection.metadata.expectedMembers} ${t(
+                          "ui.destinations",
+                        )}`}
                   </span>
                 </div>
               )}
@@ -165,7 +186,6 @@ export default function CollectionDetails() {
         )}
       </div>
 
-      {/* Destination Grid & Empty State */}
       {destinations.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-16 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 text-slate-500">
           <Frown className="w-12 h-12 mb-3 text-slate-400" />
@@ -176,11 +196,56 @@ export default function CollectionDetails() {
             Check back soon as new verified destinations are added.
           </p>
         </div>
+      ) : isUNESCOCollection ? (
+        <div>
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white">
+              {t("ui.unescoProperties", {
+                count: destinationGroups.length,
+              })}
+              <span className="mt-1 block text-xs font-medium text-slate-500 dark:text-slate-400">
+                {t("ui.unescoPlaces", { count: destinations.length })}
+              </span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {destinationGroups.map((group) => {
+              const isSinglePlace = group.destinations.length === 1;
+              const target = isSinglePlace
+                ? `/destinations/${group.destinations[0].id}`
+                : `/collections/${collection.slug}/${group.propertyId}`;
+              return (
+                <Link
+                  key={group.id}
+                  to={target}
+                  className="group flex min-h-40 flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md dark:border-slate-800 dark:bg-slate-900"
+                >
+                  <h3 className="text-base font-extrabold leading-snug text-slate-900 transition-colors group-hover:text-emerald-600 dark:text-white dark:group-hover:text-emerald-400">
+                    {group.name}
+                  </h3>
+                  {!isSinglePlace && (
+                    <span className="mt-2 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                      {t("ui.unescoPlaces", {
+                        count: group.destinations.length,
+                      })}
+                    </span>
+                  )}
+                  <span className="mt-auto inline-flex items-center gap-1 pt-3 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                    {isSinglePlace ? t("ui.view") : t("ui.viewPlaces")}
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
       ) : (
         <div>
-          <div className="flex justify-between items-center mb-6">
+          <div className="mb-6 flex items-center justify-between">
             <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white">
-              {t("ui.includedDestinations", { count: destinations.length })}
+              {t("ui.includedDestinations", {
+                count: destinations.length,
+              })}
               {collection.metadata.expectedMembers &&
                 collection.metadata.expectedMembers !== destinations.length && (
                   <span className="mt-1 block text-xs font-medium text-slate-500 dark:text-slate-400">
@@ -195,7 +260,7 @@ export default function CollectionDetails() {
                 )}
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {destinations.map((dest) => (
               <DestinationCard key={dest.id} destination={dest} />
             ))}

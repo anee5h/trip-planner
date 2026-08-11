@@ -18,7 +18,7 @@
 | UNESCO member records with `source`                 | 0 of the 32 legacy members had complete source coverage | 44 of 44 |
 | UNESCO parent/municipality violations               |                  No detected error in baseline snapshot |        0 |
 
-The UNESCO World Heritage Centre's Japan state-party page (https://whc.unesco.org/en/statesparties/jp) reports **27 inscribed properties: 22 cultural and 5 natural**. The 44-member target is not a property count: it counts curated Meguruto destination records, including property-level records, official components, and visitor representations.
+The UNESCO World Heritage Centre's Japan state-party page (https://whc.unesco.org/en/statesparties/jp) reports **27 inscribed properties: 22 cultural and 5 natural**. The 44-member target is not a property count: it counts curated Meguruto destination records, including property-level records, official components, and visitor representations. The collection UI groups those records by their UNESCO property source URL into 27 property groups while retaining the individual records for navigation and visit tracking.
 
 ## Data-model decisions
 

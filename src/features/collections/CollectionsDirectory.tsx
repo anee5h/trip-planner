@@ -3,9 +3,11 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { getCollections } from "@/shared/data/collections";
 import {
+  getCollectionDestinationGroups,
   getDestinationsForCollection,
   getCollectionProgress,
   getCollectionContent,
+  UNESCO_COLLECTION_ID,
 } from "@/shared/utils/collections";
 import { Badge } from "@/shared/components/ui/badge";
 import { useLocale } from "@/shared/context/LocaleContext";
@@ -36,6 +38,11 @@ export default function CollectionsDirectory() {
             collection.id,
             locale,
           );
+          const destinationGroups = getCollectionDestinationGroups(
+            collection.id,
+            locale,
+          );
+          const isUNESCOCollection = collection.id === UNESCO_COLLECTION_ID;
           const progress = getCollectionProgress(
             collection.id,
             visited,
@@ -67,7 +74,9 @@ export default function CollectionsDirectory() {
                   <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
                     <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
                     {progress.visited} / {progress.total}{" "}
-                    {t("ui.visited").toLowerCase()}
+                    {isUNESCOCollection
+                      ? t("ui.unescoVisited").toLowerCase()
+                      : t("ui.visited").toLowerCase()}
                   </span>
                   <span className="text-emerald-600 dark:text-emerald-400">
                     {progress.percent}%
@@ -81,7 +90,12 @@ export default function CollectionsDirectory() {
                 </div>
                 <div className="mt-4 flex items-center justify-between text-xs font-bold text-emerald-600 dark:text-emerald-400 md:text-[13px]">
                   <span>
-                    {destinations.length} {t("ui.destinations")}
+                    {isUNESCOCollection
+                      ? t("ui.unescoSummary", {
+                          properties: destinationGroups.length,
+                          places: destinations.length,
+                        })
+                      : `${destinations.length} ${t("ui.destinations")}`}
                   </span>
                   <span className="inline-flex items-center gap-1">
                     {t("ui.viewCollection")}{" "}
