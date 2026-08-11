@@ -5,6 +5,7 @@ import {
   findArrivalAirport,
   getFlightRoute,
   getFlightTransportEstimate,
+  isFlightRouteOperating,
 } from "../FlightTransportEstimator";
 import {
   formatApproximateTransportTime,
@@ -159,6 +160,72 @@ describe("TransportEstimator", () => {
       new Date("2026-08-01T12:00:00"),
     );
     expect(flightEst).not.toBeNull();
+  });
+
+  it("omits seasonal routes when no travel date is supplied", () => {
+    // Regression (KAI-12): a seasonal route must not become available just
+    // because no date is known — no date is not evidence of year-round
+    // operation. Previously the no-date path returned "operating" for every
+    // route, so ITM→ISG (seasonal Jul 17–Aug 28) leaked into estimates.
+    const flightEst = getFlightTransportEstimate(
+      mockIshigakiDestination,
+      ITM_COORDS,
+    );
+    expect(flightEst).toBeNull();
+  });
+
+  describe("isFlightRouteOperating (KAI-12 seasonal semantics)", () => {
+    const seasonal = {
+      from: "ITM",
+      to: "ISG",
+      operatingPeriods: [{ from: "07-17", to: "08-28" }],
+    } as unknown as Parameters<typeof isFlightRouteOperating>[0];
+    const yearRound = { from: "HND", to: "CTS" } as unknown as Parameters<
+      typeof isFlightRouteOperating
+    >[0];
+    const yearWrapping = {
+      from: "CTS",
+      to: "OKA",
+      operatingPeriods: [{ from: "12-25", to: "01-05" }],
+    } as unknown as Parameters<typeof isFlightRouteOperating>[0];
+
+    it("year-round route + no date → available", () => {
+      expect(isFlightRouteOperating(yearRound)).toBe(true);
+    });
+
+    it("year-round route + any date → available", () => {
+      expect(
+        isFlightRouteOperating(yearRound, new Date("2026-08-01T12:00:00")),
+      ).toBe(true);
+    });
+
+    it("seasonal route + no date → unavailable", () => {
+      expect(isFlightRouteOperating(seasonal)).toBe(false);
+    });
+
+    it("seasonal route + date inside period → available", () => {
+      expect(
+        isFlightRouteOperating(seasonal, new Date("2026-08-01T12:00:00")),
+      ).toBe(true);
+    });
+
+    it("seasonal route + date outside period → unavailable", () => {
+      expect(
+        isFlightRouteOperating(seasonal, new Date("2026-12-10T12:00:00")),
+      ).toBe(false);
+    });
+
+    it("year-wrapping seasonal period operates across the year boundary", () => {
+      expect(
+        isFlightRouteOperating(yearWrapping, new Date("2026-12-30T12:00:00")),
+      ).toBe(true);
+      expect(
+        isFlightRouteOperating(yearWrapping, new Date("2027-01-03T12:00:00")),
+      ).toBe(true);
+      expect(
+        isFlightRouteOperating(yearWrapping, new Date("2026-07-01T12:00:00")),
+      ).toBe(false);
+    });
   });
 
   it("provides getBestEstimateBetween between any two Locations", () => {

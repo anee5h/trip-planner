@@ -123,7 +123,12 @@ export function isFlightRouteOperating(
   route: FlightRoute,
   travelDate?: Date,
 ): boolean {
-  if (!travelDate || !route.operatingPeriods?.length) return true;
+  // Year-round route: operating regardless of whether a date is supplied.
+  if (!route.operatingPeriods?.length) return true;
+  // Seasonal route with no travel date: conservatively unavailable. A
+  // seasonal route must never be presented as available just because no
+  // date is known (KAI-12: unknown stays unknown; no-date ≠ year-round).
+  if (!travelDate) return false;
   const mm = String(travelDate.getMonth() + 1).padStart(2, "0");
   const dd = String(travelDate.getDate()).padStart(2, "0");
   const md = `${mm}-${dd}`;
