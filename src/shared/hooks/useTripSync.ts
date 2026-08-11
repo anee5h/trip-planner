@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import type { User } from "@supabase/supabase-js";
+import type { PostgrestError, User } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
 import type { Trip } from "@/shared/types/trip";
@@ -10,6 +10,7 @@ import type { Destination } from "@/shared/types/destination";
 import { formatPrefectureId } from "@/shared/hooks/useTripStore";
 import type { OriginLocation } from "@/shared/hooks/useTripStore";
 import { resolveOriginTransportZone } from "@/shared/services/transport/TransportTopologyService";
+import { withJwtFutureRecovery } from "@/shared/hooks/jwtRecovery";
 
 type VisitDates = Record<string, string[] | string>;
 type DestinationRatings = Record<string, "up" | "down">;
@@ -436,11 +437,16 @@ export function useTripSync({
       previousUserIdRef.current === userId;
 
     const hydrateUserData = async () => {
-      const { data, error } = await client
-        .from("user_data")
-        .select("*")
-        .eq("id", userId)
-        .maybeSingle();
+      const { data, error } = await withJwtFutureRecovery(
+        client,
+        () =>
+          client.from("user_data").select("*").eq("id", userId).maybeSingle(),
+        {
+          phase: "user_data.hydrate",
+          isStillCurrent: isCurrentHydration,
+          userId,
+        },
+      );
 
       if (!isCurrentHydration()) return;
 
@@ -641,8 +647,9 @@ export function useTripSync({
   // Hydrate trips exclusively from Supabase
   useEffect(() => {
     const userId = user?.id;
+    const client = supabase;
 
-    if (!userId) {
+    if (!userId || !client) {
       hydratedTripsUserIdRef.current = null;
       setTripSyncStatus("idle");
       return;
@@ -659,24 +666,42 @@ export function useTripSync({
     const hydrateTrips = async () => {
       const tripRepository = new SupabaseTripRepository();
 
-      try {
-        const fetchedTrips = await tripRepository.fetchTrips(userId);
+      const { data: fetchedTrips, error } = await withJwtFutureRecovery(
+        client,
+        async () => {
+          try {
+            const fetched = await tripRepository.fetchTrips(userId);
+            return { data: fetched, error: null };
+          } catch (requestError) {
+            return {
+              data: [] as Trip[],
+              error: requestError as PostgrestError,
+            };
+          }
+        },
+        {
+          phase: "trips.hydrate",
+          isStillCurrent: isCurrentHydration,
+          userId,
+        },
+      );
 
-        if (!isCurrentHydration()) return;
+      if (!isCurrentHydration()) return;
 
-        const resolvedTrips = fetchedTrips || [];
-        setTrips?.(resolvedTrips);
-        previousTripsRef.current = resolvedTrips;
-        hydratedTripsUserIdRef.current = userId;
-        setTripSyncStatus("ready");
-      } catch (error) {
-        if (!isCurrentHydration()) return;
+      if (error) {
         console.error(
           "[Meguruto Sync] Failed to load trips from server:",
           error,
         );
         setTripSyncStatus("error");
+        return;
       }
+
+      const resolvedTrips = fetchedTrips || [];
+      setTrips?.(resolvedTrips);
+      previousTripsRef.current = resolvedTrips;
+      hydratedTripsUserIdRef.current = userId;
+      setTripSyncStatus("ready");
     };
 
     void hydrateTrips();
@@ -746,33 +771,42 @@ export function useTripSync({
         updated_at: updatedAt,
       };
 
-      void client
-        .from("user_data")
-        .upsert(payload)
-        .then(({ error }) => {
-          if (
-            previousUserIdRef.current !== userId ||
-            hydratedUserIdRef.current !== userId
-          ) {
-            return;
-          }
+      void (async () => {
+        const { error } = await withJwtFutureRecovery(
+          client,
+          () => client.from("user_data").upsert(payload),
+          {
+            phase: "user_data.save",
+            isStillCurrent: () =>
+              previousUserIdRef.current === userId &&
+              hydratedUserIdRef.current === userId,
+            userId,
+          },
+        );
 
-          if (error) {
-            console.error("[Meguruto Sync] Failed to sync user_data:", error);
-            setProfileSyncStatus("error");
-            toast.error("Failed to sync profile to cloud.", {
-              id: "user-data-sync-error",
-            });
-            return;
-          }
+        if (
+          previousUserIdRef.current !== userId ||
+          hydratedUserIdRef.current !== userId
+        ) {
+          return;
+        }
 
-          lastSyncedProfileRef.current = snapshot;
-          setProfileSyncStatus("ready");
-          const syncedDate = getDatePart(updatedAt);
-          if (syncedDate) {
-            setLastSyncedDate?.(syncedDate);
-          }
-        });
+        if (error) {
+          console.error("[Meguruto Sync] Failed to sync user_data:", error);
+          setProfileSyncStatus("error");
+          toast.error("Failed to sync profile to cloud.", {
+            id: "user-data-sync-error",
+          });
+          return;
+        }
+
+        lastSyncedProfileRef.current = snapshot;
+        setProfileSyncStatus("ready");
+        const syncedDate = getDatePart(updatedAt);
+        if (syncedDate) {
+          setLastSyncedDate?.(syncedDate);
+        }
+      })();
     }, 1000);
 
     return () => {
@@ -795,9 +829,11 @@ export function useTripSync({
   // Persist trip changes only after dedicated trip hydration completes
   useEffect(() => {
     const userId = user?.id;
+    const client = supabase;
 
     if (
       !userId ||
+      !client ||
       hydratedTripsUserIdRef.current !== userId ||
       tripSyncStatus === "error"
     ) {
@@ -841,18 +877,48 @@ export function useTripSync({
         tripRepository.saveTrip(trip, userId),
       );
 
-      void Promise.all([...deleteRequests, ...saveRequests])
-        .then(() => {
-          previousTripsRef.current = tripsToSave;
-          setTripSyncStatus("ready");
-        })
-        .catch((error) => {
+      void (async () => {
+        const { error } = await withJwtFutureRecovery(
+          client,
+          async () => {
+            try {
+              await Promise.all([...deleteRequests, ...saveRequests]);
+              return { data: null, error: null };
+            } catch (requestError) {
+              return {
+                data: null,
+                error: requestError as PostgrestError,
+              };
+            }
+          },
+          {
+            phase: "trips.save",
+            isStillCurrent: () =>
+              previousUserIdRef.current === userId &&
+              hydratedTripsUserIdRef.current === userId,
+            userId,
+          },
+        );
+
+        if (
+          previousUserIdRef.current !== userId ||
+          hydratedTripsUserIdRef.current !== userId
+        ) {
+          return;
+        }
+
+        if (error) {
           console.error("Failed to sync trips to cloud", error);
           setTripSyncStatus("error");
           toast.error("Failed to sync trips to cloud.", {
             id: "trip-sync-error",
           });
-        });
+          return;
+        }
+
+        previousTripsRef.current = tripsToSave;
+        setTripSyncStatus("ready");
+      })();
     }, 1000);
 
     return () => {
@@ -894,14 +960,26 @@ export function useTripSync({
     ) {
       return;
     }
+    const client = supabase;
 
     setProfileSyncStatus("saving");
 
-    const { error } = await supabase.from("user_data").upsert({
-      id: userId,
-      home_station: origin.label,
-      updated_at: new Date().toISOString(),
-    });
+    const { error } = await withJwtFutureRecovery(
+      client,
+      () =>
+        client.from("user_data").upsert({
+          id: userId,
+          home_station: origin.label,
+          updated_at: new Date().toISOString(),
+        }),
+      {
+        phase: "user_data.origin_repair",
+        isStillCurrent: () =>
+          previousUserIdRef.current === userId &&
+          pendingOriginRepairUserIdRef.current === userId,
+        userId,
+      },
+    );
 
     if (previousUserIdRef.current !== userId) return;
 
