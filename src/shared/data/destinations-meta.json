@@ -454,7 +454,7 @@
     "kind": "attraction",
     "status": "published",
     "relationships": {
-      "parentDestinationId": "nara-city"
+      "gatewayHubId": "nara-city"
     }
   },
   {
@@ -4599,7 +4599,7 @@
     "kind": "town",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": ["nachi-falls-wakayama"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
     }
   },
@@ -5873,7 +5873,7 @@
     "kind": "attraction",
     "status": "published",
     "relationships": {
-      "parentDestinationId": "nara-city"
+      "gatewayHubId": "nara-city"
     }
   },
   {
@@ -7014,7 +7014,7 @@
     "kind": "attraction",
     "status": "published",
     "relationships": {
-      "parentDestinationId": "fukuoka-city"
+      "gatewayHubId": "fukuoka-city"
     }
   },
   {
@@ -7642,7 +7642,7 @@
   },
   {
     "id": "sado-island",
-    "name": "Sado Island",
+    "name": "Sado Island Gold Mines",
     "prefecture": "Niigata",
     "region": "Chubu",
     "role": "standalone",
@@ -8436,10 +8436,10 @@
   },
   {
     "id": "shirakawa-village",
-    "name": "Shirakawa Village",
+    "name": "Ogimachi Historic Village (Shirakawa-go)",
     "prefecture": "Gifu",
     "region": "Chubu",
-    "role": "hub",
+    "role": "standalone",
     "kind": "village",
     "status": "verified",
     "relationships": {

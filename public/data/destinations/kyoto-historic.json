@@ -50,7 +50,7 @@
   },
   "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
   "description": "Kyoto, Japan's imperial capital for over a millennium, encompasses 17 UNESCO World Heritage monuments including the wooden balcony of Kiyomizu-dera and the shimmering Golden Pavilion.",
-  "notes": "A fantastic trip to Lake Hamanako. Known for its eel and cycling vibes, it offers a great escape with an overall score of 8.2.",
+  "notes": "Explore Kyoto's UNESCO-listed historic monuments, including Kiyomizu-dera, Kinkaku-ji, and other sites within the Historic Monuments of Ancient Kyoto property.",
   "budgetRecommended": 9000,
   "crowd": {
     "weekday": 3,
@@ -72,7 +72,7 @@
   "relationships": {
     "parentDestinationId": "kyoto-city"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg",
+  "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 2000,

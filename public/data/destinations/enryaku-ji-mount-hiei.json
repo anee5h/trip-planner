@@ -54,6 +54,13 @@
       ]
     }
   },
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/688/"
+    }
+  ],
   "relationships": {
     "parentDestinationId": "otsu-city"
   },

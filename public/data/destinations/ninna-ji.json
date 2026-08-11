@@ -108,7 +108,8 @@
   "collections": [
     {
       "collectionId": "unesco-japan",
-      "confirmed": true
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/688/"
     },
     {
       "collectionId": "national-treasures",

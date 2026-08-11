@@ -8,23 +8,31 @@ import type {
 export const collectionsValidator: ValidatorModule = {
   name: "Catalog Collections",
   description:
-    "Validates collection references, membership integrity, hub vs. POI scoping, and specific collection rules.",
+    "Validates collection references, membership integrity, expected sizes, hub vs. POI scoping, and specific collection rules.",
   dependsOn: ["Catalog Destinations"],
   purpose:
     "Ensure all collections contain existing destinations with zero duplicate members and proper hub/POI scoping.",
   guarantees: [
+    "Every collection ID is unique",
     "Every referenced destination in collections exists",
-    "Zero duplicate members inside collections",
-    "City hubs excluded from blacklisted collections (e.g. japan-top-castles, UNESCO)",
+    "Zero duplicate members inside collections or destination membership arrays",
+    "Destination collection references point to known collections",
+    "Collection expected-member metadata stays synchronized with catalog membership",
+    "City hubs excluded from blacklisted collections (e.g. japan-top-castles)",
     "Original 12 Castles collection contains valid castle POIs",
   ],
-  doesNotValidate: ["Image HTTP reachability", "Geographic coordinates"],
+  doesNotValidate: [
+    "Image HTTP reachability",
+    "Geographic coordinates",
+    "UNESCO inscription truth",
+  ],
   async validate(context: ValidationContext): Promise<ValidationResult> {
     const { destinations, collections } = context.catalog;
     const { hubCollectionBlacklist } = context.config;
 
     const issues: ValidationIssue[] = [];
     const validDestIds = new Set(destinations.map((d) => d.id));
+    const collectionIds = new Set<string>();
 
     let totalChecked = collections.length;
 
@@ -37,6 +45,32 @@ export const collectionsValidator: ValidatorModule = {
           message: `Collection object is missing id or slug.`,
         });
         continue;
+      }
+
+      if (collectionIds.has(col.id)) {
+        issues.push({
+          severity: "error",
+          code: "DUPLICATE_COLLECTION_ID",
+          message: `Collection index contains duplicate ID '${col.id}'.`,
+          targetId: col.id,
+        });
+      }
+      collectionIds.add(col.id);
+
+      const actualMemberCount = destinations.filter((dest) =>
+        dest.collections?.some((ref) => ref.collectionId === col.id),
+      ).length;
+      const expectedMemberCount = col.metadata?.expectedMembers;
+      if (
+        expectedMemberCount !== undefined &&
+        actualMemberCount !== expectedMemberCount
+      ) {
+        issues.push({
+          severity: "warning",
+          code: "EXPECTED_COLLECTION_MEMBER_COUNT_MISMATCH",
+          message: `Collection '${col.id}' has ${actualMemberCount} catalog members (expected ${expectedMemberCount}).`,
+          targetId: col.id,
+        });
       }
 
       // Check destination memberships if explicitly defined on collection object
@@ -68,8 +102,28 @@ export const collectionsValidator: ValidatorModule = {
     for (const dest of destinations) {
       if (!dest.collections) continue;
 
+      const seenCollectionIds = new Set<string>();
       for (const colRef of dest.collections) {
         const colId = colRef.collectionId;
+
+        if (seenCollectionIds.has(colId)) {
+          issues.push({
+            severity: "error",
+            code: "DUPLICATE_DESTINATION_COLLECTION",
+            message: `Destination '${dest.id}' references collection '${colId}' more than once.`,
+            targetId: dest.id,
+          });
+        }
+        seenCollectionIds.add(colId);
+
+        if (!collectionIds.has(colId)) {
+          issues.push({
+            severity: "error",
+            code: "DANGLING_DESTINATION_COLLECTION",
+            message: `Destination '${dest.id}' references unknown collection '${colId}'.`,
+            targetId: dest.id,
+          });
+        }
 
         // Hub / POI scoping check: Hubs cannot be in blacklisted collections
         if (

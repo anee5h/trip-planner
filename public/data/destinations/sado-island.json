@@ -1,11 +1,11 @@
 {
   "id": "sado-island",
   "transportZoneId": "sado",
-  "name": "Sado Island",
+  "name": "Sado Island Gold Mines",
   "kind": "island",
   "region": "Chubu",
   "categories": ["Island", "History", "Nature"],
-  "tags": ["Gold Mine", "Tub Boats", "Remote"],
+  "tags": ["Gold Mine", "UNESCO World Heritage", "Tub Boats", "Remote"],
   "budgetRecommended": 16000,
   "ratings": {
     "overall": 8.4,
@@ -21,10 +21,10 @@
   },
   "indoorPercent": 30,
   "coordinates": {
-    "lat": 38.0333,
-    "lng": 138.3833
+    "lat": 38.0408,
+    "lng": 138.2578
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/%E4%BA%8C%E3%83%84%E4%BA%80.jpg/960px-%E4%BA%8C%E3%83%84%E4%BA%80.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/%E4%BD%90%E6%B8%A1%E9%87%91%E5%B1%B1.jpg/1280px-%E4%BD%90%E6%B8%A1%E9%87%91%E5%B1%B1.jpg",
   "prefecture": "Niigata",
   "budgetMin": 12000,
   "budgetMax": 20000,
@@ -55,11 +55,11 @@
     "winter": 4
   },
   "highlights": [
-    "Explore top-rated island locations",
-    "Enjoy regional specialties and local culture",
-    "Perfect for a active day out"
+    "Nishimikawa Placer Gold Mine",
+    "Aikawa Gold and Silver Mine Area",
+    "Tsurushi Silver Mine"
   ],
-  "description": "Sado Island is an island located in the eastern part of the Sea of Japan, under the jurisdiction of Sado City, Niigata Prefecture, Japan, with a coastline of 262. 7 kilometres (163.",
+  "description": "Sado Island Gold Mines is a serial UNESCO World Heritage property on Sado Island, comprising the Nishimikawa Placer Gold Mine and the Aikawa-Tsurushi Gold and Silver Mine areas that preserve unmechanised mining and processing landscapes.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 6400,
@@ -67,14 +67,14 @@
     "food": 4800,
     "cafe": 1600
   },
-  "notes": "A fantastic trip to Sado Island. Known for its gold mine and tub boats vibes, it offers a great escape with an overall score of 8.4.",
+  "notes": "The serial property spans three component parts; check the official Niigata and Sado sites for current access and tour information.",
   "schemaVersion": 2,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/%E4%BA%8C%E3%83%84%E4%BA%80.jpg/960px-%E4%BA%8C%E3%83%84%E4%BA%80.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/%E4%BD%90%E6%B8%A1%E9%87%91%E5%B1%B1.jpg/1280px-%E4%BD%90%E6%B8%A1%E9%87%91%E5%B1%B1.jpg",
   "imageMetadata": {
-    "source": "Wikimedia Commons / Wikipedia",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Sado Island via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Sado%20Island"
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Indiana jo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E4%BD%90%E6%B8%A1%E9%87%91%E5%B1%B1.jpg"
   },
   "status": "verified",
   "travelEstimate": {
@@ -83,7 +83,8 @@
   "collections": [
     {
       "collectionId": "unesco-japan",
-      "confirmed": true
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/1698/"
     },
     {
       "collectionId": "coastal-drives-japan",
@@ -97,7 +98,7 @@
   "relationships": {
     "gatewayHubId": "niigata-city"
   },
-  "nameJa": "佐渡島（さどしま）の金山",
+  "nameJa": "佐渡島の金山",
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
@@ -110,7 +111,7 @@
     "min": 7,
     "max": 9
   },
-  "officialWebsite": "https://www.visitsado.com/",
+  "officialWebsite": "https://www.pref.niigata.lg.jp/site/sado-goldmine/",
   "businessHours": "Open access",
   "municipalityId": "Niigata:sado"
 }

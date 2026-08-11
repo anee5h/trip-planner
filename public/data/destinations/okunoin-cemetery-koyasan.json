@@ -50,6 +50,13 @@
       "highlights": ["弘法大師御廟", "燈籠堂の1万個の灯籠", "武将たちの墓所群"]
     }
   },
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/1142/"
+    }
+  ],
   "relationships": {
     "parentDestinationId": "koya-town"
   },

@@ -116,7 +116,13 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/662/"
+    }
+  ],
   "addedAt": "2026-08-04",
   "editorial": {
     "lifecycle": "published",

@@ -41,7 +41,8 @@
     },
     {
       "collectionId": "unesco-japan",
-      "confirmed": true
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/661/"
     },
     {
       "collectionId": "japan-top-castles",

@@ -50,6 +50,13 @@
       "highlights": ["国宝三重塔", "斑鳩のコスモス畑", "聖徳太子ゆかりの寺"]
     }
   },
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/660/"
+    }
+  ],
   "relationships": {
     "parentDestinationId": "ikaruga-town"
   },

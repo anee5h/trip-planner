@@ -50,6 +50,13 @@
       "highlights": ["根本大塔（立体曼荼羅）", "国宝・不動堂", "三鈷の松"]
     }
   },
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/1142/"
+    }
+  ],
   "relationships": {
     "parentDestinationId": "koya-town"
   },

@@ -49,6 +49,11 @@
     {
       "collectionId": "three-great-views",
       "sortOrder": 3
+    },
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/776/"
     }
   ],
   "transportOptions": {},

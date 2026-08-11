@@ -10,7 +10,7 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Miyanoura_%2832273795996%29.jpg/960px-Miyanoura_%2832273795996%29.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Miyanoura_%2832273795996%29.jpg/960px-Miyanoura_%2832273795996%29.jpg",
-  "description": "Subtropical island World Heritage wilderness covered in ancient Yaku cedar forests and mossy gorges.",
+  "description": "Gateway town for Yakushima's World Heritage wilderness, with ancient Yaku cedar forests and mossy gorges across the island.",
   "highlights": ["Explore Yakushima Town", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
@@ -67,10 +67,6 @@
     "confidence": "beta"
   },
   "collections": [
-    {
-      "collectionId": "unesco-japan",
-      "confirmed": true
-    },
     {
       "collectionId": "islands-japan",
       "sortOrder": 6
