@@ -2,6 +2,7 @@
 
 **Report date:** 2026-08-10 · **Branch:** `aneeshpatil8/kai-63-remove-default-explore-filters-and-audit-transport-mode` @ `fdd944a3` (KAI-63 **not merged** — per ticket rule this phase is **research-only**; no implementation, no new branch, no commits)
 **Primary researcher:** v4-worker (DeepSeek V4 Flash Max) agents — run ids:
+
 - Shinkansen: `1337e0b6-89dc-499` (research) + `00541593-6a2b-409` (draft from salvage)
 - Conventional rail: `7bf761b7-982a-47f`
 - Domestic flights: `b8118c28-46b0-4f1`
@@ -19,16 +20,16 @@ Deliverable: `qa/kai-12/CURRENT_TRANSPORT_ARCHITECTURE.md`. Verified origin-awar
 
 Deliverable: `qa/kai-12/TRANSPORT_COVERAGE_BASELINE.md`. Key numbers:
 
-| origin | train verified | shinkansen verified | bus verified | flight verified | flight-only visible | train-only visible |
-|---|---|---|---|---|---|---|
-| Nakayama/Yokohama | 121 | 0 | 0 | 216 | 216 | 663 |
-| Tokyo | 280 | 202 | 0 | 216 | 216 | 663 |
-| Osaka | 248 | 247 | 0 | 79 | 79 | 663 |
-| Fukuoka | 15 | 114 | 0 | 356 | 356 | 588 |
-| Hiroshima (⚠️ mis-resolved) | 1 | 0 | 0 | 264 | 264 | 563 |
-| Sapporo | 0 | 121 | 0 | 461 | 461 | 536 |
-| Sendai | 0 | 121 | 0 | **0** | **0** | 663 |
-| Nagoya | 0 | 145 | 0 | 79 | 79 | 663 |
+| origin                      | train verified | shinkansen verified | bus verified | flight verified | flight-only visible | train-only visible |
+| --------------------------- | -------------- | ------------------- | ------------ | --------------- | ------------------- | ------------------ |
+| Nakayama/Yokohama           | 121            | 0                   | 0            | 216             | 216                 | 663                |
+| Tokyo                       | 280            | 202                 | 0            | 216             | 216                 | 663                |
+| Osaka                       | 248            | 247                 | 0            | 79              | 79                  | 663                |
+| Fukuoka                     | 15             | 114                 | 0            | 356             | 356                 | 588                |
+| Hiroshima (⚠️ mis-resolved) | 1              | 0                   | 0            | 264             | 264                 | 563                |
+| Sapporo                     | 0              | 121                 | 0            | 461             | 461                 | 536                |
+| Sendai                      | 0              | 121                 | 0            | **0**           | **0**               | 663                |
+| Nagoya                      | 0              | 145                 | 0            | 79              | 79                  | 663                |
 
 Baseline defects surfaced: bus verified = 0 nationwide; Sendai origin flight = 0 (SDJ absent); Hiroshima origin resolves to `mainland-shikoku` (box overlap); Sapporo shinkansen=121 is a prefecture-pair overgeneralization artifact; legacy buckets dominate (train legacy-only 308–639 per origin); 7 destinations unknown-zone.
 
@@ -73,14 +74,14 @@ Spawned: luna-reviewer (LunaMax / gpt-5.6-luna), agent id `59016332-2d70-4d1`, t
 
 **Verdict (round 1): REQUEST CHANGES** — 6 blockers + 5 likely issues, all addressed in revision 2 (2026-08-10):
 
-| # | blocker | fix applied |
-|---|---|---|
-| 1 | Baseline reported commit `89ce96b9`; HEAD is `fdd944a3` | Baseline re-run on `fdd944a3` (counts identical — later KAI-63 commits touched Explore UI/tests only); commit recorded in TRANSPORT_COVERAGE_BASELINE.md |
-| 2 | Ledger incomplete (8 flight pairs missing: HND–CTS, HND–FUK, HND–MMY, NGO–CTS, NGO–FUK, FUK–OKA, KOJ–ASJ, ITM–KUM) + all dispositions PENDING | Ledger regenerated from curated audit rows: 302 rows, all reconciled; dispositions REVIEWED / FIX-REQUIRED / EXCLUDED; 8 missing pairs present (fl-001, fl-002, fl-007, fl-021, fl-023, fl-024, fl-032, fl-034) |
-| 3 | Provenance not production-safe (66 ground rows = secondary sources; JR Central fare PDF 404; rail-001-f cited timetable page as fare) | Current-registry section marked **QUARANTINED**; sk-001-f/003-f/005-f URLs replaced with verified `https://global.jr-central.co.jp/en/tickets/` (HTTP 200); rail fare sources annotated |
-| 4 | Fare-basis labels contradicted policy (rail-034-f/036-f/039-f) | Product labeling rebuilt: BASE only / BASE + LEX / INTEGRATED TOTAL with per-row allowed verdict; 15 base-only rows verified as genuine no-LEX corridors |
-| 5 | Nozomi/Mizuho seat semantics wrong | FARE_POLICY §2 + SHINKANSEN_AUDIT §3 corrected: Nozomi non-reserved cars 1–2 outside peak (all-reserved in peak windows, 2025-03-15 change); Mizuho/Sakura cars 1–3 non-reserved — verified against JR Central press release 000043969 and JR Kyushu 700-series page |
-| 6 | Flight registry conflicts (TAK→OKA [60,75] vs [110,120]; CTS→OKA [180,210] vs [200,225]) | Ledger rows fl-err-001/002 FIX-REQUIRED; FLIGHT_AUDIT §6 quarantine note; gap-analysis gate 4 |
+| #   | blocker                                                                                                                                       | fix applied                                                                                                                                                                                                                                                          |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Baseline reported commit `89ce96b9`; HEAD is `fdd944a3`                                                                                       | Baseline re-run on `fdd944a3` (counts identical — later KAI-63 commits touched Explore UI/tests only); commit recorded in TRANSPORT_COVERAGE_BASELINE.md                                                                                                             |
+| 2   | Ledger incomplete (8 flight pairs missing: HND–CTS, HND–FUK, HND–MMY, NGO–CTS, NGO–FUK, FUK–OKA, KOJ–ASJ, ITM–KUM) + all dispositions PENDING | Ledger regenerated from curated audit rows: 302 rows, all reconciled; dispositions REVIEWED / FIX-REQUIRED / EXCLUDED; 8 missing pairs present (fl-001, fl-002, fl-007, fl-021, fl-023, fl-024, fl-032, fl-034)                                                      |
+| 3   | Provenance not production-safe (66 ground rows = secondary sources; JR Central fare PDF 404; rail-001-f cited timetable page as fare)         | Current-registry section marked **QUARANTINED**; sk-001-f/003-f/005-f URLs replaced with verified `https://global.jr-central.co.jp/en/tickets/` (HTTP 200); rail fare sources annotated                                                                              |
+| 4   | Fare-basis labels contradicted policy (rail-034-f/036-f/039-f)                                                                                | Product labeling rebuilt: BASE only / BASE + LEX / INTEGRATED TOTAL with per-row allowed verdict; 15 base-only rows verified as genuine no-LEX corridors                                                                                                             |
+| 5   | Nozomi/Mizuho seat semantics wrong                                                                                                            | FARE_POLICY §2 + SHINKANSEN_AUDIT §3 corrected: Nozomi non-reserved cars 1–2 outside peak (all-reserved in peak windows, 2025-03-15 change); Mizuho/Sakura cars 1–3 non-reserved — verified against JR Central press release 000043969 and JR Kyushu 700-series page |
+| 6   | Flight registry conflicts (TAK→OKA [60,75] vs [110,120]; CTS→OKA [180,210] vs [200,225])                                                      | Ledger rows fl-err-001/002 FIX-REQUIRED; FLIGHT_AUDIT §6 quarantine note; gap-analysis gate 4                                                                                                                                                                        |
 
 Likely issues disposition: coordinate-only box overlap → gap-analysis gate 3 (regression test); `transportOptions` gate → gap-analysis gate 2 (hard acceptance gate); validator date → gate 1; qa/kai-12 untracked → per AGENTS.md/release rules, research artifacts stay untracked until the implementation PR is opened (no commit made in research phase).
 
@@ -88,25 +89,25 @@ Luna's independent spot-check log (all confirmed our data): JR Hokkaido terminus
 
 **Verdict (round 2): REQUEST CHANGES** (agent `c7d403df-bbd0-42e`) — residual issues, all fixed in revision 3 (2026-08-10):
 
-| residual issue | fix applied |
-|---|---|
+| residual issue                                                                                             | fix applied                                                                                                                                                                                                                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 17 rail fare rows cited timetable pages as fare evidence (rail-001-f, rail-010-f, rail-019-f, rail-035-f…) | 7 rows re-sourced to official fare tables (JR East 2026-03-14 dentoku table `dentoku_yamate.pdf` for Tokyo–Yokohama/Kamakura/Takao; JR West fact sheet; Hankyu fare page); Tobu/JR Kyushu timetable-booklet rows annotated as official fare-bearing pages; 15 derived/fare-search rows marked FIX-REQUIRED with reason |
-| 7 NULL flight-fare rows vs registry's 8 | 7 LCC-null rows confirmed; FUK→TSJ registry-null-vs-audited-standard conflict recorded as fl-err-010 (FIX-REQUIRED at ingestion) |
-| bus-016 (Osaka↔Matsuyama Iyotetsu) missing fare companion | bus-016-f added, fare UNVERIFIED per FARE_POLICY §3 (REVIEWED — honest null) |
-| SHINKANSEN_AUDIT.md:93 omitted 2025-03-15 change | explicit 2025-03-15 reference added (Nozomi non-reserved cars 1–2; car 3 changed to reserved) |
-| Stale “Mizuho all-reserved” in research/SHINKANSEN_AUDIT_DRAFT.md:48 | corrected to non-reserved cars 1–3 |
-| Stale report text: “229 production rows … PENDING” and a “Nozomi/Mizuho reserved-only” phrasing | §7 fare-basis sentence corrected (2025-03-15 seat semantics); §8 updated to 304 rows + disposition summary; current documents state Nozomi non-reserved cars 1–2 outside peak (2025-03-15 change) and Mizuho/Sakura non-reserved cars 1–3 |
+| 7 NULL flight-fare rows vs registry's 8                                                                    | 7 LCC-null rows confirmed; FUK→TSJ registry-null-vs-audited-standard conflict recorded as fl-err-010 (FIX-REQUIRED at ingestion)                                                                                                                                                                                       |
+| bus-016 (Osaka↔Matsuyama Iyotetsu) missing fare companion                                                  | bus-016-f added, fare UNVERIFIED per FARE_POLICY §3 (REVIEWED — honest null)                                                                                                                                                                                                                                           |
+| SHINKANSEN_AUDIT.md:93 omitted 2025-03-15 change                                                           | explicit 2025-03-15 reference added (Nozomi non-reserved cars 1–2; car 3 changed to reserved)                                                                                                                                                                                                                          |
+| Stale “Mizuho all-reserved” in research/SHINKANSEN_AUDIT_DRAFT.md:48                                       | corrected to non-reserved cars 1–3                                                                                                                                                                                                                                                                                     |
+| Stale report text: “229 production rows … PENDING” and a “Nozomi/Mizuho reserved-only” phrasing            | §7 fare-basis sentence corrected (2025-03-15 seat semantics); §8 updated to 304 rows + disposition summary; current documents state Nozomi non-reserved cars 1–2 outside peak (2025-03-15 change) and Mizuho/Sakura non-reserved cars 1–3                                                                              |
 
 Luna round-2 spot-checks confirmed two more figures online: Hakata–Kumamoto ¥3,300+¥2,540=¥5,840 (JR Kyushu revision PDF) and Sendai–Yamagata bus ¥1,100 (Yamagata Kotsu).
 
 **Verdict (round 3): REQUEST CHANGES** (agent `14d7d877-234d-4a3`) — two blockers + one likely, all fixed in revision 5 (2026-08-10):
 
-| residual | fix applied |
-|---|---|
-| rail-019-f (Osaka–Himeji) and rail-023-f (Kyoto–Otsu) REVIEWED against JR West routes-schedule page, which does not publish pair fares | downgraded to FIX-REQUIRED (capture official pair-fare page) |
-| rail-005-f/006-f (Tobu) timetable PDF flagged as timetable-only | downgraded to FIX-REQUIRED (capture fare-bearing page for 1,400+1,650) |
-| §8 stale counts (302 rows / old dispositions) | §8 updated to actual: 304 rows = 78 flight (incl. 10 `fl-err` rows) + 98 rail + 86 bus + 42 shinkansen; 265 REVIEWED, 28 FIX-REQUIRED, 7 EXCLUDED, 3 REVIEWED-with-Luna-re-verification + 1 REVIEWED-fare-null |
-| ledger title “revision 4” vs body “Revision 5” | normalized to revision 5 — final |
+| residual                                                                                                                               | fix applied                                                                                                                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| rail-019-f (Osaka–Himeji) and rail-023-f (Kyoto–Otsu) REVIEWED against JR West routes-schedule page, which does not publish pair fares | downgraded to FIX-REQUIRED (capture official pair-fare page)                                                                                                                                                   |
+| rail-005-f/006-f (Tobu) timetable PDF flagged as timetable-only                                                                        | downgraded to FIX-REQUIRED (capture fare-bearing page for 1,400+1,650)                                                                                                                                         |
+| §8 stale counts (302 rows / old dispositions)                                                                                          | §8 updated to actual: 304 rows = 78 flight (incl. 10 `fl-err` rows) + 98 rail + 86 bus + 42 shinkansen; 265 REVIEWED, 28 FIX-REQUIRED, 7 EXCLUDED, 3 REVIEWED-with-Luna-re-verification + 1 REVIEWED-fare-null |
+| ledger title “revision 4” vs body “Revision 5”                                                                                         | normalized to revision 5 — final                                                                                                                                                                               |
 
 Luna round-3 spot-checks re-confirmed online: Tokyo–Yokohama IC ¥528/ticket ¥530 (JR East dentoku_yamate.pdf), Hakata–Beppu ¥6,910 and Hakata–Kumamoto ¥5,840 (JR Kyushu fare/ticket/123), Sendai–Yamagata bus ¥1,100 (Yamagata Kotsu).
 

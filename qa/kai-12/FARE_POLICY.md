@@ -1,6 +1,6 @@
 # Meguruto — Formal Fare Policy (KAI-12 Phase 9)
 
-Status: **approved for KAI-12 implementation phases**. A fare without a defined basis is misleading; every stored fare must answer *"What exactly does this ¥ amount buy?"*
+Status: **approved for KAI-12 implementation phases**. A fare without a defined basis is misleading; every stored fare must answer _"What exactly does this ¥ amount buy?"_
 
 Current schema state: flight routes carry `fare: [min,max] | null` + `fareStatus` + optional `fareSourceUrl`; ferry services carry the richest model (`fareBasis`, `fareValidFrom/To`, `operatingPeriods`, operator); ground routes have **no fare field**; `destination.transportFares` exists but is unprovenanced and unused (0 records). `TRANSPORT_PRICING_CONFIG` heuristics are estimates, never verified fares.
 
@@ -10,20 +10,20 @@ Current schema state: flight routes carry `fare: [min,max] | null` + `fareStatus
 
 Every fare record must be able to answer: what does this ¥ amount buy? Required metadata where applicable:
 
-| field | values | notes |
-|---|---|---|
-| currency | `"JPY"` | only supported currency; validator enforces nonnegative + JPY |
-| adult/child | `"adult"` (standard) | child = 50% on most rail; KAI-12 stores **adult** fares only; child discounts are display math, not stored |
-| one-way/round-trip | `"one-way"` | Meguruto budgets double one-way for return; ferry `ferryFareBasis` may be `"round-trip"` — never double again |
-| seat/class | e.g. `"ordinary"`, `"green"` | default `"ordinary"` |
-| reserved/non-reserved | `"reserved"` / `"non-reserved"` | critical for Shinkansen (non-reserved vs reserved differ) |
-| base fare vs total fare | `"base"` vs `"total"` | **never label a base fare as total** when a surcharge is mandatory |
-| tax included | `true` | all JR fares include 10% consumption tax; keep explicit |
-| reservation fee included | `false` (default) | limited-express tickets often include seat fee; record explicitly when known |
-| fixed/range/variable | `"fixed"` / `"range"` / `"variable"` | dynamic pricing → `"variable"` + validity window or NULL |
-| validFrom / validUntil | ISO dates | fare validity window; outside window → fare not applied (ferry model) |
-| fare source URL | https URL | distinct from route-existence source URL when they differ |
-| checkedAt | ISO date | must be ≤ audit reference today; no future dates |
+| field                    | values                               | notes                                                                                                         |
+| ------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| currency                 | `"JPY"`                              | only supported currency; validator enforces nonnegative + JPY                                                 |
+| adult/child              | `"adult"` (standard)                 | child = 50% on most rail; KAI-12 stores **adult** fares only; child discounts are display math, not stored    |
+| one-way/round-trip       | `"one-way"`                          | Meguruto budgets double one-way for return; ferry `ferryFareBasis` may be `"round-trip"` — never double again |
+| seat/class               | e.g. `"ordinary"`, `"green"`         | default `"ordinary"`                                                                                          |
+| reserved/non-reserved    | `"reserved"` / `"non-reserved"`      | critical for Shinkansen (non-reserved vs reserved differ)                                                     |
+| base fare vs total fare  | `"base"` vs `"total"`                | **never label a base fare as total** when a surcharge is mandatory                                            |
+| tax included             | `true`                               | all JR fares include 10% consumption tax; keep explicit                                                       |
+| reservation fee included | `false` (default)                    | limited-express tickets often include seat fee; record explicitly when known                                  |
+| fixed/range/variable     | `"fixed"` / `"range"` / `"variable"` | dynamic pricing → `"variable"` + validity window or NULL                                                      |
+| validFrom / validUntil   | ISO dates                            | fare validity window; outside window → fare not applied (ferry model)                                         |
+| fare source URL          | https URL                            | distinct from route-existence source URL when they differ                                                     |
+| checkedAt                | ISO date                             | must be ≤ audit reference today; no future dates                                                              |
 
 **Schema rule:** if the schema cannot encode the distinction safely, **do not force data in** — write the architecture proposal first (see `TRANSPORT_MODEL_GAP_ANALYSIS.md`). That is the case today for rail fares: `transportFares` has no provenance fields, so KAI-12 adds a registry-based fare model before storing any rail fare.
 
@@ -51,7 +51,7 @@ Every fare record must be able to answer: what does this ¥ amount buy? Required
   - **Mizuho/Sakura (Sanyo/Kyushu)**: non-reserved cars are **cars 1–3** (8-car sets; JR West notes per-train variation).
   - **Hikari/Kodama/Kagayaki** (JR Central/West/East): non-reserved cars exist outside peak; **Kagayaki is all-reserved**.
   - **Hayabusa/Komachi/Tsubasa**: all-reserved; **Yamabiko/Nasuno/Hayate/Toki/Tanigawa/Asama**: carry non-reserved cars.
-  Rule: **never combine one service's journey time with another product's fare.** If the duration evidence is "fastest (Nozomi)" and the fare evidence is "non-reserved", both must be labeled with the seat-product (and peak/all-reserved window) or the pair must be refused.
+    Rule: **never combine one service's journey time with another product's fare.** If the duration evidence is "fastest (Nozomi)" and the fare evidence is "non-reserved", both must be labeled with the seat-product (and peak/all-reserved window) or the pair must be refused.
 - Green car / GranClass: never standard.
 - Premium service surcharge (e.g. Nozomi additional charge on Tokaido/Sanyo where applicable): include when the service pattern in the duration claim is that service.
 - Child discounts and season-ticket products: out of scope.
