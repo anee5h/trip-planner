@@ -160,6 +160,7 @@ export function getOriginAwareTransportEstimate(
       const flight = getFlightTransportEstimate(
         destination,
         context.homeStationCoords ?? undefined,
+        context.ferryTemporal?.travelDate,
       );
       if (flight) {
         estimate = {

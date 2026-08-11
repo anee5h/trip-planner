@@ -5,6 +5,7 @@ import {
   findArrivalAirport,
   getFlightRoute,
   getFlightTransportEstimate,
+  isFlightRouteOperating,
 } from "../FlightTransportEstimator";
 import {
   formatApproximateTransportTime,
@@ -44,6 +45,23 @@ const mockHakoneDestination = {
     overall: 4.7,
   },
   description: "Famous shrine in Hakone",
+} as unknown as Destination;
+
+const ITM_COORDS = { lat: 34.7855, lng: 135.4382 };
+
+const mockIshigakiDestination = {
+  id: "ishigaki-beach-okinawa",
+  name: "Kabira Bay",
+  prefecture: "Okinawa",
+  region: "Okinawa",
+  categories: ["Beach"],
+  tags: ["island", "beach"],
+  coordinates: { lat: 24.4569, lng: 124.1944 },
+  ratings: {
+    overall: 4.8,
+  },
+  description: "Famous bay in Ishigaki",
+  transportZoneId: "ishigaki",
 } as unknown as Destination;
 
 describe("TransportEstimator", () => {
@@ -122,6 +140,92 @@ describe("TransportEstimator", () => {
       TOKYO_STATION_COORDS,
     );
     expect(flightEst).toBeNull();
+  });
+
+  it("excludes seasonal routes outside their operating period", () => {
+    // ITM→ISG operates Jul 17–Aug 28 only (ANA NH1165/1166); with a travel
+    // date in December the route must not be offered.
+    const flightEst = getFlightTransportEstimate(
+      mockIshigakiDestination,
+      ITM_COORDS,
+      new Date("2026-12-10T12:00:00"),
+    );
+    expect(flightEst).toBeNull();
+  });
+
+  it("offers seasonal routes inside their operating period", () => {
+    const flightEst = getFlightTransportEstimate(
+      mockIshigakiDestination,
+      ITM_COORDS,
+      new Date("2026-08-01T12:00:00"),
+    );
+    expect(flightEst).not.toBeNull();
+  });
+
+  it("omits seasonal routes when no travel date is supplied", () => {
+    // Regression (KAI-12): a seasonal route must not become available just
+    // because no date is known — no date is not evidence of year-round
+    // operation. Previously the no-date path returned "operating" for every
+    // route, so ITM→ISG (seasonal Jul 17–Aug 28) leaked into estimates.
+    const flightEst = getFlightTransportEstimate(
+      mockIshigakiDestination,
+      ITM_COORDS,
+    );
+    expect(flightEst).toBeNull();
+  });
+
+  describe("isFlightRouteOperating (KAI-12 seasonal semantics)", () => {
+    const seasonal = {
+      from: "ITM",
+      to: "ISG",
+      operatingPeriods: [{ from: "07-17", to: "08-28" }],
+    } as unknown as Parameters<typeof isFlightRouteOperating>[0];
+    const yearRound = { from: "HND", to: "CTS" } as unknown as Parameters<
+      typeof isFlightRouteOperating
+    >[0];
+    const yearWrapping = {
+      from: "CTS",
+      to: "OKA",
+      operatingPeriods: [{ from: "12-25", to: "01-05" }],
+    } as unknown as Parameters<typeof isFlightRouteOperating>[0];
+
+    it("year-round route + no date → available", () => {
+      expect(isFlightRouteOperating(yearRound)).toBe(true);
+    });
+
+    it("year-round route + any date → available", () => {
+      expect(
+        isFlightRouteOperating(yearRound, new Date("2026-08-01T12:00:00")),
+      ).toBe(true);
+    });
+
+    it("seasonal route + no date → unavailable", () => {
+      expect(isFlightRouteOperating(seasonal)).toBe(false);
+    });
+
+    it("seasonal route + date inside period → available", () => {
+      expect(
+        isFlightRouteOperating(seasonal, new Date("2026-08-01T12:00:00")),
+      ).toBe(true);
+    });
+
+    it("seasonal route + date outside period → unavailable", () => {
+      expect(
+        isFlightRouteOperating(seasonal, new Date("2026-12-10T12:00:00")),
+      ).toBe(false);
+    });
+
+    it("year-wrapping seasonal period operates across the year boundary", () => {
+      expect(
+        isFlightRouteOperating(yearWrapping, new Date("2026-12-30T12:00:00")),
+      ).toBe(true);
+      expect(
+        isFlightRouteOperating(yearWrapping, new Date("2027-01-03T12:00:00")),
+      ).toBe(true);
+      expect(
+        isFlightRouteOperating(yearWrapping, new Date("2026-07-01T12:00:00")),
+      ).toBe(false);
+    });
   });
 
   it("provides getBestEstimateBetween between any two Locations", () => {

@@ -150,6 +150,7 @@ export function getTransportEstimates(
   const flightEstimate = getFlightTransportEstimate(
     destination,
     homeLocation.coordinates,
+    ferryTemporal?.travelDate,
   );
   if (flightEstimate && flightEstimate.available) {
     results.push(flightEstimate);

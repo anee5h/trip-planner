@@ -114,11 +114,38 @@ export function getFlightRoute(
 const DEFAULT_TOKYO_COORDS = { lat: 35.6812, lng: 139.7671 };
 
 /**
+ * True when the route operates on the given date. Without a travel date the
+ * route is evaluated conservatively: a seasonal route is treated as
+ * unavailable (same policy as ferry operating periods). Absent
+ * operatingPeriods means year-round.
+ */
+export function isFlightRouteOperating(
+  route: FlightRoute,
+  travelDate?: Date,
+): boolean {
+  // Year-round route: operating regardless of whether a date is supplied.
+  if (!route.operatingPeriods?.length) return true;
+  // Seasonal route with no travel date: conservatively unavailable. A
+  // seasonal route must never be presented as available just because no
+  // date is known (KAI-12: unknown stays unknown; no-date ≠ year-round).
+  if (!travelDate) return false;
+  const mm = String(travelDate.getMonth() + 1).padStart(2, "0");
+  const dd = String(travelDate.getDate()).padStart(2, "0");
+  const md = `${mm}-${dd}`;
+  return route.operatingPeriods.some(({ from, to }) => {
+    if (from <= to) return md >= from && md <= to;
+    // Wraps a year boundary, e.g. 12-20 → 01-05.
+    return md >= from || md <= to;
+  });
+}
+
+/**
  * Calculates door-to-door flight estimate for a destination.
  */
 export function getFlightTransportEstimate(
   dest: Destination,
   homeCoords: { lat: number; lng: number } = DEFAULT_TOKYO_COORDS,
+  travelDate?: Date,
 ): TransportEstimate | null {
   if (!dest.coordinates) return null;
 
@@ -176,6 +203,7 @@ export function getFlightTransportEstimate(
 
     const route = getFlightRoute(depAirport.code, arrAirport.code);
     if (!route) continue;
+    if (!isFlightRouteOperating(route, travelDate)) continue;
 
     const depLoc: Location = {
       name: depAirport.name,
