@@ -85,6 +85,12 @@ export interface BusRoute {
   serviceName: string;
   operator: string;
   durationMinutes: [number, number];
+  /** Operating window of the represented service class (KAI-66). A
+   *  night-only coach cannot make a same-day round trip feasible; a mixed
+   *  row spans day and night products and keeps the day-trip behavior of
+   *  its day service. Absent = unknown (conservative: treated like mixed
+   *  for browsing, never gated as day). */
+  servicePeriod?: "day" | "night" | "mixed";
   reservationRequired: boolean;
   /** Verified one-way adult fare. The upper bound may be null for dynamic
    *  "from ¥X" fares (FARE_POLICY §3); null = no verified standard fare. */
@@ -99,6 +105,7 @@ export interface BusRouteEstimate {
   timeRange: [number, number];
   serviceName: string;
   operator: string;
+  servicePeriod?: "day" | "night" | "mixed";
   reservationRequired: boolean;
   fare: [number, number | null] | null;
   fareVariability?: "fixed" | "range" | "variable" | "dynamic" | null;
@@ -208,6 +215,7 @@ function toBusRouteEstimate(match: BusRoute): BusRouteEstimate {
     timeRange: match.durationMinutes,
     serviceName: match.serviceName,
     operator: match.operator,
+    servicePeriod: match.servicePeriod,
     reservationRequired: match.reservationRequired,
     fare: match.fare,
     fareVariability: match.fareVariability,

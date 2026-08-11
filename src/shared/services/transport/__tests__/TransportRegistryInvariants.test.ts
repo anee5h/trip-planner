@@ -81,6 +81,7 @@ const busRoutes = (
       fareVariability?: string;
       operator?: string;
       serviceName?: string;
+      servicePeriod?: string;
     }>;
   }
 ).routes;
@@ -206,6 +207,17 @@ describe("KAI-12 transport registry invariants", () => {
       expect(route.durationMinutes![1]).toBeGreaterThanOrEqual(
         route.durationMinutes![0],
       );
+    }
+  });
+
+  it("bus corridors carry a valid servicePeriod class", () => {
+    // KAI-66: every registered corridor states its operating window so the
+    // runtime can gate night-only coaches out of same-day day-trip
+    // feasibility. A future row without a class would silently regain the
+    // duration-only day-trip behavior the gate exists to prevent.
+    const valid = new Set(["day", "night", "mixed"]);
+    for (const route of busRoutes) {
+      expect(valid.has(route.servicePeriod!)).toBe(true);
     }
   });
 

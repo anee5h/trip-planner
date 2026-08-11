@@ -493,3 +493,67 @@ describe("day-trip travel evidence", () => {
     expect(budget.range).toBeNull();
   });
 });
+
+describe("KAI-66 night-only bus day-trip gate", () => {
+  const TOKYO_ORIGIN = { lat: 35.6812, lng: 139.7671 };
+
+  it("night-only corridors cannot make a same-day day trip feasible", () => {
+    // はかた号 (night) is Tokyo→Fukuoka's only registered bus corridor. The
+    // duration-only model would call a 14h round trip "feasible"; the night
+    // gate must keep it out of day-trip planning.
+    const fukuoka = catalog.find(
+      (destination) => destination.id === "canal-city-hakata",
+    )!;
+    const dayTrip = estimateDayTripDuration(
+      fukuoka,
+      {
+        homeStationCoords: TOKYO_ORIGIN,
+        originZoneId: "mainland-honshu",
+        availableTimeHours: 14,
+      },
+      ["bus"],
+    );
+    expect(dayTrip).toBeNull();
+  });
+
+  it("night-only corridor still has a canonical estimate for generic browsing", () => {
+    const fukuoka = catalog.find(
+      (destination) => destination.id === "canal-city-hakata",
+    )!;
+    const evidence = getDayTripTravelDurationEvidence(
+      fukuoka,
+      { homeStationCoords: TOKYO_ORIGIN, originZoneId: "mainland-honshu" },
+      ["bus"],
+    );
+    // The corridor exists (generic browsing and weekend one-way evaluation
+    // may still use it) — only same-day feasibility is gated.
+    expect(evidence.evidence).not.toBe("unknown");
+    expect(evidence.estimate?.mode).toBe("bus");
+    expect(
+      evidence.estimate && "servicePeriod" in evidence.estimate
+        ? evidence.estimate.servicePeriod
+        : undefined,
+    ).toBe("night");
+  });
+
+  it("day-split Sendai corridor keeps its day service day-trip eligible", () => {
+    const sendai = catalog.find(
+      (destination) => destination.id === "sendai-city",
+    )!;
+    const dayTrip = estimateDayTripDuration(
+      sendai,
+      {
+        homeStationCoords: TOKYO_ORIGIN,
+        originZoneId: "mainland-honshu",
+        availableTimeHours: 14,
+      },
+      ["bus"],
+    );
+    // The day product (330–342 min) is selected and the night gate must not
+    // have suppressed the corridor. (Sendai City's ~3h visit still makes the
+    // full-day envelope tight — feasibility is visit-limited, not bus-gated.)
+    expect(dayTrip).not.toBeNull();
+    expect(dayTrip!.travelEstimate?.timeRange).toEqual([330, 342]);
+    expect(dayTrip!.travelEvidence).toBe("verified");
+  });
+});
