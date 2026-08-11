@@ -134,6 +134,13 @@ const VALID_FARE_BASIS = new Set(["one-way", "round-trip"]);
 const MONTH_DAY_RE = /^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 const ISO_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 /**
+ * Routes the KAI-12 flight audit marked seasonal-only (FLIGHT_AUDIT §2:
+ * ITM→ISG Jul 17–Aug 28, FUK→KUM Jul 1–Aug 31). They must always declare
+ * operatingPeriods — the runtime treats an absent list as year-round, so a
+ * dropped list would silently re-present a seasonal fact as year-round.
+ */
+const KNOWN_SEASONAL_FLIGHT_ROUTES = new Set(["ITM→ISG", "FUK→KUM"]);
+/**
  * Canonical "today" for provenance checks (Japan local date at last
  * verification round). checkedAt must never be in the future relative to
  * this reference. Centralized in scripts/config/audit-reference.ts (KAI-12
@@ -397,6 +404,20 @@ export const transportTopologyValidator: ValidatorModule = {
             });
           }
         }
+      }
+      // Routes the KAI-12 flight audit marked seasonal-only (FLIGHT_AUDIT
+      // §2) must declare operatingPeriods; otherwise a future edit silently
+      // re-presents them as year-round and the runtime no-date gate
+      // (isFlightRouteOperating) leaks them.
+      if (
+        KNOWN_SEASONAL_FLIGHT_ROUTES.has(`${route.from}→${route.to}`) &&
+        !route.operatingPeriods?.length
+      ) {
+        issues.push({
+          severity: "error",
+          code: "seasonal_route_missing_operating_periods",
+          message: `Flight route ${route.from}→${route.to} is audited seasonal-only (FLIGHT_AUDIT §2) but declares no operatingPeriods`,
+        });
       }
     }
 
