@@ -32,12 +32,7 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [
-    {
-      "collectionId": "core-cities-japan",
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "transportOptions": {
     "bus": 490,
     "train": 450,

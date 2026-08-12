@@ -108,7 +108,12 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "three-great-shrines",
+      "sortOrder": 3
+    }
+  ],
   "addedAt": "2026-07-29",
   "editorial": {
     "lifecycle": "published",

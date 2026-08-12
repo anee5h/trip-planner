@@ -34,11 +34,6 @@
   },
   "collections": [
     {
-      "collectionId": "three-great-shrines",
-      "sortOrder": 2,
-      "confirmed": true
-    },
-    {
       "collectionId": "national-treasures",
       "sortOrder": 11,
       "confirmed": true

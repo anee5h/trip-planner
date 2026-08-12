@@ -82,12 +82,7 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [
-    {
-      "collectionId": "core-cities-japan",
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["kagoshima-city"]

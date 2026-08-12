@@ -3338,6 +3338,19 @@
     }
   },
   {
+    "id": "jindai-zakura",
+    "name": "Jindai-zakura (Yamataka Jindai Cherry)",
+    "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "natural",
+    "status": "published",
+    "relationships": {
+      "gatewayHubId": "kofu-city",
+      "nearbyDestinationIds": ["kofu-city"]
+    }
+  },
+  {
     "id": "jindaiji",
     "name": "Jindaiji Temple",
     "prefecture": "Tokyo",
@@ -3763,6 +3776,18 @@
     }
   },
   {
+    "id": "kashima-jingu",
+    "name": "Kashima Jingu",
+    "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "shrine",
+    "status": "published",
+    "relationships": {
+      "nearbyDestinationIds": []
+    }
+  },
+  {
     "id": "kashiya-yokocho",
     "name": "Kashiya Yokocho",
     "prefecture": "Saitama",
@@ -4035,6 +4060,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
+    "id": "kenroku-en",
+    "name": "Kenrokuen Garden",
+    "prefecture": "Ishikawa",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "garden",
+    "status": "published",
+    "relationships": {
+      "nearbyDestinationIds": ["kanazawa-castle-ishikawa", "kanazawa"]
     }
   },
   {
@@ -5384,6 +5421,19 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "kobe-city"
+    }
+  },
+  {
+    "id": "miharu-takizakura",
+    "name": "Miharu Takizakura",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "natural",
+    "status": "published",
+    "relationships": {
+      "gatewayHubId": "koriyama-city",
+      "nearbyDestinationIds": ["koriyama-city"]
     }
   },
   {
@@ -8942,6 +8992,18 @@
     "relationships": {}
   },
   {
+    "id": "takaoka-daibutsu",
+    "name": "Takaoka Daibutsu",
+    "prefecture": "Toyama",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "monument",
+    "status": "published",
+    "relationships": {
+      "nearbyDestinationIds": ["takaoka"]
+    }
+  },
+  {
     "id": "takaosan-yakuoin",
     "name": "Takaosan Yakuoin",
     "prefecture": "Tokyo",
@@ -9917,6 +9979,19 @@
     "kind": "attraction",
     "status": "published",
     "relationships": {}
+  },
+  {
+    "id": "usuzumi-zakura",
+    "name": "Usuzumi-zakura (Rootani Usuzumi Cherry)",
+    "prefecture": "Gifu",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "natural",
+    "status": "published",
+    "relationships": {
+      "gatewayHubId": "gifu-city",
+      "nearbyDestinationIds": ["gifu-city"]
+    }
   },
   {
     "id": "utsunomiya-city",

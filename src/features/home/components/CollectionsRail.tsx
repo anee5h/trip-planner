@@ -37,7 +37,7 @@ const FEATURED_COLLECTIONS: FeaturedCollectionPresentation[] = [
   },
   {
     collectionId: "three-great-gardens",
-    coverDestinationId: "kanazawa",
+    coverDestinationId: "kenroku-en",
     titleKey: "home.collectionTitles.greatGardens",
     categoryKey: "home.collectionCategories.gardens",
   },

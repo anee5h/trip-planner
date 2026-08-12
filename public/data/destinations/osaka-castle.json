@@ -34,10 +34,6 @@
   },
   "collections": [
     {
-      "collectionId": "core-cities-japan",
-      "confirmed": true
-    },
-    {
       "collectionId": "japan-top-castles",
       "confirmed": true
     }

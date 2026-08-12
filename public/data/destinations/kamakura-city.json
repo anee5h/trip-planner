@@ -74,11 +74,6 @@
       "collectionId": "national-treasures",
       "sortOrder": 9,
       "confirmed": true
-    },
-    {
-      "collectionId": "three-great-buddhas",
-      "sortOrder": 2,
-      "confirmed": true
     }
   ],
   "relationships": {

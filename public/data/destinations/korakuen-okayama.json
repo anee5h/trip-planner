@@ -29,7 +29,12 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "three-great-gardens",
+      "sortOrder": 2
+    }
+  ],
   "transportOptions": {
     "shinkansen": 210,
     "train": 240,

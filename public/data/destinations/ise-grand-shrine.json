@@ -36,6 +36,10 @@
     {
       "collectionId": "islands-japan",
       "sortOrder": 9
+    },
+    {
+      "collectionId": "three-great-shrines",
+      "sortOrder": 1
     }
   ],
   "transportOptions": {

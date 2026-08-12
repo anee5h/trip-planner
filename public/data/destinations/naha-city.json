@@ -66,12 +66,7 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [
-    {
-      "collectionId": "core-cities-japan",
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["nago-city", "motobu-town", "ishigaki-city"]

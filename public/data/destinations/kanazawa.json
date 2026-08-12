@@ -80,10 +80,6 @@
   },
   "collections": [
     {
-      "collectionId": "three-great-gardens",
-      "confirmed": true
-    },
-    {
       "collectionId": "flower-parks-japan",
       "sortOrder": 5
     }

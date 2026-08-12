@@ -49,6 +49,10 @@
     {
       "collectionId": "waterfalls-gorges-japan",
       "confirmed": true
+    },
+    {
+      "collectionId": "three-great-waterfalls",
+      "sortOrder": 2
     }
   ],
   "transportOptions": {

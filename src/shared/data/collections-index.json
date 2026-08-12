@@ -10,13 +10,13 @@
     "icon": "Castle",
     "badgeColor": "amber",
     "sortOrder": 1,
-    "officialSource": "Japan Castle Foundation",
-    "sourceUrl": "https://www.japan-castle.or.jp/",
+    "officialSource": "Historical consensus (surviving Edo-period keeps)",
+    "sourceUrl": "https://www.city.matsuyama.ehime.jp/kanko/kankoguide/shitestukoen/matsuyamajyo/12tensyu.html",
     "metadata": {
-      "authority": "foundation",
+      "authority": "historical_consensus",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Japan Castle Foundation",
+      "lastVerified": "2026-08",
+      "verificationSource": "Municipal/castle official sites; historical consensus",
       "reviewIntervalMonths": 24,
       "expectedMembers": 12
     },
@@ -215,11 +215,11 @@
     "badgeColor": "emerald",
     "sortOrder": 7,
     "officialSource": "Japan National Tourism Organization",
-    "sourceUrl": "https://www.japan.travel/en/guide/gardens/",
+    "sourceUrl": "https://www.japan.travel/en/spot/916/",
     "metadata": {
       "authority": "historical_consensus",
       "status": "active",
-      "lastVerified": "2026-07",
+      "lastVerified": "2026-08",
       "verificationSource": "JNTO / Cultural Heritage Tradition",
       "reviewIntervalMonths": 60,
       "expectedMembers": 3
@@ -249,12 +249,12 @@
     "badgeColor": "emerald",
     "sortOrder": 8,
     "officialSource": "Japan National Tourism Organization (日本三景)",
-    "sourceUrl": "https://www.japan.travel/en/japan-magazine/nihon-sankei/",
+    "sourceUrl": "https://www.nihonsankei.jp/",
     "metadata": {
       "authority": "historical_consensus",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Hayashi Gaho (1643) / JNTO",
+      "lastVerified": "2026-08",
+      "verificationSource": "Nihon Sankei Tourism Liaison Council (日本三景観光連絡協議会) / Hayashi Gaho (1643)",
       "reviewIntervalMonths": 60,
       "expectedMembers": 3
     },
@@ -283,11 +283,11 @@
     "badgeColor": "sky",
     "sortOrder": 9,
     "officialSource": "Japan National Tourism Organization (日本三名瀑)",
-    "sourceUrl": "https://www.japan.travel/en/guide/waterfalls/",
+    "sourceUrl": "https://kumanonachitaisha.or.jp/pavilion/waterfall/",
     "metadata": {
       "authority": "historical_consensus",
       "status": "active",
-      "lastVerified": "2026-07",
+      "lastVerified": "2026-08",
       "verificationSource": "JNTO / Meibaku Tradition",
       "reviewIntervalMonths": 60,
       "expectedMembers": 3
@@ -309,33 +309,33 @@
     "id": "three-great-buddhas",
     "slug": "three-great-buddhas",
     "name": "Three Great Buddhas",
-    "description": "Japan's three celebrated monumental bronze Buddha statues (Nihon Sandaibutsu: Nara, Kamakura, Takaoka).",
+    "description": "Japan's celebrated monumental bronze Buddha statues (Nihon Sandaibutsu): the Nara and Kamakura Daibutsu with Takaoka as the widely used third member (the third seat has competing claimants; no official designation exists).",
     "category": "History & Culture",
     "type": "historical",
     "isAchievement": true,
     "icon": "Crown",
     "badgeColor": "amber",
     "sortOrder": 10,
-    "officialSource": "Agency for Cultural Affairs (日本三大仏)",
-    "sourceUrl": "https://www.bunka.go.jp/",
+    "officialSource": "Historical consensus (tourism convention)",
+    "sourceUrl": "https://www.info-toyama.com/attractions/21108",
     "metadata": {
       "authority": "historical_consensus",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Agency for Cultural Affairs / Heritage Tradition",
+      "lastVerified": "2026-08",
+      "verificationSource": "Toyama Prefecture tourism / historical tradition",
       "reviewIntervalMonths": 60,
       "expectedMembers": 3
     },
     "nameJa": "日本三大仏",
-    "descriptionJa": "奈良の大仏、鎌倉の大仏、高岡の大仏からなる日本三大仏。",
+    "descriptionJa": "奈良の大仏、鎌倉大仏と並び称される高岡大仏からなる日本三大仏（三尊目は諸説あり）。",
     "content": {
       "en": {
         "name": "Three Great Buddhas",
-        "description": "Japan's three celebrated monumental bronze Buddha statues (Nihon Sandaibutsu: Nara, Kamakura, Takaoka)."
+        "description": "Japan's celebrated monumental bronze Buddha statues (Nihon Sandaibutsu): the Nara and Kamakura Daibutsu with Takaoka as the widely used third member (the third seat has competing claimants; no official designation exists)."
       },
       "ja": {
         "name": "日本三大仏",
-        "description": "奈良の大仏、鎌倉の大仏、高岡の大仏からなる日本三大仏。"
+        "description": "奈良の大仏、鎌倉大仏と並び称される高岡大仏からなる日本三大仏（三尊目は諸説あり）。"
       }
     }
   },
@@ -343,67 +343,67 @@
     "id": "three-great-shrines",
     "slug": "three-great-shrines",
     "name": "Three Great Shrines",
-    "description": "Japan's three most sacred Shinto shrines deeply connected to imperial history and mythology (Ise, Izumo, Atsuta).",
+    "description": "Japan's three most celebrated shrines bearing the Jingu title (Nihon San-daijingu): Ise Grand Shrine, Kashima Jingu, and Katori Jingu, a trio rooted in the Engishiki shrine register tradition.",
     "category": "Religion & History",
-    "type": "official",
+    "type": "historical",
     "isAchievement": true,
     "icon": "Landmark",
     "badgeColor": "purple",
     "sortOrder": 11,
-    "officialSource": "Association of Shinto Shrines (神社本庁)",
-    "sourceUrl": "https://www.jinjahoncho.or.jp/",
+    "officialSource": "Historical consensus (Engishiki-based tradition)",
+    "sourceUrl": "https://kashimajingu.jp/",
     "metadata": {
-      "authority": "association",
+      "authority": "historical_consensus",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Association of Shinto Shrines (神社本庁)",
+      "lastVerified": "2026-08",
+      "verificationSource": "Shrine official sites / Engishiki-based tradition",
       "reviewIntervalMonths": 36,
       "expectedMembers": 3
     },
     "nameJa": "日本三大神宮",
-    "descriptionJa": "伊勢神宮、鹿島神宮、香取神宮などの格式高い日本三大神宮。",
+    "descriptionJa": "伊勢神宮・鹿島神宮・香取神宮からなる日本三大神宮（延喜式神名帳の扱いに由来する三宮）。",
     "content": {
       "en": {
         "name": "Three Great Shrines",
-        "description": "Japan's three most sacred Shinto shrines deeply connected to imperial history and mythology (Ise, Izumo, Atsuta)."
+        "description": "Japan's three most celebrated shrines bearing the Jingu title (Nihon San-daijingu): Ise Grand Shrine, Kashima Jingu, and Katori Jingu, a trio rooted in the Engishiki shrine register tradition."
       },
       "ja": {
         "name": "日本三大神宮",
-        "description": "伊勢神宮、鹿島神宮、香取神宮などの格式高い日本三大神宮。"
+        "description": "伊勢神宮・鹿島神宮・香取神宮からなる日本三大神宮（延喜式神名帳の扱いに由来する三宮）。"
       }
     }
   },
   {
     "id": "three-cherry-blossom-spots",
     "slug": "three-cherry-blossom-spots",
-    "name": "Japan's Cherry Blossom Spots",
-    "description": "Japan's premier sakura destinations celebrated for overwhelming spring blooms.",
+    "name": "Japan's Three Great Cherry Trees",
+    "description": "The three celebrated ancient cherry trees designated National Natural Monuments (Nihon San-dai Zakura): Miharu Takizakura (Fukushima), Jindai-zakura (Yamanashi), and Usuzumi-zakura (Gifu).",
     "category": "Nature & Seasons",
     "type": "historical",
     "isAchievement": true,
     "icon": "Trees",
     "badgeColor": "emerald",
     "sortOrder": 12,
-    "officialSource": "Japan Cherry Blossom Association (日本さくらの会)",
-    "sourceUrl": "https://www.sakuranokai.or.jp/",
+    "officialSource": "National Natural Monuments (Japanese government) / historical tradition",
+    "sourceUrl": "https://www.hokuto-kanko.jp/spot/sakura_jindai/",
     "metadata": {
-      "authority": "association",
+      "authority": "historical_consensus",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Japan Cherry Blossom Association (日本さくらの会)",
+      "lastVerified": "2026-08",
+      "verificationSource": "Municipal official sites / national natural monument designations",
       "reviewIntervalMonths": 24,
       "expectedMembers": 3
     },
-    "nameJa": "日本三大桜・名所",
-    "descriptionJa": "弘前公園・吉野山・角館など、日本全国の桜の名所と巨樹。",
+    "nameJa": "日本三大桜",
+    "descriptionJa": "三春滝桜（福島）、山高神代桜（山梨）、根尾谷淡墨桜（岐阜）からなる、国指定天然記念物の日本三大桜。",
     "content": {
       "en": {
-        "name": "Japan's Cherry Blossom Spots",
-        "description": "Japan's premier sakura destinations celebrated for overwhelming spring blooms."
+        "name": "Japan's Three Great Cherry Trees",
+        "description": "The three celebrated ancient cherry trees designated National Natural Monuments (Nihon San-dai Zakura): Miharu Takizakura (Fukushima), Jindai-zakura (Yamanashi), and Usuzumi-zakura (Gifu)."
       },
       "ja": {
-        "name": "日本三大桜・名所",
-        "description": "弘前公園・吉野山・角館など、日本全国の桜の名所と巨樹。"
+        "name": "日本三大桜",
+        "description": "三春滝桜（福島）、山高神代桜（山梨）、根尾谷淡墨桜（岐阜）からなる、国指定天然記念物の日本三大桜。"
       }
     }
   },
@@ -512,8 +512,8 @@
   {
     "id": "core-cities-japan",
     "slug": "core-cities-japan",
-    "name": "Core Designated Cities of Japan",
-    "description": "Japan's 20 major government ordinance-designated metropolis hubs with statutory city-level autonomy.",
+    "name": "Designated Cities of Japan",
+    "description": "Japan's 20 ordinance-designated cities (seirei shitei toshi) with statutory city-level autonomy, designated by Cabinet Order under the Local Autonomy Act.",
     "category": "Cities & Metropolis",
     "type": "official",
     "isAchievement": true,
@@ -521,25 +521,25 @@
     "badgeColor": "sky",
     "sortOrder": 16,
     "officialSource": "Ministry of Internal Affairs and Communications (政令指定都市)",
-    "sourceUrl": "https://www.soumu.go.jp/",
+    "sourceUrl": "https://www.soumu.go.jp/main_sosiki/jichi_gyousei/bunken/shitei_toshi-ichiran.html",
     "metadata": {
       "authority": "government",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Ministry of Internal Affairs and Communications",
+      "lastVerified": "2026-08",
+      "verificationSource": "Ministry of Internal Affairs and Communications (指定都市一覧)",
       "reviewIntervalMonths": 12,
       "expectedMembers": 20
     },
-    "nameJa": "日本の政令指定都市・主要都市",
-    "descriptionJa": "日本の地域経済・文化・行政を中心的に担う主要都市。",
+    "nameJa": "日本の政令指定都市",
+    "descriptionJa": "地方自治法に基づき政令で指定された、人口50万人以上の日本の政令指定都市（20市）。",
     "content": {
       "en": {
-        "name": "Core Designated Cities of Japan",
-        "description": "Japan's 20 major government ordinance-designated metropolis hubs with statutory city-level autonomy."
+        "name": "Designated Cities of Japan",
+        "description": "Japan's 20 ordinance-designated cities (seirei shitei toshi) with statutory city-level autonomy, designated by Cabinet Order under the Local Autonomy Act."
       },
       "ja": {
-        "name": "日本の政令指定都市・主要都市",
-        "description": "日本の地域経済・文化・行政を中心的に担う主要都市。"
+        "name": "日本の政令指定都市",
+        "description": "地方自治法に基づき政令で指定された、人口50万人以上の日本の政令指定都市（20市）。"
       }
     }
   },

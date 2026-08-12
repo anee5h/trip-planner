@@ -1,0 +1,129 @@
+{
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "placeType": "destination",
+  "id": "kashima-jingu",
+  "name": "Kashima Jingu",
+  "nameJa": "鹿島神宮",
+  "aliases": ["Kashima Shrine", "鹿島神宮"],
+  "prefecture": "Ibaraki",
+  "region": "Kanto",
+  "kind": "shrine",
+  "role": "standalone",
+  "coordinates": {
+    "lat": 35.9689,
+    "lng": 140.6315
+  },
+  "categories": ["shrine", "history", "culture"],
+  "tags": ["Three Great Jingu", "Shinto", "Ibaraki", "National Treasure Sword"],
+  "description": "Kashima Jingu is one of Japan's Three Great Shrines (Nihon San-daijingu) together with Ise and Katori, and one of the oldest shrines in the Kanto region, founded in the first century BC. It enshrines Takemikazuchi-no-kami, the god of martial arts and swordsmanship, and its precincts include an ancient forest and a national treasure-class straight sword kept in the treasury.",
+  "highlights": [
+    "One of Japan's Three Great Jingu",
+    "Ancient forest precinct (Kashima no Mori)",
+    "Treasury with national treasure swords",
+    "Famous for martial-arts and victory prayers"
+  ],
+  "notes": "Grounds open 24 hours, free of charge. Treasury 9:00-16:00 (separate fee). Kashima Jingu forms the 三大神宮 (Three Great Jingu) with Ise Grand Shrine and Katori Jingu, a trio rooted in the Engishiki shrine records. About 95 min from Tokyo by JR/Narita Line via Kashima Jingu Station.",
+  "transportOptions": {
+    "train": 95,
+    "car": 90
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 8.4,
+    "winter": 8.6,
+    "rain": 7.6,
+    "food": 7.8,
+    "photography": 9,
+    "relaxation": 8.8,
+    "value": 9,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Free shrine parking available",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Kashima-jingu_haiden-1.JPG/1920px-Kashima-jingu_haiden-1.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Kashima-jingu_haiden-1.JPG/1920px-Kashima-jingu_haiden-1.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Saigen Jiro, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kashima-jingu_haiden-1.JPG"
+  },
+  "officialWebsite": "https://kashimajingu.jp/",
+  "businessHours": "Grounds open 24 hours, free of charge; Treasury 09:00–16:00",
+  "openingHoursJa": "境内は24時間・無料で参拝可能。宝物館は9:00〜16:00。",
+  "municipalityId": "Ibaraki:kashima",
+  "collections": [
+    {
+      "collectionId": "three-great-shrines",
+      "sortOrder": 2
+    }
+  ],
+  "relationships": {
+    "nearbyDestinationIds": []
+  },
+  "content": {
+    "en": {
+      "name": "Kashima Jingu",
+      "description": "One of Japan's Three Great Jingu with Ise and Katori, an ancient shrine of the martial god Takemikazuchi set in a primeval forest.",
+      "highlights": [
+        "One of Japan's Three Great Jingu",
+        "Ancient forest precinct",
+        "National treasure swords in treasury"
+      ],
+      "notes": "Grounds open 24 hours, free. Treasury 9:00-16:00. About 95 min from Tokyo.",
+      "reservation": "None required",
+      "parking": "Free shrine parking",
+      "openingHours": "Grounds 24 hours; Treasury 09:00–16:00"
+    },
+    "ja": {
+      "name": "鹿島神宮",
+      "description": "伊勢神宮・香取神宮と並ぶ日本三大神宮の一つ。武神・タケミカヅチを祀る関東最古級の神社で、樹齢千年の森に包まれた境内は荘厳な空気に満ちています。",
+      "highlights": [
+        "日本三大神宮の一つ",
+        "古代からの鎮守の森",
+        "国宝級の直刀を収める宝物館"
+      ],
+      "notes": "境内は24時間・無料で参拝可能。宝物館は9:00〜16:00（別途拝観料）。",
+      "reservation": "予約不要",
+      "parking": "無料の神社駐車場あり",
+      "openingHours": "境内24時間 / 宝物館 9:00〜16:00"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://kashimajingu.jp/",
+        "title": "Kashima Jingu official website",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://www.ibaraki-kanko.jp/",
+        "title": "Ibaraki prefectural tourism",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR A fixed-set audit: new Kashima Jingu record completing three-great-shrines",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}
