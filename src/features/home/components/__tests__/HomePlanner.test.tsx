@@ -137,6 +137,21 @@ describe("HomePlanner", () => {
     expect(weekendBtn?.getAttribute("aria-checked")).toBe("false");
   });
 
+  it("uses a distinct dark-theme treatment for the selected trip mode", () => {
+    const container = renderHomePlanner();
+
+    const dayTripBtn = Array.from(container.querySelectorAll("button")).find(
+      (btn) => btn.textContent === "Day trip",
+    );
+    const weekendBtn = Array.from(container.querySelectorAll("button")).find(
+      (btn) => btn.textContent?.includes("Weekend"),
+    );
+
+    expect(dayTripBtn?.className).toContain("dark:bg-emerald-500/20");
+    expect(dayTripBtn?.className).toContain("dark:ring-emerald-400/50");
+    expect(weekendBtn?.className).not.toContain("dark:bg-emerald-500/20");
+  });
+
   it("does not show allowance control in day trip mode", () => {
     const container = renderHomePlanner({ tripMode: "day_trip" });
     expect(container.textContent).not.toContain("Stay allowance");
