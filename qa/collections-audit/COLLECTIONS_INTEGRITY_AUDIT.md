@@ -213,34 +213,43 @@ backed), 日本離島センター (no island top-10), Benesse Art Site Naoshima 
 japan-caves.jp (unreachable; the real association 日本観光鍾乳洞協会 has 9 member caves),
 日本温泉協会 (real domain spa.or.jp; certifies nothing resembling 50), 夜景観光コンベンション・
 ビューロー (real; certifies 日本夜景遺産 ~300 spots, 新三大夜景都市, but no list of 20).
-**Fix for all:** `type: curated` (not official/national), honest sourceUrl, explicit curated
-wording, `expectedMembers` = actual curated count.
+**Fix:** use `curated` where no authoritative body defines the exact collection; retain
+`official` only where an authoritative body defines the exact set. `caves-japan` is the
+exception here: it maps to the Japan Touring Caves Association's exact nine-member list and
+remains official. Every curated collection gets an honest sourceUrl, explicit curated wording,
+and `expectedMembers` = the actual curated count.
 
-| Collection                 | Members before → after | Wrong / proxy removed                                                                                                                                                                         | Added                                                                                                                                                                                                                 | Authority (honest)                                                                              | PR   |
-| -------------------------- | ---------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ---- |
-| top-onsen-japan            |                10 → 10 | `hakodate-night-view` (night view, not onsen)                                                                                                                                                 | +`gero-onsen` (record exists, completes 日本三名泉); hakodate-night-view out                                                                                                                                          | curated; sourceUrl → spa.or.jp; expectedMembers 50 → 10                                         | #150 |
-| great-night-views          |                11 → 14 | none (all 11 verified against 日本夜景遺産 registry / 三大夜景)                                                                                                                               | +`sarakurayama` (new), +`fuefukigawa-fruit-park` (new), +`wakakusayama` (new)                                                                                                                                         | curated; 日本三大夜景 + 新日本三大夜景 + 夜景遺産; expectedMembers 20 → 14                      | #150 |
-| japan-observatories-towers |                17 → 17 | none (all 17 real & operating; Kobe Port Tower reopened 2024, Marine Tower 2022, MIRAI TOWER 2020/2021, Sunshine 60 てんぼうパーク 2023)                                                      | —                                                                                                                                                                                                                     | curated/capped (already honest)                                                                 | —    |
-| caves-japan                |                  5 → 9 | `tokyo-okutama` (nature area; cave is 日原鍾乳洞 — new `nippara` record), `utsunomiya-oya` (quarry, not a limestone cave)                                                                     | +`nippara` (new), +`hida-cave` (new), +`nanatsugama` (new), +`kyusendo` (new), +`shoryu` (new), +`ryusendo-cave-iwate` (record exists)                                                                                | 日本観光鍾乳洞協会 9-member list (official); expectedMembers 10 → 9                             | #150 |
-| coastal-drives-japan       |                 9 → 10 | `amanohashidate-kyoto`, `tojinbo-cliffs-fukui`, `motonosumi-shrine-yamaguchi` (coastal POIs without registered scenic-route anchors); `noto` → `noto-hanto` repoint                           | +`nichinan-kaigan` (日南海岸きらめきライン, MLIT 風景街道 route 9_1); description no longer claims all members are registered 日本風景街道                                                                            | curated; MLIT 日本風景街道 background; sourceUrl → mlit.go.jp                                   | #150 |
-| scenic-bridges-japan       |                 6 → 10 | `miyajima-itsukushima` (shrine), `miyakojima-city`/`naruto-city` (hubs)                                                                                                                       | +`saru-hashi`, +`meganebashi-bridge-nagasaki` (record exists), +`akashi-kaikyo`, +`seto-ohashi`, +`rainbow-bridge`, +`omishima`                                                                                       | curated; 日本三名橋/三奇橋 + famous bridges; JSCE 選奨土木遺産 as background only               | #150 |
-| flower-parks-japan         |                 6 → 10 | `furano-city`, `kanazawa` (hubs), `arakurayama-sengen-park-yamanashi` (viewpoint), `osaka-castle` (not a flower park)                                                                         | +`shinjuku-gyo-en`, +`showa-kinen-park`, +`farm-tomita`, +`shikisai-no-oka`, +`nabana-no-sato`, +`jindai-botanical-gardens`; `kawachi-fujien` consolidated into existing `kawachi-wisteria-garden` (gains membership) | curated; 国営公園/国民公園/名花園; EN "state-run parks" 国営公園                                | #150 |
-| waterfalls-gorges-japan    |                 8 → 10 | `takachiho-town` (hub → real POI `takachiho-gorge` record exists)                                                                                                                             | +`shomyo-falls`, +`shiraito-falls`                                                                                                                                                                                    | curated; 滝百選 (1990) + 日本三大峡谷                                                           | #150 |
-| islands-japan              |                12 → 12 | `ise-grand-shrine` (mainland shrine), `sakurajima-volcano-kagoshima` (not an island since 1914); proxies `ishigaki-city`, `miyakojima-city`, `yakushima-town` resolved via island POI records | +`taketomi-island`, +`shodoshima`                                                                                                                                                                                     | curated; MLIT 離島振興 background                                                               | #150 |
-| pilgrimage-routes-japan    |                  7 → 8 | `nokogiriyama` (not a pilgrimage route)                                                                                                                                                       | +`mount-fuji`, +`mount-yoshino`, +`shikoku-henro`, +`saigoku-33`                                                                                                                                                      | curated; 四国遍路・西国三十三所・熊野古道 (main-owned unesco-japan untouched)                   | #150 |
-| art-islands-japan          |                 7 → 10 | `arima-onsen`, `hakodate-night-view`, `kiyotsu-gorge-niigata` (off-theme); `hakone-town` → real POI; de-themed (no longer "cultural")                                                         | +`hakone-open-air-museum`, +`inujima`, +`shodoshima`, +`ogijima`, +`sapporo-art-park`, +`towada-art-center` (record exists), +`kanazawa-21`                                                                           | curated; Benesse (直島・豊島・犬島) + open-air museums; authority union extended with "curated" | #150 |
+| Collection                 | Members before → after | Wrong / proxy removed                                                                                                                                                                         | Added                                                                                                                                                                                                                 | Authority (honest)                                                                                                       | PR   |
+| -------------------------- | ---------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ---- |
+| top-onsen-japan            |                10 → 10 | `hakodate-night-view` (night view, not onsen)                                                                                                                                                 | +`gero-onsen` (record exists, completes 日本三名泉); hakodate-night-view out                                                                                                                                          | curated; sourceUrl → spa.or.jp; expectedMembers 50 → 10                                                                  | #150 |
+| great-night-views          |                11 → 14 | none (all 11 verified against 日本夜景遺産 registry / 三大夜景)                                                                                                                               | +`sarakurayama` (new), +`fuefukigawa-fruit-park` (new), +`wakakusayama` (new)                                                                                                                                         | curated; 日本三大夜景 + 新日本三大夜景 + 夜景遺産; expectedMembers 20 → 14                                               | #150 |
+| japan-observatories-towers |                17 → 17 | none (all 17 real & operating; Kobe Port Tower reopened 2024, Marine Tower 2022, MIRAI TOWER 2020/2021, Sunshine 60 てんぼうパーク 2023)                                                      | —                                                                                                                                                                                                                     | curated/capped (already honest)                                                                                          | —    |
+| caves-japan                |                  5 → 9 | `tokyo-okutama` (nature area; cave is 日原鍾乳洞 — new `nippara` record), `utsunomiya-oya` (quarry, not a limestone cave)                                                                     | +`nippara` (new), +`hida-cave` (new), +`nanatsugama` (new), +`kyusendo` (new), +`shoryu` (new), +`ryusendo-cave-iwate` (record exists)                                                                                | 日本観光鍾乳洞協会 9-member list (official); expectedMembers 10 → 9                                                      | #150 |
+| coastal-drives-japan       |                 9 → 10 | `amanohashidate-kyoto`, `tojinbo-cliffs-fukui`, `motonosumi-shrine-yamaguchi` (coastal POIs without registered scenic-route anchors); `noto` → `noto-hanto` repoint                           | +`nichinan-kaigan` (日南海岸きらめきライン, MLIT 風景街道 route 9_1); description no longer claims all members are registered 日本風景街道                                                                            | curated; MLIT 日本風景街道 background; sourceUrl → mlit.go.jp                                                            | #150 |
+| scenic-bridges-japan       |                 6 → 10 | `miyajima-itsukushima` (shrine), `miyakojima-city`/`naruto-city` (hubs)                                                                                                                       | +`saru-hashi`, +`meganebashi-bridge-nagasaki` (record exists), +`akashi-kaikyo`, +`seto-ohashi`, +`rainbow-bridge`, +`omishima`                                                                                       | curated; 日本三名橋/三奇橋 + famous bridges; JSCE 選奨土木遺産 as background only                                        | #150 |
+| flower-parks-japan         |                 6 → 10 | `furano-city`, `kanazawa` (hubs), `arakurayama-sengen-park-yamanashi` (viewpoint), `osaka-castle` (not a flower park)                                                                         | +`shinjuku-gyo-en`, +`showa-kinen-park`, +`farm-tomita`, +`shikisai-no-oka`, +`nabana-no-sato`, +`jindai-botanical-gardens`; `kawachi-fujien` consolidated into existing `kawachi-wisteria-garden` (gains membership) | curated; 国営公園/国民公園/名花園; EN "state-run parks" 国営公園                                                         | #150 |
+| waterfalls-gorges-japan    |                 8 → 10 | `takachiho-town` (hub → real POI `takachiho-gorge` record exists)                                                                                                                             | +`shomyo-falls`, +`shiraito-falls`                                                                                                                                                                                    | curated; 滝百選 (1990) + 日本三大峡谷                                                                                    | #150 |
+| islands-japan              |                12 → 12 | `ise-grand-shrine` (mainland shrine), `sakurajima-volcano-kagoshima` (not an island since 1914); proxies `ishigaki-city`, `miyakojima-city`, `yakushima-town` resolved via island POI records | +`taketomi-island`, +`shodoshima`                                                                                                                                                                                     | curated; MLIT 離島振興 background                                                                                        | #150 |
+| pilgrimage-routes-japan    |                  7 → 8 | `nokogiriyama` (not a pilgrimage route)                                                                                                                                                       | +`mount-fuji`, +`mount-yoshino`, +`shikoku-henro`, +`saigoku-33`                                                                                                                                                      | curated; 四国遍路・西国三十三所・熊野古道 (main-owned unesco-japan untouched)                                            | #150 |
+| art-islands-japan          |                 7 → 10 | `arima-onsen`, `hakodate-night-view`, `kiyotsu-gorge-niigata` (off-theme); `hakone-town` → real POI; de-themed (no longer "cultural")                                                         | +`hakone-open-air-museum`, +`inujima`, +`shodoshima`, +`ogijima`, +`sapporo-art-park`, +`towada-art-center` (record exists), +`kanazawa-21`                                                                           | curated; Benesse (直島・豊島・犬島) + open-air museums; art-islands authority set to curated (generic support from #149) | #150 |
 
 ## before/after summary
 
-| Metric                                                         |                            Before |                                                       After (all PRs) |
-| -------------------------------------------------------------- | --------------------------------: | --------------------------------------------------------------------: |
-| Collections audited                                            |                                24 |                                                                    24 |
-| Collections with truthful metadata/definition                  | 2 (observatories, [unesco-japan]) |                                                                    24 |
-| Collections with exact expectedMembers                         |                                 6 |                                                                    24 |
-| Wrong members removed                                          |                                 — |                                                                   ~30 |
-| Proxy/duplicate members resolved                               |                                 — |                                                                   ~15 |
-| New destination records                                        |                                 0 | ~215 (6 in PR A; ~77 castles; ~91 parks; ~40 thematic; rest cultural) |
-| Wrong/contaminated member claims corrected in existing records |                                 — |                                                  every touched record |
+| Metric                                                         |                            Before |      After (all PRs) |
+| -------------------------------------------------------------- | --------------------------------: | -------------------: |
+| Collections audited                                            |                                24 |                   24 |
+| Collections with truthful metadata/definition                  | 2 (observatories, [unesco-japan]) |                   24 |
+| Collections with exact expectedMembers                         |                                 6 |                   24 |
+| Wrong members removed                                          |                                 — |                  ~30 |
+| Proxy/duplicate members resolved                               |                                 — |                  ~15 |
+| New destination records (gross)                                |                                 0 |                  188 |
+| Destination deduplications/removals                            |                                 — |                    5 |
+| Net destination increase                                       |                                 — |     +183 (800 → 983) |
+| Wrong/contaminated member claims corrected in existing records |                                 — | every touched record |
+
+Destination arithmetic (final stack): #145 +6; #146 +60 −3 dedup; #147 +0; #148 +91;
+#149 +2 −1 dedup; #150 +29 −1 dedup; #151 +0. Gross new = 188; dedups/removals = 5;
+net = +183 (800 → 983).
 
 ## Remaining uncertainties (marked for review, not guessed)
 
@@ -265,18 +274,25 @@ wording, `expectedMembers` = actual curated count.
 8. **Thematic coordinates marked ~ in research** — to be confirmed against official sites
    during record creation.
 9. **expectedMembers semantics** — the schema field is "Meguruto catalogue member count", not
-   "official entity count". For collections that are complete official sets the two coincide
-   (100名城, parks, 重伝建); for curated collections the metadata + description now say
-   "curated" explicitly. This schema limitation is documented here rather than hidden.
+   "official entity count". For complete authoritative sets the two can coincide directly,
+   e.g.: 日本100名城, national parks, quasi-national parks, and the Japan Touring Caves
+   Association's 9 caves. For curated collections, `expectedMembers` means the Meguruto
+   catalogue count, not the size of the external framework — `historic-towns-japan` is the
+   explicit example: curated 11 from the broader 重伝建 register (the register's 129 districts
+   are not the collection's member count).
 
 ## Deterministic regression protection
 
 - `scripts/validators/collections.ts` enforces: unique collection IDs, no dangling collection
   references, no duplicate members, no city hubs in blacklisted collections, and the
   Original-12-castles count invariant.
-- `EXPECTED_COLLECTION_MEMBER_COUNT_MISMATCH` warnings (accepted baseline) fail CI if **new**
-  drift appears; each completed PR updates the accepted baseline only when warnings genuinely
-  shrink.
+- `EXPECTED_COLLECTION_MEMBER_COUNT_MISMATCH` is now **error severity** and fails
+  `validate-collections` / `validate:catalog-fast` immediately (promoted in PR #151;
+  `ORIGINAL_12_CASTLES_COUNT_MISMATCH` is error severity too). It is not part of any accepted
+  warning baseline.
+- `check:catalog-warnings` continues to fingerprint and reject new warning identities for the
+  remaining warning-class catalogue findings — a separate mechanism from the collections
+  expected-member check; the two are not conflated.
 - `check:catalog-sync` verifies generated detail files are current and generation is idempotent.
 - `check:catalog-warnings` (per-violation fingerprints) rejects any new warning identity.
 - **Deterministic 100名城 numbering (implemented in PR #146):** the validator pins exactly
@@ -306,10 +322,12 @@ wording, `expectedMembers` = actual curated count.
 5. **PR #149 (data/collections-prE-historic-towns) — curated 重伝建 selection (11)** ✅ — 4
    non-designated removed, 3 genuine districts added; Kawagoe/Takayama district POIs replace
    hubs; `kurazukuri-warehouse-district` consolidated; durable product copy (no mutable register
-   count); expectedMembers corrected 126 → 11.
+   count); expectedMembers corrected 126 → 11; **minimal generic
+   `CollectionMetadata.authority` `"curated"` support added here** (the `type` union already
+   included `curated`).
 6. **PR #150 (data/collections-prF-thematic) — thematic/curated collections** ✅ — official only
-   where a body defines the exact list (caves = association's 9); everything else curated
-   (authority union extended); 29 new records; duplicate garden records never created;
+   where a body defines the exact list (caves = association's 9); everything else curated using
+   the authority support from #149; 29 new records; duplicate garden records never created;
    `kawachi-fujien` → `kawachi-wisteria-garden`; factual fixes (akashi-kaikyo span/prices,
    inujima reservation, kiyotsu-gorge hero image, rainbow-bridge hours, arima-onsen notes).
 7. **PR #151 (data/collections-prG-integration) — validator/integration/final audit** ✅ —
