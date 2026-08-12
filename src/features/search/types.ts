@@ -21,4 +21,7 @@ export interface SearchGroup {
   type: SearchDocumentType;
   label: string;
   items: SearchDocument[];
+  /** Collapse items past the first four on mobile with a "See more" toggle
+   *  (KAI-83). Desktop always shows the full group. */
+  mobileCollapsible?: boolean;
 }
