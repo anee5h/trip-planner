@@ -1,0 +1,113 @@
+{
+  "id": "kyusendo-cave",
+  "name": "Kyusendo Cave",
+  "nameJa": "球泉洞",
+  "aliases": ["球泉洞"],
+  "prefecture": "Kumamoto",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 32.3,
+    "lng": 130.62
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Kyusendo Cave", "Kumamoto", "Japan Travel"],
+  "description": "Kyushu's largest limestone cave, in the Kuma river valley of Kumamoto; the 4.7 km cave offers a 1 km tourist course through underground streams and grand chambers.",
+  "highlights": [
+    "Kyushu's largest cave",
+    "Underground streams",
+    "Grand limestone chambers"
+  ],
+  "notes": "Admission ¥1,100 (adult); a shuttle bus links the entrance and exit. Pair with the Hitoyoshi river boats nearby.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Kyusen_do_20160829141937_%2831352377344%29.jpg/1920px-Kyusen_do_20160829141937_%2831352377344%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Kyusen_do_20160829141937_%2831352377344%29.jpg/1920px-Kyusen_do_20160829141937_%2831352377344%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "inunami, CC BY 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kyusen_do_20160829141937_(31352377344).jpg"
+  },
+  "officialWebsite": "https://www.vill.kuma.kumamoto.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Kumamoto:kuma",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "caves-japan",
+      "sortOrder": 8
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Kyusendo Cave",
+      "description": "Kyushu's largest limestone cave, in the Kuma river valley of Kumamoto; the 4.7 km cave offers a 1 km tourist course through underground streams and grand chambers.",
+      "highlights": [
+        "Kyushu's largest cave",
+        "Underground streams",
+        "Grand limestone chambers"
+      ],
+      "notes": "Admission ¥1,100 (adult); a shuttle bus links the entrance and exit. Pair with the Hitoyoshi river boats nearby.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "球泉洞",
+      "description": "熊本県の球磨川渓谷にある九州最大の鍾乳洞。全長4.7kmのうち1kmの観光コースが整備され、地下水流や壮大な広間を楽しめる。",
+      "highlights": ["九州最大の鍾乳洞", "地下水流", "壮大な石灰岩の広間"],
+      "notes": "大人1,100円。入口と出口は連絡バスで移動。近隣の人吉下り船と合わせて訪れるのがおすすめ。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.vill.kuma.kumamoto.jp/",
+        "title": "Kyusendo Cave official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

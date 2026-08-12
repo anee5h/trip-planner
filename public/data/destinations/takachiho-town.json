@@ -65,12 +65,7 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [
-    {
-      "collectionId": "waterfalls-gorges-japan",
-      "sortOrder": 6
-    }
-  ],
+  "collections": [],
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["fukuoka-city", "kitakyushu-city", "dazaifu-city"]

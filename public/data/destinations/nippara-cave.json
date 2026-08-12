@@ -1,0 +1,113 @@
+{
+  "id": "nippara-cave",
+  "name": "Nippara Limestone Cave",
+  "nameJa": "日原鍾乳洞",
+  "aliases": ["日原鍾乳洞"],
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.795,
+    "lng": 139.03
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Nippara Limestone Cave", "Tokyo", "Japan Travel"],
+  "description": "Tokyo's largest limestone cave, part of the Okutama mountains; the 900 m tourist course winds through underground lakes and massive stalactite chambers.",
+  "highlights": [
+    "Tokyo's largest limestone cave",
+    "Underground lakes",
+    "Stalactite formations"
+  ],
+  "notes": "Admission ¥700 (adult). Closed some winter weekdays; access by bus from Okutama Station (road reopened after 2019 typhoon damage).",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Nippara_Cave_Shirataekyo.jpg/1920px-Nippara_Cave_Shirataekyo.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Nippara_Cave_Shirataekyo.jpg/1920px-Nippara_Cave_Shirataekyo.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Osumi Akari, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nippara_Cave_Shirataekyo.jpg"
+  },
+  "officialWebsite": "http://www.nippara.com/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Tokyo:okutama",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "caves-japan",
+      "sortOrder": 3
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Nippara Limestone Cave",
+      "description": "Tokyo's largest limestone cave, part of the Okutama mountains; the 900 m tourist course winds through underground lakes and massive stalactite chambers.",
+      "highlights": [
+        "Tokyo's largest limestone cave",
+        "Underground lakes",
+        "Stalactite formations"
+      ],
+      "notes": "Admission ¥700 (adult). Closed some winter weekdays; access by bus from Okutama Station (road reopened after 2019 typhoon damage).",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "日原鍾乳洞",
+      "description": "奥多摩の山々に広がる東京都内最大の鍾乳洞。全長900mの遊歩道コースでは、地底湖や巨大な鍾乳石の間を巡ることができます。",
+      "highlights": ["都内最大の鍾乳洞", "地底湖", "鍾乳石の造形"],
+      "notes": "入場料は大人700円。冬期は一部平日閉館。奥多摩駅からバスでアクセス（2019年の台風被害後、道路は復旧済み）。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "http://www.nippara.com/",
+        "title": "Nippara Limestone Cave official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

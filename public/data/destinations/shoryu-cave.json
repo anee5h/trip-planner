@@ -1,0 +1,114 @@
+{
+  "id": "shoryu-cave",
+  "name": "Shoryu Cave",
+  "nameJa": "昇竜洞",
+  "aliases": ["昇竜洞"],
+  "prefecture": "Kagoshima",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 27.35,
+    "lng": 128.57
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Shoryu Cave", "Kagoshima", "Japan Travel"],
+  "description": "A limestone cave on Okinoerabu Island of the Amami chain, one of the nine association touring caves, with stalactite formations and an underground waterfall after rain.",
+  "highlights": [
+    "Okinoerabu island cave",
+    "Association-listed touring cave",
+    "Underground waterfall"
+  ],
+  "notes": "Admission ¥600 (adult). Reach the island by ferry from Kagoshima; the cave is near China town.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Okinoerabu_Shoryudo01.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Okinoerabu_Shoryudo01.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "CC BY-SA 3.0 via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Okinoerabu_Shoryudo01.jpg"
+  },
+  "officialWebsite": "https://www.town.china.lg.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Kagoshima:china",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "caves-japan",
+      "sortOrder": 9
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Shoryu Cave",
+      "description": "A limestone cave on Okinoerabu Island of the Amami chain, one of the nine association touring caves, with stalactite formations and an underground waterfall after rain.",
+      "highlights": [
+        "Okinoerabu island cave",
+        "Association-listed touring cave",
+        "Underground waterfall"
+      ],
+      "notes": "Admission ¥600 (adult). Reach the island by ferry from Kagoshima; the cave is near China town.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "昇竜洞",
+      "description": "奄美群島の沖永良部島にある鍾乳洞。日本観光鍾乳洞協会認定の観光鍾乳洞で、鍾乳石群と雨の後の地下滝が見どころ。",
+      "highlights": ["沖永良部島の鍾乳洞", "協会認定の観光鍾乳洞", "地下滝"],
+      "notes": "大人600円。鹿児島からフェリーで島へ。洞窟は知名町の近くにある。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.town.china.lg.jp/",
+        "title": "Shoryu Cave official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "transportZoneId": "amami",
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

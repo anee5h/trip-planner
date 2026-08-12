@@ -1,0 +1,113 @@
+{
+  "id": "nanatsugama-cave",
+  "name": "Nanatsugama Cave",
+  "nameJa": "七ツ釜鍾乳洞",
+  "aliases": ["七ツ釜鍾乳洞"],
+  "prefecture": "Nagasaki",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 33.02,
+    "lng": 129.72
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Nanatsugama Cave", "Nagasaki", "Japan Travel"],
+  "description": "A fossil-bearing limestone cave on the Saikai coast of western Nagasaki, one of the nine touring caves of the Japan Touring Caves Association, with a 700 m course.",
+  "highlights": [
+    "Association-listed touring cave",
+    "Fossil-rich limestone",
+    "700 m course"
+  ],
+  "notes": "Admission ¥700 (adult). Located near the Yokoo coast; car access is easiest.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0c/NanatugamaEntrance.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/NanatugamaEntrance.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Ken.y, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:NanatugamaEntrance.JPG"
+  },
+  "officialWebsite": "https://www.city.saikai.nagasaki.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Nagasaki:saikai",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "caves-japan",
+      "sortOrder": 7
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Nanatsugama Cave",
+      "description": "A fossil-bearing limestone cave on the Saikai coast of western Nagasaki, one of the nine touring caves of the Japan Touring Caves Association, with a 700 m course.",
+      "highlights": [
+        "Association-listed touring cave",
+        "Fossil-rich limestone",
+        "700 m course"
+      ],
+      "notes": "Admission ¥700 (adult). Located near the Yokoo coast; car access is easiest.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "七ツ釜鍾乳洞",
+      "description": "長崎西部の西海海岸にある化石を含む鍾乳洞で、日本観光鍾乳洞協会認定の観光鍾乳洞の一つ。全長700mのコースを巡れる。",
+      "highlights": ["協会認定の観光鍾乳洞", "化石を含む石灰岩", "700mコース"],
+      "notes": "大人700円。横尾海岸の近くにあり、車でのアクセスが便利。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.saikai.nagasaki.jp/",
+        "title": "Nanatsugama Cave official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

@@ -65,12 +65,7 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [
-    {
-      "collectionId": "scenic-bridges-japan",
-      "sortOrder": 6
-    }
-  ],
+  "collections": [],
   "relationships": {
     "featuredDestinationIds": [
       "uzu-no-michi-naruto",

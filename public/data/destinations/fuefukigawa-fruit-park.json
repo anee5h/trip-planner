@@ -1,0 +1,117 @@
+{
+  "id": "fuefukigawa-fruit-park",
+  "name": "Fuefukigawa Fruit Park",
+  "nameJa": "笛吹川フルーツ公園",
+  "aliases": ["笛吹川フルーツ公園"],
+  "prefecture": "Yamanashi",
+  "region": "Chubu",
+  "kind": "park",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.665,
+    "lng": 138.667
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Fuefukigawa Fruit Park", "Yamanashi", "Japan Travel"],
+  "description": "Perched on the hillside above Kofu, Fuefukigawa Fruit Park is one of Japan's New Three Great Night Views (2003), famous for its panoramic evening view of the Kofu basin.",
+  "highlights": [
+    "New Three Great Night View",
+    "Kofu basin panorama",
+    "Fruit museum and observatory"
+  ],
+  "notes": "Free entry; the observation deck and seasonal illumination are the highlights. Combine with a daytime fruit-picking visit.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/From_Fruit_park_the_view_of_Kofu_basin_and_Mt._Fuji.jpg/1920px-From_Fruit_park_the_view_of_Kofu_basin_and_Mt._Fuji.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/From_Fruit_park_the_view_of_Kofu_basin_and_Mt._Fuji.jpg/1920px-From_Fruit_park_the_view_of_Kofu_basin_and_Mt._Fuji.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "さかおり (talk), CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:From_Fruit_park_the_view_of_Kofu_basin_and_Mt._Fuji.jpg"
+  },
+  "officialWebsite": "https://www.fuefukigawa-fruits.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Yamanashi:yamanashi",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "great-night-views",
+      "sortOrder": 2
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Fuefukigawa Fruit Park",
+      "description": "Perched on the hillside above Kofu, Fuefukigawa Fruit Park is one of Japan's New Three Great Night Views (2003), famous for its panoramic evening view of the Kofu basin.",
+      "highlights": [
+        "New Three Great Night View",
+        "Kofu basin panorama",
+        "Fruit museum and observatory"
+      ],
+      "notes": "Free entry; the observation deck and seasonal illumination are the highlights. Combine with a daytime fruit-picking visit.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "笛吹川フルーツ公園",
+      "description": "甲府市街を見下ろす丘陵地に位置する笛吹川フルーツ公園は、2003年に「日本新三景」のひとつに選ばれた絶景スポット。甲府盆地を一望するパノラマ夜景で知られます。",
+      "highlights": [
+        "日本新三景の夜景",
+        "甲府盆地のパノラマ",
+        "フルーツ博物館と展望台"
+      ],
+      "notes": "入園無料。展望台と季節のイルミネーションが見どころ。日中はフルーツ狩りと組み合わせるのがおすすめです。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.fuefukigawa-fruits.jp/",
+        "title": "Fuefukigawa Fruit Park official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

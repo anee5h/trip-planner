@@ -10,7 +10,7 @@
     "lng": 138.7492
   },
   "nearestStation": "Echigo-Yuzawa Station",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Jujikyo_in_Kurobe_Gorge.jpg/1920px-Jujikyo_in_Kurobe_Gorge.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Kiyotsu_Gorge_2020-08-09_%281%29_sa.jpg/1920px-Kiyotsu_Gorge_2020-08-09_%281%29_sa.jpg",
   "tags": ["gorge", "art", "niigata", "architecture", "viewpoint"],
   "rating": 4.8,
   "bestSeasons": ["Spring", "Summer", "Autumn"],
@@ -22,10 +22,6 @@
     {
       "collectionId": "waterfalls-gorges-japan",
       "sortOrder": 2
-    },
-    {
-      "collectionId": "art-islands-japan",
-      "sortOrder": 1
     }
   ],
   "region": "Chubu",
@@ -82,7 +78,7 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": []
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Jujikyo_in_Kurobe_Gorge.jpg/1920px-Jujikyo_in_Kurobe_Gorge.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Kiyotsu_Gorge_2020-08-09_%281%29_sa.jpg/1920px-Kiyotsu_Gorge_2020-08-09_%281%29_sa.jpg",
   "walkingIntensity": "low",
   "walkingSunMin": 1800,
   "walkingShadeMin": 1200,
@@ -94,5 +90,11 @@
   },
   "officialWebsite": "https://nakasato-kiyotsu.com/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Saigen Jiro",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kiyotsu_Gorge_2020-08-09_(1)_sa.jpg"
+  }
 }

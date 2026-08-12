@@ -14,7 +14,7 @@ import {
 describe("PlaceCatalog", () => {
   it("creates canonical records for the complete catalog", () => {
     const places = getCanonicalPlaces();
-    expect(places).toHaveLength(955);
+    expect(places).toHaveLength(983);
     expect(places.every((place) => place.placeType)).toBe(true);
     expect(places.every((place) => Array.isArray(place.tags))).toBe(true);
   });
@@ -26,7 +26,7 @@ describe("PlaceCatalog", () => {
     );
     expect(
       places.filter((place) => place.placeType === "destination"),
-    ).toHaveLength(792);
+    ).toHaveLength(820);
     expect(
       places
         .filter(
@@ -85,8 +85,8 @@ describe("PlaceCatalog", () => {
   it("gates Japanese discovery to reviewed bilingual places", () => {
     const allPlaces = getCanonicalPlaces();
     const reviewMode = import.meta.env.VITE_EDITORIAL_REVIEW_MODE === "true";
-    expect(getAvailablePlaces("en")).toHaveLength(955);
-    expect(getAvailablePlaces("ja")).toHaveLength(reviewMode ? 955 : 722);
+    expect(getAvailablePlaces("en")).toHaveLength(983);
+    expect(getAvailablePlaces("ja")).toHaveLength(reviewMode ? 983 : 750);
     expect(
       allPlaces.every((place) => isPlaceAvailableInLocale(place, "en")),
     ).toBe(true);

@@ -118,7 +118,12 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "flower-parks-japan",
+      "confirmed": true
+    }
+  ],
   "addedAt": "2026-08-02",
   "editorial": {
     "lifecycle": "published",

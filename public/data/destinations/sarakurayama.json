@@ -1,0 +1,117 @@
+{
+  "id": "sarakurayama",
+  "name": "Mount Sarakura",
+  "nameJa": "皿倉山",
+  "aliases": ["皿倉山"],
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "mountain",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 33.866,
+    "lng": 130.775
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Mount Sarakura", "Fukuoka", "Japan Travel"],
+  "description": "Mount Sarakura (622 m) is one of Japan's New Three Great Night Views (2003), reached by cable car from Kitakyushu; its observation deck overlooks Dokai Bay and the industrial city lights.",
+  "highlights": [
+    "One of the New Three Great Night Views",
+    "Cable car to the summit",
+    "Kitakyushu city lights"
+  ],
+  "notes": "Ropeway/cable car round trip ¥1,250. The night view is best on clear evenings; the summit has a restaurant and viewpoint.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/90/Night_view_from_Sarakurayama.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/9/90/Night_view_from_Sarakurayama.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Muyo, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Night_view_from_Sarakurayama.jpg"
+  },
+  "officialWebsite": "https://www.sarakurayama-cablecar.co.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Fukuoka:kitakyushu",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "great-night-views",
+      "sortOrder": 1
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Mount Sarakura",
+      "description": "Mount Sarakura (622 m) is one of Japan's New Three Great Night Views (2003), reached by cable car from Kitakyushu; its observation deck overlooks Dokai Bay and the industrial city lights.",
+      "highlights": [
+        "One of the New Three Great Night Views",
+        "Cable car to the summit",
+        "Kitakyushu city lights"
+      ],
+      "notes": "Ropeway/cable car round trip ¥1,250. The night view is best on clear evenings; the summit has a restaurant and viewpoint.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "皿倉山",
+      "description": "皿倉山（標高622m）は2003年に「日本新三景」の一つに選ばれた夜景スポット。ケーブルカーで北九州の山頂へ登り、展望台から洞海湾や工場地帯の夜景を一望できます。",
+      "highlights": [
+        "日本新三景の夜景",
+        "ケーブルカーで山頂へ",
+        "北九州の街の灯り"
+      ],
+      "notes": "ケーブルカー往復1,250円。夜景は晴れた夜がおすすめ。山頂にはレストランと展望台があります。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.sarakurayama-cablecar.co.jp/",
+        "title": "Mount Sarakura official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

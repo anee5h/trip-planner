@@ -47,12 +47,12 @@
       "source": "https://whc.unesco.org/en/list/1193/"
     },
     {
-      "collectionId": "coastal-drives-japan",
-      "sortOrder": 6
-    },
-    {
       "collectionId": "national-parks-japan",
       "sortOrder": 2
+    },
+    {
+      "collectionId": "coastal-drives-japan",
+      "sortOrder": 6
     }
   ],
   "relationships": {

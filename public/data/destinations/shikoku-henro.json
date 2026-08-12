@@ -1,0 +1,113 @@
+{
+  "id": "shikoku-henro",
+  "name": "Shikoku Henro (88 Temple Pilgrimage)",
+  "nameJa": "四国遍路（四国八十八箇所）",
+  "aliases": ["四国遍路（四国八十八箇所）"],
+  "prefecture": "Tokushima",
+  "region": "Shikoku",
+  "kind": "historic",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.186,
+    "lng": 134.47
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Shikoku Henro (88 Temple Pilgrimage)", "Tokushima", "Japan Travel"],
+  "description": "Japan's 1,400 km circuit of 88 temples across Shikoku, walked by pilgrims in white robes for centuries — a Japan Heritage story and a UNESCO tentative-listed route; Temple 1, Ryozen-ji, anchors the start at Naruto.",
+  "highlights": [
+    "88-temple pilgrimage circuit",
+    "Japan Heritage story",
+    "1,400 km route"
+  ],
+  "notes": "A full henro walk takes 40-60 days; section hikes and temple stamps (nokyocho) are popular. Start at Ryozen-ji in Naruto.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 8,
+    "max": 24
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/140712_Ryozenji_Naruto_Tokushima_pref_Japan03s3.jpg/1920px-140712_Ryozenji_Naruto_Tokushima_pref_Japan03s3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/140712_Ryozenji_Naruto_Tokushima_pref_Japan03s3.jpg/1920px-140712_Ryozenji_Naruto_Tokushima_pref_Japan03s3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:140712_Ryozenji_Naruto_Tokushima_pref_Japan03s3.jpg"
+  },
+  "officialWebsite": "https://www.88shikokuhenro.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Tokushima:naruto",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "pilgrimage-routes-japan",
+      "sortOrder": 6
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Shikoku Henro (88 Temple Pilgrimage)",
+      "description": "Japan's 1,400 km circuit of 88 temples across Shikoku, walked by pilgrims in white robes for centuries — a Japan Heritage story and a UNESCO tentative-listed route; Temple 1, Ryozen-ji, anchors the start at Naruto.",
+      "highlights": [
+        "88-temple pilgrimage circuit",
+        "Japan Heritage story",
+        "1,400 km route"
+      ],
+      "notes": "A full henro walk takes 40-60 days; section hikes and temple stamps (nokyocho) are popular. Start at Ryozen-ji in Naruto.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "四国遍路（四国八十八箇所）",
+      "description": "四国一周約1,400kmに及ぶ88ヶ所の霊場巡り。白い衣をまとった巡礼者に何世紀にもわたり歩かれてきた道で、日本遺産にも認定され、ユネスコ暫定リストにも掲載されています。第1番札所・霊山寺は鳴門市にあり、巡礼の出発点となります。",
+      "highlights": ["88ヶ所の霊場巡り", "日本遺産の物語", "1,400kmの道のり"],
+      "notes": "通し打ちは40〜60日かかります。区切り打ちや納経帳も人気です。鳴門の霊山寺から始めましょう。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.88shikokuhenro.jp/",
+        "title": "Shikoku Henro (88 Temple Pilgrimage) official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

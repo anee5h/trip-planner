@@ -21,11 +21,11 @@
   },
   "collections": [
     {
-      "collectionId": "art-islands-japan",
+      "collectionId": "islands-japan",
       "sortOrder": 2
     },
     {
-      "collectionId": "islands-japan",
+      "collectionId": "art-islands-japan",
       "sortOrder": 2
     }
   ],

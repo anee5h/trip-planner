@@ -1,0 +1,119 @@
+{
+  "id": "inujima",
+  "name": "Inujima Island",
+  "nameJa": "犬島",
+  "aliases": ["犬島"],
+  "prefecture": "Okayama",
+  "region": "Chugoku",
+  "kind": "island",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.455,
+    "lng": 134.097
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Inujima Island", "Okayama", "Japan Travel"],
+  "description": "The smallest of the Benesse Art Site islands, home to the Inujima Seirensho Art Museum — a former copper refinery transformed into a site-specific art complex.",
+  "highlights": [
+    "Seirensho Art Museum",
+    "Former copper refinery",
+    "Benesse Art Site island"
+  ],
+  "notes": "Ferry from Okayama's Hoden port (~20 min) or Takamatsu; museum admission ¥2,100 (combined tickets available).",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "Museum entry: online advance tickets required (¥2,100); island access is walk-in",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Inujima_Seirensho_Art_Museum_%288917495397%29.jpg/1920px-Inujima_Seirensho_Art_Museum_%288917495397%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Inujima_Seirensho_Art_Museum_%288917495397%29.jpg/1920px-Inujima_Seirensho_Art_Museum_%288917495397%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "attribution": "KimonBerlin, CC BY-SA 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inujima_Seirensho_Art_Museum_(8917495397).jpg"
+  },
+  "officialWebsite": "https://benesse-artsite.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Okayama:okayama",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "art-islands-japan",
+      "sortOrder": 3
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Inujima Island",
+      "description": "The smallest of the Benesse Art Site islands, home to the Inujima Seirensho Art Museum — a former copper refinery transformed into a site-specific art complex.",
+      "highlights": [
+        "Seirensho Art Museum",
+        "Former copper refinery",
+        "Benesse Art Site island"
+      ],
+      "notes": "Ferry from Okayama's Hoden port (~20 min) or Takamatsu; museum admission ¥2,100 (combined tickets available).",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "犬島",
+      "description": "ベネッセアートサイトの島々で最も小さな島。旧銅精錬所を改装したサイトスペシフィックな美術館「犬島精錬所美術館」があります。",
+      "highlights": [
+        "犬島精錬所美術館",
+        "旧銅精錬所",
+        "ベネッセアートサイトの島"
+      ],
+      "notes": "岡山の宝伝港からフェリーで約20分、高松からもアクセス可能。入館料は2,100円（共通券あり）。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://benesse-artsite.jp/",
+        "title": "Inujima Island official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "transportZoneId": "unknown",
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "reservationJa": "【予約】美術館はオンライン事前予約制（2,100円）。島へのアクセスは自由です。"
+}

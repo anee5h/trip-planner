@@ -34,10 +34,6 @@
   },
   "collections": [
     {
-      "collectionId": "art-islands-japan",
-      "sortOrder": 5
-    },
-    {
       "collectionId": "top-onsen-japan",
       "confirmed": true
     }
@@ -54,7 +50,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2c/170811_Rokko-Arima_Ropeway_Kobe_Japan00n.jpg",
   "description": "Arima Onsen is Japan's oldest recorded hot spring resort, nestled behind Mount Rokko and famous for its iron-rich golden 'Kinsen' and clear radium 'Ginsen' waters.",
-  "notes": "The tower contains round porthole windows providing unique framed perspectives of Mito City.",
+  "notes": "Arima is one of Japan's three oldest hot springs (日本三名泉), with iron-rich gold waters and carbonated silver waters; the onsen town sits in a valley of Mount Rokko.",
   "budgetRecommended": 18000,
   "crowd": {
     "weekday": 3,
@@ -118,7 +114,7 @@
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
   },
-  "notesJa": "【見どころ】有馬温泉は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+  "notesJa": "日本三名泉の一つ、有馬温泉。鉄分を含む「金泉」と炭酸泉の「銀泉」が湧き、六甲山の谷間に温泉街が広がります。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",

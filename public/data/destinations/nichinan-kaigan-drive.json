@@ -1,0 +1,115 @@
+{
+  "id": "nichinan-kaigan-drive",
+  "name": "Nichinan Coast Scenic Drive",
+  "nameJa": "日南海岸きらめきライン",
+  "aliases": ["日南海岸きらめきライン"],
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 31.8,
+    "lng": 131.467
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Nichinan Coast Scenic Drive", "Miyazaki", "Japan Travel"],
+  "description": "The registered scenic byway (日本風景街道 route 9-1) running down Miyazaki's Nichinan coast past Aoshima's wave-cut rocks, the Udo shrine sea cave and tropical beaches.",
+  "highlights": [
+    "Registered scenic byway",
+    "Aoshima washing-board rocks",
+    "Udo shrine sea cave"
+  ],
+  "notes": "Free road; car is essential. The classic drive runs Miyazaki to Aoshima to Udo Shrine to Cape Toi.",
+  "transportOptions": {
+    "car": 120
+  },
+  "recommendedVisitHours": {
+    "min": 4,
+    "max": 6
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Aoshima_Island_20170318.jpg/1920px-Aoshima_Island_20170318.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Aoshima_Island_20170318.jpg/1920px-Aoshima_Island_20170318.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aoshima_Island_20170318.jpg"
+  },
+  "officialWebsite": "https://www.mlit.go.jp/road/sisaku/fukeikaidou/contents/route.html?route=9_1",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Miyazaki:nichinan",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "coastal-drives-japan",
+      "sortOrder": 10
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Nichinan Coast Scenic Drive",
+      "description": "The registered scenic byway (日本風景街道 route 9-1) running down Miyazaki's Nichinan coast past Aoshima's wave-cut rocks, the Udo shrine sea cave and tropical beaches.",
+      "highlights": [
+        "Registered scenic byway",
+        "Aoshima washing-board rocks",
+        "Udo shrine sea cave"
+      ],
+      "notes": "Free road; car is essential. The classic drive runs Miyazaki to Aoshima to Udo Shrine to Cape Toi.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "日南海岸きらめきライン",
+      "description": "宮崎県の日南海岸を走る登録された風景街道（日本風景街道ルート9-1）。青島の洗濯岩や鵜戸神宮の海食洞、南国らしいビーチを結ぶドライブコース。",
+      "highlights": ["登録風景街道", "青島の洗濯岩", "鵜戸神宮の海食洞"],
+      "notes": "無料の道路。車が必須。定番は宮崎→青島→鵜戸神宮→都井岬。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.mlit.go.jp/road/sisaku/fukeikaidou/contents/route.html?route=9_1",
+        "title": "Nichinan Coast Scenic Drive official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

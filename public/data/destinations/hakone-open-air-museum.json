@@ -1,0 +1,117 @@
+{
+  "id": "hakone-open-air-museum",
+  "name": "Hakone Open-Air Museum",
+  "nameJa": "箱根彫刻の森美術館",
+  "aliases": ["箱根彫刻の森美術館"],
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.245,
+    "lng": 139.044
+  },
+  "categories": ["culture", "art"],
+  "tags": ["Hakone Open-Air Museum", "Kanagawa", "Japan Travel"],
+  "description": "Japan's first open-air museum (1969): 120 works by Rodin, Picasso and more scattered across a sculpture garden with the Symphonic Sculpture tower and foot-onsen.",
+  "highlights": [
+    "Japan's first open-air museum",
+    "Rodin and Picasso collection",
+    "Sculpture garden and onsen"
+  ],
+  "notes": "Admission ¥1,800 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Hakone_Open-air_Museum_20211202-5.jpg/1920px-Hakone_Open-air_Museum_20211202-5.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Hakone_Open-air_Museum_20211202-5.jpg/1920px-Hakone_Open-air_Museum_20211202-5.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Suicasmo, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hakone_Open-air_Museum_20211202-5.jpg"
+  },
+  "officialWebsite": "https://www.hakone-oam.or.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Kanagawa:hakone",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "art-islands-japan",
+      "sortOrder": 7
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Hakone Open-Air Museum",
+      "description": "Japan's first open-air museum (1969): 120 works by Rodin, Picasso and more scattered across a sculpture garden with the Symphonic Sculpture tower and foot-onsen.",
+      "highlights": [
+        "Japan's first open-air museum",
+        "Rodin and Picasso collection",
+        "Sculpture garden and onsen"
+      ],
+      "notes": "Admission ¥1,800 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "箱根彫刻の森美術館",
+      "description": "日本初の野外美術館（1969年開館）。ロダンやピカソなど120点以上の作品が彫刻庭園に点在し、シンフォニック彫刻の塔や足湯も楽しめます。",
+      "highlights": [
+        "日本初の野外美術館",
+        "ロダン＆ピカソのコレクション",
+        "彫刻庭園と足湯"
+      ],
+      "notes": "大人入館料1,800円。箱根登山鉄道「彫刻の森」駅から徒歩約5分。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.hakone-oam.or.jp/",
+        "title": "Hakone Open-Air Museum official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

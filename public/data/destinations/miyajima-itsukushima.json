@@ -39,14 +39,6 @@
   },
   "collections": [
     {
-      "collectionId": "scenic-bridges-japan",
-      "sortOrder": 7
-    },
-    {
-      "collectionId": "islands-japan",
-      "sortOrder": 11
-    },
-    {
       "collectionId": "three-great-views",
       "sortOrder": 3
     },
@@ -54,6 +46,10 @@
       "collectionId": "unesco-japan",
       "confirmed": true,
       "source": "https://whc.unesco.org/en/list/776/"
+    },
+    {
+      "collectionId": "islands-japan",
+      "sortOrder": 11
     }
   ],
   "transportOptions": {},

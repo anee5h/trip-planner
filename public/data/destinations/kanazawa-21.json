@@ -1,0 +1,121 @@
+{
+  "id": "kanazawa-21",
+  "name": "21st Century Museum of Contemporary Art",
+  "nameJa": "金沢21世紀美術館",
+  "aliases": ["金沢21世紀美術館"],
+  "prefecture": "Ishikawa",
+  "region": "Chubu",
+  "kind": "museum",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 36.561,
+    "lng": 136.658
+  },
+  "categories": ["culture", "art"],
+  "tags": [
+    "21st Century Museum of Contemporary Art",
+    "Ishikawa",
+    "Japan Travel"
+  ],
+  "description": "SANAA's circular glass museum in central Kanazawa, famous for the walkable 'Swimming Pool' installation and its free-entry public zone.",
+  "highlights": [
+    "SANAA glass architecture",
+    "'Swimming Pool' installation",
+    "Free public zone"
+  ],
+  "notes": "Admission varies by exhibition; the pool installation is a paid area. In the Kanazawa city center.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/21st_Century_Museum_of_Contemporary_Art%2C_Kanazawa011.jpg/1920px-21st_Century_Museum_of_Contemporary_Art%2C_Kanazawa011.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/21st_Century_Museum_of_Contemporary_Art%2C_Kanazawa011.jpg/1920px-21st_Century_Museum_of_Contemporary_Art%2C_Kanazawa011.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.1 jp",
+    "attribution": "金沢市, CC BY 2.1 jp, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:21st_Century_Museum_of_Contemporary_Art,_Kanazawa011.jpg"
+  },
+  "officialWebsite": "https://www.kanazawa21.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Ishikawa:kanazawa",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "art-islands-japan",
+      "sortOrder": 9
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "21st Century Museum of Contemporary Art",
+      "description": "SANAA's circular glass museum in central Kanazawa, famous for the walkable 'Swimming Pool' installation and its free-entry public zone.",
+      "highlights": [
+        "SANAA glass architecture",
+        "'Swimming Pool' installation",
+        "Free public zone"
+      ],
+      "notes": "Admission varies by exhibition; the pool installation is a paid area. In the Kanazawa city center.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "金沢21世紀美術館",
+      "description": "金沢市中心部にあるSANAA設計の円形ガラス張りの美術館。歩いて楽しめる「スイミング・プール」の作品と無料の一般エリアで有名です。",
+      "highlights": [
+        "SANAAのガラス建築",
+        "「スイミング・プール」の体験作品",
+        "無料の一般エリア"
+      ],
+      "notes": "入場料は展示により異なり、プール作品は有料エリア。金沢市中心部に位置します。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kanazawa21.jp/",
+        "title": "21st Century Museum of Contemporary Art official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

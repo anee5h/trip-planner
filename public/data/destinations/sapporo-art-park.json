@@ -1,0 +1,117 @@
+{
+  "id": "sapporo-art-park",
+  "name": "Sapporo Art Park",
+  "nameJa": "札幌芸術の森",
+  "aliases": ["札幌芸術の森"],
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "park",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 42.978,
+    "lng": 141.405
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Sapporo Art Park", "Hokkaido", "Japan Travel"],
+  "description": "An outdoor art museum in southern Sapporo with 60+ sculptures on a wooded hillside, plus craft studios and the Sapporo Art Museum.",
+  "highlights": [
+    "60+ outdoor sculptures",
+    "Wooded sculpture park",
+    "Craft studios"
+  ],
+  "notes": "Park admission free; museum ¥900 (adult). About 40 min by bus from Sapporo Station.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/SAKURAKO_-_SAPPORO_ART_PARK._%2833696175123%29.jpg/1920px-SAKURAKO_-_SAPPORO_ART_PARK._%2833696175123%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/SAKURAKO_-_SAPPORO_ART_PARK._%2833696175123%29.jpg/1920px-SAKURAKO_-_SAPPORO_ART_PARK._%2833696175123%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "MIKI Yoshihito from Sapporo City,Hokkaido., JAPAN, CC BY 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:SAKURAKO_-_SAPPORO_ART_PARK._(33696175123).jpg"
+  },
+  "officialWebsite": "https://artpark.or.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Hokkaido:sapporo",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "art-islands-japan",
+      "sortOrder": 8
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Sapporo Art Park",
+      "description": "An outdoor art museum in southern Sapporo with 60+ sculptures on a wooded hillside, plus craft studios and the Sapporo Art Museum.",
+      "highlights": [
+        "60+ outdoor sculptures",
+        "Wooded sculpture park",
+        "Craft studios"
+      ],
+      "notes": "Park admission free; museum ¥900 (adult). About 40 min by bus from Sapporo Station.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "札幌芸術の森",
+      "description": "札幌南部の緑豊かな丘陵地に広がる野外美術館。60点以上の彫刻に加え、クラフト工房や札幌芸術の森美術館も併設しています。",
+      "highlights": [
+        "60点以上の野外彫刻",
+        "緑あふれる彫刻公園",
+        "クラフト工房"
+      ],
+      "notes": "公園入場無料、美術館は大人900円。札幌駅からバスで約40分。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://artpark.or.jp/",
+        "title": "Sapporo Art Park official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

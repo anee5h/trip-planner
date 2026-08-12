@@ -21,12 +21,7 @@
     "minutesFromBase": 240,
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "islands-japan",
-      "sortOrder": 1
-    }
-  ],
+  "collections": [],
   "region": "Kyushu",
   "categories": ["Nature & Parks"],
   "budgetMin": 1500,

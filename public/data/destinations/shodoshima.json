@@ -1,0 +1,122 @@
+{
+  "id": "shodoshima",
+  "name": "Shodoshima Island",
+  "nameJa": "小豆島",
+  "aliases": ["小豆島"],
+  "prefecture": "Kagawa",
+  "region": "Shikoku",
+  "kind": "island",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.51,
+    "lng": 134.29
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Shodoshima Island", "Kagawa", "Japan Travel"],
+  "description": "The Inland Sea's largest island: olive groves, the Angel Road sandbar, the Kankakei gorge cable car and Setouchi Triennale art works.",
+  "highlights": [
+    "Olive groves and Angel Road",
+    "Kankakei gorge cable car",
+    "Setouchi art festival"
+  ],
+  "notes": "Ferries from Takamatsu (~60 min) and Himeji; buses loop the island from Tonosho port.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Shodoshima_Olive_Park_Shodo_Island_Japan04n.jpg/1920px-Shodoshima_Olive_Park_Shodo_Island_Japan04n.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Shodoshima_Olive_Park_Shodo_Island_Japan04n.jpg/1920px-Shodoshima_Olive_Park_Shodo_Island_Japan04n.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shodoshima_Olive_Park_Shodo_Island_Japan04n.jpg"
+  },
+  "officialWebsite": "https://www.shodoshima-kankou.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Kagawa:shodoshima",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "islands-japan",
+      "sortOrder": 12
+    },
+    {
+      "collectionId": "art-islands-japan",
+      "sortOrder": 4
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Shodoshima Island",
+      "description": "The Inland Sea's largest island: olive groves, the Angel Road sandbar, the Kankakei gorge cable car and Setouchi Triennale art works.",
+      "highlights": [
+        "Olive groves and Angel Road",
+        "Kankakei gorge cable car",
+        "Setouchi art festival"
+      ],
+      "notes": "Ferries from Takamatsu (~60 min) and Himeji; buses loop the island from Tonosho port.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "小豆島",
+      "description": "瀬戸内海最大の島。オリーブ園や天使の道、寒霞渓ロープウェイ、瀬戸内国際芸術祭の作品などが見どころです。",
+      "highlights": [
+        "オリーブ園と天使の道",
+        "寒霞渓ロープウェイ",
+        "瀬戸内国際芸術祭"
+      ],
+      "notes": "高松（約60分）や姫路からフェリーがあります。土庄港から島内を周遊するバスが運行しています。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.shodoshima-kankou.jp/",
+        "title": "Shodoshima Island official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "transportZoneId": "unknown",
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

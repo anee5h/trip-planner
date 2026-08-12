@@ -1,0 +1,118 @@
+{
+  "id": "ogijima",
+  "name": "Ogijima Island",
+  "nameJa": "男木島",
+  "aliases": ["男木島"],
+  "prefecture": "Kagawa",
+  "region": "Shikoku",
+  "kind": "island",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.398,
+    "lng": 134.064
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Ogijima Island", "Kagawa", "Japan Travel"],
+  "description": "A small art-festival island of the Setouchi Triennale, its steep lanes lined with house projects, the Ogijima Library and works by Yoshihiro Narita.",
+  "highlights": [
+    "Setouchi Triennale island",
+    "House projects and library",
+    "Steep island lanes"
+  ],
+  "notes": "Ferry from Takamatsu (~40 min); artworks change with the festival editions — check setouchi-artfest.jp.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Ogijima_island.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Ogijima_island.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Bakkai, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ogijima_island.jpg"
+  },
+  "officialWebsite": "https://setouchi-artfest.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Kagawa:takamatsu",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "art-islands-japan",
+      "sortOrder": 10
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Ogijima Island",
+      "description": "A small art-festival island of the Setouchi Triennale, its steep lanes lined with house projects, the Ogijima Library and works by Yoshihiro Narita.",
+      "highlights": [
+        "Setouchi Triennale island",
+        "House projects and library",
+        "Steep island lanes"
+      ],
+      "notes": "Ferry from Takamatsu (~40 min); artworks change with the festival editions — check setouchi-artfest.jp.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "男木島",
+      "description": "瀬戸内国際芸術祭の小さなアートの島。急な路地に家プロジェクト、男木島図書館、成田義博の作品などが点在します。",
+      "highlights": [
+        "瀬戸内国際芸術祭の島",
+        "家プロジェクトと図書館",
+        "急な路地"
+      ],
+      "notes": "高松からフェリーで約40分。作品は芸術祭ごとに変わります。setouchi-artfest.jpでご確認ください。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://setouchi-artfest.jp/",
+        "title": "Ogijima Island official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "transportZoneId": "unknown",
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

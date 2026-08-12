@@ -21,12 +21,12 @@
   },
   "collections": [
     {
-      "collectionId": "art-islands-japan",
-      "sortOrder": 3
-    },
-    {
       "collectionId": "islands-japan",
       "sortOrder": 4
+    },
+    {
+      "collectionId": "art-islands-japan",
+      "sortOrder": 3
     }
   ],
   "region": "Shikoku",

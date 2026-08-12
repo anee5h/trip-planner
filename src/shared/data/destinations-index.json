@@ -2152,12 +2152,7 @@
       "minutesFromBase": 90,
       "confidence": "high"
     },
-    "collections": [
-      {
-        "collectionId": "flower-parks-japan",
-        "sortOrder": 1
-      }
-    ],
+    "collections": [],
     "region": "Chubu",
     "categories": ["Viewpoints & Photography"],
     "budgetMin": 1500,
@@ -2266,10 +2261,6 @@
     },
     "collections": [
       {
-        "collectionId": "art-islands-japan",
-        "sortOrder": 5
-      },
-      {
         "collectionId": "top-onsen-japan",
         "confirmed": true
       }
@@ -2286,7 +2277,7 @@
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2c/170811_Rokko-Arima_Ropeway_Kobe_Japan00n.jpg",
     "description": "Arima Onsen is Japan's oldest recorded hot spring resort, nestled behind Mount Rokko and famous for its iron-rich golden 'Kinsen' and clear radium 'Ginsen' waters.",
-    "notes": "The tower contains round porthole windows providing unique framed perspectives of Mito City.",
+    "notes": "Arima is one of Japan's three oldest hot springs (日本三名泉), with iron-rich gold waters and carbonated silver waters; the onsen town sits in a valley of Mount Rokko.",
     "budgetRecommended": 18000,
     "crowd": {
       "weekday": 3,
@@ -2350,7 +2341,7 @@
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
     },
-    "notesJa": "【見どころ】有馬温泉は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "notesJa": "日本三名泉の一つ、有馬温泉。鉄分を含む「金泉」と炭酸泉の「銀泉」が湧き、六甲山の谷間に温泉街が広がります。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
@@ -5496,12 +5487,7 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [
-      {
-        "collectionId": "pilgrimage-routes-japan",
-        "sortOrder": 6
-      }
-    ],
+    "collections": [],
     "relationships": {
       "gatewayHubId": "kisarazu-city"
     },
@@ -12377,12 +12363,7 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [
-      {
-        "collectionId": "flower-parks-japan",
-        "sortOrder": 4
-      }
-    ],
+    "collections": [],
     "relationships": {
       "featuredDestinationIds": ["hakodate-night-view"],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
@@ -12884,7 +12865,12 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "top-onsen-japan",
+        "sortOrder": 11
+      }
+    ],
     "transportOptions": {
       "train": 120,
       "bus": 150,
@@ -16023,15 +16009,6 @@
     },
     "collections": [
       {
-        "collectionId": "top-onsen-japan",
-        "sortOrder": 2,
-        "confirmed": true
-      },
-      {
-        "collectionId": "art-islands-japan",
-        "sortOrder": 4
-      },
-      {
         "collectionId": "great-night-views",
         "confirmed": true
       }
@@ -16186,10 +16163,6 @@
         "collectionId": "top-onsen-japan",
         "sortOrder": 2,
         "confirmed": true
-      },
-      {
-        "collectionId": "art-islands-japan",
-        "sortOrder": 4
       }
     ],
     "relationships": {
@@ -21063,10 +21036,6 @@
     },
     "collections": [
       {
-        "collectionId": "islands-japan",
-        "sortOrder": 9
-      },
-      {
         "collectionId": "three-great-shrines",
         "sortOrder": 1
       }
@@ -24588,12 +24557,7 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [
-      {
-        "collectionId": "flower-parks-japan",
-        "sortOrder": 5
-      }
-    ],
+    "collections": [],
     "relationships": {},
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
@@ -29002,7 +28966,7 @@
       "lng": 138.7492
     },
     "nearestStation": "Echigo-Yuzawa Station",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Jujikyo_in_Kurobe_Gorge.jpg/1920px-Jujikyo_in_Kurobe_Gorge.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Kiyotsu_Gorge_2020-08-09_%281%29_sa.jpg/1920px-Kiyotsu_Gorge_2020-08-09_%281%29_sa.jpg",
     "tags": ["gorge", "art", "niigata", "architecture", "viewpoint"],
     "rating": 4.8,
     "bestSeasons": ["Spring", "Summer", "Autumn"],
@@ -29014,10 +28978,6 @@
       {
         "collectionId": "waterfalls-gorges-japan",
         "sortOrder": 2
-      },
-      {
-        "collectionId": "art-islands-japan",
-        "sortOrder": 1
       }
     ],
     "region": "Chubu",
@@ -29074,7 +29034,7 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": []
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Jujikyo_in_Kurobe_Gorge.jpg/1920px-Jujikyo_in_Kurobe_Gorge.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Kiyotsu_Gorge_2020-08-09_%281%29_sa.jpg/1920px-Kiyotsu_Gorge_2020-08-09_%281%29_sa.jpg",
     "walkingIntensity": "low",
     "walkingSunMin": 1800,
     "walkingShadeMin": 1200,
@@ -29086,7 +29046,13 @@
     },
     "officialWebsite": "https://nakasato-kiyotsu.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Saigen Jiro",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kiyotsu_Gorge_2020-08-09_(1)_sa.jpg"
+    }
   },
   {
     "id": "kobe-animal-kingdom",
@@ -37345,14 +37311,6 @@
     },
     "collections": [
       {
-        "collectionId": "scenic-bridges-japan",
-        "sortOrder": 7
-      },
-      {
-        "collectionId": "islands-japan",
-        "sortOrder": 11
-      },
-      {
         "collectionId": "three-great-views",
         "sortOrder": 3
       },
@@ -37360,6 +37318,10 @@
         "collectionId": "unesco-japan",
         "confirmed": true,
         "source": "https://whc.unesco.org/en/list/776/"
+      },
+      {
+        "collectionId": "islands-japan",
+        "sortOrder": 11
       }
     ],
     "transportOptions": {},
@@ -37502,10 +37464,6 @@
       "confidence": "beta"
     },
     "collections": [
-      {
-        "collectionId": "scenic-bridges-japan",
-        "sortOrder": 7
-      },
       {
         "collectionId": "islands-japan",
         "sortOrder": 11
@@ -38637,6 +38595,10 @@
         "sortOrder": 7,
         "confirmed": true,
         "source": "https://whc.unesco.org/en/list/1418/"
+      },
+      {
+        "collectionId": "pilgrimage-routes-japan",
+        "sortOrder": 7
       }
     ],
     "relationships": {},
@@ -39016,13 +38978,17 @@
     },
     "collections": [
       {
+        "collectionId": "unesco-japan",
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1142/"
+      },
+      {
         "collectionId": "flower-parks-japan",
         "confirmed": true
       },
       {
-        "collectionId": "unesco-japan",
-        "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1142/"
+        "collectionId": "pilgrimage-routes-japan",
+        "sortOrder": 3
       }
     ],
     "transportOptions": {
@@ -39775,16 +39741,16 @@
         "source": "https://whc.unesco.org/en/list/1142/"
       },
       {
+        "collectionId": "three-great-waterfalls",
+        "sortOrder": 2
+      },
+      {
         "collectionId": "pilgrimage-routes-japan",
         "confirmed": true
       },
       {
         "collectionId": "waterfalls-gorges-japan",
         "confirmed": true
-      },
-      {
-        "collectionId": "three-great-waterfalls",
-        "sortOrder": 2
       }
     ],
     "transportOptions": {
@@ -42171,11 +42137,11 @@
     },
     "collections": [
       {
-        "collectionId": "art-islands-japan",
+        "collectionId": "islands-japan",
         "sortOrder": 2
       },
       {
-        "collectionId": "islands-japan",
+        "collectionId": "art-islands-japan",
         "sortOrder": 2
       }
     ],
@@ -43242,12 +43208,7 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [
-      {
-        "collectionId": "scenic-bridges-japan",
-        "sortOrder": 6
-      }
-    ],
+    "collections": [],
     "relationships": {
       "featuredDestinationIds": [
         "uzu-no-michi-naruto",
@@ -45243,12 +45204,7 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [
-      {
-        "collectionId": "coastal-drives-japan",
-        "sortOrder": 7
-      }
-    ],
+    "collections": [],
     "relationships": {},
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
@@ -51724,7 +51680,12 @@
       "minutesFromBase": 240,
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "caves-japan",
+        "sortOrder": 1
+      }
+    ],
     "budgetMin": 1100,
     "budgetRecommended": 3050,
     "budgetMax": 5000,
@@ -51900,12 +51861,12 @@
         "source": "https://whc.unesco.org/en/list/1698/"
       },
       {
-        "collectionId": "coastal-drives-japan",
-        "sortOrder": 8
-      },
-      {
         "collectionId": "islands-japan",
         "sortOrder": 7
+      },
+      {
+        "collectionId": "coastal-drives-japan",
+        "sortOrder": 8
       }
     ],
     "relationships": {
@@ -53257,12 +53218,7 @@
       "minutesFromBase": 240,
       "confidence": "high"
     },
-    "collections": [
-      {
-        "collectionId": "islands-japan",
-        "sortOrder": 1
-      }
-    ],
+    "collections": [],
     "region": "Kyushu",
     "categories": ["Nature & Parks"],
     "budgetMin": 1500,
@@ -57056,19 +57012,15 @@
       "Vast Lawn Landscapes",
       "Spring Cherry Blossoms"
     ],
-    "budgetMin": 1500,
-    "budgetRecommended": 4000,
-    "budgetMax": 7000,
     "budgetBreakdown": {
       "transport": 1300,
-      "tickets": 0,
+      "tickets": 500,
       "food": 2300,
       "cafe": 400
     },
     "transportOptions": {
       "train": 18
     },
-    "totalTripHours": 5,
     "recommendedVisitHours": {
       "min": 1,
       "max": 3
@@ -57119,7 +57071,12 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "flower-parks-japan",
+        "confirmed": true
+      }
+    ],
     "addedAt": "2026-07-29",
     "editorial": {
       "lifecycle": "published",
@@ -58061,12 +58018,12 @@
         "source": "https://whc.unesco.org/en/list/1193/"
       },
       {
-        "collectionId": "coastal-drives-japan",
-        "sortOrder": 6
-      },
-      {
         "collectionId": "national-parks-japan",
         "sortOrder": 2
+      },
+      {
+        "collectionId": "coastal-drives-japan",
+        "sortOrder": 6
       }
     ],
     "relationships": {
@@ -60249,12 +60206,7 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [
-      {
-        "collectionId": "waterfalls-gorges-japan",
-        "sortOrder": 6
-      }
-    ],
+    "collections": [],
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [
@@ -62463,12 +62415,12 @@
     },
     "collections": [
       {
-        "collectionId": "art-islands-japan",
-        "sortOrder": 3
-      },
-      {
         "collectionId": "islands-japan",
         "sortOrder": 4
+      },
+      {
+        "collectionId": "art-islands-japan",
+        "sortOrder": 3
       }
     ],
     "region": "Shikoku",
@@ -64943,12 +64895,7 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [
-      {
-        "collectionId": "caves-japan",
-        "sortOrder": 5
-      }
-    ],
+    "collections": [],
     "relationships": {
       "parentDestinationId": "ome-tokyo"
     },
@@ -67210,12 +67157,12 @@
     },
     "collections": [
       {
-        "collectionId": "scenic-bridges-japan",
-        "sortOrder": 1
-      },
-      {
         "collectionId": "coastal-drives-japan",
         "sortOrder": 3
+      },
+      {
+        "collectionId": "scenic-bridges-japan",
+        "sortOrder": 1
       }
     ],
     "region": "Chugoku",
@@ -69265,12 +69212,7 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [
-      {
-        "collectionId": "caves-japan",
-        "sortOrder": 4
-      }
-    ],
+    "collections": [],
     "relationships": {
       "parentDestinationId": "utsunomiya-city"
     },
@@ -74231,7 +74173,12 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "scenic-bridges-japan",
+        "sortOrder": 5
+      }
+    ],
     "addedAt": "2026-08-02",
     "editorial": {
       "lifecycle": "published",
@@ -78735,7 +78682,12 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "flower-parks-japan",
+        "confirmed": true
+      }
+    ],
     "addedAt": "2026-08-02",
     "editorial": {
       "lifecycle": "published",
@@ -79944,19 +79896,15 @@
     },
     "description": "A massive 180-hectare national park featuring vibrant ginkgo tree avenues, vast cosmos fields, boating lakes, and a traditional Japanese garden. It is Tachikawa's premier green space for outdoor recreation and seasonal flower festivals.",
     "highlights": ["Nature", "Park", "Seasonal"],
-    "budgetMin": 1500,
-    "budgetRecommended": 4000,
-    "budgetMax": 7000,
     "budgetBreakdown": {
       "transport": 1400,
-      "tickets": 0,
+      "tickets": 450,
       "food": 1400,
       "cafe": 1200
     },
     "transportOptions": {
       "train": 38
     },
-    "totalTripHours": 5,
     "recommendedVisitHours": {
       "min": 1,
       "max": 3
@@ -80005,7 +79953,12 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "flower-parks-japan",
+        "confirmed": true
+      }
+    ],
     "addedAt": "2026-08-02",
     "editorial": {
       "lifecycle": "published",
@@ -80032,7 +79985,7 @@
       "reviewedBy": "Meguruto Editorial Reviewer"
     },
     "ratingMetadata": {
-      "rubricVersion": 1,
+      "rubricVersion": 2,
       "method": "assisted",
       "confidence": "low"
     },
@@ -88415,7 +88368,12 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "scenic-bridges-japan",
+        "sortOrder": 6
+      }
+    ],
     "addedAt": "2026-08-04",
     "editorial": {
       "lifecycle": "published",
@@ -91697,7 +91655,12 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "waterfalls-gorges-japan",
+        "sortOrder": 10
+      }
+    ],
     "addedAt": "2026-08-04",
     "editorial": {
       "lifecycle": "published",
@@ -92960,7 +92923,12 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "flower-parks-japan",
+        "confirmed": true
+      }
+    ],
     "addedAt": "2026-08-04",
     "editorial": {
       "lifecycle": "published",
@@ -110235,7 +110203,12 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "art-islands-japan",
+        "sortOrder": 8
+      }
+    ],
     "transportOptions": {
       "train": 100,
       "bus": 60,
@@ -128257,6 +128230,10 @@
       {
         "collectionId": "quasi-national-parks-japan",
         "sortOrder": 20
+      },
+      {
+        "collectionId": "coastal-drives-japan",
+        "sortOrder": 7
       }
     ],
     "relationships": {},
@@ -132907,5 +132884,3306 @@
       }
     ],
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Sanmachi_Takayama02ds3872.jpg/1920px-Sanmachi_Takayama02ds3872.jpg"
+  },
+  {
+    "id": "sarakurayama",
+    "name": "Mount Sarakura",
+    "nameJa": "皿倉山",
+    "aliases": ["皿倉山"],
+    "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "kind": "mountain",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 33.866,
+      "lng": 130.775
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Mount Sarakura", "Fukuoka", "Japan Travel"],
+    "description": "Mount Sarakura (622 m) is one of Japan's New Three Great Night Views (2003), reached by cable car from Kitakyushu; its observation deck overlooks Dokai Bay and the industrial city lights.",
+    "highlights": [
+      "One of the New Three Great Night Views",
+      "Cable car to the summit",
+      "Kitakyushu city lights"
+    ],
+    "notes": "Ropeway/cable car round trip ¥1,250. The night view is best on clear evenings; the summit has a restaurant and viewpoint.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/90/Night_view_from_Sarakurayama.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/90/Night_view_from_Sarakurayama.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Muyo, CC BY-SA 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Night_view_from_Sarakurayama.jpg"
+    },
+    "officialWebsite": "https://www.sarakurayama-cablecar.co.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Fukuoka:kitakyushu",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "great-night-views",
+        "sortOrder": 1
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Mount Sarakura",
+        "description": "Mount Sarakura (622 m) is one of Japan's New Three Great Night Views (2003), reached by cable car from Kitakyushu; its observation deck overlooks Dokai Bay and the industrial city lights.",
+        "highlights": [
+          "One of the New Three Great Night Views",
+          "Cable car to the summit",
+          "Kitakyushu city lights"
+        ],
+        "notes": "Ropeway/cable car round trip ¥1,250. The night view is best on clear evenings; the summit has a restaurant and viewpoint.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "皿倉山",
+        "description": "皿倉山（標高622m）は2003年に「日本新三景」の一つに選ばれた夜景スポット。ケーブルカーで北九州の山頂へ登り、展望台から洞海湾や工場地帯の夜景を一望できます。",
+        "highlights": [
+          "日本新三景の夜景",
+          "ケーブルカーで山頂へ",
+          "北九州の街の灯り"
+        ],
+        "notes": "ケーブルカー往復1,250円。夜景は晴れた夜がおすすめ。山頂にはレストランと展望台があります。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.sarakurayama-cablecar.co.jp/",
+          "title": "Mount Sarakura official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "fuefukigawa-fruit-park",
+    "name": "Fuefukigawa Fruit Park",
+    "nameJa": "笛吹川フルーツ公園",
+    "aliases": ["笛吹川フルーツ公園"],
+    "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "kind": "park",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 35.665,
+      "lng": 138.667
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Fuefukigawa Fruit Park", "Yamanashi", "Japan Travel"],
+    "description": "Perched on the hillside above Kofu, Fuefukigawa Fruit Park is one of Japan's New Three Great Night Views (2003), famous for its panoramic evening view of the Kofu basin.",
+    "highlights": [
+      "New Three Great Night View",
+      "Kofu basin panorama",
+      "Fruit museum and observatory"
+    ],
+    "notes": "Free entry; the observation deck and seasonal illumination are the highlights. Combine with a daytime fruit-picking visit.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/From_Fruit_park_the_view_of_Kofu_basin_and_Mt._Fuji.jpg/1920px-From_Fruit_park_the_view_of_Kofu_basin_and_Mt._Fuji.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/From_Fruit_park_the_view_of_Kofu_basin_and_Mt._Fuji.jpg/1920px-From_Fruit_park_the_view_of_Kofu_basin_and_Mt._Fuji.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "さかおり (talk), CC BY-SA 3.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:From_Fruit_park_the_view_of_Kofu_basin_and_Mt._Fuji.jpg"
+    },
+    "officialWebsite": "https://www.fuefukigawa-fruits.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Yamanashi:yamanashi",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "great-night-views",
+        "sortOrder": 2
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Fuefukigawa Fruit Park",
+        "description": "Perched on the hillside above Kofu, Fuefukigawa Fruit Park is one of Japan's New Three Great Night Views (2003), famous for its panoramic evening view of the Kofu basin.",
+        "highlights": [
+          "New Three Great Night View",
+          "Kofu basin panorama",
+          "Fruit museum and observatory"
+        ],
+        "notes": "Free entry; the observation deck and seasonal illumination are the highlights. Combine with a daytime fruit-picking visit.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "笛吹川フルーツ公園",
+        "description": "甲府市街を見下ろす丘陵地に位置する笛吹川フルーツ公園は、2003年に「日本新三景」のひとつに選ばれた絶景スポット。甲府盆地を一望するパノラマ夜景で知られます。",
+        "highlights": [
+          "日本新三景の夜景",
+          "甲府盆地のパノラマ",
+          "フルーツ博物館と展望台"
+        ],
+        "notes": "入園無料。展望台と季節のイルミネーションが見どころ。日中はフルーツ狩りと組み合わせるのがおすすめです。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.fuefukigawa-fruits.jp/",
+          "title": "Fuefukigawa Fruit Park official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "wakakusayama",
+    "name": "Mount Wakakusa",
+    "nameJa": "若草山",
+    "aliases": ["若草山"],
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "kind": "mountain",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 34.69,
+      "lng": 135.859
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Mount Wakakusa", "Nara", "Japan Travel"],
+    "description": "The grass-covered hill east of Nara Park, Mount Wakakusa is one of Japan's New Three Great Night Views (2003) and the stage of the January yamayaki grass-burning festival.",
+    "highlights": [
+      "New Three Great Night View",
+      "Nara basin panorama",
+      "Yamayaki fire festival"
+    ],
+    "notes": "Admission ¥150 (adult) for the hill; the night view over Nara and the Great Buddha Hall is the draw.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Mount_Wakakusa%2C_Mountain_Trail_001.jpg/1920px-Mount_Wakakusa%2C_Mountain_Trail_001.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Mount_Wakakusa%2C_Mountain_Trail_001.jpg/1920px-Mount_Wakakusa%2C_Mountain_Trail_001.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Naokijp, CC BY-SA 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Wakakusa,_Mountain_Trail_001.jpg"
+    },
+    "officialWebsite": "https://www.city.nara.lg.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Nara:nara",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "great-night-views",
+        "sortOrder": 3
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Mount Wakakusa",
+        "description": "The grass-covered hill east of Nara Park, Mount Wakakusa is one of Japan's New Three Great Night Views (2003) and the stage of the January yamayaki grass-burning festival.",
+        "highlights": [
+          "New Three Great Night View",
+          "Nara basin panorama",
+          "Yamayaki fire festival"
+        ],
+        "notes": "Admission ¥150 (adult) for the hill; the night view over Nara and the Great Buddha Hall is the draw.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "若草山",
+        "description": "奈良公園の東に広がる芝生の山、若草山は2003年に「日本新三景」のひとつに選ばれ、毎年1月には山焼きが行われることでも知られています。",
+        "highlights": [
+          "日本新三景の夜景",
+          "奈良盆地のパノラマ",
+          "山焼きの火祭り"
+        ],
+        "notes": "入山料は大人150円。奈良の街並みや大仏殿を望む夜景が魅力です。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.nara.lg.jp/",
+          "title": "Mount Wakakusa official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "nippara-cave",
+    "name": "Nippara Limestone Cave",
+    "nameJa": "日原鍾乳洞",
+    "aliases": ["日原鍾乳洞"],
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "kind": "nature",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 35.795,
+      "lng": 139.03
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Nippara Limestone Cave", "Tokyo", "Japan Travel"],
+    "description": "Tokyo's largest limestone cave, part of the Okutama mountains; the 900 m tourist course winds through underground lakes and massive stalactite chambers.",
+    "highlights": [
+      "Tokyo's largest limestone cave",
+      "Underground lakes",
+      "Stalactite formations"
+    ],
+    "notes": "Admission ¥700 (adult). Closed some winter weekdays; access by bus from Okutama Station (road reopened after 2019 typhoon damage).",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Nippara_Cave_Shirataekyo.jpg/1920px-Nippara_Cave_Shirataekyo.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Nippara_Cave_Shirataekyo.jpg/1920px-Nippara_Cave_Shirataekyo.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Osumi Akari, CC BY-SA 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nippara_Cave_Shirataekyo.jpg"
+    },
+    "officialWebsite": "http://www.nippara.com/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Tokyo:okutama",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "caves-japan",
+        "sortOrder": 3
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Nippara Limestone Cave",
+        "description": "Tokyo's largest limestone cave, part of the Okutama mountains; the 900 m tourist course winds through underground lakes and massive stalactite chambers.",
+        "highlights": [
+          "Tokyo's largest limestone cave",
+          "Underground lakes",
+          "Stalactite formations"
+        ],
+        "notes": "Admission ¥700 (adult). Closed some winter weekdays; access by bus from Okutama Station (road reopened after 2019 typhoon damage).",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "日原鍾乳洞",
+        "description": "奥多摩の山々に広がる東京都内最大の鍾乳洞。全長900mの遊歩道コースでは、地底湖や巨大な鍾乳石の間を巡ることができます。",
+        "highlights": ["都内最大の鍾乳洞", "地底湖", "鍾乳石の造形"],
+        "notes": "入場料は大人700円。冬期は一部平日閉館。奥多摩駅からバスでアクセス（2019年の台風被害後、道路は復旧済み）。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "http://www.nippara.com/",
+          "title": "Nippara Limestone Cave official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "hida-cave",
+    "name": "Hida Great Limestone Cave",
+    "nameJa": "飛騨大鍾乳洞",
+    "aliases": ["飛騨大鍾乳洞"],
+    "prefecture": "Gifu",
+    "region": "Chubu",
+    "kind": "nature",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 36.27,
+      "lng": 137.36
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Hida Great Limestone Cave", "Gifu", "Japan Travel"],
+    "description": "One of Japan's nine association-member touring caves, the Hida Great Limestone Cave offers a 800 m course with limestone formations and an underground observation tower at the top of Mt. Kano.",
+    "highlights": [
+      "Association-listed touring cave",
+      "Underground observation tower",
+      "Limestone formations"
+    ],
+    "notes": "Admission ¥1,200 (adult); a cable car from Takayama's north reaches the cave entrance.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Hida_Great_Limestone_Cave.jpg/1920px-Hida_Great_Limestone_Cave.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Hida_Great_Limestone_Cave.jpg/1920px-Hida_Great_Limestone_Cave.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "ブルーノ・プラス, CC BY 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hida_Great_Limestone_Cave.jpg"
+    },
+    "officialWebsite": "https://www.hida-cave.com/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Gifu:takayama",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "caves-japan",
+        "sortOrder": 4
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Hida Great Limestone Cave",
+        "description": "One of Japan's nine association-member touring caves, the Hida Great Limestone Cave offers a 800 m course with limestone formations and an underground observation tower at the top of Mt. Kano.",
+        "highlights": [
+          "Association-listed touring cave",
+          "Underground observation tower",
+          "Limestone formations"
+        ],
+        "notes": "Admission ¥1,200 (adult); a cable car from Takayama's north reaches the cave entrance.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "飛騨大鍾乳洞",
+        "description": "日本9洞会加盟の観光鍾乳洞のひとつで、花崗岩の山・鹿ノ上山の頂上付近に広がります。全長800mのコースには鍾乳石や地底の展望台があります。",
+        "highlights": ["日本9洞会加盟の鍾乳洞", "地底の展望台", "鍾乳石の造形"],
+        "notes": "入場料は大人1,200円。飛騨の里から南へ、ケーブルカーで洞窟入口までアクセスできます。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.hida-cave.com/",
+          "title": "Hida Great Limestone Cave official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "nanatsugama-cave",
+    "name": "Nanatsugama Cave",
+    "nameJa": "七ツ釜鍾乳洞",
+    "aliases": ["七ツ釜鍾乳洞"],
+    "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "kind": "nature",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 33.02,
+      "lng": 129.72
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Nanatsugama Cave", "Nagasaki", "Japan Travel"],
+    "description": "A fossil-bearing limestone cave on the Saikai coast of western Nagasaki, one of the nine touring caves of the Japan Touring Caves Association, with a 700 m course.",
+    "highlights": [
+      "Association-listed touring cave",
+      "Fossil-rich limestone",
+      "700 m course"
+    ],
+    "notes": "Admission ¥700 (adult). Located near the Yokoo coast; car access is easiest.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0c/NanatugamaEntrance.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/NanatugamaEntrance.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Ken.y, CC BY-SA 3.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:NanatugamaEntrance.JPG"
+    },
+    "officialWebsite": "https://www.city.saikai.nagasaki.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Nagasaki:saikai",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "caves-japan",
+        "sortOrder": 7
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Nanatsugama Cave",
+        "description": "A fossil-bearing limestone cave on the Saikai coast of western Nagasaki, one of the nine touring caves of the Japan Touring Caves Association, with a 700 m course.",
+        "highlights": [
+          "Association-listed touring cave",
+          "Fossil-rich limestone",
+          "700 m course"
+        ],
+        "notes": "Admission ¥700 (adult). Located near the Yokoo coast; car access is easiest.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "七ツ釜鍾乳洞",
+        "description": "長崎西部の西海海岸にある化石を含む鍾乳洞で、日本観光鍾乳洞協会認定の観光鍾乳洞の一つ。全長700mのコースを巡れる。",
+        "highlights": [
+          "協会認定の観光鍾乳洞",
+          "化石を含む石灰岩",
+          "700mコース"
+        ],
+        "notes": "大人700円。横尾海岸の近くにあり、車でのアクセスが便利。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.saikai.nagasaki.jp/",
+          "title": "Nanatsugama Cave official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "kyusendo-cave",
+    "name": "Kyusendo Cave",
+    "nameJa": "球泉洞",
+    "aliases": ["球泉洞"],
+    "prefecture": "Kumamoto",
+    "region": "Kyushu",
+    "kind": "nature",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 32.3,
+      "lng": 130.62
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Kyusendo Cave", "Kumamoto", "Japan Travel"],
+    "description": "Kyushu's largest limestone cave, in the Kuma river valley of Kumamoto; the 4.7 km cave offers a 1 km tourist course through underground streams and grand chambers.",
+    "highlights": [
+      "Kyushu's largest cave",
+      "Underground streams",
+      "Grand limestone chambers"
+    ],
+    "notes": "Admission ¥1,100 (adult); a shuttle bus links the entrance and exit. Pair with the Hitoyoshi river boats nearby.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Kyusen_do_20160829141937_%2831352377344%29.jpg/1920px-Kyusen_do_20160829141937_%2831352377344%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Kyusen_do_20160829141937_%2831352377344%29.jpg/1920px-Kyusen_do_20160829141937_%2831352377344%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "inunami, CC BY 2.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kyusen_do_20160829141937_(31352377344).jpg"
+    },
+    "officialWebsite": "https://www.vill.kuma.kumamoto.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Kumamoto:kuma",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "caves-japan",
+        "sortOrder": 8
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Kyusendo Cave",
+        "description": "Kyushu's largest limestone cave, in the Kuma river valley of Kumamoto; the 4.7 km cave offers a 1 km tourist course through underground streams and grand chambers.",
+        "highlights": [
+          "Kyushu's largest cave",
+          "Underground streams",
+          "Grand limestone chambers"
+        ],
+        "notes": "Admission ¥1,100 (adult); a shuttle bus links the entrance and exit. Pair with the Hitoyoshi river boats nearby.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "球泉洞",
+        "description": "熊本県の球磨川渓谷にある九州最大の鍾乳洞。全長4.7kmのうち1kmの観光コースが整備され、地下水流や壮大な広間を楽しめる。",
+        "highlights": ["九州最大の鍾乳洞", "地下水流", "壮大な石灰岩の広間"],
+        "notes": "大人1,100円。入口と出口は連絡バスで移動。近隣の人吉下り船と合わせて訪れるのがおすすめ。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.vill.kuma.kumamoto.jp/",
+          "title": "Kyusendo Cave official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "shoryu-cave",
+    "name": "Shoryu Cave",
+    "nameJa": "昇竜洞",
+    "aliases": ["昇竜洞"],
+    "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "kind": "nature",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 27.35,
+      "lng": 128.57
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Shoryu Cave", "Kagoshima", "Japan Travel"],
+    "description": "A limestone cave on Okinoerabu Island of the Amami chain, one of the nine association touring caves, with stalactite formations and an underground waterfall after rain.",
+    "highlights": [
+      "Okinoerabu island cave",
+      "Association-listed touring cave",
+      "Underground waterfall"
+    ],
+    "notes": "Admission ¥600 (adult). Reach the island by ferry from Kagoshima; the cave is near China town.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Okinoerabu_Shoryudo01.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Okinoerabu_Shoryudo01.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "CC BY-SA 3.0 via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Okinoerabu_Shoryudo01.jpg"
+    },
+    "officialWebsite": "https://www.town.china.lg.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Kagoshima:china",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "caves-japan",
+        "sortOrder": 9
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Shoryu Cave",
+        "description": "A limestone cave on Okinoerabu Island of the Amami chain, one of the nine association touring caves, with stalactite formations and an underground waterfall after rain.",
+        "highlights": [
+          "Okinoerabu island cave",
+          "Association-listed touring cave",
+          "Underground waterfall"
+        ],
+        "notes": "Admission ¥600 (adult). Reach the island by ferry from Kagoshima; the cave is near China town.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "昇竜洞",
+        "description": "奄美群島の沖永良部島にある鍾乳洞。日本観光鍾乳洞協会認定の観光鍾乳洞で、鍾乳石群と雨の後の地下滝が見どころ。",
+        "highlights": ["沖永良部島の鍾乳洞", "協会認定の観光鍾乳洞", "地下滝"],
+        "notes": "大人600円。鹿児島からフェリーで島へ。洞窟は知名町の近くにある。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.town.china.lg.jp/",
+          "title": "Shoryu Cave official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "transportZoneId": "amami",
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "nichinan-kaigan-drive",
+    "name": "Nichinan Coast Scenic Drive",
+    "nameJa": "日南海岸きらめきライン",
+    "aliases": ["日南海岸きらめきライン"],
+    "prefecture": "Miyazaki",
+    "region": "Kyushu",
+    "kind": "nature",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 31.8,
+      "lng": 131.467
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Nichinan Coast Scenic Drive", "Miyazaki", "Japan Travel"],
+    "description": "The registered scenic byway (日本風景街道 route 9-1) running down Miyazaki's Nichinan coast past Aoshima's wave-cut rocks, the Udo shrine sea cave and tropical beaches.",
+    "highlights": [
+      "Registered scenic byway",
+      "Aoshima washing-board rocks",
+      "Udo shrine sea cave"
+    ],
+    "notes": "Free road; car is essential. The classic drive runs Miyazaki to Aoshima to Udo Shrine to Cape Toi.",
+    "transportOptions": {
+      "car": 120
+    },
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 6
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Aoshima_Island_20170318.jpg/1920px-Aoshima_Island_20170318.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Aoshima_Island_20170318.jpg/1920px-Aoshima_Island_20170318.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "そらみみ, CC BY-SA 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aoshima_Island_20170318.jpg"
+    },
+    "officialWebsite": "https://www.mlit.go.jp/road/sisaku/fukeikaidou/contents/route.html?route=9_1",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Miyazaki:nichinan",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "coastal-drives-japan",
+        "sortOrder": 10
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Nichinan Coast Scenic Drive",
+        "description": "The registered scenic byway (日本風景街道 route 9-1) running down Miyazaki's Nichinan coast past Aoshima's wave-cut rocks, the Udo shrine sea cave and tropical beaches.",
+        "highlights": [
+          "Registered scenic byway",
+          "Aoshima washing-board rocks",
+          "Udo shrine sea cave"
+        ],
+        "notes": "Free road; car is essential. The classic drive runs Miyazaki to Aoshima to Udo Shrine to Cape Toi.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "日南海岸きらめきライン",
+        "description": "宮崎県の日南海岸を走る登録された風景街道（日本風景街道ルート9-1）。青島の洗濯岩や鵜戸神宮の海食洞、南国らしいビーチを結ぶドライブコース。",
+        "highlights": ["登録風景街道", "青島の洗濯岩", "鵜戸神宮の海食洞"],
+        "notes": "無料の道路。車が必須。定番は宮崎→青島→鵜戸神宮→都井岬。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.mlit.go.jp/road/sisaku/fukeikaidou/contents/route.html?route=9_1",
+          "title": "Nichinan Coast Scenic Drive official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "saru-hashi",
+    "name": "Saru-hashi Bridge",
+    "nameJa": "猿橋",
+    "aliases": ["猿橋"],
+    "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "kind": "bridge",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 35.604,
+      "lng": 138.947
+    },
+    "categories": ["bridge", "sightseeing", "engineering"],
+    "tags": ["Saru-hashi Bridge", "Yamanashi", "Japan Travel"],
+    "description": "One of Japan's Three Strange Bridges (三奇橋), Saru-hashi is a 31 m wooden cantilever bridge built without piers over the Katsura river gorge — a 17th-century engineering marvel.",
+    "highlights": [
+      "One of the Three Strange Bridges",
+      "Pier-less cantilever design",
+      "Katsura river gorge"
+    ],
+    "notes": "Free to cross; a riverside viewing path offers the classic profile. About 10 min from Otsuki Station by car.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Saruhashi_Bridge_%40_Hike_to_Mount_Ougiyama_%26_Mount_Momokurasan_%40_Yamanashi_Prefecture_%2813469680933%29.jpg/1920px-Saruhashi_Bridge_%40_Hike_to_Mount_Ougiyama_%26_Mount_Momokurasan_%40_Yamanashi_Prefecture_%2813469680933%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Saruhashi_Bridge_%40_Hike_to_Mount_Ougiyama_%26_Mount_Momokurasan_%40_Yamanashi_Prefecture_%2813469680933%29.jpg/1920px-Saruhashi_Bridge_%40_Hike_to_Mount_Ougiyama_%26_Mount_Momokurasan_%40_Yamanashi_Prefecture_%2813469680933%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Guilhem Vellut from Annecy, France, CC BY 2.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saruhashi_Bridge_@_Hike_to_Mount_Ougiyama_&_Mount_Momokurasan_@_Yamanashi_Prefecture_(13469680933).jpg"
+    },
+    "officialWebsite": "https://www.city.otsuki.yamanashi.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Yamanashi:otsuki",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "scenic-bridges-japan",
+        "sortOrder": 4
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Saru-hashi Bridge",
+        "description": "One of Japan's Three Strange Bridges (三奇橋), Saru-hashi is a 31 m wooden cantilever bridge built without piers over the Katsura river gorge — a 17th-century engineering marvel.",
+        "highlights": [
+          "One of the Three Strange Bridges",
+          "Pier-less cantilever design",
+          "Katsura river gorge"
+        ],
+        "notes": "Free to cross; a riverside viewing path offers the classic profile. About 10 min from Otsuki Station by car.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "猿橋",
+        "description": "日本三奇橋の一つである猿橋は、桂川の渓谷に橋脚を使わず架けられた全長31mの木造片持ち梁橋。17世紀の技術の傑作。",
+        "highlights": [
+          "日本三奇橋の一つ",
+          "橋脚なしの片持ち梁構造",
+          "桂川の渓谷"
+        ],
+        "notes": "渡るのは無料。川沿いの遊歩道から定番の姿を望める。大月駅から車で約10分。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.otsuki.yamanashi.jp/",
+          "title": "Saru-hashi Bridge official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "akashi-kaikyo-bridge",
+    "name": "Akashi Kaikyo Bridge",
+    "nameJa": "明石海峡大橋",
+    "aliases": ["明石海峡大橋"],
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "kind": "bridge",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 34.616,
+      "lng": 135.021
+    },
+    "categories": ["bridge", "sightseeing", "engineering"],
+    "tags": ["Akashi Kaikyo Bridge", "Hyogo", "Japan Travel"],
+    "description": "One of the world's longest suspension bridges (1,991 m main span — the world's longest from 1998 to 2022), linking Kobe and Awaji Island across the Akashi Strait; its Maiko promenade offers an ocean-floor walkway.",
+    "highlights": [
+      "1,991 m main span",
+      "Maiko Marine Promenade",
+      "Akashi Strait crossing"
+    ],
+    "notes": "Toll road; the Marine Promenade on the Kobe side (¥300, ¥250 weekdays) lets you walk beneath the deck.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Akashi_Bridge.JPG/1920px-Akashi_Bridge.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Akashi_Bridge.JPG/1920px-Akashi_Bridge.JPG",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Tysto, Public domain, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akashi_Bridge.JPG"
+    },
+    "officialWebsite": "https://www.jb-honshi.co.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Hyogo:kobe",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "scenic-bridges-japan",
+        "sortOrder": 7
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Akashi Kaikyo Bridge",
+        "description": "One of the world's longest suspension bridges (1,991 m main span — the world's longest from 1998 to 2022), linking Kobe and Awaji Island across the Akashi Strait; its Maiko promenade offers an ocean-floor walkway.",
+        "highlights": [
+          "1,991 m main span",
+          "Maiko Marine Promenade",
+          "Akashi Strait crossing"
+        ],
+        "notes": "Toll road; the Marine Promenade on the Kobe side (¥300, ¥250 weekdays) lets you walk beneath the deck.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "明石海峡大橋",
+        "description": "1998年開通の世界有数の長大吊り橋で、中央支間1,991m（開通から2022年まで世界最長）。神戸と淡路島を結び、舞子海上プロムナードでは海の上を歩く体験ができます。",
+        "highlights": [
+          "世界最長の吊り橋",
+          "舞子海上プロムナード",
+          "明石海峡を渡る"
+        ],
+        "notes": "有料道路です。神戸側の舞子海上プロムナード（300円、平日250円）は橋の下を歩けます。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.jb-honshi.co.jp/",
+          "title": "Akashi Kaikyo Bridge official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "seto-ohashi-bridge",
+    "name": "Seto Ohashi Bridge",
+    "nameJa": "瀬戸大橋",
+    "aliases": ["瀬戸大橋"],
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "kind": "bridge",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 34.418,
+      "lng": 133.806
+    },
+    "categories": ["bridge", "sightseeing", "engineering"],
+    "tags": ["Seto Ohashi Bridge", "Kagawa", "Japan Travel"],
+    "description": "The 13 km bridge-and-viaduct system (1988) carrying rail and road across the Seto Inland Sea from Okayama to Sakaide, with viewpoints on both shores and a bridge museum.",
+    "highlights": [
+      "13 km Honshu-Shikoku link",
+      "Rail and road bridge",
+      "Seto Inland Sea views"
+    ],
+    "notes": "Toll road; the Seto Ohashi Memorial Hall and the Sakaide shore viewpoints frame the crossing.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Crossing_the_Great_Seto_Bridge_to_Shikoku.webm/1920px--Crossing_the_Great_Seto_Bridge_to_Shikoku.webm.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Crossing_the_Great_Seto_Bridge_to_Shikoku.webm/1920px--Crossing_the_Great_Seto_Bridge_to_Shikoku.webm.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Immanuelle, CC BY-SA 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crossing_the_Great_Seto_Bridge_to_Shikoku.webm"
+    },
+    "officialWebsite": "https://www.jb-honshi.co.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Kagawa:sakaide",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "scenic-bridges-japan",
+        "sortOrder": 8
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Seto Ohashi Bridge",
+        "description": "The 13 km bridge-and-viaduct system (1988) carrying rail and road across the Seto Inland Sea from Okayama to Sakaide, with viewpoints on both shores and a bridge museum.",
+        "highlights": [
+          "13 km Honshu-Shikoku link",
+          "Rail and road bridge",
+          "Seto Inland Sea views"
+        ],
+        "notes": "Toll road; the Seto Ohashi Memorial Hall and the Sakaide shore viewpoints frame the crossing.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "瀬戸大橋",
+        "description": "1988年に開通した、岡山と坂出を結ぶ全長13kmの橋と高架道路のシステム。瀬戸内海をまたいで鉄道と道路が通り、両岸には展望スポットと橋の博物館があります。",
+        "highlights": [
+          "全長13kmの本州四国連絡",
+          "鉄道と道路の併用橋",
+          "瀬戸内海の眺望"
+        ],
+        "notes": "有料道路です。瀬戸大橋記念館や坂出側の展望ポイントから橋を一望できます。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.jb-honshi.co.jp/",
+          "title": "Seto Ohashi Bridge official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "rainbow-bridge",
+    "name": "Rainbow Bridge",
+    "nameJa": "レインボーブリッジ",
+    "aliases": ["レインボーブリッジ"],
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "kind": "bridge",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 35.637,
+      "lng": 139.764
+    },
+    "categories": ["bridge", "sightseeing", "engineering"],
+    "tags": ["Rainbow Bridge", "Tokyo", "Japan Travel"],
+    "description": "Tokyo's 570 m suspension bridge (1993) spanning Tokyo Bay between Shibaura and Odaiba, illuminated in rainbow colors at night; pedestrian promenades run along both decks.",
+    "highlights": [
+      "Tokyo Bay landmark",
+      "Night illumination",
+      "Pedestrian promenades"
+    ],
+    "notes": "The pedestrian walkway (free, 09:00-21:00 (winter until 18:00)) offers bay views; access via Shibaura-futo station.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Rainbow-Bridge_%28%E3%83%AC%E3%82%A4%E3%83%B3%E3%83%9C%E3%83%BC%E3%83%96%E3%83%AA%E3%83%83%E3%82%B8%29_-_panoramio.jpg/1920px-Rainbow-Bridge_%28%E3%83%AC%E3%82%A4%E3%83%B3%E3%83%9C%E3%83%BC%E3%83%96%E3%83%AA%E3%83%83%E3%82%B8%29_-_panoramio.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Rainbow-Bridge_%28%E3%83%AC%E3%82%A4%E3%83%B3%E3%83%9C%E3%83%BC%E3%83%96%E3%83%AA%E3%83%83%E3%82%B8%29_-_panoramio.jpg/1920px-Rainbow-Bridge_%28%E3%83%AC%E3%82%A4%E3%83%B3%E3%83%9C%E3%83%BC%E3%83%96%E3%83%AA%E3%83%83%E3%82%B8%29_-_panoramio.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "yuukin, CC BY 3.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rainbow-Bridge_(レインボーブリッジ)_-_panoramio.jpg"
+    },
+    "officialWebsite": "https://www.shutoko.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Tokyo:minato",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "scenic-bridges-japan",
+        "sortOrder": 9
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Rainbow Bridge",
+        "description": "Tokyo's 570 m suspension bridge (1993) spanning Tokyo Bay between Shibaura and Odaiba, illuminated in rainbow colors at night; pedestrian promenades run along both decks.",
+        "highlights": [
+          "Tokyo Bay landmark",
+          "Night illumination",
+          "Pedestrian promenades"
+        ],
+        "notes": "The pedestrian walkway (free, 09:00-21:00) offers bay views; access via Shibaura-futo station.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "レインボーブリッジ",
+        "description": "1993年に開通した、芝浦とお台場を結ぶ全長570mの吊り橋。東京湾に架かり、夜は虹色にライトアップされます。通行人は両側の遊歩道を利用できます。",
+        "highlights": ["東京湾のランドマーク", "夜のライトアップ", "遊歩道"],
+        "notes": "歩行者用の遊歩道（無料、9:00～21:00）からは湾の景色を楽しめます。芝浦ふ頭駅からアクセス可能です。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.shutoko.jp/",
+          "title": "Rainbow Bridge official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "omishima-bridge",
+    "name": "Omishima Bridge",
+    "nameJa": "大三島橋",
+    "aliases": ["大三島橋"],
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "kind": "bridge",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 34.224,
+      "lng": 133.041
+    },
+    "categories": ["bridge", "sightseeing", "engineering"],
+    "tags": ["Omishima Bridge", "Ehime", "Japan Travel"],
+    "description": "Japan's first PC cable-stayed bridge (1979), part of the Shimanami Kaido cycling route linking Omishima to Hakata Island over the Seto Inland Sea.",
+    "highlights": [
+      "Japan's first cable-stayed bridge",
+      "Shimanami Kaido route",
+      "Seto Inland Sea views"
+    ],
+    "notes": "Toll bridge on the Shimanami Kaido; the nearby Oyamazumi Shrine and cycling path make it a day stop.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Omishima_Bridge-2.jpg/1920px-Omishima_Bridge-2.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Omishima_Bridge-2.jpg/1920px-Omishima_Bridge-2.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "attribution": "mukarin from Tokyo, Japan, CC BY-SA 2.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Omishima_Bridge-2.jpg"
+    },
+    "officialWebsite": "https://www.jb-honshi.co.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Ehime:imabari",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "scenic-bridges-japan",
+        "sortOrder": 10
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Omishima Bridge",
+        "description": "Japan's first PC cable-stayed bridge (1979), part of the Shimanami Kaido cycling route linking Omishima to Hakata Island over the Seto Inland Sea.",
+        "highlights": [
+          "Japan's first cable-stayed bridge",
+          "Shimanami Kaido route",
+          "Seto Inland Sea views"
+        ],
+        "notes": "Toll bridge on the Shimanami Kaido; the nearby Oyamazumi Shrine and cycling path make it a day stop.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "大三島橋",
+        "description": "1979年に完成した日本初のPC斜張橋。瀬戸内海を渡り、大三島と伯方島を結ぶしまなみ海道のサイクリングルートの一部です。",
+        "highlights": [
+          "日本初の斜張橋",
+          "しまなみ海道のルート",
+          "瀬戸内海の眺め"
+        ],
+        "notes": "しまなみ海道の有料橋です。近くの大山祇神社とサイクリング道路があり、一日の立ち寄りスポットとしておすすめです。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.jb-honshi.co.jp/",
+          "title": "Omishima Bridge official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "farm-tomita",
+    "name": "Farm Tomita",
+    "nameJa": "ファーム富田",
+    "aliases": ["ファーム富田"],
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "kind": "park",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 43.429,
+      "lng": 142.469
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Farm Tomita", "Hokkaido", "Japan Travel"],
+    "description": "Hokkaido's most famous lavender farm in Nakafurano, with sweeping violet fields, rainbow flower strips and the seasonal lavender ice cream.",
+    "highlights": [
+      "Famous lavender fields",
+      "Rainbow flower strips",
+      "Lavender ice cream"
+    ],
+    "notes": "Free entry; lavender peaks early-to-mid July. About 25 min by car from Furano Station.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/66/%E3%83%95%E3%82%A1%E3%83%BC%E3%83%A0%E5%AF%8C%E7%94%B0_FARM_TOMITA_-_panoramio.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/66/%E3%83%95%E3%82%A1%E3%83%BC%E3%83%A0%E5%AF%8C%E7%94%B0_FARM_TOMITA_-_panoramio.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "painreef3108, CC BY 3.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:ファーム富田_FARM_TOMITA_-_panoramio.jpg"
+    },
+    "officialWebsite": "https://www.farm-tomita.co.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Hokkaido:nakafurano",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "flower-parks-japan",
+        "sortOrder": 5
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Farm Tomita",
+        "description": "Hokkaido's most famous lavender farm in Nakafurano, with sweeping violet fields, rainbow flower strips and the seasonal lavender ice cream.",
+        "highlights": [
+          "Famous lavender fields",
+          "Rainbow flower strips",
+          "Lavender ice cream"
+        ],
+        "notes": "Free entry; lavender peaks early-to-mid July. About 25 min by car from Furano Station.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "ファーム富田",
+        "description": "北海道中富良野にある最も有名なラベンダー農場。紫の花畑が広がり、虹色の花ストライプや季節限定のラベンダーソフトクリームが人気です。",
+        "highlights": [
+          "有名なラベンダー畑",
+          "虹色の花畑",
+          "ラベンダーソフトクリーム"
+        ],
+        "notes": "入場無料。ラベンダーの見頃は7月上旬〜中旬。富良野駅から車で約25分。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.farm-tomita.co.jp/",
+          "title": "Farm Tomita official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "shikisai-no-oka",
+    "name": "Shikisai-no-Oka",
+    "nameJa": "四季彩の丘",
+    "aliases": ["四季彩の丘"],
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "kind": "park",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 43.516,
+      "lng": 142.497
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Shikisai-no-Oka", "Hokkaido", "Japan Travel"],
+    "description": "A 15 ha flower farm in Biei's hill country, striped with lavender, poppies and marigolds from spring to autumn, with the Tokachi range as backdrop.",
+    "highlights": [
+      "Striped flower hills",
+      "Biei hill country",
+      "Seasonal blooms spring-autumn"
+    ],
+    "notes": "Admission ¥600 (adult) in season; tractor tours available. Best June-September.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Yellow_pansies_of_Shikisai-no-oka_01.jpg/1920px-Yellow_pansies_of_Shikisai-no-oka_01.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Yellow_pansies_of_Shikisai-no-oka_01.jpg/1920px-Yellow_pansies_of_Shikisai-no-oka_01.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "LR0725, CC BY-SA 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yellow_pansies_of_Shikisai-no-oka_01.jpg"
+    },
+    "officialWebsite": "https://www.shikisainooka.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Hokkaido:biei",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "flower-parks-japan",
+        "sortOrder": 6
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Shikisai-no-Oka",
+        "description": "A 15 ha flower farm in Biei's hill country, striped with lavender, poppies and marigolds from spring to autumn, with the Tokachi range as backdrop.",
+        "highlights": [
+          "Striped flower hills",
+          "Biei hill country",
+          "Seasonal blooms spring-autumn"
+        ],
+        "notes": "Admission ¥600 (adult) in season; tractor tours available. Best June-September.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "四季彩の丘",
+        "description": "美瑛の丘陵地帯にある15ヘクタールの花畑。春から秋にかけてラベンダーやポピー、マリーゴールドが縞模様に咲き誇り、背景に十勝連峰を望みます。",
+        "highlights": [
+          "花の縞模様の丘",
+          "美瑛の丘陵地帯",
+          "春から秋の季節の花"
+        ],
+        "notes": "シーズン中の入園料は大人600円、トラクターツアーあり。6月〜9月が最適です。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.shikisainooka.jp/",
+          "title": "Shikisai-no-Oka official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "nabana-no-sato",
+    "name": "Nabana no Sato",
+    "nameJa": "なばなの里",
+    "aliases": ["なばなの里"],
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "kind": "park",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 35.068,
+      "lng": 136.688
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Nabana no Sato", "Mie", "Japan Travel"],
+    "description": "An illuminated flower park near Nagashima, famous for its winter light festival, spring tulips, autumn dahlias and the Begonia Garden glasshouse.",
+    "highlights": [
+      "Winter illumination festival",
+      "Begonia Garden glasshouse",
+      "Seasonal flower shows"
+    ],
+    "notes": "Admission varies by season (¥2,500+ incl. illumination); the winter lights run October-May.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Nabana_no_Sato_%28Winter_Illumination%29%2C_Kuwana%2C_Mie%2C_Japan%2C_%E3%81%AA%E3%81%B0%E3%81%AA%E3%81%AE%E9%87%8C%2C_%E4%B8%89%E9%87%8D%2C_%E4%B8%89%E9%87%8D%E7%9C%8C_-_panoramio.jpg/1920px-Nabana_no_Sato_%28Winter_Illumination%29%2C_Kuwana%2C_Mie%2C_Japan%2C_%E3%81%AA%E3%81%B0%E3%81%AA%E3%81%AE%E9%87%8C%2C_%E4%B8%89%E9%87%8D%2C_%E4%B8%89%E9%87%8D%E7%9C%8C_-_panoramio.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Nabana_no_Sato_%28Winter_Illumination%29%2C_Kuwana%2C_Mie%2C_Japan%2C_%E3%81%AA%E3%81%B0%E3%81%AA%E3%81%AE%E9%87%8C%2C_%E4%B8%89%E9%87%8D%2C_%E4%B8%89%E9%87%8D%E7%9C%8C_-_panoramio.jpg/1920px-Nabana_no_Sato_%28Winter_Illumination%29%2C_Kuwana%2C_Mie%2C_Japan%2C_%E3%81%AA%E3%81%B0%E3%81%AA%E3%81%AE%E9%87%8C%2C_%E4%B8%89%E9%87%8D%2C_%E4%B8%89%E9%87%8D%E7%9C%8C_-_panoramio.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "carloshonda, CC BY 3.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nabana_no_Sato_(Winter_Illumination),_Kuwana,_Mie,_Japan,_なばなの里,_三重,_三重県_-_panoramio.jpg"
+    },
+    "officialWebsite": "https://www.nagashima-onsen.co.jp/nabana/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Mie:kuwana",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "flower-parks-japan",
+        "sortOrder": 7
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Nabana no Sato",
+        "description": "An illuminated flower park near Nagashima, famous for its winter light festival, spring tulips, autumn dahlias and the Begonia Garden glasshouse.",
+        "highlights": [
+          "Winter illumination festival",
+          "Begonia Garden glasshouse",
+          "Seasonal flower shows"
+        ],
+        "notes": "Admission varies by season (¥2,500+ incl. illumination); the winter lights run October-May.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "なばなの里",
+        "description": "長島近郊にあるイルミネーション花園。冬の光の祭典、春のチューリップ、秋のダリア、ベゴニアガーデンの温室で有名です。",
+        "highlights": [
+          "冬のイルミネーション",
+          "ベゴニアガーデンの温室",
+          "季節の花の展示"
+        ],
+        "notes": "入場料は季節により異なります（イルミネーション込みで2,500円〜）。冬のイルミネーションは10月〜5月まで。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.nagashima-onsen.co.jp/nabana/",
+          "title": "Nabana no Sato official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "shomyo-falls",
+    "name": "Shomyo Falls",
+    "nameJa": "称名滝",
+    "aliases": ["称名滝"],
+    "prefecture": "Toyama",
+    "region": "Chubu",
+    "kind": "waterfall",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 36.57,
+      "lng": 137.595
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Shomyo Falls", "Toyama", "Japan Travel"],
+    "description": "Japan's tallest waterfall (350 m, four-stage), in the Tateyama mountains; the Hanyu-no-taki companion falls appear in spring thaw. A 滝百選 selection.",
+    "highlights": [
+      "Japan's tallest waterfall",
+      "350 m four-stage drop",
+      "Spring snowmelt surge"
+    ],
+    "notes": "Free viewpoint at the trailhead; the Shomyo Gorge trail is snow-free June-October.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Shomyo-daki_1.jpg/1920px-Shomyo-daki_1.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Shomyo-daki_1.jpg/1920px-Shomyo-daki_1.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "kahusi (會話), CC BY-SA 3.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shomyo-daki_1.jpg"
+    },
+    "officialWebsite": "https://www.info-toyama.com/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Toyama:tateyama",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "waterfalls-gorges-japan",
+        "sortOrder": 4
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Shomyo Falls",
+        "description": "Japan's tallest waterfall (350 m, four-stage), in the Tateyama mountains; the Hanyu-no-taki companion falls appear in spring thaw. A 滝百選 selection.",
+        "highlights": [
+          "Japan's tallest waterfall",
+          "350 m four-stage drop",
+          "Spring snowmelt surge"
+        ],
+        "notes": "Free viewpoint at the trailhead; the Shomyo Gorge trail is snow-free June-October.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "称名滝",
+        "description": "立山連峰にある日本一落差のある滝（350m・4段）。春の雪解けには隣の羽湯の滝が現れます。滝百選にも選ばれています。",
+        "highlights": ["日本一の落差", "350m・4段の滝", "春の雪解けの増水"],
+        "notes": "登山口に無料展望所があります。称名渓谷の遊歩道は6月〜10月は雪がなく歩けます。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.info-toyama.com/",
+          "title": "Shomyo Falls official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "shiraito-falls",
+    "name": "Shiraito Falls",
+    "nameJa": "白糸の滝",
+    "aliases": ["白糸の滝"],
+    "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "kind": "waterfall",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 35.31,
+      "lng": 138.589
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Shiraito Falls", "Shizuoka", "Japan Travel"],
+    "description": "A curtain of hundreds of white streamlets falling 20 m from the Fuji foothills, a 滝百選 selection and a Fujisan World Heritage component at the base of the mountain.",
+    "highlights": [
+      "Curtain of white falls",
+      "滝百選 selection",
+      "Fuji World Heritage site"
+    ],
+    "notes": "Free to view; the Otodome Falls viewpoint is beside it. About 20 min by car from Fujinomiya.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/N2_Shiraito_Falls_2.jpg/1920px-N2_Shiraito_Falls_2.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/N2_Shiraito_Falls_2.jpg/1920px-N2_Shiraito_Falls_2.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "InvictusOU812 from USA, CC BY 2.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:N2_Shiraito_Falls_2.jpg"
+    },
+    "officialWebsite": "https://www.city.fujinomiya.shizuoka.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Shizuoka:fujinomiya",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "waterfalls-gorges-japan",
+        "sortOrder": 5
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Shiraito Falls",
+        "description": "A curtain of hundreds of white streamlets falling 20 m from the Fuji foothills, a 滝百選 selection and a Fujisan World Heritage component at the base of the mountain.",
+        "highlights": [
+          "Curtain of white falls",
+          "滝百選 selection",
+          "Fuji World Heritage site"
+        ],
+        "notes": "Free to view; the Otodome Falls viewpoint is beside it. About 20 min by car from Fujinomiya.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "白糸の滝",
+        "description": "富士山麓から高さ約20mの崖を、何筋もの白い糸のような水が流れ落ちる滝。滝百選に選ばれ、富士山の世界遺産構成資産の一つです。",
+        "highlights": ["白糸のカーテン", "滝百選選出", "富士山世界遺産"],
+        "notes": "見学無料。隣に音止めの滝の展望所があります。富士宮から車で約20分です。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.fujinomiya.shizuoka.jp/",
+          "title": "Shiraito Falls official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "taketomi-island",
+    "name": "Taketomi Island",
+    "nameJa": "竹富島",
+    "aliases": ["竹富島"],
+    "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "kind": "island",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 24.329,
+      "lng": 124.087
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Taketomi Island", "Okinawa", "Japan Travel"],
+    "description": "A coral-island village of red-tile roofs, stone walls and sand roads in the Yaeyama group, preserving the classic Ryukyuan island townscape; Kondoi Beach is a famous white-sand lagoon.",
+    "highlights": [
+      "Preserved Ryukyuan village",
+      "Red-tile roofs and sand roads",
+      "Kondoi Beach"
+    ],
+    "notes": "Ferry from Ishigaki takes ~10 min; rent a bicycle (¥500+) to tour the village and beaches.",
+    "budgetMin": 1500,
+    "budgetRecommended": 4000,
+    "budgetMax": 9000,
+    "budget": {
+      "low": 1500,
+      "mid": 4000,
+      "high": 9000
+    },
+    "budgetBreakdown": {
+      "transport": 2000,
+      "tickets": 800,
+      "food": 800,
+      "cafe": 400
+    },
+    "transportOptions": {
+      "ferry": 10
+    },
+    "totalTripHours": 3,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3.5
+    },
+    "walkingMin": 150,
+    "walkingSunMin": 90,
+    "walkingShadeMin": 60,
+    "walkingIntensity": "medium",
+    "indoorPercent": 15,
+    "comfort": {
+      "heatTolerance": 7,
+      "rainFriendly": 6,
+      "walkingIntensity": 5
+    },
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9,
+      "walkability": 6
+    },
+    "crowd": {
+      "weekday": 4,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 8,
+      "summer": 8,
+      "autumn": 8,
+      "winter": 7
+    },
+    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestSeason": "Spring & Autumn",
+    "weatherDependence": "moderate",
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Village_in_Taketomi_Island_-_located_at_southwest_Japan.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Village_in_Taketomi_Island_-_located_at_southwest_Japan.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "ippei &amp; janine naoi, CC BY 2.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Village_in_Taketomi_Island_-_located_at_southwest_Japan.jpg"
+    },
+    "officialWebsite": "https://www.taketomi-islands.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Okinawa:taketomi",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "islands-japan",
+        "sortOrder": 11
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Taketomi Island",
+        "description": "A coral-island village of red-tile roofs, stone walls and sand roads in the Yaeyama group, preserving the classic Ryukyuan island townscape; Kondoi Beach is a famous white-sand lagoon.",
+        "highlights": [
+          "Preserved Ryukyuan village",
+          "Red-tile roofs and sand roads",
+          "Kondoi Beach"
+        ],
+        "notes": "Ferry from Ishigaki takes ~10 min; rent a bicycle (¥500+) to tour the village and beaches.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "竹富島",
+        "description": "八重山諸島の珊瑚礁の島で、赤瓦の屋根・石垣・砂道の集落が琉球の原風景を残します。コンドイ浜は白砂のラグーンビーチとして有名です。",
+        "highlights": ["残る琉球の集落", "赤瓦の屋根と砂道", "コンドイ浜"],
+        "notes": "石垣島からフェリーで約10分。レンタサイクル（500円〜）で集落やビーチを巡れます。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.taketomi-islands.jp/",
+          "title": "Taketomi Island official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "transportZoneId": "ishigaki",
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "shodoshima",
+    "name": "Shodoshima Island",
+    "nameJa": "小豆島",
+    "aliases": ["小豆島"],
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "kind": "island",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 34.51,
+      "lng": 134.29
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Shodoshima Island", "Kagawa", "Japan Travel"],
+    "description": "The Inland Sea's largest island: olive groves, the Angel Road sandbar, the Kankakei gorge cable car and Setouchi Triennale art works.",
+    "highlights": [
+      "Olive groves and Angel Road",
+      "Kankakei gorge cable car",
+      "Setouchi art festival"
+    ],
+    "notes": "Ferries from Takamatsu (~60 min) and Himeji; buses loop the island from Tonosho port.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Shodoshima_Olive_Park_Shodo_Island_Japan04n.jpg/1920px-Shodoshima_Olive_Park_Shodo_Island_Japan04n.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Shodoshima_Olive_Park_Shodo_Island_Japan04n.jpg/1920px-Shodoshima_Olive_Park_Shodo_Island_Japan04n.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shodoshima_Olive_Park_Shodo_Island_Japan04n.jpg"
+    },
+    "officialWebsite": "https://www.shodoshima-kankou.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Kagawa:shodoshima",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "islands-japan",
+        "sortOrder": 12
+      },
+      {
+        "collectionId": "art-islands-japan",
+        "sortOrder": 4
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Shodoshima Island",
+        "description": "The Inland Sea's largest island: olive groves, the Angel Road sandbar, the Kankakei gorge cable car and Setouchi Triennale art works.",
+        "highlights": [
+          "Olive groves and Angel Road",
+          "Kankakei gorge cable car",
+          "Setouchi art festival"
+        ],
+        "notes": "Ferries from Takamatsu (~60 min) and Himeji; buses loop the island from Tonosho port.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "小豆島",
+        "description": "瀬戸内海最大の島。オリーブ園や天使の道、寒霞渓ロープウェイ、瀬戸内国際芸術祭の作品などが見どころです。",
+        "highlights": [
+          "オリーブ園と天使の道",
+          "寒霞渓ロープウェイ",
+          "瀬戸内国際芸術祭"
+        ],
+        "notes": "高松（約60分）や姫路からフェリーがあります。土庄港から島内を周遊するバスが運行しています。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.shodoshima-kankou.jp/",
+          "title": "Shodoshima Island official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "transportZoneId": "unknown",
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "inujima",
+    "name": "Inujima Island",
+    "nameJa": "犬島",
+    "aliases": ["犬島"],
+    "prefecture": "Okayama",
+    "region": "Chugoku",
+    "kind": "island",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 34.455,
+      "lng": 134.097
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Inujima Island", "Okayama", "Japan Travel"],
+    "description": "The smallest of the Benesse Art Site islands, home to the Inujima Seirensho Art Museum — a former copper refinery transformed into a site-specific art complex.",
+    "highlights": [
+      "Seirensho Art Museum",
+      "Former copper refinery",
+      "Benesse Art Site island"
+    ],
+    "notes": "Ferry from Okayama's Hoden port (~20 min) or Takamatsu; museum admission ¥2,100 (combined tickets available).",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "Museum entry: online advance tickets required (¥2,100); island access is walk-in",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Inujima_Seirensho_Art_Museum_%288917495397%29.jpg/1920px-Inujima_Seirensho_Art_Museum_%288917495397%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Inujima_Seirensho_Art_Museum_%288917495397%29.jpg/1920px-Inujima_Seirensho_Art_Museum_%288917495397%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "attribution": "KimonBerlin, CC BY-SA 2.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inujima_Seirensho_Art_Museum_(8917495397).jpg"
+    },
+    "officialWebsite": "https://benesse-artsite.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Okayama:okayama",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "art-islands-japan",
+        "sortOrder": 3
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Inujima Island",
+        "description": "The smallest of the Benesse Art Site islands, home to the Inujima Seirensho Art Museum — a former copper refinery transformed into a site-specific art complex.",
+        "highlights": [
+          "Seirensho Art Museum",
+          "Former copper refinery",
+          "Benesse Art Site island"
+        ],
+        "notes": "Ferry from Okayama's Hoden port (~20 min) or Takamatsu; museum admission ¥2,100 (combined tickets available).",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "犬島",
+        "description": "ベネッセアートサイトの島々で最も小さな島。旧銅精錬所を改装したサイトスペシフィックな美術館「犬島精錬所美術館」があります。",
+        "highlights": [
+          "犬島精錬所美術館",
+          "旧銅精錬所",
+          "ベネッセアートサイトの島"
+        ],
+        "notes": "岡山の宝伝港からフェリーで約20分、高松からもアクセス可能。入館料は2,100円（共通券あり）。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://benesse-artsite.jp/",
+          "title": "Inujima Island official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "transportZoneId": "unknown",
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "reservationJa": "【予約】美術館はオンライン事前予約制（2,100円）。島へのアクセスは自由です。"
+  },
+  {
+    "id": "hakone-open-air-museum",
+    "name": "Hakone Open-Air Museum",
+    "nameJa": "箱根彫刻の森美術館",
+    "aliases": ["箱根彫刻の森美術館"],
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "kind": "museum",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 35.245,
+      "lng": 139.044
+    },
+    "categories": ["culture", "art"],
+    "tags": ["Hakone Open-Air Museum", "Kanagawa", "Japan Travel"],
+    "description": "Japan's first open-air museum (1969): 120 works by Rodin, Picasso and more scattered across a sculpture garden with the Symphonic Sculpture tower and foot-onsen.",
+    "highlights": [
+      "Japan's first open-air museum",
+      "Rodin and Picasso collection",
+      "Sculpture garden and onsen"
+    ],
+    "notes": "Admission ¥1,800 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Hakone_Open-air_Museum_20211202-5.jpg/1920px-Hakone_Open-air_Museum_20211202-5.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Hakone_Open-air_Museum_20211202-5.jpg/1920px-Hakone_Open-air_Museum_20211202-5.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Suicasmo, CC BY-SA 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hakone_Open-air_Museum_20211202-5.jpg"
+    },
+    "officialWebsite": "https://www.hakone-oam.or.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Kanagawa:hakone",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "art-islands-japan",
+        "sortOrder": 7
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Hakone Open-Air Museum",
+        "description": "Japan's first open-air museum (1969): 120 works by Rodin, Picasso and more scattered across a sculpture garden with the Symphonic Sculpture tower and foot-onsen.",
+        "highlights": [
+          "Japan's first open-air museum",
+          "Rodin and Picasso collection",
+          "Sculpture garden and onsen"
+        ],
+        "notes": "Admission ¥1,800 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "箱根彫刻の森美術館",
+        "description": "日本初の野外美術館（1969年開館）。ロダンやピカソなど120点以上の作品が彫刻庭園に点在し、シンフォニック彫刻の塔や足湯も楽しめます。",
+        "highlights": [
+          "日本初の野外美術館",
+          "ロダン＆ピカソのコレクション",
+          "彫刻庭園と足湯"
+        ],
+        "notes": "大人入館料1,800円。箱根登山鉄道「彫刻の森」駅から徒歩約5分。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.hakone-oam.or.jp/",
+          "title": "Hakone Open-Air Museum official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "sapporo-art-park",
+    "name": "Sapporo Art Park",
+    "nameJa": "札幌芸術の森",
+    "aliases": ["札幌芸術の森"],
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "kind": "park",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 42.978,
+      "lng": 141.405
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Sapporo Art Park", "Hokkaido", "Japan Travel"],
+    "description": "An outdoor art museum in southern Sapporo with 60+ sculptures on a wooded hillside, plus craft studios and the Sapporo Art Museum.",
+    "highlights": [
+      "60+ outdoor sculptures",
+      "Wooded sculpture park",
+      "Craft studios"
+    ],
+    "notes": "Park admission free; museum ¥900 (adult). About 40 min by bus from Sapporo Station.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/SAKURAKO_-_SAPPORO_ART_PARK._%2833696175123%29.jpg/1920px-SAKURAKO_-_SAPPORO_ART_PARK._%2833696175123%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/SAKURAKO_-_SAPPORO_ART_PARK._%2833696175123%29.jpg/1920px-SAKURAKO_-_SAPPORO_ART_PARK._%2833696175123%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "MIKI Yoshihito from Sapporo City,Hokkaido., JAPAN, CC BY 2.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:SAKURAKO_-_SAPPORO_ART_PARK._(33696175123).jpg"
+    },
+    "officialWebsite": "https://artpark.or.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Hokkaido:sapporo",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "art-islands-japan",
+        "sortOrder": 8
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Sapporo Art Park",
+        "description": "An outdoor art museum in southern Sapporo with 60+ sculptures on a wooded hillside, plus craft studios and the Sapporo Art Museum.",
+        "highlights": [
+          "60+ outdoor sculptures",
+          "Wooded sculpture park",
+          "Craft studios"
+        ],
+        "notes": "Park admission free; museum ¥900 (adult). About 40 min by bus from Sapporo Station.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "札幌芸術の森",
+        "description": "札幌南部の緑豊かな丘陵地に広がる野外美術館。60点以上の彫刻に加え、クラフト工房や札幌芸術の森美術館も併設しています。",
+        "highlights": [
+          "60点以上の野外彫刻",
+          "緑あふれる彫刻公園",
+          "クラフト工房"
+        ],
+        "notes": "公園入場無料、美術館は大人900円。札幌駅からバスで約40分。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://artpark.or.jp/",
+          "title": "Sapporo Art Park official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "kanazawa-21",
+    "name": "21st Century Museum of Contemporary Art",
+    "nameJa": "金沢21世紀美術館",
+    "aliases": ["金沢21世紀美術館"],
+    "prefecture": "Ishikawa",
+    "region": "Chubu",
+    "kind": "museum",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 36.561,
+      "lng": 136.658
+    },
+    "categories": ["culture", "art"],
+    "tags": [
+      "21st Century Museum of Contemporary Art",
+      "Ishikawa",
+      "Japan Travel"
+    ],
+    "description": "SANAA's circular glass museum in central Kanazawa, famous for the walkable 'Swimming Pool' installation and its free-entry public zone.",
+    "highlights": [
+      "SANAA glass architecture",
+      "'Swimming Pool' installation",
+      "Free public zone"
+    ],
+    "notes": "Admission varies by exhibition; the pool installation is a paid area. In the Kanazawa city center.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/21st_Century_Museum_of_Contemporary_Art%2C_Kanazawa011.jpg/1920px-21st_Century_Museum_of_Contemporary_Art%2C_Kanazawa011.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/21st_Century_Museum_of_Contemporary_Art%2C_Kanazawa011.jpg/1920px-21st_Century_Museum_of_Contemporary_Art%2C_Kanazawa011.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.1 jp",
+      "attribution": "金沢市, CC BY 2.1 jp, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:21st_Century_Museum_of_Contemporary_Art,_Kanazawa011.jpg"
+    },
+    "officialWebsite": "https://www.kanazawa21.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Ishikawa:kanazawa",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "art-islands-japan",
+        "sortOrder": 9
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "21st Century Museum of Contemporary Art",
+        "description": "SANAA's circular glass museum in central Kanazawa, famous for the walkable 'Swimming Pool' installation and its free-entry public zone.",
+        "highlights": [
+          "SANAA glass architecture",
+          "'Swimming Pool' installation",
+          "Free public zone"
+        ],
+        "notes": "Admission varies by exhibition; the pool installation is a paid area. In the Kanazawa city center.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "金沢21世紀美術館",
+        "description": "金沢市中心部にあるSANAA設計の円形ガラス張りの美術館。歩いて楽しめる「スイミング・プール」の作品と無料の一般エリアで有名です。",
+        "highlights": [
+          "SANAAのガラス建築",
+          "「スイミング・プール」の体験作品",
+          "無料の一般エリア"
+        ],
+        "notes": "入場料は展示により異なり、プール作品は有料エリア。金沢市中心部に位置します。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.kanazawa21.jp/",
+          "title": "21st Century Museum of Contemporary Art official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "ogijima",
+    "name": "Ogijima Island",
+    "nameJa": "男木島",
+    "aliases": ["男木島"],
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "kind": "island",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 34.398,
+      "lng": 134.064
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": ["Ogijima Island", "Kagawa", "Japan Travel"],
+    "description": "A small art-festival island of the Setouchi Triennale, its steep lanes lined with house projects, the Ogijima Library and works by Yoshihiro Narita.",
+    "highlights": [
+      "Setouchi Triennale island",
+      "House projects and library",
+      "Steep island lanes"
+    ],
+    "notes": "Ferry from Takamatsu (~40 min); artworks change with the festival editions — check setouchi-artfest.jp.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3.5
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Ogijima_island.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Ogijima_island.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Bakkai, CC BY-SA 3.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ogijima_island.jpg"
+    },
+    "officialWebsite": "https://setouchi-artfest.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Kagawa:takamatsu",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "art-islands-japan",
+        "sortOrder": 10
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Ogijima Island",
+        "description": "A small art-festival island of the Setouchi Triennale, its steep lanes lined with house projects, the Ogijima Library and works by Yoshihiro Narita.",
+        "highlights": [
+          "Setouchi Triennale island",
+          "House projects and library",
+          "Steep island lanes"
+        ],
+        "notes": "Ferry from Takamatsu (~40 min); artworks change with the festival editions — check setouchi-artfest.jp.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "男木島",
+        "description": "瀬戸内国際芸術祭の小さなアートの島。急な路地に家プロジェクト、男木島図書館、成田義博の作品などが点在します。",
+        "highlights": [
+          "瀬戸内国際芸術祭の島",
+          "家プロジェクトと図書館",
+          "急な路地"
+        ],
+        "notes": "高松からフェリーで約40分。作品は芸術祭ごとに変わります。setouchi-artfest.jpでご確認ください。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://setouchi-artfest.jp/",
+          "title": "Ogijima Island official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "transportZoneId": "unknown",
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "shikoku-henro",
+    "name": "Shikoku Henro (88 Temple Pilgrimage)",
+    "nameJa": "四国遍路（四国八十八箇所）",
+    "aliases": ["四国遍路（四国八十八箇所）"],
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "kind": "historic",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 34.186,
+      "lng": 134.47
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": [
+      "Shikoku Henro (88 Temple Pilgrimage)",
+      "Tokushima",
+      "Japan Travel"
+    ],
+    "description": "Japan's 1,400 km circuit of 88 temples across Shikoku, walked by pilgrims in white robes for centuries — a Japan Heritage story and a UNESCO tentative-listed route; Temple 1, Ryozen-ji, anchors the start at Naruto.",
+    "highlights": [
+      "88-temple pilgrimage circuit",
+      "Japan Heritage story",
+      "1,400 km route"
+    ],
+    "notes": "A full henro walk takes 40-60 days; section hikes and temple stamps (nokyocho) are popular. Start at Ryozen-ji in Naruto.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 8,
+      "max": 24
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/140712_Ryozenji_Naruto_Tokushima_pref_Japan03s3.jpg/1920px-140712_Ryozenji_Naruto_Tokushima_pref_Japan03s3.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/140712_Ryozenji_Naruto_Tokushima_pref_Japan03s3.jpg/1920px-140712_Ryozenji_Naruto_Tokushima_pref_Japan03s3.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:140712_Ryozenji_Naruto_Tokushima_pref_Japan03s3.jpg"
+    },
+    "officialWebsite": "https://www.88shikokuhenro.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Tokushima:naruto",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "pilgrimage-routes-japan",
+        "sortOrder": 6
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Shikoku Henro (88 Temple Pilgrimage)",
+        "description": "Japan's 1,400 km circuit of 88 temples across Shikoku, walked by pilgrims in white robes for centuries — a Japan Heritage story and a UNESCO tentative-listed route; Temple 1, Ryozen-ji, anchors the start at Naruto.",
+        "highlights": [
+          "88-temple pilgrimage circuit",
+          "Japan Heritage story",
+          "1,400 km route"
+        ],
+        "notes": "A full henro walk takes 40-60 days; section hikes and temple stamps (nokyocho) are popular. Start at Ryozen-ji in Naruto.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "四国遍路（四国八十八箇所）",
+        "description": "四国一周約1,400kmに及ぶ88ヶ所の霊場巡り。白い衣をまとった巡礼者に何世紀にもわたり歩かれてきた道で、日本遺産にも認定され、ユネスコ暫定リストにも掲載されています。第1番札所・霊山寺は鳴門市にあり、巡礼の出発点となります。",
+        "highlights": ["88ヶ所の霊場巡り", "日本遺産の物語", "1,400kmの道のり"],
+        "notes": "通し打ちは40〜60日かかります。区切り打ちや納経帳も人気です。鳴門の霊山寺から始めましょう。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.88shikokuhenro.jp/",
+          "title": "Shikoku Henro (88 Temple Pilgrimage) official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
+  },
+  {
+    "id": "saigoku-33",
+    "name": "Saigoku Kannon Pilgrimage (33 Temples)",
+    "nameJa": "西国三十三所",
+    "aliases": ["西国三十三所"],
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "kind": "historic",
+    "role": "standalone",
+    "placeType": "destination",
+    "coordinates": {
+      "lat": 33.669,
+      "lng": 135.89
+    },
+    "categories": ["sightseeing", "culture", "nature"],
+    "tags": [
+      "Saigoku Kannon Pilgrimage (33 Temples)",
+      "Wakayama",
+      "Japan Travel"
+    ],
+    "description": "Japan's oldest Kannon pilgrimage: 33 temples from Nachi in Wakayama to Otsu in Shiga, founded in the 8th century and still walked by pilgrims carrying white cloths.",
+    "highlights": [
+      "Japan's oldest Kannon circuit",
+      "33 temples across Kansai",
+      "Temple 1: Seiganto-ji at Nachi"
+    ],
+    "notes": "Seiganto-ji (Temple 1) sits beside Nachi Falls; the full circuit takes about two weeks or can be driven in sections.",
+    "transportOptions": {},
+    "recommendedVisitHours": {
+      "min": 8,
+      "max": 24
+    },
+    "walkingIntensity": "medium",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.5,
+      "summer": 8.8,
+      "winter": 8.1,
+      "rain": 7.8,
+      "food": 7.7,
+      "photography": 9.0,
+      "relaxation": 8.3,
+      "value": 8.6,
+      "uniqueness": 8.9
+    },
+    "reservation": "None required",
+    "parking": "Paid parking nearby (varies by site)",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/2018_Wugu_Siyun_Temple_%E7%AC%AC%E4%B8%80%E7%95%AA%E9%9D%92%E5%B2%B8%E6%B8%A1%E5%AF%BA%E5%A6%82%E6%84%8F%E8%BC%AA%E8%A7%80%E4%B8%96%E9%9F%B3%E8%8F%A9%E8%96%A9.jpg/1920px-2018_Wugu_Siyun_Temple_%E7%AC%AC%E4%B8%80%E7%95%AA%E9%9D%92%E5%B2%B8%E6%B8%A1%E5%AF%BA%E5%A6%82%E6%84%8F%E8%BC%AA%E8%A7%80%E4%B8%96%E9%9F%B3%E8%8F%A9%E8%96%A9.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/2018_Wugu_Siyun_Temple_%E7%AC%AC%E4%B8%80%E7%95%AA%E9%9D%92%E5%B2%B8%E6%B8%A1%E5%AF%BA%E5%A6%82%E6%84%8F%E8%BC%AA%E8%A7%80%E4%B8%96%E9%9F%B3%E8%8F%A9%E8%96%A9.jpg/1920px-2018_Wugu_Siyun_Temple_%E7%AC%AC%E4%B8%80%E7%95%AA%E9%9D%92%E5%B2%B8%E6%B8%A1%E5%AF%BA%E5%A6%82%E6%84%8F%E8%BC%AA%E8%A7%80%E4%B8%96%E9%9F%B3%E8%8F%A9%E8%96%A9.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Taiwankengo, CC BY-SA 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2018_Wugu_Siyun_Temple_第一番青岸渡寺如意輪觀世音菩薩.jpg"
+    },
+    "officialWebsite": "https://www.saikoku33.jp/",
+    "businessHours": "Open daily; hours vary by season (see official site)",
+    "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+    "municipalityId": "Wakayama:nachikatsuura",
+    "status": "published",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "ratingsSchemaVersion": 2,
+    "collections": [
+      {
+        "collectionId": "pilgrimage-routes-japan",
+        "sortOrder": 8
+      }
+    ],
+    "relationships": {},
+    "content": {
+      "en": {
+        "name": "Saigoku Kannon Pilgrimage (33 Temples)",
+        "description": "Japan's oldest Kannon pilgrimage: 33 temples from Nachi in Wakayama to Otsu in Shiga, founded in the 8th century and still walked by pilgrims carrying white cloths.",
+        "highlights": [
+          "Japan's oldest Kannon circuit",
+          "33 temples across Kansai",
+          "Temple 1: Seiganto-ji at Nachi"
+        ],
+        "notes": "Seiganto-ji (Temple 1) sits beside Nachi Falls; the full circuit takes about two weeks or can be driven in sections.",
+        "reservation": "None required",
+        "parking": "Paid parking nearby (varies by site)",
+        "openingHours": "Open daily; hours vary by season"
+      },
+      "ja": {
+        "name": "西国三十三所",
+        "description": "日本最古の観音巡礼。8世紀に創始され、和歌山の那智から滋賀の大津まで33ヶ所の寺院を巡る。現在も白い布を身につけた巡礼者が歩き続けている。",
+        "highlights": [
+          "日本最古の観音巡礼",
+          "関西に広がる33ヶ所の寺院",
+          "第1番札所・那智の青岸渡寺"
+        ],
+        "notes": "第1番札所の青岸渡寺は那智の滝の隣にあります。全行程は約2週間かかりますが、区切りながら車で巡ることもできます。",
+        "reservation": "予約不要",
+        "parking": "周辺の有料駐車場あり（施設により異なる）",
+        "openingHours": "毎日開館（時期により異なる）"
+      }
+    },
+    "editorial": {
+      "lifecycle": "published",
+      "reviewedAt": "2026-08-12",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.saikoku33.jp/",
+          "title": "Saigoku Kannon Pilgrimage (33 Temples) official page",
+          "accessedAt": "2026-08-12"
+        }
+      ],
+      "checkedAt": "2026-08-12",
+      "freshness": "current",
+      "changeSummary": "PR E thematic audit: new curated member record"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
   }
 ]

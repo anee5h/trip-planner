@@ -32,7 +32,12 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "top-onsen-japan",
+      "sortOrder": 11
+    }
+  ],
   "transportOptions": {
     "train": 120,
     "bus": 150,

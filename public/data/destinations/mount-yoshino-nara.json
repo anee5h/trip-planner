@@ -38,13 +38,17 @@
   },
   "collections": [
     {
+      "collectionId": "unesco-japan",
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/1142/"
+    },
+    {
       "collectionId": "flower-parks-japan",
       "confirmed": true
     },
     {
-      "collectionId": "unesco-japan",
-      "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/1142/"
+      "collectionId": "pilgrimage-routes-japan",
+      "sortOrder": 3
     }
   ],
   "transportOptions": {

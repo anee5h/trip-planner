@@ -68,10 +68,6 @@
   },
   "collections": [
     {
-      "collectionId": "scenic-bridges-japan",
-      "sortOrder": 7
-    },
-    {
       "collectionId": "islands-japan",
       "sortOrder": 11
     }

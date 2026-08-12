@@ -1,0 +1,113 @@
+{
+  "id": "rainbow-bridge",
+  "name": "Rainbow Bridge",
+  "nameJa": "レインボーブリッジ",
+  "aliases": ["レインボーブリッジ"],
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "bridge",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.637,
+    "lng": 139.764
+  },
+  "categories": ["bridge", "sightseeing", "engineering"],
+  "tags": ["Rainbow Bridge", "Tokyo", "Japan Travel"],
+  "description": "Tokyo's 570 m suspension bridge (1993) spanning Tokyo Bay between Shibaura and Odaiba, illuminated in rainbow colors at night; pedestrian promenades run along both decks.",
+  "highlights": [
+    "Tokyo Bay landmark",
+    "Night illumination",
+    "Pedestrian promenades"
+  ],
+  "notes": "The pedestrian walkway (free, 09:00-21:00 (winter until 18:00)) offers bay views; access via Shibaura-futo station.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Rainbow-Bridge_%28%E3%83%AC%E3%82%A4%E3%83%B3%E3%83%9C%E3%83%BC%E3%83%96%E3%83%AA%E3%83%83%E3%82%B8%29_-_panoramio.jpg/1920px-Rainbow-Bridge_%28%E3%83%AC%E3%82%A4%E3%83%B3%E3%83%9C%E3%83%BC%E3%83%96%E3%83%AA%E3%83%83%E3%82%B8%29_-_panoramio.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Rainbow-Bridge_%28%E3%83%AC%E3%82%A4%E3%83%B3%E3%83%9C%E3%83%BC%E3%83%96%E3%83%AA%E3%83%83%E3%82%B8%29_-_panoramio.jpg/1920px-Rainbow-Bridge_%28%E3%83%AC%E3%82%A4%E3%83%B3%E3%83%9C%E3%83%BC%E3%83%96%E3%83%AA%E3%83%83%E3%82%B8%29_-_panoramio.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "yuukin, CC BY 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rainbow-Bridge_(レインボーブリッジ)_-_panoramio.jpg"
+  },
+  "officialWebsite": "https://www.shutoko.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Tokyo:minato",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "scenic-bridges-japan",
+      "sortOrder": 9
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Rainbow Bridge",
+      "description": "Tokyo's 570 m suspension bridge (1993) spanning Tokyo Bay between Shibaura and Odaiba, illuminated in rainbow colors at night; pedestrian promenades run along both decks.",
+      "highlights": [
+        "Tokyo Bay landmark",
+        "Night illumination",
+        "Pedestrian promenades"
+      ],
+      "notes": "The pedestrian walkway (free, 09:00-21:00) offers bay views; access via Shibaura-futo station.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "レインボーブリッジ",
+      "description": "1993年に開通した、芝浦とお台場を結ぶ全長570mの吊り橋。東京湾に架かり、夜は虹色にライトアップされます。通行人は両側の遊歩道を利用できます。",
+      "highlights": ["東京湾のランドマーク", "夜のライトアップ", "遊歩道"],
+      "notes": "歩行者用の遊歩道（無料、9:00～21:00）からは湾の景色を楽しめます。芝浦ふ頭駅からアクセス可能です。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.shutoko.jp/",
+        "title": "Rainbow Bridge official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

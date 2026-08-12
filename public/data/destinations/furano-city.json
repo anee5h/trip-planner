@@ -65,12 +65,7 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [
-    {
-      "collectionId": "flower-parks-japan",
-      "sortOrder": 4
-    }
-  ],
+  "collections": [],
   "relationships": {
     "featuredDestinationIds": ["hakodate-night-view"],
     "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]

@@ -1,0 +1,117 @@
+{
+  "id": "seto-ohashi-bridge",
+  "name": "Seto Ohashi Bridge",
+  "nameJa": "瀬戸大橋",
+  "aliases": ["瀬戸大橋"],
+  "prefecture": "Kagawa",
+  "region": "Shikoku",
+  "kind": "bridge",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.418,
+    "lng": 133.806
+  },
+  "categories": ["bridge", "sightseeing", "engineering"],
+  "tags": ["Seto Ohashi Bridge", "Kagawa", "Japan Travel"],
+  "description": "The 13 km bridge-and-viaduct system (1988) carrying rail and road across the Seto Inland Sea from Okayama to Sakaide, with viewpoints on both shores and a bridge museum.",
+  "highlights": [
+    "13 km Honshu-Shikoku link",
+    "Rail and road bridge",
+    "Seto Inland Sea views"
+  ],
+  "notes": "Toll road; the Seto Ohashi Memorial Hall and the Sakaide shore viewpoints frame the crossing.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Crossing_the_Great_Seto_Bridge_to_Shikoku.webm/1920px--Crossing_the_Great_Seto_Bridge_to_Shikoku.webm.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Crossing_the_Great_Seto_Bridge_to_Shikoku.webm/1920px--Crossing_the_Great_Seto_Bridge_to_Shikoku.webm.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Immanuelle, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crossing_the_Great_Seto_Bridge_to_Shikoku.webm"
+  },
+  "officialWebsite": "https://www.jb-honshi.co.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Kagawa:sakaide",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "scenic-bridges-japan",
+      "sortOrder": 8
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Seto Ohashi Bridge",
+      "description": "The 13 km bridge-and-viaduct system (1988) carrying rail and road across the Seto Inland Sea from Okayama to Sakaide, with viewpoints on both shores and a bridge museum.",
+      "highlights": [
+        "13 km Honshu-Shikoku link",
+        "Rail and road bridge",
+        "Seto Inland Sea views"
+      ],
+      "notes": "Toll road; the Seto Ohashi Memorial Hall and the Sakaide shore viewpoints frame the crossing.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "瀬戸大橋",
+      "description": "1988年に開通した、岡山と坂出を結ぶ全長13kmの橋と高架道路のシステム。瀬戸内海をまたいで鉄道と道路が通り、両岸には展望スポットと橋の博物館があります。",
+      "highlights": [
+        "全長13kmの本州四国連絡",
+        "鉄道と道路の併用橋",
+        "瀬戸内海の眺望"
+      ],
+      "notes": "有料道路です。瀬戸大橋記念館や坂出側の展望ポイントから橋を一望できます。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.jb-honshi.co.jp/",
+        "title": "Seto Ohashi Bridge official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

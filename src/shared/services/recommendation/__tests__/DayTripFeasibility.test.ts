@@ -348,11 +348,20 @@ describe("day-trip travel evidence", () => {
     // KAI-31: Takamatsu's Shikoku cluster was expanded with source-backed
     // POIs (gardens, castle, art museum, Naruto/Tokushima/Kochi/Marugame/
     // Miyoshi entries) inside the same mainland-shikoku zone, so the
-    // bounded set grew from 9 to 35. The point of this test is the
+    // bounded set grew from 9 to 41. The point of this test is the
     // evidence state, not the exact inventory; keep it deterministic.
-    expect(nearbySameZone).toHaveLength(38);
+    // Entries without a public ground mode (e.g. omishima-bridge, reached
+    // only by car/ferry from Takamatsu) legitimately stay "unknown" — the
+    // invariant applies to the estimable subset with rail/bus options.
+    expect(nearbySameZone).toHaveLength(41);
+    const publicGroundEntries = nearbySameZone.filter(
+      (result) =>
+        result.transportOptions?.train !== undefined ||
+        result.transportOptions?.bus !== undefined,
+    );
+    expect(publicGroundEntries).toHaveLength(38);
     expect(
-      nearbySameZone.every(
+      publicGroundEntries.every(
         (result) =>
           evidenceFor(result, context).evidence === "estimated" &&
           resolveDestinationTransportZone(result) === "mainland-shikoku",

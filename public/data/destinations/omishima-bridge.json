@@ -1,0 +1,117 @@
+{
+  "id": "omishima-bridge",
+  "name": "Omishima Bridge",
+  "nameJa": "大三島橋",
+  "aliases": ["大三島橋"],
+  "prefecture": "Ehime",
+  "region": "Shikoku",
+  "kind": "bridge",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.224,
+    "lng": 133.041
+  },
+  "categories": ["bridge", "sightseeing", "engineering"],
+  "tags": ["Omishima Bridge", "Ehime", "Japan Travel"],
+  "description": "Japan's first PC cable-stayed bridge (1979), part of the Shimanami Kaido cycling route linking Omishima to Hakata Island over the Seto Inland Sea.",
+  "highlights": [
+    "Japan's first cable-stayed bridge",
+    "Shimanami Kaido route",
+    "Seto Inland Sea views"
+  ],
+  "notes": "Toll bridge on the Shimanami Kaido; the nearby Oyamazumi Shrine and cycling path make it a day stop.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Omishima_Bridge-2.jpg/1920px-Omishima_Bridge-2.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Omishima_Bridge-2.jpg/1920px-Omishima_Bridge-2.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "attribution": "mukarin from Tokyo, Japan, CC BY-SA 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Omishima_Bridge-2.jpg"
+  },
+  "officialWebsite": "https://www.jb-honshi.co.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Ehime:imabari",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "scenic-bridges-japan",
+      "sortOrder": 10
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Omishima Bridge",
+      "description": "Japan's first PC cable-stayed bridge (1979), part of the Shimanami Kaido cycling route linking Omishima to Hakata Island over the Seto Inland Sea.",
+      "highlights": [
+        "Japan's first cable-stayed bridge",
+        "Shimanami Kaido route",
+        "Seto Inland Sea views"
+      ],
+      "notes": "Toll bridge on the Shimanami Kaido; the nearby Oyamazumi Shrine and cycling path make it a day stop.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "大三島橋",
+      "description": "1979年に完成した日本初のPC斜張橋。瀬戸内海を渡り、大三島と伯方島を結ぶしまなみ海道のサイクリングルートの一部です。",
+      "highlights": [
+        "日本初の斜張橋",
+        "しまなみ海道のルート",
+        "瀬戸内海の眺め"
+      ],
+      "notes": "しまなみ海道の有料橋です。近くの大山祇神社とサイクリング道路があり、一日の立ち寄りスポットとしておすすめです。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.jb-honshi.co.jp/",
+        "title": "Omishima Bridge official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}
