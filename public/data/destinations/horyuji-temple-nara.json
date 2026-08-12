@@ -78,10 +78,6 @@
       "collectionId": "unesco-japan",
       "confirmed": true,
       "source": "https://whc.unesco.org/en/list/660/"
-    },
-    {
-      "collectionId": "national-treasures",
-      "confirmed": true
     }
   ],
   "relationships": {

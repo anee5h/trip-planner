@@ -68,40 +68,6 @@
     }
   },
   {
-    "id": "national-treasures",
-    "slug": "national-treasures",
-    "name": "National Treasures of Japan",
-    "description": "Japan's finest cultural properties of exceptional historical and artistic significance designated by the Agency for Cultural Affairs.",
-    "category": "Architecture & History",
-    "type": "official",
-    "isAchievement": true,
-    "icon": "Crown",
-    "badgeColor": "amber",
-    "sortOrder": 3,
-    "officialSource": "Agency for Cultural Affairs (国宝)",
-    "sourceUrl": "https://www.bunka.go.jp/seisaku/bunkazai/",
-    "metadata": {
-      "authority": "government",
-      "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Agency for Cultural Affairs (国宝)",
-      "reviewIntervalMonths": 12,
-      "expectedMembers": 220
-    },
-    "nameJa": "日本の国宝建造物・史跡",
-    "descriptionJa": "文化庁により指定された、極めて高い歴史的・芸術的価値を持つ日本の国宝建造物。",
-    "content": {
-      "en": {
-        "name": "National Treasures of Japan",
-        "description": "Japan's finest cultural properties of exceptional historical and artistic significance designated by the Agency for Cultural Affairs."
-      },
-      "ja": {
-        "name": "日本の国宝建造物・史跡",
-        "description": "文化庁により指定された、極めて高い歴史的・芸術的価値を持つ日本の国宝建造物。"
-      }
-    }
-  },
-  {
     "id": "japan-top-castles",
     "slug": "japan-top-castles",
     "name": "Japan's Top Castles",

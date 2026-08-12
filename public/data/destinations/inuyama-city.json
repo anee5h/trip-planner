@@ -65,13 +65,7 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "national-treasures",
-      "sortOrder": 2,
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "relationships": {
     "featuredDestinationIds": [
       "atsuta-shrine-nagoya",
