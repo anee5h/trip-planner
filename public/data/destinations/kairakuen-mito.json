@@ -31,10 +31,6 @@
   },
   "collections": [
     {
-      "collectionId": "japan-top-castles",
-      "confirmed": true
-    },
-    {
       "collectionId": "three-great-gardens",
       "sortOrder": 3
     }

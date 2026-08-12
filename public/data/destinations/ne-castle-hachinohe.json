@@ -1,0 +1,119 @@
+{
+  "id": "ne-castle-hachinohe",
+  "name": "Ne Castle",
+  "nameJa": "根城",
+  "aliases": ["根城"],
+  "prefecture": "Aomori",
+  "region": "Tohoku",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 40.5062,
+    "lng": 141.4596
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Aomori"],
+  "description": "Ne Castle was the 14th-15th century stronghold of the Nanbu clan in Hachinohe. The restored site with its hilltop stone foundations and reconstructed buildings is preserved as a national historic site.",
+  "highlights": [
+    "Nanbu clan stronghold",
+    "Reconstructed medieval buildings",
+    "National historic site"
+  ],
+  "notes": "Free to walk the grounds; the adjacent Hachinohe City Museum interprets the site.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8,
+    "couple": 7.8,
+    "summer": 7.7,
+    "winter": 7.3,
+    "rain": 7,
+    "food": 7.1,
+    "photography": 8.3,
+    "relaxation": 7.5,
+    "value": 7.9,
+    "uniqueness": 8.2
+  },
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/%E6%A0%B9%E5%9F%8E%E5%BE%A9%E5%85%83%E4%B8%BB%E6%AE%BF.JPG/1920px-%E6%A0%B9%E5%9F%8E%E5%BE%A9%E5%85%83%E4%B8%BB%E6%AE%BF.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/%E6%A0%B9%E5%9F%8E%E5%BE%A9%E5%85%83%E4%B8%BB%E6%AE%BF.JPG/1920px-%E6%A0%B9%E5%9F%8E%E5%BE%A9%E5%85%83%E4%B8%BB%E6%AE%BF.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "小池 隆, CC BY 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:根城復元主殿.JPG"
+  },
+  "officialWebsite": "https://hachinohe-city-museum.jp/",
+  "businessHours": "Open access (castle ruins; see official site for seasonal hours)",
+  "openingHoursJa": "城跡は自由に見学可（季節により開館時間が変わる施設あり）",
+  "municipalityId": "Aomori:hachinohe",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 5
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Ne Castle",
+      "description": "Ne Castle was the 14th-15th century stronghold of the Nanbu clan in Hachinohe. The restored site with its hilltop stone foundations and reconstructed buildings is preserved as a national historic site.",
+      "highlights": [
+        "Nanbu clan stronghold",
+        "Reconstructed medieval buildings",
+        "National historic site"
+      ],
+      "notes": "Free to walk the grounds; the adjacent Hachinohe City Museum interprets the site.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open access (castle ruins; see official site for seasonal hours)"
+    },
+    "ja": {
+      "name": "根城",
+      "description": "八戸にあった南部氏の居館。中世の館（やかた）形式の城で、復元建物や石垣が残る国史跡です。",
+      "highlights": ["南部氏の居館", "復元された中世建物", "国指定史跡"],
+      "notes": "史跡内は無料。隣接する八戸市博物館で解説をどうぞ。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "城跡は自由に見学可（季節により開館時間が変わる施設あり）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://hachinohe-city-museum.jp/",
+        "title": "Ne Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

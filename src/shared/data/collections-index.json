@@ -113,14 +113,14 @@
     "badgeColor": "amber",
     "sortOrder": 4,
     "officialSource": "Japan Castle Foundation (日本100名城)",
-    "sourceUrl": "https://www.japan-castle.or.jp/100meijo/",
+    "sourceUrl": "https://jokaku.jp/business/great-castles/",
     "metadata": {
       "authority": "foundation",
       "status": "active",
-      "lastVerified": "2026-07",
+      "lastVerified": "2026-08",
       "verificationSource": "Japan Castle Foundation (日本100名城)",
       "reviewIntervalMonths": 24,
-      "expectedMembers": 30
+      "expectedMembers": 100
     },
     "nameJa": "日本100名城",
     "descriptionJa": "日本城郭協会により選定された、歴史と建築美を兼ね備えた名城群。",

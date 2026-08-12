@@ -41,7 +41,7 @@
     },
     {
       "collectionId": "japan-top-castles",
-      "confirmed": true
+      "sortOrder": 64
     },
     {
       "collectionId": "national-treasures",

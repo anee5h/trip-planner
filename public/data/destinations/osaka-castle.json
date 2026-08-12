@@ -35,7 +35,7 @@
   "collections": [
     {
       "collectionId": "japan-top-castles",
-      "confirmed": true
+      "sortOrder": 54
     }
   ],
   "transportOptions": {

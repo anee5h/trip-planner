@@ -87,7 +87,7 @@
   "collections": [
     {
       "collectionId": "japan-top-castles",
-      "confirmed": true
+      "sortOrder": 21
     }
   ],
   "relationships": {

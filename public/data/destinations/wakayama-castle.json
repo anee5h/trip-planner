@@ -87,5 +87,11 @@
     "train": 232,
     "bus": 268,
     "car": 280
-  }
+  },
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 62
+    }
+  ]
 }

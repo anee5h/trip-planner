@@ -156,6 +156,61 @@ export const collectionsValidator: ValidatorModule = {
       });
     }
 
+    // 4. Deterministic numbering: japan-top-castles = the official 日本100名城.
+    // Every member must carry its official position (1..100) exactly once.
+    const castlesCollectionExists = collectionIds.has("japan-top-castles");
+    const castleDestinations = castlesCollectionExists
+      ? destinations.filter((d) =>
+          d.collections?.some((c) => c.collectionId === "japan-top-castles"),
+        )
+      : [];
+    const castleSortOrders = new Set<number>();
+    for (const dest of castleDestinations) {
+      const membership = dest.collections?.find(
+        (c) => c.collectionId === "japan-top-castles",
+      );
+      const sortOrder = membership?.sortOrder;
+      if (
+        typeof sortOrder !== "number" ||
+        !Number.isInteger(sortOrder) ||
+        sortOrder < 1 ||
+        sortOrder > 100
+      ) {
+        issues.push({
+          severity: "error",
+          code: "CASTLE_SORT_ORDER_INVALID",
+          message: `japan-top-castles member '${dest.id}' has invalid official position '${sortOrder}' (expected integer 1-100).`,
+          targetId: dest.id,
+        });
+        continue;
+      }
+      if (castleSortOrders.has(sortOrder)) {
+        issues.push({
+          severity: "error",
+          code: "DUPLICATE_CASTLE_SORT_ORDER",
+          message: `japan-top-castles has more than one member with official position ${sortOrder}.`,
+          targetId: dest.id,
+        });
+      }
+      castleSortOrders.add(sortOrder);
+    }
+    if (castlesCollectionExists && castleDestinations.length !== 100) {
+      issues.push({
+        severity: "error",
+        code: "CASTLE_MEMBER_COUNT",
+        message: `japan-top-castles has ${castleDestinations.length} members (expected the official 100).`,
+      });
+    }
+    for (let position = 1; position <= 100; position += 1) {
+      if (castlesCollectionExists && !castleSortOrders.has(position)) {
+        issues.push({
+          severity: "error",
+          code: "MISSING_CASTLE_SORT_ORDER",
+          message: `japan-top-castles is missing official position ${position}.`,
+        });
+      }
+    }
+
     const errorsCount = issues.filter((i) => i.severity === "error").length;
     const warningsCount = issues.filter((i) => i.severity === "warning").length;
     const infoCount = issues.filter((i) => i.severity === "info").length;

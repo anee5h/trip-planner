@@ -26,7 +26,12 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 6
+    }
+  ],
   "transportOptions": {
     "train": 25,
     "bus": 30,

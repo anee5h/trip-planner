@@ -25,7 +25,12 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 74
+    }
+  ],
   "transportOptions": {},
   "budgetMin": 800,
   "budgetRecommended": 2500,
