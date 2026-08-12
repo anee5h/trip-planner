@@ -302,7 +302,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
         <div
           role="group"
           aria-label={t("home.tripMode")}
-          className="inline-flex rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-1 shadow-sm"
+          className="inline-flex rounded-xl border border-slate-200 dark:border-[hsl(var(--border-subtle))] bg-white dark:bg-[hsl(var(--surface-card))] p-1 shadow-sm"
         >
           <button
             type="button"
@@ -311,7 +311,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             onClick={() => onTripModeChange("day_trip")}
             className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all ${
               tripMode === "day_trip"
-                ? "bg-emerald-600 text-white shadow-sm"
+                ? "bg-emerald-600 text-white shadow-sm dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
             }`}
           >
@@ -324,7 +324,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             onClick={() => onTripModeChange("weekend_2d1n")}
             className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all ${
               tripMode === "weekend_2d1n"
-                ? "bg-emerald-600 text-white shadow-sm"
+                ? "bg-emerald-600 text-white shadow-sm dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
             }`}
           >
@@ -361,7 +361,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                   return translate(`home.accommodationPresets.${presetKey}`);
                 })()}
               </SelectTrigger>
-              <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
+              <SelectContent className="rounded-xl border-slate-200 dark:border-[hsl(var(--border-subtle))] shadow-xl bg-white dark:bg-[hsl(var(--surface-overlay))] p-1">
                 {Object.entries(ACCOMMODATION_ALLOWANCE_PRESETS).map(
                   ([key]) => (
                     <SelectItem
@@ -396,7 +396,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                 }}
                 onBlur={handleCustomAllowanceBlur}
                 aria-label={t("home.customStayAllowance")}
-                className="h-8 w-28 rounded-lg border border-slate-200 px-2 text-xs font-bold dark:border-slate-800 dark:bg-slate-900"
+                className="h-8 w-28 rounded-lg border border-slate-200 px-2 text-xs font-bold dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))]"
               />
             )}
             <span
@@ -412,9 +412,9 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
       {/* DESKTOP VIEW: Skyscanner-Style Full-Width Horizontal Bar (lg:flex) */}
       <div className="hidden lg:flex flex-col items-center w-full max-w-6xl mx-auto">
         {/* Row 1: Filter Bar (5 Equal Segments) */}
-        <div className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl p-2 flex items-center gap-1 h-20">
+        <div className="w-full bg-white dark:bg-[hsl(var(--surface-card))] border border-slate-200 dark:border-[hsl(var(--border-subtle))] rounded-2xl shadow-xl p-2 flex items-center gap-1 h-20">
           {/* Segment 1: Vibe (20%) */}
-          <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors flex flex-col justify-center relative cursor-pointer">
+          <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-[hsl(var(--surface-raised))] transition-colors flex flex-col justify-center relative cursor-pointer">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
               Vibe
             </span>
@@ -434,7 +434,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                   </span>
                 </div>
               </SelectTrigger>
-              <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
+              <SelectContent className="rounded-xl border-slate-200 dark:border-[hsl(var(--border-subtle))] shadow-xl bg-white dark:bg-[hsl(var(--surface-overlay))] p-1">
                 {Object.entries(VIBE_LABELS).map(([key, item]) => {
                   const Icon = item.icon;
                   return (
@@ -454,10 +454,10 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             </Select>
           </div>
 
-          <div className="w-px h-8 bg-slate-200 dark:bg-slate-800 shrink-0" />
+          <div className="w-px h-8 bg-slate-200 dark:bg-[hsl(var(--border-subtle))] shrink-0" />
 
           {/* Segment 2: Total available time / Trip length */}
-          <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors flex flex-col justify-center">
+          <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-[hsl(var(--surface-raised))] transition-colors flex flex-col justify-center">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
               {isWeekend ? t("home.tripLength") : t("home.timeAvailable")}
             </span>
@@ -481,7 +481,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                     </span>
                   </div>
                 </SelectTrigger>
-                <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
+                <SelectContent className="rounded-xl border-slate-200 dark:border-[hsl(var(--border-subtle))] shadow-xl bg-white dark:bg-[hsl(var(--surface-overlay))] p-1">
                   {DURATION_OPTIONS.map((key) => (
                     <SelectItem
                       key={key}
@@ -501,10 +501,10 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             )}
           </div>
 
-          <div className="w-px h-8 bg-slate-200 dark:bg-slate-800 shrink-0" />
+          <div className="w-px h-8 bg-slate-200 dark:bg-[hsl(var(--border-subtle))] shrink-0" />
 
           {/* Segment 3: Party (20%) */}
-          <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors flex flex-col justify-center">
+          <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-[hsl(var(--surface-raised))] transition-colors flex flex-col justify-center">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
               {t("home.party")}
             </span>
@@ -536,10 +536,10 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             </div>
           </div>
 
-          <div className="w-px h-8 bg-slate-200 dark:bg-slate-800 shrink-0" />
+          <div className="w-px h-8 bg-slate-200 dark:bg-[hsl(var(--border-subtle))] shrink-0" />
 
           {/* Segment 4: Budget (20%) */}
-          <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors flex flex-col justify-center relative cursor-pointer">
+          <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-[hsl(var(--surface-raised))] transition-colors flex flex-col justify-center relative cursor-pointer">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
               {t("home.budget")}
             </span>
@@ -557,7 +557,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                   </span>
                 </div>
               </SelectTrigger>
-              <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
+              <SelectContent className="rounded-xl border-slate-200 dark:border-[hsl(var(--border-subtle))] shadow-xl bg-white dark:bg-[hsl(var(--surface-overlay))] p-1">
                 {Object.entries(BUDGET_TIER_LABELS).map(([key]) => (
                   <SelectItem
                     key={key}
@@ -576,10 +576,10 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             </Select>
           </div>
 
-          <div className="w-px h-8 bg-slate-200 dark:bg-slate-800 shrink-0" />
+          <div className="w-px h-8 bg-slate-200 dark:bg-[hsl(var(--border-subtle))] shrink-0" />
 
           {/* Segment 5: Getting Around (20%) */}
-          <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-850 transition-colors flex flex-col justify-center relative cursor-pointer">
+          <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-[hsl(var(--surface-raised))] transition-colors flex flex-col justify-center relative cursor-pointer">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
               {t("home.transport")}
             </span>
@@ -598,7 +598,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                   </span>
                 </div>
               </SelectTrigger>
-              <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-950 p-1">
+              <SelectContent className="rounded-xl border-slate-200 dark:border-[hsl(var(--border-subtle))] shadow-xl bg-white dark:bg-[hsl(var(--surface-overlay))] p-1">
                 {Object.entries(TRANSPORT_LABELS).map(([key, item]) => {
                   const Icon = item.icon;
                   return (
@@ -634,7 +634,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             type="button"
             variant="outline"
             size="lg"
-            className="h-11 px-6 text-sm font-bold rounded-xl border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800 transition-colors flex items-center gap-2"
+            className="h-11 px-6 text-sm font-bold rounded-xl border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-50 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] dark:text-slate-200 dark:hover:bg-[hsl(var(--surface-raised))] transition-colors flex items-center gap-2"
             onClick={onSurpriseMe}
           >
             <Shuffle className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
