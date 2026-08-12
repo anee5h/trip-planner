@@ -46,10 +46,6 @@
     {
       "collectionId": "three-great-buddhas",
       "confirmed": true
-    },
-    {
-      "collectionId": "national-treasures",
-      "confirmed": true
     }
   ],
   "transportOptions": {
@@ -64,7 +60,7 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg/1280px-%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg",
   "description": "Nara Park houses the world's largest wooden building (Todai-ji Daibutsuden), sheltering the 15-meter bronze Great Buddha alongside over 1,200 friendly freely roaming sika deer.",
-  "notes": "Narita City travel hub in Chiba Prefecture.",
+  "notes": "Todai-ji's Daibutsuden is the world's largest wooden building, housing the 15 m bronze Great Buddha. The park's deer are tame and roam freely.",
   "budgetRecommended": 5000,
   "crowd": {
     "weekday": 3,

@@ -69,13 +69,7 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "national-treasures",
-      "sortOrder": 9,
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "relationships": {
     "featuredDestinationIds": [
       "tsurugaoka-hachimangu",

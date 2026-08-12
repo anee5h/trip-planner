@@ -65,13 +65,7 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "national-treasures",
-      "sortOrder": 1,
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["karuizawa-town", "nagano-city", "kiso"]

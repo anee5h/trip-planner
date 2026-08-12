@@ -13630,10 +13630,6 @@
         "collectionId": "unesco-japan",
         "confirmed": true,
         "source": "https://whc.unesco.org/en/list/688/"
-      },
-      {
-        "collectionId": "national-treasures",
-        "confirmed": true
       }
     ],
     "addedAt": "2026-07-29",
@@ -17251,11 +17247,6 @@
       {
         "collectionId": "japan-top-castles",
         "sortOrder": 50
-      },
-      {
-        "collectionId": "national-treasures",
-        "sortOrder": 3,
-        "confirmed": true
       }
     ],
     "relationships": {
@@ -17454,10 +17445,6 @@
       {
         "collectionId": "japan-top-castles",
         "sortOrder": 59
-      },
-      {
-        "collectionId": "national-treasures",
-        "confirmed": true
       }
     ],
     "transportOptions": {
@@ -19233,10 +19220,6 @@
         "collectionId": "unesco-japan",
         "confirmed": true,
         "source": "https://whc.unesco.org/en/list/660/"
-      },
-      {
-        "collectionId": "national-treasures",
-        "confirmed": true
       }
     ],
     "relationships": {
@@ -20901,13 +20884,7 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [
-      {
-        "collectionId": "national-treasures",
-        "sortOrder": 2,
-        "confirmed": true
-      }
-    ],
+    "collections": [],
     "relationships": {
       "featuredDestinationIds": [
         "atsuta-shrine-nagoya",
@@ -22297,13 +22274,7 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [
-      {
-        "collectionId": "national-treasures",
-        "sortOrder": 11,
-        "confirmed": true
-      }
-    ],
+    "collections": [],
     "transportOptions": {
       "train": 280,
       "bus": 340,
@@ -24089,13 +24060,7 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [
-      {
-        "collectionId": "national-treasures",
-        "sortOrder": 9,
-        "confirmed": true
-      }
-    ],
+    "collections": [],
     "relationships": {
       "featuredDestinationIds": [
         "tsurugaoka-hachimangu",
@@ -27621,10 +27586,6 @@
         "collectionId": "unesco-japan",
         "confirmed": true,
         "source": "https://whc.unesco.org/en/list/688/"
-      },
-      {
-        "collectionId": "national-treasures",
-        "confirmed": true
       }
     ],
     "addedAt": "2026-07-29",
@@ -35426,10 +35387,6 @@
       {
         "collectionId": "japan-top-castles",
         "sortOrder": 64
-      },
-      {
-        "collectionId": "national-treasures",
-        "confirmed": true
       }
     ],
     "transportOptions": {
@@ -35760,13 +35717,7 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [
-      {
-        "collectionId": "national-treasures",
-        "sortOrder": 1,
-        "confirmed": true
-      }
-    ],
+    "collections": [],
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["karuizawa-town", "nagano-city", "kiso"]
@@ -42815,10 +42766,6 @@
       {
         "collectionId": "three-great-buddhas",
         "confirmed": true
-      },
-      {
-        "collectionId": "national-treasures",
-        "confirmed": true
       }
     ],
     "transportOptions": {
@@ -42833,7 +42780,7 @@
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg/1280px-%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg",
     "description": "Nara Park houses the world's largest wooden building (Todai-ji Daibutsuden), sheltering the 15-meter bronze Great Buddha alongside over 1,200 friendly freely roaming sika deer.",
-    "notes": "Narita City travel hub in Chiba Prefecture.",
+    "notes": "Todai-ji's Daibutsuden is the world's largest wooden building, housing the 15 m bronze Great Buddha. The park's deer are tame and roam freely.",
     "budgetRecommended": 5000,
     "crowd": {
       "weekday": 3,
@@ -44485,10 +44432,6 @@
       {
         "collectionId": "japan-top-castles",
         "sortOrder": 53
-      },
-      {
-        "collectionId": "national-treasures",
-        "confirmed": true
       }
     ],
     "transportOptions": {
@@ -45166,10 +45109,6 @@
         "collectionId": "unesco-japan",
         "confirmed": true,
         "source": "https://whc.unesco.org/en/list/688/"
-      },
-      {
-        "collectionId": "national-treasures",
-        "confirmed": true
       }
     ],
     "addedAt": "2026-07-29",
@@ -51875,10 +51814,6 @@
         "collectionId": "unesco-japan",
         "confirmed": true,
         "source": "https://whc.unesco.org/en/list/688/"
-      },
-      {
-        "collectionId": "national-treasures",
-        "confirmed": true
       }
     ],
     "addedAt": "2026-07-29",

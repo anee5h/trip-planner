@@ -27,7 +27,7 @@ describe("localized collection membership", () => {
 
   it("provides authentic Japanese names and descriptions for all 25 collections", () => {
     const collections = getCollections();
-    expect(collections).toHaveLength(25);
+    expect(collections).toHaveLength(24);
 
     for (const collection of collections) {
       const jaContent = getCollectionContent(collection, "ja");
