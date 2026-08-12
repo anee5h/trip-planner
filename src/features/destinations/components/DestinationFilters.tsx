@@ -521,7 +521,7 @@ export default function DestinationFilters({
               onClick={() => setCollectionPopoverOpen(!collectionPopoverOpen)}
               className={`flex h-9 w-full items-center justify-between gap-1.5 rounded-xl border px-3 text-xs font-medium transition-all sm:w-auto ${
                 selectedCollections.length > 0
-                  ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 font-bold"
+                  ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50 font-bold"
                   : "border-slate-200 dark:border-[hsl(var(--border-subtle))] bg-slate-50 dark:bg-[hsl(var(--surface-overlay))] text-slate-700 dark:text-slate-300 hover:border-emerald-500"
               }`}
             >
@@ -714,18 +714,30 @@ export default function DestinationFilters({
             onClick={() => setModalOpen(true)}
             className={`order-2 flex h-9 shrink-0 items-center gap-1.5 rounded-xl border px-3.5 text-xs font-bold transition-all sm:order-none ${
               activeAdvancedCount > 0
-                ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 shadow-sm"
-                : "border-emerald-500/60 bg-emerald-50/30 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-300 hover:border-emerald-500"
+                ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50 shadow-sm"
+                : "border-slate-200 bg-slate-50 text-slate-700 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] dark:text-slate-300 hover:border-emerald-500"
             }`}
           >
-            <Filter className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+            <Filter
+              className={`w-3.5 h-3.5 ${
+                activeAdvancedCount > 0
+                  ? "text-emerald-600 dark:text-emerald-400"
+                  : "text-slate-500 dark:text-slate-400"
+              }`}
+            />
             <span>{isJa ? "フィルター" : "Filters"}</span>
             {activeAdvancedCount > 0 && (
               <span className="bg-emerald-600 text-white rounded-full w-4 h-4 text-[10px] flex items-center justify-center font-bold">
                 {activeAdvancedCount}
               </span>
             )}
-            <ChevronDown className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+            <ChevronDown
+              className={`w-3.5 h-3.5 ${
+                activeAdvancedCount > 0
+                  ? "text-emerald-600 dark:text-emerald-400"
+                  : "text-slate-500 dark:text-slate-400"
+              }`}
+            />
           </button>
 
           {/* 5. Reset Button */}
@@ -864,7 +876,7 @@ export default function DestinationFilters({
                       onClick={() => handleGettingAroundChange("either")}
                       className={`h-8 px-3 rounded-lg border text-xs font-bold transition-colors ${
                         selectedTransportModes.length === 0
-                          ? "border-slate-300 bg-white text-slate-900 shadow-xs dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                          ? "border-emerald-500 bg-emerald-50 text-emerald-700 shadow-sm dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
                           : "border-transparent text-slate-600 hover:border-slate-200 hover:bg-slate-50 dark:text-slate-400 dark:hover:border-[hsl(var(--border-subtle))] dark:hover:bg-[hsl(var(--surface-raised))]"
                       }`}
                     >
