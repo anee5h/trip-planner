@@ -53,17 +53,17 @@
 
 ## Before/after Bus counts (audited example origins, main head, 983-dest catalogue)
 
-| Origin | Before | After | Cause |
-|---|---|---|---|
-| Yokohama / Machida / Nakayama / Chiba | 10 | 10 | unchanged (QA numbers reproduced) |
-| Fukushima | 23 | 23 | unchanged |
-| Shinagawa | 13 | 13 | unchanged (QA "14" = coord choice) |
-| Nagano | 31 | 31 | unchanged |
-| Osaka | 49 | 49 | unchanged |
-| Hiroshima | 91 | 91 | unchanged |
-| **Iwakuni (postcode/coords)** | **0** | **32** | origin zone mis-resolution (station origins were already 32) |
-| Hakata | 29 | 29 | unchanged |
-| **Naha 900-8585** | **0** | **9** | missing Okinawa terminals/corridor |
+| Origin                                | Before | After  | Cause                                                        |
+| ------------------------------------- | ------ | ------ | ------------------------------------------------------------ |
+| Yokohama / Machida / Nakayama / Chiba | 10     | 10     | unchanged (QA numbers reproduced)                            |
+| Fukushima                             | 23     | 23     | unchanged                                                    |
+| Shinagawa                             | 13     | 13     | unchanged (QA "14" = coord choice)                           |
+| Nagano                                | 31     | 31     | unchanged                                                    |
+| Osaka                                 | 49     | 49     | unchanged                                                    |
+| Hiroshima                             | 91     | 91     | unchanged                                                    |
+| **Iwakuni (postcode/coords)**         | **0**  | **32** | origin zone mis-resolution (station origins were already 32) |
+| Hakata                                | 29     | 29     | unchanged                                                    |
+| **Naha 900-8585**                     | **0**  | **9**  | missing Okinawa terminals/corridor                           |
 
 The ticket's QA example counts were reproduced exactly on the main catalogue
 (station origins): 10/23/31/49/91/32/29, and Naha postcode 900-8585 = 0 pre-fix
@@ -80,6 +80,7 @@ KAI-63
 ## Scope
 
 ### Included
+
 - Full bus eligibility pipeline audit (origin resolution → corridor registry →
   Explore filtering), documented and committed in `qa/kai-63/`.
 - Nationwide origin matrix (35 origins) with UI counts and exclusion-reason
@@ -92,6 +93,7 @@ KAI-63
   Iwakuni postcode, Nakayama/Yokohama stations, no mainland↔Okinawa cards).
 
 ### Not included
+
 - KAI-67 highway/local/airport bus separation.
 - Large-scale corridor expansion (scoped follow-up dataset listed in audit §6 —
   real, operator-verifiable routes; not fabricated here).
@@ -100,14 +102,14 @@ KAI-63
 ## Validation
 
 - [x] Unit + jsdom: transport topology, origin-aware estimates,
-  TripDurationService, destination-detail transport, Explore bus eligibility,
-  transport authorization, registry invariants, scripts/validators — green.
+      TripDurationService, destination-detail transport, Explore bus eligibility,
+      transport authorization, registry invariants, scripts/validators — green.
 - [x] Full Vitest on PR base (main, 983-dest catalogue): **150 files,
-  1939 passed, 1 skipped**.
+      1939 passed, 1 skipped**.
 - [x] Playwright (`npm run test:e2e` — existing repo setup): new
-  `e2e/kai-63-bus-eligibility.spec.ts`, 4 tests × chromium desktop + mobile
-  (Naha 9 / Iwakuni 32 / Nakayama 10 / Yokohama 10, no mainland↔Okinawa) —
-  green locally; runs in the E2E CI job.
+      `e2e/kai-63-bus-eligibility.spec.ts`, 4 tests × chromium desktop + mobile
+      (Naha 9 / Iwakuni 32 / Nakayama 10 / Yokohama 10, no mainland↔Okinawa) —
+      green locally; runs in the E2E CI job.
 - [x] `npx tsc -b --noEmit`
 - [x] `npm run lint`
 - [x] `npm run format:check`
