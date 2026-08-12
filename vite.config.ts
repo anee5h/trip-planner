@@ -24,6 +24,7 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     testTimeout: 15000,
+    exclude: ["**/node_modules/**", "**/dist/**", "**/e2e/**"],
   },
 });
 // Version update trigger
