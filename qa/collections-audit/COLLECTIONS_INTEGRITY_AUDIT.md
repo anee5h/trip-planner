@@ -16,39 +16,39 @@
 
 ## Key authoritative counts (as of 2026-08-12)
 
-| Framework | Official count | Source |
-| --- | ---: | --- |
-| 現存十二天守 (surviving keeps) | 12 | 松山市公式 / consensus |
-| 日本三景 | 3 | 日本三景観光連絡協議会 nihonsankei.jp |
-| 日本三名園 | 3 | JNTO / consensus |
-| 日本三名瀑 | 3 | consensus (Kegon, Nachi, Fukuroda) |
-| 日本三大仏 | 2 fixed + disputed 3rd | encyclopedic consensus |
-| 日本三大神宮 (Engishiki-based) | 3 | historical consensus |
-| 日本三大桜 (trees) | 3 | National Natural Monuments |
-| 政令指定都市 | 20 | 総務省 soumu.go.jp |
-| 日本100名城 | 100 | 日本城郭協会 jokaku.jp (2006) |
-| 国立公園 | **35** (was 34; +日高山脈襟裳十勝 2024-06-25) | 環境省 env.go.jp |
-| 国定公園 | **57** (was 58; −1 upgraded 2024) | 環境省 env.go.jp |
-| 国宝建造物 | **233件 (303棟)** | 文化庁 bunka.go.jp 2026-08-01 |
-| 重要伝統的建造物群保存地区 | **129地区** | 文化庁 bunka.go.jp 2026-08-01 |
-| 日本観光鍾乳洞協会 member caves | 9 | shonyudokyokai.com |
-| 日本三大夜景 / 新三大夜景 | 3 / 3 | traditional / 2003 selection |
-| 日本三名泉 | 3 | historical consensus |
+| Framework                       |                                Official count | Source                                |
+| ------------------------------- | --------------------------------------------: | ------------------------------------- |
+| 現存十二天守 (surviving keeps)  |                                            12 | 松山市公式 / consensus                |
+| 日本三景                        |                                             3 | 日本三景観光連絡協議会 nihonsankei.jp |
+| 日本三名園                      |                                             3 | JNTO / consensus                      |
+| 日本三名瀑                      |                                             3 | consensus (Kegon, Nachi, Fukuroda)    |
+| 日本三大仏                      |                        2 fixed + disputed 3rd | encyclopedic consensus                |
+| 日本三大神宮 (Engishiki-based)  |                                             3 | historical consensus                  |
+| 日本三大桜 (trees)              |                                             3 | National Natural Monuments            |
+| 政令指定都市                    |                                            20 | 総務省 soumu.go.jp                    |
+| 日本100名城                     |                                           100 | 日本城郭協会 jokaku.jp (2006)         |
+| 国立公園                        | **35** (was 34; +日高山脈襟裳十勝 2024-06-25) | 環境省 env.go.jp                      |
+| 国定公園                        |             **57** (was 58; −1 upgraded 2024) | 環境省 env.go.jp                      |
+| 国宝建造物                      |                             **233件 (303棟)** | 文化庁 bunka.go.jp 2026-08-01         |
+| 重要伝統的建造物群保存地区      |                                   **129地区** | 文化庁 bunka.go.jp 2026-08-01         |
+| 日本観光鍾乳洞協会 member caves |                                             9 | shonyudokyokai.com                    |
+| 日本三大夜景 / 新三大夜景       |                                         3 / 3 | traditional / 2003 selection          |
+| 日本三名泉                      |                                             3 | historical consensus                  |
 
 ## Collection-by-collection audit
 
 ### A. Fixed historical / consensus sets
 
-| Collection | Members before → after | Wrong / proxy removed | Added / fixed | Definition & authority | Action |
-| --- | ---: | --- | --- | --- | --- |
-| original-12-castles | 12 → 12 | none (all 12 correct) | source attribution corrected | Historical consensus (Edo-period surviving keeps); **not** a Japan Castle Foundation designation | PR A ✓ |
-| three-great-views | 3 → 3 | none | sourceUrl dead → nihonsankei.jp | Hayashi Gaho (1643); 日本三景観光連絡協議会 | PR A ✓ |
-| three-great-gardens | 1 → 3 | `kanazawa` (city-hub proxy) | +`kenroku-en` (new), +`korakuen-okayama`, +`kairakuen-mito` | Meiji-era consensus; each a 特別名勝 | PR A ✓ |
-| three-great-waterfalls | 2 → 3 | none | +`nachi-falls-wakayama` | consensus trio (Kegon, Nachi, Fukuroda) | PR A ✓ |
-| three-great-buddhas | 3 → 3 | `kamakura-city`, `takaoka` (city-hub proxies) | +`kotoku-in-great-buddha`, +`takaoka-daibutsu` (new); description now documents the disputed 3rd seat; dropped false bunka.go.jp claim | Nara & Kamakura fixed; 3rd disputed (Takaoka is tourism convention) | PR A ✓ |
-| three-great-shrines | 1 → 3 | `izumo-taisha` (belongs to the 三大神社 set, not 三大神宮) | +`ise-grand-shrine`, +`kashima-jingu` (new), +`katori-jingu`; EN/JA aligned to 三大神宮; dropped false 神社本庁 claim | Engishiki-based historical consensus (Ise・Kashima・Katori) | PR A ✓ |
-| three-cherry-blossom-spots | 3 → 3 | `mount-yoshino-nara`, `osaka-castle-park`, `takato-castle-nagano` (none is a 三大桜 tree) | +`miharu-takizakura`, +`jindai-zakura`, +`usuzumi-zakura` (new); renamed EN to "Japan's Three Great Cherry Trees"; dropped unsubstantiated 日本さくらの会 claim | 日本三大桜 = the three National Natural Monument trees (三春滝桜・山高神代桜・根尾谷淡墨桜) | PR A ✓ |
-| core-cities-japan | 30 → 20 | 10 non-designated: `kumamoto-castle`, `osaka-castle`, `motobu-town`, `nago-city`, `naha-city`, `karatsu-city`, `sasebo-city`, `ibusuki-city`, `nichinan-city`, `hita-city` | renamed EN "Designated Cities of Japan", JA 日本の政令指定都市; sourceUrl → 総務省 指定都市一覧 | 地方自治法 §252-19, Cabinet Order; exactly 20 cities | PR A ✓ |
+| Collection                 | Members before → after | Wrong / proxy removed                                                                                                                                                      | Added / fixed                                                                                                                                                   | Definition & authority                                                                           | Action |
+| -------------------------- | ---------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------ |
+| original-12-castles        |                12 → 12 | none (all 12 correct)                                                                                                                                                      | source attribution corrected                                                                                                                                    | Historical consensus (Edo-period surviving keeps); **not** a Japan Castle Foundation designation | PR A ✓ |
+| three-great-views          |                  3 → 3 | none                                                                                                                                                                       | sourceUrl dead → nihonsankei.jp                                                                                                                                 | Hayashi Gaho (1643); 日本三景観光連絡協議会                                                      | PR A ✓ |
+| three-great-gardens        |                  1 → 3 | `kanazawa` (city-hub proxy)                                                                                                                                                | +`kenroku-en` (new), +`korakuen-okayama`, +`kairakuen-mito`                                                                                                     | Meiji-era consensus; each a 特別名勝                                                             | PR A ✓ |
+| three-great-waterfalls     |                  2 → 3 | none                                                                                                                                                                       | +`nachi-falls-wakayama`                                                                                                                                         | consensus trio (Kegon, Nachi, Fukuroda)                                                          | PR A ✓ |
+| three-great-buddhas        |                  3 → 3 | `kamakura-city`, `takaoka` (city-hub proxies)                                                                                                                              | +`kotoku-in-great-buddha`, +`takaoka-daibutsu` (new); description now documents the disputed 3rd seat; dropped false bunka.go.jp claim                          | Nara & Kamakura fixed; 3rd disputed (Takaoka is tourism convention)                              | PR A ✓ |
+| three-great-shrines        |                  1 → 3 | `izumo-taisha` (belongs to the 三大神社 set, not 三大神宮)                                                                                                                 | +`ise-grand-shrine`, +`kashima-jingu` (new), +`katori-jingu`; EN/JA aligned to 三大神宮; dropped false 神社本庁 claim                                           | Engishiki-based historical consensus (Ise・Kashima・Katori)                                      | PR A ✓ |
+| three-cherry-blossom-spots |                  3 → 3 | `mount-yoshino-nara`, `osaka-castle-park`, `takato-castle-nagano` (none is a 三大桜 tree)                                                                                  | +`miharu-takizakura`, +`jindai-zakura`, +`usuzumi-zakura` (new); renamed EN to "Japan's Three Great Cherry Trees"; dropped unsubstantiated 日本さくらの会 claim | 日本三大桜 = the three National Natural Monument trees (三春滝桜・山高神代桜・根尾谷淡墨桜)      | PR A ✓ |
+| core-cities-japan          |                30 → 20 | 10 non-designated: `kumamoto-castle`, `osaka-castle`, `motobu-town`, `nago-city`, `naha-city`, `karatsu-city`, `sasebo-city`, `ibusuki-city`, `nichinan-city`, `hita-city` | renamed EN "Designated Cities of Japan", JA 日本の政令指定都市; sourceUrl → 総務省 指定都市一覧                                                                 | 地方自治法 §252-19, Cabinet Order; exactly 20 cities                                             | PR A ✓ |
 
 ### B. Castles — japan-top-castles
 
@@ -61,7 +61,7 @@
   jokaku.jp).
 - **Member verdicts (26 current):** 23 correct; 3 invalid —
   `gifu-gujo-hachiman` (郡上八幡城 is 続100名城 No. 141, not in the 2006 list; record is also a
-  castle *town*), `kairakuen-mito` (garden, not a castle; Mito is already covered by
+  castle _town_), `kairakuen-mito` (garden, not a castle; Mito is already covered by
   `mito-castle-ibaraki`), `osaka-castle-park` (duplicate of `osaka-castle`).
 - **Missing:** 77 castles (full list with JA/EN names, municipality, prefecture, coordinates and
   official managing-body URLs in research report).
@@ -91,6 +91,7 @@
 ### D. Cultural properties
 
 **national-treasures**
+
 - **Definition problem:** JA name 「日本の国宝建造物・史跡」 is a category error — 史跡
   (monuments) can never be 国宝; only 建造物 (buildings) and 美術工芸品 (fine arts) have a 国宝
   tier. Official counts (2026-08-01): 国宝建造物 233件 (303棟); 国宝 total 1,149件.
@@ -112,6 +113,7 @@
 - **PR:** D. Status: not yet implemented.
 
 **historic-towns-japan**
+
 - **Definition:** 重要伝統的建造物群保存地区 (重伝建) — municipal preservation districts
   **selected** by the Minister of Education (文化財保護法 §144). Official count: **129 districts
   (43 prefectures, 106 municipalities)** as of 2026-08-01 (not 126, not 131; 松江市美保関 is
@@ -140,30 +142,30 @@ japan-caves.jp (unreachable; the real association 日本観光鍾乳洞協会 ha
 **Fix for all:** `type: curated` (not official/national), honest sourceUrl, explicit curated
 wording, `expectedMembers` = actual curated count.
 
-| Collection | Members before → after | Wrong / proxy removed | Added | Authority (honest) | PR |
-| --- | ---: | --- | --- | --- | --- |
-| top-onsen-japan | 10 → 11 | `hakodate-night-view` (night view, not onsen) | +`gero-onsen` (record exists, completes 日本三名泉) | curated; sourceUrl → spa.or.jp; expectedMembers 50 → 11 | E |
-| great-night-views | 11 → 14 | none (all 11 verified against 日本夜景遺産 registry / 三大夜景) | +`sarakurayama` (new), +`fuefukigawa-fruit-park` (new), +`wakakusayama` (new) | curated; 日本三大夜景 + 新日本三大夜景 + 夜景遺産; expectedMembers 20 → 14 | E |
-| japan-observatories-towers | 17 → 17 | none (all 17 real & operating; Kobe Port Tower reopened 2024, Marine Tower 2022, MIRAI TOWER 2020/2021, Sunshine 60 てんぼうパーク 2023) | — | curated/capped (already honest) | E |
-| caves-japan | 5 → 9 | `tokyo-okutama` (nature area; cave is 日原鍾乳洞 — new `nippara` record), `utsunomiya-oya` (quarry, not a limestone cave — moved out unless curated wording kept) | +`nippara` (new), +`hida-cave` (new), +`nanatsugama` (new), +`kyusendo` (new), +`shoryu` (new), +`ryusendo-cave-iwate` (record exists) | 日本観光鍾乳洞協会 9-member list; expectedMembers 10 → 9 | E |
-| coastal-drives-japan | 9 → 10 | `amanohashidate-kyoto`, `tojinbo-cliffs-fukui`, `motonosumi-shrine-yamaguchi` (coastal POIs without registered scenic-route anchors) | +`nichinan-kaigan` (日南海岸きらめきライン, MLIT 風景街道 route 9_1) | curated; MLIT 日本風景街道 background; sourceUrl → mlit.go.jp | E |
-| scenic-bridges-japan | 6 → 10 | `miyajima-itsukushima` (shrine), `miyakojima-city`/`naruto-city` (hubs) | +`saru-hashi`, +`meganebashi-bridge-nagasaki` (record exists), +`akashi-kaikyo`, +`seto-ohashi`, +`rainbow-bridge`, +`omishima` | curated; 日本三名橋/三奇橋 + famous bridges; JSCE 選奨土木遺産 as background only | E |
-| flower-parks-japan | 6 → 10 | `furano-city`, `kanazawa` (hubs), `arakurayama-sengen-park-yamanashi` (viewpoint) | +`showakinen-koen`, +`shinjuku-gyoen`, +`farm-tomita`, +`shikisai-no-oka`, +`nabana-no-sato`, +`kawachi-fujien` (records new) | curated; 国営公園/国民公園/名花園 | E |
-| waterfalls-gorges-japan | 8 → 10 | `takachiho-town` (hub → real POI `takachiho-gorge` record exists) | +`shomyo-falls`, +`shiraito-falls` | curated; 滝百選 (1990) + 日本三大峡谷 | E |
-| islands-japan | 12 → 10 | `ise-grand-shrine` (mainland shrine), `sakurajima-volcano-kagoshima` (not an island since 1914); proxies `ishigaki-city`, `miyakojima-city`, `yakushima-town` resolved via island POI records | +`taketomi-island`, +`shodoshima` | curated; MLIT 離島振興 background | E |
-| art-islands-japan | 7 → 10 | `arima-onsen`, `hakodate-night-view`, `kiyotsu-gorge-niigata` (off-theme); `hakone-town` → real POI | +`hakone-open-air-museum`, +`inujima`, +`shodoshima`, +`ogijima`, +`megijima`, +`sapporo-art-park`, +`towada-art-center` (record exists), +`kanazawa-21` | curated; Benesse (直島・豊島・犬島) + open-air museums | E |
+| Collection                 | Members before → after | Wrong / proxy removed                                                                                                                                                                         | Added                                                                                                                                                    | Authority (honest)                                                                | PR  |
+| -------------------------- | ---------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --- |
+| top-onsen-japan            |                10 → 11 | `hakodate-night-view` (night view, not onsen)                                                                                                                                                 | +`gero-onsen` (record exists, completes 日本三名泉)                                                                                                      | curated; sourceUrl → spa.or.jp; expectedMembers 50 → 11                           | E   |
+| great-night-views          |                11 → 14 | none (all 11 verified against 日本夜景遺産 registry / 三大夜景)                                                                                                                               | +`sarakurayama` (new), +`fuefukigawa-fruit-park` (new), +`wakakusayama` (new)                                                                            | curated; 日本三大夜景 + 新日本三大夜景 + 夜景遺産; expectedMembers 20 → 14        | E   |
+| japan-observatories-towers |                17 → 17 | none (all 17 real & operating; Kobe Port Tower reopened 2024, Marine Tower 2022, MIRAI TOWER 2020/2021, Sunshine 60 てんぼうパーク 2023)                                                      | —                                                                                                                                                        | curated/capped (already honest)                                                   | E   |
+| caves-japan                |                  5 → 9 | `tokyo-okutama` (nature area; cave is 日原鍾乳洞 — new `nippara` record), `utsunomiya-oya` (quarry, not a limestone cave — moved out unless curated wording kept)                             | +`nippara` (new), +`hida-cave` (new), +`nanatsugama` (new), +`kyusendo` (new), +`shoryu` (new), +`ryusendo-cave-iwate` (record exists)                   | 日本観光鍾乳洞協会 9-member list; expectedMembers 10 → 9                          | E   |
+| coastal-drives-japan       |                 9 → 10 | `amanohashidate-kyoto`, `tojinbo-cliffs-fukui`, `motonosumi-shrine-yamaguchi` (coastal POIs without registered scenic-route anchors)                                                          | +`nichinan-kaigan` (日南海岸きらめきライン, MLIT 風景街道 route 9_1)                                                                                     | curated; MLIT 日本風景街道 background; sourceUrl → mlit.go.jp                     | E   |
+| scenic-bridges-japan       |                 6 → 10 | `miyajima-itsukushima` (shrine), `miyakojima-city`/`naruto-city` (hubs)                                                                                                                       | +`saru-hashi`, +`meganebashi-bridge-nagasaki` (record exists), +`akashi-kaikyo`, +`seto-ohashi`, +`rainbow-bridge`, +`omishima`                          | curated; 日本三名橋/三奇橋 + famous bridges; JSCE 選奨土木遺産 as background only | E   |
+| flower-parks-japan         |                 6 → 10 | `furano-city`, `kanazawa` (hubs), `arakurayama-sengen-park-yamanashi` (viewpoint)                                                                                                             | +`showakinen-koen`, +`shinjuku-gyoen`, +`farm-tomita`, +`shikisai-no-oka`, +`nabana-no-sato`, +`kawachi-fujien` (records new)                            | curated; 国営公園/国民公園/名花園                                                 | E   |
+| waterfalls-gorges-japan    |                 8 → 10 | `takachiho-town` (hub → real POI `takachiho-gorge` record exists)                                                                                                                             | +`shomyo-falls`, +`shiraito-falls`                                                                                                                       | curated; 滝百選 (1990) + 日本三大峡谷                                             | E   |
+| islands-japan              |                12 → 10 | `ise-grand-shrine` (mainland shrine), `sakurajima-volcano-kagoshima` (not an island since 1914); proxies `ishigaki-city`, `miyakojima-city`, `yakushima-town` resolved via island POI records | +`taketomi-island`, +`shodoshima`                                                                                                                        | curated; MLIT 離島振興 background                                                 | E   |
+| art-islands-japan          |                 7 → 10 | `arima-onsen`, `hakodate-night-view`, `kiyotsu-gorge-niigata` (off-theme); `hakone-town` → real POI                                                                                           | +`hakone-open-air-museum`, +`inujima`, +`shodoshima`, +`ogijima`, +`megijima`, +`sapporo-art-park`, +`towada-art-center` (record exists), +`kanazawa-21` | curated; Benesse (直島・豊島・犬島) + open-air museums                            | E   |
 
 ## before/after summary
 
-| Metric | Before | After (all PRs) |
-| --- | ---: | ---: |
-| Collections audited | 24 | 24 |
-| Collections with truthful metadata/definition | 2 (observatories, [unesco-japan]) | 24 |
-| Collections with exact expectedMembers | 6 | 24 |
-| Wrong members removed | — | ~30 |
-| Proxy/duplicate members resolved | — | ~15 |
-| New destination records | 0 | ~215 (6 in PR A; ~77 castles; ~91 parks; ~40 thematic; rest cultural) |
-| Wrong/contaminated member claims corrected in existing records | — | every touched record |
+| Metric                                                         |                            Before |                                                       After (all PRs) |
+| -------------------------------------------------------------- | --------------------------------: | --------------------------------------------------------------------: |
+| Collections audited                                            |                                24 |                                                                    24 |
+| Collections with truthful metadata/definition                  | 2 (observatories, [unesco-japan]) |                                                                    24 |
+| Collections with exact expectedMembers                         |                                 6 |                                                                    24 |
+| Wrong members removed                                          |                                 — |                                                                   ~30 |
+| Proxy/duplicate members resolved                               |                                 — |                                                                   ~15 |
+| New destination records                                        |                                 0 | ~215 (6 in PR A; ~77 castles; ~91 parks; ~40 thematic; rest cultural) |
+| Wrong/contaminated member claims corrected in existing records |                                 — |                                                  every touched record |
 
 ## Remaining uncertainties (marked for review, not guessed)
 
