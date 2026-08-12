@@ -3,6 +3,11 @@ import type { Destination } from "@/shared/types/destination";
 import type { Collection } from "@/shared/types/collection";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import { getDestinationsForCollection } from "@/shared/utils/collections";
+import {
+  buildTokyoWardsLink,
+  isTokyoWardHub,
+  TOKYO_WARDS_GROUP_ID,
+} from "@/shared/services/recommendation/TokyoWardsConsolidation";
 import type { SearchDocument, SearchGroup, SearchDocumentType } from "../types";
 import { Icons } from "@/shared/icons";
 
@@ -108,6 +113,54 @@ const STATIC_ACTIONS: SearchDocument[] = [
   },
 ];
 
+/**
+ * Curated major destination hubs shown in the empty search state (KAI-83).
+ * IDs verified against destinations-index.json (kind "city" / role "hub").
+ * Tokyo has no single city hub in the catalogue, so the Tokyo entry is the
+ * Tokyo 23 Wards virtual group (see buildTokyoWardsDocument), listed first.
+ * Resolved through the locale-aware destination list, so records that are
+ * not published in a locale are skipped exactly as everywhere else in the
+ * app.
+ */
+export const POPULAR_DESTINATION_IDS: readonly string[] = [
+  "kyoto-city",
+  "osaka-city",
+  "sapporo-city",
+  "fukuoka-city",
+  "hiroshima-city",
+  "nara-city",
+  "nagoya-city",
+];
+
+/**
+ * Virtual "Tokyo 23 Wards" document for the empty search state. Built on
+ * demand — it is intentionally NOT part of the indexed corpus, so typed
+ * query results are byte-identical to before KAI-83. The 23 canonical ward
+ * hub ids come from the catalogue (role "hub", kind "ward", special-ward
+ * municipality) in deterministic sorted order, and the target is the same
+ * explorer ward filter the Tokyo group card uses.
+ */
+function buildTokyoWardsDocument(locale: "en" | "ja"): SearchDocument {
+  const wardHubIds = (getDestinationList("en") as Destination[])
+    .filter((dest) => isTokyoWardHub(dest))
+    .map((dest) => dest.id)
+    .sort()
+    .slice(0, 23);
+
+  return {
+    id: `dest-${TOKYO_WARDS_GROUP_ID}`,
+    title: locale === "ja" ? "東京23区" : "Tokyo 23 Wards",
+    subtitle: locale === "ja" ? "東京都" : "Tokyo",
+    type: "destination",
+    url: buildTokyoWardsLink(wardHubIds),
+    keywords: ["tokyo", "tokyo 23 wards", "23 wards", "東京", "東京23区"],
+    icon: Icons.japanMap,
+    badge: locale === "ja" ? "東京" : "Tokyo",
+    category: "City",
+    metadata: { dest: { id: TOKYO_WARDS_GROUP_ID } },
+  };
+}
+
 const cachedDocuments = new Map<"en" | "ja", SearchDocument[]>();
 
 export function buildSearchIndex(locale: "en" | "ja" = "en"): SearchDocument[] {
@@ -182,9 +235,17 @@ export function searchDocuments(
   if (!cleanQuery) {
     // Default suggestion groups when query is empty
     const navActions = allDocs.filter((d) => d.type === "navigation");
-    const popularDestinations = allDocs
-      .filter((d) => d.type === "destination")
-      .slice(0, 4);
+    // Curated hubs in a fixed order — never the alphabetical catalogue slice.
+    const destinationDocsById = new Map<string, SearchDocument>();
+    for (const doc of allDocs) {
+      if (doc.type === "destination" && doc.metadata?.dest) {
+        destinationDocsById.set(doc.metadata.dest.id, doc);
+      }
+    }
+    const popularDestinations = [
+      buildTokyoWardsDocument(locale),
+      ...POPULAR_DESTINATION_IDS.map((id) => destinationDocsById.get(id)),
+    ].filter((doc): doc is SearchDocument => doc !== undefined);
     const popularCollections = allDocs
       .filter((d) => d.type === "collection")
       .slice(0, 3);
@@ -194,6 +255,7 @@ export function searchDocuments(
         type: "destination",
         label: locale === "ja" ? "人気の目的地" : "Popular Destinations",
         items: popularDestinations,
+        mobileCollapsible: true,
       },
       {
         type: "collection",

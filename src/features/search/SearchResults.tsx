@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import type { SearchGroup, SearchDocument } from "./types";
 import { Icons } from "@/shared/icons";
 
@@ -11,6 +13,9 @@ interface SearchResultsProps {
   containerClassName?: string;
 }
 
+/** Number of items shown before a collapsible group is expanded. */
+const MOBILE_COLLAPSED_ITEM_COUNT = 4;
+
 export function SearchResults({
   groups,
   flatItems,
@@ -19,6 +24,8 @@ export function SearchResults({
   onHoverIndex,
   containerClassName = "py-2 space-y-5 max-h-[60vh] overflow-y-auto pr-1 scrollbar-thin",
 }: SearchResultsProps) {
+  const { t } = useTranslation();
+  const [expandedCollapsible, setExpandedCollapsible] = useState(false);
   const EnterIcon = Icons.enter;
   const ArrowRightIcon = Icons.arrowRight;
 
@@ -43,6 +50,9 @@ export function SearchResults({
       {groups.map((group, groupIndex) => {
         const groupStartIndex = cumulativeIndex;
         cumulativeIndex += group.items.length;
+        const isCollapsible =
+          group.mobileCollapsible === true && group.items.length > 4;
+        const isCollapsed = isCollapsible && !expandedCollapsible;
 
         return (
           <div key={group.type} className="space-y-2">
@@ -59,13 +69,15 @@ export function SearchResults({
                 const globalIndex = groupStartIndex + itemIdx;
                 const isSelected = globalIndex === selectedIndex;
                 const ItemIcon = item.icon;
+                const isHiddenOnMobile =
+                  isCollapsed && itemIdx >= MOBILE_COLLAPSED_ITEM_COUNT;
 
                 return (
                   <button
                     key={item.id}
                     onClick={() => onSelect(item)}
                     onMouseEnter={() => onHoverIndex(globalIndex)}
-                    className={`w-full flex items-center justify-between py-3.5 px-4 rounded-2xl transition-all text-left group ${
+                    className={`${isHiddenOnMobile ? "hidden sm:flex" : ""} w-full flex items-center justify-between py-3.5 px-4 rounded-2xl transition-all text-left group ${
                       isSelected
                         ? "bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 shadow-sm"
                         : "hover:bg-slate-100/80 dark:hover:bg-slate-800/60 border border-transparent"
@@ -116,6 +128,14 @@ export function SearchResults({
                   </button>
                 );
               })}
+              {isCollapsed && (
+                <button
+                  onClick={() => setExpandedCollapsible(true)}
+                  className="flex sm:hidden w-full items-center justify-center py-3 px-4 mt-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 rounded-2xl transition-colors"
+                >
+                  {t("ui.seeMore")}
+                </button>
+              )}
             </div>
           </div>
         );
