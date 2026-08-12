@@ -124,7 +124,6 @@ const PARENT_BY_DESTINATION_ID: Record<string, string> = {
   "imperial-palace-chiyoda": "chiyoda-city",
   "inage-seaside-park": "chiba-city",
   inamuragasaki: "kamakura-city",
-  "ine-funaya-boathouses": "miyazu-city",
   "inuyama-castle-aichi": "inuyama-city",
   "irabu-bridge-irabujima-miyako": "miyakojima-city",
   "ise-grand-shrine": "ise-city",
@@ -164,7 +163,6 @@ const PARENT_BY_DESTINATION_ID: Record<string, string> = {
   "kintai-bridge-yamaguchi": "iwakuni-city",
   "kinugawa-onsen": "nikko-city",
   "kirin-beer-yokohama-factory": "yokohama-city",
-  "kishi-station-tama-cat": "wakayama-city",
   "kita-in": "kawagoe-city",
   "kitano-ijinkan": "kobe-city",
   "kitaro-chaya": "chofu-tokyo",
@@ -269,7 +267,6 @@ const PARENT_BY_DESTINATION_ID: Record<string, string> = {
   "okunoin-cemetery-koyasan": "koya-town",
   "ome-railway-park": "ome-tokyo",
   "ome-retro-town": "ome-tokyo",
-  "omi-hachiman-canal": "otsu-city",
   "omiya-bonsai-art-museum": "saitama-city",
   "omiya-bonsai-village": "saitama-city",
   "omiya-park": "saitama-city",
@@ -327,7 +324,6 @@ const PARENT_BY_DESTINATION_ID: Record<string, string> = {
   shinsekai: "osaka-city",
   "shinsho-ji": "narita-city",
   "shirahama-beach-adventure-world": "shirahama-town",
-  "shirahige-shrine-lake-biwa": "otsu-city",
   "shirakami-sanchi-aomori": "hirosaki-city",
   shitennoji: "osaka-city",
   "shonan-kaigan-park": "fujisawa-city",
@@ -437,6 +433,10 @@ const PARENT_BY_DESTINATION_ID: Record<string, string> = {
 };
 
 const GATEWAY_BY_DESTINATION_ID: Record<string, string> = {
+  "shirahige-shrine-lake-biwa": "Shiga:takashima",
+  "omi-hachiman-canal": "Shiga:omihachiman",
+  "kishi-station-tama-cat": "Wakayama:kinokawa",
+  "ine-funaya-boathouses": "Kyoto:ine",
   // PR #88 gateway conversions, reviewed in PR #89 audit (docs/audits/pr89-gateway-review.csv).
   // Each entry represents a practical regional access hub for a destination that is
   // geographically distant or cross-municipality from the hub.
