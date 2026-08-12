@@ -29,9 +29,6 @@ const CollectionsDirectory = lazy(
 const CollectionDetails = lazy(
   () => import("./features/collections/CollectionDetails"),
 );
-const CollectionGroupDetails = lazy(
-  () => import("./features/collections/CollectionGroupDetails"),
-);
 
 const Settings = lazy(() => import("./features/settings/Settings"));
 const Help = lazy(() => import("./features/help/Help"));
@@ -80,10 +77,6 @@ function AppInner() {
                   <Route
                     path="/collections"
                     element={<CollectionsDirectory />}
-                  />
-                  <Route
-                    path="/collections/:slug/:groupId"
-                    element={<CollectionGroupDetails />}
                   />
                   <Route
                     path="/collections/:slug"

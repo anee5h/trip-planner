@@ -106,6 +106,7 @@ export default function DestinationCard({
   const { locale } = useLocale();
   const { t } = useTranslation();
   const wardGroup = getWardGroup(destination);
+  const virtualGroup = destination.virtualGroup;
   const modeLabels = {
     train: t("home.transportModes.train"),
     shinkansen: t("home.transportModes.shinkansen"),
@@ -286,7 +287,11 @@ export default function DestinationCard({
               #{rank}
             </Badge>
           )}
-          {wardGroup ? (
+          {virtualGroup ? (
+            <Badge className="bg-emerald-600/90 px-2 py-0.5 text-[10px] font-extrabold text-white shadow-md backdrop-blur-md md:text-xs">
+              {t(virtualGroup.badgeKey)}
+            </Badge>
+          ) : wardGroup ? (
             <Badge className="bg-emerald-600/90 px-2 py-0.5 text-[10px] font-extrabold text-white shadow-md backdrop-blur-md md:text-xs">
               {t("destination.tokyoWardsBadge")}
             </Badge>
@@ -328,7 +333,7 @@ export default function DestinationCard({
             </>
           )}
         </div>
-        {!wardGroup && (
+        {!wardGroup && !virtualGroup && (
           <div className="absolute right-3 top-3 z-10 flex">
             <BucketListButton
               destinationId={destination.id}
@@ -352,15 +357,19 @@ export default function DestinationCard({
       <CardHeader className="p-3 pb-1 md:p-3 md:pb-1">
         <h3
           title={
-            wardGroup
-              ? t("destination.tokyoWardsGroup")
-              : formatPlaceName(localizedDestination, locale)
+            virtualGroup
+              ? virtualGroup.name
+              : wardGroup
+                ? t("destination.tokyoWardsGroup")
+                : formatPlaceName(localizedDestination, locale)
           }
           className="line-clamp-2 min-h-10 min-w-0 text-lg font-extrabold leading-[1.15] tracking-tight sm:text-xl"
         >
-          {wardGroup
-            ? t("destination.tokyoWardsGroup")
-            : formatPlaceName(localizedDestination, locale)}
+          {virtualGroup
+            ? virtualGroup.name
+            : wardGroup
+              ? t("destination.tokyoWardsGroup")
+              : formatPlaceName(localizedDestination, locale)}
         </h3>
 
         <div className="mt-0.5 flex h-5 min-w-0 items-center text-xs font-medium text-slate-500 dark:text-slate-400 md:mt-1 md:text-sm">
@@ -589,14 +598,18 @@ export default function DestinationCard({
       </CardContent>
 
       <CardFooter className="flex items-center gap-1.5 p-3 pt-0 md:p-3 md:pt-0">
-        {wardGroup && (
+        {virtualGroup ? (
+          <span className="text-xs font-bold text-slate-500 dark:text-slate-400 px-1">
+            {t("ui.places", { count: virtualGroup.placeCount })}
+          </span>
+        ) : wardGroup ? (
           <span className="text-xs font-bold text-slate-500 dark:text-slate-400 px-1">
             {t("destination.tokyoWardsCount", {
               count: wardGroup.wardCount,
             })}
           </span>
-        )}
-        {!wardGroup && (
+        ) : null}
+        {!wardGroup && !virtualGroup && (
           <>
             <button
               onClick={handleAddToItinerary}
@@ -659,15 +672,18 @@ export default function DestinationCard({
         )}
 
         {/* Explore - dominant CTA takes remaining space; the Tokyo 23 Wards
-            group opens the filtered ward list instead of a details page. */}
+            group opens the filtered ward list instead of a details page, and
+            a virtual group opens its group target (destination or listing). */}
         <Link
           to={
-            wardGroup
-              ? buildTokyoWardsLink(wardGroup.wardHubIds, wardGroup.tripMode)
-              : {
-                  pathname: `/destinations/${destination.id}`,
-                  search: location.search,
-                }
+            virtualGroup
+              ? virtualGroup.href
+              : wardGroup
+                ? buildTokyoWardsLink(wardGroup.wardHubIds, wardGroup.tripMode)
+                : {
+                    pathname: `/destinations/${destination.id}`,
+                    search: location.search,
+                  }
           }
           state={linkState}
           className="ml-auto"

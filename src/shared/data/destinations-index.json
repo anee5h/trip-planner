@@ -83653,12 +83653,12 @@
       "min": 2,
       "max": 3
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/35/Enryakuji_Konpon_Chudo1.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Enryakuji_Konponchudo02s5s3200.jpg/1280px-Enryakuji_Konponchudo02s5s3200.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Wikimedia Commons contributors",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enryakuji_Konpon_Chudo1.jpg"
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enryakuji_Konponchudo02s5s3200.jpg"
     },
     "municipalityId": "Shiga:otsu",
     "transportOptions": {
@@ -84196,12 +84196,12 @@
       "min": 1.5,
       "max": 2.5
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Koyasan_Okunoin_Rosoku01.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Koyasan_Okunoin_Rosoku02.jpg/1280px-Koyasan_Okunoin_Rosoku02.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "attribution": "Wikimedia Commons contributors",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Okunoin_Rosoku01.jpg"
+      "attribution": "Naokijp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Okunoin_Rosoku02.jpg"
     },
     "municipalityId": "Wakayama:koya",
     "transportOptions": {
@@ -84377,12 +84377,12 @@
       "min": 0.8,
       "max": 1.8
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Sakai_Daisenryo.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Daisenryo_Kofun_zenkei-2.jpg/1280px-Daisenryo_Kofun_zenkei-2.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Wikimedia Commons contributors",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sakai_Daisenryo.jpg"
+      "license": "CC0",
+      "attribution": "Saigen Jiro",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Daisenryo_Kofun_zenkei-2.jpg"
     },
     "municipalityId": "Osaka:sakai",
     "transportOptions": {
@@ -84836,12 +84836,12 @@
       "min": 0.8,
       "max": 1.8
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/57/Koyasan_Danjogaran.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Koyasan_Danjogaran_01.JPG/1280px-Koyasan_Danjogaran_01.JPG",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Wikimedia Commons contributors",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Danjogaran.jpg"
+      "license": "CC BY-SA 3.0",
+      "attribution": "Reggaeman",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Danjogaran_01.JPG"
     },
     "municipalityId": "Wakayama:koya",
     "transportOptions": {
@@ -85016,12 +85016,12 @@
       "min": 0.8,
       "max": 1.8
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Toshodaiji_Nara_Nara_pref00bs5s2850.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Toshodaiji_Nara_Nara_pref00an4592.jpg/1280px-Toshodaiji_Nara_Nara_pref00an4592.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Wikimedia Commons contributors",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toshodaiji_Nara_Nara_pref00bs5s2850.jpg"
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toshodaiji_Nara_Nara_pref00an4592.jpg"
     },
     "municipalityId": "Nara:nara",
     "transportOptions": {
@@ -85110,12 +85110,12 @@
       "min": 1,
       "max": 2
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/32/Yakushiji_Nara_Japan01s3s4592.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Yakushiji_Nara06s3s4440.jpg/1280px-Yakushiji_Nara06s3s4440.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Wikimedia Commons contributors",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yakushiji_Nara_Japan01s3s4592.jpg"
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yakushiji_Nara06s3s4440.jpg"
     },
     "municipalityId": "Nara:nara",
     "transportOptions": {

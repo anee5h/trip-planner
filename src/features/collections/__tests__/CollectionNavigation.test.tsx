@@ -3,7 +3,6 @@ import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import CollectionDetails from "../CollectionDetails";
-import CollectionGroupDetails from "../CollectionGroupDetails";
 
 // react-dom 19 requires this flag for act(); existing component tests set it
 // at module scope (e.g. Home.test.tsx). The global is not typed, so assign
@@ -29,8 +28,35 @@ vi.mock("react-i18next", () => ({
 }));
 
 vi.mock("@/features/destinations/components/DestinationCard", () => ({
-  default: ({ destination }: { destination: { id: string } }) => (
-    <div data-testid="destination-card">{destination.id}</div>
+  default: ({
+    destination,
+  }: {
+    destination: {
+      id: string;
+      virtualGroup?: {
+        name: string;
+        badgeKey: string;
+        placeCount: number;
+        href: string;
+      };
+    };
+  }) => (
+    <div data-testid="destination-card">
+      <span data-testid="dest-id">{destination.id}</span>
+      {destination.virtualGroup && (
+        <>
+          <a data-testid="group-link" href={destination.virtualGroup.href}>
+            {destination.virtualGroup.name}
+          </a>
+          <span data-testid="group-count">
+            {destination.virtualGroup.placeCount}
+          </span>
+          <span data-testid="group-badge">
+            {destination.virtualGroup.badgeKey}
+          </span>
+        </>
+      )}
+    </div>
   ),
 }));
 
@@ -44,12 +70,7 @@ afterEach(() => {
   host = undefined;
 });
 
-function renderAt(
-  entry: string,
-  routePath: string,
-  element: ReactNode,
-  extraRoutes?: ReactNode,
-) {
+function renderAt(entry: string, element: ReactNode) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -57,8 +78,7 @@ function renderAt(
     root!.render(
       <MemoryRouter initialEntries={[entry]}>
         <Routes>
-          <Route path={routePath} element={element} />
-          {extraRoutes}
+          <Route path="/collections/:slug" element={element} />
         </Routes>
       </MemoryRouter>,
     );
@@ -66,129 +86,113 @@ function renderAt(
   return host;
 }
 
-function linkHrefs(host: HTMLDivElement): string[] {
-  return Array.from(host.querySelectorAll<HTMLAnchorElement>("a")).map(
-    (anchor) => anchor.getAttribute("href") ?? "",
+function groupLinks(host: HTMLDivElement): string[] {
+  return Array.from(
+    host.querySelectorAll<HTMLAnchorElement>('[data-testid="group-link"]'),
+  ).map((anchor) => anchor.getAttribute("href") ?? "");
+}
+
+function cardIds(host: HTMLDivElement): string[] {
+  return Array.from(host.querySelectorAll('[data-testid="dest-id"]')).map(
+    (node) => node.textContent ?? "",
   );
 }
 
-/** Group-card links: a destination page (single place) or a group page. */
-function groupLinks(host: HTMLDivElement, collectionSlug: string): string[] {
-  const groupPage = new RegExp(`^/collections/${collectionSlug}/\\d+$`);
-  return linkHrefs(host).filter(
-    (href) => href.startsWith("/destinations/") || groupPage.test(href),
-  );
-}
+describe("CollectionDetails — UNESCO property groups", () => {
+  it("renders one virtual group card per UNESCO property (27)", () => {
+    const host = renderAt("/collections/unesco-japan", <CollectionDetails />);
 
-describe("CollectionDetails — UNESCO property grouping", () => {
-  it("renders one group card per UNESCO property", () => {
-    const host = renderAt(
-      "/collections/unesco-japan",
-      "/collections/:slug",
-      <CollectionDetails />,
+    expect(cardIds(host)).toHaveLength(27);
+    expect(cardIds(host).every((id) => id.startsWith("unesco-property-"))).toBe(
+      true,
     );
-
-    expect(groupLinks(host, "unesco-japan")).toHaveLength(27);
-    // No destination cards are rendered on the grouped UNESCO page.
-    expect(
-      host.querySelectorAll('[data-testid="destination-card"]'),
-    ).toHaveLength(0);
+    expect(host.querySelectorAll('[data-testid="group-badge"]').length).toBe(
+      27,
+    );
   });
 
   it("links single-place properties straight to their destination", () => {
-    const host = renderAt(
-      "/collections/unesco-japan",
-      "/collections/:slug",
-      <CollectionDetails />,
-    );
+    const host = renderAt("/collections/unesco-japan", <CollectionDetails />);
 
-    // Himeji-jo and Fujisan are single-record properties.
-    expect(groupLinks(host, "unesco-japan")).toContain(
-      "/destinations/himeji-castle",
+    expect(groupLinks(host)).toContain("/destinations/himeji-castle");
+    expect(groupLinks(host)).toContain("/destinations/mount-fuji");
+    expect(groupLinks(host)).toContain("/destinations/genbaku-dome");
+  });
+
+  it("links multi-place properties to the collection listing surface", () => {
+    const host = renderAt("/collections/unesco-japan", <CollectionDetails />);
+
+    expect(groupLinks(host)).toContain(
+      "/collections/unesco-japan?property=688",
     );
-    expect(groupLinks(host, "unesco-japan")).toContain(
-      "/destinations/mount-fuji",
+    expect(groupLinks(host)).toContain(
+      "/collections/unesco-japan?property=1142",
     );
   });
 
-  it("links multi-place properties to their group page", () => {
+  it("carries the badge key and per-property place counts on group cards", () => {
+    const host = renderAt("/collections/unesco-japan", <CollectionDetails />);
+
+    const badges = Array.from(
+      host.querySelectorAll('[data-testid="group-badge"]'),
+    ).map((node) => node.textContent);
+    expect(badges.every((badge) => badge === "ui.unescoBadge")).toBe(true);
+
+    const kyotoIndex = cardIds(host).indexOf("unesco-property-688");
+    const himejiIndex = cardIds(host).indexOf("unesco-property-661");
+    const counts = Array.from(
+      host.querySelectorAll('[data-testid="group-count"]'),
+    ).map((node) => node.textContent);
+    expect(counts[kyotoIndex]).toBe("8");
+    expect(counts[himejiIndex]).toBe("1");
+  });
+
+  it("shows exactly the property's places in the group view", () => {
     const host = renderAt(
-      "/collections/unesco-japan",
-      "/collections/:slug",
+      "/collections/unesco-japan?property=688",
       <CollectionDetails />,
     );
 
-    // Ancient Kyoto (8 components) and the Kii Mountain Range (5 components).
-    expect(groupLinks(host, "unesco-japan")).toContain(
-      "/collections/unesco-japan/688",
+    expect(cardIds(host).sort()).toEqual(
+      [
+        "nijo-castle-kyoto",
+        "kinkaku-ji",
+        "byodoin-temple",
+        "enryaku-ji-mount-hiei",
+        "ginkaku-ji",
+        "uji-tea-culture-center",
+        "ninna-ji",
+        "ryoan-ji",
+      ].sort(),
     );
-    expect(groupLinks(host, "unesco-japan")).toContain(
-      "/collections/unesco-japan/1142",
-    );
+    expect(host.querySelectorAll('[data-testid="group-link"]')).toHaveLength(0);
+    // Back link returns to the whole collection.
+    expect(
+      Array.from(host.querySelectorAll<HTMLAnchorElement>("a")).some(
+        (anchor) => anchor.getAttribute("href") === "/collections/unesco-japan",
+      ),
+    ).toBe(true);
   });
 
-  it("keeps the standard destination grid for non-UNESCO collections", () => {
+  it("falls back to the group overview for an unknown property id", () => {
+    const host = renderAt(
+      "/collections/unesco-japan?property=9999",
+      <CollectionDetails />,
+    );
+
+    expect(cardIds(host)).toHaveLength(27);
+  });
+
+  it("keeps the ordinary destination grid for non-UNESCO collections", () => {
     const host = renderAt(
       "/collections/japan-top-castles",
-      "/collections/:slug",
       <CollectionDetails />,
     );
 
+    expect(cardIds(host).length).toBeGreaterThan(0);
     expect(
-      host.querySelectorAll('[data-testid="destination-card"]').length,
-    ).toBeGreaterThan(0);
-    expect(
-      linkHrefs(host).some((href) =>
-        href.startsWith("/collections/japan-top-castles/"),
-      ),
-    ).toBe(false);
-  });
-});
-
-describe("CollectionGroupDetails — places of one UNESCO property", () => {
-  it("lists every place of a multi-place property with a back link", () => {
-    const host = renderAt(
-      "/collections/unesco-japan/688",
-      "/collections/:slug/:groupId",
-      <CollectionGroupDetails />,
-    );
-
-    expect(host.textContent).toContain(
-      "Historic Monuments of Ancient Kyoto (Kyoto, Uji and Otsu Cities)",
-    );
-    expect(
-      host.querySelectorAll('[data-testid="destination-card"]'),
-    ).toHaveLength(8);
-    expect(linkHrefs(host)).toContain("/collections/unesco-japan");
-  });
-
-  it("redirects a single-place property straight to its destination", () => {
-    const host = renderAt(
-      "/collections/unesco-japan/661",
-      "/collections/:slug/:groupId",
-      <CollectionGroupDetails />,
-      <Route
-        path="/destinations/:id"
-        element={<div data-testid="destination-page">destination-page</div>}
-      />,
-    );
-
-    expect(
-      host.querySelector('[data-testid="destination-page"]'),
-    ).not.toBeNull();
-    expect(
-      host.querySelectorAll('[data-testid="destination-card"]'),
-    ).toHaveLength(0);
-  });
-
-  it("shows the not-found state for an unknown property group", () => {
-    const host = renderAt(
-      "/collections/unesco-japan/9999",
-      "/collections/:slug/:groupId",
-      <CollectionGroupDetails />,
-    );
-
-    expect(host.textContent).toContain("ui.collectionNotFound");
-    expect(linkHrefs(host)).toContain("/collections/unesco-japan");
+      cardIds(host).every((id) => !id.startsWith("unesco-property-")),
+    ).toBe(true);
+    expect(host.querySelectorAll('[data-testid="group-link"]')).toHaveLength(0);
   });
 });

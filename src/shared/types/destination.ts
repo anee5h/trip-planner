@@ -142,6 +142,27 @@ export interface DestinationImageMetadata {
   sourceUrl: string;
 }
 
+/**
+ * Runtime grouping metadata for a virtual group destination (e.g. a UNESCO
+ * property represented by several curated members). Built on demand from
+ * catalogue members; never persisted in destination data.
+ */
+export interface VirtualGroupMetadata {
+  /** Stable group id, e.g. "unesco-property-688". */
+  id: string;
+  /** Localized display name for the current locale. */
+  name: string;
+  /** Id of the member whose record backs the group card (image, budget…). */
+  primaryMemberId: string;
+  /** i18n key of the badge label shown on the group card. */
+  badgeKey: "ui.unescoBadge";
+  /** Number of underlying curated member destinations. */
+  placeCount: number;
+  /** Card navigation target: a destination page (single member) or a
+   *  collection listing surface (multiple members). */
+  href: string;
+}
+
 export interface DestinationRelationships {
   parentDestinationId?: string;
   /** Regional access hub for places reachable only via a gateway (e.g. islands,
@@ -326,6 +347,9 @@ export interface Destination {
 
   /** Mandatory: Curated collection memberships */
   collections: CollectionMembership[];
+  /** Runtime virtual-group metadata for group destinations built from
+   *  curated members (e.g. UNESCO property groups). Never persisted. */
+  virtualGroup?: VirtualGroupMetadata;
   /** Editorial import date for QA ordering; not a visitor-facing claim. */
   addedAt?: string;
   /** Image is a temporary QA placeholder and must be replaced before editorial approval. */
