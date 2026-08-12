@@ -72,7 +72,7 @@
     }
   ],
   "relationships": {
-    "featuredDestinationIds": ["nachi-falls-wakayama"],
+    "featuredDestinationIds": [],
     "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
   },
   "budgetBreakdown": {

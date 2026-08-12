@@ -5,11 +5,11 @@
   "region": "Kansai",
   "categories": ["World Heritage", "Culture", "Sightseeing"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Takamat1.jpg/960px-Takamat1.jpg",
-  "description": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
+  "description": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage property inscribed in 2026 for its archaeological sites documenting the emergence of Japan's ancient state.",
   "highlights": [
-    "UNESCO Heritage Monument",
-    "Historic Landmark",
-    "Cultural Preservation Area"
+    "Ancient Japanese capital sites",
+    "Archaeological landscapes of Asuka and Fujiwara",
+    "UNESCO World Heritage (inscribed 2026)"
   ],
   "budgetMin": 4000,
   "budgetMax": 15000,
@@ -57,7 +57,7 @@
   ],
   "reservation": "Not required",
   "parking": "Available nearby",
-  "notes": "Official UNESCO World Heritage Site.",
+  "notes": "UNESCO World Heritage property inscribed in 2026; its archaeological sites span the Asuka and Fujiwara areas of Nara Prefecture.",
   "coordinates": {
     "lat": 34.4682,
     "lng": 135.8197
@@ -76,11 +76,12 @@
   "collections": [
     {
       "collectionId": "unesco-japan",
-      "confirmed": true
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/1757/"
     }
   ],
   "relationships": {
-    "parentDestinationId": "nara-city"
+    "gatewayHubId": "nara-city"
   },
   "budgetBreakdown": {
     "transport": 3000,
@@ -107,7 +108,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
+    "editorialSummary": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage property inscribed in 2026 for its archaeological sites documenting the emergence of Japan's ancient state.",
     "lifecycle": "published",
     "sources": ["editorial-review-2026"],
     "reviewedAt": "2026-08-03T00:00:00Z",
@@ -122,12 +123,12 @@
   "content": {
     "en": {
       "name": "Ancient Capitals of Asuka and Fujiwara",
-      "description": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
+      "description": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage property inscribed in 2026 for its archaeological sites documenting the emergence of Japan's ancient state.",
       "highlights": []
     },
     "ja": {
       "name": "飛鳥・藤原の宮都",
-      "description": "日本の国家形成の舞台となった飛鳥時代の史跡群。石舞台古墳や高松塚古墳、藤原宮跡など、古代日本のロマンを伝える巨大石造物や史跡が田園風景の中に点在します。",
+      "description": "日本の国家形成の舞台となった飛鳥・藤原の宮都は、2026年に世界遺産へ登録された考古学的な史跡群です。石舞台古墳や高松塚古墳、藤原宮跡などが田園風景の中に点在します。",
       "highlights": [
         "巨大石室の石舞台古墳",
         "極彩色壁画の高松塚古墳",
@@ -135,5 +136,5 @@
       ]
     }
   },
-  "municipalityId": "Nara:nara"
+  "municipalityId": "Nara:asuka"
 }

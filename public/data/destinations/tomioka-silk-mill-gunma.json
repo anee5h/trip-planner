@@ -5,11 +5,11 @@
   "region": "Kanto",
   "categories": ["World Heritage", "Culture", "Sightseeing"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/%E5%AF%8C%E5%B2%A1%E8%A3%BD%E7%B3%B8%E5%A0%B4%E3%83%BB%E7%B9%B0%E7%B3%B8%E5%A0%B4.jpg/960px-%E5%AF%8C%E5%B2%A1%E8%A3%BD%E7%B3%B8%E5%A0%B4%E3%83%BB%E7%B9%B0%E7%B3%B8%E5%A0%B4.jpg",
-  "description": "Tomioka Silk Mill and Related Sites is a UNESCO World Heritage Site in Gunma, designated for its outstanding universal cultural or natural value.",
+  "description": "Tomioka Silk Mill and Related Sites is a UNESCO World Heritage property inscribed in 2014. Its four component sites document Japan's sericulture and silk-production industry: Tomioka Silk Mill, Tajima Yahei Sericulture Farm, Takayama-sha Sericulture School, and Arafune Cold Storage.",
   "highlights": [
-    "UNESCO Heritage Monument",
-    "Historic Landmark",
-    "Cultural Preservation Area"
+    "Tomioka Silk Mill",
+    "Four component sites of the UNESCO property",
+    "UNESCO World Heritage (2014)"
   ],
   "budgetMin": 4000,
   "budgetMax": 15000,
@@ -57,7 +57,7 @@
   ],
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
-  "notes": "A top recommended attraction in Gunma, offering excellent photo opportunities and local cultural experiences.",
+  "notes": "The serial property comprises four component sites; the Tomioka Silk Mill is the principal visitor destination represented here.",
   "coordinates": {
     "lat": 36.255,
     "lng": 138.8872
@@ -76,7 +76,8 @@
   "collections": [
     {
       "collectionId": "unesco-japan",
-      "confirmed": true
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/1449/"
     }
   ],
   "relationships": {},
@@ -121,26 +122,26 @@
   "content": {
     "en": {
       "name": "Tomioka Silk Mill and Related Sites",
-      "description": "Tomioka Silk Mill and Related Sites is a UNESCO World Heritage Site in Gunma, designated for its outstanding universal cultural or natural value.",
+      "description": "Tomioka Silk Mill and Related Sites is a UNESCO World Heritage property inscribed in 2014. Its four component sites document Japan's sericulture and silk-production industry: Tomioka Silk Mill, Tajima Yahei Sericulture Farm, Takayama-sha Sericulture School, and Arafune Cold Storage.",
       "highlights": [
-        "UNESCO Heritage Monument",
-        "Historic Landmark",
-        "Cultural Preservation Area"
+        "Tomioka Silk Mill",
+        "Four component sites of the UNESCO property",
+        "UNESCO World Heritage (2014)"
       ],
-      "notes": "A top recommended attraction in Gunma, offering excellent photo opportunities and local cultural experiences.",
+      "notes": "The serial property comprises four component sites; the Tomioka Silk Mill is the principal visitor destination represented here.",
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
       "openingHours": "09:00 - 17:00"
     },
     "ja": {
       "name": "富岡製糸場と絹産業遺産群",
-      "description": "富岡製糸場と絹産業遺産群は群馬県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "description": "富岡製糸場と絹産業遺産群は、2014年に登録された世界遺産です。富岡製糸場、田島弥平旧宅、高山社跡、荒船風穴の4つの構成資産が、日本の養蚕と製糸業の発展を伝えています。",
       "highlights": [
-        "富岡製糸場と絹産業遺産群の名所",
-        "富岡製糸場と絹産業遺産群の名所",
-        "富岡製糸場と絹産業遺産群の名所"
+        "富岡製糸場",
+        "世界遺産の4つの構成資産",
+        "2014年登録の世界遺産"
       ],
-      "notes": "富岡製糸場と絹産業遺産群は、Gunmaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "notes": "4つの構成資産からなる世界遺産で、ここでは主な見学先である富岡製糸場を紹介しています。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"
@@ -155,5 +156,6 @@
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
-  "openingHoursJa": "09:00 - 17:00"
+  "openingHoursJa": "09:00 - 17:00",
+  "municipalityId": "Gunma:tomioka"
 }

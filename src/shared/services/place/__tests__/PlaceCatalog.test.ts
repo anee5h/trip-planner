@@ -22,11 +22,11 @@ describe("PlaceCatalog", () => {
   it("keeps official website links destination-only", () => {
     const places = getCanonicalPlaces();
     expect(places.filter((place) => place.placeType === "hub")).toHaveLength(
-      164,
+      163,
     );
     expect(
       places.filter((place) => place.placeType === "destination"),
-    ).toHaveLength(636);
+    ).toHaveLength(637);
     expect(
       places
         .filter(

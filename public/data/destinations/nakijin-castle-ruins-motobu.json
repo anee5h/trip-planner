@@ -107,7 +107,13 @@
     "Cherry blossoms in late January",
     "Panoramic views of the East China Sea"
   ],
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/972/"
+    }
+  ],
   "crowd": {
     "weekday": 3,
     "weekend": 6,

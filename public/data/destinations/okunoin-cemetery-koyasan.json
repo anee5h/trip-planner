@@ -50,6 +50,13 @@
       "highlights": ["弘法大師御廟", "燈籠堂の1万個の灯籠", "武将たちの墓所群"]
     }
   },
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/1142/"
+    }
+  ],
   "relationships": {
     "parentDestinationId": "koya-town"
   },
@@ -71,12 +78,12 @@
     "min": 1.5,
     "max": 2.5
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Koyasan_Okunoin_Rosoku01.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Koyasan_Okunoin_Rosoku02.jpg/1280px-Koyasan_Okunoin_Rosoku02.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons contributors",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Okunoin_Rosoku01.jpg"
+    "attribution": "Naokijp",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Okunoin_Rosoku02.jpg"
   },
   "municipalityId": "Wakayama:koya",
   "transportOptions": {

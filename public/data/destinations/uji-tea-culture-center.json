@@ -9,7 +9,7 @@
   "kind": "shrine",
   "category": "Culture",
   "categories": ["Culture", "History", "UNESCO"],
-  "description": "Japan's oldest original shrine main hall nestled in historic Uji, surrounded by traditional matcha tea houses. Visitors can try authentic matcha grinding and ceremonial green tea tasting.",
+  "description": "Ujigami Shrine, a component of Kyoto's UNESCO World Heritage property, has Japan's oldest original shrine main hall. Nearby, visitors can try authentic matcha grinding and ceremonial green tea tasting.",
   "notes": "Famous for high-grade Uji Matcha tea tastings.",
   "notesJa": "【見どころ】日本最古の神社本殿を持つ世界遺産・宇治上神社と宇治茶体験が魅力です。",
   "reservation": "No reservation needed",
@@ -27,7 +27,7 @@
   "editorial": {
     "rating": 4.6,
     "recommendedDurationMinutes": 60,
-    "editorialSummary": "Japan's oldest original shrine main hall with traditional matcha tea houses.",
+    "editorialSummary": "Ujigami Shrine, a Kyoto UNESCO World Heritage component, has Japan's oldest original shrine main hall; nearby tea houses offer matcha experiences.",
     "lifecycle": "published",
     "sources": ["editorial-review-2026"],
     "reviewedAt": "2026-08-03T00:00:00Z",
@@ -37,7 +37,7 @@
   "content": {
     "en": {
       "name": "Uji Tea Culture Center & Ujigami Shrine",
-      "description": "Japan's oldest original shrine main hall nestled in historic Uji, surrounded by traditional matcha tea houses. Visitors can try authentic matcha grinding and ceremonial green tea tasting.",
+      "description": "Ujigami Shrine, a component of Kyoto's UNESCO World Heritage property, has Japan's oldest original shrine main hall. Nearby, visitors can try authentic matcha grinding and ceremonial green tea tasting.",
       "highlights": [
         "National Treasure Main Hall",
         "Uji Matcha Grinding Experience",
@@ -46,7 +46,7 @@
     },
     "ja": {
       "name": "宇治茶文化館・宇治上神社",
-      "description": "日本最古の神社本殿を擁する宇治上神社と、老舗宇治茶舗が並ぶ門前エリアです。挽きたての抹茶体験や伝統的なお茶会を風情溢れる宇治川のせせらぎと共に楽しめます。",
+      "description": "世界遺産「古都京都の文化財」の構成資産である宇治上神社は、日本最古の神社本殿を擁します。周辺では老舗宇治茶舗が並ぶ門前エリアで、挽きたての抹茶体験や伝統的なお茶会を楽しめます。",
       "highlights": ["国宝本殿", "本格抹茶石臼挽き体験", "宇治川の景観"]
     }
   },
@@ -79,6 +79,13 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tea_plantation_in_Kyoto.jpg"
   },
   "municipalityId": "Kyoto:uji",
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/688/"
+    }
+  ],
   "transportOptions": {
     "shinkansen": 147,
     "train": 247,

@@ -31,7 +31,7 @@ export const ACHIEVEMENTS_CATALOG: Achievement[] = [
     iconName: "Trophy",
     trigger: {
       type: "collection_complete",
-      collectionId: "unesco-world-heritage-japan",
+      collectionId: "unesco-japan",
     },
   },
   {

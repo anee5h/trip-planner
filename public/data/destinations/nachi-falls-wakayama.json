@@ -39,7 +39,8 @@
   "collections": [
     {
       "collectionId": "unesco-japan",
-      "confirmed": true
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/1142/"
     },
     {
       "collectionId": "pilgrimage-routes-japan",
@@ -127,6 +128,7 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["shirahama-town"],
+  "municipalityId": "Wakayama:nachikatsuura",
   "content": {
     "en": {
       "name": "Nachi Falls & Pagoda",

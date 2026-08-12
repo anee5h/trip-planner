@@ -1300,7 +1300,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1574/"
       },
       {
         "collectionId": "islands-japan",
@@ -3439,11 +3440,11 @@
     "region": "Kansai",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Takamat1.jpg/960px-Takamat1.jpg",
-    "description": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
+    "description": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage property inscribed in 2026 for its archaeological sites documenting the emergence of Japan's ancient state.",
     "highlights": [
-      "UNESCO Heritage Monument",
-      "Historic Landmark",
-      "Cultural Preservation Area"
+      "Ancient Japanese capital sites",
+      "Archaeological landscapes of Asuka and Fujiwara",
+      "UNESCO World Heritage (inscribed 2026)"
     ],
     "budgetMin": 4000,
     "budgetMax": 15000,
@@ -3491,7 +3492,7 @@
     ],
     "reservation": "Not required",
     "parking": "Available nearby",
-    "notes": "Official UNESCO World Heritage Site.",
+    "notes": "UNESCO World Heritage property inscribed in 2026; its archaeological sites span the Asuka and Fujiwara areas of Nara Prefecture.",
     "coordinates": {
       "lat": 34.4682,
       "lng": 135.8197
@@ -3510,11 +3511,12 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1757/"
       }
     ],
     "relationships": {
-      "parentDestinationId": "nara-city"
+      "gatewayHubId": "nara-city"
     },
     "budgetBreakdown": {
       "transport": 3000,
@@ -3541,7 +3543,7 @@
     "editorial": {
       "rating": 4.8,
       "recommendedDurationMinutes": 90,
-      "editorialSummary": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
+      "editorialSummary": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage property inscribed in 2026 for its archaeological sites documenting the emergence of Japan's ancient state.",
       "lifecycle": "published",
       "sources": ["editorial-review-2026"],
       "reviewedAt": "2026-08-03T00:00:00Z",
@@ -3556,12 +3558,12 @@
     "content": {
       "en": {
         "name": "Ancient Capitals of Asuka and Fujiwara",
-        "description": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
+        "description": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage property inscribed in 2026 for its archaeological sites documenting the emergence of Japan's ancient state.",
         "highlights": []
       },
       "ja": {
         "name": "飛鳥・藤原の宮都",
-        "description": "日本の国家形成の舞台となった飛鳥時代の史跡群。石舞台古墳や高松塚古墳、藤原宮跡など、古代日本のロマンを伝える巨大石造物や史跡が田園風景の中に点在します。",
+        "description": "日本の国家形成の舞台となった飛鳥・藤原の宮都は、2026年に世界遺産へ登録された考古学的な史跡群です。石舞台古墳や高松塚古墳、藤原宮跡などが田園風景の中に点在します。",
         "highlights": [
           "巨大石室の石舞台古墳",
           "極彩色壁画の高松塚古墳",
@@ -3569,7 +3571,7 @@
         ]
       }
     },
-    "municipalityId": "Nara:nara"
+    "municipalityId": "Nara:asuka"
   },
   {
     "id": "atami-city",
@@ -13622,7 +13624,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/688/"
       },
       {
         "collectionId": "national-treasures",
@@ -14617,7 +14620,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1484/"
       },
       {
         "collectionId": "islands-japan",
@@ -17247,10 +17251,6 @@
         "collectionId": "national-treasures",
         "sortOrder": 3,
         "confirmed": true
-      },
-      {
-        "collectionId": "unesco-japan",
-        "confirmed": true
       }
     ],
     "relationships": {
@@ -17443,7 +17443,8 @@
       },
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/661/"
       },
       {
         "collectionId": "japan-top-castles",
@@ -17899,7 +17900,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1277/"
       }
     ],
     "relationships": {
@@ -19220,7 +19222,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/660/"
       },
       {
         "collectionId": "national-treasures",
@@ -21740,7 +21743,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1246/"
       }
     ],
     "relationships": {
@@ -27605,7 +27609,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/688/"
       },
       {
         "collectionId": "national-treasures",
@@ -31285,7 +31290,7 @@
       }
     ],
     "relationships": {
-      "featuredDestinationIds": ["nachi-falls-wakayama"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
     },
     "budgetBreakdown": {
@@ -31671,7 +31676,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1142/"
       },
       {
         "collectionId": "pilgrimage-routes-japan",
@@ -32885,7 +32891,7 @@
     },
     "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
     "description": "Kyoto, Japan's imperial capital for over a millennium, encompasses 17 UNESCO World Heritage monuments including the wooden balcony of Kiyomizu-dera and the shimmering Golden Pavilion.",
-    "notes": "A fantastic trip to Lake Hamanako. Known for its eel and cycling vibes, it offers a great escape with an overall score of 8.2.",
+    "notes": "Explore Kyoto's UNESCO-listed historic monuments, including Kiyomizu-dera, Kinkaku-ji, and other sites within the Historic Monuments of Ancient Kyoto property.",
     "budgetRecommended": 9000,
     "crowd": {
       "weekday": 3,
@@ -32907,7 +32913,7 @@
     "relationships": {
       "parentDestinationId": "kyoto-city"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
     "budgetBreakdown": {
       "transport": 3000,
       "tickets": 2000,
@@ -37575,6 +37581,11 @@
       {
         "collectionId": "three-great-views",
         "sortOrder": 3
+      },
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/776/"
       }
     ],
     "transportOptions": {},
@@ -38860,7 +38871,8 @@
       {
         "collectionId": "unesco-japan",
         "sortOrder": 7,
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1418/"
       },
       {
         "collectionId": "national-parks-japan",
@@ -39251,6 +39263,11 @@
       {
         "collectionId": "flower-parks-japan",
         "confirmed": true
+      },
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1142/"
       }
     ],
     "transportOptions": {
@@ -39285,7 +39302,7 @@
     "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {
-      "parentDestinationId": "nara-city"
+      "gatewayHubId": "nara-city"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Cherry_blossoms_at_Yoshinoyama_01.jpg/1280px-Cherry_blossoms_at_Yoshinoyama_01.jpg",
     "budgetBreakdown": {
@@ -39344,7 +39361,7 @@
         "highlights": ["一目千本の桜景観", "金峯山寺蔵王堂", "修験道の聖地巡礼"]
       }
     },
-    "municipalityId": "Nara:nara"
+    "municipalityId": "Nara:yoshino"
   },
   {
     "id": "mount-zao-yamagata",
@@ -39530,7 +39547,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1593/"
       }
     ],
     "relationships": {
@@ -39998,7 +40016,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1142/"
       },
       {
         "collectionId": "pilgrimage-routes-japan",
@@ -40086,6 +40105,7 @@
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
     "nearHubs": ["shirahama-town"],
+    "municipalityId": "Wakayama:nachikatsuura",
     "content": {
       "en": {
         "name": "Nachi Falls & Pagoda",
@@ -42679,7 +42699,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/870/"
       }
     ],
     "relationships": {
@@ -42777,7 +42798,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/870/"
       },
       {
         "collectionId": "three-great-buddhas",
@@ -43771,7 +43793,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1321/"
       }
     ],
     "relationships": {
@@ -44445,7 +44468,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/688/"
       },
       {
         "collectionId": "japan-top-castles",
@@ -44937,7 +44961,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/913/"
       }
     ],
     "coordinates": {
@@ -45128,7 +45153,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/688/"
       },
       {
         "collectionId": "national-treasures",
@@ -46855,7 +46881,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1362/"
       }
     ],
     "relationships": {},
@@ -47616,11 +47643,12 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1535/"
       }
     ],
     "relationships": {
-      "parentDestinationId": "fukuoka-city"
+      "gatewayHubId": "fukuoka-city"
     },
     "budgetBreakdown": {
       "transport": 3000,
@@ -47643,19 +47671,25 @@
       "max": 7
     },
     "officialWebsite": "https://www.okinoshima-heritage.jp/",
-    "municipalityId": "Fukuoka:fukuoka",
+    "municipalityId": "Fukuoka:munakata",
     "editorial": {
       "lifecycle": "published",
       "freshness": "current",
-      "checkedAt": "2026-08-04",
-      "reviewedAt": "2026-08-04",
-      "reviewedBy": "Kyushu Regional Editorial Batch",
+      "checkedAt": "2026-08-11",
+      "reviewedAt": "2026-08-11",
+      "reviewedBy": "KAI-53 UNESCO audit",
       "sources": [
         {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Sacred_Island_of_Okinoshima_and_Associated_Sites_in_the_Munakata_Region",
-          "title": "Sacred Island of Okinoshima and Associated Sites in the Munakata Region",
-          "accessedAt": "2026-08-04"
+          "type": "official",
+          "url": "https://whc.unesco.org/en/list/1535/",
+          "title": "UNESCO WHC – Sacred Island of Okinoshima and Associated Sites in the Munakata Region",
+          "accessedAt": "2026-08-11"
+        },
+        {
+          "type": "official",
+          "url": "https://www.okinoshima-heritage.jp/en/",
+          "title": "Munakata-Okinoshima World Heritage official site",
+          "accessedAt": "2026-08-11"
         }
       ]
     },
@@ -50861,7 +50895,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1495/"
       }
     ],
     "relationships": {
@@ -51840,7 +51875,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/688/"
       },
       {
         "collectionId": "national-treasures",
@@ -52094,11 +52130,11 @@
   {
     "id": "sado-island",
     "transportZoneId": "sado",
-    "name": "Sado Island",
+    "name": "Sado Island Gold Mines",
     "kind": "island",
     "region": "Chubu",
     "categories": ["Island", "History", "Nature"],
-    "tags": ["Gold Mine", "Tub Boats", "Remote"],
+    "tags": ["Gold Mine", "UNESCO World Heritage", "Tub Boats", "Remote"],
     "budgetRecommended": 16000,
     "ratings": {
       "overall": 8.4,
@@ -52114,10 +52150,10 @@
     },
     "indoorPercent": 30,
     "coordinates": {
-      "lat": 38.0333,
-      "lng": 138.3833
+      "lat": 38.0408,
+      "lng": 138.2578
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/%E4%BA%8C%E3%83%84%E4%BA%80.jpg/960px-%E4%BA%8C%E3%83%84%E4%BA%80.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/%E4%BD%90%E6%B8%A1%E9%87%91%E5%B1%B1.jpg/1280px-%E4%BD%90%E6%B8%A1%E9%87%91%E5%B1%B1.jpg",
     "prefecture": "Niigata",
     "budgetMin": 12000,
     "budgetMax": 20000,
@@ -52148,11 +52184,11 @@
       "winter": 4
     },
     "highlights": [
-      "Explore top-rated island locations",
-      "Enjoy regional specialties and local culture",
-      "Perfect for a active day out"
+      "Nishimikawa Placer Gold Mine",
+      "Aikawa Gold and Silver Mine Area",
+      "Tsurushi Silver Mine"
     ],
-    "description": "Sado Island is an island located in the eastern part of the Sea of Japan, under the jurisdiction of Sado City, Niigata Prefecture, Japan, with a coastline of 262. 7 kilometres (163.",
+    "description": "Sado Island Gold Mines is a serial UNESCO World Heritage property on Sado Island, comprising the Nishimikawa Placer Gold Mine and the Aikawa-Tsurushi Gold and Silver Mine areas that preserve unmechanised mining and processing landscapes.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
       "transport": 6400,
@@ -52160,14 +52196,14 @@
       "food": 4800,
       "cafe": 1600
     },
-    "notes": "A fantastic trip to Sado Island. Known for its gold mine and tub boats vibes, it offers a great escape with an overall score of 8.4.",
+    "notes": "The serial property spans three component parts; check the official Niigata and Sado sites for current access and tour information.",
     "schemaVersion": 2,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/%E4%BA%8C%E3%83%84%E4%BA%80.jpg/960px-%E4%BA%8C%E3%83%84%E4%BA%80.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/%E4%BD%90%E6%B8%A1%E9%87%91%E5%B1%B1.jpg/1280px-%E4%BD%90%E6%B8%A1%E9%87%91%E5%B1%B1.jpg",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Sado Island via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Sado%20Island"
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Indiana jo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E4%BD%90%E6%B8%A1%E9%87%91%E5%B1%B1.jpg"
     },
     "status": "verified",
     "travelEstimate": {
@@ -52176,7 +52212,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1698/"
       },
       {
         "collectionId": "coastal-drives-japan",
@@ -52190,7 +52227,7 @@
     "relationships": {
       "gatewayHubId": "niigata-city"
     },
-    "nameJa": "佐渡島（さどしま）の金山",
+    "nameJa": "佐渡島の金山",
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "None required",
@@ -52203,7 +52240,7 @@
       "min": 7,
       "max": 9
     },
-    "officialWebsite": "https://www.visitsado.com/",
+    "officialWebsite": "https://www.pref.niigata.lg.jp/site/sado-goldmine/",
     "businessHours": "Open access",
     "municipalityId": "Niigata:sado"
   },
@@ -54051,7 +54088,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1632/"
       }
     ],
     "relationships": {
@@ -58125,7 +58163,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/663/"
       }
     ],
     "relationships": {
@@ -58180,18 +58219,22 @@
   },
   {
     "id": "shirakawa-village",
-    "name": "Shirakawa Village",
+    "name": "Ogimachi Historic Village (Shirakawa-go)",
     "kind": "village",
-    "role": "hub",
+    "role": "standalone",
     "importance": "major",
-    "aliases": ["Shirakawa-go", "白川郷", "白川村"],
+    "aliases": ["Ogimachi", "Shirakawa-go", "白川郷", "荻町", "白川村"],
     "prefecture": "Gifu",
     "region": "Chubu",
     "categories": ["Traditional", "Historic", "Mountain"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg/1920px-Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg/1920px-Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg",
-    "description": "UNESCO World Heritage alpine village famous for steep thatched-roof gassho-zukuri farmhouses built to withstand heavy winter snowfalls.",
-    "highlights": ["Ogimachi Village", "Shiroyama Viewpoint", "Wada House"],
+    "description": "Ogimachi, in Shirakawa Village, is one of the historic settlements in the UNESCO-listed Historic Villages of Shirakawa-go and Gokayama, known for its steeply pitched gassho-zukuri farmhouses.",
+    "highlights": [
+      "Ogimachi component village",
+      "Shiroyama Viewpoint",
+      "Wada House"
+    ],
     "totalTripHours": 5,
     "budgetMin": 3000,
     "budgetRecommended": 11500,
@@ -58239,9 +58282,10 @@
     "transportOptions": {
       "bus": 2600
     },
+    "officialWebsite": "https://www.vill.shirakawa.lg.jp/2680.htm",
     "reservation": "Highway bus reservation required",
     "parking": "Seseragi central parking lot",
-    "notes": "UNESCO World Heritage historic village.",
+    "notes": "Ogimachi is one of the historic settlements in the UNESCO-listed Historic Villages of Shirakawa-go and Gokayama property.",
     "status": "verified",
     "travelEstimate": {
       "confidence": "high"
@@ -58249,7 +58293,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/734/"
       },
       {
         "collectionId": "historic-towns-japan",
@@ -58268,7 +58313,7 @@
       "food": 3737,
       "cafe": 2013
     },
-    "nameJa": "白川郷・五箇山の合掌造り集落",
+    "nameJa": "白川郷・荻町合掌造り集落",
     "walkingIntensity": "low",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
@@ -58352,7 +58397,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1193/"
       },
       {
         "collectionId": "coastal-drives-japan",
@@ -58741,7 +58787,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/972/"
       }
     ],
     "relationships": {
@@ -65817,11 +65864,11 @@
     "region": "Kanto",
     "categories": ["World Heritage", "Culture", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/%E5%AF%8C%E5%B2%A1%E8%A3%BD%E7%B3%B8%E5%A0%B4%E3%83%BB%E7%B9%B0%E7%B3%B8%E5%A0%B4.jpg/960px-%E5%AF%8C%E5%B2%A1%E8%A3%BD%E7%B3%B8%E5%A0%B4%E3%83%BB%E7%B9%B0%E7%B3%B8%E5%A0%B4.jpg",
-    "description": "Tomioka Silk Mill and Related Sites is a UNESCO World Heritage Site in Gunma, designated for its outstanding universal cultural or natural value.",
+    "description": "Tomioka Silk Mill and Related Sites is a UNESCO World Heritage property inscribed in 2014. Its four component sites document Japan's sericulture and silk-production industry: Tomioka Silk Mill, Tajima Yahei Sericulture Farm, Takayama-sha Sericulture School, and Arafune Cold Storage.",
     "highlights": [
-      "UNESCO Heritage Monument",
-      "Historic Landmark",
-      "Cultural Preservation Area"
+      "Tomioka Silk Mill",
+      "Four component sites of the UNESCO property",
+      "UNESCO World Heritage (2014)"
     ],
     "budgetMin": 4000,
     "budgetMax": 15000,
@@ -65869,7 +65916,7 @@
     ],
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
-    "notes": "A top recommended attraction in Gunma, offering excellent photo opportunities and local cultural experiences.",
+    "notes": "The serial property comprises four component sites; the Tomioka Silk Mill is the principal visitor destination represented here.",
     "coordinates": {
       "lat": 36.255,
       "lng": 138.8872
@@ -65888,7 +65935,8 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "confirmed": true
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1449/"
       }
     ],
     "relationships": {},
@@ -65933,26 +65981,26 @@
     "content": {
       "en": {
         "name": "Tomioka Silk Mill and Related Sites",
-        "description": "Tomioka Silk Mill and Related Sites is a UNESCO World Heritage Site in Gunma, designated for its outstanding universal cultural or natural value.",
+        "description": "Tomioka Silk Mill and Related Sites is a UNESCO World Heritage property inscribed in 2014. Its four component sites document Japan's sericulture and silk-production industry: Tomioka Silk Mill, Tajima Yahei Sericulture Farm, Takayama-sha Sericulture School, and Arafune Cold Storage.",
         "highlights": [
-          "UNESCO Heritage Monument",
-          "Historic Landmark",
-          "Cultural Preservation Area"
+          "Tomioka Silk Mill",
+          "Four component sites of the UNESCO property",
+          "UNESCO World Heritage (2014)"
         ],
-        "notes": "A top recommended attraction in Gunma, offering excellent photo opportunities and local cultural experiences.",
+        "notes": "The serial property comprises four component sites; the Tomioka Silk Mill is the principal visitor destination represented here.",
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
         "openingHours": "09:00 - 17:00"
       },
       "ja": {
         "name": "富岡製糸場と絹産業遺産群",
-        "description": "富岡製糸場と絹産業遺産群は群馬県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+        "description": "富岡製糸場と絹産業遺産群は、2014年に登録された世界遺産です。富岡製糸場、田島弥平旧宅、高山社跡、荒船風穴の4つの構成資産が、日本の養蚕と製糸業の発展を伝えています。",
         "highlights": [
-          "富岡製糸場と絹産業遺産群の名所",
-          "富岡製糸場と絹産業遺産群の名所",
-          "富岡製糸場と絹産業遺産群の名所"
+          "富岡製糸場",
+          "世界遺産の4つの構成資産",
+          "2014年登録の世界遺産"
         ],
-        "notes": "富岡製糸場と絹産業遺産群は、Gunmaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+        "notes": "4つの構成資産からなる世界遺産で、ここでは主な見学先である富岡製糸場を紹介しています。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
         "openingHours": "09:00 - 17:00"
@@ -65967,7 +66015,8 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00"
+    "openingHoursJa": "09:00 - 17:00",
+    "municipalityId": "Gunma:tomioka"
   },
   {
     "id": "toshiba-science-museum",
@@ -69873,7 +69922,7 @@
     "categories": ["Travel Hub", "City Hub"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Miyanoura_%2832273795996%29.jpg/960px-Miyanoura_%2832273795996%29.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Miyanoura_%2832273795996%29.jpg/960px-Miyanoura_%2832273795996%29.jpg",
-    "description": "Subtropical island World Heritage wilderness covered in ancient Yaku cedar forests and mossy gorges.",
+    "description": "Gateway town for Yakushima's World Heritage wilderness, with ancient Yaku cedar forests and mossy gorges across the island.",
     "highlights": ["Explore Yakushima Town", "Local Culture & Cuisine"],
     "totalTripHours": 6,
     "budgetMin": 3500,
@@ -69930,10 +69979,6 @@
       "confidence": "beta"
     },
     "collections": [
-      {
-        "collectionId": "unesco-japan",
-        "confirmed": true
-      },
       {
         "collectionId": "islands-japan",
         "sortOrder": 6
@@ -82405,6 +82450,13 @@
         "highlights": ["鳳凰堂", "鳳翔館ミュージアム", "阿字池の景観"]
       }
     },
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/688/"
+      }
+    ],
     "relationships": {
       "parentDestinationId": "uji-city"
     },
@@ -82451,7 +82503,7 @@
     "kind": "shrine",
     "category": "Culture",
     "categories": ["Culture", "History", "UNESCO"],
-    "description": "Japan's oldest original shrine main hall nestled in historic Uji, surrounded by traditional matcha tea houses. Visitors can try authentic matcha grinding and ceremonial green tea tasting.",
+    "description": "Ujigami Shrine, a component of Kyoto's UNESCO World Heritage property, has Japan's oldest original shrine main hall. Nearby, visitors can try authentic matcha grinding and ceremonial green tea tasting.",
     "notes": "Famous for high-grade Uji Matcha tea tastings.",
     "notesJa": "【見どころ】日本最古の神社本殿を持つ世界遺産・宇治上神社と宇治茶体験が魅力です。",
     "reservation": "No reservation needed",
@@ -82469,7 +82521,7 @@
     "editorial": {
       "rating": 4.6,
       "recommendedDurationMinutes": 60,
-      "editorialSummary": "Japan's oldest original shrine main hall with traditional matcha tea houses.",
+      "editorialSummary": "Ujigami Shrine, a Kyoto UNESCO World Heritage component, has Japan's oldest original shrine main hall; nearby tea houses offer matcha experiences.",
       "lifecycle": "published",
       "sources": ["editorial-review-2026"],
       "reviewedAt": "2026-08-03T00:00:00Z",
@@ -82479,7 +82531,7 @@
     "content": {
       "en": {
         "name": "Uji Tea Culture Center & Ujigami Shrine",
-        "description": "Japan's oldest original shrine main hall nestled in historic Uji, surrounded by traditional matcha tea houses. Visitors can try authentic matcha grinding and ceremonial green tea tasting.",
+        "description": "Ujigami Shrine, a component of Kyoto's UNESCO World Heritage property, has Japan's oldest original shrine main hall. Nearby, visitors can try authentic matcha grinding and ceremonial green tea tasting.",
         "highlights": [
           "National Treasure Main Hall",
           "Uji Matcha Grinding Experience",
@@ -82488,7 +82540,7 @@
       },
       "ja": {
         "name": "宇治茶文化館・宇治上神社",
-        "description": "日本最古の神社本殿を擁する宇治上神社と、老舗宇治茶舗が並ぶ門前エリアです。挽きたての抹茶体験や伝統的なお茶会を風情溢れる宇治川のせせらぎと共に楽しめます。",
+        "description": "世界遺産「古都京都の文化財」の構成資産である宇治上神社は、日本最古の神社本殿を擁します。周辺では老舗宇治茶舗が並ぶ門前エリアで、挽きたての抹茶体験や伝統的なお茶会を楽しめます。",
         "highlights": ["国宝本殿", "本格抹茶石臼挽き体験", "宇治川の景観"]
       }
     },
@@ -82521,6 +82573,13 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tea_plantation_in_Kyoto.jpg"
     },
     "municipalityId": "Kyoto:uji",
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/688/"
+      }
+    ],
     "transportOptions": {
       "shinkansen": 147,
       "train": 247,
@@ -83377,6 +83436,13 @@
         "highlights": ["国宝三重塔", "斑鳩のコスモス畑", "聖徳太子ゆかりの寺"]
       }
     },
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/660/"
+      }
+    ],
     "relationships": {
       "parentDestinationId": "ikaruga-town"
     },
@@ -83559,6 +83625,13 @@
         ]
       }
     },
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/688/"
+      }
+    ],
     "relationships": {
       "parentDestinationId": "otsu-city"
     },
@@ -83580,12 +83653,12 @@
       "min": 2,
       "max": 3
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/35/Enryakuji_Konpon_Chudo1.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Enryakuji_Konponchudo02s5s3200.jpg/1280px-Enryakuji_Konponchudo02s5s3200.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Wikimedia Commons contributors",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enryakuji_Konpon_Chudo1.jpg"
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enryakuji_Konponchudo02s5s3200.jpg"
     },
     "municipalityId": "Shiga:otsu",
     "transportOptions": {
@@ -84095,6 +84168,13 @@
         ]
       }
     },
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1142/"
+      }
+    ],
     "relationships": {
       "parentDestinationId": "koya-town"
     },
@@ -84116,12 +84196,12 @@
       "min": 1.5,
       "max": 2.5
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Koyasan_Okunoin_Rosoku01.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Koyasan_Okunoin_Rosoku02.jpg/1280px-Koyasan_Okunoin_Rosoku02.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "attribution": "Wikimedia Commons contributors",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Okunoin_Rosoku01.jpg"
+      "attribution": "Naokijp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Okunoin_Rosoku02.jpg"
     },
     "municipalityId": "Wakayama:koya",
     "transportOptions": {
@@ -84230,7 +84310,7 @@
     "role": "destination",
     "kind": "museum",
     "category": "Museum",
-    "categories": ["Museum", "History", "UNESCO"],
+    "categories": ["Museum", "History", "Culture"],
     "description": "Located within Daisen Park facing Emperor Nintoku's tomb, featuring VR exhibits of ancient keyhole kofun mounds, samurai swords, and Sen no Rikyu tea culture history.",
     "notes": "VR Kofun tour available at the museum theater.",
     "notesJa": "【見どころ】仁徳天皇陵古墳（大仙陵古墳）に隣接し、巨大古墳のVR体験や千利休の茶の湯文化を学べます。",
@@ -84297,12 +84377,12 @@
       "min": 0.8,
       "max": 1.8
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Sakai_Daisenryo.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Daisenryo_Kofun_zenkei-2.jpg/1280px-Daisenryo_Kofun_zenkei-2.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Wikimedia Commons contributors",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sakai_Daisenryo.jpg"
+      "license": "CC0",
+      "attribution": "Saigen Jiro",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Daisenryo_Kofun_zenkei-2.jpg"
     },
     "municipalityId": "Osaka:sakai",
     "transportOptions": {
@@ -84728,6 +84808,13 @@
         "highlights": ["根本大塔（立体曼荼羅）", "国宝・不動堂", "三鈷の松"]
       }
     },
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1142/"
+      }
+    ],
     "relationships": {
       "parentDestinationId": "koya-town"
     },
@@ -84749,12 +84836,12 @@
       "min": 0.8,
       "max": 1.8
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/57/Koyasan_Danjogaran.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Koyasan_Danjogaran_01.JPG/1280px-Koyasan_Danjogaran_01.JPG",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Wikimedia Commons contributors",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Danjogaran.jpg"
+      "license": "CC BY-SA 3.0",
+      "attribution": "Reggaeman",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koyasan_Danjogaran_01.JPG"
     },
     "municipalityId": "Wakayama:koya",
     "transportOptions": {
@@ -84885,6 +84972,13 @@
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
     },
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/870/"
+      }
+    ],
     "relationships": {
       "parentDestinationId": "nara-city"
     },
@@ -84922,12 +85016,12 @@
       "min": 0.8,
       "max": 1.8
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Toshodaiji_Nara_Nara_pref00bs5s2850.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Toshodaiji_Nara_Nara_pref00an4592.jpg/1280px-Toshodaiji_Nara_Nara_pref00an4592.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Wikimedia Commons contributors",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toshodaiji_Nara_Nara_pref00bs5s2850.jpg"
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toshodaiji_Nara_Nara_pref00an4592.jpg"
     },
     "municipalityId": "Nara:nara",
     "transportOptions": {
@@ -84972,6 +85066,13 @@
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
     },
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/870/"
+      }
+    ],
     "relationships": {
       "parentDestinationId": "nara-city"
     },
@@ -85009,12 +85110,12 @@
       "min": 1,
       "max": 2
     },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/32/Yakushiji_Nara_Japan01s3s4592.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Yakushiji_Nara06s3s4440.jpg/1280px-Yakushiji_Nara06s3s4440.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Wikimedia Commons contributors",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yakushiji_Nara_Japan01s3s4592.jpg"
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yakushiji_Nara06s3s4440.jpg"
     },
     "municipalityId": "Nara:nara",
     "transportOptions": {
@@ -86692,7 +86793,13 @@
       "Cherry blossoms in late January",
       "Panoramic views of the East China Sea"
     ],
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/972/"
+      }
+    ],
     "crowd": {
       "weekday": 3,
       "weekend": 6,
@@ -90357,21 +90464,21 @@
     "content": {
       "en": {
         "name": "Sengan-en Garden",
-        "description": "Sengan-en is a magnificent Japanese garden and former villa of the Shimazu clan, the powerful samurai lords of Satsuma domain. Built in 1658, the garden famously 'borrows' Sakurajima volcano as its backdrop (shakkei), creating one of Japan's most dramatic garden vistas. It is part of the UNESCO 'Sites of Japan's Meiji Industrial Revolution'.",
+        "description": "Sengan-en is a magnificent Japanese garden and former villa of the Shimazu clan, built in 1658. The nearby Shoko Shuseikan museum interprets the industrial complex that forms part of the UNESCO World Heritage property Sites of Japan's Meiji Industrial Revolution.",
         "highlights": [
           "Sakurajima volcano as borrowed scenery (shakkei)",
           "Shimazu clan samurai villa & gardens",
-          "UNESCO World Heritage Meiji industrial site"
+          "Adjacent Shoko Shuseikan industrial heritage museum"
         ],
         "openingHours": "09:00–17:00"
       },
       "ja": {
         "name": "仙巌園",
-        "description": "仙巌園は薩摩藩主・島津家の別邸として1658年に築かれた大名庭園で、桜島を借景とした日本屈指の雄大な庭園景観が特徴です。「明治日本の産業革命遺産」の構成資産として世界遺産にも登録され、武家文化と近代化の歴史が融合した名勝です。",
+        "description": "仙巌園は薩摩藩主・島津家の別邸として1658年に築かれた大名庭園です。近隣の尚古集成館では、世界遺産「明治日本の産業革命遺産」の構成資産である集成館事業の歴史を紹介しています。",
         "highlights": [
           "桜島を借景にした大名庭園",
           "島津家別邸と薩摩の武家文化",
-          "世界遺産『明治日本の産業革命遺産』構成資産"
+          "尚古集成館の産業遺産展示"
         ],
         "openingHours": "09:00～17:00"
       }
@@ -90386,7 +90493,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Gardens", "History", "Sightseeing"],
-    "tags": ["Garden", "Satsuma", "UNESCO", "Kagoshima City"],
+    "tags": ["Garden", "Satsuma", "Kagoshima City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Sengan-en2.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -90398,11 +90505,11 @@
       "lat": 31.6167,
       "lng": 130.575
     },
-    "description": "Sengan-en is a magnificent Japanese garden and former villa of the Shimazu clan, the powerful samurai lords of Satsuma domain. Built in 1658, the garden famously 'borrows' Sakurajima volcano as its backdrop (shakkei), creating one of Japan's most dramatic garden vistas. It is part of the UNESCO 'Sites of Japan's Meiji Industrial Revolution'.",
+    "description": "Sengan-en is a magnificent Japanese garden and former villa of the Shimazu clan, built in 1658. The nearby Shoko Shuseikan museum interprets the industrial complex that forms part of the UNESCO World Heritage property Sites of Japan's Meiji Industrial Revolution.",
     "highlights": [
       "Sakurajima volcano as borrowed scenery (shakkei)",
       "Shimazu clan samurai villa & gardens",
-      "UNESCO World Heritage Meiji industrial site"
+      "Adjacent Shoko Shuseikan industrial heritage museum"
     ],
     "budgetMin": 2500,
     "budgetRecommended": 5000,
@@ -92082,19 +92189,14 @@
         "description": "Takachiho Kagura is an ancient Shinto ritual dance performed nightly at Takachiho Shrine, retelling the myth of Amaterasu hiding in the cave through mesmerizing masked performances. The full 33-dance cycle lasts all night at the annual Yokagura festival, but a condensed 1-hour highlight version is presented year-round to visitors.",
         "highlights": [
           "Nightly Shinto ritual masked dance",
-          "Amaterasu mythology performed live",
-          "UNESCO Intangible Cultural Heritage"
+          "Amaterasu mythology performed live"
         ],
         "openingHours": "20:00–21:00 (Nightly performances)"
       },
       "ja": {
         "name": "高千穂神楽・夜神楽",
         "description": "高千穂神楽は高千穂神社で毎夜奉納される古来の神楽で、天岩戸神話を題材にした面をつけた舞が幻想的です。11月〜2月の夜神楽シーズンには全33番の神楽が一晩かけて舞われますが、通年で1時間のハイライト版を観覧できます。",
-        "highlights": [
-          "毎夜奉納の神楽・面舞",
-          "天照大神伝説を再現する舞台",
-          "ユネスコ無形文化遺産の伝統芸能"
-        ],
+        "highlights": ["毎夜奉納の神楽・面舞", "天照大神伝説を再現する舞台"],
         "openingHours": "20:00～21:00（毎晩公演）"
       }
     },
@@ -92123,8 +92225,7 @@
     "description": "Takachiho Kagura is an ancient Shinto ritual dance performed nightly at Takachiho Shrine, retelling the myth of Amaterasu hiding in the cave through mesmerizing masked performances. The full 33-dance cycle lasts all night at the annual Yokagura festival, but a condensed 1-hour highlight version is presented year-round to visitors.",
     "highlights": [
       "Nightly Shinto ritual masked dance",
-      "Amaterasu mythology performed live",
-      "UNESCO Intangible Cultural Heritage"
+      "Amaterasu mythology performed live"
     ],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -92348,7 +92449,13 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/662/"
+      }
+    ],
     "addedAt": "2026-08-04",
     "editorial": {
       "lifecycle": "published",
@@ -104914,7 +105021,13 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/775/"
+      }
+    ],
     "transportOptions": {},
     "budgetMin": 0,
     "budgetRecommended": 1000,
@@ -111708,7 +111821,13 @@
     "travelEstimate": {
       "confidence": "beta"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "unesco-japan",
+        "confirmed": true,
+        "source": "https://whc.unesco.org/en/list/1277/"
+      }
+    ],
     "transportOptions": {
       "train": 60,
       "bus": 65,

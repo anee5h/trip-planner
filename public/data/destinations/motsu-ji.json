@@ -26,7 +26,13 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/1277/"
+    }
+  ],
   "transportOptions": {
     "train": 60,
     "bus": 65,

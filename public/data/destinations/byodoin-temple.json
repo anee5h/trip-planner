@@ -46,6 +46,13 @@
       "highlights": ["鳳凰堂", "鳳翔館ミュージアム", "阿字池の景観"]
     }
   },
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/688/"
+    }
+  ],
   "relationships": {
     "parentDestinationId": "uji-city"
   },

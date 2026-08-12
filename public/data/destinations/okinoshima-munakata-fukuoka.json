@@ -79,11 +79,12 @@
   "collections": [
     {
       "collectionId": "unesco-japan",
-      "confirmed": true
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/1535/"
     }
   ],
   "relationships": {
-    "parentDestinationId": "fukuoka-city"
+    "gatewayHubId": "fukuoka-city"
   },
   "budgetBreakdown": {
     "transport": 3000,
@@ -106,19 +107,25 @@
     "max": 7
   },
   "officialWebsite": "https://www.okinoshima-heritage.jp/",
-  "municipalityId": "Fukuoka:fukuoka",
+  "municipalityId": "Fukuoka:munakata",
   "editorial": {
     "lifecycle": "published",
     "freshness": "current",
-    "checkedAt": "2026-08-04",
-    "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "checkedAt": "2026-08-11",
+    "reviewedAt": "2026-08-11",
+    "reviewedBy": "KAI-53 UNESCO audit",
     "sources": [
       {
-        "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Sacred_Island_of_Okinoshima_and_Associated_Sites_in_the_Munakata_Region",
-        "title": "Sacred Island of Okinoshima and Associated Sites in the Munakata Region",
-        "accessedAt": "2026-08-04"
+        "type": "official",
+        "url": "https://whc.unesco.org/en/list/1535/",
+        "title": "UNESCO WHC – Sacred Island of Okinoshima and Associated Sites in the Munakata Region",
+        "accessedAt": "2026-08-11"
+      },
+      {
+        "type": "official",
+        "url": "https://www.okinoshima-heritage.jp/en/",
+        "title": "Munakata-Okinoshima World Heritage official site",
+        "accessedAt": "2026-08-11"
       }
     ]
   },

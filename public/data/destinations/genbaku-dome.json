@@ -25,7 +25,13 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/775/"
+    }
+  ],
   "transportOptions": {},
   "budgetMin": 0,
   "budgetRecommended": 1000,

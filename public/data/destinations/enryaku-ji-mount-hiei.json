@@ -54,6 +54,13 @@
       ]
     }
   },
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/688/"
+    }
+  ],
   "relationships": {
     "parentDestinationId": "otsu-city"
   },
@@ -75,12 +82,12 @@
     "min": 2,
     "max": 3
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/35/Enryakuji_Konpon_Chudo1.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Enryakuji_Konponchudo02s5s3200.jpg/1280px-Enryakuji_Konponchudo02s5s3200.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons contributors",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enryakuji_Konpon_Chudo1.jpg"
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enryakuji_Konponchudo02s5s3200.jpg"
   },
   "municipalityId": "Shiga:otsu",
   "transportOptions": {

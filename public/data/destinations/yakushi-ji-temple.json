@@ -34,6 +34,13 @@
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
   },
+  "collections": [
+    {
+      "collectionId": "unesco-japan",
+      "confirmed": true,
+      "source": "https://whc.unesco.org/en/list/870/"
+    }
+  ],
   "relationships": {
     "parentDestinationId": "nara-city"
   },
@@ -71,12 +78,12 @@
     "min": 1,
     "max": 2
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/32/Yakushiji_Nara_Japan01s3s4592.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Yakushiji_Nara06s3s4440.jpg/1280px-Yakushiji_Nara06s3s4440.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons contributors",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yakushiji_Nara_Japan01s3s4592.jpg"
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yakushiji_Nara06s3s4440.jpg"
   },
   "municipalityId": "Nara:nara",
   "transportOptions": {

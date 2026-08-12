@@ -9,19 +9,14 @@
       "description": "Takachiho Kagura is an ancient Shinto ritual dance performed nightly at Takachiho Shrine, retelling the myth of Amaterasu hiding in the cave through mesmerizing masked performances. The full 33-dance cycle lasts all night at the annual Yokagura festival, but a condensed 1-hour highlight version is presented year-round to visitors.",
       "highlights": [
         "Nightly Shinto ritual masked dance",
-        "Amaterasu mythology performed live",
-        "UNESCO Intangible Cultural Heritage"
+        "Amaterasu mythology performed live"
       ],
       "openingHours": "20:00–21:00 (Nightly performances)"
     },
     "ja": {
       "name": "高千穂神楽・夜神楽",
       "description": "高千穂神楽は高千穂神社で毎夜奉納される古来の神楽で、天岩戸神話を題材にした面をつけた舞が幻想的です。11月〜2月の夜神楽シーズンには全33番の神楽が一晩かけて舞われますが、通年で1時間のハイライト版を観覧できます。",
-      "highlights": [
-        "毎夜奉納の神楽・面舞",
-        "天照大神伝説を再現する舞台",
-        "ユネスコ無形文化遺産の伝統芸能"
-      ],
+      "highlights": ["毎夜奉納の神楽・面舞", "天照大神伝説を再現する舞台"],
       "openingHours": "20:00～21:00（毎晩公演）"
     }
   },
@@ -50,8 +45,7 @@
   "description": "Takachiho Kagura is an ancient Shinto ritual dance performed nightly at Takachiho Shrine, retelling the myth of Amaterasu hiding in the cave through mesmerizing masked performances. The full 33-dance cycle lasts all night at the annual Yokagura festival, but a condensed 1-hour highlight version is presented year-round to visitors.",
   "highlights": [
     "Nightly Shinto ritual masked dance",
-    "Amaterasu mythology performed live",
-    "UNESCO Intangible Cultural Heritage"
+    "Amaterasu mythology performed live"
   ],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,21 +6,21 @@
   "content": {
     "en": {
       "name": "Sengan-en Garden",
-      "description": "Sengan-en is a magnificent Japanese garden and former villa of the Shimazu clan, the powerful samurai lords of Satsuma domain. Built in 1658, the garden famously 'borrows' Sakurajima volcano as its backdrop (shakkei), creating one of Japan's most dramatic garden vistas. It is part of the UNESCO 'Sites of Japan's Meiji Industrial Revolution'.",
+      "description": "Sengan-en is a magnificent Japanese garden and former villa of the Shimazu clan, built in 1658. The nearby Shoko Shuseikan museum interprets the industrial complex that forms part of the UNESCO World Heritage property Sites of Japan's Meiji Industrial Revolution.",
       "highlights": [
         "Sakurajima volcano as borrowed scenery (shakkei)",
         "Shimazu clan samurai villa & gardens",
-        "UNESCO World Heritage Meiji industrial site"
+        "Adjacent Shoko Shuseikan industrial heritage museum"
       ],
       "openingHours": "09:00–17:00"
     },
     "ja": {
       "name": "仙巌園",
-      "description": "仙巌園は薩摩藩主・島津家の別邸として1658年に築かれた大名庭園で、桜島を借景とした日本屈指の雄大な庭園景観が特徴です。「明治日本の産業革命遺産」の構成資産として世界遺産にも登録され、武家文化と近代化の歴史が融合した名勝です。",
+      "description": "仙巌園は薩摩藩主・島津家の別邸として1658年に築かれた大名庭園です。近隣の尚古集成館では、世界遺産「明治日本の産業革命遺産」の構成資産である集成館事業の歴史を紹介しています。",
       "highlights": [
         "桜島を借景にした大名庭園",
         "島津家別邸と薩摩の武家文化",
-        "世界遺産『明治日本の産業革命遺産』構成資産"
+        "尚古集成館の産業遺産展示"
       ],
       "openingHours": "09:00～17:00"
     }
@@ -35,7 +35,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Gardens", "History", "Sightseeing"],
-  "tags": ["Garden", "Satsuma", "UNESCO", "Kagoshima City"],
+  "tags": ["Garden", "Satsuma", "Kagoshima City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Sengan-en2.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -47,11 +47,11 @@
     "lat": 31.6167,
     "lng": 130.575
   },
-  "description": "Sengan-en is a magnificent Japanese garden and former villa of the Shimazu clan, the powerful samurai lords of Satsuma domain. Built in 1658, the garden famously 'borrows' Sakurajima volcano as its backdrop (shakkei), creating one of Japan's most dramatic garden vistas. It is part of the UNESCO 'Sites of Japan's Meiji Industrial Revolution'.",
+  "description": "Sengan-en is a magnificent Japanese garden and former villa of the Shimazu clan, built in 1658. The nearby Shoko Shuseikan museum interprets the industrial complex that forms part of the UNESCO World Heritage property Sites of Japan's Meiji Industrial Revolution.",
   "highlights": [
     "Sakurajima volcano as borrowed scenery (shakkei)",
     "Shimazu clan samurai villa & gardens",
-    "UNESCO World Heritage Meiji industrial site"
+    "Adjacent Shoko Shuseikan industrial heritage museum"
   ],
   "budgetMin": 2500,
   "budgetRecommended": 5000,
