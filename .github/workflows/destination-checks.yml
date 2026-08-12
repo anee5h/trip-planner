@@ -2,7 +2,7 @@ name: Destination Checks
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, "data/collections-*"]
     paths:
       - "public/data/destinations/**"
       - "src/shared/data/destinations-index.json"

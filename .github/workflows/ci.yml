@@ -4,7 +4,7 @@ on:
   push:
     branches: ["main", "dev", "release"]
   pull_request:
-    branches: ["main", "dev", "release"]
+    branches: ["main", "dev", "release", "data/collections-*"]
 
 jobs:
   test-and-build:
