@@ -345,7 +345,7 @@
     "name": "Three Great Shrines",
     "description": "Japan's three most celebrated shrines bearing the Jingu title (Nihon San-daijingu): Ise Grand Shrine, Kashima Jingu, and Katori Jingu, a trio rooted in the Engishiki shrine register tradition.",
     "category": "Religion & History",
-    "type": "official",
+    "type": "historical",
     "isAchievement": true,
     "icon": "Landmark",
     "badgeColor": "purple",
