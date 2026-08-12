@@ -75,17 +75,18 @@
     "min": 0.5,
     "max": 1.5
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/82/Mt._Hiei-zan_from_Shiga-machi_2014.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Drone_shot_of_Mount_Hiei_and_Kyoto.jpg/1920px-Drone_shot_of_Mount_Hiei_and_Kyoto.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons contributors",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt._Hiei-zan_from_Shiga-machi_2014.jpg"
+    "attribution": "Artanisen",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Drone_shot_of_Mount_Hiei_and_Kyoto.jpg"
   },
   "municipalityId": "Shiga:otsu",
   "transportOptions": {
     "train": 152,
     "car": 165
   },
-  "collections": []
+  "collections": [],
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Drone_shot_of_Mount_Hiei_and_Kyoto.jpg/1920px-Drone_shot_of_Mount_Hiei_and_Kyoto.jpg"
 }

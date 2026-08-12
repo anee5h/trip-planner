@@ -75,12 +75,12 @@
     "min": 0.8,
     "max": 1.8
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Kimiidera_wP1010133.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Kimiidera_Wakayama03n4272.jpg/1920px-Kimiidera_Wakayama03n4272.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons contributors",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kimiidera_wP1010133.jpg"
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kimiidera_Wakayama03n4272.jpg"
   },
   "municipalityId": "Wakayama:wakayama",
   "transportOptions": {
@@ -88,5 +88,6 @@
     "bus": 270,
     "car": 282
   },
-  "collections": []
+  "collections": [],
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Kimiidera_Wakayama03n4272.jpg/1920px-Kimiidera_Wakayama03n4272.jpg"
 }

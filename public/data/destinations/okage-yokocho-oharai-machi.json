@@ -71,12 +71,12 @@
     "min": 1,
     "max": 2
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Okage-Yokocho-2012.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Okage_yokocho_%2C_%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81_-_panoramio.jpg/1920px-Okage_yokocho_%2C_%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81_-_panoramio.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons contributors",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Okage-Yokocho-2012.jpg"
+    "license": "CC BY 3.0",
+    "attribution": "z tanuki",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Okage_yokocho_,_おかげ横丁_-_panoramio.jpg"
   },
   "municipalityId": "Mie:ise",
   "transportOptions": {
@@ -84,5 +84,6 @@
     "bus": 210,
     "car": 240
   },
-  "collections": []
+  "collections": [],
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Okage_yokocho_%2C_%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81_-_panoramio.jpg/1920px-Okage_yokocho_%2C_%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81_-_panoramio.jpg"
 }

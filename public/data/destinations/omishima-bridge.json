@@ -21,7 +21,9 @@
     "Seto Inland Sea views"
   ],
   "notes": "Toll bridge on the Shimanami Kaido; the nearby Oyamazumi Shrine and cycling path make it a day stop.",
-  "transportOptions": {},
+  "transportOptions": {
+    "car": 65
+  },
   "recommendedVisitHours": {
     "min": 0.5,
     "max": 1.5

@@ -21,7 +21,10 @@
     "1,400 km route"
   ],
   "notes": "A full henro walk takes 40-60 days; section hikes and temple stamps (nokyocho) are popular. Start at Ryozen-ji in Naruto.",
-  "transportOptions": {},
+  "transportOptions": {
+    "train": 60,
+    "bus": 70
+  },
   "recommendedVisitHours": {
     "min": 8,
     "max": 24

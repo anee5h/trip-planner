@@ -359,7 +359,7 @@ describe("day-trip travel evidence", () => {
         result.transportOptions?.train !== undefined ||
         result.transportOptions?.bus !== undefined,
     );
-    expect(publicGroundEntries).toHaveLength(38);
+    expect(publicGroundEntries).toHaveLength(40);
     expect(
       publicGroundEntries.every(
         (result) =>

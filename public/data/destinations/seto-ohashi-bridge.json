@@ -21,7 +21,10 @@
     "Seto Inland Sea views"
   ],
   "notes": "Toll road; the Seto Ohashi Memorial Hall and the Sakaide shore viewpoints frame the crossing.",
-  "transportOptions": {},
+  "transportOptions": {
+    "train": 25,
+    "car": 30
+  },
   "recommendedVisitHours": {
     "min": 0.5,
     "max": 1.5
