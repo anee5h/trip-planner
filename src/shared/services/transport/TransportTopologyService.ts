@@ -94,6 +94,23 @@ const SETO_HONSHU_EXCLUSION_BOX: {
 } = { latRange: [34.2, 34.38], lngRange: [132.2, 132.95] };
 
 /**
+ * Honshu Yamaguchi-coast strip below the SETO box that still falls inside
+ * the shikoku mainland box (eastern Iwakuni city, Suo-Oshima's east tips,
+ * Kurahashi-jima): the shikoku box's west edge (lng 132.2) begins at the
+ * western limit of the Seto Inland Sea, but Yamaguchi prefecture's coast
+ * (Iwakuni at lng 132.22–132.35, lat 34.0–34.2) juts east of that line.
+ * Checked before the shikoku box so a coordinate-only origin there (e.g. a
+ * postcode in 742-xxxx) resolves to mainland-honshu instead of
+ * mainland-shikoku. No Shikoku land lies in this band: the northernmost
+ * Shikoku points west of lng 132.95 (Hojo/Matsuyama 33.92, the Sadamisaki
+ * peninsula 33.3–33.5) sit below the 33.93 floor.
+ */
+const YAMAGUCHI_HONSHU_EXCLUSION_BOX: {
+  latRange: [number, number];
+  lngRange: [number, number];
+} = { latRange: [33.93, 34.2], lngRange: [132.2, 132.95] };
+
+/**
  * Geiyo-islands strip that falls inside the shikoku mainland box (southern
  * coast of Mukaishima island, Onomichi/Hiroshima — lat 34.36–34.38 between
  * the Seto coast exclusion and lng 133.5). No Shikoku land lies in this
@@ -225,6 +242,9 @@ function resolveFromMainlandBoxes(coordinates: {
   lng: number;
 }): TransportZoneId {
   if (pointInBox(coordinates, SETO_HONSHU_EXCLUSION_BOX)) {
+    return "mainland-honshu";
+  }
+  if (pointInBox(coordinates, YAMAGUCHI_HONSHU_EXCLUSION_BOX)) {
     return "mainland-honshu";
   }
   if (pointInBox(coordinates, GEIYO_HONSHU_EXCLUSION_BOX)) {

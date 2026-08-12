@@ -75,6 +75,8 @@ export const BUS_TERMINAL_COORDS: Record<string, { lat: number; lng: number }> =
     matsumoto: { lat: 36.2308, lng: 137.9705 }, // Matsumoto
     nagano: { lat: 36.6431, lng: 138.1888 }, // Nagano
     niigata: { lat: 37.9121, lng: 139.0614 }, // Niigata
+    naha: { lat: 26.2111, lng: 127.6759 }, // Naha Bus Terminal (Asahibashi)
+    nago: { lat: 26.5915, lng: 127.9774 }, // Nago Bus Terminal
   };
 
 export interface BusRoute {
@@ -155,6 +157,8 @@ export const MUNICIPALITY_BUS_SLUG: Record<string, string> = {
   "Tokyo:chuo": "tokyo",
   "Tokyo:shinjuku": "tokyo",
   "Tokyo:toshima": "ikebukuro",
+  "Okinawa:naha": "naha",
+  "Okinawa:nago": "nago",
 };
 
 /**

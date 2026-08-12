@@ -321,7 +321,11 @@ describe("DestinationDetails transport rows", () => {
     expect(text).toContain("Ferry route available — time and cost unavailable");
   });
 
-  it("Kouri from Naha never displays Train and shows local-access copy", async () => {
+  it("Kouri from Naha shows the verified highway-bus route, never Train", async () => {
+    // KAI-63: Naha now participates in the verified naha⇔nago highway-bus
+    // corridor, so Kouri (nago-side, ~13 km onward) gains a bounded
+    // bus estimate instead of the route-known-but-unestimated copy. Rail
+    // stays absent: Okinawa has no shinkansen and no intercity rail.
     storeState.homeStationCoords = { lat: 26.2124, lng: 127.6809 };
     storeState.homeStationTransportZoneId = "okinawa-main";
     render("/destinations/kouri-island-okinawa");
@@ -331,7 +335,11 @@ describe("DestinationDetails transport rows", () => {
     const text = host.textContent ?? "";
     expect(text).not.toContain("Train");
     expect(text).not.toContain("Shinkansen");
-    expect(text).toContain("Local access available");
+    expect(text).toContain("Travel Time Bus");
+    expect(text).toContain(
+      "Intercity fare only; local access cost is not modeled",
+    );
+    expect(text).not.toContain("Local access available");
   });
 
   it("Sakurajima from Kagoshima shows Ferry, never Train", async () => {
