@@ -1,0 +1,118 @@
+{
+  "id": "echizen-kaga-kaigan",
+  "name": "Echizen-Kaga Kaigan Quasi-National Park",
+  "nameJa": "越前加賀海岸国定公園",
+  "aliases": ["越前加賀海岸国定公園"],
+  "prefecture": "Fukui",
+  "region": "Chubu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 36.24,
+    "lng": 136.13
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Fukui"],
+  "description": "Quasi-national park of the Echizen-Kaga coast: the Tojinbo columnar cliffs, the Katayamazu hot-spring shore and the sandy beaches of the Sea of Japan.",
+  "highlights": ["Tojinbo cliffs", "Katayamazu coast", "Sea of Japan beaches"],
+  "notes": "Managed by Fukui/Ishikawa. Tojinbo's basalt columns and boat rides are the icons.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.3,
+    "couple": 8.1,
+    "summer": 8.4,
+    "winter": 7.7,
+    "rain": 7.4,
+    "food": 7.2,
+    "photography": 8.6,
+    "relaxation": 8.4,
+    "value": 8.2,
+    "uniqueness": 8.5
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Benkei_no_Sentakuiwa.jpg/1920px-Benkei_no_Sentakuiwa.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Benkei_no_Sentakuiwa.jpg/1920px-Benkei_no_Sentakuiwa.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "藤谷良秀, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Benkei_no_Sentakuiwa.jpg"
+  },
+  "officialWebsite": "https://www.pref.fukui.lg.jp/doc/shizen/kouen/etizen.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Fukui:awara",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 21
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Echizen-Kaga Kaigan Quasi-National Park",
+      "description": "Quasi-national park of the Echizen-Kaga coast: the Tojinbo columnar cliffs, the Katayamazu hot-spring shore and the sandy beaches of the Sea of Japan.",
+      "highlights": [
+        "Tojinbo cliffs",
+        "Katayamazu coast",
+        "Sea of Japan beaches"
+      ],
+      "notes": "Managed by Fukui/Ishikawa. Tojinbo's basalt columns and boat rides are the icons.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "越前加賀海岸国定公園",
+      "description": "越前加賀海岸国定公園は、東尋坊の柱状節理の断崖、片山津の温泉海岸、日本海の砂浜を擁する海岸国立公園です。",
+      "highlights": ["東尋坊の断崖", "片山津の海岸", "日本海の砂浜"],
+      "notes": "福井県・石川県が管理。東尋坊の玄武岩柱と遊覧船がシンボルです。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.pref.fukui.lg.jp/doc/shizen/kouen/etizen.html",
+        "title": "Echizen-Kaga Kaigan Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

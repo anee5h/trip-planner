@@ -1,0 +1,118 @@
+{
+  "id": "wakasa-wan",
+  "name": "Wakasa Wan Quasi-National Park",
+  "nameJa": "若狭湾国定公園",
+  "aliases": ["若狭湾国定公園"],
+  "prefecture": "Fukui",
+  "region": "Chubu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.5,
+    "lng": 135.75
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Fukui"],
+  "description": "Quasi-national park of Wakasa Bay with its ria inlets, the Mikatagoko five lakes, and the shrine-lined coast from Obama to the Kyoto border.",
+  "highlights": ["Mikatagoko lakes", "Wakasa ria coast", "Obama shrine town"],
+  "notes": "Managed by Fukui/Kyoto. The five-lake viewpoint and the bay cruises are highlights.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.3,
+    "summer": 8.6,
+    "winter": 7.9,
+    "rain": 7.6,
+    "food": 7.4,
+    "photography": 8.8,
+    "relaxation": 8.6,
+    "value": 8.4,
+    "uniqueness": 8.7
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Obama_Sotomo06n4592.jpg/1920px-Obama_Sotomo06n4592.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Obama_Sotomo06n4592.jpg/1920px-Obama_Sotomo06n4592.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obama_Sotomo06n4592.jpg"
+  },
+  "officialWebsite": "https://www.pref.fukui.lg.jp/doc/shizen/kouen/wakasa.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Fukui:obama",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 22
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Wakasa Wan Quasi-National Park",
+      "description": "Quasi-national park of Wakasa Bay with its ria inlets, the Mikatagoko five lakes, and the shrine-lined coast from Obama to the Kyoto border.",
+      "highlights": [
+        "Mikatagoko lakes",
+        "Wakasa ria coast",
+        "Obama shrine town"
+      ],
+      "notes": "Managed by Fukui/Kyoto. The five-lake viewpoint and the bay cruises are highlights.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "若狭湾国定公園",
+      "description": "若狭湾国定公園は、リアス式海岸の入り江、三方五湖、小浜から京都府境まで続く社寺の並ぶ海岸を含む国定公園です。",
+      "highlights": ["三方五湖", "若狭リアス海岸", "小浜の神社の町"],
+      "notes": "福井県・京都府が管理。五湖の展望と湾内クルーズが見どころです。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.pref.fukui.lg.jp/doc/shizen/kouen/wakasa.html",
+        "title": "Wakasa Wan Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

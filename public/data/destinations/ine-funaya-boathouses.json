@@ -51,7 +51,7 @@
     }
   },
   "relationships": {
-    "parentDestinationId": "miyazu-city"
+    "gatewayHubId": "miyazu-city"
   },
   "status": "published",
   "ratings": {
@@ -78,10 +78,11 @@
     "attribution": "Asturio Cantabrio",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Michinoeki_Funayanosato_Ine_2017-04_ac_(1).jpg"
   },
-  "municipalityId": "Kyoto:miyazu",
+  "municipalityId": "Kyoto:ine",
   "transportOptions": {
     "train": 195,
     "bus": 225,
     "car": 245
-  }
+  },
+  "collections": []
 }

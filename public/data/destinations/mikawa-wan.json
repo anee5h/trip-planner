@@ -1,0 +1,121 @@
+{
+  "id": "mikawa-wan",
+  "name": "Mikawa Wan Quasi-National Park",
+  "nameJa": "三河湾国定公園",
+  "aliases": ["三河湾国定公園"],
+  "prefecture": "Aichi",
+  "region": "Chubu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.83,
+    "lng": 137.2
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Aichi"],
+  "description": "Quasi-national park of Mikawa Bay with its island-dotted waters, the Takeshima causeway, the Chita and Atsumi peninsulas and the Gamagori coast.",
+  "highlights": ["Mikawa Bay islands", "Takeshima causeway", "Atsumi coast"],
+  "notes": "Managed by Aichi. Takeshima's shrine causeway and the bay cruises are highlights.",
+  "transportOptions": {
+    "train": 60,
+    "ferry": 45
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.3,
+    "summer": 8.6,
+    "winter": 7.9,
+    "rain": 7.6,
+    "food": 7.4,
+    "photography": 8.8,
+    "relaxation": 8.6,
+    "value": 8.4,
+    "uniqueness": 8.7
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Cape_Irago_06.jpg/1920px-Cape_Irago_06.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Cape_Irago_06.jpg/1920px-Cape_Irago_06.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Σ64, CC BY 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_Irago_06.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Aichi:gamagori",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 29
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Mikawa Wan Quasi-National Park",
+      "description": "Quasi-national park of Mikawa Bay with its island-dotted waters, the Takeshima causeway, the Chita and Atsumi peninsulas and the Gamagori coast.",
+      "highlights": [
+        "Mikawa Bay islands",
+        "Takeshima causeway",
+        "Atsumi coast"
+      ],
+      "notes": "Managed by Aichi. Takeshima's shrine causeway and the bay cruises are highlights.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "三河湾国定公園",
+      "description": "三河湾の島々、竹島の架け橋、知多・渥美半島、蒲郡海岸を含む国定公園です。",
+      "highlights": ["三河湾の島々", "竹島の架け橋", "渥美海岸"],
+      "notes": "愛知県管理。竹島の神社へ続く架け橋と湾内クルーズが目玉です。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Mikawa Wan Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

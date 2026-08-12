@@ -1,0 +1,117 @@
+{
+  "id": "tsurugisan",
+  "name": "Tsurugisan Quasi-National Park",
+  "nameJa": "剣山国定公園",
+  "aliases": ["剣山国定公園"],
+  "prefecture": "Tokushima",
+  "region": "Shikoku",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 33.85,
+    "lng": 134.1
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Tokushima"],
+  "description": "Quasi-national park of Mt. Tsurugi, Shikoku's second-highest peak, with its rocky summit and the Iya valley gorges of western Tokushima.",
+  "highlights": ["Mt. Tsurugi", "Iya valley", "Shikoku highlands"],
+  "notes": "Managed by Tokushima/Kochi. The Tsurugi ropeway and the Iya vine bridges are the highlights.",
+  "transportOptions": {
+    "train": 150,
+    "car": 130
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.3,
+    "couple": 8.1,
+    "summer": 8.4,
+    "winter": 7.7,
+    "rain": 7.4,
+    "food": 7.2,
+    "photography": 8.6,
+    "relaxation": 8.4,
+    "value": 8.2,
+    "uniqueness": 8.5
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Iya_Valley_%286551493685%29.jpg/1920px-Iya_Valley_%286551493685%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Iya_Valley_%286551493685%29.jpg/1920px-Iya_Valley_%286551493685%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "attribution": "KimonBerlin, CC BY-SA 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iya_Valley_(6551493685).jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Tokushima:miyoshi",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 44
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Tsurugisan Quasi-National Park",
+      "description": "Quasi-national park of Mt. Tsurugi, Shikoku's second-highest peak, with its rocky summit and the Iya valley gorges of western Tokushima.",
+      "highlights": ["Mt. Tsurugi", "Iya valley", "Shikoku highlands"],
+      "notes": "Managed by Tokushima/Kochi. The Tsurugi ropeway and the Iya vine bridges are the highlights.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "剣山国定公園",
+      "description": "四国第二の高峰・剣山と、徳島県西部の祖谷渓谷の渓谷美を擁する国定公園です。",
+      "highlights": ["剣山", "祖谷渓谷", "四国の山岳地帯"],
+      "notes": "徳島・高知県が管理。剣山ロープウェイと祖谷のかずら橋が見どころです。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Tsurugisan Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

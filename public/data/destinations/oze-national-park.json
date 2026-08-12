@@ -5,7 +5,6 @@
   "region": "Kanto",
   "categories": ["Nature", "Mountain"],
   "tags": ["Hiking", "Marshlands"],
-  "budgetRecommended": 7400,
   "ratings": {
     "overall": 8.8,
     "photography": 9.2,
@@ -25,32 +24,11 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mt.Shibutsu_16.jpg/1280px-Mt.Shibutsu_16.jpg",
   "prefecture": "Gunma",
-  "budgetMin": 3400,
-  "budgetMax": 11400,
-  "totalTripHours": 8,
   "walkingMin": 60,
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
-  "comfort": {
-    "heatTolerance": 5,
-    "rainFriendly": 4,
-    "walkingIntensity": 5
-  },
   "transportOptions": {
     "car": 200,
     "train": 150,
     "bus": 180
-  },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
   },
   "highlights": [
     "Wooden Boardwalk Wetland Hikes",
@@ -58,13 +36,6 @@
     "Mount Shibutsu Views"
   ],
   "description": "A famous high-altitude wetland national park spanning Gunma, Fukushima, and Niigata, famous for wooden boardwalk hikes and Skunk Cabbage flowers.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "budgetBreakdown": {
-    "transport": 3700,
-    "tickets": 0,
-    "food": 2775,
-    "cafe": 925
-  },
   "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mt.Shibutsu_16.jpg/1280px-Mt.Shibutsu_16.jpg",
@@ -78,11 +49,15 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 12
+    }
+  ],
   "relationships": {
     "parentDestinationId": "minakami-town"
   },
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
@@ -143,8 +118,8 @@
   },
   "ratingMetadata": {
     "rubricVersion": 2,
-    "method": "manual",
-    "confidence": "high"
+    "method": "assisted",
+    "confidence": "low"
   },
   "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",

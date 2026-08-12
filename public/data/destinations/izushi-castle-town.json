@@ -87,5 +87,6 @@
     "train": 255,
     "bus": 295,
     "car": 325
-  }
+  },
+  "collections": []
 }

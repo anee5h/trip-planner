@@ -86,5 +86,6 @@
   "transportOptions": {
     "train": 200,
     "car": 200
-  }
+  },
+  "collections": []
 }

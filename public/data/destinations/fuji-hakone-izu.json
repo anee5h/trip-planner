@@ -1,0 +1,124 @@
+{
+  "id": "fuji-hakone-izu",
+  "name": "Fuji-Hakone-Izu National Park",
+  "nameJa": "富士箱根伊豆国立公園",
+  "aliases": ["富士箱根伊豆国立公園"],
+  "prefecture": "Shizuoka",
+  "region": "Chubu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.23,
+    "lng": 139.1
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Shizuoka"],
+  "description": "Japan's most visited national park (1936), wrapping Mt. Fuji, the Hakone caldera with Lake Ashi, and the Izu Peninsula coast with its beaches, onsen and cliffs.",
+  "highlights": [
+    "Mt. Fuji views",
+    "Hakone Lake Ashi",
+    "Izu Peninsula coast",
+    "Owakudani valley"
+  ],
+  "notes": "Designated 1936 (121,755 ha). Hakone is the classic base; Fuji Five Lakes and the Izu coast complete the park.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 6,
+    "max": 8
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 9.3,
+    "couple": 9.1,
+    "summer": 9.4,
+    "winter": 8.7,
+    "rain": 8.4,
+    "food": 8.2,
+    "photography": 9.6,
+    "relaxation": 9.4,
+    "value": 9.2,
+    "uniqueness": 9.5
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Fuji-Hakone-Izu_National_Park_banner.jpg/1920px-Fuji-Hakone-Izu_National_Park_banner.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Fuji-Hakone-Izu_National_Park_banner.jpg/1920px-Fuji-Hakone-Izu_National_Park_banner.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Shiraito-panoramic.png: Valentin Saussois\nderivative work: Inkey, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fuji-Hakone-Izu_National_Park_banner.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/fujihakone/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Shizuoka:fujinomiya",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 17
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Fuji-Hakone-Izu National Park",
+      "description": "Japan's most visited national park (1936), wrapping Mt. Fuji, the Hakone caldera with Lake Ashi, and the Izu Peninsula coast with its beaches, onsen and cliffs.",
+      "highlights": [
+        "Mt. Fuji views",
+        "Hakone Lake Ashi",
+        "Izu Peninsula coast",
+        "Owakudani valley"
+      ],
+      "notes": "Designated 1936 (121,755 ha). Hakone is the classic base; Fuji Five Lakes and the Izu coast complete the park.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "富士箱根伊豆国立公園",
+      "description": "日本で最も訪れられている国立公園（1936年指定）。富士山、芦ノ湖を擁する箱根カルデラ、ビーチ・温泉・断崖が続く伊豆半島海岸を含む。",
+      "highlights": ["富士山の眺望", "箱根・芦ノ湖", "伊豆半島海岸", "大涌谷"],
+      "notes": "1936年指定（121,755ha）。定番の拠点は箱根。富士五湖と伊豆海岸で公園全体を楽しめる。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/fujihakone/index.html",
+        "title": "Fuji-Hakone-Izu National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "id": "minami-alps",
+  "name": "Minami Alps National Park",
+  "nameJa": "南アルプス国立公園",
+  "aliases": ["南アルプス国立公園"],
+  "prefecture": "Yamanashi",
+  "region": "Chubu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.67,
+    "lng": 138.23
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Yamanashi"],
+  "description": "National park (1964) of the southern Japan Alps — the country's deepest wilderness, centered on Kitadake (3,193 m, Japan's second-highest peak) and Senjogatake.",
+  "highlights": [
+    "Kitadake 3,193 m",
+    "Deepest alpine wilderness",
+    "Highland flower fields"
+  ],
+  "notes": "Designated 1964 (35,752 ha). Serious hiking country; the Hirogawara and Notori trails are the standard approaches.",
+  "transportOptions": {},
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 8.9,
+    "winter": 8.2,
+    "rain": 7.9,
+    "food": 7.7,
+    "photography": 9.1,
+    "relaxation": 8.9,
+    "value": 8.7,
+    "uniqueness": 9
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Mt.Kitadake%2C_Minami_Alps_National_Park.jpg/1920px-Mt.Kitadake%2C_Minami_Alps_National_Park.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Mt.Kitadake%2C_Minami_Alps_National_Park.jpg/1920px-Mt.Kitadake%2C_Minami_Alps_National_Park.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "黒ゆり, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt.Kitadake,_Minami_Alps_National_Park.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/minamialps/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Yamanashi:minami-alps",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 20
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Minami Alps National Park",
+      "description": "National park (1964) of the southern Japan Alps — the country's deepest wilderness, centered on Kitadake (3,193 m, Japan's second-highest peak) and Senjogatake.",
+      "highlights": [
+        "Kitadake 3,193 m",
+        "Deepest alpine wilderness",
+        "Highland flower fields"
+      ],
+      "notes": "Designated 1964 (35,752 ha). Serious hiking country; the Hirogawara and Notori trails are the standard approaches.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "南アルプス国立公園",
+      "description": "南アルプスの国立公園（1964年指定）。日本第2位の高峰・北岳（3,193m）と仙丈ヶ岳を中心に、国内最奥の山岳地帯が広がる。",
+      "highlights": ["北岳3,193m", "最奥の山岳地帯", "高山植物の花畑"],
+      "notes": "1964年指定（35,752ha）。本格的な登山エリア。広河原と農鳥ルートが一般的なアプローチ。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/minamialps/index.html",
+        "title": "Minami Alps National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  },
+  "recommendedVisitHours": {
+    "min": 8,
+    "max": 24
+  }
+}

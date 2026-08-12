@@ -1,0 +1,132 @@
+{
+  "id": "okinawa-senseki",
+  "name": "Okinawa Senseki Quasi-National Park",
+  "nameJa": "沖縄戦跡国定公園",
+  "aliases": ["沖縄戦跡国定公園"],
+  "prefecture": "Okinawa",
+  "region": "Okinawa",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 26.1,
+    "lng": 127.68
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Okinawa"],
+  "description": "Quasi-national park preserving the battle sites of southern Okinawa — the Peace Memorial Park, the Himeyuri cave and the Mabuni cliffs — amid the island's green coast.",
+  "highlights": ["Peace Memorial Park", "Himeyuri cave", "Mabuni cliffs"],
+  "notes": "Managed by Okinawa. The Peace Memorial and the southern battle sites are the park's core.",
+  "transportOptions": {
+    "bus": 45,
+    "car": 40
+  },
+  "walkingMin": 120,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.3,
+    "couple": 8.1,
+    "summer": 8.4,
+    "winter": 7.7,
+    "rain": 7.4,
+    "food": 7.2,
+    "photography": 8.6,
+    "relaxation": 8.4,
+    "value": 8.2,
+    "uniqueness": 8.5,
+    "walkability": 7
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/20190406_Cornerstone_of_Peace-1.jpg/1920px-20190406_Cornerstone_of_Peace-1.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/20190406_Cornerstone_of_Peace-1.jpg/1920px-20190406_Cornerstone_of_Peace-1.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Balon Greyjoy, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:20190406_Cornerstone_of_Peace-1.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Okinawa:itoman",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 57
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Okinawa Senseki Quasi-National Park",
+      "description": "Quasi-national park preserving the battle sites of southern Okinawa — the Peace Memorial Park, the Himeyuri cave and the Mabuni cliffs — amid the island's green coast.",
+      "highlights": ["Peace Memorial Park", "Himeyuri cave", "Mabuni cliffs"],
+      "notes": "Managed by Okinawa. The Peace Memorial and the southern battle sites are the park's core.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "沖縄戦跡国定公園",
+      "description": "沖縄本島南部の戦跡を保存する国定公園。平和記念公園、ひめゆり洞窟、摩文仁の断崖が、島の緑豊かな海岸に広がる。",
+      "highlights": ["平和記念公園", "ひめゆり洞窟", "摩文仁の断崖"],
+      "notes": "沖縄県が管理。平和記念公園と南部の戦跡が公園の中心。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Okinawa Senseki Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8,
+    "summer": 9,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [10, 11, 12, 1, 2, 3, 4],
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40
+}

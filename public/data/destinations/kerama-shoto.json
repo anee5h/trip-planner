@@ -1,0 +1,144 @@
+{
+  "id": "kerama-shoto",
+  "name": "Keramashoto National Park",
+  "nameJa": "慶良間諸島国立公園",
+  "aliases": ["慶良間諸島国立公園"],
+  "prefecture": "Okinawa",
+  "region": "Okinawa",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 26.23,
+    "lng": 127.3
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Okinawa"],
+  "description": "National park (2014) of the Kerama islands west of Okinawa, famed for world-class snorkeling visibility, whale-watching in winter and white-sand beaches.",
+  "highlights": [
+    "World-class snorkeling",
+    "Winter whale-watching",
+    "White-sand beaches"
+  ],
+  "notes": "Designated 2014 (3,520 ha). Ferries from Naha reach Zamami and Tokashiki in under an hour.",
+  "transportOptions": {
+    "ferry": 70
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "ratings": {
+    "overall": 9.2,
+    "couple": 9,
+    "summer": 9.3,
+    "winter": 8.6,
+    "rain": 8.3,
+    "food": 8.1,
+    "photography": 9.5,
+    "relaxation": 9.3,
+    "value": 9.1,
+    "uniqueness": 9.4,
+    "walkability": 7
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Japan%2C_Okinawa%2C_Kerama_islands_-_view_from_Zamami_island_2018.webm/1920px--Japan%2C_Okinawa%2C_Kerama_islands_-_view_from_Zamami_island_2018.webm.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Japan%2C_Okinawa%2C_Kerama_islands_-_view_from_Zamami_island_2018.webm/1920px--Japan%2C_Okinawa%2C_Kerama_islands_-_view_from_Zamami_island_2018.webm.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "ContributorQ, CC BY 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Japan,_Okinawa,_Kerama_islands_-_view_from_Zamami_island_2018.webm"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/kerama/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Okinawa:zamami",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 34
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Keramashoto National Park",
+      "description": "National park (2014) of the Kerama islands west of Okinawa, famed for world-class snorkeling visibility, whale-watching in winter and white-sand beaches.",
+      "highlights": [
+        "World-class snorkeling",
+        "Winter whale-watching",
+        "White-sand beaches"
+      ],
+      "notes": "Designated 2014 (3,520 ha). Ferries from Naha reach Zamami and Tokashiki in under an hour.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "慶良間諸島国立公園",
+      "description": "沖縄本島の西に浮かぶ慶良間諸島の国立公園（2014年指定）。透明度抜群のシュノーケリング、冬のホエールウォッチング、白砂のビーチで知られています。",
+      "highlights": [
+        "世界屈指の透明度",
+        "冬のホエールウォッチング",
+        "白砂のビーチ"
+      ],
+      "notes": "2014年指定（3,520 ha）。那覇からフェリーで座間味島・渡嘉敷島へ1時間以内です。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/kerama/index.html",
+        "title": "Keramashoto National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "transportZoneId": "unknown",
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8,
+    "summer": 9,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [10, 11, 12, 1, 2, 3, 4],
+  "walkingSunMin": 100,
+  "walkingShadeMin": 50
+}

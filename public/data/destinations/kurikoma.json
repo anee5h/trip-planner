@@ -1,0 +1,118 @@
+{
+  "id": "kurikoma",
+  "name": "Kurikoma Quasi-National Park",
+  "nameJa": "栗駒国定公園",
+  "aliases": ["栗駒国定公園"],
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 38.96,
+    "lng": 140.79
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Miyagi"],
+  "description": "Quasi-national park of the Kurikoma volcano straddling Iwate, Miyagi, Akita and Yamagata, with crater lakes, alpine meadows and autumn colors.",
+  "highlights": ["Kurikoma crater lakes", "Alpine meadows", "Autumn colors"],
+  "notes": "Managed by Miyagi. The summit and the Iwakagami pond are the classic routes.",
+  "transportOptions": {},
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.3,
+    "couple": 8.1,
+    "summer": 8.4,
+    "winter": 7.7,
+    "rain": 7.4,
+    "food": 7.2,
+    "photography": 8.6,
+    "relaxation": 8.4,
+    "value": 8.2,
+    "uniqueness": 8.5
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Mt_KAMURO_at_MIYAGI_2.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Mt_KAMURO_at_MIYAGI_2.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Highten31, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt_KAMURO_at_MIYAGI_2.JPG"
+  },
+  "officialWebsite": "https://www.pref.miyagi.jp/soshiki/sizenhogo/sizenkouen-kurikoma.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Miyagi:kurihara",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 9
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Kurikoma Quasi-National Park",
+      "description": "Quasi-national park of the Kurikoma volcano straddling Iwate, Miyagi, Akita and Yamagata, with crater lakes, alpine meadows and autumn colors.",
+      "highlights": [
+        "Kurikoma crater lakes",
+        "Alpine meadows",
+        "Autumn colors"
+      ],
+      "notes": "Managed by Miyagi. The summit and the Iwakagami pond are the classic routes.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "栗駒国定公園",
+      "description": "岩手・宮城・秋田・山形にまたがる栗駒山の国定公園。火口湖や高山のお花畑、紅葉が見どころ。",
+      "highlights": ["栗駒山の火口湖", "高山のお花畑", "紅葉"],
+      "notes": "宮城県が管理。山頂と岩鏡沼が定番の登山コース。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.pref.miyagi.jp/soshiki/sizenhogo/sizenkouen-kurikoma.html",
+        "title": "Kurikoma Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "recommendedVisitHours": {
+    "min": 6,
+    "max": 10
+  }
+}

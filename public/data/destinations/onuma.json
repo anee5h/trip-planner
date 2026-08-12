@@ -1,0 +1,118 @@
+{
+  "id": "onuma",
+  "name": "Onuma Quasi-National Park",
+  "nameJa": "大沼国定公園",
+  "aliases": ["大沼国定公園"],
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 41.98,
+    "lng": 140.67
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Hokkaido"],
+  "description": "Quasi-national park of the Onuma and Konuma lakes formed by the Komagatake eruption, with 126 islets linked by bridges and bicycle paths under Mt. Komagatake.",
+  "highlights": ["Lake Onuma islets", "Mt. Komagatake view", "Bicycle paths"],
+  "notes": "Managed by Hokkaido. Onuma is a classic half-day stop on the Hokuto line from Hakodate.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.4,
+    "summer": 8.7,
+    "winter": 8,
+    "rain": 7.7,
+    "food": 7.5,
+    "photography": 8.9,
+    "relaxation": 8.7,
+    "value": 8.5,
+    "uniqueness": 8.8
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Late_autumn_in_Onuma_Quasi_National_Park.jpg/1920px-Late_autumn_in_Onuma_Quasi_National_Park.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Late_autumn_in_Onuma_Quasi_National_Park.jpg/1920px-Late_autumn_in_Onuma_Quasi_National_Park.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "掬茶, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Late_autumn_in_Onuma_Quasi_National_Park.jpg"
+  },
+  "officialWebsite": "https://www.pref.hokkaido.lg.jp/ks/skn/environ/parks/onuma-quasi-nationalpark.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Hokkaido:nanae",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 4
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Onuma Quasi-National Park",
+      "description": "Quasi-national park of the Onuma and Konuma lakes formed by the Komagatake eruption, with 126 islets linked by bridges and bicycle paths under Mt. Komagatake.",
+      "highlights": [
+        "Lake Onuma islets",
+        "Mt. Komagatake view",
+        "Bicycle paths"
+      ],
+      "notes": "Managed by Hokkaido. Onuma is a classic half-day stop on the Hokuto line from Hakodate.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "大沼国定公園",
+      "description": "駒ヶ岳の噴火でできた大沼・小沼の国定公園。駒ヶ岳の麓に126の小島が橋やサイクリングロードで結ばれている。",
+      "highlights": ["大沼の小島", "駒ヶ岳の眺望", "サイクリングロード"],
+      "notes": "北海道管理。大沼は函館からの北斗線沿いの定番ハイライト。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.pref.hokkaido.lg.jp/ks/skn/environ/parks/onuma-quasi-nationalpark.html",
+        "title": "Onuma Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  }
+}

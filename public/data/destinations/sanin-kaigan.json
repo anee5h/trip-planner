@@ -1,0 +1,118 @@
+{
+  "id": "sanin-kaigan",
+  "name": "San'inkaigan National Park",
+  "nameJa": "山陰海岸国立公園",
+  "aliases": ["山陰海岸国立公園"],
+  "prefecture": "Tottori",
+  "region": "Chugoku",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.54,
+    "lng": 134.24
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Tottori"],
+  "description": "National park (1963) of the San'in coast from the Tottori Sand Dunes to the sea cliffs of Hyogo and Kyoto — a dramatic shoreline of dunes, cliffs and sea caves.",
+  "highlights": ["Tottori Sand Dunes", "Sea cliffs and caves", "Uradome coast"],
+  "notes": "Designated 1963 (9,006 ha). The dunes and the Uradome Coast boat tours are the highlights.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.9,
+    "couple": 8.7,
+    "summer": 9,
+    "winter": 8.3,
+    "rain": 8,
+    "food": 7.8,
+    "photography": 9.2,
+    "relaxation": 9,
+    "value": 8.8,
+    "uniqueness": 9.1
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Tottori-Sakyu_Tottori_Japan.JPG/1920px-Tottori-Sakyu_Tottori_Japan.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Tottori-Sakyu_Tottori_Japan.JPG/1920px-Tottori-Sakyu_Tottori_Japan.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Hashi photo, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tottori-Sakyu_Tottori_Japan.JPG"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/sanin/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Tottori:tottori",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 23
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "San'inkaigan National Park",
+      "description": "National park (1963) of the San'in coast from the Tottori Sand Dunes to the sea cliffs of Hyogo and Kyoto — a dramatic shoreline of dunes, cliffs and sea caves.",
+      "highlights": [
+        "Tottori Sand Dunes",
+        "Sea cliffs and caves",
+        "Uradome coast"
+      ],
+      "notes": "Designated 1963 (9,006 ha). The dunes and the Uradome Coast boat tours are the highlights.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "山陰海岸国立公園",
+      "description": "山陰海岸の国立公園（1963年指定）。鳥取砂丘から兵庫・京都の海食崖まで、砂丘、断崖、海食洞が続くダイナミックな海岸線です。",
+      "highlights": ["鳥取砂丘", "海食崖と海食洞", "浦富海岸"],
+      "notes": "1963年指定（9,006ha）。鳥取砂丘と浦富海岸の遊覧船が見どころです。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/sanin/index.html",
+        "title": "San'inkaigan National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "id": "chubu-sangaku",
+  "name": "Chubusangaku National Park",
+  "nameJa": "中部山岳国立公園",
+  "aliases": ["中部山岳国立公園"],
+  "prefecture": "Nagano",
+  "region": "Chubu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 36.25,
+    "lng": 137.63
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Nagano"],
+  "description": "The Japan Alps national park (1934): the Hotaka and Yari peaks around Kamikochi, the Tateyama-Kurobe route and the alpine ridgelines of the northern alps.",
+  "highlights": [
+    "Kamikochi valley",
+    "Tateyama-Kurobe Alpine Route",
+    "Hotaka peaks",
+    "Snow-wall corridor"
+  ],
+  "notes": "Designated 1934 (174,323 ha). Kamikochi is car-free and reachable from Matsumoto; the Alpine Route crosses by cable car and trolley bus.",
+  "transportOptions": {},
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 9.2,
+    "couple": 9,
+    "summer": 9.3,
+    "winter": 8.6,
+    "rain": 8.3,
+    "food": 8.1,
+    "photography": 9.5,
+    "relaxation": 9.3,
+    "value": 9.1,
+    "uniqueness": 9.4
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mount_Tate_and_Mount_Tsurugi_from_Mount_Nunobiki.jpg/1920px-Mount_Tate_and_Mount_Tsurugi_from_Mount_Nunobiki.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mount_Tate_and_Mount_Tsurugi_from_Mount_Nunobiki.jpg/1920px-Mount_Tate_and_Mount_Tsurugi_from_Mount_Nunobiki.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Alpsdake, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Tate_and_Mount_Tsurugi_from_Mount_Nunobiki.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/chubu/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Nagano:matsumoto",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 18
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Chubusangaku National Park",
+      "description": "The Japan Alps national park (1934): the Hotaka and Yari peaks around Kamikochi, the Tateyama-Kurobe route and the alpine ridgelines of the northern alps.",
+      "highlights": [
+        "Kamikochi valley",
+        "Tateyama-Kurobe Alpine Route",
+        "Hotaka peaks",
+        "Snow-wall corridor"
+      ],
+      "notes": "Designated 1934 (174,323 ha). Kamikochi is car-free and reachable from Matsumoto; the Alpine Route crosses by cable car and trolley bus.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "中部山岳国立公園",
+      "description": "日本アルプス国立公園（1934年指定）。上高地周辺の穂高連峰・槍ヶ岳、立山黒部アルペンルート、北アルプスの稜線が広がる。",
+      "highlights": [
+        "上高地",
+        "立山黒部アルペンルート",
+        "穂高連峰",
+        "雪の大谷"
+      ],
+      "notes": "1934年指定（174,323ha）。上高地は車両乗り入れ禁止、松本からアクセス。アルペンルートはケーブルカーやトロリーバスで縦断。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/chubu/index.html",
+        "title": "Chubusangaku National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  },
+  "recommendedVisitHours": {
+    "min": 8,
+    "max": 24
+  }
+}

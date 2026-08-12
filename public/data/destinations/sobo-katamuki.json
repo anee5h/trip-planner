@@ -1,0 +1,118 @@
+{
+  "id": "sobo-katamuki",
+  "name": "Sobo-Katamuki Quasi-National Park",
+  "nameJa": "祖母傾国定公園",
+  "aliases": ["祖母傾国定公園"],
+  "prefecture": "Oita",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 32.83,
+    "lng": 131.35
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Oita"],
+  "description": "Quasi-national park of the Sobo and Katamuki peaks, the 'mountains of the gods' of the Oita-Miyazaki border, with the Takachiho gorge and shrine country.",
+  "highlights": ["Sobo-Katamuki peaks", "Takachiho gorge", "Mountain shrines"],
+  "notes": "Managed by Oita/Miyazaki. The Sobo trail and Takachiho's gorge are the highlights.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 6,
+    "max": 10
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.2,
+    "summer": 8.5,
+    "winter": 7.8,
+    "rain": 7.5,
+    "food": 7.3,
+    "photography": 8.7,
+    "relaxation": 8.5,
+    "value": 8.3,
+    "uniqueness": 8.6
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Sobo_Katamuki_Quasi_National_Park_%28186973029%29.jpeg/1920px-Sobo_Katamuki_Quasi_National_Park_%28186973029%29.jpeg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Sobo_Katamuki_Quasi_National_Park_%28186973029%29.jpeg/1920px-Sobo_Katamuki_Quasi_National_Park_%28186973029%29.jpeg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Yuuji Satou, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sobo_Katamuki_Quasi_National_Park_(186973029).jpeg"
+  },
+  "officialWebsite": "http://sobokatamuki-br-council.org/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Oita:taketa",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 53
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Sobo-Katamuki Quasi-National Park",
+      "description": "Quasi-national park of the Sobo and Katamuki peaks, the 'mountains of the gods' of the Oita-Miyazaki border, with the Takachiho gorge and shrine country.",
+      "highlights": [
+        "Sobo-Katamuki peaks",
+        "Takachiho gorge",
+        "Mountain shrines"
+      ],
+      "notes": "Managed by Oita/Miyazaki. The Sobo trail and Takachiho's gorge are the highlights.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "祖母傾国定公園",
+      "description": "大分・宮崎県境にそびえる「神々の山」祖母山・傾山の国定公園。高千穂峡と社寺が点在する地域を含む。",
+      "highlights": ["祖母・傾の峰々", "高千穂峡", "山岳神社"],
+      "notes": "大分・宮崎両県が管理。祖母山の登山道と高千穂峡がハイライト。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "http://sobokatamuki-br-council.org/",
+        "title": "Sobo-Katamuki Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

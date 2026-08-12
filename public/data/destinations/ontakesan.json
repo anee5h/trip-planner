@@ -1,0 +1,145 @@
+{
+  "id": "ontakesan",
+  "name": "Ontakesan Quasi-National Park",
+  "nameJa": "御嶽山国定公園",
+  "aliases": ["御嶽山国定公園", "Mount Ontake"],
+  "prefecture": "Nagano",
+  "region": "Chubu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.9016,
+    "lng": 137.5369
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Nagano", "Gifu"],
+  "description": "Ontakesan Quasi-National Park (designated April 2026) protects the 3,067 m Ontake volcano and its alpine trails on the Nagano-Gifu border, Japan's 58th quasi-national park. Access runs from the Ontake Ropeway at Kurosawa-guchi (Kiso) and the Nigorigo Onsen trailhead (Gero).",
+  "highlights": [
+    "Ontake volcano (3,067 m)",
+    "Ontake Ropeway and Kurosawa-guchi trailhead",
+    "Nigorigo Onsen hot-spring trailhead",
+    "Nagano-Gifu border alpine scenery"
+  ],
+  "notes": "Designated 2026-04-10 (28,275 ha) spanning Nagano (Otaki, Kiso) and Gifu (Takayama, Gero). The Ontake Ropeway runs seasonally from Kiso town; summit trails require proper mountain gear.",
+  "transportOptions": {
+    "bus": 90
+  },
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 8
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8,
+    "summer": 8.3,
+    "winter": 7.6,
+    "rain": 7.3,
+    "food": 7.1,
+    "photography": 8.5,
+    "relaxation": 8.3,
+    "value": 8.1,
+    "uniqueness": 8.4
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mount_Ontake_%28Morgenrot_zoom%29.JPG/1920px-Mount_Ontake_%28Morgenrot_zoom%29.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mount_Ontake_%28Morgenrot_zoom%29.JPG/1920px-Mount_Ontake_%28Morgenrot_zoom%29.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Alpsdake",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Ontake_(Morgenrot_zoom).JPG"
+  },
+  "officialWebsite": "https://www.pref.nagano.lg.jp/kisochi/somu-kankyo/kankyo/ontake_setsumei.html",
+  "businessHours": "Open access (park); the Ontake Ropeway runs seasonally (usually late April-November)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます。おんたけロープウェイは季節運行（概ね6月〜11月）",
+  "municipalityId": "Nagano:kiso",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 58
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Ontakesan Quasi-National Park",
+      "description": "Ontakesan Quasi-National Park (designated April 2026) protects the 3,067 m Ontake volcano and its alpine trails on the Nagano-Gifu border, Japan's 58th quasi-national park. Access runs from the Ontake Ropeway at Kurosawa-guchi (Kiso) and the Nigorigo Onsen trailhead (Gero).",
+      "highlights": [
+        "Ontake volcano (3,067 m)",
+        "Ontake Ropeway and Kurosawa-guchi trailhead",
+        "Nigorigo Onsen hot-spring trailhead",
+        "Nagano-Gifu border alpine scenery"
+      ],
+      "notes": "Designated 2026-04-10 (28,275 ha) spanning Nagano (Otaki, Kiso) and Gifu (Takayama, Gero). The Ontake Ropeway runs seasonally from Kiso town; summit trails require proper mountain gear.",
+      "reservation": "None required",
+      "parking": "Parking available at major trailheads (Ontake Ropeway base, Nigorigo Onsen; fee varies)",
+      "openingHours": "Open access (park); the Ontake Ropeway runs seasonally (usually late April-November)"
+    },
+    "ja": {
+      "name": "御嶽山国定公園",
+      "description": "令和8年4月10日に指定された、長野・岐阜県境にそびえる標高3,067mの御嶽山と高山帯の登山道を保護する国定公園（全国58番目）。木曽町の黒沢口・おんたけロープウェイや下呂市の濁河温泉口からアクセスできます。",
+      "highlights": [
+        "御嶽山（標高3,067m）",
+        "おんたけロープウェイと黒沢口",
+        "濁河温泉口",
+        "長野・岐阜県境の高山景観"
+      ],
+      "notes": "令和8年4月10日指定（28,275ha）。長野県王滝村・木曽町と岐阜県高山市・下呂市にまたがります。おんたけロープウェイは季節運行（概ね6月〜11月）です。",
+      "reservation": "予約不要",
+      "parking": "主要な登山口に駐車場あり（おんたけロープウェイ山麓駅・濁河温泉など、料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます。おんたけロープウェイは季節運行（概ね6月〜11月）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Collections audit correction",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/press/press_03975.html",
+        "title": "MOE: Ontakesan Quasi-National Park designation (2026-04-10)",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.pref.nagano.lg.jp/kisochi/somu-kankyo/kankyo/ontake_setsumei.html",
+        "title": "Nagano Prefecture: Ontakesan QNP",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/content/000391139.pdf",
+        "title": "Designation document (指定書)",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "Collections audit: Ontakesan QNP added (2026-04-10 designation, 58th)",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Collections audit correction",
+        "summary": "Added Ontakesan Quasi-National Park record; quasi-national-parks-japan expectedMembers 57 to 58",
+        "method": "assisted"
+      }
+    ]
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  }
+}

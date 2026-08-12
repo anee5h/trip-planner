@@ -1,0 +1,114 @@
+{
+  "id": "hiba-dogo-taishaku",
+  "name": "Hiba-Dogo-Taishaku Quasi-National Park",
+  "nameJa": "比婆道後帝釈国定公園",
+  "aliases": ["比婆道後帝釈国定公園"],
+  "prefecture": "Hiroshima",
+  "region": "Chugoku",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.05,
+    "lng": 133.05
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Hiroshima"],
+  "description": "Quasi-national park of the Hiba mountains, the Dogo highlands and the Taishaku limestone gorge in Hiroshima, Shimane and Tottori.",
+  "highlights": ["Taishaku gorge", "Hiba mountains", "Dogo highlands"],
+  "notes": "Managed by Hiroshima/Shimane/Tottori. The Taishaku-kyo cliffs and the Dogo plateau are highlights.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.3,
+    "couple": 8.1,
+    "summer": 8.4,
+    "winter": 7.7,
+    "rain": 7.4,
+    "food": 7.2,
+    "photography": 8.6,
+    "relaxation": 8.4,
+    "value": 8.2,
+    "uniqueness": 8.5
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Ikenodan_and_Mount_Tateeboshi_2009-09-20.jpg/1920px-Ikenodan_and_Mount_Tateeboshi_2009-09-20.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Ikenodan_and_Mount_Tateeboshi_2009-09-20.jpg/1920px-Ikenodan_and_Mount_Tateeboshi_2009-09-20.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "As6673, Public domain, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ikenodan_and_Mount_Tateeboshi_2009-09-20.jpg"
+  },
+  "officialWebsite": "https://www.pref.shimane.lg.jp/infra/nature/shizen/shimane/shimane_kouen/kokuritu_kokutei/hibadogotaisyaku/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Hiroshima:shobara",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 40
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Hiba-Dogo-Taishaku Quasi-National Park",
+      "description": "Quasi-national park of the Hiba mountains, the Dogo highlands and the Taishaku limestone gorge in Hiroshima, Shimane and Tottori.",
+      "highlights": ["Taishaku gorge", "Hiba mountains", "Dogo highlands"],
+      "notes": "Managed by Hiroshima/Shimane/Tottori. The Taishaku-kyo cliffs and the Dogo plateau are highlights.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "比婆道後帝釈国定公園",
+      "description": "広島・島根・鳥取にまたがる、比婆山・道後高原・帝釈石灰岩峡谷を擁する国定公園。",
+      "highlights": ["帝釈峡", "比婆山", "道後高原"],
+      "notes": "広島・島根・鳥取の管理。帝釈峡の断崖と道後高原が見どころ。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.pref.shimane.lg.jp/infra/nature/shizen/shimane/shimane_kouen/kokuritu_kokutei/hibadogotaisyaku/",
+        "title": "Hiba-Dogo-Taishaku Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

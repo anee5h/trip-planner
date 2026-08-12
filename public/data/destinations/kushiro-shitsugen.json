@@ -1,0 +1,122 @@
+{
+  "id": "kushiro-shitsugen",
+  "name": "Kushiroshitsugen National Park",
+  "nameJa": "釧路湿原国立公園",
+  "aliases": ["釧路湿原国立公園"],
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 43.1,
+    "lng": 144.4
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Hokkaido"],
+  "description": "Japan's largest wetland (designated 1987) and the home of the red-crowned crane; boardwalks and a riverside train offer views over the vast marsh.",
+  "highlights": [
+    "Japan's largest wetland",
+    "Red-crowned cranes",
+    "Marsh boardwalks"
+  ],
+  "notes": "Designated 1987 (28,788 ha). Best in winter for cranes and summer for marsh flowers; the Hosooka observation deck is a highlight.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 8.9,
+    "winter": 8.2,
+    "rain": 7.9,
+    "food": 7.7,
+    "photography": 9.1,
+    "relaxation": 8.9,
+    "value": 8.7,
+    "uniqueness": 9
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Kushiro_Marsh_Wetland_Hokkaido_Panorama_2014.png/1920px-Kushiro_Marsh_Wetland_Hokkaido_Panorama_2014.png",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Kushiro_Marsh_Wetland_Hokkaido_Panorama_2014.png/1920px-Kushiro_Marsh_Wetland_Hokkaido_Panorama_2014.png",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "Kzaral, CC BY 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kushiro_Marsh_Wetland_Hokkaido_Panorama_2014.png"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/kushiro/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Hokkaido:kushiro",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 4
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Kushiroshitsugen National Park",
+      "description": "Japan's largest wetland (designated 1987) and the home of the red-crowned crane; boardwalks and a riverside train offer views over the vast marsh.",
+      "highlights": [
+        "Japan's largest wetland",
+        "Red-crowned cranes",
+        "Marsh boardwalks"
+      ],
+      "notes": "Designated 1987 (28,788 ha). Best in winter for cranes and summer for marsh flowers; the Hosooka observation deck is a highlight.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "釧路湿原国立公園",
+      "description": "1987年指定の日本最大の湿原。タンチョウの生息地で、木道や川沿いの列車から広大な湿原を望める。",
+      "highlights": ["日本最大の湿原", "タンチョウ", "湿原の木道"],
+      "notes": "1987年指定（28,788ha）。タンチョウは冬、湿原の花は夏が見頃。細岡展望台が見どころ。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/kushiro/index.html",
+        "title": "Kushiroshitsugen National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  }
+}

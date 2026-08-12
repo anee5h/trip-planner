@@ -1,0 +1,121 @@
+{
+  "id": "noto-hanto",
+  "name": "Noto Hanto Quasi-National Park",
+  "nameJa": "能登半島国定公園",
+  "aliases": ["能登半島国定公園"],
+  "prefecture": "Ishikawa",
+  "region": "Chubu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 37.4,
+    "lng": 136.95
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Ishikawa"],
+  "description": "Quasi-national park of the Noto Peninsula with its ria coast, the Wajima and Sosogi terraced fields, and the century-old mountain villages of the peninsula.",
+  "highlights": ["Noto ria coast", "Terraced fields", "Wajima morning market"],
+  "notes": "Managed by Ishikawa/Toyama. The Noto Kongo coast and the peninsula loop road are the highlights.",
+  "transportOptions": {
+    "bus": 120,
+    "car": 90
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.2,
+    "summer": 8.5,
+    "winter": 7.8,
+    "rain": 7.5,
+    "food": 7.3,
+    "photography": 8.7,
+    "relaxation": 8.5,
+    "value": 8.3,
+    "uniqueness": 8.6
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Mitsukejima.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Mitsukejima.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Akimoto at Japanese Wikipedia, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mitsukejima.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Ishikawa:wajima",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 20
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Noto Hanto Quasi-National Park",
+      "description": "Quasi-national park of the Noto Peninsula with its ria coast, the Wajima and Sosogi terraced fields, and the century-old mountain villages of the peninsula.",
+      "highlights": [
+        "Noto ria coast",
+        "Terraced fields",
+        "Wajima morning market"
+      ],
+      "notes": "Managed by Ishikawa/Toyama. The Noto Kongo coast and the peninsula loop road are the highlights.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "能登半島国定公園",
+      "description": "能登半島の国定公園。リアス式海岸、輪島・曽々木の棚田、そして半島の歴史ある山間の集落が特徴。",
+      "highlights": ["能登のリアス式海岸", "棚田", "輪島の朝市"],
+      "notes": "石川県・富山県管理。能登金剛海岸と半島一周道路が見どころ。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Noto Hanto Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

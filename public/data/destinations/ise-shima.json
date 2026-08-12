@@ -1,0 +1,126 @@
+{
+  "id": "ise-shima",
+  "name": "Ise-Shima National Park",
+  "nameJa": "伊勢志摩国立公園",
+  "aliases": ["伊勢志摩国立公園"],
+  "prefecture": "Mie",
+  "region": "Kansai",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.46,
+    "lng": 136.72
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Mie"],
+  "description": "National park (1946) of the Ise-Shima coast: the forests around Ise Grand Shrine, the ria inlets of Ago Bay with their pearl rafts, and the Pacific shore.",
+  "highlights": [
+    "Ise Grand Shrine forests",
+    "Ago Bay pearl rafts",
+    "Ria coastline"
+  ],
+  "notes": "Designated 1946 (55,544 ha). Ago Bay pearl-culture cruises and the shrine precincts are the core visits.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.6,
+    "photography": 9,
+    "relaxation": 8.8,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/19/Ago_Bay_and_Takami_Mountains.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/1/19/Ago_Bay_and_Takami_Mountains.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "CC BY-SA 3.0 via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ago_Bay_and_Takami_Mountains.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/iseshima/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Mie:ise",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 21
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Ise-Shima National Park",
+      "description": "National park (1946) of the Ise-Shima coast: the forests around Ise Grand Shrine, the ria inlets of Ago Bay with their pearl rafts, and the Pacific shore.",
+      "highlights": [
+        "Ise Grand Shrine forests",
+        "Ago Bay pearl rafts",
+        "Ria coastline"
+      ],
+      "notes": "Designated 1946 (55,544 ha). Ago Bay pearl-culture cruises and the shrine precincts are the core visits.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "伊勢志摩国立公園",
+      "description": "伊勢志摩海岸の国立公園（1946年指定）。伊勢神宮を取り巻く森林、真珠の養殖いかだが浮かぶ英虞湾のリアス式海岸、そして太平洋に面した海岸線が特徴です。",
+      "highlights": [
+        "伊勢神宮の森林",
+        "英虞湾の真珠養殖いかだ",
+        "リアス式海岸"
+      ],
+      "notes": "1946年指定（55,544ha）。英虞湾の真珠養殖クルーズと神宮参拝が主な見どころです。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/iseshima/index.html",
+        "title": "Ise-Shima National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

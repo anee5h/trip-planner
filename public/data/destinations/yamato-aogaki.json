@@ -1,0 +1,122 @@
+{
+  "id": "yamato-aogaki",
+  "name": "Yamato Aogaki Quasi-National Park",
+  "nameJa": "大和青垣国定公園",
+  "aliases": ["大和青垣国定公園"],
+  "prefecture": "Nara",
+  "region": "Kansai",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.55,
+    "lng": 135.9
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Nara"],
+  "description": "Quasi-national park of the wooded hills ringing the Nara basin — the 'green walls of Yamato' — with the Miwa mountains and ancient shrine forests.",
+  "highlights": [
+    "Miwa mountains",
+    "Ancient shrine forests",
+    "Nara basin views"
+  ],
+  "notes": "Managed by Nara. The Miwa and Hasedera hills are the classic walks.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8,
+    "summer": 8.3,
+    "winter": 7.6,
+    "rain": 7.3,
+    "food": 7.1,
+    "photography": 8.5,
+    "relaxation": 8.3,
+    "value": 8.1,
+    "uniqueness": 8.4
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/96/Mt.miwa.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/Mt.miwa.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Original uploader was Ans at ja.wikipedia, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt.miwa.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Nara:sakurai",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 38
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Yamato Aogaki Quasi-National Park",
+      "description": "Quasi-national park of the wooded hills ringing the Nara basin — the 'green walls of Yamato' — with the Miwa mountains and ancient shrine forests.",
+      "highlights": [
+        "Miwa mountains",
+        "Ancient shrine forests",
+        "Nara basin views"
+      ],
+      "notes": "Managed by Nara. The Miwa and Hasedera hills are the classic walks.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "大和青垣国定公園",
+      "description": "奈良盆地を取り巻く緑の丘陵地帯の国定公園。「大和の緑の壁」と呼ばれ、三輪山と古社の森が広がる。",
+      "highlights": ["三輪山", "古社の森", "奈良盆地の眺望"],
+      "notes": "奈良県の管理。三輪山と長谷寺の丘陵地が定番のウォーキングコース。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Yamato Aogaki Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "id": "rishiri-rebun-sarobetsu",
+  "name": "Rishiri-Rebun-Sarobetsu National Park",
+  "nameJa": "利尻礼文サロベツ国立公園",
+  "aliases": ["利尻礼文サロベツ国立公園"],
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 45.18,
+    "lng": 141.25
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Hokkaido"],
+  "description": "National park (1974) spanning the conical Rishiri volcano, the flower-covered Rebun Island, and the Sarobetsu wetlands of northern Hokkaido's Wakkanai coast.",
+  "highlights": [
+    "Rishiri volcano cone",
+    "Rebun flower fields",
+    "Sarobetsu wetland boardwalk"
+  ],
+  "notes": "Designated 1974 (24,512 ha). The Sarobetsu boardwalk and Mt. Rishiri climbs are the core experiences; access is by ferry from Wakkanai.",
+  "transportOptions": {
+    "ferry": 110
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.3,
+    "summer": 8.6,
+    "winter": 7.9,
+    "rain": 7.6,
+    "food": 7.4,
+    "photography": 8.8,
+    "relaxation": 8.6,
+    "value": 8.4,
+    "uniqueness": 8.7
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Lava_rocks%2C_Senhoshi_Misaki_Park%2C_Rishiri_Island%2C_Japan.jpg/1920px-Lava_rocks%2C_Senhoshi_Misaki_Park%2C_Rishiri_Island%2C_Japan.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Lava_rocks%2C_Senhoshi_Misaki_Park%2C_Rishiri_Island%2C_Japan.jpg/1920px-Lava_rocks%2C_Senhoshi_Misaki_Park%2C_Rishiri_Island%2C_Japan.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "OKJaguar, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lava_rocks,_Senhoshi_Misaki_Park,_Rishiri_Island,_Japan.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/rishiri/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Hokkaido:rishirifuji",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 1
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Rishiri-Rebun-Sarobetsu National Park",
+      "description": "National park (1974) spanning the conical Rishiri volcano, the flower-covered Rebun Island, and the Sarobetsu wetlands of northern Hokkaido's Wakkanai coast.",
+      "highlights": [
+        "Rishiri volcano cone",
+        "Rebun flower fields",
+        "Sarobetsu wetland boardwalk"
+      ],
+      "notes": "Designated 1974 (24,512 ha). The Sarobetsu boardwalk and Mt. Rishiri climbs are the core experiences; access is by ferry from Wakkanai.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "利尻礼文サロベツ国立公園",
+      "description": "1974年指定の国立公園。円錐形の利尻山、花咲く礼文島、北海道北部の稚内海岸に広がるサロベツ湿原を擁する。",
+      "highlights": ["利尻山の円錐形", "礼文島の花畑", "サロベツ湿原の木道"],
+      "notes": "1974年指定（24,512ha）。サロベツ湿原の木道散策と利尻山登山が中心。稚内からフェリーでアクセス。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/rishiri/index.html",
+        "title": "Rishiri-Rebun-Sarobetsu National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "transportZoneId": "unknown",
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  },
+  "recommendedVisitHours": {
+    "min": 6,
+    "max": 12
+  }
+}

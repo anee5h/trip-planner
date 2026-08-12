@@ -1,0 +1,114 @@
+{
+  "id": "kyoto-tamba-kogen",
+  "name": "Kyoto Tamba Kogen Quasi-National Park",
+  "nameJa": "京都丹波高原国定公園",
+  "aliases": ["京都丹波高原国定公園"],
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.25,
+    "lng": 135.35
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Kyoto"],
+  "description": "Quasi-national park (2016) of the Tamba highlands of central Kyoto, with the Yura river headwaters, forested ridges and the thatched villages of the region.",
+  "highlights": ["Tamba highlands", "Yura headwaters", "Thatched villages"],
+  "notes": "Managed by Kyoto. The cedar forests and rural valleys of Ayabe and Kyotamba are the park.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.1,
+    "couple": 7.9,
+    "summer": 8.2,
+    "winter": 7.5,
+    "rain": 7.2,
+    "food": 7,
+    "photography": 8.4,
+    "relaxation": 8.2,
+    "value": 8,
+    "uniqueness": 8.3
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Kitayama_cedar_trees_in_kyoto_Tamba_Highland.jpg/1920px-Kitayama_cedar_trees_in_kyoto_Tamba_Highland.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Kitayama_cedar_trees_in_kyoto_Tamba_Highland.jpg/1920px-Kitayama_cedar_trees_in_kyoto_Tamba_Highland.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Indiana jo, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitayama_cedar_trees_in_kyoto_Tamba_Highland.jpg"
+  },
+  "officialWebsite": "https://www.pref.kyoto.jp/shizen-koen/tamba.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Kyoto:ayabe",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 34
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Kyoto Tamba Kogen Quasi-National Park",
+      "description": "Quasi-national park (2016) of the Tamba highlands of central Kyoto, with the Yura river headwaters, forested ridges and the thatched villages of the region.",
+      "highlights": ["Tamba highlands", "Yura headwaters", "Thatched villages"],
+      "notes": "Managed by Kyoto. The cedar forests and rural valleys of Ayabe and Kyotamba are the park.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "京都丹波高原国定公園",
+      "description": "2016年指定の京都中部・丹波高地の国定公園。由良川の源流、森林に覆われた尾根、この地方の茅葺き集落が特徴。",
+      "highlights": ["丹波高地", "由良川源流", "茅葺き集落"],
+      "notes": "京都が管理。綾部・京丹波の杉林と田園渓谷が公園の見どころ。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.pref.kyoto.jp/shizen-koen/tamba.html",
+        "title": "Kyoto Tamba Kogen Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

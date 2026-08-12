@@ -18,12 +18,7 @@
     "minutesFromBase": 210,
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "national-parks-japan",
-      "sortOrder": 15
-    }
-  ],
+  "collections": [],
   "region": "Kyushu",
   "categories": ["Nature & Parks"],
   "budgetMin": 1500,

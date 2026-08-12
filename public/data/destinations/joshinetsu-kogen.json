@@ -1,0 +1,118 @@
+{
+  "id": "joshinetsu-kogen",
+  "name": "Joshin'etsukogen National Park",
+  "nameJa": "上信越高原国立公園",
+  "aliases": ["上信越高原国立公園"],
+  "prefecture": "Nagano",
+  "region": "Chubu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 36.7,
+    "lng": 138.5
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Nagano"],
+  "description": "National park (1949) across Gunma, Niigata and Nagano: the Shiga Kogen plateau, the Tanigawa peaks, Sugadaira and the volcanic zones above the onsen towns.",
+  "highlights": ["Shiga Kogen plateau", "Tanigawa-dake", "Snow-monkey country"],
+  "notes": "Designated 1949 (151,053 ha). Shiga Kogen is Japan's largest ski plateau; Jigokudani's snow monkeys are nearby.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.6,
+    "photography": 9,
+    "relaxation": 8.8,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/2024-10-22_J%C5%8Dshin%27etsu-k%C5%8Dgen_National_Park%2C_Shijuhachiike_marsh.jpg/1920px-2024-10-22_J%C5%8Dshin%27etsu-k%C5%8Dgen_National_Park%2C_Shijuhachiike_marsh.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/2024-10-22_J%C5%8Dshin%27etsu-k%C5%8Dgen_National_Park%2C_Shijuhachiike_marsh.jpg/1920px-2024-10-22_J%C5%8Dshin%27etsu-k%C5%8Dgen_National_Park%2C_Shijuhachiike_marsh.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Alexkom000, CC BY 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2024-10-22_Jōshin'etsu-kōgen_National_Park,_Shijuhachiike_marsh.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/joshinetsu/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Nagano:yamanouchi",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 13
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Joshin'etsukogen National Park",
+      "description": "National park (1949) across Gunma, Niigata and Nagano: the Shiga Kogen plateau, the Tanigawa peaks, Sugadaira and the volcanic zones above the onsen towns.",
+      "highlights": [
+        "Shiga Kogen plateau",
+        "Tanigawa-dake",
+        "Snow-monkey country"
+      ],
+      "notes": "Designated 1949 (151,053 ha). Shiga Kogen is Japan's largest ski plateau; Jigokudani's snow monkeys are nearby.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "上信越高原国立公園",
+      "description": "群馬・新潟・長野にまたがる国立公園（1949年指定）。志賀高原、谷川連峰、菅平、温泉街の上に広がる火山地帯を含みます。",
+      "highlights": ["志賀高原", "谷川岳", "スノーモンキーの生息地"],
+      "notes": "1949年指定（151,053ha）。志賀高原は日本最大のスキー高原。地獄谷のニホンザルも近くにいます。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/joshinetsu/index.html",
+        "title": "Joshin'etsukogen National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  }
+}

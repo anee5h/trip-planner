@@ -1,0 +1,122 @@
+{
+  "id": "bandai-asahi",
+  "name": "Bandai-Asahi National Park",
+  "nameJa": "磐梯朝日国立公園",
+  "aliases": ["磐梯朝日国立公園"],
+  "prefecture": "Fukushima",
+  "region": "Tohoku",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 37.68,
+    "lng": 140.05
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Fukushima"],
+  "description": "National park (1950) centered on the Bandai volcano and the Urabandai highland with its pond groups, plus the Asahi and Iide ranges of the northern Ou mountains.",
+  "highlights": [
+    "Bandai volcano",
+    "Urabandai pond country",
+    "Goshikinuma colorful ponds"
+  ],
+  "notes": "Designated 1950 (186,375 ha). Urabandai's Goshikinuma colored ponds and Bandai-Azuma ski areas are the main gates.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 8.9,
+    "winter": 8.2,
+    "rain": 7.9,
+    "food": 7.7,
+    "photography": 9.1,
+    "relaxation": 8.9,
+    "value": 8.7,
+    "uniqueness": 9
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Aizuwakamatsu_and_Goshikinuma_-_Goshikinuma7492.jpg/1920px-Aizuwakamatsu_and_Goshikinuma_-_Goshikinuma7492.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Aizuwakamatsu_and_Goshikinuma_-_Goshikinuma7492.jpg/1920px-Aizuwakamatsu_and_Goshikinuma_-_Goshikinuma7492.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "lumoplank, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aizuwakamatsu_and_Goshikinuma_-_Goshikinuma7492.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/bandai/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Fukushima:kitashiobara",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 10
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Bandai-Asahi National Park",
+      "description": "National park (1950) centered on the Bandai volcano and the Urabandai highland with its pond groups, plus the Asahi and Iide ranges of the northern Ou mountains.",
+      "highlights": [
+        "Bandai volcano",
+        "Urabandai pond country",
+        "Goshikinuma colorful ponds"
+      ],
+      "notes": "Designated 1950 (186,375 ha). Urabandai's Goshikinuma colored ponds and Bandai-Azuma ski areas are the main gates.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "磐梯朝日国立公園",
+      "description": "1950年指定の国立公園。磐梯山と、その噴火でできた裏磐梯高原の湖沼群を中心に、朝日山地・飯豊山地を含みます。",
+      "highlights": ["磐梯山", "裏磐梯の湖沼群", "五色沼の色鮮やかな池"],
+      "notes": "1950年指定（18万6375ha）。裏磐梯の五色沼や磐梯・吾妻スキー場がおもな入口です。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/bandai/index.html",
+        "title": "Bandai-Asahi National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "nikko-national-park",
+  "name": "Nikko National Park",
+  "nameJa": "日光国立公園",
+  "aliases": ["日光国立公園"],
+  "prefecture": "Tochigi",
+  "region": "Kanto",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 36.75,
+    "lng": 139.45
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Tochigi"],
+  "description": "National park (1934) around the Nikko mountains: Lake Chuzenji, Kegon Falls, the Oku-Nikko marshlands and the volcanic peaks north of the famous shrines.",
+  "highlights": ["Lake Chuzenji", "Kegon Falls", "Oku-Nikko highlands"],
+  "notes": "Designated 1934 (114,908 ha). The Irohazaka road and Oku-Nikko trails are the highlights beyond the shrines.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 4,
+    "max": 8
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 9.1,
+    "couple": 8.9,
+    "summer": 9.2,
+    "winter": 8.5,
+    "rain": 8.2,
+    "food": 8,
+    "photography": 9.4,
+    "relaxation": 9.2,
+    "value": 9,
+    "uniqueness": 9.3
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Kegon_Falls%2C_Nikk%C5%8D_National_Park_%28%E8%8F%AF%E5%8E%B3%E6%BB%9D%2C_%E6%97%A5%E5%85%89%E5%9B%BD%E7%AB%8B%E5%85%AC%E5%9C%92%29_%281967-05-06_by_Roger_W%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Kegon_Falls%2C_Nikk%C5%8D_National_Park_%28%E8%8F%AF%E5%8E%B3%E6%BB%9D%2C_%E6%97%A5%E5%85%89%E5%9B%BD%E7%AB%8B%E5%85%AC%E5%9C%92%29_%281967-05-06_by_Roger_W%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "attribution": "Roger W from Sarasota, Florida, U.S.A., CC BY-SA 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kegon_Falls,_Nikkō_National_Park_(華厳滝,_日光国立公園)_(1967-05-06_by_Roger_W).jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/nikko/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Tochigi:nikko",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 11
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Nikko National Park",
+      "description": "National park (1934) around the Nikko mountains: Lake Chuzenji, Kegon Falls, the Oku-Nikko marshlands and the volcanic peaks north of the famous shrines.",
+      "highlights": ["Lake Chuzenji", "Kegon Falls", "Oku-Nikko highlands"],
+      "notes": "Designated 1934 (114,908 ha). The Irohazaka road and Oku-Nikko trails are the highlights beyond the shrines.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "日光国立公園",
+      "description": "日光の山々を中心とした国立公園（1934年指定）。中禅寺湖、華厳滝、奥日光湿原、そして有名な神社群の北に広がる火山峰を含みます。",
+      "highlights": ["中禅寺湖", "華厳滝", "奥日光高原"],
+      "notes": "1934年指定（114,908ha）。神社群の先はいろは坂と奥日光のトレイルが見どころです。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/nikko/index.html",
+        "title": "Nikko National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  }
+}

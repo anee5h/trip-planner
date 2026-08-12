@@ -1,0 +1,125 @@
+{
+  "id": "ishizuchi",
+  "name": "Ishizuchi Quasi-National Park",
+  "nameJa": "石鎚国定公園",
+  "aliases": ["石鎚国定公園"],
+  "prefecture": "Ehime",
+  "region": "Shikoku",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 33.77,
+    "lng": 133.12
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Ehime"],
+  "description": "Quasi-national park of Mt. Ishizuchi, Shikoku's highest peak (1,982 m) and one of the seven holy mountains, with its shrine chain and alpine plants.",
+  "highlights": [
+    "Mt. Ishizuchi 1,982 m",
+    "Sacred chains and shrines",
+    "Alpine plants"
+  ],
+  "notes": "Managed by Ehime/Kochi. The summit shrine and the Omogo valley are the classic routes.",
+  "transportOptions": {
+    "train": 80,
+    "car": 100
+  },
+  "recommendedVisitHours": {
+    "min": 5,
+    "max": 9
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.2,
+    "summer": 8.5,
+    "winter": 7.8,
+    "rain": 7.5,
+    "food": 7.3,
+    "photography": 8.7,
+    "relaxation": 8.5,
+    "value": 8.3,
+    "uniqueness": 8.6
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/24/Mount_Ishizuchi.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Mount_Ishizuchi.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "HendrixEesti, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Ishizuchi.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Ehime:saijo",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 46
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Ishizuchi Quasi-National Park",
+      "description": "Quasi-national park of Mt. Ishizuchi, Shikoku's highest peak (1,982 m) and one of the seven holy mountains, with its shrine chain and alpine plants.",
+      "highlights": [
+        "Mt. Ishizuchi 1,982 m",
+        "Sacred chains and shrines",
+        "Alpine plants"
+      ],
+      "notes": "Managed by Ehime/Kochi. The summit shrine and the Omogo valley are the classic routes.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "石鎚国定公園",
+      "description": "石鎚山を中心とする国定公園。四国最高峰（1,982m）で七霊山の一つとされ、連なる社寺と高山植物が見どころ。",
+      "highlights": ["石鎚山 1,982m", "鎖場と社寺", "高山植物"],
+      "notes": "愛媛・高知両県が管理。山頂の神社と面河渓が定番ルート。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ishizuchi Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

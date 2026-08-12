@@ -1,0 +1,116 @@
+{
+  "id": "meiji-no-mori-takao",
+  "name": "Meiji no Mori Takao Quasi-National Park",
+  "nameJa": "明治の森高尾国定公園",
+  "aliases": ["明治の森高尾国定公園"],
+  "prefecture": "Tokyo",
+  "region": "Kanto",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.63,
+    "lng": 139.25
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Tokyo"],
+  "description": "Quasi-national park created in 1967 to commemorate Emperor Meiji, centered on Mt. Takao — Tokyo's most popular hike, with a shrine, cable car and city views.",
+  "highlights": ["Mt. Takao", "Cable car and chairlift", "Takao shrine"],
+  "notes": "Managed by Tokyo. Accessible by Keio line from Shinjuku; the summit trail is easy.",
+  "transportOptions": {
+    "train": 50
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 9.2,
+    "couple": 9,
+    "summer": 9.3,
+    "winter": 8.6,
+    "rain": 8.3,
+    "food": 8.1,
+    "photography": 9.5,
+    "relaxation": 9.3,
+    "value": 9.1,
+    "uniqueness": 9.4
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Summit_%40_Mount_Takao_%289876503685%29.jpg/1920px-Summit_%40_Mount_Takao_%289876503685%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Summit_%40_Mount_Takao_%289876503685%29.jpg/1920px-Summit_%40_Mount_Takao_%289876503685%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "Guilhem Vellut from Annecy, France, CC BY 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Summit_@_Mount_Takao_(9876503685).jpg"
+  },
+  "officialWebsite": "https://www.kankyo.metro.tokyo.lg.jp/naturepark/know/park/introduction/toritu/meiji/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Tokyo:hachioji",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 17
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Meiji no Mori Takao Quasi-National Park",
+      "description": "Quasi-national park created in 1967 to commemorate Emperor Meiji, centered on Mt. Takao — Tokyo's most popular hike, with a shrine, cable car and city views.",
+      "highlights": ["Mt. Takao", "Cable car and chairlift", "Takao shrine"],
+      "notes": "Managed by Tokyo. Accessible by Keio line from Shinjuku; the summit trail is easy.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "明治の森高尾国定公園",
+      "description": "1967年に明治天皇を記念して制定された国定公園。高尾山を中心とし、東京で最も人気のハイキングコースで、神社やケーブルカー、市街の眺望が楽しめる。",
+      "highlights": ["高尾山", "ケーブルカーとリフト", "高尾山の神社"],
+      "notes": "東京都管理。新宿から京王線でアクセス可能。山頂までの道のりは簡単。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.kankyo.metro.tokyo.lg.jp/naturepark/know/park/introduction/toritu/meiji/index.html",
+        "title": "Meiji no Mori Takao Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  }
+}

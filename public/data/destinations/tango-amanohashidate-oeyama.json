@@ -1,0 +1,118 @@
+{
+  "id": "tango-amanohashidate-oeyama",
+  "name": "Tango-Amanohashidate-Oeyama Quasi-National Park",
+  "nameJa": "丹後天橋立大江山国定公園",
+  "aliases": ["丹後天橋立大江山国定公園"],
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.57,
+    "lng": 135.19
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Kyoto"],
+  "description": "Quasi-national park of northern Kyoto: the Amanohashidate sandbar — one of Japan's three great views — the Tango coast and the Oeyama peaks.",
+  "highlights": ["Amanohashidate sandbar", "Tango coast", "Oeyama mountains"],
+  "notes": "Managed by Kyoto. The sandbar viewpoint at Kasamatsu Park and the Monju coast are the highlights.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.4,
+    "summer": 8.7,
+    "winter": 8,
+    "rain": 7.7,
+    "food": 7.5,
+    "photography": 8.9,
+    "relaxation": 8.7,
+    "value": 8.5,
+    "uniqueness": 8.8
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Amanohashidate_-_Amanohashidate7586.jpg/1920px-Amanohashidate_-_Amanohashidate7586.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Amanohashidate_-_Amanohashidate7586.jpg/1920px-Amanohashidate_-_Amanohashidate7586.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "lumoplank, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amanohashidate_-_Amanohashidate7586.jpg"
+  },
+  "officialWebsite": "https://www.pref.kyoto.jp/shizen-koen/1242868574206.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Kyoto:miyazu",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 33
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Tango-Amanohashidate-Oeyama Quasi-National Park",
+      "description": "Quasi-national park of northern Kyoto: the Amanohashidate sandbar — one of Japan's three great views — the Tango coast and the Oeyama peaks.",
+      "highlights": [
+        "Amanohashidate sandbar",
+        "Tango coast",
+        "Oeyama mountains"
+      ],
+      "notes": "Managed by Kyoto. The sandbar viewpoint at Kasamatsu Park and the Monju coast are the highlights.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "丹後天橋立大江山国定公園",
+      "description": "京都北部の国定公園。日本三景の一つ・天橋立の砂嘴、丹後海岸、大江山の峰々が含まれる。",
+      "highlights": ["天橋立", "丹後海岸", "大江山"],
+      "notes": "京都が管理。笠松公園からの天橋立眺望と文珠海岸がハイライト。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.pref.kyoto.jp/shizen-koen/1242868574206.html",
+        "title": "Tango-Amanohashidate-Oeyama Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

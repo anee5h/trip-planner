@@ -1,0 +1,114 @@
+{
+  "id": "saikai",
+  "name": "Saikai National Park",
+  "nameJa": "西海国立公園",
+  "aliases": ["西海国立公園"],
+  "prefecture": "Nagasaki",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 33.18,
+    "lng": 129.63
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Nagasaki"],
+  "description": "National park (1955) of the western Nagasaki coast: the 208 islands of the Kujukushima archipelago, the Hirado strait and the Goto islands.",
+  "highlights": ["Kujukushima islands", "Hirado coast", "Island cruises"],
+  "notes": "Designated 1955 (24,646 ha). The Kujukushima Pearl Sea Resort cruise from Sasebo is the classic view.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.9,
+    "couple": 8.7,
+    "summer": 9,
+    "winter": 8.3,
+    "rain": 8,
+    "food": 7.8,
+    "photography": 9.2,
+    "relaxation": 9,
+    "value": 8.8,
+    "uniqueness": 9.1
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/%E4%B9%9D%E5%8D%81%E4%B9%9D%E5%B3%B6_%E8%A5%BF%E6%B5%B7%E5%9B%BD%E7%AB%8B%E5%85%AC%E5%9C%92_Apr_27%2C_2008.jpg/1920px-%E4%B9%9D%E5%8D%81%E4%B9%9D%E5%B3%B6_%E8%A5%BF%E6%B5%B7%E5%9B%BD%E7%AB%8B%E5%85%AC%E5%9C%92_Apr_27%2C_2008.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/%E4%B9%9D%E5%8D%81%E4%B9%9D%E5%B3%B6_%E8%A5%BF%E6%B5%B7%E5%9B%BD%E7%AB%8B%E5%85%AC%E5%9C%92_Apr_27%2C_2008.jpg/1920px-%E4%B9%9D%E5%8D%81%E4%B9%9D%E5%B3%B6_%E8%A5%BF%E6%B5%B7%E5%9B%BD%E7%AB%8B%E5%85%AC%E5%9C%92_Apr_27%2C_2008.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "attribution": "veroyama, CC BY-SA 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:九十九島_西海国立公園_Apr_27,_2008.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/saikai/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Nagasaki:sasebo",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 27
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Saikai National Park",
+      "description": "National park (1955) of the western Nagasaki coast: the 208 islands of the Kujukushima archipelago, the Hirado strait and the Goto islands.",
+      "highlights": ["Kujukushima islands", "Hirado coast", "Island cruises"],
+      "notes": "Designated 1955 (24,646 ha). The Kujukushima Pearl Sea Resort cruise from Sasebo is the classic view.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "西海国立公園",
+      "description": "長崎県西部沿岸の国立公園（1955年指定）。九十九島諸島の208の島々、平戸海峡、五島列島からなる。",
+      "highlights": ["九十九島の島々", "平戸の海岸", "島巡りクルーズ"],
+      "notes": "1955年指定（24,646ha）。佐世保発の九十九島パールシーリゾートのクルーズが定番。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/saikai/index.html",
+        "title": "Saikai National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  }
+}

@@ -11,18 +11,12 @@
     "Historic Landmark",
     "Cultural Preservation Area"
   ],
-  "budgetMin": 4000,
-  "budgetMax": 15000,
-  "budgetRecommended": 9500,
   "transportOptions": {
     "train": 45,
     "bus": 50,
     "car": 60
   },
-  "totalTripHours": 6,
   "walkingMin": 120,
-  "walkingSunMin": 70,
-  "walkingShadeMin": 50,
   "indoorPercent": 35,
   "ratings": {
     "overall": 9.2,
@@ -36,27 +30,14 @@
     "value": 9.2,
     "uniqueness": 9.5
   },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 5,
-    "summer": 4,
-    "autumn": 5,
-    "winter": 4
-  },
-  "bestMonths": [3, 4, 5, 10, 11],
-  "bestSeason": "Autumn",
   "weatherDependence": "moderate",
   "tags": ["UNESCO World Heritage", "Shiretoko", "Hokkaido"],
   "reservation": "Not required",
   "parking": "Available nearby",
-  "notes": "Official UNESCO World Heritage Site.",
+  "notes": "Designated 1964 (38,954 ha). Entry to the Five Lakes area is guided in bear season; the Utoro visitor center is the gateway.",
   "coordinates": {
-    "lat": 44.0931,
-    "lng": 145.1322
+    "lat": 44.06,
+    "lng": 145.02
   },
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg/1280px-Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg",
@@ -78,23 +59,16 @@
     {
       "collectionId": "coastal-drives-japan",
       "sortOrder": 6
+    },
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 2
     }
   ],
   "relationships": {
     "gatewayHubId": "abashiri-city"
   },
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 3000,
-    "cafe": 1500
-  },
   "nameJa": "知床",
-  "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
-  },
   "walkingIntensity": "low",
   "role": "standalone",
   "placeType": "destination",
@@ -104,5 +78,10 @@
     "max": 7
   },
   "officialWebsite": "https://www.env.go.jp/park/shiretoko/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "high"
+  }
 }

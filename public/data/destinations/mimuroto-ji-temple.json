@@ -83,5 +83,6 @@
     "shinkansen": 152,
     "train": 252,
     "bus": 252
-  }
+  },
+  "collections": []
 }

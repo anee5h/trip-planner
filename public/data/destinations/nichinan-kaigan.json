@@ -1,0 +1,122 @@
+{
+  "id": "nichinan-kaigan",
+  "name": "Nichinan Kaigan Quasi-National Park",
+  "nameJa": "日南海岸国定公園",
+  "aliases": ["日南海岸国定公園"],
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 31.65,
+    "lng": 131.47
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Miyazaki"],
+  "description": "Quasi-national park of the Nichinan coast of southern Miyazaki: the Udo shrine's sea-cave torii, the Aoshima island and its wave-cut 'washing board' rocks, and the Obi castle town.",
+  "highlights": [
+    "Udo shrine sea cave",
+    "Aoshima washing-board rocks",
+    "Nichinan coast drive"
+  ],
+  "notes": "Managed by Miyazaki/Kagoshima. The coastal road from Miyazaki to Aoshima and Udo is the classic drive.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.3,
+    "summer": 8.6,
+    "winter": 7.9,
+    "rain": 7.6,
+    "food": 7.4,
+    "photography": 8.8,
+    "relaxation": 8.6,
+    "value": 8.4,
+    "uniqueness": 8.7
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/NichinanKaigan.JPG/1920px-NichinanKaigan.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/NichinanKaigan.JPG/1920px-NichinanKaigan.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Ippukucho, CC BY 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:NichinanKaigan.JPG"
+  },
+  "officialWebsite": "https://miyazaki-nature-park.com/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Miyazaki:nichinan",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 54
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Nichinan Kaigan Quasi-National Park",
+      "description": "Quasi-national park of the Nichinan coast of southern Miyazaki: the Udo shrine's sea-cave torii, the Aoshima island and its wave-cut 'washing board' rocks, and the Obi castle town.",
+      "highlights": [
+        "Udo shrine sea cave",
+        "Aoshima washing-board rocks",
+        "Nichinan coast drive"
+      ],
+      "notes": "Managed by Miyazaki/Kagoshima. The coastal road from Miyazaki to Aoshima and Udo is the classic drive.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "日南海岸国定公園",
+      "description": "宮崎南部の日南海岸の国定公園。鵜戸神宮の海食洞の鳥居、青島の「洗濯板」岩、飫肥の城下町が特徴。",
+      "highlights": ["鵜戸神宮の海食洞", "青島の洗濯板岩", "日南海岸ドライブ"],
+      "notes": "宮崎・鹿児島両県が管理。宮崎から青島・鵜戸へ続く海岸道路が定番ドライブコース。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://miyazaki-nature-park.com/",
+        "title": "Nichinan Kaigan Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

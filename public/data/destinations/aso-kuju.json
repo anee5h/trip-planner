@@ -1,0 +1,129 @@
+{
+  "id": "aso-kuju",
+  "name": "Aso-Kuju National Park",
+  "nameJa": "阿蘇くじゅう国立公園",
+  "aliases": ["阿蘇くじゅう国立公園"],
+  "prefecture": "Kumamoto",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 32.88,
+    "lng": 131.1
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Kumamoto"],
+  "description": "National park (1934) of the Aso caldera — one of the world's largest — with its active Nakadake crater, the green Kusasenri meadows, and the Kuju highlands.",
+  "highlights": [
+    "Aso caldera",
+    "Nakadake active crater",
+    "Kusasenri grasslands",
+    "Kuju mountains"
+  ],
+  "notes": "Designated 1934 (73,017 ha). Crater access closes with gas alerts; the caldera viewpoints are always open.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 9,
+    "couple": 8.8,
+    "summer": 9.1,
+    "winter": 8.4,
+    "rain": 8.1,
+    "food": 7.9,
+    "photography": 9.3,
+    "relaxation": 9.1,
+    "value": 8.9,
+    "uniqueness": 9.2
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Aso-Kuju_green_hills_%2852133519619%29.jpg/1920px-Aso-Kuju_green_hills_%2852133519619%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Aso-Kuju_green_hills_%2852133519619%29.jpg/1920px-Aso-Kuju_green_hills_%2852133519619%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "Raita Futo from Tokyo, Japan, CC BY 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aso-Kuju_green_hills_(52133519619).jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/aso/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Kumamoto:aso",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 29
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Aso-Kuju National Park",
+      "description": "National park (1934) of the Aso caldera — one of the world's largest — with its active Nakadake crater, the green Kusasenri meadows, and the Kuju highlands.",
+      "highlights": [
+        "Aso caldera",
+        "Nakadake active crater",
+        "Kusasenri grasslands",
+        "Kuju mountains"
+      ],
+      "notes": "Designated 1934 (73,017 ha). Crater access closes with gas alerts; the caldera viewpoints are always open.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "阿蘇くじゅう国立公園",
+      "description": "世界有数の規模を誇る阿蘇カルデラと、活火山の中岳火口、緑広がる草千里、九重連山からなる国立公園（1934年指定）。",
+      "highlights": [
+        "阿蘇カルデラ",
+        "中岳の活火口",
+        "草千里の草原",
+        "九重山系"
+      ],
+      "notes": "1934年指定（73,017ha）。火口への立ち入りはガス警報で規制されることがあるが、カルデラの展望は常時可能。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/aso/index.html",
+        "title": "Aso-Kuju National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  }
+}

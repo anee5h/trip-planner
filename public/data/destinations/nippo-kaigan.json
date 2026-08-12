@@ -1,0 +1,118 @@
+{
+  "id": "nippo-kaigan",
+  "name": "Nippo Kaigan Quasi-National Park",
+  "nameJa": "日豊海岸国定公園",
+  "aliases": ["日豊海岸国定公園"],
+  "prefecture": "Oita",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 33.45,
+    "lng": 131.62
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Oita"],
+  "description": "Quasi-national park of the Nippo coast from the Kunisaki peninsula to the Hyuga coast: the Kunisaki temples, the Usa shrine and the sea cliffs of Miyazaki.",
+  "highlights": ["Kunisaki temple country", "Usa shrine", "Hyuga sea cliffs"],
+  "notes": "Managed by Oita/Miyazaki. The Kunisaki pilgrimage road and the coast drives are the highlights.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.3,
+    "couple": 8.1,
+    "summer": 8.4,
+    "winter": 7.7,
+    "rain": 7.4,
+    "food": 7.2,
+    "photography": 8.6,
+    "relaxation": 8.4,
+    "value": 8.2,
+    "uniqueness": 8.5
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Beppu_Gulf.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Beppu_Gulf.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Jacques Descloitres, MODIS Land Rapid Response Team, NASA/GSFC, Public domain, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beppu_Gulf.jpg"
+  },
+  "officialWebsite": "https://miyazaki-nature-park.com/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Oita:kunisaki",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 52
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Nippo Kaigan Quasi-National Park",
+      "description": "Quasi-national park of the Nippo coast from the Kunisaki peninsula to the Hyuga coast: the Kunisaki temples, the Usa shrine and the sea cliffs of Miyazaki.",
+      "highlights": [
+        "Kunisaki temple country",
+        "Usa shrine",
+        "Hyuga sea cliffs"
+      ],
+      "notes": "Managed by Oita/Miyazaki. The Kunisaki pilgrimage road and the coast drives are the highlights.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "日豊海岸国定公園",
+      "description": "国東半島から日向海岸まで続く日豊海岸の国定公園。国東の寺院群、宇佐神宮、宮崎の海食崖が含まれる。",
+      "highlights": ["国東の寺院群", "宇佐神宮", "日向の海食崖"],
+      "notes": "大分・宮崎両県が管理。国東半島の巡礼道と海岸ドライブがハイライト。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://miyazaki-nature-park.com/",
+        "title": "Nippo Kaigan Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

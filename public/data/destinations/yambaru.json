@@ -1,0 +1,144 @@
+{
+  "id": "yambaru",
+  "name": "Yambaru National Park",
+  "nameJa": "やんばる国立公園",
+  "aliases": ["やんばる国立公園"],
+  "prefecture": "Okinawa",
+  "region": "Okinawa",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 26.75,
+    "lng": 128.25
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Okinawa"],
+  "description": "National park (2016) of northern Okinawa Island's Yanbaru forest — home of the Okinawa rail, Yanbaru kuina and the mangrove rivers of the Kunigami region.",
+  "highlights": [
+    "Okinawa rail habitat",
+    "Mangrove rivers",
+    "Subtropical Yanbaru forest"
+  ],
+  "notes": "Designated 2016 (17,352 ha). Trails in the Kunigami forest and kayak trips on the mangroves are highlights.",
+  "transportOptions": {
+    "bus": 90,
+    "car": 90
+  },
+  "walkingMin": 180,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.3,
+    "summer": 8.6,
+    "winter": 7.9,
+    "rain": 7.6,
+    "food": 7.4,
+    "photography": 8.8,
+    "relaxation": 8.6,
+    "value": 8.4,
+    "uniqueness": 8.7,
+    "walkability": 7
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Subtropical_Forest_of_Yanbaru_National_Park_Okinawa_2018.jpg/1920px-Subtropical_Forest_of_Yanbaru_National_Park_Okinawa_2018.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Subtropical_Forest_of_Yanbaru_National_Park_Okinawa_2018.jpg/1920px-Subtropical_Forest_of_Yanbaru_National_Park_Okinawa_2018.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "kohei sasabuchi, CC BY 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Subtropical_Forest_of_Yanbaru_National_Park_Okinawa_2018.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/yambaru/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Okinawa:kunigami",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 33
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Yambaru National Park",
+      "description": "National park (2016) of northern Okinawa Island's Yanbaru forest — home of the Okinawa rail, Yanbaru kuina and the mangrove rivers of the Kunigami region.",
+      "highlights": [
+        "Okinawa rail habitat",
+        "Mangrove rivers",
+        "Subtropical Yanbaru forest"
+      ],
+      "notes": "Designated 2016 (17,352 ha). Trails in the Kunigami forest and kayak trips on the mangroves are highlights.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "やんばる国立公園",
+      "description": "沖縄本島北部のやんばるの森を中心とする国立公園（2016年指定）。ヤンバルクイナの生息地で、国頭地域にはマングローブの川が広がります。",
+      "highlights": [
+        "ヤンバルクイナの生息地",
+        "マングローブの川",
+        "亜熱帯のやんばるの森"
+      ],
+      "notes": "2016年指定（17,352 ha）。国頭の森のトレイルとマングローブのカヤックが人気です。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/yambaru/index.html",
+        "title": "Yambaru National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8,
+    "summer": 9,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [10, 11, 12, 1, 2, 3, 4],
+  "walkingSunMin": 120,
+  "walkingShadeMin": 60
+}

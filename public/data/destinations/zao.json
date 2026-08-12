@@ -1,0 +1,122 @@
+{
+  "id": "zao",
+  "name": "Zao Quasi-National Park",
+  "nameJa": "蔵王国定公園",
+  "aliases": ["蔵王国定公園"],
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 38.15,
+    "lng": 140.45
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Miyagi"],
+  "description": "Quasi-national park of the Zao mountains: the emerald Okama crater lake, the 'snow monsters' of winter and the hot-spring plateaus on the Miyagi-Yamagata border.",
+  "highlights": [
+    "Okama crater lake",
+    "Winter snow monsters",
+    "Zao onsen plateaus"
+  ],
+  "notes": "Managed by Miyagi. The Zao ropeway reaches the crater rim and ski slopes.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 8.9,
+    "winter": 8.2,
+    "rain": 7.9,
+    "food": 7.7,
+    "photography": 9.1,
+    "relaxation": 8.9,
+    "value": 8.7,
+    "uniqueness": 9
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Zao_L.Okama.JPG/1920px-Zao_L.Okama.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Zao_L.Okama.JPG/1920px-Zao_L.Okama.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Qwert1234, Public domain, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zao_L.Okama.JPG"
+  },
+  "officialWebsite": "https://www.pref.miyagi.jp/soshiki/sizenhogo/zao.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Miyagi:zao",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 10
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Zao Quasi-National Park",
+      "description": "Quasi-national park of the Zao mountains: the emerald Okama crater lake, the 'snow monsters' of winter and the hot-spring plateaus on the Miyagi-Yamagata border.",
+      "highlights": [
+        "Okama crater lake",
+        "Winter snow monsters",
+        "Zao onsen plateaus"
+      ],
+      "notes": "Managed by Miyagi. The Zao ropeway reaches the crater rim and ski slopes.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "蔵王国定公園",
+      "description": "宮城・山形県境の蔵王連峰の国定公園。エメラルドグリーンの御釜、冬の樹氷、温泉高原が広がる。",
+      "highlights": ["御釜の火口湖", "冬の樹氷", "蔵王温泉高原"],
+      "notes": "宮城県が管理。蔵王ロープウェイで火口縁やスキー場にアクセスできる。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.pref.miyagi.jp/soshiki/sizenhogo/zao.html",
+        "title": "Zao Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  }
+}

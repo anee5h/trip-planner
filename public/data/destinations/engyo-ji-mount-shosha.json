@@ -87,5 +87,6 @@
     "shinkansen": 185,
     "train": 215,
     "car": 275
-  }
+  },
+  "collections": []
 }

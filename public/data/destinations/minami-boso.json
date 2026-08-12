@@ -1,0 +1,118 @@
+{
+  "id": "minami-boso",
+  "name": "Minami Boso Quasi-National Park",
+  "nameJa": "南房総国定公園",
+  "aliases": ["南房総国定公園"],
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.98,
+    "lng": 139.87
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Chiba"],
+  "description": "Quasi-national park of the southern Boso Peninsula: the Kujukuri and Nojimazaki coasts, flower fields in early spring and the Pacific cliffs of Cape Nojima.",
+  "highlights": ["Boso flower fields", "Cape Nojima cliffs", "Kujukuri coast"],
+  "notes": "Managed by Chiba. The rape-blossom and flower fields of March-April draw crowds.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.3,
+    "couple": 8.1,
+    "summer": 8.4,
+    "winter": 7.7,
+    "rain": 7.4,
+    "food": 7.2,
+    "photography": 8.6,
+    "relaxation": 8.4,
+    "value": 8.2,
+    "uniqueness": 8.5
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Chiba_Suzumejima_sunset_xl.jpg/1920px-Chiba_Suzumejima_sunset_xl.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Chiba_Suzumejima_sunset_xl.jpg/1920px-Chiba_Suzumejima_sunset_xl.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "wupeng, CC BY 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chiba_Suzumejima_sunset_xl.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Chiba:tateyama",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 16
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Minami Boso Quasi-National Park",
+      "description": "Quasi-national park of the southern Boso Peninsula: the Kujukuri and Nojimazaki coasts, flower fields in early spring and the Pacific cliffs of Cape Nojima.",
+      "highlights": [
+        "Boso flower fields",
+        "Cape Nojima cliffs",
+        "Kujukuri coast"
+      ],
+      "notes": "Managed by Chiba. The rape-blossom and flower fields of March-April draw crowds.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "南房総国定公園",
+      "description": "房総半島南部の国定公園。九十九里海岸と野島崎海岸、早春の花畑、野島崎の太平洋の断崖が魅力。",
+      "highlights": ["房総の花畑", "野島崎の断崖", "九十九里海岸"],
+      "notes": "千葉県管理。3月から4月の菜の花や花畑は多くの人で賑わう。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Minami Boso Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

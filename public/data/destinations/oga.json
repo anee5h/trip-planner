@@ -1,0 +1,122 @@
+{
+  "id": "oga",
+  "name": "Oga Quasi-National Park",
+  "nameJa": "男鹿国定公園",
+  "aliases": ["男鹿国定公園"],
+  "prefecture": "Akita",
+  "region": "Tohoku",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 39.92,
+    "lng": 139.72
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Akita"],
+  "description": "Quasi-national park of the Oga Peninsula: the dramatic sea cliffs of Cape Nyudo and the Namahage winter tradition of the peninsula villages.",
+  "highlights": [
+    "Cape Nyudo cliffs",
+    "Namahage tradition",
+    "Sea of Japan coast"
+  ],
+  "notes": "Managed by Akita. The Namahage Museum and the cape's coast road are the draws.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.3,
+    "couple": 8.1,
+    "summer": 8.4,
+    "winter": 7.7,
+    "rain": 7.4,
+    "food": 7.2,
+    "photography": 8.6,
+    "relaxation": 8.4,
+    "value": 8.2,
+    "uniqueness": 8.5
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Ninomegata_Maar_and_Toga_port_from_Hachibodai.JPG/1920px-Ninomegata_Maar_and_Toga_port_from_Hachibodai.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Ninomegata_Maar_and_Toga_port_from_Hachibodai.JPG/1920px-Ninomegata_Maar_and_Toga_port_from_Hachibodai.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Kumpei Shiraishi, CC BY 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ninomegata_Maar_and_Toga_port_from_Hachibodai.JPG"
+  },
+  "officialWebsite": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Akita:oga",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 11
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Oga Quasi-National Park",
+      "description": "Quasi-national park of the Oga Peninsula: the dramatic sea cliffs of Cape Nyudo and the Namahage winter tradition of the peninsula villages.",
+      "highlights": [
+        "Cape Nyudo cliffs",
+        "Namahage tradition",
+        "Sea of Japan coast"
+      ],
+      "notes": "Managed by Akita. The Namahage Museum and the cape's coast road are the draws.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "男鹿国定公園",
+      "description": "男鹿半島の国定公園。入道崎の荒々しい海食崖と、半島の集落に伝わる冬のナマハゲ行事が有名です。",
+      "highlights": ["入道崎の断崖", "ナマハゲの伝統", "日本海の海岸"],
+      "notes": "秋田県が管理。ナマハゲ博物館と岬の海岸道路が主な見どころ。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Oga Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

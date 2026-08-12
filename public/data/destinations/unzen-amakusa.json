@@ -1,0 +1,122 @@
+{
+  "id": "unzen-amakusa",
+  "name": "Unzen-Amakusa National Park",
+  "nameJa": "雲仙天草国立公園",
+  "aliases": ["雲仙天草国立公園"],
+  "prefecture": "Nagasaki",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 32.76,
+    "lng": 130.28
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Nagasaki"],
+  "description": "National park (1934) of the Unzen volcano with its steaming fumaroles and alpine rhododendrons, and the Amakusa island archipelago of the Christian history coast.",
+  "highlights": [
+    "Unzen volcano fumaroles",
+    "Amakusa islands",
+    "Shimabara peninsula"
+  ],
+  "notes": "Designated 1934 (28,355 ha). The Unzen ropeway and Amakusa ferry routes connect the two halves.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.6,
+    "photography": 9,
+    "relaxation": 8.8,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/140322_Unzen_Onsen_Nagasaki_pref_Japan01s3.jpg/1920px-140322_Unzen_Onsen_Nagasaki_pref_Japan01s3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/140322_Unzen_Onsen_Nagasaki_pref_Japan01s3.jpg/1920px-140322_Unzen_Onsen_Nagasaki_pref_Japan01s3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:140322_Unzen_Onsen_Nagasaki_pref_Japan01s3.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/unzen/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Nagasaki:unzen",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 28
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Unzen-Amakusa National Park",
+      "description": "National park (1934) of the Unzen volcano with its steaming fumaroles and alpine rhododendrons, and the Amakusa island archipelago of the Christian history coast.",
+      "highlights": [
+        "Unzen volcano fumaroles",
+        "Amakusa islands",
+        "Shimabara peninsula"
+      ],
+      "notes": "Designated 1934 (28,355 ha). The Unzen ropeway and Amakusa ferry routes connect the two halves.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "雲仙天草国立公園",
+      "description": "雲仙火山の噴気孔や高山性ツツジ、そしてキリスト教史を残す天草諸島からなる国立公園（1934年指定）。",
+      "highlights": ["雲仙火山の噴気地帯", "天草諸島", "島原半島"],
+      "notes": "1934年指定（28,355ha）。雲仙ロープウェイと天草フェリーで両地域を結ぶ。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/unzen/index.html",
+        "title": "Unzen-Amakusa National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  }
+}

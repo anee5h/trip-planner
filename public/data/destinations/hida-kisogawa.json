@@ -1,0 +1,114 @@
+{
+  "id": "hida-kisogawa",
+  "name": "Hida-Kisogawa Quasi-National Park",
+  "nameJa": "飛騨木曽川国定公園",
+  "aliases": ["飛騨木曽川国定公園"],
+  "prefecture": "Gifu",
+  "region": "Chubu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.5,
+    "lng": 137.45
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Gifu"],
+  "description": "Quasi-national park of the Hida mountains edge and the Kisogawa river gorge at the Gifu-Aichi border, with Enakyo cliffs and riverside scenery.",
+  "highlights": ["Enakyo gorge", "Kisogawa river", "Hida hills"],
+  "notes": "Managed by Gifu/Aichi. The Enakyo gorge walkway and the Iwamura castle town sit in the park.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8,
+    "summer": 8.3,
+    "winter": 7.6,
+    "rain": 7.3,
+    "food": 7.1,
+    "photography": 8.5,
+    "relaxation": 8.3,
+    "value": 8.1,
+    "uniqueness": 8.4
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Nakayama_Shichiri_HIda_river_1.JPG/1920px-Nakayama_Shichiri_HIda_river_1.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Nakayama_Shichiri_HIda_river_1.JPG/1920px-Nakayama_Shichiri_HIda_river_1.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "T-mercury, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nakayama_Shichiri_HIda_river_1.JPG"
+  },
+  "officialWebsite": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Gifu:ena",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 27
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Hida-Kisogawa Quasi-National Park",
+      "description": "Quasi-national park of the Hida mountains edge and the Kisogawa river gorge at the Gifu-Aichi border, with Enakyo cliffs and riverside scenery.",
+      "highlights": ["Enakyo gorge", "Kisogawa river", "Hida hills"],
+      "notes": "Managed by Gifu/Aichi. The Enakyo gorge walkway and the Iwamura castle town sit in the park.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "飛騨木曽川国定公園",
+      "description": "岐阜・愛知県境に広がる国定公園で、飛騨山脈の辺縁部と木曽川渓谷、恵那峡の断崖絶壁と川沿いの景観を有します。",
+      "highlights": ["恵那峡", "木曽川", "飛騨の山々"],
+      "notes": "岐阜県・愛知県管理。恵那峡遊歩道と岩村城下町が公園内にあります。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Hida-Kisogawa Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

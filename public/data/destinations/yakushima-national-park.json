@@ -1,0 +1,133 @@
+{
+  "id": "yakushima-national-park",
+  "name": "Yakushima (Island) National Park",
+  "nameJa": "屋久島国立公園",
+  "aliases": ["屋久島国立公園"],
+  "prefecture": "Kagoshima",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 30.35,
+    "lng": 130.55
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Kagoshima"],
+  "description": "UNESCO World Heritage island national park (2012) of primeval cedar forests and the Jomon Sugi, with granite peaks and mossy rivers in the 'island of rain'.",
+  "highlights": [
+    "UNESCO World Heritage",
+    "Jomon Sugi cedar",
+    "Primeval moss forests",
+    "Yakusugi land"
+  ],
+  "notes": "Designated 2012 (24,566 ha). The Jomon Sugi hike is a full day; the Shiratani Unsuikyo ravine is an easier classic.",
+  "transportOptions": {
+    "ferry": 180,
+    "flight": 40
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 9.3,
+    "couple": 9.1,
+    "summer": 9.4,
+    "winter": 8.7,
+    "rain": 8.4,
+    "food": 8.2,
+    "photography": 9.6,
+    "relaxation": 9.4,
+    "value": 9.2,
+    "uniqueness": 9.5
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Shiratani_Unsui_Gorge_01.jpg/1920px-Shiratani_Unsui_Gorge_01.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Shiratani_Unsui_Gorge_01.jpg/1920px-Shiratani_Unsui_Gorge_01.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Σ64, CC BY 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shiratani_Unsui_Gorge_01.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/yakushima/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Kagoshima:yakushima",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 31
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Yakushima (Island) National Park",
+      "description": "UNESCO World Heritage island national park (2012) of primeval cedar forests and the Jomon Sugi, with granite peaks and mossy rivers in the 'island of rain'.",
+      "highlights": [
+        "UNESCO World Heritage",
+        "Jomon Sugi cedar",
+        "Primeval moss forests",
+        "Yakusugi land"
+      ],
+      "notes": "Designated 2012 (24,566 ha). The Jomon Sugi hike is a full day; the Shiratani Unsuikyo ravine is an easier classic.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "屋久島国立公園",
+      "description": "世界遺産に登録された島全体が国立公園（2012年指定）。原生の杉林と縄文杉、花崗岩の峰々、苔むした川が広がる“雨の島”ならではの景観を擁します。",
+      "highlights": [
+        "世界遺産",
+        "縄文杉",
+        "原生の苔むした森",
+        "ヤクスギランド"
+      ],
+      "notes": "2012年指定（24,566 ha）。縄文杉トレッキングは1日がかり。白谷雲水峡はより手軽な定番コースです。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/yakushima/index.html",
+        "title": "Yakushima (Island) National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "transportZoneId": "yakushima",
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  },
+  "recommendedVisitHours": {
+    "min": 8,
+    "max": 24
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "tanzawa-oyama",
+  "name": "Tanzawa-Oyama Quasi-National Park",
+  "nameJa": "丹沢大山国定公園",
+  "aliases": ["丹沢大山国定公園"],
+  "prefecture": "Kanagawa",
+  "region": "Kanto",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.47,
+    "lng": 139.15
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Kanagawa"],
+  "description": "Quasi-national park of the Tanzawa mountains and Mt. Oyama west of Tokyo, a rugged hiking range with the Oyama Afuri shrine and views over the Kanto plain.",
+  "highlights": ["Tanzawa range", "Mt. Oyama shrine", "Kanto plain views"],
+  "notes": "Managed by Kanagawa. Oyama's cable car and the Tanzawa ridge trails are the draws.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.3,
+    "couple": 8.1,
+    "summer": 8.4,
+    "winter": 7.7,
+    "rain": 7.4,
+    "food": 7.2,
+    "photography": 8.6,
+    "relaxation": 8.4,
+    "value": 8.2,
+    "uniqueness": 8.5
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Tanzawa_Mountains_2011-12-30.jpg/1920px-Tanzawa_Mountains_2011-12-30.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Tanzawa_Mountains_2011-12-30.jpg/1920px-Tanzawa_Mountains_2011-12-30.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Pyzhou, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tanzawa_Mountains_2011-12-30.jpg"
+  },
+  "officialWebsite": "http://www.pref.kanagawa.jp/docs/f4y/02yama/about_tanzawa.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Kanagawa:hadano",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 18
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Tanzawa-Oyama Quasi-National Park",
+      "description": "Quasi-national park of the Tanzawa mountains and Mt. Oyama west of Tokyo, a rugged hiking range with the Oyama Afuri shrine and views over the Kanto plain.",
+      "highlights": ["Tanzawa range", "Mt. Oyama shrine", "Kanto plain views"],
+      "notes": "Managed by Kanagawa. Oyama's cable car and the Tanzawa ridge trails are the draws.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "丹沢大山国定公園",
+      "description": "東京西方の丹沢山地と大山を中心とする国定公園。険しい登山道と大山阿夫利神社、関東平野の眺望が特徴。",
+      "highlights": ["丹沢山地", "大山の神社", "関東平野の眺望"],
+      "notes": "神奈川県管理。大山のケーブルカーと丹沢の稜線トレイルが見どころ。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "http://www.pref.kanagawa.jp/docs/f4y/02yama/about_tanzawa.html",
+        "title": "Tanzawa-Oyama Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

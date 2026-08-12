@@ -1,5 +1,15 @@
 [
   {
+    "id": "abashiri",
+    "name": "Abashiri Quasi-National Park",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "abashiri-city",
     "name": "Abashiri City",
     "prefecture": "Hokkaido",
@@ -55,6 +65,16 @@
     }
   },
   {
+    "id": "aichi-kogen",
+    "name": "Aichi Kogen Quasi-National Park",
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "aizu-bukeyashiki",
     "name": "Aizu Bukeyashiki",
     "prefecture": "Fukushima",
@@ -77,6 +97,16 @@
     "relationships": {
       "featuredDestinationIds": []
     }
+  },
+  {
+    "id": "akan-mashu",
+    "name": "Akan-Mashu National Park",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "akasaka-minato",
@@ -151,6 +181,16 @@
     }
   },
   {
+    "id": "akiyoshidai",
+    "name": "Akiyoshidai Quasi-National Park",
+    "prefecture": "Yamaguchi",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "akiyoshidai-plateau",
     "name": "Akiyoshidai Plateau",
     "prefecture": "Yamaguchi",
@@ -177,12 +217,32 @@
     }
   },
   {
+    "id": "akkeshi-kiritappu-konbumori",
+    "name": "Akkeshi-Kiritappu-Konbumori Quasi-National Park",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "ako-castle",
     "name": "Ako Castle",
     "prefecture": "Hyogo",
     "region": "Kansai",
     "role": "standalone",
     "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "amami-gunto",
+    "name": "Amamigunto National Park",
+    "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
     "status": "published",
     "relationships": {}
   },
@@ -435,6 +495,16 @@
     "relationships": {}
   },
   {
+    "id": "ashizuri-uwakai",
+    "name": "Ashizuri-Uwakai National Park",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "aso-city",
     "name": "Aso City",
     "prefecture": "Kumamoto",
@@ -450,6 +520,16 @@
         "dazaifu-city"
       ]
     }
+  },
+  {
+    "id": "aso-kuju",
+    "name": "Aso-Kuju National Park",
+    "prefecture": "Kumamoto",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "aso-volcanic-museum",
@@ -529,6 +609,16 @@
     "region": "Kansai",
     "role": "standalone",
     "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "bandai-asahi",
+    "name": "Bandai-Asahi National Park",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "nature",
     "status": "published",
     "relationships": {}
   },
@@ -647,6 +737,16 @@
     "relationships": {
       "parentDestinationId": "takahashi-city"
     }
+  },
+  {
+    "id": "biwako",
+    "name": "Biwako Quasi-National Park",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "bizan-ropeway-tokushima",
@@ -934,6 +1034,16 @@
     }
   },
   {
+    "id": "chichibu-tama-kai",
+    "name": "Chichibu-Tama-Kai National Park",
+    "prefecture": "Saitama",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "chigasaki-city",
     "name": "Chigasaki City",
     "prefecture": "Kanagawa",
@@ -1060,6 +1170,16 @@
     }
   },
   {
+    "id": "chokai",
+    "name": "Chokai Quasi-National Park",
+    "prefecture": "Yamagata",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "choshi-chiba",
     "name": "Choshi",
     "prefecture": "Chiba",
@@ -1082,6 +1202,26 @@
     "relationships": {
       "featuredDestinationIds": []
     }
+  },
+  {
+    "id": "chubu-sangaku",
+    "name": "Chubusangaku National Park",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "chuo-alps",
+    "name": "Chuo Alps Quasi-National Park",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "chuo-city",
@@ -1151,6 +1291,26 @@
     "relationships": {
       "parentDestinationId": "aso-city"
     }
+  },
+  {
+    "id": "daisen-oki",
+    "name": "Daisen-Oki National Park",
+    "prefecture": "Tottori",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "daisetsuzan",
+    "name": "Daisetsuzan National Park",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "daisho-in",
@@ -1314,6 +1474,26 @@
     "relationships": {
       "parentDestinationId": "osaka-city"
     }
+  },
+  {
+    "id": "echigo-sanzan-tadami",
+    "name": "Echigo Sanzan Tadami Quasi-National Park",
+    "prefecture": "Niigata",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "echizen-kaga-kaigan",
+    "name": "Echizen-Kaga Kaigan Quasi-National Park",
+    "prefecture": "Fukui",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "edo-castle-tokyo",
@@ -1500,6 +1680,16 @@
     "relationships": {
       "parentDestinationId": "fujikawaguchiko-town"
     }
+  },
+  {
+    "id": "fuji-hakone-izu",
+    "name": "Fuji-Hakone-Izu National Park",
+    "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "fujikawaguchiko-town",
@@ -1904,6 +2094,16 @@
     "relationships": {
       "parentDestinationId": "toyooka-city"
     }
+  },
+  {
+    "id": "genkai",
+    "name": "Genkai Quasi-National Park",
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "genkyuen-garden",
@@ -2397,6 +2597,16 @@
     }
   },
   {
+    "id": "hakusan",
+    "name": "Hakusan National Park",
+    "prefecture": "Ishikawa",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "hamamatsu-city",
     "name": "Hamamatsu City",
     "prefecture": "Shizuoka",
@@ -2503,6 +2713,16 @@
     }
   },
   {
+    "id": "hayachine",
+    "name": "Hayachine Quasi-National Park",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "hayashibara-museum-of-art",
     "name": "Hayashibara Museum of Art",
     "prefecture": "Okayama",
@@ -2537,6 +2757,36 @@
     "relationships": {
       "parentDestinationId": "miyazaki-city"
     }
+  },
+  {
+    "id": "hiba-dogo-taishaku",
+    "name": "Hiba-Dogo-Taishaku Quasi-National Park",
+    "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "hida-kisogawa",
+    "name": "Hida-Kisogawa Quasi-National Park",
+    "prefecture": "Gifu",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "hidakasanmyaku-erimo-tokachi",
+    "name": "Hidakasanmyaku-Erimo-Tokachi National Park",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "hiei-zan-driveway-observatory",
@@ -2590,7 +2840,7 @@
     "id": "hikone-castle-shiga",
     "name": "Hikone Castle (National Treasure)",
     "prefecture": "Shiga",
-    "region": "Chubu",
+    "region": "Kansai",
     "role": "destination",
     "kind": "attraction",
     "status": "published",
@@ -3006,6 +3256,16 @@
     }
   },
   {
+    "id": "hyonosen-ushiro-yama-nagisan",
+    "name": "Hyonosen-Ushiroyama-Nagisan Quasi-National Park",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "ibaraki-fukuroda-falls",
     "name": "Fukuroda Falls",
     "prefecture": "Ibaraki",
@@ -3040,6 +3300,16 @@
     "relationships": {
       "parentDestinationId": "tsukuba-city"
     }
+  },
+  {
+    "id": "ibi-sekigahara-yoro",
+    "name": "Ibi-Sekigahara-Yoro Quasi-National Park",
+    "prefecture": "Gifu",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "ibusuki-city",
@@ -3110,6 +3380,16 @@
     "relationships": {
       "parentDestinationId": "toshima-city"
     }
+  },
+  {
+    "id": "iki-tsushima",
+    "name": "Iki-Tsushima Quasi-National Park",
+    "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "ikuno-silver-mine",
@@ -3202,7 +3482,7 @@
     "kind": "historic_town",
     "status": "published",
     "relationships": {
-      "parentDestinationId": "miyazu-city"
+      "gatewayHubId": "miyazu-city"
     }
   },
   {
@@ -3253,6 +3533,16 @@
     }
   },
   {
+    "id": "iriomote-ishigaki",
+    "name": "Iriomote-Ishigaki National Park",
+    "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "ise-city",
     "name": "Ise City",
     "prefecture": "Mie",
@@ -3277,6 +3567,16 @@
       "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"],
       "parentDestinationId": "ise-city"
     }
+  },
+  {
+    "id": "ise-shima",
+    "name": "Ise-Shima National Park",
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "ishidake-observatory",
@@ -3314,6 +3614,16 @@
     "relationships": {
       "parentDestinationId": "matsuyama-city"
     }
+  },
+  {
+    "id": "ishizuchi",
+    "name": "Ishizuchi Quasi-National Park",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "itabashi-city",
@@ -3579,6 +3889,16 @@
     "relationships": {
       "parentDestinationId": "yakushima-town"
     }
+  },
+  {
+    "id": "joshinetsu-kogen",
+    "name": "Joshin'etsukogen National Park",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "joypolis",
@@ -4271,6 +4591,16 @@
     }
   },
   {
+    "id": "kerama-shoto",
+    "name": "Keramashoto National Park",
+    "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "kibitsu-shrine",
     "name": "Kibitsu Shrine",
     "prefecture": "Okayama",
@@ -4379,6 +4709,16 @@
     }
   },
   {
+    "id": "kirishima-kinkowan",
+    "name": "Kirishima-Kinkowan National Park",
+    "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "kisarazu-city",
     "name": "Kisarazu City",
     "prefecture": "Chiba",
@@ -4405,7 +4745,7 @@
     "kind": "station",
     "status": "published",
     "relationships": {
-      "parentDestinationId": "wakayama-city"
+      "gatewayHubId": "wakayama-city"
     }
   },
   {
@@ -4451,6 +4791,16 @@
     }
   },
   {
+    "id": "kita-nagato-kaigan",
+    "name": "Kita-Nagato Kaigan Quasi-National Park",
+    "prefecture": "Yamaguchi",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "kitakata-kura-district",
     "name": "Kitakata Kura District",
     "prefecture": "Fukushima",
@@ -4461,6 +4811,16 @@
     "relationships": {
       "gatewayHubId": "aizuwakamatsu-city"
     }
+  },
+  {
+    "id": "kitakyushu",
+    "name": "Kitakyushu Quasi-National Park",
+    "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "kitakyushu-city",
@@ -4779,6 +5139,16 @@
     }
   },
   {
+    "id": "kongo-ikoma-kisen",
+    "name": "Kongo-Ikoma-Kisen Quasi-National Park",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "korakuen-okayama",
     "name": "Korakuen Garden",
     "prefecture": "Okayama",
@@ -4802,6 +5172,16 @@
     "relationships": {
       "featuredDestinationIds": []
     }
+  },
+  {
+    "id": "koshikijima",
+    "name": "Koshikijima Quasi-National Park",
+    "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "koto-city",
@@ -4852,6 +5232,16 @@
     "relationships": {
       "parentDestinationId": "nago-city"
     }
+  },
+  {
+    "id": "koya-ryujin",
+    "name": "Koya-Ryujin Quasi-National Park",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "koya-town",
@@ -4994,6 +5384,16 @@
     }
   },
   {
+    "id": "kurikoma",
+    "name": "Kurikoma Quasi-National Park",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "kurobe-gorge",
     "name": "Kurobe Gorge",
     "prefecture": "Toyama",
@@ -5083,6 +5483,16 @@
     }
   },
   {
+    "id": "kushiro-shitsugen",
+    "name": "Kushiroshitsugen National Park",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "kyoto-city",
     "name": "Kyoto City",
     "prefecture": "Kyoto",
@@ -5168,6 +5578,26 @@
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }
+  },
+  {
+    "id": "kyoto-tamba-kogen",
+    "name": "Kyoto Tamba Kogen Quasi-National Park",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "kyushu-chuo-sanchi",
+    "name": "Kyushu Chuo Sanchi Quasi-National Park",
+    "prefecture": "Miyazaki",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "kyushu-national-museum",
@@ -5666,6 +6096,26 @@
     }
   },
   {
+    "id": "meiji-no-mori-mino",
+    "name": "Meiji no Mori Mino Quasi-National Park",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "meiji-no-mori-takao",
+    "name": "Meiji no Mori Takao Quasi-National Park",
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "meoto-iwa-wedded-rocks",
     "name": "Meoto Iwa Wedded Rocks",
     "prefecture": "Mie",
@@ -5715,6 +6165,16 @@
     }
   },
   {
+    "id": "mikawa-wan",
+    "name": "Mikawa Wan Quasi-National Park",
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "mimuroto-ji-temple",
     "name": "Mimuroto-ji Hydrangea Temple",
     "prefecture": "Kyoto",
@@ -5743,6 +6203,26 @@
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
+  },
+  {
+    "id": "minami-alps",
+    "name": "Minami Alps National Park",
+    "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "minami-boso",
+    "name": "Minami Boso Quasi-National Park",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "minato-city",
@@ -6245,6 +6725,26 @@
     }
   },
   {
+    "id": "muro-akame-aoyama",
+    "name": "Muro-Akame-Aoyama Quasi-National Park",
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "muroto-anan-kaigan",
+    "name": "Muroto-Anan Kaigan Quasi-National Park",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "musashi-ichinomiya-hikawa-shrine",
     "name": "Musashi Ichinomiya Hikawa Shrine",
     "prefecture": "Saitama",
@@ -6291,6 +6791,26 @@
     "relationships": {
       "parentDestinationId": "narita-city"
     }
+  },
+  {
+    "id": "myogi-arafune-saku-kogen",
+    "name": "Myogi Arafune Saku Kogen Quasi-National Park",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "myoko-togakushi",
+    "name": "Myoko-Togakushi renzan National Park",
+    "prefecture": "Niigata",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "nachi-falls-wakayama",
@@ -6924,6 +7444,16 @@
     }
   },
   {
+    "id": "nichinan-kaigan",
+    "name": "Nichinan Kaigan Quasi-National Park",
+    "prefecture": "Miyazaki",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "nihon-minka-en",
     "name": "Nihon Minka-en",
     "prefecture": "Kanagawa",
@@ -7022,6 +7552,16 @@
     }
   },
   {
+    "id": "nikko-national-park",
+    "name": "Nikko National Park",
+    "prefecture": "Tochigi",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "nikko-toshogu-shrine-tochigi",
     "name": "Shrines and Temples of Nikko (Toshogu & UNESCO Heritage)",
     "prefecture": "Tochigi",
@@ -7046,6 +7586,26 @@
     }
   },
   {
+    "id": "nippo-kaigan",
+    "name": "Nippo Kaigan Quasi-National Park",
+    "prefecture": "Oita",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "niseko-shakotan-otaru-kaigan",
+    "name": "Niseko-Shakotan-Otaru Kaigan Quasi-National Park",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "niseko-town",
     "name": "Niseko Town",
     "prefecture": "Hokkaido",
@@ -7057,6 +7617,16 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     }
+  },
+  {
+    "id": "nishi-chugoku-sanchi",
+    "name": "Nishi-Chugoku Sanchi Quasi-National Park",
+    "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "nishiki-market",
@@ -7090,6 +7660,16 @@
     "role": "standalone",
     "kind": "nature",
     "status": "verified",
+    "relationships": {}
+  },
+  {
+    "id": "noto-hanto",
+    "name": "Noto Hanto Quasi-National Park",
+    "prefecture": "Ishikawa",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
     "relationships": {}
   },
   {
@@ -7294,6 +7874,16 @@
     }
   },
   {
+    "id": "oga",
+    "name": "Oga Quasi-National Park",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "oga-namahage-kan",
     "name": "Namahage Museum (Oga Shinzan Folklore Museum)",
     "prefecture": "Akita",
@@ -7312,6 +7902,16 @@
     "region": "Kanto",
     "role": "standalone",
     "kind": "attraction",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "ogasawara-national-park",
+    "name": "Ogasawara National Park",
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "nature",
     "status": "published",
     "relationships": {}
   },
@@ -7444,6 +8044,26 @@
     }
   },
   {
+    "id": "okinawa-kaigan",
+    "name": "Okinawa Kaigan Quasi-National Park",
+    "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "okinawa-senseki",
+    "name": "Okinawa Senseki Quasi-National Park",
+    "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "okinoshima-munakata-fukuoka",
     "name": "Sacred Island of Okinoshima and Associated Sites in Munakata",
     "prefecture": "Fukuoka",
@@ -7542,7 +8162,7 @@
     "kind": "historic_town",
     "status": "published",
     "relationships": {
-      "parentDestinationId": "otsu-city"
+      "gatewayHubId": "otsu-city"
     }
   },
   {
@@ -7639,6 +8259,26 @@
     "relationships": {
       "parentDestinationId": "hita-city"
     }
+  },
+  {
+    "id": "ontakesan",
+    "name": "Ontakesan Quasi-National Park",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "onuma",
+    "name": "Onuma Quasi-National Park",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "orient-museum",
@@ -8002,6 +8642,16 @@
     }
   },
   {
+    "id": "rishiri-rebun-sarobetsu",
+    "name": "Rishiri-Rebun-Sarobetsu National Park",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "ritsurin-garden",
     "name": "Ritsurin Garden",
     "prefecture": "Kagawa",
@@ -8111,6 +8761,16 @@
     }
   },
   {
+    "id": "sado-yahiko-yoneyama",
+    "name": "Sado-Yahiko-Yoneyama Quasi-National Park",
+    "prefecture": "Niigata",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "saga-castle",
     "name": "Saga Castle",
     "prefecture": "Saga",
@@ -8144,6 +8804,16 @@
     "relationships": {
       "parentDestinationId": "matsushima-town"
     }
+  },
+  {
+    "id": "saikai",
+    "name": "Saikai National Park",
+    "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "saisho-in",
@@ -8305,6 +8975,16 @@
     }
   },
   {
+    "id": "sanin-kaigan",
+    "name": "San'inkaigan National Park",
+    "prefecture": "Tottori",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "sanjusangen-do",
     "name": "Sanjusangen-do",
     "prefecture": "Kyoto",
@@ -8327,6 +9007,16 @@
     "relationships": {
       "parentDestinationId": "aomori-city"
     }
+  },
+  {
+    "id": "sanriku-fukko",
+    "name": "Sanriku Fukko (reconstruction) National Park",
+    "prefecture": "Iwate",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "sapporo-beer-museum",
@@ -8678,6 +9368,16 @@
     }
   },
   {
+    "id": "setonaikai",
+    "name": "Setonaikai National Park",
+    "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "shibata-castle",
     "name": "Shibata Castle",
     "prefecture": "Niigata",
@@ -8744,12 +9444,32 @@
     }
   },
   {
+    "id": "shikotsu-toya",
+    "name": "Shikotsu-Toya National Park",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "shimabara-castle",
     "name": "Shimabara Castle",
     "prefecture": "Nagasaki",
     "region": "Kyushu",
     "role": "standalone",
     "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "shimokita-hanto",
+    "name": "Shimokita Hanto Quasi-National Park",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "nature",
     "status": "published",
     "relationships": {}
   },
@@ -8917,7 +9637,7 @@
     "kind": "shrine",
     "status": "published",
     "relationships": {
-      "parentDestinationId": "otsu-city"
+      "gatewayHubId": "otsu-city"
     }
   },
   {
@@ -9011,6 +9731,16 @@
     }
   },
   {
+    "id": "shokanbetsu-teuri-yagishiri",
+    "name": "Shokanbetsu-Teuri-Yagishiri Quasi-National Park",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "shonan-kaigan-park",
     "name": "Shonan Kaigan Park",
     "prefecture": "Kanagawa",
@@ -9059,6 +9789,16 @@
     }
   },
   {
+    "id": "sobo-katamuki",
+    "name": "Sobo-Katamuki Quasi-National Park",
+    "prefecture": "Oita",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "soji-ji-yokohama",
     "name": "Soji-ji Temple",
     "prefecture": "Kanagawa",
@@ -9099,6 +9839,16 @@
         "taito-city"
       ]
     }
+  },
+  {
+    "id": "suigo-tsukuba",
+    "name": "Suigo Tsukuba Quasi-National Park",
+    "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "suizenji-garden-kumamoto",
@@ -9248,6 +9998,16 @@
     "relationships": {
       "parentDestinationId": "tachikawa-tokyo"
     }
+  },
+  {
+    "id": "suzuka",
+    "name": "Suzuka Quasi-National Park",
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "tachikawa-manga-park",
@@ -9641,6 +10401,16 @@
     }
   },
   {
+    "id": "tango-amanohashidate-oeyama",
+    "name": "Tango-Amanohashidate-Oeyama Quasi-National Park",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "tanukikoji-shopping-street",
     "name": "Tanukikoji Shopping Street",
     "prefecture": "Hokkaido",
@@ -9651,6 +10421,16 @@
     "relationships": {
       "parentDestinationId": "sapporo-city"
     }
+  },
+  {
+    "id": "tanzawa-oyama",
+    "name": "Tanzawa-Oyama Quasi-National Park",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "taro-okamoto-museum-of-art",
@@ -9735,6 +10515,16 @@
     "relationships": {
       "parentDestinationId": "osaka-city"
     }
+  },
+  {
+    "id": "tenryu-okumikawa",
+    "name": "Tenryu-Okumikawa Quasi-National Park",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "tenshaen-garden-uwajima",
@@ -10168,6 +10958,16 @@
     }
   },
   {
+    "id": "towada-hachimantai",
+    "name": "Towada-Hachimantai National Park",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "toyama-alpine",
     "name": "Tateyama Kurobe Alpine Route",
     "prefecture": "Toyama",
@@ -10225,6 +11025,16 @@
     "relationships": {
       "parentDestinationId": "nagoya-city"
     }
+  },
+  {
+    "id": "tsugaru",
+    "name": "Tsugaru Quasi-National Park",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "tsujido-seaside-park",
@@ -10305,6 +11115,16 @@
     "relationships": {
       "parentDestinationId": "kamakura-city"
     }
+  },
+  {
+    "id": "tsurugisan",
+    "name": "Tsurugisan Quasi-National Park",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "tsutenkaku",
@@ -10472,6 +11292,16 @@
     }
   },
   {
+    "id": "unzen-amakusa",
+    "name": "Unzen-Amakusa National Park",
+    "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "uradome-coast",
     "name": "Uradome Coast",
     "prefecture": "Tottori",
@@ -10613,6 +11443,16 @@
     }
   },
   {
+    "id": "wakasa-wan",
+    "name": "Wakasa Wan Quasi-National Park",
+    "prefecture": "Fukui",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "wakayama-castle",
     "name": "Wakayama Castle",
     "prefecture": "Wakayama",
@@ -10650,6 +11490,16 @@
     }
   },
   {
+    "id": "yaba-hita-hikosan",
+    "name": "Yaba-Hita-Hikosan Quasi-National Park",
+    "prefecture": "Oita",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "yakushi-ike-park",
     "name": "Yakushi-Ike Park Shikisai no Mori",
     "prefecture": "Tokyo",
@@ -10672,6 +11522,16 @@
     "relationships": {
       "parentDestinationId": "nara-city"
     }
+  },
+  {
+    "id": "yakushima-national-park",
+    "name": "Yakushima (Island) National Park",
+    "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "yakushima-town",
@@ -10810,6 +11670,26 @@
     }
   },
   {
+    "id": "yamato-aogaki",
+    "name": "Yamato Aogaki Quasi-National Park",
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "yambaru",
+    "name": "Yambaru National Park",
+    "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "yanaka",
     "name": "Yanaka",
     "prefecture": "Tokyo",
@@ -10844,6 +11724,16 @@
     "relationships": {
       "parentDestinationId": "takamatsu-city"
     }
+  },
+  {
+    "id": "yatsugatake-chushin-kogen",
+    "name": "Yatsugatake Chushin Kogen Quasi-National Park",
+    "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "yobuko-morning-market",
@@ -11024,6 +11914,16 @@
     "relationships": {}
   },
   {
+    "id": "yoshino-kumano",
+    "name": "Yoshino-Kumano National Park",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "yoshinogari",
     "name": "Yoshinogari (Yoshinogari site)",
     "prefecture": "Saga",
@@ -11121,6 +12021,16 @@
     "relationships": {
       "parentDestinationId": "matsuyama-city"
     }
+  },
+  {
+    "id": "zao",
+    "name": "Zao Quasi-National Park",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "zao-fox-village-miyagi",

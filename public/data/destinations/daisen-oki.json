@@ -1,0 +1,114 @@
+{
+  "id": "daisen-oki",
+  "name": "Daisen-Oki National Park",
+  "nameJa": "大山隠岐国立公園",
+  "aliases": ["大山隠岐国立公園"],
+  "prefecture": "Tottori",
+  "region": "Chugoku",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.37,
+    "lng": 133.54
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Tottori"],
+  "description": "National park (1936) of the conical Mt. Daisen — the 'Fuji of the west' — and the Oki Islands offshore with their cliffs and beech forests.",
+  "highlights": ["Mt. Daisen volcano", "Oki Islands", "Beech forests"],
+  "notes": "Designated 1936 (35,097 ha). Daisen's autumn colors and the Oki ferry trips are the draws.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 8.9,
+    "winter": 8.2,
+    "rain": 7.9,
+    "food": 7.7,
+    "photography": 9.1,
+    "relaxation": 8.9,
+    "value": 8.7,
+    "uniqueness": 9
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Daisen_highest_peak.jpg/1920px-Daisen_highest_peak.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Daisen_highest_peak.jpg/1920px-Daisen_highest_peak.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Mass Ave 975 at English Wikipedia, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Daisen_highest_peak.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/daisen/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Tottori:daisen",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 25
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Daisen-Oki National Park",
+      "description": "National park (1936) of the conical Mt. Daisen — the 'Fuji of the west' — and the Oki Islands offshore with their cliffs and beech forests.",
+      "highlights": ["Mt. Daisen volcano", "Oki Islands", "Beech forests"],
+      "notes": "Designated 1936 (35,097 ha). Daisen's autumn colors and the Oki ferry trips are the draws.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "大山隠岐国立公園",
+      "description": "大山と島根県沖の隠岐諸島からなる国立公園（1936年指定）。「西の富士」と呼ばれる円錐形の大山と、断崖やブナ林の隠岐諸島が特徴です。",
+      "highlights": ["大山の火山", "隠岐諸島", "ブナ林"],
+      "notes": "1936年指定（35,097ha）。大山の紅葉と隠岐へのフェリー旅が魅力です。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/daisen/index.html",
+        "title": "Daisen-Oki National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

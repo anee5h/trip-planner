@@ -1,0 +1,114 @@
+{
+  "id": "echigo-sanzan-tadami",
+  "name": "Echigo Sanzan Tadami Quasi-National Park",
+  "nameJa": "越後三山只見国定公園",
+  "aliases": ["越後三山只見国定公園"],
+  "prefecture": "Niigata",
+  "region": "Chubu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 37.18,
+    "lng": 139.08
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Niigata"],
+  "description": "Quasi-national park of the Echigo mountains and the Tadami river gorge on the Niigata-Fukushima border, with Okutadami dam lake and deep snow-country landscapes.",
+  "highlights": ["Echigo mountains", "Okutadami lake", "Tadami gorge"],
+  "notes": "Managed by Niigata/Fukushima. The Kanetsu expressway and Okutadami access roads reach the park.",
+  "transportOptions": {},
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8,
+    "summer": 8.3,
+    "winter": 7.6,
+    "rain": 7.3,
+    "food": 7.1,
+    "photography": 8.5,
+    "relaxation": 8.3,
+    "value": 8.1,
+    "uniqueness": 8.4
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Lake_Tagokurako-1.JPG/1920px-Lake_Tagokurako-1.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Lake_Tagokurako-1.JPG/1920px-Lake_Tagokurako-1.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "河川一等兵, Public domain, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Tagokurako-1.JPG"
+  },
+  "officialWebsite": "https://www.pref.fukushima.lg.jp/w4/fgr/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Niigata:uonuma",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 13
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Echigo Sanzan Tadami Quasi-National Park",
+      "description": "Quasi-national park of the Echigo mountains and the Tadami river gorge on the Niigata-Fukushima border, with Okutadami dam lake and deep snow-country landscapes.",
+      "highlights": ["Echigo mountains", "Okutadami lake", "Tadami gorge"],
+      "notes": "Managed by Niigata/Fukushima. The Kanetsu expressway and Okutadami access roads reach the park.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "越後三山只見国定公園",
+      "description": "新潟・福島県境の越後山地と只見渓谷の国定公園。奥只見ダム湖と深い雪国の景観を誇ります。",
+      "highlights": ["越後山地", "奥只見湖", "只見渓谷"],
+      "notes": "新潟県・福島県が管理。関越自動車道と奥只見へのアクセス道路で訪れやすいです。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.pref.fukushima.lg.jp/w4/fgr/",
+        "title": "Echigo Sanzan Tadami Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "recommendedVisitHours": {
+    "min": 4,
+    "max": 8
+  }
+}

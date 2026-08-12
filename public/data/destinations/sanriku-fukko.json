@@ -1,0 +1,114 @@
+{
+  "id": "sanriku-fukko",
+  "name": "Sanriku Fukko (reconstruction) National Park",
+  "nameJa": "三陸復興国立公園",
+  "aliases": ["三陸復興国立公園"],
+  "prefecture": "Iwate",
+  "region": "Tohoku",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 39.53,
+    "lng": 141.97
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Iwate"],
+  "description": "National park (1955, renamed 2013) along the ria coastline of the Sanriku region, embracing the Kitayamazaki cliffs, Jodogahama beach and the rebuilt coastal communities.",
+  "highlights": ["Ria coastline cliffs", "Jodogahama beach", "Taro coast"],
+  "notes": "Designated 1955 (as Rikuchu Kaigan; expanded/renamed 2013, 28,539 ha) after the 2011 disaster; the reconstruction story is part of the park.",
+  "transportOptions": {},
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.9,
+    "couple": 8.7,
+    "summer": 9,
+    "winter": 8.3,
+    "rain": 8,
+    "food": 7.8,
+    "photography": 9.2,
+    "relaxation": 9,
+    "value": 8.8,
+    "uniqueness": 9.1
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/20/RikuchuKaigan.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/RikuchuKaigan.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Fg2, Public domain, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:RikuchuKaigan.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/sanriku/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Iwate:miyako",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 9
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Sanriku Fukko (reconstruction) National Park",
+      "description": "National park (1955, renamed 2013) along the ria coastline of the Sanriku region, embracing the Kitayamazaki cliffs, Jodogahama beach and the rebuilt coastal communities.",
+      "highlights": ["Ria coastline cliffs", "Jodogahama beach", "Taro coast"],
+      "notes": "Designated 1955 (as Rikuchu Kaigan; expanded/renamed 2013, 28,539 ha) after the 2011 disaster; the reconstruction story is part of the park.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "三陸復興国立公園",
+      "description": "1955年指定、2013年改称の国立公園。三陸のリアス海岸に沿い、北山崎の断崖、浄土ヶ浜、復興した沿岸の町々を擁します。",
+      "highlights": ["リアス海岸の断崖", "浄土ヶ浜", "田老海岸"],
+      "notes": "1955年指定（陸中海岸国立公園として、2013年に拡張・改称、2万8539ha）。2011年の震災後の復興の物語も公園の一部です。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/sanriku/index.html",
+        "title": "Sanriku Fukko (reconstruction) National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  },
+  "recommendedVisitHours": {
+    "min": 4,
+    "max": 8
+  }
+}

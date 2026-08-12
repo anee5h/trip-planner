@@ -1,0 +1,114 @@
+{
+  "id": "kyushu-chuo-sanchi",
+  "name": "Kyushu Chuo Sanchi Quasi-National Park",
+  "nameJa": "九州中央山地国定公園",
+  "aliases": ["九州中央山地国定公園"],
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 32.38,
+    "lng": 131.02
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Miyazaki"],
+  "description": "Quasi-national park of the Kyushu central mountains: the Mt. Ichifusa peaks and the Gokase river valleys of Kumamoto and Miyazaki.",
+  "highlights": ["Mt. Ichifusa", "Gokase valley", "Central Kyushu peaks"],
+  "notes": "Managed by Kumamoto/Miyazaki. The Ichifusa trail and the Takachiho highlands frame the park.",
+  "transportOptions": {},
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8,
+    "summer": 8.3,
+    "winter": 7.6,
+    "rain": 7.3,
+    "food": 7.1,
+    "photography": 8.5,
+    "relaxation": 8.3,
+    "value": 8.1,
+    "uniqueness": 8.4
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/76/Kumamoto_Pref_Road_161_Itsuki_01.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/7/76/Kumamoto_Pref_Road_161_Itsuki_01.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "ja:User:Sanjo, Public domain, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kumamoto_Pref_Road_161_Itsuki_01.JPG"
+  },
+  "officialWebsite": "https://miyazaki-nature-park.com/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Miyazaki:gokase",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 51
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Kyushu Chuo Sanchi Quasi-National Park",
+      "description": "Quasi-national park of the Kyushu central mountains: the Mt. Ichifusa peaks and the Gokase river valleys of Kumamoto and Miyazaki.",
+      "highlights": ["Mt. Ichifusa", "Gokase valley", "Central Kyushu peaks"],
+      "notes": "Managed by Kumamoto/Miyazaki. The Ichifusa trail and the Takachiho highlands frame the park.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "九州中央山地国定公園",
+      "description": "熊本・宮崎にまたがる九州中央山地の国定公園。市房山の峰々と五ヶ瀬川の渓谷が広がる。",
+      "highlights": ["市房山", "五ヶ瀬渓谷", "九州中央の峰々"],
+      "notes": "熊本・宮崎両県が管理。市房山登山道と高千穂高原が公園の見どころ。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://miyazaki-nature-park.com/",
+        "title": "Kyushu Chuo Sanchi Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "recommendedVisitHours": {
+    "min": 4,
+    "max": 8
+  }
+}

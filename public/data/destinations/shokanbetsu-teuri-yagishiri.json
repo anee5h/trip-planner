@@ -1,0 +1,118 @@
+{
+  "id": "shokanbetsu-teuri-yagishiri",
+  "name": "Shokanbetsu-Teuri-Yagishiri Quasi-National Park",
+  "nameJa": "暑寒別天売焼尻国定公園",
+  "aliases": ["暑寒別天売焼尻国定公園"],
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 43.716,
+    "lng": 141.523
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["Quasi-National Park", "国定公園", "Nature", "Hokkaido"],
+  "description": "Quasi-national park of Hokkaido's western coast: the Shokanbetsu volcanic peaks, and the Teuri and Yagishiri sea-cliff islands in the Sea of Japan.",
+  "highlights": ["Sea-cliff islands", "Mt. Shokanbetsu", "Seabird colonies"],
+  "notes": "Designated by MOE; managed by Hokkaido. Ferry from Haboro reaches the islands.",
+  "transportOptions": {},
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8,
+    "summer": 8.3,
+    "winter": 7.6,
+    "rain": 7.3,
+    "food": 7.1,
+    "photography": 8.5,
+    "relaxation": 8.3,
+    "value": 8.1,
+    "uniqueness": 8.4
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Mt._Kogane_20150429.jpg/1920px-Mt._Kogane_20150429.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Mt._Kogane_20150429.jpg/1920px-Mt._Kogane_20150429.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Takisaw, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt._Kogane_20150429.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Hokkaido:mashike",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "quasi-national-parks-japan",
+      "sortOrder": 1
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Shokanbetsu-Teuri-Yagishiri Quasi-National Park",
+      "description": "Quasi-national park of Hokkaido's western coast: the Shokanbetsu volcanic peaks, and the Teuri and Yagishiri sea-cliff islands in the Sea of Japan.",
+      "highlights": [
+        "Sea-cliff islands",
+        "Mt. Shokanbetsu",
+        "Seabird colonies"
+      ],
+      "notes": "Designated by MOE; managed by Hokkaido. Ferry from Haboro reaches the islands.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "暑寒別天売焼尻国定公園",
+      "description": "北海道西海岸の国定公園。暑寒別火山群と、日本海に浮かぶ天売島・焼尻島の海食崖の島々が広がる。",
+      "highlights": ["海食崖の島々", "暑寒別岳", "海鳥のコロニー"],
+      "notes": "環境省指定・北海道管理。羽幌からフェリーで島へアクセス。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Shokanbetsu-Teuri-Yagishiri Quasi-National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new quasi-national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  },
+  "recommendedVisitHours": {
+    "min": 6,
+    "max": 12
+  }
+}

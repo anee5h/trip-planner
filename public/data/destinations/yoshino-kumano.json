@@ -1,0 +1,124 @@
+{
+  "id": "yoshino-kumano",
+  "name": "Yoshino-Kumano National Park",
+  "nameJa": "吉野熊野国立公園",
+  "aliases": ["吉野熊野国立公園"],
+  "prefecture": "Wakayama",
+  "region": "Kansai",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 33.84,
+    "lng": 135.77
+  },
+  "categories": ["Nature", "Park", "Outdoors"],
+  "tags": ["National Park", "国立公園", "Nature", "Wakayama"],
+  "description": "National park (1936) of the Kii mountains: cherry-covered Mt. Yoshino, the Kumano pilgrimage routes, the Nachi falls, and the coastal cliffs of the Kumanonada sea.",
+  "highlights": [
+    "Kumano pilgrimage routes",
+    "Mt. Yoshino cherries",
+    "Nachi Falls",
+    "Sacred peaks"
+  ],
+  "notes": "Designated 1936 (61,406 ha). Many UNESCO sites lie within; the Kumano Kodo trails are the park's backbone.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 5
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 5,
+  "ratings": {
+    "overall": 9,
+    "couple": 8.8,
+    "summer": 9.1,
+    "winter": 8.4,
+    "rain": 8.1,
+    "food": 7.9,
+    "photography": 9.3,
+    "relaxation": 9.1,
+    "value": 8.9,
+    "uniqueness": 9.2
+  },
+  "weatherDependence": "high",
+  "reservation": "None required",
+  "parking": "Parking available at major visitor areas (fee varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Nachikatsuura_Kumano-Nachi-taisha_Hiro-jinja_Nachi_Falls_06.jpg/1920px-Nachikatsuura_Kumano-Nachi-taisha_Hiro-jinja_Nachi_Falls_06.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Nachikatsuura_Kumano-Nachi-taisha_Hiro-jinja_Nachi_Falls_06.jpg/1920px-Nachikatsuura_Kumano-Nachi-taisha_Hiro-jinja_Nachi_Falls_06.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Zairon, CC BY 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nachikatsuura_Kumano-Nachi-taisha_Hiro-jinja_Nachi_Falls_06.jpg"
+  },
+  "officialWebsite": "https://www.env.go.jp/park/yoshino/index.html",
+  "businessHours": "Open access (park; facility hours vary by season and area)",
+  "openingHoursJa": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）",
+  "municipalityId": "Wakayama:tanabe",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "national-parks-japan",
+      "sortOrder": 22
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Yoshino-Kumano National Park",
+      "description": "National park (1936) of the Kii mountains: cherry-covered Mt. Yoshino, the Kumano pilgrimage routes, the Nachi falls, and the coastal cliffs of the Kumanonada sea.",
+      "highlights": [
+        "Kumano pilgrimage routes",
+        "Mt. Yoshino cherries",
+        "Nachi Falls",
+        "Sacred peaks"
+      ],
+      "notes": "Designated 1936 (61,406 ha). Many UNESCO sites lie within; the Kumano Kodo trails are the park's backbone.",
+      "reservation": "None required",
+      "parking": "Parking available at major visitor areas (fee varies)",
+      "openingHours": "Open access (park; facility hours vary by season and area)"
+    },
+    "ja": {
+      "name": "吉野熊野国立公園",
+      "description": "紀伊山地の国立公園（1936年指定）。桜で知られる吉野山、熊野参詣道、那智の滝、熊野灘の海岸絶壁が見どころです。",
+      "highlights": ["熊野参詣道", "吉野山の桜", "那智の滝", "霊峰"],
+      "notes": "1936年指定（61,406ha）。多くのユネスコ世界遺産が含まれ、熊野古道が公園の中心です。",
+      "reservation": "予約不要",
+      "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
+      "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/yoshino/index.html",
+        "title": "Yoshino-Kumano National Park official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "government",
+        "url": "https://www.env.go.jp/park/parks/index.html",
+        "title": "Ministry of the Environment park list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR C parks audit: new national park record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

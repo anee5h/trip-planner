@@ -35,7 +35,7 @@
     "freshness": "current"
   },
   "relationships": {
-    "parentDestinationId": "otsu-city"
+    "gatewayHubId": "otsu-city"
   },
   "content": {
     "en": {
@@ -71,17 +71,19 @@
     "min": 0.5,
     "max": 1.5
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Shirahige_jinja.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Shirahige_Shrine_20200919_03.jpg/1920px-Shirahige_Shrine_20200919_03.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons contributors",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahige_jinja.jpg"
+    "license": "CC0",
+    "attribution": "Wikimedia Commons (CC0)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahige_Shrine_20200919_03.jpg"
   },
-  "municipalityId": "Shiga:otsu",
+  "municipalityId": "Shiga:takashima",
   "transportOptions": {
     "train": 160,
     "bus": 175,
     "car": 185
-  }
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Shirahige_Shrine_20200919_03.jpg/1920px-Shirahige_Shrine_20200919_03.jpg",
+  "collections": []
 }
