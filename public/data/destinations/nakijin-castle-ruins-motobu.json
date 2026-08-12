@@ -109,14 +109,13 @@
   ],
   "collections": [
     {
-<<<<<<< HEAD
+      "collectionId": "japan-top-castles",
+      "sortOrder": 98
+    },
+    {
       "collectionId": "unesco-japan",
       "confirmed": true,
       "source": "https://whc.unesco.org/en/list/972/"
-=======
-      "collectionId": "japan-top-castles",
-      "sortOrder": 98
->>>>>>> b8760463 (data: complete japan-top-castles to the official 日本100名城 (PR B))
     }
   ],
   "crowd": {

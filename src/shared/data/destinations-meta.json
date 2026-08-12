@@ -7212,6 +7212,18 @@
     }
   },
   {
+    "id": "obi-castle",
+    "name": "Obi Castle",
+    "prefecture": "Miyazaki",
+    "region": "Kyushu",
+    "role": "poi",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "nichinan-city"
+    }
+  },
+  {
     "id": "obi-castle-town",
     "name": "Obi Castle Town",
     "prefecture": "Miyazaki",

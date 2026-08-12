@@ -1,0 +1,166 @@
+{
+  "id": "obi-castle",
+  "name": "Obi Castle",
+  "nameJa": "飫肥城",
+  "aliases": ["飫肥城", "Obi Castle"],
+  "content": {
+    "en": {
+      "name": "Obi Castle",
+      "description": "Obi Castle was the seat of the Ito clan for over two and a half centuries. The restored Otemon gate, mossy stone walls and moat, and the castle museum (housed in the former castle buildings) sit at the heart of Obi, the 'Little Kyoto of Kyushu' castle town in Nichinan.",
+      "highlights": [
+        "Restored Otemon main gate",
+        "Ito clan castle ruins and stone walls",
+        "Obi Castle Museum in the former castle buildings"
+      ],
+      "openingHours": "Castle grounds: 09:00-17:00. Obi Castle Museum and individual facilities may vary."
+    },
+    "ja": {
+      "name": "飫肥城",
+      "description": "江戸時代に伊東氏が約250年間治めた飫肥城。復元された大手門、苔むす石垣と堀、旧城郭の建物を活用した飫肥城資料館は、「九州の小京都」と呼ばれる日南市飫肥の城下町の中心にあります。",
+      "highlights": [
+        "復元された大手門",
+        "伊東氏の城郭遺構と石垣",
+        "旧城郭を利用した飫肥城資料館"
+      ],
+      "openingHours": "城郭内：9:00～17:00。飫肥城資料館など施設により異なる場合があります。"
+    }
+  },
+  "prefecture": "Miyazaki",
+  "region": "Kyushu",
+  "kind": "castle",
+  "role": "poi",
+  "placeType": "destination",
+  "relationships": {
+    "parentDestinationId": "nichinan-city"
+  },
+  "officialWebsiteRequirement": "optional",
+  "categories": ["Castle", "Historic", "Sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Miyazaki"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Obi%2C_Nichinan%2C_%C5%8Ctemon_Gate_of_Obi_Castle_01.jpg/1920px-Obi%2C_Nichinan%2C_%C5%8Ctemon_Gate_of_Obi_Castle_01.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Naokijp",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi%2C_Nichinan%2C_%C5%8Ctemon_Gate_of_Obi_Castle_01.jpg"
+  },
+  "coordinates": {
+    "lat": 31.6289,
+    "lng": 131.355
+  },
+  "description": "Obi Castle was the seat of the Ito clan for over two and a half centuries. The restored Otemon gate, mossy stone walls and moat, and the castle museum (housed in the former castle buildings) sit at the heart of Obi, the 'Little Kyoto of Kyushu' castle town in Nichinan.",
+  "highlights": [
+    "Restored Otemon main gate",
+    "Ito clan castle ruins and stone walls",
+    "Obi Castle Museum in the former castle buildings"
+  ],
+  "openingHours": "Castle grounds: 09:00-17:00. Obi Castle Museum and individual facilities may vary.",
+  "openingHoursJa": "城郭内：9:00～17:00。飫肥城資料館など施設により異なる場合があります。",
+  "openingHoursMetadata": {
+    "verifiedAt": "2026-08-05",
+    "sourceUrl": "https://www.kankou-nichinan.jp/en/spot/obi/",
+    "hoursNote": "Castle grounds and museum hours per the Nichinan tourism office; check individual facilities."
+  },
+  "budgetMin": 2000,
+  "budgetRecommended": 6000,
+  "budgetMax": 12000,
+  "budgetBreakdown": {
+    "transport": 600,
+    "tickets": 700,
+    "food": 900,
+    "cafe": 200
+  },
+  "transportOptions": {
+    "train": 220,
+    "bus": 200
+  },
+  "totalTripHours": 5,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "walkingMin": 5000,
+  "walkingIntensity": "medium",
+  "walkingSunMin": 2000,
+  "walkingShadeMin": 2500,
+  "indoorPercent": 30,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 3
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 9,
+    "summer": 7.5,
+    "winter": 7.5,
+    "rain": 7,
+    "food": 8,
+    "photography": 9.5,
+    "relaxation": 8.5,
+    "value": 8.5,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "crowd": {
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 8
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 10, 11],
+  "weatherDependence": "moderate",
+  "reservation": "None required for public areas; individual museums may charge admission",
+  "reservationJa": "町並み散策は自由。各博物館は別途入館料あり。",
+  "parking": "Paid parking available near the castle town entrance",
+  "notes": "Enter via the restored Otemon gate; the combined Obi Castle Museum / castle town admission ticket covers the samurai residences. Individual facilities have separate hours and fees.",
+  "notesJa": "飫肥城資料館で販売の共通入場券で複数施設をお得に巡れます。",
+  "schemaVersion": 2,
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "medium"
+  },
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 96
+    }
+  ],
+  "addedAt": "2026-08-05",
+  "editorial": {
+    "lifecycle": "published",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kankou-nichinan.jp/en/spot/obi/",
+        "title": "Obi Castle Town Official Website",
+        "accessedAt": "2026-08-05"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Obi,_Miyazaki",
+        "title": "Obi, Miyazaki",
+        "accessedAt": "2026-08-05"
+      }
+    ],
+    "checkedAt": "2026-08-05",
+    "freshness": "current",
+    "changeSummary": "100-city audit correction (obsolete castle-town proxy)",
+    "changes": [
+      {
+        "changedAt": "2026-08-12",
+        "changedBy": "Collections audit correction",
+        "summary": "Replaced obi-castle-town as the official #96 member with the castle POI itself",
+        "method": "assisted"
+      }
+    ],
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Collections audit correction"
+  },
+  "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/obi/",
+  "municipalityId": "Miyazaki:nichinan"
+}
