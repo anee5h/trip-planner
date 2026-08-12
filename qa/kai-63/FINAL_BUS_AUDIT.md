@@ -25,13 +25,13 @@ remains `Bus`.
 
 ### 1.1 Origin resolution
 
-| Step | Code | Behavior |
-|---|---|---|
-| Station origin | `StationInput` + `resolveOriginTransportZone({coordinates, label})` | station label prefecture (`"Iwakuni Station, Yamaguchi"` → `yamaguchi` → `mainland-honshu`) wins via `PREFECTURE_ZONE` |
-| Postcode origin | Nominatim → coordinates → `resolveOriginTransportZone({coordinates, label: zip})` | island boxes → label prefecture (zip never matches) → mainland boxes (hokkaido/kyushu/shikoku) → honshu remainder |
-| Current location | coordinates | same box path |
-| Municipality/prefecture | `resolveOriginArea` → `resolveOriginMunicipalityId` (nearest hub ≤20 km, gap rule ≥ max(1 km, winner/2)) | `originMunicipalityId` used for exact hub wiring (`MUNICIPALITY_BUS_SLUG`) |
-| Gateway | `relationships.gatewayHubId` | **not used by bus** (flight/ferry-only concept); documented, no change |
+| Step                    | Code                                                                                                     | Behavior                                                                                                               |
+| ----------------------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Station origin          | `StationInput` + `resolveOriginTransportZone({coordinates, label})`                                      | station label prefecture (`"Iwakuni Station, Yamaguchi"` → `yamaguchi` → `mainland-honshu`) wins via `PREFECTURE_ZONE` |
+| Postcode origin         | Nominatim → coordinates → `resolveOriginTransportZone({coordinates, label: zip})`                        | island boxes → label prefecture (zip never matches) → mainland boxes (hokkaido/kyushu/shikoku) → honshu remainder      |
+| Current location        | coordinates                                                                                              | same box path                                                                                                          |
+| Municipality/prefecture | `resolveOriginArea` → `resolveOriginMunicipalityId` (nearest hub ≤20 km, gap rule ≥ max(1 km, winner/2)) | `originMunicipalityId` used for exact hub wiring (`MUNICIPALITY_BUS_SLUG`)                                             |
+| Gateway                 | `relationships.gatewayHubId`                                                                             | **not used by bus** (flight/ferry-only concept); documented, no change                                                 |
 
 ### 1.2 Bus topology & data
 
@@ -90,43 +90,43 @@ Method: UI-level Explore render (`?mode=bus`, default `duration=any`) for the
 origin + pipeline decomposition of all 983 catalogue records. UI count and
 pipeline count agree for every origin (`UI == pipeline`).
 
-| Origin | zone | Bus | day-inf. | night-only | no-corridor | no-bus-topo | dest-unknown | % reachable |
-|---|---|---|---|---|---|---|---|---|
-| Tokyo (Tokyo St) | honshu | **21** | 133 | 41 | 695 | 79 | 14 | 2.1 |
-| Shinagawa | honshu | **13** | 141 | 41 | 695 | 79 | 14 | 1.3 |
-| Yokohama | honshu | **10** | 144 | 41 | 695 | 79 | 14 | 1.0 |
-| Machida | honshu | **10** | 144 | 41 | 695 | 79 | 14 | 1.0 |
-| Nakayama | honshu | **10** | 144 | 41 | 695 | 79 | 14 | 1.0 |
-| Chiba | honshu | **10** | 144 | 41 | 695 | 79 | 14 | 1.0 |
-| Fukushima | honshu | **23** | 135 | 41 | 732 | 79 | 14 | 2.3 |
-| Nagano | honshu | **31** | 101 | 41 | 758 | 79 | 14 | 3.2 |
-| Osaka | honshu | **49** | 156 | 50 | 635 | 79 | 14 | 5.0 |
-| Hiroshima | honshu | **91** | 24 | 132 | 643 | 79 | 14 | 9.3 |
-| Iwakuni | honshu | **32** (postcode 0→32) | 83 | 132 | 643 | 79 | 14 | 3.3 |
-| Hakata | kyushu | **29** | 4 | 178 | 620 | 138 | 14 | 3.0 |
-| Naha 900-8585 | okinawa | **9** (was 0) | 0 | 0 | 8 | 952 | 14 | 0.9 |
-| Sendai | honshu | **23** | 130 | 41 | 737 | 79 | 14 | 2.3 |
-| Sapporo | hokkaido | **3** | 5 | 0 | 31 | 930 | 14 | 0.3 |
-| Kochi | shikoku | **42** | 28 | 0 | 699 | 200 | 14 | 4.3 |
-| Nagoya | honshu | **43** | 135 | 41 | 712 | 79 | 14 | 4.4 |
-| Koriyama | honshu | **93** | 65 | 41 | 732 | 79 | 14 | 9.5 |
-| Kanazawa | honshu | **0** | 46 | 132 | 712 | 79 | 14 | 0.0 |
-| Matsuyama | shikoku | **21** | 45 | 0 | 703 | 200 | 14 | 2.1 |
-| Kagoshima | kyushu | **19** | 4 | 0 | 808 | 138 | 14 | 1.9 |
-| Kumamoto | kyushu | **23** | 4 | 0 | 808 | 138 | 14 | 2.3 |
-| Nagasaki | kyushu | **23** | 4 | 0 | 808 | 138 | 14 | 2.3 |
-| Aomori | honshu | **0** | 0 | 0 | 890 | 79 | 14 | 0.0 |
-| Morioka | honshu | **0** | 0 | 0 | 890 | 79 | 14 | 0.0 |
-| Niigata | honshu | **2** | 130 | 41 | 758 | 79 | 14 | 0.2 |
-| Toyama | honshu | **0** | 0 | 0 | 890 | 79 | 14 | 0.0 |
-| Tottori | honshu | **39** | 7 | 41 | 844 | 79 | 14 | 4.0 |
-| Matsue | honshu | **12** | 2 | 41 | 876 | 79 | 14 | 1.2 |
-| Takamatsu | shikoku | **64** | 8 | 0 | 697 | 200 | 14 | 6.5 |
-| Tokushima | shikoku | **0** | 0 | 0 | 769 | 200 | 14 | 0.0 |
-| Uwajima | shikoku | **0** | 0 | 0 | 769 | 200 | 14 | 0.0 |
-| Kushiro | hokkaido | **0** | 0 | 0 | 39 | 930 | 14 | 0.0 |
-| Okinawa City | okinawa | **9** (was 0) | 0 | 0 | 8 | 952 | 14 | 0.9 |
-| Miyakojima | miyako | **0** | 0 | 0 | 4 | 965 | 14 | 0.0 |
+| Origin           | zone     | Bus                    | day-inf. | night-only | no-corridor | no-bus-topo | dest-unknown | % reachable |
+| ---------------- | -------- | ---------------------- | -------- | ---------- | ----------- | ----------- | ------------ | ----------- |
+| Tokyo (Tokyo St) | honshu   | **21**                 | 133      | 41         | 695         | 79          | 14           | 2.1         |
+| Shinagawa        | honshu   | **13**                 | 141      | 41         | 695         | 79          | 14           | 1.3         |
+| Yokohama         | honshu   | **10**                 | 144      | 41         | 695         | 79          | 14           | 1.0         |
+| Machida          | honshu   | **10**                 | 144      | 41         | 695         | 79          | 14           | 1.0         |
+| Nakayama         | honshu   | **10**                 | 144      | 41         | 695         | 79          | 14           | 1.0         |
+| Chiba            | honshu   | **10**                 | 144      | 41         | 695         | 79          | 14           | 1.0         |
+| Fukushima        | honshu   | **23**                 | 135      | 41         | 732         | 79          | 14           | 2.3         |
+| Nagano           | honshu   | **31**                 | 101      | 41         | 758         | 79          | 14           | 3.2         |
+| Osaka            | honshu   | **49**                 | 156      | 50         | 635         | 79          | 14           | 5.0         |
+| Hiroshima        | honshu   | **91**                 | 24       | 132        | 643         | 79          | 14           | 9.3         |
+| Iwakuni          | honshu   | **32** (postcode 0→32) | 83       | 132        | 643         | 79          | 14           | 3.3         |
+| Hakata           | kyushu   | **29**                 | 4        | 178        | 620         | 138         | 14           | 3.0         |
+| Naha 900-8585    | okinawa  | **9** (was 0)          | 0        | 0          | 8           | 952         | 14           | 0.9         |
+| Sendai           | honshu   | **23**                 | 130      | 41         | 737         | 79          | 14           | 2.3         |
+| Sapporo          | hokkaido | **3**                  | 5        | 0          | 31          | 930         | 14           | 0.3         |
+| Kochi            | shikoku  | **42**                 | 28       | 0          | 699         | 200         | 14           | 4.3         |
+| Nagoya           | honshu   | **43**                 | 135      | 41         | 712         | 79          | 14           | 4.4         |
+| Koriyama         | honshu   | **93**                 | 65       | 41         | 732         | 79          | 14           | 9.5         |
+| Kanazawa         | honshu   | **0**                  | 46       | 132        | 712         | 79          | 14           | 0.0         |
+| Matsuyama        | shikoku  | **21**                 | 45       | 0          | 703         | 200         | 14           | 2.1         |
+| Kagoshima        | kyushu   | **19**                 | 4        | 0          | 808         | 138         | 14           | 1.9         |
+| Kumamoto         | kyushu   | **23**                 | 4        | 0          | 808         | 138         | 14           | 2.3         |
+| Nagasaki         | kyushu   | **23**                 | 4        | 0          | 808         | 138         | 14           | 2.3         |
+| Aomori           | honshu   | **0**                  | 0        | 0          | 890         | 79          | 14           | 0.0         |
+| Morioka          | honshu   | **0**                  | 0        | 0          | 890         | 79          | 14           | 0.0         |
+| Niigata          | honshu   | **2**                  | 130      | 41         | 758         | 79          | 14           | 0.2         |
+| Toyama           | honshu   | **0**                  | 0        | 0          | 890         | 79          | 14           | 0.0         |
+| Tottori          | honshu   | **39**                 | 7        | 41         | 844         | 79          | 14           | 4.0         |
+| Matsue           | honshu   | **12**                 | 2        | 41         | 876         | 79          | 14           | 1.2         |
+| Takamatsu        | shikoku  | **64**                 | 8        | 0          | 697         | 200         | 14           | 6.5         |
+| Tokushima        | shikoku  | **0**                  | 0        | 0          | 769         | 200         | 14           | 0.0         |
+| Uwajima          | shikoku  | **0**                  | 0        | 0          | 769         | 200         | 14           | 0.0         |
+| Kushiro          | hokkaido | **0**                  | 0        | 0          | 39          | 930         | 14           | 0.0         |
+| Okinawa City     | okinawa  | **9** (was 0)          | 0        | 0          | 8           | 952         | 14           | 0.9         |
+| Miyakojima       | miyako   | **0**                  | 0        | 0          | 4           | 965         | 14           | 0.0         |
 
 Column meaning: **Bus** = day-trip-feasible non-night-only Explore results;
 **day-inf.** = corridor exists but 2×travel + visit > 14 h; **night-only** =
@@ -159,15 +159,15 @@ reason counts in the matrix above are computed by
 `qa/kai-63/bus-corridor-decomposition.test.ts` (all 35 origins) and
 `bus-audit.test.tsx`:
 
-| Class | What it means | Typical share (honshu origin) | Examples |
-|---|---|---|---|
-| Topology exclusion | bus not authorized between origin/destination zones (island without bus edge, no honshu↔hokkaido bus edge) | 53–79 / 983 | Hokkaido from Tokyo; outer islands from Naha |
-| Terminal catchment | no bus terminal within 50 km (origin) or 30 km (destination) of the location | ~400 / 983 | most of rural Japan; Aomori/Morioka origins; Naha pre-fix |
-| No verified corridor | hub pair resolved but no registered route row between them | ~295 / 983 | e.g. Tokushima, Uwajima destinations |
-| Highway-bus gap | route exists but is night-only (excluded from day trips) or exceeds the 14 h day-trip envelope | 41–178 / 983 | tokyo⇔fukuoka はかた号 (night); osaka⇔kanazawa (15.8 h round trip) |
-| Local-bus gap | destination served only by local city bus — deliberately not corridor evidence (KAI-67) | small but systematic | same-city POIs (Osaka POIs from Osaka), Naha-city POIs from Naha |
-| Origin-resolution issue | coordinate/postcode origin resolved to the wrong zone | 2 fixed in this PR | Iwakuni postcode (0→32), Naha postcode (0→9) |
-| Duration/fare evidence gap | route known but duration/fare unverified | none excluding today | fare-null rows (e.g. osaka⇔matsuyama オレンジライナー) stay eligible |
+| Class                      | What it means                                                                                              | Typical share (honshu origin) | Examples                                                             |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------- | -------------------------------------------------------------------- |
+| Topology exclusion         | bus not authorized between origin/destination zones (island without bus edge, no honshu↔hokkaido bus edge) | 53–79 / 983                   | Hokkaido from Tokyo; outer islands from Naha                         |
+| Terminal catchment         | no bus terminal within 50 km (origin) or 30 km (destination) of the location                               | ~400 / 983                    | most of rural Japan; Aomori/Morioka origins; Naha pre-fix            |
+| No verified corridor       | hub pair resolved but no registered route row between them                                                 | ~295 / 983                    | e.g. Tokushima, Uwajima destinations                                 |
+| Highway-bus gap            | route exists but is night-only (excluded from day trips) or exceeds the 14 h day-trip envelope             | 41–178 / 983                  | tokyo⇔fukuoka はかた号 (night); osaka⇔kanazawa (15.8 h round trip)   |
+| Local-bus gap              | destination served only by local city bus — deliberately not corridor evidence (KAI-67)                    | small but systematic          | same-city POIs (Osaka POIs from Osaka), Naha-city POIs from Naha     |
+| Origin-resolution issue    | coordinate/postcode origin resolved to the wrong zone                                                      | 2 fixed in this PR            | Iwakuni postcode (0→32), Naha postcode (0→9)                         |
+| Duration/fare evidence gap | route known but duration/fare unverified                                                                   | none excluding today          | fare-null rows (e.g. osaka⇔matsuyama オレンジライナー) stay eligible |
 
 A destination can be bus-eligible from one nearby origin but not another for
 three legitimate reasons: (a) the origin's hub set differs (e.g. Koriyama vs
@@ -181,34 +181,34 @@ these.
 
 ## 3. Root causes, classified
 
-| # | Problem | Class | Fix |
-|---|---|---|---|
-| 1 | Naha postcode 900-8585 → 0 bus | **route/topology data gap** (not island restriction) | Okinawa had no bus terminals and no corridor rows; the island topology correctly blocks the 952 mainland/outer-island records, and the remaining 8 same-zone destinations had no terminal within 50 km. Added verified `naha⇔nago` corridor (111/117 高速バス, 95–112 min, ¥2,420) + `naha`/`nago` terminals + municipality wiring → **9** Okinawa-local results (nago-city verified at-hub; Churaumi/Bise/Nakijin/Kouri/Busena/pineapple/Onna estimated with 3–16 km onward access). Mainland and outer islands stay 0 (topology preserved). |
-| 2 | Iwakuni postcode → 0 bus | **origin-resolution bug** | Iwakuni (Yamaguchi, lng > 132.2) fell inside the shikoku mainland box for coordinate/postcode origins → `mainland-shikoku` → no terminal within 50 km. Station origins were already correct (label prefecture). Added `YAMAGUCHI_HONSHU_EXCLUSION_BOX` (lat 33.8–34.2, lng 132.2–132.45 → honshu) → postcode origins now **32**, identical to station origins. The band is deliberately narrow: its east edge (lng 132.45) keeps every Matsuyama City Seto island (Nakajima ~33.97/132.61, Tsuwajima ~33.99/132.67, the Kutsuna group) out of the Honshu override — an Ehime island origin still resolves as mainland-shikoku (review regression: added Nakajima + Tsuwajima cases). Also covers Suo-Oshima (Yamaguchi) and the Iwakuni landmass; no Ehime/Shikoku land lies inside the band (Shikoku proper's north coast there is the Sadamisaki peninsula, lat ≤ 33.5; Matsuyama city is east of lng 132.7). |
-| 3 | QA example counts | **reproduced on main** | With the main catalogue (983) and station-origin resolution, the ticket's counts reproduce exactly: Yokohama/Machida/Nakayama/Chiba 10, Fukushima 23, Nagano 31, Osaka 49, Hiroshima 91, Iwakuni 32 (station), Hakata 29; Naha postcode 900-8585 0 (post-fix 9). Shinagawa 13 (QA "14" is a coordinate choice). No optimization against these was needed or performed. |
-| 4 | Night-only leak in `any`-duration gate | **filter/logic bug (latent)** | `matchesPersonalizedDayTripDuration` accepted any non-unknown evidence for visit-hours-less records, which would admit a night-only coach into a same-day trip. No current record lacks `recommendedVisitHours` (0/983), so it never manifested; hardened the gate + regression test. |
-| 5 | ~400 destinations beyond 30 km of any terminal | **route/topology data gap** | Arrival catchment is intentionally conservative (Hakone guard). Expanding coverage = more terminals + verified rows (follow-up dataset, §6). Not a logic bug. |
-| 6 | ~295 destinations with hub pairs but no route row | **route/topology data gap** | Registry is corridor-graph-bound by design. Same follow-up. |
-| 7 | Kanazawa 0, Aomori/Morioka/Toyama/Tokushima/Uwajima/Kushiro 0 | **route/topology data gap** | Kanazawa's only day-capable corridor (osaka⇔kanazawa, mixed) is 366–444 min → 15.8 h round trip, over the 14 h day-trip envelope; tokyo⇔kanazawa is night-only. Aomori/Morioka/Toyama have no origin terminal within 50 km and no corridor rows; Tokushima/Uwajima have no corridor rows; Kushiro has no terminal or rows. Honest zeros; follow-up dataset (§6). |
-| 8 | Same-city asymmetry (Osaka POIs reachable from Hiroshima's bus, not from Osaka's) | **intentionally unsupported** | No `osaka⇔osaka`-style local corridor rows: a local city bus must not prove an intercity route (KAI-67). The intercity model legitimately serves Osaka-area destinations from remote origins via arrival catchment. Documented, not a bug. |
-| 9 | 14 destination-zone unknowns | **missing transport metadata** | Island-marked records without explicit `transportZoneId`. Bus-irrelevant (all are ferry/flight-dependent islands); catalog follow-up. |
-| 10 | `transportOptions.bus` legacy 150-min defaults | **legacy field, not evidence** | Used only for zone-only browsing display; personalized origins always use the canonical pipeline (KAI-12). No change needed. |
+| #   | Problem                                                                           | Class                                                | Fix                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --- | --------------------------------------------------------------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Naha postcode 900-8585 → 0 bus                                                    | **route/topology data gap** (not island restriction) | Okinawa had no bus terminals and no corridor rows; the island topology correctly blocks the 952 mainland/outer-island records, and the remaining 8 same-zone destinations had no terminal within 50 km. Added verified `naha⇔nago` corridor (111/117 高速バス, 95–112 min, ¥2,420) + `naha`/`nago` terminals + municipality wiring → **9** Okinawa-local results (nago-city verified at-hub; Churaumi/Bise/Nakijin/Kouri/Busena/pineapple/Onna estimated with 3–16 km onward access). Mainland and outer islands stay 0 (topology preserved).                                                                                                                                                                                                                                                                                                                                                                   |
+| 2   | Iwakuni postcode → 0 bus                                                          | **origin-resolution bug**                            | Iwakuni (Yamaguchi, lng > 132.2) fell inside the shikoku mainland box for coordinate/postcode origins → `mainland-shikoku` → no terminal within 50 km. Station origins were already correct (label prefecture). Added `YAMAGUCHI_HONSHU_EXCLUSION_BOX` (lat 33.8–34.2, lng 132.2–132.45 → honshu) → postcode origins now **32**, identical to station origins. The band is deliberately narrow: its east edge (lng 132.45) keeps every Matsuyama City Seto island (Nakajima ~33.97/132.61, Tsuwajima ~33.99/132.67, the Kutsuna group) out of the Honshu override — an Ehime island origin still resolves as mainland-shikoku (review regression: added Nakajima + Tsuwajima cases). Also covers Suo-Oshima (Yamaguchi) and the Iwakuni landmass; no Ehime/Shikoku land lies inside the band (Shikoku proper's north coast there is the Sadamisaki peninsula, lat ≤ 33.5; Matsuyama city is east of lng 132.7). |
+| 3   | QA example counts                                                                 | **reproduced on main**                               | With the main catalogue (983) and station-origin resolution, the ticket's counts reproduce exactly: Yokohama/Machida/Nakayama/Chiba 10, Fukushima 23, Nagano 31, Osaka 49, Hiroshima 91, Iwakuni 32 (station), Hakata 29; Naha postcode 900-8585 0 (post-fix 9). Shinagawa 13 (QA "14" is a coordinate choice). No optimization against these was needed or performed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| 4   | Night-only leak in `any`-duration gate                                            | **filter/logic bug (latent)**                        | `matchesPersonalizedDayTripDuration` accepted any non-unknown evidence for visit-hours-less records, which would admit a night-only coach into a same-day trip. No current record lacks `recommendedVisitHours` (0/983), so it never manifested; hardened the gate + regression test.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 5   | ~400 destinations beyond 30 km of any terminal                                    | **route/topology data gap**                          | Arrival catchment is intentionally conservative (Hakone guard). Expanding coverage = more terminals + verified rows (follow-up dataset, §6). Not a logic bug.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| 6   | ~295 destinations with hub pairs but no route row                                 | **route/topology data gap**                          | Registry is corridor-graph-bound by design. Same follow-up.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| 7   | Kanazawa 0, Aomori/Morioka/Toyama/Tokushima/Uwajima/Kushiro 0                     | **route/topology data gap**                          | Kanazawa's only day-capable corridor (osaka⇔kanazawa, mixed) is 366–444 min → 15.8 h round trip, over the 14 h day-trip envelope; tokyo⇔kanazawa is night-only. Aomori/Morioka/Toyama have no origin terminal within 50 km and no corridor rows; Tokushima/Uwajima have no corridor rows; Kushiro has no terminal or rows. Honest zeros; follow-up dataset (§6).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| 8   | Same-city asymmetry (Osaka POIs reachable from Hiroshima's bus, not from Osaka's) | **intentionally unsupported**                        | No `osaka⇔osaka`-style local corridor rows: a local city bus must not prove an intercity route (KAI-67). The intercity model legitimately serves Osaka-area destinations from remote origins via arrival catchment. Documented, not a bug.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 9   | 14 destination-zone unknowns                                                      | **missing transport metadata**                       | Island-marked records without explicit `transportZoneId`. Bus-irrelevant (all are ferry/flight-dependent islands); catalog follow-up.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 10  | `transportOptions.bus` legacy 150-min defaults                                    | **legacy field, not evidence**                       | Used only for zone-only browsing display; personalized origins always use the canonical pipeline (KAI-12). No change needed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 ---
 
 ## 4. Before/after (audited example origins, main head)
 
-| Origin | Before | After | Root cause |
-|---|---|---|---|
-| Yokohama / Machida / Nakayama / Chiba | 10 | 10 | unchanged (QA numbers reproduced) |
-| Fukushima | 23 | 23 | unchanged |
-| Shinagawa | 13 | 13 | unchanged (QA "14" = coord choice) |
-| Nagano | 31 | 31 | unchanged |
-| Osaka | 49 | 49 | unchanged |
-| Hiroshima | 91 | 91 | unchanged |
-| **Iwakuni (postcode/coords)** | **0** | **32** | zone mis-resolution (§3.2); station origins already 32 |
-| Hakata | 29 | 29 | unchanged |
-| **Naha 900-8585** | **0** | **9** | missing Okinawa terminals/corridor (§3.1) |
+| Origin                                | Before | After  | Root cause                                             |
+| ------------------------------------- | ------ | ------ | ------------------------------------------------------ |
+| Yokohama / Machida / Nakayama / Chiba | 10     | 10     | unchanged (QA numbers reproduced)                      |
+| Fukushima                             | 23     | 23     | unchanged                                              |
+| Shinagawa                             | 13     | 13     | unchanged (QA "14" = coord choice)                     |
+| Nagano                                | 31     | 31     | unchanged                                              |
+| Osaka                                 | 49     | 49     | unchanged                                              |
+| Hiroshima                             | 91     | 91     | unchanged                                              |
+| **Iwakuni (postcode/coords)**         | **0**  | **32** | zone mis-resolution (§3.2); station origins already 32 |
+| Hakata                                | 29     | 29     | unchanged                                              |
+| **Naha 900-8585**                     | **0**  | **9**  | missing Okinawa terminals/corridor (§3.1)              |
 
 No audited origin lost results. All other matrix origins unchanged.
 
@@ -236,7 +236,7 @@ No audited origin lost results. All other matrix origins unchanged.
   existing E2E CI job, both projects): Naha postcode 900-8585 → 9 results and
   zero non-Okinawa cards; Iwakuni postcode → 32 results; Nakayama station →
   10; Yokohama station → 10 — 4 passed per project locally (chromium desktop
-  + mobile).
+  - mobile).
 - **Full worktree suite (main base, 983 catalogue): 150 files, 1939 passed,
   1 skipped.** Registry invariants + scripts/validators green.
 - TypeScript, lint, prettier, i18n parity, branding, `validate:catalog-fast`,

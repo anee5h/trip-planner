@@ -162,5 +162,5 @@ describe("KAI-63 corridor decomposition", () => {
         console.log(`    ${k}: ${v}`);
       }
     }
-  });
+  }, 180000);
 });

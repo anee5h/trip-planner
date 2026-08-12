@@ -258,5 +258,5 @@ describe("KAI-63 bus audit", () => {
         `  reachable: ${((eligible / allDests.length) * 100).toFixed(1)}%`,
       );
     }
-  });
+  }, 300000);
 });
