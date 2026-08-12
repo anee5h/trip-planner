@@ -263,3 +263,31 @@ describe("collectionsValidator — collection integrity rules", () => {
     ).toBe(true);
   });
 });
+
+describe("historic-towns-japan — curated semantics and durable product copy", () => {
+  const historicTowns = collectionsIndex.find(
+    (c) => c.id === "historic-towns-japan",
+  )!;
+
+  it("is a Meguruto-curated selection with exact expectedMembers", () => {
+    expect(historicTowns.type).toBe("curated");
+    expect(historicTowns.metadata.authority).toBe("curated");
+    expect(historicTowns.metadata.expectedMembers).toBe(11);
+    const members = destinationsIndex.filter((d) =>
+      d.collections?.some((ref) => ref.collectionId === "historic-towns-japan"),
+    );
+    expect(members).toHaveLength(11);
+  });
+
+  it("does not embed the mutable national register count in user-facing copy", () => {
+    const userFacing = [
+      historicTowns.description,
+      historicTowns.descriptionJa ?? "",
+      historicTowns.content?.en?.description ?? "",
+      historicTowns.content?.ja?.description ?? "",
+      historicTowns.officialSource ?? "",
+    ].join("\n");
+    expect(userFacing).not.toContain("129");
+    expect(userFacing).not.toMatch(/129地区|129 districts/);
+  });
+});

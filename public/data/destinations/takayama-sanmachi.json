@@ -1,0 +1,94 @@
+{
+  "id": "takayama-sanmachi",
+  "name": "Takayama Sanmachi",
+  "nameJa": "高山三町",
+  "prefecture": "Gifu",
+  "region": "Chubu",
+  "nearHubs": ["takayama-city"],
+  "role": "destination",
+  "kind": "historic_town",
+  "category": "Culture",
+  "categories": ["Culture", "History", "Food"],
+  "description": "Takayama's Sanmachi district — three preserved streets of Edo-period merchant houses, craft shops and sake breweries in the old castle town — is a designated Important Preservation District for Groups of Traditional Buildings (重伝建).",
+  "notes": "Takayama's Sanmachi district is an open preserved street quarter — freely walkable any time. Sake breweries and craft shops line the three streets.",
+  "notesJa": "【見どころ】三町筋は常時散策可能。酒蔵や職人店が軒を連ねる風情ある街並みです。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid public parking near the old town (fee varies)",
+  "parkingJa": "【駐車場】古い町並み周辺の有料駐車場を利用（場所により異なる）",
+  "openingHours": "Open access (streets); individual museums vary",
+  "openingHoursJa": "通りは常時開放（施設により異なる）",
+  "coordinates": {
+    "lat": 36.1413,
+    "lng": 137.254
+  },
+  "officialWebsite": "https://www.city.takayama.lg.jp/",
+  "rating": 4.6,
+  "editorial": {
+    "rating": 4.6,
+    "recommendedDurationMinutes": 120,
+    "editorialSummary": "Takayama's Sanmachi district — three preserved streets of Edo-period merchant houses, craft shops and sake bre",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026", "japan-heritage-districts"],
+    "reviewedAt": "2026-08-12T00:00:00Z",
+    "checkedAt": "2026-08-12T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Takayama Sanmachi",
+      "description": "Takayama's Sanmachi district — three preserved streets of Edo-period merchant houses, craft shops and sake breweries in the old castle town — is a designated Important Preservation District for Groups of Traditional Buildings (重伝建).",
+      "highlights": [
+        "Sanmachi Suji preserved streets",
+        "Historic merchant houses and craft shops",
+        "Sake breweries and morning markets"
+      ]
+    },
+    "ja": {
+      "name": "高山三町",
+      "description": "飛騨高山の三町地区。江戸時代の町家や酒蔵が軒を連ねる三筋の通りは、国の重要伝統的建造物群保存地区（重伝建）に選定されています。",
+      "highlights": ["三町筋の町並み", "江戸時代の町家と職人店", "酒蔵と朝市"]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "takayama-city"
+  },
+  "status": "published",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.7,
+    "summer": 8.7,
+    "winter": 8.7,
+    "rain": 8.2,
+    "food": 8.7,
+    "photography": 8.9,
+    "relaxation": 8.7,
+    "value": 8.7,
+    "uniqueness": 8.7
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Sanmachi_Takayama02ds3872.jpg/1920px-Sanmachi_Takayama02ds3872.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanmachi_Takayama02ds3872.jpg"
+  },
+  "municipalityId": "Gifu:takayama",
+  "transportOptions": {
+    "train": 255,
+    "bus": 295,
+    "car": 325
+  },
+  "collections": [
+    {
+      "collectionId": "historic-towns-japan",
+      "sortOrder": 6
+    }
+  ],
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Sanmachi_Takayama02ds3872.jpg/1920px-Sanmachi_Takayama02ds3872.jpg"
+}

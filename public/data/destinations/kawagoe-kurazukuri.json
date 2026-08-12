@@ -1,0 +1,94 @@
+{
+  "id": "kawagoe-kurazukuri",
+  "name": "Kawagoe Kurazukuri District",
+  "nameJa": "川越蔵造りの街並み",
+  "prefecture": "Saitama",
+  "region": "Kanto",
+  "nearHubs": ["kawagoe-city"],
+  "role": "destination",
+  "kind": "historic_town",
+  "category": "Culture",
+  "categories": ["Culture", "History", "Food"],
+  "description": "Kawagoe's 'Little Edo' Kurazukuri warehouse district — black clay-walled merchant storehouses along the Ichibangai shopping street with the Toki no Kane bell tower — is a designated Important Preservation District for Groups of Traditional Buildings (重伝建).",
+  "notes": "Kawagoe's Kurazukuri district is an open preserved street — freely walkable any time. The Toki no Kane bell tower and Ichibangai shops line the route.",
+  "notesJa": "【見どころ】蔵造りの商家が並ぶ一番街は常時散策可能。時の鐘や老舗の店々が軒を連ねます。",
+  "reservation": "No reservation needed",
+  "reservationJa": "【予約】事前予約不要です。",
+  "parking": "Paid public parking in the city center (fee varies)",
+  "parkingJa": "【駐車場】市街地の有料駐車場を利用（場所により異なる）",
+  "openingHours": "Open access (streets); individual museums vary",
+  "openingHoursJa": "通りは常時開放（施設により異なる）",
+  "coordinates": {
+    "lat": 35.9239,
+    "lng": 139.4861
+  },
+  "officialWebsite": "https://www.kawagoe.com/",
+  "rating": 4.6,
+  "editorial": {
+    "rating": 4.6,
+    "recommendedDurationMinutes": 120,
+    "editorialSummary": "Kawagoe's 'Little Edo' Kurazukuri warehouse district — black clay-walled merchant storehouses along the Ichiba",
+    "lifecycle": "published",
+    "sources": ["editorial-review-2026", "japan-heritage-districts"],
+    "reviewedAt": "2026-08-12T00:00:00Z",
+    "checkedAt": "2026-08-12T00:00:00Z",
+    "freshness": "current"
+  },
+  "content": {
+    "en": {
+      "name": "Kawagoe Kurazukuri District",
+      "description": "Kawagoe's 'Little Edo' Kurazukuri warehouse district — black clay-walled merchant storehouses along the Ichibangai shopping street with the Toki no Kane bell tower — is a designated Important Preservation District for Groups of Traditional Buildings (重伝建).",
+      "highlights": [
+        "Toki no Kane bell tower",
+        "Kurazukuri clay-walled storehouses",
+        "Ichibangai shopping street"
+      ]
+    },
+    "ja": {
+      "name": "川越蔵造りの街並み",
+      "description": "「小江戸」川越の蔵造りの街並み。黒漆喰の商家が軒を連ねる一番街と、市のシンボル「時の鐘」は、国の重要伝統的建造物群保存地区（重伝建）に選定されています。",
+      "highlights": ["時の鐘", "蔵造りの商家群", "一番街の町並み"]
+    }
+  },
+  "relationships": {
+    "parentDestinationId": "kawagoe-city"
+  },
+  "status": "published",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.7,
+    "summer": 8.7,
+    "winter": 8.7,
+    "rain": 8.2,
+    "food": 8.7,
+    "photography": 8.9,
+    "relaxation": 8.7,
+    "value": 8.7,
+    "uniqueness": 8.7
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kurazukuri_Street_in_Little_Edo.jpg/1920px-Kurazukuri_Street_in_Little_Edo.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Dandy1022",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kurazukuri_Street_in_Little_Edo.jpg"
+  },
+  "municipalityId": "Saitama:kawagoe",
+  "transportOptions": {
+    "train": 255,
+    "bus": 295,
+    "car": 325
+  },
+  "collections": [
+    {
+      "collectionId": "historic-towns-japan",
+      "sortOrder": 1
+    }
+  ],
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kurazukuri_Street_in_Little_Edo.jpg/1920px-Kurazukuri_Street_in_Little_Edo.jpg"
+}

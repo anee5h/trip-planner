@@ -84,5 +84,10 @@
     "bus": 225,
     "car": 245
   },
-  "collections": []
+  "collections": [
+    {
+      "collectionId": "historic-towns-japan",
+      "sortOrder": 64
+    }
+  ]
 }

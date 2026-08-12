@@ -2272,10 +2272,6 @@
       {
         "collectionId": "top-onsen-japan",
         "confirmed": true
-      },
-      {
-        "collectionId": "historic-towns-japan",
-        "confirmed": true
       }
     ],
     "transportOptions": {
@@ -13496,13 +13492,7 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [
-      {
-        "collectionId": "historic-towns-japan",
-        "sortOrder": 2,
-        "confirmed": true
-      }
-    ],
+    "collections": [],
     "relationships": {
       "gatewayHubId": "gifu-city"
     },
@@ -26222,20 +26212,14 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [
-      {
-        "collectionId": "historic-towns-japan",
-        "sortOrder": 1,
-        "confirmed": true
-      }
-    ],
+    "collections": [],
     "relationships": {
       "featuredDestinationIds": [
         "kashiya-yokocho",
         "kawagoe-castle-saitama",
         "kawagoe-hikawa-shrine",
         "toki-no-kane",
-        "kurazukuri-warehouse-district",
+        "kawagoe-kurazukuri",
         "taisho-roman-street",
         "kita-in",
         "kawagoe-festival-museum",
@@ -27663,10 +27647,6 @@
       {
         "collectionId": "top-onsen-japan",
         "sortOrder": 5,
-        "confirmed": true
-      },
-      {
-        "collectionId": "historic-towns-japan",
         "confirmed": true
       }
     ],
@@ -41898,7 +41878,7 @@
     },
     "prefecture": "Hyogo",
     "region": "Kansai",
-    "kind": "museum",
+    "kind": "street",
     "role": "destination",
     "placeType": "destination",
     "relationships": {
@@ -41985,12 +41965,7 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "collections": [
-      {
-        "collectionId": "historic-towns-japan",
-        "confirmed": true
-      }
-    ],
+    "collections": [],
     "addedAt": "2026-07-29",
     "editorial": {
       "rating": 4.8,
@@ -50474,7 +50449,12 @@
       "minutesFromBase": 150,
       "confidence": "high"
     },
-    "collections": [],
+    "collections": [
+      {
+        "collectionId": "historic-towns-japan",
+        "sortOrder": 9
+      }
+    ],
     "budgetMin": 1000,
     "budgetRecommended": 4500,
     "budgetMax": 8000,
@@ -60930,13 +60910,7 @@
     "travelEstimate": {
       "confidence": "high"
     },
-    "collections": [
-      {
-        "collectionId": "historic-towns-japan",
-        "sortOrder": 6,
-        "confirmed": true
-      }
-    ],
+    "collections": [],
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": [
@@ -82449,7 +82423,12 @@
       "bus": 225,
       "car": 245
     },
-    "collections": []
+    "collections": [
+      {
+        "collectionId": "historic-towns-japan",
+        "sortOrder": 64
+      }
+    ]
   },
   {
     "id": "kasamatsu-park-view",
@@ -82809,7 +82788,12 @@
       "bus": 295,
       "car": 325
     },
-    "collections": []
+    "collections": [
+      {
+        "collectionId": "historic-towns-japan",
+        "sortOrder": 68
+      }
+    ]
   },
   {
     "id": "genbudo-cave-park",
@@ -132737,186 +132721,191 @@
     "walkingShadeMin": 40
   },
   {
-    "id": "kurazukuri-warehouse-district",
-    "name": "Kurazukuri Warehouse District",
-    "nameJa": "川越市",
-    "aliases": ["Kawagoe, Saitama", "川越市"],
-    "content": {
-      "en": {
-        "name": "Kurazukuri Warehouse District",
-        "description": "Kurazukuri Warehouse District is a visitor destination in Kawagoe City.  Visitors can experience the area's character and main sights.",
-        "highlights": ["Culture"],
-        "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
-        "reservation": "No advance reservation required; tickets available on arrival.",
-        "parking": "Paid public parking options available nearby.",
-        "openingHours": "09:00 - 17:00"
-      },
-      "ja": {
-        "name": "川越市",
-        "description": "川越市はKawagoe Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-        "highlights": ["川越市の名所"],
-        "notes": "川越市は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
-        "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
-        "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 17:00"
-      }
-    },
+    "id": "kawagoe-kurazukuri",
+    "name": "Kawagoe Kurazukuri District",
+    "nameJa": "川越蔵造りの街並み",
     "prefecture": "Saitama",
     "region": "Kanto",
-    "kind": "district",
-    "role": "poi",
-    "placeType": "destination",
-    "areaId": "kurazukuri",
+    "nearHubs": ["kawagoe-city"],
+    "role": "destination",
+    "kind": "historic_town",
+    "category": "Culture",
+    "categories": ["Culture", "History", "Food"],
+    "description": "Kawagoe's 'Little Edo' Kurazukuri warehouse district — black clay-walled merchant storehouses along the Ichibangai shopping street with the Toki no Kane bell tower — is a designated Important Preservation District for Groups of Traditional Buildings (重伝建).",
+    "notes": "Kawagoe's Kurazukuri district is an open preserved street — freely walkable any time. The Toki no Kane bell tower and Ichibangai shops line the route.",
+    "notesJa": "【見どころ】蔵造りの商家が並ぶ一番街は常時散策可能。時の鐘や老舗の店々が軒を連ねます。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid public parking in the city center (fee varies)",
+    "parkingJa": "【駐車場】市街地の有料駐車場を利用（場所により異なる）",
+    "openingHours": "Open access (streets); individual museums vary",
+    "openingHoursJa": "通りは常時開放（施設により異なる）",
+    "coordinates": {
+      "lat": 35.9239,
+      "lng": 139.4861
+    },
+    "officialWebsite": "https://www.kawagoe.com/",
+    "rating": 4.6,
+    "editorial": {
+      "rating": 4.6,
+      "recommendedDurationMinutes": 120,
+      "editorialSummary": "Kawagoe's 'Little Edo' Kurazukuri warehouse district — black clay-walled merchant storehouses along the Ichiba",
+      "lifecycle": "published",
+      "sources": ["editorial-review-2026", "japan-heritage-districts"],
+      "reviewedAt": "2026-08-12T00:00:00Z",
+      "checkedAt": "2026-08-12T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Kawagoe Kurazukuri District",
+        "description": "Kawagoe's 'Little Edo' Kurazukuri warehouse district — black clay-walled merchant storehouses along the Ichibangai shopping street with the Toki no Kane bell tower — is a designated Important Preservation District for Groups of Traditional Buildings (重伝建).",
+        "highlights": [
+          "Toki no Kane bell tower",
+          "Kurazukuri clay-walled storehouses",
+          "Ichibangai shopping street"
+        ]
+      },
+      "ja": {
+        "name": "川越蔵造りの街並み",
+        "description": "「小江戸」川越の蔵造りの街並み。黒漆喰の商家が軒を連ねる一番街と、市のシンボル「時の鐘」は、国の重要伝統的建造物群保存地区（重伝建）に選定されています。",
+        "highlights": ["時の鐘", "蔵造りの商家群", "一番街の町並み"]
+      }
+    },
     "relationships": {
       "parentDestinationId": "kawagoe-city"
     },
-    "officialWebsite": "https://www.city.kawagoe.saitama.jp/",
-    "officialWebsiteRequirement": "none",
-    "categories": ["Culture"],
-    "tags": ["Culture", "Kawagoe City", "v1.9.2"],
-    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kurazukuri%20Street%20in%20Little%20Edo.jpg?width=1600",
+    "status": "published",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.7,
+      "summer": 8.7,
+      "winter": 8.7,
+      "rain": 8.2,
+      "food": 8.7,
+      "photography": 8.9,
+      "relaxation": 8.7,
+      "value": 8.7,
+      "uniqueness": 8.7
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kurazukuri_Street_in_Little_Edo.jpg/1920px-Kurazukuri_Street_in_Little_Edo.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "attribution": "Dandy1022",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kurazukuri_Street_in_Little_Edo.jpg"
     },
-    "coordinates": {
-      "lat": 35.9254,
-      "lng": 139.4858
-    },
-    "description": "Kurazukuri Warehouse District is a visitor destination in Kawagoe City.  Visitors can experience the area's character and main sights.",
-    "highlights": ["Culture"],
-    "budgetMin": 1500,
-    "budgetRecommended": 4000,
-    "budgetMax": 7000,
-    "budgetBreakdown": {
-      "transport": 1300,
-      "tickets": 0,
-      "food": 2300,
-      "cafe": 400
-    },
+    "municipalityId": "Saitama:kawagoe",
     "transportOptions": {
-      "train": 41
+      "train": 255,
+      "bus": 295,
+      "car": 325
     },
-    "totalTripHours": 5,
-    "recommendedVisitHours": {
-      "min": 1,
-      "max": 3
+    "collections": [
+      {
+        "collectionId": "historic-towns-japan",
+        "sortOrder": 1
+      }
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kurazukuri_Street_in_Little_Edo.jpg/1920px-Kurazukuri_Street_in_Little_Edo.jpg"
+  },
+  {
+    "id": "takayama-sanmachi",
+    "name": "Takayama Sanmachi",
+    "nameJa": "高山三町",
+    "prefecture": "Gifu",
+    "region": "Chubu",
+    "nearHubs": ["takayama-city"],
+    "role": "destination",
+    "kind": "historic_town",
+    "category": "Culture",
+    "categories": ["Culture", "History", "Food"],
+    "description": "Takayama's Sanmachi district — three preserved streets of Edo-period merchant houses, craft shops and sake breweries in the old castle town — is a designated Important Preservation District for Groups of Traditional Buildings (重伝建).",
+    "notes": "Takayama's Sanmachi district is an open preserved street quarter — freely walkable any time. Sake breweries and craft shops line the three streets.",
+    "notesJa": "【見どころ】三町筋は常時散策可能。酒蔵や職人店が軒を連ねる風情ある街並みです。",
+    "reservation": "No reservation needed",
+    "reservationJa": "【予約】事前予約不要です。",
+    "parking": "Paid public parking near the old town (fee varies)",
+    "parkingJa": "【駐車場】古い町並み周辺の有料駐車場を利用（場所により異なる）",
+    "openingHours": "Open access (streets); individual museums vary",
+    "openingHoursJa": "通りは常時開放（施設により異なる）",
+    "coordinates": {
+      "lat": 36.1413,
+      "lng": 137.254
     },
-    "walkingMin": 60,
-    "walkingIntensity": "medium",
-    "walkingSunMin": 36,
-    "walkingShadeMin": 24,
-    "indoorPercent": 20,
-    "comfort": {
-      "heatTolerance": 2,
-      "rainFriendly": 2,
-      "walkingIntensity": 6
-    },
-    "ratings": {
-      "overall": 8.7,
-      "couple": 9.3,
-      "summer": 6.8,
-      "winter": 7.7,
-      "rain": 8.6,
-      "food": 9.5,
-      "photography": 7,
-      "relaxation": 7.9,
-      "value": 8.8,
-      "uniqueness": 8.1,
-      "family": 9,
-      "accessibility": 6.5
-    },
-    "ratingsSchemaVersion": 2,
-    "crowd": {
-      "weekday": 5,
-      "weekend": 8,
-      "holiday": 9
-    },
-    "season": {
-      "spring": 7.4,
-      "summer": 8.3,
-      "autumn": 9.2,
-      "winter": 6.7
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "weatherDependence": "moderate",
-    "reservation": "No advance reservation required; tickets available on arrival.",
-    "parking": "Paid public parking options available nearby.",
-    "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
-    "schemaVersion": 2,
-    "status": "published",
-    "travelEstimate": {
-      "confidence": "medium"
-    },
-    "collections": [],
-    "addedAt": "2026-07-29",
+    "officialWebsite": "https://www.city.takayama.lg.jp/",
+    "rating": 4.6,
     "editorial": {
+      "rating": 4.6,
+      "recommendedDurationMinutes": 120,
+      "editorialSummary": "Takayama's Sanmachi district — three preserved streets of Edo-period merchant houses, craft shops and sake bre",
       "lifecycle": "published",
-      "sources": [
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Kawagoe,_Saitama",
-          "title": "Kawagoe, Saitama",
-          "accessedAt": "2026-07-29"
-        },
-        {
-          "type": "official",
-          "url": "https://www.city.kawagoe.saitama.jp/",
-          "title": "Kurazukuri Warehouse District official website",
-          "accessedAt": "2026-07-29"
-        }
-      ],
-      "checkedAt": "2026-08-02",
-      "freshness": "current",
-      "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Kawagoe,_Saitama",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Kawagoe,_Saitama",
-            "title": "Kawagoe, Saitama",
-            "accessedAt": "2026-07-29"
-          }
+      "sources": ["editorial-review-2026", "japan-heritage-districts"],
+      "reviewedAt": "2026-08-12T00:00:00Z",
+      "checkedAt": "2026-08-12T00:00:00Z",
+      "freshness": "current"
+    },
+    "content": {
+      "en": {
+        "name": "Takayama Sanmachi",
+        "description": "Takayama's Sanmachi district — three preserved streets of Edo-period merchant houses, craft shops and sake breweries in the old castle town — is a designated Important Preservation District for Groups of Traditional Buildings (重伝建).",
+        "highlights": [
+          "Sanmachi Suji preserved streets",
+          "Historic merchant houses and craft shops",
+          "Sake breweries and morning markets"
         ]
       },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ],
-      "reviewedAt": "2026-08-02",
-      "reviewedBy": "Meguruto Editorial Reviewer"
+      "ja": {
+        "name": "高山三町",
+        "description": "飛騨高山の三町地区。江戸時代の町家や酒蔵が軒を連ねる三筋の通りは、国の重要伝統的建造物群保存地区（重伝建）に選定されています。",
+        "highlights": ["三町筋の町並み", "江戸時代の町家と職人店", "酒蔵と朝市"]
+      }
     },
-    "ratingMetadata": {
-      "rubricVersion": 2,
-      "method": "assisted",
-      "confidence": "low"
+    "relationships": {
+      "parentDestinationId": "takayama-city"
     },
-    "businessHours": "Open access",
-    "notesJa": "川越市は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
-    "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
-    "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Saitama:kawagoe"
+    "status": "published",
+    "ratings": {
+      "overall": 8.7,
+      "couple": 8.7,
+      "summer": 8.7,
+      "winter": 8.7,
+      "rain": 8.2,
+      "food": 8.7,
+      "photography": 8.9,
+      "relaxation": 8.7,
+      "value": 8.7,
+      "uniqueness": 8.7
+    },
+    "ratingsSchemaVersion": 2,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Sanmachi_Takayama02ds3872.jpg/1920px-Sanmachi_Takayama02ds3872.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanmachi_Takayama02ds3872.jpg"
+    },
+    "municipalityId": "Gifu:takayama",
+    "transportOptions": {
+      "train": 255,
+      "bus": 295,
+      "car": 325
+    },
+    "collections": [
+      {
+        "collectionId": "historic-towns-japan",
+        "sortOrder": 6
+      }
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Sanmachi_Takayama02ds3872.jpg/1920px-Sanmachi_Takayama02ds3872.jpg"
   }
 ]

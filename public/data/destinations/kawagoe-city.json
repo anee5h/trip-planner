@@ -69,20 +69,14 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "historic-towns-japan",
-      "sortOrder": 1,
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "relationships": {
     "featuredDestinationIds": [
       "kashiya-yokocho",
       "kawagoe-castle-saitama",
       "kawagoe-hikawa-shrine",
       "toki-no-kane",
-      "kurazukuri-warehouse-district",
+      "kawagoe-kurazukuri",
       "taisho-roman-street",
       "kita-in",
       "kawagoe-festival-museum",
