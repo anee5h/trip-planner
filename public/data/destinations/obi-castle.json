@@ -44,8 +44,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi%2C_Nichinan%2C_%C5%8Ctemon_Gate_of_Obi_Castle_01.jpg"
   },
   "coordinates": {
-    "lat": 31.6289,
-    "lng": 131.355
+    "lat": 31.6291,
+    "lng": 131.3503
   },
   "description": "Obi Castle was the seat of the Ito clan for over two and a half centuries. The restored Otemon gate, mossy stone walls and moat, and the castle museum (housed in the former castle buildings) sit at the heart of Obi, the 'Little Kyoto of Kyushu' castle town in Nichinan.",
   "highlights": [
@@ -63,12 +63,6 @@
   "budgetMin": 2000,
   "budgetRecommended": 6000,
   "budgetMax": 12000,
-  "budgetBreakdown": {
-    "transport": 600,
-    "tickets": 700,
-    "food": 900,
-    "cafe": 200
-  },
   "transportOptions": {
     "train": 220,
     "bus": 200
@@ -162,5 +156,10 @@
     "reviewedBy": "Collections audit correction"
   },
   "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/obi/",
-  "municipalityId": "Miyazaki:nichinan"
+  "municipalityId": "Miyazaki:nichinan",
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  }
 }

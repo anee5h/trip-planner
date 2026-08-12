@@ -68,17 +68,10 @@
     "weekend": 4,
     "holiday": 5
   },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
-  },
   "walkingMin": 8000,
   "walkingSunMin": 4800,
   "walkingShadeMin": 3200,
   "indoorPercent": 20,
-  "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
     "parentDestinationId": "matsuyama-city"
@@ -108,5 +101,10 @@
   },
   "officialWebsite": "https://www.matsuyamajo.jp/",
   "businessHours": "Keep 09:00–17:00; until 17:30 in August and until 16:30 in December–January; closed the third Wednesday of December; last entry 30 minutes before closing. Ropeway/lift hours vary seasonally.",
-  "municipalityId": "Ehime:matsuyama"
+  "municipalityId": "Ehime:matsuyama",
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
 }

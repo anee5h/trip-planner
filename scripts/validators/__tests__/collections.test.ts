@@ -192,4 +192,74 @@ describe("collectionsValidator — collection integrity rules", () => {
       "EXPECTED_COLLECTION_MEMBER_COUNT_MISMATCH",
     );
   });
+
+  it("keeps japan-top-castles at exactly 100 members with every official position 1-100", async () => {
+    const result = await collectionsValidator.validate(
+      context(
+        destinationsIndex as Destination[],
+        collectionsIndex as Collection[],
+      ),
+    );
+
+    const castleIssueCodes = result.issues
+      .filter((issue) => issue.targetId === "japan-top-castles")
+      .map((issue) => issue.code);
+    const numberingCodes = new Set([
+      "CASTLE_MEMBER_COUNT",
+      "CASTLE_SORT_ORDER_INVALID",
+      "DUPLICATE_CASTLE_SORT_ORDER",
+      "MISSING_CASTLE_SORT_ORDER",
+    ]);
+    expect(
+      result.issues.filter((issue) => numberingCodes.has(issue.code)),
+    ).toEqual([]);
+    expect(castleIssueCodes).not.toContain(
+      "EXPECTED_COLLECTION_MEMBER_COUNT_MISMATCH",
+    );
+
+    const members = destinationsIndex.filter((destination) =>
+      destination.collections?.some(
+        (membership) => membership.collectionId === "japan-top-castles",
+      ),
+    );
+    const sortOrders = members
+      .map(
+        (m) =>
+          m.collections?.find((c) => c.collectionId === "japan-top-castles")
+            ?.sortOrder,
+      )
+      .filter((n): n is number => typeof n === "number");
+    expect(members).toHaveLength(100);
+    expect(new Set(sortOrders).size).toBe(100);
+    expect(Math.min(...sortOrders)).toBe(1);
+    expect(Math.max(...sortOrders)).toBe(100);
+  });
+
+  it("flags a missing and a duplicated official castle position", async () => {
+    const members = Array.from({ length: 99 }, (_, i) =>
+      destination({
+        id: `castle-${i}`,
+        collections: [{ collectionId: "japan-top-castles", sortOrder: i + 1 }],
+      }),
+    );
+    members.push(
+      destination({
+        id: "castle-duplicate",
+        collections: [{ collectionId: "japan-top-castles", sortOrder: 1 }],
+      }),
+    );
+
+    const result = await collectionsValidator.validate(
+      context(members, [collection({ id: "japan-top-castles" })]),
+    );
+
+    expect(
+      result.issues.some((issue) => issue.code === "MISSING_CASTLE_SORT_ORDER"),
+    ).toBe(true);
+    expect(
+      result.issues.some(
+        (issue) => issue.code === "DUPLICATE_CASTLE_SORT_ORDER",
+      ),
+    ).toBe(true);
+  });
 });

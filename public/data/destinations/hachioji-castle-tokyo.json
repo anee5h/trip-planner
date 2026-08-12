@@ -58,7 +58,8 @@
   "collections": [
     {
       "collectionId": "japan-top-castles",
-      "name": "Japan's Top Castles"
+      "name": "Japan's Top Castles",
+      "sortOrder": 22
     }
   ],
   "coordinates": {

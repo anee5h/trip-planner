@@ -3,7 +3,12 @@
   "name": "Maruoka Castle (Original Keep 1576)",
   "prefecture": "Fukui",
   "region": "Chubu",
-  "categories": ["Castle", "History", "National Treasure", "Landmark"],
+  "categories": [
+    "Castle",
+    "History",
+    "Landmark",
+    "Important Cultural Property"
+  ],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg/1280px-Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg/1280px-Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg",
   "totalTripHours": 3,
@@ -94,7 +99,7 @@
     },
     {
       "collectionId": "japan-top-castles",
-      "confirmed": true
+      "sortOrder": 36
     }
   ],
   "relationships": {},

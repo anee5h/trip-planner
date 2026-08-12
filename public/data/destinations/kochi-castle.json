@@ -63,17 +63,10 @@
     "weekend": 4,
     "holiday": 5
   },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
-  },
   "walkingMin": 8000,
   "walkingSunMin": 4800,
   "walkingShadeMin": 3200,
   "indoorPercent": 20,
-  "totalTripHours": 4,
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
     "parentDestinationId": "kochi-city"
@@ -103,5 +96,10 @@
   },
   "officialWebsite": "https://kochipark.jp/kochijyo/",
   "businessHours": "09:00–17:00 (last admission 16:30); closed Dec 26–Jan 1",
-  "municipalityId": "Kochi:kochi"
+  "municipalityId": "Kochi:kochi",
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  }
 }

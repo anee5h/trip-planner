@@ -8932,7 +8932,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 21
       }
     ],
     "relationships": {
@@ -13200,7 +13200,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 39
       }
     ],
     "relationships": {
@@ -15342,7 +15342,8 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "name": "Japan's Top Castles"
+        "name": "Japan's Top Castles",
+        "sortOrder": 22
       }
     ],
     "coordinates": {
@@ -17249,7 +17250,7 @@
       },
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 50
       },
       {
         "collectionId": "national-treasures",
@@ -17452,7 +17453,7 @@
       },
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 59
       },
       {
         "collectionId": "national-treasures",
@@ -20797,7 +20798,8 @@
       },
       {
         "collectionId": "japan-top-castles",
-        "name": "Japan's Top Castles"
+        "name": "Japan's Top Castles",
+        "sortOrder": 43
       }
     ],
     "coordinates": {
@@ -23791,7 +23793,12 @@
     "name": "Kakegawa Castle & Ninomaru Goten",
     "prefecture": "Shizuoka",
     "region": "Chubu",
-    "categories": ["Castle", "History", "National Treasure", "Landmark"],
+    "categories": [
+      "Castle",
+      "History",
+      "Landmark",
+      "Important Cultural Property"
+    ],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kakegawajo_20090321.jpg/1280px-Kakegawajo_20090321.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kakegawajo_20090321.jpg/1280px-Kakegawajo_20090321.jpg",
     "totalTripHours": 3,
@@ -23877,7 +23884,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 42
       }
     ],
     "relationships": {
@@ -24739,7 +24746,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 35
       }
     ],
     "relationships": {},
@@ -26105,7 +26112,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 19
       }
     ],
     "relationships": {
@@ -30077,17 +30084,10 @@
       "weekend": 4,
       "holiday": 5
     },
-    "season": {
-      "spring": 4,
-      "summer": 4,
-      "autumn": 4,
-      "winter": 4
-    },
     "walkingMin": 8000,
     "walkingSunMin": 4800,
     "walkingShadeMin": 3200,
     "indoorPercent": 20,
-    "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {
       "parentDestinationId": "kochi-city"
@@ -30117,7 +30117,12 @@
     },
     "officialWebsite": "https://kochipark.jp/kochijyo/",
     "businessHours": "09:00–17:00 (last admission 16:30); closed Dec 26–Jan 1",
-    "municipalityId": "Kochi:kochi"
+    "municipalityId": "Kochi:kochi",
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "medium"
+    }
   },
   {
     "id": "kochi-city",
@@ -34951,7 +34956,12 @@
     "name": "Maruoka Castle (Original Keep 1576)",
     "prefecture": "Fukui",
     "region": "Chubu",
-    "categories": ["Castle", "History", "National Treasure", "Landmark"],
+    "categories": [
+      "Castle",
+      "History",
+      "Landmark",
+      "Important Cultural Property"
+    ],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg/1280px-Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg/1280px-Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg",
     "totalTripHours": 3,
@@ -35042,7 +35052,7 @@
       },
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 36
       }
     ],
     "relationships": {},
@@ -35415,7 +35425,7 @@
       },
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 64
       },
       {
         "collectionId": "national-treasures",
@@ -35647,7 +35657,8 @@
       },
       {
         "collectionId": "japan-top-castles",
-        "name": "Japan's Top Castles"
+        "name": "Japan's Top Castles",
+        "sortOrder": 29
       }
     ],
     "coordinates": {
@@ -35969,17 +35980,10 @@
       "weekend": 4,
       "holiday": 5
     },
-    "season": {
-      "spring": 4,
-      "summer": 4,
-      "autumn": 4,
-      "winter": 4
-    },
     "walkingMin": 8000,
     "walkingSunMin": 4800,
     "walkingShadeMin": 3200,
     "indoorPercent": 20,
-    "totalTripHours": 4,
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "relationships": {
       "parentDestinationId": "matsuyama-city"
@@ -36009,7 +36013,12 @@
     },
     "officialWebsite": "https://www.matsuyamajo.jp/",
     "businessHours": "Keep 09:00–17:00; until 17:30 in August and until 16:30 in December–January; closed the third Wednesday of December; last entry 30 minutes before closing. Ropeway/lift hours vary seasonally.",
-    "municipalityId": "Ehime:matsuyama"
+    "municipalityId": "Ehime:matsuyama",
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    }
   },
   {
     "id": "matsuyama-city",
@@ -37330,7 +37339,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 14
       }
     ],
     "relationships": {
@@ -41049,7 +41058,8 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "name": "Japan's Top Castles"
+        "name": "Japan's Top Castles",
+        "sortOrder": 44
       }
     ],
     "coordinates": {
@@ -44474,7 +44484,7 @@
       },
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 53
       },
       {
         "collectionId": "national-treasures",
@@ -49118,7 +49128,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 54
       }
     ],
     "transportOptions": {
@@ -53465,7 +53475,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 20
       }
     ],
     "relationships": {
@@ -61162,7 +61172,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 30
       }
     ],
     "relationships": {
@@ -61324,7 +61334,6 @@
       "uniqueness": 9.2
     },
     "highlights": ["Explore Takeda Castle Ruins", "Local Culture & Scenery"],
-    "totalTripHours": 4,
     "walkingMin": 3000,
     "indoorPercent": 30,
     "crowd": {
@@ -61398,7 +61407,12 @@
         ]
       }
     },
-    "municipalityId": "Hyogo:asago"
+    "municipalityId": "Hyogo:asago",
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "medium"
+    }
   },
   {
     "id": "takeda-castle-yamanashi",
@@ -61491,7 +61505,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 24
       }
     ],
     "relationships": {
@@ -64517,7 +64531,7 @@
       "featuredDestinationIds": [
         "awa-odori-kaikan",
         "bizan-ropeway-tokushima",
-        "tokushima-central-park",
+        "tokushima-castle",
         "tokushima-modern-art-museum"
       ],
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
@@ -68177,7 +68191,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "confirmed": true
+        "sortOrder": 27
       }
     ],
     "relationships": {
@@ -96751,8 +96765,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi%2C_Nichinan%2C_%C5%8Ctemon_Gate_of_Obi_Castle_01.jpg"
     },
     "coordinates": {
-      "lat": 31.6289,
-      "lng": 131.355
+      "lat": 31.6291,
+      "lng": 131.3503
     },
     "description": "Obi Castle was the seat of the Ito clan for over two and a half centuries. The restored Otemon gate, mossy stone walls and moat, and the castle museum (housed in the former castle buildings) sit at the heart of Obi, the 'Little Kyoto of Kyushu' castle town in Nichinan.",
     "highlights": [
@@ -96770,12 +96784,6 @@
     "budgetMin": 2000,
     "budgetRecommended": 6000,
     "budgetMax": 12000,
-    "budgetBreakdown": {
-      "transport": 600,
-      "tickets": 700,
-      "food": 900,
-      "cafe": 200
-    },
     "transportOptions": {
       "train": 220,
       "bus": 200
@@ -96869,7 +96877,12 @@
       "reviewedBy": "Collections audit correction"
     },
     "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/obi/",
-    "municipalityId": "Miyazaki:nichinan"
+    "municipalityId": "Miyazaki:nichinan",
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "medium"
+    }
   },
   {
     "id": "udo-jingu",
@@ -100255,146 +100268,6 @@
           "type": "official",
           "url": "https://www.city.tokushima.tokushima.jp/multilingual/english_portal/tourism_culture/mt_bizan/ropeway.html",
           "title": "Awagin Bizan Ropeway — Tokushima City official site",
-          "accessedAt": "2026-08-10"
-        }
-      ],
-      "checkedAt": "2026-08-10",
-      "freshness": "current",
-      "changeSummary": "KAI-31 Shikoku beta expansion",
-      "changes": [
-        {
-          "changedAt": "2026-08-10",
-          "changedBy": "Meguruto editorial",
-          "summary": "Added source-backed KAI-31 Shikoku POI",
-          "method": "assisted"
-        }
-      ]
-    },
-    "ratingMetadata": {
-      "rubricVersion": 1,
-      "method": "assisted",
-      "confidence": "low"
-    },
-    "relationships": {
-      "parentDestinationId": "tokushima-city"
-    },
-    "schemaVersion": 2
-  },
-  {
-    "id": "tokushima-central-park",
-    "name": "Tokushima Central Park",
-    "nameJa": "徳島中央公園",
-    "kind": "park",
-    "role": "poi",
-    "placeType": "destination",
-    "aliases": [],
-    "municipalityId": "Tokushima:tokushima",
-    "prefecture": "Tokushima",
-    "region": "Shikoku",
-    "coordinates": {
-      "lat": 34.0747,
-      "lng": 134.5549
-    },
-    "categories": ["History", "Nature", "Culture"],
-    "tags": ["History", "Nature", "Culture", "Tokushima City"],
-    "description": "A National Historic Site on the grounds of Tokushima Castle, with reconstructed stone walls, the Washinomon gate, a castle museum, and the former Omotegoten garden.",
-    "highlights": ["History", "Nature", "Culture"],
-    "status": "beta",
-    "travelEstimate": {
-      "confidence": "beta"
-    },
-    "collections": [],
-    "transportOptions": {
-      "train": 100,
-      "bus": 115,
-      "car": 120
-    },
-    "budgetMin": 1000,
-    "budgetRecommended": 3000,
-    "budgetMax": 6000,
-    "budgetBreakdown": {
-      "transport": 1000,
-      "tickets": 50,
-      "food": 1300,
-      "cafe": 650
-    },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Tokushima_Central_Park%2C_Tokushima_Prefecture%3B_April_2017_%2801%29.jpg/1280px-Tokushima_Central_Park%2C_Tokushima_Prefecture%3B_April_2017_%2801%29.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Tokushima_Central_Park%2C_Tokushima_Prefecture%3B_April_2017_%2801%29.jpg/1280px-Tokushima_Central_Park%2C_Tokushima_Prefecture%3B_April_2017_%2801%29.jpg",
-    "imageMetadata": {
-      "source": "Wikimedia Commons",
-      "license": "CC BY-SA 2.0",
-      "attribution": "wongwt",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokushima_Central_Park,_Tokushima_Prefecture;_April_2017_(01).jpg"
-    },
-    "recommendedVisitHours": {
-      "min": 1,
-      "max": 2
-    },
-    "walkingMin": 4000,
-    "walkingSunMin": 2400,
-    "walkingShadeMin": 1600,
-    "walkingIntensity": "medium",
-    "indoorPercent": 30,
-    "comfort": {
-      "heatTolerance": 6,
-      "rainFriendly": 5,
-      "walkingIntensity": 5
-    },
-    "ratings": {
-      "overall": 8,
-      "couple": 7.8,
-      "summer": 7.2,
-      "winter": 7.2,
-      "rain": 6.4,
-      "food": 7.2,
-      "photography": 8,
-      "relaxation": 8.4,
-      "value": 8.6,
-      "uniqueness": 8
-    },
-    "ratingsSchemaVersion": 2,
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 8.8,
-      "summer": 7.6,
-      "autumn": 8.4,
-      "winter": 7.4
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
-    "reservation": "None required",
-    "parking": "Check local parking guidance",
-    "notes": "Former garden admission is 50 yen for adults and 30 yen for children; museum admission is separate.",
-    "notesJa": "【見どころ】徳島中央公園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
-    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
-    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "公園は常時開放。旧表御殿庭園9:00～17:00（最終入園16:30）。庭園は月曜・祝日の翌日・12月28日～1月4日休園（例外あり）。",
-    "businessHours": "Park open access; former garden 09:00–17:00 (last entry 16:30); museum hours vary",
-    "officialWebsite": "https://www.city.tokushima.tokushima.jp/shisetsu/park/chuo.html",
-    "content": {
-      "en": {
-        "name": "Tokushima Central Park",
-        "description": "A National Historic Site on the grounds of Tokushima Castle, with reconstructed stone walls, the Washinomon gate, a castle museum, and the former Omotegoten garden.",
-        "highlights": ["History", "Nature", "Culture"]
-      },
-      "ja": {
-        "name": "徳島中央公園",
-        "description": "徳島城跡に整備された国史跡の公園。石垣や復元された鷲の門、徳島城博物館、旧表御殿庭園などがあります。",
-        "highlights": ["歴史", "自然", "文化"]
-      }
-    },
-    "editorial": {
-      "lifecycle": "in_review",
-      "sources": [
-        {
-          "type": "official",
-          "url": "https://www.city.tokushima.tokushima.jp/shisetsu/park/chuo.html",
-          "title": "Tokushima Central Park — Tokushima City official site",
           "accessedAt": "2026-08-10"
         }
       ],
@@ -112797,171 +112670,6 @@
     "schemaVersion": 2
   },
   {
-    "id": "akita-senshu-park",
-    "name": "Senshu Park (Kubota Castle Ruins)",
-    "nameJa": "千秋公園",
-    "kind": "castle",
-    "role": "poi",
-    "placeType": "destination",
-    "aliases": [],
-    "municipalityId": "Akita:akita",
-    "prefecture": "Akita",
-    "region": "Tohoku",
-    "coordinates": {
-      "lat": 39.723481,
-      "lng": 140.123242
-    },
-    "categories": ["History", "Nature"],
-    "tags": ["History", "Nature", "Akita City"],
-    "description": "Ruin site of Kubota Castle, seat of the Satake clan for 267 years, now a scenic park with moats, a reconstructed corner watchtower, the Satake Historical Museum and one of Japan's top cherry-blossom spots.",
-    "highlights": [
-      "Kubota Castle moats",
-      "Reconstructed watchtower",
-      "Satake Historical Museum",
-      "Cherry-blossom spot"
-    ],
-    "status": "beta",
-    "travelEstimate": {
-      "confidence": "beta"
-    },
-    "collections": [],
-    "transportOptions": {
-      "train": 15,
-      "bus": 20,
-      "car": 20
-    },
-    "budgetMin": 150,
-    "budgetRecommended": 1650,
-    "budgetMax": 3000,
-    "budgetBreakdown": {
-      "transport": 700,
-      "tickets": 150,
-      "food": 500,
-      "cafe": 300
-    },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Kogetsu-pond_in_Senshu_Park_20180520.jpg/1280px-Kogetsu-pond_in_Senshu_Park_20180520.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Kogetsu-pond_in_Senshu_Park_20180520.jpg/1280px-Kogetsu-pond_in_Senshu_Park_20180520.jpg",
-    "imageMetadata": {
-      "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "掬茶",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kogetsu-pond_in_Senshu_Park_20180520.jpg"
-    },
-    "openingHoursMetadata": {
-      "verifiedAt": "2026-08-11"
-    },
-    "recommendedVisitHours": {
-      "min": 1,
-      "max": 2
-    },
-    "walkingMin": 3000,
-    "walkingSunMin": 1800,
-    "walkingShadeMin": 1200,
-    "walkingIntensity": "medium",
-    "indoorPercent": 20,
-    "comfort": {
-      "heatTolerance": 6,
-      "rainFriendly": 4,
-      "walkingIntensity": 4
-    },
-    "ratings": {
-      "overall": 8.6,
-      "couple": 8.6,
-      "summer": 7.8,
-      "winter": 7.6,
-      "rain": 5.8,
-      "food": 7.6,
-      "photography": 9,
-      "relaxation": 8.8,
-      "value": 9,
-      "uniqueness": 8.2,
-      "family": 8.4,
-      "accessibility": 7,
-      "nature": 8.8,
-      "historyAndCulture": 9.2,
-      "walkability": 8,
-      "spring": 9.4,
-      "autumn": 9
-    },
-    "ratingsSchemaVersion": 2,
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9.2,
-      "summer": 7.8,
-      "autumn": 8.8,
-      "winter": 7.6
-    },
-    "bestMonths": [3, 4, 5, 10, 11],
-    "bestSeason": "Spring",
-    "weatherDependence": "moderate",
-    "reservation": "No reservation required",
-    "parking": "No dedicated parking; use city-centre parking",
-    "notes": "Park free; watchtower ¥150 adult. 10–15 minutes on foot from Akita Station.",
-    "notesJa": "【見どころ】千秋公園は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
-    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
-    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "公園は常時開園。佐竹資料館は9:30～16:30（月曜休館）。",
-    "businessHours": "Park open all day; watchtower 09:00 - 16:30 (closed Dec 1 – Mar 31)",
-    "officialWebsite": "https://www.city.akita.lg.jp/kurashi/doro-koen/1003685/1007159/index.html",
-    "content": {
-      "en": {
-        "name": "Senshu Park (Kubota Castle Ruins)",
-        "description": "Ruin site of Kubota Castle, seat of the Satake clan for 267 years, now a scenic park with moats, a reconstructed corner watchtower, the Satake Historical Museum and one of Japan's top cherry-blossom spots.",
-        "highlights": [
-          "Kubota Castle moats",
-          "Reconstructed watchtower",
-          "Satake Historical Museum",
-          "Cherry-blossom spot"
-        ]
-      },
-      "ja": {
-        "name": "千秋公園",
-        "description": "佐竹氏267年の居城・久保田城の跡地を整備した公園。堀や復元された隅櫓、佐竹史料館があり、桜の名所としても知られます。",
-        "highlights": [
-          "久保田城の石垣と堀",
-          "復元隅櫓",
-          "佐竹史料館",
-          "桜の名所"
-        ]
-      }
-    },
-    "editorial": {
-      "lifecycle": "in_review",
-      "sources": [
-        {
-          "type": "government",
-          "url": "https://www.city.akita.lg.jp/kurashi/doro-koen/1003685/1007159/index.html",
-          "title": "Akita City — Senshu Park",
-          "accessedAt": "2026-08-11"
-        }
-      ],
-      "checkedAt": "2026-08-11",
-      "freshness": "current",
-      "changeSummary": "KAI-57 Tohoku expansion",
-      "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "Added source-backed KAI-57 Tohoku POI",
-          "method": "assisted"
-        }
-      ]
-    },
-    "ratingMetadata": {
-      "rubricVersion": 1,
-      "method": "assisted",
-      "confidence": "low"
-    },
-    "relationships": {
-      "parentDestinationId": "akita-city"
-    },
-    "schemaVersion": 2
-  },
-  {
     "id": "akita-museum-of-art",
     "name": "Akita Museum of Art",
     "nameJa": "秋田県立美術館",
@@ -113761,166 +113469,6 @@
           "type": "official",
           "url": "https://www.gakushubunka.jp/bunsyokan/",
           "title": "Yamagata Bunshokan official site",
-          "accessedAt": "2026-08-11"
-        }
-      ],
-      "checkedAt": "2026-08-11",
-      "freshness": "current",
-      "changeSummary": "KAI-57 Tohoku expansion",
-      "changes": [
-        {
-          "changedAt": "2026-08-11",
-          "changedBy": "Meguruto editorial",
-          "summary": "Added source-backed KAI-57 Tohoku POI",
-          "method": "assisted"
-        }
-      ]
-    },
-    "ratingMetadata": {
-      "rubricVersion": 1,
-      "method": "assisted",
-      "confidence": "low"
-    },
-    "relationships": {
-      "parentDestinationId": "yamagata-city"
-    },
-    "schemaVersion": 2
-  },
-  {
-    "id": "kajo-park",
-    "name": "Kajo Park (Yamagata Castle Ruins)",
-    "nameJa": "霞城公園（山形城跡）",
-    "kind": "castle",
-    "role": "poi",
-    "placeType": "destination",
-    "aliases": [],
-    "municipalityId": "Yamagata:yamagata",
-    "prefecture": "Yamagata",
-    "region": "Tohoku",
-    "coordinates": {
-      "lat": 38.2553,
-      "lng": 140.3308
-    },
-    "categories": ["History", "Nature"],
-    "tags": ["History", "Nature", "Yamagata City"],
-    "description": "The sprawling ruins of Yamagata Castle, one of Japan's 100 Famous Castles, in the heart of the city. Triple moats, the rebuilt East Otemon gate and more than 1,000 cherry trees make it a landmark park and blossom spot.",
-    "highlights": [
-      "One of Japan's 100 Castles",
-      "Triple moats",
-      "Rebuilt East Otemon gate",
-      "1,000+ cherry trees"
-    ],
-    "status": "beta",
-    "travelEstimate": {
-      "confidence": "beta"
-    },
-    "collections": [],
-    "transportOptions": {
-      "train": 15,
-      "bus": 20,
-      "car": 20
-    },
-    "budgetMin": 0,
-    "budgetRecommended": 1500,
-    "budgetMax": 3000,
-    "budgetBreakdown": {
-      "transport": 600,
-      "tickets": 0,
-      "food": 600,
-      "cafe": 300
-    },
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan01s3.jpg/1280px-220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan01s3.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan01s3.jpg/1280px-220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan01s3.jpg",
-    "imageMetadata": {
-      "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "663highland",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan01s3.jpg"
-    },
-    "openingHoursMetadata": {
-      "verifiedAt": "2026-08-11"
-    },
-    "recommendedVisitHours": {
-      "min": 1,
-      "max": 2
-    },
-    "walkingMin": 3000,
-    "walkingSunMin": 1800,
-    "walkingShadeMin": 1200,
-    "walkingIntensity": "medium",
-    "indoorPercent": 20,
-    "comfort": {
-      "heatTolerance": 6,
-      "rainFriendly": 4,
-      "walkingIntensity": 4
-    },
-    "ratings": {
-      "overall": 8.6,
-      "couple": 8.6,
-      "summer": 7.6,
-      "winter": 7.4,
-      "rain": 5.6,
-      "food": 7.6,
-      "photography": 9.2,
-      "relaxation": 8.8,
-      "value": 9.2,
-      "uniqueness": 8,
-      "family": 8.4,
-      "accessibility": 7,
-      "nature": 8.6,
-      "historyAndCulture": 9.2,
-      "walkability": 8,
-      "spring": 9.6,
-      "autumn": 9
-    },
-    "ratingsSchemaVersion": 2,
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9.4,
-      "summer": 7.6,
-      "autumn": 8.8,
-      "winter": 7.4
-    },
-    "bestMonths": [3, 4, 5, 10, 11],
-    "bestSeason": "Spring",
-    "weatherDependence": "moderate",
-    "reservation": "No reservation required",
-    "parking": "Pay parking near the park",
-    "notes": "Free park. Ten minutes' walk from Yamagata Station; the East Otemon gate is the main entrance.",
-    "notesJa": "【見どころ】霞城公園（山形城跡）は東北の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
-    "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
-    "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
-    "openingHoursJa": "公園は4～10月5:00～22:00、11～3月5:30～22:00。入園無料。",
-    "businessHours": "Park 05:00 - 22:00 (Apr–Oct) / 05:30 - 22:00 (Nov–Mar); free",
-    "officialWebsite": "https://www.city.yamagata-yamagata.lg.jp/kurashi/koen/1006541/1006544/1003675.html",
-    "content": {
-      "en": {
-        "name": "Kajo Park (Yamagata Castle Ruins)",
-        "description": "The sprawling ruins of Yamagata Castle, one of Japan's 100 Famous Castles, in the heart of the city. Triple moats, the rebuilt East Otemon gate and more than 1,000 cherry trees make it a landmark park and blossom spot.",
-        "highlights": [
-          "One of Japan's 100 Castles",
-          "Triple moats",
-          "Rebuilt East Otemon gate",
-          "1,000+ cherry trees"
-        ]
-      },
-      "ja": {
-        "name": "霞城公園（山形城跡）",
-        "description": "日本100名城の山形城の跡地を整備した公園。三重の堀と復元された東大手門を備え、1,000本以上の桜が咲く市街地の名所です。",
-        "highlights": ["日本100名城", "三重の堀", "復元東大手門", "1,000本の桜"]
-      }
-    },
-    "editorial": {
-      "lifecycle": "in_review",
-      "sources": [
-        {
-          "type": "government",
-          "url": "https://www.city.yamagata-yamagata.lg.jp/kurashi/koen/1006541/1006544/1003675.html",
-          "title": "Yamagata City — Kajo Park",
           "accessedAt": "2026-08-11"
         }
       ],
@@ -115581,36 +115129,12 @@
       "Nemuro history museum context"
     ],
     "notes": "The chashi are open-air earthwork sites; visit the Nemuro City History and Folklore Museum for interpretation. Access is by car from Nemuro city center; the peninsula road is best in summer.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -115623,20 +115147,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Nemurohanto_chashiatogun_onnemotochashi.jpg/1920px-Nemurohanto_chashiatogun_onnemotochashi.jpg",
@@ -115713,6 +115223,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -115738,37 +115253,13 @@
       "Reconstructed magistrate's office",
       "Spring cherry blossoms and night illumination"
     ],
-    "notes": "The Goryokaku Tower next to the fort offers the classic star-shaped view. The fort's magistrate office reconstruction charges admission (¥1,000 adult).",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
+    "notes": "The fort's magistrate office reconstruction (箱館奉行所) charges ¥500 adult admission; Goryokaku Tower is separately ticketed (¥1,000).",
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 9.3,
       "couple": 9.1,
@@ -115781,20 +115272,6 @@
       "value": 9.2,
       "uniqueness": 9.5
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Hakodate_Goryokaku_Panorama_1.JPG/1920px-Hakodate_Goryokaku_Panorama_1.JPG",
@@ -115872,6 +115349,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "medium"
     }
   },
   {
@@ -115898,36 +115380,12 @@
       "Early cherry blossom spot"
     ],
     "notes": "The keep houses a history museum (¥360 adult). Matsumae Park around the castle has 10,000+ cherry trees. Access: ~3.5h from Hakodate by bus; a day trip is tight — plan an overnight.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.8,
       "couple": 8.6,
@@ -115940,20 +115398,6 @@
       "value": 8.7,
       "uniqueness": 9.0
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/54/MatsumaeJo.jpg",
@@ -116026,6 +115470,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -116051,36 +115500,12 @@
       "National historic site"
     ],
     "notes": "Free to walk the grounds; the adjacent Hachinohe City Museum interprets the site.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.0,
       "couple": 7.8,
@@ -116093,20 +115518,6 @@
       "value": 7.9,
       "uniqueness": 8.2
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/%E6%A0%B9%E5%9F%8E%E5%BE%A9%E5%85%83%E4%B8%BB%E6%AE%BF.JPG/1920px-%E6%A0%B9%E5%9F%8E%E5%BE%A9%E5%85%83%E4%B8%BB%E6%AE%BF.JPG",
@@ -116178,6 +115589,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -116204,36 +115620,12 @@
       "Taga Castle Museum"
     ],
     "notes": "The Taga Castle Museum (closed Mondays) explains the site's archaeology; the excavated foundations lie beside it.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -116246,20 +115638,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Reconstructed_south_gate_of_Taga_Castle_%28Tagajo%29_202409.jpg/1920px-Reconstructed_south_gate_of_Taga_Castle_%28Tagajo%29_202409.jpg",
@@ -116336,6 +115714,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -116362,36 +115745,12 @@
       "Akita landmarks nearby"
     ],
     "notes": "Senshu Park is free to enter; the Akita City Kubota Castle Omoya (main-hall reconstruction) reopens periodically for exhibitions (fee varies).",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -116404,20 +115763,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Kubota_Castle%2C_Omonogashira-gobansho.jpg/1920px-Kubota_Castle%2C_Omonogashira-gobansho.jpg",
@@ -116490,6 +115835,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -116515,36 +115865,12 @@
       "Kajo Park grounds"
     ],
     "notes": "Kajo Park is free; the reconstructed gate and turret are open seasonally (fee).",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -116557,20 +115883,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan06s3.jpg/1920px-220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan06s3.jpg",
@@ -116646,6 +115958,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -116671,36 +115988,12 @@
       "Reconstructed turret"
     ],
     "notes": "The reconstructed turret (¥300 adult) is open seasonally. Free to walk the grounds.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -116713,20 +116006,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Nihonmatsu_Castle%2C_Fukushima_01.jpg/1920px-Nihonmatsu_Castle%2C_Fukushima_01.jpg",
@@ -116798,6 +116077,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -116823,36 +116107,12 @@
       "Edo stone walls"
     ],
     "notes": "The keep interior is open (¥320 adult, closed Mon). Free to walk the grounds.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -116865,20 +116125,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Shirakawa_Komine_Castle_20100625-01.jpg/1920px-Shirakawa_Komine_Castle_20100625-01.jpg",
@@ -116954,6 +116200,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -116980,36 +116231,12 @@
       "National historic site"
     ],
     "notes": "Banna-ji grounds are free; the temple's Kaisando hall and garden are highlights.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -117022,20 +116249,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Banna-ji_Temple_-_panoramio.jpg/1920px-Banna-ji_Temple_-_panoramio.jpg",
@@ -117113,6 +116326,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -117138,36 +116356,12 @@
       "National historic site"
     ],
     "notes": "Free open-air site; best with sturdy shoes. Interpretation at the site boards (Japanese).",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.5,
       "couple": 8.3,
@@ -117180,20 +116374,6 @@
       "value": 8.4,
       "uniqueness": 8.7
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Minowajo_kakuumadashi_nishikoguchimon.jpg",
@@ -117265,6 +116445,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -117290,36 +116475,12 @@
       "National historic site"
     ],
     "notes": "Free open-air site with trails; the Mizusaka gate reconstruction greets visitors.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -117332,20 +116493,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kanayama_Castle%27s_major_enclosure.jpg/1920px-Kanayama_Castle%27s_major_enclosure.jpg",
@@ -117417,6 +116564,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -117443,36 +116595,12 @@
       "National historic site"
     ],
     "notes": "Free park; the site museum (closed Mon) adds context.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -117485,20 +116613,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/28/Hatigatajou_Honmaru.JPG",
@@ -117576,6 +116690,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -117602,36 +116721,12 @@
       "Castle park blossoms"
     ],
     "notes": "Keep admission ¥510 (adult). The castle tower view of Sagami Bay is a highlight.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 9.2,
       "couple": 9.0,
@@ -117644,20 +116739,6 @@
       "value": 9.1,
       "uniqueness": 9.4
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/161223_Odawara_Castle_Odawara_Japan04n.jpg/1920px-161223_Odawara_Castle_Odawara_Japan04n.jpg",
@@ -117730,6 +116811,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -117755,36 +116841,12 @@
       "Reconstructed turret with view"
     ],
     "notes": "Free to walk the grounds; the Inui-yagura turret is open seasonally (fee).",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.8,
       "couple": 8.6,
@@ -117797,20 +116859,6 @@
       "value": 8.7,
       "uniqueness": 9.0
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Kofu_Castle_201904q.jpg/1920px-Kofu_Castle_201904q.jpg",
@@ -117882,6 +116930,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -117907,36 +116960,12 @@
       "Samurai town setting"
     ],
     "notes": "Free to walk the castle grounds; the nearby Matsushiro samurai residences are paid sites.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -117949,20 +116978,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Matsushiro_Castle_20100919-02.jpg/1920px-Matsushiro_Castle_20100919-02.jpg",
@@ -118038,6 +117053,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -118063,36 +117083,12 @@
       "Kaiko-en park setting"
     ],
     "notes": "Kaiko-en park is free; the castle ruins sit within it.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -118105,20 +117101,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Komoro_castle05s3872.jpg/1920px-Komoro_castle05s3872.jpg",
@@ -118190,6 +117172,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -118215,36 +117202,12 @@
       "Water-moat defenses"
     ],
     "notes": "The keep is a reconstruction (¥400 adult); the Ote-mon gate is a designated cultural property.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -118257,20 +117220,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Shibata_Castle_001_May2020.jpg/1920px-Shibata_Castle_001_May2020.jpg",
@@ -118342,6 +117291,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -118367,36 +117321,12 @@
       "Sengoku history site"
     ],
     "notes": "Free open-air site with hiking trails; the adjacent Kasugayama Shrine marks the castle's core.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 9.0,
       "couple": 8.8,
@@ -118409,20 +117339,6 @@
       "value": 8.9,
       "uniqueness": 9.2
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/90/Kasugayama_castle_1.jpg",
@@ -118498,6 +117414,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -118523,36 +117444,12 @@
       "Takaoka Castle Park"
     ],
     "notes": "Free park; seasonal illumination of the moats in autumn.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -118565,20 +117462,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Takaoka_Castle.jpg/1920px-Takaoka_Castle.jpg",
@@ -118650,6 +117533,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -118675,36 +117563,12 @@
       "Nanao Bay panorama"
     ],
     "notes": "Free open-air site; a scenic viewpoint road approaches the main bailey.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -118717,20 +117581,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Nanao_Castle_01_Moat.JPG/1920px-Nanao_Castle_01_Moat.JPG",
@@ -118807,6 +117657,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -118833,36 +117688,12 @@
       "Reconstructed townscape"
     ],
     "notes": "The reconstructed town quarter (Fukui Prefectural Ichijodani Asakura Family Site Museum) is paid; castle ruins are free.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.8,
       "couple": 8.6,
@@ -118875,20 +117706,6 @@
       "value": 8.7,
       "uniqueness": 9.0
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Ichij%C5%8Ddani_Asakura_Family_Site_20231104_11.jpg/1920px-Ichij%C5%8Ddani_Asakura_Family_Site_20231104_11.jpg",
@@ -118966,6 +117783,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -118991,36 +117813,12 @@
       "Stone-wall ruins and castle town"
     ],
     "notes": "Free open-air site; steep climb from the Iwamura Castle Town (a preserved district).",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -119033,20 +117831,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/75/Iwamurajo04.jpg",
@@ -119118,6 +117902,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -119144,36 +117933,12 @@
       "National historic site"
     ],
     "notes": "Free open-air site on the Tokaido route; a short climb from the parking area.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.5,
       "couple": 8.3,
@@ -119186,20 +117951,6 @@
       "value": 8.4,
       "uniqueness": 8.7
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/58/YamanakaC_Taizakidemaru1.JPG",
@@ -119277,6 +118028,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -119290,8 +118046,8 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 35.182,
-      "lng": 138.39
+      "lat": 34.9615,
+      "lng": 138.3833
     },
     "categories": ["history", "culture", "sightseeing"],
     "tags": ["Top 100 Castle", "Castle", "History", "Shizuoka"],
@@ -119303,36 +118059,12 @@
       "City-center park"
     ],
     "notes": "Sunpu Park is free; the East Gate is open seasonally (fee).",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.9,
       "couple": 8.7,
@@ -119345,20 +118077,6 @@
       "value": 8.8,
       "uniqueness": 9.1
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Panorama_of_Sunpu_Castle_%281%29.jpg/1920px-Panorama_of_Sunpu_Castle_%281%29.jpg",
@@ -119436,6 +118154,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -119461,36 +118184,12 @@
       "Cherry blossom park"
     ],
     "notes": "Keep admission ¥360 adult; the adjacent Okazaki Castle Museum interprets Ieyasu's origins.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 9.0,
       "couple": 8.8,
@@ -119503,20 +118202,6 @@
       "value": 8.9,
       "uniqueness": 9.2
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Keep_tower_of_Okazaki_Castle.jpg/1920px-Keep_tower_of_Okazaki_Castle.jpg",
@@ -119588,6 +118273,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -119613,36 +118303,12 @@
       "River-bluff ruins"
     ],
     "notes": "The Nagashino Castle Historic Site Museum (¥210) sets the scene; the ruins are free.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.5,
       "couple": 8.3,
@@ -119655,20 +118321,6 @@
       "value": 8.4,
       "uniqueness": 8.7
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Nagashino_Castle_20210320_09.jpg/1920px-Nagashino_Castle_20210320_09.jpg",
@@ -119744,6 +118396,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -119769,36 +118426,12 @@
       "Iga ninja heritage"
     ],
     "notes": "Keep admission ¥600 (incl. ninja museum); the walls are the visual highlight.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.7,
       "couple": 8.5,
@@ -119811,20 +118444,6 @@
       "value": 8.6,
       "uniqueness": 8.9
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Iga_Ueno_Castle%2C_%E4%BC%8A%E8%B3%80%E4%B8%8A%E9%87%8E%E5%9F%8E_-_panoramio_%2815%29.jpg",
@@ -119896,6 +118515,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -119921,36 +118545,12 @@
       "National historic site"
     ],
     "notes": "Free to walk; views over Matsusaka from the Honmaru.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -119963,20 +118563,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Matsusaka_Castle%2C_Honmaru.jpg/1920px-Matsusaka_Castle%2C_Honmaru.jpg",
@@ -120053,6 +118639,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -120079,36 +118670,12 @@
       "National historic site"
     ],
     "notes": "Free open-air site with a demanding climb; the Odani Castle History Museum at the base (fee) provides context.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -120121,20 +118688,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/35/Odanij10.jpg",
@@ -120212,6 +118765,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -120238,36 +118796,12 @@
       "Special historic site"
     ],
     "notes": "Free to climb the stone approaches; the Azuchi Castle Archaeological Museum (¥460) is beside the site.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 9.1,
       "couple": 8.9,
@@ -120280,20 +118814,6 @@
       "value": 9.0,
       "uniqueness": 9.3
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Azuchi_Castle_Tower.jpg/1920px-Azuchi_Castle_Tower.jpg",
@@ -120371,6 +118891,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -120396,36 +118921,12 @@
       "National historic site"
     ],
     "notes": "Free open-air ruins; the climb from the Kannonji temple area takes about an hour.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.9,
       "couple": 8.7,
@@ -120438,20 +118939,6 @@
       "value": 8.8,
       "uniqueness": 9.1
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Kan-nonjijou001.jpg",
@@ -120523,6 +119010,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -120548,36 +119040,12 @@
       "Mt. Kongo ruins"
     ],
     "notes": "Access is via the Kongo-san ropeway; the ruins are free and sit on the pilgrimage route to Chihaya Shrine.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.7,
       "couple": 8.5,
@@ -120590,20 +119058,6 @@
       "value": 8.6,
       "uniqueness": 8.9
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Chihaya_Castle16.jpg/1920px-Chihaya_Castle16.jpg",
@@ -120675,6 +119129,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -120700,36 +119159,12 @@
       "Castle town setting"
     ],
     "notes": "The Oshoin (¥500) is open daily; the grounds are free. Pair with the preserved Sasayama castle-town streets.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.7,
       "couple": 8.5,
@@ -120742,20 +119177,6 @@
       "value": 8.6,
       "uniqueness": 8.9
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Sasayama_Castle%2C_tenshu-dai.jpg/1920px-Sasayama_Castle%2C_tenshu-dai.jpg",
@@ -120831,6 +119252,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -120855,37 +119281,13 @@
       "Edo-period castle",
       "Akashi Strait view"
     ],
-    "notes": "Free to enter the park; the turrets are open seasonally (¥300).",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
+    "notes": "Free to enter the park; the two turrets open seasonally and free of charge (check the schedule).",
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -120898,20 +119300,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Akashi_Castle_05.jpg/1920px-Akashi_Castle_05.jpg",
@@ -120983,6 +119371,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -121009,36 +119402,12 @@
       "National historic site"
     ],
     "notes": "Free to walk; the Ako Castle History Museum (¥320) tells the 47 Ronin story.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.9,
       "couple": 8.7,
@@ -121051,20 +119420,6 @@
       "value": 8.8,
       "uniqueness": 9.1
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/141115_Ako_Castle_Ako_Hyogo_pref_Japan01bs3.jpg/1920px-141115_Ako_Castle_Ako_Hyogo_pref_Japan01bs3.jpg",
@@ -121142,6 +119497,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -121167,36 +119527,12 @@
       "National historic site"
     ],
     "notes": "Free open-air site; a demanding climb from the Takatori station area — allow half a day.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
-      "min": 1.5,
-      "max": 3.5
+      "min": 4,
+      "max": 5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.5,
       "couple": 8.3,
@@ -121209,20 +119545,6 @@
       "value": 8.4,
       "uniqueness": 8.7
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Takatori_Castle_2014a.JPG/1920px-Takatori_Castle_2014a.JPG",
@@ -121294,6 +119616,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -121319,36 +119646,12 @@
       "Castle park in city center"
     ],
     "notes": "Free to walk; the 'Ishigaki no Tan' wall section is the must-see.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.5,
       "couple": 8.3,
@@ -121361,20 +119664,6 @@
       "value": 8.4,
       "uniqueness": 8.7
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tottori_Castle%2C_zenkei.jpg/1920px-Tottori_Castle%2C_zenkei.jpg",
@@ -121450,6 +119739,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -121476,36 +119770,12 @@
       "National historic site"
     ],
     "notes": "Free open-air site; a car road reaches the upper bailey. The Yasugi city museum provides context.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -121518,20 +119788,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Gassan_Toda_Castle_Gassan.jpg/1920px-Gassan_Toda_Castle_Gassan.jpg",
@@ -121609,6 +119865,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -121634,36 +119895,12 @@
       "Views over Tsuwano town"
     ],
     "notes": "Ropeway round trip ¥720 (castle ruins free); the castle town below is the main attraction.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.5,
       "couple": 8.3,
@@ -121676,20 +119913,6 @@
       "value": 8.4,
       "uniqueness": 8.7
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/TsuwanoJo.JPG/1920px-TsuwanoJo.JPG",
@@ -121761,6 +119984,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -121787,36 +120015,12 @@
       "Cherry blossoms in Kakuzan Park"
     ],
     "notes": "Kakuzan Park is free; the turret is open seasonally (¥300).",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.8,
       "couple": 8.6,
@@ -121829,20 +120033,6 @@
       "value": 8.7,
       "uniqueness": 9.0
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/78/Tsuyama_Castle_South_View.JPG",
@@ -121920,6 +120110,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -121945,36 +120140,12 @@
       "National historic site"
     ],
     "notes": "Free open-air site; about 40 min from Soja station by bus/car plus a climb.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -121987,20 +120158,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Kinojo_Nishi_mon_area.jpg/1920px-Kinojo_Nishi_mon_area.jpg",
@@ -122072,6 +120229,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -122097,36 +120259,12 @@
       "Surviving original turret and gate"
     ],
     "notes": "Keep admission ¥500 (with turret); the castle park is free.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.7,
       "couple": 8.5,
@@ -122139,20 +120277,6 @@
       "value": 8.6,
       "uniqueness": 8.9
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Fukuyama_Castle_at_Sunset.jpg/1920px-Fukuyama_Castle_at_Sunset.jpg",
@@ -122224,6 +120348,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -122249,36 +120378,12 @@
       "National historic site"
     ],
     "notes": "Free open-air site; the Mori Museum (¥350) is in the town below.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -122291,20 +120396,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/5%E6%9C%88%E3%81%AE%E9%83%A1%E5%B1%B1%E5%9F%8E.jpg/1920px-5%E6%9C%88%E3%81%AE%E9%83%A1%E5%B1%B1%E5%9F%8E.jpg",
@@ -122376,6 +120467,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -122402,36 +120498,12 @@
       "Castle town with samurai district"
     ],
     "notes": "The castle park is free; the Hagi Museum in the castle town (¥520) covers the domain's role in the Meiji Restoration.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.9,
       "couple": 8.7,
@@ -122444,20 +120516,6 @@
       "value": 8.8,
       "uniqueness": 9.1
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Hagi_Castle_Walls.jpg/1920px-Hagi_Castle_Walls.jpg",
@@ -122535,6 +120593,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -122560,40 +120623,16 @@
       "River-bluff setting"
     ],
     "notes": "Tokushima Central Park is free; the Omote-goten gate is open weekends/holidays (¥310).",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {
       "train": 55,
       "bus": 65,
       "car": 70
     },
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.5,
       "couple": 8.3,
@@ -122606,20 +120645,6 @@
       "value": 8.4,
       "uniqueness": 8.7
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Tokushima_Castle%2C_Tenshu.jpg/1920px-Tokushima_Castle%2C_Tenshu.jpg",
@@ -122695,6 +120720,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -122721,39 +120751,15 @@
       "Original gates"
     ],
     "notes": "Keep admission ¥500; the Koro-mon gate is an important cultural property.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {
       "train": 60,
       "car": 75
     },
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.8,
       "couple": 8.6,
@@ -122766,20 +120772,6 @@
       "value": 8.7,
       "uniqueness": 9.0
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Imabari_Castle_01.JPG/1920px-Imabari_Castle_01.JPG",
@@ -122857,6 +120849,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -122882,39 +120879,15 @@
       "Hijikawa river setting"
     ],
     "notes": "Keep admission ¥550; combine with the Ozu Castle town walking course.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {
       "train": 110,
       "car": 110
     },
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.7,
       "couple": 8.5,
@@ -122927,20 +120900,6 @@
       "value": 8.6,
       "uniqueness": 8.9
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ozu-_castle1.jpg/1920px-Ozu-_castle1.jpg",
@@ -123016,6 +120975,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -123042,36 +121006,12 @@
       "Special historic site"
     ],
     "notes": "Free open-air site; the Ono Castle Rekishi-no-mori museum at the base adds context.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -123084,20 +121024,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/%E5%A4%A7%E9%87%8E%E5%9F%8E%EF%BC%88%E7%AD%91%E5%89%8D%E5%9B%BD%EF%BC%89%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%8F%A3.jpg/1920px-%E5%A4%A7%E9%87%8E%E5%9F%8E%EF%BC%88%E7%AD%91%E5%89%8D%E5%9B%BD%EF%BC%89%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%8F%A3.jpg",
@@ -123175,6 +121101,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -123199,37 +121130,13 @@
       "Reconstructed main gate",
       "Daimyo camp archaeology"
     ],
-    "notes": "The site and museum (¥500) are open daily; the stone walls on the hill are free.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
+    "notes": "The Nagoya Castle museum (名護屋城博物館) entrance is free; special exhibitions are paid. The castle site itself is open.",
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.8,
       "couple": 8.6,
@@ -123242,20 +121149,6 @@
       "value": 8.7,
       "uniqueness": 9.0
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/18/NagoyaC_hommaru.jpg",
@@ -123331,6 +121224,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -123357,36 +121255,12 @@
       "Large museum park"
     ],
     "notes": "Admission ¥470 (Yoshinogari Historical Park); allow half a day for the full park.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 9.2,
       "couple": 9.0,
@@ -123399,20 +121273,6 @@
       "value": 9.1,
       "uniqueness": 9.4
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/%E5%90%89%E9%87%8E%E3%83%B6%E9%87%8C%E6%AD%B4%E5%8F%B2%E5%85%AC%E5%9C%92_-_panoramio.jpg/1920px-%E5%90%89%E9%87%8E%E3%83%B6%E9%87%8C%E6%AD%B4%E5%8F%B2%E5%85%AC%E5%9C%92_-_panoramio.jpg",
@@ -123489,6 +121349,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "medium"
     }
   },
   {
@@ -123514,36 +121379,12 @@
       "Shachinomon gate"
     ],
     "notes": "The Honmaru museum is free; open daily (closed New Year).",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 9.0,
       "couple": 8.8,
@@ -123556,20 +121397,6 @@
       "value": 8.9,
       "uniqueness": 9.2
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Hommaru_of_Saga_Castle_2.jpg/1920px-Hommaru_of_Saga_Castle_2.jpg",
@@ -123645,6 +121472,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -123670,36 +121502,12 @@
       "Keep view over Hirado Bay"
     ],
     "notes": "Keep admission ¥520; combine with the Hirado Dutch Trading Post nearby.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.9,
       "couple": 8.7,
@@ -123712,20 +121520,6 @@
       "value": 8.8,
       "uniqueness": 9.1
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3c/HiradoCastle3.jpg",
@@ -123797,6 +121591,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -123823,36 +121622,12 @@
       "Christian history museum"
     ],
     "notes": "Keep admission ¥520; the Samurai Street and the Christian heritage sites are within walking distance.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 9.0,
       "couple": 8.8,
@@ -123865,20 +121640,6 @@
       "value": 8.9,
       "uniqueness": 9.2
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Shimabara_Castle_Tower_20090906.jpg",
@@ -123955,6 +121716,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -123980,36 +121746,12 @@
       "Castle town at river base"
     ],
     "notes": "The castle ruins park is free; the 1977-reconstructed turret houses a small museum (¥200).",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.5,
       "couple": 8.3,
@@ -124022,20 +121764,6 @@
       "value": 8.4,
       "uniqueness": 8.7
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Hitoyoshi_Castle%2C_enkei-3.jpg/1920px-Hitoyoshi_Castle%2C_enkei-3.jpg",
@@ -124107,6 +121835,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -124132,36 +121865,12 @@
       "City-center site"
     ],
     "notes": "Free to walk the ruins; the site is a pleasant green stop in the city.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.1,
       "couple": 7.9,
@@ -124174,20 +121883,6 @@
       "value": 8.0,
       "uniqueness": 8.3
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Funai_Castle02n4272.jpg/1920px-Funai_Castle02n4272.jpg",
@@ -124259,6 +121954,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -124285,36 +121985,12 @@
       "Autumn foliage"
     ],
     "notes": "Free open-air site; admission is free, the climb is steep but short from the parking area.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.5,
       "couple": 8.3,
@@ -124327,20 +122003,6 @@
       "value": 8.4,
       "uniqueness": 8.7
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Bungo_Oka_Castle_1.JPG/1920px-Bungo_Oka_Castle_1.JPG",
@@ -124418,6 +122080,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -124444,36 +122111,12 @@
       "Sakurajima views"
     ],
     "notes": "The castle grounds are free; the Reimeikan museum (¥500) and the adjacent Isotei garden complete the visit.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {},
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -124486,20 +122129,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Kagoshima_Castle_Goromon.jpg/1920px-Kagoshima_Castle_Goromon.jpg",
@@ -124577,6 +122206,11 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
     }
   },
   {
@@ -124603,39 +122237,15 @@
       "Sea views from the walls"
     ],
     "notes": "Admission ¥400; the walls over the East China Sea side are the highlight.",
-    "budgetMin": 1200,
-    "budgetRecommended": 4000,
-    "budgetMax": 8000,
-    "budget": {
-      "low": 1200,
-      "mid": 4000,
-      "high": 8000
-    },
-    "budgetBreakdown": {
-      "transport": 2200,
-      "tickets": 600,
-      "food": 800,
-      "cafe": 400
-    },
     "transportOptions": {
       "bus": 90,
       "car": 60
     },
-    "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
     },
-    "walkingMin": 120,
-    "walkingSunMin": 80,
-    "walkingShadeMin": 40,
     "walkingIntensity": "medium",
-    "indoorPercent": 10,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
     "ratings": {
       "overall": 9.2,
       "couple": 9.0,
@@ -124649,20 +122259,6 @@
       "uniqueness": 9.4,
       "walkability": 6
     },
-    "crowd": {
-      "weekday": 3,
-      "weekend": 5,
-      "holiday": 6
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
-    "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Nakagusuku_Castle25bs3104.jpg/1920px-Nakagusuku_Castle25bs3104.jpg",
@@ -124740,6 +122336,27 @@
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR B 100名城 audit: new record completing the official list"
-    }
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "assisted",
+      "confidence": "low"
+    },
+    "crowd": {
+      "weekday": 3,
+      "weekend": 6,
+      "holiday": 7
+    },
+    "season": {
+      "spring": 9,
+      "summer": 8,
+      "autumn": 8,
+      "winter": 7
+    },
+    "bestMonths": [10, 11, 12, 1, 2, 3, 4],
+    "walkingMin": 90,
+    "walkingSunMin": 60,
+    "walkingShadeMin": 30,
+    "indoorPercent": 10
   }
 ]

@@ -3,7 +3,12 @@
   "name": "Kakegawa Castle & Ninomaru Goten",
   "prefecture": "Shizuoka",
   "region": "Chubu",
-  "categories": ["Castle", "History", "National Treasure", "Landmark"],
+  "categories": [
+    "Castle",
+    "History",
+    "Landmark",
+    "Important Cultural Property"
+  ],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kakegawajo_20090321.jpg/1280px-Kakegawajo_20090321.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kakegawajo_20090321.jpg/1280px-Kakegawajo_20090321.jpg",
   "totalTripHours": 3,
@@ -89,7 +94,7 @@
   "collections": [
     {
       "collectionId": "japan-top-castles",
-      "confirmed": true
+      "sortOrder": 42
     }
   ],
   "relationships": {

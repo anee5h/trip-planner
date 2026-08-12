@@ -22,36 +22,12 @@
     "Christian history museum"
   ],
   "notes": "Keep admission ¥520; the Samurai Street and the Christian heritage sites are within walking distance.",
-  "budgetMin": 1200,
-  "budgetRecommended": 4000,
-  "budgetMax": 8000,
-  "budget": {
-    "low": 1200,
-    "mid": 4000,
-    "high": 8000
-  },
-  "budgetBreakdown": {
-    "transport": 2200,
-    "tickets": 600,
-    "food": 800,
-    "cafe": 400
-  },
   "transportOptions": {},
-  "totalTripHours": 3,
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 3.5
   },
-  "walkingMin": 120,
-  "walkingSunMin": 80,
-  "walkingShadeMin": 40,
   "walkingIntensity": "medium",
-  "indoorPercent": 10,
-  "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 6,
-    "walkingIntensity": 4
-  },
   "ratings": {
     "overall": 9,
     "couple": 8.8,
@@ -64,20 +40,6 @@
     "value": 8.9,
     "uniqueness": 9.2
   },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 5,
-    "holiday": 6
-  },
-  "season": {
-    "spring": 9,
-    "summer": 7,
-    "autumn": 8,
-    "winter": 6
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "bestSeason": "Spring & Autumn",
-  "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Free/paid parking near the site (varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Shimabara_Castle_Tower_20090906.jpg",
@@ -154,5 +116,10 @@
     "checkedAt": "2026-08-12",
     "freshness": "current",
     "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

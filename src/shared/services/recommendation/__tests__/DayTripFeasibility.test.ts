@@ -350,7 +350,7 @@ describe("day-trip travel evidence", () => {
     // Miyoshi entries) inside the same mainland-shikoku zone, so the
     // bounded set grew from 9 to 35. The point of this test is the
     // evidence state, not the exact inventory; keep it deterministic.
-    expect(nearbySameZone).toHaveLength(37);
+    expect(nearbySameZone).toHaveLength(36);
     expect(
       nearbySameZone.every(
         (result) =>

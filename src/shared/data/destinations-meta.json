@@ -137,18 +137,6 @@
     }
   },
   {
-    "id": "akita-senshu-park",
-    "name": "Senshu Park (Kubota Castle Ruins)",
-    "prefecture": "Akita",
-    "region": "Tohoku",
-    "role": "poi",
-    "kind": "castle",
-    "status": "beta",
-    "relationships": {
-      "parentDestinationId": "akita-city"
-    }
-  },
-  {
     "id": "akiu-onsen-miyagi",
     "name": "Akiu Onsen",
     "prefecture": "Miyagi",
@@ -3725,18 +3713,6 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "mito-city"
-    }
-  },
-  {
-    "id": "kajo-park",
-    "name": "Kajo Park (Yamagata Castle Ruins)",
-    "prefecture": "Yamagata",
-    "region": "Tohoku",
-    "role": "poi",
-    "kind": "castle",
-    "status": "beta",
-    "relationships": {
-      "parentDestinationId": "yamagata-city"
     }
   },
   {
@@ -9929,18 +9905,6 @@
     "relationships": {}
   },
   {
-    "id": "tokushima-central-park",
-    "name": "Tokushima Central Park",
-    "prefecture": "Tokushima",
-    "region": "Shikoku",
-    "role": "poi",
-    "kind": "park",
-    "status": "beta",
-    "relationships": {
-      "parentDestinationId": "tokushima-city"
-    }
-  },
-  {
     "id": "tokushima-city",
     "name": "Tokushima City",
     "prefecture": "Tokushima",
@@ -9952,7 +9916,7 @@
       "featuredDestinationIds": [
         "awa-odori-kaikan",
         "bizan-ropeway-tokushima",
-        "tokushima-central-park",
+        "tokushima-castle",
         "tokushima-modern-art-museum"
       ],
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]

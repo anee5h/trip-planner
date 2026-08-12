@@ -45,7 +45,6 @@
     "uniqueness": 9.2
   },
   "highlights": ["Explore Takeda Castle Ruins", "Local Culture & Scenery"],
-  "totalTripHours": 4,
   "walkingMin": 3000,
   "indoorPercent": 30,
   "crowd": {
@@ -119,5 +118,10 @@
       ]
     }
   },
-  "municipalityId": "Hyogo:asago"
+  "municipalityId": "Hyogo:asago",
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "medium"
+  }
 }
