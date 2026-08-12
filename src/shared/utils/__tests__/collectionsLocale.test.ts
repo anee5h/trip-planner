@@ -126,6 +126,19 @@ describe("localized collection membership", () => {
       placeCount: 8,
       href: "/collections/unesco-japan?property=688",
     });
+    expect(kyoto?.virtualGroup?.memberIds.sort()).toEqual(
+      [
+        "nijo-castle-kyoto",
+        "kinkaku-ji",
+        "byodoin-temple",
+        "enryaku-ji-mount-hiei",
+        "ginkaku-ji",
+        "uji-tea-culture-center",
+        "ninna-ji",
+        "ryoan-ji",
+      ].sort(),
+    );
+    expect(himeji?.virtualGroup?.memberIds).toEqual(["himeji-castle"]);
     expect(kyoto?.id).toBe("unesco-property-688");
 
     expect(himeji?.virtualGroup).toMatchObject({

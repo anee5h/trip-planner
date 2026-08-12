@@ -140,8 +140,18 @@ export default function DestinationCard({
     homeStationTransportZoneId,
     canMutateProfile,
   } = useTripStore();
-  const visited = isVisited(destination.id);
+  // A virtual group (e.g. a UNESCO property) is visited when at least one of
+  // its curated members is visited. Visit tracking stays on real destination
+  // ids — group ids are never persisted as visits.
+  const visited = virtualGroup
+    ? virtualGroup.memberIds.some((memberId) => isVisited(memberId))
+    : isVisited(destination.id);
   const comparing = isComparing(destination.id);
+  // Multi-place groups must not present representative-member facts (score,
+  // travel, budget, location) as property-level truth.
+  const isMultiPlaceGroup = Boolean(
+    virtualGroup && virtualGroup.placeCount > 1,
+  );
   const cardCopy =
     locale === "ja"
       ? {
@@ -342,16 +352,18 @@ export default function DestinationCard({
             />
           </div>
         )}
-        <div className="absolute bottom-3 right-3 z-20 flex items-center rounded-lg border border-white/80 bg-white/90 px-2.5 py-1 shadow-sm backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-900/90">
-          <span
-            data-testid="meguruto-score"
-            title={`${cardCopy.score}: ${destination.ratings.overall}`}
-            aria-label={`${cardCopy.score}: ${destination.ratings.overall}`}
-            className="text-xs font-bold text-slate-700 dark:text-slate-200 md:text-sm"
-          >
-            {destination.ratings.overall}
-          </span>
-        </div>
+        {!isMultiPlaceGroup && (
+          <div className="absolute bottom-3 right-3 z-20 flex items-center rounded-lg border border-white/80 bg-white/90 px-2.5 py-1 shadow-sm backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-900/90">
+            <span
+              data-testid="meguruto-score"
+              title={`${cardCopy.score}: ${destination.ratings.overall}`}
+              aria-label={`${cardCopy.score}: ${destination.ratings.overall}`}
+              className="text-xs font-bold text-slate-700 dark:text-slate-200 md:text-sm"
+            >
+              {destination.ratings.overall}
+            </span>
+          </div>
+        )}
       </div>
 
       <CardHeader className="p-3 pb-1 md:p-3 md:pb-1">
@@ -372,10 +384,12 @@ export default function DestinationCard({
               : formatPlaceName(localizedDestination, locale)}
         </h3>
 
-        <div className="mt-0.5 flex h-5 min-w-0 items-center text-xs font-medium text-slate-500 dark:text-slate-400 md:mt-1 md:text-sm">
-          <MapPin className="mr-1 size-3.5 shrink-0 text-emerald-500" />
-          <span className="truncate">{locationLabel}</span>
-        </div>
+        {!isMultiPlaceGroup && (
+          <div className="mt-0.5 flex h-5 min-w-0 items-center text-xs font-medium text-slate-500 dark:text-slate-400 md:mt-1 md:text-sm">
+            <MapPin className="mr-1 size-3.5 shrink-0 text-emerald-500" />
+            <span className="truncate">{locationLabel}</span>
+          </div>
+        )}
 
         {sortedCollections.length > 0 && (
           <div className="mt-1 hidden min-h-5 items-center gap-1.5 overflow-hidden md:flex">
@@ -399,201 +413,208 @@ export default function DestinationCard({
       </CardHeader>
 
       <CardContent className="flex-grow p-3 pb-2 pt-0 md:p-3 md:pb-2 md:pt-0">
-        {match ? (
-          // SMART MATCH VIEW (Homepage Recommendation)
-          <div className="space-y-2">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-2 dark:border-slate-800">
-              <span className="font-bold text-slate-700 dark:text-slate-300">
-                {cardCopy.match}
-              </span>
-              <span className="text-xl font-extrabold text-emerald-500">
-                {match.confidence}%
-              </span>
-            </div>
-
-            {strongestReasonCopy && (
-              <div className="flex min-w-0 items-center gap-2 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                <CheckCircle2 className="size-3.5 shrink-0 text-emerald-500" />
-                <span className="truncate" title={strongestReasonCopy.title}>
-                  {strongestReasonCopy.title}
-                </span>
-              </div>
-            )}
-            {transportCostWarningCopy && (
-              <div
-                className="flex min-w-0 items-center gap-1.5 rounded-md border border-amber-200 bg-amber-50 px-2 py-1 text-[11px] font-semibold text-amber-800 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-200"
-                title={transportCostWarningCopy.description}
-              >
-                <AlertTriangle className="size-3.5 shrink-0" />
-                <span className="truncate">
-                  {transportCostWarningCopy.title}
-                </span>
-              </div>
-            )}
-          </div>
-        ) : (
-          // STANDARD EXPLORE VIEW (Simple, elegant tags instead of raw numbers)
-          <div>
-            {/* Forecast/seasonal condition label for the planned date: clearly
-                labelled evidence, never a fake forecast icon. */}
-            {conditionLabel && (
-              <p className="mb-1.5 line-clamp-1 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
-                {conditionLabel}
-              </p>
-            )}
-            <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-xs font-semibold text-slate-700 dark:text-slate-300 md:gap-x-3 md:gap-y-1.5 md:text-sm">
-              {(() => {
-                // The Tokyo wards group shows the fastest shared gateway
-                // estimate across its members, not legacy transport options.
-                const gateway = wardGroup?.gatewayEstimate;
-                const mode =
-                  gateway?.mode ?? preferredTransport?.mode ?? "train";
-
-                let Icon = Train;
-                if (mode === "car" || mode === "my_car") Icon = Car;
-                if (mode === "bus") Icon = Bus;
-                if (mode === "shinkansen") Icon = TrainFront;
-                if (mode === "flight") Icon = Plane;
-
-                const transport = gateway ?? preferredTransport;
-                const isApproximate = Boolean(
-                  transport &&
-                  "evidence" in transport &&
-                  transport.evidence === "estimated",
-                );
-                const formattedTime = transport
-                  ? isApproximate
-                    ? formatApproximateTransportTime(
-                        transport.timeRange,
-                        locale,
-                      )
-                    : formatTransportTime(transport.timeRange, locale)
-                  : "";
-
-                const isDriving = mode === "car" || mode === "my_car";
-
-                return (
-                  <div
-                    data-testid="destination-card-travel-time"
-                    className="flex min-w-0 items-center whitespace-nowrap"
-                  >
-                    <Icon className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
-                    <span className="truncate">
-                      {formattedTime || cardCopy.travelUnavailable}
-                      {formattedTime && isDriving ? " · Driving" : ""}
-                    </span>
-                  </div>
-                );
-              })()}
-              <div className="flex min-w-0 items-center whitespace-nowrap">
-                <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
-                <span className="truncate">
-                  {formatLocalizedJPYRange(
-                    [
-                      destination.budgetMin * partySize,
-                      destination.budgetMax * partySize,
-                    ],
-                    locale,
-                  )}
-                  {partySize > 1
-                    ? locale === "ja"
-                      ? `（${partySize}人分）`
-                      : ` for ${partySize}`
-                    : ""}
-                </span>
-              </div>
-              <div
-                data-testid="destination-card-visit-duration"
-                className="hidden min-w-0 items-center whitespace-nowrap md:flex"
-              >
-                <Timer className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
-                <span className="truncate">
-                  {durationEst
-                    ? formatTripDurationLabel(durationEst, locale)
-                    : destination.recommendedVisitHours
-                      ? locale === "ja"
-                        ? `滞在 ${destination.recommendedVisitHours.min}–${destination.recommendedVisitHours.max}時間`
-                        : `${destination.recommendedVisitHours.min}–${destination.recommendedVisitHours.max}h visit`
-                      : locale === "ja"
-                        ? "滞在時間目安なし"
-                        : "Visit time unavailable"}
-                </span>
-              </div>
-              {(durationEst?.isBorderline || durationEst?.isImpossible) && (
-                <div
-                  data-testid="destination-card-duration-warning"
-                  className={`col-span-2 flex min-w-0 items-center rounded-lg border px-2 py-1 text-xs font-semibold ${
-                    durationEst.isImpossible
-                      ? "border-rose-200 bg-rose-50 text-rose-700 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-300"
-                      : "border-amber-200 bg-amber-50 text-amber-800 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-300"
-                  }`}
-                >
-                  <AlertTriangle className="mr-1.5 size-3.5 shrink-0" />
-                  <span
-                    className="line-clamp-2 break-words"
-                    title={
-                      locale === "ja"
-                        ? durationEst.warningMessage?.ja
-                        : durationEst.warningMessage?.en
-                    }
-                  >
-                    {locale === "ja"
-                      ? durationEst.warningMessage?.ja
-                      : durationEst.warningMessage?.en}
+        {isMultiPlaceGroup ? null : (
+          <>
+            {match ? (
+              // SMART MATCH VIEW (Homepage Recommendation)
+              <div className="space-y-2">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-2 dark:border-slate-800">
+                  <span className="font-bold text-slate-700 dark:text-slate-300">
+                    {cardCopy.match}
+                  </span>
+                  <span className="text-xl font-extrabold text-emerald-500">
+                    {match.confidence}%
                   </span>
                 </div>
-              )}
-              <div
-                data-testid="destination-card-sun"
-                className="hidden min-w-0 items-center whitespace-nowrap md:flex"
-              >
-                <Sun className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
-                <span className="truncate">
-                  {locale === "ja"
-                    ? destination.walkingSunMin < 3000
-                      ? "日差し少なめ"
-                      : "日差し多め"
-                    : destination.walkingSunMin < 3000
-                      ? "Low sun"
-                      : "High sun"}
-                </span>
-              </div>
-            </div>
 
-            {weekendSummary && (
-              <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
-                {weekendSummary.placeCount > 0 && (
-                  <span>
-                    {t("destination.tripAreas.places", {
-                      places: weekendSummary.placeCount,
-                    })}
-                  </span>
-                )}
-                {weekendSummary.placeCount > 0 && <span>·</span>}
-                <span>
-                  {weekendSummary.capacityMinutes >= 600
-                    ? t("destination.tripAreas.plentyForTwoDays")
-                    : t("destination.tripAreas.readyForTwoDays")}
-                </span>
-                {weekendSummary.oneWayMinutes !== undefined &&
-                  weekendSummary.bestMode && (
-                    <span className="text-slate-500">
-                      ·{" "}
-                      {t("destination.tripAreas.travelBy", {
-                        time: formatWeekendMinutes(
-                          weekendSummary.oneWayMinutes,
-                          locale,
-                        ),
-                        mode:
-                          modeLabels[
-                            weekendSummary.bestMode as keyof typeof modeLabels
-                          ] ?? weekendSummary.bestMode,
-                      })}
+                {strongestReasonCopy && (
+                  <div className="flex min-w-0 items-center gap-2 text-xs font-semibold text-slate-700 dark:text-slate-300">
+                    <CheckCircle2 className="size-3.5 shrink-0 text-emerald-500" />
+                    <span
+                      className="truncate"
+                      title={strongestReasonCopy.title}
+                    >
+                      {strongestReasonCopy.title}
                     </span>
+                  </div>
+                )}
+                {transportCostWarningCopy && (
+                  <div
+                    className="flex min-w-0 items-center gap-1.5 rounded-md border border-amber-200 bg-amber-50 px-2 py-1 text-[11px] font-semibold text-amber-800 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-200"
+                    title={transportCostWarningCopy.description}
+                  >
+                    <AlertTriangle className="size-3.5 shrink-0" />
+                    <span className="truncate">
+                      {transportCostWarningCopy.title}
+                    </span>
+                  </div>
+                )}
+              </div>
+            ) : (
+              // STANDARD EXPLORE VIEW (Simple, elegant tags instead of raw numbers)
+              <div>
+                {/* Forecast/seasonal condition label for the planned date: clearly
+                labelled evidence, never a fake forecast icon. */}
+                {conditionLabel && (
+                  <p className="mb-1.5 line-clamp-1 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
+                    {conditionLabel}
+                  </p>
+                )}
+                <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-xs font-semibold text-slate-700 dark:text-slate-300 md:gap-x-3 md:gap-y-1.5 md:text-sm">
+                  {(() => {
+                    // The Tokyo wards group shows the fastest shared gateway
+                    // estimate across its members, not legacy transport options.
+                    const gateway = wardGroup?.gatewayEstimate;
+                    const mode =
+                      gateway?.mode ?? preferredTransport?.mode ?? "train";
+
+                    let Icon = Train;
+                    if (mode === "car" || mode === "my_car") Icon = Car;
+                    if (mode === "bus") Icon = Bus;
+                    if (mode === "shinkansen") Icon = TrainFront;
+                    if (mode === "flight") Icon = Plane;
+
+                    const transport = gateway ?? preferredTransport;
+                    const isApproximate = Boolean(
+                      transport &&
+                      "evidence" in transport &&
+                      transport.evidence === "estimated",
+                    );
+                    const formattedTime = transport
+                      ? isApproximate
+                        ? formatApproximateTransportTime(
+                            transport.timeRange,
+                            locale,
+                          )
+                        : formatTransportTime(transport.timeRange, locale)
+                      : "";
+
+                    const isDriving = mode === "car" || mode === "my_car";
+
+                    return (
+                      <div
+                        data-testid="destination-card-travel-time"
+                        className="flex min-w-0 items-center whitespace-nowrap"
+                      >
+                        <Icon className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
+                        <span className="truncate">
+                          {formattedTime || cardCopy.travelUnavailable}
+                          {formattedTime && isDriving ? " · Driving" : ""}
+                        </span>
+                      </div>
+                    );
+                  })()}
+                  <div className="flex min-w-0 items-center whitespace-nowrap">
+                    <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
+                    <span className="truncate">
+                      {formatLocalizedJPYRange(
+                        [
+                          destination.budgetMin * partySize,
+                          destination.budgetMax * partySize,
+                        ],
+                        locale,
+                      )}
+                      {partySize > 1
+                        ? locale === "ja"
+                          ? `（${partySize}人分）`
+                          : ` for ${partySize}`
+                        : ""}
+                    </span>
+                  </div>
+                  <div
+                    data-testid="destination-card-visit-duration"
+                    className="hidden min-w-0 items-center whitespace-nowrap md:flex"
+                  >
+                    <Timer className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
+                    <span className="truncate">
+                      {durationEst
+                        ? formatTripDurationLabel(durationEst, locale)
+                        : destination.recommendedVisitHours
+                          ? locale === "ja"
+                            ? `滞在 ${destination.recommendedVisitHours.min}–${destination.recommendedVisitHours.max}時間`
+                            : `${destination.recommendedVisitHours.min}–${destination.recommendedVisitHours.max}h visit`
+                          : locale === "ja"
+                            ? "滞在時間目安なし"
+                            : "Visit time unavailable"}
+                    </span>
+                  </div>
+                  {(durationEst?.isBorderline || durationEst?.isImpossible) && (
+                    <div
+                      data-testid="destination-card-duration-warning"
+                      className={`col-span-2 flex min-w-0 items-center rounded-lg border px-2 py-1 text-xs font-semibold ${
+                        durationEst.isImpossible
+                          ? "border-rose-200 bg-rose-50 text-rose-700 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-300"
+                          : "border-amber-200 bg-amber-50 text-amber-800 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-300"
+                      }`}
+                    >
+                      <AlertTriangle className="mr-1.5 size-3.5 shrink-0" />
+                      <span
+                        className="line-clamp-2 break-words"
+                        title={
+                          locale === "ja"
+                            ? durationEst.warningMessage?.ja
+                            : durationEst.warningMessage?.en
+                        }
+                      >
+                        {locale === "ja"
+                          ? durationEst.warningMessage?.ja
+                          : durationEst.warningMessage?.en}
+                      </span>
+                    </div>
                   )}
+                  <div
+                    data-testid="destination-card-sun"
+                    className="hidden min-w-0 items-center whitespace-nowrap md:flex"
+                  >
+                    <Sun className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
+                    <span className="truncate">
+                      {locale === "ja"
+                        ? destination.walkingSunMin < 3000
+                          ? "日差し少なめ"
+                          : "日差し多め"
+                        : destination.walkingSunMin < 3000
+                          ? "Low sun"
+                          : "High sun"}
+                    </span>
+                  </div>
+                </div>
+
+                {weekendSummary && (
+                  <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                    {weekendSummary.placeCount > 0 && (
+                      <span>
+                        {t("destination.tripAreas.places", {
+                          places: weekendSummary.placeCount,
+                        })}
+                      </span>
+                    )}
+                    {weekendSummary.placeCount > 0 && <span>·</span>}
+                    <span>
+                      {weekendSummary.capacityMinutes >= 600
+                        ? t("destination.tripAreas.plentyForTwoDays")
+                        : t("destination.tripAreas.readyForTwoDays")}
+                    </span>
+                    {weekendSummary.oneWayMinutes !== undefined &&
+                      weekendSummary.bestMode && (
+                        <span className="text-slate-500">
+                          ·{" "}
+                          {t("destination.tripAreas.travelBy", {
+                            time: formatWeekendMinutes(
+                              weekendSummary.oneWayMinutes,
+                              locale,
+                            ),
+                            mode:
+                              modeLabels[
+                                weekendSummary.bestMode as keyof typeof modeLabels
+                              ] ?? weekendSummary.bestMode,
+                          })}
+                        </span>
+                      )}
+                  </div>
+                )}
               </div>
             )}
-          </div>
+          </>
         )}
       </CardContent>
 

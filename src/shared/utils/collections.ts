@@ -203,6 +203,7 @@ export function getUNESCOPropertyGroupDestinations(
           id: `unesco-property-${propertyId}`,
           name: group.name,
           primaryMemberId: primary.id,
+          memberIds: group.destinations.map((member) => member.id),
           badgeKey: "ui.unescoBadge",
           placeCount: group.destinations.length,
           href: isSinglePlace

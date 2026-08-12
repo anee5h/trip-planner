@@ -154,6 +154,9 @@ export interface VirtualGroupMetadata {
   name: string;
   /** Id of the member whose record backs the group card (image, budget…). */
   primaryMemberId: string;
+  /** Ids of all underlying curated member destinations. A group is visited
+   *  when at least one member is visited. */
+  memberIds: string[];
   /** i18n key of the badge label shown on the group card. */
   badgeKey: "ui.unescoBadge";
   /** Number of underlying curated member destinations. */
