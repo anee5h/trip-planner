@@ -48,9 +48,9 @@ const ISLAND_BOUNDS: Record<
   "okinawa-main": { latRange: [26.0, 27.0], lngRange: [127.5, 128.5] },
   ogasawara: { latRange: [26.5, 27.8], lngRange: [142.0, 142.5] },
   sado: { latRange: [37.8, 38.4], lngRange: [138.1, 138.6] },
-  ishigaki: { latRange: [24.2, 24.6], lngRange: [123.5, 124.4] },
+  ishigaki: { latRange: [24.2, 24.6], lngRange: [124.0, 124.4] },
   miyako: { latRange: [24.6, 25.0], lngRange: [125.1, 125.5] },
-  amami: { latRange: [27.3, 29.0], lngRange: [128.5, 130.5] },
+  amami: { latRange: [27.5, 29.0], lngRange: [128.5, 130.5] },
   yakushima: { latRange: [30.1, 30.5], lngRange: [130.3, 130.8] },
   tsushima: { latRange: [34.0, 34.7], lngRange: [129.1, 129.5] },
   naoshima: { latRange: [34.42, 34.49], lngRange: [133.93, 134.02] },
@@ -95,20 +95,28 @@ const SETO_HONSHU_EXCLUSION_BOX: {
 
 /**
  * Honshu Yamaguchi-coast strip below the SETO box that still falls inside
- * the shikoku mainland box (eastern Iwakuni city, Suo-Oshima's east tips,
- * Kurahashi-jima): the shikoku box's west edge (lng 132.2) begins at the
- * western limit of the Seto Inland Sea, but Yamaguchi prefecture's coast
- * (Iwakuni at lng 132.22–132.35, lat 34.0–34.2) juts east of that line.
- * Checked before the shikoku box so a coordinate-only origin there (e.g. a
- * postcode in 742-xxxx) resolves to mainland-honshu instead of
- * mainland-shikoku. No Shikoku land lies in this band: the northernmost
- * Shikoku points west of lng 132.95 (Hojo/Matsuyama 33.92, the Sadamisaki
- * peninsula 33.3–33.5) sit below the 33.93 floor.
+ * the shikoku mainland box (Iwakuni city, Suo-Oshima, southern Otake): the
+ * shikoku box's west edge (lng 132.2) begins at the western limit of the
+ * Seto Inland Sea, but Yamaguchi prefecture's coast (Iwakuni at
+ * lng 132.22–132.35, lat 34.0–34.2) juts east of that line. Checked before
+ * the shikoku box so a coordinate-only origin there (e.g. a postcode in
+ * 742-xxxx) resolves to mainland-honshu instead of mainland-shikoku.
+ *
+ * The band is deliberately narrow in longitude: its east edge (lng 132.45)
+ * keeps every Matsuyama City island in the Seto (the Kutsuna group —
+ * Nakajima at ~33.97/132.61, Tsuwajima at ~33.99/132.67, and neighbours)
+ * out, so an Ehime island origin can never resolve as Honshu. No
+ * Ehime/Shikoku land lies inside [lat 33.8–34.2] × [lng 132.2–132.45]:
+ * Shikoku proper's north coast in that lng band is the Sadamisaki
+ * peninsula (lat ≤ 33.5), Matsuyama city sits east of lng 132.7, and the
+ * only islands in the band are Yamaguchi's Suo-Oshima group. Points east
+ * of 132.45 (including all Ehime islands) fall through to the shikoku box
+ * exactly as before the KAI-63 Iwakuni fix.
  */
 const YAMAGUCHI_HONSHU_EXCLUSION_BOX: {
   latRange: [number, number];
   lngRange: [number, number];
-} = { latRange: [33.93, 34.2], lngRange: [132.2, 132.95] };
+} = { latRange: [33.8, 34.2], lngRange: [132.2, 132.45] };
 
 /**
  * Geiyo-islands strip that falls inside the shikoku mainland box (southern

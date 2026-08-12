@@ -93,13 +93,15 @@ describe("resolveOriginTransportZone", () => {
     // KAI-63: Yamaguchi prefecture juts east of the shikoku box's west edge
     // (lng 132.2). A coordinate-only/postcode origin there must stay on
     // Honshu — previously these mis-resolved to mainland-shikoku and zeroed
-    // every bus corridor (no shikoku terminal within 50 km).
+    // every bus corridor (no shikoku terminal within 50 km). The exclusion
+    // band is capped at lng 132.5 so Matsuyama's Seto islands (Nakajima
+    // group) can never be swallowed as Honshu.
     ["Iwakuni Station (Yamaguchi)", 34.1758, 132.2251],
     ["Iwakuni city hall (Yamaguchi)", 34.1664, 132.2193],
     ["Kintai Bridge (Yamaguchi)", 34.1677, 132.1785],
     ["Otake Station (Yamaguchi)", 34.2032, 132.2222],
-    ["Kurahashi-jima (Kure, Hiroshima)", 34.14, 132.92],
     ["Suo-Oshima east (Yamaguchi)", 33.94, 132.3],
+    ["Suo-Oshima south (Yamaguchi)", 33.85, 132.25],
   ])(
     "coordinate-only origin %s resolves to mainland-honshu",
     (_n, lat, lng) => {
@@ -131,11 +133,14 @@ describe("resolveOriginTransportZone", () => {
     ["Tokushima Station", 34.073, 134.552],
     ["Uwajima Station", 33.225, 132.568],
     // KAI-63: the Yamaguchi-honshu exclusion box must never swallow real
-    // Shikoku land. Hojo (north Matsuyama) and the Sadamisaki peninsula sit
-    // below its 33.93 floor and must stay on Shikoku.
+    // Shikoku land. Hojo (north Matsuyama), the Sadamisaki peninsula, and
+    // Matsuyama City's Seto islands (Nakajima group) all sit outside its
+    // [lng 132.2–132.45] band and must stay on Shikoku.
     ["Hojo (north Matsuyama)", 33.92, 132.75],
     ["Ikata (Sadamisaki, Ehime)", 33.49, 132.35],
     ["Yawatahama (Ehime)", 33.464, 132.423],
+    ["Nakajima Port (Matsuyama island)", 33.97, 132.61],
+    ["Tsuwajima (Matsuyama island)", 33.99, 132.67],
   ])(
     "coordinate-only origin %s resolves to mainland-shikoku",
     (_n, lat, lng) => {
