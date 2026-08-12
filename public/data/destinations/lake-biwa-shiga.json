@@ -75,12 +75,12 @@
     "min": 1,
     "max": 2
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Biwa_Lake_Kusatsu_Shiga01s5s4592.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Lake_Biwa_%E7%90%B5%E7%90%B6%E6%B9%96_-_panoramio.jpg/1920px-Lake_Biwa_%E7%90%B5%E7%90%B6%E6%B9%96_-_panoramio.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons contributors",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Biwa_Lake_Kusatsu_Shiga01s5s4592.jpg"
+    "license": "CC BY 3.0",
+    "attribution": "z tanuki",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Biwa_琵琶湖_-_panoramio.jpg"
   },
   "municipalityId": "Shiga:otsu",
   "transportOptions": {
@@ -88,5 +88,6 @@
     "bus": 160,
     "car": 175
   },
-  "collections": []
+  "collections": [],
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Lake_Biwa_%E7%90%B5%E7%90%B6%E6%B9%96_-_panoramio.jpg/1920px-Lake_Biwa_%E7%90%B5%E7%90%B6%E6%B9%96_-_panoramio.jpg"
 }

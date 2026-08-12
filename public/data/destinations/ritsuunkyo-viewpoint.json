@@ -75,17 +75,18 @@
     "min": 1,
     "max": 2
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/10/Genbudo_Park_in_Toyooka_Hyogo.JPG",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Ritsuunkyo_Terrace.jpg/1920px-Ritsuunkyo_Terrace.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons contributors",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genbudo_Park_in_Toyooka_Hyogo.JPG"
+    "attribution": "Fujitani Yoshihide",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ritsuunkyo_Terrace.jpg"
   },
   "municipalityId": "Hyogo:asago",
   "transportOptions": {
     "train": 200,
     "car": 200
   },
-  "collections": []
+  "collections": [],
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Ritsuunkyo_Terrace.jpg/1920px-Ritsuunkyo_Terrace.jpg"
 }

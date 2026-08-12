@@ -66,7 +66,7 @@ export const collectionsValidator: ValidatorModule = {
         actualMemberCount !== expectedMemberCount
       ) {
         issues.push({
-          severity: "warning",
+          severity: "error",
           code: "EXPECTED_COLLECTION_MEMBER_COUNT_MISMATCH",
           message: `Collection '${col.id}' has ${actualMemberCount} catalog members (expected ${expectedMemberCount}).`,
           targetId: col.id,
@@ -150,7 +150,7 @@ export const collectionsValidator: ValidatorModule = {
 
     if (orig12Destinations.length !== 12) {
       issues.push({
-        severity: "warning",
+        severity: "error",
         code: "ORIGINAL_12_CASTLES_COUNT_MISMATCH",
         message: `'Original 12 Surviving Castles' collection has ${orig12Destinations.length} members (expected 12).`,
       });

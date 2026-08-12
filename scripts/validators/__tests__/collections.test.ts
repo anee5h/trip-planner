@@ -187,10 +187,15 @@ describe("collectionsValidator — collection integrity rules", () => {
       ),
     );
 
-    expect(result.passed).toBe(true);
+    expect(result.passed).toBe(false);
     expect(issueCodes(result)).toContain(
       "EXPECTED_COLLECTION_MEMBER_COUNT_MISMATCH",
     );
+    expect(
+      result.issues.find(
+        (i) => i.code === "EXPECTED_COLLECTION_MEMBER_COUNT_MISMATCH",
+      )?.severity,
+    ).toBe("error");
   });
 
   it("keeps japan-top-castles at exactly 100 members with every official position 1-100", async () => {

@@ -75,12 +75,12 @@
     "min": 1,
     "max": 2
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Kuroshio_Ichibano_Tuna_Show.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Porto_Europe_-_Kuroshio-Ichiba.jpg/1920px-Porto_Europe_-_Kuroshio-Ichiba.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons contributors",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kuroshio_Ichibano_Tuna_Show.jpg"
+    "license": "CC BY-SA 3.0",
+    "attribution": "Yanajin33",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Porto_Europe_-_Kuroshio-Ichiba.jpg"
   },
   "municipalityId": "Wakayama:wakayama",
   "transportOptions": {
@@ -88,5 +88,6 @@
     "bus": 272,
     "car": 285
   },
-  "collections": []
+  "collections": [],
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Porto_Europe_-_Kuroshio-Ichiba.jpg/1920px-Porto_Europe_-_Kuroshio-Ichiba.jpg"
 }

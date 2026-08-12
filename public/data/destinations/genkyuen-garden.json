@@ -75,17 +75,18 @@
     "min": 0.5,
     "max": 1.5
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Genkyu-en_Garden_in_Hikone.JPG",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Genkyuen01s3200.jpg/1920px-Genkyuen01s3200.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons contributors",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genkyu-en_Garden_in_Hikone.JPG"
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Genkyuen01s3200.jpg"
   },
   "municipalityId": "Shiga:hikone",
   "transportOptions": {
     "train": 160,
     "car": 168
   },
-  "collections": []
+  "collections": [],
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Genkyuen01s3200.jpg/1920px-Genkyuen01s3200.jpg"
 }

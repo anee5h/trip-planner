@@ -75,12 +75,12 @@
     "min": 1,
     "max": 2
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/48/Senjojiki_Shirahama_Wakayama01n4272.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg/1920px-131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons contributors",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senjojiki_Shirahama_Wakayama01n4272.jpg"
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg"
   },
   "municipalityId": "Wakayama:shirahama",
   "transportOptions": {
@@ -88,5 +88,6 @@
     "bus": 308,
     "car": 342
   },
-  "collections": []
+  "collections": [],
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg/1920px-131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg"
 }

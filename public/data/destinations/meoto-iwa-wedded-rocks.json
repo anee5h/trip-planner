@@ -75,12 +75,12 @@
     "min": 0.5,
     "max": 1.3
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Futamigaura_meotoiwa01.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Meoto_Iwa_%28ise_Mie%29.JPG/1920px-Meoto_Iwa_%28ise_Mie%29.JPG",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons contributors",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Futamigaura_meotoiwa01.jpg"
+    "attribution": "Daderot",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meoto_Iwa_(ise_Mie).JPG"
   },
   "municipalityId": "Mie:ise",
   "transportOptions": {
@@ -88,5 +88,6 @@
     "bus": 218,
     "car": 248
   },
-  "collections": []
+  "collections": [],
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Meoto_Iwa_%28ise_Mie%29.JPG/1920px-Meoto_Iwa_%28ise_Mie%29.JPG"
 }

@@ -76,12 +76,12 @@
     "min": 2.5,
     "max": 3.5
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Tomogashima_Island_Wakayama.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Tomogashima_Lighthouse_distant_view.jpg/1920px-Tomogashima_Lighthouse_distant_view.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons contributors",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tomogashima_Island_Wakayama.jpg"
+    "attribution": "Fujitani Yoshihide",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tomogashima_Lighthouse_distant_view.jpg"
   },
   "municipalityId": "Wakayama:wakayama",
   "transportOptions": {
@@ -89,5 +89,6 @@
     "bus": 302,
     "car": 295
   },
-  "collections": []
+  "collections": [],
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Tomogashima_Lighthouse_distant_view.jpg/1920px-Tomogashima_Lighthouse_distant_view.jpg"
 }

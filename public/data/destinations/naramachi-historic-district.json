@@ -71,12 +71,12 @@
     "min": 1,
     "max": 2
   },
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/49/Naramachi03s3200.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg/1920px-Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "attribution": "Wikimedia Commons contributors",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naramachi03s3200.jpg"
+    "attribution": "Daderot",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg"
   },
   "municipalityId": "Nara:nara",
   "transportOptions": {
@@ -84,5 +84,6 @@
     "bus": 200,
     "car": 240
   },
-  "collections": []
+  "collections": [],
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg/1920px-Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg"
 }
