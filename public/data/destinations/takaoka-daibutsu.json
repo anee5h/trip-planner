@@ -27,39 +27,15 @@
     "Peaceful temple grounds"
   ],
   "notes": "Free to view; the statue is about 16 m tall. Takaoka has been a center of bronze casting since the early Edo period, and the Daibutsu is a celebrated product of that craft. About 20 min on foot or a short bus ride from Takaoka Station. Note: the third seat of 三大仏 has competing claimants (Gifu, Kobe); Takaoka is the widely used tourism convention.",
-  "budgetMin": 1500,
-  "budgetRecommended": 3500,
-  "budgetMax": 7000,
-  "budget": {
-    "low": 1500,
-    "mid": 3500,
-    "high": 7000
-  },
-  "budgetBreakdown": {
-    "transport": 1500,
-    "tickets": 0,
-    "food": 1500,
-    "cafe": 500
-  },
   "transportOptions": {
     "bus": 15,
     "car": 8
   },
-  "totalTripHours": 2,
   "recommendedVisitHours": {
     "min": 0.8,
     "max": 2
   },
-  "walkingMin": 60,
-  "walkingSunMin": 40,
-  "walkingShadeMin": 20,
   "walkingIntensity": "medium",
-  "indoorPercent": 0,
-  "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 8,
-    "walkingIntensity": 4
-  },
   "ratings": {
     "overall": 8.4,
     "couple": 8,
@@ -72,20 +48,6 @@
     "value": 9.2,
     "uniqueness": 8.7
   },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 8,
-    "summer": 8,
-    "autumn": 8,
-    "winter": 8
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "bestSeason": "All Year",
-  "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Free temple parking",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Takaoka_Daibutsu_1.jpg/1920px-Takaoka_Daibutsu_1.jpg",
@@ -153,5 +115,10 @@
     "changeSummary": "PR A fixed-set audit: new Takaoka Daibutsu record replacing city-hub proxy in three-great-buddhas",
     "reviewedAt": "2026-08-12",
     "reviewedBy": "Meguruto editorial"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

@@ -32,39 +32,15 @@
     "Borrowed scenery of Kanazawa Castle"
   ],
   "notes": "Admission: adults ¥320 (65+ free, 6-18 ¥100). Open 7:00-18:00 (Mar 1-Oct 15) and 8:00-17:00 (Oct 16-end Feb). Kenrokuen is a Special Place of Scenic Beauty (designated 1985). Adjacent to Kanazawa Castle Park; about 15 min by bus or 25 min on foot from Kanazawa Station.",
-  "budgetMin": 2000,
-  "budgetRecommended": 4500,
-  "budgetMax": 9000,
-  "budget": {
-    "low": 2000,
-    "mid": 4500,
-    "high": 9000
-  },
-  "budgetBreakdown": {
-    "transport": 2500,
-    "tickets": 400,
-    "food": 1200,
-    "cafe": 400
-  },
   "transportOptions": {
     "bus": 15,
     "car": 10
   },
-  "totalTripHours": 3,
   "recommendedVisitHours": {
     "min": 1.5,
     "max": 3
   },
-  "walkingMin": 120,
-  "walkingSunMin": 90,
-  "walkingShadeMin": 30,
   "walkingIntensity": "low",
-  "indoorPercent": 5,
-  "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 6,
-    "walkingIntensity": 3
-  },
   "ratings": {
     "overall": 9.5,
     "couple": 9.3,
@@ -77,20 +53,6 @@
     "value": 8.6,
     "uniqueness": 9.4
   },
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 10, 11],
-  "bestSeason": "Spring & Autumn",
-  "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Paid parking at nearby municipal lots",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Kenrokuen_garden_2.jpg/1920px-Kenrokuen_garden_2.jpg",
@@ -169,5 +131,10 @@
     "changeSummary": "PR A fixed-set audit: new Kenroku-en record completing three-great-gardens",
     "reviewedAt": "2026-08-12",
     "reviewedBy": "Meguruto editorial"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
   }
 }

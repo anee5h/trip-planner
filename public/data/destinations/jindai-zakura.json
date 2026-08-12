@@ -32,38 +32,14 @@
     "Blooms mid-April in temple grounds"
   ],
   "notes": "Free to view in the grounds of Jissoji temple. The tree is supported by many braces and ropes, a sign of its extreme age. Best seen mid-April. Access is by car (about 35 min from Kofu City via Route 141); the nearest station is Nagasaka on the JR Chuo Line, about 20 min by taxi.",
-  "budgetMin": 2000,
-  "budgetRecommended": 4500,
-  "budgetMax": 8000,
-  "budget": {
-    "low": 2000,
-    "mid": 4500,
-    "high": 8000
-  },
-  "budgetBreakdown": {
-    "transport": 2500,
-    "tickets": 0,
-    "food": 1500,
-    "cafe": 500
-  },
   "transportOptions": {
     "car": 35
   },
-  "totalTripHours": 3,
   "recommendedVisitHours": {
     "min": 1,
-    "max": 2.5
+    "max": 2
   },
-  "walkingMin": 90,
-  "walkingSunMin": 60,
-  "walkingShadeMin": 30,
   "walkingIntensity": "medium",
-  "indoorPercent": 0,
-  "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 5,
-    "walkingIntensity": 4
-  },
   "ratings": {
     "overall": 9,
     "couple": 9.1,
@@ -76,20 +52,6 @@
     "value": 8.9,
     "uniqueness": 9.5
   },
-  "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 8
-  },
-  "season": {
-    "spring": 10,
-    "summer": 6,
-    "autumn": 6,
-    "winter": 5
-  },
-  "bestMonths": [4],
-  "bestSeason": "Mid-April (bloom)",
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Temple parking available",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Hokuto_Yamanashi_Yamatakajindaizakura_1.jpg/1920px-Hokuto_Yamanashi_Yamatakajindaizakura_1.jpg",
@@ -158,5 +120,10 @@
     "changeSummary": "PR A fixed-set audit: new Jindai-zakura record for three-cherry-blossom-spots",
     "reviewedAt": "2026-08-12",
     "reviewedBy": "Meguruto editorial"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
   }
 }
