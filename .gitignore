@@ -23,6 +23,8 @@ repomix-output.xml
 .env
 # Generated QA/release artifacts
 reports/
+test-results/
+playwright-report/
 
 # One-off migration scripts (use scripts/archive/ for reference)
 scripts/add-*.cjs
