@@ -17,7 +17,7 @@
   },
   "prefecture": "Hyogo",
   "region": "Kansai",
-  "kind": "museum",
+  "kind": "street",
   "role": "destination",
   "placeType": "destination",
   "relationships": {
@@ -104,12 +104,7 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "collections": [
-    {
-      "collectionId": "historic-towns-japan",
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "addedAt": "2026-07-29",
   "editorial": {
     "rating": 4.8,

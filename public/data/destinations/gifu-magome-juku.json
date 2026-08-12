@@ -82,13 +82,7 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "historic-towns-japan",
-      "sortOrder": 2,
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "relationships": {
     "gatewayHubId": "gifu-city"
   },

@@ -66,13 +66,7 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "historic-towns-japan",
-      "sortOrder": 6,
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]

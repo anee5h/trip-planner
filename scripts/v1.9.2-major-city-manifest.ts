@@ -109,7 +109,7 @@ export const V192_CITY_EXPANSION: readonly CityExpansionTarget[] = [
     minimumChildren: 9,
     candidates: [
       ...places("kurazukuri", [
-        "Kurazukuri Warehouse District",
+        "Kawagoe Kurazukuri District",
         "Toki no Kane",
         "Kashiya Yokocho",
         "Taisho Roman Street",

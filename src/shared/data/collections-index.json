@@ -411,33 +411,33 @@
     "id": "historic-towns-japan",
     "slug": "historic-towns-japan",
     "name": "Historic Towns of Japan",
-    "description": "Exceptionally preserved Edo-period post towns, merchant quarters, and castle towns retaining authentic traditional wooden architecture.",
+    "description": "A Meguruto-curated selection of 11 of Japan's best-preserved traditional districts from the nationally designated 重要伝統的建造物群保存地区 (Important Preservation Districts for Groups of Traditional Buildings).",
     "category": "History & Culture",
-    "type": "historical",
+    "type": "curated",
     "isAchievement": false,
     "icon": "Building",
     "badgeColor": "emerald",
     "sortOrder": 14,
-    "officialSource": "Cultural Properties Preservation District",
+    "officialSource": "Meguruto curated selection (background: Agency for Cultural Affairs 重伝建 register)",
     "sourceUrl": "https://www.bunka.go.jp/",
     "metadata": {
-      "authority": "government",
+      "authority": "curated",
       "status": "active",
       "lastVerified": "2026-07",
-      "verificationSource": "Agency for Cultural Affairs (重伝統的建造物群保存地区)",
+      "verificationSource": "Meguruto editorial review (文化庁 重伝建一覧)",
       "reviewIntervalMonths": 12,
-      "expectedMembers": 126
+      "expectedMembers": 11
     },
     "nameJa": "日本の歴史的街並み・重要伝統的建造物群",
-    "descriptionJa": "川越、佐原、角館、倉敷など江戸時代や明治の面影を残す歴史保存地区。",
+    "descriptionJa": "国の重要伝統的建造物群保存地区からメグルートが厳選した11の歴史保存地区。江戸時代や明治の面影を残す街並み。",
     "content": {
       "en": {
         "name": "Historic Towns of Japan",
-        "description": "Exceptionally preserved Edo-period post towns, merchant quarters, and castle towns retaining authentic traditional wooden architecture."
+        "description": "A Meguruto-curated selection of 11 of Japan's best-preserved traditional districts from the nationally designated 重要伝統的建造物群保存地区 (Important Preservation Districts for Groups of Traditional Buildings)."
       },
       "ja": {
         "name": "日本の歴史的街並み・重要伝統的建造物群",
-        "description": "川越、佐原、角館、倉敷など江戸時代や明治の面影を残す歴史保存地区。"
+        "description": "国の重要伝統的建造物群保存地区からメグルートが厳選した11の歴史保存地区。江戸時代や明治の面影を残す街並み。"
       }
     }
   },

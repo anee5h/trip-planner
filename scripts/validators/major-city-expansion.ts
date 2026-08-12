@@ -32,11 +32,11 @@ export const majorCityExpansionValidator: ValidatorModule = {
         destination.addedAt === "2026-07-29" ||
         destination.tags?.includes("v1.9.2"),
     );
-    if (expansionRecords.length !== 160) {
+    if (expansionRecords.length !== 159) {
       issues.push({
         severity: "error",
         code: "EXPANSION_RECORD_COUNT_CHANGED",
-        message: `Expected 160 v1.9.2 expansion records, found ${expansionRecords.length}.`,
+        message: `Expected 159 v1.9.2 expansion records, found ${expansionRecords.length}.`,
       });
     }
     for (const destination of expansionRecords) {

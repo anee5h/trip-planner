@@ -4441,7 +4441,7 @@
         "kawagoe-castle-saitama",
         "kawagoe-hikawa-shrine",
         "toki-no-kane",
-        "kurazukuri-warehouse-district",
+        "kawagoe-kurazukuri",
         "taisho-roman-street",
         "kita-in",
         "kawagoe-festival-museum",
@@ -4470,6 +4470,18 @@
     "region": "Kanto",
     "role": "poi",
     "kind": "shrine",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "kawagoe-city"
+    }
+  },
+  {
+    "id": "kawagoe-kurazukuri",
+    "name": "Kawagoe Kurazukuri District",
+    "prefecture": "Saitama",
+    "region": "Kanto",
+    "role": "destination",
+    "kind": "historic_town",
     "status": "published",
     "relationships": {
       "parentDestinationId": "kawagoe-city"
@@ -5369,18 +5381,6 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "kurashiki-city"
-    }
-  },
-  {
-    "id": "kurazukuri-warehouse-district",
-    "name": "Kurazukuri Warehouse District",
-    "prefecture": "Saitama",
-    "region": "Kanto",
-    "role": "poi",
-    "kind": "district",
-    "status": "published",
-    "relationships": {
-      "parentDestinationId": "kawagoe-city"
     }
   },
   {
@@ -7197,7 +7197,7 @@
     "prefecture": "Hyogo",
     "region": "Kansai",
     "role": "destination",
-    "kind": "museum",
+    "kind": "street",
     "status": "published",
     "relationships": {
       "parentDestinationId": "kobe-city"
@@ -10300,6 +10300,18 @@
         "shirakawa-village",
         "nagano-city"
       ]
+    }
+  },
+  {
+    "id": "takayama-sanmachi",
+    "name": "Takayama Sanmachi",
+    "prefecture": "Gifu",
+    "region": "Chubu",
+    "role": "destination",
+    "kind": "historic_town",
+    "status": "published",
+    "relationships": {
+      "parentDestinationId": "takayama-city"
     }
   },
   {

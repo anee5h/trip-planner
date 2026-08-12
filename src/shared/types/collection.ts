@@ -4,7 +4,8 @@ export interface CollectionMetadata {
     | "government"
     | "foundation"
     | "association"
-    | "historical_consensus";
+    | "historical_consensus"
+    | "curated";
   status: "active" | "review_needed" | "deprecated";
   lastVerified: string;
   verificationSource?: string;

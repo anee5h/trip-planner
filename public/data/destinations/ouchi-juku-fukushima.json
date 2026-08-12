@@ -34,7 +34,12 @@
     "minutesFromBase": 150,
     "confidence": "high"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "historic-towns-japan",
+      "sortOrder": 9
+    }
+  ],
   "budgetMin": 1000,
   "budgetRecommended": 4500,
   "budgetMax": 8000,
