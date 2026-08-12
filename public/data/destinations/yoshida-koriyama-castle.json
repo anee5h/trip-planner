@@ -1,0 +1,152 @@
+{
+  "id": "yoshida-koriyama-castle",
+  "name": "Koriyama Castle (Yoshida-Koriyama)",
+  "nameJa": "郡山城",
+  "aliases": ["郡山城"],
+  "prefecture": "Hiroshima",
+  "region": "Chugoku",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.6743,
+    "lng": 132.7096
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Hiroshima"],
+  "description": "Yoshida-Koriyama Castle was the mountain base of the Mori clan for three centuries before they moved to Hiroshima. The vast multi-peak ruins are a national historic site; the Mori Museum in the castle town explains the clan's rule of western Japan.",
+  "highlights": [
+    "Mori clan mountain base",
+    "Three-century clan capital",
+    "National historic site"
+  ],
+  "notes": "Free open-air site; the Mori Museum (¥350) is in the town below.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.4,
+    "summer": 8.3,
+    "winter": 7.9,
+    "rain": 7.6,
+    "food": 7.7,
+    "photography": 8.9,
+    "relaxation": 8.1,
+    "value": 8.5,
+    "uniqueness": 8.8
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/5%E6%9C%88%E3%81%AE%E9%83%A1%E5%B1%B1%E5%9F%8E.jpg/1920px-5%E6%9C%88%E3%81%AE%E9%83%A1%E5%B1%B1%E5%9F%8E.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/5%E6%9C%88%E3%81%AE%E9%83%A1%E5%B1%B1%E5%9F%8E.jpg/1920px-5%E6%9C%88%E3%81%AE%E9%83%A1%E5%B1%B1%E5%9F%8E.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "恭パパ, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:5月の郡山城.jpg"
+  },
+  "officialWebsite": "https://www.akitakata.jp/",
+  "businessHours": "Open access (castle ruins; see official site for seasonal hours)",
+  "openingHoursJa": "城跡は自由に見学可（季節により開館時間が変わる施設あり）",
+  "municipalityId": "Hiroshima:akitakata",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 72
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Koriyama Castle (Yoshida-Koriyama)",
+      "description": "Yoshida-Koriyama Castle was the mountain base of the Mori clan for three centuries before they moved to Hiroshima. The vast multi-peak ruins are a national historic site; the Mori Museum in the castle town explains the clan's rule of western Japan.",
+      "highlights": [
+        "Mori clan mountain base",
+        "Three-century clan capital",
+        "National historic site"
+      ],
+      "notes": "Free open-air site; the Mori Museum (¥350) is in the town below.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open access (castle ruins; see official site for seasonal hours)"
+    },
+    "ja": {
+      "name": "郡山城",
+      "description": "毛利氏が3世紀にわたって本拠とした吉田郡山城。広島城に移るまでの大規模な山城跡が国史跡です。",
+      "highlights": ["毛利氏の本拠", "3世紀の居城", "国指定史跡"],
+      "notes": "無料の野外遺構。麓の毛利博物館（大人350円）で解説をどうぞ。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "城跡は自由に見学可（季節により開館時間が変わる施設あり）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.akitakata.jp/",
+        "title": "Koriyama Castle (Yoshida-Koriyama) official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

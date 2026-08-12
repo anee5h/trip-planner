@@ -27,7 +27,12 @@
     "minutesFromBase": 150,
     "confidence": "high"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 12
+    }
+  ],
   "budgetMin": 410,
   "budgetRecommended": 3205,
   "budgetMax": 6000,

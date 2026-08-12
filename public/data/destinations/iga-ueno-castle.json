@@ -1,0 +1,152 @@
+{
+  "id": "iga-ueno-castle",
+  "name": "Iga Ueno Castle",
+  "nameJa": "伊賀上野城",
+  "aliases": ["伊賀上野城"],
+  "prefecture": "Mie",
+  "region": "Kansai",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.7701,
+    "lng": 136.1271
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Mie"],
+  "description": "Iga Ueno Castle (Ueno Castle) was rebuilt in 1935 by the castle architect Kato Kiyomasa style, known for its unusually tall stone walls. The keep houses a ninja museum — fitting for the home of Iga ninjutsu.",
+  "highlights": [
+    "Kato Kiyomasa-style stone walls",
+    "1935 keep reconstruction",
+    "Iga ninja heritage"
+  ],
+  "notes": "Keep admission ¥600 (incl. ninja museum); the walls are the visual highlight.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.4,
+    "winter": 8,
+    "rain": 7.7,
+    "food": 7.8,
+    "photography": 9,
+    "relaxation": 8.2,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Iga_Ueno_Castle%2C_%E4%BC%8A%E8%B3%80%E4%B8%8A%E9%87%8E%E5%9F%8E_-_panoramio_%2815%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Iga_Ueno_Castle%2C_%E4%BC%8A%E8%B3%80%E4%B8%8A%E9%87%8E%E5%9F%8E_-_panoramio_%2815%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "z tanuki, CC BY 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iga_Ueno_Castle,_伊賀上野城_-_panoramio_(15).jpg"
+  },
+  "officialWebsite": "https://www.igaueno-castle.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Mie:iga",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 47
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Iga Ueno Castle",
+      "description": "Iga Ueno Castle (Ueno Castle) was rebuilt in 1935 by the castle architect Kato Kiyomasa style, known for its unusually tall stone walls. The keep houses a ninja museum — fitting for the home of Iga ninjutsu.",
+      "highlights": [
+        "Kato Kiyomasa-style stone walls",
+        "1935 keep reconstruction",
+        "Iga ninja heritage"
+      ],
+      "notes": "Keep admission ¥600 (incl. ninja museum); the walls are the visual highlight.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "伊賀上野城",
+      "description": "藤堂高虎の流れを汲む1935年再建の天守で、高石垣が有名。伊賀忍者の里にふさわしく、天守内は忍者博物館です。",
+      "highlights": ["高石垣の名城", "1935年再建の天守", "伊賀忍者の里"],
+      "notes": "天守は大人600円（忍者博物館込み）。石垣の迫力が最大の見どころです。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.igaueno-castle.jp/",
+        "title": "Iga Ueno Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

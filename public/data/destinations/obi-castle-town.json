@@ -124,7 +124,12 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 96
+    }
+  ],
   "addedAt": "2026-08-05",
   "editorial": {
     "lifecycle": "published",

@@ -1,0 +1,159 @@
+{
+  "id": "ashikaga-shi-yakata",
+  "name": "Ashikaga-shi Yakata (Banna-ji)",
+  "nameJa": "足利氏館",
+  "aliases": ["足利氏館"],
+  "prefecture": "Tochigi",
+  "region": "Kanto",
+  "kind": "historic",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 36.3375,
+    "lng": 139.4522
+  },
+  "categories": ["history", "culture", "archaeology"],
+  "tags": ["Top 100 Castle", "Historic Site", "History", "Tochigi"],
+  "description": "Ashikaga-shi Yakata is the 12th-century fortified residence of the Ashikaga clan, today the precinct of Banna-ji temple. It is Japan's oldest surviving samurai residence site and a national historic site with its original earthen ramparts.",
+  "highlights": [
+    "Oldest samurai residence site",
+    "Banna-ji temple precinct",
+    "Original earthen ramparts",
+    "National historic site"
+  ],
+  "notes": "Banna-ji grounds are free; the temple's Kaisando hall and garden are highlights.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.4,
+    "summer": 8.3,
+    "winter": 7.9,
+    "rain": 7.6,
+    "food": 7.7,
+    "photography": 8.9,
+    "relaxation": 8.1,
+    "value": 8.5,
+    "uniqueness": 8.8
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Banna-ji_Temple_-_panoramio.jpg/1920px-Banna-ji_Temple_-_panoramio.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Banna-ji_Temple_-_panoramio.jpg/1920px-Banna-ji_Temple_-_panoramio.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Yoshio Kohara, CC BY 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Banna-ji_Temple_-_panoramio.jpg"
+  },
+  "officialWebsite": "https://www.ashikaga-bannaji.org/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Tochigi:ashikaga",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 15
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Ashikaga-shi Yakata (Banna-ji)",
+      "description": "Ashikaga-shi Yakata is the 12th-century fortified residence of the Ashikaga clan, today the precinct of Banna-ji temple. It is Japan's oldest surviving samurai residence site and a national historic site with its original earthen ramparts.",
+      "highlights": [
+        "Oldest samurai residence site",
+        "Banna-ji temple precinct",
+        "Original earthen ramparts",
+        "National historic site"
+      ],
+      "notes": "Banna-ji grounds are free; the temple's Kaisando hall and garden are highlights.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "足利氏館",
+      "description": "12世紀に足利氏が築いた居館跡で、現在は鑁阿寺の境内。現存する最古の武家屋敷跡として国史跡に指定されています。",
+      "highlights": [
+        "最古の武家屋敷跡",
+        "鑁阿寺の境内",
+        "現存する土塁",
+        "国指定史跡"
+      ],
+      "notes": "鑁阿寺境内は無料で参拝できます。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ashikaga-bannaji.org/",
+        "title": "Ashikaga-shi Yakata (Banna-ji) official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

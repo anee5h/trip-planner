@@ -1,0 +1,159 @@
+{
+  "id": "odani-castle",
+  "name": "Odani Castle",
+  "nameJa": "小谷城",
+  "aliases": ["小谷城"],
+  "prefecture": "Shiga",
+  "region": "Kansai",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.4592,
+    "lng": 136.2769
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Shiga"],
+  "description": "Odani Castle was the mountain stronghold of the Azai clan, destroyed after the 1573 fall of Azai Nagamasa — the setting of the famous 'Odani no hara' tragedy. Its deep kuruwa and moats survive on a steep ridge.",
+  "highlights": [
+    "Azai Nagamasa stronghold",
+    "1573 fall site",
+    "Ridge castle ruins",
+    "National historic site"
+  ],
+  "notes": "Free open-air site with a demanding climb; the Odani Castle History Museum at the base (fee) provides context.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.4,
+    "summer": 8.3,
+    "winter": 7.9,
+    "rain": 7.6,
+    "food": 7.7,
+    "photography": 8.9,
+    "relaxation": 8.1,
+    "value": 8.5,
+    "uniqueness": 8.8
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/35/Odanij10.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/35/Odanij10.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "投稿者が撮影, Public domain, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Odanij10.jpg"
+  },
+  "officialWebsite": "https://www.eonet.ne.jp/~odanijou-s/",
+  "businessHours": "Open access (castle ruins; see official site for seasonal hours)",
+  "openingHoursJa": "城跡は自由に見学可（季節により開館時間が変わる施設あり）",
+  "municipalityId": "Shiga:nagahama",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 49
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Odani Castle",
+      "description": "Odani Castle was the mountain stronghold of the Azai clan, destroyed after the 1573 fall of Azai Nagamasa — the setting of the famous 'Odani no hara' tragedy. Its deep kuruwa and moats survive on a steep ridge.",
+      "highlights": [
+        "Azai Nagamasa stronghold",
+        "1573 fall site",
+        "Ridge castle ruins",
+        "National historic site"
+      ],
+      "notes": "Free open-air site with a demanding climb; the Odani Castle History Museum at the base (fee) provides context.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open access (castle ruins; see official site for seasonal hours)"
+    },
+    "ja": {
+      "name": "小谷城",
+      "description": "浅井長政の居城だった小谷城。1573年の滅亡は「小谷のほら貝」の悲話で知られ、急峻な尾根に遺構が残ります。",
+      "highlights": [
+        "浅井長政の居城",
+        "1573年落城の史跡",
+        "尾根上の城跡",
+        "国指定史跡"
+      ],
+      "notes": "無料の野外遺構で登城はハード。麓の小谷城戦国歴史資料館（有料）が案内役です。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "城跡は自由に見学可（季節により開館時間が変わる施設あり）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.eonet.ne.jp/~odanijou-s/",
+        "title": "Odani Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "id": "yamanaka-castle",
+  "name": "Yamanaka Castle",
+  "nameJa": "山中城",
+  "aliases": ["山中城"],
+  "prefecture": "Shizuoka",
+  "region": "Chubu",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.1564,
+    "lng": 138.992
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Shizuoka"],
+  "description": "Yamanaka Castle was a Hojo-clan fortress guarding the Hakone pass into the Kanto plain. Its dry moats and earthworks were the site of the 1590 battle against Toyotomi forces and are well preserved as a national historic site.",
+  "highlights": [
+    "Hojo guard castle of Hakone pass",
+    "1590 siege site",
+    "Deep dry moats",
+    "National historic site"
+  ],
+  "notes": "Free open-air site on the Tokaido route; a short climb from the parking area.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.3,
+    "summer": 8.2,
+    "winter": 7.8,
+    "rain": 7.5,
+    "food": 7.6,
+    "photography": 8.8,
+    "relaxation": 8,
+    "value": 8.4,
+    "uniqueness": 8.7
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/58/YamanakaC_Taizakidemaru1.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/5/58/YamanakaC_Taizakidemaru1.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "CC BY-SA 3.0 via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:YamanakaC_Taizakidemaru1.JPG"
+  },
+  "officialWebsite": "https://www.city.mishima.shizuoka.jp/",
+  "businessHours": "Open access (castle ruins; see official site for seasonal hours)",
+  "openingHoursJa": "城跡は自由に見学可（季節により開館時間が変わる施設あり）",
+  "municipalityId": "Shizuoka:mishima",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 40
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Yamanaka Castle",
+      "description": "Yamanaka Castle was a Hojo-clan fortress guarding the Hakone pass into the Kanto plain. Its dry moats and earthworks were the site of the 1590 battle against Toyotomi forces and are well preserved as a national historic site.",
+      "highlights": [
+        "Hojo guard castle of Hakone pass",
+        "1590 siege site",
+        "Deep dry moats",
+        "National historic site"
+      ],
+      "notes": "Free open-air site on the Tokaido route; a short climb from the parking area.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open access (castle ruins; see official site for seasonal hours)"
+    },
+    "ja": {
+      "name": "山中城",
+      "description": "箱根の関所を守った後北条氏の城。1590年の小田原攻めで激戦地となり、深い空堀が残る国史跡です。",
+      "highlights": [
+        "箱根越えを守る城",
+        "1590年の戦場",
+        "深い空堀",
+        "国指定史跡"
+      ],
+      "notes": "無料の野外遺構。東海道沿いで駐車場から少し登ります。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "城跡は自由に見学可（季節により開館時間が変わる施設あり）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.mishima.shizuoka.jp/",
+        "title": "Yamanaka Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

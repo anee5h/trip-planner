@@ -1,0 +1,157 @@
+{
+  "id": "matsusaka-castle",
+  "name": "Matsusaka Castle",
+  "nameJa": "松阪城",
+  "aliases": ["松阪城"],
+  "prefecture": "Mie",
+  "region": "Kansai",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.5759,
+    "lng": 136.5257
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Mie"],
+  "description": "Matsusaka Castle was built 1588 by Gamou Ujisato for Toyotomi Hideyoshi. No keep was ever built; the massive stone walls — including the 20 m Motoguruwa — are the star, and the ruins are a national historic site.",
+  "highlights": [
+    "Gamou Ujisato castle",
+    "Massive no-keep stone walls",
+    "National historic site"
+  ],
+  "notes": "Free to walk; views over Matsusaka from the Honmaru.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.4,
+    "summer": 8.3,
+    "winter": 7.9,
+    "rain": 7.6,
+    "food": 7.7,
+    "photography": 8.9,
+    "relaxation": 8.1,
+    "value": 8.5,
+    "uniqueness": 8.8
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Matsusaka_Castle%2C_Honmaru.jpg/1920px-Matsusaka_Castle%2C_Honmaru.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Matsusaka_Castle%2C_Honmaru.jpg/1920px-Matsusaka_Castle%2C_Honmaru.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Saigen Jiro, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsusaka_Castle,_Honmaru.jpg"
+  },
+  "officialWebsite": "https://www.city.matsusaka.mie.jp/",
+  "businessHours": "Open access (castle ruins; see official site for seasonal hours)",
+  "openingHoursJa": "城跡は自由に見学可（季節により開館時間が変わる施設あり）",
+  "municipalityId": "Mie:matsusaka",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 48
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Matsusaka Castle",
+      "description": "Matsusaka Castle was built 1588 by Gamou Ujisato for Toyotomi Hideyoshi. No keep was ever built; the massive stone walls — including the 20 m Motoguruwa — are the star, and the ruins are a national historic site.",
+      "highlights": [
+        "Gamou Ujisato castle",
+        "Massive no-keep stone walls",
+        "National historic site"
+      ],
+      "notes": "Free to walk; views over Matsusaka from the Honmaru.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open access (castle ruins; see official site for seasonal hours)"
+    },
+    "ja": {
+      "name": "松阪城",
+      "description": "1588年に蒲生氏郷が築いた松阪城。天守は造られず、20mを超える本丸石垣が圧巻の国史跡です。",
+      "highlights": [
+        "蒲生氏郷の城",
+        "天守のない城",
+        "圧巻の石垣",
+        "国指定史跡"
+      ],
+      "notes": "無料で散策可能。本丸から松阪の市街を一望できます。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "城跡は自由に見学可（季節により開館時間が変わる施設あり）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.matsusaka.mie.jp/",
+        "title": "Matsusaka Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

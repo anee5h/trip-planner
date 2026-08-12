@@ -1,0 +1,152 @@
+{
+  "id": "tsuwano-castle",
+  "name": "Tsuwano Castle",
+  "nameJa": "津和野城",
+  "aliases": ["津和野城"],
+  "prefecture": "Shimane",
+  "region": "Chugoku",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.4611,
+    "lng": 131.7638
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Shimane"],
+  "description": "Tsuwano Castle crowns the hill above the picture-postcard Tsuwano castle town. The stone-walled ruins are reached by ropeway (also a scenic highlight), offering views over the town of the Mori-influenced Kamei domain.",
+  "highlights": [
+    "Kamei domain castle",
+    "Ropeway access",
+    "Views over Tsuwano town"
+  ],
+  "notes": "Ropeway round trip ¥720 (castle ruins free); the castle town below is the main attraction.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.3,
+    "summer": 8.2,
+    "winter": 7.8,
+    "rain": 7.5,
+    "food": 7.6,
+    "photography": 8.8,
+    "relaxation": 8,
+    "value": 8.4,
+    "uniqueness": 8.7
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/TsuwanoJo.JPG/1920px-TsuwanoJo.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/TsuwanoJo.JPG/1920px-TsuwanoJo.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Mocchy, Public domain, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:TsuwanoJo.JPG"
+  },
+  "officialWebsite": "https://www.kankou-shimane.com/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Shimane:tsuwano",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 66
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Tsuwano Castle",
+      "description": "Tsuwano Castle crowns the hill above the picture-postcard Tsuwano castle town. The stone-walled ruins are reached by ropeway (also a scenic highlight), offering views over the town of the Mori-influenced Kamei domain.",
+      "highlights": [
+        "Kamei domain castle",
+        "Ropeway access",
+        "Views over Tsuwano town"
+      ],
+      "notes": "Ropeway round trip ¥720 (castle ruins free); the castle town below is the main attraction.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "津和野城",
+      "description": "亀井氏が治めた津和野城。ロープウェイで登る城跡からは、城下町津和野の街並みが一望できます。",
+      "highlights": ["亀井氏の居城", "ロープウェイで登城", "城下町の展望"],
+      "notes": "ロープウェイ往復720円（城跡は無料）。麓の城下町見学と合わせてどうぞ。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kankou-shimane.com/",
+        "title": "Tsuwano Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

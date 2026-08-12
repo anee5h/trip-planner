@@ -1,0 +1,156 @@
+{
+  "id": "shirakawa-komine-castle",
+  "name": "Shirakawa Komine Castle",
+  "nameJa": "白河小峰城",
+  "aliases": ["白河小峰城"],
+  "prefecture": "Fukushima",
+  "region": "Tohoku",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 37.1326,
+    "lng": 140.2136
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Fukushima"],
+  "description": "Shirakawa Komine Castle was a strategic gate-castle on the Oshu Kaido guarding the route north. Its three-story keep was rebuilt in 1991 using traditional stone-masonry techniques; the stone walls survive from the Edo period.",
+  "highlights": [
+    "Gate castle of the Oshu Kaido",
+    "1991 traditional keep reconstruction",
+    "Edo stone walls"
+  ],
+  "notes": "The keep interior is open (¥320 adult, closed Mon). Free to walk the grounds.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.2,
+    "summer": 8.1,
+    "winter": 7.7,
+    "rain": 7.4,
+    "food": 7.5,
+    "photography": 8.7,
+    "relaxation": 7.9,
+    "value": 8.3,
+    "uniqueness": 8.6
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Shirakawa_Komine_Castle_20100625-01.jpg/1920px-Shirakawa_Komine_Castle_20100625-01.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Shirakawa_Komine_Castle_20100625-01.jpg/1920px-Shirakawa_Komine_Castle_20100625-01.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 2.1 jp",
+    "attribution": "baku13, CC BY-SA 2.1 jp, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirakawa_Komine_Castle_20100625-01.jpg"
+  },
+  "officialWebsite": "https://shirakawa315.com/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Fukushima:shirakawa",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 13
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Shirakawa Komine Castle",
+      "description": "Shirakawa Komine Castle was a strategic gate-castle on the Oshu Kaido guarding the route north. Its three-story keep was rebuilt in 1991 using traditional stone-masonry techniques; the stone walls survive from the Edo period.",
+      "highlights": [
+        "Gate castle of the Oshu Kaido",
+        "1991 traditional keep reconstruction",
+        "Edo stone walls"
+      ],
+      "notes": "The keep interior is open (¥320 adult, closed Mon). Free to walk the grounds.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "白河小峰城",
+      "description": "奥州街道の要衝を守った白河小峰城。1991年に伝統工法で天守が再建され、江戸期の石垣が残ります。",
+      "highlights": [
+        "奥州街道の要衝",
+        "伝統工法で再建された天守",
+        "江戸期の石垣"
+      ],
+      "notes": "天守内部は大人320円（月曜休館）。城跡は無料で散策できます。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://shirakawa315.com/",
+        "title": "Shirakawa Komine Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

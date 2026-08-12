@@ -4,7 +4,7 @@
   "prefecture": "Okinawa",
   "region": "Okinawa",
   "categories": ["World Heritage", "Culture", "Sightseeing"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Naha_Shuri_Castle02s5s3200.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Naha_Okinawa_Japan_Shuri-Castle-01.jpg/1920px-Naha_Okinawa_Japan_Shuri-Castle-01.jpg",
   "description": "Gusuku Sites and Related Properties of the Kingdom of Ryukyu is a UNESCO World Heritage Site in Okinawa, designated for its outstanding universal cultural or natural value.",
   "highlights": [
     "UNESCO Heritage Monument",
@@ -60,11 +60,12 @@
     "lng": 127.7195
   },
   "schemaVersion": 2,
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Naha_Shuri_Castle16s5s3200.jpg/960px-Naha_Shuri_Castle16s5s3200.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Naha_Okinawa_Japan_Shuri-Castle-01.jpg/1920px-Naha_Okinawa_Japan_Shuri-Castle-01.jpg",
   "imageMetadata": {
-    "attribution": "663highland via Wikimedia Commons",
-    "license": "CC BY 2.5",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANaha_Shuri_Castle02s5s3200.jpg"
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "CEphoto, Uwe Aranas, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naha_Okinawa_Japan_Shuri-Castle-01.jpg"
   },
   "status": "published",
   "travelEstimate": {
@@ -73,8 +74,16 @@
   "collections": [
     {
       "collectionId": "unesco-japan",
+<<<<<<< HEAD
       "confirmed": true,
       "source": "https://whc.unesco.org/en/list/972/"
+=======
+      "confirmed": true
+    },
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 100
+>>>>>>> b8760463 (data: complete japan-top-castles to the official 日本100名城 (PR B))
     }
   ],
   "relationships": {

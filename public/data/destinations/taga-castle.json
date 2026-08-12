@@ -1,0 +1,158 @@
+{
+  "id": "taga-castle",
+  "name": "Taga Castle",
+  "nameJa": "多賀城",
+  "aliases": ["多賀城"],
+  "prefecture": "Miyagi",
+  "region": "Tohoku",
+  "kind": "historic",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 38.3067,
+    "lng": 140.9883
+  },
+  "categories": ["history", "culture", "archaeology"],
+  "tags": ["Top 100 Castle", "Historic Site", "History", "Miyagi"],
+  "description": "Taga Castle was the 8th-century frontier headquarters of the Yamato state in Michinoku, the oldest extant government-fort site in the Tohoku region. The monument stele (Taga-jo Haiji) marks its foundation in AD 724.",
+  "highlights": [
+    "Nara-era frontier fortress",
+    "National historic site",
+    "Ancient monument stele",
+    "Taga Castle Museum"
+  ],
+  "notes": "The Taga Castle Museum (closed Mondays) explains the site's archaeology; the excavated foundations lie beside it.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.4,
+    "couple": 8.2,
+    "summer": 8.1,
+    "winter": 7.7,
+    "rain": 7.4,
+    "food": 7.5,
+    "photography": 8.7,
+    "relaxation": 7.9,
+    "value": 8.3,
+    "uniqueness": 8.6
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Reconstructed_south_gate_of_Taga_Castle_%28Tagajo%29_202409.jpg/1920px-Reconstructed_south_gate_of_Taga_Castle_%28Tagajo%29_202409.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Reconstructed_south_gate_of_Taga_Castle_%28Tagajo%29_202409.jpg/1920px-Reconstructed_south_gate_of_Taga_Castle_%28Tagajo%29_202409.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "掬茶, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reconstructed_south_gate_of_Taga_Castle_(Tagajo)_202409.jpg"
+  },
+  "officialWebsite": "https://www.city.tagajo.miyagi.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Miyagi:tagajo",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 7
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Taga Castle",
+      "description": "Taga Castle was the 8th-century frontier headquarters of the Yamato state in Michinoku, the oldest extant government-fort site in the Tohoku region. The monument stele (Taga-jo Haiji) marks its foundation in AD 724.",
+      "highlights": [
+        "Nara-era frontier fortress",
+        "National historic site",
+        "Ancient monument stele",
+        "Taga Castle Museum"
+      ],
+      "notes": "The Taga Castle Museum (closed Mondays) explains the site's archaeology; the excavated foundations lie beside it.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "多賀城",
+      "description": "奈良時代に陸奥国の政庁として造られた多賀城の遺構。724年の創建を記す国宝級の碑と、復元された南門が残ります。",
+      "highlights": [
+        "奈良時代の東北統治の拠点",
+        "国指定史跡",
+        "古代の碑と復元南門"
+      ],
+      "notes": "多賀城跡は無料。多賀城跡あやめ苑の資料館（月曜休館）で解説をどうぞ。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.tagajo.miyagi.jp/",
+        "title": "Taga Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

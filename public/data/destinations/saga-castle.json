@@ -1,0 +1,156 @@
+{
+  "id": "saga-castle",
+  "name": "Saga Castle",
+  "nameJa": "佐賀城",
+  "aliases": ["佐賀城"],
+  "prefecture": "Saga",
+  "region": "Kyushu",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 33.2457,
+    "lng": 130.3022
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Saga"],
+  "description": "Saga Castle was the Nabeshima domain seat, once the largest castle in Kyushu. The 2004-reconstructed Honmaru palace (with its 400+ tatami audience hall) is the centerpiece; the 19th-century Shachinomon gate is an important cultural property.",
+  "highlights": [
+    "Nabeshima domain seat",
+    "Reconstructed Honmaru palace",
+    "Shachinomon gate"
+  ],
+  "notes": "The Honmaru museum is free; open daily (closed New Year).",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.8,
+    "summer": 8.7,
+    "winter": 8.3,
+    "rain": 8,
+    "food": 8.1,
+    "photography": 9.3,
+    "relaxation": 8.5,
+    "value": 8.9,
+    "uniqueness": 9.2
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Hommaru_of_Saga_Castle_2.jpg/1920px-Hommaru_of_Saga_Castle_2.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Hommaru_of_Saga_Castle_2.jpg/1920px-Hommaru_of_Saga_Castle_2.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "そらみみ, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hommaru_of_Saga_Castle_2.jpg"
+  },
+  "officialWebsite": "https://saga-museum.jp/sagajou/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Saga:saga",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 89
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Saga Castle",
+      "description": "Saga Castle was the Nabeshima domain seat, once the largest castle in Kyushu. The 2004-reconstructed Honmaru palace (with its 400+ tatami audience hall) is the centerpiece; the 19th-century Shachinomon gate is an important cultural property.",
+      "highlights": [
+        "Nabeshima domain seat",
+        "Reconstructed Honmaru palace",
+        "Shachinomon gate"
+      ],
+      "notes": "The Honmaru museum is free; open daily (closed New Year).",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "佐賀城",
+      "description": "鍋島氏の居城だった佐賀城。九州最大級の城で、2004年復元の本丸御殿と重要文化財の鯱の門が見どころです。",
+      "highlights": [
+        "鍋島氏の居城",
+        "復元された本丸御殿",
+        "重要文化財・鯱の門"
+      ],
+      "notes": "本丸御殿の歴史館は無料（年末年始休館）。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://saga-museum.jp/sagajou/",
+        "title": "Saga Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "id": "okazaki-castle",
+  "name": "Okazaki Castle",
+  "nameJa": "岡崎城",
+  "aliases": ["岡崎城"],
+  "prefecture": "Aichi",
+  "region": "Chubu",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.9564,
+    "lng": 137.1589
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Aichi"],
+  "description": "Okazaki Castle is the birthplace of Tokugawa Ieyasu (1542), built by his grandfather's generation of the Matsudaira clan. The 1959-reconstructed keep overlooks the Yahagi river; the grounds are a famous cherry-blossom park.",
+  "highlights": [
+    "Birthplace of Tokugawa Ieyasu",
+    "Keep reconstruction (1959)",
+    "Cherry blossom park"
+  ],
+  "notes": "Keep admission ¥360 adult; the adjacent Okazaki Castle Museum interprets Ieyasu's origins.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9,
+    "couple": 8.8,
+    "summer": 8.7,
+    "winter": 8.3,
+    "rain": 8,
+    "food": 8.1,
+    "photography": 9.3,
+    "relaxation": 8.5,
+    "value": 8.9,
+    "uniqueness": 9.2
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Keep_tower_of_Okazaki_Castle.jpg/1920px-Keep_tower_of_Okazaki_Castle.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Keep_tower_of_Okazaki_Castle.jpg/1920px-Keep_tower_of_Okazaki_Castle.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "長岡外史, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Keep_tower_of_Okazaki_Castle.jpg"
+  },
+  "officialWebsite": "https://okazakipark.com/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Aichi:okazaki",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 45
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Okazaki Castle",
+      "description": "Okazaki Castle is the birthplace of Tokugawa Ieyasu (1542), built by his grandfather's generation of the Matsudaira clan. The 1959-reconstructed keep overlooks the Yahagi river; the grounds are a famous cherry-blossom park.",
+      "highlights": [
+        "Birthplace of Tokugawa Ieyasu",
+        "Keep reconstruction (1959)",
+        "Cherry blossom park"
+      ],
+      "notes": "Keep admission ¥360 adult; the adjacent Okazaki Castle Museum interprets Ieyasu's origins.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "岡崎城",
+      "description": "徳川家康が生まれた岡崎城。1959年再建の天守が矢作川を望み、桜の名所としても知られます。",
+      "highlights": ["徳川家康生誕の城", "1959年再建の天守", "桜の名所"],
+      "notes": "天守は大人360円。隣接する三河武士の館家康館と合わせてどうぞ。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://okazakipark.com/",
+        "title": "Okazaki Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

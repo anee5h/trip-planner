@@ -1,0 +1,159 @@
+{
+  "id": "goryokaku",
+  "name": "Goryokaku (Star Fort)",
+  "nameJa": "五稜郭",
+  "aliases": ["五稜郭"],
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 41.7969,
+    "lng": 140.757
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Hokkaido"],
+  "description": "Goryokaku is Japan's first Western-style star fort, built 1857-1866 by the Tokugawa shogunate to defend the north; it was the stage of the final battle of the Boshin War (Battle of Hakodate, 1869). The keep-less fort is now a park with a reconstruction of the magistrate's office.",
+  "highlights": [
+    "Japan's first star fort",
+    "Site of the 1869 Battle of Hakodate",
+    "Reconstructed magistrate's office",
+    "Spring cherry blossoms and night illumination"
+  ],
+  "notes": "The Goryokaku Tower next to the fort offers the classic star-shaped view. The fort's magistrate office reconstruction charges admission (¥1,000 adult).",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9.3,
+    "couple": 9.1,
+    "summer": 9,
+    "winter": 8.6,
+    "rain": 8.3,
+    "food": 8.4,
+    "photography": 9.6,
+    "relaxation": 8.8,
+    "value": 9.2,
+    "uniqueness": 9.5
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Hakodate_Goryokaku_Panorama_1.JPG/1920px-Hakodate_Goryokaku_Panorama_1.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Hakodate_Goryokaku_Panorama_1.JPG/1920px-Hakodate_Goryokaku_Panorama_1.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Keihin nike, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hakodate_Goryokaku_Panorama_1.JPG"
+  },
+  "officialWebsite": "https://www.city.hakodate.hokkaido.jp/docs/2014011601161/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Hokkaido:hakodate",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 2
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Goryokaku (Star Fort)",
+      "description": "Goryokaku is Japan's first Western-style star fort, built 1857-1866 by the Tokugawa shogunate to defend the north; it was the stage of the final battle of the Boshin War (Battle of Hakodate, 1869). The keep-less fort is now a park with a reconstruction of the magistrate's office.",
+      "highlights": [
+        "Japan's first star fort",
+        "Site of the 1869 Battle of Hakodate",
+        "Reconstructed magistrate's office",
+        "Spring cherry blossoms and night illumination"
+      ],
+      "notes": "The Goryokaku Tower next to the fort offers the classic star-shaped view. The fort's magistrate office reconstruction charges admission (¥1,000 adult).",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "五稜郭",
+      "description": "箱館戦争（1869年）の最終決戦地となった、日本初の西洋式星形要塞。五稜郭タワーから望む星形の土塁と、復元された箱館奉行所が名物です。",
+      "highlights": [
+        "日本初の星形要塞",
+        "箱館戦争の舞台",
+        "復元された箱館奉行所",
+        "春の桜と夜間ライトアップ"
+      ],
+      "notes": "五稜郭タワーから星形を見下ろせます。奉行所の復元建物は入場料（大人1,000円）です。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.hakodate.hokkaido.jp/docs/2014011601161/",
+        "title": "Goryokaku (Star Fort) official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

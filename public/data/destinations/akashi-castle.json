@@ -1,0 +1,152 @@
+{
+  "id": "akashi-castle",
+  "name": "Akashi Castle",
+  "nameJa": "明石城",
+  "aliases": ["明石城"],
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.6525,
+    "lng": 134.9917
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Hyogo"],
+  "description": "Akashi Castle, built 1617-1619 by Ogasawara Tadazane, is one of the few Edo castles with two surviving original turrets (Katsumi & Hitsuji-yagura, national important cultural properties). The castle site is a scenic spot overlooking the Akashi Strait.",
+  "highlights": [
+    "Two surviving original turrets",
+    "Edo-period castle",
+    "Akashi Strait view"
+  ],
+  "notes": "Free to enter the park; the turrets are open seasonally (¥300).",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.4,
+    "summer": 8.3,
+    "winter": 7.9,
+    "rain": 7.6,
+    "food": 7.7,
+    "photography": 8.9,
+    "relaxation": 8.1,
+    "value": 8.5,
+    "uniqueness": 8.8
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Akashi_Castle_05.jpg/1920px-Akashi_Castle_05.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Akashi_Castle_05.jpg/1920px-Akashi_Castle_05.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "投稿者が撮影, Public domain, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akashi_Castle_05.jpg"
+  },
+  "officialWebsite": "https://akashijo.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Hyogo:akashi",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 58
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Akashi Castle",
+      "description": "Akashi Castle, built 1617-1619 by Ogasawara Tadazane, is one of the few Edo castles with two surviving original turrets (Katsumi & Hitsuji-yagura, national important cultural properties). The castle site is a scenic spot overlooking the Akashi Strait.",
+      "highlights": [
+        "Two surviving original turrets",
+        "Edo-period castle",
+        "Akashi Strait view"
+      ],
+      "notes": "Free to enter the park; the turrets are open seasonally (¥300).",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "明石城",
+      "description": "1617年から小笠原氏が築いた明石城。現存する2基の三重櫓（巽櫓・坤櫓）が国の重要文化財です。",
+      "highlights": ["現存2基の三重櫓", "江戸期の城", "明石海峡の眺望"],
+      "notes": "公園は無料。櫓は季節公開（大人300円）です。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://akashijo.jp/",
+        "title": "Akashi Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

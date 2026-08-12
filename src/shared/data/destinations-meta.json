@@ -91,6 +91,16 @@
     }
   },
   {
+    "id": "akashi-castle",
+    "name": "Akashi Castle",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "akihabara-chiyoda",
     "name": "Akihabara (Chiyoda)",
     "prefecture": "Tokyo",
@@ -177,6 +187,16 @@
       "nearbyDestinationIds": [],
       "parentDestinationId": "mine-city"
     }
+  },
+  {
+    "id": "ako-castle",
+    "name": "Ako Castle",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "amami-iriomote-natural-site",
@@ -417,6 +437,16 @@
     }
   },
   {
+    "id": "ashikaga-shi-yakata",
+    "name": "Ashikaga-shi Yakata (Banna-ji)",
+    "prefecture": "Tochigi",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "historic",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "aso-city",
     "name": "Aso City",
     "prefecture": "Kumamoto",
@@ -503,6 +533,16 @@
     "relationships": {
       "parentDestinationId": "tokushima-city"
     }
+  },
+  {
+    "id": "azuchi-castle",
+    "name": "Azuchi Castle",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "bank-of-iwate-red-brick",
@@ -922,6 +962,16 @@
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
+  },
+  {
+    "id": "chihaya-castle",
+    "name": "Chihaya Castle",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "chikurin-ji-kochi",
@@ -1747,6 +1797,16 @@
     }
   },
   {
+    "id": "fukuyama-castle",
+    "name": "Fukuyama Castle",
+    "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "funabashi-city",
     "name": "Funabashi City",
     "prefecture": "Chiba",
@@ -1763,6 +1823,16 @@
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
+  },
+  {
+    "id": "funai-castle",
+    "name": "Funai Castle",
+    "prefecture": "Oita",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "furano-city",
@@ -1797,6 +1867,16 @@
     "role": "standalone",
     "kind": "attraction",
     "status": "verified",
+    "relationships": {}
+  },
+  {
+    "id": "gassantoda-castle",
+    "name": "Gassantoda Castle",
+    "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
     "relationships": {}
   },
   {
@@ -2050,6 +2130,16 @@
     }
   },
   {
+    "id": "goryokaku",
+    "name": "Goryokaku (Star Fort)",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "goshikinuma-ponds-fukushima",
     "name": "Goshikinuma Ponds",
     "prefecture": "Fukushima",
@@ -2157,6 +2247,16 @@
     }
   },
   {
+    "id": "hachigata-castle",
+    "name": "Hachigata Castle",
+    "prefecture": "Saitama",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "hachinohe-city",
     "name": "Hachinohe City",
     "prefecture": "Aomori",
@@ -2197,6 +2297,16 @@
         "tama-forest-science-garden"
       ]
     }
+  },
+  {
+    "id": "hagi-castle",
+    "name": "Hagi Castle",
+    "prefecture": "Yamaguchi",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "hakata-machiya-folk-museum",
@@ -2571,6 +2681,16 @@
     }
   },
   {
+    "id": "hirado-castle",
+    "name": "Hirado Castle",
+    "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "hiraizumi-chusonji-iwate",
     "name": "Hiraizumi – Temples, Gardens and Archaeological Sites Representing the Buddhist Pure Land",
     "prefecture": "Iwate",
@@ -2758,6 +2878,26 @@
     }
   },
   {
+    "id": "hitoyoshi-castle",
+    "name": "Hitoyoshi Castle",
+    "prefecture": "Kumamoto",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "hizen-nagoya-castle",
+    "name": "Nagoya Castle (Hizen)",
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "hokkaido-jingu",
     "name": "Hokkaido Jingu",
     "prefecture": "Hokkaido",
@@ -2927,6 +3067,26 @@
     }
   },
   {
+    "id": "ichijodani-castle",
+    "name": "Ichijodani Castle (Asakura site)",
+    "prefecture": "Fukui",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "iga-ueno-castle",
+    "name": "Iga Ueno Castle",
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "iizaka-onsen",
     "name": "Iizaka Onsen",
     "prefecture": "Fukushima",
@@ -2986,6 +3146,16 @@
     "relationships": {
       "parentDestinationId": "kawasaki-city"
     }
+  },
+  {
+    "id": "imabari-castle",
+    "name": "Imabari Castle",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "imperial-palace-chiyoda",
@@ -3227,6 +3397,16 @@
     "relationships": {
       "gatewayHubId": "izumo-city"
     }
+  },
+  {
+    "id": "iwamura-castle",
+    "name": "Iwamura Castle",
+    "prefecture": "Gifu",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "iwate-park-morioka-castle-ruins",
@@ -3485,6 +3665,16 @@
     }
   },
   {
+    "id": "kagoshima-castle",
+    "name": "Kagoshima Castle",
+    "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "kagoshima-city",
     "name": "Kagoshima City",
     "prefecture": "Kagoshima",
@@ -3626,6 +3816,16 @@
     }
   },
   {
+    "id": "kanayama-castle",
+    "name": "Kanayama Castle (Nitta Kanayama)",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "kanayama-shrine",
     "name": "Kanayama Shrine",
     "prefecture": "Kanagawa",
@@ -3692,6 +3892,16 @@
     "relationships": {
       "parentDestinationId": "beppu-city"
     }
+  },
+  {
+    "id": "kannonji-castle",
+    "name": "Kannonji Castle",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "kanrantei",
@@ -3810,6 +4020,16 @@
     "relationships": {
       "parentDestinationId": "chiba-city"
     }
+  },
+  {
+    "id": "kasugayama-castle",
+    "name": "Kasugayama Castle",
+    "prefecture": "Niigata",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "kataonami-beach-wakanoura",
@@ -4109,6 +4329,16 @@
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }
+  },
+  {
+    "id": "kinojo",
+    "name": "Ki-no-jo (Kinojo)",
+    "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "kinosaki-onsen",
@@ -4460,6 +4690,16 @@
     }
   },
   {
+    "id": "kofu-castle",
+    "name": "Kofu Castle",
+    "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "kofu-city",
     "name": "Kofu City",
     "prefecture": "Yamanashi",
@@ -4539,6 +4779,16 @@
     "relationships": {
       "parentDestinationId": "kamakura-city"
     }
+  },
+  {
+    "id": "komoro-castle",
+    "name": "Komoro Castle",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "komyozenji-temple-dazaifu",
@@ -4639,6 +4889,16 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
     }
+  },
+  {
+    "id": "kubota-castle",
+    "name": "Kubota Castle",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "kujukushima-pearl-sea-resort",
@@ -5248,6 +5508,16 @@
     }
   },
   {
+    "id": "matsumae-castle",
+    "name": "Matsumae Castle",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "matsumoto-castle-nagano",
     "name": "Matsumoto Castle (Crow Castle)",
     "prefecture": "Nagano",
@@ -5273,6 +5543,16 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["karuizawa-town", "nagano-city", "kiso"]
     }
+  },
+  {
+    "id": "matsusaka-castle",
+    "name": "Matsusaka Castle",
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "matsushima-bay",
@@ -5321,6 +5601,16 @@
       ],
       "nearbyDestinationIds": ["sendai-city"]
     }
+  },
+  {
+    "id": "matsushiro-castle",
+    "name": "Matsushiro Castle",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "matsuyama-castle-ehime",
@@ -5520,6 +5810,16 @@
         "akiyoshidai-plateau"
       ]
     }
+  },
+  {
+    "id": "minowa-castle",
+    "name": "Minowa Castle",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "mirai-tower-nagoya",
@@ -6135,6 +6435,16 @@
     }
   },
   {
+    "id": "nagashino-castle",
+    "name": "Nagashino Castle",
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "nago-city",
     "name": "Nago City",
     "prefecture": "Okinawa",
@@ -6276,6 +6586,16 @@
     }
   },
   {
+    "id": "nakagusuku-castle",
+    "name": "Nakagusuku Castle",
+    "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "nakano-city",
     "name": "Nakano City",
     "prefecture": "Tokyo",
@@ -6352,6 +6672,16 @@
     "relationships": {
       "parentDestinationId": "naha-city"
     }
+  },
+  {
+    "id": "nanao-castle",
+    "name": "Nanao Castle",
+    "prefecture": "Ishikawa",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "nanatsugama-sea-caves",
@@ -6553,6 +6883,16 @@
     }
   },
   {
+    "id": "ne-castle-hachinohe",
+    "name": "Ne Castle",
+    "prefecture": "Aomori",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "nebuta-museum-wa-rasse-aomori",
     "name": "Aomori Nebuta Museum WA RASSE",
     "prefecture": "Aomori",
@@ -6565,6 +6905,16 @@
       "nearbyDestinationIds": ["hirosaki-castle", "oirase-gorge-aomori"],
       "parentDestinationId": "aomori-city"
     }
+  },
+  {
+    "id": "nemuro-peninsula-chashi-sites",
+    "name": "Nemuro Peninsula Chashi Sites",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "historic",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "nerima-city",
@@ -6620,6 +6970,16 @@
     "relationships": {
       "parentDestinationId": "chuo-city"
     }
+  },
+  {
+    "id": "nihonmatsu-castle",
+    "name": "Nihonmatsu Castle",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "niigata-city",
@@ -6901,6 +7261,26 @@
     }
   },
   {
+    "id": "odani-castle",
+    "name": "Odani Castle",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "odawara-castle",
+    "name": "Odawara Castle",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "odawara-city",
     "name": "Odawara City",
     "prefecture": "Kanagawa",
@@ -6984,6 +7364,16 @@
     }
   },
   {
+    "id": "oka-castle-oita",
+    "name": "Oka Castle",
+    "prefecture": "Oita",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "okage-yokocho-oharai-machi",
     "name": "Okage Yokocho & Oharai-machi",
     "prefecture": "Mie",
@@ -7041,6 +7431,16 @@
         "hatsukaichi-city"
       ]
     }
+  },
+  {
+    "id": "okazaki-castle",
+    "name": "Okazaki Castle",
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "okazaki-city",
@@ -7216,6 +7616,16 @@
     "relationships": {
       "parentDestinationId": "shinjuku-city"
     }
+  },
+  {
+    "id": "ono-castle-dazaifu",
+    "name": "Ono Castle (Onojo)",
+    "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "onomichi-city",
@@ -7522,6 +7932,16 @@
     }
   },
   {
+    "id": "ozu-castle",
+    "name": "Ozu Castle",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "philosopher-s-walk",
     "name": "Philosopher's Walk",
     "prefecture": "Kyoto",
@@ -7701,6 +8121,16 @@
     "relationships": {
       "gatewayHubId": "niigata-city"
     }
+  },
+  {
+    "id": "saga-castle",
+    "name": "Saga Castle",
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "sagamihara-city",
@@ -7971,6 +8401,16 @@
     "relationships": {
       "parentDestinationId": "sapporo-city"
     }
+  },
+  {
+    "id": "sasayama-castle",
+    "name": "Sasayama Castle",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "sasebo-city",
@@ -8250,6 +8690,16 @@
     }
   },
   {
+    "id": "shibata-castle",
+    "name": "Shibata Castle",
+    "prefecture": "Niigata",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "shibuya-city",
     "name": "Shibuya City",
     "prefecture": "Tokyo",
@@ -8304,6 +8754,16 @@
     "relationships": {
       "parentDestinationId": "takamatsu-city"
     }
+  },
+  {
+    "id": "shimabara-castle",
+    "name": "Shimabara Castle",
+    "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "shimonoseki-city",
@@ -8483,6 +8943,16 @@
     "relationships": {
       "gatewayHubId": "hirosaki-city"
     }
+  },
+  {
+    "id": "shirakawa-komine-castle",
+    "name": "Shirakawa Komine Castle",
+    "prefecture": "Fukushima",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "shirakawa-village",
@@ -8722,6 +9192,16 @@
     }
   },
   {
+    "id": "sunpu-castle",
+    "name": "Sunpu Castle",
+    "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "sunshine-60-observatory-ikebukuro",
     "name": "Sunshine 60 Observatory (Tenbou Park)",
     "prefecture": "Tokyo",
@@ -8810,6 +9290,16 @@
         "suwa-shrine-tachikawa"
       ]
     }
+  },
+  {
+    "id": "taga-castle",
+    "name": "Taga Castle",
+    "prefecture": "Miyagi",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "historic",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "taisho-roman-street",
@@ -8992,6 +9482,16 @@
     "relationships": {}
   },
   {
+    "id": "takaoka-castle",
+    "name": "Takaoka Castle",
+    "prefecture": "Toyama",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "takaoka-daibutsu",
     "name": "Takaoka Daibutsu",
     "prefecture": "Toyama",
@@ -9026,6 +9526,16 @@
     "relationships": {
       "gatewayHubId": "matsumoto-city"
     }
+  },
+  {
+    "id": "takatori-castle",
+    "name": "Takatori Castle",
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "takayama-city",
@@ -9397,6 +9907,16 @@
     }
   },
   {
+    "id": "tokushima-castle",
+    "name": "Tokushima Castle",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "tokushima-central-park",
     "name": "Tokushima Central Park",
     "prefecture": "Tokushima",
@@ -9619,6 +10139,16 @@
     }
   },
   {
+    "id": "tottori-castle",
+    "name": "Tottori Castle",
+    "prefecture": "Tottori",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "tottori-city",
     "name": "Tottori City",
     "prefecture": "Tottori",
@@ -9811,6 +10341,26 @@
     "relationships": {
       "parentDestinationId": "osaka-city"
     }
+  },
+  {
+    "id": "tsuwano-castle",
+    "name": "Tsuwano Castle",
+    "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "tsuyama-castle",
+    "name": "Tsuyama Castle",
+    "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "udo-jingu",
@@ -10204,6 +10754,16 @@
     }
   },
   {
+    "id": "yamagata-castle",
+    "name": "Yamagata Castle",
+    "prefecture": "Yamagata",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "yamagata-city",
     "name": "Yamagata City",
     "prefecture": "Yamagata",
@@ -10214,6 +10774,16 @@
     "relationships": {
       "featuredDestinationIds": []
     }
+  },
+  {
+    "id": "yamanaka-castle",
+    "name": "Yamanaka Castle",
+    "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "yamanashi-fujiyoshida",
@@ -10466,6 +11036,26 @@
     "relationships": {
       "parentDestinationId": "ishigaki-city"
     }
+  },
+  {
+    "id": "yoshida-koriyama-castle",
+    "name": "Koriyama Castle (Yoshida-Koriyama)",
+    "prefecture": "Hiroshima",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "yoshinogari",
+    "name": "Yoshinogari (Yoshinogari site)",
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "historic",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "yoyogi-park",

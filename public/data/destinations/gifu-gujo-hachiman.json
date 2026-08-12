@@ -82,12 +82,7 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "japan-top-castles",
-      "confirmed": true
-    }
-  ],
+  "collections": [],
   "relationships": {
     "gatewayHubId": "gifu-city"
   },

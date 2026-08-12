@@ -1,0 +1,152 @@
+{
+  "id": "nihonmatsu-castle",
+  "name": "Nihonmatsu Castle",
+  "nameJa": "二本松城",
+  "aliases": ["二本松城"],
+  "prefecture": "Fukushima",
+  "region": "Tohoku",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 37.5996,
+    "lng": 140.428
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Fukushima"],
+  "description": "Nihonmatsu Castle (Kasumiga-jo) was the seat of the Niwa domain. The hilltop Honmaru offers panoramic views; the 2016-reconstructed Rakan-yagura turret and the castle grounds make a compact castle visit.",
+  "highlights": [
+    "Niwa domain seat",
+    "Panoramic Honmaru view",
+    "Reconstructed turret"
+  ],
+  "notes": "The reconstructed turret (¥300 adult) is open seasonally. Free to walk the grounds.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.3,
+    "couple": 8.1,
+    "summer": 8,
+    "winter": 7.6,
+    "rain": 7.3,
+    "food": 7.4,
+    "photography": 8.6,
+    "relaxation": 7.8,
+    "value": 8.2,
+    "uniqueness": 8.5
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Nihonmatsu_Castle%2C_Fukushima_01.jpg/1920px-Nihonmatsu_Castle%2C_Fukushima_01.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Nihonmatsu_Castle%2C_Fukushima_01.jpg/1920px-Nihonmatsu_Castle%2C_Fukushima_01.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Σ64, CC BY 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nihonmatsu_Castle,_Fukushima_01.jpg"
+  },
+  "officialWebsite": "https://www.nihonmatsu-kanko.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Fukushima:nihonmatsu",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 11
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Nihonmatsu Castle",
+      "description": "Nihonmatsu Castle (Kasumiga-jo) was the seat of the Niwa domain. The hilltop Honmaru offers panoramic views; the 2016-reconstructed Rakan-yagura turret and the castle grounds make a compact castle visit.",
+      "highlights": [
+        "Niwa domain seat",
+        "Panoramic Honmaru view",
+        "Reconstructed turret"
+      ],
+      "notes": "The reconstructed turret (¥300 adult) is open seasonally. Free to walk the grounds.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "二本松城",
+      "description": "二本松藩主・丹羽氏の居城。本丸跡からの展望が良く、2016年に再建された羅漢櫓が見どころです。",
+      "highlights": ["丹羽氏の居城", "本丸からの展望", "再建された羅漢櫓"],
+      "notes": "羅漢櫓は季節公開（大人300円）。城跡は自由に散策できます。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.nihonmatsu-kanko.jp/",
+        "title": "Nihonmatsu Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "id": "azuchi-castle",
+  "name": "Azuchi Castle",
+  "nameJa": "安土城",
+  "aliases": ["安土城"],
+  "prefecture": "Shiga",
+  "region": "Kansai",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.156,
+    "lng": 136.1394
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Shiga"],
+  "description": "Azuchi Castle was Oda Nobunaga's revolutionary 1576 hilltop fortress — the first with a towering keep and lavish painted interior, destroyed within a decade. Its grand stone ramps and foundations remain as Japan's most famous castle ruins.",
+  "highlights": [
+    "Oda Nobunaga's 1576 masterpiece",
+    "First grand keep design",
+    "Famous castle ruins",
+    "Special historic site"
+  ],
+  "notes": "Free to climb the stone approaches; the Azuchi Castle Archaeological Museum (¥460) is beside the site.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9.1,
+    "couple": 8.9,
+    "summer": 8.8,
+    "winter": 8.4,
+    "rain": 8.1,
+    "food": 8.2,
+    "photography": 9.4,
+    "relaxation": 8.6,
+    "value": 9,
+    "uniqueness": 9.3
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Azuchi_Castle_Tower.jpg/1920px-Azuchi_Castle_Tower.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Azuchi_Castle_Tower.jpg/1920px-Azuchi_Castle_Tower.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Akonnchiroll, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Azuchi_Castle_Tower.jpg"
+  },
+  "officialWebsite": "https://www.azuchi-shiga.com/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Shiga:omihachiman",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 51
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Azuchi Castle",
+      "description": "Azuchi Castle was Oda Nobunaga's revolutionary 1576 hilltop fortress — the first with a towering keep and lavish painted interior, destroyed within a decade. Its grand stone ramps and foundations remain as Japan's most famous castle ruins.",
+      "highlights": [
+        "Oda Nobunaga's 1576 masterpiece",
+        "First grand keep design",
+        "Famous castle ruins",
+        "Special historic site"
+      ],
+      "notes": "Free to climb the stone approaches; the Azuchi Castle Archaeological Museum (¥460) is beside the site.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "安土城",
+      "description": "織田信長が1576年に築いた安土城。豪華な天守で知られた名城は数年で焼失し、今は壮大な石垣が残る日本随一の城跡です。",
+      "highlights": [
+        "織田信長の1576年築城",
+        "最初の大天守",
+        "日本随一の城跡",
+        "国特別史跡"
+      ],
+      "notes": "石段の登城は無料。安土城考古博物館（大人460円）が隣接します。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.azuchi-shiga.com/",
+        "title": "Azuchi Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "id": "ono-castle-dazaifu",
+  "name": "Ono Castle (Onojo)",
+  "nameJa": "大野城",
+  "aliases": ["大野城"],
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 33.5386,
+    "lng": 130.507
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Fukuoka"],
+  "description": "Ono Castle is a 7th-century Korean-style mountain fortress built after the 663 Battle of Hakusukinoe to defend Dazaifu. The reconstructed Mizuki gate and ramparts on Mt. Ono make it Japan's most visitable ancient fortress.",
+  "highlights": [
+    "7th-century ancient fortress",
+    "Defense of Dazaifu",
+    "Reconstructed Mizuki gate",
+    "Special historic site"
+  ],
+  "notes": "Free open-air site; the Ono Castle Rekishi-no-mori museum at the base adds context.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.4,
+    "summer": 8.3,
+    "winter": 7.9,
+    "rain": 7.6,
+    "food": 7.7,
+    "photography": 8.9,
+    "relaxation": 8.1,
+    "value": 8.5,
+    "uniqueness": 8.8
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/%E5%A4%A7%E9%87%8E%E5%9F%8E%EF%BC%88%E7%AD%91%E5%89%8D%E5%9B%BD%EF%BC%89%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%8F%A3.jpg/1920px-%E5%A4%A7%E9%87%8E%E5%9F%8E%EF%BC%88%E7%AD%91%E5%89%8D%E5%9B%BD%EF%BC%89%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%8F%A3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/%E5%A4%A7%E9%87%8E%E5%9F%8E%EF%BC%88%E7%AD%91%E5%89%8D%E5%9B%BD%EF%BC%89%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%8F%A3.jpg/1920px-%E5%A4%A7%E9%87%8E%E5%9F%8E%EF%BC%88%E7%AD%91%E5%89%8D%E5%9B%BD%EF%BC%89%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%8F%A3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "小池 隆, CC BY 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:大野城（筑前国）太宰府口.jpg"
+  },
+  "officialWebsite": "https://www.town.umi.lg.jp/",
+  "businessHours": "Open access (castle ruins; see official site for seasonal hours)",
+  "openingHoursJa": "城跡は自由に見学可（季節により開館時間が変わる施設あり）",
+  "municipalityId": "Fukuoka:umi",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 86
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Ono Castle (Onojo)",
+      "description": "Ono Castle is a 7th-century Korean-style mountain fortress built after the 663 Battle of Hakusukinoe to defend Dazaifu. The reconstructed Mizuki gate and ramparts on Mt. Ono make it Japan's most visitable ancient fortress.",
+      "highlights": [
+        "7th-century ancient fortress",
+        "Defense of Dazaifu",
+        "Reconstructed Mizuki gate",
+        "Special historic site"
+      ],
+      "notes": "Free open-air site; the Ono Castle Rekishi-no-mori museum at the base adds context.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open access (castle ruins; see official site for seasonal hours)"
+    },
+    "ja": {
+      "name": "大野城",
+      "description": "白村江の戦い後に大宰府を守るため築かれた古代山城。復元された水城（水門）が壮観な国特別史跡です。",
+      "highlights": [
+        "7世紀の古代山城",
+        "大宰府防衛の城",
+        "復元された水城",
+        "国特別史跡"
+      ],
+      "notes": "無料の野外遺構。麓の大野城心のふるさと館が案内役です。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "城跡は自由に見学可（季節により開館時間が変わる施設あり）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.town.umi.lg.jp/",
+        "title": "Ono Castle (Onojo) official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

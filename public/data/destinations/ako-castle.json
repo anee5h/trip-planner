@@ -1,0 +1,159 @@
+{
+  "id": "ako-castle",
+  "name": "Ako Castle",
+  "nameJa": "赤穂城",
+  "aliases": ["赤穂城"],
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.7457,
+    "lng": 134.389
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Hyogo"],
+  "description": "Ako Castle was the domain seat of Asano Naganori, whose 1701 downfall triggered the famous 47 Ronin vendetta. The castle's unusually extensive original moats and gates survive as a national historic site.",
+  "highlights": [
+    "Asano domain seat",
+    "47 Ronin connection",
+    "Original gates and moats",
+    "National historic site"
+  ],
+  "notes": "Free to walk; the Ako Castle History Museum (¥320) tells the 47 Ronin story.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.9,
+    "couple": 8.7,
+    "summer": 8.6,
+    "winter": 8.2,
+    "rain": 7.9,
+    "food": 8,
+    "photography": 9.2,
+    "relaxation": 8.4,
+    "value": 8.8,
+    "uniqueness": 9.1
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/141115_Ako_Castle_Ako_Hyogo_pref_Japan01bs3.jpg/1920px-141115_Ako_Castle_Ako_Hyogo_pref_Japan01bs3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/141115_Ako_Castle_Ako_Hyogo_pref_Japan01bs3.jpg/1920px-141115_Ako_Castle_Ako_Hyogo_pref_Japan01bs3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:141115_Ako_Castle_Ako_Hyogo_pref_Japan01bs3.jpg"
+  },
+  "officialWebsite": "https://www.ako-hyg.ed.jp/bunkazai/akojo/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Hyogo:ako",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 60
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Ako Castle",
+      "description": "Ako Castle was the domain seat of Asano Naganori, whose 1701 downfall triggered the famous 47 Ronin vendetta. The castle's unusually extensive original moats and gates survive as a national historic site.",
+      "highlights": [
+        "Asano domain seat",
+        "47 Ronin connection",
+        "Original gates and moats",
+        "National historic site"
+      ],
+      "notes": "Free to walk; the Ako Castle History Museum (¥320) tells the 47 Ronin story.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "赤穂城",
+      "description": "浅野長矩の居城だった赤穂城。1701年の刃傷事件から赤穂浪士の物語に繋がる城で、堀と門が残る国史跡です。",
+      "highlights": [
+        "浅野氏の居城",
+        "赤穂浪士の物語",
+        "現存する門と堀",
+        "国指定史跡"
+      ],
+      "notes": "無料で散策可能。赤穂城跡本丸の大石神社も合わせてどうぞ。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ako-hyg.ed.jp/bunkazai/akojo/",
+        "title": "Ako Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

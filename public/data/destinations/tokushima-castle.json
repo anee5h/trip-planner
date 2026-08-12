@@ -1,0 +1,156 @@
+{
+  "id": "tokushima-castle",
+  "name": "Tokushima Castle",
+  "nameJa": "徳島城",
+  "aliases": ["徳島城"],
+  "prefecture": "Tokushima",
+  "region": "Shikoku",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.072,
+    "lng": 134.5562
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Tokushima"],
+  "description": "Tokushima Castle was the Hachisuka domain seat built on the river bluff in 1586. The 1964-reconstructed Omote-goten gate, Awa Kokubunji-style stone walls and the scenic surroundings (Mt. Bizan across the river) are highlights.",
+  "highlights": [
+    "Hachisuka domain seat",
+    "Reconstructed palace gate",
+    "River-bluff setting"
+  ],
+  "notes": "Tokushima Central Park is free; the Omote-goten gate is open weekends/holidays (¥310).",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "train": 55,
+    "bus": 65,
+    "car": 70
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.5,
+    "couple": 8.3,
+    "summer": 8.2,
+    "winter": 7.8,
+    "rain": 7.5,
+    "food": 7.6,
+    "photography": 8.8,
+    "relaxation": 8,
+    "value": 8.4,
+    "uniqueness": 8.7
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Tokushima_Castle%2C_Tenshu.jpg/1920px-Tokushima_Castle%2C_Tenshu.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Tokushima_Castle%2C_Tenshu.jpg/1920px-Tokushima_Castle%2C_Tenshu.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Saigen Jiro, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokushima_Castle,_Tenshu.jpg"
+  },
+  "officialWebsite": "https://www.city.tokushima.tokushima.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Tokushima:tokushima",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 76
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Tokushima Castle",
+      "description": "Tokushima Castle was the Hachisuka domain seat built on the river bluff in 1586. The 1964-reconstructed Omote-goten gate, Awa Kokubunji-style stone walls and the scenic surroundings (Mt. Bizan across the river) are highlights.",
+      "highlights": [
+        "Hachisuka domain seat",
+        "Reconstructed palace gate",
+        "River-bluff setting"
+      ],
+      "notes": "Tokushima Central Park is free; the Omote-goten gate is open weekends/holidays (¥310).",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "徳島城",
+      "description": "1586年に蜂須賀氏が築いた徳島城。眉山を借景にした石垣と、再建された表御殿庭園の門が見どころです。",
+      "highlights": ["蜂須賀氏の居城", "再建された表御殿門", "眉山を望む城跡"],
+      "notes": "徳島中央公園は無料。表御殿門は週末・祝日公開（大人310円）です。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.tokushima.tokushima.jp/",
+        "title": "Tokushima Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

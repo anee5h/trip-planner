@@ -1,0 +1,163 @@
+{
+  "id": "nakagusuku-castle",
+  "name": "Nakagusuku Castle",
+  "nameJa": "中城城",
+  "aliases": ["中城城"],
+  "prefecture": "Okinawa",
+  "region": "Okinawa",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 26.2839,
+    "lng": 127.8014
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Okinawa"],
+  "description": "Nakagusuku Castle is the best-preserved gusuku (Ryukyuan castle) in Okinawa, its six baileys and curved walls credited to the legendary commander Gosamaru. It is a UNESCO World Heritage component and a national historic site.",
+  "highlights": [
+    "Best-preserved gusuku",
+    "Gosamaru's walls",
+    "UNESCO World Heritage",
+    "Sea views from the walls"
+  ],
+  "notes": "Admission ¥400; the walls over the East China Sea side are the highlight.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "bus": 90,
+    "car": 60
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9.2,
+    "couple": 9,
+    "summer": 8.9,
+    "winter": 8.5,
+    "rain": 8.2,
+    "food": 8.3,
+    "photography": 9.5,
+    "relaxation": 8.7,
+    "value": 9.1,
+    "uniqueness": 9.4,
+    "walkability": 6
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Nakagusuku_Castle25bs3104.jpg/1920px-Nakagusuku_Castle25bs3104.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Nakagusuku_Castle25bs3104.jpg/1920px-Nakagusuku_Castle25bs3104.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nakagusuku_Castle25bs3104.jpg"
+  },
+  "officialWebsite": "https://www.nakagusuku-jo.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Okinawa:nakagusuku",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 99
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Nakagusuku Castle",
+      "description": "Nakagusuku Castle is the best-preserved gusuku (Ryukyuan castle) in Okinawa, its six baileys and curved walls credited to the legendary commander Gosamaru. It is a UNESCO World Heritage component and a national historic site.",
+      "highlights": [
+        "Best-preserved gusuku",
+        "Gosamaru's walls",
+        "UNESCO World Heritage",
+        "Sea views from the walls"
+      ],
+      "notes": "Admission ¥400; the walls over the East China Sea side are the highlight.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "中城城",
+      "description": "沖縄で最も保存状態の良いグスク。護佐丸が築いた曲線の城壁が、世界遺産・国史跡に指定されています。",
+      "highlights": [
+        "保存状態最高のグスク",
+        "護佐丸の城壁",
+        "ユネスコ世界遺産",
+        "海を望む城壁"
+      ],
+      "notes": "入場料は大人400円。東シナ海側の城壁が絶景です。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.nakagusuku-jo.jp/",
+        "title": "Nakagusuku Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

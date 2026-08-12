@@ -1,0 +1,152 @@
+{
+  "id": "hirado-castle",
+  "name": "Hirado Castle",
+  "nameJa": "平戸城",
+  "aliases": ["平戸城"],
+  "prefecture": "Nagasaki",
+  "region": "Kyushu",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 33.3687,
+    "lng": 129.5575
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Nagasaki"],
+  "description": "Hirado Castle was built in 1718 on the hill overlooking the port that once hosted Dutch and Portuguese trade. The 1962-reconstructed keep offers views over Hirado Bay, and the castle town carries the old trade-city atmosphere.",
+  "highlights": [
+    "1718 seaside castle",
+    "Dutch trade port history",
+    "Keep view over Hirado Bay"
+  ],
+  "notes": "Keep admission ¥520; combine with the Hirado Dutch Trading Post nearby.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.9,
+    "couple": 8.7,
+    "summer": 8.6,
+    "winter": 8.2,
+    "rain": 7.9,
+    "food": 8,
+    "photography": 9.2,
+    "relaxation": 8.4,
+    "value": 8.8,
+    "uniqueness": 9.1
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3c/HiradoCastle3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/HiradoCastle3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Public domain via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:HiradoCastle3.jpg"
+  },
+  "officialWebsite": "https://hirado-castle.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Nagasaki:hirado",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 90
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Hirado Castle",
+      "description": "Hirado Castle was built in 1718 on the hill overlooking the port that once hosted Dutch and Portuguese trade. The 1962-reconstructed keep offers views over Hirado Bay, and the castle town carries the old trade-city atmosphere.",
+      "highlights": [
+        "1718 seaside castle",
+        "Dutch trade port history",
+        "Keep view over Hirado Bay"
+      ],
+      "notes": "Keep admission ¥520; combine with the Hirado Dutch Trading Post nearby.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "平戸城",
+      "description": "1718年に築かれた平戸城。オランダ・ポルトガル交易の港を望む丘陵に、再建天守がそびえます。",
+      "highlights": ["1718年築城の海城", "南蛮交易の港", "平戸湾を望む天守"],
+      "notes": "天守は大人520円。麓の平戸オランダ商館と合わせてどうぞ。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://hirado-castle.jp/",
+        "title": "Hirado Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

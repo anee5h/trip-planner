@@ -1,0 +1,158 @@
+{
+  "id": "yoshinogari",
+  "name": "Yoshinogari (Yoshinogari site)",
+  "nameJa": "吉野ヶ里",
+  "aliases": ["吉野ヶ里"],
+  "prefecture": "Saga",
+  "region": "Kyushu",
+  "kind": "historic",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 33.325,
+    "lng": 130.384
+  },
+  "categories": ["history", "culture", "archaeology"],
+  "tags": ["Top 100 Castle", "Historic Site", "History", "Saga"],
+  "description": "Yoshinogari is Japan's largest Yayoi-period moated settlement (c. 400 BC-AD 300), a national historic site with reconstructed watchtowers, pit dwellings and a ceremonial area. It anchors understanding of the ancient Kibi/Kyushu chiefdoms.",
+  "highlights": [
+    "Japan's largest Yayoi settlement",
+    "Reconstructed watchtowers",
+    "National historic site",
+    "Large museum park"
+  ],
+  "notes": "Admission ¥470 (Yoshinogari Historical Park); allow half a day for the full park.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 9.2,
+    "couple": 9,
+    "summer": 8.9,
+    "winter": 8.5,
+    "rain": 8.2,
+    "food": 8.3,
+    "photography": 9.5,
+    "relaxation": 8.7,
+    "value": 9.1,
+    "uniqueness": 9.4
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/%E5%90%89%E9%87%8E%E3%83%B6%E9%87%8C%E6%AD%B4%E5%8F%B2%E5%85%AC%E5%9C%92_-_panoramio.jpg/1920px-%E5%90%89%E9%87%8E%E3%83%B6%E9%87%8C%E6%AD%B4%E5%8F%B2%E5%85%AC%E5%9C%92_-_panoramio.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/%E5%90%89%E9%87%8E%E3%83%B6%E9%87%8C%E6%AD%B4%E5%8F%B2%E5%85%AC%E5%9C%92_-_panoramio.jpg/1920px-%E5%90%89%E9%87%8E%E3%83%B6%E9%87%8C%E6%AD%B4%E5%8F%B2%E5%85%AC%E5%9C%92_-_panoramio.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "shikabane taro, CC BY 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:吉野ヶ里歴史公園_-_panoramio.jpg"
+  },
+  "officialWebsite": "https://www.yoshinogari.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Saga:yoshinogari",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 88
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Yoshinogari (Yoshinogari site)",
+      "description": "Yoshinogari is Japan's largest Yayoi-period moated settlement (c. 400 BC-AD 300), a national historic site with reconstructed watchtowers, pit dwellings and a ceremonial area. It anchors understanding of the ancient Kibi/Kyushu chiefdoms.",
+      "highlights": [
+        "Japan's largest Yayoi settlement",
+        "Reconstructed watchtowers",
+        "National historic site",
+        "Large museum park"
+      ],
+      "notes": "Admission ¥470 (Yoshinogari Historical Park); allow half a day for the full park.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "吉野ヶ里",
+      "description": "弥生時代最大級の環濠集落・吉野ヶ里遺跡。復元された物見や竪穴住居が並ぶ国特別史跡の歴史公園です。",
+      "highlights": [
+        "弥生時代最大級の環濠集落",
+        "復元された物見や住居",
+        "国特別史跡"
+      ],
+      "notes": "吉野ヶ里歴史公園は大人470円。半日は必要です。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.yoshinogari.jp/",
+        "title": "Yoshinogari (Yoshinogari site) official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

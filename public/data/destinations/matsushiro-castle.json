@@ -1,0 +1,152 @@
+{
+  "id": "matsushiro-castle",
+  "name": "Matsushiro Castle",
+  "nameJa": "松代城",
+  "aliases": ["松代城"],
+  "prefecture": "Nagano",
+  "region": "Chubu",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 36.566,
+    "lng": 138.196
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Nagano"],
+  "description": "Matsushiro Castle was the seat of the Sanada domain, famed for the Sengoku-era Sanada clan. The 2011-reconstructed drum gate and moats mark the castle park in the Matsushiro samurai town.",
+  "highlights": [
+    "Sanada clan domain seat",
+    "Reconstructed drum gate",
+    "Samurai town setting"
+  ],
+  "notes": "Free to walk the castle grounds; the nearby Matsushiro samurai residences are paid sites.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.4,
+    "summer": 8.3,
+    "winter": 7.9,
+    "rain": 7.6,
+    "food": 7.7,
+    "photography": 8.9,
+    "relaxation": 8.1,
+    "value": 8.5,
+    "uniqueness": 8.8
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Matsushiro_Castle_20100919-02.jpg/1920px-Matsushiro_Castle_20100919-02.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Matsushiro_Castle_20100919-02.jpg/1920px-Matsushiro_Castle_20100919-02.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 2.1 jp",
+    "attribution": "baku13, CC BY-SA 2.1 jp, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsushiro_Castle_20100919-02.jpg"
+  },
+  "officialWebsite": "https://www.sanadahoumotsukan.com/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Nagano:nagano",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 26
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Matsushiro Castle",
+      "description": "Matsushiro Castle was the seat of the Sanada domain, famed for the Sengoku-era Sanada clan. The 2011-reconstructed drum gate and moats mark the castle park in the Matsushiro samurai town.",
+      "highlights": [
+        "Sanada clan domain seat",
+        "Reconstructed drum gate",
+        "Samurai town setting"
+      ],
+      "notes": "Free to walk the castle grounds; the nearby Matsushiro samurai residences are paid sites.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "松代城",
+      "description": "真田氏が治めた松代藩の居城。2011年に復元された太鼓門と堀が、城下町・松代の中心にあります。",
+      "highlights": ["真田氏の居城", "復元された太鼓門", "城下町・松代の中心"],
+      "notes": "城跡は無料。隣接する真田邸などの武家屋敷は有料です。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.sanadahoumotsukan.com/",
+        "title": "Matsushiro Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

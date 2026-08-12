@@ -1,0 +1,154 @@
+{
+  "id": "matsumae-castle",
+  "name": "Matsumae Castle",
+  "nameJa": "松前城",
+  "aliases": ["松前城"],
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 41.4298,
+    "lng": 140.1084
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Hokkaido"],
+  "description": "Matsumae Castle, completed 1854, was the northernmost castle of the Edo-period Matsumae domain and the only castle in Hokkaido. The current keep is a 1961 concrete reconstruction (the original burned in 1949); it is famous for its early-spring cherry blossoms.",
+  "highlights": [
+    "Only castle in Hokkaido",
+    "Reconstructed 1854-style keep",
+    "Matsumae domain history",
+    "Early cherry blossom spot"
+  ],
+  "notes": "The keep houses a history museum (¥360 adult). Matsumae Park around the castle has 10,000+ cherry trees. Access: ~3.5h from Hakodate by bus; a day trip is tight — plan an overnight.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 8.5,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.9,
+    "photography": 9.1,
+    "relaxation": 8.3,
+    "value": 8.7,
+    "uniqueness": 9
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/54/MatsumaeJo.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/5/54/MatsumaeJo.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "en:User:Fg2, Public domain, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:MatsumaeJo.jpg"
+  },
+  "officialWebsite": "https://www.town.matsumae.hokkaido.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Hokkaido:matsumae",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 3
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Matsumae Castle",
+      "description": "Matsumae Castle, completed 1854, was the northernmost castle of the Edo-period Matsumae domain and the only castle in Hokkaido. The current keep is a 1961 concrete reconstruction (the original burned in 1949); it is famous for its early-spring cherry blossoms.",
+      "highlights": [
+        "Only castle in Hokkaido",
+        "Reconstructed 1854-style keep",
+        "Matsumae domain history",
+        "Early cherry blossom spot"
+      ],
+      "notes": "The keep houses a history museum (¥360 adult). Matsumae Park around the castle has 10,000+ cherry trees. Access: ~3.5h from Hakodate by bus; a day trip is tight — plan an overnight.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "松前城",
+      "description": "江戸時代に松前藩が築いた北海道唯一の城。現在の天守は1961年の再建で、城内は松前藩の歴史資料館になっています。日本一早い桜の名所としても知られます。",
+      "highlights": ["北海道唯一の城", "松前藩の歴史", "日本一早い桜の名所"],
+      "notes": "天守の資料館は大人360円。函館からはバスで約3.5時間と遠く、日帰りはタイトです。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.town.matsumae.hokkaido.jp/",
+        "title": "Matsumae Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

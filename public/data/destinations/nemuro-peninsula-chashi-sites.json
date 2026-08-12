@@ -1,0 +1,158 @@
+{
+  "id": "nemuro-peninsula-chashi-sites",
+  "name": "Nemuro Peninsula Chashi Sites",
+  "nameJa": "根室半島チャシ跡群",
+  "aliases": ["根室半島チャシ跡群"],
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "historic",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 43.3886,
+    "lng": 145.7825
+  },
+  "categories": ["history", "culture", "archaeology"],
+  "tags": ["Top 100 Castle", "Historic Site", "History", "Hokkaido"],
+  "description": "The Nemuro Peninsula Chashi Sites are a group of Ainu fortress ruins (chashi) along the peninsula's cliffed coast, selected as No. 1 of the Japan 100 Castles for their testimony to the fortified settlements of the Ainu people.",
+  "highlights": [
+    "Ainu fortress ruins (chashi)",
+    "No. 1 of the Japan 100 Castles",
+    "Coastal cliff-top sites",
+    "Nemuro history museum context"
+  ],
+  "notes": "The chashi are open-air earthwork sites; visit the Nemuro City History and Folklore Museum for interpretation. Access is by car from Nemuro city center; the peninsula road is best in summer.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8,
+    "summer": 7.9,
+    "winter": 7.5,
+    "rain": 7.2,
+    "food": 7.3,
+    "photography": 8.5,
+    "relaxation": 7.7,
+    "value": 8.1,
+    "uniqueness": 8.4
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Nemurohanto_chashiatogun_onnemotochashi.jpg/1920px-Nemurohanto_chashiatogun_onnemotochashi.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Nemurohanto_chashiatogun_onnemotochashi.jpg/1920px-Nemurohanto_chashiatogun_onnemotochashi.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "1467jp, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nemurohanto_chashiatogun_onnemotochashi.jpg"
+  },
+  "officialWebsite": "http://www.nemuro-kankou.com/",
+  "businessHours": "Open access (castle ruins; see official site for seasonal hours)",
+  "openingHoursJa": "城跡は自由に見学可（季節により開館時間が変わる施設あり）",
+  "municipalityId": "Hokkaido:nemuro",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 1
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Nemuro Peninsula Chashi Sites",
+      "description": "The Nemuro Peninsula Chashi Sites are a group of Ainu fortress ruins (chashi) along the peninsula's cliffed coast, selected as No. 1 of the Japan 100 Castles for their testimony to the fortified settlements of the Ainu people.",
+      "highlights": [
+        "Ainu fortress ruins (chashi)",
+        "No. 1 of the Japan 100 Castles",
+        "Coastal cliff-top sites",
+        "Nemuro history museum context"
+      ],
+      "notes": "The chashi are open-air earthwork sites; visit the Nemuro City History and Folklore Museum for interpretation. Access is by car from Nemuro city center; the peninsula road is best in summer.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open access (castle ruins; see official site for seasonal hours)"
+    },
+    "ja": {
+      "name": "根室半島チャシ跡群",
+      "description": "根室半島の断崖に築かれたアイヌのチャシ（砦）跡群。北海道東端の根室に残るアイヌの防御遺構として、日本100名城第1号に選ばれています。",
+      "highlights": [
+        "アイヌのチャシ（砦）跡",
+        "日本100名城第1号",
+        "海岸段丘上の遺構群"
+      ],
+      "notes": "チャシは野外の土塁遺構です。根室市歴史と自然の資料館で解説をどうぞ。車での周遊が便利です。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "城跡は自由に見学可（季節により開館時間が変わる施設あり）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "http://www.nemuro-kankou.com/",
+        "title": "Nemuro Peninsula Chashi Sites official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

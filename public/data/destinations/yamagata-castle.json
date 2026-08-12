@@ -1,0 +1,152 @@
+{
+  "id": "yamagata-castle",
+  "name": "Yamagata Castle",
+  "nameJa": "山形城",
+  "aliases": ["山形城"],
+  "prefecture": "Yamagata",
+  "region": "Tohoku",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 38.2556,
+    "lng": 140.3281
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Yamagata"],
+  "description": "Yamagata Castle, base of the Mogami domain, was one of the largest castle layouts in Tohoku with triple moats and water gates. The central area is Kajo Park; a gate and corner turret have been reconstructed.",
+  "highlights": [
+    "Mogami domain base",
+    "Reconstructed Higashi Otemon gate",
+    "Kajo Park grounds"
+  ],
+  "notes": "Kajo Park is free; the reconstructed gate and turret are open seasonally (fee).",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.2,
+    "couple": 8,
+    "summer": 7.9,
+    "winter": 7.5,
+    "rain": 7.2,
+    "food": 7.3,
+    "photography": 8.5,
+    "relaxation": 7.7,
+    "value": 8.1,
+    "uniqueness": 8.4
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan06s3.jpg/1920px-220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan06s3.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan06s3.jpg/1920px-220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan06s3.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:220430_Yamagata_Castle_Yamagata_Yamagata_pref_Japan06s3.jpg"
+  },
+  "officialWebsite": "https://www.city.yamagata-yamagata.lg.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Yamagata:yamagata",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 10
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Yamagata Castle",
+      "description": "Yamagata Castle, base of the Mogami domain, was one of the largest castle layouts in Tohoku with triple moats and water gates. The central area is Kajo Park; a gate and corner turret have been reconstructed.",
+      "highlights": [
+        "Mogami domain base",
+        "Reconstructed Higashi Otemon gate",
+        "Kajo Park grounds"
+      ],
+      "notes": "Kajo Park is free; the reconstructed gate and turret are open seasonally (fee).",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "山形城",
+      "description": "最上氏の居城だった山形城。東北最大級の縄張りで、再建された東大手門と隅櫓がカジョ公園にあります。",
+      "highlights": ["最上氏の居城", "再建された東大手門", "カジョ公園の城跡"],
+      "notes": "カジョ公園は無料。再建門は季節により有料公開されます。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.yamagata-yamagata.lg.jp/",
+        "title": "Yamagata Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

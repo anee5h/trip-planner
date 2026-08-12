@@ -1,0 +1,152 @@
+{
+  "id": "sasayama-castle",
+  "name": "Sasayama Castle",
+  "nameJa": "篠山城",
+  "aliases": ["篠山城"],
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.0732,
+    "lng": 135.2177
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Hyogo"],
+  "description": "Sasayama Castle was built 1609 by Tokugawa Ieyasu to control western Japan. The 2000-reconstructed Oshoin palace hall and the castle's moats and earthen walls make it a rare castle with a restored palace interior.",
+  "highlights": [
+    "Ieyasu's west-control castle (1609)",
+    "Reconstructed Oshoin palace",
+    "Castle town setting"
+  ],
+  "notes": "The Oshoin (¥500) is open daily; the grounds are free. Pair with the preserved Sasayama castle-town streets.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.4,
+    "winter": 8,
+    "rain": 7.7,
+    "food": 7.8,
+    "photography": 9,
+    "relaxation": 8.2,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Sasayama_Castle%2C_tenshu-dai.jpg/1920px-Sasayama_Castle%2C_tenshu-dai.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Sasayama_Castle%2C_tenshu-dai.jpg/1920px-Sasayama_Castle%2C_tenshu-dai.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Saigen Jiro, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sasayama_Castle,_tenshu-dai.jpg"
+  },
+  "officialWebsite": "https://tourism.sasayama.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Hyogo:tambasasayama",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 57
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Sasayama Castle",
+      "description": "Sasayama Castle was built 1609 by Tokugawa Ieyasu to control western Japan. The 2000-reconstructed Oshoin palace hall and the castle's moats and earthen walls make it a rare castle with a restored palace interior.",
+      "highlights": [
+        "Ieyasu's west-control castle (1609)",
+        "Reconstructed Oshoin palace",
+        "Castle town setting"
+      ],
+      "notes": "The Oshoin (¥500) is open daily; the grounds are free. Pair with the preserved Sasayama castle-town streets.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "篠山城",
+      "description": "1609年、徳川家康が西国支配のために築いた篠山城。2000年に復元された大書院が見どころです。",
+      "highlights": ["家康の西国支配の城", "復元された大書院", "城下町の面影"],
+      "notes": "大書院は大人500円。城跡は無料。城下町の武家屋敷も合わせてどうぞ。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://tourism.sasayama.jp/",
+        "title": "Sasayama Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

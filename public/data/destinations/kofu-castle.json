@@ -1,0 +1,152 @@
+{
+  "id": "kofu-castle",
+  "name": "Kofu Castle",
+  "nameJa": "甲府城",
+  "aliases": ["甲府城"],
+  "prefecture": "Yamanashi",
+  "region": "Chubu",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.6653,
+    "lng": 138.5713
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Yamanashi"],
+  "description": "Kofu Castle was built 1583-1593 as the Takeda successor's base for the Tokugawa in Kai province. Its extensive white stone walls survive; the 2021-reconstructed Inui-yagura turret and panoramic view of Kofu are highlights.",
+  "highlights": [
+    "Tokugawa-era Kai castle",
+    "White stone walls",
+    "Reconstructed turret with view"
+  ],
+  "notes": "Free to walk the grounds; the Inui-yagura turret is open seasonally (fee).",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.8,
+    "couple": 8.6,
+    "summer": 8.5,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.9,
+    "photography": 9.1,
+    "relaxation": 8.3,
+    "value": 8.7,
+    "uniqueness": 9
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Kofu_Castle_201904q.jpg/1920px-Kofu_Castle_201904q.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Kofu_Castle_201904q.jpg/1920px-Kofu_Castle_201904q.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "江戸村のとくぞう, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kofu_Castle_201904q.jpg"
+  },
+  "officialWebsite": "https://www.city.kofu.yamanashi.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Yamanashi:kofu",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 25
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Kofu Castle",
+      "description": "Kofu Castle was built 1583-1593 as the Takeda successor's base for the Tokugawa in Kai province. Its extensive white stone walls survive; the 2021-reconstructed Inui-yagura turret and panoramic view of Kofu are highlights.",
+      "highlights": [
+        "Tokugawa-era Kai castle",
+        "White stone walls",
+        "Reconstructed turret with view"
+      ],
+      "notes": "Free to walk the grounds; the Inui-yagura turret is open seasonally (fee).",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open daily; hours vary by season (see official site)"
+    },
+    "ja": {
+      "name": "甲府城",
+      "description": "1583〜1593年に徳川氏が甲斐支配の拠点として築いた城。白い石垣と2021年復元の乾櫓が見どころです。",
+      "highlights": ["徳川氏の甲斐支配の拠点", "白い石垣", "復元された乾櫓"],
+      "notes": "城跡は無料。乾櫓は季節公開（有料）です。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.kofu.yamanashi.jp/",
+        "title": "Kofu Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

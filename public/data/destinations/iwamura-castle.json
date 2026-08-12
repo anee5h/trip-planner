@@ -1,0 +1,152 @@
+{
+  "id": "iwamura-castle",
+  "name": "Iwamura Castle",
+  "nameJa": "岩村城",
+  "aliases": ["岩村城"],
+  "prefecture": "Gifu",
+  "region": "Chubu",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.3603,
+    "lng": 137.4513
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Gifu"],
+  "description": "Iwamura Castle, on a 720 m peak, is one of Japan's 'three great mountain castles'. It is also famed as the castle ruled by Lady Otsu no kata, wife of the warlord Oda Nobunaga; stone walls and the castle town remain.",
+  "highlights": [
+    "One of the three great mountain castles",
+    "Oda Nobunaga connection",
+    "Stone-wall ruins and castle town"
+  ],
+  "notes": "Free open-air site; steep climb from the Iwamura Castle Town (a preserved district).",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.4,
+    "summer": 8.3,
+    "winter": 7.9,
+    "rain": 7.6,
+    "food": 7.7,
+    "photography": 8.9,
+    "relaxation": 8.1,
+    "value": 8.5,
+    "uniqueness": 8.8
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/75/Iwamurajo04.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/7/75/Iwamurajo04.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "takami torao (Koiroha (talk) 00:32, 28 June 2009 (UTC)), Public domain, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iwamurajo04.jpg"
+  },
+  "officialWebsite": "https://hot-iwamura.com/",
+  "businessHours": "Open access (castle ruins; see official site for seasonal hours)",
+  "openingHoursJa": "城跡は自由に見学可（季節により開館時間が変わる施設あり）",
+  "municipalityId": "Gifu:ena",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 38
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Iwamura Castle",
+      "description": "Iwamura Castle, on a 720 m peak, is one of Japan's 'three great mountain castles'. It is also famed as the castle ruled by Lady Otsu no kata, wife of the warlord Oda Nobunaga; stone walls and the castle town remain.",
+      "highlights": [
+        "One of the three great mountain castles",
+        "Oda Nobunaga connection",
+        "Stone-wall ruins and castle town"
+      ],
+      "notes": "Free open-air site; steep climb from the Iwamura Castle Town (a preserved district).",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open access (castle ruins; see official site for seasonal hours)"
+    },
+    "ja": {
+      "name": "岩村城",
+      "description": "標高720mに築かれた日本三大山城の一つ。織田信長の正室・おつやの方の城としても知られます。",
+      "highlights": ["日本三大山城の一つ", "織田信長との縁", "石垣と城下町"],
+      "notes": "無料の野外遺構。麓の岩村城下町は保存地区です。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "城跡は自由に見学可（季節により開館時間が変わる施設あり）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://hot-iwamura.com/",
+        "title": "Iwamura Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}

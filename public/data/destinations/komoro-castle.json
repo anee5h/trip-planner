@@ -1,0 +1,152 @@
+{
+  "id": "komoro-castle",
+  "name": "Komoro Castle",
+  "nameJa": "小諸城",
+  "aliases": ["小諸城"],
+  "prefecture": "Nagano",
+  "region": "Chubu",
+  "kind": "castle",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 36.3273,
+    "lng": 138.4172
+  },
+  "categories": ["history", "culture", "sightseeing"],
+  "tags": ["Top 100 Castle", "Castle", "History", "Nagano"],
+  "description": "Komoro Castle, a rare 'bottom-up castle' built descending into the Chikumagawa valley, was remodeled by the Sengoku warlord Sanada Masayuki. The main gate and stone walls remain; the ruins are a national historic site.",
+  "highlights": [
+    "Rare valley-descending castle",
+    "Sanada Masayuki remodel",
+    "Kaiko-en park setting"
+  ],
+  "notes": "Kaiko-en park is free; the castle ruins sit within it.",
+  "budgetMin": 1200,
+  "budgetRecommended": 4000,
+  "budgetMax": 8000,
+  "budget": {
+    "low": 1200,
+    "mid": 4000,
+    "high": 8000
+  },
+  "budgetBreakdown": {
+    "transport": 2200,
+    "tickets": 600,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {},
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 120,
+  "walkingSunMin": 80,
+  "walkingShadeMin": 40,
+  "walkingIntensity": "medium",
+  "indoorPercent": 10,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 4
+  },
+  "ratings": {
+    "overall": 8.6,
+    "couple": 8.4,
+    "summer": 8.3,
+    "winter": 7.9,
+    "rain": 7.6,
+    "food": 7.7,
+    "photography": 8.9,
+    "relaxation": 8.1,
+    "value": 8.5,
+    "uniqueness": 8.8
+  },
+  "crowd": {
+    "weekday": 3,
+    "weekend": 5,
+    "holiday": 6
+  },
+  "season": {
+    "spring": 9,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Free/paid parking near the site (varies)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Komoro_castle05s3872.jpg/1920px-Komoro_castle05s3872.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Komoro_castle05s3872.jpg/1920px-Komoro_castle05s3872.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Komoro_castle05s3872.jpg"
+  },
+  "officialWebsite": "https://www.city.komoro.lg.jp/",
+  "businessHours": "Open access (castle ruins; see official site for seasonal hours)",
+  "openingHoursJa": "城跡は自由に見学可（季節により開館時間が変わる施設あり）",
+  "municipalityId": "Nagano:komoro",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "japan-top-castles",
+      "sortOrder": 28
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Komoro Castle",
+      "description": "Komoro Castle, a rare 'bottom-up castle' built descending into the Chikumagawa valley, was remodeled by the Sengoku warlord Sanada Masayuki. The main gate and stone walls remain; the ruins are a national historic site.",
+      "highlights": [
+        "Rare valley-descending castle",
+        "Sanada Masayuki remodel",
+        "Kaiko-en park setting"
+      ],
+      "notes": "Kaiko-en park is free; the castle ruins sit within it.",
+      "reservation": "None required",
+      "parking": "Free/paid parking near the site (varies)",
+      "openingHours": "Open access (castle ruins; see official site for seasonal hours)"
+    },
+    "ja": {
+      "name": "小諸城",
+      "description": "千曲川の谷へ向かって下る珍しい「下り城」。真田昌幸が改修した小諸城の城跡は懐古園として整備されています。",
+      "highlights": ["珍しい下り城", "真田昌幸の改修", "懐古園の城跡"],
+      "notes": "懐古園内は無料で散策できます。",
+      "reservation": "予約不要",
+      "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
+      "openingHours": "城跡は自由に見学可（季節により開館時間が変わる施設あり）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.komoro.lg.jp/",
+        "title": "Komoro Castle official page",
+        "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://jokaku.jp/business/great-castles/",
+        "title": "Japan Castle Foundation 日本100名城 official list",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+  }
+}
