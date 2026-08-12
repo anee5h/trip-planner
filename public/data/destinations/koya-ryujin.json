@@ -22,9 +22,6 @@
     "min": 2,
     "max": 5
   },
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.6,
     "couple": 8.4,
@@ -37,7 +34,6 @@
     "value": 8.5,
     "uniqueness": 8.8
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Autumn_Koyasan_Wakayama01s5s3200.jpg/1920px-Autumn_Koyasan_Wakayama01s5s3200.jpg",

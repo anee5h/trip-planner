@@ -22,9 +22,6 @@
   ],
   "notes": "Designated 2015 (39,772 ha). Myoko Kogen and Togakushi are the gateways.",
   "transportOptions": {},
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.6,
     "couple": 8.4,
@@ -37,7 +34,6 @@
     "value": 8.5,
     "uniqueness": 8.8
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Drone_panorama_of_Mount_Togakushi.jpg/1920px-Drone_panorama_of_Mount_Togakushi.jpg",

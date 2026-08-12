@@ -22,9 +22,6 @@
     "min": 2,
     "max": 5
   },
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.2,
     "couple": 8,
@@ -37,7 +34,6 @@
     "value": 8.1,
     "uniqueness": 8.4
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Mt.Osorakan.jpg/1920px-Mt.Osorakan.jpg",

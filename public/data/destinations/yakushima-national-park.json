@@ -14,21 +14,18 @@
   },
   "categories": ["Nature", "Park", "Outdoors"],
   "tags": ["National Park", "国立公園", "Nature", "Kagoshima"],
-  "description": "UNESCO World Heritage island national park (2012) of primeval cedar forests and the Jomon Sugi, with granite peaks and mossy rivers in the 'island of rain'.",
+  "description": "National park (2012) of primeval Yakusugi cedar forests, the Jomon Sugi, granite peaks and mossy rivers in the 'island of rain', covering part of the Yakushima and Kuchinoerabu islands.",
   "highlights": [
-    "UNESCO World Heritage",
+    "Primeval Yakusugi cedar forests",
     "Jomon Sugi cedar",
-    "Primeval moss forests",
-    "Yakusugi land"
+    "Shiratani Unsuikyo ravine",
+    "Granite peaks and mossy rivers"
   ],
-  "notes": "Designated 2012 (24,566 ha). The Jomon Sugi hike is a full day; the Shiratani Unsuikyo ravine is an easier classic.",
+  "notes": "Designated 2012 (24,566 ha) over part of the Yakushima and Kuchinoerabu islands. The Jomon Sugi hike is a full day; the Shiratani Unsuikyo ravine is an easier classic. Note: the UNESCO World Heritage property 'Yakushima' (inscribed 1993) is a separate designation covering only part of Yakushima Island.",
   "transportOptions": {
     "ferry": 180,
     "flight": 40
   },
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 9.3,
     "couple": 9.1,
@@ -41,7 +38,6 @@
     "value": 9.2,
     "uniqueness": 9.5
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Shiratani_Unsui_Gorge_01.jpg/1920px-Shiratani_Unsui_Gorge_01.jpg",
@@ -71,28 +67,28 @@
   "content": {
     "en": {
       "name": "Yakushima (Island) National Park",
-      "description": "UNESCO World Heritage island national park (2012) of primeval cedar forests and the Jomon Sugi, with granite peaks and mossy rivers in the 'island of rain'.",
+      "description": "National park (2012) of primeval Yakusugi cedar forests, the Jomon Sugi, granite peaks and mossy rivers in the 'island of rain', covering part of the Yakushima and Kuchinoerabu islands.",
       "highlights": [
-        "UNESCO World Heritage",
+        "Primeval Yakusugi cedar forests",
         "Jomon Sugi cedar",
-        "Primeval moss forests",
-        "Yakusugi land"
+        "Shiratani Unsuikyo ravine",
+        "Granite peaks and mossy rivers"
       ],
-      "notes": "Designated 2012 (24,566 ha). The Jomon Sugi hike is a full day; the Shiratani Unsuikyo ravine is an easier classic.",
+      "notes": "Designated 2012 (24,566 ha) over part of the Yakushima and Kuchinoerabu islands. The Jomon Sugi hike is a full day; the Shiratani Unsuikyo ravine is an easier classic. Note: the UNESCO World Heritage property 'Yakushima' (inscribed 1993) is a separate designation covering only part of Yakushima Island.",
       "reservation": "None required",
       "parking": "Parking available at major visitor areas (fee varies)",
       "openingHours": "Open access (park; facility hours vary by season and area)"
     },
     "ja": {
       "name": "屋久島国立公園",
-      "description": "世界遺産に登録された島全体が国立公園（2012年指定）。原生の杉林と縄文杉、花崗岩の峰々、苔むした川が広がる“雨の島”ならではの景観を擁します。",
+      "description": "2012年指定の国立公園。屋久島・口永良部島の景観の一部を対象とし、原生の屋久杉林、縄文杉、花崗岩の峰々、苔むした川が広がる“雨の島”ならではの景観を擁します。※ユネスコ世界遺産「屋久島」（1993年登録）は別指定で、屋久島の一部のみを対象とします。",
       "highlights": [
-        "世界遺産",
+        "原生の屋久杉林",
         "縄文杉",
-        "原生の苔むした森",
-        "ヤクスギランド"
+        "白谷雲水峡",
+        "花崗岩の峰々と苔むした川"
       ],
-      "notes": "2012年指定（24,566 ha）。縄文杉トレッキングは1日がかり。白谷雲水峡はより手軽な定番コースです。",
+      "notes": "2012年指定（24,566 ha）で屋久島・口永良部島の一部を対象。縄文杉トレッキングは1日がかり。白谷雲水峡はより手軽な定番コースです。",
       "reservation": "予約不要",
       "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
       "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"

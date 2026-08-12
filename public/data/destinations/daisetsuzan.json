@@ -23,9 +23,6 @@
   ],
   "notes": "Designated 1934 (226,764 ha). Sounkyo and Asahidake are the gateways; trails are snow-free roughly July-October.",
   "transportOptions": {},
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 9.2,
     "couple": 9,
@@ -38,7 +35,6 @@
     "value": 9.1,
     "uniqueness": 9.4
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Volcanic_degassing_at_snow_covered_Mount_Asahi_%28Daisetsuzan%29%2C_April_2023_01.jpg/1920px-Volcanic_degassing_at_snow_covered_Mount_Asahi_%28Daisetsuzan%29%2C_April_2023_01.jpg",

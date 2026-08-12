@@ -23,9 +23,6 @@
   ],
   "notes": "Designated 1934 (174,323 ha). Kamikochi is car-free and reachable from Matsumoto; the Alpine Route crosses by cable car and trolley bus.",
   "transportOptions": {},
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 9.2,
     "couple": 9,
@@ -38,7 +35,6 @@
     "value": 9.1,
     "uniqueness": 9.4
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mount_Tate_and_Mount_Tsurugi_from_Mount_Nunobiki.jpg/1920px-Mount_Tate_and_Mount_Tsurugi_from_Mount_Nunobiki.jpg",

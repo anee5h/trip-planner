@@ -22,9 +22,6 @@
   ],
   "notes": "Designated 1964 (35,752 ha). Serious hiking country; the Hirogawara and Notori trails are the standard approaches.",
   "transportOptions": {},
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.8,
     "couple": 8.6,
@@ -37,7 +34,6 @@
     "value": 8.7,
     "uniqueness": 9
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Mt.Kitadake%2C_Minami_Alps_National_Park.jpg/1920px-Mt.Kitadake%2C_Minami_Alps_National_Park.jpg",

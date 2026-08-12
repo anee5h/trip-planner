@@ -22,9 +22,6 @@
   ],
   "notes": "Designated 1936 (85,534 ha). The Oirase walking path and Towada cruise are classics; Hachimantai is a ski and onsen area.",
   "transportOptions": {},
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.7,
     "couple": 8.5,
@@ -37,7 +34,6 @@
     "value": 8.6,
     "uniqueness": 8.9
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/04/Towada-Hachimantai_National_Park.jpg",

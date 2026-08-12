@@ -29,7 +29,6 @@
     "max": 5
   },
   "walkingMin": 150,
-  "walkingIntensity": "medium",
   "indoorPercent": 10,
   "ratings": {
     "overall": 9.2,
@@ -44,7 +43,6 @@
     "uniqueness": 9.4,
     "walkability": 7
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Japan%2C_Okinawa%2C_Kerama_islands_-_view_from_Zamami_island_2018.webm/1920px--Japan%2C_Okinawa%2C_Kerama_islands_-_view_from_Zamami_island_2018.webm.jpg",

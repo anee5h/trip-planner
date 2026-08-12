@@ -26,7 +26,6 @@
     "ferry": 40
   },
   "walkingMin": 240,
-  "walkingIntensity": "medium",
   "indoorPercent": 5,
   "ratings": {
     "overall": 9.1,
@@ -41,7 +40,6 @@
     "uniqueness": 9.3,
     "walkability": 7
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Iriomote-Ishigaki_National_Park_banner.jpg/1920px-Iriomote-Ishigaki_National_Park_banner.jpg",

@@ -22,9 +22,6 @@
     "min": 2,
     "max": 5
   },
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.3,
     "couple": 8.1,
@@ -37,7 +34,6 @@
     "value": 8.2,
     "uniqueness": 8.5
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/cf/CAPE_KONBUMORI_LIGHTHOUSE.JPG",

@@ -29,9 +29,6 @@
     "min": 3,
     "max": 8
   },
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.2,
     "couple": 8,
@@ -44,7 +41,6 @@
     "value": 8.1,
     "uniqueness": 8.4
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mount_Ontake_%28Morgenrot_zoom%29.JPG/1920px-Mount_Ontake_%28Morgenrot_zoom%29.JPG",

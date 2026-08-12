@@ -24,9 +24,6 @@
     "min": 2,
     "max": 5
   },
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 9.2,
     "couple": 9,
@@ -39,7 +36,6 @@
     "value": 9.1,
     "uniqueness": 9.4
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Summit_%40_Mount_Takao_%289876503685%29.jpg/1920px-Summit_%40_Mount_Takao_%289876503685%29.jpg",

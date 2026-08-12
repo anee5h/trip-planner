@@ -29,9 +29,6 @@
     "min": 5,
     "max": 9
   },
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.4,
     "couple": 8.2,
@@ -44,7 +41,6 @@
     "value": 8.3,
     "uniqueness": 8.6
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/24/Mount_Ishizuchi.jpg",

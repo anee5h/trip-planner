@@ -18,9 +18,6 @@
   "highlights": ["Lake Toya caldera", "Usu volcano", "Shikotsu lake cruises"],
   "notes": "Designated 1949 (99,473 ha). Toyako Onsen is the base; the Usuzan ropeway surveys the 2000 eruption site.",
   "transportOptions": {},
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 9,
     "couple": 8.8,
@@ -33,7 +30,6 @@
     "value": 8.9,
     "uniqueness": 9.2
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Laketoya_01.jpg",

@@ -22,9 +22,6 @@
     "min": 2,
     "max": 5
   },
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.9,
     "couple": 8.7,
@@ -37,7 +34,6 @@
     "value": 8.8,
     "uniqueness": 9.1
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Tottori-Sakyu_Tottori_Japan.JPG/1920px-Tottori-Sakyu_Tottori_Japan.JPG",

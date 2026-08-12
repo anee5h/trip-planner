@@ -22,9 +22,6 @@
   ],
   "notes": "Designated 1934 (91,413 ha). Lake Mashu's observation decks are free; Akan is famous for marimo and the Ainu kotan.",
   "transportOptions": {},
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 9.1,
     "couple": 8.9,
@@ -37,7 +34,6 @@
     "value": 9,
     "uniqueness": 9.3
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Mud_pot%2C_Akan_National_Park%2C_Japan.jpg/1920px-Mud_pot%2C_Akan_National_Park%2C_Japan.jpg",

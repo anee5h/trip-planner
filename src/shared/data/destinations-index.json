@@ -50723,19 +50723,12 @@
       "value": 8,
       "uniqueness": 8
     },
-    "indoorPercent": 0,
     "coordinates": {
       "lat": 36.9333,
       "lng": 139.2333
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mt.Shibutsu_16.jpg/1280px-Mt.Shibutsu_16.jpg",
     "prefecture": "Gunma",
-    "walkingMin": 60,
-    "transportOptions": {
-      "car": 200,
-      "train": 150,
-      "bus": 180
-    },
     "highlights": [
       "Wooden Boardwalk Wetland Hikes",
       "Mizubashou Water Plant Flowers",
@@ -50752,9 +50745,6 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Oze%20National%20Park"
     },
     "status": "published",
-    "travelEstimate": {
-      "confidence": "high"
-    },
     "collections": [
       {
         "collectionId": "national-parks-japan",
@@ -50764,10 +50754,8 @@
     "relationships": {
       "parentDestinationId": "minakami-town"
     },
-    "weatherDependence": "moderate",
     "reservation": "Open access; no entrance reservation required.",
     "parking": "Park parking lot available on site.",
-    "walkingIntensity": "high",
     "role": "standalone",
     "placeType": "destination",
     "ratingsSchemaVersion": 2,
@@ -58049,21 +58037,15 @@
     "name": "Shiretoko",
     "prefecture": "Hokkaido",
     "region": "Hokkaido",
-    "categories": ["World Heritage", "Culture", "Sightseeing"],
+    "categories": ["World Heritage", "Nature", "Sightseeing"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg/1280px-Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg",
-    "description": "Shiretoko is a UNESCO World Heritage Site in Hokkaido, designated for its outstanding universal cultural or natural value.",
+    "description": "National park (1964) on the Shiretoko Peninsula in eastern Hokkaido — drift ice, brown bears, Steller's sea eagles, waterfalls and primeval forest. The peninsula was inscribed as a UNESCO World Heritage Site (2005) for its natural value.",
     "highlights": [
-      "UNESCO Heritage Monument",
-      "Historic Landmark",
-      "Cultural Preservation Area"
+      "Drift ice and Shiretoko Five Lakes",
+      "Brown bears and Steller's sea eagles",
+      "Waterfalls and primeval forest",
+      "Peninsula wilderness"
     ],
-    "transportOptions": {
-      "train": 45,
-      "bus": 50,
-      "car": 60
-    },
-    "walkingMin": 120,
-    "indoorPercent": 35,
     "ratings": {
       "overall": 9.2,
       "couple": 9,
@@ -58076,10 +58058,9 @@
       "value": 9.2,
       "uniqueness": 9.5
     },
-    "weatherDependence": "moderate",
     "tags": ["UNESCO World Heritage", "Shiretoko", "Hokkaido"],
-    "reservation": "Not required",
-    "parking": "Available nearby",
+    "reservation": "Not required (guided access to the Shiretoko Five Lakes in bear season)",
+    "parking": "Parking at Utoro, Rausu and major trailheads",
     "notes": "Designated 1964 (38,954 ha). Entry to the Five Lakes area is guided in bear season; the Utoro visitor center is the gateway.",
     "coordinates": {
       "lat": 44.06,
@@ -58093,9 +58074,6 @@
       "attribution": "Lead photograph of Shiretoko via Wikipedia/Wikimedia Commons"
     },
     "status": "verified",
-    "travelEstimate": {
-      "confidence": "high"
-    },
     "collections": [
       {
         "collectionId": "unesco-japan",
@@ -58115,7 +58093,6 @@
       "gatewayHubId": "abashiri-city"
     },
     "nameJa": "知床",
-    "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
     "ratingsSchemaVersion": 2,
@@ -58124,11 +58101,10 @@
       "max": 7
     },
     "officialWebsite": "https://www.env.go.jp/park/shiretoko/",
-    "businessHours": "09:00 - 17:00 (Daily)",
     "ratingMetadata": {
       "rubricVersion": 2,
       "method": "assisted",
-      "confidence": "high"
+      "confidence": "medium"
     }
   },
   {
@@ -122114,9 +122090,6 @@
     "transportOptions": {
       "ferry": 110
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.5,
       "couple": 8.3,
@@ -122129,7 +122102,6 @@
       "value": 8.4,
       "uniqueness": 8.7
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Lava_rocks%2C_Senhoshi_Misaki_Park%2C_Rishiri_Island%2C_Japan.jpg/1920px-Lava_rocks%2C_Senhoshi_Misaki_Park%2C_Rishiri_Island%2C_Japan.jpg",
@@ -122237,9 +122209,6 @@
     ],
     "notes": "Designated 1934 (91,413 ha). Lake Mashu's observation decks are free; Akan is famous for marimo and the Ainu kotan.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 9.1,
       "couple": 8.9,
@@ -122252,7 +122221,6 @@
       "value": 9.0,
       "uniqueness": 9.3
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Mud_pot%2C_Akan_National_Park%2C_Japan.jpg/1920px-Mud_pot%2C_Akan_National_Park%2C_Japan.jpg",
@@ -122363,9 +122331,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.8,
       "couple": 8.6,
@@ -122378,7 +122343,6 @@
       "value": 8.7,
       "uniqueness": 9.0
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Kushiro_Marsh_Wetland_Hokkaido_Panorama_2014.png/1920px-Kushiro_Marsh_Wetland_Hokkaido_Panorama_2014.png",
@@ -122482,9 +122446,6 @@
     ],
     "notes": "Designated 1934 (226,764 ha). Sounkyo and Asahidake are the gateways; trails are snow-free roughly July-October.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 9.2,
       "couple": 9.0,
@@ -122497,7 +122458,6 @@
       "value": 9.1,
       "uniqueness": 9.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Volcanic_degassing_at_snow_covered_Mount_Asahi_%28Daisetsuzan%29%2C_April_2023_01.jpg/1920px-Volcanic_degassing_at_snow_covered_Mount_Asahi_%28Daisetsuzan%29%2C_April_2023_01.jpg",
@@ -122610,9 +122570,6 @@
     ],
     "notes": "Designated 2024-06-25 (245,668 ha). Cape Erimo's cliffs and the Hidaka backcountry hiking are the draws.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -122625,7 +122582,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Hidaka_Mountains_modified.jpg/1920px-Hidaka_Mountains_modified.jpg",
@@ -122732,9 +122688,6 @@
     "highlights": ["Lake Toya caldera", "Usu volcano", "Shikotsu lake cruises"],
     "notes": "Designated 1949 (99,473 ha). Toyako Onsen is the base; the Usuzan ropeway surveys the 2000 eruption site.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 9.0,
       "couple": 8.8,
@@ -122747,7 +122700,6 @@
       "value": 8.9,
       "uniqueness": 9.2
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Laketoya_01.jpg",
@@ -122854,9 +122806,6 @@
     ],
     "notes": "Designated 1936 (85,534 ha). The Oirase walking path and Towada cruise are classics; Hachimantai is a ski and onsen area.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.7,
       "couple": 8.5,
@@ -122869,7 +122818,6 @@
       "value": 8.6,
       "uniqueness": 8.9
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/04/Towada-Hachimantai_National_Park.jpg",
@@ -122972,9 +122920,6 @@
     "highlights": ["Ria coastline cliffs", "Jodogahama beach", "Taro coast"],
     "notes": "Designated 1955 (as Rikuchu Kaigan; expanded/renamed 2013, 28,539 ha) after the 2011 disaster; the reconstruction story is part of the park.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.9,
       "couple": 8.7,
@@ -122987,7 +122932,6 @@
       "value": 8.8,
       "uniqueness": 9.1
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/20/RikuchuKaigan.jpg",
@@ -123098,9 +123042,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.8,
       "couple": 8.6,
@@ -123113,7 +123054,6 @@
       "value": 8.7,
       "uniqueness": 9.0
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Aizuwakamatsu_and_Goshikinuma_-_Goshikinuma7492.jpg/1920px-Aizuwakamatsu_and_Goshikinuma_-_Goshikinuma7492.jpg",
@@ -123216,9 +123156,6 @@
       "min": 4,
       "max": 8
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 9.1,
       "couple": 8.9,
@@ -123231,7 +123168,6 @@
       "value": 9.0,
       "uniqueness": 9.3
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Kegon_Falls%2C_Nikk%C5%8D_National_Park_%28%E8%8F%AF%E5%8E%B3%E6%BB%9D%2C_%E6%97%A5%E5%85%89%E5%9B%BD%E7%AB%8B%E5%85%AC%E5%9C%92%29_%281967-05-06_by_Roger_W%29.jpg",
@@ -123334,9 +123270,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.7,
       "couple": 8.5,
@@ -123349,7 +123282,6 @@
       "value": 8.6,
       "uniqueness": 8.9
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/2024-10-22_J%C5%8Dshin%27etsu-k%C5%8Dgen_National_Park%2C_Shijuhachiike_marsh.jpg/1920px-2024-10-22_J%C5%8Dshin%27etsu-k%C5%8Dgen_National_Park%2C_Shijuhachiike_marsh.jpg",
@@ -123452,9 +123384,6 @@
     ],
     "notes": "Designated 2015 (39,772 ha). Myoko Kogen and Togakushi are the gateways.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -123467,7 +123396,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Drone_panorama_of_Mount_Togakushi.jpg/1920px-Drone_panorama_of_Mount_Togakushi.jpg",
@@ -123574,9 +123502,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.7,
       "couple": 8.5,
@@ -123589,7 +123514,6 @@
       "value": 8.6,
       "uniqueness": 8.9
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Chichibu-tama-kai_National_Park.JPG",
@@ -123684,21 +123608,18 @@
     },
     "categories": ["Nature", "Park", "Outdoors"],
     "tags": ["National Park", "国立公園", "Nature", "Tokyo"],
-    "description": "UNESCO World Heritage island national park (1972) 1,000 km south of Tokyo, with endemic species, whale-watching and the coral seas of Chichijima and Hahajima.",
+    "description": "National park (1972) 1,000 km south of Tokyo spanning the islands and surrounding seas of Chichijima and Hahajima, with endemic species, whale-watching and coral seas.",
     "highlights": [
-      "UNESCO World Heritage",
       "Endemic species",
       "Whale-watching",
-      "Remote islands"
+      "Chichijima and Hahajima",
+      "Coral seas of remote islands"
     ],
-    "notes": "Designated 1972 (6,629 ha). Reachable only by the 24-hour Ogasawara ferry from Tokyo; plan a week.",
+    "notes": "Designated 1972 (6,629 ha). The UNESCO World Heritage property 'Ogasawara Islands' (inscribed 2011) is a separate designation. Reachable only by the 24-hour Ogasawara ferry from Tokyo; plan a week.",
     "transportOptions": {
       "ferry": 1440,
       "bus": 30
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.8,
       "couple": 8.6,
@@ -123711,7 +123632,6 @@
       "value": 8.7,
       "uniqueness": 9.0
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Katsuodorijima_and_tairajima%2CAnejima.jpg/1920px-Katsuodorijima_and_tairajima%2CAnejima.jpg",
@@ -123741,26 +123661,26 @@
     "content": {
       "en": {
         "name": "Ogasawara National Park",
-        "description": "UNESCO World Heritage island national park (1972) 1,000 km south of Tokyo, with endemic species, whale-watching and the coral seas of Chichijima and Hahajima.",
+        "description": "National park (1972) 1,000 km south of Tokyo spanning the islands and surrounding seas of Chichijima and Hahajima, with endemic species, whale-watching and coral seas.",
         "highlights": [
-          "UNESCO World Heritage",
           "Endemic species",
           "Whale-watching",
-          "Remote islands"
+          "Chichijima and Hahajima",
+          "Coral seas of remote islands"
         ],
-        "notes": "Designated 1972 (6,629 ha). Reachable only by the 24-hour Ogasawara ferry from Tokyo; plan a week.",
+        "notes": "Designated 1972 (6,629 ha). The UNESCO World Heritage property 'Ogasawara Islands' (inscribed 2011) is a separate designation. Reachable only by the 24-hour Ogasawara ferry from Tokyo; plan a week.",
         "reservation": "None required",
         "parking": "Parking available at major visitor areas (fee varies)",
         "openingHours": "Open access (park; facility hours vary by season and area)"
       },
       "ja": {
         "name": "小笠原国立公園",
-        "description": "東京から約1,000km南、1972年指定の国立公園でユネスコ世界遺産の島々。固有種やホエールウォッチング、父島・母島のサンゴ礁の海が魅力。",
+        "description": "東京から約1,000km南、1972年指定の国立公園。父島・母島とその周辺海域を対象とし、固有種やホエールウォッチング、サンゴ礁の海が魅力です。※ユネスコ世界遺産「小笠原諸島」（2011年登録）は別指定です。",
         "highlights": [
-          "ユネスコ世界遺産",
           "固有種",
           "ホエールウォッチング",
-          "離島"
+          "父島・母島",
+          "離島のサンゴ礁の海"
         ],
         "notes": "1972年指定（6,629ha）。東京からは小笠原フェリーで片道24時間のみ。1週間の計画を。",
         "reservation": "予約不要",
@@ -123830,9 +123750,6 @@
       "min": 6,
       "max": 8
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 9.3,
       "couple": 9.1,
@@ -123845,7 +123762,6 @@
       "value": 9.2,
       "uniqueness": 9.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Fuji-Hakone-Izu_National_Park_banner.jpg/1920px-Fuji-Hakone-Izu_National_Park_banner.jpg",
@@ -123955,9 +123871,6 @@
     ],
     "notes": "Designated 1934 (174,323 ha). Kamikochi is car-free and reachable from Matsumoto; the Alpine Route crosses by cable car and trolley bus.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 9.2,
       "couple": 9.0,
@@ -123970,7 +123883,6 @@
       "value": 9.1,
       "uniqueness": 9.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mount_Tate_and_Mount_Tsurugi_from_Mount_Nunobiki.jpg/1920px-Mount_Tate_and_Mount_Tsurugi_from_Mount_Nunobiki.jpg",
@@ -124079,9 +123991,6 @@
     "highlights": ["Mt. Hakusan holy peak", "Alpine flowers", "Hakusan shrine"],
     "notes": "Designated 1962 (49,900 ha). The Ichinose trailhead and the Murodo plateau are the climbing gates.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -124094,7 +124003,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/2024-10-25_Hakusan_National_Park_02.jpg/1920px-2024-10-25_Hakusan_National_Park_02.jpg",
@@ -124201,9 +124109,6 @@
     ],
     "notes": "Designated 1964 (35,752 ha). Serious hiking country; the Hirogawara and Notori trails are the standard approaches.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.8,
       "couple": 8.6,
@@ -124216,7 +124121,6 @@
       "value": 8.7,
       "uniqueness": 9.0
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Mt.Kitadake%2C_Minami_Alps_National_Park.jpg/1920px-Mt.Kitadake%2C_Minami_Alps_National_Park.jpg",
@@ -124327,9 +124231,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.7,
       "couple": 8.5,
@@ -124342,7 +124243,6 @@
       "value": 8.6,
       "uniqueness": 8.9
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/19/Ago_Bay_and_Takami_Mountains.jpg",
@@ -124454,9 +124354,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 9.0,
       "couple": 8.8,
@@ -124469,7 +124366,6 @@
       "value": 8.9,
       "uniqueness": 9.2
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Nachikatsuura_Kumano-Nachi-taisha_Hiro-jinja_Nachi_Falls_06.jpg/1920px-Nachikatsuura_Kumano-Nachi-taisha_Hiro-jinja_Nachi_Falls_06.jpg",
@@ -124577,9 +124473,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.9,
       "couple": 8.7,
@@ -124592,7 +124485,6 @@
       "value": 8.8,
       "uniqueness": 9.1
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Tottori-Sakyu_Tottori_Japan.JPG/1920px-Tottori-Sakyu_Tottori_Japan.JPG",
@@ -124699,9 +124591,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 9.0,
       "couple": 8.8,
@@ -124714,7 +124603,6 @@
       "value": 8.9,
       "uniqueness": 9.2
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/89/SetonaikaiNP.jpg",
@@ -124817,9 +124705,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.8,
       "couple": 8.6,
@@ -124832,7 +124717,6 @@
       "value": 8.7,
       "uniqueness": 9.0
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Daisen_highest_peak.jpg/1920px-Daisen_highest_peak.jpg",
@@ -124935,9 +124819,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -124950,7 +124831,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Ashizurimisaki.jpg",
@@ -125053,9 +124933,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.9,
       "couple": 8.7,
@@ -125068,7 +124945,6 @@
       "value": 8.8,
       "uniqueness": 9.1
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/%E4%B9%9D%E5%8D%81%E4%B9%9D%E5%B3%B6_%E8%A5%BF%E6%B5%B7%E5%9B%BD%E7%AB%8B%E5%85%AC%E5%9C%92_Apr_27%2C_2008.jpg/1920px-%E4%B9%9D%E5%8D%81%E4%B9%9D%E5%B3%B6_%E8%A5%BF%E6%B5%B7%E5%9B%BD%E7%AB%8B%E5%85%AC%E5%9C%92_Apr_27%2C_2008.jpg",
@@ -125171,9 +125047,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.7,
       "couple": 8.5,
@@ -125186,7 +125059,6 @@
       "value": 8.6,
       "uniqueness": 8.9
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/140322_Unzen_Onsen_Nagasaki_pref_Japan01s3.jpg/1920px-140322_Unzen_Onsen_Nagasaki_pref_Japan01s3.jpg",
@@ -125294,9 +125166,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 9.0,
       "couple": 8.8,
@@ -125309,7 +125178,6 @@
       "value": 8.9,
       "uniqueness": 9.2
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Aso-Kuju_green_hills_%2852133519619%29.jpg/1920px-Aso-Kuju_green_hills_%2852133519619%29.jpg",
@@ -125422,9 +125290,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.9,
       "couple": 8.7,
@@ -125437,7 +125302,6 @@
       "value": 8.8,
       "uniqueness": 9.1
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Ohachi_from_Takachiho-no-mine.jpg/1920px-Ohachi_from_Takachiho-no-mine.jpg",
@@ -125532,21 +125396,18 @@
     },
     "categories": ["Nature", "Park", "Outdoors"],
     "tags": ["National Park", "国立公園", "Nature", "Kagoshima"],
-    "description": "UNESCO World Heritage island national park (2012) of primeval cedar forests and the Jomon Sugi, with granite peaks and mossy rivers in the 'island of rain'.",
+    "description": "National park (2012) of primeval Yakusugi cedar forests, the Jomon Sugi, granite peaks and mossy rivers in the 'island of rain', covering part of the Yakushima and Kuchinoerabu islands.",
     "highlights": [
-      "UNESCO World Heritage",
+      "Primeval Yakusugi cedar forests",
       "Jomon Sugi cedar",
-      "Primeval moss forests",
-      "Yakusugi land"
+      "Shiratani Unsuikyo ravine",
+      "Granite peaks and mossy rivers"
     ],
-    "notes": "Designated 2012 (24,566 ha). The Jomon Sugi hike is a full day; the Shiratani Unsuikyo ravine is an easier classic.",
+    "notes": "Designated 2012 (24,566 ha) over part of the Yakushima and Kuchinoerabu islands. The Jomon Sugi hike is a full day; the Shiratani Unsuikyo ravine is an easier classic. Note: the UNESCO World Heritage property 'Yakushima' (inscribed 1993) is a separate designation covering only part of Yakushima Island.",
     "transportOptions": {
       "ferry": 180,
       "flight": 40
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 9.3,
       "couple": 9.1,
@@ -125559,7 +125420,6 @@
       "value": 9.2,
       "uniqueness": 9.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Shiratani_Unsui_Gorge_01.jpg/1920px-Shiratani_Unsui_Gorge_01.jpg",
@@ -125589,28 +125449,28 @@
     "content": {
       "en": {
         "name": "Yakushima (Island) National Park",
-        "description": "UNESCO World Heritage island national park (2012) of primeval cedar forests and the Jomon Sugi, with granite peaks and mossy rivers in the 'island of rain'.",
+        "description": "National park (2012) of primeval Yakusugi cedar forests, the Jomon Sugi, granite peaks and mossy rivers in the 'island of rain', covering part of the Yakushima and Kuchinoerabu islands.",
         "highlights": [
-          "UNESCO World Heritage",
+          "Primeval Yakusugi cedar forests",
           "Jomon Sugi cedar",
-          "Primeval moss forests",
-          "Yakusugi land"
+          "Shiratani Unsuikyo ravine",
+          "Granite peaks and mossy rivers"
         ],
-        "notes": "Designated 2012 (24,566 ha). The Jomon Sugi hike is a full day; the Shiratani Unsuikyo ravine is an easier classic.",
+        "notes": "Designated 2012 (24,566 ha) over part of the Yakushima and Kuchinoerabu islands. The Jomon Sugi hike is a full day; the Shiratani Unsuikyo ravine is an easier classic. Note: the UNESCO World Heritage property 'Yakushima' (inscribed 1993) is a separate designation covering only part of Yakushima Island.",
         "reservation": "None required",
         "parking": "Parking available at major visitor areas (fee varies)",
         "openingHours": "Open access (park; facility hours vary by season and area)"
       },
       "ja": {
         "name": "屋久島国立公園",
-        "description": "世界遺産に登録された島全体が国立公園（2012年指定）。原生の杉林と縄文杉、花崗岩の峰々、苔むした川が広がる“雨の島”ならではの景観を擁します。",
+        "description": "2012年指定の国立公園。屋久島・口永良部島の景観の一部を対象とし、原生の屋久杉林、縄文杉、花崗岩の峰々、苔むした川が広がる“雨の島”ならではの景観を擁します。※ユネスコ世界遺産「屋久島」（1993年登録）は別指定で、屋久島の一部のみを対象とします。",
         "highlights": [
-          "世界遺産",
+          "原生の屋久杉林",
           "縄文杉",
-          "原生の苔むした森",
-          "ヤクスギランド"
+          "白谷雲水峡",
+          "花崗岩の峰々と苔むした川"
         ],
-        "notes": "2012年指定（24,566 ha）。縄文杉トレッキングは1日がかり。白谷雲水峡はより手軽な定番コースです。",
+        "notes": "2012年指定（24,566 ha）で屋久島・口永良部島の一部を対象。縄文杉トレッキングは1日がかり。白谷雲水峡はより手軽な定番コースです。",
         "reservation": "予約不要",
         "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
         "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
@@ -125676,9 +125536,6 @@
       "ferry": 780,
       "flight": 120
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -125691,7 +125548,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Mangrove_forest_in_Amami_Oshima.jpg/1920px-Mangrove_forest_in_Amami_Oshima.jpg",
@@ -125807,7 +125663,6 @@
       "car": 90
     },
     "walkingMin": 180,
-    "walkingIntensity": "medium",
     "indoorPercent": 5,
     "ratings": {
       "overall": 8.5,
@@ -125822,7 +125677,6 @@
       "uniqueness": 8.7,
       "walkability": 7
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Subtropical_Forest_of_Yanbaru_National_Park_Okinawa_2018.jpg/1920px-Subtropical_Forest_of_Yanbaru_National_Park_Okinawa_2018.jpg",
@@ -125954,7 +125808,6 @@
       "max": 5
     },
     "walkingMin": 150,
-    "walkingIntensity": "medium",
     "indoorPercent": 10,
     "ratings": {
       "overall": 9.2,
@@ -125969,7 +125822,6 @@
       "uniqueness": 9.4,
       "walkability": 7
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Japan%2C_Okinawa%2C_Kerama_islands_-_view_from_Zamami_island_2018.webm/1920px--Japan%2C_Okinawa%2C_Kerama_islands_-_view_from_Zamami_island_2018.webm.jpg",
@@ -126095,7 +125947,6 @@
       "ferry": 40
     },
     "walkingMin": 240,
-    "walkingIntensity": "medium",
     "indoorPercent": 5,
     "ratings": {
       "overall": 9.1,
@@ -126110,7 +125961,6 @@
       "uniqueness": 9.3,
       "walkability": 7
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Iriomote-Ishigaki_National_Park_banner.jpg/1920px-Iriomote-Ishigaki_National_Park_banner.jpg",
@@ -126234,9 +126084,6 @@
     "highlights": ["Sea-cliff islands", "Mt. Shokanbetsu", "Seabird colonies"],
     "notes": "Designated by MOE; managed by Hokkaido. Ferry from Haboro reaches the islands.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -126249,7 +126096,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Mt._Kogane_20150429.jpg/1920px-Mt._Kogane_20150429.jpg",
@@ -126356,9 +126202,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -126371,7 +126214,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Lake_Saroma.jpg",
@@ -126470,9 +126312,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.5,
       "couple": 8.3,
@@ -126485,7 +126324,6 @@
       "value": 8.4,
       "uniqueness": 8.7
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/130823_Shimamui_Coast_Shakotan_Hokkaido_Japan01s3.jpg/1920px-130823_Shimamui_Coast_Shakotan_Hokkaido_Japan01s3.jpg",
@@ -126584,9 +126422,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -126599,7 +126434,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Late_autumn_in_Onuma_Quasi_National_Park.jpg/1920px-Late_autumn_in_Onuma_Quasi_National_Park.jpg",
@@ -126702,9 +126536,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -126717,7 +126548,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/cf/CAPE_KONBUMORI_LIGHTHOUSE.JPG",
@@ -126812,9 +126642,6 @@
     "highlights": ["Osorezan holy site", "Hotokegaura cliffs", "Cape forests"],
     "notes": "Managed by Aomori. Osorezan's memorial temple is the peninsula's famous pilgrimage.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -126827,7 +126654,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Hotokegaura_aomori_prefecture_2006-10-08.jpg/1920px-Hotokegaura_aomori_prefecture_2006-10-08.jpg",
@@ -126934,9 +126760,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -126949,7 +126772,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Coast_of_Tsugaru_Quasi-National_Park_in_Fukaura_01.jpg/1920px-Coast_of_Tsugaru_Quasi-National_Park_in_Fukaura_01.jpg",
@@ -127044,9 +126866,6 @@
     "highlights": ["Mt. Hayachine peak", "Alpine flora", "Summit shrine"],
     "notes": "Managed by Iwate. The mountain is a full-day hike from the trailhead.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -127059,7 +126878,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Mount_Hayachine_1.JPG/1920px-Mount_Hayachine_1.JPG",
@@ -127158,9 +126976,6 @@
     "highlights": ["Kurikoma crater lakes", "Alpine meadows", "Autumn colors"],
     "notes": "Managed by Miyagi. The summit and the Iwakagami pond are the classic routes.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -127173,7 +126988,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Mt_KAMURO_at_MIYAGI_2.JPG",
@@ -127284,9 +127098,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.8,
       "couple": 8.6,
@@ -127299,7 +127110,6 @@
       "value": 8.7,
       "uniqueness": 9.0
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Zao_L.Okama.JPG/1920px-Zao_L.Okama.JPG",
@@ -127406,9 +127216,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -127421,7 +127228,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Ninomegata_Maar_and_Toga_port_from_Hachibodai.JPG/1920px-Ninomegata_Maar_and_Toga_port_from_Hachibodai.JPG",
@@ -127520,9 +127326,6 @@
     "highlights": ["Mt. Chokai sacred peak", "Alpine flowers", "Shonai plains"],
     "notes": "Managed by Yamagata. The mountain and the Kisakata coast are the park's two faces.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -127535,7 +127338,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg/1920px-Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg",
@@ -127638,9 +127440,6 @@
     "highlights": ["Echigo mountains", "Okutadami lake", "Tadami gorge"],
     "notes": "Managed by Niigata/Fukushima. The Kanetsu expressway and Okutadami access roads reach the park.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -127653,7 +127452,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Lake_Tagokurako-1.JPG/1920px-Lake_Tagokurako-1.JPG",
@@ -127756,9 +127554,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -127771,7 +127566,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Lake_Kasumigaura_and_Mt.Tsukuba%2CInashiki-city%2CJapan.JPG/1920px-Lake_Kasumigaura_and_Mt.Tsukuba%2CInashiki-city%2CJapan.JPG",
@@ -127870,9 +127664,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -127885,7 +127676,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Jikkoku-Toge-pass.jpg",
@@ -127988,9 +127778,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -128003,7 +127790,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Chiba_Suzumejima_sunset_xl.jpg/1920px-Chiba_Suzumejima_sunset_xl.jpg",
@@ -128108,9 +127894,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 9.2,
       "couple": 9.0,
@@ -128123,7 +127906,6 @@
       "value": 9.1,
       "uniqueness": 9.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Summit_%40_Mount_Takao_%289876503685%29.jpg/1920px-Summit_%40_Mount_Takao_%289876503685%29.jpg",
@@ -128222,9 +128004,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -128237,7 +128016,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Tanzawa_Mountains_2011-12-30.jpg/1920px-Tanzawa_Mountains_2011-12-30.jpg",
@@ -128339,9 +128117,6 @@
       "ferry": 150,
       "train": 60
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -128354,7 +128129,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/92/Mt.Yahiko_from_Sakae_PA.jpg",
@@ -128464,9 +128238,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -128479,7 +128250,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Mitsukejima.jpg",
@@ -128586,9 +128356,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -128601,7 +128368,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Benkei_no_Sentakuiwa.jpg/1920px-Benkei_no_Sentakuiwa.jpg",
@@ -128704,9 +128470,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.5,
       "couple": 8.3,
@@ -128719,7 +128482,6 @@
       "value": 8.4,
       "uniqueness": 8.7
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Obama_Sotomo06n4592.jpg/1920px-Obama_Sotomo06n4592.jpg",
@@ -128826,9 +128588,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -128841,7 +128600,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/150720_Southern_Yatsugatake_Volcanic_Group_at_Hokuto_Yamanashi_pref_Japan01n.jpg/1920px-150720_Southern_Yatsugatake_Volcanic_Group_at_Hokuto_Yamanashi_pref_Japan01n.jpg",
@@ -128944,9 +128702,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -128959,7 +128714,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Mt.Kisokomagatake_from_Mt.Utsugidake_01.jpg/1920px-Mt.Kisokomagatake_from_Mt.Utsugidake_01.jpg",
@@ -129062,9 +128816,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.5,
       "couple": 8.3,
@@ -129077,7 +128828,6 @@
       "value": 8.4,
       "uniqueness": 8.7
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Nagano_tenryukyo.jpg",
@@ -129180,9 +128930,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -129195,7 +128942,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Yoro_Falls_03-14_%282025%29.jpg/1920px-Yoro_Falls_03-14_%282025%29.jpg",
@@ -129298,9 +129044,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -129313,7 +129056,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Nakayama_Shichiri_HIda_river_1.JPG/1920px-Nakayama_Shichiri_HIda_river_1.JPG",
@@ -129419,9 +129161,6 @@
       "min": 3,
       "max": 8
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -129434,7 +129173,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mount_Ontake_%28Morgenrot_zoom%29.JPG/1920px-Mount_Ontake_%28Morgenrot_zoom%29.JPG",
@@ -129557,9 +129295,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -129572,7 +129307,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/02/Kourankei-lightup02.jpg",
@@ -129678,9 +129412,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.5,
       "couple": 8.3,
@@ -129693,7 +129424,6 @@
       "value": 8.4,
       "uniqueness": 8.7
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Cape_Irago_06.jpg/1920px-Cape_Irago_06.jpg",
@@ -129796,9 +129526,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -129811,7 +129538,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Mount_Gozaisho_from_Mount_Amagoi_2009-10-11.jpg/1920px-Mount_Gozaisho_from_Mount_Amagoi_2009-10-11.jpg",
@@ -129910,9 +129636,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -129925,7 +129648,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Akame48Taki_FudoTaki.jpg/1920px-Akame48Taki_FudoTaki.jpg",
@@ -130028,9 +129750,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -130043,7 +129762,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Biwako_Quasi-National_Park_Omihachiman01bs3200.jpg/1920px-Biwako_Quasi-National_Park_Omihachiman01bs3200.jpg",
@@ -130142,9 +129860,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -130157,7 +129872,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Amanohashidate_-_Amanohashidate7586.jpg/1920px-Amanohashidate_-_Amanohashidate7586.jpg",
@@ -130260,9 +129974,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.1,
       "couple": 7.9,
@@ -130275,7 +129986,6 @@
       "value": 8.0,
       "uniqueness": 8.3
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Kitayama_cedar_trees_in_kyoto_Tamba_Highland.jpg/1920px-Kitayama_cedar_trees_in_kyoto_Tamba_Highland.jpg",
@@ -130378,9 +130088,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -130393,7 +130100,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Meiji_no_Mori_Minoh_Quasi-National_Park_Minoh_Osaka_pref_Japan16n.jpg/1920px-Meiji_no_Mori_Minoh_Quasi-National_Park_Minoh_Osaka_pref_Japan16n.jpg",
@@ -130494,9 +130200,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -130509,7 +130212,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Kanenonaru-Tenboudai01.JPG/1920px-Kanenonaru-Tenboudai01.JPG",
@@ -130608,9 +130310,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -130623,7 +130322,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Hyonosen09s2040.jpg/1920px-Hyonosen09s2040.jpg",
@@ -130726,9 +130424,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -130741,7 +130436,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/96/Mt.miwa.jpg",
@@ -130844,9 +130538,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.6,
       "couple": 8.4,
@@ -130859,7 +130550,6 @@
       "value": 8.5,
       "uniqueness": 8.8
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Autumn_Koyasan_Wakayama01s5s3200.jpg/1920px-Autumn_Koyasan_Wakayama01s5s3200.jpg",
@@ -130958,9 +130648,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -130973,7 +130660,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Ikenodan_and_Mount_Tateeboshi_2009-09-20.jpg/1920px-Ikenodan_and_Mount_Tateeboshi_2009-09-20.jpg",
@@ -131072,9 +130758,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -131087,7 +130770,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Mt.Osorakan.jpg/1920px-Mt.Osorakan.jpg",
@@ -131186,9 +130868,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -131201,7 +130880,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Omijima20090301.jpg/1920px-Omijima20090301.jpg",
@@ -131304,9 +130982,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 35,
     "ratings": {
       "overall": 9.0,
       "couple": 8.8,
@@ -131319,7 +130994,6 @@
       "value": 8.9,
       "uniqueness": 9.2
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Akiyoshidai_001.jpg",
@@ -131425,9 +131099,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -131440,7 +131111,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Iya_Valley_%286551493685%29.jpg/1920px-Iya_Valley_%286551493685%29.jpg",
@@ -131543,9 +131213,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -131558,7 +131225,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Cape-Muroto-20100526.jpg/1920px-Cape-Muroto-20100526.jpg",
@@ -131668,9 +131334,6 @@
       "min": 5,
       "max": 9
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -131683,7 +131346,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/24/Mount_Ishizuchi.jpg",
@@ -131790,9 +131452,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -131805,7 +131464,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Hiraodai.jpg",
@@ -131908,9 +131566,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -131923,7 +131578,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Genkai_Sea%2C_Tategami_Rocks_and_Kashiwajima_Island_from_Route204_in_Yakataishi.jpg/1920px-Genkai_Sea%2C_Tategami_Rocks_and_Kashiwajima_Island_from_Route204_in_Yakataishi.jpg",
@@ -132026,9 +131680,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -132041,7 +131692,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Japan_Oita_Hita_Ayuyana.jpg",
@@ -132150,9 +131800,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -132165,7 +131812,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Harahogejizou2009A.jpg/1920px-Harahogejizou2009A.jpg",
@@ -132265,9 +131911,6 @@
     "highlights": ["Mt. Ichifusa", "Gokase valley", "Central Kyushu peaks"],
     "notes": "Managed by Kumamoto/Miyazaki. The Ichifusa trail and the Takachiho highlands frame the park.",
     "transportOptions": {},
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.2,
       "couple": 8.0,
@@ -132280,7 +131923,6 @@
       "value": 8.1,
       "uniqueness": 8.4
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/76/Kumamoto_Pref_Road_161_Itsuki_01.JPG",
@@ -132383,9 +132025,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
@@ -132398,7 +132037,6 @@
       "value": 8.2,
       "uniqueness": 8.5
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Beppu_Gulf.jpg",
@@ -132505,9 +132143,6 @@
       "min": 6,
       "max": 10
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -132520,7 +132155,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Sobo_Katamuki_Quasi_National_Park_%28186973029%29.jpeg/1920px-Sobo_Katamuki_Quasi_National_Park_%28186973029%29.jpeg",
@@ -132627,9 +132261,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.5,
       "couple": 8.3,
@@ -132642,7 +132273,6 @@
       "value": 8.4,
       "uniqueness": 8.7
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/NichinanKaigan.JPG/1920px-NichinanKaigan.JPG",
@@ -132755,9 +132385,6 @@
       "min": 2,
       "max": 5
     },
-    "walkingMin": 150,
-    "walkingIntensity": "medium",
-    "indoorPercent": 5,
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -132770,7 +132397,6 @@
       "value": 8.3,
       "uniqueness": 8.6
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Kamikoshiki_Island_Nagame-no-hama_2013-08A.JPG/1920px-Kamikoshiki_Island_Nagame-no-hama_2013-08A.JPG",
@@ -132874,7 +132500,6 @@
       "car": 60
     },
     "walkingMin": 120,
-    "walkingIntensity": "medium",
     "indoorPercent": 5,
     "ratings": {
       "overall": 8.4,
@@ -132889,7 +132514,6 @@
       "uniqueness": 8.6,
       "walkability": 7
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Cape_Maeda.jpg",
@@ -133006,7 +132630,6 @@
       "car": 40
     },
     "walkingMin": 120,
-    "walkingIntensity": "medium",
     "indoorPercent": 5,
     "ratings": {
       "overall": 8.3,
@@ -133021,7 +132644,6 @@
       "uniqueness": 8.5,
       "walkability": 7
     },
-    "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/20190406_Cornerstone_of_Peace-1.jpg/1920px-20190406_Cornerstone_of_Peace-1.jpg",

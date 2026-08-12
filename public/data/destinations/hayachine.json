@@ -18,9 +18,6 @@
   "highlights": ["Mt. Hayachine peak", "Alpine flora", "Summit shrine"],
   "notes": "Managed by Iwate. The mountain is a full-day hike from the trailhead.",
   "transportOptions": {},
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.2,
     "couple": 8,
@@ -33,7 +30,6 @@
     "value": 8.1,
     "uniqueness": 8.4
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Mount_Hayachine_1.JPG/1920px-Mount_Hayachine_1.JPG",

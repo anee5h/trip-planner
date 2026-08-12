@@ -17,19 +17,12 @@
     "value": 8,
     "uniqueness": 8
   },
-  "indoorPercent": 0,
   "coordinates": {
     "lat": 36.9333,
     "lng": 139.2333
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mt.Shibutsu_16.jpg/1280px-Mt.Shibutsu_16.jpg",
   "prefecture": "Gunma",
-  "walkingMin": 60,
-  "transportOptions": {
-    "car": 200,
-    "train": 150,
-    "bus": 180
-  },
   "highlights": [
     "Wooden Boardwalk Wetland Hikes",
     "Mizubashou Water Plant Flowers",
@@ -46,9 +39,6 @@
     "sourceUrl": "https://en.wikipedia.org/wiki/Oze%20National%20Park"
   },
   "status": "published",
-  "travelEstimate": {
-    "confidence": "high"
-  },
   "collections": [
     {
       "collectionId": "national-parks-japan",
@@ -58,10 +48,8 @@
   "relationships": {
     "parentDestinationId": "minakami-town"
   },
-  "weatherDependence": "moderate",
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
-  "walkingIntensity": "high",
   "role": "standalone",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,

@@ -18,9 +18,6 @@
   "highlights": ["Echigo mountains", "Okutadami lake", "Tadami gorge"],
   "notes": "Managed by Niigata/Fukushima. The Kanetsu expressway and Okutadami access roads reach the park.",
   "transportOptions": {},
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.2,
     "couple": 8,
@@ -33,7 +30,6 @@
     "value": 8.1,
     "uniqueness": 8.4
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Lake_Tagokurako-1.JPG/1920px-Lake_Tagokurako-1.JPG",

@@ -18,9 +18,6 @@
   "highlights": ["Kurikoma crater lakes", "Alpine meadows", "Autumn colors"],
   "notes": "Managed by Miyagi. The summit and the Iwakagami pond are the classic routes.",
   "transportOptions": {},
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.3,
     "couple": 8.1,
@@ -33,7 +30,6 @@
     "value": 8.2,
     "uniqueness": 8.5
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Mt_KAMURO_at_MIYAGI_2.JPG",

@@ -27,9 +27,6 @@
     "min": 2,
     "max": 5
   },
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 9,
     "couple": 8.8,
@@ -42,7 +39,6 @@
     "value": 8.9,
     "uniqueness": 9.2
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Nachikatsuura_Kumano-Nachi-taisha_Hiro-jinja_Nachi_Falls_06.jpg/1920px-Nachikatsuura_Kumano-Nachi-taisha_Hiro-jinja_Nachi_Falls_06.jpg",

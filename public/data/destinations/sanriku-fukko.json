@@ -18,9 +18,6 @@
   "highlights": ["Ria coastline cliffs", "Jodogahama beach", "Taro coast"],
   "notes": "Designated 1955 (as Rikuchu Kaigan; expanded/renamed 2013, 28,539 ha) after the 2011 disaster; the reconstruction story is part of the park.",
   "transportOptions": {},
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.9,
     "couple": 8.7,
@@ -33,7 +30,6 @@
     "value": 8.8,
     "uniqueness": 9.1
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/20/RikuchuKaigan.jpg",

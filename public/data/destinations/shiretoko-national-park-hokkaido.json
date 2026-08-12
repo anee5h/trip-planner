@@ -3,21 +3,15 @@
   "name": "Shiretoko",
   "prefecture": "Hokkaido",
   "region": "Hokkaido",
-  "categories": ["World Heritage", "Culture", "Sightseeing"],
+  "categories": ["World Heritage", "Nature", "Sightseeing"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg/1280px-Shiretoko_Peninsula_Hokkaido_Japan_SRTM.jpg",
-  "description": "Shiretoko is a UNESCO World Heritage Site in Hokkaido, designated for its outstanding universal cultural or natural value.",
+  "description": "National park (1964) on the Shiretoko Peninsula in eastern Hokkaido — drift ice, brown bears, Steller's sea eagles, waterfalls and primeval forest. The peninsula was inscribed as a UNESCO World Heritage Site (2005) for its natural value.",
   "highlights": [
-    "UNESCO Heritage Monument",
-    "Historic Landmark",
-    "Cultural Preservation Area"
+    "Drift ice and Shiretoko Five Lakes",
+    "Brown bears and Steller's sea eagles",
+    "Waterfalls and primeval forest",
+    "Peninsula wilderness"
   ],
-  "transportOptions": {
-    "train": 45,
-    "bus": 50,
-    "car": 60
-  },
-  "walkingMin": 120,
-  "indoorPercent": 35,
   "ratings": {
     "overall": 9.2,
     "couple": 9,
@@ -30,10 +24,9 @@
     "value": 9.2,
     "uniqueness": 9.5
   },
-  "weatherDependence": "moderate",
   "tags": ["UNESCO World Heritage", "Shiretoko", "Hokkaido"],
-  "reservation": "Not required",
-  "parking": "Available nearby",
+  "reservation": "Not required (guided access to the Shiretoko Five Lakes in bear season)",
+  "parking": "Parking at Utoro, Rausu and major trailheads",
   "notes": "Designated 1964 (38,954 ha). Entry to the Five Lakes area is guided in bear season; the Utoro visitor center is the gateway.",
   "coordinates": {
     "lat": 44.06,
@@ -47,9 +40,6 @@
     "attribution": "Lead photograph of Shiretoko via Wikipedia/Wikimedia Commons"
   },
   "status": "verified",
-  "travelEstimate": {
-    "confidence": "high"
-  },
   "collections": [
     {
       "collectionId": "unesco-japan",
@@ -69,7 +59,6 @@
     "gatewayHubId": "abashiri-city"
   },
   "nameJa": "知床",
-  "walkingIntensity": "low",
   "role": "standalone",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
@@ -78,10 +67,9 @@
     "max": 7
   },
   "officialWebsite": "https://www.env.go.jp/park/shiretoko/",
-  "businessHours": "09:00 - 17:00 (Daily)",
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "assisted",
-    "confidence": "high"
+    "confidence": "medium"
   }
 }

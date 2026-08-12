@@ -26,9 +26,6 @@
     "min": 2,
     "max": 5
   },
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.7,
     "couple": 8.5,
@@ -41,7 +38,6 @@
     "value": 8.6,
     "uniqueness": 8.9
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/140322_Unzen_Onsen_Nagasaki_pref_Japan01s3.jpg/1920px-140322_Unzen_Onsen_Nagasaki_pref_Japan01s3.jpg",

@@ -22,9 +22,6 @@
     "min": 2,
     "max": 5
   },
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.7,
     "couple": 8.5,
@@ -37,7 +34,6 @@
     "value": 8.6,
     "uniqueness": 8.9
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Chichibu-tama-kai_National_Park.JPG",

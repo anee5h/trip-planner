@@ -22,9 +22,6 @@
   ],
   "notes": "Designated 2024-06-25 (245,668 ha). Cape Erimo's cliffs and the Hidaka backcountry hiking are the draws.",
   "transportOptions": {},
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.6,
     "couple": 8.4,
@@ -37,7 +34,6 @@
     "value": 8.5,
     "uniqueness": 8.8
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Hidaka_Mountains_modified.jpg/1920px-Hidaka_Mountains_modified.jpg",

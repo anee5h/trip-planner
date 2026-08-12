@@ -22,9 +22,6 @@
     "min": 2,
     "max": 5
   },
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.5,
     "couple": 8.3,
@@ -37,7 +34,6 @@
     "value": 8.4,
     "uniqueness": 8.7
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Obama_Sotomo06n4592.jpg/1920px-Obama_Sotomo06n4592.jpg",

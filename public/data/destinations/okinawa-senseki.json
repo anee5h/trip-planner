@@ -22,7 +22,6 @@
     "car": 40
   },
   "walkingMin": 120,
-  "walkingIntensity": "medium",
   "indoorPercent": 5,
   "ratings": {
     "overall": 8.3,
@@ -37,7 +36,6 @@
     "uniqueness": 8.5,
     "walkability": 7
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/20190406_Cornerstone_of_Peace-1.jpg/1920px-20190406_Cornerstone_of_Peace-1.jpg",

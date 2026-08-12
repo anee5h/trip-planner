@@ -14,21 +14,18 @@
   },
   "categories": ["Nature", "Park", "Outdoors"],
   "tags": ["National Park", "国立公園", "Nature", "Tokyo"],
-  "description": "UNESCO World Heritage island national park (1972) 1,000 km south of Tokyo, with endemic species, whale-watching and the coral seas of Chichijima and Hahajima.",
+  "description": "National park (1972) 1,000 km south of Tokyo spanning the islands and surrounding seas of Chichijima and Hahajima, with endemic species, whale-watching and coral seas.",
   "highlights": [
-    "UNESCO World Heritage",
     "Endemic species",
     "Whale-watching",
-    "Remote islands"
+    "Chichijima and Hahajima",
+    "Coral seas of remote islands"
   ],
-  "notes": "Designated 1972 (6,629 ha). Reachable only by the 24-hour Ogasawara ferry from Tokyo; plan a week.",
+  "notes": "Designated 1972 (6,629 ha). The UNESCO World Heritage property 'Ogasawara Islands' (inscribed 2011) is a separate designation. Reachable only by the 24-hour Ogasawara ferry from Tokyo; plan a week.",
   "transportOptions": {
     "ferry": 1440,
     "bus": 30
   },
-  "walkingMin": 150,
-  "walkingIntensity": "medium",
-  "indoorPercent": 5,
   "ratings": {
     "overall": 8.8,
     "couple": 8.6,
@@ -41,7 +38,6 @@
     "value": 8.7,
     "uniqueness": 9
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Katsuodorijima_and_tairajima%2CAnejima.jpg/1920px-Katsuodorijima_and_tairajima%2CAnejima.jpg",
@@ -71,26 +67,26 @@
   "content": {
     "en": {
       "name": "Ogasawara National Park",
-      "description": "UNESCO World Heritage island national park (1972) 1,000 km south of Tokyo, with endemic species, whale-watching and the coral seas of Chichijima and Hahajima.",
+      "description": "National park (1972) 1,000 km south of Tokyo spanning the islands and surrounding seas of Chichijima and Hahajima, with endemic species, whale-watching and coral seas.",
       "highlights": [
-        "UNESCO World Heritage",
         "Endemic species",
         "Whale-watching",
-        "Remote islands"
+        "Chichijima and Hahajima",
+        "Coral seas of remote islands"
       ],
-      "notes": "Designated 1972 (6,629 ha). Reachable only by the 24-hour Ogasawara ferry from Tokyo; plan a week.",
+      "notes": "Designated 1972 (6,629 ha). The UNESCO World Heritage property 'Ogasawara Islands' (inscribed 2011) is a separate designation. Reachable only by the 24-hour Ogasawara ferry from Tokyo; plan a week.",
       "reservation": "None required",
       "parking": "Parking available at major visitor areas (fee varies)",
       "openingHours": "Open access (park; facility hours vary by season and area)"
     },
     "ja": {
       "name": "小笠原国立公園",
-      "description": "東京から約1,000km南、1972年指定の国立公園でユネスコ世界遺産の島々。固有種やホエールウォッチング、父島・母島のサンゴ礁の海が魅力。",
+      "description": "東京から約1,000km南、1972年指定の国立公園。父島・母島とその周辺海域を対象とし、固有種やホエールウォッチング、サンゴ礁の海が魅力です。※ユネスコ世界遺産「小笠原諸島」（2011年登録）は別指定です。",
       "highlights": [
-        "ユネスコ世界遺産",
         "固有種",
         "ホエールウォッチング",
-        "離島"
+        "父島・母島",
+        "離島のサンゴ礁の海"
       ],
       "notes": "1972年指定（6,629ha）。東京からは小笠原フェリーで片道24時間のみ。1週間の計画を。",
       "reservation": "予約不要",

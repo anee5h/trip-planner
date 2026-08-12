@@ -26,7 +26,6 @@
     "car": 90
   },
   "walkingMin": 180,
-  "walkingIntensity": "medium",
   "indoorPercent": 5,
   "ratings": {
     "overall": 8.5,
@@ -41,7 +40,6 @@
     "uniqueness": 8.7,
     "walkability": 7
   },
-  "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Parking available at major visitor areas (fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Subtropical_Forest_of_Yanbaru_National_Park_Okinawa_2018.jpg/1920px-Subtropical_Forest_of_Yanbaru_National_Park_Okinawa_2018.jpg",
