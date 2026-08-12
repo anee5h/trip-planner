@@ -1,0 +1,113 @@
+{
+  "id": "shikisai-no-oka",
+  "name": "Shikisai-no-Oka",
+  "nameJa": "四季彩の丘",
+  "aliases": ["四季彩の丘"],
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "park",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 43.516,
+    "lng": 142.497
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Shikisai-no-Oka", "Hokkaido", "Japan Travel"],
+  "description": "A 15 ha flower farm in Biei's hill country, striped with lavender, poppies and marigolds from spring to autumn, with the Tokachi range as backdrop.",
+  "highlights": [
+    "Striped flower hills",
+    "Biei hill country",
+    "Seasonal blooms spring-autumn"
+  ],
+  "notes": "Admission ¥600 (adult) in season; tractor tours available. Best June-September.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Yellow_pansies_of_Shikisai-no-oka_01.jpg/1920px-Yellow_pansies_of_Shikisai-no-oka_01.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Yellow_pansies_of_Shikisai-no-oka_01.jpg/1920px-Yellow_pansies_of_Shikisai-no-oka_01.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "LR0725, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yellow_pansies_of_Shikisai-no-oka_01.jpg"
+  },
+  "officialWebsite": "https://www.shikisainooka.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Hokkaido:biei",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "flower-parks-japan",
+      "sortOrder": 6
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Shikisai-no-Oka",
+      "description": "A 15 ha flower farm in Biei's hill country, striped with lavender, poppies and marigolds from spring to autumn, with the Tokachi range as backdrop.",
+      "highlights": [
+        "Striped flower hills",
+        "Biei hill country",
+        "Seasonal blooms spring-autumn"
+      ],
+      "notes": "Admission ¥600 (adult) in season; tractor tours available. Best June-September.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "四季彩の丘",
+      "description": "美瑛の丘陵地帯にある15ヘクタールの花畑。春から秋にかけてラベンダーやポピー、マリーゴールドが縞模様に咲き誇り、背景に十勝連峰を望みます。",
+      "highlights": ["花の縞模様の丘", "美瑛の丘陵地帯", "春から秋の季節の花"],
+      "notes": "シーズン中の入園料は大人600円、トラクターツアーあり。6月〜9月が最適です。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.shikisainooka.jp/",
+        "title": "Shikisai-no-Oka official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

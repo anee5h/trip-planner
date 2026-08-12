@@ -1,0 +1,117 @@
+{
+  "id": "farm-tomita",
+  "name": "Farm Tomita",
+  "nameJa": "ファーム富田",
+  "aliases": ["ファーム富田"],
+  "prefecture": "Hokkaido",
+  "region": "Hokkaido",
+  "kind": "park",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 43.429,
+    "lng": 142.469
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Farm Tomita", "Hokkaido", "Japan Travel"],
+  "description": "Hokkaido's most famous lavender farm in Nakafurano, with sweeping violet fields, rainbow flower strips and the seasonal lavender ice cream.",
+  "highlights": [
+    "Famous lavender fields",
+    "Rainbow flower strips",
+    "Lavender ice cream"
+  ],
+  "notes": "Free entry; lavender peaks early-to-mid July. About 25 min by car from Furano Station.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/66/%E3%83%95%E3%82%A1%E3%83%BC%E3%83%A0%E5%AF%8C%E7%94%B0_FARM_TOMITA_-_panoramio.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/6/66/%E3%83%95%E3%82%A1%E3%83%BC%E3%83%A0%E5%AF%8C%E7%94%B0_FARM_TOMITA_-_panoramio.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "painreef3108, CC BY 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:ファーム富田_FARM_TOMITA_-_panoramio.jpg"
+  },
+  "officialWebsite": "https://www.farm-tomita.co.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Hokkaido:nakafurano",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "flower-parks-japan",
+      "sortOrder": 5
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Farm Tomita",
+      "description": "Hokkaido's most famous lavender farm in Nakafurano, with sweeping violet fields, rainbow flower strips and the seasonal lavender ice cream.",
+      "highlights": [
+        "Famous lavender fields",
+        "Rainbow flower strips",
+        "Lavender ice cream"
+      ],
+      "notes": "Free entry; lavender peaks early-to-mid July. About 25 min by car from Furano Station.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "ファーム富田",
+      "description": "北海道中富良野にある最も有名なラベンダー農場。紫の花畑が広がり、虹色の花ストライプや季節限定のラベンダーソフトクリームが人気です。",
+      "highlights": [
+        "有名なラベンダー畑",
+        "虹色の花畑",
+        "ラベンダーソフトクリーム"
+      ],
+      "notes": "入場無料。ラベンダーの見頃は7月上旬〜中旬。富良野駅から車で約25分。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.farm-tomita.co.jp/",
+        "title": "Farm Tomita official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

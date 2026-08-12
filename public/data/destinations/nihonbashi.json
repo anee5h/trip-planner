@@ -108,7 +108,12 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "scenic-bridges-japan",
+      "sortOrder": 5
+    }
+  ],
   "addedAt": "2026-08-02",
   "editorial": {
     "lifecycle": "published",

@@ -117,7 +117,7 @@
     "metadata": {
       "authority": "government",
       "status": "active",
-      "lastVerified": "2026-07",
+      "lastVerified": "2026-08",
       "verificationSource": "Ministry of the Environment (環境省)",
       "reviewIntervalMonths": 12,
       "expectedMembers": 35
@@ -151,7 +151,7 @@
     "metadata": {
       "authority": "government",
       "status": "active",
-      "lastVerified": "2026-07",
+      "lastVerified": "2026-08",
       "verificationSource": "Ministry of the Environment (国定公園)",
       "reviewIntervalMonths": 12,
       "expectedMembers": 58
@@ -377,33 +377,33 @@
     "id": "top-onsen-japan",
     "slug": "top-onsen-japan",
     "name": "Japan's Top Onsen",
-    "description": "Premier traditional hot spring resorts celebrated for healing thermal waters, ryokan hospitality, and historic bathhouse culture.",
+    "description": "A Meguruto-curated selection of Japan's most celebrated hot spring towns and resorts, including the traditional 日本三名泉 (Kusatsu, Arima, Gero).",
     "category": "Onsen & Relaxation",
-    "type": "official",
+    "type": "curated",
     "isAchievement": false,
     "icon": "Flame",
     "badgeColor": "amber",
     "sortOrder": 13,
-    "officialSource": "Japan Onsen Association",
-    "sourceUrl": "https://www.onsenkyokai.or.jp/",
+    "officialSource": "Meguruto editorial selection (background: Japan Onsen Association (日本温泉協会))",
+    "sourceUrl": "https://www.spa.or.jp/",
     "metadata": {
-      "authority": "association",
+      "authority": "curated",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Japan Onsen Association (温泉協会)",
+      "lastVerified": "2026-08",
+      "verificationSource": "Meguruto editorial review (日本温泉協会 as background)",
       "reviewIntervalMonths": 24,
-      "expectedMembers": 50
+      "expectedMembers": 10
     },
     "nameJa": "日本名湯・温泉街",
-    "descriptionJa": "草津、有馬、下呂など長い歴史と優れた泉質を誇る日本の名湯温泉街。",
+    "descriptionJa": "草津・有馬・下呂の日本三名泉をはじめ、日本を代表する名湯・温泉街をメグルートが厳選した10の温泉地。",
     "content": {
       "en": {
         "name": "Japan's Top Onsen",
-        "description": "Premier traditional hot spring resorts celebrated for healing thermal waters, ryokan hospitality, and historic bathhouse culture."
+        "description": "A Meguruto-curated selection of Japan's most celebrated hot spring towns and resorts, including the traditional 日本三名泉 (Kusatsu, Arima, Gero)."
       },
       "ja": {
         "name": "日本名湯・温泉街",
-        "description": "草津、有馬、下呂など長い歴史と優れた泉質を誇る日本の名湯温泉街。"
+        "description": "草津・有馬・下呂の日本三名泉をはじめ、日本を代表する名湯・温泉街をメグルートが厳選した10の温泉地。"
       }
     }
   },
@@ -445,33 +445,33 @@
     "id": "great-night-views",
     "slug": "great-night-views",
     "name": "Japan's Night Views",
-    "description": "Japan's most famous panoramic night views and sky deck observatories overlooking illuminated cityscapes and harbors.",
+    "description": "A Meguruto-curated selection of Japan's celebrated night views: the traditional 日本三大夜景 (Hakodate, Kobe-Maya, Nagasaki), the 2003 New Three Great Night Views, and certified 日本夜景遺産 viewpoints.",
     "category": "Sightseeing & Views",
-    "type": "official",
+    "type": "curated",
     "isAchievement": false,
     "icon": "Sparkles",
     "badgeColor": "purple",
     "sortOrder": 15,
-    "officialSource": "Night View Convention & Tourism Bureau",
-    "sourceUrl": "https://yakei-cvb.or.jp/",
+    "officialSource": "Meguruto editorial selection (background: Night View Convention & Tourism Bureau (日本夜景遺産))",
+    "sourceUrl": "https://www.yakei-isan.jp/",
     "metadata": {
-      "authority": "association",
+      "authority": "curated",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Night View Convention & Tourism Bureau (夜景サミット)",
+      "lastVerified": "2026-08",
+      "verificationSource": "Meguruto editorial review (日本夜景遺産 as background)",
       "reviewIntervalMonths": 24,
-      "expectedMembers": 20
+      "expectedMembers": 14
     },
     "nameJa": "日本三大夜景・絶景夜景",
-    "descriptionJa": "函館山、摩耶山菊星台、稲佐山をはじめとする日本屈指の夜景スポット。",
+    "descriptionJa": "函館・神戸摩耶・長崎稲佐の日本三大夜景と、新日本三大夜景、日本夜景遺産認定スポットからメグルートが厳選した14地点。",
     "content": {
       "en": {
         "name": "Japan's Night Views",
-        "description": "Japan's most famous panoramic night views and sky deck observatories overlooking illuminated cityscapes and harbors."
+        "description": "A Meguruto-curated selection of Japan's celebrated night views: the traditional 日本三大夜景 (Hakodate, Kobe-Maya, Nagasaki), the 2003 New Three Great Night Views, and certified 日本夜景遺産 viewpoints."
       },
       "ja": {
         "name": "日本三大夜景・絶景夜景",
-        "description": "函館山、摩耶山菊星台、稲佐山をはじめとする日本屈指の夜景スポット。"
+        "description": "函館・神戸摩耶・長崎稲佐の日本三大夜景と、新日本三大夜景、日本夜景遺産認定スポットからメグルートが厳選した14地点。"
       }
     }
   },
@@ -513,33 +513,33 @@
     "id": "caves-japan",
     "slug": "caves-japan",
     "name": "Subterranean Marvels & Caves of Japan",
-    "description": "Explore Japan’s dramatic limestone caverns, volcanic ice caves, and sacred underground stone quarries.",
+    "description": "The nine tourist limestone caves of the Japan Touring Caves Association (日本観光鍾乳洞協会), including the traditional 日本三大鍾乳洞 (Akiyoshido, Ryusendo, Ryugado).",
     "category": "Nature & Geological Marvels",
-    "type": "thematic",
+    "type": "official",
     "isAchievement": true,
     "icon": "Compass",
     "badgeColor": "purple",
     "sortOrder": 17,
-    "officialSource": "Japan Cave Association",
-    "sourceUrl": "https://www.japan-caves.jp/",
+    "officialSource": "Japan Touring Caves Association (日本観光鍾乳洞協会)",
+    "sourceUrl": "https://shonyudokyokai.com/",
     "metadata": {
-      "authority": "national",
+      "authority": "association",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Japan Cave Association",
+      "lastVerified": "2026-08",
+      "verificationSource": "Japan Touring Caves Association (日本観光鍾乳洞協会)",
       "reviewIntervalMonths": 24,
-      "expectedMembers": 10
+      "expectedMembers": 9
     },
     "nameJa": "日本の鍾乳洞・洞窟",
-    "descriptionJa": "秋芳洞、龍河洞、あぶくま洞など神秘的な大自然の造形美を誇る大鍾乳洞。",
+    "descriptionJa": "日本観光鍾乳洞協会加盟の9つの観光鍾乳洞（秋芳洞・龍泉洞・龍河洞の日本三大鍾乳洞を含む）。",
     "content": {
       "en": {
         "name": "Subterranean Marvels & Caves of Japan",
-        "description": "Explore Japan’s dramatic limestone caverns, volcanic ice caves, and sacred underground stone quarries."
+        "description": "The nine tourist limestone caves of the Japan Touring Caves Association (日本観光鍾乳洞協会), including the traditional 日本三大鍾乳洞 (Akiyoshido, Ryusendo, Ryugado)."
       },
       "ja": {
         "name": "日本の鍾乳洞・洞窟",
-        "description": "秋芳洞、龍河洞、あぶくま洞など神秘的な大自然の造形美を誇る大鍾乳洞。"
+        "description": "日本観光鍾乳洞協会加盟の9つの観光鍾乳洞（秋芳洞・龍泉洞・龍河洞の日本三大鍾乳洞を含む）。"
       }
     }
   },
@@ -547,33 +547,33 @@
     "id": "coastal-drives-japan",
     "slug": "coastal-drives-japan",
     "name": "Scenic Coastal Drives of Japan",
-    "description": "Experience breathtaking oceanic highways, sea cliff drives, and coastal bridges spanning Japan’s emerald coastlines.",
+    "description": "A Meguruto-curated selection of Japan's most scenic coastal drives and ocean-view roads, from registered 日本風景街道 scenic byways to celebrated coastal routes.",
     "category": "Scenic Drives & Ocean Views",
-    "type": "thematic",
+    "type": "curated",
     "isAchievement": true,
     "icon": "Car",
     "badgeColor": "sky",
     "sortOrder": 18,
-    "officialSource": "Japan Scenic Byways",
-    "sourceUrl": "https://www.jartic.or.jp/",
+    "officialSource": "Meguruto editorial selection (background: Ministry of Land, Infrastructure, Transport and Tourism (日本風景街道))",
+    "sourceUrl": "https://www.mlit.go.jp/road/sisaku/fukeikaidou/index.html",
     "metadata": {
-      "authority": "national",
+      "authority": "curated",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Japan Scenic Byways",
+      "lastVerified": "2026-08",
+      "verificationSource": "Meguruto editorial review (日本風景街道 as background)",
       "reviewIntervalMonths": 24,
       "expectedMembers": 10
     },
     "nameJa": "日本の絶景ドライブコース・海岸線",
-    "descriptionJa": "角島大橋、千畳敷、湘南海岸など海と風を感じる爽快なドライブ街道。",
+    "descriptionJa": "日本風景街道の登録ルートや名高い海岸線からメグルートが厳選した10の絶景ドライブコース。",
     "content": {
       "en": {
         "name": "Scenic Coastal Drives of Japan",
-        "description": "Experience breathtaking oceanic highways, sea cliff drives, and coastal bridges spanning Japan’s emerald coastlines."
+        "description": "A Meguruto-curated selection of Japan's most scenic coastal drives and ocean-view roads, from registered 日本風景街道 scenic byways to celebrated coastal routes."
       },
       "ja": {
         "name": "日本の絶景ドライブコース・海岸線",
-        "description": "角島大橋、千畳敷、湘南海岸など海と風を感じる爽快なドライブ街道。"
+        "description": "日本風景街道の登録ルートや名高い海岸線からメグルートが厳選した10の絶景ドライブコース。"
       }
     }
   },
@@ -581,33 +581,33 @@
     "id": "scenic-bridges-japan",
     "slug": "scenic-bridges-japan",
     "name": "Scenic & Architectural Bridges of Japan",
-    "description": "Discover Japan’s iconic bridges, from historic wooden archways and vine bridges to sweeping ocean causeways.",
+    "description": "A Meguruto-curated selection of Japan's famous bridges — the traditional 日本三名橋 (Nihonbashi, Kintai-kyo, Meganebashi) and 三奇橋 (Saruhashi, Iya, Kintai-kyo) plus iconic modern crossings.",
     "category": "Architecture & Wonder",
-    "type": "thematic",
+    "type": "curated",
     "isAchievement": true,
     "icon": "Landmark",
     "badgeColor": "amber",
     "sortOrder": 19,
-    "officialSource": "Japan Society of Civil Engineers",
-    "sourceUrl": "https://www.jsce.or.jp/",
+    "officialSource": "Meguruto editorial selection (background: 日本三名橋・三奇橋 tradition)",
+    "sourceUrl": "https://www.ndl.go.jp/imagebank/column/sandaikyo",
     "metadata": {
-      "authority": "national",
+      "authority": "curated",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Japan Society of Civil Engineers",
+      "lastVerified": "2026-08",
+      "verificationSource": "Meguruto editorial review (日本三名橋・三奇橋の伝統 as background)",
       "reviewIntervalMonths": 24,
       "expectedMembers": 10
     },
     "nameJa": "日本の名橋・建築美の橋",
-    "descriptionJa": "錦帯橋、メガネ橋、角島大橋など構造美と歴史を兼ね備えた日本の名橋。",
+    "descriptionJa": "日本三名橋・三奇橋などの歴史的な名橋と、明石海峡大橋などの現代の架橋技術からメグルートが厳選した10の名橋。",
     "content": {
       "en": {
         "name": "Scenic & Architectural Bridges of Japan",
-        "description": "Discover Japan’s iconic bridges, from historic wooden archways and vine bridges to sweeping ocean causeways."
+        "description": "A Meguruto-curated selection of Japan's famous bridges — the traditional 日本三名橋 (Nihonbashi, Kintai-kyo, Meganebashi) and 三奇橋 (Saruhashi, Iya, Kintai-kyo) plus iconic modern crossings."
       },
       "ja": {
         "name": "日本の名橋・建築美の橋",
-        "description": "錦帯橋、メガネ橋、角島大橋など構造美と歴史を兼ね備えた日本の名橋。"
+        "description": "日本三名橋・三奇橋などの歴史的な名橋と、明石海峡大橋などの現代の架橋技術からメグルートが厳選した10の名橋。"
       }
     }
   },
@@ -615,33 +615,33 @@
     "id": "flower-parks-japan",
     "slug": "flower-parks-japan",
     "name": "Japan’s Spectacular Flower Parks & Gardens",
-    "description": "Immerse in vibrant seasonal blooms, cascading wisteria, lavender hills, and historic floral sanctuaries across Japan.",
+    "description": "A Meguruto-curated selection of Japan's most spectacular flower parks and gardens, from state-run parks (Showa Kinen, Hitachi Seaside) and the national garden Shinjuku Gyoen to famous private flower farms.",
     "category": "Nature & Gardens",
-    "type": "thematic",
+    "type": "curated",
     "isAchievement": true,
     "icon": "Flower2",
     "badgeColor": "rose",
     "sortOrder": 20,
-    "officialSource": "Japan Botanical Gardens Association",
-    "sourceUrl": "http://www.syokubutsuen-kyokai.jp/",
+    "officialSource": "Meguruto editorial selection (background: state-run and national gardens, and famous private flower farms)",
+    "sourceUrl": "https://www.mlit.go.jp/toshi/park/toshi_parkgreen_kokuei.html",
     "metadata": {
-      "authority": "national",
+      "authority": "curated",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Japan Botanical Gardens Association",
+      "lastVerified": "2026-08",
+      "verificationSource": "Meguruto editorial review (国営公園・国民公園・名花園 as background)",
       "reviewIntervalMonths": 24,
       "expectedMembers": 10
     },
     "nameJa": "日本のフラワーパーク・名庭園",
-    "descriptionJa": "足利フラワーパークやひたち海浜公園など四季折々の花々が咲き誇る花園。",
+    "descriptionJa": "国営公園・国民公園や名高いフラワーファームなど、四季の花が楽しめる花園をメグルートが厳選。",
     "content": {
       "en": {
         "name": "Japan’s Spectacular Flower Parks & Gardens",
-        "description": "Immerse in vibrant seasonal blooms, cascading wisteria, lavender hills, and historic floral sanctuaries across Japan."
+        "description": "A Meguruto-curated selection of Japan's most spectacular flower parks and gardens, from state-run parks (Showa Kinen, Hitachi Seaside) and the national garden Shinjuku Gyoen to famous private flower farms."
       },
       "ja": {
         "name": "日本のフラワーパーク・名庭園",
-        "description": "足利フラワーパークやひたち海浜公園など四季折々の花々が咲き誇る花園。"
+        "description": "国営公園・国民公園や名高いフラワーファームなど、四季の花が楽しめる花園をメグルートが厳選。"
       }
     }
   },
@@ -649,33 +649,33 @@
     "id": "waterfalls-gorges-japan",
     "slug": "waterfalls-gorges-japan",
     "name": "Majestic Waterfalls & River Gorges",
-    "description": "Journey through roaring alpine cascades, volcanic gorges, and serene moss-covered river valleys.",
+    "description": "A Meguruto-curated selection of Japan's majestic waterfalls and river gorges, drawing on the 1990 日本の滝百選 and the traditional 日本三大峡谷.",
     "category": "Nature & Wilderness",
-    "type": "thematic",
+    "type": "curated",
     "isAchievement": true,
     "icon": "Waves",
     "badgeColor": "emerald",
     "sortOrder": 21,
-    "officialSource": "Ministry of the Environment Japan",
+    "officialSource": "Meguruto editorial selection (background: 日本の滝百選 1990 / 日本三大峡谷)",
     "sourceUrl": "https://www.env.go.jp/",
     "metadata": {
-      "authority": "government",
+      "authority": "curated",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Ministry of the Environment Japan",
+      "lastVerified": "2026-08",
+      "verificationSource": "Meguruto editorial review (日本の滝百選・日本三大峡谷 as background)",
       "reviewIntervalMonths": 24,
       "expectedMembers": 10
     },
     "nameJa": "日本の名瀑・渓谷美",
-    "descriptionJa": "奥入瀬渓流や高千穂峡など、清流と切り立った崖が織りなす渓谷美。",
+    "descriptionJa": "日本の滝百選（1990年）や日本三大峡谷などからメグルートが厳選した名瀑・渓谷。",
     "content": {
       "en": {
         "name": "Majestic Waterfalls & River Gorges",
-        "description": "Journey through roaring alpine cascades, volcanic gorges, and serene moss-covered river valleys."
+        "description": "A Meguruto-curated selection of Japan's majestic waterfalls and river gorges, drawing on the 1990 日本の滝百選 and the traditional 日本三大峡谷."
       },
       "ja": {
         "name": "日本の名瀑・渓谷美",
-        "description": "奥入瀬渓流や高千穂峡など、清流と切り立った崖が織りなす渓谷美。"
+        "description": "日本の滝百選（1990年）や日本三大峡谷などからメグルートが厳選した名瀑・渓谷。"
       }
     }
   },
@@ -683,33 +683,33 @@
     "id": "islands-japan",
     "slug": "islands-japan",
     "name": "Enchanting Islands of Japan",
-    "description": "Discover Japan’s volcanic, subtropical, and historic islands, from primeval forests to ocean retreats.",
+    "description": "A Meguruto-curated selection of Japan's most enchanting islands, from the World Heritage islands of Yakushima and Amami to the art islands of the Seto Inland Sea.",
     "category": "Islands & Nature",
-    "type": "thematic",
+    "type": "curated",
     "isAchievement": true,
     "icon": "Palmtree",
     "badgeColor": "indigo",
     "sortOrder": 22,
-    "officialSource": "Japan Remote Islands Center",
+    "officialSource": "Meguruto editorial selection (background: Japan Center for Remote Islands)",
     "sourceUrl": "https://www.nijinet.or.jp/",
     "metadata": {
-      "authority": "national",
+      "authority": "curated",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Japan Remote Islands Center",
+      "lastVerified": "2026-08",
+      "verificationSource": "Meguruto editorial review (日本離島センター as background)",
       "reviewIntervalMonths": 24,
-      "expectedMembers": 10
+      "expectedMembers": 12
     },
     "nameJa": "日本の離島・魅力溢れる島々",
-    "descriptionJa": "江の島、佐渡島、初島など独自の生態系と歴史文化をもつ日本の離島。",
+    "descriptionJa": "世界遺産の島から瀬戸内のアートの島まで、日本各地の魅力的な離島をメグルートが厳選。",
     "content": {
       "en": {
         "name": "Enchanting Islands of Japan",
-        "description": "Discover Japan’s volcanic, subtropical, and historic islands, from primeval forests to ocean retreats."
+        "description": "A Meguruto-curated selection of Japan's most enchanting islands, from the World Heritage islands of Yakushima and Amami to the art islands of the Seto Inland Sea."
       },
       "ja": {
         "name": "日本の離島・魅力溢れる島々",
-        "description": "江の島、佐渡島、初島など独自の生態系と歴史文化をもつ日本の離島。"
+        "description": "世界遺産の島から瀬戸内のアートの島まで、日本各地の魅力的な離島をメグルートが厳選。"
       }
     }
   },
@@ -717,33 +717,33 @@
     "id": "art-islands-japan",
     "slug": "art-islands-japan",
     "name": "Japan’s Contemporary Art Islands & Open-Air Museums",
-    "description": "Experience world-renowned art sanctuaries where outdoor sculptures, modern galleries, and sea views harmonize.",
+    "description": "A Meguruto-curated selection of Japan's contemporary art islands and open-air museums, anchored on the Benesse Art Site islands (Naoshima, Teshima, Inujima) and the Setouchi Triennale.",
     "category": "Art & Culture",
-    "type": "thematic",
+    "type": "curated",
     "isAchievement": true,
     "icon": "Sparkles",
     "badgeColor": "purple",
     "sortOrder": 23,
-    "officialSource": "Benesse Art Site Naoshima",
+    "officialSource": "Meguruto editorial selection (background: Benesse Art Site Naoshima)",
     "sourceUrl": "https://benesse-artsite.jp/",
     "metadata": {
-      "authority": "cultural",
+      "authority": "curated",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Benesse Art Site Naoshima",
+      "lastVerified": "2026-08",
+      "verificationSource": "Meguruto editorial review (ベネッセアートサイト直島 as background)",
       "reviewIntervalMonths": 24,
       "expectedMembers": 10
     },
     "nameJa": "現代アートの島・野外美術館",
-    "descriptionJa": "直島、豊島、箱根彫刻の森などアートと自然が融合した美術館群。",
+    "descriptionJa": "ベネッセアートサイト直島の島々や瀬戸内国際芸術祭、野外美術館からメグルートが厳選。",
     "content": {
       "en": {
         "name": "Japan’s Contemporary Art Islands & Open-Air Museums",
-        "description": "Experience world-renowned art sanctuaries where outdoor sculptures, modern galleries, and sea views harmonize."
+        "description": "A Meguruto-curated selection of Japan's contemporary art islands and open-air museums, anchored on the Benesse Art Site islands (Naoshima, Teshima, Inujima) and the Setouchi Triennale."
       },
       "ja": {
         "name": "現代アートの島・野外美術館",
-        "description": "直島、豊島、箱根彫刻の森などアートと自然が融合した美術館群。"
+        "description": "ベネッセアートサイト直島の島々や瀬戸内国際芸術祭、野外美術館からメグルートが厳選。"
       }
     }
   },
@@ -751,33 +751,33 @@
     "id": "pilgrimage-routes-japan",
     "slug": "pilgrimage-routes-japan",
     "name": "Sacred Pilgrimage Routes of Japan",
-    "description": "Walk the sacred mountain paths, ancient spiritual routes, and historic temple trails walked by pilgrims for centuries.",
+    "description": "A Meguruto-curated selection of Japan's sacred pilgrimage routes: the UNESCO Kii pilgrimage (Kumano Kodo, Koyasan, Yoshino), Dewa Sanzan, the Shikoku Henro, the Saigoku Kannon circuit and Fuji's faith trails.",
     "category": "Spiritual & Cultural Heritage",
-    "type": "thematic",
+    "type": "curated",
     "isAchievement": true,
     "icon": "Map",
     "badgeColor": "amber",
     "sortOrder": 24,
-    "officialSource": "Agency for Cultural Affairs Japan",
-    "sourceUrl": "https://www.bunka.go.jp/",
+    "officialSource": "Meguruto editorial selection (background: UNESCO Kii / 日本遺産 / pilgrimage traditions)",
+    "sourceUrl": "https://www.bunka.go.jp/seisaku/bunkazai/nihon_isan/index.html",
     "metadata": {
-      "authority": "government",
+      "authority": "curated",
       "status": "active",
-      "lastVerified": "2026-07",
-      "verificationSource": "Agency for Cultural Affairs Japan",
+      "lastVerified": "2026-08",
+      "verificationSource": "Meguruto editorial review (世界遺産・日本遺産・巡礼の伝統 as background)",
       "reviewIntervalMonths": 24,
-      "expectedMembers": 10
+      "expectedMembers": 8
     },
     "nameJa": "日本の参詣道・巡礼の道",
-    "descriptionJa": "熊野古道や四国八十八ヶ所など、千年の歴史をもつ信仰と巡礼の道。",
+    "descriptionJa": "熊野古道・高野山・吉野の紀伊山地の霊場、出羽三山、四国遍路、西国三十三所など、信仰の道をメグルートが厳選。",
     "content": {
       "en": {
         "name": "Sacred Pilgrimage Routes of Japan",
-        "description": "Walk the sacred mountain paths, ancient spiritual routes, and historic temple trails walked by pilgrims for centuries."
+        "description": "A Meguruto-curated selection of Japan's sacred pilgrimage routes: the UNESCO Kii pilgrimage (Kumano Kodo, Koyasan, Yoshino), Dewa Sanzan, the Shikoku Henro, the Saigoku Kannon circuit and Fuji's faith trails."
       },
       "ja": {
         "name": "日本の参詣道・巡礼の道",
-        "description": "熊野古道や四国八十八ヶ所など、千年の歴史をもつ信仰と巡礼の道。"
+        "description": "熊野古道・高野山・吉野の紀伊山地の霊場、出羽三山、四国遍路、西国三十三所など、信仰の道をメグルートが厳選。"
       }
     }
   },
@@ -785,33 +785,33 @@
     "id": "japan-observatories-towers",
     "slug": "japan-observatories-towers",
     "name": "Japan's Observatories & Towers",
-    "description": "A curated, capped selection of Japan's most important and popular observation towers, high-rise decks, and city viewpoints.",
+    "description": "A Meguruto-curated, capped selection of Japan's most important and popular observation towers, high-rise decks, and city viewpoints.",
     "category": "Architecture & Views",
     "type": "curated",
     "isAchievement": false,
     "icon": "TowerControl",
     "badgeColor": "sky",
     "sortOrder": 25,
-    "officialSource": "TabiMap editorial selection",
+    "officialSource": "Meguruto editorial selection",
     "sourceUrl": "https://www.japan.travel/",
     "metadata": {
-      "authority": "historical_consensus",
+      "authority": "curated",
       "status": "active",
       "lastVerified": "2026-07",
-      "verificationSource": "TabiMap editorial review",
+      "verificationSource": "Meguruto editorial review",
       "reviewIntervalMonths": 12,
       "expectedMembers": 17
     },
     "nameJa": "日本の展望台・タワー",
-    "descriptionJa": "東京スカイツリー、東京タワー、渋谷スカイなど都市の絶景を一望する展望施設。",
+    "descriptionJa": "東京スカイツリー、東京タワー、渋谷スカイなど都市の絶景を一望する展望施設をメグルートが厳選（17施設）。",
     "content": {
       "en": {
         "name": "Japan's Observatories & Towers",
-        "description": "A curated, capped selection of Japan's most important and popular observation towers, high-rise decks, and city viewpoints."
+        "description": "A Meguruto-curated, capped selection of Japan's most important and popular observation towers, high-rise decks, and city viewpoints."
       },
       "ja": {
         "name": "日本の展望台・タワー",
-        "description": "東京スカイツリー、東京タワー、渋谷スカイなど都市の絶景を一望する展望施設。"
+        "description": "東京スカイツリー、東京タワー、渋谷スカイなど都市の絶景を一望する展望施設をメグルートが厳選（17施設）。"
       }
     }
   }

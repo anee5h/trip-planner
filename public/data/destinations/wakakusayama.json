@@ -1,0 +1,117 @@
+{
+  "id": "wakakusayama",
+  "name": "Mount Wakakusa",
+  "nameJa": "若草山",
+  "aliases": ["若草山"],
+  "prefecture": "Nara",
+  "region": "Kansai",
+  "kind": "mountain",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.69,
+    "lng": 135.859
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Mount Wakakusa", "Nara", "Japan Travel"],
+  "description": "The grass-covered hill east of Nara Park, Mount Wakakusa is one of Japan's New Three Great Night Views (2003) and the stage of the January yamayaki grass-burning festival.",
+  "highlights": [
+    "New Three Great Night View",
+    "Nara basin panorama",
+    "Yamayaki fire festival"
+  ],
+  "notes": "Admission ¥150 (adult) for the hill; the night view over Nara and the Great Buddha Hall is the draw.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Mount_Wakakusa%2C_Mountain_Trail_001.jpg/1920px-Mount_Wakakusa%2C_Mountain_Trail_001.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Mount_Wakakusa%2C_Mountain_Trail_001.jpg/1920px-Mount_Wakakusa%2C_Mountain_Trail_001.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Naokijp, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Wakakusa,_Mountain_Trail_001.jpg"
+  },
+  "officialWebsite": "https://www.city.nara.lg.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Nara:nara",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "great-night-views",
+      "sortOrder": 3
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Mount Wakakusa",
+      "description": "The grass-covered hill east of Nara Park, Mount Wakakusa is one of Japan's New Three Great Night Views (2003) and the stage of the January yamayaki grass-burning festival.",
+      "highlights": [
+        "New Three Great Night View",
+        "Nara basin panorama",
+        "Yamayaki fire festival"
+      ],
+      "notes": "Admission ¥150 (adult) for the hill; the night view over Nara and the Great Buddha Hall is the draw.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "若草山",
+      "description": "奈良公園の東に広がる芝生の山、若草山は2003年に「日本新三景」のひとつに選ばれ、毎年1月には山焼きが行われることでも知られています。",
+      "highlights": [
+        "日本新三景の夜景",
+        "奈良盆地のパノラマ",
+        "山焼きの火祭り"
+      ],
+      "notes": "入山料は大人150円。奈良の街並みや大仏殿を望む夜景が魅力です。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.nara.lg.jp/",
+        "title": "Mount Wakakusa official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

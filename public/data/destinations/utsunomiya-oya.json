@@ -72,12 +72,7 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "caves-japan",
-      "sortOrder": 4
-    }
-  ],
+  "collections": [],
   "relationships": {
     "parentDestinationId": "utsunomiya-city"
   },

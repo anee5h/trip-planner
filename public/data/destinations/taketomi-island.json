@@ -1,0 +1,155 @@
+{
+  "id": "taketomi-island",
+  "name": "Taketomi Island",
+  "nameJa": "竹富島",
+  "aliases": ["竹富島"],
+  "prefecture": "Okinawa",
+  "region": "Okinawa",
+  "kind": "island",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 24.329,
+    "lng": 124.087
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Taketomi Island", "Okinawa", "Japan Travel"],
+  "description": "A coral-island village of red-tile roofs, stone walls and sand roads in the Yaeyama group, preserving the classic Ryukyuan island townscape; Kondoi Beach is a famous white-sand lagoon.",
+  "highlights": [
+    "Preserved Ryukyuan village",
+    "Red-tile roofs and sand roads",
+    "Kondoi Beach"
+  ],
+  "notes": "Ferry from Ishigaki takes ~10 min; rent a bicycle (¥500+) to tour the village and beaches.",
+  "budgetMin": 1500,
+  "budgetRecommended": 4000,
+  "budgetMax": 9000,
+  "budget": {
+    "low": 1500,
+    "mid": 4000,
+    "high": 9000
+  },
+  "budgetBreakdown": {
+    "transport": 2000,
+    "tickets": 800,
+    "food": 800,
+    "cafe": 400
+  },
+  "transportOptions": {
+    "ferry": 10
+  },
+  "totalTripHours": 3,
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingMin": 150,
+  "walkingSunMin": 90,
+  "walkingShadeMin": 60,
+  "walkingIntensity": "medium",
+  "indoorPercent": 15,
+  "comfort": {
+    "heatTolerance": 7,
+    "rainFriendly": 6,
+    "walkingIntensity": 5
+  },
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9,
+    "walkability": 6
+  },
+  "crowd": {
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 7
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 7
+  },
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "weatherDependence": "moderate",
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Village_in_Taketomi_Island_-_located_at_southwest_Japan.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Village_in_Taketomi_Island_-_located_at_southwest_Japan.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "ippei &amp; janine naoi, CC BY 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Village_in_Taketomi_Island_-_located_at_southwest_Japan.jpg"
+  },
+  "officialWebsite": "https://www.taketomi-islands.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Okinawa:taketomi",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "islands-japan",
+      "sortOrder": 11
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Taketomi Island",
+      "description": "A coral-island village of red-tile roofs, stone walls and sand roads in the Yaeyama group, preserving the classic Ryukyuan island townscape; Kondoi Beach is a famous white-sand lagoon.",
+      "highlights": [
+        "Preserved Ryukyuan village",
+        "Red-tile roofs and sand roads",
+        "Kondoi Beach"
+      ],
+      "notes": "Ferry from Ishigaki takes ~10 min; rent a bicycle (¥500+) to tour the village and beaches.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "竹富島",
+      "description": "八重山諸島の珊瑚礁の島で、赤瓦の屋根・石垣・砂道の集落が琉球の原風景を残します。コンドイ浜は白砂のラグーンビーチとして有名です。",
+      "highlights": ["残る琉球の集落", "赤瓦の屋根と砂道", "コンドイ浜"],
+      "notes": "石垣島からフェリーで約10分。レンタサイクル（500円〜）で集落やビーチを巡れます。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.taketomi-islands.jp/",
+        "title": "Taketomi Island official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "transportZoneId": "ishigaki",
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

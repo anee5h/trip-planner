@@ -26,7 +26,12 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "art-islands-japan",
+      "sortOrder": 8
+    }
+  ],
   "transportOptions": {
     "train": 100,
     "bus": 60,

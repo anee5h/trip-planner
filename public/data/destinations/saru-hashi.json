@@ -1,0 +1,117 @@
+{
+  "id": "saru-hashi",
+  "name": "Saru-hashi Bridge",
+  "nameJa": "猿橋",
+  "aliases": ["猿橋"],
+  "prefecture": "Yamanashi",
+  "region": "Chubu",
+  "kind": "bridge",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.604,
+    "lng": 138.947
+  },
+  "categories": ["bridge", "sightseeing", "engineering"],
+  "tags": ["Saru-hashi Bridge", "Yamanashi", "Japan Travel"],
+  "description": "One of Japan's Three Strange Bridges (三奇橋), Saru-hashi is a 31 m wooden cantilever bridge built without piers over the Katsura river gorge — a 17th-century engineering marvel.",
+  "highlights": [
+    "One of the Three Strange Bridges",
+    "Pier-less cantilever design",
+    "Katsura river gorge"
+  ],
+  "notes": "Free to cross; a riverside viewing path offers the classic profile. About 10 min from Otsuki Station by car.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Saruhashi_Bridge_%40_Hike_to_Mount_Ougiyama_%26_Mount_Momokurasan_%40_Yamanashi_Prefecture_%2813469680933%29.jpg/1920px-Saruhashi_Bridge_%40_Hike_to_Mount_Ougiyama_%26_Mount_Momokurasan_%40_Yamanashi_Prefecture_%2813469680933%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Saruhashi_Bridge_%40_Hike_to_Mount_Ougiyama_%26_Mount_Momokurasan_%40_Yamanashi_Prefecture_%2813469680933%29.jpg/1920px-Saruhashi_Bridge_%40_Hike_to_Mount_Ougiyama_%26_Mount_Momokurasan_%40_Yamanashi_Prefecture_%2813469680933%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "Guilhem Vellut from Annecy, France, CC BY 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saruhashi_Bridge_@_Hike_to_Mount_Ougiyama_&_Mount_Momokurasan_@_Yamanashi_Prefecture_(13469680933).jpg"
+  },
+  "officialWebsite": "https://www.city.otsuki.yamanashi.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Yamanashi:otsuki",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "scenic-bridges-japan",
+      "sortOrder": 4
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Saru-hashi Bridge",
+      "description": "One of Japan's Three Strange Bridges (三奇橋), Saru-hashi is a 31 m wooden cantilever bridge built without piers over the Katsura river gorge — a 17th-century engineering marvel.",
+      "highlights": [
+        "One of the Three Strange Bridges",
+        "Pier-less cantilever design",
+        "Katsura river gorge"
+      ],
+      "notes": "Free to cross; a riverside viewing path offers the classic profile. About 10 min from Otsuki Station by car.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "猿橋",
+      "description": "日本三奇橋の一つである猿橋は、桂川の渓谷に橋脚を使わず架けられた全長31mの木造片持ち梁橋。17世紀の技術の傑作。",
+      "highlights": [
+        "日本三奇橋の一つ",
+        "橋脚なしの片持ち梁構造",
+        "桂川の渓谷"
+      ],
+      "notes": "渡るのは無料。川沿いの遊歩道から定番の姿を望める。大月駅から車で約10分。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.otsuki.yamanashi.jp/",
+        "title": "Saru-hashi Bridge official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

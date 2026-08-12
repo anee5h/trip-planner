@@ -27,7 +27,12 @@
     "minutesFromBase": 240,
     "confidence": "high"
   },
-  "collections": [],
+  "collections": [
+    {
+      "collectionId": "caves-japan",
+      "sortOrder": 1
+    }
+  ],
   "budgetMin": 1100,
   "budgetRecommended": 3050,
   "budgetMax": 5000,

@@ -82,12 +82,7 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "pilgrimage-routes-japan",
-      "sortOrder": 6
-    }
-  ],
+  "collections": [],
   "relationships": {
     "gatewayHubId": "kisarazu-city"
   },

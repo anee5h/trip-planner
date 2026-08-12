@@ -84,6 +84,10 @@
       "sortOrder": 7,
       "confirmed": true,
       "source": "https://whc.unesco.org/en/list/1418/"
+    },
+    {
+      "collectionId": "pilgrimage-routes-japan",
+      "sortOrder": 7
     }
   ],
   "relationships": {},

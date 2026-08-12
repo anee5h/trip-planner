@@ -1,0 +1,113 @@
+{
+  "id": "shomyo-falls",
+  "name": "Shomyo Falls",
+  "nameJa": "称名滝",
+  "aliases": ["称名滝"],
+  "prefecture": "Toyama",
+  "region": "Chubu",
+  "kind": "waterfall",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 36.57,
+    "lng": 137.595
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Shomyo Falls", "Toyama", "Japan Travel"],
+  "description": "Japan's tallest waterfall (350 m, four-stage), in the Tateyama mountains; the Hanyu-no-taki companion falls appear in spring thaw. A 滝百選 selection.",
+  "highlights": [
+    "Japan's tallest waterfall",
+    "350 m four-stage drop",
+    "Spring snowmelt surge"
+  ],
+  "notes": "Free viewpoint at the trailhead; the Shomyo Gorge trail is snow-free June-October.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Shomyo-daki_1.jpg/1920px-Shomyo-daki_1.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Shomyo-daki_1.jpg/1920px-Shomyo-daki_1.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "kahusi (會話), CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shomyo-daki_1.jpg"
+  },
+  "officialWebsite": "https://www.info-toyama.com/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Toyama:tateyama",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "waterfalls-gorges-japan",
+      "sortOrder": 4
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Shomyo Falls",
+      "description": "Japan's tallest waterfall (350 m, four-stage), in the Tateyama mountains; the Hanyu-no-taki companion falls appear in spring thaw. A 滝百選 selection.",
+      "highlights": [
+        "Japan's tallest waterfall",
+        "350 m four-stage drop",
+        "Spring snowmelt surge"
+      ],
+      "notes": "Free viewpoint at the trailhead; the Shomyo Gorge trail is snow-free June-October.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "称名滝",
+      "description": "立山連峰にある日本一落差のある滝（350m・4段）。春の雪解けには隣の羽湯の滝が現れます。滝百選にも選ばれています。",
+      "highlights": ["日本一の落差", "350m・4段の滝", "春の雪解けの増水"],
+      "notes": "登山口に無料展望所があります。称名渓谷の遊歩道は6月〜10月は雪がなく歩けます。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.info-toyama.com/",
+        "title": "Shomyo Falls official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

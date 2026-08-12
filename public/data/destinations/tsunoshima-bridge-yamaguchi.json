@@ -20,12 +20,12 @@
   },
   "collections": [
     {
-      "collectionId": "scenic-bridges-japan",
-      "sortOrder": 1
-    },
-    {
       "collectionId": "coastal-drives-japan",
       "sortOrder": 3
+    },
+    {
+      "collectionId": "scenic-bridges-japan",
+      "sortOrder": 1
     }
   ],
   "region": "Chugoku",

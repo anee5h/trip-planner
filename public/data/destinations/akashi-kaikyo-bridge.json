@@ -1,0 +1,117 @@
+{
+  "id": "akashi-kaikyo-bridge",
+  "name": "Akashi Kaikyo Bridge",
+  "nameJa": "明石海峡大橋",
+  "aliases": ["明石海峡大橋"],
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "kind": "bridge",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 34.616,
+    "lng": 135.021
+  },
+  "categories": ["bridge", "sightseeing", "engineering"],
+  "tags": ["Akashi Kaikyo Bridge", "Hyogo", "Japan Travel"],
+  "description": "One of the world's longest suspension bridges (1,991 m main span — the world's longest from 1998 to 2022), linking Kobe and Awaji Island across the Akashi Strait; its Maiko promenade offers an ocean-floor walkway.",
+  "highlights": [
+    "1,991 m main span",
+    "Maiko Marine Promenade",
+    "Akashi Strait crossing"
+  ],
+  "notes": "Toll road; the Marine Promenade on the Kobe side (¥300, ¥250 weekdays) lets you walk beneath the deck.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Akashi_Bridge.JPG/1920px-Akashi_Bridge.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Akashi_Bridge.JPG/1920px-Akashi_Bridge.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Tysto, Public domain, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akashi_Bridge.JPG"
+  },
+  "officialWebsite": "https://www.jb-honshi.co.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Hyogo:kobe",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "scenic-bridges-japan",
+      "sortOrder": 7
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Akashi Kaikyo Bridge",
+      "description": "One of the world's longest suspension bridges (1,991 m main span — the world's longest from 1998 to 2022), linking Kobe and Awaji Island across the Akashi Strait; its Maiko promenade offers an ocean-floor walkway.",
+      "highlights": [
+        "1,991 m main span",
+        "Maiko Marine Promenade",
+        "Akashi Strait crossing"
+      ],
+      "notes": "Toll road; the Marine Promenade on the Kobe side (¥300, ¥250 weekdays) lets you walk beneath the deck.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "明石海峡大橋",
+      "description": "1998年開通の世界有数の長大吊り橋で、中央支間1,991m（開通から2022年まで世界最長）。神戸と淡路島を結び、舞子海上プロムナードでは海の上を歩く体験ができます。",
+      "highlights": [
+        "世界最長の吊り橋",
+        "舞子海上プロムナード",
+        "明石海峡を渡る"
+      ],
+      "notes": "有料道路です。神戸側の舞子海上プロムナード（300円、平日250円）は橋の下を歩けます。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.jb-honshi.co.jp/",
+        "title": "Akashi Kaikyo Bridge official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

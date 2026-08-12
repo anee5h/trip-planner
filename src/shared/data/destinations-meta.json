@@ -131,6 +131,16 @@
     "relationships": {}
   },
   {
+    "id": "akashi-kaikyo-bridge",
+    "name": "Akashi Kaikyo Bridge",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "bridge",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "akihabara-chiyoda",
     "name": "Akihabara (Chiyoda)",
     "prefecture": "Tokyo",
@@ -1646,6 +1656,16 @@
     }
   },
   {
+    "id": "farm-tomita",
+    "name": "Farm Tomita",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "park",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "former-hokkaido-government-office",
     "name": "Former Hokkaido Government Office",
     "prefecture": "Hokkaido",
@@ -1668,6 +1688,16 @@
     "relationships": {
       "parentDestinationId": "chofu-tokyo"
     }
+  },
+  {
+    "id": "fuefukigawa-fruit-park",
+    "name": "Fuefukigawa Fruit Park",
+    "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "park",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "fuji-5-lake",
@@ -2561,6 +2591,16 @@
     }
   },
   {
+    "id": "hakone-open-air-museum",
+    "name": "Hakone Open-Air Museum",
+    "prefecture": "Kanagawa",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "museum",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "hakone-town",
     "name": "Hakone Town",
     "prefecture": "Kanagawa",
@@ -2763,6 +2803,16 @@
     "name": "Hiba-Dogo-Taishaku Quasi-National Park",
     "prefecture": "Hiroshima",
     "region": "Chugoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "hida-cave",
+    "name": "Hida Great Limestone Cave",
+    "prefecture": "Gifu",
+    "region": "Chubu",
     "role": "standalone",
     "kind": "nature",
     "status": "published",
@@ -3486,6 +3536,16 @@
     }
   },
   {
+    "id": "inujima",
+    "name": "Inujima Island",
+    "prefecture": "Okayama",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "island",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "inuyama-castle-aichi",
     "name": "Inuyama Castle (National Treasure Keep)",
     "prefecture": "Aichi",
@@ -4141,6 +4201,16 @@
     "role": "standalone",
     "kind": "city",
     "status": "verified",
+    "relationships": {}
+  },
+  {
+    "id": "kanazawa-21",
+    "name": "21st Century Museum of Contemporary Art",
+    "prefecture": "Ishikawa",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "museum",
+    "status": "published",
     "relationships": {}
   },
   {
@@ -5590,6 +5660,16 @@
     "relationships": {}
   },
   {
+    "id": "kyusendo-cave",
+    "name": "Kyusendo Cave",
+    "prefecture": "Kumamoto",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "kyushu-chuo-sanchi",
     "name": "Kyushu Chuo Sanchi Quasi-National Park",
     "prefecture": "Miyazaki",
@@ -6813,6 +6893,16 @@
     "relationships": {}
   },
   {
+    "id": "nabana-no-sato",
+    "name": "Nabana no Sato",
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "park",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "nachi-falls-wakayama",
     "name": "Nachi Falls & Pagoda",
     "prefecture": "Wakayama",
@@ -7180,6 +7270,16 @@
     "relationships": {}
   },
   {
+    "id": "nanatsugama-cave",
+    "name": "Nanatsugama Cave",
+    "prefecture": "Nagasaki",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "nanatsugama-sea-caves",
     "name": "Nanatsugama Sea Caves",
     "prefecture": "Saga",
@@ -7454,6 +7554,16 @@
     "relationships": {}
   },
   {
+    "id": "nichinan-kaigan-drive",
+    "name": "Nichinan Coast Scenic Drive",
+    "prefecture": "Miyazaki",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "nihon-minka-en",
     "name": "Nihon Minka-en",
     "prefecture": "Kanagawa",
@@ -7584,6 +7694,16 @@
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }
+  },
+  {
+    "id": "nippara-cave",
+    "name": "Nippara Limestone Cave",
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "nippo-kaigan",
@@ -7916,6 +8036,16 @@
     "relationships": {}
   },
   {
+    "id": "ogijima",
+    "name": "Ogijima Island",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "role": "standalone",
+    "kind": "island",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "ohara-museum-of-art",
     "name": "Ohara Museum of Art",
     "prefecture": "Okayama",
@@ -8164,6 +8294,16 @@
     "relationships": {
       "gatewayHubId": "otsu-city"
     }
+  },
+  {
+    "id": "omishima-bridge",
+    "name": "Omishima Bridge",
+    "prefecture": "Ehime",
+    "region": "Shikoku",
+    "role": "standalone",
+    "kind": "bridge",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "omiya-bonsai-art-museum",
@@ -8618,6 +8758,16 @@
     }
   },
   {
+    "id": "rainbow-bridge",
+    "name": "Rainbow Bridge",
+    "prefecture": "Tokyo",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "bridge",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "rakuten-mobile-park-miyagi",
     "name": "Rakuten Mobile Park Miyagi",
     "prefecture": "Miyagi",
@@ -8792,6 +8942,16 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["hakone-town", "yokohama-city", "fujisawa-city"]
     }
+  },
+  {
+    "id": "saigoku-33",
+    "name": "Saigoku Kannon Pilgrimage (33 Temples)",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "historic",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "saigyo-modoshi-no-matsu",
@@ -9019,6 +9179,16 @@
     "relationships": {}
   },
   {
+    "id": "sapporo-art-park",
+    "name": "Sapporo Art Park",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "park",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "sapporo-beer-museum",
     "name": "Sapporo Beer Museum",
     "prefecture": "Hokkaido",
@@ -9079,6 +9249,26 @@
     "relationships": {
       "parentDestinationId": "sapporo-city"
     }
+  },
+  {
+    "id": "sarakurayama",
+    "name": "Mount Sarakura",
+    "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "mountain",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "saru-hashi",
+    "name": "Saru-hashi Bridge",
+    "prefecture": "Yamanashi",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "bridge",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "sasayama-castle",
@@ -9368,6 +9558,16 @@
     }
   },
   {
+    "id": "seto-ohashi-bridge",
+    "name": "Seto Ohashi Bridge",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "role": "standalone",
+    "kind": "bridge",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "setonaikai",
     "name": "Setonaikai National Park",
     "prefecture": "Hiroshima",
@@ -9430,6 +9630,26 @@
     "relationships": {
       "parentDestinationId": "shibuya-city"
     }
+  },
+  {
+    "id": "shikisai-no-oka",
+    "name": "Shikisai-no-Oka",
+    "prefecture": "Hokkaido",
+    "region": "Hokkaido",
+    "role": "standalone",
+    "kind": "park",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "shikoku-henro",
+    "name": "Shikoku Henro (88 Temple Pilgrimage)",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "standalone",
+    "kind": "historic",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "shikoku-mura",
@@ -9641,6 +9861,16 @@
     }
   },
   {
+    "id": "shiraito-falls",
+    "name": "Shiraito Falls",
+    "prefecture": "Shizuoka",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "waterfall",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "shirakami-sanchi-aomori",
     "name": "Shirakami-Sanchi",
     "prefecture": "Aomori",
@@ -9731,12 +9961,32 @@
     }
   },
   {
+    "id": "shodoshima",
+    "name": "Shodoshima Island",
+    "prefecture": "Kagawa",
+    "region": "Shikoku",
+    "role": "standalone",
+    "kind": "island",
+    "status": "published",
+    "relationships": {}
+  },
+  {
     "id": "shokanbetsu-teuri-yagishiri",
     "name": "Shokanbetsu-Teuri-Yagishiri Quasi-National Park",
     "prefecture": "Hokkaido",
     "region": "Hokkaido",
     "role": "standalone",
     "kind": "nature",
+    "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "shomyo-falls",
+    "name": "Shomyo Falls",
+    "prefecture": "Toyama",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "waterfall",
     "status": "published",
     "relationships": {}
   },
@@ -9751,6 +10001,16 @@
     "relationships": {
       "parentDestinationId": "fujisawa-city"
     }
+  },
+  {
+    "id": "shoryu-cave",
+    "name": "Shoryu Cave",
+    "prefecture": "Kagoshima",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "showa-kinen-park",
@@ -10351,6 +10611,16 @@
     "relationships": {
       "parentDestinationId": "beppu-city"
     }
+  },
+  {
+    "id": "taketomi-island",
+    "name": "Taketomi Island",
+    "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "role": "standalone",
+    "kind": "island",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "takkoku-no-iwa",
@@ -11453,6 +11723,16 @@
     "relationships": {
       "parentDestinationId": "naruto-city"
     }
+  },
+  {
+    "id": "wakakusayama",
+    "name": "Mount Wakakusa",
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "mountain",
+    "status": "published",
+    "relationships": {}
   },
   {
     "id": "wakasa-wan",

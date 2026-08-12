@@ -1,0 +1,121 @@
+{
+  "id": "saigoku-33",
+  "name": "Saigoku Kannon Pilgrimage (33 Temples)",
+  "nameJa": "西国三十三所",
+  "aliases": ["西国三十三所"],
+  "prefecture": "Wakayama",
+  "region": "Kansai",
+  "kind": "historic",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 33.669,
+    "lng": 135.89
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": [
+    "Saigoku Kannon Pilgrimage (33 Temples)",
+    "Wakayama",
+    "Japan Travel"
+  ],
+  "description": "Japan's oldest Kannon pilgrimage: 33 temples from Nachi in Wakayama to Otsu in Shiga, founded in the 8th century and still walked by pilgrims carrying white cloths.",
+  "highlights": [
+    "Japan's oldest Kannon circuit",
+    "33 temples across Kansai",
+    "Temple 1: Seiganto-ji at Nachi"
+  ],
+  "notes": "Seiganto-ji (Temple 1) sits beside Nachi Falls; the full circuit takes about two weeks or can be driven in sections.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 8,
+    "max": 24
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/2018_Wugu_Siyun_Temple_%E7%AC%AC%E4%B8%80%E7%95%AA%E9%9D%92%E5%B2%B8%E6%B8%A1%E5%AF%BA%E5%A6%82%E6%84%8F%E8%BC%AA%E8%A7%80%E4%B8%96%E9%9F%B3%E8%8F%A9%E8%96%A9.jpg/1920px-2018_Wugu_Siyun_Temple_%E7%AC%AC%E4%B8%80%E7%95%AA%E9%9D%92%E5%B2%B8%E6%B8%A1%E5%AF%BA%E5%A6%82%E6%84%8F%E8%BC%AA%E8%A7%80%E4%B8%96%E9%9F%B3%E8%8F%A9%E8%96%A9.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/2018_Wugu_Siyun_Temple_%E7%AC%AC%E4%B8%80%E7%95%AA%E9%9D%92%E5%B2%B8%E6%B8%A1%E5%AF%BA%E5%A6%82%E6%84%8F%E8%BC%AA%E8%A7%80%E4%B8%96%E9%9F%B3%E8%8F%A9%E8%96%A9.jpg/1920px-2018_Wugu_Siyun_Temple_%E7%AC%AC%E4%B8%80%E7%95%AA%E9%9D%92%E5%B2%B8%E6%B8%A1%E5%AF%BA%E5%A6%82%E6%84%8F%E8%BC%AA%E8%A7%80%E4%B8%96%E9%9F%B3%E8%8F%A9%E8%96%A9.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Taiwankengo, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2018_Wugu_Siyun_Temple_第一番青岸渡寺如意輪觀世音菩薩.jpg"
+  },
+  "officialWebsite": "https://www.saikoku33.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Wakayama:nachikatsuura",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "pilgrimage-routes-japan",
+      "sortOrder": 8
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Saigoku Kannon Pilgrimage (33 Temples)",
+      "description": "Japan's oldest Kannon pilgrimage: 33 temples from Nachi in Wakayama to Otsu in Shiga, founded in the 8th century and still walked by pilgrims carrying white cloths.",
+      "highlights": [
+        "Japan's oldest Kannon circuit",
+        "33 temples across Kansai",
+        "Temple 1: Seiganto-ji at Nachi"
+      ],
+      "notes": "Seiganto-ji (Temple 1) sits beside Nachi Falls; the full circuit takes about two weeks or can be driven in sections.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "西国三十三所",
+      "description": "日本最古の観音巡礼。8世紀に創始され、和歌山の那智から滋賀の大津まで33ヶ所の寺院を巡る。現在も白い布を身につけた巡礼者が歩き続けている。",
+      "highlights": [
+        "日本最古の観音巡礼",
+        "関西に広がる33ヶ所の寺院",
+        "第1番札所・那智の青岸渡寺"
+      ],
+      "notes": "第1番札所の青岸渡寺は那智の滝の隣にあります。全行程は約2週間かかりますが、区切りながら車で巡ることもできます。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.saikoku33.jp/",
+        "title": "Saigoku Kannon Pilgrimage (33 Temples) official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

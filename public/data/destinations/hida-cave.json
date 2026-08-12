@@ -1,0 +1,113 @@
+{
+  "id": "hida-cave",
+  "name": "Hida Great Limestone Cave",
+  "nameJa": "飛騨大鍾乳洞",
+  "aliases": ["飛騨大鍾乳洞"],
+  "prefecture": "Gifu",
+  "region": "Chubu",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 36.27,
+    "lng": 137.36
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Hida Great Limestone Cave", "Gifu", "Japan Travel"],
+  "description": "One of Japan's nine association-member touring caves, the Hida Great Limestone Cave offers a 800 m course with limestone formations and an underground observation tower at the top of Mt. Kano.",
+  "highlights": [
+    "Association-listed touring cave",
+    "Underground observation tower",
+    "Limestone formations"
+  ],
+  "notes": "Admission ¥1,200 (adult); a cable car from Takayama's north reaches the cave entrance.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Hida_Great_Limestone_Cave.jpg/1920px-Hida_Great_Limestone_Cave.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Hida_Great_Limestone_Cave.jpg/1920px-Hida_Great_Limestone_Cave.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "ブルーノ・プラス, CC BY 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hida_Great_Limestone_Cave.jpg"
+  },
+  "officialWebsite": "https://www.hida-cave.com/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Gifu:takayama",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "caves-japan",
+      "sortOrder": 4
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Hida Great Limestone Cave",
+      "description": "One of Japan's nine association-member touring caves, the Hida Great Limestone Cave offers a 800 m course with limestone formations and an underground observation tower at the top of Mt. Kano.",
+      "highlights": [
+        "Association-listed touring cave",
+        "Underground observation tower",
+        "Limestone formations"
+      ],
+      "notes": "Admission ¥1,200 (adult); a cable car from Takayama's north reaches the cave entrance.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "飛騨大鍾乳洞",
+      "description": "日本9洞会加盟の観光鍾乳洞のひとつで、花崗岩の山・鹿ノ上山の頂上付近に広がります。全長800mのコースには鍾乳石や地底の展望台があります。",
+      "highlights": ["日本9洞会加盟の鍾乳洞", "地底の展望台", "鍾乳石の造形"],
+      "notes": "入場料は大人1,200円。飛騨の里から南へ、ケーブルカーで洞窟入口までアクセスできます。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.hida-cave.com/",
+        "title": "Hida Great Limestone Cave official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

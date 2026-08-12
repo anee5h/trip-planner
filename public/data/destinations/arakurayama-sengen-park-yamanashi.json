@@ -18,12 +18,7 @@
     "minutesFromBase": 90,
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "flower-parks-japan",
-      "sortOrder": 1
-    }
-  ],
+  "collections": [],
   "region": "Chubu",
   "categories": ["Viewpoints & Photography"],
   "budgetMin": 1500,

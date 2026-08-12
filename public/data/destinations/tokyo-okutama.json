@@ -82,12 +82,7 @@
   "travelEstimate": {
     "confidence": "high"
   },
-  "collections": [
-    {
-      "collectionId": "caves-japan",
-      "sortOrder": 5
-    }
-  ],
+  "collections": [],
   "relationships": {
     "parentDestinationId": "ome-tokyo"
   },

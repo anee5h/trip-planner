@@ -38,15 +38,6 @@
   },
   "collections": [
     {
-      "collectionId": "top-onsen-japan",
-      "sortOrder": 2,
-      "confirmed": true
-    },
-    {
-      "collectionId": "art-islands-japan",
-      "sortOrder": 4
-    },
-    {
       "collectionId": "great-night-views",
       "confirmed": true
     }

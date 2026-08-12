@@ -1,0 +1,117 @@
+{
+  "id": "nabana-no-sato",
+  "name": "Nabana no Sato",
+  "nameJa": "なばなの里",
+  "aliases": ["なばなの里"],
+  "prefecture": "Mie",
+  "region": "Kansai",
+  "kind": "park",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.068,
+    "lng": 136.688
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Nabana no Sato", "Mie", "Japan Travel"],
+  "description": "An illuminated flower park near Nagashima, famous for its winter light festival, spring tulips, autumn dahlias and the Begonia Garden glasshouse.",
+  "highlights": [
+    "Winter illumination festival",
+    "Begonia Garden glasshouse",
+    "Seasonal flower shows"
+  ],
+  "notes": "Admission varies by season (¥2,500+ incl. illumination); the winter lights run October-May.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Nabana_no_Sato_%28Winter_Illumination%29%2C_Kuwana%2C_Mie%2C_Japan%2C_%E3%81%AA%E3%81%B0%E3%81%AA%E3%81%AE%E9%87%8C%2C_%E4%B8%89%E9%87%8D%2C_%E4%B8%89%E9%87%8D%E7%9C%8C_-_panoramio.jpg/1920px-Nabana_no_Sato_%28Winter_Illumination%29%2C_Kuwana%2C_Mie%2C_Japan%2C_%E3%81%AA%E3%81%B0%E3%81%AA%E3%81%AE%E9%87%8C%2C_%E4%B8%89%E9%87%8D%2C_%E4%B8%89%E9%87%8D%E7%9C%8C_-_panoramio.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Nabana_no_Sato_%28Winter_Illumination%29%2C_Kuwana%2C_Mie%2C_Japan%2C_%E3%81%AA%E3%81%B0%E3%81%AA%E3%81%AE%E9%87%8C%2C_%E4%B8%89%E9%87%8D%2C_%E4%B8%89%E9%87%8D%E7%9C%8C_-_panoramio.jpg/1920px-Nabana_no_Sato_%28Winter_Illumination%29%2C_Kuwana%2C_Mie%2C_Japan%2C_%E3%81%AA%E3%81%B0%E3%81%AA%E3%81%AE%E9%87%8C%2C_%E4%B8%89%E9%87%8D%2C_%E4%B8%89%E9%87%8D%E7%9C%8C_-_panoramio.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "carloshonda, CC BY 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nabana_no_Sato_(Winter_Illumination),_Kuwana,_Mie,_Japan,_なばなの里,_三重,_三重県_-_panoramio.jpg"
+  },
+  "officialWebsite": "https://www.nagashima-onsen.co.jp/nabana/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Mie:kuwana",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "flower-parks-japan",
+      "sortOrder": 7
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Nabana no Sato",
+      "description": "An illuminated flower park near Nagashima, famous for its winter light festival, spring tulips, autumn dahlias and the Begonia Garden glasshouse.",
+      "highlights": [
+        "Winter illumination festival",
+        "Begonia Garden glasshouse",
+        "Seasonal flower shows"
+      ],
+      "notes": "Admission varies by season (¥2,500+ incl. illumination); the winter lights run October-May.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "なばなの里",
+      "description": "長島近郊にあるイルミネーション花園。冬の光の祭典、春のチューリップ、秋のダリア、ベゴニアガーデンの温室で有名です。",
+      "highlights": [
+        "冬のイルミネーション",
+        "ベゴニアガーデンの温室",
+        "季節の花の展示"
+      ],
+      "notes": "入場料は季節により異なります（イルミネーション込みで2,500円〜）。冬のイルミネーションは10月〜5月まで。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.nagashima-onsen.co.jp/nabana/",
+        "title": "Nabana no Sato official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}

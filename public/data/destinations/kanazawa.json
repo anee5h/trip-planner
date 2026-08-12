@@ -78,12 +78,7 @@
   "travelEstimate": {
     "confidence": "beta"
   },
-  "collections": [
-    {
-      "collectionId": "flower-parks-japan",
-      "sortOrder": 5
-    }
-  ],
+  "collections": [],
   "relationships": {},
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",

@@ -43,16 +43,16 @@
       "source": "https://whc.unesco.org/en/list/1142/"
     },
     {
+      "collectionId": "three-great-waterfalls",
+      "sortOrder": 2
+    },
+    {
       "collectionId": "pilgrimage-routes-japan",
       "confirmed": true
     },
     {
       "collectionId": "waterfalls-gorges-japan",
       "confirmed": true
-    },
-    {
-      "collectionId": "three-great-waterfalls",
-      "sortOrder": 2
     }
   ],
   "transportOptions": {

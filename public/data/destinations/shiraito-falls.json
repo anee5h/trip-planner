@@ -1,0 +1,113 @@
+{
+  "id": "shiraito-falls",
+  "name": "Shiraito Falls",
+  "nameJa": "白糸の滝",
+  "aliases": ["白糸の滝"],
+  "prefecture": "Shizuoka",
+  "region": "Chubu",
+  "kind": "waterfall",
+  "role": "standalone",
+  "placeType": "destination",
+  "coordinates": {
+    "lat": 35.31,
+    "lng": 138.589
+  },
+  "categories": ["sightseeing", "culture", "nature"],
+  "tags": ["Shiraito Falls", "Shizuoka", "Japan Travel"],
+  "description": "A curtain of hundreds of white streamlets falling 20 m from the Fuji foothills, a 滝百選 selection and a Fujisan World Heritage component at the base of the mountain.",
+  "highlights": [
+    "Curtain of white falls",
+    "滝百選 selection",
+    "Fuji World Heritage site"
+  ],
+  "notes": "Free to view; the Otodome Falls viewpoint is beside it. About 20 min by car from Fujinomiya.",
+  "transportOptions": {},
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1.5
+  },
+  "walkingIntensity": "medium",
+  "ratings": {
+    "overall": 8.7,
+    "couple": 8.5,
+    "summer": 8.8,
+    "winter": 8.1,
+    "rain": 7.8,
+    "food": 7.7,
+    "photography": 9,
+    "relaxation": 8.3,
+    "value": 8.6,
+    "uniqueness": 8.9
+  },
+  "reservation": "None required",
+  "parking": "Paid parking nearby (varies by site)",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/N2_Shiraito_Falls_2.jpg/1920px-N2_Shiraito_Falls_2.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/N2_Shiraito_Falls_2.jpg/1920px-N2_Shiraito_Falls_2.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "InvictusOU812 from USA, CC BY 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:N2_Shiraito_Falls_2.jpg"
+  },
+  "officialWebsite": "https://www.city.fujinomiya.shizuoka.jp/",
+  "businessHours": "Open daily; hours vary by season (see official site)",
+  "openingHoursJa": "毎日開館（時期により異なる・公式サイトで確認）",
+  "municipalityId": "Shizuoka:fujinomiya",
+  "status": "published",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "ratingsSchemaVersion": 2,
+  "collections": [
+    {
+      "collectionId": "waterfalls-gorges-japan",
+      "sortOrder": 5
+    }
+  ],
+  "relationships": {},
+  "content": {
+    "en": {
+      "name": "Shiraito Falls",
+      "description": "A curtain of hundreds of white streamlets falling 20 m from the Fuji foothills, a 滝百選 selection and a Fujisan World Heritage component at the base of the mountain.",
+      "highlights": [
+        "Curtain of white falls",
+        "滝百選 selection",
+        "Fuji World Heritage site"
+      ],
+      "notes": "Free to view; the Otodome Falls viewpoint is beside it. About 20 min by car from Fujinomiya.",
+      "reservation": "None required",
+      "parking": "Paid parking nearby (varies by site)",
+      "openingHours": "Open daily; hours vary by season"
+    },
+    "ja": {
+      "name": "白糸の滝",
+      "description": "富士山麓から高さ約20mの崖を、何筋もの白い糸のような水が流れ落ちる滝。滝百選に選ばれ、富士山の世界遺産構成資産の一つです。",
+      "highlights": ["白糸のカーテン", "滝百選選出", "富士山世界遺産"],
+      "notes": "見学無料。隣に音止めの滝の展望所があります。富士宮から車で約20分です。",
+      "reservation": "予約不要",
+      "parking": "周辺の有料駐車場あり（施設により異なる）",
+      "openingHours": "毎日開館（時期により異なる）"
+    }
+  },
+  "editorial": {
+    "lifecycle": "published",
+    "reviewedAt": "2026-08-12",
+    "reviewedBy": "Meguruto editorial",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.fujinomiya.shizuoka.jp/",
+        "title": "Shiraito Falls official page",
+        "accessedAt": "2026-08-12"
+      }
+    ],
+    "checkedAt": "2026-08-12",
+    "freshness": "current",
+    "changeSummary": "PR E thematic audit: new curated member record"
+  },
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "assisted",
+    "confidence": "low"
+  }
+}
