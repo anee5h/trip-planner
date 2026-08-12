@@ -9,7 +9,7 @@ import {
  * Pure date-selection resolution shared by the interactive handler and the
  * URL-restore path, so both behave identically.
  */
-function resolveDateTabSelection(
+export function resolveDateTabSelection(
   ctx: WeatherTabContext,
   selectedDate: string,
 ): {
@@ -18,7 +18,10 @@ function resolveDateTabSelection(
   customDate: string | null;
 } {
   const matchingPreset = ctx.tabs.find(
-    (tab) => !tab.isCustom && tab.dates.includes(selectedDate),
+    (tab) =>
+      !tab.isCustom &&
+      (tab.id === "today" || tab.id === "tomorrow") &&
+      tab.dates.includes(selectedDate),
   );
   if (matchingPreset) {
     return {
