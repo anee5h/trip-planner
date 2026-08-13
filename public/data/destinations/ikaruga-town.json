@@ -114,5 +114,11 @@
       ]
     }
   },
-  "municipalityId": "Nara:ikaruga"
+  "municipalityId": "Nara:ikaruga",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Horyu-ji10s3200.jpg"
+  }
 }

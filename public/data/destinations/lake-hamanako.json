@@ -90,5 +90,11 @@
   },
   "officialWebsite": "https://www.hamanakako.or.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Shizuoka:hamamatsu"
+  "municipalityId": "Shizuoka:hamamatsu",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Attribution",
+    "attribution": "国土地理院",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Hamana_Aerial_photograph.2006.jpg"
+  }
 }

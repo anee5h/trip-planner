@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 45,
     "editorialSummary": "Serene wooden Buddhist hall built on stone pillars over the waters of Lake Biwa.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.biwako-visitors.jp/spot/detail/109/",
+        "title": "Ukimido Mangetsu-ji Floating Temple",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

@@ -103,7 +103,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Kinosaki Onsen is a quintessential hot spring town centered around a willow-lined canal, where visitors stroll between seven distinct public bathhouses in traditional yukata robes.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://kinosaki-spa.gr.jp/",
+        "title": "Kinosaki Onsen",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -130,5 +137,11 @@
       ]
     }
   },
-  "municipalityId": "Hyogo:toyooka"
+  "municipalityId": "Hyogo:toyooka",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Samchan91",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kinosaki_Onsen_by_day.jpg"
+  }
 }

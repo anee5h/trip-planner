@@ -83,5 +83,11 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Hokkaido:asahikawa"
+  "municipalityId": "Hokkaido:asahikawa",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Masal64",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cityscape_of_Asahikawa_from_Mt._Arashiyama.jpg"
+  }
 }

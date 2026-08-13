@@ -95,5 +95,11 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Kochi:kochi"
+  "municipalityId": "Kochi:kochi",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "File:Kochi Katsurahama Daytime 1.JPG by ja:利用者:京浜にけ (Japanese Wikipedia), Upload",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kochi_montage.jpg"
+  }
 }

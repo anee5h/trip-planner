@@ -135,5 +135,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "Winter 10:00-16:00 weekdays / 9:30-16:00 weekends; summer longer; irregular closures",
   "openingHoursJa": "Winter 10:00-16:00 weekdays / 9:30-16:00 weekends; summer longer; irregular closures",
-  "municipalityId": "Chiba:futtsu"
+  "municipalityId": "Chiba:futtsu",
+  "imageMetadata": {
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unsplash",
+    "sourceUrl": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1000"
+  }
 }

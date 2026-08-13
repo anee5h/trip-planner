@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 120,
     "editorialSummary": "Takayama's Sanmachi district — three preserved streets of Edo-period merchant houses, craft shops and sake bre",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026", "japan-heritage-districts"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.takayama.lg.jp/",
+        "title": "Takayama Sanmachi",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-12T00:00:00Z",
     "checkedAt": "2026-08-12T00:00:00Z",
     "freshness": "current"

@@ -30,12 +30,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
   "tags": ["History", "Fukuoka City", "v1.9.2"],
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hakata%20Port%20from%20Fukuoka%20Tower.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Tamon-yagura_Turret_of_Fukuoka_Castle_Ruins_J%C5%8Dnai_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221018.jpg/1280px-Tamon-yagura_Turret_of_Fukuoka_Castle_Ruins_J%C5%8Dnai_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221018.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "attribution": "そらみみ",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hakata_Port_from_Fukuoka_Tower.jpg"
+    "attribution": "Hirho",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tamon-yagura_Turret_of_Fukuoka_Castle_Ruins_J%C5%8Dnai_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221018.jpg"
   },
   "coordinates": {
     "lat": 33.585,

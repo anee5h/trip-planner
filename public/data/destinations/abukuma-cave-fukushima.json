@@ -114,5 +114,11 @@
         "method": "assisted"
       }
     ]
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Brian Adler",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flowstones_and_Mushroom_Rocks_inside_Abukuma-do_Cave.JPG"
   }
 }

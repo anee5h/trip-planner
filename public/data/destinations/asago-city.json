@@ -116,5 +116,11 @@
       ]
     }
   },
-  "municipalityId": "Hyogo:asago"
+  "municipalityId": "Hyogo:asago",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wae35244",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:竹田城.JPG"
+  }
 }

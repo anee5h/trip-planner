@@ -94,5 +94,11 @@
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
   "municipalityId": "Okayama:kurashiki",
-  "nameJa": "倉敷市"
+  "nameJa": "倉敷市",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:211203_Kurashikikan_Kurashiki_Okayama_pref_Japan02s3.jpg"
+  }
 }

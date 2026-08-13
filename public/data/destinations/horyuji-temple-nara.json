@@ -67,7 +67,8 @@
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Buddhist Monuments in the Horyu-ji Area via Wikipedia/Wikimedia Commons"
+    "attribution": "Lead photograph of Buddhist Monuments in the Horyu-ji Area via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Horyu-ji10s3200.jpg"
   },
   "status": "published",
   "travelEstimate": {
@@ -124,7 +125,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Buddhist Monuments in the Horyu-ji Area is a UNESCO World Heritage Site in Ikaruga Town, Nara, home to the world's oldest surviving wooden structures.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "http://www.horyuji.or.jp/",
+        "title": "Buddhist Monuments in the Horyu-ji Area",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

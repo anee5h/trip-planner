@@ -23,7 +23,8 @@
   "imageMetadata": {
     "attribution": "Syced via Wikimedia Commons",
     "license": "CC0",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYonehara_Beach_23.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYonehara_Beach_23.jpg",
+    "source": "Wikimedia Commons"
   },
   "budgetMin": 500,
   "budgetRecommended": 1000,

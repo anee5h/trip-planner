@@ -110,5 +110,11 @@
       "highlights": ["東大寺・大仏殿", "春日大社と奈良公園の鹿", "興福寺五重塔"]
     }
   },
-  "municipalityId": "Nara:nara"
+  "municipalityId": "Nara:nara",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "User:名古屋太郎\nUser:Douglaspperkins\nUser:Fg2\nUser:663highland\nUser:Jakubhal\ncomposit",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nara_montage.jpg"
+  }
 }

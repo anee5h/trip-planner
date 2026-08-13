@@ -84,7 +84,13 @@
     },
     "businessHours": "Open access",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Hokkaido:abashiri"
+    "municipalityId": "Hokkaido:abashiri",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&q=80&w=1200"
+    }
   },
   {
     "id": "abeno-harukas-300-osaka",
@@ -205,7 +211,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Rising 300 meters above Osaka, Abeno Harukas is Japan's tallest skyscraper, featuring a 3-story glass observatory and open-air wooden atrium garden.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.abenoharukas-300.jp/observatory/",
+          "title": "Abeno Harukas 300 (Osaka Skyline)",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -350,6 +363,12 @@
           "method": "assisted"
         }
       ]
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Brian Adler",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flowstones_and_Mushroom_Rocks_inside_Abukuma-do_Cave.JPG"
     }
   },
   {
@@ -497,7 +516,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:adachi"
+    "municipalityId": "Tokyo:adachi",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Fred Cherrygarden",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nishiarai_Daishi.jpg"
+    }
   },
   {
     "id": "aizuwakamatsu-city",
@@ -612,7 +637,13 @@
         }
       ]
     },
-    "notesJa": "会津藩の歴史を伝える城下町。鶴ヶ城と武士の文化で知られます。"
+    "notesJa": "会津藩の歴史を伝える城下町。鶴ヶ城と武士の文化で知られます。",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Asturio Cantabrio",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aizuwakamatsu_Castle_ac_(1).jpg"
+    }
   },
   {
     "id": "akasaka-minato",
@@ -744,7 +775,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:minato"
+    "municipalityId": "Tokyo:minato",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Wpcpey",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akasaka_skyline_201806.jpg"
+    }
   },
   {
     "id": "akihabara-chiyoda",
@@ -1011,7 +1048,13 @@
         }
       ]
     },
-    "notesJa": "日本海側の秋田県都。竿燈まつりと千秋公園で知られます。"
+    "notesJa": "日本海側の秋田県都。竿燈まつりと千秋公園で知られます。",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "水だらけのプール",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akita_Montage2.jpg"
+    }
   },
   {
     "id": "akiu-onsen-miyagi",
@@ -1126,6 +1169,12 @@
           "method": "assisted"
         }
       ]
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:211029_Akiu_Onsen_Sendai_Miyagi_pref_Japan01s3.jpg"
     }
   },
   {
@@ -1218,7 +1267,13 @@
     "businessHours": "Regular season entry 09:00–16:30; Jul 1–Sep 30 09:00–17:30; GW & Obon dates 08:30–17:30. Open daily incl. year-end.",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Yamaguchi:mine",
-    "openingHoursJa": "通常期は入場9:00〜16:30。7月1日〜9月30日は9:00〜17:30。GW・お盆期間は8:30〜17:30。年末年始も開洞。"
+    "openingHoursJa": "通常期は入場9:00〜16:30。7月1日〜9月30日は9:00〜17:30。GW・お盆期間は8:30〜17:30。年末年始も開洞。",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Wikimedia Commons contributor",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akiyoshidai-Syuhodou.jpg"
+    }
   },
   {
     "id": "amami-iriomote-natural-site",
@@ -1288,7 +1343,8 @@
     "imageMetadata": {
       "source": "Japan Guide",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:View of Katetsu cove from nearby Manen-zaki.jpg"
     },
     "status": "published",
     "travelEstimate": {
@@ -1476,7 +1532,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Amanohashidate is a natural 3.3-kilometer pine-covered sandbar spanning Miyazu Bay, famed for the Matanozoki upside-down viewing technique making it look like a bridge floating into heaven.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.amanohashidate.jp/",
+          "title": "Amanohashidate (Bridge to Heaven)",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -1502,7 +1565,13 @@
         ]
       }
     },
-    "municipalityId": "Kyoto:miyazu"
+    "municipalityId": "Kyoto:miyazu",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "808PhatBeats",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amanohashidate_aerial_view_2026.jpg"
+    }
   },
   {
     "id": "ameya-yokocho",
@@ -1980,7 +2049,13 @@
         }
       ]
     },
-    "notesJa": "ねぶた祭りの拠点となる港町。青森駅周辺は徒歩圏で、北海道へのフェリーも発着します。"
+    "notesJa": "ねぶた祭りの拠点となる港町。青森駅周辺は徒歩圏で、北海道へのフェリーも発着します。",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Mccunicano",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nebuta_Museum_Wa_Rasse_exterior.jpg"
+    }
   },
   {
     "id": "arakawa-city",
@@ -2127,7 +2202,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:arakawa"
+    "municipalityId": "Tokyo:arakawa",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Higa4",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Entsuji_(Arakawa)_08.jpg"
+    }
   },
   {
     "id": "arakurayama-sengen-park-yamanashi",
@@ -2216,7 +2297,13 @@
     "officialWebsite": "https://www.fujiyoshida.net/spot/11",
     "businessHours": "09:00 - 17:00 (Daily)",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Yamanashi:fujiyoshida"
+    "municipalityId": "Yamanashi:fujiyoshida",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "https://www.flickr.com/photos/reggiepen/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg"
+    }
   },
   {
     "id": "arima-onsen",
@@ -2333,7 +2420,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Arima Onsen is Japan's oldest recorded hot spring resort, nestled behind Mount Rokko and famous for its iron-rich golden 'Kinsen' and clear radium 'Ginsen' waters.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.arima-onsen.com/",
+          "title": "Arima Onsen",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -2636,7 +2730,13 @@
         ]
       }
     },
-    "municipalityId": "Hyogo:asago"
+    "municipalityId": "Hyogo:asago",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Wae35244",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:竹田城.JPG"
+    }
   },
   {
     "id": "asahikawa-city",
@@ -2723,7 +2823,13 @@
     },
     "businessHours": "Open access",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Hokkaido:asahikawa"
+    "municipalityId": "Hokkaido:asahikawa",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Masal64",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cityscape_of_Asahikawa_from_Mt._Arashiyama.jpg"
+    }
   },
   {
     "id": "asakusa-taito",
@@ -3483,7 +3589,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Ancient Capitals of Asuka and Fujiwara via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Ancient Capitals of Asuka and Fujiwara via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takamat1.jpg"
     },
     "status": "published",
     "travelEstimate": {
@@ -3526,7 +3633,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage property inscribed in 2026 for its archaeological sites documenting the emergence of Japan's ancient state.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://asukamura.jp/",
+          "title": "Ancient Capitals of Asuka and Fujiwara",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -3644,7 +3758,13 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "municipalityId": "Shizuoka:atami"
+    "municipalityId": "Shizuoka:atami",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Suicasmo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Atami_20170211-1.jpg"
+    }
   },
   {
     "id": "atsuta-shrine-nagoya",
@@ -3749,7 +3869,13 @@
     "areaId": "atsuta",
     "officialWebsite": "https://www.atsutajingu.or.jp/",
     "businessHours": "Open 24 hours (Treasure hall 09:00 - 16:30)",
-    "municipalityId": "Aichi:nagoya"
+    "municipalityId": "Aichi:nagoya",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Bariston",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Atsuta_Shrine.jpg"
+    }
   },
   {
     "id": "beppu-city",
@@ -3862,6 +3988,12 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/beppu-city/"
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "水だらけのプール",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beppu_Montage_2.jpg"
     }
   },
   {
@@ -3990,7 +4122,13 @@
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
     },
-    "notesJa": "7つの地獄を巡るなら数時間みておきましょう。"
+    "notesJa": "7つの地獄を巡るなら数時間みておきましょう。",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Totti",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:180131_Umi-Jigoku.jpg"
+    }
   },
   {
     "id": "biei-town",
@@ -4077,7 +4215,13 @@
     },
     "businessHours": "Open access",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Hokkaido:biei"
+    "municipalityId": "Hokkaido:biei",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Jialiang Gao www.peace-on-earth.org",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Biei_Hokkaido.jpg"
+    }
   },
   {
     "id": "bitchu-matsuyama-castle",
@@ -4680,7 +4824,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:bunkyo"
+    "municipalityId": "Tokyo:bunkyo",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Kakidai",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akamon,_University_of_Tokyo_2019.jpg"
+    }
   },
   {
     "id": "canal-city-hakata",
@@ -6235,7 +6385,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Chiba:katori"
+    "municipalityId": "Chiba:katori",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "katorisi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inou-tadataka-house,katori-city,japan.JPG"
+    }
   },
   {
     "id": "chiba-shrine",
@@ -6565,7 +6721,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
     "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Chiba:otaki"
+    "municipalityId": "Chiba:otaki",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000"
+    }
   },
   {
     "id": "chiba-zoological-park",
@@ -6899,7 +7061,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Saitama:chichibu"
+    "municipalityId": "Saitama:chichibu",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "attribution": "narusoraumi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chichibu_Yomatsuri.jpg"
+    }
   },
   {
     "id": "chigasaki-city",
@@ -7050,7 +7218,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Kanagawa:chigasaki"
+    "municipalityId": "Kanagawa:chigasaki",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Waka77",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chigasaki_City_Hall_20170721.JPG"
+    }
   },
   {
     "id": "chiyoda-city",
@@ -7199,7 +7373,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:chiyoda"
+    "municipalityId": "Tokyo:chiyoda",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Kakidai",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:National_Diet_Building_02.jpg"
+    }
   },
   {
     "id": "chofu-tokyo",
@@ -7494,7 +7674,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Chiba:choshi"
+    "municipalityId": "Chiba:choshi",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "User:Suikotei\nHiroaki Kaneko\nUser:お口チャック\nくろふね\nUser:Xser21\nUser:Σ64\nUser:あばさー",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Choshi_Montage_2.jpg"
+    }
   },
   {
     "id": "chuo-city",
@@ -7648,7 +7834,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:chuo"
+    "municipalityId": "Tokyo:chuo",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Kakidai",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ginza-WAKO_at_night.jpg"
+    }
   },
   {
     "id": "cup-noodles-museum-yokohama",
@@ -7917,6 +8109,12 @@
           "method": "assisted"
         }
       ]
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "掬茶",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dakigaeri_Gorge_and_Kamino-iwahashi_20201101.jpg"
     }
   },
   {
@@ -8030,6 +8228,12 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/dazaifu-city/"
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Jakub Hałun",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:20100719_Dazaifu_Tenmangu_Shrine_3328.jpg"
     }
   },
   {
@@ -8145,6 +8349,12 @@
           "method": "assisted"
         }
       ]
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Japanexperterna.se",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Torii_in_the_mist_v1.JPG"
     }
   },
   {
@@ -8520,7 +8730,13 @@
     "officialWebsite": "https://dogo.jp/onsen/honkan",
     "businessHours": "Kami-no-Yu bathing 06:00–23:00 (last entry 22:30); Yushinden viewing 09:00–17:00 (last entry 16:30); other areas have separate hours",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Ehime:matsuyama"
+    "municipalityId": "Ehime:matsuyama",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Japanexperterna.se",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dogo_onsen_honkan_long_exposure.jpg"
+    }
   },
   {
     "id": "dotonbori",
@@ -8977,7 +9193,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:edogawa"
+    "municipalityId": "Tokyo:edogawa",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Shun Shirai",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:江戸川区花火大会・市川市民納涼花火大会2019.jpg"
+    }
   },
   {
     "id": "engakuji",
@@ -10409,7 +10631,13 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "municipalityId": "Yamanashi:fujikawaguchiko"
+    "municipalityId": "Yamanashi:fujikawaguchiko",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1749498682646-45e7c11506ec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
   },
   {
     "id": "fujiko-f-fujio-museum",
@@ -10683,7 +10911,13 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "municipalityId": "Shizuoka:fujinomiya"
+    "municipalityId": "Shizuoka:fujinomiya",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "名古屋太郎",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:070127_tanuki-fuji.jpg"
+    }
   },
   {
     "id": "fujisawa-city",
@@ -10836,7 +11070,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Kanagawa:fujisawa"
+    "municipalityId": "Kanagawa:fujisawa",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "水だらけのプール",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fujisawa_montage.jpg"
+    }
   },
   {
     "id": "fujiyoshida-city",
@@ -10931,7 +11171,13 @@
       "max": 14
     },
     "businessHours": "Open access",
-    "municipalityId": "Yamanashi:fujiyoshida"
+    "municipalityId": "Yamanashi:fujiyoshida",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "https://www.flickr.com/photos/reggiepen/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg"
+    }
   },
   {
     "id": "fukui",
@@ -11234,12 +11480,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
     "tags": ["History", "Fukuoka City", "v1.9.2"],
-    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hakata%20Port%20from%20Fukuoka%20Tower.jpg?width=1600",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Tamon-yagura_Turret_of_Fukuoka_Castle_Ruins_J%C5%8Dnai_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221018.jpg/1280px-Tamon-yagura_Turret_of_Fukuoka_Castle_Ruins_J%C5%8Dnai_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221018.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "attribution": "そらみみ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hakata_Port_from_Fukuoka_Tower.jpg"
+      "attribution": "Hirho",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tamon-yagura_Turret_of_Fukuoka_Castle_Ruins_J%C5%8Dnai_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221018.jpg"
     },
     "coordinates": {
       "lat": 33.585,
@@ -12226,7 +12472,13 @@
     },
     "businessHours": "Open access",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Hokkaido:furano"
+    "municipalityId": "Hokkaido:furano",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "wakimasa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Furano_Snow_Resort_view2.JPG"
+    }
   },
   {
     "id": "fushimi-inari-taisha",
@@ -12462,7 +12714,13 @@
     },
     "officialWebsite": "https://gala.co.jp/",
     "businessHours": "Ski season mid-Dec to early May; summer park mid-Jul to late Sep; closed in between",
-    "nameJa": "GALA湯沢スノーリゾート"
+    "nameJa": "GALA湯沢スノーリゾート",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "DAJF",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:F8_Tanigawa_79_Gala-Yuzawa_20060115.JPG"
+    }
   },
   {
     "id": "geibikei-gorge-iwate",
@@ -12579,6 +12837,12 @@
           "method": "assisted"
         }
       ]
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:230729_Geibikei_Ichinoseki_Iwate_pref_Japan19s3.jpg"
     }
   },
   {
@@ -12675,7 +12939,13 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "municipalityId": "Gifu:gero"
+    "municipalityId": "Gifu:gero",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Asturio Cantabrio",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gero_Station_ac.jpg"
+    }
   },
   {
     "id": "gero-onsen",
@@ -13138,7 +13408,13 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "municipalityId": "Gifu:gifu"
+    "municipalityId": "Gifu:gifu",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Alpsdake",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gifu_City_Tower_43_and_Gifu_Sky_Wing_37_from_Twinarch138.jpg"
+    }
   },
   {
     "id": "gifu-gujo-hachiman",
@@ -13751,6 +14027,12 @@
           "method": "assisted"
         }
       ]
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "ume-y",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:銀山温泉_Ginzan_Onsen_(7809473788).jpg"
     }
   },
   {
@@ -14070,6 +14352,12 @@
           "method": "assisted"
         }
       ]
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Jordy Meow",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goshikinuma.jpg"
     }
   },
   {
@@ -14166,7 +14454,13 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "municipalityId": "Shizuoka:gotemba"
+    "municipalityId": "Shizuoka:gotemba",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&q=80&w=1200"
+    }
   },
   {
     "id": "gotoku-ji",
@@ -14214,12 +14508,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
     "tags": ["History", "Setagaya City", "v1.9.2"],
-    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Futako-Tamagawa%20overview%202018.jpg?width=1600",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/G%C5%8Dtoku-ji.jpg/1280px-G%C5%8Dtoku-ji.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Wpcpey",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Futako-Tamagawa_overview_2018.jpg"
+      "license": "CC BY-SA 3.0",
+      "attribution": "Wikimedia Commons contributor",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:G%C5%8Dtoku-ji.jpg"
     },
     "coordinates": {
       "lat": 35.6488,
@@ -14430,7 +14724,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Sites of Japan’s Meiji Industrial Revolution (Gunkanjima) via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Sites of Japan’s Meiji Industrial Revolution (Gunkanjima) via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hashima Nagasaki Japan.jpg"
     },
     "status": "published",
     "travelEstimate": {
@@ -14656,7 +14951,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Gunma:shibukawa"
+    "municipalityId": "Gunma:shibukawa",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.1 jp",
+      "attribution": "matsukaz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ikaho_Onsen_03.jpg"
+    }
   },
   {
     "id": "gunma-kusatsu-onsen",
@@ -15092,7 +15393,13 @@
         }
       ]
     },
-    "notesJa": "太平洋側の港町で、三陸海岸と朝市文化の拠点。東北新幹線の終端に近い。"
+    "notesJa": "太平洋側の港町で、三陸海岸と朝市文化の拠点。東北新幹線の終端に近い。",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "張振",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kabushima,_-8_May_2010_a.jpg"
+    }
   },
   {
     "id": "hachioji-castle-tokyo",
@@ -15238,7 +15545,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:hachioji"
+    "municipalityId": "Tokyo:hachioji",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Mocchy",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hachioji_Castle_Hikibashi.JPG"
+    }
   },
   {
     "id": "hachioji-tokyo",
@@ -16272,7 +16585,13 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "municipalityId": "Shizuoka:hamamatsu"
+    "municipalityId": "Shizuoka:hamamatsu",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "水だらけのプール",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hamamatsu_Montage2.jpg"
+    }
   },
   {
     "id": "harry-potter-studio",
@@ -16416,7 +16735,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:nerima"
+    "municipalityId": "Tokyo:nerima",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Asanagi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Warner_Bros._Studio_Tour_Tokyo_entrance_(2)_2023-08-17.jpg"
+    }
   },
   {
     "id": "hasedera",
@@ -16698,7 +17023,13 @@
     "businessHours": "Open access",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Hiroshima:hatsukaichi",
-    "nameJa": "廿日市市"
+    "nameJa": "廿日市市",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Bcxfu75k",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:廿日市市.jpg"
+    }
   },
   {
     "id": "heian-jingu",
@@ -16924,10 +17255,10 @@
     "notes": "Combination tickets available for both Higashiyama Zoo and Sky Tower.",
     "schemaVersion": 2,
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Higashiyama Sky Tower via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Higashiyama%20Sky%20Tower"
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200"
     },
     "status": "verified",
     "travelEstimate": {
@@ -17069,7 +17400,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Completed in 1622, Hikone Castle is one of Japan's five original surviving National Treasure keeps, overlooking Lake Biwa with pristine feudal turrets and Genkyuen garden.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://hikonecastle.com/",
+          "title": "Hikone Castle (National Treasure)",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -17197,7 +17535,13 @@
         ]
       }
     },
-    "municipalityId": "Shiga:hikone"
+    "municipalityId": "Shiga:hikone",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Ogiyoshisan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hikone_Castle_and_Sakura2_DSCN3761_20070410.JPG"
+    }
   },
   {
     "id": "himeji-castle",
@@ -17323,7 +17667,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Himeji Castle is Japan's premier surviving feudal castle complex and a UNESCO World Heritage site, famous for its brilliant white plaster walls resembling a taking-off heron.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.himejicastle.jp/en/",
+          "title": "Himeji Castle (White Heron Castle)",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -17349,7 +17700,13 @@
         ]
       }
     },
-    "municipalityId": "Hyogo:himeji"
+    "municipalityId": "Hyogo:himeji",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Nikos Kitsakis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Himeji_castle_in_may_2015.jpg"
+    }
   },
   {
     "id": "himeji-city",
@@ -17467,7 +17824,13 @@
         ]
       }
     },
-    "municipalityId": "Hyogo:himeji"
+    "municipalityId": "Hyogo:himeji",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "User:Corpse Reviver\nUser:Corpse Reviver\nUser:663highland\nUser:Bgag\nUser:Geofrog\n",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Himeji_montage2.jpg"
+    }
   },
   {
     "id": "hino-city",
@@ -17615,7 +17978,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:hino"
+    "municipalityId": "Tokyo:hino",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0"
+    }
   },
   {
     "id": "hiraizumi-chusonji-iwate",
@@ -17686,7 +18055,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Hiraizumi – Temples, Gardens and Archaeological Sites via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Hiraizumi – Temples, Gardens and Archaeological Sites via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:230728 Motsuji Hiraizumi Iwate pref Japan04s3.jpg"
     },
     "status": "published",
     "travelEstimate": {
@@ -17877,6 +18247,12 @@
           "method": "assisted"
         }
       ]
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Si-take. at Japanese Wikipedia(しいたけ)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg"
     }
   },
   {
@@ -17992,7 +18368,13 @@
         }
       ]
     },
-    "notesJa": "弘前城と春の桜で知られる城下町。津軽地方の拠点です。"
+    "notesJa": "弘前城と春の桜で知られる城下町。津軽地方の拠点です。",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Si-take. at Japanese Wikipedia(しいたけ)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg"
+    }
   },
   {
     "id": "hiroshima-city",
@@ -18102,7 +18484,13 @@
     "businessHours": "Open access",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Hiroshima:hiroshima",
-    "nameJa": "広島市"
+    "nameJa": "広島市",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "DXR",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Atomic_Bomb_Dome_and_Motoyaso_River,_Hiroshima,_Northwest_view_20190417_1.jpg"
+    }
   },
   {
     "id": "hiroshima-peace-memorial",
@@ -19011,7 +19399,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Buddhist Monuments in the Horyu-ji Area via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Buddhist Monuments in the Horyu-ji Area via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Horyu-ji10s3200.jpg"
     },
     "status": "published",
     "travelEstimate": {
@@ -19068,7 +19457,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Buddhist Monuments in the Horyu-ji Area is a UNESCO World Heritage Site in Ikaruga Town, Nara, home to the world's oldest surviving wooden structures.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "http://www.horyuji.or.jp/",
+          "title": "Buddhist Monuments in the Horyu-ji Area",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -19676,7 +20072,13 @@
         ]
       }
     },
-    "municipalityId": "Nara:ikaruga"
+    "municipalityId": "Nara:ikaruga",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Horyu-ji10s3200.jpg"
+    }
   },
   {
     "id": "ikebukuro-toshima",
@@ -20149,7 +20551,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
     "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Tokyo:chiyoda"
+    "municipalityId": "Tokyo:chiyoda",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Unknown authorUnknown author",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Edo_P_detail.jpg"
+    }
   },
   {
     "id": "inage-seaside-park",
@@ -20617,7 +21025,13 @@
     },
     "officialWebsite": "https://inuyama-castle.jp/",
     "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-    "municipalityId": "Aichi:inuyama"
+    "municipalityId": "Aichi:inuyama",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "ThorstenS",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Castle_in_Inuyama.JPG"
+    }
   },
   {
     "id": "inuyama-city",
@@ -20712,7 +21126,13 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "municipalityId": "Aichi:inuyama"
+    "municipalityId": "Aichi:inuyama",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Asturio Cantabrio",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inuyama_City_Hall_ac.jpg"
+    }
   },
   {
     "id": "ise-city",
@@ -20832,7 +21252,13 @@
         ]
       }
     },
-    "municipalityId": "Mie:ise"
+    "municipalityId": "Mie:ise",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "N yotarou",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naiku_04.jpg"
+    }
   },
   {
     "id": "ise-grand-shrine",
@@ -20947,7 +21373,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Ise Grand Shrine is the spiritual heart of Shinto, dedicated to the Sun Goddess Amaterasu and rebuilt every 20 years in accordance with ancient Shikinen Sengu ritual.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.isejingu.or.jp/",
+          "title": "Ise Grand Shrine (Ise Jingu)",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -20974,7 +21407,13 @@
         ]
       }
     },
-    "municipalityId": "Mie:ise"
+    "municipalityId": "Mie:ise",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "N yotarou",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naiku_04.jpg"
+    }
   },
   {
     "id": "ishigaki-city",
@@ -21076,7 +21515,8 @@
     "imageMetadata": {
       "attribution": "663highland via Wikimedia Commons",
       "license": "CC BY 2.5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKabira_Bay_Ishigaki_Island40bs3s4592.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKabira_Bay_Ishigaki_Island40bs3s4592.jpg",
+      "source": "Wikimedia Commons"
     },
     "editorial": {
       "lifecycle": "published",
@@ -21265,7 +21705,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:itabashi"
+    "municipalityId": "Tokyo:itabashi",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Missmikage",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Itabashi-at-nakajuku.JPG"
+    }
   },
   {
     "id": "ito-city",
@@ -21356,7 +21802,13 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "municipalityId": "Shizuoka:ito"
+    "municipalityId": "Shizuoka:ito",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Charlie fong",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Ōmuro_(Izu_Peninsula)_&_Mt.Fuji.jpg"
+    }
   },
   {
     "id": "iwakuni-city",
@@ -21447,7 +21899,13 @@
       "max": 14
     },
     "businessHours": "Open access",
-    "municipalityId": "Yamaguchi:iwakuni"
+    "municipalityId": "Yamaguchi:iwakuni",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Sailko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iwakuni,_ponte_kintai-kyo,_03,0.jpg"
+    }
   },
   {
     "id": "iwami-ginzan-shimane",
@@ -22032,7 +22490,13 @@
     "businessHours": "Open access",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Shimane:izumo",
-    "nameJa": "出雲市"
+    "nameJa": "出雲市",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Saigen Jiro",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Haiden_of_Izumo-taisha-1.JPG"
+    }
   },
   {
     "id": "izumo-taisha",
@@ -22436,6 +22900,12 @@
           "method": "assisted"
         }
       ]
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Raita Futo from Tokyo, Japan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jodogahama_Beach_(51971544590).jpg"
     }
   },
   {
@@ -23239,12 +23709,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Dining", "Historic Street", "Culture"],
     "tags": ["Culture", "Shinjuku City", "v1.9.2"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Kagurazaka_Tokyo_Japan.jpg/1280px-Kagurazaka_Tokyo_Japan.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "attribution": "Morio",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skyscrapers_of_Shinjuku_2009_January.jpg"
+      "license": "CC BY 2.0",
+      "attribution": "Yasuhiro",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kagurazaka_Tokyo_Japan.jpg"
     },
     "coordinates": {
       "lat": 35.70138889,
@@ -24751,7 +25221,13 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "municipalityId": "Nagano:karuizawa"
+    "municipalityId": "Nagano:karuizawa",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Ansjdjducciddkdjd",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt.Asama,_Karuizawa.jpg"
+    }
   },
   {
     "id": "kashiya-yokocho",
@@ -25450,7 +25926,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Chiba:katori"
+    "municipalityId": "Chiba:katori",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "katorisi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inou-tadataka-house,katori-city,japan.JPG"
+    }
   },
   {
     "id": "katori-jingu",
@@ -25780,7 +26262,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:katsushika"
+    "municipalityId": "Tokyo:katsushika",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Nesnad",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shibamata_Taishakuten_March_11_2021_various_20_44_16_882000.jpeg"
+    }
   },
   {
     "id": "kawagoe-castle-saitama",
@@ -26091,7 +26579,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Saitama:kawagoe"
+    "municipalityId": "Saitama:kawagoe",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Kentagon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:TokiNoKane_Kawagoe_2013Feb.JPG"
+    }
   },
   {
     "id": "kawagoe-festival-museum",
@@ -26608,7 +27102,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Saitama:kawaguchi"
+    "municipalityId": "Saitama:kawaguchi",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "tak1701d",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg"
+    }
   },
   {
     "id": "kawasaki-city",
@@ -26764,7 +27264,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Kanagawa:kawasaki"
+    "municipalityId": "Kanagawa:kawasaki",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "ペン太",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kawasaki_Daishi_Main_Hall.jpg"
+    }
   },
   {
     "id": "kawasaki-daishi",
@@ -27108,7 +27614,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tochigi:nikko"
+    "municipalityId": "Tochigi:nikko",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Uraomote yamaneko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_chuzenji_and_kegon_waterfall.jpg"
+    }
   },
   {
     "id": "kennin-ji",
@@ -27138,12 +27650,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
     "tags": ["History", "Kyoto City", "v1.9.2"],
-    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hokanji%20Kyoto01n4272.jpg?width=1600",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Detail_of_Facade_of_Kennin-ji_Zen_Temple_-_Kyoto_-_Japan_-_02_%2847928771947%29.jpg/1280px-Detail_of_Facade_of_Kennin-ji_Zen_Temple_-_Kyoto_-_Japan_-_02_%2847928771947%29.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY 2.5",
-      "attribution": "663highland",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hokanji_Kyoto01n4272.jpg"
+      "license": "CC BY-SA 2.0",
+      "attribution": "Adam Jones",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Detail_of_Facade_of_Kennin-ji_Zen_Temple_-_Kyoto_-_Japan_-_02_%2847928771947%29.jpg"
     },
     "coordinates": {
       "lat": 34.99855,
@@ -27512,7 +28024,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Kinosaki Onsen is a quintessential hot spring town centered around a willow-lined canal, where visitors stroll between seven distinct public bathhouses in traditional yukata robes.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://kinosaki-spa.gr.jp/",
+          "title": "Kinosaki Onsen",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -27539,7 +28058,13 @@
         ]
       }
     },
-    "municipalityId": "Hyogo:toyooka"
+    "municipalityId": "Hyogo:toyooka",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Samchan91",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kinosaki_Onsen_by_day.jpg"
+    }
   },
   {
     "id": "kintai-bridge-yamaguchi",
@@ -27634,7 +28159,13 @@
     "businessHours": "Bridge passable 24 hours; toll booth 08:00–17:00 (extended 18:00 peak, 19:00 summer). Night lighting until 22:00.",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Yamaguchi:iwakuni",
-    "openingHoursJa": "橋は24時間通行可。渡橋料金所は8:00〜17:00（繁忙期は18:00、夏期は19:00まで延長）。ライトアップは22:00まで。"
+    "openingHoursJa": "橋は24時間通行可。渡橋料金所は8:00〜17:00（繁忙期は18:00、夏期は19:00まで延長）。ライトアップは22:00まで。",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Sailko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iwakuni,_ponte_kintai-kyo,_03,0.jpg"
+    }
   },
   {
     "id": "kinugawa-onsen",
@@ -28092,7 +28623,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Chiba:kisarazu"
+    "municipalityId": "Chiba:kisarazu",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "User:Kentagon\n運転太郎\nHiroaki Kaneko\nhokkane4",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kisarazu_montage.jpg"
+    }
   },
   {
     "id": "kiso",
@@ -29579,7 +30116,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Known as the Ten Million Dollar Night View, Kikuseidai observatory on Mount Maya captures a breathtaking sparkling panorama spanning Kobe, Osaka Bay, and Kansai.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://mayasan.jp/",
+          "title": "Mount Maya Kikuseidai (Kobe)",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -29861,6 +30405,12 @@
       "rubricVersion": 2,
       "method": "assisted",
       "confidence": "medium"
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Saigen Jiro",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kochi_Castle,_Outemon-3.jpg"
     }
   },
   {
@@ -29960,7 +30510,13 @@
     },
     "businessHours": "Open access",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Kochi:kochi"
+    "municipalityId": "Kochi:kochi",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "File:Kochi Katsurahama Daytime 1.JPG by ja:利用者:京浜にけ (Japanese Wikipedia), Upload",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kochi_montage.jpg"
+    }
   },
   {
     "id": "kofu-city",
@@ -30051,7 +30607,13 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "municipalityId": "Yamanashi:kofu"
+    "municipalityId": "Yamanashi:kofu",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Halowand",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kofu_montage.jpg"
+    }
   },
   {
     "id": "komachi-street",
@@ -30464,7 +31026,13 @@
         }
       ]
     },
-    "notesJa": "福島県中央部の交通・商業の要衝。猪苗代湖や磐梯方面へのアクセス拠点です。"
+    "notesJa": "福島県中央部の交通・商業の要衝。猪苗代湖や磐梯方面へのアクセス拠点です。",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "水だらけのプール",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koriyama_Montage.jpg"
+    }
   },
   {
     "id": "koto-city",
@@ -30619,7 +31187,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:koto"
+    "municipalityId": "Tokyo:koto",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Tak1701d",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tomioka_Hachiman-gu_201708.jpg"
+    }
   },
   {
     "id": "kotoku-in-great-buddha",
@@ -30917,7 +31491,8 @@
     "imageMetadata": {
       "attribution": "CEphoto, Uwe Aranas via Wikimedia Commons",
       "license": "CC BY-SA 3.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANago_Okinawa_Kouri-Bridge-01.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANago_Okinawa_Kouri-Bridge-01.jpg",
+      "source": "Wikimedia Commons"
     },
     "budgetBreakdown": {
       "transport": 300,
@@ -31088,7 +31663,13 @@
         ]
       }
     },
-    "municipalityId": "Wakayama:koya"
+    "municipalityId": "Wakayama:koya",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danjogaran_Koyasan16n4272.jpg"
+    }
   },
   {
     "id": "kumamoto-castle",
@@ -31229,7 +31810,13 @@
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://castle.kumamoto-guide.jp/en/"
     },
-    "notesJa": "復旧工事中のため見学可能エリアは公式サイトでご確認ください。"
+    "notesJa": "復旧工事中のため見学可能エリアは公式サイトでご確認ください。",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Suicasmo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kumamoto_Castle_Keep_Tower_20221022-3.jpg"
+    }
   },
   {
     "id": "kumamoto-city",
@@ -31347,6 +31934,12 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/kumamoto-city/"
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "MK Products",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Tatsuda-yama_(Kumamoto)_1.jpg"
     }
   },
   {
@@ -31418,7 +32011,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Sacred Sites and Pilgrimage Routes in the Kii Mountain Range via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Sacred Sites and Pilgrimage Routes in the Kii Mountain Range via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danjogaran Koyasan12n3200.jpg"
     },
     "status": "published",
     "travelEstimate": {
@@ -31465,7 +32059,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range is a UNESCO World Heritage Site in Wakayama, designated for its outstanding universal cultural or natural value.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.tb-kumano.jp/",
+          "title": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -31589,7 +32190,13 @@
     "businessHours": "Open access",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Okayama:kurashiki",
-    "nameJa": "倉敷市"
+    "nameJa": "倉敷市",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:211203_Kurashikikan_Kurashiki_Okayama_pref_Japan02s3.jpg"
+    }
   },
   {
     "id": "kurobe-gorge",
@@ -31982,7 +32589,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Gunma:kusatsu"
+    "municipalityId": "Gunma:kusatsu",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Mikkabie",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:湯畑2.jpg"
+    }
   },
   {
     "id": "kushida-shrine",
@@ -32255,7 +32868,13 @@
     },
     "businessHours": "Open access",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Hokkaido:kushiro"
+    "municipalityId": "Hokkaido:kushiro",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200"
+    }
   },
   {
     "id": "kyoto-city",
@@ -32400,7 +33019,13 @@
         ]
       }
     },
-    "municipalityId": "Kyoto:kyoto"
+    "municipalityId": "Kyoto:kyoto",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Martin Falbisoner",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-02.jpg"
+    }
   },
   {
     "id": "kyoto-historic",
@@ -32513,7 +33138,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Kyoto, Japan's imperial capital for over a millennium, encompasses 17 UNESCO World Heritage monuments including the wooden balcony of Kiyomizu-dera and the shimmering Golden Pavilion.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://kyoto-travel.kyoto/",
+          "title": "Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -32539,7 +33171,13 @@
         ]
       }
     },
-    "municipalityId": "Kyoto:kyoto"
+    "municipalityId": "Kyoto:kyoto",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop"
+    }
   },
   {
     "id": "kyoto-imperial-palace",
@@ -33216,7 +33854,13 @@
     },
     "officialWebsite": "https://www.hamanakako.or.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "municipalityId": "Shizuoka:hamamatsu"
+    "municipalityId": "Shizuoka:hamamatsu",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Attribution",
+      "attribution": "国土地理院",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Hamana_Aerial_photograph.2006.jpg"
+    }
   },
   {
     "id": "lake-sagami",
@@ -33483,6 +34127,12 @@
           "method": "assisted"
         }
       ]
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "(Tea-making tea) 掬茶",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Tazawa_and_Kansa-gū_20210213.jpg"
     }
   },
   {
@@ -33598,6 +34248,12 @@
           "method": "assisted"
         }
       ]
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "Soica2001 (talk)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Towada_from_Ohanabe_2008.jpg"
     }
   },
   {
@@ -33932,7 +34588,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "10:00 - 20:00",
     "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
-    "municipalityId": "Tokyo:machida"
+    "municipalityId": "Tokyo:machida",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "かなえゆうじん",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Machida_city.jpg"
+    }
   },
   {
     "id": "maizuru-park",
@@ -34399,7 +35061,13 @@
     },
     "officialWebsite": "https://www.city.marugame.lg.jp/site/castle/",
     "businessHours": "09:00–16:30 (last entry 16:00); no regular closure, but temporary closures may occur for alerts, maintenance, works, or events",
-    "municipalityId": "Kagawa:marugame"
+    "municipalityId": "Kagawa:marugame",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Toto-tarou",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marugame_Castle01.jpg"
+    }
   },
   {
     "id": "marugame-city",
@@ -34493,7 +35161,13 @@
       "max": 14
     },
     "businessHours": "Open access",
-    "municipalityId": "Kagawa:marugame"
+    "municipalityId": "Kagawa:marugame",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Toto-tarou",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marugame_Castle01.jpg"
+    }
   },
   {
     "id": "maruoka-castle-fukui",
@@ -34924,7 +35598,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Chiba:matsudo"
+    "municipalityId": "Chiba:matsudo",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "QBK\nCLP\nWiiii\nY=x\nMayuno\nLos688\n京浜にけ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsudo_montage.jpg"
+    }
   },
   {
     "id": "matsue-castle",
@@ -35138,7 +35818,13 @@
     "businessHours": "Open access",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Shimane:matsue",
-    "nameJa": "松江市"
+    "nameJa": "松江市",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Gkiseki",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsue_City_center_seen_from_Mt.Shinyama.jpg"
+    }
   },
   {
     "id": "matsumoto-castle-nagano",
@@ -35231,7 +35917,13 @@
     },
     "officialWebsite": "https://www.matsumoto-castle.jp/",
     "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-    "municipalityId": "Nagano:matsumoto"
+    "municipalityId": "Nagano:matsumoto",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Lightning toothed whale (稲妻ノ歯鯨)\n\n This photo was taken with Canon EOS 500D",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsumoto_Castle_Keep_Tower.jpg"
+    }
   },
   {
     "id": "matsumoto-city",
@@ -35442,6 +36134,12 @@
           "method": "assisted"
         }
       ]
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg"
     }
   },
   {
@@ -35552,6 +36250,12 @@
       "rubricVersion": 2,
       "method": "assisted",
       "confidence": "low"
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Jyo81 (ja: User)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsuyama_castle(Iyo)6.JPG"
     }
   },
   {
@@ -35649,7 +36353,13 @@
     },
     "businessHours": "Open access",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Ehime:matsuyama"
+    "municipalityId": "Ehime:matsuyama",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "File:Dōgo Onsen Honkan.jpg by Simon, Uploaded by User:トトト\nFile:Shiki Masaoka sto",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsuyama_montage.jpg"
+    }
   },
   {
     "id": "meguro-city",
@@ -35796,7 +36506,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:meguro"
+    "municipalityId": "Tokyo:meguro",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "Ajay Suresh from New York, NY, USA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cherry_Blossoms_in_Meguro_River_Park_-_Lanterns_along_the_River_(40844860114).jpg"
+    }
   },
   {
     "id": "meriken-park",
@@ -36091,7 +36807,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Gunma:minakami"
+    "municipalityId": "Gunma:minakami",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Mass Ave 975",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tanigawa01.JPG"
+    }
   },
   {
     "id": "minato-city",
@@ -36236,7 +36958,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:minato"
+    "municipalityId": "Tokyo:minato",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "東京太郎",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:20110405-TokyoTower-Sakura01.jpg"
+    }
   },
   {
     "id": "minato-mirai-yokohama",
@@ -36475,7 +37203,13 @@
       "max": 14
     },
     "businessHours": "Open access",
-    "municipalityId": "Yamaguchi:mine"
+    "municipalityId": "Yamaguchi:mine",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Wikimedia Commons contributor",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akiyoshidai-Syuhodou.jpg"
+    }
   },
   {
     "id": "mirai-tower-nagoya",
@@ -37087,7 +37821,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Ibaraki:mito"
+    "municipalityId": "Ibaraki:mito",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Σ64",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kairaku-en,_Ibaraki_24.jpg"
+    }
   },
   {
     "id": "miyajima-itsukushima",
@@ -37316,7 +38056,8 @@
     "imageMetadata": {
       "attribution": "Paipateroma via Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_maipama_1.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_maipama_1.jpg",
+      "source": "Wikimedia Commons"
     },
     "editorial": {
       "lifecycle": "published",
@@ -37471,6 +38212,12 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/miyazaki-city/"
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "水だらけのプール",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miyazaki_Montage.jpg"
     }
   },
   {
@@ -37589,7 +38336,13 @@
         ]
       }
     },
-    "municipalityId": "Kyoto:miyazu"
+    "municipalityId": "Kyoto:miyazu",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amanohashidate_view_from_Mt_Moju02s3s4592.jpg"
+    }
   },
   {
     "id": "morioka-city",
@@ -37849,7 +38602,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "Winter 10:00-16:00 weekdays / 9:30-16:00 weekends; summer longer; irregular closures",
     "openingHoursJa": "Winter 10:00-16:00 weekdays / 9:30-16:00 weekends; summer longer; irregular closures",
-    "municipalityId": "Chiba:futtsu"
+    "municipalityId": "Chiba:futtsu",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1000"
+    }
   },
   {
     "id": "motobu-town",
@@ -37945,7 +38704,8 @@
     "imageMetadata": {
       "attribution": "Jordy Meow via Wikimedia Commons",
       "license": "CC BY-SA 3.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOkinawa_Aquarium.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOkinawa_Aquarium.jpg",
+      "source": "Wikimedia Commons"
     },
     "editorial": {
       "lifecycle": "published",
@@ -38399,10 +39159,10 @@
     "schemaVersion": 2,
     "image": "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Mount Fuji via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Mount%20Fuji"
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=1280&auto=format&fit=crop"
     },
     "status": "verified",
     "travelEstimate": {
@@ -38879,7 +39639,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Mount Yoshino is Japan's most famous cherry blossom mountain, carpeted by over 30,000 Yamazakura trees blooming sequentially across four mountain elevations.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://yoshinoyama-kankou.com/",
+          "title": "Mount Yoshino (Yoshinoyama)",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -39078,7 +39845,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kondagobyoyama Kofun air.jpg"
     },
     "status": "published",
     "travelEstimate": {
@@ -39137,7 +39905,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan is a UNESCO World Heritage Site in Sakai City, designated for its outstanding universal cultural value.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.mozufuruichi-kofun.jp/",
+          "title": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -39639,7 +40414,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Nachi Falls is Japan's tallest uninterrupted single-drop waterfall (133 meters), framing the three-story red Seiganto-ji pagoda against the sacred Nachi primeval forest.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.nachikan.jp/",
+          "title": "Nachi Falls & Pagoda",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -39759,7 +40541,13 @@
     },
     "officialWebsite": "https://www.bessho-spa.jp/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "municipalityId": "Nagano:ueda"
+    "municipalityId": "Nagano:ueda",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000"
+    }
   },
   {
     "id": "nagano-city",
@@ -40480,7 +41268,8 @@
     "imageMetadata": {
       "attribution": "663highland via Wikimedia Commons",
       "license": "CC BY 2.5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABusena_Resort18bs3200.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABusena_Resort18bs3200.jpg",
+      "source": "Wikimedia Commons"
     },
     "editorial": {
       "lifecycle": "published",
@@ -40731,7 +41520,13 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "municipalityId": "Aichi:nagoya"
+    "municipalityId": "Aichi:nagoya",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Public domain",
+      "attribution": "ウィキ太郎(WikiTaro)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg"
+    }
   },
   {
     "id": "nagoya-city-art-museum",
@@ -41275,7 +42070,8 @@
     "imageMetadata": {
       "attribution": "663highland via Wikimedia Commons",
       "license": "CC BY 2.5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANaha_Shuri_Castle02s5s3200.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANaha_Shuri_Castle02s5s3200.jpg",
+      "source": "Wikimedia Commons"
     },
     "editorial": {
       "lifecycle": "published",
@@ -41464,7 +42260,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:nakano"
+    "municipalityId": "Tokyo:nakano",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "Carbonium",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetsugakudo_Park(Philosophy_Hall_Park)_-_哲学堂公園_-_panoramio_(1).jpg"
+    }
   },
   {
     "id": "nakasu",
@@ -42031,7 +42833,13 @@
     },
     "officialWebsite": "https://naoshima.net/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2
+    "ratingsSchemaVersion": 2,
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "kajikawa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:宮ノ浦港_-_panoramio_-_kajikawa_(1).jpg"
+    }
   },
   {
     "id": "nara-city",
@@ -42149,7 +42957,13 @@
         ]
       }
     },
-    "municipalityId": "Nara:nara"
+    "municipalityId": "Nara:nara",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "User:名古屋太郎\nUser:Douglaspperkins\nUser:Fg2\nUser:663highland\nUser:Jakubhal\ncomposit",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nara_montage.jpg"
+    }
   },
   {
     "id": "nara-historic",
@@ -42218,9 +43032,10 @@
     "schemaVersion": 2,
     "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1280&auto=format&fit=crop",
     "imageMetadata": {
-      "source": "Wikimedia Commons",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Historic Monuments of Ancient Nara via Wikipedia/Wikimedia Commons"
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1280&auto=format&fit=crop"
     },
     "status": "published",
     "travelEstimate": {
@@ -42261,7 +43076,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Historic Monuments of Ancient Nara is a UNESCO World Heritage Site in Nara, designated for its outstanding universal cultural or natural value.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://nara-park.com/",
+          "title": "Historic Monuments of Ancient Nara",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -42405,7 +43227,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Nara Park houses the world's largest wooden building (Todai-ji Daibutsuden), sheltering the 15-meter bronze Great Buddha alongside over 1,200 friendly freely roaming sika deer.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "http://www.todaiji.or.jp/",
+          "title": "Historic Nara (Todai-ji Great Buddha)",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -42432,7 +43261,13 @@
         ]
       }
     },
-    "municipalityId": "Nara:nara"
+    "municipalityId": "Nara:nara",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Mont Blank rich",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:東大寺_大仏殿（2024年）.jpg"
+    }
   },
   {
     "id": "narita-airport-observation-decks",
@@ -42767,7 +43602,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Chiba:narita"
+    "municipalityId": "Chiba:narita",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "User:Nanashinodensyaku\nHoku-sou-san at Japanese Wikipedia\nUser:Unaaari\nUser:名無し野",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Narita_montage2.jpg"
+    }
   },
   {
     "id": "naritasan-park",
@@ -43051,7 +43892,13 @@
     },
     "businessHours": "Open access",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Tokushima:naruto"
+    "municipalityId": "Tokushima:naruto",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Hellbuny",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naruto_Whirlpools_taken_4-21-2008.jpg"
+    }
   },
   {
     "id": "national-museum-of-nature-and-science",
@@ -43305,7 +44152,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of The Architectural Work of Le Corbusier (NMWA Tokyo) via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of The Architectural Work of Le Corbusier (NMWA Tokyo) via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:National museum of western art05s3200.jpg"
     },
     "status": "published",
     "travelEstimate": {
@@ -43515,6 +44363,12 @@
           "method": "assisted"
         }
       ]
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Mccunicano",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nebuta_Museum_Wa_Rasse_exterior.jpg"
     }
   },
   {
@@ -43662,7 +44516,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:nerima"
+    "municipalityId": "Tokyo:nerima",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Guy-aan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:三宝寺池と厳島神社（2021年5月）.jpg"
+    }
   },
   {
     "id": "nihon-minka-en",
@@ -43914,7 +44774,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Niigata City via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Niigata City via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Niigata from Bandaijima Building 20200906 P4.jpg"
     },
     "status": "verified",
     "travelEstimate": {
@@ -44066,7 +44927,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Nijo Castle in Kyoto was the residence of Tokugawa Ieyasu, famous for its Ninomaru Palace featuring squeaking 'nightingale floors' designed to alert guards to intruders.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://nijo-jocastle.city.kyoto.lg.jp/",
+          "title": "Nijo Castle (Kyoto)",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -44092,7 +44960,13 @@
         ]
       }
     },
-    "municipalityId": "Kyoto:kyoto"
+    "municipalityId": "Kyoto:kyoto",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "ほっきー",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:二条城_唐門_2025.jpg"
+    }
   },
   {
     "id": "nijo-market",
@@ -44558,7 +45432,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00-17:00 (Apr-Oct), 09:00-16:00 (Nov-Mar), last entry 30 min before close",
     "openingHoursJa": "09:00〜17:00（4〜10月）、09:00〜16:00（11〜3月）",
-    "municipalityId": "Tochigi:nikko"
+    "municipalityId": "Tochigi:nikko",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1614651857407-9b22acceb43a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
   },
   {
     "id": "ninna-ji",
@@ -46378,7 +47258,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Ogasawara Islands via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Ogasawara Islands via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Minamijima.jpg"
     },
     "status": "published",
     "travelEstimate": {
@@ -47139,7 +48020,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Sacred Island of Okinoshima and Associated Sites in Munakata via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Sacred Island of Okinoshima and Associated Sites in Munakata via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E5%AE%97%E5%83%8F%E5%A4%A7%E7%A4%BE%E6%B2%96%E6%B4%A5%E5%AE%AE.JPG"
     },
     "status": "published",
     "travelEstimate": {
@@ -48699,7 +49581,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Osaka Castle is an iconic 16th-century fortress constructed by Toyotomi Hideyoshi, featuring golden roof ornaments, massive stone ramparts, and a lush park surrounded by moats.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.osakacastle.net/",
+          "title": "Osaka Castle (Osaka-jo)",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -49021,7 +49910,13 @@
         ]
       }
     },
-    "municipalityId": "Osaka:osaka"
+    "municipalityId": "Osaka:osaka",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
+    }
   },
   {
     "id": "osaka-museum-of-housing-and-living",
@@ -49512,12 +50407,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
     "tags": ["Culture", "Nagoya City", "v1.9.2"],
-    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinfukuji-Hashima01.JPG?width=1600",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Japan-_Nagoya-_Osu_Kannon_Temple_4.jpg/1280px-Japan-_Nagoya-_Osu_Kannon_Temple_4.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "attribution": "Monami",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shinfukuji-Hashima01.JPG"
+      "license": "CC BY-SA 2.0",
+      "attribution": "Alan & Flora Botting",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Japan-_Nagoya-_Osu_Kannon_Temple_4.jpg"
     },
     "coordinates": {
       "lat": 35.1598,
@@ -50383,7 +51278,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Hidden Christian Sites in the Nagasaki Region via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Hidden Christian Sites in the Nagasaki Region via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nh%C3%A0 th%E1%BB%9D ch%C3%ADnh t%C3%B2a Oura.jpg"
     },
     "status": "published",
     "travelEstimate": {
@@ -53357,12 +54253,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
     "tags": ["Culture", "Kyoto City", "v1.9.2"],
-    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/100%20views%20edo%20071.jpg?width=1600",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Sanjusangendo_Temple_%40_Kyoto_%2813310760984%29.jpg/1280px-Sanjusangendo_Temple_%40_Kyoto_%2813310760984%29.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "Public domain",
-      "attribution": "Utagawa Hiroshige",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:100_views_edo_071.jpg"
+      "license": "CC BY 2.0",
+      "attribution": "Guilhem Vellut",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanjusangendo_Temple_%40_Kyoto_%2813310760984%29.jpg"
     },
     "coordinates": {
       "lat": 34.9878,
@@ -53543,7 +54439,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Jomon Prehistoric Sites in Northern Japan via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Jomon Prehistoric Sites in Northern Japan via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:140913 Sannai-Maruyama site Aomori Japan01bs6bs6.jpg"
     },
     "status": "published",
     "travelEstimate": {
@@ -54970,6 +55867,12 @@
           "method": "assisted"
         }
       ]
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "掬茶",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Waki-yagura_of_Sendai_Castle_20220910b.jpg"
     }
   },
   {
@@ -55039,7 +55942,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Sendai City via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Sendai City via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:SendaiCity Skylines from Mukaiyama2018.jpg"
     },
     "status": "published",
     "travelEstimate": {
@@ -55736,7 +56640,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:setagaya"
+    "municipalityId": "Tokyo:setagaya",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "鋸香具師",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seijo_namikimichi_231011.jpg"
+    }
   },
   {
     "id": "shibuya-city",
@@ -55886,7 +56796,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "10:00 - 20:00",
     "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
-    "municipalityId": "Tokyo:shibuya"
+    "municipalityId": "Tokyo:shibuya",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&q=80&w=1200"
+    }
   },
   {
     "id": "shibuya-sky-shibuya",
@@ -56140,7 +57056,13 @@
     "businessHours": "Open access",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Yamaguchi:shimonoseki",
-    "nameJa": "下関市"
+    "nameJa": "下関市",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Yu-ki-na",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dan-no-ura_kosen-jo.JPG"
+    }
   },
   {
     "id": "shin-yokohama-ramen-museum",
@@ -56818,12 +57740,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
     "tags": ["Culture", "Shinjuku City", "v1.9.2"],
-    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/US%20Air%20Force%20photo%20170903-F-PM645-1558%20An%20aerial%20view%20of%20Shinjuku%E2%80%99s%20skyscraper%20district%20from%20a%20UH-1N%20Iroquois.jpg?width=1600",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wooden_footbridge_in_Shinjuku_Gyoen_National_Garden%2C_Tokyo%2C_Japan%2C_a_sunny_day_with_blue_sky.jpg/1280px-Wooden_footbridge_in_Shinjuku_Gyoen_National_Garden%2C_Tokyo%2C_Japan%2C_a_sunny_day_with_blue_sky.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "Public domain",
-      "attribution": "U.S. Air Force photo by Yasuo Osakabe",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:US_Air_Force_photo_170903-F-PM645-1558_An_aerial_view_of_Shinjuku%E2%80%99s_skyscraper_district_from_a_UH-1N_Iroquois.jpg"
+      "license": "CC BY-SA 4.0",
+      "attribution": "Basile Morin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wooden_footbridge_in_Shinjuku_Gyoen_National_Garden%2C_Tokyo%2C_Japan%2C_a_sunny_day_with_blue_sky.jpg"
     },
     "coordinates": {
       "lat": 35.6852,
@@ -57556,7 +58478,13 @@
         ]
       }
     },
-    "municipalityId": "Wakayama:shirahama"
+    "municipalityId": "Wakayama:shirahama",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "mti",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahama_montages.JPG"
+    }
   },
   {
     "id": "shirakami-sanchi-aomori",
@@ -57623,7 +58551,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Shirakami-Sanchi via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Shirakami-Sanchi via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sirakami santi.JPG"
     },
     "status": "published",
     "travelEstimate": {
@@ -57790,7 +58719,13 @@
       "max": 11
     },
     "businessHours": "Open access",
-    "municipalityId": "Gifu:shirakawa"
+    "municipalityId": "Gifu:shirakawa",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ogi_Shirakawa-gō,_Gifu,_Japan.jpg"
+    }
   },
   {
     "id": "shiretoko-national-park-hokkaido",
@@ -57831,7 +58766,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Shiretoko via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Shiretoko via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shiretoko Peninsula Hokkaido Japan SRTM.jpg"
     },
     "status": "verified",
     "collections": [
@@ -57963,7 +58899,13 @@
       "max": 12
     },
     "businessHours": "Open access",
-    "municipalityId": "Shizuoka:shizuoka"
+    "municipalityId": "Shizuoka:shizuoka",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Akahito Yamabe",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Higashi-Shizuoka_Panorama_02.jpg"
+    }
   },
   {
     "id": "shonan-kaigan-park",
@@ -58599,7 +59541,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:suginami"
+    "municipalityId": "Tokyo:suginami",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Kakidai",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2018_Kōenji.jpg"
+    }
   },
   {
     "id": "sumida-city",
@@ -58747,7 +59695,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Tokyo:sumida"
+    "municipalityId": "Tokyo:sumida",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Kakidai",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_Skytree_2014_Ⅲ.jpg"
+    }
   },
   {
     "id": "sunshine-60-observatory-ikebukuro",
@@ -60261,7 +61215,13 @@
     },
     "businessHours": "Open access",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Kagawa:takamatsu"
+    "municipalityId": "Kagawa:takamatsu",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Arabrity",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:香川県の風景.jpg"
+    }
   },
   {
     "id": "takanawa-gateway-minato",
@@ -60507,7 +61467,13 @@
       "max": 9
     },
     "officialWebsite": "https://www.takaoka.or.jp/",
-    "businessHours": "No fixed hours (city area)"
+    "businessHours": "No fixed hours (city area)",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "attribution": "shiro524 (talk)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takaoka_montage.JPG"
+    }
   },
   {
     "id": "takato-castle-nagano",
@@ -60802,7 +61768,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Famous as Japan's 'Castle in the Sky', these breathtaking 15th-century mountain ruins float above a sea of morning autumn fog.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.asago.hyogo.jp/site/takeda-castle/",
+          "title": "Takeda Castle Ruins",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -61090,7 +62063,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30-17:00, closed Mon (Dec 29-Jan 1)",
     "openingHoursJa": "09:30-17:00, closed Mon (Dec 29-Jan 1)",
-    "municipalityId": "Tokyo:hino"
+    "municipalityId": "Tokyo:hino",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0"
+    }
   },
   {
     "id": "tanukikoji-shopping-street",
@@ -61587,7 +62566,13 @@
     "parkingJa": "麻布台ヒルズ内の有料駐車場をご利用いただけます。",
     "openingHours": "10:00 - 21:00 (Last admission 20:00)",
     "openingHoursJa": "10:00 - 21:00（最終入場 20:00）",
-    "municipalityId": "Tokyo:minato"
+    "municipalityId": "Tokyo:minato",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1593073862407-a3ce22748763?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbWxhYiUyMHBsYW5ldHMlMjB0b2t5b3xlbnwwfHwwfHx8MA%3D%3D"
+    }
   },
   {
     "id": "teamlab-planets",
@@ -63173,10 +64158,10 @@
     "notes": "Entry is completely free of charge 365 days a year.",
     "schemaVersion": 2,
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Toki Messe via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Toki%20Messe"
+      "source": "iStock by Getty Images",
+      "license": "iStock Standard License",
+      "attribution": "iStock by Getty Images",
+      "sourceUrl": "https://media.istockphoto.com/id/1707386560/ja/%E3%82%B9%E3%83%88%E3%83%83%E3%82%AF%E3%83%95%E3%82%A9%E3%83%88/%E3%82%B9%E3%83%AD%E3%83%90%E3%82%AD%E3%82%A2%E3%81%AE%E3%82%BF%E3%83%88%E3%83%A9%E5%B1%B1%E3%81%AB%E3%81%82%E3%82%8B%E5%A4%A9%E6%96%87%E8%A6%B3%E6%B8%AC%E8%80%85%E3%81%AE%E5%BB%BA%E7%89%A9.jpg?s=2048x2048&w=is&k=20&c=PGN1QnPNdRCMtsy6jNAm4F_J59flQUHKgfV5UhNrrN4="
     },
     "status": "verified",
     "travelEstimate": {
@@ -65340,7 +66325,8 @@
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Tomioka Silk Mill and Related Sites via Wikipedia/Wikimedia Commons"
+      "attribution": "Lead photograph of Tomioka Silk Mill and Related Sites via Wikipedia/Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E5%AF%8C%E5%B2%A1%E8%A3%BD%E7%B3%B8%E5%A0%B4%E3%83%BB%E7%B9%B0%E7%B3%B8%E5%A0%B4.jpg"
     },
     "status": "published",
     "travelEstimate": {
@@ -65771,7 +66757,13 @@
     "businessHours": "Open access (24 hours); the adjacent Sand Museum has its own hours (approx 09:00–17:00).",
     "ratingsSchemaVersion": 2,
     "municipalityId": "Tottori:tottori",
-    "openingHoursJa": "砂丘自体は24時間・無料で開放。隣接する砂の美術館は別の開館時間（おおむね9:00〜17:00）。"
+    "openingHoursJa": "砂丘自体は24時間・無料で開放。隣接する砂の美術館は別の開館時間（おおむね9:00〜17:00）。",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1693188074158-00e5edb3d0ac?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
   },
   {
     "id": "toyama-alpine",
@@ -67693,10 +68685,10 @@
     "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Ueno via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Ueno"
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1556326059-3cfc41f90fb1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     "status": "published",
     "travelEstimate": {
@@ -69585,7 +70577,13 @@
     },
     "officialWebsite": "https://www.city.yamanashi.yamanashi.jp/",
     "businessHours": "Open access",
-    "municipalityId": "Yamanashi:yamanashi"
+    "municipalityId": "Yamanashi:yamanashi",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000"
+    }
   },
   {
     "id": "yamanashi-shosenkyo-gorge",
@@ -69684,7 +70682,13 @@
     },
     "officialWebsite": "https://www.shosenkyo-kankoukyoukai.com/",
     "businessHours": "Open access",
-    "municipalityId": "Yamanashi:kofu"
+    "municipalityId": "Yamanashi:kofu",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000"
+    }
   },
   {
     "id": "yamashita-park-yokohama",
@@ -70717,10 +71721,10 @@
     "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
     "schemaVersion": 2,
     "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Yokohama Landmark Tower via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Landmark%20Tower"
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1609375855883-411e45d77365?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     "status": "published",
     "travelEstimate": {
@@ -71253,7 +72257,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30-16:30, closed Tue",
     "openingHoursJa": "09:30-16:30, closed Tue",
-    "municipalityId": "Kanagawa:yokohama"
+    "municipalityId": "Kanagawa:yokohama",
+    "imageMetadata": {
+      "source": "Unsplash",
+      "license": "Unsplash License",
+      "attribution": "Unsplash",
+      "sourceUrl": "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0"
+    }
   },
   {
     "id": "yokosuka-city",
@@ -71667,6 +72677,12 @@
     "openingHoursMetadata": {
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/yufu-city/"
+    },
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "takasunrise0921",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yuhudake.jpg"
     }
   },
   {
@@ -72129,7 +73145,13 @@
     "officialWebsite": "http://zao-fox-village.com/",
     "businessHours": "09:00 - 17:00",
     "ratingsSchemaVersion": 2,
-    "municipalityId": "Miyagi:shiroishi"
+    "municipalityId": "Miyagi:shiroishi",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Piccolist",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitsune_mura_H26Dec13.JPG"
+    }
   },
   {
     "id": "zeniarai-benten",
@@ -72631,7 +73653,13 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Kanagawa:zushi"
+    "municipalityId": "Kanagawa:zushi",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Zushi-Wiki",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:太陽の塔と逗子海岸.jpg"
+    }
   },
   {
     "id": "shibuya-crossing-hachiko",
@@ -72753,10 +73781,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
+          "type": "official",
           "url": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
-          "title": "Shibuya City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "title": "Shibuya Crossing and Hachiko",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -72910,10 +73938,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
+          "type": "official",
           "url": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
-          "title": "Shibuya City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "title": "Meiji Jingu",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -73071,10 +74099,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
+          "type": "official",
           "url": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
-          "title": "Shibuya City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "title": "Yoyogi Park",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -73232,10 +74260,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
+          "type": "official",
           "url": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
-          "title": "Shibuya City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "title": "Harajuku and Takeshita Street",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -73393,10 +74421,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
+          "type": "official",
           "url": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-          "title": "Chuo City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "title": "Tsukiji Outer Market",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -73554,10 +74582,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
+          "type": "official",
           "url": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-          "title": "Chuo City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "title": "Hamarikyu Gardens",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -73716,10 +74744,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
+          "type": "official",
           "url": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-          "title": "Chuo City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "title": "Nihonbashi",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -73873,10 +74901,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
+          "type": "official",
           "url": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-          "title": "Chuo City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "title": "Kabukiza Theatre",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -74034,10 +75062,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
-          "url": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-          "title": "Chuo City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "type": "official",
+          "url": "https://museum.seiko.co.jp/en/",
+          "title": "Seiko Museum Ginza",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -74203,10 +75231,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
-          "url": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-          "title": "Chuo City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "type": "official",
+          "url": "https://www.ito-ya.co.jp/",
+          "title": "Ginza Itoya",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -74360,10 +75388,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
+          "type": "official",
           "url": "https://www.gotokyo.org/en/destinations/eastern-tokyo/kiyosumi-shirakawa/index.html",
-          "title": "Koto City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "title": "Kiyosumi Gardens",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -74521,10 +75549,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
+          "type": "official",
           "url": "https://www.gotokyo.org/en/destinations/eastern-tokyo/kiyosumi-shirakawa/index.html",
-          "title": "Koto City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "title": "Museum of Contemporary Art Tokyo",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -74682,10 +75710,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
+          "type": "official",
           "url": "https://www.gotokyo.org/en/destinations/eastern-tokyo/kiyosumi-shirakawa/index.html",
-          "title": "Koto City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "title": "Fukagawa Edo Museum",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -75487,10 +76515,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
-          "url": "https://www.gotokyo.org/en/destinations/western-tokyo/ikebukuro/index.html",
-          "title": "Toshima City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "type": "official",
+          "url": "https://tokiwasomm.jp/en/",
+          "title": "Tokiwaso Manga Museum",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -75648,10 +76676,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
+          "type": "official",
           "url": "https://www.gotokyo.org/en/destinations/western-tokyo/ikebukuro/index.html",
-          "title": "Toshima City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "title": "Zoshigaya Kishimojindo",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -75809,10 +76837,10 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "tourism_board",
+          "type": "official",
           "url": "https://www.gotokyo.org/en/destinations/western-tokyo/ikebukuro/index.html",
-          "title": "Toshima City official visitor guide",
-          "accessedAt": "2026-08-02"
+          "title": "Sugamo Jizo-dori",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -78622,12 +79650,12 @@
       "Chofu",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Jindai-ji_in_Chofu%2C_Tokyo_001.jpg/1280px-Jindai-ji_in_Chofu%2C_Tokyo_001.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA / Public domain status as marked on source",
-      "attribution": "Wikimedia Commons contributor",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyofushiyakusyo.jpg"
+      "license": "CC BY-SA 3.0",
+      "attribution": "掬茶",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jindai-ji_in_Chofu%2C_Tokyo_001.jpg"
     },
     "coordinates": {
       "lat": 35.668,
@@ -78729,7 +79757,7 @@
     },
     "officialWebsite": "https://csa.gr.jp/",
     "businessHours": "Open access",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Jindai-ji_in_Chofu%2C_Tokyo_001.jpg/1280px-Jindai-ji_in_Chofu%2C_Tokyo_001.jpg",
     "notesJa": "深大寺門前は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -79254,7 +80282,7 @@
       "Ome",
       "destination-hub-expansion"
     ],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Victoria_Daily_Times_%281914-03-31%29_%28IA_victoriadailytimes19140331%29.pdf/page1-1920px-Victoria_Daily_Times_%281914-03-31%29_%28IA_victoriadailytimes19140331%29.pdf.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ome_Ekimae_Koban.jpg/1280px-Ome_Ekimae_Koban.jpg",
     "coordinates": {
       "lat": 35.7906,
       "lng": 139.2582
@@ -79355,12 +80383,12 @@
     },
     "officialWebsite": "https://www.omekanko.gr.jp/",
     "businessHours": "Open access",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Victoria_Daily_Times_%281914-03-31%29_%28IA_victoriadailytimes19140331%29.pdf/page1-1920px-Victoria_Daily_Times_%281914-03-31%29_%28IA_victoriadailytimes19140331%29.pdf.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ome_Ekimae_Koban.jpg/1280px-Ome_Ekimae_Koban.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "Public domain",
-      "attribution": "Wikimedia Commons contributor",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Victoria_Daily_Times_(1914-03-31)_(IA_victoriadailytimes19140331).pdf"
+      "license": "CC BY-SA 4.0",
+      "attribution": "Suikotei",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ome_Ekimae_Koban.jpg"
     },
     "notesJa": "青梅レトロタウンは、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -81486,7 +82514,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Birthplace of instant ramen with custom cup noodle workshops.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cupnoodles-museum.jp/en/osaka_ikeda/",
+          "title": "CupNoodles Museum Osaka Ikeda",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -81580,7 +82615,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "UNESCO World Heritage temple featuring the iconic Phoenix Hall.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.byodoin.or.jp/en/",
+          "title": "Byodoin Temple",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -81677,7 +82719,14 @@
       "recommendedDurationMinutes": 60,
       "editorialSummary": "Ujigami Shrine, a Kyoto UNESCO World Heritage component, has Japan's oldest original shrine main hall; nearby tea houses offer matcha experiences.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.ujietor.jp/",
+          "title": "Uji Tea Culture Center & Ujigami Shrine",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -81774,7 +82823,14 @@
       "recommendedDurationMinutes": 75,
       "editorialSummary": "Renowned as Kansai's Hydrangea Temple with 20,000 blooming flowers.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.mimurotoji.com/",
+          "title": "Mimuroto-ji Hydrangea Temple",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -81865,7 +82921,14 @@
       "recommendedDurationMinutes": 120,
       "editorialSummary": "Unique coastal village with 230 traditional wooden boathouses over Ine Bay.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.ine-kankou.jp/en/",
+          "title": "Ine Funaya Boathouses",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -81961,7 +83024,14 @@
       "recommendedDurationMinutes": 60,
       "editorialSummary": "Birthplace of upside-down viewing with panoramic views of Amanohashidate.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.amanohashidate.jp/lang/en/",
+          "title": "Kasamatsu Park Lookout",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -82052,7 +83122,14 @@
       "recommendedDurationMinutes": 60,
       "editorialSummary": "Nine distinct Edo-style Japanese gardens built on samurai residence sites.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.himeji-machishin.jp/kokoen/",
+          "title": "Koko-en Garden",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -82143,7 +83220,14 @@
       "recommendedDurationMinutes": 120,
       "editorialSummary": "1,000-year-old Tendai temple complex atop Mt. Shosha filmed in The Last Samurai.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "http://www.shosha.or.jp/",
+          "title": "Engyo-ji Temple Mount Shosha",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -82238,7 +83322,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Preserved samurai castle town famous for Shinkorou clock tower and Sara Soba.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.daytrip-kansai.gtia.jp/",
+          "title": "Izushi Historic Castle Town",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -82338,7 +83429,14 @@
       "recommendedDurationMinutes": 60,
       "editorialSummary": "UNESCO Geopark site with 1.6-million-year-old hexagonal basalt column caves.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://genbudo-park.jp/",
+          "title": "Genbudo Basalt Cave Park",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -82429,7 +83527,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Premier vantage point facing Takeda Castle above early-morning clouds.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.asago-kanko.com/",
+          "title": "Ritsuunkyo Sea of Clouds Viewpoint",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -82524,7 +83629,14 @@
       "recommendedDurationMinutes": 75,
       "editorialSummary": "Historic silver mine with 1km cool underground tunnels and mining exhibits.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.ikuno-ginzan.co.jp/",
+          "title": "Ikuno Historic Silver Mine",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -82619,7 +83731,14 @@
       "recommendedDurationMinutes": 45,
       "editorialSummary": "UNESCO World Heritage site housing Japan's oldest surviving wooden 3-story pagoda.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.horyuji.or.jp/hokkiji/",
+          "title": "Hokki-ji Three-Story Pagoda",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -82716,7 +83835,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Dramatic mountain temple on Mt. Shigi famous for giant paper-mache tiger statues.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.sigisan.or.jp/",
+          "title": "Chogosonshi-ji Tiger Temple",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -82811,7 +83937,14 @@
       "recommendedDurationMinutes": 150,
       "editorialSummary": "UNESCO World Heritage monastery atop Mt. Hiei overlooking Lake Biwa.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.hieizan.or.jp/en/",
+          "title": "Enryaku-ji Mount Hiei Monastery",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -82912,7 +84045,14 @@
       "recommendedDurationMinutes": 45,
       "editorialSummary": "Serene wooden Buddhist hall built on stone pillars over the waters of Lake Biwa.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.biwako-visitors.jp/spot/detail/109/",
+          "title": "Ukimido Mangetsu-ji Floating Temple",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -83003,7 +84143,14 @@
       "recommendedDurationMinutes": 60,
       "editorialSummary": "Edo-period Japanese stroll garden reflecting Hikone Castle tower in its central pond.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://hikonecastle.com/",
+          "title": "Genkyuen Feudal Garden",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -83098,7 +84245,14 @@
       "recommendedDurationMinutes": 120,
       "editorialSummary": "I.M. Pei's subterranean mountain museum reached through a silver tunnel.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.miho.web.id/en/",
+          "title": "Miho Museum Koka",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -83193,7 +84347,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Bustling Edo-style historic street leading to Ise Shrine with Akafuku sweets.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://okageyokocho.jp/",
+          "title": "Okage Yokocho & Oharai-machi",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -83285,7 +84446,14 @@
       "recommendedDurationMinutes": 60,
       "editorialSummary": "Famous railway station home to feline Stationmaster Nitama and cat station building.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.wakayama-dentetsu.co.jp/",
+          "title": "Kishi Station Tama Cat Conductor",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -83381,7 +84549,14 @@
       "recommendedDurationMinutes": 120,
       "editorialSummary": "Sacred forest cemetery with 200,000 mossy stone stupas surrounding Kobo Daishi mausoleum.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.koyasan.or.jp/en/",
+          "title": "Okunoin Sacred Forest Cemetery",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -83481,7 +84656,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Spectacular multi-tiered sandstone plateau and 50m ocean cavern pirate cliffs.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://sandanbeki.com/",
+          "title": "Senjojiki & Sandanbeki Rock Cliffs",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -83577,7 +84759,14 @@
       "recommendedDurationMinutes": 75,
       "editorialSummary": "Museum facing Nintoku Kofun featuring VR ancient mound tours and tea history.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.sakai.lg.jp/kanko/hakubutsukan/",
+          "title": "Sakai City Museum & Daisen Kofun View",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -83673,7 +84862,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Japan's largest freshwater lake with Michigan paddle-wheel steamboat cruises.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.biwakokisen.co.jp/",
+          "title": "Lake Biwa Scenic Cruise & Coast",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -83769,7 +84965,14 @@
       "recommendedDurationMinutes": 45,
       "editorialSummary": "Sacred sea rocks bound by heavy straw rope representing marriage and worship.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.isekanko.jp/spot/1283/",
+          "title": "Meoto Iwa Wedded Rocks",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -83865,7 +85068,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Hilltop fortress of the Kishu Tokugawa clan with white keep and Momijidani Garden.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "http://wakayamajo.jp/",
+          "title": "Wakayama Castle",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -83965,7 +85175,14 @@
       "recommendedDurationMinutes": 75,
       "editorialSummary": "Crescent white sand beach in historic Wakanoura Bay praised in Manyoshu poetry.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.wakayamakanko.com/spot/detail.php?id=38",
+          "title": "Kataonami Beach & Wakanoura Bay",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -84060,7 +85277,14 @@
       "recommendedDurationMinutes": 75,
       "editorialSummary": "Central temple complex of Koyasan with 48.5m vermilion Konpon Daito Great Pagoda.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.koyasan.or.jp/en/",
+          "title": "Danjo Garan Sacred Temple Complex",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -84156,7 +85380,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Famous 600m curve of pure white quartz sand and seaside hot spring resort.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.shirahama-ryokan.jp/",
+          "title": "Shirahama White Beach & Coastal Resort",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -84248,7 +85479,14 @@
       "recommendedDurationMinutes": 75,
       "editorialSummary": "UNESCO World Heritage temple founded in 759 AD by Chinese monk Ganjin with moss gardens.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.toshodaiji.jp/",
+          "title": "Toshodai-ji Temple",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -84345,7 +85583,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "UNESCO World Heritage temple with twin pagodas and 730 AD East Pagoda.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.yakushiji.or.jp/",
+          "title": "Yakushi-ji Temple",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -84442,7 +85687,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Charming historic neighborhood filled with Edo-period wooden lattice townhouses.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.naramachi-info.jp/",
+          "title": "Naramachi Historic Lattice District",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -84534,7 +85786,14 @@
       "recommendedDurationMinutes": 60,
       "editorialSummary": "Omi's oldest shrine with a striking vermilion Torii gate standing in Lake Biwa.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "http://shirahigejinja.com/",
+          "title": "Shirahige Shrine Floating Torii",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -84626,7 +85885,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Romantic Edo merchant canal lined with white storehouses and Suigo boat tours.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.omi8.com/",
+          "title": "Omi-Hachiman Merchant Canal",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -84722,7 +85988,14 @@
       "recommendedDurationMinutes": 60,
       "editorialSummary": "Scenic toll road winding up Mt. Hiei with sweeping day and night panoramas over Lake Biwa.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.hieizan-way.com/",
+          "title": "Mount Hiei Driveway & Yumemi Observatory",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -84817,7 +86090,14 @@
       "recommendedDurationMinutes": 75,
       "editorialSummary": "Famous for 231 stone steps, 500 early-blooming cherry trees, and 12m golden Guanyin statue.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.kimiidera.com/",
+          "title": "Kimii-dera Temple",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -84913,7 +86193,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Lively oceanfront seafood market featuring daily live tuna cutting shows and BBQ terraces.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.kuroshioichiba.co.jp/",
+          "title": "Kuroshio Market Wakayama Marina City",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -85010,7 +86297,14 @@
       "recommendedDurationMinutes": 180,
       "editorialSummary": "Uninhabited island cluster with ivy-covered Meiji brick fortress ruins famous as Laputa Island.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.wakayama.wakayama.jp/kankou/tomogashima/",
+          "title": "Tomogashima Islands (Laputa Island)",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -85098,7 +86392,8 @@
     "imageMetadata": {
       "attribution": "663highland via Wikimedia Commons",
       "license": "CC BY 2.5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKokusai-dori08s3s4440.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKokusai-dori08s3s4440.jpg",
+      "source": "Wikimedia Commons"
     },
     "budgetMin": 1500,
     "budgetRecommended": 2500,
@@ -85233,7 +86528,8 @@
     "imageMetadata": {
       "attribution": "Zairon via Wikimedia Commons",
       "license": "CC BY 4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANaha_Naminoue_Beach_%26_Naminoue-gu_33.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANaha_Naminoue_Beach_%26_Naminoue-gu_33.jpg",
+      "source": "Wikimedia Commons"
     },
     "budgetMin": 0,
     "budgetRecommended": 500,
@@ -85368,7 +86664,8 @@
     "imageMetadata": {
       "attribution": "663highland via Wikimedia Commons",
       "license": "CC BY 2.5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFukushuen_Naha_Okinawa01s3.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFukushuen_Naha_Okinawa01s3.jpg",
+      "source": "Wikimedia Commons"
     },
     "budgetMin": 300,
     "budgetRecommended": 500,
@@ -85505,7 +86802,8 @@
     "imageMetadata": {
       "attribution": "Bernie Ongewe via Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APineapple_Winery_%40_Nago_Pineapple_Park%2C_Okinawa_no.3.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APineapple_Winery_%40_Nago_Pineapple_Park%2C_Okinawa_no.3.jpg",
+      "source": "Wikimedia Commons"
     },
     "budgetMin": 1200,
     "budgetRecommended": 1600,
@@ -85642,7 +86940,8 @@
     "imageMetadata": {
       "attribution": "663highland via Wikimedia Commons",
       "license": "CC BY 2.5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABusena_Resort18bs3200.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABusena_Resort18bs3200.jpg",
+      "source": "Wikimedia Commons"
     },
     "budgetMin": 1050,
     "budgetRecommended": 2100,
@@ -85779,7 +87078,8 @@
     "imageMetadata": {
       "attribution": "Jordy Meow via Wikimedia Commons",
       "license": "CC BY-SA 3.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOkinawa_Aquarium.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOkinawa_Aquarium.jpg",
+      "source": "Wikimedia Commons"
     },
     "budgetMin": 2180,
     "budgetRecommended": 3000,
@@ -85916,7 +87216,8 @@
     "imageMetadata": {
       "attribution": "Abasaa via Wikimedia Commons",
       "license": "Public domain",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABise_Fukugi_Tree_Road_01.JPG"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABise_Fukugi_Tree_Road_01.JPG",
+      "source": "Wikimedia Commons"
     },
     "budgetMin": 0,
     "budgetRecommended": 500,
@@ -86049,7 +87350,8 @@
     "imageMetadata": {
       "attribution": "CEphoto, Uwe Aranas via Wikimedia Commons",
       "license": "CC BY-SA 3.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANakijin_Okinawa_Japan_Nakikjin-Castle-11.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANakijin_Okinawa_Japan_Nakikjin-Castle-11.jpg",
+      "source": "Wikimedia Commons"
     },
     "budgetMin": 600,
     "budgetRecommended": 900,
@@ -86202,7 +87504,8 @@
     "imageMetadata": {
       "attribution": "663highland via Wikimedia Commons",
       "license": "CC BY 2.5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKabira_Bay_Ishigaki_Island40bs3s4592.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKabira_Bay_Ishigaki_Island40bs3s4592.jpg",
+      "source": "Wikimedia Commons"
     },
     "budgetMin": 1200,
     "budgetRecommended": 1800,
@@ -86336,7 +87639,8 @@
     "imageMetadata": {
       "attribution": "Kzaral via Wikimedia Commons",
       "license": "CC BY 2.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACape_Tamatori%2C_Ishigaki.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACape_Tamatori%2C_Ishigaki.jpg",
+      "source": "Wikimedia Commons"
     },
     "budgetMin": 0,
     "budgetRecommended": 300,
@@ -86469,7 +87773,8 @@
     "imageMetadata": {
       "attribution": "Syced via Wikimedia Commons",
       "license": "CC0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYonehara_Beach_23.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYonehara_Beach_23.jpg",
+      "source": "Wikimedia Commons"
     },
     "budgetMin": 500,
     "budgetRecommended": 1000,
@@ -86602,7 +87907,8 @@
     "imageMetadata": {
       "attribution": "Paipateroma via Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_maipama_1.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_maipama_1.jpg",
+      "source": "Wikimedia Commons"
     },
     "budgetMin": 0,
     "budgetRecommended": 1000,
@@ -86737,7 +88043,8 @@
     "imageMetadata": {
       "attribution": "Paipateroma via Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_irabu_ohashi_2014_1.jpg"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_irabu_ohashi_2014_1.jpg",
+      "source": "Wikimedia Commons"
     },
     "budgetMin": 0,
     "budgetRecommended": 500,
@@ -86872,7 +88179,8 @@
     "imageMetadata": {
       "attribution": "Metatron via Wikimedia Commons",
       "license": "CC BY-SA 3.0",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_higashi_hennazaki.JPG"
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_higashi_hennazaki.JPG",
+      "source": "Wikimedia Commons"
     },
     "budgetMin": 300,
     "budgetRecommended": 500,
@@ -132101,7 +133409,14 @@
       "recommendedDurationMinutes": 120,
       "editorialSummary": "Kawagoe's 'Little Edo' Kurazukuri warehouse district — black clay-walled merchant storehouses along the Ichiba",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026", "japan-heritage-districts"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.kawagoe.com/",
+          "title": "Kawagoe Kurazukuri District",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-12T00:00:00Z",
       "checkedAt": "2026-08-12T00:00:00Z",
       "freshness": "current"
@@ -132198,7 +133513,14 @@
       "recommendedDurationMinutes": 120,
       "editorialSummary": "Takayama's Sanmachi district — three preserved streets of Edo-period merchant houses, craft shops and sake bre",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026", "japan-heritage-districts"],
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.city.takayama.lg.jp/",
+          "title": "Takayama Sanmachi",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-12T00:00:00Z",
       "checkedAt": "2026-08-12T00:00:00Z",
       "freshness": "current"

@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 60,
     "editorialSummary": "Famous railway station home to feline Stationmaster Nitama and cat station building.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.wakayama-dentetsu.co.jp/",
+        "title": "Kishi Station Tama Cat Conductor",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

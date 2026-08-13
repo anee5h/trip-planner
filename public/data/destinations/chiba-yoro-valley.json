@@ -142,5 +142,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Chiba:otaki"
+  "municipalityId": "Chiba:otaki",
+  "imageMetadata": {
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unsplash",
+    "sourceUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000"
+  }
 }

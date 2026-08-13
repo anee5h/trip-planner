@@ -83,5 +83,11 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Hokkaido:furano"
+  "municipalityId": "Hokkaido:furano",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "wakimasa",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Furano_Snow_Resort_view2.JPG"
+  }
 }

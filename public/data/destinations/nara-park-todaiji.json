@@ -117,7 +117,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Nara Park houses the world's largest wooden building (Todai-ji Daibutsuden), sheltering the 15-meter bronze Great Buddha alongside over 1,200 friendly freely roaming sika deer.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "http://www.todaiji.or.jp/",
+        "title": "Historic Nara (Todai-ji Great Buddha)",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -144,5 +151,11 @@
       ]
     }
   },
-  "municipalityId": "Nara:nara"
+  "municipalityId": "Nara:nara",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Mont Blank rich",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:東大寺_大仏殿（2024年）.jpg"
+  }
 }

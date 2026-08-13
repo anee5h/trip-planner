@@ -67,7 +67,8 @@
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan via Wikipedia/Wikimedia Commons"
+    "attribution": "Lead photograph of Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kondagobyoyama Kofun air.jpg"
   },
   "status": "published",
   "travelEstimate": {
@@ -126,7 +127,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan is a UNESCO World Heritage Site in Sakai City, designated for its outstanding universal cultural value.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.mozufuruichi-kofun.jp/",
+        "title": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

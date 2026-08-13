@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 75,
     "editorialSummary": "Renowned as Kansai's Hydrangea Temple with 20,000 blooming flowers.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.mimurotoji.com/",
+        "title": "Mimuroto-ji Hydrangea Temple",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

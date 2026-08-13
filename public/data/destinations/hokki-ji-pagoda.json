@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 45,
     "editorialSummary": "UNESCO World Heritage site housing Japan's oldest surviving wooden 3-story pagoda.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.horyuji.or.jp/hokkiji/",
+        "title": "Hokki-ji Three-Story Pagoda",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

@@ -89,5 +89,11 @@
   },
   "officialWebsite": "https://inuyama-castle.jp/",
   "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-  "municipalityId": "Aichi:inuyama"
+  "municipalityId": "Aichi:inuyama",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "ThorstenS",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Castle_in_Inuyama.JPG"
+  }
 }

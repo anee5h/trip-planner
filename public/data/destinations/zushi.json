@@ -140,5 +140,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Kanagawa:zushi"
+  "municipalityId": "Kanagawa:zushi",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Zushi-Wiki",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:太陽の塔と逗子海岸.jpg"
+  }
 }

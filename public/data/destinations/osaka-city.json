@@ -143,5 +143,11 @@
       ]
     }
   },
-  "municipalityId": "Osaka:osaka"
+  "municipalityId": "Osaka:osaka",
+  "imageMetadata": {
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unsplash",
+    "sourceUrl": "https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&q=80&w=1200"
+  }
 }

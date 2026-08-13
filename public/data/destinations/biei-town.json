@@ -83,5 +83,11 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Hokkaido:biei"
+  "municipalityId": "Hokkaido:biei",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Jialiang Gao www.peace-on-earth.org",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Biei_Hokkaido.jpg"
+  }
 }

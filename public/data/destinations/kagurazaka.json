@@ -39,12 +39,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["Dining", "Historic Street", "Culture"],
   "tags": ["Culture", "Shinjuku City", "v1.9.2"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Kagurazaka_Tokyo_Japan.jpg/1280px-Kagurazaka_Tokyo_Japan.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "Morio",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skyscrapers_of_Shinjuku_2009_January.jpg"
+    "license": "CC BY 2.0",
+    "attribution": "Yasuhiro",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kagurazaka_Tokyo_Japan.jpg"
   },
   "coordinates": {
     "lat": 35.70138889,

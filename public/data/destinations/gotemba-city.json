@@ -88,5 +88,11 @@
     "max": 12
   },
   "businessHours": "Open access",
-  "municipalityId": "Shizuoka:gotemba"
+  "municipalityId": "Shizuoka:gotemba",
+  "imageMetadata": {
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unsplash",
+    "sourceUrl": "https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&q=80&w=1200"
+  }
 }

@@ -93,5 +93,11 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Ehime:matsuyama"
+  "municipalityId": "Ehime:matsuyama",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "File:Dōgo Onsen Honkan.jpg by Simon, Uploaded by User:トトト\nFile:Shiki Masaoka sto",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsuyama_montage.jpg"
+  }
 }

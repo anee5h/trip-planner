@@ -143,5 +143,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tokyo:nerima"
+  "municipalityId": "Tokyo:nerima",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Guy-aan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:三宝寺池と厳島神社（2021年5月）.jpg"
+  }
 }

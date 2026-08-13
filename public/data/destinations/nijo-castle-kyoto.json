@@ -117,7 +117,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Nijo Castle in Kyoto was the residence of Tokugawa Ieyasu, famous for its Ninomaru Palace featuring squeaking 'nightingale floors' designed to alert guards to intruders.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://nijo-jocastle.city.kyoto.lg.jp/",
+        "title": "Nijo Castle (Kyoto)",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -143,5 +150,11 @@
       ]
     }
   },
-  "municipalityId": "Kyoto:kyoto"
+  "municipalityId": "Kyoto:kyoto",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "ほっきー",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:二条城_唐門_2025.jpg"
+  }
 }

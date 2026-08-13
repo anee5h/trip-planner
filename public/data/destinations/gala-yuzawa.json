@@ -86,5 +86,11 @@
   },
   "officialWebsite": "https://gala.co.jp/",
   "businessHours": "Ski season mid-Dec to early May; summer park mid-Jul to late Sep; closed in between",
-  "nameJa": "GALA湯沢スノーリゾート"
+  "nameJa": "GALA湯沢スノーリゾート",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "DAJF",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:F8_Tanigawa_79_Gala-Yuzawa_20060115.JPG"
+  }
 }

@@ -83,5 +83,11 @@
     "max": 12
   },
   "businessHours": "Open access",
-  "municipalityId": "Shizuoka:ito"
+  "municipalityId": "Shizuoka:ito",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Charlie fong",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Ōmuro_(Izu_Peninsula)_&_Mt.Fuji.jpg"
+  }
 }

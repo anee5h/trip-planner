@@ -90,5 +90,11 @@
   "businessHours": "Open access (24 hours); the adjacent Sand Museum has its own hours (approx 09:00–17:00).",
   "ratingsSchemaVersion": 2,
   "municipalityId": "Tottori:tottori",
-  "openingHoursJa": "砂丘自体は24時間・無料で開放。隣接する砂の美術館は別の開館時間（おおむね9:00〜17:00）。"
+  "openingHoursJa": "砂丘自体は24時間・無料で開放。隣接する砂の美術館は別の開館時間（おおむね9:00〜17:00）。",
+  "imageMetadata": {
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unsplash",
+    "sourceUrl": "https://images.unsplash.com/photo-1693188074158-00e5edb3d0ac?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  }
 }
