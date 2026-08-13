@@ -38,7 +38,6 @@
     "walkingIntensity": 5
   },
   "transportOptions": {
-    "car": 240,
     "bus": 210,
     "ferry": 150
   },

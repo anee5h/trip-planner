@@ -6,6 +6,44 @@ import type {
 } from "./types";
 import { JAPAN_PREFECTURES } from "../config/prefectures";
 import { JAPAN_REGIONS } from "../config/regions";
+import { zoneById } from "../../src/shared/services/transport/TransportTopologyService";
+import type { TransportZoneId } from "../../src/shared/types/transportTopology";
+import type { TransportMode } from "../../src/shared/services/transport/types";
+
+const VALID_TRANSPORT_OPTION_KEYS: Record<TransportMode, true> = {
+  train: true,
+  shinkansen: true,
+  car: true,
+  my_car: true,
+  bus: true,
+  flight: true,
+  ferry: true,
+};
+
+/** Ground modes reachable over land within a zone (rail, road, bus). */
+const GROUND_TRANSPORT_KEYS: Record<TransportMode, true> = {
+  train: true,
+  shinkansen: true,
+  car: true,
+  my_car: true,
+  bus: true,
+};
+
+/**
+ * Island zones with no conventional rail: their localModes exclude both
+ * train and shinkansen. okinawa-main is deliberately excluded (Yui Rail
+ * monorail). Derived from the canonical transport topology (KAI-63).
+ */
+const RAIL_LESS_ISLAND_ZONES: Record<TransportZoneId, true> = Object.fromEntries(
+  [...zoneById.values()]
+    .filter(
+      (zone) =>
+        zone.isIsland &&
+        !zone.localModes.includes("train") &&
+        !zone.localModes.includes("shinkansen"),
+    )
+    .map((zone) => [zone.id, true] as const),
+) as Record<TransportZoneId, true>;
 
 export const destinationsValidator: ValidatorModule = {
   name: "Catalog Destinations",
@@ -19,6 +57,7 @@ export const destinationsValidator: ValidatorModule = {
     "Valid geographic coordinates (lat: 24..46, lng: 122..146)",
     "Non-empty name and description",
     "Deterministic budget breakdown tolerance (diff <= ¥100 or <= 2%)",
+    "Truthful transport metadata: no fabricated island rail/car access, canonical transport keys, ground modes within localAccessModes (KAI-63)",
   ],
   doesNotValidate: [
     "HTTP image URL reachability",
@@ -203,24 +242,30 @@ export const destinationsValidator: ValidatorModule = {
             message: `Published destination '${dest.id}' has missing 'collections' field.`,
             targetId: dest.id,
           });
-        }
-        // Route-known-but-unestimated records (localAccessModes set with
-        // localAccessUnestimated) intentionally carry no static minutes;
-        // the UI renders "route known — time and cost unavailable".
-        const routeKnownUnestimated =
-          dest.localAccessModes?.length && dest.localAccessUnestimated === true;
-        if (
-          !routeKnownUnestimated &&
-          (!dest.transportOptions ||
+          }
+          // Route-known-but-unestimated records (localAccessModes set with
+          // localAccessUnestimated) intentionally carry no static minutes;
+          // the UI renders "route known — time and cost unavailable".
+          const routeKnownUnestimated =
+            dest.localAccessModes?.length && dest.localAccessUnestimated === true;
+          if (
+            !routeKnownUnestimated &&
+            (!dest.transportOptions ||
+              typeof dest.transportOptions !== "object" ||
+              Object.keys(dest.transportOptions).length === 0)
+          ) {
+          if (
+            !dest.transportOptions ||
             typeof dest.transportOptions !== "object" ||
-            Object.keys(dest.transportOptions).length === 0)
-        ) {
-          issues.push({
-            severity: "error",
-            code: "MISSING_TRANSPORT_OPTIONS",
-            message: `Published destination '${dest.id}' has empty or missing 'transportOptions'.`,
-            targetId: dest.id,
-          });
+            Object.keys(dest.transportOptions).length === 0
+          ) {
+            issues.push({
+              severity: "error",
+              code: "MISSING_TRANSPORT_OPTIONS",
+              message: `Published destination '${dest.id}' has empty or missing 'transportOptions'.`,
+              targetId: dest.id,
+            });
+          }
         }
         if (!dest.ratings || typeof dest.ratings !== "object") {
           issues.push({
@@ -419,6 +464,74 @@ export const destinationsValidator: ValidatorModule = {
             message: `Published destination '${dest.id}': walkingMin (${wm}) > visit max (${maxVisitMin}).`,
             targetId: dest.id,
           });
+        }
+      }
+
+      // 8. Transport truthfulness checks (KAI-63): destinations must never
+      //    claim transport modes that do not exist on their island, that
+      //    their local access excludes, or that are not canonical.
+      if (dest.transportOptions) {
+        // V-MODE-KEY: transportOptions keys must be canonical transport modes.
+        for (const key of Object.keys(dest.transportOptions)) {
+          if (!VALID_TRANSPORT_OPTION_KEYS[key as TransportMode]) {
+            issues.push({
+              severity: "error",
+              code: "V-MODE-KEY",
+              message: `Destination '${dest.id}' has non-canonical transportOptions key '${key}'.`,
+              targetId: dest.id,
+            });
+          }
+        }
+
+        const zone = dest.transportZoneId
+          ? zoneById.get(dest.transportZoneId as TransportZoneId)
+          : undefined;
+
+        // V-ISLAND-RAIL: no conventional rail on rail-less island zones.
+        if (
+          dest.transportZoneId &&
+          RAIL_LESS_ISLAND_ZONES[dest.transportZoneId as TransportZoneId] &&
+          ("train" in dest.transportOptions ||
+            "shinkansen" in dest.transportOptions)
+        ) {
+          issues.push({
+            severity: "error",
+            code: "V-ISLAND-RAIL",
+            message: `Destination '${dest.id}' claims train/shinkansen access in rail-less island zone '${dest.transportZoneId}'.`,
+            targetId: dest.id,
+          });
+        }
+
+        // V-CAR-ZONE: no private vehicles on zones whose localModes
+        // exclude car (e.g. ogasawara, tomogashima).
+        if (zone && !zone.localModes.includes("car")) {
+          for (const key of ["car", "my_car"] as const) {
+            if (key in dest.transportOptions) {
+              issues.push({
+                severity: "error",
+                code: "V-CAR-ZONE",
+                message: `Destination '${dest.id}' claims '${key}' access in zone '${zone.id}' whose localModes exclude private vehicles.`,
+                targetId: dest.id,
+              });
+            }
+          }
+        }
+
+        // V-LOCAL-ACCESS: ground modes must be within localAccessModes.
+        if (dest.localAccessModes) {
+          const localAccess = new Set<TransportMode>(dest.localAccessModes);
+          for (const key of Object.keys(
+            GROUND_TRANSPORT_KEYS,
+          ) as TransportMode[]) {
+            if (key in dest.transportOptions && !localAccess.has(key)) {
+              issues.push({
+                severity: "error",
+                code: "V-LOCAL-ACCESS",
+                message: `Destination '${dest.id}' claims ground mode '${key}' outside its localAccessModes [${dest.localAccessModes.join(", ")}].`,
+                targetId: dest.id,
+              });
+            }
+          }
         }
       }
     }
