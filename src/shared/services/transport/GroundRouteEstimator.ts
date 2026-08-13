@@ -171,9 +171,21 @@ export const SHINKANSEN_ACCESS_HUBS: readonly IntercityAccessHub[] = [
     "mainland-honshu",
   ),
   shinkansenHub(
+    "shin-yamaguchi",
+    { lat: 34.092, lng: 131.392 },
+    "yamaguchi",
+    "mainland-honshu",
+  ),
+  shinkansenHub(
     "hakata",
     { lat: 33.5898, lng: 130.4207 },
     "fukuoka",
+    "mainland-kyushu",
+  ),
+  shinkansenHub(
+    "shin-tosu",
+    { lat: 33.377, lng: 130.4854 },
+    "saga",
     "mainland-kyushu",
   ),
   shinkansenHub(
@@ -231,9 +243,21 @@ export const SHINKANSEN_ACCESS_HUBS: readonly IntercityAccessHub[] = [
     "mainland-honshu",
   ),
   shinkansenHub(
+    "utsunomiya",
+    { lat: 36.5592, lng: 139.8978 },
+    "tochigi",
+    "mainland-honshu",
+  ),
+  shinkansenHub(
     "niigata",
     { lat: 37.9121, lng: 139.0614 },
     "niigata",
+    "mainland-honshu",
+  ),
+  shinkansenHub(
+    "takasaki",
+    { lat: 36.3224, lng: 139.0127 },
+    "gunma",
     "mainland-honshu",
   ),
   shinkansenHub(
@@ -300,7 +324,10 @@ export const MUNICIPALITY_SHINKANSEN_HUB_IDS: Record<string, string[]> = {
   "Akita:akita": ["akita"],
   "Yamagata:yamagata": ["yamagata"],
   "Fukushima:fukushima": ["fukushima"],
+  "Tochigi:utsunomiya": ["utsunomiya"],
   "Niigata:niigata": ["niigata"],
+  "Gunma:takasaki": ["takasaki"],
+  "Saga:saga": ["shin-tosu"],
   "Nagano:nagano": ["nagano"],
   "Nagano:karuizawa": ["karuizawa"],
   "Hokkaido:hakodate": ["shin-hakodate-hokuto"],
