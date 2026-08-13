@@ -56,6 +56,10 @@ const ISLAND_BOUNDS: Record<
   naoshima: { latRange: [34.42, 34.49], lngRange: [133.93, 134.02] },
   teshima: { latRange: [34.45, 34.51], lngRange: [134.05, 134.12] },
   tomogashima: { latRange: [34.2, 34.4], lngRange: [134.9, 135.1] },
+  // KAI-87: lng floor 132.312 keeps the mainland ferry port (Miyajimaguchi,
+  // ~132.308) out of the island zone; the island spans ~132.315-132.325.
+  miyajima: { latRange: [34.27, 34.32], lngRange: [132.312, 132.33] },
+  gunkanjima: { latRange: [32.62, 32.64], lngRange: [129.73, 129.75] },
 };
 
 /**

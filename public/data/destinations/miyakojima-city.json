@@ -56,9 +56,7 @@
     "rainFriendly": 8,
     "walkingIntensity": 3
   },
-  "transportOptions": {
-    "train": 200
-  },
+  "transportOptions": {},
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Miyakojima City travel hub in Okinawa Prefecture.",

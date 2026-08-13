@@ -36,12 +36,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
   "tags": ["History", "Kamakura City", "v1.9.2"],
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/230128%20Kanagawa%20Prefectural%20Shichirigahama%20High%20School%20Japan07s3.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/J%C5%8Dchi-ji_-21735.jpeg/1280px-J%C5%8Dchi-ji_-21735.jpeg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "663highland",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:230128_Kanagawa_Prefectural_Shichirigahama_High_School_Japan07s3.jpg"
+    "license": "CC0",
+    "attribution": "Syced",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jōchi-ji_-21735.jpeg"
   },
   "coordinates": {
     "lat": 35.31916666666667,

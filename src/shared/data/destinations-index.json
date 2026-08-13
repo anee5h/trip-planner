@@ -7366,153 +7366,6 @@
     "municipalityId": "Tokyo:chofu"
   },
   {
-    "id": "choshi-chiba",
-    "name": "Choshi",
-    "prefecture": "Chiba",
-    "region": "Kanto",
-    "categories": ["Nature", "Food", "Ocean"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Choshi_Montage_2.jpg",
-    "description": "Easternmost coastal cape of the Kanto region, renowned for first sunrises, Inubosaki Lighthouse, and fresh seafood markets.",
-    "highlights": [
-      "Inubosaki Lighthouse",
-      "Choshi Electric Railway",
-      "Byobugaura Cliffs"
-    ],
-    "budgetMin": 9000,
-    "budgetMax": 20000,
-    "budgetRecommended": 14500,
-    "transportOptions": {
-      "train": 110,
-      "car": 110
-    },
-    "totalTripHours": 9,
-    "walkingMin": 45,
-    "walkingSunMin": 30,
-    "walkingShadeMin": 15,
-    "indoorPercent": 30,
-    "ratings": {
-      "overall": 8.5,
-      "couple": 8.6,
-      "summer": 8.6,
-      "winter": 8,
-      "rain": 7,
-      "food": 9.1,
-      "photography": 8.9,
-      "relaxation": 8.6,
-      "value": 8.4,
-      "uniqueness": 8.7
-    },
-    "crowd": {
-      "weekday": 2,
-      "weekend": 4,
-      "holiday": 4
-    },
-    "season": {
-      "spring": 4,
-      "summer": 5,
-      "autumn": 4,
-      "winter": 4
-    },
-    "bestMonths": [1, 5, 7, 8, 10],
-    "bestSeason": "Summer",
-    "weatherDependence": "moderate",
-    "tags": ["Lighthouse", "Seafood", "Coastline"],
-    "reservation": "Open access; no entrance reservation required.",
-    "parking": "Park parking lot available on site.",
-    "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
-    "coordinates": {
-      "lat": 35.7345338,
-      "lng": 140.8272667
-    },
-    "schemaVersion": 2,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Choshi_Montage_2.jpg",
-    "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Choshi via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Choshi"
-    },
-    "status": "published",
-    "travelEstimate": {
-      "confidence": "high"
-    },
-    "collections": [],
-    "relationships": {
-      "parentDestinationId": "choshi-city"
-    },
-    "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 6175,
-      "cafe": 3325
-    },
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 7,
-      "walkingIntensity": 3
-    },
-    "walkingIntensity": "low",
-    "ratingsSchemaVersion": 2,
-    "recommendedVisitHours": {
-      "min": 8,
-      "max": 10
-    },
-    "officialWebsite": "https://www.choshikanko.com/",
-    "businessHours": "Open access",
-    "editorial": {
-      "lifecycle": "published",
-      "sources": [
-        {
-          "type": "official",
-          "url": "https://www.choshikanko.com/",
-          "title": "Choshi official website",
-          "accessedAt": "2026-08-02"
-        }
-      ],
-      "freshness": "current",
-      "checkedAt": "2026-08-02",
-      "reviewedAt": "2026-08-02",
-      "reviewedBy": "Meguruto Editorial Reviewer",
-      "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
-    },
-    "nameJa": "銚子",
-    "content": {
-      "en": {
-        "name": "Choshi",
-        "description": "Easternmost coastal cape of the Kanto region, renowned for first sunrises, Inubosaki Lighthouse, and fresh seafood markets.",
-        "highlights": [
-          "Inubosaki Lighthouse",
-          "Choshi Electric Railway",
-          "Byobugaura Cliffs"
-        ],
-        "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
-        "reservation": "Open access; no entrance reservation required.",
-        "parking": "Park parking lot available on site.",
-        "openingHours": "24 Hours (Open access)"
-      },
-      "ja": {
-        "name": "銚子",
-        "description": "Choshiは千葉県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
-        "highlights": ["犬吠埼灯台", "銚子電鉄", "屏風ヶ浦の断崖絶壁"],
-        "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
-        "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
-        "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "散策自由（24時間開放）"
-      }
-    },
-    "ratingMetadata": {
-      "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
-    },
-    "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
-    "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
-    "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Chiba:choshi"
-  },
-  {
     "id": "choshi-city",
     "name": "Choshi City",
     "nameJa": "銚子",
@@ -10541,8 +10394,7 @@
       "featuredDestinationIds": [
         "fuji-5-lake",
         "kofu-city",
-        "takeda-castle-yamanashi",
-        "yamanashi-fujiyoshida"
+        "takeda-castle-yamanashi"
       ],
       "nearbyDestinationIds": [
         "nagoya-city",
@@ -14535,9 +14387,7 @@
     "budgetMax": 15000,
     "budgetRecommended": 9500,
     "transportOptions": {
-      "train": 45,
-      "bus": 50,
-      "car": 60
+      "ferry": 40
     },
     "totalTripHours": 6,
     "walkingMin": 120,
@@ -14661,7 +14511,8 @@
       "verifiedAt": "2026-08-05",
       "sourceUrl": "https://www.gunkanjima-concierge.com/en/"
     },
-    "notesJa": "上陸ツアーは天候次第で高波時に欠航することがあります。"
+    "notesJa": "上陸ツアーは天候次第で高波時に欠航することがあります。",
+    "transportZoneId": "gunkanjima"
   },
   {
     "id": "gunma-ikaho-onsen",
@@ -14748,9 +14599,7 @@
         "confirmed": true
       }
     ],
-    "relationships": {
-      "parentDestinationId": "kusatsu-town"
-    },
+    "relationships": {},
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ikaho_Onsen_03.jpg/250px-Ikaho_Onsen_03.jpg",
     "walkingIntensity": "low",
     "role": "standalone",
@@ -14814,7 +14663,7 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Gunma:kusatsu"
+    "municipalityId": "Gunma:shibukawa"
   },
   {
     "id": "gunma-kusatsu-onsen",
@@ -15065,9 +14914,7 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {
-      "parentDestinationId": "kusatsu-town"
-    },
+    "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -15135,7 +14982,7 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
     "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Gunma:kusatsu"
+    "municipalityId": "Gunma:nakanojo"
   },
   {
     "id": "hachinohe-city",
@@ -16148,8 +15995,8 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 1200,
-      "bus": 800
+      "train": 90,
+      "bus": 120
     },
     "reservation": "Open access; no entrance reservation required.",
     "parking": "Park parking lot available on site.",
@@ -20229,7 +20076,7 @@
     "description": "The residence of Japan's Imperial Family, built on the site of Edo Castle, featuring Nijubashi bridge and East Gardens.",
     "budgetBreakdown": {
       "transport": 1472,
-      "tickets": 2356,
+      "tickets": 0,
       "food": 1031,
       "cafe": 441
     },
@@ -21196,9 +21043,7 @@
       "rainFriendly": 8,
       "walkingIntensity": 3
     },
-    "transportOptions": {
-      "train": 200
-    },
+    "transportOptions": {},
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Ishigaki City travel hub in Okinawa Prefecture.",
@@ -22341,12 +22186,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
     "tags": ["History", "Kamakura City", "v1.9.2"],
-    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/230128%20Kanagawa%20Prefectural%20Shichirigahama%20High%20School%20Japan07s3.jpg?width=1600",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/J%C5%8Dchi-ji_-21735.jpeg/1280px-J%C5%8Dchi-ji_-21735.jpeg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "663highland",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:230128_Kanagawa_Prefectural_Shichirigahama_High_School_Japan07s3.jpg"
+      "license": "CC0",
+      "attribution": "Syced",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jōchi-ji_-21735.jpeg"
     },
     "coordinates": {
       "lat": 35.31916666666667,
@@ -26860,7 +26705,6 @@
         "kanayama-shrine",
         "taro-okamoto-museum-of-art",
         "fujiko-f-fujio-museum",
-        "toshiba-science-museum",
         "lazona-kawasaki-plaza",
         "todoroki-ryokuchi"
       ],
@@ -27279,7 +27123,7 @@
   {
     "id": "kennin-ji",
     "name": "Kennin-ji",
-    "nameJa": "法観寺",
+    "nameJa": "建仁寺",
     "aliases": ["Yasaka Pagoda", "法観寺"],
     "content": {
       "en": {
@@ -30199,11 +30043,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "fuji-5-lake",
-        "takeda-castle-yamanashi",
-        "yamanashi-fujiyoshida"
-      ],
+      "featuredDestinationIds": ["fuji-5-lake", "takeda-castle-yamanashi"],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -32085,12 +31925,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "gunma-ikaho-onsen",
-        "gunma-kusatsu-onsen",
-        "gunma-shima-onsen",
-        "oze-national-park"
-      ],
+      "featuredDestinationIds": ["gunma-kusatsu-onsen", "oze-national-park"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     },
     "budgetBreakdown": {
@@ -34794,7 +34629,7 @@
   {
     "id": "maruyama-park",
     "name": "Maruyama Park",
-    "nameJa": "円山公園 (京都府)",
+    "nameJa": "円山公園",
     "aliases": ["Maruyama Park", "円山公園 (京都府)"],
     "content": {
       "en": {
@@ -34821,12 +34656,12 @@
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
     "tags": ["Nature", "Sapporo City", "v1.9.2"],
-    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/251213%20Maruyama%20Park%20Kyoto%20Japan08s3.jpg?width=1600",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/SAKURAKO_-_Maruyama_Park.._%2849977718857%29.jpg/1280px-SAKURAKO_-_Maruyama_Park.._%2849977718857%29.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "663highland",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:251213_Maruyama_Park_Kyoto_Japan08s3.jpg"
+      "license": "CC BY 2.0",
+      "attribution": "MIKI Yoshihito",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:SAKURAKO_-_Maruyama_Park.._(49977718857).jpg"
     },
     "coordinates": {
       "lat": 43.0542,
@@ -37324,7 +37159,9 @@
         "sortOrder": 11
       }
     ],
-    "transportOptions": {},
+    "transportOptions": {
+      "ferry": 10
+    },
     "budget": {
       "low": 4000,
       "mid": 8000,
@@ -37393,7 +37230,7 @@
       "attribution": "redlegsfan21, CC BY-SA 2.0, via Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Itsukushima_Shrine_Torii_Gate_(13890465459).jpg"
     },
-    "transportZoneId": "unknown"
+    "transportZoneId": "miyajima"
   },
   {
     "id": "miyakojima-city",
@@ -37453,9 +37290,7 @@
       "rainFriendly": 8,
       "walkingIntensity": 3
     },
-    "transportOptions": {
-      "train": 200
-    },
+    "transportOptions": {},
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Miyakojima City travel hub in Okinawa Prefecture.",
@@ -38089,9 +37924,7 @@
       "rainFriendly": 8,
       "walkingIntensity": 3
     },
-    "transportOptions": {
-      "train": 200
-    },
+    "transportOptions": {},
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Motobu Town travel hub in Okinawa Prefecture.",
@@ -38170,7 +38003,9 @@
         "openingHours": "終日（海洋博公園エリアは08:00〜19:00）。"
       }
     },
-    "municipalityId": "Okinawa:motobu"
+    "municipalityId": "Okinawa:motobu",
+    "localAccessModes": ["car", "my_car", "bus"],
+    "localAccessUnestimated": true
   },
   {
     "id": "motonosumi-shrine-yamaguchi",
@@ -40624,9 +40459,7 @@
       "rainFriendly": 8,
       "walkingIntensity": 3
     },
-    "transportOptions": {
-      "train": 200
-    },
+    "transportOptions": {},
     "reservation": "None required",
     "parking": "Public parking available",
     "notes": "Nago City travel hub in Okinawa Prefecture.",
@@ -40705,7 +40538,9 @@
         "openingHours": "終日アクセス可能（主要施設は09:00〜18:00）。"
       }
     },
-    "municipalityId": "Okinawa:nago"
+    "municipalityId": "Okinawa:nago",
+    "localAccessModes": ["car", "my_car", "bus"],
+    "localAccessUnestimated": true
   },
   {
     "id": "nagoya-castle-aichi",
@@ -42151,7 +41986,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180
+      "ferry": 20
     },
     "ratings": {
       "overall": 9,
@@ -42618,7 +42453,7 @@
   {
     "id": "narita-airport-observation-decks",
     "name": "Narita Airport Observation Decks",
-    "nameJa": "東京国際空港",
+    "nameJa": "成田国際空港",
     "aliases": ["Haneda Airport", "東京国際空港"],
     "content": {
       "en": {
@@ -42851,8 +42686,8 @@
     "weatherDependence": "low",
     "tags": ["Narita City", "Chiba Travel", "Regional Hub"],
     "coordinates": {
-      "lat": 35.3783,
-      "lng": 140.3188
+      "lat": 35.775,
+      "lng": 140.32
     },
     "comfort": {
       "heatTolerance": 8,
@@ -46513,9 +46348,7 @@
     "budgetMax": 15000,
     "budgetRecommended": 9500,
     "transportOptions": {
-      "train": 45,
-      "bus": 50,
-      "car": 60
+      "ferry": 1440
     },
     "totalTripHours": 6,
     "walkingMin": 120,
@@ -47315,8 +47148,8 @@
     "parking": "Available nearby",
     "notes": "The island itself is off-limits to visitors; explore the mainland Munakata Taisha shrine and treasure museum instead.",
     "coordinates": {
-      "lat": 33.8042,
-      "lng": 130.5147
+      "lat": 34.2451,
+      "lng": 130.1053
     },
     "schemaVersion": 2,
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/%E5%AE%97%E5%83%8F%E5%A4%A7%E7%A4%BE%E6%B2%96%E6%B4%A5%E5%AE%AE.JPG/960px-%E5%AE%97%E5%83%8F%E5%A4%A7%E7%A4%BE%E6%B2%96%E6%B4%A5%E5%AE%AE.JPG",
@@ -49670,7 +49503,7 @@
   {
     "id": "osu-kannon",
     "name": "Osu Kannon",
-    "nameJa": "真福寺 (羽島市)",
+    "nameJa": "大須観音",
     "aliases": ["Ōsu Kannon", "真福寺 (羽島市)"],
     "content": {
       "en": {
@@ -49704,8 +49537,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shinfukuji-Hashima01.JPG"
     },
     "coordinates": {
-      "lat": 35.27130555555556,
-      "lng": 136.6771388888889
+      "lat": 35.1598,
+      "lng": 136.9
     },
     "description": "Osu Kannon is a visitor destination in Nagoya City.  Visitors can experience historic architecture and local culture.",
     "highlights": ["History"],
@@ -51099,12 +50932,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
     "tags": ["History", "Kawagoe City", "v1.9.2"],
-    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Seibu-Hon-Kawagoe-STA%20PePe.jpg?width=1600",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Temple_Renkei-ji_%C3%A0_Kawagoe_au_Japon.jpg/1280px-Temple_Renkei-ji_%C3%A0_Kawagoe_au_Japon.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "attribution": "MaedaAkihiko",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seibu-Hon-Kawagoe-STA_PePe.jpg"
+      "attribution": "Mehdi Fliss",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_Renkei-ji_à_Kawagoe_au_Japon.jpg"
     },
     "coordinates": {
       "lat": 35.91376389,
@@ -51438,12 +51271,12 @@
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
     "tags": ["History", "Kyoto City", "v1.9.2"],
-    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pedestrian%20road%20with%20pavements%2C%20paper%20umbrellas%20and%20people%20in%20yukata%2C%20Higashiyama-ku%2C%20Kyoto%2C%20Japan.jpg?width=1600",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RyoanJi-Dry_garden.jpg/1280px-RyoanJi-Dry_garden.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Basile Morin",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pedestrian_road_with_pavements,_paper_umbrellas_and_people_in_yukata,_Higashiyama-ku,_Kyoto,_Japan.jpg"
+      "license": "CC BY-SA 3.0",
+      "attribution": "Stephane D'Alu",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:RyoanJi-Dry_garden.jpg"
     },
     "coordinates": {
       "lat": 35.0345,
@@ -51813,9 +51646,8 @@
     },
     "transportOptions": {
       "car": 240,
-      "train": 180,
-      "shinkansen": 120,
-      "bus": 210
+      "bus": 210,
+      "ferry": 150
     },
     "crowd": {
       "weekday": 3,
@@ -57926,7 +57758,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "bus": 2600
+      "bus": 260
     },
     "officialWebsite": "https://www.vill.shirakawa.lg.jp/2680.htm",
     "reservation": "Highway bus reservation required",
@@ -64235,9 +64067,7 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {
-      "parentDestinationId": "hachioji-tokyo"
-    },
+    "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -64305,7 +64135,7 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
     "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Tokyo:hachioji"
+    "municipalityId": "Tokyo:hinohara"
   },
   {
     "id": "tokyo-metropolitan-government-building-shinjuku",
@@ -64896,9 +64726,7 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {
-      "parentDestinationId": "ome-tokyo"
-    },
+    "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -64966,7 +64794,7 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
     "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Tokyo:ome"
+    "municipalityId": "Tokyo:okutama"
   },
   {
     "id": "tokyo-skytree-sumida",
@@ -65612,189 +65440,6 @@
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
     "municipalityId": "Gunma:tomioka"
-  },
-  {
-    "id": "toshiba-science-museum",
-    "name": "Toshiba Science Museum",
-    "nameJa": "東芝未来科学館",
-    "aliases": ["Toshiba Science Institute", "東芝未来科学館"],
-    "content": {
-      "en": {
-        "name": "Toshiba Science Museum",
-        "description": "Toshiba Science Museum is a visitor destination in Kawasaki City.  Visitors can explore focused exhibits and learn about the venue's subject.",
-        "highlights": ["Museum"],
-        "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
-        "reservation": "Online advance ticket reservation recommended on weekends.",
-        "parking": "Facility parking structure available.",
-        "openingHours": "09:30 - 17:00 (Last admission 16:30)"
-      },
-      "ja": {
-        "name": "東芝未来科学館",
-        "description": "東芝未来科学館はKawasaki Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-        "highlights": ["東芝未来科学館の名所"],
-        "notes": "東芝未来科学館は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
-        "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
-        "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:30 - 17:00（最終入館 16:30）"
-      }
-    },
-    "prefecture": "Kanagawa",
-    "region": "Kanto",
-    "kind": "museum",
-    "role": "poi",
-    "placeType": "destination",
-    "areaId": "central-kawasaki",
-    "relationships": {
-      "parentDestinationId": "kawasaki-city"
-    },
-    "officialWebsite": "https://toshiba-mirai-kagakukan.jp/",
-    "officialWebsiteRequirement": "recommended",
-    "categories": ["Museum"],
-    "tags": ["Museum", "Kawasaki City", "v1.9.2"],
-    "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lazona%20Kawasaki%20Toshiba%20Building.jpg?width=1600",
-    "imageMetadata": {
-      "source": "Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "attribution": "photo: Qurren ( talk ) Taken with Samsung Galaxy J (NTT docomo SC-02F)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lazona_Kawasaki_Toshiba_Building.jpg"
-    },
-    "coordinates": {
-      "lat": 35.53185833,
-      "lng": 139.69305556
-    },
-    "description": "Toshiba Science Museum is a visitor destination in Kawasaki City.  Visitors can explore focused exhibits and learn about the venue's subject.",
-    "highlights": ["Museum"],
-    "budgetMin": 3000,
-    "budgetRecommended": 5500,
-    "budgetMax": 8500,
-    "budgetBreakdown": {
-      "transport": 1925,
-      "tickets": 1100,
-      "food": 1925,
-      "cafe": 550
-    },
-    "transportOptions": {
-      "train": 26
-    },
-    "totalTripHours": 6,
-    "recommendedVisitHours": {
-      "min": 2,
-      "max": 4
-    },
-    "walkingMin": 30,
-    "walkingIntensity": "low",
-    "walkingSunMin": 18,
-    "walkingShadeMin": 12,
-    "indoorPercent": 90,
-    "comfort": {
-      "heatTolerance": 9,
-      "rainFriendly": 9,
-      "walkingIntensity": 3
-    },
-    "ratings": {
-      "overall": 7.6,
-      "couple": 6.6,
-      "summer": 7.9,
-      "winter": 7.4,
-      "rain": 9,
-      "food": 8.2,
-      "photography": 7.7,
-      "relaxation": 9,
-      "value": 8.5,
-      "uniqueness": 8,
-      "family": 9.3,
-      "accessibility": 8.8
-    },
-    "ratingsSchemaVersion": 2,
-    "crowd": {
-      "weekday": 5,
-      "weekend": 8,
-      "holiday": 9
-    },
-    "season": {
-      "spring": 6.7,
-      "summer": 6.2,
-      "autumn": 9.1,
-      "winter": 7
-    },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "weatherDependence": "low",
-    "reservation": "Online advance ticket reservation recommended on weekends.",
-    "parking": "Facility parking structure available.",
-    "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
-    "schemaVersion": 2,
-    "status": "published",
-    "travelEstimate": {
-      "confidence": "medium"
-    },
-    "collections": [],
-    "addedAt": "2026-07-29",
-    "editorial": {
-      "lifecycle": "published",
-      "sources": [
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Toshiba_Science_Institute",
-          "title": "Toshiba Science Institute",
-          "accessedAt": "2026-07-29"
-        },
-        {
-          "type": "official",
-          "url": "https://toshiba-mirai-kagakukan.jp/",
-          "title": "Toshiba Science Museum official website",
-          "accessedAt": "2026-07-29"
-        }
-      ],
-      "checkedAt": "2026-08-02",
-      "freshness": "current",
-      "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
-      "fieldSources": {
-        "ratings": [
-          {
-            "type": "calculated",
-            "url": "https://en.wikipedia.org/wiki/Toshiba_Science_Institute",
-            "title": "Beta editorial scoring from source-backed attributes",
-            "accessedAt": "2026-07-29"
-          }
-        ],
-        "heroImage": [
-          {
-            "type": "wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Toshiba_Science_Institute",
-            "title": "Toshiba Science Institute",
-            "accessedAt": "2026-07-29"
-          }
-        ]
-      },
-      "changes": [
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap editorial",
-          "summary": "Added bilingual source-backed city POI",
-          "method": "assisted"
-        },
-        {
-          "changedAt": "2026-07-29",
-          "changedBy": "TabiMap data audit",
-          "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
-          "method": "assisted"
-        }
-      ],
-      "reviewedAt": "2026-08-02",
-      "reviewedBy": "Meguruto Editorial Reviewer"
-    },
-    "ratingMetadata": {
-      "rubricVersion": 2,
-      "method": "assisted",
-      "confidence": "low"
-    },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)",
-    "notesJa": "東芝未来科学館は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
-    "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
-    "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "09:30 - 17:00 (Last admission 16:30)",
-    "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
-    "municipalityId": "Kanagawa:kawasaki"
   },
   {
     "id": "toshima-city",
@@ -67788,9 +67433,7 @@
         "sortOrder": 27
       }
     ],
-    "relationships": {
-      "parentDestinationId": "nagano-city"
-    },
+    "relationships": {},
     "walkingIntensity": "low",
     "role": "standalone",
     "placeType": "destination",
@@ -67801,7 +67444,7 @@
     },
     "officialWebsite": "https://www.uedajo.myu-shop.jp/",
     "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-    "municipalityId": "Nagano:nagano"
+    "municipalityId": "Nagano:ueda"
   },
   {
     "id": "ueno-park",
@@ -69863,106 +69506,6 @@
     "notesJa": "山形県の県都。山寺や蔵王方面への旅の拠点です。"
   },
   {
-    "id": "yamanashi-fujiyoshida",
-    "name": "Fujiyoshida",
-    "kind": "nature",
-    "prefecture": "Yamanashi",
-    "region": "Chubu",
-    "categories": ["History", "Nature", "Theme Park"],
-    "heroImage": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
-    "description": "Lying at Mt. Fuji's base, Fujiyoshida boasts the iconic Chureito Pagoda views, Fuji-Q Highland amusement rides, and historic shrines.",
-    "highlights": [
-      "Arakurayama Sengen Park (Chureito Pagoda)",
-      "Fuji-Q Highland",
-      "Kitaguchi Hongu Fuji Sengen Shrine",
-      "Kaneyama Onsen"
-    ],
-    "budgetMin": 5000,
-    "budgetMax": 16000,
-    "budgetRecommended": 10500,
-    "budgetBreakdown": {
-      "transport": 3500,
-      "tickets": 3000,
-      "food": 2500,
-      "cafe": 1500
-    },
-    "transportOptions": {
-      "train": 100,
-      "car": 90
-    },
-    "totalTripHours": 10,
-    "walkingMin": 80,
-    "walkingSunMin": 50,
-    "walkingShadeMin": 30,
-    "indoorPercent": 30,
-    "coordinates": {
-      "lat": 35.4853,
-      "lng": 138.8033
-    },
-    "comfort": {
-      "walkingIntensity": 2,
-      "heatTolerance": 8,
-      "rainFriendly": 5
-    },
-    "ratings": {
-      "overall": 9.4,
-      "couple": 9.2,
-      "summer": 8.5,
-      "winter": 8.8,
-      "rain": 6,
-      "food": 8.5,
-      "photography": 10,
-      "relaxation": 8.5,
-      "value": 8.4,
-      "uniqueness": 9.8
-    },
-    "crowd": {
-      "weekday": 4,
-      "weekend": 9,
-      "holiday": 10
-    },
-    "season": {
-      "spring": 10,
-      "summer": 8,
-      "autumn": 9,
-      "winter": 9
-    },
-    "bestMonths": [4, 5, 10, 11, 12],
-    "bestSeason": "Spring",
-    "weatherDependence": "medium",
-    "tags": ["Pagoda View", "Rollercoasters", "Fuji Base", "Photogenic"],
-    "reservation": "Recommended to book Fuji-Q passes in advance",
-    "parking": "Large paid lots at park and shrine entries",
-    "notes": "Chureito Pagoda offers one of Japan's most famous postcard views framing Mt. Fuji in cherry blossoms or red maple leaves.",
-    "schemaVersion": 2,
-    "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
-    "imageMetadata": {
-      "source": "Wikimedia Commons / Wikipedia",
-      "license": "CC-BY-SA / Public Domain",
-      "attribution": "Lead photograph of Fujiyoshida via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Fujiyoshida"
-    },
-    "status": "verified",
-    "travelEstimate": {
-      "confidence": "high"
-    },
-    "collections": [],
-    "relationships": {
-      "parentDestinationId": "fujiyoshida-city"
-    },
-    "walkingIntensity": "low",
-    "role": "standalone",
-    "placeType": "destination",
-    "ratingsSchemaVersion": 2,
-    "recommendedVisitHours": {
-      "min": 9,
-      "max": 11
-    },
-    "officialWebsite": "https://fujiyoshida.net/",
-    "businessHours": "Open access",
-    "municipalityId": "Yamanashi:fujiyoshida"
-  },
-  {
     "id": "yamanashi-nishizawa-valley",
     "name": "Nishizawa Valley",
     "kind": "nature",
@@ -70499,7 +70042,7 @@
   {
     "id": "yasaka-shrine",
     "name": "Yasaka Shrine",
-    "nameJa": "法観寺",
+    "nameJa": "八坂神社",
     "aliases": ["Yasaka Pagoda", "法観寺"],
     "content": {
       "en": {
@@ -85422,9 +84965,8 @@
     },
     "municipalityId": "Wakayama:wakayama",
     "transportOptions": {
-      "train": 260,
       "bus": 302,
-      "car": 295
+      "ferry": 20
     },
     "collections": [],
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Tomogashima_Lighthouse_distant_view.jpg/1920px-Tomogashima_Lighthouse_distant_view.jpg"
@@ -86372,9 +85914,7 @@
     "rating": 4.6,
     "ratingCount": 1240,
     "tags": ["UNESCO", "Castle", "History", "Ruins", "Okinawa"],
-    "relationships": {
-      "parentDestinationId": "motobu-town"
-    },
+    "relationships": {},
     "location": {
       "latitude": 26.6914,
       "longitude": 127.9287,
@@ -86462,7 +86002,7 @@
       "min": 1,
       "max": 2.5
     },
-    "municipalityId": "Okinawa:motobu",
+    "municipalityId": "Okinawa:nakijin",
     "categories": ["Historic", "Sightseeing"],
     "highlights": [
       "UNESCO World Heritage castle ruins",
@@ -92087,8 +91627,7 @@
       "cafe": 300
     },
     "transportOptions": {
-      "train": 400,
-      "shinkansen": 510
+      "ferry": 240
     },
     "totalTripHours": 10,
     "recommendedVisitHours": {
@@ -92253,8 +91792,7 @@
       "cafe": 200
     },
     "transportOptions": {
-      "train": 400,
-      "shinkansen": 510
+      "ferry": 240
     },
     "totalTripHours": 6,
     "recommendedVisitHours": {
@@ -92407,8 +91945,7 @@
       "cafe": 200
     },
     "transportOptions": {
-      "train": 400,
-      "shinkansen": 510
+      "ferry": 240
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -96229,167 +95766,6 @@
     }
   },
   {
-    "id": "obi-castle-town",
-    "name": "Obi Castle Town",
-    "nameJa": "飫肥城下町",
-    "aliases": ["Obi Castle Town", "飫肥城下町"],
-    "content": {
-      "en": {
-        "name": "Obi Castle Town",
-        "description": "A beautifully preserved Edo-period castle town known as the 'Little Kyoto of Kyushu'. Features samurai residences, the restored Obi Castle gate, a historic school, mossy stone walls, and streets lined with Obi cedar. Individual museums, shops and cafés each have separate hours and admission fees.",
-        "highlights": [
-          "Well-preserved Edo-period samurai district",
-          "Restored Obi Castle gate and mossy stone walls",
-          "Historic merchant streets lined with Obi cedar"
-        ],
-        "openingHours": "Public streets: open access. Obi Castle Museum and samurai residences: typically 09:00–17:00 (individual facilities may vary)"
-      },
-      "ja": {
-        "name": "飫肥城下町",
-        "description": "「九州の小京都」と呼ばれる江戸時代の城下町。武家屋敷、復元された飫肥城大手門、歴史的な学校跡、苔むす石垣、飫肥杉に囲まれた通りが美しい町並みを形成しています。各博物館、店舗、カフェは個別の営業時間と入場料が設定されています。",
-        "highlights": [
-          "江戸時代の武家屋敷が残る保存地区",
-          "復元された飫肥城大手門と苔むす石垣",
-          "飫肥杉に囲まれた歴史的な商家の町並み"
-        ],
-        "openingHours": "町並み：自由散策。飫肥城資料館・武家屋敷：通常09:00～17:00（施設により異なる）"
-      }
-    },
-    "prefecture": "Miyazaki",
-    "region": "Kyushu",
-    "kind": "historic",
-    "role": "poi",
-    "placeType": "destination",
-    "relationships": {
-      "parentDestinationId": "nichinan-city"
-    },
-    "officialWebsiteRequirement": "optional",
-    "categories": ["Historic", "Sightseeing"],
-    "tags": ["Historic District", "Samurai", "Castle Town", "Nichinan City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/42/Obi%2C_Nichinan%2C_Yokobaba_Street_03.jpg",
-    "imageMetadata": {
-      "source": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "attribution": "Naokijp",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Obi%2C_Nichinan%2C_Yokobaba_Street_03.jpg"
-    },
-    "coordinates": {
-      "lat": 31.6289,
-      "lng": 131.355
-    },
-    "description": "A beautifully preserved Edo-period castle town known as the 'Little Kyoto of Kyushu'. Features samurai residences, the restored Obi Castle gate, a historic school, mossy stone walls, and streets lined with Obi cedar. Individual museums, shops and cafés each have separate hours and admission fees.",
-    "highlights": [
-      "Well-preserved Edo-period samurai district",
-      "Restored Obi Castle gate and mossy stone walls",
-      "Historic merchant streets lined with Obi cedar"
-    ],
-    "openingHours": "Public streets: open access. Obi Castle Museum and samurai residences: typically 09:00–17:00 (individual facilities may vary)",
-    "openingHoursJa": "町並み：自由散策。飫肥城資料館・武家屋敷：通常09:00～17:00（施設により異なる）",
-    "openingHoursMetadata": {
-      "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.kankou-nichinan.jp/en/spot/obi/",
-      "hoursNote": "Public district with individual facility hours — check each museum and shop separately"
-    },
-    "budgetMin": 2000,
-    "budgetRecommended": 6000,
-    "budgetMax": 12000,
-    "budgetBreakdown": {
-      "transport": 600,
-      "tickets": 700,
-      "food": 900,
-      "cafe": 200
-    },
-    "transportOptions": {
-      "train": 220,
-      "bus": 200
-    },
-    "totalTripHours": 5,
-    "recommendedVisitHours": {
-      "min": 2,
-      "max": 4
-    },
-    "walkingMin": 5000,
-    "walkingIntensity": "medium",
-    "walkingSunMin": 2000,
-    "walkingShadeMin": 2500,
-    "indoorPercent": 30,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 3
-    },
-    "ratings": {
-      "overall": 9,
-      "couple": 9,
-      "summer": 7.5,
-      "winter": 7.5,
-      "rain": 7,
-      "food": 8,
-      "photography": 9.5,
-      "relaxation": 8.5,
-      "value": 8.5,
-      "uniqueness": 9
-    },
-    "ratingsSchemaVersion": 2,
-    "crowd": {
-      "weekday": 3,
-      "weekend": 6,
-      "holiday": 8
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 9,
-      "winter": 7
-    },
-    "bestMonths": [3, 4, 5, 10, 11],
-    "weatherDependence": "moderate",
-    "reservation": "None required for public areas; individual museums may charge admission",
-    "reservationJa": "町並み散策は自由。各博物館は別途入館料あり。",
-    "parking": "Paid parking available near the castle town entrance",
-    "notes": "Purchase a combined admission ticket at the Obi Castle Museum for best value across multiple sites.",
-    "notesJa": "飫肥城資料館で販売の共通入場券で複数施設をお得に巡れます。",
-    "schemaVersion": 2,
-    "status": "published",
-    "travelEstimate": {
-      "confidence": "medium"
-    },
-    "collections": [],
-    "addedAt": "2026-08-05",
-    "editorial": {
-      "lifecycle": "published",
-      "sources": [
-        {
-          "type": "official",
-          "url": "https://www.kankou-nichinan.jp/en/spot/obi/",
-          "title": "Obi Castle Town Official Website",
-          "accessedAt": "2026-08-05"
-        },
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Obi,_Miyazaki",
-          "title": "Obi, Miyazaki",
-          "accessedAt": "2026-08-05"
-        }
-      ],
-      "checkedAt": "2026-08-05",
-      "freshness": "current",
-      "changeSummary": "Kyushu-to-100 expansion",
-      "changes": [
-        {
-          "changedAt": "2026-08-05",
-          "changedBy": "Kyushu-to-100 Editorial Batch",
-          "summary": "Added bilingual curated POI: Obi Castle Town",
-          "method": "assisted"
-        }
-      ],
-      "reviewedAt": "2026-08-05",
-      "reviewedBy": "Kyushu-to-100 Editorial Batch"
-    },
-    "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/obi/",
-    "municipalityId": "Miyazaki:nichinan"
-  },
-  {
     "id": "obi-castle",
     "name": "Obi Castle",
     "nameJa": "飫肥城",
@@ -96600,8 +95976,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Udo-jingu_Main_hall_001.jpg"
     },
     "coordinates": {
-      "lat": 31.4381,
-      "lng": 131.4139
+      "lat": 31.6492,
+      "lng": 131.4661
     },
     "description": "A dramatic Shinto shrine built into a sea cave on the Nichinan coast, dedicated to the father of Emperor Jimmu. The vivid vermilion main hall contrasts with the deep blue ocean. Visitors toss ceramic undama (lucky balls) into a target below for good fortune. A coastal path with steep stairs leads to the cave shrine.",
     "highlights": [
@@ -96758,8 +96134,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:日南太阳花园摩艾石像.jpg"
     },
     "coordinates": {
-      "lat": 31.4333,
-      "lng": 131.48
+      "lat": 31.6633,
+      "lng": 131.461
     },
     "description": "A coastal theme park famous for its seven authentic replica Easter Island Moai statues, the only officially authorised Moai replicas outside Chile. Features sweeping ocean views, a butterfly garden, a world insect exhibition, and rolling green hills. A managed paid attraction with regular facility hours.",
     "highlights": [
@@ -105355,8 +104731,10 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {},
-    "transportZoneId": "unknown",
+    "transportOptions": {
+      "ferry": 10
+    },
+    "transportZoneId": "miyajima",
     "budgetMin": 1000,
     "budgetRecommended": 2500,
     "budgetMax": 5000,
@@ -105506,8 +104884,10 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {},
-    "transportZoneId": "unknown",
+    "transportOptions": {
+      "ferry": 10
+    },
+    "transportZoneId": "miyajima",
     "budgetMin": 0,
     "budgetRecommended": 1000,
     "budgetMax": 2000,
@@ -105668,8 +105048,10 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {},
-    "transportZoneId": "unknown",
+    "transportOptions": {
+      "ferry": 10
+    },
+    "transportZoneId": "miyajima",
     "budgetMin": 0,
     "budgetRecommended": 800,
     "budgetMax": 1500,
@@ -105830,8 +105212,10 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {},
-    "transportZoneId": "unknown",
+    "transportOptions": {
+      "ferry": 10
+    },
+    "transportZoneId": "miyajima",
     "budgetMin": 100,
     "budgetRecommended": 900,
     "budgetMax": 1500,
@@ -105987,8 +105371,10 @@
       "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {},
-    "transportZoneId": "unknown",
+    "transportOptions": {
+      "ferry": 10
+    },
+    "transportZoneId": "miyajima",
     "budgetMin": 0,
     "budgetRecommended": 2500,
     "budgetMax": 4500,
@@ -114040,7 +113426,7 @@
     "ratings": {
       "overall": 9.5,
       "couple": 9.3,
-      "summer": 9.0,
+      "summer": 9,
       "winter": 8.8,
       "rain": 7.8,
       "food": 8.2,
@@ -114184,9 +113570,9 @@
       "winter": 8.6,
       "rain": 7.6,
       "food": 7.8,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.8,
-      "value": 9.0,
+      "value": 9,
       "uniqueness": 8.9
     },
     "reservation": "None required",
@@ -114308,11 +113694,11 @@
     "walkingIntensity": "medium",
     "ratings": {
       "overall": 8.4,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 8.2,
-      "winter": 8.0,
+      "winter": 8,
       "rain": 7.4,
-      "food": 8.0,
+      "food": 8,
       "photography": 8.8,
       "relaxation": 8.6,
       "value": 9.2,
@@ -114438,7 +113824,7 @@
     "ratings": {
       "overall": 9.3,
       "couple": 9.4,
-      "summer": 7.0,
+      "summer": 7,
       "winter": 6.5,
       "rain": 6.5,
       "food": 7.5,
@@ -114565,9 +113951,9 @@
     },
     "walkingIntensity": "medium",
     "ratings": {
-      "overall": 9.0,
+      "overall": 9,
       "couple": 9.1,
-      "summer": 7.0,
+      "summer": 7,
       "winter": 6.5,
       "rain": 6.5,
       "food": 7.5,
@@ -114694,9 +114080,9 @@
     },
     "walkingIntensity": "medium",
     "ratings": {
-      "overall": 9.0,
+      "overall": 9,
       "couple": 9.1,
-      "summer": 7.0,
+      "summer": 7,
       "winter": 6.5,
       "rain": 6.5,
       "food": 7.5,
@@ -114812,7 +114198,7 @@
     "walkingIntensity": "medium",
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 7.9,
       "winter": 7.5,
       "rain": 7.2,
@@ -114938,7 +114324,7 @@
     "ratings": {
       "overall": 9.3,
       "couple": 9.1,
-      "summer": 9.0,
+      "summer": 9,
       "winter": 8.6,
       "rain": 8.3,
       "food": 8.4,
@@ -115071,7 +114457,7 @@
       "photography": 9.1,
       "relaxation": 8.3,
       "value": 8.7,
-      "uniqueness": 9.0
+      "uniqueness": 9
     },
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
@@ -115182,11 +114568,11 @@
     },
     "walkingIntensity": "medium",
     "ratings": {
-      "overall": 8.0,
+      "overall": 8,
       "couple": 7.8,
       "summer": 7.7,
       "winter": 7.3,
-      "rain": 7.0,
+      "rain": 7,
       "food": 7.1,
       "photography": 8.3,
       "relaxation": 7.5,
@@ -115548,7 +114934,7 @@
     "walkingIntensity": "medium",
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 7.9,
       "winter": 7.5,
       "rain": 7.2,
@@ -115672,7 +115058,7 @@
     "ratings": {
       "overall": 8.3,
       "couple": 8.1,
-      "summer": 8.0,
+      "summer": 8,
       "winter": 7.6,
       "rain": 7.3,
       "food": 7.4,
@@ -116045,7 +115431,7 @@
       "rain": 7.5,
       "food": 7.6,
       "photography": 8.8,
-      "relaxation": 8.0,
+      "relaxation": 8,
       "value": 8.4,
       "uniqueness": 8.7
     },
@@ -116404,7 +115790,7 @@
     "walkingIntensity": "medium",
     "ratings": {
       "overall": 9.2,
-      "couple": 9.0,
+      "couple": 9,
       "summer": 8.9,
       "winter": 8.5,
       "rain": 8.2,
@@ -116532,7 +115918,7 @@
       "photography": 9.1,
       "relaxation": 8.3,
       "value": 8.7,
-      "uniqueness": 9.0
+      "uniqueness": 9
     },
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
@@ -117003,11 +116389,11 @@
     },
     "walkingIntensity": "medium",
     "ratings": {
-      "overall": 9.0,
+      "overall": 9,
       "couple": 8.8,
       "summer": 8.7,
       "winter": 8.3,
-      "rain": 8.0,
+      "rain": 8,
       "food": 8.1,
       "photography": 9.3,
       "relaxation": 8.5,
@@ -117127,7 +116513,7 @@
     "walkingIntensity": "medium",
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 7.9,
       "winter": 7.5,
       "rain": 7.2,
@@ -117379,7 +116765,7 @@
       "photography": 9.1,
       "relaxation": 8.3,
       "value": 8.7,
-      "uniqueness": 9.0
+      "uniqueness": 9
     },
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
@@ -117622,7 +117008,7 @@
       "rain": 7.5,
       "food": 7.6,
       "photography": 8.8,
-      "relaxation": 8.0,
+      "relaxation": 8,
       "value": 8.4,
       "uniqueness": 8.7
     },
@@ -117721,8 +117107,8 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 35.182,
-      "lng": 138.39
+      "lat": 34.9786,
+      "lng": 138.383
     },
     "categories": ["history", "culture", "sightseeing"],
     "tags": ["Top 100 Castle", "Castle", "History", "Shizuoka"],
@@ -117746,7 +117132,7 @@
       "summer": 8.6,
       "winter": 8.2,
       "rain": 7.9,
-      "food": 8.0,
+      "food": 8,
       "photography": 9.2,
       "relaxation": 8.4,
       "value": 8.8,
@@ -117866,11 +117252,11 @@
     },
     "walkingIntensity": "medium",
     "ratings": {
-      "overall": 9.0,
+      "overall": 9,
       "couple": 8.8,
       "summer": 8.7,
       "winter": 8.3,
-      "rain": 8.0,
+      "rain": 8,
       "food": 8.1,
       "photography": 9.3,
       "relaxation": 8.5,
@@ -117992,7 +117378,7 @@
       "rain": 7.5,
       "food": 7.6,
       "photography": 8.8,
-      "relaxation": 8.0,
+      "relaxation": 8,
       "value": 8.4,
       "uniqueness": 8.7
     },
@@ -118111,10 +117497,10 @@
       "overall": 8.7,
       "couple": 8.5,
       "summer": 8.4,
-      "winter": 8.0,
+      "winter": 8,
       "rain": 7.7,
       "food": 7.8,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.2,
       "value": 8.6,
       "uniqueness": 8.9
@@ -118486,7 +117872,7 @@
       "food": 8.2,
       "photography": 9.4,
       "relaxation": 8.6,
-      "value": 9.0,
+      "value": 9,
       "uniqueness": 9.3
     },
     "reservation": "None required",
@@ -118608,7 +117994,7 @@
       "summer": 8.6,
       "winter": 8.2,
       "rain": 7.9,
-      "food": 8.0,
+      "food": 8,
       "photography": 9.2,
       "relaxation": 8.4,
       "value": 8.8,
@@ -118725,10 +118111,10 @@
       "overall": 8.7,
       "couple": 8.5,
       "summer": 8.4,
-      "winter": 8.0,
+      "winter": 8,
       "rain": 7.7,
       "food": 7.8,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.2,
       "value": 8.6,
       "uniqueness": 8.9
@@ -118844,10 +118230,10 @@
       "overall": 8.7,
       "couple": 8.5,
       "summer": 8.4,
-      "winter": 8.0,
+      "winter": 8,
       "rain": 7.7,
       "food": 7.8,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.2,
       "value": 8.6,
       "uniqueness": 8.9
@@ -119089,7 +118475,7 @@
       "summer": 8.6,
       "winter": 8.2,
       "rain": 7.9,
-      "food": 8.0,
+      "food": 8,
       "photography": 9.2,
       "relaxation": 8.4,
       "value": 8.8,
@@ -119216,7 +118602,7 @@
       "rain": 7.5,
       "food": 7.6,
       "photography": 8.8,
-      "relaxation": 8.0,
+      "relaxation": 8,
       "value": 8.4,
       "uniqueness": 8.7
     },
@@ -119335,7 +118721,7 @@
       "rain": 7.5,
       "food": 7.6,
       "photography": 8.8,
-      "relaxation": 8.0,
+      "relaxation": 8,
       "value": 8.4,
       "uniqueness": 8.7
     },
@@ -119584,7 +118970,7 @@
       "rain": 7.5,
       "food": 7.6,
       "photography": 8.8,
-      "relaxation": 8.0,
+      "relaxation": 8,
       "value": 8.4,
       "uniqueness": 8.7
     },
@@ -119706,7 +119092,7 @@
       "photography": 9.1,
       "relaxation": 8.3,
       "value": 8.7,
-      "uniqueness": 9.0
+      "uniqueness": 9
     },
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
@@ -119944,10 +119330,10 @@
       "overall": 8.7,
       "couple": 8.5,
       "summer": 8.4,
-      "winter": 8.0,
+      "winter": 8,
       "rain": 7.7,
       "food": 7.8,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.2,
       "value": 8.6,
       "uniqueness": 8.9
@@ -120185,7 +119571,7 @@
       "summer": 8.6,
       "winter": 8.2,
       "rain": 7.9,
-      "food": 8.0,
+      "food": 8,
       "photography": 9.2,
       "relaxation": 8.4,
       "value": 8.8,
@@ -120316,7 +119702,7 @@
       "rain": 7.5,
       "food": 7.6,
       "photography": 8.8,
-      "relaxation": 8.0,
+      "relaxation": 8,
       "value": 8.4,
       "uniqueness": 8.7
     },
@@ -120445,7 +119831,7 @@
       "photography": 9.1,
       "relaxation": 8.3,
       "value": 8.7,
-      "uniqueness": 9.0
+      "uniqueness": 9
     },
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
@@ -120567,10 +119953,10 @@
       "overall": 8.7,
       "couple": 8.5,
       "summer": 8.4,
-      "winter": 8.0,
+      "winter": 8,
       "rain": 7.7,
       "food": 7.8,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.2,
       "value": 8.6,
       "uniqueness": 8.9
@@ -120822,7 +120208,7 @@
       "photography": 9.1,
       "relaxation": 8.3,
       "value": 8.7,
-      "uniqueness": 9.0
+      "uniqueness": 9
     },
     "reservation": "None required",
     "parking": "Free/paid parking near the site (varies)",
@@ -120938,7 +120324,7 @@
     "walkingIntensity": "medium",
     "ratings": {
       "overall": 9.2,
-      "couple": 9.0,
+      "couple": 9,
       "summer": 8.9,
       "winter": 8.5,
       "rain": 8.2,
@@ -121061,11 +120447,11 @@
     },
     "walkingIntensity": "medium",
     "ratings": {
-      "overall": 9.0,
+      "overall": 9,
       "couple": 8.8,
       "summer": 8.7,
       "winter": 8.3,
-      "rain": 8.0,
+      "rain": 8,
       "food": 8.1,
       "photography": 9.3,
       "relaxation": 8.5,
@@ -121189,7 +120575,7 @@
       "summer": 8.6,
       "winter": 8.2,
       "rain": 7.9,
-      "food": 8.0,
+      "food": 8,
       "photography": 9.2,
       "relaxation": 8.4,
       "value": 8.8,
@@ -121304,11 +120690,11 @@
     },
     "walkingIntensity": "medium",
     "ratings": {
-      "overall": 9.0,
+      "overall": 9,
       "couple": 8.8,
       "summer": 8.7,
       "winter": 8.3,
-      "rain": 8.0,
+      "rain": 8,
       "food": 8.1,
       "photography": 9.3,
       "relaxation": 8.5,
@@ -121435,7 +120821,7 @@
       "rain": 7.5,
       "food": 7.6,
       "photography": 8.8,
-      "relaxation": 8.0,
+      "relaxation": 8,
       "value": 8.4,
       "uniqueness": 8.7
     },
@@ -121555,7 +120941,7 @@
       "food": 7.2,
       "photography": 8.4,
       "relaxation": 7.6,
-      "value": 8.0,
+      "value": 8,
       "uniqueness": 8.3
     },
     "reservation": "None required",
@@ -121674,7 +121060,7 @@
       "rain": 7.5,
       "food": 7.6,
       "photography": 8.8,
-      "relaxation": 8.0,
+      "relaxation": 8,
       "value": 8.4,
       "uniqueness": 8.7
     },
@@ -121923,7 +121309,7 @@
     "walkingIntensity": "medium",
     "ratings": {
       "overall": 9.2,
-      "couple": 9.0,
+      "couple": 9,
       "summer": 8.9,
       "winter": 8.5,
       "rain": 8.2,
@@ -122185,10 +121571,10 @@
       "summer": 9.2,
       "winter": 8.5,
       "rain": 8.2,
-      "food": 8.0,
+      "food": 8,
       "photography": 9.4,
       "relaxation": 9.2,
-      "value": 9.0,
+      "value": 9,
       "uniqueness": 9.3
     },
     "reservation": "None required",
@@ -122311,7 +121697,7 @@
       "photography": 9.1,
       "relaxation": 8.9,
       "value": 8.7,
-      "uniqueness": 9.0
+      "uniqueness": 9
     },
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
@@ -122418,7 +121804,7 @@
     "transportOptions": {},
     "ratings": {
       "overall": 9.2,
-      "couple": 9.0,
+      "couple": 9,
       "summer": 9.3,
       "winter": 8.6,
       "rain": 8.3,
@@ -122544,7 +121930,7 @@
       "overall": 8.6,
       "couple": 8.4,
       "summer": 8.7,
-      "winter": 8.0,
+      "winter": 8,
       "rain": 7.7,
       "food": 7.5,
       "photography": 8.9,
@@ -122659,7 +122045,7 @@
     "notes": "Designated 1949 (99,473 ha). Toyako Onsen is the base; the Usuzan ropeway surveys the 2000 eruption site.",
     "transportOptions": {},
     "ratings": {
-      "overall": 9.0,
+      "overall": 9,
       "couple": 8.8,
       "summer": 9.1,
       "winter": 8.4,
@@ -122783,7 +122169,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.6,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.8,
       "value": 8.6,
       "uniqueness": 8.9
@@ -122893,12 +122279,12 @@
     "ratings": {
       "overall": 8.9,
       "couple": 8.7,
-      "summer": 9.0,
+      "summer": 9,
       "winter": 8.3,
-      "rain": 8.0,
+      "rain": 8,
       "food": 7.8,
       "photography": 9.2,
-      "relaxation": 9.0,
+      "relaxation": 9,
       "value": 8.8,
       "uniqueness": 9.1
     },
@@ -123022,7 +122408,7 @@
       "photography": 9.1,
       "relaxation": 8.9,
       "value": 8.7,
-      "uniqueness": 9.0
+      "uniqueness": 9
     },
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
@@ -123132,10 +122518,10 @@
       "summer": 9.2,
       "winter": 8.5,
       "rain": 8.2,
-      "food": 8.0,
+      "food": 8,
       "photography": 9.4,
       "relaxation": 9.2,
-      "value": 9.0,
+      "value": 9,
       "uniqueness": 9.3
     },
     "reservation": "None required",
@@ -123247,7 +122633,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.6,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.8,
       "value": 8.6,
       "uniqueness": 8.9
@@ -123358,7 +122744,7 @@
       "overall": 8.6,
       "couple": 8.4,
       "summer": 8.7,
-      "winter": 8.0,
+      "winter": 8,
       "rain": 7.7,
       "food": 7.5,
       "photography": 8.9,
@@ -123479,7 +122865,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.6,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.8,
       "value": 8.6,
       "uniqueness": 8.9
@@ -123600,7 +122986,7 @@
       "photography": 9.1,
       "relaxation": 8.9,
       "value": 8.7,
-      "uniqueness": 9.0
+      "uniqueness": 9
     },
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
@@ -123843,7 +123229,7 @@
     "transportOptions": {},
     "ratings": {
       "overall": 9.2,
-      "couple": 9.0,
+      "couple": 9,
       "summer": 9.3,
       "winter": 8.6,
       "rain": 8.3,
@@ -123965,7 +123351,7 @@
       "overall": 8.6,
       "couple": 8.4,
       "summer": 8.7,
-      "winter": 8.0,
+      "winter": 8,
       "rain": 7.7,
       "food": 7.5,
       "photography": 8.9,
@@ -124089,7 +123475,7 @@
       "photography": 9.1,
       "relaxation": 8.9,
       "value": 8.7,
-      "uniqueness": 9.0
+      "uniqueness": 9
     },
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
@@ -124208,7 +123594,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.6,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.8,
       "value": 8.6,
       "uniqueness": 8.9
@@ -124325,7 +123711,7 @@
       "max": 5
     },
     "ratings": {
-      "overall": 9.0,
+      "overall": 9,
       "couple": 8.8,
       "summer": 9.1,
       "winter": 8.4,
@@ -124446,12 +123832,12 @@
     "ratings": {
       "overall": 8.9,
       "couple": 8.7,
-      "summer": 9.0,
+      "summer": 9,
       "winter": 8.3,
-      "rain": 8.0,
+      "rain": 8,
       "food": 7.8,
       "photography": 9.2,
-      "relaxation": 9.0,
+      "relaxation": 9,
       "value": 8.8,
       "uniqueness": 9.1
     },
@@ -124562,7 +123948,7 @@
       "max": 5
     },
     "ratings": {
-      "overall": 9.0,
+      "overall": 9,
       "couple": 8.8,
       "summer": 9.1,
       "winter": 8.4,
@@ -124685,7 +124071,7 @@
       "photography": 9.1,
       "relaxation": 8.9,
       "value": 8.7,
-      "uniqueness": 9.0
+      "uniqueness": 9
     },
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
@@ -124793,7 +124179,7 @@
       "overall": 8.6,
       "couple": 8.4,
       "summer": 8.7,
-      "winter": 8.0,
+      "winter": 8,
       "rain": 7.7,
       "food": 7.5,
       "photography": 8.9,
@@ -124906,12 +124292,12 @@
     "ratings": {
       "overall": 8.9,
       "couple": 8.7,
-      "summer": 9.0,
+      "summer": 9,
       "winter": 8.3,
-      "rain": 8.0,
+      "rain": 8,
       "food": 7.8,
       "photography": 9.2,
-      "relaxation": 9.0,
+      "relaxation": 9,
       "value": 8.8,
       "uniqueness": 9.1
     },
@@ -125024,7 +124410,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.6,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.8,
       "value": 8.6,
       "uniqueness": 8.9
@@ -125137,7 +124523,7 @@
       "max": 5
     },
     "ratings": {
-      "overall": 9.0,
+      "overall": 9,
       "couple": 8.8,
       "summer": 9.1,
       "winter": 8.4,
@@ -125263,12 +124649,12 @@
     "ratings": {
       "overall": 8.9,
       "couple": 8.7,
-      "summer": 9.0,
+      "summer": 9,
       "winter": 8.3,
-      "rain": 8.0,
+      "rain": 8,
       "food": 7.8,
       "photography": 9.2,
-      "relaxation": 9.0,
+      "relaxation": 9,
       "value": 8.8,
       "uniqueness": 9.1
     },
@@ -125510,7 +124896,7 @@
       "overall": 8.6,
       "couple": 8.4,
       "summer": 8.7,
-      "winter": 8.0,
+      "winter": 8,
       "rain": 7.7,
       "food": 7.5,
       "photography": 8.9,
@@ -125781,7 +125167,7 @@
     "indoorPercent": 10,
     "ratings": {
       "overall": 9.2,
-      "couple": 9.0,
+      "couple": 9,
       "summer": 9.3,
       "winter": 8.6,
       "rain": 8.3,
@@ -125924,10 +125310,10 @@
       "summer": 9.2,
       "winter": 8.5,
       "rain": 8.2,
-      "food": 8.0,
+      "food": 8,
       "photography": 9.4,
       "relaxation": 9.2,
-      "value": 9.0,
+      "value": 9,
       "uniqueness": 9.3,
       "walkability": 7
     },
@@ -126056,7 +125442,7 @@
     "transportOptions": {},
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 8.3,
       "winter": 7.6,
       "rain": 7.3,
@@ -126396,7 +125782,7 @@
       "overall": 8.6,
       "couple": 8.4,
       "summer": 8.7,
-      "winter": 8.0,
+      "winter": 8,
       "rain": 7.7,
       "food": 7.5,
       "photography": 8.9,
@@ -126838,7 +126224,7 @@
     "transportOptions": {},
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 8.3,
       "winter": 7.6,
       "rain": 7.3,
@@ -127078,7 +126464,7 @@
       "photography": 9.1,
       "relaxation": 8.9,
       "value": 8.7,
-      "uniqueness": 9.0
+      "uniqueness": 9
     },
     "reservation": "None required",
     "parking": "Parking available at major visitor areas (fee varies)",
@@ -127412,7 +126798,7 @@
     "transportOptions": {},
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 8.3,
       "winter": 7.6,
       "rain": 7.3,
@@ -127526,7 +126912,7 @@
     },
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 8.3,
       "winter": 7.6,
       "rain": 7.3,
@@ -127866,7 +127252,7 @@
     },
     "ratings": {
       "overall": 9.2,
-      "couple": 9.0,
+      "couple": 9,
       "summer": 9.3,
       "winter": 8.6,
       "rain": 8.3,
@@ -128089,7 +127475,7 @@
     },
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 8.3,
       "winter": 7.6,
       "rain": 7.3,
@@ -128906,7 +128292,7 @@
     },
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 8.3,
       "winter": 7.6,
       "rain": 7.3,
@@ -129020,7 +128406,7 @@
     },
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 8.3,
       "winter": 7.6,
       "rain": 7.3,
@@ -129137,7 +128523,7 @@
     },
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 8.3,
       "winter": 7.6,
       "rain": 7.3,
@@ -129487,7 +128873,7 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 35.0,
+      "lat": 35,
       "lng": 136.4
     },
     "categories": ["Nature", "Park", "Outdoors"],
@@ -129838,7 +129224,7 @@
       "overall": 8.6,
       "couple": 8.4,
       "summer": 8.7,
-      "winter": 8.0,
+      "winter": 8,
       "rain": 7.7,
       "food": 7.5,
       "photography": 8.9,
@@ -129954,10 +129340,10 @@
       "summer": 8.2,
       "winter": 7.5,
       "rain": 7.2,
-      "food": 7.0,
+      "food": 7,
       "photography": 8.4,
       "relaxation": 8.2,
-      "value": 8.0,
+      "value": 8,
       "uniqueness": 8.3
     },
     "reservation": "None required",
@@ -130176,7 +129562,7 @@
     },
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 8.3,
       "winter": 7.6,
       "rain": 7.3,
@@ -130286,7 +129672,7 @@
     },
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 8.3,
       "winter": 7.6,
       "rain": 7.3,
@@ -130400,7 +129786,7 @@
     },
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 8.3,
       "winter": 7.6,
       "rain": 7.3,
@@ -130516,7 +129902,7 @@
       "overall": 8.6,
       "couple": 8.4,
       "summer": 8.7,
-      "winter": 8.0,
+      "winter": 8,
       "rain": 7.7,
       "food": 7.5,
       "photography": 8.9,
@@ -130734,7 +130120,7 @@
     },
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 8.3,
       "winter": 7.6,
       "rain": 7.3,
@@ -130957,7 +130343,7 @@
       "max": 5
     },
     "ratings": {
-      "overall": 9.0,
+      "overall": 9,
       "couple": 8.8,
       "summer": 9.1,
       "winter": 8.4,
@@ -131528,7 +130914,7 @@
     "placeType": "destination",
     "coordinates": {
       "lat": 33.55,
-      "lng": 130.0
+      "lng": 130
     },
     "categories": ["Nature", "Park", "Outdoors"],
     "tags": ["Quasi-National Park", "国定公園", "Nature", "Saga"],
@@ -131776,7 +131162,7 @@
     },
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 8.3,
       "winter": 7.6,
       "rain": 7.3,
@@ -131887,7 +131273,7 @@
     "transportOptions": {},
     "ratings": {
       "overall": 8.2,
-      "couple": 8.0,
+      "couple": 8,
       "summer": 8.3,
       "winter": 7.6,
       "rain": 7.3,
@@ -132934,7 +132320,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -133051,7 +132437,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -133168,7 +132554,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -133285,7 +132671,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -133398,7 +132784,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -133511,7 +132897,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -133628,7 +133014,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -133741,7 +133127,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -133857,7 +133243,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -133970,7 +133356,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -134087,7 +133473,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -134207,7 +133593,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -134324,7 +133710,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -134439,7 +133825,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -134556,7 +133942,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -134673,7 +134059,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -134790,7 +134176,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -134907,7 +134293,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -135020,7 +134406,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -135159,7 +134545,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9,
@@ -135288,7 +134674,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -135385,8 +134771,8 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 34.455,
-      "lng": 134.097
+      "lat": 34.5627,
+      "lng": 134.1018
     },
     "categories": ["sightseeing", "culture", "nature"],
     "tags": ["Inujima Island", "Okayama", "Japan Travel"],
@@ -135410,7 +134796,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -135529,7 +134915,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -135646,7 +135032,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -135767,7 +135153,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -135859,8 +135245,8 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 34.398,
-      "lng": 134.064
+      "lat": 34.4284,
+      "lng": 134.061
     },
     "categories": ["sightseeing", "culture", "nature"],
     "tags": ["Ogijima Island", "Kagawa", "Japan Travel"],
@@ -135884,7 +135270,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -136009,7 +135395,7 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
@@ -136126,20 +135512,20 @@
       "winter": 8.1,
       "rain": 7.8,
       "food": 7.7,
-      "photography": 9.0,
+      "photography": 9,
       "relaxation": 8.3,
       "value": 8.6,
       "uniqueness": 8.9
     },
     "reservation": "None required",
     "parking": "Paid parking nearby (varies by site)",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/2018_Wugu_Siyun_Temple_%E7%AC%AC%E4%B8%80%E7%95%AA%E9%9D%92%E5%B2%B8%E6%B8%A1%E5%AF%BA%E5%A6%82%E6%84%8F%E8%BC%AA%E8%A7%80%E4%B8%96%E9%9F%B3%E8%8F%A9%E8%96%A9.jpg/1920px-2018_Wugu_Siyun_Temple_%E7%AC%AC%E4%B8%80%E7%95%AA%E9%9D%92%E5%B2%B8%E6%B8%A1%E5%AF%BA%E5%A6%82%E6%84%8F%E8%BC%AA%E8%A7%80%E4%B8%96%E9%9F%B3%E8%8F%A9%E8%96%A9.jpg",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/2018_Wugu_Siyun_Temple_%E7%AC%AC%E4%B8%80%E7%95%AA%E9%9D%92%E5%B2%B8%E6%B8%A1%E5%AF%BA%E5%A6%82%E6%84%8F%E8%BC%AA%E8%A7%80%E4%B8%96%E9%9F%B3%E8%8F%A9%E8%96%A9.jpg/1920px-2018_Wugu_Siyun_Temple_%E7%AC%AC%E4%B8%80%E7%95%AA%E9%9D%92%E5%B2%B8%E6%B8%A1%E5%AF%BA%E5%A6%82%E6%84%8F%E8%BC%AA%E8%A7%80%E4%B8%96%E9%9F%B3%E8%8F%A9%E8%96%A9.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Saigoku3301.jpg/1280px-Saigoku3301.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Saigoku3301.jpg/1280px-Saigoku3301.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
       "license": "CC BY-SA 4.0",
-      "attribution": "Taiwankengo, CC BY-SA 4.0, via Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2018_Wugu_Siyun_Temple_第一番青岸渡寺如意輪觀世音菩薩.jpg"
+      "attribution": "Dokudami",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saigoku3301.jpg"
     },
     "officialWebsite": "https://www.saikoku33.jp/",
     "businessHours": "Open daily; hours vary by season (see official site)",

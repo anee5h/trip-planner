@@ -35,7 +35,7 @@
   "budgetMax": 6000,
   "budgetRecommended": 3750,
   "transportOptions": {
-    "train": 180
+    "ferry": 20
   },
   "ratings": {
     "overall": 9,

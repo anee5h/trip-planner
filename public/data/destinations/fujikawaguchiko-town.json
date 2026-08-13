@@ -70,8 +70,7 @@
     "featuredDestinationIds": [
       "fuji-5-lake",
       "kofu-city",
-      "takeda-castle-yamanashi",
-      "yamanashi-fujiyoshida"
+      "takeda-castle-yamanashi"
     ],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },

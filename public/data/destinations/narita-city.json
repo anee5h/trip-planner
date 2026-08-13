@@ -51,8 +51,8 @@
   "weatherDependence": "low",
   "tags": ["Narita City", "Chiba Travel", "Regional Hub"],
   "coordinates": {
-    "lat": 35.3783,
-    "lng": 140.3188
+    "lat": 35.775,
+    "lng": 140.32
   },
   "comfort": {
     "heatTolerance": 8,

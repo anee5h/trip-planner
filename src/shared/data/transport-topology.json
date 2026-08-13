@@ -119,6 +119,22 @@
       "isIsland": true,
       "isRemote": true,
       "localModes": ["bus"]
+    },
+    {
+      "id": "miyajima",
+      "name": "Miyajima",
+      "nameJa": "宮島",
+      "isIsland": true,
+      "isRemote": false,
+      "localModes": ["bus"]
+    },
+    {
+      "id": "gunkanjima",
+      "name": "Gunkanjima (Hashima)",
+      "nameJa": "軍艦島（端島）",
+      "isIsland": true,
+      "isRemote": true,
+      "localModes": []
     }
   ],
   "edges": [

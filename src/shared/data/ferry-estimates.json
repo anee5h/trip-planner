@@ -168,6 +168,54 @@
         "lat": 34.2017,
         "lng": 129.2869
       }
+    },
+    {
+      "id": "MIYAJIMAGUCHI",
+      "name": "Miyajimaguchi Port",
+      "nameJa": "宮島口港",
+      "city": "Hatsukaichi",
+      "prefecture": "Hiroshima",
+      "zoneId": "mainland-honshu",
+      "coordinates": {
+        "lat": 34.3123,
+        "lng": 132.3081
+      }
+    },
+    {
+      "id": "MIYAJIMA",
+      "name": "Miyajima Port",
+      "nameJa": "宮島港",
+      "city": "Hatsukaichi",
+      "prefecture": "Hiroshima",
+      "zoneId": "miyajima",
+      "coordinates": {
+        "lat": 34.2997,
+        "lng": 132.3156
+      }
+    },
+    {
+      "id": "NAGASAKI",
+      "name": "Nagasaki Port (Tokiwa Terminal)",
+      "nameJa": "長崎港（常盤ターミナル）",
+      "city": "Nagasaki",
+      "prefecture": "Nagasaki",
+      "zoneId": "mainland-kyushu",
+      "coordinates": {
+        "lat": 32.7448,
+        "lng": 129.87
+      }
+    },
+    {
+      "id": "GUNKANJIMA",
+      "name": "Gunkanjima (Hashima)",
+      "nameJa": "軍艦島（端島）",
+      "city": "Nagasaki",
+      "prefecture": "Nagasaki",
+      "zoneId": "gunkanjima",
+      "coordinates": {
+        "lat": 32.6277,
+        "lng": 129.7384
+      }
     }
   ],
   "services": [
@@ -381,6 +429,40 @@
       "notes": "Apr 1–Oct 31 2026 adult one-way fares: 2nd class ¥6,280, 1st class ¥9,100. ~4h50m. Some sailings also call at Hitakatsu.",
       "fareValidFrom": "2026-04-01",
       "fareValidTo": "2026-10-31"
+    },
+    {
+      "id": "jr-west-miyajima-ferry",
+      "fromPort": "MIYAJIMAGUCHI",
+      "toPort": "MIYAJIMA",
+      "operator": "JR West Miyajima Ferry",
+      "serviceName": "JR West Miyajima Ferry",
+      "vesselType": "ferry",
+      "passengerService": true,
+      "bidirectional": true,
+      "durationMinutes": [10, 10],
+      "fare": [200, 200],
+      "fareBasis": "one-way",
+      "sourceUrl": "https://jr-miyajimaferry.co.jp/fare/",
+      "fareSourceUrl": "https://jr-miyajimaferry.co.jp/fare/",
+      "checkedAt": "2026-08-13",
+      "notes": "One-way 200 yen adult (Miyajimaguchi-Miyajima, ~10 min); +100 yen Miyajima Visitor Tax charged separately on entry; JR Pass valid. Fare per the official Japanese fare page (the English page is stale)."
+    },
+    {
+      "id": "gunkanjima-tour-boat",
+      "fromPort": "NAGASAKI",
+      "toPort": "GUNKANJIMA",
+      "operator": "Gunkanjima landing tour boats",
+      "serviceName": "Gunkanjima Landing Tour",
+      "vesselType": "highspeed",
+      "passengerService": true,
+      "bidirectional": true,
+      "durationMinutes": [40, 40],
+      "fare": [4500, 4500],
+      "fareBasis": "round-trip",
+      "sourceUrl": "https://www.gunkan-jima.net/en/",
+      "fareSourceUrl": "https://www.gunkan-jima.net/en/",
+      "checkedAt": "2026-08-13",
+      "notes": "Round-trip landing tour (reservation-only) from Nagasaki Tokiwa Terminal; adult 4,500 yen boarding fee + 650 yen Gunkanjima entrance fee (charged by Nagasaki City, separate, cash); ~40 min each way; landing subject to weather (entrance fee refunded if landing impossible)."
     }
   ]
 }

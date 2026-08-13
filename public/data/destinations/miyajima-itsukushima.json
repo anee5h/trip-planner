@@ -52,7 +52,9 @@
       "sortOrder": 11
     }
   ],
-  "transportOptions": {},
+  "transportOptions": {
+    "ferry": 10
+  },
   "budget": {
     "low": 4000,
     "mid": 8000,
@@ -121,5 +123,5 @@
     "attribution": "redlegsfan21, CC BY-SA 2.0, via Wikimedia Commons",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Itsukushima_Shrine_Torii_Gate_(13890465459).jpg"
   },
-  "transportZoneId": "unknown"
+  "transportZoneId": "miyajima"
 }

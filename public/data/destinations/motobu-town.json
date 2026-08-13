@@ -55,9 +55,7 @@
     "rainFriendly": 8,
     "walkingIntensity": 3
   },
-  "transportOptions": {
-    "train": 200
-  },
+  "transportOptions": {},
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Motobu Town travel hub in Okinawa Prefecture.",
@@ -136,5 +134,7 @@
       "openingHours": "終日（海洋博公園エリアは08:00〜19:00）。"
     }
   },
-  "municipalityId": "Okinawa:motobu"
+  "municipalityId": "Okinawa:motobu",
+  "localAccessModes": ["car", "my_car", "bus"],
+  "localAccessUnestimated": true
 }

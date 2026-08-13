@@ -31,8 +31,10 @@
     "confidence": "beta"
   },
   "collections": [],
-  "transportOptions": {},
-  "transportZoneId": "unknown",
+  "transportOptions": {
+    "ferry": 10
+  },
+  "transportZoneId": "miyajima",
   "budgetMin": 0,
   "budgetRecommended": 800,
   "budgetMax": 1500,

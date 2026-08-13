@@ -1,7 +1,7 @@
 {
   "id": "maruyama-park",
   "name": "Maruyama Park",
-  "nameJa": "円山公園 (京都府)",
+  "nameJa": "円山公園",
   "aliases": ["Maruyama Park", "円山公園 (京都府)"],
   "content": {
     "en": {
@@ -28,12 +28,12 @@
   "officialWebsiteRequirement": "none",
   "categories": ["Nature"],
   "tags": ["Nature", "Sapporo City", "v1.9.2"],
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/251213%20Maruyama%20Park%20Kyoto%20Japan08s3.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/SAKURAKO_-_Maruyama_Park.._%2849977718857%29.jpg/1280px-SAKURAKO_-_Maruyama_Park.._%2849977718857%29.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "663highland",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:251213_Maruyama_Park_Kyoto_Japan08s3.jpg"
+    "license": "CC BY 2.0",
+    "attribution": "MIKI Yoshihito",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:SAKURAKO_-_Maruyama_Park.._(49977718857).jpg"
   },
   "coordinates": {
     "lat": 43.0542,

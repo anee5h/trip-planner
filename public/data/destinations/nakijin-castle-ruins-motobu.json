@@ -10,9 +10,7 @@
   "rating": 4.6,
   "ratingCount": 1240,
   "tags": ["UNESCO", "Castle", "History", "Ruins", "Okinawa"],
-  "relationships": {
-    "parentDestinationId": "motobu-town"
-  },
+  "relationships": {},
   "location": {
     "latitude": 26.6914,
     "longitude": 127.9287,
@@ -100,7 +98,7 @@
     "min": 1,
     "max": 2.5
   },
-  "municipalityId": "Okinawa:motobu",
+  "municipalityId": "Okinawa:nakijin",
   "categories": ["Historic", "Sightseeing"],
   "highlights": [
     "UNESCO World Heritage castle ruins",

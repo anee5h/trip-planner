@@ -18,7 +18,10 @@ const destination = {
   municipalityId: "Hiroshima:hatsukaichi",
   totalTripHours: 4,
   recommendedVisitHours: { min: 3, max: 4 },
-  coordinates: { lat: 34.2958, lng: 132.3197 },
+  // KAI-87: fixture coordinates must stay outside the miyajima island box
+  // (Miyajima island is now its own transport zone); Hiroshima city centre
+  // keeps the fixture on mainland-honshu.
+  coordinates: { lat: 34.3853, lng: 132.4553 },
   transportOptions: { train: 40, shinkansen: 240 },
   travelBuffers: { ferryMinutes: 20 },
 } as unknown as Destination;

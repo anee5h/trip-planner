@@ -663,7 +663,10 @@ describe("flight cost and time use the origin gateway", () => {
 
 describe("no-route budget excludes origin transport", () => {
   it("calculateItemizedTripCost with null mode never prices Train", () => {
-    const dest = byId.get("ogasawara-islands-tokyo")!;
+    // KAI-87: ogasawara-islands-tokyo no longer carries train (ferry-only);
+    // use a mainland train-bearing destination so null mode must never
+    // price an origin train.
+    const dest = byId.get("fujiyoshida-city")!;
     const withNull = calculateItemizedTripCost(dest, { activeMode: null });
     const withTrain = calculateItemizedTripCost(dest, { activeMode: "train" });
     expect(withNull.transport).toBe(0);

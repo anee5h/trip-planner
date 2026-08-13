@@ -107,6 +107,24 @@
       "passengerService": true,
       "sourceUrl": "https://benesse-artsite.jp/en/access/",
       "checkedAt": "2026-08-05"
+    },
+    {
+      "from": "mainland-honshu",
+      "to": "miyajima",
+      "operator": "JR West Miyajima Ferry / Matsudai Kisen",
+      "ports": ["Miyajimaguchi", "Miyajima"],
+      "passengerService": true,
+      "sourceUrl": "https://jr-miyajimaferry.co.jp/en/",
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "from": "mainland-kyushu",
+      "to": "gunkanjima",
+      "operator": "Gunkanjima landing tour boats (Yamasa / Gunkanjima Cruise)",
+      "ports": ["Nagasaki (Tokiwa Terminal)", "Gunkanjima"],
+      "passengerService": true,
+      "sourceUrl": "https://www.gunkan-jima.net/en/",
+      "checkedAt": "2026-08-13"
     }
   ]
 }
