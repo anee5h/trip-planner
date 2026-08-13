@@ -8,7 +8,7 @@ import type {
   RecommendationMatch,
   RecommendationReasonCode,
 } from "./RecommendationTypes";
-import { calculateConfidence, getValidModes } from "./RecommendationScorer";
+import { calculateConfidence, getRatingDisplayState, getValidModes } from "./RecommendationScorer";
 import {
   formatJPYRange,
   getEstimatedBudgetRange,
@@ -273,12 +273,17 @@ export function createRecommendationMatch(
     winter: 5,
     overall: 5,
   };
+  // Rating-derived claims ("Top-tier Food Scene", "Highly rated for rainy-day
+  // visits", "Highly recommended by other travelers") must not fire on
+  // unverified/template rating data — only high/medium-confidence metadata is
+  // presentation-worthy evidence (REC-002).
+  const ratingsTrusted = getRatingDisplayState(dest) === "verified";
   const cats = dest.categories || [];
   const tags = dest.tags || [];
 
   switch (vibe) {
     case "food":
-      if (ratings.food >= 8.5) {
+      if (ratingsTrusted && ratings.food >= 8.5) {
         matchedPreferences.push("food");
         reasons.push({
           type: "Interest",
@@ -349,7 +354,7 @@ export function createRecommendationMatch(
       }
       break;
     case "cool":
-      if (ratings.summer >= 8.5) {
+      if (ratingsTrusted && ratings.summer >= 8.5) {
         matchedPreferences.push("cool");
         reasons.push({
           type: "Weather",
@@ -383,7 +388,7 @@ export function createRecommendationMatch(
 
   if (isRaining) {
     const indoor = dest.indoorPercent || 0;
-    if (indoor >= 70 || ratings.rain >= 8.5) {
+    if (indoor >= 70 || (ratingsTrusted && ratings.rain >= 8.5)) {
       matchedPreferences.push("weather");
       reasons.push({
         type: "Weather",
@@ -397,7 +402,7 @@ export function createRecommendationMatch(
       });
     }
   }
-  if (isHot && ratings.summer >= 8.5) {
+  if (isHot && ratingsTrusted && ratings.summer >= 8.5) {
     matchedPreferences.push("weather");
     reasons.push({
       type: "Weather",
@@ -406,7 +411,7 @@ export function createRecommendationMatch(
       description: "A cool escape from the hot city temperatures",
     });
   }
-  if (isCold && ratings.winter >= 8.5) {
+  if (isCold && ratingsTrusted && ratings.winter >= 8.5) {
     matchedPreferences.push("weather");
     reasons.push({
       type: "Weather",
@@ -419,10 +424,16 @@ export function createRecommendationMatch(
   if (reasons.length === 0) {
     reasons.push({
       type: "General",
-      code: ratings.overall >= 8.5 ? "generalHighlyRated" : "generalSolidMatch",
-      title: ratings.overall >= 8.5 ? "Highly Rated Choice" : "Solid Match",
+      code:
+        ratingsTrusted && ratings.overall >= 8.5
+          ? "generalHighlyRated"
+          : "generalSolidMatch",
+      title:
+        ratingsTrusted && ratings.overall >= 8.5
+          ? "Highly Rated Choice"
+          : "Solid Match",
       description:
-        ratings.overall >= 8.5
+        ratingsTrusted && ratings.overall >= 8.5
           ? "Highly recommended by other travelers"
           : "A solid match matching your base criteria",
     });
@@ -430,7 +441,8 @@ export function createRecommendationMatch(
 
   // REC-002: Confidence disclosure — non-alarming, editorial framing.
   // Added after primary reasons so it does not displace match explanations.
-  if (dest.ratingMetadata?.confidence === "low") {
+  // Fires for low-confidence AND missing rating metadata (unverified evidence).
+  if (!ratingsTrusted) {
     reasons.push({
       type: "Editorial",
       code: "editorialReviewPending",

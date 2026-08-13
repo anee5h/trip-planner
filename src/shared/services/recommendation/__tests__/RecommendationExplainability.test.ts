@@ -132,4 +132,104 @@ describe("RecommendationExplainability Unit Tests", () => {
     ).toBe(true);
     expect(match.matchedPreferences).toContain("weather");
   });
+
+  it("does not claim 'Highly recommended' or rating-derived reasons for unverified ratings", () => {
+    // baseDest has overall 8.5 but NO ratingMetadata: with a minimal context
+    // (no budget/transport reasons) the general reason must degrade to the
+    // neutral Solid Match and the editorial-review disclosure must fire
+    // (REC-002). Rating-derived interest/weather reasons must not fire.
+    const minimalContext = {
+      tripType: "food",
+      budget: 0,
+      carMode: "none",
+      publicModes: [],
+      partySize: 1,
+      visitedIds: [],
+    };
+    const match = createRecommendationMatch(
+      { ...baseDest, ratings: { ...baseDest.ratings, overall: 9.5, food: 9.6 } },
+      minimalContext,
+      85,
+    );
+
+    expect(
+      match.reasons.some((reason) => reason.code === "generalHighlyRated"),
+    ).toBe(false);
+    expect(
+      match.reasons.some((reason) => reason.code === "generalSolidMatch"),
+    ).toBe(true);
+    expect(
+      match.reasons.some((reason) => reason.code === "interestFood"),
+    ).toBe(false);
+    expect(
+      match.reasons.some((reason) => reason.code === "editorialReviewPending"),
+    ).toBe(true);
+  });
+
+  it("keeps rating-derived reasons for verified (high/medium-confidence) ratings", () => {
+    const verifiedDest = {
+      ...baseDest,
+      ratings: { ...baseDest.ratings, overall: 9.5, food: 9.6 },
+      ratingMetadata: {
+        rubricVersion: 2,
+        method: "manual" as const,
+        confidence: "high" as const,
+      },
+    };
+    const minimalContext = {
+      tripType: "food",
+      budget: 0,
+      carMode: "none",
+      publicModes: [],
+      partySize: 1,
+      visitedIds: [],
+    };
+    const match = createRecommendationMatch(verifiedDest, minimalContext, 85);
+
+    expect(
+      match.reasons.some((reason) => reason.code === "interestFood"),
+    ).toBe(true);
+    expect(
+      match.reasons.some((reason) => reason.code === "editorialReviewPending"),
+    ).toBe(false);
+  });
+
+  it("emits generalHighlyRated only for verified overall >= 8.5", () => {
+    const minimalContext = {
+      tripType: "any",
+      budget: 0,
+      carMode: "none",
+      publicModes: [],
+      partySize: 1,
+      visitedIds: [],
+    };
+    const unverified = createRecommendationMatch(
+      { ...baseDest, ratings: { ...baseDest.ratings, overall: 9.5 } },
+      minimalContext,
+      85,
+    );
+    expect(
+      unverified.reasons.some((reason) => reason.code === "generalHighlyRated"),
+    ).toBe(false);
+    expect(
+      unverified.reasons.some((reason) => reason.code === "generalSolidMatch"),
+    ).toBe(true);
+
+    const verified = createRecommendationMatch(
+      {
+        ...baseDest,
+        ratings: { ...baseDest.ratings, overall: 9.5 },
+        ratingMetadata: {
+          rubricVersion: 2,
+          method: "manual",
+          confidence: "high" as const,
+        },
+      },
+      minimalContext,
+      85,
+    );
+    expect(
+      verified.reasons.some((reason) => reason.code === "generalHighlyRated"),
+    ).toBe(true);
+  });
 });

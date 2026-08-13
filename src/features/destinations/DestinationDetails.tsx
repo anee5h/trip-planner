@@ -26,7 +26,7 @@ import {
   resolveOriginTransportZone,
 } from "@/shared/services/transport/TransportTopologyService";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
-import { calculateScore } from "@/shared/services/recommendation/RecommendationScorer";
+import { calculateScore, getRatingDisplayState } from "@/shared/services/recommendation/RecommendationScorer";
 import { createRecommendationMatch } from "@/shared/services/recommendation/RecommendationExplainability";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import {
@@ -187,6 +187,7 @@ const DETAIL_COPY = {
     food: "Food & Drink",
     match: "Why This Matches You",
     overall: "Overall Score",
+    ratingUnderReview: "Score under editorial review",
     suggested: "Suggested Visit",
     bestSeason: "Best Season",
     nearby: "Nearby Attractions",
@@ -227,6 +228,7 @@ const DETAIL_COPY = {
     food: "食事・カフェ",
     match: "おすすめの理由",
     overall: "総合評価",
+    ratingUnderReview: "スコアは編集レビュー中です",
     suggested: "おすすめの滞在",
     bestSeason: "ベストシーズン",
     nearby: "近くの見どころ",
@@ -843,6 +845,9 @@ export default function DestinationDetails() {
   const detailOverallScore = Number.isFinite(destination.ratings?.overall)
     ? destination.ratings.overall
     : null;
+  // REC-002: raw ratings only render as a score when backed by
+  // high/medium-confidence ratingMetadata; otherwise show "under review".
+  const showDetailScore = getRatingDisplayState(destination) === "verified";
   return (
     <div className="bg-slate-50 dark:bg-background min-h-screen pb-20">
       {/* Hero Image Header */}
@@ -2130,11 +2135,16 @@ export default function DestinationDetails() {
                   data-testid="destination-detail-score"
                   className="text-5xl font-extrabold mb-2"
                 >
-                  {detailOverallScore ?? "N/A"}
+                  {showDetailScore ? (detailOverallScore ?? "N/A") : "—"}
                 </div>
                 <div className="text-emerald-100 font-medium tracking-widest uppercase text-sm mb-4">
                   {copy.overall}
                 </div>
+                {!showDetailScore && (
+                  <div className="text-emerald-100/90 text-sm mb-4">
+                    {copy.ratingUnderReview}
+                  </div>
+                )}
                 <div className="w-full h-px bg-white/20 mb-4"></div>
                 {(() => {
                   const notesText =

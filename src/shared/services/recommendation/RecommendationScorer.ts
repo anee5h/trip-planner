@@ -87,6 +87,25 @@ export function ratingReliability(destination: Destination): number {
   return CONFIDENCE_MULTIPLIERS[confidence] ?? 0.7;
 }
 
+/**
+ * REC-002: Whether a destination's rating vector may be presented as a
+ * reviewed fact in the UI (card score, detail score card, compare table,
+ * map popup, "Highly recommended" claims). Only high/medium-confidence
+ * metadata counts as verified evidence; low confidence or missing metadata
+ * means the raw numbers are unverified (template/assisted) and must not be
+ * shown as authoritative.
+ */
+export type RatingDisplayState = "verified" | "under-review";
+
+export function getRatingDisplayState(
+  destination: Destination,
+): RatingDisplayState {
+  const confidence = destination.ratingMetadata?.confidence;
+  return confidence === "high" || confidence === "medium"
+    ? "verified"
+    : "under-review";
+}
+
 export function getValidModes(
   dest: Destination,
   carMode: string = "none",

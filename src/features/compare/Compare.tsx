@@ -14,6 +14,7 @@ import {
 import { Map, PlusSquare, Trash2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
 import { getAdjustedBudget } from "@/shared/utils/utils";
+import { getRatingDisplayState } from "@/shared/services/recommendation/RecommendationScorer";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -75,14 +76,34 @@ export default function Compare() {
   });
   const minTravelTime = getMin(travelTimes);
 
-  const coupleScores = compareDestinations.map((d) => d.ratings.couple);
-  const maxCoupleScore = getMax(coupleScores);
+  // REC-002: rating rows are only presented for destinations with verified
+  // rating evidence; unverified records render "—" and never win badges.
+  const ratingVerified = compareDestinations.map(
+    (d) => getRatingDisplayState(d) === "verified",
+  );
+  const coupleScores = compareDestinations.map((d, i) =>
+    ratingVerified[i] ? d.ratings.couple : null,
+  );
+  const maxCoupleScore =
+    coupleScores.every((v) => v === null) ? null : getMax(
+      coupleScores.filter((v): v is number => v !== null),
+    );
 
-  const summerScores = compareDestinations.map((d) => d.ratings.summer);
-  const maxSummerScore = getMax(summerScores);
+  const summerScores = compareDestinations.map((d, i) =>
+    ratingVerified[i] ? d.ratings.summer : null,
+  );
+  const maxSummerScore =
+    summerScores.every((v) => v === null) ? null : getMax(
+      summerScores.filter((v): v is number => v !== null),
+    );
 
-  const overallScores = compareDestinations.map((d) => d.ratings.overall);
-  const maxOverall = getMax(overallScores);
+  const overallScores = compareDestinations.map((d, i) =>
+    ratingVerified[i] ? d.ratings.overall : null,
+  );
+  const maxOverall =
+    overallScores.every((v) => v === null) ? null : getMax(
+      overallScores.filter((v): v is number => v !== null),
+    );
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
@@ -161,18 +182,26 @@ export default function Compare() {
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
                 Overall Score
               </TableCell>
-              {compareDestinations.map((dest) => (
+              {compareDestinations.map((dest, idx) => (
                 <TableCell key={dest.id} className="text-base">
                   <span
-                    className={`font-bold ${dest.ratings.overall === maxOverall ? "text-emerald-600 dark:text-emerald-400" : ""}`}
+                    className={`font-bold ${
+                      ratingVerified[idx] &&
+                      maxOverall !== null &&
+                      dest.ratings.overall === maxOverall
+                        ? "text-emerald-600 dark:text-emerald-400"
+                        : ""
+                    }`}
                   >
-                    {dest.ratings.overall}
+                    {ratingVerified[idx] ? dest.ratings.overall : "—"}
                   </span>
-                  {dest.ratings.overall === maxOverall && (
-                    <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
-                      Best
-                    </Badge>
-                  )}
+                  {ratingVerified[idx] &&
+                    maxOverall !== null &&
+                    dest.ratings.overall === maxOverall && (
+                      <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
+                        Best
+                      </Badge>
+                    )}
                 </TableCell>
               ))}
             </TableRow>
@@ -263,22 +292,26 @@ export default function Compare() {
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
                 Couple Score
               </TableCell>
-              {compareDestinations.map((dest) => (
+              {compareDestinations.map((dest, idx) => (
                 <TableCell key={dest.id}>
                   <span
                     className={
+                      ratingVerified[idx] &&
+                      maxCoupleScore !== null &&
                       dest.ratings.couple === maxCoupleScore
                         ? "font-bold text-emerald-600 dark:text-emerald-400"
                         : ""
                     }
                   >
-                    {dest.ratings.couple}/10
+                    {ratingVerified[idx] ? `${dest.ratings.couple}/10` : "—"}
                   </span>
-                  {dest.ratings.couple === maxCoupleScore && (
-                    <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
-                      Highest
-                    </Badge>
-                  )}
+                  {ratingVerified[idx] &&
+                    maxCoupleScore !== null &&
+                    dest.ratings.couple === maxCoupleScore && (
+                      <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
+                        Highest
+                      </Badge>
+                    )}
                 </TableCell>
               ))}
             </TableRow>
@@ -286,22 +319,26 @@ export default function Compare() {
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
                 Summer Comfort
               </TableCell>
-              {compareDestinations.map((dest) => (
+              {compareDestinations.map((dest, idx) => (
                 <TableCell key={dest.id}>
                   <span
                     className={
+                      ratingVerified[idx] &&
+                      maxSummerScore !== null &&
                       dest.ratings.summer === maxSummerScore
                         ? "font-bold text-emerald-600 dark:text-emerald-400"
                         : ""
                     }
                   >
-                    {dest.ratings.summer}/10
+                    {ratingVerified[idx] ? `${dest.ratings.summer}/10` : "—"}
                   </span>
-                  {dest.ratings.summer === maxSummerScore && (
-                    <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
-                      Best
-                    </Badge>
-                  )}
+                  {ratingVerified[idx] &&
+                    maxSummerScore !== null &&
+                    dest.ratings.summer === maxSummerScore && (
+                      <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
+                        Best
+                      </Badge>
+                    )}
                 </TableCell>
               ))}
             </TableRow>
@@ -330,7 +367,7 @@ export default function Compare() {
 
       {/* Mobile Stacked View */}
       <div className="grid grid-cols-1 gap-6 md:hidden">
-        {compareDestinations.map((dest) => {
+        {compareDestinations.map((dest, idx) => {
           const budgetVal = getAdjustedBudget(dest, "all");
           const travelTimesForDest = Object.values(
             dest.transportOptions || {},
@@ -388,12 +425,14 @@ export default function Compare() {
                     Overall Score
                   </p>
                   <p className="font-bold text-slate-900 dark:text-white flex items-center">
-                    {dest.ratings.overall}
-                    {dest.ratings.overall === maxOverall && (
-                      <span className="ml-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
-                        Best
-                      </span>
-                    )}
+                    {ratingVerified[idx] ? dest.ratings.overall : "—"}
+                    {ratingVerified[idx] &&
+                      maxOverall !== null &&
+                      dest.ratings.overall === maxOverall && (
+                        <span className="ml-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
+                          Best
+                        </span>
+                      )}
                   </p>
                 </div>
                 <div>

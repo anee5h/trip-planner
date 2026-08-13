@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import L from "leaflet";
 import type { Destination } from "@/shared/types/destination";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
+import { getRatingDisplayState } from "@/shared/services/recommendation/RecommendationScorer";
 import { Compass } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
@@ -129,9 +130,14 @@ export default function DestinationMap({
                   <h3 className="font-bold text-base text-slate-900 dark:text-white mb-0.5 truncate">
                     {placeName}
                   </h3>
-                  <div className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-1.5">
-                    ★ {dest.ratings?.overall ?? 4.5}/10
-                  </div>
+                  {/* REC-002: only show a rating star for verified rating
+                      evidence; never fabricate a fallback score. */}
+                  {getRatingDisplayState(dest) === "verified" &&
+                    Number.isFinite(dest.ratings?.overall) && (
+                      <div className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-1.5">
+                        ★ {dest.ratings.overall}/10
+                      </div>
+                    )}
                   <p className="text-xs text-slate-500 line-clamp-2 mb-3">
                     {dest.description
                       ? `${dest.description.slice(0, 60)}...`

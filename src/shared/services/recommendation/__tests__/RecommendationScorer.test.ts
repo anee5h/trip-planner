@@ -3,6 +3,7 @@ import {
   calculateConfidence,
   calculateScore,
   CONFIDENCE_MULTIPLIERS,
+  getRatingDisplayState,
   getValidModes,
   ratingReliability,
 } from "../RecommendationScorer";
@@ -490,6 +491,42 @@ describe("RecommendationScorer Unit Tests", () => {
       },
     };
     expect(ratingReliability(dest)).toBe(1.0);
+  });
+
+  it("getRatingDisplayState: high/medium metadata is verified; low/missing is under review", () => {
+    const noMetaDest = { ...mockDest } as Destination;
+    delete (noMetaDest as unknown as Record<string, unknown>).ratingMetadata;
+    expect(getRatingDisplayState(noMetaDest)).toBe("under-review"); // no metadata
+    expect(
+      getRatingDisplayState({
+        ...mockDest,
+        ratingMetadata: {
+          rubricVersion: 2,
+          method: "assisted",
+          confidence: "low" as const,
+        },
+      }),
+    ).toBe("under-review");
+    expect(
+      getRatingDisplayState({
+        ...mockDest,
+        ratingMetadata: {
+          rubricVersion: 2,
+          method: "assisted",
+          confidence: "medium" as const,
+        },
+      }),
+    ).toBe("verified");
+    expect(
+      getRatingDisplayState({
+        ...mockDest,
+        ratingMetadata: {
+          rubricVersion: 2,
+          method: "manual",
+          confidence: "high" as const,
+        },
+      }),
+    ).toBe("verified");
   });
 
   // ---------------------------------------------------------------------------

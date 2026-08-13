@@ -100,17 +100,15 @@ afterEach(() => {
 });
 
 describe("DestinationCard responsive content", () => {
-  it("keeps the score and core metadata while hiding duplicate mobile context", () => {
+  it("hides the unverified score and duplicate mobile context", () => {
     render();
 
     expect(host.textContent).not.toContain("⭐");
+    // hikone-castle-shiga has no ratingMetadata: raw score must not render
+    // as an authoritative number (REC-002).
     const score = host.querySelector('[data-testid="meguruto-score"]');
-    expect(score).not.toBeNull();
+    expect(score).toBeNull();
     expect(host.querySelector(".lucide-sparkles")).toBeNull();
-    expect(score?.textContent).toBe(String(destination.ratings.overall));
-    expect(score?.getAttribute("aria-label")).toContain(
-      "destination.megurutoScore",
-    );
     expect(host.textContent).toContain("Low sun");
     expect(host.textContent).toContain("Explore");
 
@@ -131,6 +129,28 @@ describe("DestinationCard responsive content", () => {
     expect(
       host.querySelector('[data-testid="destination-card-sun"]')?.className,
     ).toContain("hidden");
+  });
+
+  it("shows the raw score only for verified rating evidence", () => {
+    const verifiedDestination = destinations.find(
+      (candidate) => candidate.id === "yokohama-city",
+    ) as Destination;
+    expect(verifiedDestination.ratingMetadata?.confidence).toBe("high");
+
+    act(() =>
+      root.render(
+        <MemoryRouter>
+          <DestinationCard destination={verifiedDestination} />
+        </MemoryRouter>,
+      ),
+    );
+
+    const score = host.querySelector('[data-testid="meguruto-score"]');
+    expect(score).not.toBeNull();
+    expect(score?.textContent).toBe(String(verifiedDestination.ratings.overall));
+    expect(score?.getAttribute("aria-label")).toContain(
+      "destination.megurutoScore",
+    );
   });
 
   it("renders the shared approximate estimate when Explore has no canonical route", () => {

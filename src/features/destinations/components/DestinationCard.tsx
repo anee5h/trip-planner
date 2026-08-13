@@ -35,6 +35,7 @@ import {
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
+import { getRatingDisplayState } from "@/shared/services/recommendation/RecommendationScorer";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import {
   formatApproximateTransportTime,
@@ -174,6 +175,10 @@ export default function DestinationCard({
   const overallScore = Number.isFinite(destination.ratings?.overall)
     ? destination.ratings.overall
     : null;
+  // REC-002: raw ratings are only presented as a score when backed by
+  // high/medium-confidence ratingMetadata; unverified (template/assisted)
+  // ratings must not render as authoritative numbers.
+  const showScore = getRatingDisplayState(destination) === "verified";
   const visitHours = destination.recommendedVisitHours;
   const hasValidVisitHours = Boolean(
     visitHours &&
@@ -362,7 +367,7 @@ export default function DestinationCard({
             />
           </div>
         )}
-        {!isMultiPlaceGroup && (
+        {!isMultiPlaceGroup && showScore && (
           <div className="absolute bottom-3 right-3 z-20 flex items-center rounded-lg border border-white/80 bg-white/90 px-2.5 py-1 shadow-sm backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-900/90">
             <span
               data-testid="meguruto-score"

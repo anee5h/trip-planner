@@ -5,6 +5,7 @@ import type { Destination } from "@/shared/types/destination";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
 import { getAdjustedBudget } from "@/shared/utils/utils";
+import { getRatingDisplayState } from "@/shared/services/recommendation/RecommendationScorer";
 import {
   getWalkingIntensity,
   getWalkingIntensityMetadata,
@@ -48,11 +49,25 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   });
   const minTravelTime = getMin(travelTimes);
 
-  const coupleScores = compareDestinations.map((d) => d.ratings.couple);
-  const maxCoupleScore = getMax(coupleScores);
+  // REC-002: rating values only render as scores for verified rating evidence.
+  const ratingVerified = compareDestinations.map(
+    (d) => getRatingDisplayState(d) === "verified",
+  );
+  const coupleScores = compareDestinations.map((d, i) =>
+    ratingVerified[i] ? d.ratings.couple : null,
+  );
+  const maxCoupleScore =
+    coupleScores.every((v) => v === null)
+      ? null
+      : getMax(coupleScores.filter((v): v is number => v !== null));
 
-  const overallScores = compareDestinations.map((d) => d.ratings.overall);
-  const maxOverall = getMax(overallScores);
+  const overallScores = compareDestinations.map((d, i) =>
+    ratingVerified[i] ? d.ratings.overall : null,
+  );
+  const maxOverall =
+    overallScores.every((v) => v === null)
+      ? null
+      : getMax(overallScores.filter((v): v is number => v !== null));
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200">
@@ -116,7 +131,10 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
               className={`flex md:grid md:grid-cols-3 gap-3 sm:gap-4 pb-2 ${compareDestinations.length > 1 ? "overflow-x-auto snap-x snap-mandatory" : ""}`}
             >
               {compareDestinations.map((dest, idx) => {
-                const isBestOverall = dest.ratings.overall === maxOverall;
+                const isBestOverall =
+                  ratingVerified[idx] &&
+                  maxOverall !== null &&
+                  dest.ratings.overall === maxOverall;
                 const cost = budgets[idx];
                 const isLowestBudget = cost === minBudget;
                 const time = travelTimes[idx];
@@ -124,7 +142,10 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                 const walkMeta = getWalkingIntensityMetadata(
                   getWalkingIntensity(dest),
                 );
-                const isMaxCouple = dest.ratings.couple === maxCoupleScore;
+                const isMaxCouple =
+                  ratingVerified[idx] &&
+                  maxCoupleScore !== null &&
+                  dest.ratings.couple === maxCoupleScore;
 
                 return (
                   <div
@@ -182,7 +203,9 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                         </span>
                         <div className="flex items-center gap-1.5">
                           <span className="font-extrabold text-slate-900 dark:text-white text-xs">
-                            {dest.ratings.overall}/10
+                            {ratingVerified[idx]
+                              ? `${dest.ratings.overall}/10`
+                              : "—"}
                           </span>
                           {isBestOverall && (
                             <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
@@ -249,7 +272,9 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                         </span>
                         <div className="flex items-center gap-1.5">
                           <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs">
-                            {dest.ratings.couple}/10
+                            {ratingVerified[idx]
+                              ? `${dest.ratings.couple}/10`
+                              : "—"}
                           </span>
                           {isMaxCouple && (
                             <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
