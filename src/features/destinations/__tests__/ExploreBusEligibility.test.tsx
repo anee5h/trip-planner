@@ -21,7 +21,6 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import Destinations from "../Destinations";
 import { resolveOriginTransportZone } from "@/shared/services/transport/TransportTopologyService";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
-import { matchesPersonalizedDayTripDuration } from "@/shared/services/recommendation/TripDurationService";
 import {
   isOriginLocalDestination,
   resolveOriginMunicipalityId,
