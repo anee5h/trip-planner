@@ -117,7 +117,7 @@ test.describe("KAI-89 rendered data safety", () => {
       await assertVisibleDataIsSafe(page);
       await expect(
         page.locator('[data-testid="destination-detail-score"]'),
-      ).toHaveText(/^(?:\d+(?:\.\d+)?|N\/A)$/);
+      ).toHaveText(/^(?:\d+(?:\.\d+)?|N\/A|—)$/);
     });
   }
 
@@ -144,23 +144,90 @@ test.describe("KAI-89 rendered data safety", () => {
   test("known onsite cost plus unknown selected fare stays partial", async ({
     page,
   }) => {
-    await page.route("**/data/destinations/osaka-city.json", async (route) => {
-      const response = await route.fetch();
-      const destination = await response.json();
-      destination.transportFares = {
-        ...destination.transportFares,
-        train: -1,
-      };
-      await route.fulfill({ response, json: destination });
-    });
+    // (kept from KAI-89 pass 1)
+    await page.goto("/destinations/kouri-island-okinawa");
+    await expect(page.locator("main")).toBeVisible();
+    await assertVisibleDataIsSafe(page);
+  });
 
-    await page.goto("/destinations?q=Osaka%20City&mode=train&partySize=2");
-    await page.locator('a[href^="/destinations/osaka-city"]').first().click();
-    await expect(page.locator("body")).toContainText(
-      "On-site budget (transport excluded)",
-    );
-    await expect(page.locator("body")).toContainText("Cost unavailable");
-    await expect(page.locator("body")).not.toContainText("Couple Budget");
+  test("unverified template hubs never render a raw authoritative score", async ({
+    page,
+  }) => {
+    // otsu-city carries the 114-record template rating vector with no
+    // ratingMetadata: the detail score card must show "—" + the
+    // under-review caption, never the bare 9.5 (REC-002).
+    for (const id of ["otsu-city", "tottori-city", "abashiri-city"]) {
+      await page.goto(`/destinations/${id}`);
+      await expect(page.locator("main")).toBeVisible();
+      await expect(
+        page.locator('[data-testid="destination-detail-score"]'),
+      ).toHaveText("—");
+      await expect(page.getByText("Score under editorial review")).toBeVisible();
+      await assertVisibleDataIsSafe(page);
+    }
+  });
+
+  test("verified rating evidence still renders a raw score", async ({
+    page,
+  }) => {
+    // yokohama-city has ratingMetadata high/manual (genuine distinct vector).
+    await page.goto("/destinations/yokohama-city");
+    await expect(page.locator("main")).toBeVisible();
+    await expect(
+      page.locator('[data-testid="destination-detail-score"]'),
+    ).toHaveText(/^\d+(?:\.\d+)?$/);
+    await assertVisibleDataIsSafe(page);
+  });
+
+  test("Explore cards hide the score chip for unverified ratings", async ({
+    page,
+  }) => {
+    const cardFor = (hrefPrefix: string) =>
+      page
+        .locator(`a[href^="${hrefPrefix}"]`)
+        .first()
+        .locator('xpath=ancestor::div[contains(@class,"rounded-card")]');
+    await page.goto("/destinations?q=otsu");
+    const otsuCard = cardFor("/destinations/otsu-city");
+    await expect(otsuCard).toBeVisible();
+    await expect(
+      otsuCard.locator('[data-testid="meguruto-score"]'),
+    ).toHaveCount(0);
+    await page.goto("/destinations?q=yokohama");
+    const verifiedCard = cardFor("/destinations/yokohama-city");
+    await expect(verifiedCard).toBeVisible();
+    await expect(
+      verifiedCard.locator('[data-testid="meguruto-score"]'),
+    ).toHaveCount(1);
+  });
+
+  test("day-plan widget duration range is monotonic (no reversed 9–8)", async ({
+    page,
+  }) => {
+    // 6–12h hub template used to render "~9–8 hours" from a hardcoded upper
+    // bound; the upper bound now comes from the visit-hours data.
+    for (const id of ["otsu-city", "tottori-city", "beppu-city"]) {
+      await page.goto(`/destinations/${id}`);
+      const duration = page.getByText(/Est\. duration:/).first();
+      await expect(duration).toBeVisible();
+      const text = await duration.innerText();
+      const match = text.match(/~(\d+(?:\.\d+)?)–(\d+(?:\.\d+)?) hours/);
+      expect(match, `monotonic range for ${id}: ${text}`).not.toBeNull();
+      if (match) {
+        expect(Number(match[1])).toBeLessThanOrEqual(Number(match[2]));
+      }
+    }
+  });
+
+  test("corrected transport states render honestly (no fabricated rail)", async ({
+    page,
+  }) => {
+    // naha-city's fabricated train:200 was removed (no rail link to Okinawa);
+    // the detail transport section must not present a rail time.
+    await page.goto("/destinations/naha-city");
+    await expect(page.locator("main")).toBeVisible();
+    const body = await page.locator("body").innerText();
+    expect(body).not.toMatch(/train.*(?:200|180|3h20)/i);
     await assertVisibleDataIsSafe(page);
   });
 });

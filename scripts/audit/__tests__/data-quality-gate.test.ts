@@ -90,4 +90,60 @@ describe("KAI-87 data-quality rules in the audit baseline gate", () => {
     const comparison = compareToBaseline(report, baseline);
     expect(comparison.added).toEqual([]);
   });
+
+  it("flags template rating vectors stamped high/medium confidence (KAI-89)", () => {
+    const templateVector = {
+      overall: 9.5,
+      couple: 9.3,
+      summer: 9,
+      winter: 9.1,
+      rain: 9.2,
+      food: 9.6,
+      photography: 9.5,
+      relaxation: 9.2,
+      value: 9.4,
+      uniqueness: 9.4,
+    };
+    const clone = {
+      ...base,
+      id: "template-clone",
+      ratings: templateVector,
+      ratingMetadata: {
+        rubricVersion: 2,
+        method: "manual",
+        confidence: "high" as const,
+      },
+    };
+    // Ten identical vectors form a template family; high-confidence metadata
+    // on any of them is unsupported (KAI-89 laundering class).
+    const clones = Array.from({ length: 10 }, (_, i) => ({
+      ...clone,
+      id: `template-clone-${i}`,
+    }));
+    const report = runAudit(clones, [], [], []);
+    expect(
+      report.findings.some(
+        (f) => f.code === "RATING_METADATA_UNSUPPORTED_HIGH",
+      ),
+    ).toBe(true);
+  });
+
+  it("flags impossible rail values in Okinawa (KAI-89)", () => {
+    const report = runAudit(
+      [
+        {
+          ...base,
+          id: "naha-rail",
+          transportZoneId: "okinawa-main",
+          transportOptions: { train: 200 },
+        },
+      ],
+      [],
+      [],
+      [],
+    );
+    expect(
+      report.findings.some((f) => f.code === "OKINAWA_RAIL_VALUE"),
+    ).toBe(true);
+  });
 });

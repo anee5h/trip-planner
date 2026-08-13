@@ -18,6 +18,10 @@ const reportPath = path.join(
   rootDir,
   "scripts/audit/kai-89-structured-template-audit.json",
 );
+const dispositionsPath = path.join(
+  rootDir,
+  "scripts/audit/kai-89-dispositions.json",
+);
 
 type Category =
   | "ratings"
@@ -58,7 +62,13 @@ const selectors: Record<Category, (destination: Destination) => unknown> = {
     d.season !== undefined || d.bestMonths !== undefined
       ? { season: d.season, bestMonths: d.bestMonths }
       : undefined,
-  transport: (d) => d.transportOptions,
+  // Empty transportOptions {} is the honest "no local-access data" state for
+  // ~300 records (matches collectTransportClusters in data-quality-rules.ts);
+  // it is not a repeated-value risk and is excluded from clustering.
+  transport: (d) =>
+    d.transportOptions && Object.keys(d.transportOptions).length > 0
+      ? d.transportOptions
+      : undefined,
   crowd: (d) => d.crowd,
   comfort: (d) => d.comfort,
 };
@@ -80,6 +90,18 @@ function signature(value: unknown): string {
   return JSON.stringify(stableValue(value));
 }
 
+// Mirror of GENERIC_TEMPLATE_COPY in scripts/audit/data-quality-rules.ts.
+const GENERIC_TEMPLATE_COPY =
+  /visitor destination in|visitor hub in|travel hub in|A top recommended attraction in|訪問者向けの観光地/i;
+function destinationCopy(dest: Destination): string {
+  return JSON.stringify({
+    notes: dest.notes,
+    description: dest.description,
+    notesJa: dest.notesJa,
+    content: dest.content,
+  });
+}
+
 function buildReport(destinations: Destination[]) {
   const categories = Object.entries(selectors).map(([category, select]) => {
     const groups = new Map<string, string[]>();
@@ -94,16 +116,24 @@ function buildReport(destinations: Destination[]) {
 
     const clusters = [...groups.entries()]
       .filter(([, ids]) => ids.length >= MIN_CLUSTER_SIZE)
-      .map(([value, ids]) => ({
-        id: createHash("sha256")
+      .map(([value, ids]) => {
+        const id = createHash("sha256")
           .update(`${category}:${value}`)
           .digest("hex")
-          .slice(0, 12),
-        severity: category === "ratings" ? "warning" : "review",
-        count: ids.length,
-        ids: ids.sort(),
-        value: JSON.parse(value) as unknown,
-      }))
+          .slice(0, 12);
+        return {
+          id,
+          severity: category === "ratings" ? "warning" : "review",
+          count: ids.length,
+          ids: ids.sort(),
+          value: JSON.parse(value) as unknown,
+          disposition: dispositions.clusters[`${category}:${id}`] ?? {
+            category: "E",
+            action: "manual-review",
+            reason: "unclassified — requires editorial review",
+          },
+        };
+      })
       .sort((a, b) => b.count - a.count || a.id.localeCompare(b.id));
     const affectedIds = [
       ...new Set(clusters.flatMap((cluster) => cluster.ids)),
@@ -125,12 +155,35 @@ function buildReport(destinations: Destination[]) {
     .filter((destination) => destination.ratingMetadata === undefined)
     .map((destination) => destination.id)
     .sort();
+  // Manual-debt counts are COMPUTED from the data with the same predicates as
+  // scripts/audit/data-quality-rules.ts (G9/G7/A codes), never hardcoded.
+  const genericTemplateCopyRecords = destinations.filter((d) =>
+    GENERIC_TEMPLATE_COPY.test(destinationCopy(d)),
+  ).length;
+  const missingBudgetRecords = destinations.filter(
+    (d) => d.status === "published" && d.role !== "hub" && d.budgetRecommended === undefined,
+  ).length;
+  const missingSeasonRecords = destinations.filter(
+    (d) =>
+      d.status === "published" &&
+      d.role !== "hub" &&
+      (!d.season || !d.bestMonths?.length),
+  ).length;
+  const dispositionCounts: Record<string, number> = {};
+  const categoryCounts: Record<string, number> = {};
+  for (const category of categories) {
+    for (const cluster of category.clusters) {
+      const d = cluster.disposition;
+      dispositionCounts[d.action] = (dispositionCounts[d.action] ?? 0) + 1;
+      categoryCounts[d.category] = (categoryCounts[d.category] ?? 0) + 1;
+    }
+  }
 
   return {
     audit: "KAI-89 structured template audit",
     schemaVersion: 1,
-    auditedAt: "2026-08-13",
-    rule: `Exact canonical-value clusters with at least ${MIN_CLUSTER_SIZE} records; absent values are excluded. Clusters indicate review risk, not proof that every repeated value is wrong.`,
+    auditedAt: new Date().toISOString().slice(0, 10),
+    rule: `Exact canonical-value clusters with at least ${MIN_CLUSTER_SIZE} records; absent values are excluded (empty transportOptions {} is excluded as the honest no-data state). Clusters indicate review risk, not proof that every repeated value is wrong. Disposition per cluster is reviewed in scripts/audit/kai-89-dispositions.json.`,
     totalRecords: destinations.length,
     summary: {
       categoryCount: categories.length,
@@ -148,10 +201,12 @@ function buildReport(destinations: Destination[]) {
         affectedIds: missingRatingMetadataIds,
       },
       remainingManualDebt: {
-        genericTemplateCopyRecords: 81,
-        missingBudgetRecords: 226,
-        missingSeasonRecords: 217,
+        genericTemplateCopyRecords,
+        missingBudgetRecords,
+        missingSeasonRecords,
       },
+      dispositionCounts,
+      categoryCounts,
     },
     categories,
   };
@@ -160,6 +215,18 @@ function buildReport(destinations: Destination[]) {
 const destinations = JSON.parse(
   fs.readFileSync(catalogPath, "utf8"),
 ) as Destination[];
+const dispositions = fs.existsSync(dispositionsPath)
+  ? (JSON.parse(fs.readFileSync(dispositionsPath, "utf8")) as {
+      clusters: Record<
+        string,
+        {
+          category: string;
+          action: string;
+          reason: string;
+        }
+      >;
+    })
+  : { clusters: {} };
 const output = await format(JSON.stringify(buildReport(destinations)), {
   parser: "json",
 });
@@ -171,6 +238,28 @@ if (process.argv.includes("--check")) {
   if (committed !== output) {
     console.error(
       "KAI-89 structured-template audit is stale. Run npm run audit:kai-89-structured-templates.",
+    );
+    process.exit(1);
+  }
+  // Every cluster must carry a reviewed disposition; an unclassified cluster
+  // fails the gate so new repeated-value clusters cannot silently appear.
+  const report = JSON.parse(output) as ReturnType<typeof buildReport>;
+  const unclassified = report.categories.flatMap((category) =>
+    category.clusters.filter(
+      (cluster) => cluster.disposition.reason === "unclassified — requires editorial review",
+    ),
+  );
+  if (unclassified.length > 0) {
+    console.error(
+      `KAI-89 gate: ${unclassified.length} cluster(s) lack a reviewed disposition:`,
+    );
+    for (const cluster of unclassified) {
+      console.error(
+        `  ${cluster.id} ${JSON.stringify(cluster.value).slice(0, 80)} (${cluster.ids.length} records)`,
+      );
+    }
+    console.error(
+      "Classify them in scripts/audit/kai-89-dispositions.json, then regenerate.",
     );
     process.exit(1);
   }

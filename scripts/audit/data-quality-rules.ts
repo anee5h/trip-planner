@@ -27,6 +27,8 @@ export interface DataQualityIssue {
 export interface DestinationRuleContext {
   /** zoneId → local modes (from transport-topology.json). */
   zoneLocalModes: ReadonlyMap<string, readonly TransportMode[]>;
+  /** Catalogue-wide frequency of each rating vector (KAI-89 template detection). */
+  ratingVectorFrequency?: ReadonlyMap<string, number>;
 }
 
 export const VALID_KINDS = new Set([
@@ -149,6 +151,11 @@ export const PREVENTIVE_CODES = new Set([
   "OFF_UNION_STATUS",
   "COLLECTION_SORTORDER_COLLISION",
   "COLLECTION_MEMBERSHIP_SHAPE",
+  // KAI-89: template rating vector stamped high/medium confidence, and rail
+  // access on islands whose zone has no rail. Both are provably wrong
+  // whenever they appear (catalogue is zero-debt on both after KAI-89).
+  "RATING_METADATA_UNSUPPORTED_HIGH",
+  "OKINAWA_RAIL_VALUE",
 ]);
 
 export function firstTimeRange(text: string | undefined): number | null {
@@ -186,6 +193,20 @@ function destinationCopy(dest: Destination): string {
     content: dest.content,
   });
 }
+
+// Canonical 10-key rating vector (mirror of scripts/audit/rules.ts RULE-007).
+export const REQUIRED_RATING_KEYS = [
+  "overall",
+  "couple",
+  "summer",
+  "winter",
+  "rain",
+  "food",
+  "photography",
+  "relaxation",
+  "value",
+  "uniqueness",
+] as const;
 
 function finiteNonNegative(value: unknown): value is number {
   return typeof value === "number" && Number.isFinite(value) && value >= 0;
@@ -387,6 +408,46 @@ export function collectDestinationIssues(
     push(
       "OPEN_ACCESS_ON_PAID_KIND",
       `paid kind '${dest.kind}' claims 'open access'/'24 hours'`,
+    );
+  }
+
+  // ---- KAI-89: template rating vectors ----
+  // NOTE: heuristic classes (repeated vectors, budget-sum mismatches, season
+  // contradictions, train/shinkansen inversion, walking sun+shade) are
+  // intentionally NOT warning-gated here: the warning baseline gate refuses
+  // growth, so broad heuristics over legacy debt would silently enshrine it.
+  // They are tracked per-cluster in the KAI-89 structured audit
+  // (scripts/audit/kai-89-structured-template-audit.json) with reviewed
+  // dispositions (scripts/audit/kai-89-dispositions.json).
+  const ratingVector = dest.ratings
+    ? JSON.stringify(
+        REQUIRED_RATING_KEYS.map((key) => dest.ratings?.[key]),
+      )
+    : undefined;
+  const vectorFrequency = ratingVector
+    ? ctx.ratingVectorFrequency?.get(ratingVector) ?? 1
+    : 0;
+  if (
+    vectorFrequency >= 10 &&
+    dest.ratingMetadata &&
+    dest.ratingMetadata.confidence !== "low"
+  ) {
+    push(
+      "RATING_METADATA_UNSUPPORTED_HIGH",
+      `rating vector shared by ${vectorFrequency} records is stamped ${dest.ratingMetadata.confidence}/${dest.ratingMetadata.method} — template data cannot be high/medium-confidence reviewed evidence`,
+    );
+  }
+
+  // ---- KAI-89: transport value sanity ----
+  if (
+    dest.transportZoneId === "okinawa-main" &&
+    dest.transportOptions?.train !== undefined &&
+    finiteNonNegative(dest.transportOptions.train) &&
+    dest.transportOptions.train > 30
+  ) {
+    push(
+      "OKINAWA_RAIL_VALUE",
+      `train ${dest.transportOptions.train} min is impossible in Okinawa (Yui Rail is ~17 min end-to-end; no intercity rail)`,
     );
   }
 

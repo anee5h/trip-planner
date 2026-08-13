@@ -53,7 +53,7 @@
     "normalize-municipality-names": "tsx scripts/normalize-municipality-names.ts",
     "add-yokohama-places": "tsx scripts/add-yokohama-places.ts",
     "validate:catalog-fast": "tsx scripts/validate-all.ts --profile fast --no-report",
-    "verify:pr": "npm run test:run && npx tsc -b --noEmit && npm run lint && npm run format:check && npm run validate:i18n && npm run check:branding && npm run validate:catalog-fast && npm run build",
+    "verify:pr": "npm run test:run && npx tsc -b --noEmit && npm run lint && npm run format:check && npm run validate:i18n && npm run check:branding && npm run validate:catalog-fast && npm run check:catalog-ci && npm run build",
     "release:verify": "npm run test:run && npm run pipeline -- --dry-run && npm run validate-all && npm run validate:i18n && npm run check:branding && npx tsc -b --noEmit && npm run lint && npm run build && npm run format:check"
   },
   "dependencies": {

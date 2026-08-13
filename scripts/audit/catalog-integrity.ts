@@ -32,6 +32,7 @@ import {
   collectDestinationIssues,
   collectCollectionIssues,
   buildMembershipMap,
+  REQUIRED_RATING_KEYS,
   type DestinationRuleContext,
 } from "./data-quality-rules.js";
 
@@ -890,6 +891,17 @@ function checkDataQuality(
     zones.map((z) => [z.id, z.localModes]),
   );
   const ruleCtx: DestinationRuleContext = { zoneLocalModes };
+
+  // KAI-89: catalogue-wide rating-vector frequencies for template detection.
+  const ratingVectorFrequency = new Map<string, number>();
+  for (const dest of destinations) {
+    if (!dest.ratings) continue;
+    const vector = JSON.stringify(
+      REQUIRED_RATING_KEYS.map((key) => dest.ratings[key]),
+    );
+    ratingVectorFrequency.set(vector, (ratingVectorFrequency.get(vector) ?? 0) + 1);
+  }
+  ruleCtx.ratingVectorFrequency = ratingVectorFrequency;
 
   for (const dest of destinations) {
     for (const issue of collectDestinationIssues(dest, ruleCtx)) {
