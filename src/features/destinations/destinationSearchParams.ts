@@ -60,7 +60,11 @@ export const EXPLORE_PUBLIC_MODE_KEYS = [
   "flight",
 ] as const;
 
-/** The only car-mode values Explore renders (chips: Personal / Rental). */
+/**
+ * The only car-mode values Explore's single Car chip can activate: the chip
+ * maps to the profile-preferred internal mode (KAI-63 D11). Values outside
+ * this set are rejected at parse.
+ */
 export const EXPLORE_CAR_MODE_KEYS = ["none", "my_car", "rental"] as const;
 
 function sanitizePublicModes(raw: string[]): string[] {
