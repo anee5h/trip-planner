@@ -87,7 +87,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Historic town home to Horyu-ji Temple, containing the world's oldest surviving wooden structures.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.town.ikaruga.nara.jp/",
+        "title": "Ikaruga Town official website",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

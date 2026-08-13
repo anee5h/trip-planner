@@ -26,7 +26,7 @@
   "officialWebsite": "https://www.nankinmachi.or.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Food"],
-  "tags": ["Food", "Kobe City", "v1.9.2"],
+  "tags": ["Food", "Kobe City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe-Nankinmachi.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

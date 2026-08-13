@@ -35,7 +35,7 @@
   "officialWebsite": "http://www.city.chiba.jp/kyoiku/shogaigakushu/bunkazai/kyodo/kyodo_top.html",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
-  "tags": ["Museum", "Chiba City", "v1.9.2"],
+  "tags": ["Museum", "Chiba City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Folk%20museum%20in%20Chiba.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

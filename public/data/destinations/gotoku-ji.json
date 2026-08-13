@@ -43,7 +43,7 @@
   "officialWebsite": "https://www.city.setagaya.lg.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
-  "tags": ["History", "Setagaya City", "v1.9.2"],
+  "tags": ["History", "Setagaya City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/G%C5%8Dtoku-ji.jpg/1280px-G%C5%8Dtoku-ji.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",

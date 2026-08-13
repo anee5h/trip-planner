@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.city.nagoya.jp/",
   "officialWebsiteRequirement": "none",
   "categories": ["Food"],
-  "tags": ["Food", "Nagoya City", "v1.9.2"],
+  "tags": ["Food", "Nagoya City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",

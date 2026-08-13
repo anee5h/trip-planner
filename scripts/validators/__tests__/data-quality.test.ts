@@ -1,0 +1,299 @@
+import { describe, expect, it } from "vitest";
+import { dataQualityValidator } from "../data-quality";
+import { firstTimeRange } from "../../audit/data-quality-rules";
+import type { ValidationContext } from "../types";
+import type { Destination } from "@/shared/types/destination";
+
+const base: Destination = {
+  id: "test",
+  name: "Test",
+  role: "poi",
+  prefecture: "Tokyo",
+  region: "Kanto",
+  categories: [],
+  heroImage:
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a/a.jpg/1280px-a.jpg",
+  description: "desc",
+  highlights: [],
+  budgetRecommended: 1000,
+  budgetMin: 500,
+  budgetMax: 2000,
+  transportOptions: { train: 60 },
+  walkingMin: 30,
+  walkingSunMin: 30,
+  walkingShadeMin: 30,
+  indoorPercent: 0,
+  ratings: {} as Destination["ratings"],
+  crowd: { weekday: 1, weekend: 1, holiday: 1 },
+  season: { spring: 5, summer: 5, autumn: 5, winter: 5 },
+  bestMonths: [4],
+  reservation: "",
+  parking: "",
+  notes: "",
+  tags: [],
+  collections: [],
+  status: "published",
+  travelEstimate: { confidence: "high" },
+  recommendedVisitHours: { min: 1, max: 2 },
+  imageMetadata: {
+    source: "Wikimedia Commons",
+    license: "CC BY-SA 4.0",
+    attribution: "x",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:a.jpg",
+  },
+} as Destination;
+
+function ctx(
+  destinations: Destination[],
+  collections: unknown[] = [],
+): ValidationContext {
+  return {
+    catalog: { destinations, collections: collections as never },
+    config: {} as never,
+  };
+}
+
+function run(destinations: Destination[], collections: unknown[] = []) {
+  return dataQualityValidator.validate(ctx(destinations, collections));
+}
+
+describe("firstTimeRange", () => {
+  it("parses HH:MM", () => {
+    expect(firstTimeRange("09:00 - 17:00")).toBe(540);
+    expect(firstTimeRange("10:30-21:00")).toBe(630);
+    expect(firstTimeRange("open access")).toBeNull();
+  });
+});
+
+describe("KAI-87 data quality validator", () => {
+  it("passes a clean record", async () => {
+    const r = await run([{ ...base }]);
+    expect(r.passed).toBe(true);
+    expect(r.metrics.warningsCount).toBe(0);
+  });
+
+  it("flags off-union kind, role, and status", async () => {
+    const r = await run([
+      {
+        ...base,
+        kind: "golf_course" as never,
+        role: "destination" as never,
+        status: "unpublished" as never,
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("OFF_UNION_KIND");
+    expect(codes).toContain("OFF_UNION_ROLE");
+    expect(codes).toContain("OFF_UNION_STATUS");
+  });
+
+  it("flags version-tag artifacts and QA text leaks", async () => {
+    const r = await run([
+      {
+        ...base,
+        tags: ["v1.9.2"],
+        notes: "Source-backed v1.9.2 expansion record for Kyoto City.",
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("VERSION_TAG_ARTIFACT");
+    expect(codes).toContain("QA_TEXT_LEAK");
+  });
+
+  it("flags island rail claims on isIsland zones", async () => {
+    const r = await run([
+      {
+        ...base,
+        transportZoneId: "sado",
+        transportOptions: { train: 180, car: 240 },
+      },
+    ]);
+    expect(r.issues.map((i) => i.code)).toContain("ISLAND_RAIL_CLAIM");
+  });
+
+  it("flags localAccessModes/transportOptions contradictions", async () => {
+    const r = await run([
+      {
+        ...base,
+        localAccessModes: ["car", "my_car", "bus"] as never,
+        transportOptions: { train: 180 },
+      },
+    ]);
+    expect(r.issues.map((i) => i.code)).toContain(
+      "LAM_TRANSPORT_CONTRADICTION",
+    );
+  });
+
+  it("flags open-access hours on paid kinds", async () => {
+    const r = await run([
+      { ...base, kind: "museum", businessHours: "24 Hours (Open access)" },
+    ]);
+    expect(r.issues.map((i) => i.code)).toContain("OPEN_ACCESS_ON_PAID_KIND");
+  });
+
+  it("flags hours cross-field conflicts", async () => {
+    const r = await run([
+      {
+        ...base,
+        businessHours: "09:00 - 17:00",
+        openingHours: "10:00 - 18:00",
+      },
+    ]);
+    expect(r.issues.map((i) => i.code)).toContain("HOURS_CROSS_FIELD_CONFLICT");
+  });
+
+  it("flags missing season, budget, and image metadata on published non-hubs", async () => {
+    const r = await run([
+      {
+        ...base,
+        season: undefined as never,
+        bestMonths: [] as never,
+        budgetRecommended: undefined as never,
+        imageMetadata: undefined as never,
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("MISSING_SEASON_DATA");
+    expect(codes).toContain("MISSING_BUDGET");
+    expect(codes).toContain("MISSING_IMAGE_METADATA");
+  });
+
+  it("does not flag missing budget/season on hubs", async () => {
+    const r = await run([
+      {
+        ...base,
+        role: "hub",
+        kind: "city",
+        budgetRecommended: undefined as never,
+        season: undefined as never,
+      },
+    ]);
+    expect(r.issues.map((i) => i.code)).not.toContain("MISSING_BUDGET");
+    expect(r.issues.map((i) => i.code)).not.toContain("MISSING_SEASON_DATA");
+  });
+
+  it("flags season/bestMonths contradictions", async () => {
+    // winter is top-scored (9) but bestMonths [3,4,5] are spring (score 4 < 9×0.5)
+    const r = await run([
+      {
+        ...base,
+        season: { spring: 4, summer: 4, autumn: 4, winter: 9 },
+        bestMonths: [3, 4, 5],
+      },
+    ]);
+    expect(r.issues.map((i) => i.code)).toContain(
+      "SEASON_BESTMONTHS_CONTRADICTION",
+    );
+  });
+
+  it("flags walkingMin beyond the visit window", async () => {
+    const r = await run([{ ...base, walkingMin: 200 }]);
+    expect(r.issues.map((i) => i.code)).toContain("WALKING_MIN_IMPLAUSIBLE");
+  });
+
+  it("flags coarse grid coordinates and low-res heroes", async () => {
+    const r = await run([
+      {
+        ...base,
+        coordinates: { lat: 36.7, lng: 138.3 },
+        heroImage:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a/a.jpg/250px-a.jpg",
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("COARSE_GRID_COORDS");
+    expect(codes).toContain("LOW_RES_HERO");
+  });
+
+  it("flags unsplash heroes claiming Wikimedia attribution", async () => {
+    const r = await run([
+      {
+        ...base,
+        heroImage: "https://images.unsplash.com/photo-x",
+        imageMetadata: {
+          source: "Wikimedia Commons",
+          license: "CC",
+          attribution: "x",
+          sourceUrl: "x",
+        },
+      },
+    ]);
+    expect(r.issues.map((i) => i.code)).toContain("HERO_LICENSE_HOST_MISMATCH");
+  });
+
+  it("flags placeholder sources and off-schema transport keys", async () => {
+    const r = await run([
+      {
+        ...base,
+        editorial: {
+          lifecycle: "published",
+          sources: ["editorial-review-2026"] as never,
+        },
+        transportOptions: { walk: 15 } as never,
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("PLACEHOLDER_SOURCE");
+    expect(codes).toContain("UNKNOWN_TRANSPORT_KEY");
+  });
+
+  it("flags collection sortOrder collisions, count mismatch, and membership shape", async () => {
+    const r = await run(
+      [
+        {
+          ...base,
+          id: "a",
+          collections: [{ collectionId: "c1", sortOrder: 1 }],
+        },
+        {
+          ...base,
+          id: "b",
+          collections: [
+            { collectionId: "c1", sortOrder: 1 },
+            { collectionId: "c1", name: "x" as never },
+          ],
+        },
+      ],
+      [{ id: "c1", metadata: { expectedMembers: 5 } }],
+    );
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("COLLECTION_SORTORDER_COLLISION");
+    expect(codes).toContain("COLLECTION_COUNT_MISMATCH");
+    expect(codes).toContain("COLLECTION_MEMBERSHIP_SHAPE");
+  });
+
+  it("fails the gate (error severity) on newly introduced preventive violations", async () => {
+    // These classes are zero-debt after KAI-87; a new instance must fail
+    // validate:catalog-fast (any validator error fails the gate), not just
+    // emit a warning.
+    const r = await run([
+      { ...base, transportZoneId: "sado", transportOptions: { train: 180 } },
+    ]);
+    expect(r.passed).toBe(false);
+    expect(r.metrics.errorsCount).toBeGreaterThan(0);
+    const islandRail = r.issues.find((i) => i.code === "ISLAND_RAIL_CLAIM");
+    expect(islandRail?.severity).toBe("error");
+  });
+
+  it("keeps accepted-debt classes as warnings (passed stays true)", async () => {
+    const r = await run([
+      { ...base, season: undefined as never, bestMonths: [] as never },
+    ]);
+    expect(r.passed).toBe(true);
+    expect(r.metrics.errorsCount).toBe(0);
+    expect(
+      r.issues.some(
+        (i) => i.code === "MISSING_SEASON_DATA" && i.severity === "warning",
+      ),
+    ).toBe(true);
+  });
+
+  it("flags template transport clusters shared by 3+ records", async () => {
+    const r = await run([
+      { ...base, id: "a", transportOptions: { train: 200 } },
+      { ...base, id: "b", transportOptions: { train: 200 } },
+      { ...base, id: "c", transportOptions: { train: 200 } },
+    ]);
+    expect(r.issues.map((i) => i.code)).toContain("TEMPLATE_TRANSPORT_CLUSTER");
+  });
+});

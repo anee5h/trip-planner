@@ -26,7 +26,7 @@
   "officialWebsite": "https://www.osakacastlepark.jp/?lang=en",
   "officialWebsiteRequirement": "none",
   "categories": ["Nature", "History"],
-  "tags": ["Nature", "History", "Osaka City", "v1.9.2"],
+  "tags": ["Nature", "History", "Osaka City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Osaka%20Castle%2001bs3200.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

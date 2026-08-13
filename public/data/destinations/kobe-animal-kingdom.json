@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.kobe-oukoku.com/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Kobe City", "v1.9.2"],
+  "tags": ["Culture", "Kobe City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe-kacyoen4333.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

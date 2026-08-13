@@ -35,7 +35,7 @@
   "officialWebsite": "https://www.city.chiba.jp/kasori/infomation/overview/kasori_index.html",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Chiba City", "v1.9.2"],
+  "tags": ["Culture", "Chiba City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kasori%20Shell%20Midden%20Dugouts.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

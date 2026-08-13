@@ -51,12 +51,11 @@
   "collections": [
     {
       "collectionId": "original-12-castles",
-      "name": "Original 12 Surviving Castles"
+      "sortOrder": 5
     },
     {
       "collectionId": "japan-top-castles",
-      "name": "Japan's Top Castles",
-      "sortOrder": 43
+      "sortOrder": 9
     }
   ],
   "coordinates": {

@@ -35,7 +35,8 @@
   "collections": [
     {
       "collectionId": "top-onsen-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 1
     }
   ],
   "transportOptions": {

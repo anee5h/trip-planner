@@ -26,7 +26,7 @@
   "officialWebsite": "https://www.tsutenkaku.co.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Viewpoint"],
-  "tags": ["Culture", "Osaka City", "v1.9.2"],
+  "tags": ["Culture", "Osaka City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/New%20Tsutenkaku%20in%20201409%20003.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -108,7 +108,8 @@
   "collections": [
     {
       "collectionId": "japan-observatories-towers",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 14
     }
   ],
   "addedAt": "2026-07-29",

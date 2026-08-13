@@ -27,7 +27,7 @@
   "officialWebsite": "http://www.city.kobe.lg.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Kobe City", "v1.9.2"],
+  "tags": ["Culture", "Kobe City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Port%20Tower%20and%20Maritime%20Museum%2C%20November%202016.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -108,7 +108,8 @@
   "collections": [
     {
       "collectionId": "historic-towns-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 3
     }
   ],
   "addedAt": "2026-07-29",

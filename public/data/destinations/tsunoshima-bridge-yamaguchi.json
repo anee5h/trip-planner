@@ -21,11 +21,11 @@
   "collections": [
     {
       "collectionId": "coastal-drives-japan",
-      "sortOrder": 3
+      "sortOrder": 8
     },
     {
       "collectionId": "scenic-bridges-japan",
-      "sortOrder": 1
+      "sortOrder": 3
     }
   ],
   "region": "Chugoku",

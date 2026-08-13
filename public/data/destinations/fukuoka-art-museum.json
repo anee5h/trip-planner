@@ -29,7 +29,7 @@
   "officialWebsite": "https://www.fukuoka-art-museum.jp/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
-  "tags": ["Museum", "Fukuoka City", "v1.9.2"],
+  "tags": ["Museum", "Fukuoka City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fukuoka%20art%20museum.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

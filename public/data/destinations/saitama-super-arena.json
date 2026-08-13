@@ -38,7 +38,7 @@
   "officialWebsite": "https://www.saitama-arena.co.jp/arena/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Saitama City", "v1.9.2"],
+  "tags": ["Culture", "Saitama City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Saitama%20Super%20Arena%2002.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

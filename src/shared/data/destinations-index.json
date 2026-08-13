@@ -189,12 +189,13 @@
     "collections": [
       {
         "collectionId": "great-night-views",
-        "sortOrder": 5,
+        "sortOrder": 1,
         "confirmed": true
       },
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 1
       }
     ],
     "walkingIntensity": "low",
@@ -270,7 +271,7 @@
     "collections": [
       {
         "collectionId": "caves-japan",
-        "sortOrder": 3
+        "sortOrder": 1
       }
     ],
     "region": "Tohoku",
@@ -1200,7 +1201,7 @@
     "collections": [
       {
         "collectionId": "caves-japan",
-        "sortOrder": 1
+        "sortOrder": 2
       }
     ],
     "region": "Chugoku",
@@ -1354,11 +1355,12 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1574/"
+        "source": "https://whc.unesco.org/en/list/1574/",
+        "sortOrder": 1
       },
       {
         "collectionId": "islands-japan",
-        "sortOrder": 10
+        "sortOrder": 1
       }
     ],
     "relationships": {
@@ -1457,11 +1459,12 @@
     "collections": [
       {
         "collectionId": "three-great-views",
-        "sortOrder": 2
+        "sortOrder": 1
       },
       {
         "collectionId": "coastal-drives-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 1
       }
     ],
     "transportOptions": {
@@ -1618,7 +1621,7 @@
     "officialWebsite": "https://www.ameyoko.net/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Shopping", "Food"],
-    "tags": ["Culture", "Taito City", "v1.9.2", "Shopping", "Food"],
+    "tags": ["Culture", "Taito City", "Shopping", "Food"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ameya-yokocho01s5s3200.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -1796,7 +1799,7 @@
     },
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum", "History"],
-    "tags": ["Museum", "History", "Sendai City", "v1.9.2"],
+    "tags": ["Museum", "History", "Sendai City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mask%20request%20by%20Sendai%20castle%20museum.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -2346,7 +2349,8 @@
     "collections": [
       {
         "collectionId": "top-onsen-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 1
       }
     ],
     "transportOptions": {
@@ -2541,7 +2545,7 @@
     "collections": [
       {
         "collectionId": "art-islands-japan",
-        "sortOrder": 5
+        "sortOrder": 1
       }
     ],
     "relationships": {
@@ -2705,7 +2709,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "A rural Hyogo city known for the Takeda Castle Ruins, often seen above a sea of clouds in autumn.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.asago.hyogo.jp/",
+          "title": "Asago City official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -3600,7 +3611,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1757/"
+        "source": "https://whc.unesco.org/en/list/1757/",
+        "sortOrder": 2
       }
     ],
     "relationships": {
@@ -4019,7 +4031,7 @@
     "collections": [
       {
         "collectionId": "top-onsen-japan",
-        "sortOrder": 10
+        "sortOrder": 2
       }
     ],
     "region": "Kyushu",
@@ -4266,7 +4278,7 @@
       },
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 68
+        "sortOrder": 1
       }
     ],
     "transportOptions": {
@@ -4386,7 +4398,7 @@
     "officialWebsite": "http://www.chiba-muse.or.jp/MURA/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Narita City", "v1.9.2"],
+    "tags": ["Culture", "Narita City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Winkels%20en%20woningen%20in%20Boso%20no%20mura%2C%20-21%20maart%202014%20a.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -4863,7 +4875,7 @@
     "officialWebsite": "https://canalcity.co.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Fukuoka City", "v1.9.2"],
+    "tags": ["Culture", "Fukuoka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Canal%20City%20Hakata%202011.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -5091,7 +5103,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 1
       }
     ],
     "kind": "city",
@@ -5213,7 +5226,7 @@
     "officialWebsite": "http://www.city.chiba.jp/kyoiku/shogaigakushu/bunkazai/kyodo/kyodo_top.html",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Chiba City", "v1.9.2"],
+    "tags": ["Museum", "Chiba City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Folk%20museum%20in%20Chiba.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -5397,7 +5410,7 @@
     "officialWebsite": "https://www.ccma-net.jp/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Chiba City", "v1.9.2"],
+    "tags": ["Museum", "Chiba City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/KyuuKawasakiGinkouChibashiten.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -5738,7 +5751,7 @@
     "officialWebsite": "https://www.city.chiba.jp/toshi/koenryokuchi/kanri/chuo-mihama/chibakouen.html",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Chiba City", "v1.9.2"],
+    "tags": ["Nature", "Chiba City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tiba%20Koen-3.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -5922,7 +5935,7 @@
     "officialWebsite": "http://chiba-portpark.com/",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Chiba City", "v1.9.2"],
+    "tags": ["Nature", "Chiba City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chiba%20Port%20Park%2020111028-004.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -6155,7 +6168,8 @@
     "collections": [
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 2
       }
     ],
     "relationships": {
@@ -6310,7 +6324,7 @@
     "collections": [
       {
         "collectionId": "historic-towns-japan",
-        "sortOrder": 5,
+        "sortOrder": 1,
         "confirmed": true
       }
     ],
@@ -6430,7 +6444,7 @@
     "officialWebsite": "https://www.chibajinja.com/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Chiba City", "v1.9.2"],
+    "tags": ["History", "Chiba City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chiba-jinja%20003.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -6766,7 +6780,7 @@
     "officialWebsite": "https://www.city.chiba.jp/zoo/",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Chiba City", "v1.9.2"],
+    "tags": ["Nature", "Chiba City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chiba%20zoo%20entrance.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -8664,7 +8678,7 @@
     "collections": [
       {
         "collectionId": "top-onsen-japan",
-        "sortOrder": 9
+        "sortOrder": 3
       }
     ],
     "region": "Shikoku",
@@ -8767,7 +8781,7 @@
     "officialWebsite": "https://www.dotonbori.or.jp/en/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Food"],
-    "tags": ["Food", "Osaka City", "v1.9.2"],
+    "tags": ["Food", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E5%8A%9B%E3%82%92%E5%90%88%E3%82%8F%E3%81%9B%E3%82%88%E3%81%86%E6%97%A5%E6%9C%AC%202014%20%E5%A4%A7%E9%98%AA%20(12206068196).jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -8973,7 +8987,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 21
+        "sortOrder": 2
       }
     ],
     "relationships": {
@@ -9238,7 +9252,7 @@
     "officialWebsite": "http://www.engakuji.or.jp",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kamakura City", "v1.9.2"],
+    "tags": ["History", "Kamakura City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Engakuji-Shariden-M9239.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -9421,7 +9435,7 @@
     "officialWebsite": "https://www.enosui.com/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Fujisawa City", "v1.9.2"],
+    "tags": ["Museum", "Fujisawa City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/New%20Enoshima%20Aquarium.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -9746,7 +9760,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature"],
-    "tags": ["Nature", "Fujisawa City", "v1.9.2"],
+    "tags": ["Nature", "Fujisawa City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Enoshima%2006.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -9939,7 +9953,7 @@
     "officialWebsite": "https://enoshima-seacandle.com",
     "officialWebsiteRequirement": "required",
     "categories": ["Viewpoint"],
-    "tags": ["Viewpoint", "Fujisawa City", "v1.9.2"],
+    "tags": ["Viewpoint", "Fujisawa City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Enoshima%20Sea%20Candle%201.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -10122,7 +10136,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Fujisawa City", "v1.9.2"],
+    "tags": ["History", "Fujisawa City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Enoshimajinja%20-05.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -10299,7 +10313,7 @@
     "officialWebsite": "http://www.pref.hokkaido.lg.jp/sm/sum/sk/akarenga.htm",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Sapporo City", "v1.9.2"],
+    "tags": ["Culture", "Sapporo City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hokkaido%20Prefectural%20Office02s5s4272.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -10676,7 +10690,7 @@
     "officialWebsite": "http://fujiko-museum.com",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Kawasaki City", "v1.9.2"],
+    "tags": ["Museum", "Kawasaki City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fujiko%EF%BD%A5F%EF%BD%A5Fujio%20Museum%20-01.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -11301,7 +11315,7 @@
     "officialWebsite": "https://www.fukuoka-art-museum.jp/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Fukuoka City", "v1.9.2"],
+    "tags": ["Museum", "Fukuoka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fukuoka%20art%20museum.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -11479,7 +11493,7 @@
     "officialWebsite": "https://www.city.fukuoka.lg.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Fukuoka City", "v1.9.2"],
+    "tags": ["History", "Fukuoka City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Tamon-yagura_Turret_of_Fukuoka_Castle_Ruins_J%C5%8Dnai_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221018.jpg/1280px-Tamon-yagura_Turret_of_Fukuoka_Castle_Ruins_J%C5%8Dnai_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221018.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -11560,7 +11574,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 85
+        "sortOrder": 3
       }
     ],
     "addedAt": "2026-07-29",
@@ -11702,7 +11716,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 2
       }
     ],
     "relationships": {
@@ -11794,7 +11809,7 @@
     "officialWebsite": "https://www.fukuokatower.co.jp/",
     "officialWebsiteRequirement": "required",
     "categories": ["Viewpoint"],
-    "tags": ["Viewpoint", "Fukuoka City", "v1.9.2"],
+    "tags": ["Viewpoint", "Fukuoka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fukuoka%20Tower%20October%202011%2001.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -11972,7 +11987,7 @@
     "officialWebsite": "https://gofukuoka.jp/yatai/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Food"],
-    "tags": ["Food", "Fukuoka City", "v1.9.2"],
+    "tags": ["Food", "Fukuoka City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Hakata_yatai_and_yatai_food_-_2024_Sept_24_various.jpeg/1920px-Hakata_yatai_and_yatai_food_-_2024_Sept_24_various.jpeg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -12509,7 +12524,7 @@
     "officialWebsite": "https://inari.jp/en/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kyoto City", "v1.9.2"],
+    "tags": ["Culture", "Kyoto City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fushimiinari-taisha%2C%20naihaiden-1.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -12984,7 +12999,7 @@
     "collections": [
       {
         "collectionId": "top-onsen-japan",
-        "sortOrder": 11
+        "sortOrder": 4
       }
     ],
     "transportOptions": {
@@ -13298,7 +13313,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 39
+        "sortOrder": 4
       }
     ],
     "relationships": {
@@ -13644,7 +13659,7 @@
     "officialWebsite": "https://www.shokoku-ji.jp/ginkakuji/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kyoto City", "v1.9.2"],
+    "tags": ["History", "Kyoto City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/GinkakujiTemple.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -13727,7 +13742,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/688/"
+        "source": "https://whc.unesco.org/en/list/688/",
+        "sortOrder": 3
       }
     ],
     "addedAt": "2026-07-29",
@@ -13937,7 +13953,7 @@
     "collections": [
       {
         "collectionId": "top-onsen-japan",
-        "sortOrder": 8
+        "sortOrder": 5
       }
     ],
     "region": "Tohoku",
@@ -14080,7 +14096,7 @@
     "officialWebsite": "http://goldengai.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Nightlife", "Dining", "Historic Alley"],
-    "tags": ["Culture", "Shinjuku City", "v1.9.2"],
+    "tags": ["Culture", "Shinjuku City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinjuku%20Golden%20Gai.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -14507,7 +14523,7 @@
     "officialWebsite": "https://www.city.setagaya.lg.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Setagaya City", "v1.9.2"],
+    "tags": ["History", "Setagaya City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/G%C5%8Dtoku-ji.jpg/1280px-G%C5%8Dtoku-ji.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -14735,11 +14751,12 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1484/"
+        "source": "https://whc.unesco.org/en/list/1484/",
+        "sortOrder": 4
       },
       {
         "collectionId": "islands-japan",
-        "sortOrder": 5
+        "sortOrder": 2
       }
     ],
     "relationships": {
@@ -15047,7 +15064,7 @@
     "collections": [
       {
         "collectionId": "top-onsen-japan",
-        "sortOrder": 1,
+        "sortOrder": 7,
         "confirmed": true
       }
     ],
@@ -15461,8 +15478,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "name": "Japan's Top Castles",
-        "sortOrder": 22
+        "sortOrder": 5
       }
     ],
     "coordinates": {
@@ -15742,7 +15758,7 @@
     "officialWebsite": "http://www.hakatamachiya.com/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Fukuoka City", "v1.9.2"],
+    "tags": ["Museum", "Fukuoka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hakata-Machiya%20Furusato%20Museum%2020170918.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -16163,7 +16179,8 @@
     "collections": [
       {
         "collectionId": "great-night-views",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 2
       }
     ],
     "transportOptions": {
@@ -16314,7 +16331,7 @@
     "collections": [
       {
         "collectionId": "top-onsen-japan",
-        "sortOrder": 2,
+        "sortOrder": 8,
         "confirmed": true
       }
     ],
@@ -16556,7 +16573,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 3
       }
     ],
     "relationships": {
@@ -16780,7 +16798,7 @@
     "officialWebsite": "https://www.hasedera.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kamakura City", "v1.9.2"],
+    "tags": ["History", "Kamakura City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/230128%20Hasedera%20Kamakura%20Kanagawa%20pref%20Japan04s3.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -17059,7 +17077,7 @@
     "officialWebsite": "http://www.heianjingu.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kyoto City", "v1.9.2"],
+    "tags": ["History", "Kyoto City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Heian-jingu%2C%20keidai-1.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -17267,7 +17285,8 @@
     "collections": [
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 3
       }
     ],
     "relationships": {
@@ -17376,11 +17395,12 @@
     "collections": [
       {
         "collectionId": "original-12-castles",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 2
       },
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 50
+        "sortOrder": 6
       }
     ],
     "relationships": {
@@ -17508,7 +17528,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Castle town on Lake Biwa featuring original National Treasure Hikone Castle and Genkyuen Garden.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.hikone.shiga.jp/",
+          "title": "Hikone City official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -17582,16 +17609,17 @@
     "collections": [
       {
         "collectionId": "original-12-castles",
-        "sortOrder": 1
+        "sortOrder": 3
       },
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/661/"
+        "source": "https://whc.unesco.org/en/list/661/",
+        "sortOrder": 5
       },
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 59
+        "sortOrder": 7
       }
     ],
     "transportOptions": {
@@ -17797,7 +17825,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Historic castle city home to UNESCO World Heritage Himeji 'White Heron' Castle and Koko-en Garden.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.himeji.hyogo.jp/",
+          "title": "Himeji City official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -18066,7 +18101,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1277/"
+        "source": "https://whc.unesco.org/en/list/1277/",
+        "sortOrder": 6
       }
     ],
     "relationships": {
@@ -18154,11 +18190,11 @@
     "collections": [
       {
         "collectionId": "original-12-castles",
-        "sortOrder": 1
+        "sortOrder": 4
       },
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 4
+        "sortOrder": 8
       }
     ],
     "transportOptions": {
@@ -18447,7 +18483,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 4
       }
     ],
     "relationships": {
@@ -18671,7 +18708,7 @@
     "officialWebsite": "http://www.hokkaidojingu.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Sapporo City", "v1.9.2"],
+    "tags": ["History", "Sapporo City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hokkaido%20Jingu.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -18839,7 +18876,7 @@
     "officialWebsite": "http://www.dokyoi.pref.hokkaido.lg.jp/hk/knb/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Sapporo City", "v1.9.2"],
+    "tags": ["Museum", "Sapporo City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E5%8C%97%E6%B5%B7%E9%81%93%E7%AB%8B%E8%BF%91%E4%BB%A3%E7%BE%8E%E8%A1%93%E9%A4%A8.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -19015,7 +19052,7 @@
     "officialWebsite": "https://houkokuji.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kamakura City", "v1.9.2"],
+    "tags": ["History", "Kamakura City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2019%20H%C5%8Dkoku-ji%2001.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -19190,7 +19227,7 @@
     "officialWebsite": "https://www.nagoyajo.city.nagoya.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Nagoya City", "v1.9.2"],
+    "tags": ["History", "Nagoya City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/56/Nagoya_Castle_7.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -19410,7 +19447,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/660/"
+        "source": "https://whc.unesco.org/en/list/660/",
+        "sortOrder": 7
       }
     ],
     "relationships": {
@@ -19563,12 +19601,12 @@
     "collections": [
       {
         "collectionId": "three-great-waterfalls",
-        "sortOrder": 3,
+        "sortOrder": 1,
         "confirmed": true
       },
       {
         "collectionId": "waterfalls-gorges-japan",
-        "sortOrder": 5
+        "sortOrder": 1
       }
     ],
     "relationships": {
@@ -20045,7 +20083,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Historic town home to Horyu-ji Temple, containing the world's oldest surviving wooden structures.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.town.ikaruga.nara.jp/",
+          "title": "Ikaruga Town official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -20263,7 +20308,7 @@
     "officialWebsite": "https://www.ikutaryokuti.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kawasaki City", "v1.9.2"],
+    "tags": ["Culture", "Kawasaki City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ikutaryokuchi%2006b8426q.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -20596,7 +20641,7 @@
     "officialWebsite": "https://www.city.chiba.jp/toshi/koenryokuchi/kanri/chuo-mihama/inagekaihinkoen.html",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Chiba City", "v1.9.2"],
+    "tags": ["Nature", "Chiba City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E7%A8%B2%E6%AF%9B%E6%B5%B7%E6%B5%9C%E5%85%AC%E5%9C%92%20-%20panoramio.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -20779,7 +20824,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kamakura City", "v1.9.2"],
+    "tags": ["Culture", "Kamakura City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Mt.%20Fuji%20from%20Inamuragasaki.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -20987,12 +21032,11 @@
     "collections": [
       {
         "collectionId": "original-12-castles",
-        "name": "Original 12 Surviving Castles"
+        "sortOrder": 5
       },
       {
         "collectionId": "japan-top-castles",
-        "name": "Japan's Top Castles",
-        "sortOrder": 43
+        "sortOrder": 9
       }
     ],
     "coordinates": {
@@ -21227,7 +21271,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "A shrine city in Mie Prefecture and the location of Ise Jingu, Japan's most important Shinto shrine complex.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.ise.mie.jp/",
+          "title": "Ise City official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -21484,7 +21535,7 @@
     "collections": [
       {
         "collectionId": "islands-japan",
-        "sortOrder": 9
+        "sortOrder": 3
       }
     ],
     "relationships": {
@@ -21987,7 +22038,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1246/"
+        "source": "https://whc.unesco.org/en/list/1246/",
+        "sortOrder": 8
       }
     ],
     "relationships": {
@@ -22055,7 +22107,7 @@
     "officialWebsite": "https://ningyo-muse.jp/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Saitama City", "v1.9.2"],
+    "tags": ["Museum", "Saitama City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Saitama%20Iwatsuki%20Ningyo%20Museum%20201902.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -22224,7 +22276,7 @@
     "collections": [
       {
         "collectionId": "scenic-bridges-japan",
-        "sortOrder": 2
+        "sortOrder": 1
       }
     ],
     "region": "Shikoku",
@@ -22639,7 +22691,7 @@
     "officialWebsite": "https://www.city.kamakura.kanagawa.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kamakura City", "v1.9.2"],
+    "tags": ["History", "Kamakura City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/J%C5%8Dchi-ji_-21735.jpeg/1280px-J%C5%8Dchi-ji_-21735.jpeg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -23231,7 +23283,7 @@
     "officialWebsite": "https://www.city.sendai.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["History", "Sendai City", "v1.9.2"],
+    "tags": ["History", "Sendai City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -23405,7 +23457,7 @@
     "officialWebsite": "http://www.kabukicho.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Nightlife", "Entertainment", "District"],
-    "tags": ["Culture", "Shinjuku City", "v1.9.2"],
+    "tags": ["Culture", "Shinjuku City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gate%20of%20Kabuki-cho%20Ichiban-gai.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -23708,7 +23760,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Dining", "Historic Street", "Culture"],
-    "tags": ["Culture", "Shinjuku City", "v1.9.2"],
+    "tags": ["Culture", "Shinjuku City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Kagurazaka_Tokyo_Japan.jpg/1280px-Kagurazaka_Tokyo_Japan.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -23901,7 +23953,7 @@
     "collections": [
       {
         "collectionId": "three-great-gardens",
-        "sortOrder": 3
+        "sortOrder": 1
       }
     ],
     "transportOptions": {
@@ -24119,7 +24171,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 42
+        "sortOrder": 10
       }
     ],
     "relationships": {
@@ -24160,7 +24212,7 @@
     "collections": [
       {
         "collectionId": "historic-towns-japan",
-        "sortOrder": 5
+        "sortOrder": 2
       }
     ],
     "region": "Tohoku",
@@ -24445,7 +24497,7 @@
     "officialWebsite": "https://www.enoden.co.jp/train/station/kamakurakokomae/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kamakura City", "v1.9.2"],
+    "tags": ["Culture", "Kamakura City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Enoden-EN08-Kamakura-koko-mae-station-building-20200315-134942.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -24627,7 +24679,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kawasaki City", "v1.9.2"],
+    "tags": ["History", "Kawasaki City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Kanayama_Shrine_in_Atsuta-ku%2C_Nagoya_01.jpg/1920px-Kanayama_Shrine_in_Atsuta-ku%2C_Nagoya_01.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -24970,7 +25022,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 35
+        "sortOrder": 11
       }
     ],
     "relationships": {},
@@ -25265,7 +25317,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kawagoe City", "v1.9.2"],
+    "tags": ["Culture", "Kawagoe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kashiya%20yokocho%20-02.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -25457,7 +25509,7 @@
     "officialWebsite": "https://www.city.chiba.jp/kasori/infomation/overview/kasori_index.html",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Chiba City", "v1.9.2"],
+    "tags": ["Culture", "Chiba City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kasori%20Shell%20Midden%20Dugouts.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -25641,7 +25693,7 @@
     "officialWebsite": "https://ee-beach.com/",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Fujisawa City", "v1.9.2"],
+    "tags": ["Nature", "Fujisawa City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Katase%20East%20Beach%202018.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -25967,7 +26019,7 @@
     "officialWebsite": "http://www.katori-jingu.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Narita City", "v1.9.2"],
+    "tags": ["History", "Narita City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Katori-jingu%20haiden%20shomen.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -26047,7 +26099,7 @@
     "collections": [
       {
         "collectionId": "three-great-shrines",
-        "sortOrder": 3
+        "sortOrder": 2
       }
     ],
     "addedAt": "2026-07-29",
@@ -26354,7 +26406,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 19
+        "sortOrder": 12
       }
     ],
     "relationships": {
@@ -26624,7 +26676,7 @@
     "officialWebsite": "https://kawagoematsuri.jp/matsurimuseum/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Kawagoe City", "v1.9.2"],
+    "tags": ["Museum", "Kawagoe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kawagoe%20Festival%20Museum.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -26807,7 +26859,7 @@
     "officialWebsite": "https://www.kawagoehikawa.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kawagoe City", "v1.9.2"],
+    "tags": ["History", "Kawagoe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/HikawaJinjaKawagoe20131014.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -27184,7 +27236,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 5
       }
     ],
     "relationships": {
@@ -27309,7 +27362,7 @@
     "officialWebsite": "http://kawasakidaishi.com/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kawasaki City", "v1.9.2"],
+    "tags": ["Culture", "Kawasaki City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kawasaki%20Daishi%20Main%20Hall.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -27496,12 +27549,12 @@
     "collections": [
       {
         "collectionId": "three-great-waterfalls",
-        "sortOrder": 1,
+        "sortOrder": 2,
         "confirmed": true
       },
       {
         "collectionId": "waterfalls-gorges-japan",
-        "sortOrder": 4
+        "sortOrder": 2
       }
     ],
     "transportOptions": {
@@ -27649,7 +27702,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kyoto City", "v1.9.2"],
+    "tags": ["History", "Kyoto City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Detail_of_Facade_of_Kennin-ji_Zen_Temple_-_Kyoto_-_Japan_-_02_%2847928771947%29.jpg/1280px-Detail_of_Facade_of_Kennin-ji_Zen_Temple_-_Kyoto_-_Japan_-_02_%2847928771947%29.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -27796,7 +27849,7 @@
     "officialWebsite": "https://www.shokoku-ji.jp/en/kinkakuji/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kyoto City", "v1.9.2"],
+    "tags": ["History", "Kyoto City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Golden_Pavilion_Kinkaku-ji_water_mirror_2024.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -27879,7 +27932,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/688/"
+        "source": "https://whc.unesco.org/en/list/688/",
+        "sortOrder": 9
       }
     ],
     "addedAt": "2026-07-29",
@@ -27956,7 +28010,7 @@
     "collections": [
       {
         "collectionId": "top-onsen-japan",
-        "sortOrder": 5,
+        "sortOrder": 9,
         "confirmed": true
       }
     ],
@@ -28089,7 +28143,7 @@
     "collections": [
       {
         "collectionId": "scenic-bridges-japan",
-        "sortOrder": 3
+        "sortOrder": 2
       }
     ],
     "region": "Chugoku",
@@ -28250,7 +28304,7 @@
     "collections": [
       {
         "collectionId": "top-onsen-japan",
-        "sortOrder": 7,
+        "sortOrder": 10,
         "confirmed": true
       }
     ],
@@ -28913,7 +28967,7 @@
     "officialWebsite": "https://www.kawagoe.com/kitain/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kawagoe City", "v1.9.2"],
+    "tags": ["Culture", "Kawagoe City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Kawagoe_Kitain_Tahoto_202011.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -29129,7 +29183,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 6
       }
     ],
     "relationships": {
@@ -29202,7 +29257,7 @@
     "officialWebsite": "http://www.city.kobe.lg.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kobe City", "v1.9.2"],
+    "tags": ["Culture", "Kobe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Port%20Tower%20and%20Maritime%20Museum%2C%20November%202016.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -29283,7 +29338,8 @@
     "collections": [
       {
         "collectionId": "historic-towns-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 3
       }
     ],
     "addedAt": "2026-07-29",
@@ -29346,7 +29402,7 @@
     "collections": [
       {
         "collectionId": "waterfalls-gorges-japan",
-        "sortOrder": 2
+        "sortOrder": 3
       }
     ],
     "region": "Chubu",
@@ -29452,7 +29508,7 @@
     "officialWebsite": "https://www.kobe-oukoku.com/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kobe City", "v1.9.2"],
+    "tags": ["Culture", "Kobe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe-kacyoen4333.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -29639,7 +29695,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 7
       }
     ],
     "relationships": {
@@ -29676,7 +29733,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Cosmopolitan port city framed by Mt. Rokko, world-famous for Kobe Beef, Harborland, and Arima Onsen.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.kobe.lg.jp/",
+          "title": "Kobe City official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -29734,7 +29798,7 @@
     "officialWebsite": "https://www.harborland.co.jp/en/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kobe City", "v1.9.2"],
+    "tags": ["Culture", "Kobe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Harborland%20district.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -29815,7 +29879,8 @@
     "collections": [
       {
         "collectionId": "great-night-views",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 3
       }
     ],
     "addedAt": "2026-07-29",
@@ -29883,7 +29948,7 @@
     "officialWebsite": "http://www.kobe-maritime-museum.com/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Kobe City", "v1.9.2"],
+    "tags": ["Museum", "Kobe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Maritime%20Museum-A%20bird's-eye%20view%20from%20Kobe%20Port%20Tower.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -30040,7 +30105,8 @@
     "collections": [
       {
         "collectionId": "great-night-views",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 4
       }
     ],
     "transportOptions": {
@@ -30181,7 +30247,7 @@
     "officialWebsite": "https://www.kobe-port-tower.com/",
     "officialWebsiteRequirement": "required",
     "categories": ["Viewpoint"],
-    "tags": ["Viewpoint", "Kobe City", "v1.9.2"],
+    "tags": ["Viewpoint", "Kobe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20port%20tower12s3200.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -30262,7 +30328,8 @@
     "collections": [
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 4
       }
     ],
     "addedAt": "2026-07-29",
@@ -30336,12 +30403,12 @@
     "collections": [
       {
         "collectionId": "original-12-castles",
-        "sortOrder": 7,
+        "sortOrder": 6,
         "confirmed": true
       },
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 84,
+        "sortOrder": 13,
         "confirmed": true
       }
     ],
@@ -30652,7 +30719,7 @@
     "officialWebsite": "http://www.kamakura-komachi.com/",
     "officialWebsiteRequirement": "none",
     "categories": ["Food"],
-    "tags": ["Food", "Kamakura City", "v1.9.2"],
+    "tags": ["Food", "Kamakura City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Komachi%20Dori-Kamakura.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -31232,7 +31299,7 @@
     "officialWebsite": "https://www.kotoku-in.jp/en/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kamakura City", "v1.9.2"],
+    "tags": ["Culture", "Kamakura City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/230128%20Kamakura%20Daibutsu%20Japan01s3.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -31312,7 +31379,7 @@
     "collections": [
       {
         "collectionId": "three-great-buddhas",
-        "sortOrder": 2
+        "sortOrder": 1
       }
     ],
     "addedAt": "2026-07-29",
@@ -31409,11 +31476,11 @@
     "collections": [
       {
         "collectionId": "islands-japan",
-        "sortOrder": 3
+        "sortOrder": 4
       },
       {
         "collectionId": "coastal-drives-japan",
-        "sortOrder": 5
+        "sortOrder": 2
       }
     ],
     "region": "Okinawa",
@@ -31612,7 +31679,7 @@
     "collections": [
       {
         "collectionId": "pilgrimage-routes-japan",
-        "sortOrder": 3
+        "sortOrder": 2
       }
     ],
     "relationships": {
@@ -31636,7 +31703,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Sacred mountain monastic complex (Mount Koya / Koyasan), headquarters of Shingon Buddhism and Okunoin cemetery.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.town.koya.wakayama.jp/",
+          "title": "Koya Town official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -31708,7 +31782,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 92
+        "sortOrder": 14
       }
     ],
     "transportOptions": {
@@ -31888,7 +31962,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 8
       }
     ],
     "relationships": {
@@ -32022,11 +32097,12 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1142/"
+        "source": "https://whc.unesco.org/en/list/1142/",
+        "sortOrder": 10
       },
       {
         "collectionId": "pilgrimage-routes-japan",
-        "sortOrder": 2
+        "sortOrder": 3
       }
     ],
     "relationships": {
@@ -32281,7 +32357,7 @@
     "collections": [
       {
         "collectionId": "waterfalls-gorges-japan",
-        "sortOrder": 7
+        "sortOrder": 4
       }
     ],
     "relationships": {},
@@ -32328,7 +32404,7 @@
     "officialWebsite": "https://kuromon.com/en/",
     "officialWebsiteRequirement": "none",
     "categories": ["Food"],
-    "tags": ["Food", "Osaka City", "v1.9.2"],
+    "tags": ["Food", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E9%BB%92%E9%96%80%E5%B8%82%E5%A0%B4%202024(1).jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -32627,7 +32703,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Fukuoka City", "v1.9.2"],
+    "tags": ["History", "Fukuoka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kushidajinjafukuoka01.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -32954,7 +33030,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 9
       }
     ],
     "relationships": {
@@ -32992,7 +33069,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Japan's ancient imperial capital, renowned for thousands of classical Buddhist temples, Shinto shrines, traditional wooden machiya, and zen gardens.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.kyoto.lg.jp/",
+          "title": "Kyoto City official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -33207,7 +33291,7 @@
     "officialWebsite": "https://sankan.kunaicho.go.jp/guide/kyoto.html",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kyoto City", "v1.9.2"],
+    "tags": ["History", "Kyoto City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kyoto-gosho%20Kenreimon%20(open).JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -33355,7 +33439,7 @@
     "officialWebsite": "http://www.kyotomm.com/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Kyoto City", "v1.9.2"],
+    "tags": ["Museum", "Kyoto City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E3%83%9E%E3%83%B3%E3%82%AC%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -33500,7 +33584,7 @@
     "officialWebsite": "http://www.kyohaku.go.jp/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Kyoto City", "v1.9.2"],
+    "tags": ["Museum", "Kyoto City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/260214%20Kyoto%20National%20Museum%20Kyoto%20Japan04bs4.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -33645,7 +33729,7 @@
     "officialWebsite": "https://www.kyotorailwaymuseum.jp/en/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Kyoto City", "v1.9.2"],
+    "tags": ["Museum", "Kyoto City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kyoto%20Railway%20Museum%2C%20enkei.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -34293,7 +34377,7 @@
     "officialWebsite": "http://www.lazona-kawasaki.com",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kawasaki City", "v1.9.2"],
+    "tags": ["Culture", "Kawasaki City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/LAZONAkawasaki%20001.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -34627,7 +34711,7 @@
     "officialWebsite": "https://www.midorimachi.jp/maiduru/",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Fukuoka City", "v1.9.2"],
+    "tags": ["Nature", "Fukuoka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shimonohashi%20Gomon%20and%20north%20moat%20of%20Fukuoka%20Castle.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -34811,7 +34895,7 @@
     "officialWebsite": "http://www.pref.chiba.lg.jp/kouen/toshikouen/guidemap/makuhari.html",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Chiba City", "v1.9.2"],
+    "tags": ["Nature", "Chiba City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Makuhari%20Seaside%20Park%201.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -34992,11 +35076,11 @@
     "collections": [
       {
         "collectionId": "original-12-castles",
-        "sortOrder": 1
+        "sortOrder": 7
       },
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 78
+        "sortOrder": 15
       }
     ],
     "transportOptions": {
@@ -35266,11 +35350,12 @@
     "collections": [
       {
         "collectionId": "original-12-castles",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 8
       },
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 36
+        "sortOrder": 16
       }
     ],
     "relationships": {},
@@ -35314,7 +35399,7 @@
     "officialWebsite": "https://kyoto.travel/en/destinations/maruyama-park/",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Sapporo City", "v1.9.2"],
+    "tags": ["Nature", "Sapporo City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/SAKURAKO_-_Maruyama_Park.._%2849977718857%29.jpg/1280px-SAKURAKO_-_Maruyama_Park.._%2849977718857%29.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -35645,11 +35730,11 @@
     "collections": [
       {
         "collectionId": "original-12-castles",
-        "sortOrder": 1
+        "sortOrder": 9
       },
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 64
+        "sortOrder": 17
       }
     ],
     "transportOptions": {
@@ -35879,12 +35964,11 @@
     "collections": [
       {
         "collectionId": "original-12-castles",
-        "name": "Original 12 Surviving Castles"
+        "sortOrder": 10
       },
       {
         "collectionId": "japan-top-castles",
-        "name": "Japan's Top Castles",
-        "sortOrder": 29
+        "sortOrder": 18
       }
     ],
     "coordinates": {
@@ -36049,7 +36133,7 @@
     "collections": [
       {
         "collectionId": "three-great-views",
-        "sortOrder": 1
+        "sortOrder": 2
       }
     ],
     "transportOptions": {
@@ -36181,12 +36265,12 @@
     "collections": [
       {
         "collectionId": "original-12-castles",
-        "sortOrder": 10,
+        "sortOrder": 11,
         "confirmed": true
       },
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 81,
+        "sortOrder": 19,
         "confirmed": true
       }
     ],
@@ -36541,7 +36625,7 @@
     },
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Kobe City", "v1.9.2"],
+    "tags": ["Nature", "Kobe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Meriken%20Park01bs3200.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -37302,7 +37386,8 @@
     "collections": [
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 5
       }
     ],
     "relationships": {
@@ -37366,7 +37451,7 @@
     "officialWebsite": "http://www.miraikan.jst.go.jp/index.html",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Koto City", "v1.9.2"],
+    "tags": ["Culture", "Koto City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Miraikan.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -37606,7 +37691,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 14
+        "sortOrder": 20
       }
     ],
     "relationships": {
@@ -37876,11 +37961,12 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/776/"
+        "source": "https://whc.unesco.org/en/list/776/",
+        "sortOrder": 11
       },
       {
         "collectionId": "islands-japan",
-        "sortOrder": 11
+        "sortOrder": 5
       }
     ],
     "transportOptions": {
@@ -38025,7 +38111,7 @@
     "collections": [
       {
         "collectionId": "islands-japan",
-        "sortOrder": 11
+        "sortOrder": 6
       }
     ],
     "relationships": {
@@ -38309,7 +38395,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Coastal city home to Amanohashidate pine sandbar, ranked among Japan's Three Scenic Views.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.miyazu.kyoto.jp/",
+          "title": "Miyazu City official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -38774,7 +38867,7 @@
     "collections": [
       {
         "collectionId": "coastal-drives-japan",
-        "sortOrder": 2
+        "sortOrder": 3
       }
     ],
     "region": "Chugoku",
@@ -39171,13 +39264,13 @@
     "collections": [
       {
         "collectionId": "unesco-japan",
-        "sortOrder": 7,
+        "sortOrder": 12,
         "confirmed": true,
         "source": "https://whc.unesco.org/en/list/1418/"
       },
       {
         "collectionId": "pilgrimage-routes-japan",
-        "sortOrder": 7
+        "sortOrder": 4
       }
     ],
     "relationships": {},
@@ -39238,7 +39331,7 @@
     "collections": [
       {
         "collectionId": "great-night-views",
-        "sortOrder": 9,
+        "sortOrder": 5,
         "confirmed": true
       }
     ],
@@ -39369,7 +39462,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature"],
-    "tags": ["Nature", "Sapporo City", "v1.9.2"],
+    "tags": ["Nature", "Sapporo City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nakajima%20Park%20Sapporo01n3200.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -39559,15 +39652,17 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1142/"
+        "source": "https://whc.unesco.org/en/list/1142/",
+        "sortOrder": 13
       },
       {
         "collectionId": "flower-parks-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 3
       },
       {
         "collectionId": "pilgrimage-routes-japan",
-        "sortOrder": 3
+        "sortOrder": 5
       }
     ],
     "transportOptions": {
@@ -39856,7 +39951,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1593/"
+        "source": "https://whc.unesco.org/en/list/1593/",
+        "sortOrder": 14
       }
     ],
     "relationships": {
@@ -39961,7 +40057,7 @@
     "officialWebsite": "https://musashiichinomiya-hikawa.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Saitama City", "v1.9.2"],
+    "tags": ["History", "Saitama City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Front%20shrine%20of%20the%20Hikawa%20shrine.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -40144,7 +40240,7 @@
     "officialWebsite": "https://www.narita-airport.jp/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Narita City", "v1.9.2"],
+    "tags": ["Museum", "Narita City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Narita%20International%20Air%20Port%20(cropped).jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -40332,19 +40428,22 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1142/"
+        "source": "https://whc.unesco.org/en/list/1142/",
+        "sortOrder": 15
       },
       {
         "collectionId": "three-great-waterfalls",
-        "sortOrder": 2
+        "sortOrder": 3
       },
       {
         "collectionId": "pilgrimage-routes-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 6
       },
       {
         "collectionId": "waterfalls-gorges-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 5
       }
     ],
     "transportOptions": {
@@ -41043,7 +41142,7 @@
     "collections": [
       {
         "collectionId": "historic-towns-japan",
-        "sortOrder": 3,
+        "sortOrder": 5,
         "confirmed": true
       }
     ],
@@ -41371,8 +41470,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "name": "Japan's Top Castles",
-        "sortOrder": 44
+        "sortOrder": 21
       }
     ],
     "coordinates": {
@@ -41482,7 +41580,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 10
       }
     ],
     "relationships": {
@@ -41557,7 +41656,7 @@
     "officialWebsite": "http://www.art-museum.city.nagoya.jp/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Nagoya City", "v1.9.2"],
+    "tags": ["Museum", "Nagoya City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nagoya%20City%20Art%20Museum01-r.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -41726,7 +41825,7 @@
     "officialWebsite": "http://www.ncsm.city.nagoya.jp/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Nagoya City", "v1.9.2"],
+    "tags": ["Museum", "Nagoya City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nagoya%20City%20Science%20Museum-March%202012.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -41957,7 +42056,8 @@
     "collections": [
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 6
       }
     ],
     "relationships": {
@@ -42299,7 +42399,7 @@
     "officialWebsite": "http://www.nakasukankou.com/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Fukuoka City", "v1.9.2"],
+    "tags": ["Culture", "Fukuoka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nishi-Ohashi%20Bridge%20from%20Nishi-Nakashimabashi%20Bridge.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -42474,7 +42574,7 @@
     "officialWebsite": "https://www.nankinmachi.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Food"],
-    "tags": ["Food", "Kobe City", "v1.9.2"],
+    "tags": ["Food", "Kobe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe-Nankinmachi.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -42618,7 +42718,7 @@
     "officialWebsite": "http://www.nanzen.net/keidai_nanzenin.html",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kyoto City", "v1.9.2"],
+    "tags": ["History", "Kyoto City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/NanzenjiNanzenin%20teien.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -42759,7 +42859,7 @@
     "collections": [
       {
         "collectionId": "islands-japan",
-        "sortOrder": 2
+        "sortOrder": 7
       },
       {
         "collectionId": "art-islands-japan",
@@ -42930,7 +43030,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Japan's 8th-century capital, renowned for free-roaming sacred deer in Nara Park and Todai-ji Great Buddha.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.nara.lg.jp/",
+          "title": "Nara City official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -43045,7 +43152,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/870/"
+        "source": "https://whc.unesco.org/en/list/870/",
+        "sortOrder": 16
       }
     ],
     "relationships": {
@@ -43151,11 +43259,13 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/870/"
+        "source": "https://whc.unesco.org/en/list/870/",
+        "sortOrder": 17
       },
       {
         "collectionId": "three-great-buddhas",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 2
       }
     ],
     "transportOptions": {
@@ -43306,7 +43416,7 @@
     "officialWebsite": "http://www.haneda-airport.jp",
     "officialWebsiteRequirement": "optional",
     "categories": ["Viewpoint"],
-    "tags": ["Viewpoint", "Narita City", "v1.9.2"],
+    "tags": ["Viewpoint", "Narita City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokyo-International-Airport%20Satellite.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -43646,7 +43756,7 @@
     },
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Narita City", "v1.9.2"],
+    "tags": ["Nature", "Narita City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/IMAG1509%20(28154414491).jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -43937,7 +44047,7 @@
     "officialWebsite": "http://www.kahaku.go.jp/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Taito City", "v1.9.2"],
+    "tags": ["Museum", "Taito City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/NMNC01s3200.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -44163,7 +44273,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1321/"
+        "source": "https://whc.unesco.org/en/list/1321/",
+        "sortOrder": 18
       }
     ],
     "relationships": {
@@ -44561,7 +44672,7 @@
     "officialWebsite": "https://www.nihonminkaen.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kawasaki City", "v1.9.2"],
+    "tags": ["Culture", "Kawasaki City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kawasaki%20Nihon%20Minkaen-3.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -44784,7 +44895,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 11
       }
     ],
     "relationships": {},
@@ -44851,11 +44963,12 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/688/"
+        "source": "https://whc.unesco.org/en/list/688/",
+        "sortOrder": 19
       },
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 53
+        "sortOrder": 22
       }
     ],
     "transportOptions": {
@@ -44996,7 +45109,7 @@
     },
     "officialWebsiteRequirement": "none",
     "categories": ["Food"],
-    "tags": ["Food", "Sapporo City", "v1.9.2"],
+    "tags": ["Food", "Sapporo City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nijo%20fish%20Market%202014.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -45353,7 +45466,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/913/"
+        "source": "https://whc.unesco.org/en/list/913/",
+        "sortOrder": 20
       }
     ],
     "coordinates": {
@@ -45468,7 +45582,7 @@
     "officialWebsite": "http://www.ninnaji.or.jp",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kyoto City", "v1.9.2"],
+    "tags": ["History", "Kyoto City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ninnaji%20Kyoto07n4500.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -45551,7 +45665,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/688/"
+        "source": "https://whc.unesco.org/en/list/688/",
+        "sortOrder": 21
       }
     ],
     "addedAt": "2026-07-29",
@@ -45706,7 +45821,7 @@
     "officialWebsite": "http://www.kyoto-nishiki.or.jp/",
     "officialWebsiteRequirement": "none",
     "categories": ["Food"],
-    "tags": ["Food", "Kyoto City", "v1.9.2"],
+    "tags": ["Food", "Kyoto City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nishiki%20ichiba%20kyoto.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -46039,7 +46154,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature"],
-    "tags": ["Nature", "Kobe City", "v1.9.2"],
+    "tags": ["Nature", "Kobe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Odaki%2C%20from%20the%20Nunobiki%20Falls.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -46184,7 +46299,7 @@
     "officialWebsite": "https://www.kobeherb.com/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature"],
-    "tags": ["Nature", "Kobe City", "v1.9.2"],
+    "tags": ["Nature", "Kobe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Nunobiki%20Herb%20Garden09bs3200.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -46328,7 +46443,7 @@
     "officialWebsite": "https://www.kobeherb.com/view/ropeway/",
     "officialWebsiteRequirement": "required",
     "categories": ["Viewpoint"],
-    "tags": ["Viewpoint", "Kobe City", "v1.9.2"],
+    "tags": ["Viewpoint", "Kobe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/121208%20Kobe-Nunobiki%20ropeway%20Kobe%20Hyogo%20pref%20Japan05s3.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -46655,7 +46770,8 @@
     "collections": [
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 7
       }
     ],
     "relationships": {
@@ -47055,7 +47171,7 @@
     "officialWebsite": "https://odori-park.jp/",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Sapporo City", "v1.9.2"],
+    "tags": ["Nature", "Sapporo City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Odori%20Park%20(15982613668).jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -47269,7 +47385,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1362/"
+        "source": "https://whc.unesco.org/en/list/1362/",
+        "sortOrder": 22
       }
     ],
     "relationships": {},
@@ -47381,7 +47498,7 @@
     "officialWebsite": "https://www.ohorikouen.jp/",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Fukuoka City", "v1.9.2"],
+    "tags": ["Nature", "Fukuoka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E5%A4%A7%E6%BF%A0%E5%85%AC%E5%9C%92%20(3359545709).jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -47550,7 +47667,7 @@
     "collections": [
       {
         "collectionId": "waterfalls-gorges-japan",
-        "sortOrder": 1
+        "sortOrder": 6
       }
     ],
     "region": "Tohoku",
@@ -47829,7 +47946,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 12
       }
     ],
     "relationships": {
@@ -47967,11 +48085,7 @@
     "budgetMin": 4000,
     "budgetMax": 15000,
     "budgetRecommended": 9500,
-    "transportOptions": {
-      "train": 45,
-      "bus": 50,
-      "car": 60
-    },
+    "transportOptions": {},
     "totalTripHours": 6,
     "walkingMin": 120,
     "walkingSunMin": 70,
@@ -48031,7 +48145,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1535/"
+        "source": "https://whc.unesco.org/en/list/1535/",
+        "sortOrder": 23
       }
     ],
     "relationships": {
@@ -48380,7 +48495,7 @@
     "officialWebsite": "https://www.bonsai-art-museum.jp/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Saitama City", "v1.9.2"],
+    "tags": ["Museum", "Saitama City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/OmiyaBonsaiVillage%20%C5%8Cmiya-Bonsai-Art-Museum%20001.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -48563,7 +48678,7 @@
     "officialWebsite": "https://omiyabonsaimura.com/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Saitama City", "v1.9.2"],
+    "tags": ["Culture", "Saitama City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Saitama%20Bonsaishiki-no-ie%201.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -48746,7 +48861,7 @@
     "officialWebsite": "https://www.pref.saitama.lg.jp/omiya-park/",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Saitama City", "v1.9.2"],
+    "tags": ["Nature", "Saitama City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Omiya%20park%20002.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -49084,7 +49199,7 @@
     "officialWebsite": "http://shinjuku-omoide.com/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Shinjuku City", "v1.9.2"],
+    "tags": ["Culture", "Shinjuku City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinjuku-West%20Omoide-Yokocho.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -49350,7 +49465,7 @@
     "officialWebsite": "https://www.kaiyukan.com/language/eng/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Osaka City", "v1.9.2"],
+    "tags": ["Museum", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Osaka%20Kaiyukan01s3872.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -49504,7 +49619,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 54
+        "sortOrder": 23
       }
     ],
     "transportOptions": {
@@ -49643,7 +49758,7 @@
     "officialWebsite": "https://www.osakacastlepark.jp/?lang=en",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature", "History"],
-    "tags": ["Nature", "History", "Osaka City", "v1.9.2"],
+    "tags": ["Nature", "History", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Osaka%20Castle%2001bs3200.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -49838,7 +49953,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 13
       }
     ],
     "relationships": {
@@ -49883,7 +49999,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Kansai's vibrant commercial metropolis, famous for neon-lit Dotonbori canals, Osaka Castle, street food culture, and warm hospitality.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.osaka.lg.jp/",
+          "title": "Osaka City official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -49946,7 +50069,7 @@
     "officialWebsite": "http://konjyakukan.com/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Osaka City", "v1.9.2"],
+    "tags": ["Museum", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tenjimbashi6%20on%20Tenjimbashisuji-Mall.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -50090,7 +50213,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Osaka City", "v1.9.2"],
+    "tags": ["Culture", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Osaka%20Station%20City.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -50237,7 +50360,7 @@
     "officialWebsite": "https://www.oosaki-hachiman.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Sendai City", "v1.9.2"],
+    "tags": ["History", "Sendai City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Osaki%20Hachiman-gu%2020130819b.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -50406,7 +50529,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Nagoya City", "v1.9.2"],
+    "tags": ["Culture", "Nagoya City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Japan-_Nagoya-_Osu_Kannon_Temple_4.jpg/1280px-Japan-_Nagoya-_Osu_Kannon_Temple_4.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -50584,7 +50707,7 @@
     "officialWebsite": "https://www.city.nagoya.jp/",
     "officialWebsiteRequirement": "none",
     "categories": ["Food"],
-    "tags": ["Food", "Nagoya City", "v1.9.2"],
+    "tags": ["Food", "Nagoya City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -51051,7 +51174,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Port city on southern tip of Lake Biwa, featuring Ishiyamadera Temple and Enryaku-ji Temple on Mt. Hiei.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.otsu.lg.jp/",
+          "title": "Otsu City official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -51119,7 +51249,7 @@
     "collections": [
       {
         "collectionId": "historic-towns-japan",
-        "sortOrder": 9
+        "sortOrder": 6
       }
     ],
     "budgetMin": 1000,
@@ -51289,7 +51419,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1495/"
+        "source": "https://whc.unesco.org/en/list/1495/",
+        "sortOrder": 24
       }
     ],
     "relationships": {
@@ -51396,7 +51527,7 @@
     "collections": [
       {
         "collectionId": "national-parks-japan",
-        "sortOrder": 12
+        "sortOrder": 1
       }
     ],
     "relationships": {},
@@ -51506,7 +51637,7 @@
     "officialWebsite": "https://tetsugakunomichi.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kyoto City", "v1.9.2"],
+    "tags": ["Culture", "Kyoto City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Japan%20Kyoto%20philosophers%20walk%20DSC00297.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -51651,7 +51782,7 @@
     },
     "officialWebsiteRequirement": "none",
     "categories": ["Sports", "Nature"],
-    "tags": ["Nature", "Sendai City", "v1.9.2"],
+    "tags": ["Nature", "Sendai City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobo%20Park%20Miyagi(2017).jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -51818,7 +51949,7 @@
     "officialWebsite": "https://www.seiburailway.jp/railway/station/hon-kawagoe/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kawagoe City", "v1.9.2"],
+    "tags": ["History", "Kawagoe City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Temple_Renkei-ji_%C3%A0_Kawagoe_au_Japon.jpg/1280px-Temple_Renkei-ji_%C3%A0_Kawagoe_au_Japon.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -52053,12 +52184,13 @@
     "collections": [
       {
         "collectionId": "great-night-views",
-        "sortOrder": 8,
+        "sortOrder": 6,
         "confirmed": true
       },
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 8
       }
     ],
     "relationships": {
@@ -52157,7 +52289,7 @@
     "officialWebsite": "https://www.city.kyoto.lg.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kyoto City", "v1.9.2"],
+    "tags": ["History", "Kyoto City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RyoanJi-Dry_garden.jpg/1280px-RyoanJi-Dry_garden.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -52240,7 +52372,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/688/"
+        "source": "https://whc.unesco.org/en/list/688/",
+        "sortOrder": 25
       }
     ],
     "addedAt": "2026-07-29",
@@ -52303,7 +52436,7 @@
     "collections": [
       {
         "collectionId": "caves-japan",
-        "sortOrder": 2
+        "sortOrder": 3
       }
     ],
     "region": "Shikoku",
@@ -52403,7 +52536,7 @@
     "collections": [
       {
         "collectionId": "caves-japan",
-        "sortOrder": 1
+        "sortOrder": 4
       }
     ],
     "budgetMin": 1100,
@@ -52577,15 +52710,16 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1698/"
+        "source": "https://whc.unesco.org/en/list/1698/",
+        "sortOrder": 26
       },
       {
         "collectionId": "islands-japan",
-        "sortOrder": 7
+        "sortOrder": 8
       },
       {
         "collectionId": "coastal-drives-japan",
-        "sortOrder": 8
+        "sortOrder": 4
       }
     ],
     "relationships": {
@@ -52682,7 +52816,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 14
       }
     ],
     "relationships": {
@@ -52839,7 +52974,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 15
       }
     ],
     "kind": "city",
@@ -53113,7 +53249,7 @@
     "officialWebsite": "https://www.city.saitama.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Saitama City", "v1.9.2"],
+    "tags": ["Culture", "Saitama City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Saitama%20city%20montage.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -53296,7 +53432,7 @@
     "officialWebsite": "https://www.stadium2002.com/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Saitama City", "v1.9.2"],
+    "tags": ["Culture", "Saitama City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Saitama%20stadium2002-1.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -53482,7 +53618,7 @@
     "officialWebsite": "https://www.saitama-arena.co.jp/arena/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Saitama City", "v1.9.2"],
+    "tags": ["Culture", "Saitama City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Saitama%20Super%20Arena%2002.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -53698,7 +53834,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 16
       }
     ],
     "relationships": {
@@ -53722,7 +53859,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Ancient port city famous for Mozu Kofun Burial Mounds (UNESCO) and traditional Japanese kitchen knives.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.sakai.lg.jp/",
+          "title": "Sakai City official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -53841,7 +53985,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 20
+        "sortOrder": 24
       }
     ],
     "relationships": {
@@ -54078,7 +54222,7 @@
     "officialWebsite": "https://enoshima-seacandle.com/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature"],
-    "tags": ["Nature", "Fujisawa City", "v1.9.2"],
+    "tags": ["Nature", "Fujisawa City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Enoshima_Samuel_Cocking_Garden_from_the_Enoshima_Sea_Candle_%28Feb_2022%29.jpg/1920px-Enoshima_Samuel_Cocking_Garden_from_the_Enoshima_Sea_Candle_%28Feb_2022%29.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -54252,7 +54396,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kyoto City", "v1.9.2"],
+    "tags": ["Culture", "Kyoto City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Sanjusangendo_Temple_%40_Kyoto_%2813310760984%29.jpg/1280px-Sanjusangendo_Temple_%40_Kyoto_%2813310760984%29.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -54450,7 +54594,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1632/"
+        "source": "https://whc.unesco.org/en/list/1632/",
+        "sortOrder": 27
       }
     ],
     "relationships": {
@@ -54531,7 +54676,7 @@
     "officialWebsite": "https://www.sapporobeer.jp/brewery/s_museum/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Sapporo City", "v1.9.2"],
+    "tags": ["Museum", "Sapporo City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sapporo%20Beer%20Museum.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -54740,7 +54885,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 17
       }
     ],
     "relationships": {
@@ -54804,7 +54950,7 @@
     "officialWebsite": "http://sapporoshi-tokeidai.jp",
     "officialWebsiteRequirement": "required",
     "categories": ["Viewpoint"],
-    "tags": ["Viewpoint", "Sapporo City", "v1.9.2"],
+    "tags": ["Viewpoint", "Sapporo City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/20200119%20Sapporo%20Clock%20Tower.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -54972,7 +55118,7 @@
     "officialWebsite": "https://www.tv-tower.co.jp/",
     "officialWebsiteRequirement": "required",
     "categories": ["Viewpoint"],
-    "tags": ["Viewpoint", "Sapporo City", "v1.9.2"],
+    "tags": ["Viewpoint", "Sapporo City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/93/Sapporo-TV-Tower-2025.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -55148,7 +55294,7 @@
     "officialWebsite": "https://sasukeinari.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kamakura City", "v1.9.2"],
+    "tags": ["History", "Kamakura City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sasuke%20Inari%20Shrine.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -55322,7 +55468,7 @@
     },
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Nagoya City", "v1.9.2"],
+    "tags": ["Nature", "Nagoya City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Liniatetsudoukan.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -55773,7 +55919,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 8
+        "sortOrder": 25
       }
     ],
     "budgetMin": 700,
@@ -55952,7 +56098,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 18
       }
     ],
     "relationships": {
@@ -56045,7 +56192,7 @@
     "officialWebsite": "http://www.city.sendai.jp/museum/index.html",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Sendai City", "v1.9.2"],
+    "tags": ["Museum", "Sendai City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sendai%20City%20Museum%2020251221a.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -56208,7 +56355,7 @@
     "officialWebsite": "https://www.smt.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture", "Museum"],
-    "tags": ["Culture", "Sendai City", "v1.9.2"],
+    "tags": ["Culture", "Sendai City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sendai%20Mediatheque%202009.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -56366,7 +56513,7 @@
     "officialWebsite": "https://www.uminomori.jp/umino/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Aquarium"],
-    "tags": ["Museum", "Sendai City", "v1.9.2"],
+    "tags": ["Museum", "Sendai City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sendai%20Umino-Mori%20Aquarium.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -56887,12 +57034,13 @@
     "collections": [
       {
         "collectionId": "great-night-views",
-        "sortOrder": 3,
+        "sortOrder": 7,
         "confirmed": true
       },
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 9
       }
     ],
     "relationships": {
@@ -57393,7 +57541,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kawagoe City", "v1.9.2"],
+    "tags": ["Culture", "Kawagoe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kawagoe%20Boating%20In%20Shingashi%20River%201.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -57739,7 +57887,7 @@
     "officialWebsite": "https://www.city.shinjuku.lg.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Shinjuku City", "v1.9.2"],
+    "tags": ["Culture", "Shinjuku City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wooden_footbridge_in_Shinjuku_Gyoen_National_Garden%2C_Tokyo%2C_Japan%2C_a_sunny_day_with_blue_sky.jpg/1280px-Wooden_footbridge_in_Shinjuku_Gyoen_National_Garden%2C_Tokyo%2C_Japan%2C_a_sunny_day_with_blue_sky.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -57819,7 +57967,8 @@
     "collections": [
       {
         "collectionId": "flower-parks-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 4
       }
     ],
     "addedAt": "2026-07-29",
@@ -57916,7 +58065,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Osaka City", "v1.9.2"],
+    "tags": ["Culture", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinsaibashi%20Osaka%20Japan01-r.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -58062,7 +58211,7 @@
     "officialWebsite": "https://shinsekai.osaka/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Osaka City", "v1.9.2"],
+    "tags": ["Culture", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinsekai%20(49251920793).jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -58216,7 +58365,7 @@
     "officialWebsite": "https://www.naritasan.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Narita City", "v1.9.2"],
+    "tags": ["History", "Narita City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/120803%20Narita-san%20Shinsho-ji%20Narita%20Chiba%20pref%20Japan01n.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -58451,7 +58600,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Subtropical resort town famous for white sand beaches, outdoor hot springs, and Engetsuto Island sunset views.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.town.shirahama.wakayama.jp/",
+          "title": "Shirahama Town official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -58562,7 +58718,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/663/"
+        "source": "https://whc.unesco.org/en/list/663/",
+        "sortOrder": 28
       }
     ],
     "relationships": {
@@ -58692,7 +58849,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/734/"
+        "source": "https://whc.unesco.org/en/list/734/",
+        "sortOrder": 29
       },
       {
         "collectionId": "historic-towns-japan",
@@ -58774,7 +58932,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1193/"
+        "source": "https://whc.unesco.org/en/list/1193/",
+        "sortOrder": 30
       },
       {
         "collectionId": "national-parks-japan",
@@ -58782,7 +58941,7 @@
       },
       {
         "collectionId": "coastal-drives-japan",
-        "sortOrder": 6
+        "sortOrder": 5
       }
     ],
     "relationships": {
@@ -58874,7 +59033,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 19
       }
     ],
     "relationships": {
@@ -58944,7 +59104,7 @@
     "officialWebsite": "https://www.s-n-p.jp/shonankaigan_park/",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Fujisawa City", "v1.9.2"],
+    "tags": ["Nature", "Fujisawa City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shonan%20Nagisa%20Park%2C%203%2035%20PM%20on%20Nov%204%2C%202012%2C%20Facing%20NW.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -59167,11 +59327,12 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/972/"
+        "source": "https://whc.unesco.org/en/list/972/",
+        "sortOrder": 31
       },
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 100
+        "sortOrder": 26
       }
     ],
     "relationships": {
@@ -59792,7 +59953,8 @@
     "collections": [
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 10
       }
     ],
     "relationships": {
@@ -59908,7 +60070,7 @@
     "officialWebsite": "https://sunshinecity.jp/aquarium/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Toshima City", "v1.9.2"],
+    "tags": ["Museum", "Toshima City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Breeding%20staff%2C%20Sunshine%20Aquarium.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -60103,7 +60265,7 @@
     "officialWebsite": "https://sunshinecity.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Toshima City", "v1.9.2"],
+    "tags": ["Culture", "Toshima City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunshine%20City%202012.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -60281,7 +60443,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Sapporo City", "v1.9.2"],
+    "tags": ["Culture", "Sapporo City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chuo%20Sapporo%20S4W4S4W3%2001s4s3200.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -60620,7 +60782,7 @@
     "officialWebsite": "https://www.koedo.com/",
     "officialWebsiteRequirement": "none",
     "categories": ["Food"],
-    "tags": ["Food", "Kawagoe City", "v1.9.2"],
+    "tags": ["Food", "Kawagoe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Taisho-roman%20Street%2020180328.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -61566,7 +61728,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 30
+        "sortOrder": 27
       }
     ],
     "relationships": {
@@ -61698,7 +61860,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 56
+        "sortOrder": 28
       }
     ],
     "region": "Kansai",
@@ -61900,7 +62062,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 24
+        "sortOrder": 29
       }
     ],
     "relationships": {
@@ -62100,7 +62262,7 @@
     "officialWebsite": "https://tanukikoji.or.jp/",
     "officialWebsiteRequirement": "none",
     "categories": ["History", "Food"],
-    "tags": ["History", "Food", "Sapporo City", "v1.9.2"],
+    "tags": ["History", "Food", "Sapporo City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tanukikoji%2001.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -62276,7 +62438,7 @@
     "officialWebsite": "https://www.taromuseum.jp/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Kawasaki City", "v1.9.2"],
+    "tags": ["Museum", "Kawasaki City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Taro%20Okamoto%20Museum5.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -62752,7 +62914,7 @@
     "officialWebsite": "http://www.senyo.co.jp/tempozan/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Viewpoint"],
-    "tags": ["Culture", "Osaka City", "v1.9.2"],
+    "tags": ["Culture", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tempozan%20giant%20wheel02s2048.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -62899,7 +63061,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Fukuoka City", "v1.9.2"],
+    "tags": ["Culture", "Fukuoka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fukuoka-tenjin.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -63083,7 +63245,7 @@
     "officialWebsite": "https://www.city.osaka.lg.jp/contents/wdu170/tennojizoo/top.html",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature", "History"],
-    "tags": ["Nature", "History", "Osaka City", "v1.9.2"],
+    "tags": ["Nature", "History", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tennoji%20park01s3200.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -63224,7 +63386,7 @@
     "collections": [
       {
         "collectionId": "islands-japan",
-        "sortOrder": 4
+        "sortOrder": 9
       },
       {
         "collectionId": "art-islands-japan",
@@ -63333,7 +63495,7 @@
     "officialWebsite": "https://pref.spec.ed.jp/momas/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Saitama City", "v1.9.2"],
+    "tags": ["Museum", "Saitama City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Museum%20of%20Modern%20Art%20Saitama%202010.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -63507,7 +63669,7 @@
     "officialWebsite": "http://www.nmao.go.jp",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Osaka City", "v1.9.2"],
+    "tags": ["Museum", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/NMAO01s3200.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -63655,7 +63817,7 @@
     "officialWebsite": "https://www.tochoji.net/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Fukuoka City", "v1.9.2"],
+    "tags": ["History", "Fukuoka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Touchouji02.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -63839,7 +64001,7 @@
     "officialWebsite": "https://www.city.kawasaki.jp/shisetsu/category/30-11-0-0-0-0-0-0-0-0.html",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kawasaki City", "v1.9.2"],
+    "tags": ["Culture", "Kawasaki City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Todoroki%20Ryokuchi.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -64008,7 +64170,7 @@
     "collections": [
       {
         "collectionId": "coastal-drives-japan",
-        "sortOrder": 4
+        "sortOrder": 6
       }
     ],
     "region": "Chubu",
@@ -64170,12 +64332,13 @@
     "collections": [
       {
         "collectionId": "great-night-views",
-        "sortOrder": 7,
+        "sortOrder": 8,
         "confirmed": true
       },
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 11
       }
     ],
     "relationships": {
@@ -64227,7 +64390,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kawagoe City", "v1.9.2"],
+    "tags": ["Culture", "Kawagoe City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokinokane-2006-03-20%201.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -64557,7 +64720,7 @@
     "officialWebsite": "https://www.tokugawa-art-museum.jp/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Nagoya City", "v1.9.2"],
+    "tags": ["Museum", "Nagoya City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/View%20of%20Tokugawa%20Art%20Museum%20(1)%2C%20Tokugawa-cho%20Higashi%20Ward%20Nagoya%202021.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -64726,7 +64889,7 @@
     "officialWebsite": "https://www.tokugawaen.aichi.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Nature"],
-    "tags": ["Nature", "Nagoya City", "v1.9.2"],
+    "tags": ["Nature", "Nagoya City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokugawaen%20Ryusen-ko%2001%2C%20Tokugawa-cho%20Higashi%20Ward%20Nagoya%202014.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -65467,7 +65630,7 @@
     "officialWebsite": "https://www.tnm.jp/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Taito City", "v1.9.2"],
+    "tags": ["Museum", "Taito City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokyo%20National%20Museum%2C%20Honkan%202010.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -65863,12 +66026,13 @@
     "collections": [
       {
         "collectionId": "great-night-views",
-        "sortOrder": 4,
+        "sortOrder": 9,
         "confirmed": true
       },
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 12
       }
     ],
     "relationships": {
@@ -66183,7 +66347,8 @@
     "collections": [
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 13
       }
     ],
     "relationships": {
@@ -66336,7 +66501,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1449/"
+        "source": "https://whc.unesco.org/en/list/1449/",
+        "sortOrder": 32
       }
     ],
     "relationships": {},
@@ -66688,7 +66854,7 @@
     "collections": [
       {
         "collectionId": "coastal-drives-japan",
-        "sortOrder": 1
+        "sortOrder": 7
       }
     ],
     "region": "Chugoku",
@@ -66956,7 +67122,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "A northern Hyogo city known for Kinosaki Onsen, the San'in coast, and the reintroduction of Oriental storks.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.toyooka.hyogo.jp/",
+          "title": "Toyooka City official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -67024,7 +67197,7 @@
     "officialWebsite": "https://www.shijou.metro.tokyo.lg.jp/toyosu/",
     "officialWebsiteRequirement": "none",
     "categories": ["Food"],
-    "tags": ["Food", "Koto City", "v1.9.2"],
+    "tags": ["Food", "Koto City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toyosu%20fish%20market-4b.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -67293,7 +67466,7 @@
     "officialWebsite": "https://www.tcmit.org/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
-    "tags": ["Museum", "Nagoya City", "v1.9.2"],
+    "tags": ["Museum", "Nagoya City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toyota%20tecno%20museum.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -67470,7 +67643,7 @@
     "officialWebsite": "http://www.kanagawa-park.or.jp/tujidou/",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Fujisawa City", "v1.9.2"],
+    "tags": ["Nature", "Fujisawa City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tsujido%20kaihin%20park.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -67785,11 +67958,11 @@
     "collections": [
       {
         "collectionId": "coastal-drives-japan",
-        "sortOrder": 3
+        "sortOrder": 8
       },
       {
         "collectionId": "scenic-bridges-japan",
-        "sortOrder": 1
+        "sortOrder": 3
       }
     ],
     "region": "Chugoku",
@@ -67892,7 +68065,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 12
+        "sortOrder": 30
       }
     ],
     "budgetMin": 410,
@@ -68025,7 +68198,7 @@
     "officialWebsite": "http://www.hachimangu.or.jp",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kamakura City", "v1.9.2"],
+    "tags": ["History", "Kamakura City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tsurugaoka%20Hachimangu%20001.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -68199,7 +68372,7 @@
     "officialWebsite": "https://www.tsutenkaku.co.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Viewpoint"],
-    "tags": ["Culture", "Osaka City", "v1.9.2"],
+    "tags": ["Culture", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/New%20Tsutenkaku%20in%20201409%20003.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -68281,7 +68454,8 @@
     "collections": [
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 14
       }
     ],
     "addedAt": "2026-07-29",
@@ -68412,7 +68586,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 27
+        "sortOrder": 31
       }
     ],
     "relationships": {},
@@ -68469,7 +68643,7 @@
     "officialWebsite": "http://www.kensetsu.metro.tokyo.jp/toubuk/ueno/index_top.html",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Taito City", "v1.9.2"],
+    "tags": ["Nature", "Taito City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/UenoPark%20Hanami.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -68993,7 +69167,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Historic green tea capital south of Kyoto, featuring UNESCO World Heritage Byodoin Temple (10-yen coin temple).",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.uji.kyoto.jp/",
+          "title": "Uji City official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -69051,7 +69232,7 @@
     "officialWebsite": "https://www.skybldg.co.jp/en/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Viewpoint"],
-    "tags": ["Viewpoint", "Osaka City", "v1.9.2"],
+    "tags": ["Viewpoint", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2018%20Umeda%20Sky%20Building.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -69133,11 +69314,13 @@
     "collections": [
       {
         "collectionId": "great-night-views",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 10
       },
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 15
       }
     ],
     "addedAt": "2026-07-29",
@@ -69206,7 +69389,7 @@
     "officialWebsite": "https://www.usj.co.jp/web/en/us",
     "officialWebsiteRequirement": "required",
     "categories": ["Theme Park", "Entertainment"],
-    "tags": ["Culture", "Osaka City", "v1.9.2"],
+    "tags": ["Culture", "Osaka City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Harry%20Potter%20and%20the%20Forbidden%20Journey%20USJ.JPG?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -69942,11 +70125,11 @@
     "collections": [
       {
         "collectionId": "original-12-castles",
-        "sortOrder": 1
+        "sortOrder": 12
       },
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 83
+        "sortOrder": 32
       }
     ],
     "transportOptions": {
@@ -70105,7 +70288,14 @@
       "recommendedDurationMinutes": 90,
       "editorialSummary": "Coastal castle city famous for Wakayama Castle, Kuroshio Seafood Market, and Wakayama ramen.",
       "lifecycle": "published",
-      "sources": ["editorial-review-2026"],
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.wakayama.lg.jp/",
+          "title": "Wakayama City official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
       "reviewedAt": "2026-08-03T00:00:00Z",
       "checkedAt": "2026-08-03T00:00:00Z",
       "freshness": "current"
@@ -70205,7 +70395,7 @@
     "collections": [
       {
         "collectionId": "islands-japan",
-        "sortOrder": 6
+        "sortOrder": 10
       }
     ],
     "relationships": {
@@ -70665,7 +70855,7 @@
     "collections": [
       {
         "collectionId": "waterfalls-gorges-japan",
-        "sortOrder": 8
+        "sortOrder": 7
       }
     ],
     "relationships": {
@@ -70872,7 +71062,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Taito City", "v1.9.2"],
+    "tags": ["Culture", "Taito City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokyo%20-%20Yanaka%20141A.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -71058,7 +71248,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Kyoto City", "v1.9.2"],
+    "tags": ["History", "Kyoto City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Yasaka-dori_early_morning_with_street_lanterns_and_the_Tower_of_Yasaka_%28Hokan-ji_Temple%29%2C_Kyoto%2C_Japan.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -71405,7 +71595,8 @@
     "collections": [
       {
         "collectionId": "core-cities-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 20
       }
     ],
     "kind": "city",
@@ -71733,12 +71924,13 @@
     "collections": [
       {
         "collectionId": "great-night-views",
-        "sortOrder": 6,
+        "sortOrder": 11,
         "confirmed": true
       },
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 16
       }
     ],
     "relationships": {
@@ -71895,7 +72087,8 @@
     "collections": [
       {
         "collectionId": "japan-observatories-towers",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 17
       }
     ],
     "relationships": {
@@ -72722,7 +72915,7 @@
     "officialWebsite": "http://www.jishu.or.jp/",
     "officialWebsiteRequirement": "optional",
     "categories": ["History"],
-    "tags": ["History", "Fujisawa City", "v1.9.2"],
+    "tags": ["History", "Fujisawa City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Yugyo-ji%20Fujisawa%20main%20hall%202025-11%20ac.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -72905,7 +73098,7 @@
     "officialWebsite": "https://yuigahama.sos.gr.jp/",
     "officialWebsiteRequirement": "none",
     "categories": ["Nature"],
-    "tags": ["Nature", "Kamakura City", "v1.9.2"],
+    "tags": ["Nature", "Kamakura City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/230128%20Yuigahama%20Kamakura%20Kanagawa%20pref%20Japan02s3.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -73189,7 +73382,7 @@
     },
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture"],
-    "tags": ["Culture", "Kamakura City", "v1.9.2"],
+    "tags": ["Culture", "Kamakura City"],
     "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Zeniarai%20Benzaiten%20-%20Benten%2001.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -73373,7 +73566,7 @@
     "officialWebsite": "https://www.zuihoden.com/",
     "officialWebsiteRequirement": "optional",
     "categories": ["Culture", "Museum"],
-    "tags": ["Culture", "Sendai City", "v1.9.2"],
+    "tags": ["Culture", "Sendai City"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Zuiho-den12s3200.jpg/1280px-Zuiho-den12s3200.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -74736,7 +74929,7 @@
     "collections": [
       {
         "collectionId": "scenic-bridges-japan",
-        "sortOrder": 5
+        "sortOrder": 4
       }
     ],
     "addedAt": "2026-08-02",
@@ -79245,7 +79438,8 @@
     "collections": [
       {
         "collectionId": "flower-parks-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 5
       }
     ],
     "addedAt": "2026-08-02",
@@ -80516,7 +80710,8 @@
     "collections": [
       {
         "collectionId": "flower-parks-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 6
       }
     ],
     "addedAt": "2026-08-02",
@@ -81736,7 +81931,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 73
+        "sortOrder": 33
       }
     ],
     "addedAt": "2026-08-02",
@@ -82647,7 +82842,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/688/"
+        "source": "https://whc.unesco.org/en/list/688/",
+        "sortOrder": 33
       }
     ],
     "relationships": {
@@ -82780,7 +82976,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/688/"
+        "source": "https://whc.unesco.org/en/list/688/",
+        "sortOrder": 34
       }
     ],
     "transportOptions": {
@@ -82986,7 +83183,7 @@
     "collections": [
       {
         "collectionId": "historic-towns-japan",
-        "sortOrder": 64
+        "sortOrder": 8
       }
     ],
     "travelEstimate": {
@@ -83391,7 +83588,7 @@
     "collections": [
       {
         "collectionId": "historic-towns-japan",
-        "sortOrder": 68
+        "sortOrder": 9
       }
     ],
     "travelEstimate": {
@@ -83763,7 +83960,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/660/"
+        "source": "https://whc.unesco.org/en/list/660/",
+        "sortOrder": 35
       }
     ],
     "relationships": {
@@ -83973,7 +84171,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/688/"
+        "source": "https://whc.unesco.org/en/list/688/",
+        "sortOrder": 36
       }
     ],
     "relationships": {
@@ -84585,7 +84784,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1142/"
+        "source": "https://whc.unesco.org/en/list/1142/",
+        "sortOrder": 37
       }
     ],
     "relationships": {
@@ -85137,7 +85337,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 62
+        "sortOrder": 34
       }
     ],
     "travelEstimate": {
@@ -85309,7 +85509,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1142/"
+        "source": "https://whc.unesco.org/en/list/1142/",
+        "sortOrder": 38
       }
     ],
     "relationships": {
@@ -85495,7 +85696,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/870/"
+        "source": "https://whc.unesco.org/en/list/870/",
+        "sortOrder": 39
       }
     ],
     "relationships": {
@@ -85599,7 +85801,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/870/"
+        "source": "https://whc.unesco.org/en/list/870/",
+        "sortOrder": 40
       }
     ],
     "relationships": {
@@ -87439,12 +87642,13 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 98
+        "sortOrder": 35
       },
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/972/"
+        "source": "https://whc.unesco.org/en/list/972/",
+        "sortOrder": 41
       }
     ],
     "crowd": {
@@ -89367,7 +89571,7 @@
     "collections": [
       {
         "collectionId": "scenic-bridges-japan",
-        "sortOrder": 6
+        "sortOrder": 5
       }
     ],
     "addedAt": "2026-08-04",
@@ -92653,7 +92857,7 @@
     "collections": [
       {
         "collectionId": "waterfalls-gorges-japan",
-        "sortOrder": 10
+        "sortOrder": 8
       }
     ],
     "addedAt": "2026-08-04",
@@ -93124,7 +93328,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/662/"
+        "source": "https://whc.unesco.org/en/list/662/",
+        "sortOrder": 42
       }
     ],
     "addedAt": "2026-08-04",
@@ -93918,7 +94123,8 @@
     "collections": [
       {
         "collectionId": "flower-parks-japan",
-        "confirmed": true
+        "confirmed": true,
+        "sortOrder": 7
       }
     ],
     "addedAt": "2026-08-04",
@@ -97174,7 +97380,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 96
+        "sortOrder": 36
       }
     ],
     "addedAt": "2026-08-05",
@@ -98799,7 +99005,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 77
+        "sortOrder": 37
       }
     ],
     "transportOptions": {
@@ -100076,7 +100282,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 80
+        "sortOrder": 38
       }
     ],
     "transportOptions": {
@@ -103722,7 +103928,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 70
+        "sortOrder": 39
       }
     ],
     "transportOptions": {},
@@ -105393,7 +105599,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/775/"
+        "source": "https://whc.unesco.org/en/list/775/",
+        "sortOrder": 43
       }
     ],
     "transportOptions": {},
@@ -108408,7 +108615,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 74
+        "sortOrder": 40
       }
     ],
     "transportOptions": {},
@@ -110887,7 +111094,7 @@
     "collections": [
       {
         "collectionId": "art-islands-japan",
-        "sortOrder": 8
+        "sortOrder": 4
       }
     ],
     "transportOptions": {
@@ -111552,7 +111759,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 6
+        "sortOrder": 41
       }
     ],
     "transportOptions": {
@@ -112218,7 +112425,8 @@
       {
         "collectionId": "unesco-japan",
         "confirmed": true,
-        "source": "https://whc.unesco.org/en/list/1277/"
+        "source": "https://whc.unesco.org/en/list/1277/",
+        "sortOrder": 44
       }
     ],
     "transportOptions": {
@@ -114734,7 +114942,7 @@
     "collections": [
       {
         "collectionId": "three-great-gardens",
-        "sortOrder": 1
+        "sortOrder": 3
       }
     ],
     "relationships": {
@@ -114874,7 +115082,7 @@
     "collections": [
       {
         "collectionId": "three-great-shrines",
-        "sortOrder": 2
+        "sortOrder": 3
       }
     ],
     "relationships": {
@@ -115261,7 +115469,7 @@
     "collections": [
       {
         "collectionId": "three-cherry-blossom-spots",
-        "sortOrder": 3
+        "sortOrder": 2
       }
     ],
     "relationships": {
@@ -115390,7 +115598,7 @@
     "collections": [
       {
         "collectionId": "three-cherry-blossom-spots",
-        "sortOrder": 2
+        "sortOrder": 3
       }
     ],
     "relationships": {
@@ -115512,7 +115720,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 1
+        "sortOrder": 42
       }
     ],
     "relationships": {},
@@ -115637,7 +115845,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 2
+        "sortOrder": 43
       }
     ],
     "relationships": {},
@@ -115763,7 +115971,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 3
+        "sortOrder": 44
       }
     ],
     "relationships": {},
@@ -115883,7 +116091,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 5
+        "sortOrder": 45
       }
     ],
     "relationships": {},
@@ -116003,7 +116211,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 7
+        "sortOrder": 46
       }
     ],
     "relationships": {},
@@ -116128,7 +116336,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 9
+        "sortOrder": 47
       }
     ],
     "relationships": {},
@@ -116248,7 +116456,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 10
+        "sortOrder": 48
       }
     ],
     "relationships": {},
@@ -116371,7 +116579,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 11
+        "sortOrder": 49
       }
     ],
     "relationships": {},
@@ -116490,7 +116698,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 13
+        "sortOrder": 50
       }
     ],
     "relationships": {},
@@ -116614,7 +116822,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 15
+        "sortOrder": 51
       }
     ],
     "relationships": {},
@@ -116739,7 +116947,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 16
+        "sortOrder": 52
       }
     ],
     "relationships": {},
@@ -116858,7 +117066,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 17
+        "sortOrder": 53
       }
     ],
     "relationships": {},
@@ -116978,7 +117186,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 18
+        "sortOrder": 54
       }
     ],
     "relationships": {},
@@ -117104,7 +117312,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 23
+        "sortOrder": 55
       }
     ],
     "relationships": {},
@@ -117224,7 +117432,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 25
+        "sortOrder": 56
       }
     ],
     "relationships": {},
@@ -117343,7 +117551,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 26
+        "sortOrder": 57
       }
     ],
     "relationships": {},
@@ -117466,7 +117674,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 28
+        "sortOrder": 58
       }
     ],
     "relationships": {},
@@ -117585,7 +117793,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 31
+        "sortOrder": 59
       }
     ],
     "relationships": {},
@@ -117704,7 +117912,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 32
+        "sortOrder": 60
       }
     ],
     "relationships": {},
@@ -117827,7 +118035,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 33
+        "sortOrder": 61
       }
     ],
     "relationships": {},
@@ -117946,7 +118154,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 34
+        "sortOrder": 62
       }
     ],
     "relationships": {},
@@ -118071,7 +118279,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 37
+        "sortOrder": 63
       }
     ],
     "relationships": {},
@@ -118196,7 +118404,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 38
+        "sortOrder": 64
       }
     ],
     "relationships": {},
@@ -118316,7 +118524,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 40
+        "sortOrder": 65
       }
     ],
     "relationships": {},
@@ -118442,7 +118650,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 41
+        "sortOrder": 66
       }
     ],
     "relationships": {},
@@ -118567,7 +118775,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 45
+        "sortOrder": 67
       }
     ],
     "relationships": {},
@@ -118686,7 +118894,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 46
+        "sortOrder": 68
       }
     ],
     "relationships": {},
@@ -118809,7 +119017,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 47
+        "sortOrder": 69
       }
     ],
     "relationships": {},
@@ -118928,7 +119136,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 48
+        "sortOrder": 70
       }
     ],
     "relationships": {},
@@ -119053,7 +119261,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 49
+        "sortOrder": 71
       }
     ],
     "relationships": {},
@@ -119179,7 +119387,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 51
+        "sortOrder": 72
       }
     ],
     "relationships": {},
@@ -119304,7 +119512,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 52
+        "sortOrder": 73
       }
     ],
     "relationships": {},
@@ -119423,7 +119631,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 55
+        "sortOrder": 74
       }
     ],
     "relationships": {},
@@ -119542,7 +119750,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 57
+        "sortOrder": 75
       }
     ],
     "relationships": {},
@@ -119665,7 +119873,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 58
+        "sortOrder": 76
       }
     ],
     "relationships": {},
@@ -119785,7 +119993,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 60
+        "sortOrder": 77
       }
     ],
     "relationships": {},
@@ -119910,7 +120118,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 61
+        "sortOrder": 78
       }
     ],
     "relationships": {},
@@ -120029,7 +120237,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 63
+        "sortOrder": 79
       }
     ],
     "relationships": {},
@@ -120153,7 +120361,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 65
+        "sortOrder": 80
       }
     ],
     "relationships": {},
@@ -120278,7 +120486,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 66
+        "sortOrder": 81
       }
     ],
     "relationships": {},
@@ -120398,7 +120606,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 67
+        "sortOrder": 82
       }
     ],
     "relationships": {},
@@ -120523,7 +120731,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 69
+        "sortOrder": 83
       }
     ],
     "relationships": {},
@@ -120642,7 +120850,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 71
+        "sortOrder": 84
       }
     ],
     "relationships": {},
@@ -120761,7 +120969,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 72
+        "sortOrder": 85
       }
     ],
     "relationships": {},
@@ -120881,7 +121089,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 75
+        "sortOrder": 86
       }
     ],
     "relationships": {},
@@ -121010,7 +121218,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 76
+        "sortOrder": 87
       }
     ],
     "relationships": {},
@@ -121137,7 +121345,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 79
+        "sortOrder": 88
       }
     ],
     "relationships": {},
@@ -121265,7 +121473,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 82
+        "sortOrder": 89
       }
     ],
     "relationships": {},
@@ -121389,7 +121597,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 86
+        "sortOrder": 90
       }
     ],
     "relationships": {},
@@ -121514,7 +121722,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 87
+        "sortOrder": 91
       }
     ],
     "relationships": {},
@@ -121638,7 +121846,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 88
+        "sortOrder": 92
       }
     ],
     "relationships": {},
@@ -121762,7 +121970,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 89
+        "sortOrder": 93
       }
     ],
     "relationships": {},
@@ -121885,7 +122093,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 90
+        "sortOrder": 94
       }
     ],
     "relationships": {},
@@ -122005,7 +122213,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 91
+        "sortOrder": 95
       }
     ],
     "relationships": {},
@@ -122129,7 +122337,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 93
+        "sortOrder": 96
       }
     ],
     "relationships": {},
@@ -122248,7 +122456,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 94
+        "sortOrder": 97
       }
     ],
     "relationships": {},
@@ -122368,7 +122576,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 95
+        "sortOrder": 98
       }
     ],
     "relationships": {},
@@ -122494,7 +122702,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 97
+        "sortOrder": 99
       }
     ],
     "relationships": {},
@@ -122624,7 +122832,7 @@
     "collections": [
       {
         "collectionId": "japan-top-castles",
-        "sortOrder": 99
+        "sortOrder": 100
       }
     ],
     "relationships": {},
@@ -122762,7 +122970,7 @@
     "collections": [
       {
         "collectionId": "national-parks-japan",
-        "sortOrder": 1
+        "sortOrder": 3
       }
     ],
     "relationships": {},
@@ -122881,7 +123089,7 @@
     "collections": [
       {
         "collectionId": "national-parks-japan",
-        "sortOrder": 3
+        "sortOrder": 4
       }
     ],
     "relationships": {},
@@ -123003,7 +123211,7 @@
     "collections": [
       {
         "collectionId": "national-parks-japan",
-        "sortOrder": 4
+        "sortOrder": 5
       }
     ],
     "relationships": {},
@@ -123118,7 +123326,7 @@
     "collections": [
       {
         "collectionId": "national-parks-japan",
-        "sortOrder": 5
+        "sortOrder": 6
       }
     ],
     "relationships": {},
@@ -123242,7 +123450,7 @@
     "collections": [
       {
         "collectionId": "national-parks-japan",
-        "sortOrder": 6
+        "sortOrder": 7
       }
     ],
     "relationships": {},
@@ -123360,7 +123568,7 @@
     "collections": [
       {
         "collectionId": "national-parks-japan",
-        "sortOrder": 7
+        "sortOrder": 8
       }
     ],
     "relationships": {},
@@ -123478,7 +123686,7 @@
     "collections": [
       {
         "collectionId": "national-parks-japan",
-        "sortOrder": 8
+        "sortOrder": 9
       }
     ],
     "relationships": {},
@@ -123592,7 +123800,7 @@
     "collections": [
       {
         "collectionId": "national-parks-japan",
-        "sortOrder": 9
+        "sortOrder": 10
       }
     ],
     "relationships": {},
@@ -123714,7 +123922,7 @@
     "collections": [
       {
         "collectionId": "national-parks-japan",
-        "sortOrder": 10
+        "sortOrder": 11
       }
     ],
     "relationships": {},
@@ -123828,7 +124036,7 @@
     "collections": [
       {
         "collectionId": "national-parks-japan",
-        "sortOrder": 11
+        "sortOrder": 12
       }
     ],
     "relationships": {},
@@ -128914,7 +129122,7 @@
       },
       {
         "collectionId": "coastal-drives-japan",
-        "sortOrder": 7
+        "sortOrder": 9
       }
     ],
     "relationships": {},
@@ -129837,7 +130045,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 58
+        "sortOrder": 28
       }
     ],
     "relationships": {},
@@ -129971,7 +130179,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 28
+        "sortOrder": 29
       }
     ],
     "relationships": {},
@@ -130088,7 +130296,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 29
+        "sortOrder": 30
       }
     ],
     "relationships": {},
@@ -130202,7 +130410,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 30
+        "sortOrder": 31
       }
     ],
     "relationships": {},
@@ -130312,7 +130520,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 31
+        "sortOrder": 32
       }
     ],
     "relationships": {},
@@ -130426,7 +130634,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 32
+        "sortOrder": 33
       }
     ],
     "relationships": {},
@@ -130536,7 +130744,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 33
+        "sortOrder": 34
       }
     ],
     "relationships": {},
@@ -130650,7 +130858,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 34
+        "sortOrder": 35
       }
     ],
     "relationships": {},
@@ -130764,7 +130972,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 35
+        "sortOrder": 36
       }
     ],
     "relationships": {},
@@ -130876,7 +131084,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 36
+        "sortOrder": 37
       }
     ],
     "relationships": {},
@@ -130986,7 +131194,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 37
+        "sortOrder": 38
       }
     ],
     "relationships": {},
@@ -131100,7 +131308,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 38
+        "sortOrder": 39
       }
     ],
     "relationships": {},
@@ -131214,7 +131422,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 39
+        "sortOrder": 40
       }
     ],
     "relationships": {},
@@ -131324,7 +131532,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 40
+        "sortOrder": 41
       }
     ],
     "relationships": {},
@@ -131434,7 +131642,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 41
+        "sortOrder": 42
       }
     ],
     "relationships": {},
@@ -131544,7 +131752,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 42
+        "sortOrder": 43
       }
     ],
     "relationships": {},
@@ -131658,7 +131866,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 43
+        "sortOrder": 44
       }
     ],
     "relationships": {},
@@ -131775,7 +131983,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 44
+        "sortOrder": 45
       }
     ],
     "relationships": {},
@@ -131889,7 +132097,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 45
+        "sortOrder": 46
       }
     ],
     "relationships": {},
@@ -132010,7 +132218,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 46
+        "sortOrder": 47
       }
     ],
     "relationships": {},
@@ -132128,7 +132336,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 47
+        "sortOrder": 48
       }
     ],
     "relationships": {},
@@ -132242,7 +132450,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 48
+        "sortOrder": 49
       }
     ],
     "relationships": {},
@@ -132356,7 +132564,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 49
+        "sortOrder": 50
       }
     ],
     "relationships": {},
@@ -132476,7 +132684,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 50
+        "sortOrder": 51
       }
     ],
     "relationships": {},
@@ -132587,7 +132795,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 51
+        "sortOrder": 52
       }
     ],
     "relationships": {},
@@ -132701,7 +132909,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 52
+        "sortOrder": 53
       }
     ],
     "relationships": {},
@@ -132819,7 +133027,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 53
+        "sortOrder": 54
       }
     ],
     "relationships": {},
@@ -132937,7 +133145,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 54
+        "sortOrder": 55
       }
     ],
     "relationships": {},
@@ -133061,7 +133269,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 55
+        "sortOrder": 56
       }
     ],
     "relationships": {},
@@ -133178,7 +133386,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 56
+        "sortOrder": 57
       }
     ],
     "relationships": {},
@@ -133308,7 +133516,7 @@
     "collections": [
       {
         "collectionId": "quasi-national-parks-japan",
-        "sortOrder": 57
+        "sortOrder": 58
       }
     ],
     "relationships": {},
@@ -133474,7 +133682,7 @@
     "collections": [
       {
         "collectionId": "historic-towns-japan",
-        "sortOrder": 1
+        "sortOrder": 10
       }
     ],
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kurazukuri_Street_in_Little_Edo.jpg/1920px-Kurazukuri_Street_in_Little_Edo.jpg",
@@ -133578,7 +133786,7 @@
     "collections": [
       {
         "collectionId": "historic-towns-japan",
-        "sortOrder": 6
+        "sortOrder": 11
       }
     ],
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Sanmachi_Takayama02ds3872.jpg/1920px-Sanmachi_Takayama02ds3872.jpg",
@@ -133649,7 +133857,7 @@
     "collections": [
       {
         "collectionId": "great-night-views",
-        "sortOrder": 1
+        "sortOrder": 12
       }
     ],
     "relationships": {},
@@ -133766,7 +133974,7 @@
     "collections": [
       {
         "collectionId": "great-night-views",
-        "sortOrder": 2
+        "sortOrder": 13
       }
     ],
     "relationships": {},
@@ -133883,7 +134091,7 @@
     "collections": [
       {
         "collectionId": "great-night-views",
-        "sortOrder": 3
+        "sortOrder": 14
       }
     ],
     "relationships": {},
@@ -134000,7 +134208,7 @@
     "collections": [
       {
         "collectionId": "caves-japan",
-        "sortOrder": 3
+        "sortOrder": 5
       }
     ],
     "relationships": {},
@@ -134113,7 +134321,7 @@
     "collections": [
       {
         "collectionId": "caves-japan",
-        "sortOrder": 4
+        "sortOrder": 6
       }
     ],
     "relationships": {},
@@ -134685,7 +134893,7 @@
     "collections": [
       {
         "collectionId": "scenic-bridges-japan",
-        "sortOrder": 4
+        "sortOrder": 6
       }
     ],
     "relationships": {},
@@ -135271,7 +135479,7 @@
     "collections": [
       {
         "collectionId": "flower-parks-japan",
-        "sortOrder": 5
+        "sortOrder": 8
       }
     ],
     "relationships": {},
@@ -135388,7 +135596,7 @@
     "collections": [
       {
         "collectionId": "flower-parks-japan",
-        "sortOrder": 6
+        "sortOrder": 9
       }
     ],
     "relationships": {},
@@ -135505,7 +135713,7 @@
     "collections": [
       {
         "collectionId": "flower-parks-japan",
-        "sortOrder": 7
+        "sortOrder": 10
       }
     ],
     "relationships": {},
@@ -135622,7 +135830,7 @@
     "collections": [
       {
         "collectionId": "waterfalls-gorges-japan",
-        "sortOrder": 4
+        "sortOrder": 9
       }
     ],
     "relationships": {},
@@ -135735,7 +135943,7 @@
     "collections": [
       {
         "collectionId": "waterfalls-gorges-japan",
-        "sortOrder": 5
+        "sortOrder": 10
       }
     ],
     "relationships": {},
@@ -136007,7 +136215,7 @@
       },
       {
         "collectionId": "art-islands-japan",
-        "sortOrder": 4
+        "sortOrder": 5
       }
     ],
     "relationships": {},
@@ -136125,7 +136333,7 @@
     "collections": [
       {
         "collectionId": "art-islands-japan",
-        "sortOrder": 3
+        "sortOrder": 6
       }
     ],
     "relationships": {},
@@ -136724,7 +136932,7 @@
     "collections": [
       {
         "collectionId": "pilgrimage-routes-japan",
-        "sortOrder": 6
+        "sortOrder": 7
       }
     ],
     "relationships": {},

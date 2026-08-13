@@ -79,7 +79,16 @@ function makeDest(
     season: { spring: 8, summer: 8, autumn: 8, winter: 8 },
     bestMonths: [1, 2, 3],
     status: "published",
+    role: "poi",
     travelEstimate: { confidence: "high" },
+    imageMetadata: {
+      source: "Wikimedia Commons",
+      license: "CC BY-SA 4.0",
+      attribution: "test",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:test.jpg",
+    },
+    // KAI-87: keep the fixture clear of walkingMin-vs-visit-window noise.
+    walkingMin: 300,
     collections: [],
     ...overrides,
   };

@@ -26,7 +26,7 @@
   "officialWebsite": "https://sankan.kunaicho.go.jp/guide/kyoto.html",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
-  "tags": ["History", "Kyoto City", "v1.9.2"],
+  "tags": ["History", "Kyoto City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kyoto-gosho%20Kenreimon%20(open).JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

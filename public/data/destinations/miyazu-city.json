@@ -87,7 +87,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Coastal city home to Amanohashidate pine sandbar, ranked among Japan's Three Scenic Views.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.miyazu.kyoto.jp/",
+        "title": "Miyazu City official website",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

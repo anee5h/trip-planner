@@ -35,7 +35,7 @@
   "officialWebsite": "https://www.kawagoe.com/kitain/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Kawagoe City", "v1.9.2"],
+  "tags": ["Culture", "Kawagoe City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Kawagoe_Kitain_Tahoto_202011.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",

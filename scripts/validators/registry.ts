@@ -12,6 +12,7 @@ import { visitHoursValidator } from "./visit-hours";
 import { majorCityExpansionValidator } from "./major-city-expansion";
 import { transportTopologyValidator } from "./transport-topology";
 import { duplicateKeysValidator } from "./duplicate-keys";
+import { dataQualityValidator } from "./data-quality";
 
 // Explicit execution topology order
 export const validators: ValidatorModule[] = [
@@ -28,4 +29,5 @@ export const validators: ValidatorModule[] = [
   majorCityExpansionValidator,
   transportTopologyValidator,
   duplicateKeysValidator,
+  dataQualityValidator,
 ];

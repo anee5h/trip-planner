@@ -83,8 +83,9 @@ export async function runWarningsCheck(
     options.baselinePath ?? DEFAULT_BASELINE_PATH,
   );
 
-  const { destinations, details, metaEntries } = loadCatalogInputs(rootDir);
-  const report = runAudit(destinations, details, metaEntries);
+  const { destinations, details, metaEntries, collections } =
+    loadCatalogInputs(rootDir);
+  const report = runAudit(destinations, details, metaEntries, {}, collections);
 
   console.log(`\n🧭 Catalogue integrity audit + warning baseline`);
   console.log(`===============================================`);

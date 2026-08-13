@@ -32,11 +32,11 @@
   "collections": [
     {
       "collectionId": "original-12-castles",
-      "sortOrder": 1
+      "sortOrder": 7
     },
     {
       "collectionId": "japan-top-castles",
-      "sortOrder": 78
+      "sortOrder": 15
     }
   ],
   "transportOptions": {

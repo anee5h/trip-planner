@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.nagoyajo.city.nagoya.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
-  "tags": ["History", "Nagoya City", "v1.9.2"],
+  "tags": ["History", "Nagoya City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/56/Nagoya_Castle_7.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",

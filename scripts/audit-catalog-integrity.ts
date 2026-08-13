@@ -53,14 +53,21 @@ Options:
   }
 
   const rootDir = process.cwd();
-  const { destinations, details, metaEntries } = loadCatalogInputs(rootDir);
+  const { destinations, details, metaEntries, collections } =
+    loadCatalogInputs(rootDir);
 
   // The pure audit is deterministic; the real timestamp is attached here.
-  const report: AuditReport = runAudit(destinations, details, metaEntries, {
-    prefecture: getFlag("prefecture"),
-    destinationId: getFlag("destination"),
-    generatedAt: new Date().toISOString(),
-  });
+  const report: AuditReport = runAudit(
+    destinations,
+    details,
+    metaEntries,
+    {
+      prefecture: getFlag("prefecture"),
+      destinationId: getFlag("destination"),
+      generatedAt: new Date().toISOString(),
+    },
+    collections,
+  );
 
   if (hasFlag("json")) {
     process.stdout.write(`${JSON.stringify(report, null, 2)}\n`);

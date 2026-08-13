@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.city.sendai.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["History", "Sendai City", "v1.9.2"],
+  "tags": ["History", "Sendai City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",

@@ -29,7 +29,7 @@
   "officialWebsite": "https://canalcity.co.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Fukuoka City", "v1.9.2"],
+  "tags": ["Culture", "Fukuoka City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Canal%20City%20Hakata%202011.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

@@ -40,7 +40,7 @@
   "officialWebsite": "https://www.city.shinjuku.lg.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Shinjuku City", "v1.9.2"],
+  "tags": ["Culture", "Shinjuku City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wooden_footbridge_in_Shinjuku_Gyoen_National_Garden%2C_Tokyo%2C_Japan%2C_a_sunny_day_with_blue_sky.jpg/1280px-Wooden_footbridge_in_Shinjuku_Gyoen_National_Garden%2C_Tokyo%2C_Japan%2C_a_sunny_day_with_blue_sky.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -120,7 +120,8 @@
   "collections": [
     {
       "collectionId": "flower-parks-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 4
     }
   ],
   "addedAt": "2026-07-29",

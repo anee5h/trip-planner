@@ -41,11 +41,13 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/870/"
+      "source": "https://whc.unesco.org/en/list/870/",
+      "sortOrder": 17
     },
     {
       "collectionId": "three-great-buddhas",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 2
     }
   ],
   "transportOptions": {

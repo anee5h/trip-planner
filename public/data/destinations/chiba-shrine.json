@@ -35,7 +35,7 @@
   "officialWebsite": "https://www.chibajinja.com/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
-  "tags": ["History", "Chiba City", "v1.9.2"],
+  "tags": ["History", "Chiba City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chiba-jinja%20003.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

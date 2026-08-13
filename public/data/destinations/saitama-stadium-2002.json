@@ -35,7 +35,7 @@
   "officialWebsite": "https://www.stadium2002.com/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Saitama City", "v1.9.2"],
+  "tags": ["Culture", "Saitama City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Saitama%20stadium2002-1.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

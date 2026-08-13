@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.zuihoden.com/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture", "Museum"],
-  "tags": ["Culture", "Sendai City", "v1.9.2"],
+  "tags": ["Culture", "Sendai City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Zuiho-den12s3200.jpg/1280px-Zuiho-den12s3200.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
