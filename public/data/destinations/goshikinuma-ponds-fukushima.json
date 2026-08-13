@@ -120,5 +120,11 @@
         "method": "assisted"
       }
     ]
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Jordy Meow",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goshikinuma.jpg"
   }
 }

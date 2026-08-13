@@ -116,5 +116,11 @@
       ]
     }
   },
-  "municipalityId": "Mie:ise"
+  "municipalityId": "Mie:ise",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "N yotarou",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naiku_04.jpg"
+  }
 }

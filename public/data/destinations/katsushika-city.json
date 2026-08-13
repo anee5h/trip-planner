@@ -143,5 +143,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tokyo:katsushika"
+  "municipalityId": "Tokyo:katsushika",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Nesnad",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shibamata_Taishakuten_March_11_2021_various_20_44_16_882000.jpeg"
+  }
 }

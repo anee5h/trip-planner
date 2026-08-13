@@ -22,7 +22,8 @@
   "imageMetadata": {
     "attribution": "Jordy Meow via Wikimedia Commons",
     "license": "CC BY-SA 3.0",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOkinawa_Aquarium.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOkinawa_Aquarium.jpg",
+    "source": "Wikimedia Commons"
   },
   "budgetMin": 2180,
   "budgetRecommended": 3000,

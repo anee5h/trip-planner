@@ -133,5 +133,11 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://castle.kumamoto-guide.jp/en/"
   },
-  "notesJa": "復旧工事中のため見学可能エリアは公式サイトでご確認ください。"
+  "notesJa": "復旧工事中のため見学可能エリアは公式サイトでご確認ください。",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Suicasmo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kumamoto_Castle_Keep_Tower_20221022-3.jpg"
+  }
 }

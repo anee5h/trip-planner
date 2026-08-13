@@ -88,5 +88,11 @@
   },
   "officialWebsite": "https://www.city.yamanashi.yamanashi.jp/",
   "businessHours": "Open access",
-  "municipalityId": "Yamanashi:yamanashi"
+  "municipalityId": "Yamanashi:yamanashi",
+  "imageMetadata": {
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
+    "sourceUrl": "https://unsplash.com"
+  }
 }

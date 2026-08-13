@@ -67,7 +67,8 @@
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Ancient Capitals of Asuka and Fujiwara via Wikipedia/Wikimedia Commons"
+    "attribution": "Lead photograph of Ancient Capitals of Asuka and Fujiwara via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takamat1.jpg"
   },
   "status": "published",
   "travelEstimate": {
@@ -110,7 +111,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Ancient Capitals of Asuka and Fujiwara is a UNESCO World Heritage property inscribed in 2026 for its archaeological sites documenting the emergence of Japan's ancient state.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://asukamura.jp/",
+        "title": "Ancient Capitals of Asuka and Fujiwara",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

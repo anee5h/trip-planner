@@ -124,5 +124,11 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "7つの地獄を巡るなら数時間みておきましょう。"
+  "notesJa": "7つの地獄を巡るなら数時間みておきましょう。",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Totti",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:180131_Umi-Jigoku.jpg"
+  }
 }

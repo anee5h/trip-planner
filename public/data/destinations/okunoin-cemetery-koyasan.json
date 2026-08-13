@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 120,
     "editorialSummary": "Sacred forest cemetery with 200,000 mossy stone stupas surrounding Kobo Daishi mausoleum.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.koyasan.or.jp/en/",
+        "title": "Okunoin Sacred Forest Cemetery",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

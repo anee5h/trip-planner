@@ -85,5 +85,11 @@
   "officialWebsite": "https://www.fujiyoshida.net/spot/11",
   "businessHours": "09:00 - 17:00 (Daily)",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Yamanashi:fujiyoshida"
+  "municipalityId": "Yamanashi:fujiyoshida",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "https://www.flickr.com/photos/reggiepen/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chuurei-tou_Fujiyoshida_17025277650_c59733d6ba_o.jpg"
+  }
 }

@@ -88,5 +88,11 @@
     "max": 12
   },
   "businessHours": "Open access",
-  "municipalityId": "Gifu:gero"
+  "municipalityId": "Gifu:gero",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Asturio Cantabrio",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gero_Station_ac.jpg"
+  }
 }

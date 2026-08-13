@@ -111,5 +111,11 @@
         "method": "assisted"
       }
     ]
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "掬茶",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dakigaeri_Gorge_and_Kamino-iwahashi_20201101.jpg"
   }
 }

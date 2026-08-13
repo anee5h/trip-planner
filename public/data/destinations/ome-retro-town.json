@@ -38,7 +38,7 @@
   "officialWebsiteRequirement": "recommended",
   "categories": ["Culture", "Walking", "History"],
   "tags": ["Culture", "Walking", "History", "Ome", "destination-hub-expansion"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Victoria_Daily_Times_%281914-03-31%29_%28IA_victoriadailytimes19140331%29.pdf/page1-1920px-Victoria_Daily_Times_%281914-03-31%29_%28IA_victoriadailytimes19140331%29.pdf.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ome_Ekimae_Koban.jpg/1280px-Ome_Ekimae_Koban.jpg",
   "coordinates": {
     "lat": 35.7906,
     "lng": 139.2582
@@ -139,12 +139,12 @@
   },
   "officialWebsite": "https://www.omekanko.gr.jp/",
   "businessHours": "Open access",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Victoria_Daily_Times_%281914-03-31%29_%28IA_victoriadailytimes19140331%29.pdf/page1-1920px-Victoria_Daily_Times_%281914-03-31%29_%28IA_victoriadailytimes19140331%29.pdf.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ome_Ekimae_Koban.jpg/1280px-Ome_Ekimae_Koban.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "Public domain",
-    "attribution": "Wikimedia Commons contributor",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Victoria_Daily_Times_(1914-03-31)_(IA_victoriadailytimes19140331).pdf"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Suikotei",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ome_Ekimae_Koban.jpg"
   },
   "notesJa": "青梅レトロタウンは、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",

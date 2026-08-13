@@ -140,5 +140,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tokyo:nerima"
+  "municipalityId": "Tokyo:nerima",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Asanagi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Warner_Bros._Studio_Tour_Tokyo_entrance_(2)_2023-08-17.jpg"
+  }
 }

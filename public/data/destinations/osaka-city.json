@@ -143,5 +143,11 @@
       ]
     }
   },
-  "municipalityId": "Osaka:osaka"
+  "municipalityId": "Osaka:osaka",
+  "imageMetadata": {
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
+    "sourceUrl": "https://unsplash.com"
+  }
 }

@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 120,
     "editorialSummary": "I.M. Pei's subterranean mountain museum reached through a silver tunnel.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.miho.web.id/en/",
+        "title": "Miho Museum Koka",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

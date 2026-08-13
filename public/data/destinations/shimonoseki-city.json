@@ -91,5 +91,11 @@
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
   "municipalityId": "Yamaguchi:shimonoseki",
-  "nameJa": "下関市"
+  "nameJa": "下関市",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Yu-ki-na",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dan-no-ura_kosen-jo.JPG"
+  }
 }

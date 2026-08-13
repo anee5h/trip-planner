@@ -84,5 +84,11 @@
     "max": 12
   },
   "businessHours": "Open access",
-  "municipalityId": "Nagano:karuizawa"
+  "municipalityId": "Nagano:karuizawa",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Ansjdjducciddkdjd",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt.Asama,_Karuizawa.jpg"
+  }
 }

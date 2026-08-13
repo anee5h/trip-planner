@@ -87,5 +87,11 @@
     "max": 12
   },
   "businessHours": "Open access",
-  "municipalityId": "Aichi:inuyama"
+  "municipalityId": "Aichi:inuyama",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Asturio Cantabrio",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inuyama_City_Hall_ac.jpg"
+  }
 }

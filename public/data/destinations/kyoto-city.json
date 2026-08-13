@@ -141,5 +141,11 @@
       ]
     }
   },
-  "municipalityId": "Kyoto:kyoto"
+  "municipalityId": "Kyoto:kyoto",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Martin Falbisoner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-02.jpg"
+  }
 }

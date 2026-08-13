@@ -117,5 +117,11 @@
       }
     ]
   },
-  "notesJa": "ねぶた祭りの拠点となる港町。青森駅周辺は徒歩圏で、北海道へのフェリーも発着します。"
+  "notesJa": "ねぶた祭りの拠点となる港町。青森駅周辺は徒歩圏で、北海道へのフェリーも発着します。",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Mccunicano",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nebuta_Museum_Wa_Rasse_exterior.jpg"
+  }
 }

@@ -91,5 +91,11 @@
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
   "municipalityId": "Hiroshima:hatsukaichi",
-  "nameJa": "廿日市市"
+  "nameJa": "廿日市市",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Bcxfu75k",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:廿日市市.jpg"
+  }
 }

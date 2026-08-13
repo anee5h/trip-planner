@@ -76,10 +76,10 @@
   "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "imageMetadata": {
-    "source": "Wikimedia Commons / Wikipedia",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Yokohama Landmark Tower via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Landmark%20Tower"
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
+    "sourceUrl": "https://unsplash.com"
   },
   "status": "published",
   "travelEstimate": {

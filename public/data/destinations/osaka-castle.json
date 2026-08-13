@@ -109,7 +109,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Osaka Castle is an iconic 16th-century fortress constructed by Toyotomi Hideyoshi, featuring golden roof ornaments, massive stone ramparts, and a lush park surrounded by moats.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.osakacastle.net/",
+        "title": "Osaka Castle (Osaka-jo)",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

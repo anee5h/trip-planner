@@ -105,5 +105,11 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/miyazaki-city/"
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "水だらけのプール",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miyazaki_Montage.jpg"
   }
 }

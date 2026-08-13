@@ -110,5 +110,11 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/kumamoto-city/"
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "MK Products",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Tatsuda-yama_(Kumamoto)_1.jpg"
   }
 }

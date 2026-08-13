@@ -89,5 +89,11 @@
   },
   "officialWebsite": "https://www.matsumoto-castle.jp/",
   "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-  "municipalityId": "Nagano:matsumoto"
+  "municipalityId": "Nagano:matsumoto",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Lightning toothed whale (稲妻ノ歯鯨)\n\n This photo was taken with Canon EOS 500D",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsumoto_Castle_Keep_Tower.jpg"
+  }
 }

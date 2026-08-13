@@ -91,5 +91,11 @@
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
   "municipalityId": "Shimane:matsue",
-  "nameJa": "松江市"
+  "nameJa": "松江市",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Gkiseki",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsue_City_center_seen_from_Mt.Shinyama.jpg"
+  }
 }

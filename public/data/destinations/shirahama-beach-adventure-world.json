@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Famous 600m curve of pure white quartz sand and seaside hot spring resort.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.shirahama-ryokan.jp/",
+        "title": "Shirahama White Beach & Coastal Resort",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

@@ -143,5 +143,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tokyo:arakawa"
+  "municipalityId": "Tokyo:arakawa",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Higa4",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Entsuji_(Arakawa)_08.jpg"
+  }
 }

@@ -148,5 +148,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00-17:00 (Apr-Oct), 09:00-16:00 (Nov-Mar), last entry 30 min before close",
   "openingHoursJa": "09:00〜17:00（4〜10月）、09:00〜16:00（11〜3月）",
-  "municipalityId": "Tochigi:nikko"
+  "municipalityId": "Tochigi:nikko",
+  "imageMetadata": {
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
+    "sourceUrl": "https://unsplash.com"
+  }
 }

@@ -26,12 +26,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
   "tags": ["History", "Kyoto City", "v1.9.2"],
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hokanji%20Kyoto01n4272.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Detail_of_Facade_of_Kennin-ji_Zen_Temple_-_Kyoto_-_Japan_-_02_%2847928771947%29.jpg/1280px-Detail_of_Facade_of_Kennin-ji_Zen_Temple_-_Kyoto_-_Japan_-_02_%2847928771947%29.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY 2.5",
-    "attribution": "663highland",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hokanji_Kyoto01n4272.jpg"
+    "license": "CC BY-SA 2.0",
+    "attribution": "Adam Jones",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Detail_of_Facade_of_Kennin-ji_Zen_Temple_-_Kyoto_-_Japan_-_02_%2847928771947%29.jpg"
   },
   "coordinates": {
     "lat": 34.99855,

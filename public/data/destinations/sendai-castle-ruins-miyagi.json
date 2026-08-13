@@ -124,5 +124,11 @@
         "method": "assisted"
       }
     ]
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "掬茶",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Waki-yagura_of_Sendai_Castle_20220910b.jpg"
   }
 }

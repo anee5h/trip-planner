@@ -41,12 +41,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
   "tags": ["Culture", "Shinjuku City", "v1.9.2"],
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/US%20Air%20Force%20photo%20170903-F-PM645-1558%20An%20aerial%20view%20of%20Shinjuku%E2%80%99s%20skyscraper%20district%20from%20a%20UH-1N%20Iroquois.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wooden_footbridge_in_Shinjuku_Gyoen_National_Garden%2C_Tokyo%2C_Japan%2C_a_sunny_day_with_blue_sky.jpg/1280px-Wooden_footbridge_in_Shinjuku_Gyoen_National_Garden%2C_Tokyo%2C_Japan%2C_a_sunny_day_with_blue_sky.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "Public domain",
-    "attribution": "U.S. Air Force photo by Yasuo Osakabe",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:US_Air_Force_photo_170903-F-PM645-1558_An_aerial_view_of_Shinjuku%E2%80%99s_skyscraper_district_from_a_UH-1N_Iroquois.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Basile Morin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wooden_footbridge_in_Shinjuku_Gyoen_National_Garden%2C_Tokyo%2C_Japan%2C_a_sunny_day_with_blue_sky.jpg"
   },
   "coordinates": {
     "lat": 35.6852,

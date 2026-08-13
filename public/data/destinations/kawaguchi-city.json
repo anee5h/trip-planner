@@ -147,5 +147,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Saitama:kawaguchi"
+  "municipalityId": "Saitama:kawaguchi",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "tak1701d",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg"
+  }
 }

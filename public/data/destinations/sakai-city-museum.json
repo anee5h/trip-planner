@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 75,
     "editorialSummary": "Museum facing Nintoku Kofun featuring VR ancient mound tours and tea history.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.sakai.lg.jp/kanko/hakubutsukan/",
+        "title": "Sakai City Museum & Daisen Kofun View",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

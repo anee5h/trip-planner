@@ -126,10 +126,10 @@
     "lifecycle": "published",
     "sources": [
       {
-        "type": "tourism_board",
-        "url": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-        "title": "Chuo City official visitor guide",
-        "accessedAt": "2026-08-02"
+        "type": "official",
+        "url": "https://www.ito-ya.co.jp/",
+        "title": "Ginza Itoya",
+        "accessedAt": "2026-08-13"
       }
     ],
     "checkedAt": "2026-08-02",

@@ -97,5 +97,11 @@
   "areaId": "atsuta",
   "officialWebsite": "https://www.atsutajingu.or.jp/",
   "businessHours": "Open 24 hours (Treasure hall 09:00 - 16:30)",
-  "municipalityId": "Aichi:nagoya"
+  "municipalityId": "Aichi:nagoya",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Bariston",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Atsuta_Shrine.jpg"
+  }
 }

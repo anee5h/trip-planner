@@ -114,5 +114,11 @@
       ]
     }
   },
-  "municipalityId": "Kyoto:miyazu"
+  "municipalityId": "Kyoto:miyazu",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amanohashidate_view_from_Mt_Moju02s3s4592.jpg"
+  }
 }

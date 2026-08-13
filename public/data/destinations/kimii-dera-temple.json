@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 75,
     "editorialSummary": "Famous for 231 stone steps, 500 early-blooming cherry trees, and 12m golden Guanyin statue.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kimiidera.com/",
+        "title": "Kimii-dera Temple",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

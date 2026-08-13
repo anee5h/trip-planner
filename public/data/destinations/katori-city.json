@@ -132,5 +132,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Chiba:katori"
+  "municipalityId": "Chiba:katori",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "katorisi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Inou-tadataka-house,katori-city,japan.JPG"
+  }
 }

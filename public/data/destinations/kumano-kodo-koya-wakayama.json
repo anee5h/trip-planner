@@ -67,7 +67,8 @@
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Sacred Sites and Pilgrimage Routes in the Kii Mountain Range via Wikipedia/Wikimedia Commons"
+    "attribution": "Lead photograph of Sacred Sites and Pilgrimage Routes in the Kii Mountain Range via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danjogaran Koyasan12n3200.jpg"
   },
   "status": "published",
   "travelEstimate": {
@@ -114,7 +115,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range is a UNESCO World Heritage Site in Wakayama, designated for its outstanding universal cultural or natural value.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.tb-kumano.jp/",
+        "title": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

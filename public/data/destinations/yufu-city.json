@@ -105,5 +105,11 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/yufu-city/"
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "takasunrise0921",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yuhudake.jpg"
   }
 }

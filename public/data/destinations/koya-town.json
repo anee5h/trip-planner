@@ -119,5 +119,11 @@
       ]
     }
   },
-  "municipalityId": "Wakayama:koya"
+  "municipalityId": "Wakayama:koya",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danjogaran_Koyasan16n4272.jpg"
+  }
 }

@@ -87,5 +87,11 @@
     "max": 12
   },
   "businessHours": "Open access",
-  "municipalityId": "Yamanashi:fujikawaguchiko"
+  "municipalityId": "Yamanashi:fujikawaguchiko",
+  "imageMetadata": {
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
+    "sourceUrl": "https://unsplash.com"
+  }
 }

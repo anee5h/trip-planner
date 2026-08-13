@@ -38,12 +38,12 @@
   "officialWebsiteRequirement": "recommended",
   "categories": ["History", "Walking", "Food"],
   "tags": ["History", "Walking", "Food", "Chofu", "destination-hub-expansion"],
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Jindai-ji_in_Chofu%2C_Tokyo_001.jpg/1280px-Jindai-ji_in_Chofu%2C_Tokyo_001.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA / Public domain status as marked on source",
-    "attribution": "Wikimedia Commons contributor",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyofushiyakusyo.jpg"
+    "license": "CC BY-SA 3.0",
+    "attribution": "掬茶",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jindai-ji_in_Chofu%2C_Tokyo_001.jpg"
   },
   "coordinates": {
     "lat": 35.668,
@@ -145,7 +145,7 @@
   },
   "officialWebsite": "https://csa.gr.jp/",
   "businessHours": "Open access",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cyofushiyakusyo.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Jindai-ji_in_Chofu%2C_Tokyo_001.jpg/1280px-Jindai-ji_in_Chofu%2C_Tokyo_001.jpg",
   "notesJa": "深大寺門前は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",

@@ -27,12 +27,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
   "tags": ["Culture", "Nagoya City", "v1.9.2"],
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinfukuji-Hashima01.JPG?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Japan-_Nagoya-_Osu_Kannon_Temple_4.jpg/1280px-Japan-_Nagoya-_Osu_Kannon_Temple_4.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 3.0",
-    "attribution": "Monami",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shinfukuji-Hashima01.JPG"
+    "license": "CC BY-SA 2.0",
+    "attribution": "Alan & Flora Botting",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Japan-_Nagoya-_Osu_Kannon_Temple_4.jpg"
   },
   "coordinates": {
     "lat": 35.1598,

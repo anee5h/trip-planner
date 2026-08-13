@@ -114,5 +114,11 @@
       ]
     }
   },
-  "municipalityId": "Wakayama:shirahama"
+  "municipalityId": "Wakayama:shirahama",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "mti",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shirahama_montages.JPG"
+  }
 }

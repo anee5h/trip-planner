@@ -110,5 +110,11 @@
       "highlights": ["世界文化遺産・姫路城", "書寫山圓教寺", "日本庭園・好古園"]
     }
   },
-  "municipalityId": "Hyogo:himeji"
+  "municipalityId": "Hyogo:himeji",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "User:Corpse Reviver\nUser:Corpse Reviver\nUser:663highland\nUser:Bgag\nUser:Geofrog\n",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Himeji_montage2.jpg"
+  }
 }
