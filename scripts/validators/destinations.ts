@@ -49,7 +49,7 @@ export const destinationsValidator: ValidatorModule = {
     "Valid geographic coordinates (lat: 24..46, lng: 122..146)",
     "Non-empty name and description",
     "Deterministic budget breakdown tolerance (diff <= ¥100 or <= 2%)",
-    "Truthful transport metadata: no fabricated island rail/car access, canonical transport keys, ground modes within localAccessModes (KAI-63)",
+    "Truthful transport metadata: no fabricated island rail/car access, canonical transport keys, localAccessModes cannot grant modes unsupported by the destination's transport zone (KAI-63)",
   ],
   doesNotValidate: [
     "HTTP image URL reachability",
