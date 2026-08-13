@@ -404,6 +404,42 @@
     },
     {
       "from": "fukuoka",
+      "to": "yamaguchi",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [34, 57],
+      "sourceUrl": "https://www.navitime.co.jp/diagram/depArrTimeList?departure=00007420&arrival=00003671&line=00000069&updown=0",
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "from": "fukuoka",
+      "to": "saga",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [12, 15],
+      "sourceUrl": "https://www.navitime.co.jp/diagram/depArrTimeList?departure=00007420&arrival=00009595&line=00001017&updown=1",
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "from": "tokyo",
+      "to": "tochigi",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [46, 56],
+      "sourceUrl": "https://www.navitime.co.jp/diagram/depArrTimeList?departure=00006668&arrival=00000522&line=00000185&updown=1",
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "from": "tokyo",
+      "to": "gunma",
+      "bidirectional": true,
+      "mode": "shinkansen",
+      "timeRange": [47, 59],
+      "sourceUrl": "https://www.navitime.co.jp/diagram/depArrTimeList?departure=00006668&arrival=00002569&line=00000148&updown=1",
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "from": "fukuoka",
       "to": "oita",
       "bidirectional": true,
       "mode": "train",
@@ -419,6 +455,33 @@
       "timeRange": [50, 90],
       "sourceUrl": "https://www.japan-guide.com/e/e2363.html",
       "checkedAt": "2026-08-06"
+    },
+    {
+      "from": "kanagawa",
+      "to": "aichi",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [320, 345],
+      "sourceUrl": "https://www.navitime.co.jp/transfer/searchlist?orvStationCode=00000838&dnvStationCode=00008576&month=2026/08&day=13&hour=8&minute=0&sort=0&wspeed=100&basis=1&airplane=0&sprexprs=0&utrexprs=1&othexprs=1&mtrplbus=1&intercitybus=0&ferry=0",
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "from": "kanagawa",
+      "to": "kyoto",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [460, 500],
+      "sourceUrl": "https://www.navitime.co.jp/transfer/searchlist?orvStationCode=00000838&dnvStationCode=00001756&month=2026/08&day=13&hour=8&minute=0&sort=0&wspeed=100&basis=1&airplane=0&sprexprs=0&utrexprs=1&othexprs=1&mtrplbus=1&intercitybus=0&ferry=0",
+      "checkedAt": "2026-08-13"
+    },
+    {
+      "from": "kanagawa",
+      "to": "osaka",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [500, 520],
+      "sourceUrl": "https://transit.yahoo.co.jp/search/result?from=%E6%A8%AA%E6%B5%9C&to=%E5%A4%A7%E9%98%AA&y=2026&m=08&d=13&hh=08&m1=0&m2=0&type=1&s=0&ws=3&expkind=1&ticket=ic&dispCount=5",
+      "checkedAt": "2026-08-13"
     },
     {
       "from": "tokyo",
