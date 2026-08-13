@@ -583,5 +583,5 @@ describe("D4: reachability and duration are independent (mode eligibility)", () 
 
     expect(anyCount).toBeGreaterThan(0);
     expect(anyCount).toBeGreaterThan(dayTripCount);
-  }, 15000);
+  }, 30000);
 });

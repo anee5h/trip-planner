@@ -177,16 +177,10 @@ function pipelineBusCount(coords: { lat: number; lng: number }): number {
       undefined,
     );
     if (modes.length === 0) continue;
-    if (
-      matchesPersonalizedDayTripDuration(
-        dest,
-        { homeStationCoords: coords, originZoneId },
-        ["bus"],
-        "any",
-      )
-    ) {
-      count++;
-    }
+    // KAI-63 D4: with "Any" duration, Explore applies mode eligibility only
+    // (reachability). The day-trip duration gate runs only under an explicit
+    // duration/trip-mode selection, so it is not part of this mirror.
+    count++;
   }
   return count;
 }
