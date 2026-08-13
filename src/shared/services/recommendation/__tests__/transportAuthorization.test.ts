@@ -238,7 +238,8 @@ describe("flight registry expansion (PR #102)", () => {
       expect(estimate?.details?.arrivalAirportCode).toBe("KUM");
     }
     // FUK→KUM is seasonal (Jul 1–Aug 31, JAC): available only inside the
-    // window; with no date (or out of season) the route is not offered.
+    // window. KAI-63 D7b: KOJ now survives the Fukuoka candidate limit, so
+    // year-round KOJ→KUM serves Yakushima off-season too.
     const inSeason = getFlightTransportEstimate(
       dest,
       FUKUOKA,
@@ -250,7 +251,8 @@ describe("flight registry expansion (PR #102)", () => {
       FUKUOKA,
       new Date("2026-12-10T12:00:00"),
     );
-    expect(offSeason).toBeNull();
+    expect(offSeason?.details?.departureAirportCode).toBe("KOJ");
+    expect(offSeason?.details?.arrivalAirportCode).toBe("KUM");
   });
 
   it("Sado has SDO in the airport registry but still returns no Flight", () => {
