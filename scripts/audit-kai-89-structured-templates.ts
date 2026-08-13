@@ -6,6 +6,14 @@ import { format } from "prettier";
 import type { Destination } from "../src/shared/types/destination.js";
 
 const MIN_CLUSTER_SIZE = 3;
+/**
+ * Stable audit date stamped into the report. Deliberately NOT derived from
+ * the clock: --check byte-compares the regenerated report with the committed
+ * file, so a wall-clock date would make CI fail on UTC rollover even when no
+ * catalogue data changed. Bump this only when the audit semantics or the
+ * catalogue state materially change.
+ */
+const AUDITED_AT = "2026-08-13";
 const rootDir = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   "..",
@@ -185,7 +193,8 @@ function buildReport(destinations: Destination[]) {
   return {
     audit: "KAI-89 structured template audit",
     schemaVersion: 1,
-    auditedAt: new Date().toISOString().slice(0, 10),
+    // Stable committed stamp, not the current clock (see AUDITED_AT note).
+    auditedAt: AUDITED_AT,
     rule: `Exact canonical-value clusters with at least ${MIN_CLUSTER_SIZE} records; absent values are excluded (empty transportOptions {} is excluded as the honest no-data state). Clusters indicate review risk, not proof that every repeated value is wrong. Disposition per cluster is reviewed in scripts/audit/kai-89-dispositions.json.`,
     totalRecords: destinations.length,
     summary: {

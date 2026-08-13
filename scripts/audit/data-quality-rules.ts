@@ -436,16 +436,24 @@ export function collectDestinationIssues(
     );
   }
 
-  // ---- KAI-89: transport value sanity ----
+  // ---- KAI-89: transport value sanity (Okinawa Yui Rail) ----
+  // Okinawa's only rail is the Yui Rail (Okinawa Urban Monorail). Official
+  // runtimes (yui-rail.co.jp): Naha Airport → Shuri ≈ 27 min, → Kyozuka
+  // ≈ 32 min, → Urasoe-Maeda ≈ 34 min, → Tedako-Uranishi (full line) ≈
+  // 37 min. Door-to-door local access for ANY station is therefore well
+  // under 90 minutes. This rule targets the KNOWN corruption class — the
+  // v1.6.0 hub-batch `train: 200` default stamped on every Okinawa hub —
+  // not a blanket rejection of longer (but real) monorail journeys, so
+  // legitimate 32–37 min values pass.
   if (
     dest.transportZoneId === "okinawa-main" &&
     dest.transportOptions?.train !== undefined &&
     finiteNonNegative(dest.transportOptions.train) &&
-    dest.transportOptions.train > 30
+    dest.transportOptions.train > 90
   ) {
     push(
       "OKINAWA_RAIL_VALUE",
-      `train ${dest.transportOptions.train} min is impossible in Okinawa (Yui Rail is ~17 min end-to-end; no intercity rail)`,
+      `train ${dest.transportOptions.train} min is impossible for Okinawa Yui Rail local access (full line Naha Airport → Tedako-Uranishi ≈ 37 min; legacy batch default was 200)`,
     );
   }
 

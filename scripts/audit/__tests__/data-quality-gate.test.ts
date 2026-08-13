@@ -146,4 +146,44 @@ describe("KAI-87 data-quality rules in the audit baseline gate", () => {
       true,
     );
   });
+
+  it("accepts legitimate Yui Rail runtimes above 30 minutes (KAI-89)", () => {
+    // Official Yui Rail (yui-rail.co.jp): Naha Airport → Shuri ≈ 27,
+    // Kyozuka ≈ 32, Urasoe-Maeda ≈ 34, Tedako-Uranishi (full line) ≈ 37
+    // min. None of these are corruption and none may be rejected.
+    const report = runAudit(
+      [
+        {
+          ...base,
+          id: "yui-shuri",
+          transportZoneId: "okinawa-main",
+          transportOptions: { train: 27 },
+        },
+        {
+          ...base,
+          id: "yui-kyozuka",
+          transportZoneId: "okinawa-main",
+          transportOptions: { train: 32 },
+        },
+        {
+          ...base,
+          id: "yui-urasoemaeda",
+          transportZoneId: "okinawa-main",
+          transportOptions: { train: 34 },
+        },
+        {
+          ...base,
+          id: "yui-tedako",
+          transportZoneId: "okinawa-main",
+          transportOptions: { train: 37 },
+        },
+      ],
+      [],
+      [],
+      [],
+    );
+    expect(report.findings.some((f) => f.code === "OKINAWA_RAIL_VALUE")).toBe(
+      false,
+    );
+  });
 });
