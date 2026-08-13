@@ -13,7 +13,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg/1920px-%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg",
   "tags": ["onsen", "yamagata", "winter", "snow", "historic"],
   "rating": 4.9,
-  "bestSeasons": ["Winter", "Autumn"],
   "travelEstimate": {
     "minutesFromBase": 210,
     "confidence": "high"
@@ -54,13 +53,13 @@
     "holiday": 8
   },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 7
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 10
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "bestSeason": "Spring & Autumn",
+  "bestMonths": [12, 1, 2, 3],
+  "bestSeason": "Winter",
   "weatherDependence": "moderate",
   "comfort": {
     "heatTolerance": 7,

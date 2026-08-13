@@ -13,7 +13,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg/1920px-Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg",
   "tags": ["flower", "wisteria", "park", "tochigi", "garden"],
   "rating": 4.8,
-  "bestSeasons": ["Spring"],
   "travelEstimate": {
     "minutesFromBase": 90,
     "confidence": "high"
@@ -58,13 +57,13 @@
     "holiday": 8
   },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 7
+    "spring": 10,
+    "summer": 6,
+    "autumn": 8,
+    "winter": 9
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "bestSeason": "Spring & Autumn",
+  "bestMonths": [4, 5, 10, 11, 12, 1, 2],
+  "bestSeason": "Spring & Winter",
   "weatherDependence": "moderate",
   "comfort": {
     "heatTolerance": 7,

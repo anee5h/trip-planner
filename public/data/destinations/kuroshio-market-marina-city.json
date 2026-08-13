@@ -89,5 +89,8 @@
     "car": 285
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Porto_Europe_-_Kuroshio-Ichiba.jpg/1920px-Porto_Europe_-_Kuroshio-Ichiba.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Porto_Europe_-_Kuroshio-Ichiba.jpg/1920px-Porto_Europe_-_Kuroshio-Ichiba.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

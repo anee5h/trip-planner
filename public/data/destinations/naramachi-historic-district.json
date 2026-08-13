@@ -85,5 +85,8 @@
     "car": 240
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg/1920px-Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg/1920px-Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

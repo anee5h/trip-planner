@@ -89,5 +89,8 @@
     "car": 205
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Hachimanbori_20220227.jpg/1920px-Hachimanbori_20220227.jpg",
-  "collections": []
+  "collections": [],
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

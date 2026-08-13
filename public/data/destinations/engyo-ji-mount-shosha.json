@@ -88,5 +88,8 @@
     "train": 215,
     "car": 275
   },
-  "collections": []
+  "collections": [],
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

@@ -77,10 +77,10 @@
     "holiday": 8
   },
   "season": {
-    "spring": 8,
-    "summer": 8,
+    "spring": 7,
+    "summer": 6,
     "autumn": 8,
-    "winter": 8
+    "winter": 10
   },
   "bestMonths": [1, 2, 3, 10, 11, 12],
   "bestSeason": "Winter (fugu)",

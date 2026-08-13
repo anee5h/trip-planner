@@ -13,7 +13,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Oirase-keiryu.jpg/1920px-Oirase-keiryu.jpg",
   "tags": ["gorge", "waterfall", "nature", "aomori", "hiking"],
   "rating": 4.8,
-  "bestSeasons": ["Summer", "Autumn"],
   "travelEstimate": {
     "minutesFromBase": 240,
     "confidence": "high"
@@ -63,7 +62,7 @@
     "winter": 7
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "Summer & Autumn",
   "weatherDependence": "moderate",
   "comfort": {
     "heatTolerance": 7,

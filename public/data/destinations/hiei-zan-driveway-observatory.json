@@ -88,5 +88,8 @@
     "car": 165
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Drone_shot_of_Mount_Hiei_and_Kyoto.jpg/1920px-Drone_shot_of_Mount_Hiei_and_Kyoto.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Drone_shot_of_Mount_Hiei_and_Kyoto.jpg/1920px-Drone_shot_of_Mount_Hiei_and_Kyoto.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

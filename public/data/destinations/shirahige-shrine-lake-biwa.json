@@ -85,5 +85,8 @@
     "car": 185
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Shirahige_Shrine_20200919_03.jpg/1920px-Shirahige_Shrine_20200919_03.jpg",
-  "collections": []
+  "collections": [],
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

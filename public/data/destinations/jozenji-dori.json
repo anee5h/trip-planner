@@ -100,7 +100,7 @@
     "autumn": 6.4,
     "winter": 8.9
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [6, 7, 8],
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",

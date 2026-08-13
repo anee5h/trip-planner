@@ -48,9 +48,9 @@
   },
   "season": {
     "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
+    "summer": 10,
+    "autumn": 7,
+    "winter": 2
   },
   "highlights": [
     "Explore top-rated nature locations",
@@ -58,7 +58,7 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Kurobe Gorge, a prominent destination in Toyama. With its rich mix of scenic railway, ravine, onsen, it's a highly recommended spot for a 8-hour getaway.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [5, 6, 7, 8, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 6300,
     "tickets": 8400,
@@ -85,7 +85,7 @@
     }
   ],
   "relationships": {},
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "Summer & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Available on site",

@@ -89,5 +89,8 @@
   "transportOptions": {
     "train": 230,
     "bus": 272
+  },
+  "travelEstimate": {
+    "confidence": "beta"
   }
 }

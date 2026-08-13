@@ -77,7 +77,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Naiku_04.jpg",
   "budgetBreakdown": {
     "transport": 1875,
-    "tickets": 937,
+    "tickets": 0,
     "food": 3047,
     "cafe": 1641
   },
@@ -115,7 +115,7 @@
   "notesJa": "【見どころ】伊勢神宮は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "openingHoursJa": "05:00〜17:00/18:00/19:00（季節により変動）",
   "nearHubs": ["ise-city"],
   "role": "destination",
   "content": {

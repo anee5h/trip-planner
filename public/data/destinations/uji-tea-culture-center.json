@@ -90,5 +90,8 @@
     "shinkansen": 147,
     "train": 247,
     "bus": 247
+  },
+  "travelEstimate": {
+    "confidence": "beta"
   }
 }
