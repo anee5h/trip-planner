@@ -92,6 +92,21 @@ test.describe("KAI-89 rendered data safety", () => {
     }
   });
 
+  test("original Nara temple cards never render a NaN price range", async ({
+    page,
+  }) => {
+    for (const [id, query] of [
+      ["yakushi-ji-temple", "Yakushi-ji"],
+      ["toshodai-ji-temple", "Toshodai-ji"],
+    ] as const) {
+      await page.goto(`/destinations?q=${encodeURIComponent(query)}`);
+      const card = page.locator(`a[href^="/destinations/${id}"]`).first();
+      await expect(card).toBeVisible();
+      expect(await card.innerText()).not.toMatch(/¥\s*NaN|NaN\s*[–〜-]\s*NaN/i);
+      await assertVisibleDataIsSafe(page);
+    }
+  });
+
   for (const id of DESTINATION_MATRIX) {
     test(`type matrix detail ${id} has finite score and safe fallbacks`, async ({
       page,
@@ -124,5 +139,28 @@ test.describe("KAI-89 rendered data safety", () => {
       await expect(page.locator("body")).toContainText(expected);
       await assertVisibleDataIsSafe(page);
     }
+  });
+
+  test("known onsite cost plus unknown selected fare stays partial", async ({
+    page,
+  }) => {
+    await page.route("**/data/destinations/osaka-city.json", async (route) => {
+      const response = await route.fetch();
+      const destination = await response.json();
+      destination.transportFares = {
+        ...destination.transportFares,
+        train: -1,
+      };
+      await route.fulfill({ response, json: destination });
+    });
+
+    await page.goto("/destinations?q=Osaka%20City&mode=train&partySize=2");
+    await page.locator('a[href^="/destinations/osaka-city"]').first().click();
+    await expect(page.locator("body")).toContainText(
+      "On-site budget (transport excluded)",
+    );
+    await expect(page.locator("body")).toContainText("Cost unavailable");
+    await expect(page.locator("body")).not.toContainText("Couple Budget");
+    await assertVisibleDataIsSafe(page);
   });
 });

@@ -620,6 +620,7 @@ export function getAdjustedBudget(
 ): number | null {
   if (!isFiniteNonNegative(partySize)) return null;
   const normalizedPartySize = Math.max(1, Math.floor(partySize));
+  const hasExplicitMode = activeMode !== "all" && activeMode !== "any";
   let mode: string | undefined;
 
   const effectiveOriginZoneId =
@@ -654,11 +655,12 @@ export function getAdjustedBudget(
         ] !== undefined;
 
   if (
-    activeMode !== "all" &&
-    activeMode !== "any" &&
+    hasExplicitMode &&
     (activeModeSupported || activeMode === "flight" || activeMode === "ferry")
   ) {
     mode = activeMode;
+  } else if (hasExplicitMode) {
+    return null;
   } else if (effectiveOriginZoneId && destinationZoneId !== "unknown") {
     const topologyModes = getEligibleOriginModes({
       originZoneId: effectiveOriginZoneId,
@@ -685,6 +687,7 @@ export function getAdjustedBudget(
     mode === undefined
       ? null
       : getTransportCost(dest, mode, partySize, homeCoords, ferryTemporal);
+  if (hasExplicitMode && transportCost === null) return null;
   const breakdown = getEffectiveBudgetBreakdown(dest);
   if (!breakdown) return null;
   const recBudget = isFiniteNonNegative(dest.budgetRecommended)

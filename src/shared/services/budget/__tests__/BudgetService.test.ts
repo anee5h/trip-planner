@@ -197,6 +197,25 @@ describe("BudgetService", () => {
     } as unknown as Destination;
 
     expect(getTransportCost(noVisitCar, "car", 2)).toBeNull();
+    expect(getAdjustedBudget(noVisitCar, "car", 2)).toBeNull();
+  });
+
+  it("keeps a known onsite budget unavailable when the selected fare is unknown", () => {
+    const unknownSelectedFare = {
+      ...mockPaidDest,
+      budgetBreakdown: {
+        transport: 1000,
+        tickets: 2000,
+        food: 1500,
+        cafe: 500,
+      },
+      recommendedVisitHours: undefined,
+      totalTripHours: undefined,
+      transportOptions: { car: 60 },
+    } as unknown as Destination;
+
+    expect(getTransportCost(unknownSelectedFare, "car", 2)).toBeNull();
+    expect(getAdjustedBudget(unknownSelectedFare, "car", 2)).toBeNull();
   });
 
   it("has no generic duration fallback constant", () => {

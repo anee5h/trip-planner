@@ -39,6 +39,11 @@ const mockDest = {
     relaxation: 8.0,
     uniqueness: 8.0,
   },
+  ratingMetadata: {
+    rubricVersion: 1,
+    method: "manual",
+    confidence: "high",
+  },
   bestSeason: "Spring",
   coordinates: { lat: 35.6812, lng: 139.7671 },
   transportOptions: { train: 60 },
@@ -469,10 +474,10 @@ describe("RecommendationScorer Unit Tests", () => {
     );
   });
 
-  it("treats absent ratingMetadata as full weight (1.0) — curated pre-expansion record", () => {
+  it("treats absent ratingMetadata as low-confidence evidence", () => {
     const noMetaDest = { ...mockDest } as Destination;
     delete (noMetaDest as unknown as Record<string, unknown>).ratingMetadata;
-    expect(ratingReliability(noMetaDest)).toBe(1.0);
+    expect(ratingReliability(noMetaDest)).toBe(0.5);
   });
 
   it("treats ratingMetadata.confidence=high as full weight (1.0)", () => {

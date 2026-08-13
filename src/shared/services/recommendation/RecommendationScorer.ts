@@ -72,7 +72,7 @@ export const SCORING_WEIGHTS = {
 /**
  * REC-001: Confidence multipliers for rating-derived score contributions.
  * high = reviewed and verified; medium = lightly reviewed; low = assisted/beta.
- * Destinations without ratingMetadata are pre-expansion curated records — full weight.
+ * Missing metadata is unverified evidence and receives the conservative low weight.
  */
 export const CONFIDENCE_MULTIPLIERS: Record<string, number> = {
   high: 1.0,
@@ -81,8 +81,8 @@ export const CONFIDENCE_MULTIPLIERS: Record<string, number> = {
 };
 
 export function ratingReliability(destination: Destination): number {
-  // No ratingMetadata field at all → curated pre-expansion record → full weight.
-  if (destination.ratingMetadata === undefined) return 1.0;
+  if (destination.ratingMetadata === undefined)
+    return CONFIDENCE_MULTIPLIERS.low;
   const confidence = destination.ratingMetadata.confidence;
   return CONFIDENCE_MULTIPLIERS[confidence] ?? 0.7;
 }

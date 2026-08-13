@@ -288,7 +288,7 @@ describe("flight registry expansion (PR #102)", () => {
     }
   });
 
-  it("unverified fare routes return null transport cost and exclude transport from adjusted budget", () => {
+  it("unverified fare routes keep the explicit adjusted budget unavailable", () => {
     const dest = byId.get("ishigaki-city")!;
     const estimate = getFlightTransportEstimate(dest, FUKUOKA);
     expect(estimate?.costUnavailable).toBe(true);
@@ -306,12 +306,7 @@ describe("flight registry expansion (PR #102)", () => {
       FUKUOKA,
       "mainland-kyushu",
     );
-    const recBudget = dest.budgetRecommended || dest.budgetMin || 5000;
-    const expectedOnsiteBudget = Math.max(
-      0,
-      ((recBudget - (dest.budgetBreakdown?.transport || 3000)) / 2) * 2,
-    );
-    expect(adjustedBudget).toBe(expectedOnsiteBudget);
+    expect(adjustedBudget).toBeNull();
   });
 
   it("Fukuoka → Ishigaki is not scored as a zero-cost Flight and budget is transport-excluded", () => {
