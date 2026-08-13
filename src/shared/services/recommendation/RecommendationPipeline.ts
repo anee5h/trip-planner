@@ -206,18 +206,22 @@ export function runRecommendationPipeline(
       if (!eval_.eligible) return false;
     } else {
       // KAI-63 D4: duration filtering applies only under an explicit
-      // duration constraint. Home always supplies one (planner default
-      // halfDay); absent/"any" must never re-impose the day-trip envelope —
-      // reachable destinations with unknown duration stay eligible.
+      // duration/trip-mode constraint — mirroring the Explore gate
+      // (Destinations.tsx). An explicit tripMode=day_trip (even with
+      // duration "any") applies the day-trip envelope; an explicit
+      // duration applies that duration; absent both (no explicit trip
+      // mode, duration absent/"any") eligibility stays pure reachability.
       const requestedDuration = context.tripDuration;
+      const durationConstrained =
+        context.tripMode === "day_trip" ||
+        (requestedDuration !== undefined && requestedDuration !== "any");
       if (
-        requestedDuration &&
-        requestedDuration !== "any" &&
+        durationConstrained &&
         !matchesPersonalizedDayTripDuration(
           destination,
           context,
           modes,
-          requestedDuration,
+          requestedDuration ?? "any",
         )
       ) {
         return false;
