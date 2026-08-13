@@ -2,7 +2,7 @@
  "audit": "KAI-89 structured cluster dispositions",
  "schemaVersion": 1,
  "generatedAt": "2026-08-13",
- "note": "Reviewed disposition per structured cluster, keyed by <category>:<clusterId> (sha256 of category:value). category: A legitimate repetition, B generated/template, C plausible-unverified, D demonstrably incorrect, E manual/editorial review. action: legitimate | corrected | confidence-gated | manual-review. Generated once from the parallel KAI-89 audit; the audit generator fails --check on unclassified clusters.",
+ "note": "Reviewed disposition per structured cluster, keyed by <category>:<clusterId> (sha256 of category:value). category: A legitimate repetition, B generated/template, C plausible-unverified, D demonstrably incorrect, E manual/editorial review. action: legitimate | corrected | confidence-gated | manual-review. corrected = evidence-driven field corrections applied in kai-89-corrections.json for THIS category. Generated once from the parallel KAI-89 audit; the audit generator fails --check on unclassified clusters.",
  "clusters": {
   "ratings:43dd983ddcc5": {
    "category": "D",
@@ -191,12 +191,12 @@
   },
   "budget:daf2276429d2": {
    "category": "B",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "d1f36940: expand-major-city-catalog.ts createDestination() formula (indoorPercent<70): min 1500, rec=min+2500=4000, max=rec+3000=7000, breakdown {35%,20%,35%,10% of rec}"
   },
   "budget:40b49658779a": {
    "category": "B",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "d1f36940 template variant after repair pass: tickets forced 0, transport/food rebalanced (1300/2300/400); venues are free-to-enter public spaces -> tickets=0 largely correct; several kind labels wrong (Dotonbori/Fushimi Inari/Canal City marked museum)"
   },
   "budget:59f041cab981": {
@@ -206,7 +206,7 @@
   },
   "budget:8462a9aba38e": {
    "category": "B",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "d1f36940: same createDestination() formula with indoorPercent>=70: min 3000, rec 5500, max 8500, breakdown {1925,1100,1925,550}"
   },
   "budget:1492d34ccf0d": {
@@ -281,7 +281,7 @@
   },
   "visitDuration:bb109b6c5b53": {
    "category": "C",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "Museum 2-4h convention (31 museums) + 35 unknown-kind members; appears in kai-31/kai-32 script tuples."
   },
   "visitDuration:1c84ff3f729a": {
@@ -316,7 +316,7 @@
   },
   "visitDuration:408511fca028": {
    "category": "C",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "Parks 1.5-4h plausible."
   },
   "visitDuration:4b9f3c3ff6be": {
@@ -421,7 +421,7 @@
   },
   "walking:2d90a4109c91": {
    "category": "B",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "pipeline.cjs 60/40 derivation: sun=0.6*walkingMin, shade=0.4*walkingMin. 1h total is a plausible attraction convention but the split is formula-produced (135 members)."
   },
   "walking:aa3b6f7df1ac": {
@@ -431,7 +431,7 @@
   },
   "walking:60beaed5cb37": {
    "category": "B",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
   },
   "walking:77706da7c561": {
@@ -461,7 +461,7 @@
   },
   "walking:3130a9a55115": {
    "category": "B",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "60/40 split, minutes."
   },
   "walking:e1569a255ea7": {
@@ -711,7 +711,7 @@
   },
   "transport:ffd6f6849522": {
    "category": "B",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "template"
   },
   "transport:bfbeeffa6890": {
@@ -801,7 +801,7 @@
   },
   "transport:5411dbdeab8b": {
    "category": "E",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "mixed"
   },
   "transport:5536d0da8c0c": {
@@ -811,7 +811,7 @@
   },
   "transport:a1df472c9e0e": {
    "category": "C",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "estimated"
   },
   "transport:e4f5f3f5e71c": {
@@ -821,7 +821,7 @@
   },
   "transport:63c8fe7e0dbf": {
    "category": "E",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "mixed"
   },
   "transport:9bba2f9188d1": {
@@ -846,7 +846,7 @@
   },
   "transport:d98a02f9dd67": {
    "category": "B",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "template"
   },
   "transport:0b41e50e6292": {
@@ -1006,7 +1006,7 @@
   },
   "crowd:aeb53c01a6e5": {
    "category": "B",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "Mega-template: v1.6.0 hub hardcode + expand-major-city-catalog.ts hardcode crowd:{5,8,9}; 346 records = 35% of catalogue incl. 95 museums, 25 parks, 23 temples."
   },
   "crowd:3d9969c8a667": {
@@ -1136,7 +1136,7 @@
   },
   "comfort:d3a1a4fd5616": {
    "category": "B",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "expand-major-city-catalog.ts formula: heatTolerance=rainFriendly=round(indoorPercent/10), walkingIntensity 6 for indoor<70. All 136 members indoorPercent=20; 135/136 assisted-low. Kind labels unreliable (fushimi-inari-taisha labeled 'museum', kamakurakokomae-station 'museum')."
   },
   "comfort:1a835889f457": {
@@ -1151,7 +1151,7 @@
   },
   "comfort:c10762385e8a": {
    "category": "C",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "Outdoor shrine/temple profile (13 shrines, 16 temples): exposed grounds, high walking."
   },
   "comfort:96a766addbf5": {
@@ -1171,7 +1171,7 @@
   },
   "comfort:3ad094aa0ecf": {
    "category": "C",
-   "action": "corrected",
+   "action": "manual-review",
    "reason": "Markets/districts."
   },
   "comfort:5b948a0e89ad": {

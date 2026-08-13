@@ -1337,9 +1337,9 @@
       "missingSeasonRecords": 217
     },
     "dispositionCounts": {
-      "corrected": 31,
+      "corrected": 14,
       "confidence-gated": 30,
-      "manual-review": 191,
+      "manual-review": 208,
       "legitimate": 9
     },
     "categoryCounts": { "D": 8, "B": 101, "C": 134, "A": 9, "E": 9 }
@@ -3664,7 +3664,7 @@
           },
           "disposition": {
             "category": "B",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "d1f36940: expand-major-city-catalog.ts createDestination() formula (indoorPercent<70): min 1500, rec=min+2500=4000, max=rec+3000=7000, breakdown {35%,20%,35%,10% of rec}"
           }
         },
@@ -3733,7 +3733,7 @@
           },
           "disposition": {
             "category": "B",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "d1f36940 template variant after repair pass: tickets forced 0, transport/food rebalanced (1300/2300/400); venues are free-to-enter public spaces -> tickets=0 largely correct; several kind labels wrong (Dotonbori/Fushimi Inari/Canal City marked museum)"
           }
         },
@@ -3842,7 +3842,7 @@
           },
           "disposition": {
             "category": "B",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "d1f36940: same createDestination() formula with indoorPercent>=70: min 3000, rec 5500, max 8500, breakdown {1925,1100,1925,550}"
           }
         },
@@ -5602,7 +5602,7 @@
           "value": { "max": 4, "min": 2 },
           "disposition": {
             "category": "C",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "Museum 2-4h convention (31 museums) + 35 unknown-kind members; appears in kai-31/kai-32 script tuples."
           }
         },
@@ -6089,7 +6089,7 @@
           "value": { "max": 4, "min": 1.5 },
           "disposition": {
             "category": "C",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "Parks 1.5-4h plausible."
           }
         },
@@ -7308,7 +7308,7 @@
           },
           "disposition": {
             "category": "B",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "pipeline.cjs 60/40 derivation: sun=0.6*walkingMin, shade=0.4*walkingMin. 1h total is a plausible attraction convention but the split is formula-produced (135 members)."
           }
         },
@@ -7497,7 +7497,7 @@
           },
           "disposition": {
             "category": "B",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
           }
         },
@@ -7785,7 +7785,7 @@
           },
           "disposition": {
             "category": "B",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "60/40 split, minutes."
           }
         },
@@ -10062,7 +10062,7 @@
           "value": { "train": 200 },
           "disposition": {
             "category": "B",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "template"
           }
         },
@@ -10495,7 +10495,7 @@
           "value": { "train": 40 },
           "disposition": {
             "category": "E",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "mixed"
           }
         },
@@ -10535,7 +10535,7 @@
           "value": { "train": 41 },
           "disposition": {
             "category": "C",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "estimated"
           }
         },
@@ -10574,7 +10574,7 @@
           "value": { "train": 49 },
           "disposition": {
             "category": "E",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "mixed"
           }
         },
@@ -10669,7 +10669,7 @@
           "value": { "train": 203 },
           "disposition": {
             "category": "B",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "template"
           }
         },
@@ -12229,7 +12229,7 @@
           "value": { "holiday": 9, "weekday": 5, "weekend": 8 },
           "disposition": {
             "category": "B",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "Mega-template: v1.6.0 hub hardcode + expand-major-city-catalog.ts hardcode crowd:{5,8,9}; 346 records = 35% of catalogue incl. 95 museums, 25 parks, 23 temples."
           }
         },
@@ -13854,7 +13854,7 @@
           },
           "disposition": {
             "category": "B",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "expand-major-city-catalog.ts formula: heatTolerance=rainFriendly=round(indoorPercent/10), walkingIntensity 6 for indoor<70. All 136 members indoorPercent=20; 135/136 assisted-low. Kind labels unreliable (fushimi-inari-taisha labeled 'museum', kamakurakokomae-station 'museum')."
           }
         },
@@ -14061,7 +14061,7 @@
           },
           "disposition": {
             "category": "C",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "Outdoor shrine/temple profile (13 shrines, 16 temples): exposed grounds, high walking."
           }
         },
@@ -14198,7 +14198,7 @@
           },
           "disposition": {
             "category": "C",
-            "action": "corrected",
+            "action": "manual-review",
             "reason": "Markets/districts."
           }
         },
