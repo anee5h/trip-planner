@@ -236,4 +236,20 @@ test.describe("KAI-89 rendered data safety", () => {
     expect(body).not.toMatch(/train.*(?:200|180|3h20)/i);
     await assertVisibleDataIsSafe(page);
   });
+
+  test("Hamarikyu Gardens never renders stale 24-hour/open-access copy", async ({
+    page,
+  }) => {
+    // Final-pass cross-field fix: localized hours/parking/reservation were
+    // synchronized to the official Tokyo Metropolitan Park page (09:00-17:00,
+    // no general on-site parking). The detail page must not show the stale
+    // template "24 Hours (Open access)" / "散策自由（24時間開放）" claims.
+    await page.goto("/destinations/hamarikyu-gardens");
+    await expect(page.locator("main")).toBeVisible();
+    const body = await page.locator("body").innerText();
+    expect(body).not.toMatch(/24 Hours|Open access|24時間開放|散策自由/i);
+    expect(body).toMatch(/09:00-17:00/);
+    expect(body).toMatch(/No general on-site parking/i);
+    await assertVisibleDataIsSafe(page);
+  });
 });
