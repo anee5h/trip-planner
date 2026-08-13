@@ -202,7 +202,7 @@
     "value": 300,
     "evidence": "museum collection admission",
     "sources": [
-     "https://www.chibacity-ta.or.jp/en/spots/chiba-muse"
+     "https://www.ccma-net.jp/"
     ]
    },
    {
@@ -1030,7 +1030,7 @@
     "reason": "Temple record carried station aliases (import mix-up); aliases drive search"
    }
   ],
-  "ratingMetadataDowngradeNote": "62 laundered manual/high stamps + 3 medium/assisted stamps on rating vectors shared by 14-23 unrelated records (template families); downgraded to assisted/low so scoring falls to 0.5 and display confidence-gates.",
+  "ratingMetadataDowngradeNote": "65 records on rating vectors shared by 10-114 unrelated records (template families: hub 114, nature 18, castle 23, POI staircase 14, etc.); 62 laundered manual/high stamps + 3 medium/assisted stamps; downgraded to assisted/low so scoring falls to 0.5 and display confidence-gates.",
   "kindFixesNote": "tanukikoji-shopping-street (temple→street) and shingashi-river (museum→nature) fixed; scmaglev-and-railway-park reverted (paid museum with unverified Open access hours — needs editorial hours verification before kind change).",
   "transportRestoreValues": {
    "abashiri-city": {
@@ -1452,6 +1452,6 @@
    }
   },
   "transportNote": "The mode KEYS are access declarations consumed by runtime authorization and the published-record contract (MISSING_TRANSPORT_OPTIONS). Removing keys broke real rail/bus access, so removed keys are restored to their pre-KAI-89 values. The 18 source-verified corrections (TRANSPORT_CORRECTIONS) and the Naha Yui Rail values below are the evidence-driven fixes; the restored batch-default times remain dispositioned manual-review in kai-89-dispositions.json.",
-  "nahaYuiRailNote": "Naha records: train replaced with real Yui Rail local minutes (Naha Airport→city centre ~14 min official monorail timetable; Shuri terminus ~17-18 min; door-to-door with walk buffer 15-25). The batch train:200 was impossible (no intercity rail)."
+  "nahaYuiRailNote": "Naha records: train replaced with real Yui Rail monorail minutes (official timetable: Naha Airport->Makishi ~16 min, ->Shuri ~27 min rail; applied values 15-25 min are door-to-door with walk buffer, consistent with Agent C verified shuri 25). The batch train:200 was impossible (no intercity rail)."
  }
 }
