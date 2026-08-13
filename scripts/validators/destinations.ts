@@ -20,15 +20,6 @@ const VALID_TRANSPORT_OPTION_KEYS: Record<TransportMode, true> = {
   ferry: true,
 };
 
-/** Ground modes reachable over land within a zone (rail, road, bus). */
-const GROUND_TRANSPORT_KEYS: Record<TransportMode, true> = {
-  train: true,
-  shinkansen: true,
-  car: true,
-  my_car: true,
-  bus: true,
-};
-
 /**
  * Island zones with no conventional rail: their localModes exclude both
  * train and shinkansen. okinawa-main is deliberately excluded (Yui Rail
@@ -517,18 +508,25 @@ export const destinationsValidator: ValidatorModule = {
             }
           }
         }
+      }
 
-        // V-LOCAL-ACCESS: ground modes must be within localAccessModes.
-        if (dest.localAccessModes) {
-          const localAccess = new Set<TransportMode>(dest.localAccessModes);
-          for (const key of Object.keys(
-            GROUND_TRANSPORT_KEYS,
-          ) as TransportMode[]) {
-            if (key in dest.transportOptions && !localAccess.has(key)) {
+      // V-LOCAL-ACCESS (same-zone contract): localAccessModes narrows the
+      // zone's local modes for same-zone authorization — it can never grant
+      // a mode the zone lacks. Cross-zone modes come from the topology edge
+      // separately and are not constrained by localAccessModes (KAI-63
+      // review; see getEligibleOriginModes in TransportTopologyService).
+      if (dest.localAccessModes?.length) {
+        const localZone = dest.transportZoneId
+          ? zoneById.get(dest.transportZoneId as TransportZoneId)
+          : undefined;
+        if (localZone) {
+          const zoneModes = new Set<TransportMode>(localZone.localModes);
+          for (const mode of dest.localAccessModes) {
+            if (!zoneModes.has(mode)) {
               issues.push({
                 severity: "error",
                 code: "V-LOCAL-ACCESS",
-                message: `Destination '${dest.id}' claims ground mode '${key}' outside its localAccessModes [${dest.localAccessModes.join(", ")}].`,
+                message: `Destination '${dest.id}' declares localAccessModes mode '${mode}' not supported by zone '${localZone.id}' [${localZone.localModes.join(", ")}].`,
                 targetId: dest.id,
               });
             }

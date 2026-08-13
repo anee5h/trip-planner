@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 import { destinationsValidator } from "@/../scripts/validators/destinations";
+import { zoneById } from "@/shared/services/transport/TransportTopologyService";
 import { DEFAULT_VALIDATION_CONFIG } from "@/../scripts/config/validation-rules";
 import type { CatalogData } from "@/../scripts/validators/types";
 
@@ -29,8 +30,6 @@ const RAIL_LESS_ISLAND_ZONES = new Set([
 ]);
 
 const BUS_ONLY_ZONES = new Set(["ogasawara", "tomogashima"]);
-
-const GROUND_MODES = ["train", "shinkansen", "car", "my_car", "bus"] as const;
 
 const CANONICAL_KEYS = new Set([
   "train",
@@ -83,13 +82,15 @@ describe("transport truthfulness (KAI-63) — catalogue data", () => {
     expect(offenders.map((r) => r.id)).toEqual([]);
   });
 
-  it("no record claims a ground mode outside its localAccessModes", () => {
+  it("no record's localAccessModes grants a mode its zone lacks", () => {
     const offenders = catalogue.filter((r) => {
-      if (!r.localAccessModes || !r.transportOptions) return false;
-      const allowed = new Set(r.localAccessModes);
-      return GROUND_MODES.some(
-        (m) => r.transportOptions![m] !== undefined && !allowed.has(m),
-      );
+      if (!r.localAccessModes?.length) return false;
+      const zone = r.transportZoneId
+        ? zoneById.get(r.transportZoneId)
+        : undefined;
+      if (!zone) return false;
+      const zoneModes = new Set(zone.localModes);
+      return r.localAccessModes.some((m) => !zoneModes.has(m));
     });
     expect(offenders.map((r) => r.id)).toEqual([]);
   });
@@ -146,7 +147,29 @@ describe("transport truthfulness (KAI-63) — validator rules fire", () => {
     expect(hit!.targetId).toBe("ogasawara-islands-tokyo");
   });
 
-  it("V-LOCAL-ACCESS: ground mode outside localAccessModes fails validation", async () => {
+  it("V-LOCAL-ACCESS: localAccessModes granting a mode the zone lacks fails validation", async () => {
+    // Same-zone contract: localAccessModes narrows the zone's local modes
+    // and can never grant a mode the zone does not support. Ogasarawa's
+    // zone localModes exclude car, so declaring it must fail. Cross-zone
+    // transportOptions claims are NOT policed by this rule.
+    const base = catalogue.find((r) => r.id === "ogasawara-islands-tokyo")!;
+    const mutated: DestinationRecord = {
+      ...base,
+      localAccessModes: ["car"],
+    };
+    const res = await runValidator(catalogueWith(mutated));
+    const hit = res.issues.find(
+      (i) => i.code === "V-LOCAL-ACCESS" && i.severity === "error",
+    );
+    expect(hit).toBeDefined();
+    expect(hit!.targetId).toBe("ogasawara-islands-tokyo");
+  });
+
+  it("V-LOCAL-ACCESS: cross-zone transportOptions claims are not constrained by localAccessModes", async () => {
+    // localAccessModes narrows SAME-ZONE authorization only; a destination
+    // may legitimately carry cross-zone rail claims outside it (KAI-63
+    // review). Kouri's localAccessModes exclude train, but a train
+    // transportOptions claim must not fire V-LOCAL-ACCESS.
     const base = catalogue.find((r) => r.id === "kouri-island-okinawa")!;
     expect(base.localAccessModes).not.toContain("train");
     const mutated: DestinationRecord = {
@@ -154,11 +177,8 @@ describe("transport truthfulness (KAI-63) — validator rules fire", () => {
       transportOptions: { ...base.transportOptions, train: 180 },
     };
     const res = await runValidator(catalogueWith(mutated));
-    const hit = res.issues.find(
-      (i) => i.code === "V-LOCAL-ACCESS" && i.severity === "error",
-    );
-    expect(hit).toBeDefined();
-    expect(hit!.targetId).toBe("kouri-island-okinawa");
+    const hit = res.issues.find((i) => i.code === "V-LOCAL-ACCESS");
+    expect(hit).toBeUndefined();
   });
 
   it("V-MODE-KEY: non-canonical transportOptions key fails validation", async () => {
