@@ -1,7 +1,7 @@
 {
   "id": "osu-kannon",
   "name": "Osu Kannon",
-  "nameJa": "真福寺 (羽島市)",
+  "nameJa": "大須観音",
   "aliases": ["Ōsu Kannon", "真福寺 (羽島市)"],
   "content": {
     "en": {
@@ -35,8 +35,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shinfukuji-Hashima01.JPG"
   },
   "coordinates": {
-    "lat": 35.27130555555556,
-    "lng": 136.6771388888889
+    "lat": 35.1598,
+    "lng": 136.9
   },
   "description": "Osu Kannon is a visitor destination in Nagoya City.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History"],

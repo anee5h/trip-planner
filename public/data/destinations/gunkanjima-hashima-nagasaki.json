@@ -15,9 +15,7 @@
   "budgetMax": 15000,
   "budgetRecommended": 9500,
   "transportOptions": {
-    "train": 45,
-    "bus": 50,
-    "car": 60
+    "ferry": 40
   },
   "totalTripHours": 6,
   "walkingMin": 120,
@@ -141,5 +139,6 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.gunkanjima-concierge.com/en/"
   },
-  "notesJa": "上陸ツアーは天候次第で高波時に欠航することがあります。"
+  "notesJa": "上陸ツアーは天候次第で高波時に欠航することがあります。",
+  "transportZoneId": "gunkanjima"
 }

@@ -92,9 +92,7 @@
       "sortOrder": 27
     }
   ],
-  "relationships": {
-    "parentDestinationId": "nagano-city"
-  },
+  "relationships": {},
   "walkingIntensity": "low",
   "role": "standalone",
   "placeType": "destination",
@@ -105,5 +103,5 @@
   },
   "officialWebsite": "https://www.uedajo.myu-shop.jp/",
   "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-  "municipalityId": "Nagano:nagano"
+  "municipalityId": "Nagano:ueda"
 }

@@ -27,12 +27,12 @@
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
   "tags": ["History", "Kyoto City", "v1.9.2"],
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pedestrian%20road%20with%20pavements%2C%20paper%20umbrellas%20and%20people%20in%20yukata%2C%20Higashiyama-ku%2C%20Kyoto%2C%20Japan.jpg?width=1600",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RyoanJi-Dry_garden.jpg/1280px-RyoanJi-Dry_garden.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "Basile Morin",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pedestrian_road_with_pavements,_paper_umbrellas_and_people_in_yukata,_Higashiyama-ku,_Kyoto,_Japan.jpg"
+    "license": "CC BY-SA 3.0",
+    "attribution": "Stephane D'Alu",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:RyoanJi-Dry_garden.jpg"
   },
   "coordinates": {
     "lat": 35.0345,

@@ -29,7 +29,9 @@ export const V192_CITY_EXPANSION: readonly CityExpansionTarget[] = [
   },
   {
     hubId: "kawasaki-city",
-    minimumChildren: 9,
+    // KAI-87 PR1: toshiba-science-museum (child) permanently closed and
+    // retired; depth contract re-scoped 9 → 8.
+    minimumChildren: 8,
     candidates: [
       ...places("central-kawasaki", [
         "Kawasaki Daishi",
