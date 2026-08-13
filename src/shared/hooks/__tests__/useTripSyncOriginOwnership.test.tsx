@@ -50,10 +50,15 @@ const STATIONS_BY_PREFECTURE: Record<
   Array<{ name: string; lat: number; lng: number }>
 > = {
   Kanagawa: [
-    { name: "Shin-Yokohama Station", lat: 35.5076, lng: 139.6177 },
-    { name: "Nakayama Station", lat: 35.5147, lng: 139.5393 },
+    {
+      name: "Shinyokohama Station (新横浜駅)",
+      lat: 35.5076,
+      lng: 139.6177,
+    },
+    { name: "Nakayama Station (中山駅)", lat: 35.5147, lng: 139.5393 },
+    { name: "Duplicate Station", lat: 35.6, lng: 139.5 },
   ],
-  Tokyo: [{ name: "Shin-Yokohama Station", lat: 35.5, lng: 139.6 }],
+  Tokyo: [{ name: "Duplicate Station", lat: 35.5, lng: 139.6 }],
 };
 
 vi.stubGlobal(
@@ -212,6 +217,38 @@ describe("useTripSync — origin ownership integration", () => {
     });
 
     expect(latest.activeOrigin.label).toBe("Shin-Yokohama Station, Kanagawa");
+  });
+
+  it("existing account hydration resolves current parenthetical station labels", async () => {
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Shinyokohama Station (新横浜駅), Kanagawa",
+      },
+      error: null,
+    });
+
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+    });
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(latest.sync.profileSyncStatus).toBe("ready");
+    expect(latest.activeOrigin.label).toBe(
+      "Shinyokohama Station (新横浜駅), Kanagawa",
+    );
+    expect(latest.activeOrigin.source).toBe("station");
+    expect(latest.activeOrigin.coordinates).toEqual({
+      lat: 35.5076,
+      lng: 139.6177,
+    });
   });
 
   it("existing account with Tokyo Station cloud data uses Tokyo Station", async () => {
@@ -500,7 +537,7 @@ describe("useTripSync — origin ownership integration", () => {
         visited_prefectures: [],
         visited_dates: {},
         destination_ratings: {},
-        home_station: "Shin-Yokohama Station",
+        home_station: "Duplicate Station",
       },
       error: null,
     });

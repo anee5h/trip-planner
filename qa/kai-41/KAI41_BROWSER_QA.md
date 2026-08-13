@@ -1,0 +1,30 @@
+# KAI-41 Account-Origin Persistence and Recovery QA
+
+Run on 2026-08-13 against `https://meguruto.app` in the Codex in-app Chromium browser and the user's signed-in Chrome session. Automated checks ran against `origin/main` plus the linked KAI-88 resolver fix.
+
+## Browser evidence
+
+- Codex in-app Chromium: browser version is not exposed by the browser-control API; guest session, exact origin state `Nakayama Station, Kanagawa`.
+- Chrome: `151.0.7922.71` (Linux), signed-in main account; account-origin persistence was observed without recording account identifiers or private collection contents.
+- Evidence screenshots are checked in under `qa/kai-41/screenshots/`: `guest-home.png`, `guest-detail.png`, and `signed-in-home.png`.
+
+| Browser/account state           | Origin                                            | Expected                                                                           | Actual                                                                                | Evidence                                                                                               | Result |
+| ------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------ |
+| In-app Chromium, guest          | Nakayama Station, Kanagawa                        | Home uses origin-adjusted travel time                                              | Shin-Yokohama Ramen Museum showed `~19–24 min`; raw catalogue value was not shown     | [`guest-home.png`](./screenshots/guest-home.png)                                                       | Pass   |
+| In-app Chromium, guest          | Nakayama Station, Kanagawa                        | Guest origin survives refresh                                                      | Reload restored Nakayama                                                              | [`guest-home.png`](./screenshots/guest-home.png) + reload DOM                                          | Pass   |
+| In-app Chromium, guest          | Nakayama Station, Kanagawa                        | Home and detail agree                                                              | Both showed `~19–24 min`                                                              | [`guest-home.png`](./screenshots/guest-home.png), [`guest-detail.png`](./screenshots/guest-detail.png) | Pass   |
+| Chrome 151.0.7922.71, signed in | Existing signed-in account origin                 | Cloud origin loads on a fresh tab                                                  | Saved account origin loaded on a fresh tab                                            | [`signed-in-home.png`](./screenshots/signed-in-home.png) + fresh-tab DOM                               | Pass   |
+| Chrome 151.0.7922.71, signed in | Shinyokohama Station, Kanagawa                    | Selection persists and Home/detail agree                                           | Fresh tab restored Shinyokohama; both surfaces showed `~14–19 min`                    | Prior signed-in Home/detail screenshots + reload DOM                                                   | Pass   |
+| Chrome 151.0.7922.71, signed in | Existing signed-in account origin                 | Real Sign Out restores guest origin                                                | **Waived**: not run on the main account; integration coverage verifies the transition | Main account session was left signed in; no destructive action taken                                   | Waived |
+| Automated integration           | Guest Nakayama → Account A Shin-Yokohama → logout | Logout restores guest origin                                                       | Guest Nakayama restored                                                               | `useTripSyncOriginOwnership.test.tsx`                                                                  | Pass   |
+| Automated integration           | Account A pending → Account B                     | Late A hydration cannot leak into B                                                | Stale A response ignored                                                              | `useTripSyncOriginOwnership.test.tsx`                                                                  | Pass   |
+| Automated integration           | Unresolvable cloud origin                         | Enter recoverable `origin_error`; picker remains usable; corrected origin persists | Corrected Nakayama upsert returns status to `ready`                                   | `useTripSyncOriginOwnership.test.tsx`                                                                  | Pass   |
+| Automated integration           | Generic profile-load error                        | Profile mutations remain blocked                                                   | Mutation guard stays false until hydration is ready                                   | `useTripSyncOriginOwnership.test.tsx`                                                                  | Pass   |
+
+## Finding
+
+KAI-88 was opened for a production-data mismatch hidden by simplified tests: account hydration compared raw cloud labels with localized station catalogue entries. Production-shaped fixtures reproduced the failure; the shared resolver now canonicalizes names while retaining unique-match safety.
+
+## Constraint
+
+The live Sign Out control was not clicked because the available Chrome session is the main account and no disposable/test account was available. The current implementation also calls Supabase `signOut()` with its default global scope, so clicking it would revoke sessions on all devices. Logout restoration and account-switch isolation were verified through focused integration tests instead. This browser-only row is explicitly waived for this PR.
