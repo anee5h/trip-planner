@@ -48,10 +48,10 @@
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
-    "transport": 1365,
+    "transport": 1400,
     "tickets": 100,
-    "food": 1365,
-    "cafe": 1170
+    "food": 1400,
+    "cafe": 1200
   },
   "transportOptions": {
     "train": 48
@@ -137,7 +137,6 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.omekanko.gr.jp/",
-  "businessHours": "Open access",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Cat_Nora_on_Ome_Railway_Park_20071104.jpg/1920px-Cat_Nora_on_Ome_Railway_Park_20071104.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",

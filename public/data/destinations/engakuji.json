@@ -10,7 +10,7 @@
       "highlights": ["History"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
-      "parking": "Temple visitor parking available on site.",
+      "parking": "No on-site parking; use nearby paid coin parking.",
       "openingHours": "08:30 - 16:30"
     },
     "ja": {
@@ -53,10 +53,10 @@
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
-    "transport": 1531,
+    "transport": 1400,
     "tickets": 500,
-    "food": 1531,
-    "cafe": 438
+    "food": 1400,
+    "cafe": 400
   },
   "transportOptions": {
     "train": 44
@@ -105,7 +105,7 @@
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
   "reservation": "No reservation required for general temple ground visits.",
-  "parking": "Temple visitor parking available on site.",
+  "parking": "No on-site parking; use nearby paid coin parking.",
   "notes": "Early morning visits provide a serene experience before tour groups arrive.",
   "schemaVersion": 2,
   "status": "published",
@@ -171,6 +171,14 @@
           "type": "official",
           "url": "http://www.engakuji.or.jp",
           "title": "Engakuji official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "parking": [
+        {
+          "type": "official",
+          "url": "https://www.engakuji.or.jp/en/",
+          "title": "ENGAKUJI ZEN TEMPLE",
           "accessedAt": "2026-08-13"
         }
       ]

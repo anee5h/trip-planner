@@ -79,59 +79,33 @@ for (const id of RATING_METADATA_DOWNGRADE) {
 // ------------------------------------------------------- 2. Budget tickets
 // Source-verified admission prices (official operator/municipal pages) fix
 // template zeros/wrong values. After setting tickets, transport/food/cafe are
-// rebalanced so the breakdown still sums to budgetRecommended (the contract
-// enforced by normalize-destination-budgets.ts); tickets itself is preserved.
+// Source-verified admission prices (official operator/municipal pages) fix
+// template zeros/wrong values. ONLY the ticket field is changed: transport,
+// food, cafe and budgetRecommended are NOT rescaled to preserve arithmetic
+// equality. Factual integrity beats exact sums — a verified admission price
+// is not evidence about food or transport costs. Template-generated
+// components stay as legacy values tracked as manual-review debt;
+// sum(breakdown) == recommended is NOT an invariant this script enforces.
 const BUDGET_TICKET_CORRECTIONS: Array<{
   id: string;
   value: number;
   evidence: string;
   sources: string[];
 }> = corrections.sections.budgetTicketCorrections;
-/**
- * Restore the sum(breakdown) == budgetRecommended invariant while PRESERVING
- * tickets (the source-verified admission price). transport/food/cafe are
- * scaled proportionally; cafe absorbs rounding so the sum is exact.
- */
-function rebalanceBreakdown(d: Destination, id: string) {
-  const b = d.budgetBreakdown;
-  if (!b || !Number.isFinite(d.budgetRecommended)) return;
-  const rec = d.budgetRecommended;
-  const othersSum = b.transport + b.food + b.cafe;
-  const total = othersSum + b.tickets;
-  if (total === rec) return;
-  if (
-    ![b.transport, b.tickets, b.food, b.cafe].every((v) => Number.isFinite(v))
-  )
-    fail(`${id}: breakdown contains non-finite component`);
-  const ticketsTarget = rec - b.tickets;
-  if (ticketsTarget <= 0)
-    fail(
-      `${id}: verified tickets ${b.tickets} already exceed recommended ${rec}`,
-    );
-  if (othersSum === 0)
-    fail(`${id}: zero transport/food/cafe cannot rebalance to ${rec}`);
-  const scale = ticketsTarget / othersSum;
-  const transport = Math.round(b.transport * scale);
-  const food = Math.round(b.food * scale);
-  const cafe = rec - b.tickets - transport - food;
-  if (cafe < 0)
-    fail(
-      `${id}: rebalance leaves negative cafe (${rec} vs ${b.tickets}+${transport}+${food})`,
-    );
-  d.budgetBreakdown = { transport, tickets: b.tickets, food, cafe };
-}
 for (const c of BUDGET_TICKET_CORRECTIONS) {
   const d = get(c.id);
-  const before = d.budgetBreakdown?.tickets;
-  if (before !== undefined) d.budgetBreakdown!.tickets = c.value;
-  rebalanceBreakdown(d, c.id);
+  if (!d.budgetBreakdown)
+    fail(`${c.id}: no budgetBreakdown for ticket correction`);
+  d.budgetBreakdown.tickets = c.value;
   applied++;
 }
 
-// ------------------------------------------------ 3. Budget sum rebalances
-// pr12c buildPoi() formula records where breakdown sum != recommended (a
-// deterministic generator bug). Values are formula-generated templates; the
-// sum==recommended invariant is restored mechanically (no new facts).
+// ------------------------------------------------ 3. Budget recommended
+// pr12c buildPoi() formula records where budgetRecommended was not the
+// documented midpoint. budgetRecommended = round((min+max)/2) is the
+// established calculation model (normalize-destination-budgets.ts). The
+// breakdown components are legacy formula values left untouched (manual
+// review) — no component is invented or rescaled here.
 const BUDGET_REBALANCE_ONLY: Array<{ id: string; reason: string }> =
   corrections.sections.budgetRebalanceOnly;
 for (const c of BUDGET_REBALANCE_ONLY) {
@@ -139,9 +113,8 @@ for (const c of BUDGET_REBALANCE_ONLY) {
   if (Number.isFinite(d.budgetMin) && Number.isFinite(d.budgetMax)) {
     const midpoint = Math.round((d.budgetMin + d.budgetMax) / 2);
     if (d.budgetRecommended !== midpoint) d.budgetRecommended = midpoint;
+    applied++;
   }
-  rebalanceBreakdown(d, c.id);
-  applied++;
 }
 
 // ------------------------------------------------------- 4. Transport fixes
@@ -300,6 +273,95 @@ for (const c of BEST_SEASON_FIXES) {
   const d = get(c.id);
   if (d.bestSeason !== c.value) {
     d.bestSeason = c.value;
+    applied++;
+  }
+}
+
+// --------------------------------------------------- 12. Cross-field fixes
+// Synchronize duplicated user-facing fields to the same verified fact
+// (KAI-89 final consistency pass). Every value below is source-verified.
+const CROSS = corrections.sections.crossFieldFixes ?? {};
+
+// 12a. Hamarikyu Gardens — hours/parking/reservation/website/sources all
+// synchronized to the official Tokyo Metropolitan Park Association page.
+const hama = CROSS.hamarikyuGardens;
+if (hama) {
+  const d = get("hamarikyu-gardens");
+  if (d.content?.en) {
+    d.content.en.openingHours = hama.contentEnOpeningHours;
+    d.content.en.parking = hama.parkingEn;
+    d.content.en.reservation = hama.reservationEn;
+  }
+  if (d.content?.ja) {
+    d.content.ja.openingHours = hama.contentJaOpeningHours;
+    d.content.ja.parking = hama.parkingJa;
+    d.content.ja.reservation = hama.reservationJa;
+  }
+  d.parking = hama.parkingEn;
+  d.parkingJa = hama.parkingJa;
+  d.reservation = hama.reservationEn;
+  d.reservationJa = hama.reservationJa;
+  d.officialWebsite = hama.officialWebsite;
+  if (d.editorial) {
+    const keep = d.editorial.sources.filter(
+      (s) => !hama.sourceReplace.some((r: { from: string }) => r.from === s.url),
+    );
+    const additions = hama.sourceReplace
+      .map((r: { to: string; type: string; title: string }) => ({
+        type: r.type,
+        url: r.to,
+        title: r.title,
+        accessedAt: "2026-08-13",
+      }))
+      .filter((a: { url: string }) => !keep.some((s) => s.url === a.url));
+    d.editorial.sources = keep.concat(additions);
+    d.editorial.fieldSources = {
+      ...(d.editorial.fieldSources ?? {}),
+      openingHours: [{ type: "official", url: hama.officialWebsite, title: "浜離宮恩賜庭園｜公園へ行こう！", accessedAt: "2026-08-13" }],
+      parking: [{ type: "official", url: hama.officialWebsite, title: "浜離宮恩賜庭園｜公園へ行こう！", accessedAt: "2026-08-13" }],
+      "budgetBreakdown.tickets": [{ type: "official", url: hama.officialWebsite, title: "浜離宮恩賜庭園｜公園へ行こう！", accessedAt: "2026-08-13" }],
+    };
+  }
+  applied++;
+}
+
+// 12b. Engakuji — no on-site parking (official site); admission 500 current.
+if (CROSS.engakujiParking) {
+  const d = get("engakuji");
+  d.parking = CROSS.engakujiParking.parkingEn;
+  if (d.content?.en) d.content.en.parking = CROSS.engakujiParking.parkingEn;
+  if (d.editorial) {
+    d.editorial.fieldSources = {
+      ...(d.editorial.fieldSources ?? {}),
+      parking: [{ type: "official", url: "https://www.engakuji.or.jp/en/", title: "ENGAKUJI ZEN TEMPLE", accessedAt: "2026-08-13" }],
+    };
+  }
+  applied++;
+}
+
+// 12c. honmaru-palace — nameJa must mirror content.ja.name (本丸御殿).
+if (CROSS.honmaruPalaceNameJa) {
+  const d = get("honmaru-palace");
+  d.nameJa = CROSS.honmaruPalaceNameJa.value;
+  applied++;
+}
+
+// 12d. ontakesan — top-level parking aligned to the more specific copy.
+if (CROSS.ontakesanParkingAlign) {
+  const d = get("ontakesan");
+  if (d.parking === CROSS.ontakesanParkingAlign.from) {
+    d.parking = CROSS.ontakesanParkingAlign.to;
+    applied++;
+  }
+}
+
+// 12e. Paid-kind venues with stale 'Open access' businessHours: the claim
+// contradicts their verified paid admission; openingHours holds the real
+// schedule, so the stale businessHours is removed (display falls back).
+for (const id of CROSS.paidKindOpenAccessBusinessHoursRemove ?? []) {
+  const d = get(id);
+  if (d.businessHours?.toLowerCase() === "open access") {
+    delete d.businessHours;
     applied++;
   }
 }

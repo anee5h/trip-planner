@@ -43,10 +43,10 @@
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
-    "transport": 1271,
+    "transport": 1400,
     "tickets": 370,
-    "food": 1271,
-    "cafe": 1088
+    "food": 1400,
+    "cafe": 1200
   },
   "transportOptions": {},
   "totalTripHours": 5,
@@ -132,7 +132,7 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "officialWebsite": "https://www.rijo-castle.jp/rijo/",
+  "officialWebsite": "https://hiroshimacastle.jp/",
   "businessHours": "Ninomaru grounds Apr–Sep 09:00–17:30 (last entry 17:00), Oct–Mar 09:00–16:30 (last entry 16:00); closed Dec 8 & Dec 29–31. Keep interior closed.",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg/1920px-Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg",
   "imageMetadata": {

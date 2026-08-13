@@ -31,7 +31,7 @@
   "relationships": {
     "parentDestinationId": "narita-city"
   },
-  "officialWebsite": "https://www.narita-airport.jp/",
+  "officialWebsite": "https://www.aeromuseum.or.jp/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
   "tags": ["Museum", "Narita City"],

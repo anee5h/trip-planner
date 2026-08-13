@@ -68,10 +68,10 @@
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
-    "transport": 770,
+    "transport": 1400,
     "tickets": 1800,
-    "food": 770,
-    "cafe": 660
+    "food": 1400,
+    "cafe": 1200
   },
   "transportOptions": {
     "train": 37
@@ -157,7 +157,6 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.tbt.gr.jp/",
-  "businessHours": "Open access",
   "image": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Playing_children%2C_one_with_a_bow%2C_Japan._%2810796811585%29.jpg",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",

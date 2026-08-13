@@ -4369,10 +4369,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1619,
+      "transport": 1400,
       "tickets": 300,
-      "food": 1619,
-      "cafe": 462
+      "food": 1400,
+      "cafe": 400
     },
     "transportOptions": {
       "train": 49
@@ -5458,10 +5458,10 @@
     "budgetRecommended": 5500,
     "budgetMax": 8500,
     "budgetBreakdown": {
-      "transport": 2275,
+      "transport": 1925,
       "tickets": 300,
-      "food": 2275,
-      "cafe": 650
+      "food": 1925,
+      "cafe": 550
     },
     "transportOptions": {
       "train": 67,
@@ -8035,10 +8035,10 @@
     "highlights": ["Museum", "Family", "Food"],
     "description": "Cup Noodles Museum Yokohama is a curated destination within Yokohama City.",
     "budgetBreakdown": {
-      "transport": 750,
+      "transport": 650,
       "tickets": 500,
-      "food": 3750,
-      "cafe": 1500
+      "food": 3250,
+      "cafe": 1300
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -9326,7 +9326,7 @@
         "highlights": ["History"],
         "notes": "Early morning visits provide a serene experience before tour groups arrive.",
         "reservation": "No reservation required for general temple ground visits.",
-        "parking": "Temple visitor parking available on site.",
+        "parking": "No on-site parking; use nearby paid coin parking.",
         "openingHours": "08:30 - 16:30"
       },
       "ja": {
@@ -9369,10 +9369,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1531,
+      "transport": 1400,
       "tickets": 500,
-      "food": 1531,
-      "cafe": 438
+      "food": 1400,
+      "cafe": 400
     },
     "transportOptions": {
       "train": 44
@@ -9421,7 +9421,7 @@
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "weatherDependence": "moderate",
     "reservation": "No reservation required for general temple ground visits.",
-    "parking": "Temple visitor parking available on site.",
+    "parking": "No on-site parking; use nearby paid coin parking.",
     "notes": "Early morning visits provide a serene experience before tour groups arrive.",
     "schemaVersion": 2,
     "status": "published",
@@ -9487,6 +9487,14 @@
             "type": "official",
             "url": "http://www.engakuji.or.jp",
             "title": "Engakuji official website",
+            "accessedAt": "2026-08-13"
+          }
+        ],
+        "parking": [
+          {
+            "type": "official",
+            "url": "https://www.engakuji.or.jp/en/",
+            "title": "ENGAKUJI ZEN TEMPLE",
             "accessedAt": "2026-08-13"
           }
         ]
@@ -16132,10 +16140,10 @@
     "budgetRecommended": 5500,
     "budgetMax": 8500,
     "budgetBreakdown": {
-      "transport": 2319,
+      "transport": 1925,
       "tickets": 200,
-      "food": 2319,
-      "cafe": 662
+      "food": 1925,
+      "cafe": 550
     },
     "transportOptions": {
       "train": 196,
@@ -19322,10 +19330,10 @@
     "budgetRecommended": 5500,
     "budgetMax": 8500,
     "budgetBreakdown": {
-      "transport": 2183,
+      "transport": 1925,
       "tickets": 510,
-      "food": 2183,
-      "cafe": 624
+      "food": 1925,
+      "cafe": 550
     },
     "transportOptions": {
       "train": 199
@@ -19658,7 +19666,7 @@
   {
     "id": "honmaru-palace",
     "name": "Honmaru Palace",
-    "nameJa": "名古屋城",
+    "nameJa": "本丸御殿",
     "aliases": ["Nagoya Castle", "名古屋城"],
     "content": {
       "en": {
@@ -20640,10 +20648,10 @@
     ],
     "description": "Ikebukuro (Toshima) is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
-      "transport": 3249,
+      "transport": 1083,
       "tickets": 0,
-      "food": 6826,
-      "cafe": 2925
+      "food": 2275,
+      "cafe": 975
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Commercial district paid parking garages available nearby.",
@@ -27102,10 +27110,10 @@
     "budgetRecommended": 5500,
     "budgetMax": 8500,
     "budgetBreakdown": {
-      "transport": 2275,
+      "transport": 1925,
       "tickets": 300,
-      "food": 2275,
-      "cafe": 650
+      "food": 1925,
+      "cafe": 550
     },
     "transportOptions": {
       "train": 41
@@ -31634,10 +31642,10 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/250505_Korakuen_Okayama_Japan06s3.jpg/1280px-250505_Korakuen_Okayama_Japan06s3.jpg",
     "budgetBreakdown": {
-      "transport": 3818,
+      "transport": 3000,
       "tickets": 500,
-      "food": 2068,
-      "cafe": 1114
+      "food": 1625,
+      "cafe": 875
     },
     "highlights": ["Explore Korakuen Garden", "Local Culture & Scenery"],
     "bestSeason": "Spring & Autumn",
@@ -36318,12 +36326,6 @@
           "type": "wikipedia",
           "url": "https://en.wikipedia.org/wiki/Maruyama_Park",
           "title": "Maruyama Park",
-          "accessedAt": "2026-07-29"
-        },
-        {
-          "type": "official",
-          "url": "https://kyoto.travel/en/destinations/maruyama-park/",
-          "title": "Maruyama Park official website",
           "accessedAt": "2026-07-29"
         }
       ],
@@ -41066,7 +41068,7 @@
     "relationships": {
       "parentDestinationId": "narita-city"
     },
-    "officialWebsite": "https://www.narita-airport.jp/",
+    "officialWebsite": "https://www.aeromuseum.or.jp/",
     "officialWebsiteRequirement": "recommended",
     "categories": ["Museum"],
     "tags": ["Museum", "Narita City"],
@@ -47929,10 +47931,10 @@
     ],
     "description": "A high-tech entertainment hub on an artificial island in Tokyo Bay, featuring shopping malls, beaches, and a giant Gundam.",
     "budgetBreakdown": {
-      "transport": 3249,
+      "transport": 1083,
       "tickets": 0,
-      "food": 6826,
-      "cafe": 2925
+      "food": 2275,
+      "cafe": 975
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -58457,10 +58459,10 @@
     "highlights": ["Museum", "Food", "Indoor"],
     "description": "Shin-Yokohama Ramen Museum is a curated destination within Yokohama City.",
     "budgetBreakdown": {
-      "transport": 756,
+      "transport": 650,
       "tickets": 450,
-      "food": 3781,
-      "cafe": 1513
+      "food": 3250,
+      "cafe": 1300
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -74015,10 +74017,10 @@
     ],
     "description": "Yomiuriland is an amusement park in Inagi, Tokyo and Tama-ku, Kawasaki, Kanagawa Prefecture, Japan that first opened on 19 March 1964.  It is situated on hillsides, and features rides such as roller coasters and water flumes.",
     "budgetBreakdown": {
-      "transport": 1775,
+      "transport": 1083,
       "tickets": 5900,
-      "food": 3728,
-      "cafe": 1597
+      "food": 2275,
+      "cafe": 975
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -75995,9 +75997,9 @@
         "description": "A magnificent Edo-period landscape garden featuring seawater ponds regulated by Tokyo Bay tides and a traditional teahouse on the water. It offers a striking contrast of historic pine trees against modern skyscraper backdrops.",
         "highlights": ["Nature", "Garden", "History"],
         "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
-        "reservation": "Open access; no entrance reservation required.",
-        "parking": "Park parking lot available on site.",
-        "openingHours": "24 Hours (Open access)"
+        "reservation": "No advance reservation required; admission ticket purchased at the gate.",
+        "parking": "No general on-site parking. Limited spaces across the main gate for wheelchair/disabled vehicles and tour buses only; other vehicles use the nearest public parking (e.g. Shiodome Parking).",
+        "openingHours": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1"
       },
       "ja": {
         "name": "浜離宮恩賜庭園",
@@ -76008,9 +76010,9 @@
           "浜離宮恩賜庭園の名所"
         ],
         "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
-        "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
-        "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "散策自由（24時間開放）"
+        "reservation": "事前予約不要。入園券は入口でご購入いただけます。",
+        "parking": "専用駐車場はありません（大手門橋を渡った所に障害者用・観光バス用の限られた駐車スペースのみ）。一般車両は最寄りの公共駐車場（汐留駐車場など）をご利用ください。",
+        "openingHours": "午前9時〜午後5時（入園は午後4時30分まで）。年末年始休園（12月29日〜1月1日）"
       }
     },
     "prefecture": "Tokyo",
@@ -76041,10 +76043,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1295,
+      "transport": 1400,
       "tickets": 300,
-      "food": 1295,
-      "cafe": 1110
+      "food": 1400,
+      "cafe": 1200
     },
     "transportOptions": {
       "train": 15
@@ -76090,8 +76092,8 @@
     },
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "weatherDependence": "moderate",
-    "reservation": "Open access; no entrance reservation required.",
-    "parking": "Park parking lot available on site.",
+    "reservation": "No advance reservation required; admission ticket purchased at the gate.",
+    "parking": "No general on-site parking. Limited spaces across the main gate for wheelchair/disabled vehicles and tour buses only; other vehicles use the nearest public parking (e.g. Shiodome Parking).",
     "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
     "schemaVersion": 2,
     "status": "published",
@@ -76105,8 +76107,8 @@
       "sources": [
         {
           "type": "official",
-          "url": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-          "title": "Hamarikyu Gardens",
+          "url": "https://www.tokyo-park.or.jp/park/hama-rikyu/",
+          "title": "浜離宮恩賜庭園｜公園へ行こう！",
           "accessedAt": "2026-08-13"
         }
       ],
@@ -76122,14 +76124,40 @@
         }
       ],
       "reviewedAt": "2026-08-02",
-      "reviewedBy": "Meguruto Editorial Reviewer"
+      "reviewedBy": "Meguruto Editorial Reviewer",
+      "fieldSources": {
+        "openingHours": [
+          {
+            "type": "official",
+            "url": "https://www.tokyo-park.or.jp/park/hama-rikyu/",
+            "title": "浜離宮恩賜庭園｜公園へ行こう！",
+            "accessedAt": "2026-08-13"
+          }
+        ],
+        "parking": [
+          {
+            "type": "official",
+            "url": "https://www.tokyo-park.or.jp/park/hama-rikyu/",
+            "title": "浜離宮恩賜庭園｜公園へ行こう！",
+            "accessedAt": "2026-08-13"
+          }
+        ],
+        "budgetBreakdown.tickets": [
+          {
+            "type": "official",
+            "url": "https://www.tokyo-park.or.jp/park/hama-rikyu/",
+            "title": "浜離宮恩賜庭園｜公園へ行こう！",
+            "accessedAt": "2026-08-13"
+          }
+        ]
+      }
     },
     "ratingMetadata": {
       "rubricVersion": 1,
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
+    "officialWebsite": "https://www.tokyo-park.or.jp/park/hama-rikyu/",
     "businessHours": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Traditional_style_toilet_at_Hamarikyu_Gardens_in_Tokyo%2C_Japan_%2814063687677%29.jpg/1920px-Traditional_style_toilet_at_Hamarikyu_Gardens_in_Tokyo%2C_Japan_%2814063687677%29.jpg",
     "imageMetadata": {
@@ -76139,8 +76167,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Traditional_style_toilet_at_Hamarikyu_Gardens_in_Tokyo,_Japan_(14063687677).jpg"
     },
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
-    "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
-    "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
+    "reservationJa": "事前予約不要。入園券は入口でご購入いただけます。",
+    "parkingJa": "専用駐車場はありません（大手門橋を渡った所に障害者用・観光バス用の限られた駐車スペースのみ）。一般車両は最寄りの公共駐車場（汐留駐車場など）をご利用ください。",
     "openingHours": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
     "openingHoursJa": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
     "municipalityId": "Tokyo:chuo"
@@ -76841,10 +76869,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1348,
+      "transport": 1400,
       "tickets": 150,
-      "food": 1348,
-      "cafe": 1154
+      "food": 1400,
+      "cafe": 1200
     },
     "transportOptions": {
       "train": 15
@@ -80034,10 +80062,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1225,
+      "transport": 1400,
       "tickets": 500,
-      "food": 1225,
-      "cafe": 1050
+      "food": 1400,
+      "cafe": 1200
     },
     "transportOptions": {
       "train": 36
@@ -80123,7 +80151,6 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.city.hino.lg.jp/",
-    "businessHours": "Open access",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Battle_of_Hakodate_Nishiki-e_by_Nagashima_Mosai.png/1920px-Battle_of_Hakodate_Nishiki-e_by_Nagashima_Mosai.png",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -80193,10 +80220,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1292,
+      "transport": 1400,
       "tickets": 310,
-      "food": 1292,
-      "cafe": 1106
+      "food": 1400,
+      "cafe": 1200
     },
     "transportOptions": {
       "train": 37
@@ -80282,7 +80309,6 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.city.hino.lg.jp/",
-    "businessHours": "Open access",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Keio-rail-land_Trains_20130814.jpg/1920px-Keio-rail-land_Trains_20130814.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -80353,10 +80379,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1225,
+      "transport": 1400,
       "tickets": 500,
-      "food": 1225,
-      "cafe": 1050
+      "food": 1400,
+      "cafe": 1200
     },
     "transportOptions": {
       "train": 35
@@ -80677,10 +80703,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1225,
+      "transport": 1400,
       "tickets": 500,
-      "food": 1225,
-      "cafe": 1050
+      "food": 1400,
+      "cafe": 1200
     },
     "transportOptions": {
       "train": 28
@@ -81464,10 +81490,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1190,
+      "transport": 1400,
       "tickets": 600,
-      "food": 1190,
-      "cafe": 1020
+      "food": 1400,
+      "cafe": 1200
     },
     "transportOptions": {
       "train": 205
@@ -81618,10 +81644,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1365,
+      "transport": 1400,
       "tickets": 100,
-      "food": 1365,
-      "cafe": 1170
+      "food": 1400,
+      "cafe": 1200
     },
     "transportOptions": {
       "train": 48
@@ -81707,7 +81733,6 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.omekanko.gr.jp/",
-    "businessHours": "Open access",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Cat_Nora_on_Ome_Railway_Park_20071104.jpg/1920px-Cat_Nora_on_Ome_Railway_Park_20071104.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -82270,10 +82295,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 770,
+      "transport": 1400,
       "tickets": 1800,
-      "food": 770,
-      "cafe": 660
+      "food": 1400,
+      "cafe": 1200
     },
     "transportOptions": {
       "train": 37
@@ -82359,7 +82384,6 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.tbt.gr.jp/",
-    "businessHours": "Open access",
     "image": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Playing_children%2C_one_with_a_bow%2C_Japan._%2810796811585%29.jpg",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -83151,10 +83175,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1271,
+      "transport": 1400,
       "tickets": 370,
-      "food": 1271,
-      "cafe": 1088
+      "food": 1400,
+      "cafe": 1200
     },
     "transportOptions": {},
     "totalTripHours": 5,
@@ -83240,7 +83264,7 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.rijo-castle.jp/rijo/",
+    "officialWebsite": "https://hiroshimacastle.jp/",
     "businessHours": "Ninomaru grounds Apr–Sep 09:00–17:30 (last entry 17:00), Oct–Mar 09:00–16:30 (last entry 16:00); closed Dec 8 & Dec 29–31. Keep interior closed.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg/1920px-Ninomaru%2C_Hiroshima_Castle%2C_West_view_20190417_1.jpg",
     "imageMetadata": {
@@ -90788,10 +90812,10 @@
     "budgetRecommended": 3000,
     "budgetMax": 5000,
     "budgetBreakdown": {
-      "transport": 1235,
+      "transport": 350,
       "tickets": 0,
-      "food": 1412,
-      "cafe": 353
+      "food": 400,
+      "cafe": 100
     },
     "transportOptions": {
       "train": 270,
@@ -91729,10 +91753,10 @@
     "budgetRecommended": 3000,
     "budgetMax": 5000,
     "budgetBreakdown": {
-      "transport": 1235,
+      "transport": 350,
       "tickets": 0,
-      "food": 1412,
-      "cafe": 353
+      "food": 400,
+      "cafe": 100
     },
     "transportOptions": {
       "train": 300,
@@ -92194,10 +92218,10 @@
     "budgetRecommended": 4250,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1750,
+      "transport": 525,
       "tickets": 0,
-      "food": 2000,
-      "cafe": 500
+      "food": 600,
+      "cafe": 150
     },
     "transportOptions": {
       "train": 220,
@@ -93142,10 +93166,10 @@
     "budgetRecommended": 4250,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1750,
+      "transport": 525,
       "tickets": 0,
-      "food": 2000,
-      "cafe": 500
+      "food": 600,
+      "cafe": 150
     },
     "transportOptions": {
       "train": 320,
@@ -93295,10 +93319,10 @@
     "budgetRecommended": 3000,
     "budgetMax": 5000,
     "budgetBreakdown": {
-      "transport": 1235,
+      "transport": 350,
       "tickets": 0,
-      "food": 1412,
-      "cafe": 353
+      "food": 400,
+      "cafe": 100
     },
     "transportOptions": {
       "train": 325,
@@ -93610,10 +93634,10 @@
     "budgetRecommended": 4250,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1750,
+      "transport": 525,
       "tickets": 0,
-      "food": 2000,
-      "cafe": 500
+      "food": 600,
+      "cafe": 150
     },
     "transportOptions": {
       "train": 340
@@ -93762,10 +93786,10 @@
     "budgetRecommended": 3000,
     "budgetMax": 5000,
     "budgetBreakdown": {
-      "transport": 1235,
+      "transport": 350,
       "tickets": 0,
-      "food": 1412,
-      "cafe": 353
+      "food": 400,
+      "cafe": 100
     },
     "transportOptions": {
       "train": 335,
@@ -93915,10 +93939,10 @@
     "budgetRecommended": 3000,
     "budgetMax": 5000,
     "budgetBreakdown": {
-      "transport": 1235,
+      "transport": 350,
       "tickets": 0,
-      "food": 1412,
-      "cafe": 353
+      "food": 400,
+      "cafe": 100
     },
     "transportOptions": {
       "train": 335,
@@ -94238,10 +94262,10 @@
     "budgetRecommended": 3000,
     "budgetMax": 5000,
     "budgetBreakdown": {
-      "transport": 1235,
+      "transport": 350,
       "tickets": 0,
-      "food": 1412,
-      "cafe": 353
+      "food": 400,
+      "cafe": 100
     },
     "transportOptions": {
       "train": 360,
@@ -94711,10 +94735,10 @@
     "budgetRecommended": 5000,
     "budgetMax": 8000,
     "budgetBreakdown": {
-      "transport": 1853,
+      "transport": 700,
       "tickets": 500,
-      "food": 2118,
-      "cafe": 529
+      "food": 800,
+      "cafe": 200
     },
     "transportOptions": {
       "ferry": 240
@@ -94864,10 +94888,10 @@
     "budgetRecommended": 5000,
     "budgetMax": 8000,
     "budgetBreakdown": {
-      "transport": 1853,
+      "transport": 700,
       "tickets": 500,
-      "food": 2118,
-      "cafe": 529
+      "food": 800,
+      "cafe": 200
     },
     "transportOptions": {
       "ferry": 240
@@ -95340,10 +95364,10 @@
     "budgetRecommended": 5000,
     "budgetMax": 8000,
     "budgetBreakdown": {
-      "transport": 1853,
+      "transport": 700,
       "tickets": 500,
-      "food": 2118,
-      "cafe": 529
+      "food": 800,
+      "cafe": 200
     },
     "transportOptions": {
       "train": 230,
@@ -96288,10 +96312,10 @@
     "budgetRecommended": 3500,
     "budgetMax": 6000,
     "budgetBreakdown": {
-      "transport": 1235,
+      "transport": 300,
       "tickets": 0,
-      "food": 1853,
-      "cafe": 412
+      "food": 450,
+      "cafe": 100
     },
     "transportOptions": {
       "train": 250,
@@ -97214,10 +97238,10 @@
     "budgetRecommended": 3500,
     "budgetMax": 6000,
     "budgetBreakdown": {
-      "transport": 1235,
+      "transport": 300,
       "tickets": 0,
-      "food": 1853,
-      "cafe": 412
+      "food": 450,
+      "cafe": 100
     },
     "transportOptions": {
       "bus": 250
@@ -97821,10 +97845,10 @@
     "budgetRecommended": 3500,
     "budgetMax": 6000,
     "budgetBreakdown": {
-      "transport": 1235,
+      "transport": 300,
       "tickets": 0,
-      "food": 1853,
-      "cafe": 412
+      "food": 450,
+      "cafe": 100
     },
     "transportOptions": {
       "bus": 250
@@ -131291,7 +131315,7 @@
       "uniqueness": 8.4
     },
     "reservation": "None required",
-    "parking": "Parking available at major visitor areas (fee varies)",
+    "parking": "Parking available at major trailheads (Ontake Ropeway base, Nigorigo Onsen; fee varies)",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mount_Ontake_%28Morgenrot_zoom%29.JPG/1920px-Mount_Ontake_%28Morgenrot_zoom%29.JPG",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mount_Ontake_%28Morgenrot_zoom%29.JPG/1920px-Mount_Ontake_%28Morgenrot_zoom%29.JPG",
     "imageMetadata": {

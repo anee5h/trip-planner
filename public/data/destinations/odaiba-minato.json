@@ -58,10 +58,10 @@
   "highlights": ["Gundam Statue", "Odaiba Seaside Park", "Rainbow Bridge View"],
   "description": "A high-tech entertainment hub on an artificial island in Tokyo Bay, featuring shopping malls, beaches, and a giant Gundam.",
   "budgetBreakdown": {
-    "transport": 3249,
+    "transport": 1083,
     "tickets": 0,
-    "food": 6826,
-    "cafe": 2925
+    "food": 2275,
+    "cafe": 975
   },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",

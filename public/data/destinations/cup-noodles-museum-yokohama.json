@@ -56,10 +56,10 @@
   "highlights": ["Museum", "Family", "Food"],
   "description": "Cup Noodles Museum Yokohama is a curated destination within Yokohama City.",
   "budgetBreakdown": {
-    "transport": 750,
+    "transport": 650,
     "tickets": 500,
-    "food": 3750,
-    "cafe": 1500
+    "food": 3250,
+    "cafe": 1300
   },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",

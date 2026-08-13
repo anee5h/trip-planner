@@ -54,10 +54,10 @@
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
-    "transport": 1292,
+    "transport": 1400,
     "tickets": 310,
-    "food": 1292,
-    "cafe": 1106
+    "food": 1400,
+    "cafe": 1200
   },
   "transportOptions": {
     "train": 37
@@ -143,7 +143,6 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.city.hino.lg.jp/",
-  "businessHours": "Open access",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Keio-rail-land_Trains_20130814.jpg/1920px-Keio-rail-land_Trains_20130814.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",

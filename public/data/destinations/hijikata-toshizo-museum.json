@@ -54,10 +54,10 @@
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
-    "transport": 1225,
+    "transport": 1400,
     "tickets": 500,
-    "food": 1225,
-    "cafe": 1050
+    "food": 1400,
+    "cafe": 1200
   },
   "transportOptions": {
     "train": 36
@@ -143,7 +143,6 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.city.hino.lg.jp/",
-  "businessHours": "Open access",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Battle_of_Hakodate_Nishiki-e_by_Nagashima_Mosai.png/1920px-Battle_of_Hakodate_Nishiki-e_by_Nagashima_Mosai.png",
   "imageMetadata": {
     "source": "Wikimedia Commons",

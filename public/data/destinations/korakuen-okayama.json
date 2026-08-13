@@ -75,10 +75,10 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/250505_Korakuen_Okayama_Japan06s3.jpg/1280px-250505_Korakuen_Okayama_Japan06s3.jpg",
   "budgetBreakdown": {
-    "transport": 3818,
+    "transport": 3000,
     "tickets": 500,
-    "food": 2068,
-    "cafe": 1114
+    "food": 1625,
+    "cafe": 875
   },
   "highlights": ["Explore Korakuen Garden", "Local Culture & Scenery"],
   "bestSeason": "Spring & Autumn",

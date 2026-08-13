@@ -6,7 +6,7 @@
   "totalRecords": 978,
   "summary": {
     "categoryCount": 8,
-    "clusterCount": 261,
+    "clusterCount": 262,
     "affectedRecordCount": 977,
     "affectedIds": [
       "abashiri",
@@ -1337,12 +1337,12 @@
       "missingSeasonRecords": 217
     },
     "dispositionCounts": {
-      "corrected": 14,
+      "corrected": 15,
       "confidence-gated": 30,
       "manual-review": 208,
       "legitimate": 9
     },
-    "categoryCounts": { "D": 8, "B": 101, "C": 134, "A": 9, "E": 9 }
+    "categoryCounts": { "D": 8, "B": 102, "C": 134, "A": 9, "E": 9 }
   },
   "categories": [
     {
@@ -3040,8 +3040,8 @@
     {
       "category": "budget",
       "severity": "review",
-      "clusterCount": 17,
-      "affectedRecordCount": 392,
+      "clusterCount": 18,
+      "affectedRecordCount": 396,
       "affectedIds": [
         "abashiri-city",
         "abukuma-cave-fukushima",
@@ -3087,7 +3087,9 @@
         "dogo-onsen-ehime",
         "dotonbori",
         "edogawa-city",
+        "engakuji",
         "enoshima-iwaya-caves",
+        "enoshima-sea-candle",
         "enoshima-shrine",
         "former-hokkaido-government-office",
         "fudaten-shrine",
@@ -3181,6 +3183,7 @@
         "kawasaki-daishi",
         "keio-mogusaen",
         "kennin-ji",
+        "kinkaku-ji",
         "kinrin-lake-yufuin",
         "kintai-bridge-yamaguchi",
         "kisarazu-city",
@@ -3250,6 +3253,7 @@
         "mukojima-hyakkaen",
         "musashi-ichinomiya-hikawa-shrine",
         "musashi-mitake-shrine",
+        "museum-contemporary-art-tokyo",
         "museum-of-aeronautical-sciences",
         "nagasaki-city",
         "nago-city",
@@ -4003,7 +4007,7 @@
           }
         },
         {
-          "id": "ce38cece2d81",
+          "id": "e39678941b25",
           "severity": "review",
           "count": 6,
           "ids": [
@@ -4016,10 +4020,10 @@
           ],
           "value": {
             "budgetBreakdown": {
-              "cafe": 353,
-              "food": 1412,
+              "cafe": 100,
+              "food": 400,
               "tickets": 0,
-              "transport": 1235
+              "transport": 350
             },
             "budgetMax": 5000,
             "budgetMin": 1000,
@@ -4059,20 +4063,21 @@
           }
         },
         {
-          "id": "15120e1b4d74",
+          "id": "70babdf47301",
           "severity": "review",
-          "count": 3,
+          "count": 4,
           "ids": [
             "hijikata-toshizo-museum",
             "jindai-botanical-gardens",
-            "keio-mogusaen"
+            "keio-mogusaen",
+            "museum-contemporary-art-tokyo"
           ],
           "value": {
             "budgetBreakdown": {
-              "cafe": 1050,
-              "food": 1225,
+              "cafe": 1200,
+              "food": 1400,
               "tickets": 500,
-              "transport": 1225
+              "transport": 1400
             },
             "budgetMax": 7000,
             "budgetMin": 1500,
@@ -4085,29 +4090,25 @@
           }
         },
         {
-          "id": "4e10f1520f6f",
+          "id": "288d1d99b5f7",
           "severity": "review",
           "count": 3,
-          "ids": [
-            "ishidake-observatory",
-            "lake-ikeda",
-            "nijinomatsubara-pine-grove"
-          ],
+          "ids": ["engakuji", "enoshima-sea-candle", "kinkaku-ji"],
           "value": {
             "budgetBreakdown": {
-              "cafe": 412,
-              "food": 1853,
-              "tickets": 0,
-              "transport": 1235
+              "cafe": 400,
+              "food": 1400,
+              "tickets": 500,
+              "transport": 1400
             },
-            "budgetMax": 6000,
-            "budgetMin": 1000,
-            "budgetRecommended": 3500
+            "budgetMax": 7000,
+            "budgetMin": 1500,
+            "budgetRecommended": 4000
           },
           "disposition": {
             "category": "B",
             "action": "corrected",
-            "reason": "pr12c-era formula variant {300,0,450,100} (30/45/10% of min 1000); sum 850 != rec 3000"
+            "reason": "C1-variant template budget (1500/4000/7000, breakdown 1400/500/1400/400) shared by engakuji, enoshima-sea-candle, kinkaku-ji; engakuji tickets corrected to verified 500 (engakuji.or.jp), other components legacy template values (manual review)."
           }
         },
         {
@@ -4130,6 +4131,58 @@
             "category": "B",
             "action": "manual-review",
             "reason": "d1f36940-era template {7000,11000,15000, 4400/2200/3300/1100} applied to Fukui City hub AND free nature sites (Kiso Valley, Lake Hamanako)"
+          }
+        },
+        {
+          "id": "546bb5ac6a3c",
+          "severity": "review",
+          "count": 3,
+          "ids": [
+            "ishidake-observatory",
+            "lake-ikeda",
+            "nijinomatsubara-pine-grove"
+          ],
+          "value": {
+            "budgetBreakdown": {
+              "cafe": 100,
+              "food": 450,
+              "tickets": 0,
+              "transport": 300
+            },
+            "budgetMax": 6000,
+            "budgetMin": 1000,
+            "budgetRecommended": 3500
+          },
+          "disposition": {
+            "category": "B",
+            "action": "corrected",
+            "reason": "pr12c-era formula variant {300,0,450,100} (30/45/10% of min 1000); sum 850 != rec 3000"
+          }
+        },
+        {
+          "id": "a0aa92974412",
+          "severity": "review",
+          "count": 3,
+          "ids": [
+            "kawachi-wisteria-garden",
+            "shiratani-unsuikyo-ravine",
+            "yakusugi-land-yakushima"
+          ],
+          "value": {
+            "budgetBreakdown": {
+              "cafe": 200,
+              "food": 800,
+              "tickets": 500,
+              "transport": 700
+            },
+            "budgetMax": 8000,
+            "budgetMin": 2000,
+            "budgetRecommended": 5000
+          },
+          "disposition": {
+            "category": "B",
+            "action": "corrected",
+            "reason": "template {2000,5000,8000, 700/500/800/200}; sum 2200 != rec 5000"
           }
         },
         {
@@ -4159,7 +4212,7 @@
           }
         },
         {
-          "id": "e53636839823",
+          "id": "bd0a0d5cebfb",
           "severity": "review",
           "count": 3,
           "ids": [
@@ -4169,10 +4222,10 @@
           ],
           "value": {
             "budgetBreakdown": {
-              "cafe": 500,
-              "food": 2000,
+              "cafe": 150,
+              "food": 600,
               "tickets": 0,
-              "transport": 1750
+              "transport": 525
             },
             "budgetMax": 7000,
             "budgetMin": 1500,
@@ -4182,32 +4235,6 @@
             "category": "B",
             "action": "corrected",
             "reason": "pr12c formula with budgetMin=1500, ticketCost=0 -> {525,0,600,150}; sum 1275 != rec 4000"
-          }
-        },
-        {
-          "id": "f548a105d9bc",
-          "severity": "review",
-          "count": 3,
-          "ids": [
-            "kawachi-wisteria-garden",
-            "shiratani-unsuikyo-ravine",
-            "yakusugi-land-yakushima"
-          ],
-          "value": {
-            "budgetBreakdown": {
-              "cafe": 529,
-              "food": 2118,
-              "tickets": 500,
-              "transport": 1853
-            },
-            "budgetMax": 8000,
-            "budgetMin": 2000,
-            "budgetRecommended": 5000
-          },
-          "disposition": {
-            "category": "B",
-            "action": "corrected",
-            "reason": "template {2000,5000,8000, 700/500/800/200}; sum 2200 != rec 5000"
           }
         }
       ]
