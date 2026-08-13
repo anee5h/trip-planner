@@ -94,7 +94,7 @@
   "imageMetadata": {
     "source": "Unsplash",
     "license": "Unsplash License",
-    "attribution": "Unsplash",
-    "sourceUrl": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000"
+    "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
+    "sourceUrl": "https://unsplash.com"
   }
 }

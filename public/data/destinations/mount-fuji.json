@@ -71,8 +71,8 @@
   "imageMetadata": {
     "source": "Unsplash",
     "license": "Unsplash License",
-    "attribution": "Unsplash",
-    "sourceUrl": "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=1280&auto=format&fit=crop"
+    "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
+    "sourceUrl": "https://unsplash.com"
   },
   "status": "verified",
   "travelEstimate": {
