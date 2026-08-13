@@ -76,8 +76,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Karatsu City travel hub in Saga Prefecture, gateway to the Karatsu Peninsula.",
-  "notesJa": "佐賀県唐津市のトラベルハブ、唐津半島への玄関口です。",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

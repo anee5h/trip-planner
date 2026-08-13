@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Chiba Port Park",
-      "description": "Chiba Port Park is a visitor destination in Chiba City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Waterfront park on Tokyo Bay in Chiba City, site of the 125-meter Chiba Port Tower (1986), whose observation deck offers sweeping views of the bay and, on clear days, Tokyo Skytree and Mount Fuji. Open lawns and walking trails make it a popular spot for picnics, jogging and sunset strolls.",
       "highlights": ["Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "千葉ポートパーク",
-      "description": "千葉ポートパークはChiba Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "千葉市の東京湾沿いにある海浜公園。園内の千葉ポートタワー（1986年竣工、高さ125m）の展望台からは、晴れた日に東京スカイツリーや富士山まで望める。芝生広場や遊歩道が整備され、ピクニックや散策にぴったり。",
       "highlights": ["千葉ポートパークの名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.599078,
     "lng": 140.100017
   },
-  "description": "Chiba Port Park is a visitor destination in Chiba City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Waterfront park on Tokyo Bay in Chiba City, site of the 125-meter Chiba Port Tower (1986), whose observation deck offers sweeping views of the bay and, on clear days, Tokyo Skytree and Mount Fuji. Open lawns and walking trails make it a popular spot for picnics, jogging and sunset strolls.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

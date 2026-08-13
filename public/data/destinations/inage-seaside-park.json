@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Inage Seaside Park",
-      "description": "Inage Seaside Park is a visitor destination in Chiba City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Long coastal park on Tokyo Bay in Chiba City, with beaches, lawns, sports facilities and flower beds along the Inage coastline. The beach section is a popular summer swimming spot and the park is known for sunset views over the bay.",
       "highlights": ["Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "稲毛海浜公園",
-      "description": "稲毛海浜公園はChiba Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "千葉市の東京湾岸に広がる細長い海浜公園。砂浜や芝生広場、運動施設、花壇が整備され、夏は海水浴場としてにぎわう。湾越しの夕日も美しい。",
       "highlights": ["稲毛海浜公園の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.61805556,
     "lng": 140.06472222
   },
-  "description": "Inage Seaside Park is a visitor destination in Chiba City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Long coastal park on Tokyo Bay in Chiba City, with beaches, lawns, sports facilities and flower beds along the Inage coastline. The beach section is a popular summer swimming spot and the park is known for sunset views over the bay.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -118,12 +118,6 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
-      {
-        "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Inagekaigan_Station",
-        "title": "Inagekaigan Station",
-        "accessedAt": "2026-07-29"
-      },
       {
         "type": "official",
         "url": "https://www.city.chiba.jp/toshi/koenryokuchi/kanri/chuo-mihama/inagekaihinkoen.html",

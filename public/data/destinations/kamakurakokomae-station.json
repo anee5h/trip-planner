@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kamakurakokomae Station",
-      "description": "Kamakurakokomae Station is a visitor destination in Kamakura City.  Visitors can experience the area's character and main sights.",
+      "description": "Enoden railway station on Kamakura's western beach. The level crossing in front of the station became world-famous as a scene location for the manga 'Slam Dunk', and the platform opens onto wide views of the coast toward Enoshima.",
       "highlights": ["Culture"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "鎌倉高校前駅",
-      "description": "鎌倉高校前駅はKamakura Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "江ノ島電鉄の駅。駅前の踏切は漫画『SLAM DUNK』の舞台として有名で、ホームからは海越しに江の島を望む景色が広がる。",
       "highlights": ["鎌倉高校前駅の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -46,7 +46,7 @@
     "lat": 35.30666667,
     "lng": 139.50055556
   },
-  "description": "Kamakurakokomae Station is a visitor destination in Kamakura City.  Visitors can experience the area's character and main sights.",
+  "description": "Enoden railway station on Kamakura's western beach. The level crossing in front of the station became world-famous as a scene location for the manga 'Slam Dunk', and the platform opens onto wide views of the coast toward Enoshima.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

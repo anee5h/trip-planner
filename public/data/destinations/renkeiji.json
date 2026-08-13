@@ -2,11 +2,11 @@
   "id": "renkeiji",
   "name": "Renkeiji",
   "nameJa": "蓮馨寺",
-  "aliases": ["Hon-Kawagoe Station", "本川越駅"],
+  "aliases": [],
   "content": {
     "en": {
       "name": "Renkeiji",
-      "description": "Renkeiji is a visitor destination in Kawagoe City.  Visitors can experience historic architecture and local culture.",
+      "description": "Jodo-shu temple in Kawagoe's old town, founded in the mid-16th century under the patronage of the lords of Kawagoe Castle and dedicated to Amida Nyorai. Its quiet grounds sit close to Hon-Kawagoe Station, easy to include in a stroll of the historic district.",
       "highlights": ["History"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -14,8 +14,8 @@
       "openingHours": "08:30 - 16:30"
     },
     "ja": {
-      "name": "本川越駅",
-      "description": "本川越駅はKawagoe Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "蓮馨寺",
+      "description": "川越の市街地にある浄土宗の寺院。16世紀半ばに川越城ゆかりの人物によって創建され、阿弥陀如来を本尊とする。本川越駅から近く、歴史的な町並み散策の途中に立ち寄りやすい。",
       "highlights": ["本川越駅の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.91376389,
     "lng": 139.4811833
   },
-  "description": "Renkeiji is a visitor destination in Kawagoe City.  Visitors can experience historic architecture and local culture.",
+  "description": "Jodo-shu temple in Kawagoe's old town, founded in the mid-16th century under the patronage of the lords of Kawagoe Castle and dedicated to Amida Nyorai. Its quiet grounds sit close to Hon-Kawagoe Station, easy to include in a stroll of the historic district.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -119,15 +119,15 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Hon-Kawagoe_Station",
-        "title": "Hon-Kawagoe Station",
-        "accessedAt": "2026-07-29"
+        "url": "https://renkeiji.jp/",
+        "title": "Wikipedia article",
+        "accessedAt": "2026-08-13"
       },
       {
-        "type": "official",
-        "url": "https://www.seiburailway.jp/railway/station/hon-kawagoe/",
-        "title": "Renkeiji official website",
-        "accessedAt": "2026-07-29"
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Renkei-ji",
+        "title": "Wikipedia article",
+        "accessedAt": "2026-08-13"
       }
     ],
     "checkedAt": "2026-08-02",

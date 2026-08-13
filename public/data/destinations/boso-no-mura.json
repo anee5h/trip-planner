@@ -49,10 +49,10 @@
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
+    "transport": 1619,
+    "tickets": 300,
+    "food": 1619,
+    "cafe": 462
   },
   "transportOptions": {
     "train": 49

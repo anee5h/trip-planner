@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Nakasu",
-      "description": "Nakasu is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
+      "description": "Nightlife and dining district on the island of Nakasu in the Naka River, in the heart of Fukuoka. Its narrow streets are packed with restaurants, bars and yatai food stalls, making it one of the city's liveliest areas after dark.",
       "highlights": ["Culture"],
       "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "中洲",
-      "description": "中洲はFukuoka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "那珂川に囲まれた中洲の繁華街。屋台や居酒屋、バーが密集し、福岡で最も飲食店の選択肢が多いエリアの一つ。夜の屋台めぐりが人気。",
       "highlights": ["文化"],
       "openingHours": "24時間営業"
     }
@@ -41,7 +41,7 @@
     "lat": 33.592194444444445,
     "lng": 130.40675
   },
-  "description": "Nakasu is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
+  "description": "Nightlife and dining district on the island of Nakasu in the Naka River, in the heart of Fukuoka. Its narrow streets are packed with restaurants, bars and yatai food stalls, making it one of the city's liveliest areas after dark.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Saitama Stadium 2002",
-      "description": "Saitama Stadium 2002 is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
+      "description": "Stadium built for the 2002 FIFA World Cup in Midori-ku, Saitama, seating about 63,700. Home of the Urawa Red Diamonds, it is known for one of Japan's most passionate football atmospheres.",
       "highlights": ["Culture", "Shopping"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "埼玉スタジアム2002",
-      "description": "埼玉スタジアム2002はSaitama Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "2002年FIFAワールドカップ開催のために建設された、約63,700人を収容するスタジアム。浦和レッズのホームスタジアムとして、日本屈指の熱気ある試合が繰り広げられる。",
       "highlights": ["埼玉スタジアム2002の名所", "埼玉スタジアム2002の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -46,7 +46,7 @@
     "lat": 35.903142,
     "lng": 139.717492
   },
-  "description": "Saitama Stadium 2002 is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
+  "description": "Stadium built for the 2002 FIFA World Cup in Midori-ku, Saitama, seating about 63,700. Home of the Urawa Red Diamonds, it is known for one of Japan's most passionate football atmospheres.",
   "highlights": ["Culture", "Shopping"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

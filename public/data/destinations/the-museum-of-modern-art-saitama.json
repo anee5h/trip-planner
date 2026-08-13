@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "The Museum of Modern Art, Saitama",
-      "description": "The Museum of Modern Art, Saitama is a visitor destination in Saitama City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "MOMAS, opened in 1982 in Kita-Urawa Park and the first art museum designed by architect Kisho Kurokawa. The collection spans modern Japanese and Western art, including works by Monet, Chagall and Picasso.",
       "highlights": ["Museum"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "埼玉県立近代美術館",
-      "description": "埼玉県立近代美術館はSaitama Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "北浦和公園内にある県立近代美術館。1982年開館で、建築家・黒川紀章が設計した初の美術館建築。モネやシャガール、ピカソなどの西洋近現代美術と日本の作家の作品を収蔵する。",
       "highlights": ["埼玉県立近代美術館の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -46,7 +46,7 @@
     "lat": 35.869611,
     "lng": 139.642917
   },
-  "description": "The Museum of Modern Art, Saitama is a visitor destination in Saitama City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "MOMAS, opened in 1982 in Kita-Urawa Park and the first art museum designed by architect Kisho Kurokawa. The collection spans modern Japanese and Western art, including works by Monet, Chagall and Picasso.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

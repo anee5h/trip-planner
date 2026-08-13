@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Omiya Park",
-      "description": "Omiya Park is a visitor destination in Saitama City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Spacious urban park in Omiya, Saitama, with ponds, lawns and one of the area's favorite cherry-blossom spots. The grounds also hold the Saitama Prefectural Museum of History and Folklore and sports facilities.",
       "highlights": ["Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "大宮公園",
-      "description": "大宮公園はSaitama Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "大宮の歴史ある都市公園。池や芝生広場、桜の名所として親しまれ、園内には県立歴史と民俗の博物館や運動施設もある。",
       "highlights": ["大宮公園の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.919,
     "lng": 139.631
   },
-  "description": "Omiya Park is a visitor destination in Saitama City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Spacious urban park in Omiya, Saitama, with ponds, lawns and one of the area's favorite cherry-blossom spots. The grounds also hold the Saitama Prefectural Museum of History and Folklore and sports facilities.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Enoshima Iwaya Caves",
-      "description": "Enoshima Iwaya Caves is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Two wave-carved caves on Enoshima's southern shore, long connected to the island's Benzaiten worship and the Chigogafuchi abyss legend. Pilgrims have visited for centuries, and the caves form part of the scenic walk around the island.",
       "highlights": ["Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -14,8 +14,8 @@
       "openingHours": "24 Hours (Open access)"
     },
     "ja": {
-      "name": "江の島",
-      "description": "江の島はFujisawa Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "江の島岩屋",
+      "description": "江の島南岸の波で削られた洞窟。島の弁財天信仰や稚児ヶ淵の伝説と結びつき、古くから参拝者が訪れた霊場。江の島を巡る散策コースの見どころの一つ。",
       "highlights": ["江の島の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -46,7 +46,7 @@
     "lat": 35.29933055555556,
     "lng": 139.48090833333333
   },
-  "description": "Enoshima Iwaya Caves is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Two wave-carved caves on Enoshima's southern shore, long connected to the island's Benzaiten worship and the Chigogafuchi abyss legend. Pilgrims have visited for centuries, and the caves form part of the scenic walk around the island.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Tochoji",
-      "description": "Tochoji is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+      "description": "Temple in Hakata founded in 806 by the priest Kukai (Kobo Daishi), who brought Shingon Buddhism to Japan. The main hall enshrines a large wooden seated Buddha, the Fukuoka Daibutsu, one of Japan's biggest.",
       "highlights": ["History"],
       "openingHours": "09:00–16:45"
     },
     "ja": {
       "name": "東長寺",
-      "description": "東長寺はFukuoka Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "806年に弘法大師空海が開いた博多の寺院・東長寺。真言宗にゆかりが深く、本堂には日本有数の大きさを誇る木造の福岡大仏が安置されている。",
       "highlights": ["歴史"],
       "openingHours": "09:00～16:45"
     }
@@ -41,7 +41,7 @@
     "lat": 33.595194444444445,
     "lng": 130.4139722222222
   },
-  "description": "Tochoji is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+  "description": "Temple in Hakata founded in 806 by the priest Kukai (Kobo Daishi), who brought Shingon Buddhism to Japan. The main hall enshrines a large wooden seated Buddha, the Fukuoka Daibutsu, one of Japan's biggest.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

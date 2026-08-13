@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Tenjin",
-      "description": "Tenjin is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
+      "description": "Fukuoka's central shopping and business district, packed with department stores, boutiques, restaurants and cafes around Tenjin Station. The area takes its name from the nearby Suikyo Tenmangu shrine, dedicated to Sugawara no Michizane (Tenjin).",
       "highlights": ["Culture"],
       "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "天神 (福岡市)",
-      "description": "天神 (福岡市)はFukuoka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "福岡の中心市街地。百貨店やファッションビル、飲食店が集まり、ショッピングやグルメの拠点としてにぎわう。地区名は近くの水鏡天満宮（天神）に由来する。",
       "highlights": ["文化"],
       "openingHours": "24時間営業"
     }
@@ -40,7 +40,7 @@
     "lat": 33.59136111111111,
     "lng": 130.39891666666668
   },
-  "description": "Tenjin is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
+  "description": "Fukuoka's central shopping and business district, packed with department stores, boutiques, restaurants and cafes around Tenjin Station. The area takes its name from the nearby Suikyo Tenmangu shrine, dedicated to Sugawara no Michizane (Tenjin).",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

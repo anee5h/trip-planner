@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Sapporo Clock Tower",
-      "description": "Sapporo Clock Tower is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
+      "description": "Wooden clock tower built in 1878 as the drill hall of Sapporo Agricultural College (today's Hokkaido University), with its clock added in 1881. A symbol of Sapporo and Japan's oldest working clock tower, it now houses a small museum.",
       "highlights": ["Viewpoint"]
     },
     "ja": {
       "name": "札幌市時計台",
-      "description": "札幌市時計台はSapporo Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "1878年に札幌農学校（現在の北海道大学）の演武場として建てられた木造の時計台。1881年から時を刻み、日本最古の時計台として札幌のシンボルになっている。内部は博物館として公開。",
       "highlights": ["展望"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 43.062602,
     "lng": 141.353681
   },
-  "description": "Sapporo Clock Tower is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
+  "description": "Wooden clock tower built in 1878 as the drill hall of Sapporo Agricultural College (today's Hokkaido University), with its clock added in 1881. A symbol of Sapporo and Japan's oldest working clock tower, it now houses a small museum.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

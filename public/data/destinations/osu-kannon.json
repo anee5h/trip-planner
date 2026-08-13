@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Osu Kannon",
-      "description": "Osu Kannon is a visitor destination in Nagoya City.  Visitors can experience historic architecture and local culture.",
+      "description": "Osu Kannon (formally Shinpukuji Hoshoin), a Shingon Chizan-sect temple in Nagoya's Osu district, moved to its present site in 1612. Its library, the Osu Bunko, holds about 15,000 volumes including a National Treasure manuscript of the Kojiki, and an antique market opens on the 18th and 28th of each month.",
       "highlights": ["History"]
     },
     "ja": {
-      "name": "真福寺 (羽島市)",
-      "description": "真福寺 (羽島市)はNagoya Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "大須観音",
+      "description": "大須観音（正式名称・北野山真福寺宝生院）。真言宗智山派の寺院で、1612年に現在地へ移転した。大須文庫には国宝の古事記写本など約15,000冊を収蔵し、毎月18日・28日の縁日には骨董市が立つ。",
       "highlights": ["歴史"]
     }
   },
@@ -38,7 +38,7 @@
     "lat": 35.1598,
     "lng": 136.9
   },
-  "description": "Osu Kannon is a visitor destination in Nagoya City.  Visitors can experience historic architecture and local culture.",
+  "description": "Osu Kannon (formally Shinpukuji Hoshoin), a Shingon Chizan-sect temple in Nagoya's Osu district, moved to its present site in 1612. Its library, the Osu Bunko, holds about 15,000 volumes including a National Treasure manuscript of the Kojiki, and an antique market opens on the 18th and 28th of each month.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

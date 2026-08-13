@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Musashi Ichinomiya Hikawa Shrine",
-      "description": "Musashi Ichinomiya Hikawa Shrine is a visitor destination in Saitama City.  Visitors can experience historic architecture and local culture.",
+      "description": "The chief shrine (ichinomiya) of Musashi province, standing in Omiya, Saitama, and one of the Kanto region's largest shrines. Its long tree-lined approach and broad precincts, dedicated to deities of marriage and childbirth, draw worshippers year-round.",
       "highlights": ["History"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "武蔵一宮氷川神社",
-      "description": "氷川神社はSaitama Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "武蔵国一宮として知られる大宮の大社。関東有数の規模を誇り、長い参道と緑豊かな境内を持つ。縁結びや安産の神として親しまれている。",
       "highlights": ["武蔵一宮氷川神社の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.917037,
     "lng": 139.629461
   },
-  "description": "Musashi Ichinomiya Hikawa Shrine is a visitor destination in Saitama City.  Visitors can experience historic architecture and local culture.",
+  "description": "The chief shrine (ichinomiya) of Musashi province, standing in Omiya, Saitama, and one of the Kanto region's largest shrines. Its long tree-lined approach and broad precincts, dedicated to deities of marriage and childbirth, draw worshippers year-round.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

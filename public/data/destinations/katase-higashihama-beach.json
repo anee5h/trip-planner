@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Katase Higashihama Beach",
-      "description": "Katase Higashihama Beach is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Sandy beach on the Fujisawa coast just east of Enoshima, one of the Shonan area's most popular summer swimming beaches. In July and August the shore fills with seasonal beach houses (uminoie) and swimmers, with views across to Enoshima.",
       "highlights": ["Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "片瀬東浜海水浴場",
-      "description": "片瀬東浜海水浴場はFujisawa Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "江の島の東側に広がる砂浜。湘南エリアで最も人気のある海水浴場の一つで、夏は海の家が立ち並び、江の島を望む景観とともににぎわう。",
       "highlights": ["片瀬東浜海水浴場の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.307778,
     "lng": 139.487194
   },
-  "description": "Katase Higashihama Beach is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Sandy beach on the Fujisawa coast just east of Enoshima, one of the Shonan area's most popular summer swimming beaches. In July and August the shore fills with seasonal beach houses (uminoie) and swimmers, with views across to Enoshima.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -117,12 +117,6 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
-      {
-        "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Enoshima_Station",
-        "title": "Enoshima Station",
-        "accessedAt": "2026-07-29"
-      },
       {
         "type": "official",
         "url": "https://ee-beach.com/",

@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Tanukikoji Shopping Street",
-      "description": "Tanukikoji Shopping Street is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
+      "description": "Covered shopping arcade in central Sapporo stretching across seven blocks with about 200 shops — restaurants, souvenir stores and drugstores. Dating back over a century, it sits between Odori Park and Susukino, convenient for shopping and meals in any weather.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "狸小路商店街",
-      "description": "狸小路商店街はSapporo Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "札幌中心部に広がるアーケード商店街。7ブロックに約200店舗が並び、食事や土産物、ドラッグストアまで揃う。大通公園とすすきのの間にあり、雨の日でも買い物を楽しめる。",
       "highlights": ["歴史"]
     }
   },
   "prefecture": "Hokkaido",
   "region": "Hokkaido",
-  "kind": "temple",
+  "kind": "street",
   "role": "poi",
   "placeType": "destination",
   "areaId": "central-sapporo",
@@ -39,7 +39,7 @@
     "lat": 43.058333,
     "lng": 141.35463
   },
-  "description": "Tanukikoji Shopping Street is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
+  "description": "Covered shopping arcade in central Sapporo stretching across seven blocks with about 200 shops — restaurants, souvenir stores and drugstores. Dating back over a century, it sits between Odori Park and Susukino, convenient for shopping and meals in any weather.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

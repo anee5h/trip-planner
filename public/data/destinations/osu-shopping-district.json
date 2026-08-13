@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Osu Shopping District",
-      "description": "Osu Shopping District is a visitor destination in Nagoya City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+      "description": "Lively shopping quarter around Osu Kannon in Nagoya, where covered arcades are known for electronics, secondhand and vintage shops, character goods and quirky cafes. A favorite for bargain hunting, street food and a glimpse of the city's pop culture.",
       "highlights": ["Shopping", "Food"]
     },
     "ja": {
-      "name": "名古屋市",
-      "description": "名古屋市はNagoya Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "大須商店街",
+      "description": "大須観音周辺に広がる商店街エリア。アーケード街には家電・中古品店、キャラクターグッズ店や個性派カフェが並び、掘り出し物探しやグルメが楽しめる。",
       "highlights": ["ショッピング", "グルメ"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 35.18333333,
     "lng": 136.9
   },
-  "description": "Osu Shopping District is a visitor destination in Nagoya City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+  "description": "Lively shopping quarter around Osu Kannon in Nagoya, where covered arcades are known for electronics, secondhand and vintage shops, character goods and quirky cafes. A favorite for bargain hunting, street food and a glimpse of the city's pop culture.",
   "highlights": ["Shopping", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

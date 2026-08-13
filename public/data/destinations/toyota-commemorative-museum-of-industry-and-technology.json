@@ -9,12 +9,12 @@
   "content": {
     "en": {
       "name": "Toyota Commemorative Museum of Industry and Technology",
-      "description": "Toyota Commemorative Museum of Industry and Technology is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "Museum on the site of the former Toyoda Automatic Loom Works factory in Nagoya, tracing Toyota's evolution from textile machinery to automobiles. Working machines and interactive exhibits bring the engineering history to life.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "トヨタ産業技術記念館",
-      "description": "トヨタ産業技術記念館はNagoya Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "豊田自動織機製作所の旧工場跡に建つ産業技術記念館。繊維機械から自動車へと発展したトヨタグループの歴史を、動く実機と体験展示で紹介する。",
       "highlights": ["博物館"]
     }
   },
@@ -42,7 +42,7 @@
     "lat": 35.1832,
     "lng": 136.876
   },
-  "description": "Toyota Commemorative Museum of Industry and Technology is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Museum on the site of the former Toyoda Automatic Loom Works factory in Nagoya, tracing Toyota's evolution from textile machinery to automobiles. Working machines and interactive exhibits bring the engineering history to life.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

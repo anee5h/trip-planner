@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Iwatsuki Ningyo Museum",
-      "description": "Iwatsuki Ningyo Museum is a visitor destination in Saitama City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "Museum of Japanese dolls opened in 2020 in Iwatsuki, Saitama — a district known as the 'town of dolls' since the Edo period. Exhibits trace the craft and culture of Japanese dolls, from hina and musha dolls to the local artisans who made Iwatsuki famous.",
       "highlights": ["Museum"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "岩槻人形博物館",
-      "description": "岩槻人形博物館はSaitama Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "2020年開館の人形専門博物館。江戸時代から「人形のまち」として知られるさいたま市岩槻区にあり、ひな人形や武者人形など、日本の人形文化と製作技術を紹介する。",
       "highlights": ["岩槻人形博物館の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -46,7 +46,7 @@
     "lat": 35.950833333333335,
     "lng": 139.7
   },
-  "description": "Iwatsuki Ningyo Museum is a visitor destination in Saitama City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Museum of Japanese dolls opened in 2020 in Iwatsuki, Saitama — a district known as the 'town of dolls' since the Edo period. Exhibits trace the craft and culture of Japanese dolls, from hina and musha dolls to the local artisans who made Iwatsuki famous.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

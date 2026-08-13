@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Yugyo-ji",
-      "description": "Yugyo-ji is a visitor destination in Fujisawa City.  Visitors can experience historic architecture and local culture.",
+      "description": "Yugyo-ji (formally Shojoko-ji) is the head temple of the Ji-shu (Time) school of Pure Land Buddhism, in Fujisawa. The temple associated with the wandering preacher Ippen features an imposing main hall and broad precincts within walking distance of the station.",
       "highlights": ["History"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "清浄光寺",
-      "description": "清浄光寺はFujisawa Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "藤沢にある時宗の総本山・清浄光寺（遊行寺）。時宗の開祖・一遍上人ゆかりの寺院で、立派な本堂と広い境内を持つ。藤沢駅から徒歩圏。",
       "highlights": ["清浄光寺の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.34851389,
     "lng": 139.48864444
   },
-  "description": "Yugyo-ji is a visitor destination in Fujisawa City.  Visitors can experience historic architecture and local culture.",
+  "description": "Yugyo-ji (formally Shojoko-ji) is the head temple of the Ji-shu (Time) school of Pure Land Buddhism, in Fujisawa. The temple associated with the wandering preacher Ippen features an imposing main hall and broad precincts within walking distance of the station.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Former Hokkaido Government Office",
-      "description": "Former Hokkaido Government Office is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
+      "description": "The 'Red Brick Office' (Akarenga), completed in 1888 in American neo-baroque style, served as Hokkaido's government headquarters. Now open to the public, it houses exhibition rooms and archives, and is one of Sapporo's signature Meiji-era landmarks.",
       "highlights": ["History", "Museum"]
     },
     "ja": {
       "name": "北海道庁旧本庁舎",
-      "description": "北海道庁旧本庁舎はSapporo Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "明治21年（1888年）に完成したアメリカン・ネオバロック様式の「赤れんが庁舎」。北海道の行政の中心として使われ、現在は一般公開され、資料展示室などがある。札幌を代表する明治時代の歴史的建造物。",
       "highlights": ["歴史", "博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 43.063944444444445,
     "lng": 141.348
   },
-  "description": "Former Hokkaido Government Office is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
+  "description": "The 'Red Brick Office' (Akarenga), completed in 1888 in American neo-baroque style, served as Hokkaido's government headquarters. Now open to the public, it houses exhibition rooms and archives, and is one of Sapporo's signature Meiji-era landmarks.",
   "highlights": ["History", "Museum"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

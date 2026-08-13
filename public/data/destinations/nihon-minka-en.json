@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Nihon Minka-en",
-      "description": "Nihon Minka-en is a visitor destination in Kawasaki City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "Open-air museum in Ikuta Ryokuchi, Kawasaki, displaying around 25 traditional Japanese houses from the Edo period, relocated from across the country and restored — thatched farmhouses, merchants' homes and storehouses. Many interiors can be viewed.",
       "highlights": ["Museum"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "日本民家園",
-      "description": "日本民家園はKawasaki Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "川崎市生田緑地内の野外博物館。日本各地から移築復元された江戸時代の民家約25棟が並び、茅葺きの農家や商家の内部も見学できる。",
       "highlights": ["日本民家園の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -46,7 +46,7 @@
     "lat": 35.6098989,
     "lng": 139.56189036
   },
-  "description": "Nihon Minka-en is a visitor destination in Kawasaki City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Open-air museum in Ikuta Ryokuchi, Kawasaki, displaying around 25 traditional Japanese houses from the Edo period, relocated from across the country and restored — thatched farmhouses, merchants' homes and storehouses. Many interiors can be viewed.",
   "highlights": ["Museum"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Zeniarai Benten",
-      "description": "Zeniarai Benten is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+      "description": "Shrine in a Kamakura ravine where visitors wash their money in the spring water, believing it will multiply. According to legend it was founded in 1185 after a dream of Minamoto no Yoritomo; the quiet precincts sit behind Kotoku-in.",
       "highlights": ["History"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "銭洗弁財天宇賀福神社",
-      "description": "銭洗弁財天宇賀福神社はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "湧き水でお金を洗うと増えるといわれる「銭洗い」の神社。1185年に源頼朝の夢のお告げで創建されたと伝わる。高徳院の裏手の谷間にひっそりと佇む。",
       "highlights": ["銭洗弁財天宇賀福神社の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -45,7 +45,7 @@
     "lat": 35.3258,
     "lng": 139.542
   },
-  "description": "Zeniarai Benten is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+  "description": "Shrine in a Kamakura ravine where visitors wash their money in the spring water, believing it will multiply. According to legend it was founded in 1185 after a dream of Minamoto no Yoritomo; the quiet precincts sit behind Kotoku-in.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

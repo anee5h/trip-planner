@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Nagoya City Science Museum",
-      "description": "Nagoya City Science Museum is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "Science museum in Shirakawa Park, Nagoya, famous for the world's largest planetarium with its 35-meter dome ('Brother Earth'), plus hands-on exhibits on space, physics and biology. It is very popular, so advance reservation is recommended.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "名古屋市科学館",
-      "description": "名古屋市科学館はNagoya Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "白川公園内の科学館。直径35mの世界最大級のプラネタリウム「Brother Earth」で知られ、宇宙や科学の体験展示も充実している。人気のため事前予約がおすすめ。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 35.16477222,
     "lng": 136.89966667
   },
-  "description": "Nagoya City Science Museum is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Science museum in Shirakawa Park, Nagoya, famous for the world's largest planetarium with its 35-meter dome ('Brother Earth'), plus hands-on exhibits on space, physics and biology. It is very popular, so advance reservation is recommended.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

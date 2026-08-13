@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Susukino",
-      "description": "Susukino is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
+      "description": "Sapporo's main entertainment district and one of Japan's largest, dense with restaurants, izakaya, ramen shops, bars and nightlife. Its neon-lit streets are busiest after dark.",
       "highlights": ["Culture"]
     },
     "ja": {
       "name": "すすきの",
-      "description": "すすきのはSapporo Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "札幌随一の繁華街で、日本有数の規模を誇る。居酒屋やバー、ラーメン店などが密集し、ネオンが輝く夜のにぎわいで知られる。",
       "highlights": ["文化"]
     }
   },
@@ -38,7 +38,7 @@
     "lat": 43.054904,
     "lng": 141.353383
   },
-  "description": "Susukino is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
+  "description": "Sapporo's main entertainment district and one of Japan's largest, dense with restaurants, izakaya, ramen shops, bars and nightlife. Its neon-lit streets are busiest after dark.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -50,7 +50,7 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 200
+    "train": 470
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {

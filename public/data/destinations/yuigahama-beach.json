@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Yuigahama Beach",
-      "description": "Yuigahama Beach is a visitor destination in Kamakura City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Sandy beach along Kamakura's coast, one of the closest shorelines to central Tokyo. Popular for swimming in summer and surfing year-round, it is lined with cafes and shops and framed by views of Enoshima.",
       "highlights": ["Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "由比ヶ浜",
-      "description": "由比ヶ浜はKamakura Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "鎌倉の海岸に広がる砂浜。都心から近い海水浴場として夏はにぎわい、一年を通してサーフィンも楽しまれている。周辺にはカフェやショップが並び、江の島を望む景色が広がる。",
       "highlights": ["由比ヶ浜の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.313325,
     "lng": 139.54553333333334
   },
-  "description": "Yuigahama Beach is a visitor destination in Kamakura City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Sandy beach along Kamakura's coast, one of the closest shorelines to central Tokyo. Popular for swimming in summer and surfing year-round, it is lined with cafes and shops and framed by views of Enoshima.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

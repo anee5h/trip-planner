@@ -76,8 +76,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Nichinan City travel hub in Miyazaki Prefecture, home to Obi Castle Town and Udo Jingu.",
-  "notesJa": "宮崎県日南市のトラベルハブ、飫肥城下町と鵜戸神宮で知られています。",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

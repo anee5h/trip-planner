@@ -87,9 +87,9 @@
   },
   "municipalityId": "Saitama:kawagoe",
   "transportOptions": {
-    "train": 255,
+    "train": 45,
     "bus": 295,
-    "car": 325
+    "car": 75
   },
   "collections": [
     {

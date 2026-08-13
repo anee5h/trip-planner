@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Sapporo TV Tower",
-      "description": "Sapporo TV Tower is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
+      "description": "A 147.2-meter tower completed in 1957 at the east end of Odori Park. The observation deck at about 90 meters offers panoramic views over the city toward the Ishikari plain and distant mountains.",
       "highlights": ["Viewpoint"]
     },
     "ja": {
       "name": "さっぽろテレビ塔",
-      "description": "さっぽろテレビ塔はSapporo Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "1957年完成の高さ147.2mの電波塔。大通公園の東端に立ち、高さ約90mの展望台から札幌市街や石狩平野、遠くの山々を一望できる。",
       "highlights": ["展望"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 43.06111111,
     "lng": 141.35638889
   },
-  "description": "Sapporo TV Tower is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
+  "description": "A 147.2-meter tower completed in 1957 at the east end of Odori Park. The observation deck at about 90 meters offers panoramic views over the city toward the Ishikari plain and distant mountains.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -51,7 +51,7 @@
     "cafe": 400
   },
   "transportOptions": {
-    "train": 200
+    "train": 470
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {

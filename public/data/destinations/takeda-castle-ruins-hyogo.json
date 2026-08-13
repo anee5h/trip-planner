@@ -128,6 +128,6 @@
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "assisted",
-    "confidence": "medium"
+    "confidence": "low"
   }
 }

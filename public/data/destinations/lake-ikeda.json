@@ -60,13 +60,13 @@
     "sourceUrl": "https://www.ibusuki.or.jp/en/spot/lake-ikeda/"
   },
   "budgetMin": 1000,
-  "budgetRecommended": 3000,
+  "budgetRecommended": 3500,
   "budgetMax": 6000,
   "budgetBreakdown": {
-    "transport": 300,
+    "transport": 1235,
     "tickets": 0,
-    "food": 450,
-    "cafe": 100
+    "food": 1853,
+    "cafe": 412
   },
   "transportOptions": {
     "bus": 250

@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Honmaru Palace",
-      "description": "Honmaru Palace is a visitor destination in Nagoya City.  Visitors can experience historic architecture and local culture.",
+      "description": "The Honmaru Palace of Nagoya Castle, completed in 1615 as the residence of the Owari lords and destroyed in the 1945 air raids. The painstakingly reconstructed palace reopened in 2018 and is renowned for its gold-leaf wall paintings by the Kano school and intricate woodwork.",
       "highlights": ["History"]
     },
     "ja": {
-      "name": "名古屋城",
-      "description": "名古屋城はNagoya Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "本丸御殿",
+      "description": "名古屋城の本丸御殿。1615年に完成し、1945年の空襲で焼失したが、狩野派の金箔の障壁画とともに復元され、2018年から公開されている。豪壮な建築と細部の木組みが見どころ。",
       "highlights": ["歴史"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 35.18555556,
     "lng": 136.89861111
   },
-  "description": "Honmaru Palace is a visitor destination in Nagoya City.  Visitors can experience historic architecture and local culture.",
+  "description": "The Honmaru Palace of Nagoya Castle, completed in 1615 as the residence of the Owari lords and destroyed in the 1945 air raids. The painstakingly reconstructed palace reopened in 2018 and is renowned for its gold-leaf wall paintings by the Kano school and intricate woodwork.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

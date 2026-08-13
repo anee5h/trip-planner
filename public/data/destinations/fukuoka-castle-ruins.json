@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Fukuoka Castle Ruins",
-      "description": "Fukuoka Castle Ruins is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+      "description": "Remains of Fukuoka Castle, begun in 1601 by the Kuroda clan, standing in Maizuru Park in central Fukuoka. Stone walls, moats and the keep base survive, and the grounds are a popular cherry-blossom spot in spring.",
       "highlights": ["History"],
       "openingHours": "Open 24 hours"
     },
     "ja": {
-      "name": "福岡市",
-      "description": "福岡市はFukuoka Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "福岡城跡（舞鶴公園）",
+      "description": "黒田氏が慶長6年（1601年）から築いた福岡城の遺構。舞鶴公園内に石垣や堀、天守台が残り、春は桜の名所としてにぎわう。",
       "highlights": ["歴史"],
       "openingHours": "24時間営業"
     }
@@ -41,7 +41,7 @@
     "lat": 33.585,
     "lng": 130.3831
   },
-  "description": "Fukuoka Castle Ruins is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+  "description": "Remains of Fukuoka Castle, begun in 1601 by the Kuroda clan, standing in Maizuru Park in central Fukuoka. Stone walls, moats and the keep base survive, and the grounds are a popular cherry-blossom spot in spring.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

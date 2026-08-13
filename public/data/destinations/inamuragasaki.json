@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Inamuragasaki",
-      "description": "Inamuragasaki is a visitor destination in Kamakura City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Headland on the Sagami Bay coast between Yuigahama and Shichirigahama beaches in Kamakura. A famous sunset point with views of Enoshima and, on clear days, Mount Fuji, and the historic spot where Nitta Yoshisada's forces are said to have crossed in 1333.",
       "highlights": ["Nature"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "稲村ヶ崎",
-      "description": "稲村ヶ崎はKamakura Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "由比ヶ浜と七里ヶ浜の間にある岬。江の島と、晴れた日には富士山を望む夕日スポットとして知られる。1333年に新田義貞の軍勢が渡ったと伝わる史跡でもある。",
       "highlights": ["稲村ヶ崎の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -45,7 +45,7 @@
     "lat": 35.30166667,
     "lng": 139.52555556
   },
-  "description": "Inamuragasaki is a visitor destination in Kamakura City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Headland on the Sagami Bay coast between Yuigahama and Shichirigahama beaches in Kamakura. A famous sunset point with views of Enoshima and, on clear days, Mount Fuji, and the historic spot where Nitta Yoshisada's forces are said to have crossed in 1333.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

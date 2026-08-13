@@ -43,7 +43,7 @@
       "autumn": 9,
       "winter": 8
     },
-    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestMonths": [1, 2, 3],
     "bestSeason": "All Year",
     "weatherDependence": "low",
     "tags": ["Abashiri City", "Hokkaido Travel", "Regional Hub"],
@@ -56,9 +56,7 @@
       "rainFriendly": 8,
       "walkingIntensity": 3
     },
-    "transportOptions": {
-      "train": 200
-    },
+    "transportOptions": {},
     "reservation": "None required",
     "parking": "Public parking available",
     "status": "beta",
@@ -505,8 +503,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -825,7 +823,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sotokanda%2C_Akihabara_Electric_Town_at_night_20231114.png/3840px-Sotokanda%2C_Akihabara_Electric_Town_at_night_20231114.png",
     "transportOptions": {
-      "train": 40
+      "train": 10
     },
     "highlights": [
       "Radio Kaikan",
@@ -2178,8 +2176,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -2866,7 +2864,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Day2-2_%2840909714314%29.jpg/3840px-Day2-2_%2840909714314%29.jpg",
     "transportOptions": {
-      "train": 50
+      "train": 20
     },
     "highlights": [
       "Senso-ji Temple & Kaminarimon",
@@ -3230,8 +3228,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -3369,8 +3367,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -4143,7 +4141,7 @@
       "autumn": 9,
       "winter": 8
     },
-    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestMonths": [6, 7, 8],
     "bestSeason": "All Year",
     "weatherDependence": "low",
     "tags": ["Biei Town", "Hokkaido Travel", "Regional Hub"],
@@ -4371,10 +4369,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1400,
-      "tickets": 800,
-      "food": 1400,
-      "cafe": 400
+      "transport": 1619,
+      "tickets": 300,
+      "food": 1619,
+      "cafe": 462
     },
     "transportOptions": {
       "train": 49
@@ -4809,8 +4807,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -5460,10 +5458,10 @@
     "budgetRecommended": 5500,
     "budgetMax": 8500,
     "budgetBreakdown": {
-      "transport": 1925,
-      "tickets": 1100,
-      "food": 1925,
-      "cafe": 550
+      "transport": 2275,
+      "tickets": 300,
+      "food": 2275,
+      "cafe": 650
     },
     "transportOptions": {
       "train": 67,
@@ -5997,7 +5995,7 @@
     "content": {
       "en": {
         "name": "Chiba Port Park",
-        "description": "Chiba Port Park is a visitor destination in Chiba City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Waterfront park on Tokyo Bay in Chiba City, site of the 125-meter Chiba Port Tower (1986), whose observation deck offers sweeping views of the bay and, on clear days, Tokyo Skytree and Mount Fuji. Open lawns and walking trails make it a popular spot for picnics, jogging and sunset strolls.",
         "highlights": ["Nature"],
         "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
         "reservation": "Open access; no entrance reservation required.",
@@ -6006,7 +6004,7 @@
       },
       "ja": {
         "name": "千葉ポートパーク",
-        "description": "千葉ポートパークはChiba Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "千葉市の東京湾沿いにある海浜公園。園内の千葉ポートタワー（1986年竣工、高さ125m）の展望台からは、晴れた日に東京スカイツリーや富士山まで望める。芝生広場や遊歩道が整備され、ピクニックや散策にぴったり。",
         "highlights": ["千葉ポートパークの名所"],
         "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -6038,7 +6036,7 @@
       "lat": 35.599078,
       "lng": 140.100017
     },
-    "description": "Chiba Port Park is a visitor destination in Chiba City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Waterfront park on Tokyo Bay in Chiba City, site of the 125-meter Chiba Port Tower (1986), whose observation deck offers sweeping views of the bay and, on clear days, Tokyo Skytree and Mount Fuji. Open lawns and walking trails make it a popular spot for picnics, jogging and sunset strolls.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -7132,7 +7130,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 85
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -7207,8 +7205,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -7360,8 +7358,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -7511,8 +7509,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -7808,8 +7806,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -7964,8 +7962,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -8037,10 +8035,10 @@
     "highlights": ["Museum", "Family", "Food"],
     "description": "Cup Noodles Museum Yokohama is a curated destination within Yokohama City.",
     "budgetBreakdown": {
-      "transport": 650,
-      "tickets": 1300,
-      "food": 3250,
-      "cafe": 1300
+      "transport": 750,
+      "tickets": 500,
+      "food": 3750,
+      "cafe": 1500
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -8112,8 +8110,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -8294,7 +8292,7 @@
       "autumn": 9,
       "winter": 8
     },
-    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestMonths": [2, 3],
     "bestSeason": "All Year",
     "weatherDependence": "low",
     "tags": ["Dazaifu City", "Fukuoka Travel", "Regional Hub"],
@@ -8870,12 +8868,12 @@
     "content": {
       "en": {
         "name": "Dotonbori",
-        "description": "Dotonbori is a visitor destination in Osaka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+        "description": "Canal-side entertainment district in central Osaka, famous for the Glico running-man neon sign, Ebisubashi Bridge and the Dotonbori Canal. Known as Osaka's 'kuidaore' (eat-till-you-drop) quarter, it is packed with restaurants, takoyaki stalls and theaters.",
         "highlights": ["Shopping", "Food"]
       },
       "ja": {
         "name": "道頓堀",
-        "description": "道頓堀はOsaka Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "大阪を代表する歓楽街。道頓堀川沿いにグリコのランナー看板や戎橋など名物が並ぶ。「食い倒れ」の街として知られ、たこ焼きやお好み焼きの店、劇場などがひしめく。",
         "highlights": ["ショッピング", "グルメ"]
       }
     },
@@ -8903,7 +8901,7 @@
       "lat": 34.66861111,
       "lng": 135.50138889
     },
-    "description": "Dotonbori is a visitor destination in Osaka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+    "description": "Canal-side entertainment district in central Osaka, famous for the Glico running-man neon sign, Ebisubashi Bridge and the Dotonbori Canal. Known as Osaka's 'kuidaore' (eat-till-you-drop) quarter, it is packed with restaurants, takoyaki stalls and theaters.",
     "highlights": ["Shopping", "Food"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -9301,8 +9299,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -9371,10 +9369,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1400,
-      "tickets": 800,
-      "food": 1400,
-      "cafe": 400
+      "transport": 1531,
+      "tickets": 500,
+      "food": 1531,
+      "cafe": 438
     },
     "transportOptions": {
       "train": 44
@@ -9889,7 +9887,7 @@
     "content": {
       "en": {
         "name": "Enoshima Iwaya Caves",
-        "description": "Enoshima Iwaya Caves is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Two wave-carved caves on Enoshima's southern shore, long connected to the island's Benzaiten worship and the Chigogafuchi abyss legend. Pilgrims have visited for centuries, and the caves form part of the scenic walk around the island.",
         "highlights": ["Nature"],
         "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
         "reservation": "Open access; no entrance reservation required.",
@@ -9897,8 +9895,8 @@
         "openingHours": "24 Hours (Open access)"
       },
       "ja": {
-        "name": "江の島",
-        "description": "江の島はFujisawa Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "name": "江の島岩屋",
+        "description": "江の島南岸の波で削られた洞窟。島の弁財天信仰や稚児ヶ淵の伝説と結びつき、古くから参拝者が訪れた霊場。江の島を巡る散策コースの見どころの一つ。",
         "highlights": ["江の島の名所"],
         "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -9929,7 +9927,7 @@
       "lat": 35.29933055555556,
       "lng": 139.48090833333333
     },
-    "description": "Enoshima Iwaya Caves is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Two wave-carved caves on Enoshima's southern shore, long connected to the island's Benzaiten worship and the Chigogafuchi abyss legend. Pilgrims have visited for centuries, and the caves form part of the scenic walk around the island.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -10505,12 +10503,12 @@
     "content": {
       "en": {
         "name": "Former Hokkaido Government Office",
-        "description": "Former Hokkaido Government Office is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
+        "description": "The 'Red Brick Office' (Akarenga), completed in 1888 in American neo-baroque style, served as Hokkaido's government headquarters. Now open to the public, it houses exhibition rooms and archives, and is one of Sapporo's signature Meiji-era landmarks.",
         "highlights": ["History", "Museum"]
       },
       "ja": {
         "name": "北海道庁旧本庁舎",
-        "description": "北海道庁旧本庁舎はSapporo Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "明治21年（1888年）に完成したアメリカン・ネオバロック様式の「赤れんが庁舎」。北海道の行政の中心として使われ、現在は一般公開され、資料展示室などがある。札幌を代表する明治時代の歴史的建造物。",
         "highlights": ["歴史", "博物館"]
       }
     },
@@ -10538,7 +10536,7 @@
       "lat": 43.063944444444445,
       "lng": 141.348
     },
-    "description": "Former Hokkaido Government Office is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
+    "description": "The 'Red Brick Office' (Akarenga), completed in 1888 in American neo-baroque style, served as Hokkaido's government headquarters. Now open to the public, it houses exhibition rooms and archives, and is one of Sapporo's signature Meiji-era landmarks.",
     "highlights": ["History", "Museum"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -11311,8 +11309,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -11732,13 +11730,13 @@
     "content": {
       "en": {
         "name": "Fukuoka Castle Ruins",
-        "description": "Fukuoka Castle Ruins is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+        "description": "Remains of Fukuoka Castle, begun in 1601 by the Kuroda clan, standing in Maizuru Park in central Fukuoka. Stone walls, moats and the keep base survive, and the grounds are a popular cherry-blossom spot in spring.",
         "highlights": ["History"],
         "openingHours": "Open 24 hours"
       },
       "ja": {
-        "name": "福岡市",
-        "description": "福岡市はFukuoka Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "name": "福岡城跡（舞鶴公園）",
+        "description": "黒田氏が慶長6年（1601年）から築いた福岡城の遺構。舞鶴公園内に石垣や堀、天守台が残り、春は桜の名所としてにぎわう。",
         "highlights": ["歴史"],
         "openingHours": "24時間営業"
       }
@@ -11767,7 +11765,7 @@
       "lat": 33.585,
       "lng": 130.3831
     },
-    "description": "Fukuoka Castle Ruins is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+    "description": "Remains of Fukuoka Castle, begun in 1601 by the Kuroda clan, standing in Maizuru Park in central Fukuoka. Stone walls, moats and the keep base survive, and the grounds are a popular cherry-blossom spot in spring.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -12706,8 +12704,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -16093,13 +16091,13 @@
     "content": {
       "en": {
         "name": "Hakata Machiya Folk Museum",
-        "description": "Hakata Machiya Folk Museum is a visitor destination in Fukuoka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "Museum housed in restored Hakata merchant townhouses (machiya), presenting the traditional architecture, crafts and daily life of old Hakata. Exhibits cover local crafts such as Hakata weaving and Hakata dolls, plus the townscape of the merchant quarter.",
         "highlights": ["Museum"],
         "openingHours": "10:00–18:00"
       },
       "ja": {
         "name": "「博多町家」ふるさと館",
-        "description": "「博多町家」ふるさと館はFukuoka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "復元された博多の町家を活用した博物館。博多織や博多人形などの伝統工芸と、かつての博多の商家の暮らし・町並みを紹介する。",
         "highlights": ["博物館"],
         "openingHours": "10:00～18:00"
       }
@@ -16128,16 +16126,16 @@
       "lat": 33.59363888888889,
       "lng": 130.4113888888889
     },
-    "description": "Hakata Machiya Folk Museum is a visitor destination in Fukuoka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Museum housed in restored Hakata merchant townhouses (machiya), presenting the traditional architecture, crafts and daily life of old Hakata. Exhibits cover local crafts such as Hakata weaving and Hakata dolls, plus the townscape of the merchant quarter.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
     "budgetMax": 8500,
     "budgetBreakdown": {
-      "transport": 1925,
-      "tickets": 1100,
-      "food": 1925,
-      "cafe": 550
+      "transport": 2319,
+      "tickets": 200,
+      "food": 2319,
+      "cafe": 662
     },
     "transportOptions": {
       "train": 196,
@@ -18408,8 +18406,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -19285,12 +19283,12 @@
     "content": {
       "en": {
         "name": "Hokkaido Museum of Modern Art",
-        "description": "Hokkaido Museum of Modern Art is a visitor destination in Sapporo City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "Hokkaido's leading modern art museum, opened in 1977 in central Sapporo. Its collection of more than 5,000 works focuses on Hokkaido-linked artists and includes an École de Paris section (Jules Pascin among others), with sculpture displayed on the grounds.",
         "highlights": ["Museum"]
       },
       "ja": {
         "name": "北海道立近代美術館",
-        "description": "北海道立近代美術館はSapporo Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "1977年開館の北海道を代表する近代美術館。道内ゆかりの作家を中心に5,000点以上を収蔵し、エコール・ド・パリ（パスキンなど）のコーナーもある。屋外には彫刻も展示されている。",
         "highlights": ["博物館"]
       }
     },
@@ -19318,16 +19316,16 @@
       "lat": 43.060278,
       "lng": 141.330389
     },
-    "description": "Hokkaido Museum of Modern Art is a visitor destination in Sapporo City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Hokkaido's leading modern art museum, opened in 1977 in central Sapporo. Its collection of more than 5,000 works focuses on Hokkaido-linked artists and includes an École de Paris section (Jules Pascin among others), with sculpture displayed on the grounds.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
     "budgetMax": 8500,
     "budgetBreakdown": {
-      "transport": 1925,
-      "tickets": 1100,
-      "food": 1925,
-      "cafe": 550
+      "transport": 2183,
+      "tickets": 510,
+      "food": 2183,
+      "cafe": 624
     },
     "transportOptions": {
       "train": 199
@@ -19665,12 +19663,12 @@
     "content": {
       "en": {
         "name": "Honmaru Palace",
-        "description": "Honmaru Palace is a visitor destination in Nagoya City.  Visitors can experience historic architecture and local culture.",
+        "description": "The Honmaru Palace of Nagoya Castle, completed in 1615 as the residence of the Owari lords and destroyed in the 1945 air raids. The painstakingly reconstructed palace reopened in 2018 and is renowned for its gold-leaf wall paintings by the Kano school and intricate woodwork.",
         "highlights": ["History"]
       },
       "ja": {
-        "name": "名古屋城",
-        "description": "名古屋城はNagoya Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "name": "本丸御殿",
+        "description": "名古屋城の本丸御殿。1615年に完成し、1945年の空襲で焼失したが、狩野派の金箔の障壁画とともに復元され、2018年から公開されている。豪壮な建築と細部の木組みが見どころ。",
         "highlights": ["歴史"]
       }
     },
@@ -19698,7 +19696,7 @@
       "lat": 35.18555556,
       "lng": 136.89861111
     },
-    "description": "Honmaru Palace is a visitor destination in Nagoya City.  Visitors can experience historic architecture and local culture.",
+    "description": "The Honmaru Palace of Nagoya Castle, completed in 1615 as the residence of the Owari lords and destroyed in the 1945 air raids. The painstakingly reconstructed palace reopened in 2018 and is renowned for its gold-leaf wall paintings by the Kano school and intricate woodwork.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -20633,7 +20631,7 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg/3840px-Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg",
     "transportOptions": {
-      "train": 50
+      "train": 15
     },
     "highlights": [
       "Sunshine City Aquarium",
@@ -20642,10 +20640,10 @@
     ],
     "description": "Ikebukuro (Toshima) is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
-      "transport": 1083,
-      "tickets": 8667,
-      "food": 2275,
-      "cafe": 975
+      "transport": 3249,
+      "tickets": 0,
+      "food": 6826,
+      "cafe": 2925
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Commercial district paid parking garages available nearby.",
@@ -20734,7 +20732,7 @@
     "content": {
       "en": {
         "name": "Ikuta Ryokuchi",
-        "description": "Ikuta Ryokuchi is a visitor destination in Kawasaki City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Hillside green park in western Kawasaki with forest trails and a Japanese garden. The grounds also hold two major cultural facilities — the Nihon Minka-en open-air museum of traditional houses and the Taro Okamoto Museum of Art — making it a full-day destination.",
         "highlights": ["Nature"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -20743,7 +20741,7 @@
       },
       "ja": {
         "name": "生田緑地",
-        "description": "生田緑地はKawasaki Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "川崎市西部の丘陵に広がる緑地公園。遊歩道や日本庭園が整備され、園内には日本民家園と岡本太郎美術館という二つの文化施設もある。",
         "highlights": ["生田緑地の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -20774,7 +20772,7 @@
       "lat": 35.609444,
       "lng": 139.558056
     },
-    "description": "Ikuta Ryokuchi is a visitor destination in Kawasaki City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Hillside green park in western Kawasaki with forest trails and a Japanese garden. The grounds also hold two major cultural facilities — the Nihon Minka-en open-air museum of traditional houses and the Taro Okamoto Museum of Art — making it a full-day destination.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -21065,7 +21063,7 @@
     "content": {
       "en": {
         "name": "Inage Seaside Park",
-        "description": "Inage Seaside Park is a visitor destination in Chiba City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Long coastal park on Tokyo Bay in Chiba City, with beaches, lawns, sports facilities and flower beds along the Inage coastline. The beach section is a popular summer swimming spot and the park is known for sunset views over the bay.",
         "highlights": ["Nature"],
         "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
         "reservation": "Open access; no entrance reservation required.",
@@ -21074,7 +21072,7 @@
       },
       "ja": {
         "name": "稲毛海浜公園",
-        "description": "稲毛海浜公園はChiba Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "千葉市の東京湾岸に広がる細長い海浜公園。砂浜や芝生広場、運動施設、花壇が整備され、夏は海水浴場としてにぎわう。湾越しの夕日も美しい。",
         "highlights": ["稲毛海浜公園の名所"],
         "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -21106,7 +21104,7 @@
       "lat": 35.61805556,
       "lng": 140.06472222
     },
-    "description": "Inage Seaside Park is a visitor destination in Chiba City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Long coastal park on Tokyo Bay in Chiba City, with beaches, lawns, sports facilities and flower beds along the Inage coastline. The beach section is a popular summer swimming spot and the park is known for sunset views over the bay.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -21178,12 +21176,6 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Inagekaigan_Station",
-          "title": "Inagekaigan Station",
-          "accessedAt": "2026-07-29"
-        },
-        {
           "type": "official",
           "url": "https://www.city.chiba.jp/toshi/koenryokuchi/kanri/chuo-mihama/inagekaihinkoen.html",
           "title": "Inage Seaside Park official website",
@@ -21249,7 +21241,7 @@
     "content": {
       "en": {
         "name": "Inamuragasaki",
-        "description": "Inamuragasaki is a visitor destination in Kamakura City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Headland on the Sagami Bay coast between Yuigahama and Shichirigahama beaches in Kamakura. A famous sunset point with views of Enoshima and, on clear days, Mount Fuji, and the historic spot where Nitta Yoshisada's forces are said to have crossed in 1333.",
         "highlights": ["Nature"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -21258,7 +21250,7 @@
       },
       "ja": {
         "name": "稲村ヶ崎",
-        "description": "稲村ヶ崎はKamakura Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "由比ヶ浜と七里ヶ浜の間にある岬。江の島と、晴れた日には富士山を望む夕日スポットとして知られる。1333年に新田義貞の軍勢が渡ったと伝わる史跡でもある。",
         "highlights": ["稲村ヶ崎の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -21288,7 +21280,7 @@
       "lat": 35.30166667,
       "lng": 139.52555556
     },
-    "description": "Inamuragasaki is a visitor destination in Kamakura City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Headland on the Sagami Bay coast between Yuigahama and Shichirigahama beaches in Kamakura. A famous sunset point with views of Enoshima and, on clear days, Mount Fuji, and the historic spot where Nitta Yoshisada's forces are said to have crossed in 1333.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -22192,8 +22184,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -22519,7 +22511,7 @@
     "content": {
       "en": {
         "name": "Iwatsuki Ningyo Museum",
-        "description": "Iwatsuki Ningyo Museum is a visitor destination in Saitama City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "Museum of Japanese dolls opened in 2020 in Iwatsuki, Saitama — a district known as the 'town of dolls' since the Edo period. Exhibits trace the craft and culture of Japanese dolls, from hina and musha dolls to the local artisans who made Iwatsuki famous.",
         "highlights": ["Museum"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -22528,7 +22520,7 @@
       },
       "ja": {
         "name": "岩槻人形博物館",
-        "description": "岩槻人形博物館はSaitama Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "2020年開館の人形専門博物館。江戸時代から「人形のまち」として知られるさいたま市岩槻区にあり、ひな人形や武者人形など、日本の人形文化と製作技術を紹介する。",
         "highlights": ["岩槻人形博物館の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -22559,7 +22551,7 @@
       "lat": 35.950833333333335,
       "lng": 139.7
     },
-    "description": "Iwatsuki Ningyo Museum is a visitor destination in Saitama City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Museum of Japanese dolls opened in 2020 in Iwatsuki, Saitama — a district known as the 'town of dolls' since the Edo period. Exhibits trace the craft and culture of Japanese dolls, from hina and musha dolls to the local artisans who made Iwatsuki famous.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
@@ -23100,7 +23092,7 @@
     "content": {
       "en": {
         "name": "Jochi-ji",
-        "description": "Jochi-ji is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+        "description": "Kinpozan Jochi-ji, a Rinzai Zen temple founded in 1281 in Kita-Kamakura and ranked fourth of the Kamakura Five Great Zen Temples. The precincts feature a rare Chinese-style two-story bell gate and weathered stone Buddhas, set in quiet hillside grounds.",
         "highlights": ["History"],
         "notes": "Early morning visits provide a serene experience before tour groups arrive.",
         "reservation": "No reservation required for general temple ground visits.",
@@ -23108,8 +23100,8 @@
         "openingHours": "08:30 - 16:30"
       },
       "ja": {
-        "name": "鎌倉市",
-        "description": "鎌倉市はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "name": "浄智寺",
+        "description": "金宝山浄智寺。1281年創建の臨済宗の寺院で、鎌倉五山の第四位。中国様式の鐘楼門や石仏群が有名で、北鎌倉の静かな山裾にたたずむ。",
         "highlights": ["鎌倉市の名所"],
         "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -23141,7 +23133,7 @@
       "lat": 35.3334,
       "lng": 139.5464
     },
-    "description": "Jochi-ji is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+    "description": "Kinpozan Jochi-ji, a Rinzai Zen temple founded in 1281 in Kita-Kamakura and ranked fourth of the Kamakura Five Great Zen Temples. The precincts feature a rare Chinese-style two-story bell gate and weathered stone Buddhas, set in quiet hillside grounds.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -24871,8 +24863,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -24888,7 +24880,7 @@
     "content": {
       "en": {
         "name": "Kamakurakokomae Station",
-        "description": "Kamakurakokomae Station is a visitor destination in Kamakura City.  Visitors can experience the area's character and main sights.",
+        "description": "Enoden railway station on Kamakura's western beach. The level crossing in front of the station became world-famous as a scene location for the manga 'Slam Dunk', and the platform opens onto wide views of the coast toward Enoshima.",
         "highlights": ["Culture"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -24897,7 +24889,7 @@
       },
       "ja": {
         "name": "鎌倉高校前駅",
-        "description": "鎌倉高校前駅はKamakura Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "江ノ島電鉄の駅。駅前の踏切は漫画『SLAM DUNK』の舞台として有名で、ホームからは海越しに江の島を望む景色が広がる。",
         "highlights": ["鎌倉高校前駅の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -24928,7 +24920,7 @@
       "lat": 35.30666667,
       "lng": 139.50055556
     },
-    "description": "Kamakurakokomae Station is a visitor destination in Kamakura City.  Visitors can experience the area's character and main sights.",
+    "description": "Enoden railway station on Kamakura's western beach. The level crossing in front of the station became world-famous as a scene location for the manga 'Slam Dunk', and the platform opens onto wide views of the coast toward Enoshima.",
     "highlights": ["Culture"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -25069,7 +25061,7 @@
     "content": {
       "en": {
         "name": "Kanayama Shrine",
-        "description": "Kanayama Shrine is a visitor destination in Kawasaki City.  Visitors can experience historic architecture and local culture.",
+        "description": "Shrine in Kawasaki dedicated to the deity Kanayama-hime, enshrined for fertility, safe childbirth and business prosperity. It is known worldwide for the Kanamara Matsuri ('Steel Phallus Festival') held every spring.",
         "highlights": ["History"],
         "notes": "Early morning visits provide a serene experience before tour groups arrive.",
         "reservation": "No reservation required for general temple ground visits.",
@@ -25078,7 +25070,7 @@
       },
       "ja": {
         "name": "金山神社",
-        "description": "金山神社はKawasaki Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "金山比売神を祀る神社。子宝・安産・商売繁盛の神として知られ、毎年春に開かれる「かなまら祭」は世界的に有名。",
         "highlights": ["金山神社の名所"],
         "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -25109,7 +25101,7 @@
       "lat": 35.5342,
       "lng": 139.7161
     },
-    "description": "Kanayama Shrine is a visitor destination in Kawasaki City.  Visitors can experience historic architecture and local culture.",
+    "description": "Shrine in Kawasaki dedicated to the deity Kanayama-hime, enshrined for fertility, safe childbirth and business prosperity. It is known worldwide for the Kanamara Matsuri ('Steel Phallus Festival') held every spring.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -25584,8 +25576,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -25921,7 +25913,7 @@
     "content": {
       "en": {
         "name": "Kasori Shell Mounds",
-        "description": "Kasori Shell Mounds is a visitor destination in Chiba City.  Visitors can experience historic architecture and local culture.",
+        "description": "Japan's largest shell midden, a Jomon-period archaeological site in Chiba City designated a national historic site. The on-site museum and the preserved mound cross-sections show how prehistoric communities lived along the coast.",
         "highlights": ["History", "Museum"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -25930,7 +25922,7 @@
       },
       "ja": {
         "name": "加曽利貝塚",
-        "description": "加曽利貝塚はChiba Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "縄文時代の日本最大級の貝塚で、国の史跡に指定されている。博物館と保存された貝塚の断面から、海辺で暮らした縄文人の生活をうかがい知ることができる。",
         "highlights": ["加曽利貝塚の名所", "加曽利貝塚の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -25961,7 +25953,7 @@
       "lat": 35.623333333333,
       "lng": 140.16472222222
     },
-    "description": "Kasori Shell Mounds is a visitor destination in Chiba City.  Visitors can experience historic architecture and local culture.",
+    "description": "Japan's largest shell midden, a Jomon-period archaeological site in Chiba City designated a national historic site. The on-site museum and the preserved mound cross-sections show how prehistoric communities lived along the coast.",
     "highlights": ["History", "Museum"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -26103,7 +26095,7 @@
     "content": {
       "en": {
         "name": "Katase Higashihama Beach",
-        "description": "Katase Higashihama Beach is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Sandy beach on the Fujisawa coast just east of Enoshima, one of the Shonan area's most popular summer swimming beaches. In July and August the shore fills with seasonal beach houses (uminoie) and swimmers, with views across to Enoshima.",
         "highlights": ["Nature"],
         "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
         "reservation": "Open access; no entrance reservation required.",
@@ -26112,7 +26104,7 @@
       },
       "ja": {
         "name": "片瀬東浜海水浴場",
-        "description": "片瀬東浜海水浴場はFujisawa Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "江の島の東側に広がる砂浜。湘南エリアで最も人気のある海水浴場の一つで、夏は海の家が立ち並び、江の島を望む景観とともににぎわう。",
         "highlights": ["片瀬東浜海水浴場の名所"],
         "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -26144,7 +26136,7 @@
       "lat": 35.307778,
       "lng": 139.487194
     },
-    "description": "Katase Higashihama Beach is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Sandy beach on the Fujisawa coast just east of Enoshima, one of the Shonan area's most popular summer swimming beaches. In July and August the shore fills with seasonal beach houses (uminoie) and swimmers, with views across to Enoshima.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -26214,12 +26206,6 @@
     "editorial": {
       "lifecycle": "published",
       "sources": [
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Enoshima_Station",
-          "title": "Enoshima Station",
-          "accessedAt": "2026-07-29"
-        },
         {
           "type": "official",
           "url": "https://ee-beach.com/",
@@ -26406,8 +26392,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -26429,7 +26415,7 @@
     "content": {
       "en": {
         "name": "Katori Jingu",
-        "description": "Katori Jingu is a visitor destination in the surrounding area.  Visitors can experience historic architecture and local culture.",
+        "description": "One of the Kanto region's oldest shrines, in Katori, Chiba, dedicated to Futsunushi, the deity of swords and martial arts. Linked to the historic Katori school of swordsmanship, it is set in deep, quiet forest with a long approach.",
         "highlights": ["History"],
         "notes": "Early morning visits provide a serene experience before tour groups arrive.",
         "reservation": "No reservation required for general temple ground visits.",
@@ -26438,7 +26424,7 @@
       },
       "ja": {
         "name": "香取神宮",
-        "description": "香取神宮は周辺地域にある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "関東最古級の神社の一つで、刀剣・武芸の神である経津主神を祀る。剣道の聖地としても知られ、深い森に囲まれた静かな境内を持つ。",
         "highlights": ["香取神宮の名所"],
         "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -26466,7 +26452,7 @@
       "lat": 35.886206,
       "lng": 140.528518
     },
-    "description": "Katori Jingu is a visitor destination in the surrounding area.  Visitors can experience historic architecture and local culture.",
+    "description": "One of the Kanto region's oldest shrines, in Katori, Chiba, dedicated to Futsunushi, the deity of swords and martial arts. Linked to the historic Katori school of swordsmanship, it is set in deep, quiet forest with a long approach.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -26738,8 +26724,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -27047,8 +27033,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -27070,7 +27056,7 @@
     "content": {
       "en": {
         "name": "Kawagoe Festival Museum",
-        "description": "Kawagoe Festival Museum is a visitor destination in Kawagoe City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "Museum devoted to the Kawagoe Festival (Kawagoe Matsuri), famous for its hikiyama float processions and lively festival music. Actual festival floats are exhibited in the hall, with video displays of the festival's atmosphere, near Toki no Kane.",
         "highlights": ["Museum"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -27079,7 +27065,7 @@
       },
       "ja": {
         "name": "川越まつり会館",
-        "description": "川越まつり会館はKawagoe Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "川越まつりをテーマにした博物館。実際に祭りで使われる豪華な山車を間近で見学でき、祭りの囃子や熱気を映像で体感できる。時の鐘の近くに位置する。",
         "highlights": ["川越まつり会館の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -27110,16 +27096,16 @@
       "lat": 35.924306,
       "lng": 139.482361
     },
-    "description": "Kawagoe Festival Museum is a visitor destination in Kawagoe City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Museum devoted to the Kawagoe Festival (Kawagoe Matsuri), famous for its hikiyama float processions and lively festival music. Actual festival floats are exhibited in the hall, with video displays of the festival's atmosphere, near Toki no Kane.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
     "budgetMax": 8500,
     "budgetBreakdown": {
-      "transport": 1925,
-      "tickets": 1100,
-      "food": 1925,
-      "cafe": 550
+      "transport": 2275,
+      "tickets": 300,
+      "food": 2275,
+      "cafe": 650
     },
     "transportOptions": {
       "train": 41
@@ -27594,8 +27580,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -27753,8 +27739,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -29192,8 +29178,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -29439,8 +29425,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -31400,7 +31386,7 @@
     "content": {
       "en": {
         "name": "Komachi Street",
-        "description": "Komachi Street is a visitor destination in Kamakura City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+        "description": "Kamakura's liveliest shopping street, running from Kamakura Station toward Tsurugaoka Hachimangu. It is lined with souvenir shops, cafes and snack stalls selling local specialties, and is busy throughout the day.",
         "highlights": ["Shopping", "Food"],
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
@@ -31408,7 +31394,7 @@
       },
       "ja": {
         "name": "小町通り",
-        "description": "小町通りはKamakura Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "鎌倉駅から鶴岡八幡宮方面へ延びる商店街。土産物店やカフェ、名物スイーツの店が軒を連ね、終日にぎわう。",
         "highlights": ["小町通りの名所", "小町通りの名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -31439,7 +31425,7 @@
       "lat": 35.32153,
       "lng": 139.55232
     },
-    "description": "Komachi Street is a visitor destination in Kamakura City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+    "description": "Kamakura's liveliest shopping street, running from Kamakura Station toward Tsurugaoka Hachimangu. It is lined with souvenir shops, cafes and snack stalls selling local specialties, and is busy throughout the day.",
     "highlights": ["Shopping", "Food"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -31648,10 +31634,10 @@
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/250505_Korakuen_Okayama_Japan06s3.jpg/1280px-250505_Korakuen_Okayama_Japan06s3.jpg",
     "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 1625,
-      "cafe": 875
+      "transport": 3818,
+      "tickets": 500,
+      "food": 2068,
+      "cafe": 1114
     },
     "highlights": ["Explore Korakuen Garden", "Local Culture & Scenery"],
     "bestSeason": "Spring & Autumn",
@@ -31948,8 +31934,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -31971,7 +31957,7 @@
     "content": {
       "en": {
         "name": "Kotoku-in Great Buddha",
-        "description": "Kotoku-in Great Buddha is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+        "description": "The Great Buddha (Daibutsu) of Kotoku-in, a 13.35-meter bronze statue cast around 1252 and designated a National Treasure, seated outdoors in Kamakura. The hall that once sheltered it was washed away by a tsunami in 1498.",
         "highlights": ["History"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -31980,7 +31966,7 @@
       },
       "ja": {
         "name": "高徳院",
-        "description": "高徳院はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "高徳院の本尊・阿弥陀如来坐像。1252年頃に鋳造された高さ約13.35mの銅像で国宝に指定されている。かつては堂内にあったが、1498年の津波で堂が流され、現在は露座のまま鎮座する。",
         "highlights": ["高徳院の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -32011,7 +31997,7 @@
       "lat": 35.316944444444445,
       "lng": 139.53583333333333
     },
-    "description": "Kotoku-in Great Buddha is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+    "description": "The Great Buddha (Daibutsu) of Kotoku-in, a 13.35-meter bronze statue cast around 1252 and designated a National Treasure, seated outdoors in Kamakura. The hall that once sheltered it was washed away by a tsunami in 1498.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -33384,8 +33370,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -33407,13 +33393,13 @@
     "content": {
       "en": {
         "name": "Kushida Shrine",
-        "description": "Kushida Shrine is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+        "description": "Hakata's guardian shrine, founded in 757 and known as the spiritual home of the Hakata Gion Yamakasa festival, whose towering decorated floats race through the streets every July. The colorful festival floats are displayed at the shrine year-round.",
         "highlights": ["History"],
         "openingHours": "04:00–22:00"
       },
       "ja": {
         "name": "櫛田神社 (福岡市)",
-        "description": "櫛田神社 (福岡市)はFukuoka Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "757年創建の博多の総鎮守。毎年7月に開かれる「博多祇園山笠」の聖地として知られ、勇壮な山笠が町を駆け抜ける祭りで有名。",
         "highlights": ["歴史"],
         "openingHours": "04:00～22:00"
       }
@@ -33441,7 +33427,7 @@
       "lat": 33.593111111111114,
       "lng": 130.41069444444443
     },
-    "description": "Kushida Shrine is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+    "description": "Hakata's guardian shrine, founded in 757 and known as the spiritual home of the Hakata Gion Yamakasa festival, whose towering decorated floats race through the streets every July. The colorful festival floats are displayed at the shrine year-round.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -35208,7 +35194,7 @@
     "content": {
       "en": {
         "name": "Lazona Kawasaki Plaza",
-        "description": "Lazona Kawasaki Plaza is a visitor destination in Kawasaki City.  Visitors can experience the area's character and main sights.",
+        "description": "Large shopping and entertainment complex directly connected to JR Kawasaki Station, opened in 2006. It houses scores of shops and restaurants, a cinema and seasonal event spaces, making it a convenient all-weather stop beside the station.",
         "highlights": ["Culture", "Shopping"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -35217,7 +35203,7 @@
       },
       "ja": {
         "name": "ラゾーナ川崎プラザ",
-        "description": "ラゾーナ川崎プラザはKawasaki Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "JR川崎駅直結の大型商業施設。2006年に開業し、ショップやレストラン、映画館、イベントスペースが入る。駅前で買い物や食事を楽しめる。",
         "highlights": ["ラゾーナ川崎プラザの名所", "ラゾーナ川崎プラザの名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -35248,7 +35234,7 @@
       "lat": 35.53333333,
       "lng": 139.69583333
     },
-    "description": "Lazona Kawasaki Plaza is a visitor destination in Kawasaki City.  Visitors can experience the area's character and main sights.",
+    "description": "Large shopping and entertainment complex directly connected to JR Kawasaki Station, opened in 2006. It houses scores of shops and restaurants, a cinema and seasonal event spaces, making it a convenient all-weather stop beside the station.",
     "highlights": ["Culture", "Shopping"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -35544,13 +35530,13 @@
     "content": {
       "en": {
         "name": "Maizuru Park",
-        "description": "Maizuru Park is a visitor destination in Fukuoka City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Spacious park on the site of Fukuoka Castle in central Fukuoka, where stone walls and moats survive amid lawns and groves. One of the city's best cherry-blossom spots in spring, it also contains the remains of the ancient Korokan guest house.",
         "highlights": ["Nature"],
         "openingHours": "Open 24 hours"
       },
       "ja": {
         "name": "舞鶴公園",
-        "description": "舞鶴公園はFukuoka Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "福岡城跡に広がる都心の公園。石垣や堀が残り、春は桜の名所として知られる。園内には古代の迎賓館・鴻臚館の遺構も残る。",
         "highlights": ["自然"],
         "openingHours": "24時間営業"
       }
@@ -35579,7 +35565,7 @@
       "lat": 33.586366,
       "lng": 130.385192
     },
-    "description": "Maizuru Park is a visitor destination in Fukuoka City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Spacious park on the site of Fukuoka Castle in central Fukuoka, where stone walls and moats survive amid lawns and groves. One of the city's best cherry-blossom spots in spring, it also contains the remains of the ancient Korokan guest house.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -35721,7 +35707,7 @@
     "content": {
       "en": {
         "name": "Makuhari Seaside Park",
-        "description": "Makuhari Seaside Park is a visitor destination in Chiba City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Seaside park on the Makuhari coast in Chiba City, with lawns, flower gardens and a promenade along Tokyo Bay. Adjacent to Makuhari Messe, it is popular for seasonal flowers, sea breezes and views of the bay.",
         "highlights": ["Nature"],
         "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
         "reservation": "Open access; no entrance reservation required.",
@@ -35730,7 +35716,7 @@
       },
       "ja": {
         "name": "幕張海浜公園",
-        "description": "幕張海浜公園はChiba Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "幕張の海沿いに広がる海浜公園。芝生広場や花壇、東京湾沿いの遊歩道が整備され、幕張メッセに隣接する。コスモスなど季節の花と湾の眺望が楽しめる。",
         "highlights": ["幕張海浜公園の名所"],
         "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -35762,7 +35748,7 @@
       "lat": 35.64380556,
       "lng": 140.04025
     },
-    "description": "Makuhari Seaside Park is a visitor destination in Chiba City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Seaside park on the Makuhari coast in Chiba City, with lawns, flower gardens and a promenade along Tokyo Bay. Adjacent to Makuhari Messe, it is popular for seasonal flowers, sea breezes and views of the bay.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -35833,12 +35819,6 @@
     "editorial": {
       "lifecycle": "published",
       "sources": [
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Kaihimmakuhari_Station",
-          "title": "Kaihimmakuhari Station",
-          "accessedAt": "2026-07-29"
-        },
         {
           "type": "official",
           "url": "http://www.pref.chiba.lg.jp/kouen/toshikouen/guidemap/makuhari.html",
@@ -36232,12 +36212,12 @@
     "content": {
       "en": {
         "name": "Maruyama Park",
-        "description": "Maruyama Park is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Forested park in western Sapporo whose virgin-forest zone is a designated natural treasure, adjacent to Hokkaido Shrine and Maruyama Zoo. One of Sapporo's best cherry-blossom spots, usually peaking in late April to early May.",
         "highlights": ["Nature"]
       },
       "ja": {
-        "name": "円山公園 (京都府)",
-        "description": "円山公園 (京都府)はSapporo Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "name": "円山公園",
+        "description": "札幌市西部の緑豊かな公園。天然記念物に指定された原始林を有し、北海道神宮や円山動物園に隣接する。4月下旬から5月上旬は桜の名所としてにぎわう。",
         "highlights": ["自然"]
       }
     },
@@ -36265,7 +36245,7 @@
       "lat": 43.0542,
       "lng": 141.3175
     },
-    "description": "Maruyama Park is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Forested park in western Sapporo whose virgin-forest zone is a designated natural treasure, adjacent to Hokkaido Shrine and Maruyama Zoo. One of Sapporo's best cherry-blossom spots, usually peaking in late April to early May.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -36525,8 +36505,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -37424,8 +37404,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -37755,8 +37735,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -37902,8 +37882,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -38052,8 +38032,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -38753,8 +38733,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -40293,12 +40273,12 @@
     "content": {
       "en": {
         "name": "Mount Moiwa",
-        "description": "Mount Moiwa is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "A 531-meter peak southwest of central Sapporo, reached by ropeway and cable car. The summit observatory commands sweeping views over the city and is counted among Japan's finest night views.",
         "highlights": ["Nature"]
       },
       "ja": {
         "name": "藻岩山 (札幌市)",
-        "description": "藻岩山 (札幌市)はSapporo Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "札幌市南西部にそびえる標高531mの山。ロープウェイとケーブルカーで山頂へ登れる。山頂展望台からは札幌市街の眺望が広がり、夜景の名所としても知られる。",
         "highlights": ["自然"]
       }
     },
@@ -40325,7 +40305,7 @@
       "lat": 43.0225,
       "lng": 141.32222222222222
     },
-    "description": "Mount Moiwa is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "A 531-meter peak southwest of central Sapporo, reached by ropeway and cable car. The summit observatory commands sweeping views over the city and is counted among Japan's finest night views.",
     "highlights": ["Nature"],
     "budgetMin": 4000,
     "budgetRecommended": 6500,
@@ -40878,7 +40858,7 @@
     "content": {
       "en": {
         "name": "Musashi Ichinomiya Hikawa Shrine",
-        "description": "Musashi Ichinomiya Hikawa Shrine is a visitor destination in Saitama City.  Visitors can experience historic architecture and local culture.",
+        "description": "The chief shrine (ichinomiya) of Musashi province, standing in Omiya, Saitama, and one of the Kanto region's largest shrines. Its long tree-lined approach and broad precincts, dedicated to deities of marriage and childbirth, draw worshippers year-round.",
         "highlights": ["History"],
         "notes": "Early morning visits provide a serene experience before tour groups arrive.",
         "reservation": "No reservation required for general temple ground visits.",
@@ -40887,7 +40867,7 @@
       },
       "ja": {
         "name": "武蔵一宮氷川神社",
-        "description": "氷川神社はSaitama Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "武蔵国一宮として知られる大宮の大社。関東有数の規模を誇り、長い参道と緑豊かな境内を持つ。縁結びや安産の神として親しまれている。",
         "highlights": ["武蔵一宮氷川神社の名所"],
         "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -40919,7 +40899,7 @@
       "lat": 35.917037,
       "lng": 139.629461
     },
-    "description": "Musashi Ichinomiya Hikawa Shrine is a visitor destination in Saitama City.  Visitors can experience historic architecture and local culture.",
+    "description": "The chief shrine (ichinomiya) of Musashi province, standing in Omiya, Saitama, and one of the Kanto region's largest shrines. Its long tree-lined approach and broad precincts, dedicated to deities of marriage and childbirth, draw worshippers year-round.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -41061,7 +41041,7 @@
     "content": {
       "en": {
         "name": "Museum of Aeronautical Sciences",
-        "description": "Museum of Aeronautical Sciences is a visitor destination in Narita City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "Aviation museum in Shibayama, Chiba, next to Narita Airport, displaying real aircraft including the YS-11 airliner alongside flight simulators and exhibits on the history of flight. A popular family stop for plane-spotting and hands-on aviation experiences.",
         "highlights": ["Museum"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -41069,8 +41049,8 @@
         "openingHours": "09:30 - 17:00 (Last admission 16:30)"
       },
       "ja": {
-        "name": "成田国際空港",
-        "description": "成田国際空港はNarita Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "name": "航空科学博物館",
+        "description": "成田空港に隣接する航空科学博物館。YS-11などの実機やフライトシミュレーターを展示・体験でき、航空の歴史と技術を楽しみながら学べる。",
         "highlights": ["成田国際空港の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -41101,7 +41081,7 @@
       "lat": 35.7649,
       "lng": 140.38845
     },
-    "description": "Museum of Aeronautical Sciences is a visitor destination in Narita City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Aviation museum in Shibayama, Chiba, next to Narita Airport, displaying real aircraft including the YS-11 airliner alongside flight simulators and exhibits on the history of flight. A popular family stop for plane-spotting and hands-on aviation experiences.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
@@ -41173,15 +41153,15 @@
       "sources": [
         {
           "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Narita_International_Airport",
-          "title": "Narita International Airport",
-          "accessedAt": "2026-07-29"
+          "url": "https://www.aeromuseum.or.jp/",
+          "title": "Wikipedia article",
+          "accessedAt": "2026-08-13"
         },
         {
-          "type": "official",
-          "url": "https://www.narita-airport.jp/",
-          "title": "Museum of Aeronautical Sciences official website",
-          "accessedAt": "2026-07-29"
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Museum_of_Aeronautical_Sciences",
+          "title": "Wikipedia article",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -42481,12 +42461,12 @@
     "content": {
       "en": {
         "name": "Nagoya City Art Museum",
-        "description": "Nagoya City Art Museum is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "Art museum opened in 1988 in Shirakawa Park, Nagoya, in a building designed by Kisho Kurokawa. The collection spans 20th-century art, including works by Modigliani, alongside Japanese modern and contemporary artists.",
         "highlights": ["Museum"]
       },
       "ja": {
         "name": "名古屋市美術館",
-        "description": "名古屋市美術館はNagoya Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "白川公園内にある名古屋市の美術館。1988年開館で、建築は黒川紀章が設計。モディリアーニなど20世紀美術と日本の近現代美術を中心に収蔵・展示している。",
         "highlights": ["博物館"]
       }
     },
@@ -42514,7 +42494,7 @@
       "lat": 35.163842,
       "lng": 136.901022
     },
-    "description": "Nagoya City Art Museum is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Art museum opened in 1988 in Shirakawa Park, Nagoya, in a building designed by Kisho Kurokawa. The collection spans 20th-century art, including works by Modigliani, alongside Japanese modern and contemporary artists.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
@@ -42649,12 +42629,12 @@
     "content": {
       "en": {
         "name": "Nagoya City Science Museum",
-        "description": "Nagoya City Science Museum is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "Science museum in Shirakawa Park, Nagoya, famous for the world's largest planetarium with its 35-meter dome ('Brother Earth'), plus hands-on exhibits on space, physics and biology. It is very popular, so advance reservation is recommended.",
         "highlights": ["Museum"]
       },
       "ja": {
         "name": "名古屋市科学館",
-        "description": "名古屋市科学館はNagoya Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "白川公園内の科学館。直径35mの世界最大級のプラネタリウム「Brother Earth」で知られ、宇宙や科学の体験展示も充実している。人気のため事前予約がおすすめ。",
         "highlights": ["博物館"]
       }
     },
@@ -42682,7 +42662,7 @@
       "lat": 35.16477222,
       "lng": 136.89966667
     },
-    "description": "Nagoya City Science Museum is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Science museum in Shirakawa Park, Nagoya, famous for the world's largest planetarium with its 35-meter dome ('Brother Earth'), plus hands-on exhibits on space, physics and biology. It is very popular, so advance reservation is recommended.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
@@ -42977,7 +42957,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 15
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -43193,8 +43173,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -43216,13 +43196,13 @@
     "content": {
       "en": {
         "name": "Nakasu",
-        "description": "Nakasu is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
+        "description": "Nightlife and dining district on the island of Nakasu in the Naka River, in the heart of Fukuoka. Its narrow streets are packed with restaurants, bars and yatai food stalls, making it one of the city's liveliest areas after dark.",
         "highlights": ["Culture"],
         "openingHours": "Open 24 hours"
       },
       "ja": {
         "name": "中洲",
-        "description": "中洲はFukuoka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "那珂川に囲まれた中洲の繁華街。屋台や居酒屋、バーが密集し、福岡で最も飲食店の選択肢が多いエリアの一つ。夜の屋台めぐりが人気。",
         "highlights": ["文化"],
         "openingHours": "24時間営業"
       }
@@ -43251,7 +43231,7 @@
       "lat": 33.592194444444445,
       "lng": 130.40675
     },
-    "description": "Nakasu is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
+    "description": "Nightlife and dining district on the island of Nakasu in the Naka River, in the heart of Fukuoka. Its narrow streets are packed with restaurants, bars and yatai food stalls, making it one of the city's liveliest areas after dark.",
     "highlights": ["Culture"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -44287,11 +44267,11 @@
     "id": "narita-airport-observation-decks",
     "name": "Narita Airport Observation Decks",
     "nameJa": "成田国際空港",
-    "aliases": ["Haneda Airport", "東京国際空港"],
+    "aliases": [],
     "content": {
       "en": {
         "name": "Narita Airport Observation Decks",
-        "description": "Narita Airport Observation Decks is a visitor destination in Narita City.  Visitors can experience the area's character and main sights.",
+        "description": "Free observation decks at Narita Airport: the Terminal 1 deck on the fifth floor overlooks the 4,000-meter Runway A, one of Japan's best plane-spotting viewpoints, and Terminal 2 has its own deck. Both sit landside, so no boarding pass is needed.",
         "highlights": ["Viewpoint"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -44299,8 +44279,8 @@
         "openingHours": "09:30 - 17:00 (Last admission 16:30)"
       },
       "ja": {
-        "name": "東京国際空港",
-        "description": "東京国際空港はNarita Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "name": "成田国際空港",
+        "description": "成田空港の無料展望デッキ。第1ターミナル5階の展望デッキからは全長4,000mのA滑走路を一望でき、離着陸する飛行機を間近で見られる。第2ターミナルにも展望デッキがあり、搭乗券なしで利用可能。",
         "highlights": ["東京国際空港の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -44331,7 +44311,7 @@
       "lat": 35.7647,
       "lng": 140.3863
     },
-    "description": "Narita Airport Observation Decks is a visitor destination in Narita City.  Visitors can experience the area's character and main sights.",
+    "description": "Free observation decks at Narita Airport: the Terminal 1 deck on the fifth floor overlooks the 4,000-meter Runway A, one of Japan's best plane-spotting viewpoints, and Terminal 2 has its own deck. Both sit landside, so no boarding pass is needed.",
     "highlights": ["Viewpoint"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -44343,7 +44323,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 205
+      "train": 70
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -44403,15 +44383,15 @@
       "sources": [
         {
           "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Haneda_Airport",
-          "title": "Haneda Airport",
-          "accessedAt": "2026-07-29"
+          "url": "https://www.narita-airport.jp/en/fun/view/",
+          "title": "Wikipedia article",
+          "accessedAt": "2026-08-13"
         },
         {
-          "type": "official",
-          "url": "http://www.haneda-airport.jp",
-          "title": "Narita Airport Observation Decks official website",
-          "accessedAt": "2026-07-29"
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Narita_International_Airport",
+          "title": "Wikipedia article",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -44603,8 +44583,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -44626,7 +44606,7 @@
     "content": {
       "en": {
         "name": "Naritasan Park",
-        "description": "Naritasan Park is a visitor destination in Narita City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Wooded park behind Naritasan Shinsho-ji in Narita, with ponds, bridges and quiet walking paths among mature trees. A peaceful retreat from the temple crowds, with seasonal flowers and a small shrine on the grounds.",
         "highlights": ["Nature"],
         "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
         "reservation": "Open access; no entrance reservation required.",
@@ -44635,7 +44615,7 @@
       },
       "ja": {
         "name": "成田山公園",
-        "description": "成田山公園はNarita Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "成田山新勝寺の裏手に広がる公園。池や橋、散策路が整備され、季節の花々が楽しめる。参拝の合間に立ち寄りたい静かな休憩スポット。",
         "highlights": ["成田山公園の名所"],
         "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -44666,7 +44646,7 @@
       "lat": 35.7866845,
       "lng": 140.3210126
     },
-    "description": "Naritasan Park is a visitor destination in Narita City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Wooded park behind Naritasan Shinsho-ji in Narita, with ponds, bridges and quiet walking paths among mature trees. A peaceful retreat from the temple crowds, with seasonal flowers and a small shrine on the grounds.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -44915,7 +44895,7 @@
     "content": {
       "en": {
         "name": "National Museum of Nature and Science",
-        "description": "National Museum of Nature and Science is a visitor destination in Taito City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "Japan's premier museum of natural history and science, in Ueno Park, Tokyo. Permanent exhibitions cover dinosaurs, whales and evolution as well as science and technology, including a 360-degree theater and interactive displays.",
         "highlights": ["Museum"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -44924,7 +44904,7 @@
       },
       "ja": {
         "name": "国立科学博物館",
-        "description": "国立科学博物館はTaito Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "上野公園にある日本最大級の自然史・科学博物館。恐竜やクジラなど生物の進化の展示と、科学技術の体験展示、360度シアターなど見どころが多い。",
         "highlights": ["国立科学博物館の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -44955,7 +44935,7 @@
       "lat": 35.716319,
       "lng": 139.776544
     },
-    "description": "National Museum of Nature and Science is a visitor destination in Taito City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Japan's premier museum of natural history and science, in Ueno Park, Tokyo. Permanent exhibitions cover dinosaurs, whales and evolution as well as science and technology, including a 360-degree theater and interactive displays.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
@@ -45238,8 +45218,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -45507,8 +45487,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -45530,7 +45510,7 @@
     "content": {
       "en": {
         "name": "Nihon Minka-en",
-        "description": "Nihon Minka-en is a visitor destination in Kawasaki City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "Open-air museum in Ikuta Ryokuchi, Kawasaki, displaying around 25 traditional Japanese houses from the Edo period, relocated from across the country and restored — thatched farmhouses, merchants' homes and storehouses. Many interiors can be viewed.",
         "highlights": ["Museum"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -45539,7 +45519,7 @@
       },
       "ja": {
         "name": "日本民家園",
-        "description": "日本民家園はKawasaki Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "川崎市生田緑地内の野外博物館。日本各地から移築復元された江戸時代の民家約25棟が並び、茅葺きの農家や商家の内部も見学できる。",
         "highlights": ["日本民家園の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -45570,7 +45550,7 @@
       "lat": 35.6098989,
       "lng": 139.56189036
     },
-    "description": "Nihon Minka-en is a visitor destination in Kawasaki City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Open-air museum in Ikuta Ryokuchi, Kawasaki, displaying around 25 traditional Japanese houses from the Edo period, relocated from across the country and restored — thatched farmhouses, merchants' homes and storehouses. Many interiors can be viewed.",
     "highlights": ["Museum"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -45973,12 +45953,12 @@
     "content": {
       "en": {
         "name": "Nijo Market",
-        "description": "Nijo Market is a visitor destination in Sapporo City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+        "description": "Covered market in central Sapporo known as 'Sapporo's kitchen', with stalls selling fresh seafood — crab, sea urchin and salmon roe — as well as fruit and souvenirs. Several shops serve seafood bowls (kaisen-don), making it a popular breakfast stop.",
         "highlights": ["Food", "Market"]
       },
       "ja": {
         "name": "二条市場",
-        "description": "二条市場はSapporo Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "札幌中心部の市場。「札幌の台所」と呼ばれ、カニやウニ、イクラなどの海産物や果物を扱う店が並ぶ。海鮮丼を出す飲食店もあり、朝食やお土産選びに人気。",
         "highlights": ["グルメ", "市場"]
       }
     },
@@ -46005,7 +45985,7 @@
       "lat": 43.058306,
       "lng": 141.358472
     },
-    "description": "Nijo Market is a visitor destination in Sapporo City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+    "description": "Covered market in central Sapporo known as 'Sapporo's kitchen', with stalls selling fresh seafood — crab, sea urchin and salmon roe — as well as fruit and souvenirs. Several shops serve seafood bowls (kaisen-don), making it a popular breakfast stop.",
     "highlights": ["Food", "Market"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -46075,16 +46055,16 @@
       "lifecycle": "in_review",
       "sources": [
         {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/%C5%8Cd%C5%8Dri_Station",
-          "title": "Ōdōri Station",
-          "accessedAt": "2026-07-29"
-        },
-        {
           "type": "official",
           "url": "https://nijomarket.com/",
           "title": "Nijo Market official website",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Nijo_Market",
+          "title": "Wikipedia article",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-07-29",
@@ -46265,8 +46245,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -47951,10 +47931,10 @@
     ],
     "description": "A high-tech entertainment hub on an artificial island in Tokyo Bay, featuring shopping malls, beaches, and a giant Gundam.",
     "budgetBreakdown": {
-      "transport": 1083,
-      "tickets": 8667,
-      "food": 2275,
-      "cafe": 975
+      "transport": 3249,
+      "tickets": 0,
+      "food": 6826,
+      "cafe": 2925
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -48168,8 +48148,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -48185,12 +48165,12 @@
     "content": {
       "en": {
         "name": "Odori Park",
-        "description": "Odori Park is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Sapporo's central green belt, stretching about 1.5 kilometers across 13 blocks, with flower beds, fountains and sculptures. It is the main venue of the Sapporo Snow Festival each February.",
         "highlights": ["Nature"]
       },
       "ja": {
         "name": "大通公園",
-        "description": "大通公園はSapporo Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "札幌市中心部を東西に横断する全長約1.5kmの緑地帯。花壇や噴水、彫刻が並び、2月にはさっぽろ雪まつりのメイン会場となる。",
         "highlights": ["自然"]
       }
     },
@@ -48218,7 +48198,7 @@
       "lat": 43.059722,
       "lng": 141.346389
     },
-    "description": "Odori Park is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Sapporo's central green belt, stretching about 1.5 kilometers across 13 blocks, with flower beds, fountains and sculptures. It is the main venue of the Sapporo Snow Festival each February.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -48489,8 +48469,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -48505,13 +48485,13 @@
     "content": {
       "en": {
         "name": "Ohori Park",
-        "description": "Ohori Park is a visitor destination in Fukuoka City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Large park in Fukuoka built around a scenic pond created from part of the Fukuoka Castle moat. A walking and jogging loop of about two kilometers circles the water, with rowboats and a Japanese garden among the attractions.",
         "highlights": ["Nature"],
         "openingHours": "Open 24 hours"
       },
       "ja": {
         "name": "大濠公園",
-        "description": "大濠公園はFukuoka Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "福岡城の外堀の一部を利用した大池を中心に整備された公園。池の周囲は約2kmの遊歩道になっており、散策やランニング、ボート遊びが楽しめる。",
         "highlights": ["自然"],
         "openingHours": "24時間営業"
       }
@@ -48540,7 +48520,7 @@
       "lat": 33.58586111,
       "lng": 130.37625
     },
-    "description": "Ohori Park is a visitor destination in Fukuoka City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Large park in Fukuoka built around a scenic pond created from part of the Fukuoka Castle moat. A walking and jogging loop of about two kilometers circles the water, with rowboats and a Japanese garden among the attractions.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -49493,7 +49473,7 @@
     "content": {
       "en": {
         "name": "Omiya Bonsai Art Museum",
-        "description": "Omiya Bonsai Art Museum is a visitor destination in Saitama City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "The world's first publicly operated bonsai museum, opened in 2010 next to the Omiya Bonsai Village in Saitama. Around 120 masterwork bonsai and related artifacts — pots, stones and bonsai-themed art — are displayed in a calm, modern gallery.",
         "highlights": ["Museum"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -49502,7 +49482,7 @@
       },
       "ja": {
         "name": "さいたま市大宮盆栽美術館",
-        "description": "さいたま市大宮盆栽美術館はSaitama Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "2010年開館の世界初の公立盆栽美術館。大宮盆栽村に隣接し、名品の盆栽や鉢・水石などの関連資料を展示する。静かな空間で盆栽文化をじっくり鑑賞できる。",
         "highlights": ["さいたま市大宮盆栽美術館の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -49533,7 +49513,7 @@
       "lat": 35.928778,
       "lng": 139.633333
     },
-    "description": "Omiya Bonsai Art Museum is a visitor destination in Saitama City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "The world's first publicly operated bonsai museum, opened in 2010 next to the Omiya Bonsai Village in Saitama. Around 120 masterwork bonsai and related artifacts — pots, stones and bonsai-themed art — are displayed in a calm, modern gallery.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
@@ -49674,7 +49654,7 @@
     "content": {
       "en": {
         "name": "Omiya Bonsai Village",
-        "description": "Omiya Bonsai Village is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
+        "description": "Historic bonsai district in Omiya, Saitama, established in 1925 when bonsai growers relocated from Tokyo after the Great Kanto Earthquake. About ten nurseries still line the quiet streets, where visitors can admire bonsai and garden settings.",
         "highlights": ["Culture", "Shopping"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -49683,7 +49663,7 @@
       },
       "ja": {
         "name": "大宮盆栽村",
-        "description": "大宮盆栽村はSaitama Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "大正14年（1925年）、関東大震災後に東京から盆栽業者が移り住んで形成された盆栽の街。現在も約10軒の植木屋が軒を連ね、静かな路地で盆栽を鑑賞できる。",
         "highlights": ["大宮盆栽村の名所", "大宮盆栽村の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -49714,7 +49694,7 @@
       "lat": 35.927763,
       "lng": 139.631513
     },
-    "description": "Omiya Bonsai Village is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
+    "description": "Historic bonsai district in Omiya, Saitama, established in 1925 when bonsai growers relocated from Tokyo after the Great Kanto Earthquake. About ten nurseries still line the quiet streets, where visitors can admire bonsai and garden settings.",
     "highlights": ["Culture", "Shopping"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -49855,7 +49835,7 @@
     "content": {
       "en": {
         "name": "Omiya Park",
-        "description": "Omiya Park is a visitor destination in Saitama City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Spacious urban park in Omiya, Saitama, with ponds, lawns and one of the area's favorite cherry-blossom spots. The grounds also hold the Saitama Prefectural Museum of History and Folklore and sports facilities.",
         "highlights": ["Nature"],
         "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
         "reservation": "Open access; no entrance reservation required.",
@@ -49864,7 +49844,7 @@
       },
       "ja": {
         "name": "大宮公園",
-        "description": "大宮公園はSaitama Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "大宮の歴史ある都市公園。池や芝生広場、桜の名所として親しまれ、園内には県立歴史と民俗の博物館や運動施設もある。",
         "highlights": ["大宮公園の名所"],
         "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -49896,7 +49876,7 @@
       "lat": 35.919,
       "lng": 139.631
     },
-    "description": "Omiya Park is a visitor destination in Saitama City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Spacious urban park in Omiya, Saitama, with ponds, lawns and one of the area's favorite cherry-blossom spots. The grounds also hold the Saitama Prefectural Museum of History and Folklore and sports facilities.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -51491,12 +51471,12 @@
     "content": {
       "en": {
         "name": "Osaki Hachimangu",
-        "description": "Osaki Hachimangu is a visitor destination in Sendai City.  Visitors can experience historic architecture and local culture.",
+        "description": "Shrine founded in 1607 by Date Masamune as Sendai's guardian shrine. The main hall and worship hall, decorated with lavish Momoyama-style lacquer and gold, are designated National Treasures.",
         "highlights": ["History"]
       },
       "ja": {
         "name": "大崎八幡宮",
-        "description": "大崎八幡宮は仙台市にある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "1607年に伊達政宗が創建した仙台の鎮守。桃山様式の豪華な漆塗りと金飾りで彩られた本殿と拝殿は国宝に指定されている。",
         "highlights": ["歴史"]
       }
     },
@@ -51524,7 +51504,7 @@
       "lat": 38.2722,
       "lng": 140.845
     },
-    "description": "Osaki Hachimangu is a visitor destination in Sendai City.  Visitors can experience historic architecture and local culture.",
+    "description": "Shrine founded in 1607 by Date Masamune as Sendai's guardian shrine. The main hall and worship hall, decorated with lavish Momoyama-style lacquer and gold, are designated National Treasures.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -51660,12 +51640,12 @@
     "content": {
       "en": {
         "name": "Osu Kannon",
-        "description": "Osu Kannon is a visitor destination in Nagoya City.  Visitors can experience historic architecture and local culture.",
+        "description": "Osu Kannon (formally Shinpukuji Hoshoin), a Shingon Chizan-sect temple in Nagoya's Osu district, moved to its present site in 1612. Its library, the Osu Bunko, holds about 15,000 volumes including a National Treasure manuscript of the Kojiki, and an antique market opens on the 18th and 28th of each month.",
         "highlights": ["History"]
       },
       "ja": {
-        "name": "真福寺 (羽島市)",
-        "description": "真福寺 (羽島市)はNagoya Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "name": "大須観音",
+        "description": "大須観音（正式名称・北野山真福寺宝生院）。真言宗智山派の寺院で、1612年に現在地へ移転した。大須文庫には国宝の古事記写本など約15,000冊を収蔵し、毎月18日・28日の縁日には骨董市が立つ。",
         "highlights": ["歴史"]
       }
     },
@@ -51692,7 +51672,7 @@
       "lat": 35.1598,
       "lng": 136.9
     },
-    "description": "Osu Kannon is a visitor destination in Nagoya City.  Visitors can experience historic architecture and local culture.",
+    "description": "Osu Kannon (formally Shinpukuji Hoshoin), a Shingon Chizan-sect temple in Nagoya's Osu district, moved to its present site in 1612. Its library, the Osu Bunko, holds about 15,000 volumes including a National Treasure manuscript of the Kojiki, and an antique market opens on the 18th and 28th of each month.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -51836,12 +51816,12 @@
     "content": {
       "en": {
         "name": "Osu Shopping District",
-        "description": "Osu Shopping District is a visitor destination in Nagoya City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+        "description": "Lively shopping quarter around Osu Kannon in Nagoya, where covered arcades are known for electronics, secondhand and vintage shops, character goods and quirky cafes. A favorite for bargain hunting, street food and a glimpse of the city's pop culture.",
         "highlights": ["Shopping", "Food"]
       },
       "ja": {
-        "name": "名古屋市",
-        "description": "名古屋市はNagoya Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "name": "大須商店街",
+        "description": "大須観音周辺に広がる商店街エリア。アーケード街には家電・中古品店、キャラクターグッズ店や個性派カフェが並び、掘り出し物探しやグルメが楽しめる。",
         "highlights": ["ショッピング", "グルメ"]
       }
     },
@@ -51869,7 +51849,7 @@
       "lat": 35.18333333,
       "lng": 136.9
     },
-    "description": "Osu Shopping District is a visitor destination in Nagoya City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+    "description": "Lively shopping quarter around Osu Kannon in Nagoya, where covered arcades are known for electronics, secondhand and vintage shops, character goods and quirky cafes. A favorite for bargain hunting, street food and a glimpse of the city's pop culture.",
     "highlights": ["Shopping", "Food"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -52130,8 +52110,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -53093,11 +53073,11 @@
     "id": "renkeiji",
     "name": "Renkeiji",
     "nameJa": "蓮馨寺",
-    "aliases": ["Hon-Kawagoe Station", "本川越駅"],
+    "aliases": [],
     "content": {
       "en": {
         "name": "Renkeiji",
-        "description": "Renkeiji is a visitor destination in Kawagoe City.  Visitors can experience historic architecture and local culture.",
+        "description": "Jodo-shu temple in Kawagoe's old town, founded in the mid-16th century under the patronage of the lords of Kawagoe Castle and dedicated to Amida Nyorai. Its quiet grounds sit close to Hon-Kawagoe Station, easy to include in a stroll of the historic district.",
         "highlights": ["History"],
         "notes": "Early morning visits provide a serene experience before tour groups arrive.",
         "reservation": "No reservation required for general temple ground visits.",
@@ -53105,8 +53085,8 @@
         "openingHours": "08:30 - 16:30"
       },
       "ja": {
-        "name": "本川越駅",
-        "description": "本川越駅はKawagoe Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "name": "蓮馨寺",
+        "description": "川越の市街地にある浄土宗の寺院。16世紀半ばに川越城ゆかりの人物によって創建され、阿弥陀如来を本尊とする。本川越駅から近く、歴史的な町並み散策の途中に立ち寄りやすい。",
         "highlights": ["本川越駅の名所"],
         "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -53138,7 +53118,7 @@
       "lat": 35.91376389,
       "lng": 139.4811833
     },
-    "description": "Renkeiji is a visitor destination in Kawagoe City.  Visitors can experience historic architecture and local culture.",
+    "description": "Jodo-shu temple in Kawagoe's old town, founded in the mid-16th century under the patronage of the lords of Kawagoe Castle and dedicated to Amida Nyorai. Its quiet grounds sit close to Hon-Kawagoe Station, easy to include in a stroll of the historic district.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -53210,15 +53190,15 @@
       "sources": [
         {
           "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Hon-Kawagoe_Station",
-          "title": "Hon-Kawagoe Station",
-          "accessedAt": "2026-07-29"
+          "url": "https://renkeiji.jp/",
+          "title": "Wikipedia article",
+          "accessedAt": "2026-08-13"
         },
         {
-          "type": "official",
-          "url": "https://www.seiburailway.jp/railway/station/hon-kawagoe/",
-          "title": "Renkeiji official website",
-          "accessedAt": "2026-07-29"
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Renkei-ji",
+          "title": "Wikipedia article",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -54087,8 +54067,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -54418,15 +54398,15 @@
     "content": {
       "en": {
         "name": "Saitama Shintoshin",
-        "description": "Saitama Shintoshin is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
+        "description": "Modern urban district in Saitama City developed on former railway freight yards. It is home to the Saitama Super Arena, the Cocoon City shopping complex and the Keyaki Hiroba open plaza, with broad pedestrian spaces.",
         "highlights": ["Culture", "Shopping"],
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
         "openingHours": "09:00 - 17:00"
       },
       "ja": {
-        "name": "さいたま市",
-        "description": "さいたま市はSaitama Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "name": "さいたま新都心",
+        "description": "旧国鉄の操車場跡地に整備されたさいたま市の新都心。さいたまスーパーアリーナやショッピングモール「コクーンシティ」、けやき広場などがあり、広々とした歩行者空間が広がる。",
         "highlights": ["さいたま市の名所", "さいたま市の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -54457,7 +54437,7 @@
       "lat": 35.8936,
       "lng": 139.634
     },
-    "description": "Saitama Shintoshin is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
+    "description": "Modern urban district in Saitama City developed on former railway freight yards. It is home to the Saitama Super Arena, the Cocoon City shopping complex and the Keyaki Hiroba open plaza, with broad pedestrian spaces.",
     "highlights": ["Culture", "Shopping"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -54597,7 +54577,7 @@
     "content": {
       "en": {
         "name": "Saitama Stadium 2002",
-        "description": "Saitama Stadium 2002 is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
+        "description": "Stadium built for the 2002 FIFA World Cup in Midori-ku, Saitama, seating about 63,700. Home of the Urawa Red Diamonds, it is known for one of Japan's most passionate football atmospheres.",
         "highlights": ["Culture", "Shopping"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -54606,7 +54586,7 @@
       },
       "ja": {
         "name": "埼玉スタジアム2002",
-        "description": "埼玉スタジアム2002はSaitama Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "2002年FIFAワールドカップ開催のために建設された、約63,700人を収容するスタジアム。浦和レッズのホームスタジアムとして、日本屈指の熱気ある試合が繰り広げられる。",
         "highlights": ["埼玉スタジアム2002の名所", "埼玉スタジアム2002の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -54637,7 +54617,7 @@
       "lat": 35.903142,
       "lng": 139.717492
     },
-    "description": "Saitama Stadium 2002 is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
+    "description": "Stadium built for the 2002 FIFA World Cup in Midori-ku, Saitama, seating about 63,700. Home of the Urawa Red Diamonds, it is known for one of Japan's most passionate football atmospheres.",
     "highlights": ["Culture", "Shopping"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -54778,7 +54758,7 @@
     "content": {
       "en": {
         "name": "Saitama Super Arena",
-        "description": "Saitama Super Arena is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
+        "description": "One of Japan's largest multi-purpose arenas, in Saitama Shintoshin, holding up to about 37,000 people. Its movable stage and seating system lets the hall adapt to concerts, sports events and exhibitions.",
         "highlights": ["Culture", "Shopping"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -54787,7 +54767,7 @@
       },
       "ja": {
         "name": "さいたまスーパーアリーナ",
-        "description": "さいたまスーパーアリーナはSaitama Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "さいたま新都心にある日本最大級の多目的アリーナ。最大約37,000人を収容し、可動式のステージと客席システムで、コンサートやスポーツイベントなどに対応する。",
         "highlights": [
           "さいたまスーパーアリーナの名所",
           "さいたまスーパーアリーナの名所"
@@ -54821,7 +54801,7 @@
       "lat": 35.894889,
       "lng": 139.630833
     },
-    "description": "Saitama Super Arena is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
+    "description": "One of Japan's largest multi-purpose arenas, in Saitama Shintoshin, holding up to about 37,000 people. Its movable stage and seating system lets the hall adapt to concerts, sports events and exhibitions.",
     "highlights": ["Culture", "Shopping"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -55382,7 +55362,7 @@
     "content": {
       "en": {
         "name": "Samuel Cocking Garden",
-        "description": "Samuel Cocking Garden is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Botanical garden on Enoshima, named after the British merchant Samuel Cocking who built a greenhouse here in the late 19th century. Today the garden displays seasonal flowers around the base of the Enoshima Sea Candle lighthouse, with evening illumination events.",
         "highlights": ["Nature"],
         "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
         "reservation": "Open access; no entrance reservation required.",
@@ -55391,7 +55371,7 @@
       },
       "ja": {
         "name": "江の島サムエル・コッキング苑",
-        "description": "江の島サムエル・コッキング苑はFujisawa Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "江の島にある植物園。19世紀末に英国人実業家サミュエル・コッキングが温室を建てた場所で、現在は展望灯台「江の島シーキャンドル」がそびえる。季節の花と夜のライトアップが楽しめる。",
         "highlights": ["江の島サムエル・コッキング苑の名所"],
         "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -55423,7 +55403,7 @@
       "lat": 35.3,
       "lng": 139.4786
     },
-    "description": "Samuel Cocking Garden is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Botanical garden on Enoshima, named after the British merchant Samuel Cocking who built a greenhouse here in the late 19th century. Today the garden displays seasonal flowers around the base of the Enoshima Sea Candle lighthouse, with evening illumination events.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -55878,12 +55858,12 @@
     "content": {
       "en": {
         "name": "Sapporo Beer Museum",
-        "description": "Sapporo Beer Museum is a visitor destination in Sapporo City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "Japan's only beer museum, housed in an 1890 red-brick building that once served as a brewery. Exhibits trace the history of Sapporo Beer since the 1870s, and the complex includes a tasting lounge and beer garden.",
         "highlights": ["Museum"]
       },
       "ja": {
         "name": "サッポロビール博物館",
-        "description": "サッポロビール博物館はSapporo Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "日本唯一のビール博物館。1890年築の赤れんがの醸造所跡を活用し、サッポロビールの歴史を紹介する。試飲コーナーやビアガーデンも併設されている。",
         "highlights": ["博物館"]
       }
     },
@@ -55911,7 +55891,7 @@
       "lat": 43.071666666667,
       "lng": 141.36888888889
     },
-    "description": "Sapporo Beer Museum is a visitor destination in Sapporo City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Japan's only beer museum, housed in an 1890 red-brick building that once served as a brewery. Exhibits trace the history of Sapporo Beer since the 1870s, and the complex includes a tasting lounge and beer garden.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
@@ -56095,7 +56075,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "train": 470
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -56150,12 +56130,12 @@
     "content": {
       "en": {
         "name": "Sapporo Clock Tower",
-        "description": "Sapporo Clock Tower is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
+        "description": "Wooden clock tower built in 1878 as the drill hall of Sapporo Agricultural College (today's Hokkaido University), with its clock added in 1881. A symbol of Sapporo and Japan's oldest working clock tower, it now houses a small museum.",
         "highlights": ["Viewpoint"]
       },
       "ja": {
         "name": "札幌市時計台",
-        "description": "札幌市時計台はSapporo Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "1878年に札幌農学校（現在の北海道大学）の演武場として建てられた木造の時計台。1881年から時を刻み、日本最古の時計台として札幌のシンボルになっている。内部は博物館として公開。",
         "highlights": ["展望"]
       }
     },
@@ -56183,7 +56163,7 @@
       "lat": 43.062602,
       "lng": 141.353681
     },
-    "description": "Sapporo Clock Tower is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
+    "description": "Wooden clock tower built in 1878 as the drill hall of Sapporo Agricultural College (today's Hokkaido University), with its clock added in 1881. A symbol of Sapporo and Japan's oldest working clock tower, it now houses a small museum.",
     "highlights": ["Viewpoint"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -56317,12 +56297,12 @@
     "content": {
       "en": {
         "name": "Sapporo TV Tower",
-        "description": "Sapporo TV Tower is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
+        "description": "A 147.2-meter tower completed in 1957 at the east end of Odori Park. The observation deck at about 90 meters offers panoramic views over the city toward the Ishikari plain and distant mountains.",
         "highlights": ["Viewpoint"]
       },
       "ja": {
         "name": "さっぽろテレビ塔",
-        "description": "さっぽろテレビ塔はSapporo Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "1957年完成の高さ147.2mの電波塔。大通公園の東端に立ち、高さ約90mの展望台から札幌市街や石狩平野、遠くの山々を一望できる。",
         "highlights": ["展望"]
       }
     },
@@ -56350,7 +56330,7 @@
       "lat": 43.06111111,
       "lng": 141.35638889
     },
-    "description": "Sapporo TV Tower is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
+    "description": "A 147.2-meter tower completed in 1957 at the east end of Odori Park. The observation deck at about 90 meters offers panoramic views over the city toward the Ishikari plain and distant mountains.",
     "highlights": ["Viewpoint"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -56362,7 +56342,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 200
+      "train": 470
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -56484,7 +56464,7 @@
     "content": {
       "en": {
         "name": "Sasuke Inari Shrine",
-        "description": "Sasuke Inari Shrine is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+        "description": "Small hillside Inari shrine in Kamakura reached through a tunnel of closely set red torii gates, with rows of fox statues guarding the precincts. Its quiet, atmospheric setting near Kencho-ji makes it a favorite for photographers.",
         "highlights": ["History"],
         "notes": "Early morning visits provide a serene experience before tour groups arrive.",
         "reservation": "No reservation required for general temple ground visits.",
@@ -56493,7 +56473,7 @@
       },
       "ja": {
         "name": "佐助稲荷神社",
-        "description": "佐助稲荷神社はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "鎌倉の山裾にひっそりとたたずむ稲荷神社。赤い鳥居のトンネルをくぐって参拝し、境内には多くの狐の像が並ぶ。建長寺近くの静かな佇まいが魅力。",
         "highlights": ["佐助稲荷神社の名所"],
         "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -56525,7 +56505,7 @@
       "lat": 35.32441111,
       "lng": 139.53889167
     },
-    "description": "Sasuke Inari Shrine is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+    "description": "Small hillside Inari shrine in Kamakura reached through a tunnel of closely set red torii gates, with rows of fox statues guarding the precincts. Its quiet, atmospheric setting near Kencho-ji makes it a favorite for photographers.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -56667,12 +56647,12 @@
     "content": {
       "en": {
         "name": "SCMaglev and Railway Park",
-        "description": "SCMaglev and Railway Park is a visitor destination in Nagoya City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "JR Central's railway museum near Kinjo Pier in Nagoya, opened in 2011. Real shinkansen trains, a maglev test vehicle and a huge diorama are on display, with train simulators and a Shinkansen driver experience among the attractions.",
         "highlights": ["Nature"]
       },
       "ja": {
         "name": "リニア・鉄道館",
-        "description": "リニア・鉄道館はNagoya Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "2011年開館のJR東海の鉄道博物館。実物の新幹線やリニアモーターカー試験車両、巨大ジオラマを展示し、運転シミュレーターなどの体験も人気。",
         "highlights": ["自然"]
       }
     },
@@ -56699,7 +56679,7 @@
       "lat": 35.04735,
       "lng": 136.849319
     },
-    "description": "SCMaglev and Railway Park is a visitor destination in Nagoya City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "JR Central's railway museum near Kinjo Pier in Nagoya, opened in 2011. Real shinkansen trains, a maglev test vehicle and a huge diorama are on display, with train simulators and a Shinkansen driver experience among the attractions.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -57388,12 +57368,12 @@
     "content": {
       "en": {
         "name": "Sendai City Museum",
-        "description": "Sendai City Museum is a visitor destination in Sendai City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "Museum near the Aoba Castle ruins in Sendai presenting the city's history, with a strong focus on Date Masamune and the Date clan. The collection includes armor, documents and works of art associated with the domain's rulers.",
         "highlights": ["Museum"]
       },
       "ja": {
         "name": "仙台市博物館",
-        "description": "仙台市博物館は仙台市にある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "仙台城跡近くにある市立博物館。伊達政宗と伊達家を中心に仙台の歴史を紹介し、甲冑や古文書、美術品などを収蔵・展示している。",
         "highlights": ["博物館"]
       }
     },
@@ -57421,7 +57401,7 @@
       "lat": 38.256065,
       "lng": 140.856685
     },
-    "description": "Sendai City Museum is a visitor destination in Sendai City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Museum near the Aoba Castle ruins in Sendai presenting the city's history, with a strong focus on Date Masamune and the Date clan. The collection includes armor, documents and works of art associated with the domain's rulers.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
@@ -57992,8 +57972,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -58479,10 +58459,10 @@
     "highlights": ["Museum", "Food", "Indoor"],
     "description": "Shin-Yokohama Ramen Museum is a curated destination within Yokohama City.",
     "budgetBreakdown": {
-      "transport": 650,
-      "tickets": 1300,
-      "food": 3250,
-      "cafe": 1300
+      "transport": 756,
+      "tickets": 450,
+      "food": 3781,
+      "cafe": 1513
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -58554,8 +58534,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -58697,8 +58677,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -58714,7 +58694,7 @@
     "content": {
       "en": {
         "name": "Shingashi River",
-        "description": "Shingashi River is a visitor destination in Kawagoe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "River flowing through Kawagoe that in the Edo period carried goods and passengers between the town and Edo (modern Tokyo). Today its banks offer pleasant riverside walks, an easy addition to a tour of the historic merchant district.",
         "highlights": ["Nature"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -58723,7 +58703,7 @@
       },
       "ja": {
         "name": "新河岸川",
-        "description": "新河岸川はKawagoe Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "川越の市街を流れる川。江戸時代には川越と江戸を結ぶ物資輸送の要路として栄え、現在は川沿いの散策が楽しめる。歴史ある町並みの散策とあわせて訪れたい。",
         "highlights": ["新河岸川の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -58732,7 +58712,7 @@
     },
     "prefecture": "Saitama",
     "region": "Kanto",
-    "kind": "museum",
+    "kind": "nature",
     "role": "poi",
     "placeType": "destination",
     "areaId": "central-kawagoe",
@@ -58753,7 +58733,7 @@
       "lat": 35.91424,
       "lng": 139.4728
     },
-    "description": "Shingashi River is a visitor destination in Kawagoe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "River flowing through Kawagoe that in the Edo period carried goods and passengers between the town and Edo (modern Tokyo). Today its banks offer pleasant riverside walks, an easy addition to a tour of the historic merchant district.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -59031,8 +59011,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -59599,7 +59579,7 @@
     "content": {
       "en": {
         "name": "Shinsho-ji",
-        "description": "Shinsho-ji is a visitor destination in Narita City.  Visitors can experience historic architecture and local culture.",
+        "description": "Naritasan Shinsho-ji, head temple of the Shingon Chizan school, founded in 940 and among Japan's most visited temples. Its grand halls and five-story pagoda sit at the head of a lively approach street, and daily goma fire rituals draw crowds.",
         "highlights": ["History"],
         "notes": "Early morning visits provide a serene experience before tour groups arrive.",
         "reservation": "No reservation required for general temple ground visits.",
@@ -59608,7 +59588,7 @@
       },
       "ja": {
         "name": "成田山新勝寺",
-        "description": "成田山新勝寺はNarita Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "真言宗智山派の総本山・成田山新勝寺。940年の開山で、日本有数の参拝者を数える。荘厳な伽藍と五重塔のほか、毎日行われる護摩祈祷やにぎやかな参道も見どころ。",
         "highlights": ["成田山新勝寺の名所"],
         "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -59640,7 +59620,7 @@
       "lat": 35.78608,
       "lng": 140.31831
     },
-    "description": "Shinsho-ji is a visitor destination in Narita City.  Visitors can experience historic architecture and local culture.",
+    "description": "Naritasan Shinsho-ji, head temple of the Shingon Chizan school, founded in 940 and among Japan's most visited temples. Its grand halls and five-story pagoda sit at the head of a lively approach street, and daily goma fire rituals draw crowds.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -60221,7 +60201,7 @@
     "ratingMetadata": {
       "rubricVersion": 2,
       "method": "assisted",
-      "confidence": "medium"
+      "confidence": "low"
     }
   },
   {
@@ -60336,7 +60316,7 @@
     "content": {
       "en": {
         "name": "Shonan Kaigan Park",
-        "description": "Shonan Kaigan Park is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Coastal park stretching along the Shonan shoreline in Fujisawa, with lawns, pine groves and sea views across Sagami Bay. Close to Katase Higashihama Beach, it is a pleasant spot for a stroll or a rest between swimming and sightseeing.",
         "highlights": ["Nature"],
         "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
         "reservation": "Open access; no entrance reservation required.",
@@ -60345,7 +60325,7 @@
       },
       "ja": {
         "name": "湘南海岸公園",
-        "description": "湘南海岸公園 (藤沢市)はFujisawa Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "藤沢市の湘南海岸沿いに広がる公園。芝生広場と松林が続き、相模湾の海を望む。片瀬東浜海水浴場に近く、海水浴や散策の合間の休憩にもぴったり。",
         "highlights": ["湘南海岸公園の名所"],
         "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -60377,7 +60357,7 @@
       "lat": 35.31611111,
       "lng": 139.47083333
     },
-    "description": "Shonan Kaigan Park is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Coastal park stretching along the Shonan shoreline in Fujisawa, with lawns, pine groves and sea views across Sagami Bay. Close to Katase Higashihama Beach, it is a pleasant spot for a stroll or a rest between swimming and sightseeing.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -60448,16 +60428,16 @@
       "lifecycle": "published",
       "sources": [
         {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Shonan_Monorail",
-          "title": "Shonan Monorail",
-          "accessedAt": "2026-07-29"
-        },
-        {
           "type": "official",
           "url": "https://www.s-n-p.jp/shonankaigan_park/",
           "title": "Shonan Kaigan Park official website",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Shonan_Kaigan_Park",
+          "title": "Wikipedia article",
+          "accessedAt": "2026-08-13"
         }
       ],
       "checkedAt": "2026-08-02",
@@ -60528,7 +60508,7 @@
     "budgetMax": 1000,
     "budgetRecommended": 600,
     "transportOptions": {
-      "train": 45,
+      "train": 25,
       "bus": 50,
       "car": 60
     },
@@ -60805,8 +60785,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -60948,8 +60928,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -61098,8 +61078,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -61662,12 +61642,12 @@
     "content": {
       "en": {
         "name": "Susukino",
-        "description": "Susukino is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
+        "description": "Sapporo's main entertainment district and one of Japan's largest, dense with restaurants, izakaya, ramen shops, bars and nightlife. Its neon-lit streets are busiest after dark.",
         "highlights": ["Culture"]
       },
       "ja": {
         "name": "すすきの",
-        "description": "すすきのはSapporo Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "札幌随一の繁華街で、日本有数の規模を誇る。居酒屋やバー、ラーメン店などが密集し、ネオンが輝く夜のにぎわいで知られる。",
         "highlights": ["文化"]
       }
     },
@@ -61694,7 +61674,7 @@
       "lat": 43.054904,
       "lng": 141.353383
     },
-    "description": "Susukino is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
+    "description": "Sapporo's main entertainment district and one of Japan's largest, dense with restaurants, izakaya, ramen shops, bars and nightlife. Its neon-lit streets are busiest after dark.",
     "highlights": ["Culture"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -61706,7 +61686,7 @@
       "cafe": 400
     },
     "transportOptions": {
-      "train": 200
+      "train": 470
     },
     "totalTripHours": 5,
     "recommendedVisitHours": {
@@ -61991,7 +61971,7 @@
     "content": {
       "en": {
         "name": "Taisho Roman Street",
-        "description": "Taisho Roman Street is a visitor destination in Kawagoe City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+        "description": "Street in Kawagoe lined with buildings from the Taisho era (1912–1926), whose Western-influenced facades earned the area its 'Taisho Roman' name. Adjacent to the kurazukuri warehouse district, it holds cafes and shops in historic buildings.",
         "highlights": ["Shopping", "Food"],
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
@@ -61999,7 +61979,7 @@
       },
       "ja": {
         "name": "大正浪漫夢通り",
-        "description": "大正浪漫夢通りはKawagoe Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "大正時代（1912〜1926年）の洋風建築が並ぶ通り。川越の「大正浪漫」を感じさせる景観で、蔵造りの町並みに隣接する。歴史ある建物を生かしたカフェや雑貨店が並ぶ。",
         "highlights": ["大正浪漫夢通りの名所", "大正浪漫夢通りの名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -62030,7 +62010,7 @@
       "lat": 35.91986111,
       "lng": 139.48355556
     },
-    "description": "Taisho Roman Street is a visitor destination in Kawagoe City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+    "description": "Street in Kawagoe lined with buildings from the Taisho era (1912–1926), whose Western-influenced facades earned the area its 'Taisho Roman' name. Adjacent to the kurazukuri warehouse district, it holds cafes and shops in historic buildings.",
     "highlights": ["Shopping", "Food"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -62300,8 +62280,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -63189,7 +63169,7 @@
     "ratingMetadata": {
       "rubricVersion": 2,
       "method": "assisted",
-      "confidence": "medium"
+      "confidence": "low"
     }
   },
   {
@@ -63462,18 +63442,18 @@
     "content": {
       "en": {
         "name": "Tanukikoji Shopping Street",
-        "description": "Tanukikoji Shopping Street is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
+        "description": "Covered shopping arcade in central Sapporo stretching across seven blocks with about 200 shops — restaurants, souvenir stores and drugstores. Dating back over a century, it sits between Odori Park and Susukino, convenient for shopping and meals in any weather.",
         "highlights": ["History"]
       },
       "ja": {
         "name": "狸小路商店街",
-        "description": "狸小路商店街はSapporo Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "札幌中心部に広がるアーケード商店街。7ブロックに約200店舗が並び、食事や土産物、ドラッグストアまで揃う。大通公園とすすきのの間にあり、雨の日でも買い物を楽しめる。",
         "highlights": ["歴史"]
       }
     },
     "prefecture": "Hokkaido",
     "region": "Hokkaido",
-    "kind": "temple",
+    "kind": "street",
     "role": "poi",
     "placeType": "destination",
     "areaId": "central-sapporo",
@@ -63495,7 +63475,7 @@
       "lat": 43.058333,
       "lng": 141.35463
     },
-    "description": "Tanukikoji Shopping Street is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
+    "description": "Covered shopping arcade in central Sapporo stretching across seven blocks with about 200 shops — restaurants, souvenir stores and drugstores. Dating back over a century, it sits between Odori Park and Susukino, convenient for shopping and meals in any weather.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -63629,7 +63609,7 @@
     "content": {
       "en": {
         "name": "Taro Okamoto Museum of Art",
-        "description": "Taro Okamoto Museum of Art is a visitor destination in Kawasaki City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "Museum in Ikuta Ryokuchi, Kawasaki, dedicated to the avant-garde artist Taro Okamoto (1911–1996), who was born in Kawasaki. His bold, colorful paintings, sculptures and design works fill the galleries.",
         "highlights": ["Museum"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -63638,7 +63618,7 @@
       },
       "ja": {
         "name": "川崎市岡本太郎美術館",
-        "description": "川崎市岡本太郎美術館はKawasaki Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "川崎市生田緑地内にある岡本太郎の美術館。川崎生まれの芸術家・岡本太郎（1911〜1996年）の作品を展示し、力強くカラフルな絵画や彫刻が並ぶ。",
         "highlights": ["川崎市岡本太郎美術館の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -63669,7 +63649,7 @@
       "lat": 35.6076,
       "lng": 139.557
     },
-    "description": "Taro Okamoto Museum of Art is a visitor destination in Kawasaki City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Museum in Ikuta Ryokuchi, Kawasaki, dedicated to the avant-garde artist Taro Okamoto (1911–1996), who was born in Kawasaki. His bold, colorful paintings, sculptures and design works fill the galleries.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
@@ -64291,13 +64271,13 @@
     "content": {
       "en": {
         "name": "Tenjin",
-        "description": "Tenjin is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
+        "description": "Fukuoka's central shopping and business district, packed with department stores, boutiques, restaurants and cafes around Tenjin Station. The area takes its name from the nearby Suikyo Tenmangu shrine, dedicated to Sugawara no Michizane (Tenjin).",
         "highlights": ["Culture"],
         "openingHours": "Open 24 hours"
       },
       "ja": {
         "name": "天神 (福岡市)",
-        "description": "天神 (福岡市)はFukuoka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "福岡の中心市街地。百貨店やファッションビル、飲食店が集まり、ショッピングやグルメの拠点としてにぎわう。地区名は近くの水鏡天満宮（天神）に由来する。",
         "highlights": ["文化"],
         "openingHours": "24時間営業"
       }
@@ -64325,7 +64305,7 @@
       "lat": 33.59136111111111,
       "lng": 130.39891666666668
     },
-    "description": "Tenjin is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
+    "description": "Fukuoka's central shopping and business district, packed with department stores, boutiques, restaurants and cafes around Tenjin Station. The area takes its name from the nearby Suikyo Tenmangu shrine, dedicated to Sugawara no Michizane (Tenjin).",
     "highlights": ["Culture"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -64751,7 +64731,7 @@
     "content": {
       "en": {
         "name": "The Museum of Modern Art, Saitama",
-        "description": "The Museum of Modern Art, Saitama is a visitor destination in Saitama City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "MOMAS, opened in 1982 in Kita-Urawa Park and the first art museum designed by architect Kisho Kurokawa. The collection spans modern Japanese and Western art, including works by Monet, Chagall and Picasso.",
         "highlights": ["Museum"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -64760,7 +64740,7 @@
       },
       "ja": {
         "name": "埼玉県立近代美術館",
-        "description": "埼玉県立近代美術館はSaitama Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "北浦和公園内にある県立近代美術館。1982年開館で、建築家・黒川紀章が設計した初の美術館建築。モネやシャガール、ピカソなどの西洋近現代美術と日本の作家の作品を収蔵する。",
         "highlights": ["埼玉県立近代美術館の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -64791,7 +64771,7 @@
       "lat": 35.869611,
       "lng": 139.642917
     },
-    "description": "The Museum of Modern Art, Saitama is a visitor destination in Saitama City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "MOMAS, opened in 1982 in Kita-Urawa Park and the first art museum designed by architect Kisho Kurokawa. The collection spans modern Japanese and Western art, including works by Monet, Chagall and Picasso.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
@@ -65111,13 +65091,13 @@
     "content": {
       "en": {
         "name": "Tochoji",
-        "description": "Tochoji is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+        "description": "Temple in Hakata founded in 806 by the priest Kukai (Kobo Daishi), who brought Shingon Buddhism to Japan. The main hall enshrines a large wooden seated Buddha, the Fukuoka Daibutsu, one of Japan's biggest.",
         "highlights": ["History"],
         "openingHours": "09:00–16:45"
       },
       "ja": {
         "name": "東長寺",
-        "description": "東長寺はFukuoka Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "806年に弘法大師空海が開いた博多の寺院・東長寺。真言宗にゆかりが深く、本堂には日本有数の大きさを誇る木造の福岡大仏が安置されている。",
         "highlights": ["歴史"],
         "openingHours": "09:00～16:45"
       }
@@ -65146,7 +65126,7 @@
       "lat": 33.595194444444445,
       "lng": 130.4139722222222
     },
-    "description": "Tochoji is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+    "description": "Temple in Hakata founded in 806 by the priest Kukai (Kobo Daishi), who brought Shingon Buddhism to Japan. The main hall enshrines a large wooden seated Buddha, the Fukuoka Daibutsu, one of Japan's biggest.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -65288,7 +65268,7 @@
     "content": {
       "en": {
         "name": "Todoroki Ryokuchi",
-        "description": "Todoroki Ryokuchi is a visitor destination in Kawasaki City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Green space in Kawasaki spreading along the valley of the Todoroki River, with wooded walking paths, athletic fields and a baseball stadium. A calm pocket of nature close to the city center.",
         "highlights": ["Nature"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -65297,7 +65277,7 @@
       },
       "ja": {
         "name": "等々力緑地",
-        "description": "等々力緑地はKawasaki Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "等々力川の谷沿いに広がる川崎市の緑地。木々に囲まれた遊歩道のほか、運動広場や球技場も整備され、都心近くで自然を楽しめる。",
         "highlights": ["等々力緑地の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -65328,7 +65308,7 @@
       "lat": 35.5861,
       "lng": 139.65
     },
-    "description": "Todoroki Ryokuchi is a visitor destination in Kawasaki City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Green space in Kawasaki spreading along the valley of the Todoroki River, with wooded walking paths, athletic fields and a baseball stadium. A calm pocket of nature close to the city center.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -65675,7 +65655,7 @@
     "content": {
       "en": {
         "name": "Toki no Kane",
-        "description": "Toki no Kane is a visitor destination in Kawagoe City.  Visitors can experience the area's character and main sights.",
+        "description": "Kawagoe's iconic wooden bell tower, rebuilt in 1894 after a fire destroyed much of the town, and still ringing four times a day. It stands at the heart of the 'Little Edo' warehouse district and is the town's best-known landmark.",
         "highlights": ["Viewpoint"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -65684,7 +65664,7 @@
       },
       "ja": {
         "name": "時の鐘",
-        "description": "時の鐘 (川越市)はKawagoe Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "川越のシンボル・時の鐘。1893年の大火後に再建された木造の鐘楼で、現在も1日4回鐘が鳴る。蔵造りの町並みの中心に立ち、「小江戸」の風景に調和している。",
         "highlights": ["時の鐘の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -65714,7 +65694,7 @@
       "lat": 35.923488888889,
       "lng": 139.48331388889
     },
-    "description": "Toki no Kane is a visitor destination in Kawagoe City.  Visitors can experience the area's character and main sights.",
+    "description": "Kawagoe's iconic wooden bell tower, rebuilt in 1894 after a fire destroyed much of the town, and still ringing four times a day. It stands at the heart of the 'Little Edo' warehouse district and is the town's best-known landmark.",
     "highlights": ["Viewpoint"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -65989,8 +65969,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -66006,12 +65986,12 @@
     "content": {
       "en": {
         "name": "Tokugawa Art Museum",
-        "description": "Tokugawa Art Museum is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "Museum opened in 1935 to preserve the treasures of the Owari Tokugawa clan in Nagoya. Its collection includes the National Treasure Tale of Genji handscrolls, swords, armor and Noh masks, displayed beside the adjoining Tokugawa Garden.",
         "highlights": ["Museum"]
       },
       "ja": {
         "name": "徳川美術館",
-        "description": "徳川美術館はNagoya Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "1935年開館。尾張徳川家に伝わる名品を収蔵する美術館で、国宝「源氏物語絵巻」や刀剣・甲冑・能面などを展示する。隣接する徳川園とあわせて訪れたい。",
         "highlights": ["博物館"]
       }
     },
@@ -66039,7 +66019,7 @@
       "lat": 35.183692,
       "lng": 136.933189
     },
-    "description": "Tokugawa Art Museum is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Museum opened in 1935 to preserve the treasures of the Owari Tokugawa clan in Nagoya. Its collection includes the National Treasure Tale of Genji handscrolls, swords, armor and Noh masks, displayed beside the adjoining Tokugawa Garden.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
@@ -66174,12 +66154,12 @@
     "content": {
       "en": {
         "name": "Tokugawa Garden",
-        "description": "Tokugawa Garden is a visitor destination in Nagoya City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Japanese stroll garden on the site of the Owari Tokugawa clan's Nagoya villa, with a waterfall, streams and azaleas. It adjoins the Tokugawa Art Museum, and plum and cherry blossoms color the garden in early spring.",
         "highlights": ["Nature"]
       },
       "ja": {
         "name": "徳川園",
-        "description": "徳川園はNagoya Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "尾張徳川家の別邸跡に整えられた日本庭園。滝やせせらぎ、ツツジが美しく、徳川美術館に隣接する。春先には梅や桜も楽しめる。",
         "highlights": ["自然"]
       }
     },
@@ -66207,7 +66187,7 @@
       "lat": 35.184444,
       "lng": 136.932583
     },
-    "description": "Tokugawa Garden is a visitor destination in Nagoya City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Japanese stroll garden on the site of the Owari Tokugawa clan's Nagoya villa, with a waterfall, streams and azaleas. It adjoins the Tokugawa Art Museum, and plum and cherry blossoms color the garden in early spring.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -67870,8 +67850,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -68021,8 +68001,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -68730,12 +68710,12 @@
     "content": {
       "en": {
         "name": "Toyota Commemorative Museum of Industry and Technology",
-        "description": "Toyota Commemorative Museum of Industry and Technology is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+        "description": "Museum on the site of the former Toyoda Automatic Loom Works factory in Nagoya, tracing Toyota's evolution from textile machinery to automobiles. Working machines and interactive exhibits bring the engineering history to life.",
         "highlights": ["Museum"]
       },
       "ja": {
         "name": "トヨタ産業技術記念館",
-        "description": "トヨタ産業技術記念館はNagoya Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "豊田自動織機製作所の旧工場跡に建つ産業技術記念館。繊維機械から自動車へと発展したトヨタグループの歴史を、動く実機と体験展示で紹介する。",
         "highlights": ["博物館"]
       }
     },
@@ -68763,7 +68743,7 @@
       "lat": 35.1832,
       "lng": 136.876
     },
-    "description": "Toyota Commemorative Museum of Industry and Technology is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "description": "Museum on the site of the former Toyoda Automatic Loom Works factory in Nagoya, tracing Toyota's evolution from textile machinery to automobiles. Working machines and interactive exhibits bring the engineering history to life.",
     "highlights": ["Museum"],
     "budgetMin": 3000,
     "budgetRecommended": 5500,
@@ -68898,7 +68878,7 @@
     "content": {
       "en": {
         "name": "Tsujido Seaside Park",
-        "description": "Tsujido Seaside Park is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Beachside park in Tsujido, Fujisawa, with lawns, sports facilities, a pool complex and campsite. Its location near the Shonan coast makes it a relaxed spot for families and seaside walks.",
         "highlights": ["Nature"],
         "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
         "reservation": "Open access; no entrance reservation required.",
@@ -68907,7 +68887,7 @@
       },
       "ja": {
         "name": "辻堂海浜公園",
-        "description": "辻堂海浜公園はFujisawa Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "辻堂の海岸近くに広がる公園。芝生広場やプール、キャンプ場などの施設が揃い、湘南の海辺でのんびり過ごせる。",
         "highlights": ["辻堂海浜公園の名所"],
         "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -68939,7 +68919,7 @@
       "lat": 35.320833,
       "lng": 139.45
     },
-    "description": "Tsujido Seaside Park is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Beachside park in Tsujido, Fujisawa, with lawns, sports facilities, a pool complex and campsite. Its location near the Shonan coast makes it a relaxed spot for families and seaside walks.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -69206,8 +69186,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -69448,7 +69428,7 @@
     "content": {
       "en": {
         "name": "Tsurugaoka Hachimangu",
-        "description": "Tsurugaoka Hachimangu is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+        "description": "Kamakura's most important shrine, founded in 1063 and brought to its present hillside site by Minamoto no Yoritomo in 1180. The long approach, cherry-lined paths, great torii and dance stage (maiden) make it the city's spiritual and visual heart.",
         "highlights": ["History"],
         "notes": "Early morning visits provide a serene experience before tour groups arrive.",
         "reservation": "No reservation required for general temple ground visits.",
@@ -69457,7 +69437,7 @@
       },
       "ja": {
         "name": "鶴岡八幡宮",
-        "description": "鶴岡八幡宮はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "鎌倉の総鎮守として知られる鶴岡八幡宮。1063年創建、1180年に源頼朝が現在地へ遷座した。長い参道や桜並木、大鳥居、舞殿など見どころが多い。",
         "highlights": ["鶴岡八幡宮の名所"],
         "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -69489,7 +69469,7 @@
       "lat": 35.32608056,
       "lng": 139.55641667
     },
-    "description": "Tsurugaoka Hachimangu is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+    "description": "Kamakura's most important shrine, founded in 1063 and brought to its present hillside site by Minamoto no Yoritomo in 1180. The long approach, cherry-lined paths, great torii and dance stage (maiden) make it the city's spiritual and visual heart.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -71015,8 +70995,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -71301,8 +71281,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -72367,8 +72347,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -72888,8 +72868,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "notesJa": "500軒以上の店舗がひしめく日本最大のチャイナタウンで、小籠包や肉まんの食べ歩きが満喫できます。",
     "reservationJa": "散策や食べ歩きは予約不要。週末のコース料理レストランは予約推奨です。",
@@ -73205,8 +73185,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -73522,8 +73502,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -73667,8 +73647,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "notesJa": "明治・大正期の歴史的赤レンガ倉庫で、潮風を感じながらショッピングやクラフトビールを楽しめます。",
     "reservationJa": "施設への入場・ショップ巡りは事前予約不要です。",
@@ -73967,8 +73947,8 @@
     },
     "ratingMetadata": {
       "rubricVersion": 2,
-      "method": "manual",
-      "confidence": "high"
+      "method": "assisted",
+      "confidence": "low"
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -74037,10 +74017,10 @@
     ],
     "description": "Yomiuriland is an amusement park in Inagi, Tokyo and Tama-ku, Kawasaki, Kanagawa Prefecture, Japan that first opened on 19 March 1964.  It is situated on hillsides, and features rides such as roller coasters and water flumes.",
     "budgetBreakdown": {
-      "transport": 1083,
-      "tickets": 8667,
-      "food": 2275,
-      "cafe": 975
+      "transport": 1775,
+      "tickets": 5900,
+      "food": 3728,
+      "cafe": 1597
     },
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
@@ -74249,7 +74229,7 @@
     "content": {
       "en": {
         "name": "Yugyo-ji",
-        "description": "Yugyo-ji is a visitor destination in Fujisawa City.  Visitors can experience historic architecture and local culture.",
+        "description": "Yugyo-ji (formally Shojoko-ji) is the head temple of the Ji-shu (Time) school of Pure Land Buddhism, in Fujisawa. The temple associated with the wandering preacher Ippen features an imposing main hall and broad precincts within walking distance of the station.",
         "highlights": ["History"],
         "notes": "Early morning visits provide a serene experience before tour groups arrive.",
         "reservation": "No reservation required for general temple ground visits.",
@@ -74258,7 +74238,7 @@
       },
       "ja": {
         "name": "清浄光寺",
-        "description": "清浄光寺はFujisawa Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "藤沢にある時宗の総本山・清浄光寺（遊行寺）。時宗の開祖・一遍上人ゆかりの寺院で、立派な本堂と広い境内を持つ。藤沢駅から徒歩圏。",
         "highlights": ["清浄光寺の名所"],
         "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -74290,7 +74270,7 @@
       "lat": 35.34851389,
       "lng": 139.48864444
     },
-    "description": "Yugyo-ji is a visitor destination in Fujisawa City.  Visitors can experience historic architecture and local culture.",
+    "description": "Yugyo-ji (formally Shojoko-ji) is the head temple of the Ji-shu (Time) school of Pure Land Buddhism, in Fujisawa. The temple associated with the wandering preacher Ippen features an imposing main hall and broad precincts within walking distance of the station.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -74432,7 +74412,7 @@
     "content": {
       "en": {
         "name": "Yuigahama Beach",
-        "description": "Yuigahama Beach is a visitor destination in Kamakura City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+        "description": "Sandy beach along Kamakura's coast, one of the closest shorelines to central Tokyo. Popular for swimming in summer and surfing year-round, it is lined with cafes and shops and framed by views of Enoshima.",
         "highlights": ["Nature"],
         "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
         "reservation": "Open access; no entrance reservation required.",
@@ -74441,7 +74421,7 @@
       },
       "ja": {
         "name": "由比ヶ浜",
-        "description": "由比ヶ浜はKamakura Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "鎌倉の海岸に広がる砂浜。都心から近い海水浴場として夏はにぎわい、一年を通してサーフィンも楽しまれている。周辺にはカフェやショップが並び、江の島を望む景色が広がる。",
         "highlights": ["由比ヶ浜の名所"],
         "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -74473,7 +74453,7 @@
       "lat": 35.313325,
       "lng": 139.54553333333334
     },
-    "description": "Yuigahama Beach is a visitor destination in Kamakura City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "description": "Sandy beach along Kamakura's coast, one of the closest shorelines to central Tokyo. Popular for swimming in summer and surfing year-round, it is lined with cafes and shops and framed by views of Enoshima.",
     "highlights": ["Nature"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -74717,7 +74697,7 @@
     "content": {
       "en": {
         "name": "Zeniarai Benten",
-        "description": "Zeniarai Benten is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+        "description": "Shrine in a Kamakura ravine where visitors wash their money in the spring water, believing it will multiply. According to legend it was founded in 1185 after a dream of Minamoto no Yoritomo; the quiet precincts sit behind Kotoku-in.",
         "highlights": ["History"],
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -74726,7 +74706,7 @@
       },
       "ja": {
         "name": "銭洗弁財天宇賀福神社",
-        "description": "銭洗弁財天宇賀福神社はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+        "description": "湧き水でお金を洗うと増えるといわれる「銭洗い」の神社。1185年に源頼朝の夢のお告げで創建されたと伝わる。高徳院の裏手の谷間にひっそりと佇む。",
         "highlights": ["銭洗弁財天宇賀福神社の名所"],
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -74756,7 +74736,7 @@
       "lat": 35.3258,
       "lng": 139.542
     },
-    "description": "Zeniarai Benten is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+    "description": "Shrine in a Kamakura ravine where visitors wash their money in the spring water, believing it will multiply. According to legend it was founded in 1185 after a dream of Minamoto no Yoritomo; the quiet precincts sit behind Kotoku-in.",
     "highlights": ["History"],
     "budgetMin": 1500,
     "budgetRecommended": 4000,
@@ -76063,10 +76043,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1400,
-      "tickets": 0,
-      "food": 1400,
-      "cafe": 1200
+      "transport": 1295,
+      "tickets": 300,
+      "food": 1295,
+      "cafe": 1110
     },
     "transportOptions": {
       "train": 15
@@ -76863,10 +76843,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1400,
-      "tickets": 0,
-      "food": 1400,
-      "cafe": 1200
+      "transport": 1348,
+      "tickets": 150,
+      "food": 1348,
+      "cafe": 1154
     },
     "transportOptions": {
       "train": 15
@@ -80056,10 +80036,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1400,
-      "tickets": 0,
-      "food": 1400,
-      "cafe": 1200
+      "transport": 1225,
+      "tickets": 500,
+      "food": 1225,
+      "cafe": 1050
     },
     "transportOptions": {
       "train": 36
@@ -80215,10 +80195,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1400,
-      "tickets": 0,
-      "food": 1400,
-      "cafe": 1200
+      "transport": 1292,
+      "tickets": 310,
+      "food": 1292,
+      "cafe": 1106
     },
     "transportOptions": {
       "train": 37
@@ -80375,10 +80355,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1400,
-      "tickets": 0,
-      "food": 1400,
-      "cafe": 1200
+      "transport": 1225,
+      "tickets": 500,
+      "food": 1225,
+      "cafe": 1050
     },
     "transportOptions": {
       "train": 35
@@ -80699,10 +80679,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1400,
-      "tickets": 0,
-      "food": 1400,
-      "cafe": 1200
+      "transport": 1225,
+      "tickets": 500,
+      "food": 1225,
+      "cafe": 1050
     },
     "transportOptions": {
       "train": 28
@@ -81486,10 +81466,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1400,
-      "tickets": 0,
-      "food": 1400,
-      "cafe": 1200
+      "transport": 1190,
+      "tickets": 600,
+      "food": 1190,
+      "cafe": 1020
     },
     "transportOptions": {
       "train": 205
@@ -81640,10 +81620,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1400,
-      "tickets": 0,
-      "food": 1400,
-      "cafe": 1200
+      "transport": 1365,
+      "tickets": 100,
+      "food": 1365,
+      "cafe": 1170
     },
     "transportOptions": {
       "train": 48
@@ -82292,10 +82272,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1400,
-      "tickets": 0,
-      "food": 1400,
-      "cafe": 1200
+      "transport": 770,
+      "tickets": 1800,
+      "food": 770,
+      "cafe": 660
     },
     "transportOptions": {
       "train": 37
@@ -83173,10 +83153,10 @@
     "budgetRecommended": 4000,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 1400,
-      "tickets": 0,
-      "food": 1400,
-      "cafe": 1200
+      "transport": 1271,
+      "tickets": 370,
+      "food": 1271,
+      "cafe": 1088
     },
     "transportOptions": {},
     "totalTripHours": 5,
@@ -87990,7 +87970,7 @@
     },
     "bestMonths": [3, 4, 5, 10, 11],
     "transportOptions": {
-      "train": 200
+      "train": 15
     },
     "notes": "Naha's main shopping street — great for Okinawan souvenirs and street food.",
     "totalTripHours": 3,
@@ -88126,7 +88106,7 @@
     },
     "bestMonths": [1, 3, 4, 5, 10, 11],
     "transportOptions": {
-      "train": 200
+      "train": 20
     },
     "notes": "The only major Shinto shrine in Okinawa, perched on a clifftop overlooking Naminoue Beach.",
     "totalTripHours": 2,
@@ -88262,7 +88242,7 @@
     },
     "bestMonths": [1, 2, 3, 4, 10, 11, 12],
     "transportOptions": {
-      "train": 200
+      "train": 15
     },
     "notes": "A tranquil Chinese garden near the city centre — a quiet escape from busy Kokusai Dori.",
     "totalTripHours": 2,
@@ -88676,7 +88656,7 @@
     },
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "transportOptions": {
-      "bus": 400
+      "bus": 120
     },
     "notes": "Home to whale sharks — arrive early to avoid the heaviest crowds at the Kuroshio tank.",
     "totalTripHours": 5,
@@ -88964,7 +88944,7 @@
     },
     "bestMonths": [1, 2, 3, 10, 11, 12],
     "transportOptions": {
-      "bus": 400
+      "bus": 130
     },
     "notes": "One of nine Gusuku sites — visit in late January for Okinawa's earliest cherry blossoms.",
     "totalTripHours": 3,
@@ -90810,10 +90790,10 @@
     "budgetRecommended": 3000,
     "budgetMax": 5000,
     "budgetBreakdown": {
-      "transport": 350,
+      "transport": 1235,
       "tickets": 0,
-      "food": 400,
-      "cafe": 100
+      "food": 1412,
+      "cafe": 353
     },
     "transportOptions": {
       "train": 270,
@@ -91751,10 +91731,10 @@
     "budgetRecommended": 3000,
     "budgetMax": 5000,
     "budgetBreakdown": {
-      "transport": 350,
+      "transport": 1235,
       "tickets": 0,
-      "food": 400,
-      "cafe": 100
+      "food": 1412,
+      "cafe": 353
     },
     "transportOptions": {
       "train": 300,
@@ -92213,13 +92193,13 @@
       "Prayers for academic success & exam luck"
     ],
     "budgetMin": 1500,
-    "budgetRecommended": 4000,
+    "budgetRecommended": 4250,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 525,
+      "transport": 1750,
       "tickets": 0,
-      "food": 600,
-      "cafe": 150
+      "food": 2000,
+      "cafe": 500
     },
     "transportOptions": {
       "train": 220,
@@ -93161,13 +93141,13 @@
       "Horse riding experience in the meadow"
     ],
     "budgetMin": 1500,
-    "budgetRecommended": 4000,
+    "budgetRecommended": 4250,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 525,
+      "transport": 1750,
       "tickets": 0,
-      "food": 600,
-      "cafe": 150
+      "food": 2000,
+      "cafe": 500
     },
     "transportOptions": {
       "train": 320,
@@ -93317,10 +93297,10 @@
     "budgetRecommended": 3000,
     "budgetMax": 5000,
     "budgetBreakdown": {
-      "transport": 350,
+      "transport": 1235,
       "tickets": 0,
-      "food": 400,
-      "cafe": 100
+      "food": 1412,
+      "cafe": 353
     },
     "transportOptions": {
       "train": 325,
@@ -93629,13 +93609,13 @@
       "Subtropical island accessible by footbridge"
     ],
     "budgetMin": 1500,
-    "budgetRecommended": 4000,
+    "budgetRecommended": 4250,
     "budgetMax": 7000,
     "budgetBreakdown": {
-      "transport": 525,
+      "transport": 1750,
       "tickets": 0,
-      "food": 600,
-      "cafe": 150
+      "food": 2000,
+      "cafe": 500
     },
     "transportOptions": {
       "train": 340
@@ -93784,10 +93764,10 @@
     "budgetRecommended": 3000,
     "budgetMax": 5000,
     "budgetBreakdown": {
-      "transport": 350,
+      "transport": 1235,
       "tickets": 0,
-      "food": 400,
-      "cafe": 100
+      "food": 1412,
+      "cafe": 353
     },
     "transportOptions": {
       "train": 335,
@@ -93937,10 +93917,10 @@
     "budgetRecommended": 3000,
     "budgetMax": 5000,
     "budgetBreakdown": {
-      "transport": 350,
+      "transport": 1235,
       "tickets": 0,
-      "food": 400,
-      "cafe": 100
+      "food": 1412,
+      "cafe": 353
     },
     "transportOptions": {
       "train": 335,
@@ -94260,10 +94240,10 @@
     "budgetRecommended": 3000,
     "budgetMax": 5000,
     "budgetBreakdown": {
-      "transport": 350,
+      "transport": 1235,
       "tickets": 0,
-      "food": 400,
-      "cafe": 100
+      "food": 1412,
+      "cafe": 353
     },
     "transportOptions": {
       "train": 360,
@@ -94733,10 +94713,10 @@
     "budgetRecommended": 5000,
     "budgetMax": 8000,
     "budgetBreakdown": {
-      "transport": 700,
+      "transport": 1853,
       "tickets": 500,
-      "food": 800,
-      "cafe": 200
+      "food": 2118,
+      "cafe": 529
     },
     "transportOptions": {
       "ferry": 240
@@ -94886,10 +94866,10 @@
     "budgetRecommended": 5000,
     "budgetMax": 8000,
     "budgetBreakdown": {
-      "transport": 700,
+      "transport": 1853,
       "tickets": 500,
-      "food": 800,
-      "cafe": 200
+      "food": 2118,
+      "cafe": 529
     },
     "transportOptions": {
       "ferry": 240
@@ -95362,10 +95342,10 @@
     "budgetRecommended": 5000,
     "budgetMax": 8000,
     "budgetBreakdown": {
-      "transport": 700,
+      "transport": 1853,
       "tickets": 500,
-      "food": 800,
-      "cafe": 200
+      "food": 2118,
+      "cafe": 529
     },
     "transportOptions": {
       "train": 230,
@@ -95869,8 +95849,6 @@
     },
     "reservation": "None required",
     "parking": "Public parking available",
-    "notes": "Karatsu City travel hub in Saga Prefecture, gateway to the Karatsu Peninsula.",
-    "notesJa": "佐賀県唐津市のトラベルハブ、唐津半島への玄関口です。",
     "status": "published",
     "travelEstimate": {
       "confidence": "beta"
@@ -96309,13 +96287,13 @@
       "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/4"
     },
     "budgetMin": 1000,
-    "budgetRecommended": 3000,
+    "budgetRecommended": 3500,
     "budgetMax": 6000,
     "budgetBreakdown": {
-      "transport": 300,
+      "transport": 1235,
       "tickets": 0,
-      "food": 450,
-      "cafe": 100
+      "food": 1853,
+      "cafe": 412
     },
     "transportOptions": {
       "train": 250,
@@ -96637,8 +96615,6 @@
     },
     "reservation": "None required",
     "parking": "Public parking available",
-    "notes": "Sasebo City travel hub in Nagasaki Prefecture, gateway to Kujukushima.",
-    "notesJa": "長崎県佐世保市のトラベルハブ、九十九島への玄関口です。",
     "status": "published",
     "travelEstimate": {
       "confidence": "beta"
@@ -97237,13 +97213,13 @@
       "sourceUrl": "https://www.pearlsea.jp/en/observatory/"
     },
     "budgetMin": 1000,
-    "budgetRecommended": 3000,
+    "budgetRecommended": 3500,
     "budgetMax": 6000,
     "budgetBreakdown": {
-      "transport": 300,
+      "transport": 1235,
       "tickets": 0,
-      "food": 450,
-      "cafe": 100
+      "food": 1853,
+      "cafe": 412
     },
     "transportOptions": {
       "bus": 250
@@ -97564,8 +97540,6 @@
     },
     "reservation": "None required",
     "parking": "Public parking available",
-    "notes": "Ibusuki City travel hub in Kagoshima Prefecture, famous for sand steam baths.",
-    "notesJa": "鹿児島県指宿市のトラベルハブ、砂むし温泉で有名です。",
     "status": "published",
     "travelEstimate": {
       "confidence": "beta"
@@ -97846,13 +97820,13 @@
       "sourceUrl": "https://www.ibusuki.or.jp/en/spot/lake-ikeda/"
     },
     "budgetMin": 1000,
-    "budgetRecommended": 3000,
+    "budgetRecommended": 3500,
     "budgetMax": 6000,
     "budgetBreakdown": {
-      "transport": 300,
+      "transport": 1235,
       "tickets": 0,
-      "food": 450,
-      "cafe": 100
+      "food": 1853,
+      "cafe": 412
     },
     "transportOptions": {
       "bus": 250
@@ -98497,8 +98471,6 @@
     },
     "reservation": "None required",
     "parking": "Public parking available",
-    "notes": "Nichinan City travel hub in Miyazaki Prefecture, home to Obi Castle Town and Udo Jingu.",
-    "notesJa": "宮崎県日南市のトラベルハブ、飫肥城下町と鵜戸神宮で知られています。",
     "status": "published",
     "travelEstimate": {
       "confidence": "beta"
@@ -99117,8 +99089,6 @@
     },
     "reservation": "None required",
     "parking": "Public parking available",
-    "notes": "Hita City travel hub in Oita Prefecture, famous for Mameda historic district.",
-    "notesJa": "大分県日田市のトラベルハブ、豆田町の歴史的街並みで有名です。",
     "status": "published",
     "travelEstimate": {
       "confidence": "beta"
@@ -131412,7 +131382,7 @@
     "ratingMetadata": {
       "rubricVersion": 2,
       "method": "assisted",
-      "confidence": "medium"
+      "confidence": "low"
     }
   },
   {
@@ -134969,9 +134939,9 @@
     },
     "municipalityId": "Saitama:kawagoe",
     "transportOptions": {
-      "train": 255,
+      "train": 45,
       "bus": 295,
-      "car": 325
+      "car": 75
     },
     "collections": [
       {

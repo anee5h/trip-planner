@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kotoku-in Great Buddha",
-      "description": "Kotoku-in Great Buddha is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+      "description": "The Great Buddha (Daibutsu) of Kotoku-in, a 13.35-meter bronze statue cast around 1252 and designated a National Treasure, seated outdoors in Kamakura. The hall that once sheltered it was washed away by a tsunami in 1498.",
       "highlights": ["History"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "高徳院",
-      "description": "高徳院はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "高徳院の本尊・阿弥陀如来坐像。1252年頃に鋳造された高さ約13.35mの銅像で国宝に指定されている。かつては堂内にあったが、1498年の津波で堂が流され、現在は露座のまま鎮座する。",
       "highlights": ["高徳院の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -46,7 +46,7 @@
     "lat": 35.316944444444445,
     "lng": 139.53583333333333
   },
-  "description": "Kotoku-in Great Buddha is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+  "description": "The Great Buddha (Daibutsu) of Kotoku-in, a 13.35-meter bronze statue cast around 1252 and designated a National Treasure, seated outdoors in Kamakura. The hall that once sheltered it was washed away by a tsunami in 1498.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

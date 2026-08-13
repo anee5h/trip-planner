@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Tsujido Seaside Park",
-      "description": "Tsujido Seaside Park is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Beachside park in Tsujido, Fujisawa, with lawns, sports facilities, a pool complex and campsite. Its location near the Shonan coast makes it a relaxed spot for families and seaside walks.",
       "highlights": ["Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "辻堂海浜公園",
-      "description": "辻堂海浜公園はFujisawa Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "辻堂の海岸近くに広がる公園。芝生広場やプール、キャンプ場などの施設が揃い、湘南の海辺でのんびり過ごせる。",
       "highlights": ["辻堂海浜公園の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.320833,
     "lng": 139.45
   },
-  "description": "Tsujido Seaside Park is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Beachside park in Tsujido, Fujisawa, with lawns, sports facilities, a pool complex and campsite. Its location near the Shonan coast makes it a relaxed spot for families and seaside walks.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

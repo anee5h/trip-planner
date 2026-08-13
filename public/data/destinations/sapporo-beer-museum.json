@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Sapporo Beer Museum",
-      "description": "Sapporo Beer Museum is a visitor destination in Sapporo City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "Japan's only beer museum, housed in an 1890 red-brick building that once served as a brewery. Exhibits trace the history of Sapporo Beer since the 1870s, and the complex includes a tasting lounge and beer garden.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "サッポロビール博物館",
-      "description": "サッポロビール博物館はSapporo Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "日本唯一のビール博物館。1890年築の赤れんがの醸造所跡を活用し、サッポロビールの歴史を紹介する。試飲コーナーやビアガーデンも併設されている。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 43.071666666667,
     "lng": 141.36888888889
   },
-  "description": "Sapporo Beer Museum is a visitor destination in Sapporo City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Japan's only beer museum, housed in an 1890 red-brick building that once served as a brewery. Exhibits trace the history of Sapporo Beer since the 1870s, and the complex includes a tasting lounge and beer garden.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Shonan Kaigan Park",
-      "description": "Shonan Kaigan Park is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Coastal park stretching along the Shonan shoreline in Fujisawa, with lawns, pine groves and sea views across Sagami Bay. Close to Katase Higashihama Beach, it is a pleasant spot for a stroll or a rest between swimming and sightseeing.",
       "highlights": ["Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "湘南海岸公園",
-      "description": "湘南海岸公園 (藤沢市)はFujisawa Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "藤沢市の湘南海岸沿いに広がる公園。芝生広場と松林が続き、相模湾の海を望む。片瀬東浜海水浴場に近く、海水浴や散策の合間の休憩にもぴったり。",
       "highlights": ["湘南海岸公園の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.31611111,
     "lng": 139.47083333
   },
-  "description": "Shonan Kaigan Park is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Coastal park stretching along the Shonan shoreline in Fujisawa, with lawns, pine groves and sea views across Sagami Bay. Close to Katase Higashihama Beach, it is a pleasant spot for a stroll or a rest between swimming and sightseeing.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -118,16 +118,16 @@
     "lifecycle": "published",
     "sources": [
       {
-        "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Shonan_Monorail",
-        "title": "Shonan Monorail",
-        "accessedAt": "2026-07-29"
-      },
-      {
         "type": "official",
         "url": "https://www.s-n-p.jp/shonankaigan_park/",
         "title": "Shonan Kaigan Park official website",
         "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Shonan_Kaigan_Park",
+        "title": "Wikipedia article",
+        "accessedAt": "2026-08-13"
       }
     ],
     "checkedAt": "2026-08-02",

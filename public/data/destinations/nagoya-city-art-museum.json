@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Nagoya City Art Museum",
-      "description": "Nagoya City Art Museum is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "Art museum opened in 1988 in Shirakawa Park, Nagoya, in a building designed by Kisho Kurokawa. The collection spans 20th-century art, including works by Modigliani, alongside Japanese modern and contemporary artists.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "名古屋市美術館",
-      "description": "名古屋市美術館はNagoya Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "白川公園内にある名古屋市の美術館。1988年開館で、建築は黒川紀章が設計。モディリアーニなど20世紀美術と日本の近現代美術を中心に収蔵・展示している。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 35.163842,
     "lng": 136.901022
   },
-  "description": "Nagoya City Art Museum is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Art museum opened in 1988 in Shirakawa Park, Nagoya, in a building designed by Kisho Kurokawa. The collection spans 20th-century art, including works by Modigliani, alongside Japanese modern and contemporary artists.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

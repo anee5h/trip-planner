@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Tokugawa Garden",
-      "description": "Tokugawa Garden is a visitor destination in Nagoya City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Japanese stroll garden on the site of the Owari Tokugawa clan's Nagoya villa, with a waterfall, streams and azaleas. It adjoins the Tokugawa Art Museum, and plum and cherry blossoms color the garden in early spring.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "徳川園",
-      "description": "徳川園はNagoya Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "尾張徳川家の別邸跡に整えられた日本庭園。滝やせせらぎ、ツツジが美しく、徳川美術館に隣接する。春先には梅や桜も楽しめる。",
       "highlights": ["自然"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 35.184444,
     "lng": 136.932583
   },
-  "description": "Tokugawa Garden is a visitor destination in Nagoya City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Japanese stroll garden on the site of the Owari Tokugawa clan's Nagoya villa, with a waterfall, streams and azaleas. It adjoins the Tokugawa Art Museum, and plum and cherry blossoms color the garden in early spring.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

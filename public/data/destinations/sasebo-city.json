@@ -76,8 +76,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Sasebo City travel hub in Nagasaki Prefecture, gateway to Kujukushima.",
-  "notesJa": "長崎県佐世保市のトラベルハブ、九十九島への玄関口です。",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

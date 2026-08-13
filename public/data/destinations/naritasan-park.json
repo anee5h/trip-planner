@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Naritasan Park",
-      "description": "Naritasan Park is a visitor destination in Narita City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Wooded park behind Naritasan Shinsho-ji in Narita, with ponds, bridges and quiet walking paths among mature trees. A peaceful retreat from the temple crowds, with seasonal flowers and a small shrine on the grounds.",
       "highlights": ["Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "成田山公園",
-      "description": "成田山公園はNarita Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "成田山新勝寺の裏手に広がる公園。池や橋、散策路が整備され、季節の花々が楽しめる。参拝の合間に立ち寄りたい静かな休憩スポット。",
       "highlights": ["成田山公園の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -46,7 +46,7 @@
     "lat": 35.7866845,
     "lng": 140.3210126
   },
-  "description": "Naritasan Park is a visitor destination in Narita City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Wooded park behind Naritasan Shinsho-ji in Narita, with ponds, bridges and quiet walking paths among mature trees. A peaceful retreat from the temple crowds, with seasonal flowers and a small shrine on the grounds.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

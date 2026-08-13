@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kasori Shell Mounds",
-      "description": "Kasori Shell Mounds is a visitor destination in Chiba City.  Visitors can experience historic architecture and local culture.",
+      "description": "Japan's largest shell midden, a Jomon-period archaeological site in Chiba City designated a national historic site. The on-site museum and the preserved mound cross-sections show how prehistoric communities lived along the coast.",
       "highlights": ["History", "Museum"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "加曽利貝塚",
-      "description": "加曽利貝塚はChiba Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "縄文時代の日本最大級の貝塚で、国の史跡に指定されている。博物館と保存された貝塚の断面から、海辺で暮らした縄文人の生活をうかがい知ることができる。",
       "highlights": ["加曽利貝塚の名所", "加曽利貝塚の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -46,7 +46,7 @@
     "lat": 35.623333333333,
     "lng": 140.16472222222
   },
-  "description": "Kasori Shell Mounds is a visitor destination in Chiba City.  Visitors can experience historic architecture and local culture.",
+  "description": "Japan's largest shell midden, a Jomon-period archaeological site in Chiba City designated a national historic site. The on-site museum and the preserved mound cross-sections show how prehistoric communities lived along the coast.",
   "highlights": ["History", "Museum"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

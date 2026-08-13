@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Tokugawa Art Museum",
-      "description": "Tokugawa Art Museum is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "Museum opened in 1935 to preserve the treasures of the Owari Tokugawa clan in Nagoya. Its collection includes the National Treasure Tale of Genji handscrolls, swords, armor and Noh masks, displayed beside the adjoining Tokugawa Garden.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "徳川美術館",
-      "description": "徳川美術館はNagoya Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "1935年開館。尾張徳川家に伝わる名品を収蔵する美術館で、国宝「源氏物語絵巻」や刀剣・甲冑・能面などを展示する。隣接する徳川園とあわせて訪れたい。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 35.183692,
     "lng": 136.933189
   },
-  "description": "Tokugawa Art Museum is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Museum opened in 1935 to preserve the treasures of the Owari Tokugawa clan in Nagoya. Its collection includes the National Treasure Tale of Genji handscrolls, swords, armor and Noh masks, displayed beside the adjoining Tokugawa Garden.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

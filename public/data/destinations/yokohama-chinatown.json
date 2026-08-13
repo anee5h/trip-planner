@@ -134,8 +134,8 @@
   },
   "ratingMetadata": {
     "rubricVersion": 2,
-    "method": "manual",
-    "confidence": "high"
+    "method": "assisted",
+    "confidence": "low"
   },
   "notesJa": "500軒以上の店舗がひしめく日本最大のチャイナタウンで、小籠包や肉まんの食べ歩きが満喫できます。",
   "reservationJa": "散策や食べ歩きは予約不要。週末のコース料理レストランは予約推奨です。",

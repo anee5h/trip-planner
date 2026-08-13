@@ -76,8 +76,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Ibusuki City travel hub in Kagoshima Prefecture, famous for sand steam baths.",
-  "notesJa": "鹿児島県指宿市のトラベルハブ、砂むし温泉で有名です。",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

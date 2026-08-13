@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Tsurugaoka Hachimangu",
-      "description": "Tsurugaoka Hachimangu is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+      "description": "Kamakura's most important shrine, founded in 1063 and brought to its present hillside site by Minamoto no Yoritomo in 1180. The long approach, cherry-lined paths, great torii and dance stage (maiden) make it the city's spiritual and visual heart.",
       "highlights": ["History"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "鶴岡八幡宮",
-      "description": "鶴岡八幡宮はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "鎌倉の総鎮守として知られる鶴岡八幡宮。1063年創建、1180年に源頼朝が現在地へ遷座した。長い参道や桜並木、大鳥居、舞殿など見どころが多い。",
       "highlights": ["鶴岡八幡宮の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.32608056,
     "lng": 139.55641667
   },
-  "description": "Tsurugaoka Hachimangu is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+  "description": "Kamakura's most important shrine, founded in 1063 and brought to its present hillside site by Minamoto no Yoritomo in 1180. The long approach, cherry-lined paths, great torii and dance stage (maiden) make it the city's spiritual and visual heart.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

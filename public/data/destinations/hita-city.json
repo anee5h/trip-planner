@@ -76,8 +76,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Hita City travel hub in Oita Prefecture, famous for Mameda historic district.",
-  "notesJa": "大分県日田市のトラベルハブ、豆田町の歴史的街並みで有名です。",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

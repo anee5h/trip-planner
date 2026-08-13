@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Ohori Park",
-      "description": "Ohori Park is a visitor destination in Fukuoka City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Large park in Fukuoka built around a scenic pond created from part of the Fukuoka Castle moat. A walking and jogging loop of about two kilometers circles the water, with rowboats and a Japanese garden among the attractions.",
       "highlights": ["Nature"],
       "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "大濠公園",
-      "description": "大濠公園はFukuoka Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "福岡城の外堀の一部を利用した大池を中心に整備された公園。池の周囲は約2kmの遊歩道になっており、散策やランニング、ボート遊びが楽しめる。",
       "highlights": ["自然"],
       "openingHours": "24時間営業"
     }
@@ -41,7 +41,7 @@
     "lat": 33.58586111,
     "lng": 130.37625
   },
-  "description": "Ohori Park is a visitor destination in Fukuoka City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Large park in Fukuoka built around a scenic pond created from part of the Fukuoka Castle moat. A walking and jogging loop of about two kilometers circles the water, with rowboats and a Japanese garden among the attractions.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Nijo Market",
-      "description": "Nijo Market is a visitor destination in Sapporo City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+      "description": "Covered market in central Sapporo known as 'Sapporo's kitchen', with stalls selling fresh seafood — crab, sea urchin and salmon roe — as well as fruit and souvenirs. Several shops serve seafood bowls (kaisen-don), making it a popular breakfast stop.",
       "highlights": ["Food", "Market"]
     },
     "ja": {
       "name": "二条市場",
-      "description": "二条市場はSapporo Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "札幌中心部の市場。「札幌の台所」と呼ばれ、カニやウニ、イクラなどの海産物や果物を扱う店が並ぶ。海鮮丼を出す飲食店もあり、朝食やお土産選びに人気。",
       "highlights": ["グルメ", "市場"]
     }
   },
@@ -38,7 +38,7 @@
     "lat": 43.058306,
     "lng": 141.358472
   },
-  "description": "Nijo Market is a visitor destination in Sapporo City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+  "description": "Covered market in central Sapporo known as 'Sapporo's kitchen', with stalls selling fresh seafood — crab, sea urchin and salmon roe — as well as fruit and souvenirs. Several shops serve seafood bowls (kaisen-don), making it a popular breakfast stop.",
   "highlights": ["Food", "Market"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -108,16 +108,16 @@
     "lifecycle": "in_review",
     "sources": [
       {
-        "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/%C5%8Cd%C5%8Dri_Station",
-        "title": "Ōdōri Station",
-        "accessedAt": "2026-07-29"
-      },
-      {
         "type": "official",
         "url": "https://nijomarket.com/",
         "title": "Nijo Market official website",
         "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nijo_Market",
+        "title": "Wikipedia article",
+        "accessedAt": "2026-08-13"
       }
     ],
     "checkedAt": "2026-07-29",

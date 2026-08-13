@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Omiya Bonsai Art Museum",
-      "description": "Omiya Bonsai Art Museum is a visitor destination in Saitama City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "The world's first publicly operated bonsai museum, opened in 2010 next to the Omiya Bonsai Village in Saitama. Around 120 masterwork bonsai and related artifacts — pots, stones and bonsai-themed art — are displayed in a calm, modern gallery.",
       "highlights": ["Museum"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "さいたま市大宮盆栽美術館",
-      "description": "さいたま市大宮盆栽美術館はSaitama Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "2010年開館の世界初の公立盆栽美術館。大宮盆栽村に隣接し、名品の盆栽や鉢・水石などの関連資料を展示する。静かな空間で盆栽文化をじっくり鑑賞できる。",
       "highlights": ["さいたま市大宮盆栽美術館の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -46,7 +46,7 @@
     "lat": 35.928778,
     "lng": 139.633333
   },
-  "description": "Omiya Bonsai Art Museum is a visitor destination in Saitama City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "The world's first publicly operated bonsai museum, opened in 2010 next to the Omiya Bonsai Village in Saitama. Around 120 masterwork bonsai and related artifacts — pots, stones and bonsai-themed art — are displayed in a calm, modern gallery.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

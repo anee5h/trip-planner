@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Osaki Hachimangu",
-      "description": "Osaki Hachimangu is a visitor destination in Sendai City.  Visitors can experience historic architecture and local culture.",
+      "description": "Shrine founded in 1607 by Date Masamune as Sendai's guardian shrine. The main hall and worship hall, decorated with lavish Momoyama-style lacquer and gold, are designated National Treasures.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "大崎八幡宮",
-      "description": "大崎八幡宮は仙台市にある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "1607年に伊達政宗が創建した仙台の鎮守。桃山様式の豪華な漆塗りと金飾りで彩られた本殿と拝殿は国宝に指定されている。",
       "highlights": ["歴史"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 38.2722,
     "lng": 140.845
   },
-  "description": "Osaki Hachimangu is a visitor destination in Sendai City.  Visitors can experience historic architecture and local culture.",
+  "description": "Shrine founded in 1607 by Date Masamune as Sendai's guardian shrine. The main hall and worship hall, decorated with lavish Momoyama-style lacquer and gold, are designated National Treasures.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

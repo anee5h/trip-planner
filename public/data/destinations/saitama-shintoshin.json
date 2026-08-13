@@ -6,15 +6,15 @@
   "content": {
     "en": {
       "name": "Saitama Shintoshin",
-      "description": "Saitama Shintoshin is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
+      "description": "Modern urban district in Saitama City developed on former railway freight yards. It is home to the Saitama Super Arena, the Cocoon City shopping complex and the Keyaki Hiroba open plaza, with broad pedestrian spaces.",
       "highlights": ["Culture", "Shopping"],
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
       "openingHours": "09:00 - 17:00"
     },
     "ja": {
-      "name": "さいたま市",
-      "description": "さいたま市はSaitama Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "さいたま新都心",
+      "description": "旧国鉄の操車場跡地に整備されたさいたま市の新都心。さいたまスーパーアリーナやショッピングモール「コクーンシティ」、けやき広場などがあり、広々とした歩行者空間が広がる。",
       "highlights": ["さいたま市の名所", "さいたま市の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -45,7 +45,7 @@
     "lat": 35.8936,
     "lng": 139.634
   },
-  "description": "Saitama Shintoshin is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
+  "description": "Modern urban district in Saitama City developed on former railway freight yards. It is home to the Saitama Super Arena, the Cocoon City shopping complex and the Keyaki Hiroba open plaza, with broad pedestrian spaces.",
   "highlights": ["Culture", "Shopping"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

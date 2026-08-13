@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Kushida Shrine",
-      "description": "Kushida Shrine is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+      "description": "Hakata's guardian shrine, founded in 757 and known as the spiritual home of the Hakata Gion Yamakasa festival, whose towering decorated floats race through the streets every July. The colorful festival floats are displayed at the shrine year-round.",
       "highlights": ["History"],
       "openingHours": "04:00–22:00"
     },
     "ja": {
       "name": "櫛田神社 (福岡市)",
-      "description": "櫛田神社 (福岡市)はFukuoka Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "757年創建の博多の総鎮守。毎年7月に開かれる「博多祇園山笠」の聖地として知られ、勇壮な山笠が町を駆け抜ける祭りで有名。",
       "highlights": ["歴史"],
       "openingHours": "04:00～22:00"
     }
@@ -40,7 +40,7 @@
     "lat": 33.593111111111114,
     "lng": 130.41069444444443
   },
-  "description": "Kushida Shrine is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+  "description": "Hakata's guardian shrine, founded in 757 and known as the spiritual home of the Hakata Gion Yamakasa festival, whose towering decorated floats race through the streets every July. The colorful festival floats are displayed at the shrine year-round.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

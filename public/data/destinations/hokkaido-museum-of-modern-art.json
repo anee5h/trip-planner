@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Hokkaido Museum of Modern Art",
-      "description": "Hokkaido Museum of Modern Art is a visitor destination in Sapporo City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "Hokkaido's leading modern art museum, opened in 1977 in central Sapporo. Its collection of more than 5,000 works focuses on Hokkaido-linked artists and includes an École de Paris section (Jules Pascin among others), with sculpture displayed on the grounds.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "北海道立近代美術館",
-      "description": "北海道立近代美術館はSapporo Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "1977年開館の北海道を代表する近代美術館。道内ゆかりの作家を中心に5,000点以上を収蔵し、エコール・ド・パリ（パスキンなど）のコーナーもある。屋外には彫刻も展示されている。",
       "highlights": ["博物館"]
     }
   },
@@ -39,16 +39,16 @@
     "lat": 43.060278,
     "lng": 141.330389
   },
-  "description": "Hokkaido Museum of Modern Art is a visitor destination in Sapporo City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Hokkaido's leading modern art museum, opened in 1977 in central Sapporo. Its collection of more than 5,000 works focuses on Hokkaido-linked artists and includes an École de Paris section (Jules Pascin among others), with sculpture displayed on the grounds.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
   "budgetMax": 8500,
   "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 1100,
-    "food": 1925,
-    "cafe": 550
+    "transport": 2183,
+    "tickets": 510,
+    "food": 2183,
+    "cafe": 624
   },
   "transportOptions": {
     "train": 199

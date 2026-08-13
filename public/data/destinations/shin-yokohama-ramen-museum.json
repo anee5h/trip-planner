@@ -56,10 +56,10 @@
   "highlights": ["Museum", "Food", "Indoor"],
   "description": "Shin-Yokohama Ramen Museum is a curated destination within Yokohama City.",
   "budgetBreakdown": {
-    "transport": 650,
-    "tickets": 1300,
-    "food": 3250,
-    "cafe": 1300
+    "transport": 756,
+    "tickets": 450,
+    "food": 3781,
+    "cafe": 1513
   },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
@@ -131,8 +131,8 @@
   },
   "ratingMetadata": {
     "rubricVersion": 2,
-    "method": "manual",
-    "confidence": "high"
+    "method": "assisted",
+    "confidence": "low"
   },
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",

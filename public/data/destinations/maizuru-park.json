@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Maizuru Park",
-      "description": "Maizuru Park is a visitor destination in Fukuoka City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Spacious park on the site of Fukuoka Castle in central Fukuoka, where stone walls and moats survive amid lawns and groves. One of the city's best cherry-blossom spots in spring, it also contains the remains of the ancient Korokan guest house.",
       "highlights": ["Nature"],
       "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "舞鶴公園",
-      "description": "舞鶴公園はFukuoka Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "福岡城跡に広がる都心の公園。石垣や堀が残り、春は桜の名所として知られる。園内には古代の迎賓館・鴻臚館の遺構も残る。",
       "highlights": ["自然"],
       "openingHours": "24時間営業"
     }
@@ -41,7 +41,7 @@
     "lat": 33.586366,
     "lng": 130.385192
   },
-  "description": "Maizuru Park is a visitor destination in Fukuoka City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Spacious park on the site of Fukuoka Castle in central Fukuoka, where stone walls and moats survive amid lawns and groves. One of the city's best cherry-blossom spots in spring, it also contains the remains of the ancient Korokan guest house.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

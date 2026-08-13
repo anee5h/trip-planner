@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Maruyama Park",
-      "description": "Maruyama Park is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Forested park in western Sapporo whose virgin-forest zone is a designated natural treasure, adjacent to Hokkaido Shrine and Maruyama Zoo. One of Sapporo's best cherry-blossom spots, usually peaking in late April to early May.",
       "highlights": ["Nature"]
     },
     "ja": {
-      "name": "円山公園 (京都府)",
-      "description": "円山公園 (京都府)はSapporo Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "円山公園",
+      "description": "札幌市西部の緑豊かな公園。天然記念物に指定された原始林を有し、北海道神宮や円山動物園に隣接する。4月下旬から5月上旬は桜の名所としてにぎわう。",
       "highlights": ["自然"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 43.0542,
     "lng": 141.3175
   },
-  "description": "Maruyama Park is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Forested park in western Sapporo whose virgin-forest zone is a designated natural treasure, adjacent to Hokkaido Shrine and Maruyama Zoo. One of Sapporo's best cherry-blossom spots, usually peaking in late April to early May.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Shinsho-ji",
-      "description": "Shinsho-ji is a visitor destination in Narita City.  Visitors can experience historic architecture and local culture.",
+      "description": "Naritasan Shinsho-ji, head temple of the Shingon Chizan school, founded in 940 and among Japan's most visited temples. Its grand halls and five-story pagoda sit at the head of a lively approach street, and daily goma fire rituals draw crowds.",
       "highlights": ["History"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "成田山新勝寺",
-      "description": "成田山新勝寺はNarita Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "真言宗智山派の総本山・成田山新勝寺。940年の開山で、日本有数の参拝者を数える。荘厳な伽藍と五重塔のほか、毎日行われる護摩祈祷やにぎやかな参道も見どころ。",
       "highlights": ["成田山新勝寺の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.78608,
     "lng": 140.31831
   },
-  "description": "Shinsho-ji is a visitor destination in Narita City.  Visitors can experience historic architecture and local culture.",
+  "description": "Naritasan Shinsho-ji, head temple of the Shingon Chizan school, founded in 940 and among Japan's most visited temples. Its grand halls and five-story pagoda sit at the head of a lively approach street, and daily goma fire rituals draw crowds.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

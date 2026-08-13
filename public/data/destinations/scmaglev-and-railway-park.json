@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "SCMaglev and Railway Park",
-      "description": "SCMaglev and Railway Park is a visitor destination in Nagoya City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "JR Central's railway museum near Kinjo Pier in Nagoya, opened in 2011. Real shinkansen trains, a maglev test vehicle and a huge diorama are on display, with train simulators and a Shinkansen driver experience among the attractions.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "リニア・鉄道館",
-      "description": "リニア・鉄道館はNagoya Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "2011年開館のJR東海の鉄道博物館。実物の新幹線やリニアモーターカー試験車両、巨大ジオラマを展示し、運転シミュレーターなどの体験も人気。",
       "highlights": ["自然"]
     }
   },
@@ -38,7 +38,7 @@
     "lat": 35.04735,
     "lng": 136.849319
   },
-  "description": "SCMaglev and Railway Park is a visitor destination in Nagoya City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "JR Central's railway museum near Kinjo Pier in Nagoya, opened in 2011. Real shinkansen trains, a maglev test vehicle and a huge diorama are on display, with train simulators and a Shinkansen driver experience among the attractions.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

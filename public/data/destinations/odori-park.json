@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Odori Park",
-      "description": "Odori Park is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Sapporo's central green belt, stretching about 1.5 kilometers across 13 blocks, with flower beds, fountains and sculptures. It is the main venue of the Sapporo Snow Festival each February.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "大通公園",
-      "description": "大通公園はSapporo Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "札幌市中心部を東西に横断する全長約1.5kmの緑地帯。花壇や噴水、彫刻が並び、2月にはさっぽろ雪まつりのメイン会場となる。",
       "highlights": ["自然"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 43.059722,
     "lng": 141.346389
   },
-  "description": "Odori Park is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Sapporo's central green belt, stretching about 1.5 kilometers across 13 blocks, with flower beds, fountains and sculptures. It is the main venue of the Sapporo Snow Festival each February.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

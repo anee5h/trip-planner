@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Samuel Cocking Garden",
-      "description": "Samuel Cocking Garden is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Botanical garden on Enoshima, named after the British merchant Samuel Cocking who built a greenhouse here in the late 19th century. Today the garden displays seasonal flowers around the base of the Enoshima Sea Candle lighthouse, with evening illumination events.",
       "highlights": ["Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "江の島サムエル・コッキング苑",
-      "description": "江の島サムエル・コッキング苑はFujisawa Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "江の島にある植物園。19世紀末に英国人実業家サミュエル・コッキングが温室を建てた場所で、現在は展望灯台「江の島シーキャンドル」がそびえる。季節の花と夜のライトアップが楽しめる。",
       "highlights": ["江の島サムエル・コッキング苑の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.3,
     "lng": 139.4786
   },
-  "description": "Samuel Cocking Garden is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Botanical garden on Enoshima, named after the British merchant Samuel Cocking who built a greenhouse here in the late 19th century. Today the garden displays seasonal flowers around the base of the Enoshima Sea Candle lighthouse, with evening illumination events.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

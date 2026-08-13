@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Sendai City Museum",
-      "description": "Sendai City Museum is a visitor destination in Sendai City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "Museum near the Aoba Castle ruins in Sendai presenting the city's history, with a strong focus on Date Masamune and the Date clan. The collection includes armor, documents and works of art associated with the domain's rulers.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "仙台市博物館",
-      "description": "仙台市博物館は仙台市にある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "仙台城跡近くにある市立博物館。伊達政宗と伊達家を中心に仙台の歴史を紹介し、甲冑や古文書、美術品などを収蔵・展示している。",
       "highlights": ["博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 38.256065,
     "lng": 140.856685
   },
-  "description": "Sendai City Museum is a visitor destination in Sendai City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Museum near the Aoba Castle ruins in Sendai presenting the city's history, with a strong focus on Date Masamune and the Date clan. The collection includes armor, documents and works of art associated with the domain's rulers.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,

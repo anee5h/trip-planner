@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Saitama Super Arena",
-      "description": "Saitama Super Arena is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
+      "description": "One of Japan's largest multi-purpose arenas, in Saitama Shintoshin, holding up to about 37,000 people. Its movable stage and seating system lets the hall adapt to concerts, sports events and exhibitions.",
       "highlights": ["Culture", "Shopping"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "さいたまスーパーアリーナ",
-      "description": "さいたまスーパーアリーナはSaitama Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "さいたま新都心にある日本最大級の多目的アリーナ。最大約37,000人を収容し、可動式のステージと客席システムで、コンサートやスポーツイベントなどに対応する。",
       "highlights": [
         "さいたまスーパーアリーナの名所",
         "さいたまスーパーアリーナの名所"
@@ -49,7 +49,7 @@
     "lat": 35.894889,
     "lng": 139.630833
   },
-  "description": "Saitama Super Arena is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
+  "description": "One of Japan's largest multi-purpose arenas, in Saitama Shintoshin, holding up to about 37,000 people. Its movable stage and seating system lets the hall adapt to concerts, sports events and exhibitions.",
   "highlights": ["Culture", "Shopping"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

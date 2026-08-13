@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Museum of Aeronautical Sciences",
-      "description": "Museum of Aeronautical Sciences is a visitor destination in Narita City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "Aviation museum in Shibayama, Chiba, next to Narita Airport, displaying real aircraft including the YS-11 airliner alongside flight simulators and exhibits on the history of flight. A popular family stop for plane-spotting and hands-on aviation experiences.",
       "highlights": ["Museum"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -14,8 +14,8 @@
       "openingHours": "09:30 - 17:00 (Last admission 16:30)"
     },
     "ja": {
-      "name": "成田国際空港",
-      "description": "成田国際空港はNarita Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "航空科学博物館",
+      "description": "成田空港に隣接する航空科学博物館。YS-11などの実機やフライトシミュレーターを展示・体験でき、航空の歴史と技術を楽しみながら学べる。",
       "highlights": ["成田国際空港の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -46,7 +46,7 @@
     "lat": 35.7649,
     "lng": 140.38845
   },
-  "description": "Museum of Aeronautical Sciences is a visitor destination in Narita City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Aviation museum in Shibayama, Chiba, next to Narita Airport, displaying real aircraft including the YS-11 airliner alongside flight simulators and exhibits on the history of flight. A popular family stop for plane-spotting and hands-on aviation experiences.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -118,15 +118,15 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Narita_International_Airport",
-        "title": "Narita International Airport",
-        "accessedAt": "2026-07-29"
+        "url": "https://www.aeromuseum.or.jp/",
+        "title": "Wikipedia article",
+        "accessedAt": "2026-08-13"
       },
       {
-        "type": "official",
-        "url": "https://www.narita-airport.jp/",
-        "title": "Museum of Aeronautical Sciences official website",
-        "accessedAt": "2026-07-29"
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Museum_of_Aeronautical_Sciences",
+        "title": "Wikipedia article",
+        "accessedAt": "2026-08-13"
       }
     ],
     "checkedAt": "2026-08-02",

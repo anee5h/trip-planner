@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Taisho Roman Street",
-      "description": "Taisho Roman Street is a visitor destination in Kawagoe City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+      "description": "Street in Kawagoe lined with buildings from the Taisho era (1912–1926), whose Western-influenced facades earned the area its 'Taisho Roman' name. Adjacent to the kurazukuri warehouse district, it holds cafes and shops in historic buildings.",
       "highlights": ["Shopping", "Food"],
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
@@ -14,7 +14,7 @@
     },
     "ja": {
       "name": "大正浪漫夢通り",
-      "description": "大正浪漫夢通りはKawagoe Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "大正時代（1912〜1926年）の洋風建築が並ぶ通り。川越の「大正浪漫」を感じさせる景観で、蔵造りの町並みに隣接する。歴史ある建物を生かしたカフェや雑貨店が並ぶ。",
       "highlights": ["大正浪漫夢通りの名所", "大正浪漫夢通りの名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -45,7 +45,7 @@
     "lat": 35.91986111,
     "lng": 139.48355556
   },
-  "description": "Taisho Roman Street is a visitor destination in Kawagoe City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+  "description": "Street in Kawagoe lined with buildings from the Taisho era (1912–1926), whose Western-influenced facades earned the area its 'Taisho Roman' name. Adjacent to the kurazukuri warehouse district, it holds cafes and shops in historic buildings.",
   "highlights": ["Shopping", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

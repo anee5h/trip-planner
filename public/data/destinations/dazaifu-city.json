@@ -42,7 +42,7 @@
     "autumn": 9,
     "winter": 8
   },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestMonths": [2, 3],
   "bestSeason": "All Year",
   "weatherDependence": "low",
   "tags": ["Dazaifu City", "Fukuoka Travel", "Regional Hub"],

@@ -134,8 +134,8 @@
   },
   "ratingMetadata": {
     "rubricVersion": 2,
-    "method": "manual",
-    "confidence": "high"
+    "method": "assisted",
+    "confidence": "low"
   },
   "notesJa": "明治・大正期の歴史的赤レンガ倉庫で、潮風を感じながらショッピングやクラフトビールを楽しめます。",
   "reservationJa": "施設への入場・ショップ巡りは事前予約不要です。",

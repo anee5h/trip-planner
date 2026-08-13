@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Toki no Kane",
-      "description": "Toki no Kane is a visitor destination in Kawagoe City.  Visitors can experience the area's character and main sights.",
+      "description": "Kawagoe's iconic wooden bell tower, rebuilt in 1894 after a fire destroyed much of the town, and still ringing four times a day. It stands at the heart of the 'Little Edo' warehouse district and is the town's best-known landmark.",
       "highlights": ["Viewpoint"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "時の鐘",
-      "description": "時の鐘 (川越市)はKawagoe Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "川越のシンボル・時の鐘。1893年の大火後に再建された木造の鐘楼で、現在も1日4回鐘が鳴る。蔵造りの町並みの中心に立ち、「小江戸」の風景に調和している。",
       "highlights": ["時の鐘の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -45,7 +45,7 @@
     "lat": 35.923488888889,
     "lng": 139.48331388889
   },
-  "description": "Toki no Kane is a visitor destination in Kawagoe City.  Visitors can experience the area's character and main sights.",
+  "description": "Kawagoe's iconic wooden bell tower, rebuilt in 1894 after a fire destroyed much of the town, and still ringing four times a day. It stands at the heart of the 'Little Edo' warehouse district and is the town's best-known landmark.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

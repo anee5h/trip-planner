@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Komachi Street",
-      "description": "Komachi Street is a visitor destination in Kamakura City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+      "description": "Kamakura's liveliest shopping street, running from Kamakura Station toward Tsurugaoka Hachimangu. It is lined with souvenir shops, cafes and snack stalls selling local specialties, and is busy throughout the day.",
       "highlights": ["Shopping", "Food"],
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
@@ -14,7 +14,7 @@
     },
     "ja": {
       "name": "小町通り",
-      "description": "小町通りはKamakura Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "鎌倉駅から鶴岡八幡宮方面へ延びる商店街。土産物店やカフェ、名物スイーツの店が軒を連ね、終日にぎわう。",
       "highlights": ["小町通りの名所", "小町通りの名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -45,7 +45,7 @@
     "lat": 35.32153,
     "lng": 139.55232
   },
-  "description": "Komachi Street is a visitor destination in Kamakura City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+  "description": "Kamakura's liveliest shopping street, running from Kamakura Station toward Tsurugaoka Hachimangu. It is lined with souvenir shops, cafes and snack stalls selling local specialties, and is busy throughout the day.",
   "highlights": ["Shopping", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

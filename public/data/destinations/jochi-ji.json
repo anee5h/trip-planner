@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Jochi-ji",
-      "description": "Jochi-ji is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+      "description": "Kinpozan Jochi-ji, a Rinzai Zen temple founded in 1281 in Kita-Kamakura and ranked fourth of the Kamakura Five Great Zen Temples. The precincts feature a rare Chinese-style two-story bell gate and weathered stone Buddhas, set in quiet hillside grounds.",
       "highlights": ["History"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -14,8 +14,8 @@
       "openingHours": "08:30 - 16:30"
     },
     "ja": {
-      "name": "鎌倉市",
-      "description": "鎌倉市はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "浄智寺",
+      "description": "金宝山浄智寺。1281年創建の臨済宗の寺院で、鎌倉五山の第四位。中国様式の鐘楼門や石仏群が有名で、北鎌倉の静かな山裾にたたずむ。",
       "highlights": ["鎌倉市の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.3334,
     "lng": 139.5464
   },
-  "description": "Jochi-ji is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+  "description": "Kinpozan Jochi-ji, a Rinzai Zen temple founded in 1281 in Kita-Kamakura and ranked fourth of the Kamakura Five Great Zen Temples. The precincts feature a rare Chinese-style two-story bell gate and weathered stone Buddhas, set in quiet hillside grounds.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

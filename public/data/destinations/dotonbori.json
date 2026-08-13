@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Dotonbori",
-      "description": "Dotonbori is a visitor destination in Osaka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+      "description": "Canal-side entertainment district in central Osaka, famous for the Glico running-man neon sign, Ebisubashi Bridge and the Dotonbori Canal. Known as Osaka's 'kuidaore' (eat-till-you-drop) quarter, it is packed with restaurants, takoyaki stalls and theaters.",
       "highlights": ["Shopping", "Food"]
     },
     "ja": {
       "name": "道頓堀",
-      "description": "道頓堀はOsaka Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "大阪を代表する歓楽街。道頓堀川沿いにグリコのランナー看板や戎橋など名物が並ぶ。「食い倒れ」の街として知られ、たこ焼きやお好み焼きの店、劇場などがひしめく。",
       "highlights": ["ショッピング", "グルメ"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 34.66861111,
     "lng": 135.50138889
   },
-  "description": "Dotonbori is a visitor destination in Osaka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+  "description": "Canal-side entertainment district in central Osaka, famous for the Glico running-man neon sign, Ebisubashi Bridge and the Dotonbori Canal. Known as Osaka's 'kuidaore' (eat-till-you-drop) quarter, it is packed with restaurants, takoyaki stalls and theaters.",
   "highlights": ["Shopping", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

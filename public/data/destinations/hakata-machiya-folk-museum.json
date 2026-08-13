@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Hakata Machiya Folk Museum",
-      "description": "Hakata Machiya Folk Museum is a visitor destination in Fukuoka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "Museum housed in restored Hakata merchant townhouses (machiya), presenting the traditional architecture, crafts and daily life of old Hakata. Exhibits cover local crafts such as Hakata weaving and Hakata dolls, plus the townscape of the merchant quarter.",
       "highlights": ["Museum"],
       "openingHours": "10:00–18:00"
     },
     "ja": {
       "name": "「博多町家」ふるさと館",
-      "description": "「博多町家」ふるさと館はFukuoka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "復元された博多の町家を活用した博物館。博多織や博多人形などの伝統工芸と、かつての博多の商家の暮らし・町並みを紹介する。",
       "highlights": ["博物館"],
       "openingHours": "10:00～18:00"
     }
@@ -41,16 +41,16 @@
     "lat": 33.59363888888889,
     "lng": 130.4113888888889
   },
-  "description": "Hakata Machiya Folk Museum is a visitor destination in Fukuoka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Museum housed in restored Hakata merchant townhouses (machiya), presenting the traditional architecture, crafts and daily life of old Hakata. Exhibits cover local crafts such as Hakata weaving and Hakata dolls, plus the townscape of the merchant quarter.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
   "budgetMax": 8500,
   "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 1100,
-    "food": 1925,
-    "cafe": 550
+    "transport": 2319,
+    "tickets": 200,
+    "food": 2319,
+    "cafe": 662
   },
   "transportOptions": {
     "train": 196,

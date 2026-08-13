@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Ikuta Ryokuchi",
-      "description": "Ikuta Ryokuchi is a visitor destination in Kawasaki City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Hillside green park in western Kawasaki with forest trails and a Japanese garden. The grounds also hold two major cultural facilities — the Nihon Minka-en open-air museum of traditional houses and the Taro Okamoto Museum of Art — making it a full-day destination.",
       "highlights": ["Nature"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "生田緑地",
-      "description": "生田緑地はKawasaki Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "川崎市西部の丘陵に広がる緑地公園。遊歩道や日本庭園が整備され、園内には日本民家園と岡本太郎美術館という二つの文化施設もある。",
       "highlights": ["生田緑地の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -46,7 +46,7 @@
     "lat": 35.609444,
     "lng": 139.558056
   },
-  "description": "Ikuta Ryokuchi is a visitor destination in Kawasaki City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Hillside green park in western Kawasaki with forest trails and a Japanese garden. The grounds also hold two major cultural facilities — the Nihon Minka-en open-air museum of traditional houses and the Taro Okamoto Museum of Art — making it a full-day destination.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,

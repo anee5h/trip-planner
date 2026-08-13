@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Mount Moiwa",
-      "description": "Mount Moiwa is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "A 531-meter peak southwest of central Sapporo, reached by ropeway and cable car. The summit observatory commands sweeping views over the city and is counted among Japan's finest night views.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "藻岩山 (札幌市)",
-      "description": "藻岩山 (札幌市)はSapporo Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "札幌市南西部にそびえる標高531mの山。ロープウェイとケーブルカーで山頂へ登れる。山頂展望台からは札幌市街の眺望が広がり、夜景の名所としても知られる。",
       "highlights": ["自然"]
     }
   },
@@ -38,7 +38,7 @@
     "lat": 43.0225,
     "lng": 141.32222222222222
   },
-  "description": "Mount Moiwa is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "A 531-meter peak southwest of central Sapporo, reached by ropeway and cable car. The summit observatory commands sweeping views over the city and is counted among Japan's finest night views.",
   "highlights": ["Nature"],
   "budgetMin": 4000,
   "budgetRecommended": 6500,
