@@ -7,8 +7,9 @@
  *   - Iwakuni postcode origins resolve as mainland-honshu and produce bus
  *     results (previously zeroed by a shikoku-box mis-resolution).
  *   - Zero-result origins stay zero and show the empty state.
- *   - Pinned per-origin counts for the audited example origins (corridor-
- *     graph bound: update deliberately when corridors or catalogue change).
+ *   - Semantic invariants for the audited example origins: results exist AND
+ *     the rendered UI count equals the canonical pipeline count (no catalogue
+ *     numbers pinned — expansion must not break this suite).
  *   - Night-only corridors never appear in day-trip bus results.
  *
  * @vitest-environment jsdom
