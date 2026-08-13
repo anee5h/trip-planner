@@ -42,10 +42,7 @@ async function mockForecast(page: Page) {
 }
 
 /** Stub the Nominatim postal-code lookup with fixed coordinates. */
-async function mockNominatim(
-  page: Page,
-  coords: { lat: number; lng: number },
-) {
+async function mockNominatim(page: Page, coords: { lat: number; lng: number }) {
   await page.route("**/nominatim.openstreetmap.org/**", async (route) => {
     await route.fulfill({
       status: 200,

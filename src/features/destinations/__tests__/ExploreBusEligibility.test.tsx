@@ -146,10 +146,11 @@ function setOrigin(coords: { lat: number; lng: number }) {
 
 /** Card destination ids rendered by the current Explore results. */
 function cardIds(hostEl: HTMLDivElement): string[] {
-  return [...hostEl.querySelectorAll("a[href^='/destinations/']")].map((a) =>
-    (a.getAttribute("href") ?? "")
-      .slice("/destinations/".length)
-      .split("?")[0],
+  return [...hostEl.querySelectorAll("a[href^='/destinations/']")].map(
+    (a) =>
+      (a.getAttribute("href") ?? "")
+        .slice("/destinations/".length)
+        .split("?")[0],
   );
 }
 
@@ -269,7 +270,9 @@ describe("KAI-63 Explore bus eligibility", () => {
       // the Explore filter uses the same gate as the canonical pipeline, so
       // the rendered count must equal the pipeline count for the same origin.
       setOrigin(coords);
-      const uiCount = getResultCount(renderDestinations("/destinations?mode=bus"));
+      const uiCount = getResultCount(
+        renderDestinations("/destinations?mode=bus"),
+      );
       expect(uiCount).toBeGreaterThan(0);
       expect(uiCount).toBe(pipelineBusCount(coords));
     },
@@ -299,8 +302,8 @@ describe("KAI-63 Explore bus eligibility", () => {
     setOrigin(TOKYO);
     const hostEl = renderDestinations("/destinations?mode=bus");
     const ids = cardIds(hostEl);
-    expect(ids.some((id) => id.includes("fukuoka") || id.includes("hakata"))).toBe(
-      false,
-    );
+    expect(
+      ids.some((id) => id.includes("fukuoka") || id.includes("hakata")),
+    ).toBe(false);
   });
 });
