@@ -44,6 +44,34 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
 export type DestinationExplorerState =
   typeof DEFAULT_DESTINATION_EXPLORER_STATE;
 
+/**
+ * Public-transport mode keys Explore can actually render as filter chips.
+ * `ALL_PUBLIC_MODES` also contains "ferry", but Explore has no ferry chip
+ * (KAI-63 D1): ferry rides the "any public transport" fallback and cannot be
+ * selected or excluded here. URL `mode` values outside this set are rejected
+ * at parse so a stale or hand-edited link can never activate a transport
+ * restriction with zero visible chips while the modal still reads
+ * "Any transport".
+ */
+export const EXPLORE_PUBLIC_MODE_KEYS = [
+  "train",
+  "shinkansen",
+  "bus",
+  "flight",
+] as const;
+
+/** The only car-mode values Explore renders (chips: Personal / Rental). */
+export const EXPLORE_CAR_MODE_KEYS = ["none", "my_car", "rental"] as const;
+
+function sanitizePublicModes(raw: string[]): string[] {
+  const allowed = new Set<string>(EXPLORE_PUBLIC_MODE_KEYS);
+  return raw.filter((mode) => allowed.has(mode));
+}
+
+function sanitizeCarMode(raw: string | null): string {
+  return raw === "my_car" || raw === "rental" ? raw : "none";
+}
+
 export function hasRestrictedTransportSelection(
   carMode: string,
   publicModes: string[],
@@ -100,12 +128,16 @@ export function parseDestinationSearchParams(
     date: normalizeTravelDateParam(params.get("date")) ?? "",
     maxBudget: parseNumber(params.get("budget"), defaults.maxBudget),
     sortBy: params.get("sort") ?? defaults.sortBy,
-    carMode: params.get("car") ?? defaults.carMode,
+    // KAI-63 D1: reject transport values Explore cannot render (ferry,
+    // legacy chip labels like local/express, junk car values) so a URL can
+    // never activate a restriction with no visible chips and an "Any
+    // transport" label.
+    carMode: sanitizeCarMode(params.get("car")),
     publicModes:
       params.get("mode") === "none"
         ? []
         : params.has("mode")
-          ? params.getAll("mode")
+          ? sanitizePublicModes(params.getAll("mode"))
           : defaults.publicModes,
     partySize,
     partyProfile: partyProfileForSize(partySize),
@@ -179,9 +211,10 @@ export function serializeDestinationSearchParams(
   if (state.date) params.set("date", state.date);
   params.set("budget", String(state.maxBudget));
   params.set("sort", state.sortBy);
-  params.set("car", state.carMode);
-  if (state.publicModes.length === 0) params.set("mode", "none");
-  else appendAll("mode", state.publicModes);
+  params.set("car", sanitizeCarMode(state.carMode));
+  const publicModes = sanitizePublicModes(state.publicModes);
+  if (publicModes.length === 0) params.set("mode", "none");
+  else appendAll("mode", publicModes);
   params.set("party", partyProfileForSize(state.partySize));
   params.set("partySize", String(state.partySize));
   if (state.weather !== "any") params.set("weather", state.weather);

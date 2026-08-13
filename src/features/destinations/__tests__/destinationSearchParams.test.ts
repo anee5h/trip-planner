@@ -86,6 +86,72 @@ describe("destinationSearchParams", () => {
     expect(publicOnly.publicModes).toHaveLength(4);
   });
 
+  // -------------------------------------------------------------------------
+  // KAI-63 D1: transport URL state must only contain renderable modes
+  // -------------------------------------------------------------------------
+
+  it("D1: rejects ferry mode (no Explore chip) so no hidden restriction exists", () => {
+    const parsed = parseDestinationSearchParams(
+      new URLSearchParams("mode=ferry"),
+    );
+
+    expect(parsed.carMode).toBe("none");
+    expect(parsed.publicModes).toEqual([]);
+    expect(
+      hasRestrictedTransportSelection(parsed.carMode, parsed.publicModes),
+    ).toBe(false);
+  });
+
+  it("D1: rejects legacy chip labels and junk mode values", () => {
+    const parsed = parseDestinationSearchParams(
+      new URLSearchParams("mode=local&mode=express&mode=whatever"),
+    );
+
+    expect(parsed.publicModes).toEqual([]);
+    expect(
+      hasRestrictedTransportSelection(parsed.carMode, parsed.publicModes),
+    ).toBe(false);
+  });
+
+  it("D1: keeps valid modes and drops ferry from a mixed public-transport URL", () => {
+    const parsed = parseDestinationSearchParams(
+      new URLSearchParams(
+        "mode=train&mode=shinkansen&mode=bus&mode=flight&mode=ferry",
+      ),
+    );
+
+    expect(parsed.publicModes).toEqual([
+      "train",
+      "shinkansen",
+      "bus",
+      "flight",
+    ]);
+  });
+
+  it("D1: normalizes junk car values to none", () => {
+    expect(
+      parseDestinationSearchParams(new URLSearchParams("car=whatever")).carMode,
+    ).toBe("none");
+    expect(
+      parseDestinationSearchParams(new URLSearchParams("car=my_car")).carMode,
+    ).toBe("my_car");
+    expect(
+      parseDestinationSearchParams(new URLSearchParams("car=rental")).carMode,
+    ).toBe("rental");
+  });
+
+  it("D1: serialize never emits non-renderable transport values", () => {
+    const serialized = serializeDestinationSearchParams({
+      ...DEFAULT_DESTINATION_EXPLORER_STATE,
+      carMode: "junk",
+      publicModes: ["train", "ferry", "local"],
+    });
+
+    expect(serialized.get("car")).toBe("none");
+    expect(serialized.getAll("mode")).toEqual(["train"]);
+    expect(serialized.has("mode")).toBe(true);
+  });
+
   it("persists preferred weather and derives profile from numeric party size", () => {
     const parsed = parseDestinationSearchParams(
       new URLSearchParams("partySize=5&party=couple&weather=rainy"),
