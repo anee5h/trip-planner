@@ -42,9 +42,7 @@ const CANONICAL_KEYS = new Set([
   "ferry",
 ]);
 
-function catalogueWith(
-  ...records: DestinationRecord[]
-): CatalogData {
+function catalogueWith(...records: DestinationRecord[]): CatalogData {
   return {
     destinations: records as any,
     collections: [],
@@ -115,9 +113,7 @@ describe("transport truthfulness (KAI-63) — catalogue data", () => {
 describe("transport truthfulness (KAI-63) — validator rules fire", () => {
   it("unmutated catalogue has no V-* transport truthfulness errors", async () => {
     const res = await runValidator(catalogueWith(...catalogue));
-    const transportIssues = res.issues.filter((i) =>
-      i.code.startsWith("V-"),
-    );
+    const transportIssues = res.issues.filter((i) => i.code.startsWith("V-"));
     expect(transportIssues).toEqual([]);
     expect(res.passed).toBe(true);
   });

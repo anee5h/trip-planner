@@ -34,16 +34,17 @@ const GROUND_TRANSPORT_KEYS: Record<TransportMode, true> = {
  * train and shinkansen. okinawa-main is deliberately excluded (Yui Rail
  * monorail). Derived from the canonical transport topology (KAI-63).
  */
-const RAIL_LESS_ISLAND_ZONES: Record<TransportZoneId, true> = Object.fromEntries(
-  [...zoneById.values()]
-    .filter(
-      (zone) =>
-        zone.isIsland &&
-        !zone.localModes.includes("train") &&
-        !zone.localModes.includes("shinkansen"),
-    )
-    .map((zone) => [zone.id, true] as const),
-) as Record<TransportZoneId, true>;
+const RAIL_LESS_ISLAND_ZONES: Record<TransportZoneId, true> =
+  Object.fromEntries(
+    [...zoneById.values()]
+      .filter(
+        (zone) =>
+          zone.isIsland &&
+          !zone.localModes.includes("train") &&
+          !zone.localModes.includes("shinkansen"),
+      )
+      .map((zone) => [zone.id, true] as const),
+  ) as Record<TransportZoneId, true>;
 
 export const destinationsValidator: ValidatorModule = {
   name: "Catalog Destinations",
@@ -242,18 +243,18 @@ export const destinationsValidator: ValidatorModule = {
             message: `Published destination '${dest.id}' has missing 'collections' field.`,
             targetId: dest.id,
           });
-          }
-          // Route-known-but-unestimated records (localAccessModes set with
-          // localAccessUnestimated) intentionally carry no static minutes;
-          // the UI renders "route known — time and cost unavailable".
-          const routeKnownUnestimated =
-            dest.localAccessModes?.length && dest.localAccessUnestimated === true;
-          if (
-            !routeKnownUnestimated &&
-            (!dest.transportOptions ||
-              typeof dest.transportOptions !== "object" ||
-              Object.keys(dest.transportOptions).length === 0)
-          ) {
+        }
+        // Route-known-but-unestimated records (localAccessModes set with
+        // localAccessUnestimated) intentionally carry no static minutes;
+        // the UI renders "route known — time and cost unavailable".
+        const routeKnownUnestimated =
+          dest.localAccessModes?.length && dest.localAccessUnestimated === true;
+        if (
+          !routeKnownUnestimated &&
+          (!dest.transportOptions ||
+            typeof dest.transportOptions !== "object" ||
+            Object.keys(dest.transportOptions).length === 0)
+        ) {
           if (
             !dest.transportOptions ||
             typeof dest.transportOptions !== "object" ||
