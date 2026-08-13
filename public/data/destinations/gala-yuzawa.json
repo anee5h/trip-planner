@@ -55,7 +55,7 @@
     "Enjoy regional specialties and local culture",
     "Perfect for a active day out"
   ],
-  "description": "Discover Gala Yuzawa, a prominent destination in Shizuoka. With its rich mix of skiing, snow, shinkansen access, it's a highly recommended spot for a 8-hour getaway.",
+  "description": "Discover Gala Yuzawa, a prominent destination in Niigata. With its rich mix of skiing, snow, shinkansen access, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 8276,
@@ -85,5 +85,6 @@
     "max": 9
   },
   "officialWebsite": "https://gala.co.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "nameJa": "GALA湯沢スノーリゾート"
 }

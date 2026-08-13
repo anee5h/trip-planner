@@ -4786,7 +4786,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+    "notes": "9.2 city expansion record for Fukuoka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -8625,7 +8625,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+    "notes": "9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -9492,7 +9492,7 @@
   {
     "id": "enoshima-iwaya-caves",
     "name": "Enoshima Iwaya Caves",
-    "nameJa": "江の島",
+    "nameJa": "江の島岩屋",
     "aliases": ["Enoshima", "江の島"],
     "content": {
       "en": {
@@ -10149,7 +10149,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+    "notes": "9.2 city expansion record for Sapporo City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -10276,7 +10276,7 @@
       "Enjoy regional specialties and local culture",
       "Perfect for a active day out"
     ],
-    "description": "Discover Fuji Five Lakes, a prominent destination in Shizuoka. With its rich mix of fuji views, fuji-q, cycling, it's a highly recommended spot for a 8-hour getaway.",
+    "description": "Discover Fuji Five Lakes, a prominent destination in Yamanashi. With its rich mix of fuji views, fuji-q, cycling, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
       "transport": 4800,
@@ -10993,7 +10993,7 @@
       "Enjoy regional specialties and local culture",
       "Perfect for a active day out"
     ],
-    "description": "Discover Fukui, a prominent destination in Shizuoka. With its rich mix of dinosaurs, cliffs, crab, it's a highly recommended spot for a 8-hour getaway.",
+    "description": "Discover Fukui, a prominent destination in Fukui. With its rich mix of dinosaurs, cliffs, crab, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
       "transport": 4400,
@@ -11128,7 +11128,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+    "notes": "9.2 city expansion record for Fukuoka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -11206,7 +11206,7 @@
   {
     "id": "fukuoka-castle-ruins",
     "name": "Fukuoka Castle Ruins",
-    "nameJa": "福岡市",
+    "nameJa": "福岡城跡（舞鶴公園）",
     "aliases": ["Fukuoka", "福岡市"],
     "content": {
       "en": {
@@ -11306,7 +11306,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+    "notes": "9.2 city expansion record for Fukuoka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -11621,7 +11621,7 @@
     "weatherDependence": "moderate",
     "reservation": "Check the official website before visiting.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+    "notes": "9.2 city expansion record for Fukuoka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -11799,7 +11799,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+    "notes": "9.2 city expansion record for Fukuoka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -12331,7 +12331,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -12432,7 +12432,7 @@
       "Enjoy regional specialties and local culture",
       "Perfect for a active day out"
     ],
-    "description": "Discover Gala Yuzawa, a prominent destination in Shizuoka. With its rich mix of skiing, snow, shinkansen access, it's a highly recommended spot for a 8-hour getaway.",
+    "description": "Discover Gala Yuzawa, a prominent destination in Niigata. With its rich mix of skiing, snow, shinkansen access, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
       "transport": 8276,
@@ -12462,7 +12462,8 @@
       "max": 9
     },
     "officialWebsite": "https://gala.co.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)"
+    "businessHours": "09:00 - 17:00 (Daily)",
+    "nameJa": "GALA湯沢スノーリゾート"
   },
   {
     "id": "geibikei-gorge-iwate",
@@ -13441,7 +13442,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -15502,7 +15503,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+    "notes": "9.2 city expansion record for Fukuoka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -15866,7 +15867,7 @@
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg",
     "description": "Mount Hakodate offers one of Japan's Three Great Night Views, overlooking a stunning hourglass-shaped peninsula illuminated between Tsugaru Strait and Hakodate Bay.",
-    "notes": "Premier mountain hot spring resort near Tokyo.",
+    "notes": "One of Japan's Three Great Night Views — sweeping views over Hakodate Bay from Mount Hakodate.",
     "budgetRecommended": 6500,
     "crowd": {
       "weekday": 3,
@@ -16802,7 +16803,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -18355,7 +18356,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+    "notes": "9.2 city expansion record for Sapporo City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -18523,7 +18524,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+    "notes": "9.2 city expansion record for Sapporo City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -18875,7 +18876,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+    "notes": "9.2 city expansion record for Nagoya City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -22142,7 +22143,7 @@
   {
     "id": "jochi-ji",
     "name": "Jochi-ji",
-    "nameJa": "鎌倉市",
+    "nameJa": "浄智寺",
     "aliases": ["Kamakura", "鎌倉市"],
     "content": {
       "en": {
@@ -27210,7 +27211,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -27249,7 +27250,7 @@
     "officialWebsite": "https://www.kenninji.jp/",
     "businessHours": "08:30 - 17:00 (Last admission 16:30)",
     "nearHubs": ["kyoto-city"],
-    "notesJa": "【見どころ】法観寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "notesJa": "【見どころ】建仁寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
@@ -27357,7 +27358,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -27695,7 +27696,7 @@
       "Enjoy regional specialties and local culture",
       "Perfect for a active day out"
     ],
-    "description": "Discover Kinugawa Onsen, a prominent destination in Kanagawa. With its rich mix of onsen, edo wonderland, it's a highly recommended spot for a 8-hour getaway.",
+    "description": "Discover Kinugawa Onsen, a prominent destination in Tochigi. With its rich mix of onsen, edo wonderland, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
       "transport": 5517,
@@ -28153,7 +28154,7 @@
       "Enjoy regional specialties and local culture",
       "Perfect for a active day out"
     ],
-    "description": "Discover Kiso Valley, a prominent destination in Shizuoka. With its rich mix of nakasendo, post towns, tsumago, it's a highly recommended spot for a 8-hour getaway.",
+    "description": "Discover Kiso Valley, a prominent destination in Nagano. With its rich mix of nakasendo, post towns, tsumago, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
       "transport": 4400,
@@ -28639,7 +28640,7 @@
   {
     "id": "kitano-ijinkan",
     "name": "Kitano Ijinkan",
-    "nameJa": "神戸市",
+    "nameJa": "北野異人館（北野異人館街）",
     "aliases": ["Kobe", "神戸市"],
     "content": {
       "en": {
@@ -28737,7 +28738,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+    "notes": "9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -28987,7 +28988,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+    "notes": "9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -29269,7 +29270,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+    "notes": "9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -29418,7 +29419,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+    "notes": "9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -29709,7 +29710,7 @@
     "weatherDependence": "moderate",
     "reservation": "Check the official website before visiting.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+    "notes": "9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -31650,7 +31651,7 @@
       "Enjoy regional specialties and local culture",
       "Perfect for a active day out"
     ],
-    "description": "Discover Kurobe Gorge, a prominent destination in Shizuoka. With its rich mix of scenic railway, ravine, onsen, it's a highly recommended spot for a 8-hour getaway.",
+    "description": "Discover Kurobe Gorge, a prominent destination in Toyama. With its rich mix of scenic railway, ravine, onsen, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
       "transport": 6300,
@@ -31794,7 +31795,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+    "notes": "9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -32086,7 +32087,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+    "notes": "9.2 city expansion record for Fukuoka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -32642,7 +32643,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -32790,7 +32791,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -32935,7 +32936,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -33080,7 +33081,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -34037,7 +34038,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+    "notes": "9.2 city expansion record for Fukuoka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -34711,7 +34712,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+    "notes": "9.2 city expansion record for Sapporo City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -35897,7 +35898,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+    "notes": "9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -38421,7 +38422,7 @@
       }
     ],
     "relationships": {},
-    "nameJa": "富士山―信仰の対象と芸術の源泉",
+    "nameJa": "富士山",
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "None required",
@@ -38680,7 +38681,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+    "notes": "9.2 city expansion record for Sapporo City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -39335,7 +39336,7 @@
   {
     "id": "museum-of-aeronautical-sciences",
     "name": "Museum of Aeronautical Sciences",
-    "nameJa": "成田国際空港",
+    "nameJa": "航空科学博物館",
     "aliases": ["Narita International Airport", "成田国際空港"],
     "content": {
       "en": {
@@ -39819,7 +39820,7 @@
       "Enjoy regional specialties and local culture",
       "Perfect for a active day out"
     ],
-    "description": "Discover Nagano & Snow Monkeys, a prominent destination in Shizuoka. With its rich mix of zenkoji, olympics, it's a highly recommended spot for a 8-hour getaway.",
+    "description": "Discover Nagano & Snow Monkeys, a prominent destination in Nagano. With its rich mix of zenkoji, olympics, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
       "transport": 4000,
@@ -40834,7 +40835,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+    "notes": "9.2 city expansion record for Nagoya City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -41003,7 +41004,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+    "notes": "9.2 city expansion record for Nagoya City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -41569,7 +41570,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+    "notes": "9.2 city expansion record for Fukuoka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -41744,7 +41745,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+    "notes": "9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -41791,7 +41792,7 @@
   {
     "id": "nanzen-ji",
     "name": "Nanzen-ji",
-    "nameJa": "南禅院",
+    "nameJa": "南禅寺",
     "aliases": ["Nanzen-in", "南禅院"],
     "content": {
       "en": {
@@ -41889,7 +41890,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -44193,7 +44194,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+    "notes": "9.2 city expansion record for Sapporo City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -44661,7 +44662,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -44899,7 +44900,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -45002,7 +45003,7 @@
       "Enjoy regional specialties and local culture",
       "Perfect for a active day out"
     ],
-    "description": "Discover Noto Peninsula, a prominent destination in Shizuoka. With its rich mix of scenic drive, seafood, rugged, it's a highly recommended spot for a 8-hour getaway.",
+    "description": "Discover Noto Peninsula, a prominent destination in Ishikawa. With its rich mix of scenic drive, seafood, rugged, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
       "transport": 4800,
@@ -45231,7 +45232,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+    "notes": "9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -45376,7 +45377,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+    "notes": "9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -45520,7 +45521,7 @@
     "weatherDependence": "moderate",
     "reservation": "Check the official website before visiting.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+    "notes": "9.2 city expansion record for Kobe City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -46246,7 +46247,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+    "notes": "9.2 city expansion record for Sapporo City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -46572,7 +46573,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+    "notes": "9.2 city expansion record for Fukuoka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -47278,7 +47279,7 @@
       "Enjoy regional specialties and local culture",
       "Perfect for a active day out"
     ],
-    "description": "Discover Okuhida, a prominent destination in Shizuoka. With its rich mix of onsen, ropeway, alps, it's a highly recommended spot for a 8-hour getaway.",
+    "description": "Discover Okuhida, a prominent destination in Gifu. With its rich mix of onsen, ropeway, alps, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
       "transport": 7600,
@@ -48542,7 +48543,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+    "notes": "9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -48828,7 +48829,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+    "notes": "9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -49125,7 +49126,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+    "notes": "9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -49269,7 +49270,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+    "notes": "9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -49416,7 +49417,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+    "notes": "9.2 city expansion record for Sendai City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -49584,7 +49585,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+    "notes": "9.2 city expansion record for Nagoya City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -49664,7 +49665,7 @@
   {
     "id": "osu-shopping-district",
     "name": "Osu Shopping District",
-    "nameJa": "名古屋市",
+    "nameJa": "大須商店街",
     "aliases": ["Nagoya", "名古屋市"],
     "content": {
       "en": {
@@ -49762,7 +49763,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+    "notes": "9.2 city expansion record for Nagoya City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -50673,7 +50674,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -50878,7 +50879,7 @@
   {
     "id": "renkeiji",
     "name": "Renkeiji",
-    "nameJa": "本川越駅",
+    "nameJa": "蓮馨寺",
     "aliases": ["Hon-Kawagoe Station", "本川越駅"],
     "content": {
       "en": {
@@ -51226,7 +51227,7 @@
   {
     "id": "ryoan-ji",
     "name": "Ryoan-ji",
-    "nameJa": "京都市",
+    "nameJa": "龍安寺",
     "aliases": ["Kyoto", "京都市"],
     "content": {
       "en": {
@@ -51324,7 +51325,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -52173,7 +52174,7 @@
   {
     "id": "saitama-shintoshin",
     "name": "Saitama Shintoshin",
-    "nameJa": "さいたま市",
+    "nameJa": "さいたま新都心",
     "aliases": ["Saitama (city)", "さいたま市"],
     "content": {
       "en": {
@@ -53322,7 +53323,7 @@
   {
     "id": "sanjusangen-do",
     "name": "Sanjusangen-do",
-    "nameJa": "江戸三十三間堂",
+    "nameJa": "蓮華王院三十三間堂",
     "aliases": ["Sanjūsangen-dō", "江戸三十三間堂"],
     "content": {
       "en": {
@@ -53419,7 +53420,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -53695,7 +53696,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+    "notes": "9.2 city expansion record for Sapporo City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -53968,7 +53969,7 @@
     "weatherDependence": "moderate",
     "reservation": "Check the official website before visiting.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+    "notes": "9.2 city expansion record for Sapporo City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -54136,7 +54137,7 @@
     "weatherDependence": "moderate",
     "reservation": "Check the official website before visiting.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+    "notes": "9.2 city expansion record for Sapporo City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -54487,7 +54488,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+    "notes": "9.2 city expansion record for Nagoya City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -55204,7 +55205,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+    "notes": "9.2 city expansion record for Sendai City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -57057,7 +57058,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+    "notes": "9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -57203,7 +57204,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+    "notes": "9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -59388,7 +59389,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+    "notes": "9.2 city expansion record for Sapporo City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -60467,7 +60468,7 @@
       "Enjoy regional specialties and local culture",
       "Perfect for a active day out"
     ],
-    "description": "Discover Takaoka, a prominent destination in Shizuoka. With its rich mix of great buddha, doraemon, crafts, it's a highly recommended spot for a 8-hour getaway.",
+    "description": "Discover Takaoka, a prominent destination in Toyama. With its rich mix of great buddha, doraemon, crafts, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
       "transport": 3600,
@@ -61182,7 +61183,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+    "notes": "9.2 city expansion record for Sapporo City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -61830,7 +61831,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+    "notes": "9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -61976,7 +61977,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+    "notes": "9.2 city expansion record for Fukuoka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -62161,7 +62162,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+    "notes": "9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -62585,7 +62586,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+    "notes": "9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -62732,7 +62733,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+    "notes": "9.2 city expansion record for Fukuoka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -63634,7 +63635,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+    "notes": "9.2 city expansion record for Nagoya City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -63803,7 +63804,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+    "notes": "9.2 city expansion record for Nagoya City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -65822,7 +65823,7 @@
       "Enjoy regional specialties and local culture",
       "Perfect for a active day out"
     ],
-    "description": "Discover Tateyama Kurobe Alpine Route, a prominent destination in Shizuoka. With its rich mix of snow wall, dam, scenic, it's a highly recommended spot for a 8-hour getaway.",
+    "description": "Discover Tateyama Kurobe Alpine Route, a prominent destination in Toyama. With its rich mix of snow wall, dam, scenic, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
       "transport": 10435,
@@ -66363,7 +66364,7 @@
     "weatherDependence": "low",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+    "notes": "9.2 city expansion record for Nagoya City.",
     "schemaVersion": 2,
     "status": "beta",
     "travelEstimate": {
@@ -67270,7 +67271,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+    "notes": "9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -68122,7 +68123,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+    "notes": "9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -68277,7 +68278,7 @@
     "weatherDependence": "moderate",
     "reservation": "Check the official website before visiting.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+    "notes": "9.2 city expansion record for Osaka City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -68524,7 +68525,7 @@
       "Enjoy regional specialties and local culture",
       "Perfect for a active day out"
     ],
-    "description": "Discover Ushiku Daibutsu, a prominent destination in Kanagawa. With its rich mix of giant statue, record breaking, it's a highly recommended spot for a 8-hour getaway.",
+    "description": "Discover Ushiku Daibutsu, a prominent destination in Ibaraki. With its rich mix of giant statue, record breaking, it's a highly recommended spot for a 8-hour getaway.",
     "bestMonths": [3, 4, 5, 9, 10, 11],
     "budgetBreakdown": {
       "transport": 3000,
@@ -70117,7 +70118,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+    "notes": "9.2 city expansion record for Kyoto City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -70156,7 +70157,7 @@
     "officialWebsite": "https://www.yasaka-jinja.or.jp/",
     "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
     "nearHubs": ["kyoto-city"],
-    "notesJa": "【見どころ】法観寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "notesJa": "【見どころ】八坂神社は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
@@ -80264,7 +80265,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+    "notes": "9.2 city expansion record for Shinjuku City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -80406,7 +80407,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+    "notes": "9.2 city expansion record for Shinjuku City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -80548,7 +80549,7 @@
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Source-backed v1.9.2 city expansion record for Shinjuku City.",
+    "notes": "9.2 city expansion record for Shinjuku City.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -85081,7 +85082,8 @@
       "confidence": "medium"
     },
     "notesJa": "那覇のメインストリート。沖縄土産やストリートフードが楽しめる国際通り。",
-    "transportZoneId": "okinawa-main"
+    "transportZoneId": "okinawa-main",
+    "description": "Naha's famous 'Miracle Mile' vibrant avenue lined with Okinawan souvenir shops, awamori distilleries, steak houses, and fresh tropical seafood dining upstairs at Makishi Market."
   },
   {
     "id": "naminoue-shrine-naha",
@@ -85215,7 +85217,8 @@
       "confidence": "medium"
     },
     "notesJa": "波の上ビーチを見下ろす崖の上に立つ、沖縄随一の神社。",
-    "transportZoneId": "okinawa-main"
+    "transportZoneId": "okinawa-main",
+    "description": "The primary Shinto shrine of Okinawa perched dramatic on a coral cliff overlooking Naha's city beach and emerald ocean waters."
   },
   {
     "id": "fukushuen-garden-naha",
@@ -85349,7 +85352,8 @@
       "confidence": "medium"
     },
     "notesJa": "那覇の中心部近くにある静かな中国式庭園。福州との姉妹都市提携記念。",
-    "transportZoneId": "okinawa-main"
+    "transportZoneId": "okinawa-main",
+    "description": "A serene traditional Chinese landscape garden constructed in Naha's Kumemura district using granite and wood imported from Fuzhou, China."
   },
   {
     "id": "nago-pineapple-park",
@@ -85483,7 +85487,8 @@
       "confidence": "medium"
     },
     "notesJa": "家族連れに人気のパイナップルテーマパーク。試食も楽しめます。",
-    "transportZoneId": "okinawa-main"
+    "transportZoneId": "okinawa-main",
+    "description": "A colorful pineapple theme park featuring automatic cart rides through subtropical botanical gardens, pineapple wine tasting, and fresh pineapple desserts."
   },
   {
     "id": "busena-marine-park-nago",
@@ -85617,7 +85622,8 @@
       "confidence": "medium"
     },
     "notesJa": "海中展望塔からサンゴと熱帯魚を眺められます。グラスボートも。",
-    "transportZoneId": "okinawa-main"
+    "transportZoneId": "okinawa-main",
+    "description": "Okinawa's premier marine facility on Busena Cape, offering a 360-degree underwater observation tower and whale-shaped glass-bottom boat tours over coral reefs."
   },
   {
     "id": "churaumi-aquarium-motobu",
@@ -85751,7 +85757,8 @@
       "confidence": "medium"
     },
     "notesJa": "ジンベエザメが見られる世界有数の大水槽。混雑を避けるなら午前中の到着がおすすめ。",
-    "transportZoneId": "okinawa-main"
+    "transportZoneId": "okinawa-main",
+    "description": "One of the world's largest aquariums located inside Ocean Expo Park, world-renowned for its colossal 7,500m³ 'Kuroshio Sea' tank holding multiple whale sharks and reef manta rays."
   },
   {
     "id": "bise-fukugi-tree-road-motobu",
@@ -85885,7 +85892,8 @@
       "confidence": "medium"
     },
     "notesJa": "古木のフクギ並木が続く静かな小道。レンタサイクルでの散策がおすすめ。",
-    "transportZoneId": "okinawa-main"
+    "transportZoneId": "okinawa-main",
+    "description": "A quiet coastal village surrounded by thousands of ancient Garcinia (Fukugi) windbreak trees forming green vaulted tunnels that filter sunlight down to sandy footpaths."
   },
   {
     "id": "nakijin-castle-ruins-motobu",
@@ -86032,7 +86040,8 @@
       "confidence": "medium"
     },
     "notesJa": "世界遺産の城跡。1月下旬には沖縄で最も早い桜が見られます。",
-    "transportZoneId": "okinawa-main"
+    "transportZoneId": "okinawa-main",
+    "description": "A 14th-century World Heritage fortress of the Hokuzan Kingdom featuring undulating Ryukyu limestone walls snake-like along mountain ridges with sweeping East China Sea ocean views."
   },
   {
     "id": "kabira-bay-ishigaki",
@@ -86165,7 +86174,8 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "notesJa": "遊泳禁止の美しい湾。グラスボートでサンゴ礁と真珠養殖を見学できます。"
+    "notesJa": "遊泳禁止の美しい湾。グラスボートでサンゴ礁と真珠養殖を見学できます。",
+    "description": "Awarded 3 stars by Michelin Green Guide Japan, Kabira Bay features breathtaking multi-hued turquoise waters, black pearl cultivation reefs, and white sand shores."
   },
   {
     "id": "tamatorizaki-viewpoint-ishigaki",
@@ -86297,7 +86307,8 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "notesJa": "無料の展望台から平久保半島の絶景パノラマ。晴れた午前中がおすすめ。"
+    "notesJa": "無料の展望台から平久保半島の絶景パノラマ。晴れた午前中がおすすめ。",
+    "description": "A scenic hill observatory on northeastern Ishigaki Island lined with vibrant red hibiscus flowers, offering panoramic views of Ibaruma Bay and the Hirakubo Peninsula."
   },
   {
     "id": "yonehara-beach-coral-ishigaki",
@@ -86429,7 +86440,8 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "notesJa": "海岸からすぐのサンゴ礁でシュノーケリング。干潮時がねらい目。"
+    "notesJa": "海岸からすぐのサンゴ礁でシュノーケリング。干潮時がねらい目。",
+    "description": "A wild natural white-sand beach on northern Ishigaki where shallow coral reefs grow right up near the shore, making it a favorite spot for beachgoers and marine life watching."
   },
   {
     "id": "yonaha-maehama-beach-miyako",
@@ -86563,7 +86575,8 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "notesJa": "日本のベストビーチの一つ。遠浅で家族連れにも安心の白砂海岸。"
+    "notesJa": "日本のベストビーチの一つ。遠浅で家族連れにも安心の白砂海岸。",
+    "description": "Consistently voted Japan's top beach, featuring 7 continuous kilometers of soft white powder sand facing Kurima Island across translucent Miyako Blue water."
   },
   {
     "id": "irabu-bridge-irabujima-miyako",
@@ -86697,7 +86710,8 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "notesJa": "日本最長の無料橋。道の駅からのパノラマが絶好の写真スポット。"
+    "notesJa": "日本最長の無料橋。道の駅からのパノラマが絶好の写真スポット。",
+    "description": "Japan's longest toll-free bridge spanning 3,540 meters over emerald clear ocean, connecting Miyako Island to Irabu Island with exhilarating ocean drive vistas."
   },
   {
     "id": "higashi-hennazaki-cape-miyako",
@@ -86831,7 +86845,8 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "notesJa": "宮古島最東端の岬。太平洋と東シナ海が出会う景勝地。"
+    "notesJa": "宮古島最東端の岬。太平洋と東シナ海が出会う景勝地。",
+    "description": "A narrow 2km long coral peninsula jutting into the ocean at Miyako Island's easternmost tip, crowned by a white climbable lighthouse with dramatic wave-crashing sea cliff views."
   },
   {
     "id": "hakata-station-area",
@@ -92507,8 +92522,8 @@
   },
   {
     "id": "fukuoka-paypay-dome",
-    "name": "Fukuoka PayPay Dome & BOSS E-ZO",
-    "nameJa": "福岡ペイペイドーム・BOSS E-ZO FUKUOKA",
+    "name": "Mizuho PayPay Dome Fukuoka & BOSS E-ZO",
+    "nameJa": "みずほPayPayドーム福岡・BOSS E-ZO FUKUOKA",
     "aliases": [
       "Fukuoka PayPay Dome & BOSS E-ZO",
       "福岡ペイペイドーム・BOSS E-ZO FUKUOKA"
@@ -97253,7 +97268,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Paid parking available near the garden",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Takamatsu City.",
+    "notes": "",
     "notesJa": "【見どころ】栗林公園は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -97410,7 +97425,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Paid parking available at the east gate area",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Takamatsu City.",
+    "notes": "",
     "notesJa": "【見どころ】高松城（玉藻公園）は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -97550,7 +97565,7 @@
     "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Paid parking near the summit shuttle bus stops",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Takamatsu City. The former Yashima ropeway is permanently closed; the summit shuttle bus is the current access.",
+    "notes": "The former Yashima ropeway is permanently closed; the summit shuttle bus is the current access.",
     "notesJa": "【見どころ】屋島は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -97696,7 +97711,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Free parking available",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Takamatsu City.",
+    "notes": "",
     "notesJa": "【見どころ】四国村は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -97836,7 +97851,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Check local parking guidance",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Takamatsu City.",
+    "notes": "",
     "notesJa": "【見どころ】高松市美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -97982,7 +97997,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Check local parking guidance",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
+    "notes": "",
     "notesJa": "【見どころ】石手寺は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -98122,7 +98137,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "About 20 parking spaces; public transport recommended",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
+    "notes": "",
     "notesJa": "【見どころ】萬翠荘は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -98262,7 +98277,7 @@
     "weatherDependence": "low",
     "reservation": "Not required for first-floor bath; private rooms reserve in advance",
     "parking": "Check local parking guidance",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
+    "notes": "",
     "notesJa": "【見どころ】道後温泉別館 飛鳥乃湯泉は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -98402,7 +98417,7 @@
     "weatherDependence": "moderate",
     "reservation": "Not required (no reservations; capacity 36)",
     "parking": "Public transport recommended",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City. Does not run Dec 30–Jan 3.",
+    "notes": "Does not run Dec 30–Jan 3.",
     "notesJa": "【見どころ】坊っちゃん列車は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -98542,7 +98557,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Public transport recommended",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
+    "notes": "",
     "notesJa": "【見どころ】道後ハイカラ通りは四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -98687,7 +98702,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Check local parking guidance",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
+    "notes": "",
     "notesJa": "【見どころ】道後公園（湯築城跡）は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -98833,7 +98848,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "No parking at the museum; Kencho Nishi parking offers two hours free, with nearby paid lots",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Matsuyama City.",
+    "notes": "",
     "notesJa": "【見どころ】愛媛県美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -98973,7 +98988,7 @@
     "weatherDependence": "low",
     "reservation": "Advance booking recommended for performance seats; day and evening schedules vary",
     "parking": "Paid parking available in the area",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Tokushima City.",
+    "notes": "",
     "notesJa": "【見どころ】阿波おどり会館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -99113,7 +99128,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Check local parking guidance",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Tokushima City.",
+    "notes": "",
     "notesJa": "【見どころ】眉山ロープウェイは四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -99253,7 +99268,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Free parking at the cultural forest park",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Tokushima City.",
+    "notes": "",
     "notesJa": "【見どころ】徳島県立近代美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -99393,7 +99408,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Paid parking at Naruto Park",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Naruto City. Whirlpool strength depends on tide; check the tide table before visiting.",
+    "notes": "Whirlpool strength depends on tide; check the tide table before visiting.",
     "notesJa": "【見どころ】大鳴門橋遊歩道 うずしお道は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -99533,7 +99548,7 @@
     "weatherDependence": "high",
     "reservation": "WONDER NARUTO requires no reservation; AQUA EDDY requires advance reservation",
     "parking": "Paid parking at Naruto Park Kameura port",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Naruto City. The Aqua Eddy underwater-view boat requires advance reservation.",
+    "notes": "The Aqua Eddy underwater-view boat requires advance reservation.",
     "notesJa": "【見どころ】うずしお観潮船は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -99673,7 +99688,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Free parking available",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Naruto City.",
+    "notes": "",
     "notesJa": "【見どころ】大塚国際美術館は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -99959,7 +99974,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Check local parking guidance",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Naruto City (the temple is in Oasa-cho, Naruto City, not Tokushima City).",
+    "notes": "",
     "notesJa": "【見どころ】霊山寺は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -100105,7 +100120,7 @@
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Paid parking available",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Kochi City.",
+    "notes": "",
     "notesJa": "【見どころ】桂浜は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -100245,7 +100260,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Check local parking guidance",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Kochi City.",
+    "notes": "",
     "notesJa": "【見どころ】ひろめ市場は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -100805,7 +100820,7 @@
     "weatherDependence": "low",
     "reservation": "None required",
     "parking": "Public transport recommended",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Kochi City.",
+    "notes": "",
     "notesJa": "【見どころ】はりまや橋は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -101091,7 +101106,7 @@
     "weatherDependence": "low",
     "reservation": "Museum admission is free; fan-making experience has a separate fee—check current availability",
     "parking": "15 parking spaces; large buses should contact the museum in advance",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Marugame City.",
+    "notes": "",
     "notesJa": "【見どころ】丸亀うちわミュージアムは四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -101371,7 +101386,7 @@
     "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Limited roadside parking; drive carefully",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Miyoshi City.",
+    "notes": "",
     "notesJa": "【見どころ】落合集落は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -101517,7 +101532,7 @@
     "weatherDependence": "high",
     "reservation": "None required",
     "parking": "Paid parking at Minokoshi trailhead",
-    "notes": "Source-backed KAI-31 Shikoku expansion record for Miyoshi City.",
+    "notes": "",
     "notesJa": "【見どころ】剣山は四国の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -102205,7 +102220,7 @@
     "weatherDependence": "moderate",
     "reservation": "Not usually required; reserve popular accommodation in advance.",
     "parking": "Check local parking and public transport guidance.",
-    "notes": "Municipal hub created in KAI-31 to give Uwajima Castle a correct home.",
+    "notes": "Municipal hub created in",
     "businessHours": "Open access",
     "content": {
       "en": {
@@ -113371,7 +113386,7 @@
       "Ibaraki",
       "National Treasure Sword"
     ],
-    "description": "Kashima Jingu is one of Japan's Three Great Shrines (Nihon San-daijingu) together with Ise and Katori, and one of the oldest shrines in the Kanto region, founded in the first century BC. It enshrines Takemikazuchi-no-kami, the god of martial arts and swordsmanship, and its precincts include an ancient forest and a national treasure-class straight sword kept in the treasury.",
+    "description": "Kashima Jingu is one of Japan's Three Great Shrines (Nihon San-daijingu) together with Ise and Katori, and one of the oldest shrines in the Kanto region, founded in 660 BC. It enshrines Takemikazuchi-no-kami, the god of martial arts and swordsmanship, and its precincts include an ancient forest and a national treasure-class straight sword kept in the treasury.",
     "highlights": [
       "One of Japan's Three Great Jingu",
       "Ancient forest precinct (Kashima no Mori)",
@@ -113741,7 +113756,7 @@
     "ratingsSchemaVersion": 2,
     "placeType": "destination",
     "id": "usuzumi-zakura",
-    "name": "Usuzumi-zakura (Rootani Usuzumi Cherry)",
+    "name": "Usuzumi-zakura (Neodani Usuzumi Cherry)",
     "nameJa": "根尾谷淡墨桜",
     "aliases": ["Neodani Usuzumi Zakura", "根尾谷淡墨ザクラ"],
     "prefecture": "Gifu",
@@ -114139,7 +114154,7 @@
       "Reconstructed magistrate's office",
       "Spring cherry blossoms and night illumination"
     ],
-    "notes": "The Goryokaku Tower next to the fort offers the classic star-shaped view. The fort's magistrate office reconstruction charges admission (¥1,000 adult).",
+    "notes": "The Goryokaku Tower next to the fort offers the classic star-shaped view. The fort's magistrate office reconstruction charges admission (¥500 adult).",
     "transportOptions": {},
     "recommendedVisitHours": {
       "min": 1.5,
@@ -118893,7 +118908,7 @@
     },
     "categories": ["history", "culture", "sightseeing"],
     "tags": ["Top 100 Castle", "Castle", "History", "Okayama"],
-    "description": "Tsuyama Castle was the Mori clan seat; its 60-meter-tall stone walls are ranked among Japan's best. The 2005-reconstructed Bitchu-yagura turret and the castle town's samurai district make a full day.",
+    "description": "Tsuyama Castle was the Mori clan seat; its 45-meter-tall stone walls are ranked among Japan's best. The 2005-reconstructed Bitchu-yagura turret and the castle town's samurai district make a full day.",
     "highlights": [
       "60 m stone walls",
       "Mori clan domain seat",
@@ -118962,7 +118977,7 @@
       },
       "ja": {
         "name": "津山城",
-        "description": "森氏が治めた津山城。高さ60mの石垣は日本有数の規模で、2005年復元の備中櫓と桜が名物です。",
+        "description": "森氏が治めた津山城。高さ45mの石垣は日本有数の規模で、2005年復元の備中櫓と桜が名物です。",
         "highlights": [
           "高さ60mの石垣",
           "森氏の居城",
@@ -132309,7 +132324,7 @@
       },
       "ja": {
         "name": "笛吹川フルーツ公園",
-        "description": "甲府市街を見下ろす丘陵地に位置する笛吹川フルーツ公園は、2003年に「日本新三景」のひとつに選ばれた絶景スポット。甲府盆地を一望するパノラマ夜景で知られます。",
+        "description": "甲府市街を見下ろす丘陵地に位置する笛吹川フルーツ公園は、2003年に「新日本三大夜景」のひとつに選ばれた絶景スポット。甲府盆地を一望するパノラマ夜景で知られます。",
         "highlights": [
           "日本新三景の夜景",
           "甲府盆地のパノラマ",
@@ -133515,7 +133530,7 @@
     },
     "categories": ["bridge", "sightseeing", "engineering"],
     "tags": ["Rainbow Bridge", "Tokyo", "Japan Travel"],
-    "description": "Tokyo's 570 m suspension bridge (1993) spanning Tokyo Bay between Shibaura and Odaiba, illuminated in rainbow colors at night; pedestrian promenades run along both decks.",
+    "description": "Tokyo's 798 m suspension bridge (1993) spanning Tokyo Bay between Shibaura and Odaiba, illuminated in rainbow colors at night; pedestrian promenades run along both decks.",
     "highlights": [
       "Tokyo Bay landmark",
       "Night illumination",
@@ -133582,7 +133597,7 @@
       },
       "ja": {
         "name": "レインボーブリッジ",
-        "description": "1993年に開通した、芝浦とお台場を結ぶ全長570mの吊り橋。東京湾に架かり、夜は虹色にライトアップされます。通行人は両側の遊歩道を利用できます。",
+        "description": "1993年に開通した、芝浦とお台場を結ぶ全長798mの吊り橋。東京湾に架かり、夜は虹色にライトアップされます。通行人は両側の遊歩道を利用できます。",
         "highlights": ["東京湾のランドマーク", "夜のライトアップ", "遊歩道"],
         "notes": "歩行者用の遊歩道（無料、9:00～21:00）からは湾の景色を楽しめます。芝浦ふ頭駅からアクセス可能です。",
         "reservation": "予約不要",
@@ -134098,7 +134113,7 @@
     },
     "categories": ["sightseeing", "culture", "nature"],
     "tags": ["Shomyo Falls", "Toyama", "Japan Travel"],
-    "description": "Japan's tallest waterfall (350 m, four-stage), in the Tateyama mountains; the Hanyu-no-taki companion falls appear in spring thaw. A 滝百選 selection.",
+    "description": "Japan's tallest waterfall (350 m, four-stage), in the Tateyama mountains; the Hannoki-no-taki companion falls appear in spring thaw. A 滝百選 selection.",
     "highlights": [
       "Japan's tallest waterfall",
       "350 m four-stage drop",
@@ -134165,7 +134180,7 @@
       },
       "ja": {
         "name": "称名滝",
-        "description": "立山連峰にある日本一落差のある滝（350m・4段）。春の雪解けには隣の羽湯の滝が現れます。滝百選にも選ばれています。",
+        "description": "立山連峰にある日本一落差のある滝（350m・4段）。春の雪解けには隣のハンノキ滝が現れます。滝百選にも選ばれています。",
         "highlights": ["日本一の落差", "350m・4段の滝", "春の雪解けの増水"],
         "notes": "登山口に無料展望所があります。称名渓谷の遊歩道は6月〜10月は雪がなく歩けます。",
         "reservation": "予約不要",
