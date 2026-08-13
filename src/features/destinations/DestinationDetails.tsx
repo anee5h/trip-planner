@@ -26,7 +26,10 @@ import {
   resolveOriginTransportZone,
 } from "@/shared/services/transport/TransportTopologyService";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
-import { calculateScore, getRatingDisplayState } from "@/shared/services/recommendation/RecommendationScorer";
+import {
+  calculateScore,
+  getRatingDisplayState,
+} from "@/shared/services/recommendation/RecommendationScorer";
 import { createRecommendationMatch } from "@/shared/services/recommendation/RecommendationExplainability";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import {
@@ -1753,112 +1756,113 @@ export default function DestinationDetails() {
                   </Card>
                 ) : (
                   <>
-                {/* Experience Ratings */}
-                <Card>
-                  <CardContent className="p-6">
-                    <h4 className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-xs mb-4">
-                      {copy.experienceRatings}
-                    </h4>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      <RatingItem
-                        icon={Heart}
-                        label="Couple"
-                        value={destination.ratings.couple}
-                      />
-                      {destination.ratings.family !== undefined && (
-                        <RatingItem
-                          icon={Users}
-                          label="Family"
-                          value={destination.ratings.family}
-                        />
-                      )}
-                      <RatingItem
-                        icon={Camera}
-                        label="Photography"
-                        value={destination.ratings.photography}
-                      />
-                      <RatingItem
-                        icon={Utensils}
-                        label="Food"
-                        value={destination.ratings.food}
-                      />
-                      <RatingItem
-                        icon={JapaneseYen}
-                        label="Value"
-                        value={destination.ratings.value}
-                      />
-                      <WalkabilityRatingItem
-                        walkability={destination.ratings.walkability}
-                      />
-                      {destination.ratings.accessibility !== undefined && (
-                        <RatingItem
-                          icon={Train}
-                          label="Accessibility"
-                          value={destination.ratings.accessibility}
-                        />
-                      )}
-                      {destination.ratings.nature !== undefined && (
-                        <RatingItem
-                          icon={Leaf}
-                          label="Nature"
-                          value={destination.ratings.nature}
-                        />
-                      )}
-                      {destination.ratings.historyAndCulture !== undefined && (
-                        <RatingItem
-                          icon={Landmark}
-                          label="History & Culture"
-                          value={destination.ratings.historyAndCulture}
-                        />
-                      )}
-                      <RatingItem
-                        icon={Coffee}
-                        label="Relaxation"
-                        value={destination.ratings.relaxation}
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
+                    {/* Experience Ratings */}
+                    <Card>
+                      <CardContent className="p-6">
+                        <h4 className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-xs mb-4">
+                          {copy.experienceRatings}
+                        </h4>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                          <RatingItem
+                            icon={Heart}
+                            label="Couple"
+                            value={destination.ratings.couple}
+                          />
+                          {destination.ratings.family !== undefined && (
+                            <RatingItem
+                              icon={Users}
+                              label="Family"
+                              value={destination.ratings.family}
+                            />
+                          )}
+                          <RatingItem
+                            icon={Camera}
+                            label="Photography"
+                            value={destination.ratings.photography}
+                          />
+                          <RatingItem
+                            icon={Utensils}
+                            label="Food"
+                            value={destination.ratings.food}
+                          />
+                          <RatingItem
+                            icon={JapaneseYen}
+                            label="Value"
+                            value={destination.ratings.value}
+                          />
+                          <WalkabilityRatingItem
+                            walkability={destination.ratings.walkability}
+                          />
+                          {destination.ratings.accessibility !== undefined && (
+                            <RatingItem
+                              icon={Train}
+                              label="Accessibility"
+                              value={destination.ratings.accessibility}
+                            />
+                          )}
+                          {destination.ratings.nature !== undefined && (
+                            <RatingItem
+                              icon={Leaf}
+                              label="Nature"
+                              value={destination.ratings.nature}
+                            />
+                          )}
+                          {destination.ratings.historyAndCulture !==
+                            undefined && (
+                            <RatingItem
+                              icon={Landmark}
+                              label="History & Culture"
+                              value={destination.ratings.historyAndCulture}
+                            />
+                          )}
+                          <RatingItem
+                            icon={Coffee}
+                            label="Relaxation"
+                            value={destination.ratings.relaxation}
+                          />
+                        </div>
+                      </CardContent>
+                    </Card>
 
-                {/* Seasonal Ratings */}
-                <Card>
-                  <CardContent className="p-6">
-                    <h4 className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-xs mb-4">
-                      {copy.seasonalRatings}
-                    </h4>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      {destination.ratings.spring !== undefined && (
-                        <RatingItem
-                          icon={Flower2}
-                          label="Spring"
-                          value={destination.ratings.spring}
-                        />
-                      )}
-                      <RatingItem
-                        icon={ThermometerSun}
-                        label="Summer"
-                        value={destination.ratings.summer}
-                      />
-                      {destination.ratings.autumn !== undefined && (
-                        <RatingItem
-                          icon={Leaf}
-                          label="Autumn"
-                          value={destination.ratings.autumn}
-                        />
-                      )}
-                      <RatingItem
-                        icon={Snowflake}
-                        label="Winter"
-                        value={destination.ratings.winter}
-                      />
-                      <RatingItem
-                        icon={Umbrella}
-                        label="Rainy Day"
-                        value={destination.ratings.rain}
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
+                    {/* Seasonal Ratings */}
+                    <Card>
+                      <CardContent className="p-6">
+                        <h4 className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-xs mb-4">
+                          {copy.seasonalRatings}
+                        </h4>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                          {destination.ratings.spring !== undefined && (
+                            <RatingItem
+                              icon={Flower2}
+                              label="Spring"
+                              value={destination.ratings.spring}
+                            />
+                          )}
+                          <RatingItem
+                            icon={ThermometerSun}
+                            label="Summer"
+                            value={destination.ratings.summer}
+                          />
+                          {destination.ratings.autumn !== undefined && (
+                            <RatingItem
+                              icon={Leaf}
+                              label="Autumn"
+                              value={destination.ratings.autumn}
+                            />
+                          )}
+                          <RatingItem
+                            icon={Snowflake}
+                            label="Winter"
+                            value={destination.ratings.winter}
+                          />
+                          <RatingItem
+                            icon={Umbrella}
+                            label="Rainy Day"
+                            value={destination.ratings.rain}
+                          />
+                        </div>
+                      </CardContent>
+                    </Card>
                   </>
                 )}
               </TabsContent>

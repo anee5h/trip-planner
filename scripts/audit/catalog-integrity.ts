@@ -899,7 +899,10 @@ function checkDataQuality(
     const vector = JSON.stringify(
       REQUIRED_RATING_KEYS.map((key) => dest.ratings[key]),
     );
-    ratingVectorFrequency.set(vector, (ratingVectorFrequency.get(vector) ?? 0) + 1);
+    ratingVectorFrequency.set(
+      vector,
+      (ratingVectorFrequency.get(vector) ?? 0) + 1,
+    );
   }
   ruleCtx.ratingVectorFrequency = ratingVectorFrequency;
 

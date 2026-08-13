@@ -84,26 +84,23 @@ export default function Compare() {
   const coupleScores = compareDestinations.map((d, i) =>
     ratingVerified[i] ? d.ratings.couple : null,
   );
-  const maxCoupleScore =
-    coupleScores.every((v) => v === null) ? null : getMax(
-      coupleScores.filter((v): v is number => v !== null),
-    );
+  const maxCoupleScore = coupleScores.every((v) => v === null)
+    ? null
+    : getMax(coupleScores.filter((v): v is number => v !== null));
 
   const summerScores = compareDestinations.map((d, i) =>
     ratingVerified[i] ? d.ratings.summer : null,
   );
-  const maxSummerScore =
-    summerScores.every((v) => v === null) ? null : getMax(
-      summerScores.filter((v): v is number => v !== null),
-    );
+  const maxSummerScore = summerScores.every((v) => v === null)
+    ? null
+    : getMax(summerScores.filter((v): v is number => v !== null));
 
   const overallScores = compareDestinations.map((d, i) =>
     ratingVerified[i] ? d.ratings.overall : null,
   );
-  const maxOverall =
-    overallScores.every((v) => v === null) ? null : getMax(
-      overallScores.filter((v): v is number => v !== null),
-    );
+  const maxOverall = overallScores.every((v) => v === null)
+    ? null
+    : getMax(overallScores.filter((v): v is number => v !== null));
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">

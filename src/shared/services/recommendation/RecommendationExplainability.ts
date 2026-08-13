@@ -8,7 +8,11 @@ import type {
   RecommendationMatch,
   RecommendationReasonCode,
 } from "./RecommendationTypes";
-import { calculateConfidence, getRatingDisplayState, getValidModes } from "./RecommendationScorer";
+import {
+  calculateConfidence,
+  getRatingDisplayState,
+  getValidModes,
+} from "./RecommendationScorer";
 import {
   formatJPYRange,
   getEstimatedBudgetRange,

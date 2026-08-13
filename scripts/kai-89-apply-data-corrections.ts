@@ -99,11 +99,15 @@ function rebalanceBreakdown(d: Destination, id: string) {
   const othersSum = b.transport + b.food + b.cafe;
   const total = othersSum + b.tickets;
   if (total === rec) return;
-  if (![b.transport, b.tickets, b.food, b.cafe].every((v) => Number.isFinite(v)))
+  if (
+    ![b.transport, b.tickets, b.food, b.cafe].every((v) => Number.isFinite(v))
+  )
     fail(`${id}: breakdown contains non-finite component`);
   const ticketsTarget = rec - b.tickets;
   if (ticketsTarget <= 0)
-    fail(`${id}: verified tickets ${b.tickets} already exceed recommended ${rec}`);
+    fail(
+      `${id}: verified tickets ${b.tickets} already exceed recommended ${rec}`,
+    );
   if (othersSum === 0)
     fail(`${id}: zero transport/food/cafe cannot rebalance to ${rec}`);
   const scale = ticketsTarget / othersSum;
@@ -111,7 +115,9 @@ function rebalanceBreakdown(d: Destination, id: string) {
   const food = Math.round(b.food * scale);
   const cafe = rec - b.tickets - transport - food;
   if (cafe < 0)
-    fail(`${id}: rebalance leaves negative cafe (${rec} vs ${b.tickets}+${transport}+${food})`);
+    fail(
+      `${id}: rebalance leaves negative cafe (${rec} vs ${b.tickets}+${transport}+${food})`,
+    );
   d.budgetBreakdown = { transport, tickets: b.tickets, food, cafe };
 }
 for (const c of BUDGET_TICKET_CORRECTIONS) {
@@ -166,8 +172,10 @@ for (const c of TRANSPORT_CORRECTIONS) {
 // Rail. Restored values are the pre-KAI-89 batch defaults, dispositioned
 // manual-review; only the TRANSPORT_CORRECTIONS above and the Naha Yui Rail
 // values are evidence-driven fixes.
-const TRANSPORT_RESTORE_VALUES: Record<string, Record<string, number>> =
-  corrections.sections.transportRestoreValues ?? {};
+const TRANSPORT_RESTORE_VALUES: Record<
+  string,
+  Record<string, number>
+> = corrections.sections.transportRestoreValues ?? {};
 const correctedIds = new Set(TRANSPORT_CORRECTIONS.map((c) => c.id));
 for (const [id, original] of Object.entries(TRANSPORT_RESTORE_VALUES)) {
   if (correctedIds.has(id)) continue;
@@ -318,7 +326,9 @@ for (const d of destinations) {
   if (d.budgetBreakdown && Number.isFinite(d.budgetRecommended)) {
     const b = d.budgetBreakdown;
     const sum = b.transport + b.tickets + b.food + b.cafe;
-    if (![b.transport, b.tickets, b.food, b.cafe].every((v) => Number.isFinite(v)))
+    if (
+      ![b.transport, b.tickets, b.food, b.cafe].every((v) => Number.isFinite(v))
+    )
       fail(`${d.id}: breakdown not finite`);
     if (sum !== d.budgetRecommended) {
       console.warn(

@@ -56,18 +56,16 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   const coupleScores = compareDestinations.map((d, i) =>
     ratingVerified[i] ? d.ratings.couple : null,
   );
-  const maxCoupleScore =
-    coupleScores.every((v) => v === null)
-      ? null
-      : getMax(coupleScores.filter((v): v is number => v !== null));
+  const maxCoupleScore = coupleScores.every((v) => v === null)
+    ? null
+    : getMax(coupleScores.filter((v): v is number => v !== null));
 
   const overallScores = compareDestinations.map((d, i) =>
     ratingVerified[i] ? d.ratings.overall : null,
   );
-  const maxOverall =
-    overallScores.every((v) => v === null)
-      ? null
-      : getMax(overallScores.filter((v): v is number => v !== null));
+  const maxOverall = overallScores.every((v) => v === null)
+    ? null
+    : getMax(overallScores.filter((v): v is number => v !== null));
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200">

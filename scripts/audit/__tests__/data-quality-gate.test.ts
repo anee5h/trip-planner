@@ -142,8 +142,8 @@ describe("KAI-87 data-quality rules in the audit baseline gate", () => {
       [],
       [],
     );
-    expect(
-      report.findings.some((f) => f.code === "OKINAWA_RAIL_VALUE"),
-    ).toBe(true);
+    expect(report.findings.some((f) => f.code === "OKINAWA_RAIL_VALUE")).toBe(
+      true,
+    );
   });
 });

@@ -163,7 +163,9 @@ test.describe("KAI-89 rendered data safety", () => {
       await expect(
         page.locator('[data-testid="destination-detail-score"]'),
       ).toHaveText("—");
-      await expect(page.getByText("Score under editorial review")).toBeVisible();
+      await expect(
+        page.getByText("Score under editorial review"),
+      ).toBeVisible();
       await expect(
         page.getByRole("tab", { name: "Detailed Ratings" }),
       ).toHaveCount(0);

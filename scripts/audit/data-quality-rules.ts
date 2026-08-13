@@ -420,12 +420,10 @@ export function collectDestinationIssues(
   // (scripts/audit/kai-89-structured-template-audit.json) with reviewed
   // dispositions (scripts/audit/kai-89-dispositions.json).
   const ratingVector = dest.ratings
-    ? JSON.stringify(
-        REQUIRED_RATING_KEYS.map((key) => dest.ratings?.[key]),
-      )
+    ? JSON.stringify(REQUIRED_RATING_KEYS.map((key) => dest.ratings?.[key]))
     : undefined;
   const vectorFrequency = ratingVector
-    ? ctx.ratingVectorFrequency?.get(ratingVector) ?? 1
+    ? (ctx.ratingVectorFrequency?.get(ratingVector) ?? 1)
     : 0;
   if (
     vectorFrequency >= 10 &&

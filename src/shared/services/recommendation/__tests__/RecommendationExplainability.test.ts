@@ -147,7 +147,10 @@ describe("RecommendationExplainability Unit Tests", () => {
       visitedIds: [],
     };
     const match = createRecommendationMatch(
-      { ...baseDest, ratings: { ...baseDest.ratings, overall: 9.5, food: 9.6 } },
+      {
+        ...baseDest,
+        ratings: { ...baseDest.ratings, overall: 9.5, food: 9.6 },
+      },
       minimalContext,
       85,
     );
@@ -158,9 +161,9 @@ describe("RecommendationExplainability Unit Tests", () => {
     expect(
       match.reasons.some((reason) => reason.code === "generalSolidMatch"),
     ).toBe(true);
-    expect(
-      match.reasons.some((reason) => reason.code === "interestFood"),
-    ).toBe(false);
+    expect(match.reasons.some((reason) => reason.code === "interestFood")).toBe(
+      false,
+    );
     expect(
       match.reasons.some((reason) => reason.code === "editorialReviewPending"),
     ).toBe(true);
@@ -186,9 +189,9 @@ describe("RecommendationExplainability Unit Tests", () => {
     };
     const match = createRecommendationMatch(verifiedDest, minimalContext, 85);
 
-    expect(
-      match.reasons.some((reason) => reason.code === "interestFood"),
-    ).toBe(true);
+    expect(match.reasons.some((reason) => reason.code === "interestFood")).toBe(
+      true,
+    );
     expect(
       match.reasons.some((reason) => reason.code === "editorialReviewPending"),
     ).toBe(false);

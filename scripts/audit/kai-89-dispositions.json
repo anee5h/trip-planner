@@ -1,1313 +1,1313 @@
 {
- "audit": "KAI-89 structured cluster dispositions",
- "schemaVersion": 1,
- "generatedAt": "2026-08-13",
- "note": "Reviewed disposition per structured cluster, keyed by <category>:<clusterId> (sha256 of category:value). category: A legitimate repetition, B generated/template, C plausible-unverified, D demonstrably incorrect, E manual/editorial review. action: legitimate | corrected | confidence-gated | manual-review. corrected = evidence-driven field corrections applied in kai-89-corrections.json for THIS category. Generated once from the parallel KAI-89 audit; the audit generator fails --check on unclassified clusters.",
- "clusters": {
-  "ratings:43dd983ddcc5": {
-   "category": "D",
-   "action": "corrected",
-   "reason": "Template vector identical across 114 distinct cities/wards/towns/villages (role=hub). 44 records falsely stamped {rubricVersion:2, method:manual, confidence:high} from a bulk 'Coordinate Calibration' pass with the SAME generic gotokyo.org tourism-board source for all 22 Tokyo wards; 70 have no metad"
-  },
-  "ratings:f98cf1399e01": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula profile (nature-like offsets: food -1.0, rain -0.9, photo +0.3) at base 8.7 across 27 mixed attractions; all stamped {assisted, low} (honest). Generated, low-confidence."
-  },
-  "ratings:3bc1000f8f4f": {
-   "category": "C",
-   "action": "corrected",
-   "reason": "'Famous attraction' near-flat template (offsets ~0, rain -0.5, photo +0.2) at base 9.0. Sites genuinely notable (Tottori Sand Dunes, Naoshima, Sakurajima) with official sources on ~12/23, so base value plausible; but 21/23 lack metadata and vector is template. Values plausible, unverified."
-  },
-  "ratings:06be054374c3": {
-   "category": "D",
-   "action": "corrected",
-   "reason": "Hub-city template: identical vector incl. rain 5.5 across 22 climatically disparate cities (Aomori, Akita, Ise, Koriyama...). 4 records (ashikaga-city, choshi-city, hino-city, katori-city) laundered {manual,high}. Hubs scored like attractions."
-  },
-  "ratings:a898a32ad188": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile (food -1.1, rain -0.9, photo +0.3) at base 8.3 across 19 quasi-national parks; {assisted, low}."
-  },
-  "ratings:d12dbf9c1a83": {
-   "category": "C",
-   "action": "corrected",
-   "reason": "UNESCO/world-heritage template at base 9.2. Sites world-class (Hiroshima Peace Memorial, Horyuji, Shiretoko) with official sources; 14/18 lack metadata; 3 Kanto-stamped {manual,high} (national-museum-western-art-tokyo, ogasawara-islands-tokyo, tomioka-silk-mill-gunma) are laundered. Values plausible"
-  },
-  "ratings:62d6a8ed466d": {
-   "category": "C",
-   "action": "confidence-gated",
-   "reason": "Flat 8.9 template (offsets ~0) across 15 must-see attractions, all with official attraction sources but NO metadata. Plausible base, unverified."
-  },
-  "ratings:432d383e1bdf": {
-   "category": "B",
-   "action": "corrected",
-   "reason": "Formula nature profile at base 8.2; 14 quasi-national parks; {assisted, low/medium}."
-  },
-  "ratings:53e47f6d1272": {
-   "category": "C",
-   "action": "confidence-gated",
-   "reason": "Flat 9.1 template (rain 8.6, photo 9.3) across 12 famous temples/shrines (Byodoin, Toshodaiji, Yakushiji, Enryakuji), all with official sources, NO metadata. Plausible base for these sites, unverified."
-  },
-  "ratings:27e255972fbc": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile (food -0.9, photo +0.3, rain -1.0) at base 8.6; 11 castles; {assisted, low}."
-  },
-  "ratings:2c090ba67bf2": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 8.4; 11 quasi-national parks; {assisted, low}."
-  },
-  "ratings:5eae752fbf79": {
-   "category": "C",
-   "action": "confidence-gated",
-   "reason": "Flat 8.7 template across 10 distinct destinations with official sources (kawagoe-kurazukuri, takayama-sanmachi, sakai-city-museum...), NO metadata. Plausible, unverified."
-  },
-  "ratings:6d78ee73fce6": {
-   "category": "D",
-   "action": "corrected",
-   "reason": "10 distinct Yokohama attractions (museum, temple, park, ramen museum, theme park, red-brick warehouse) share ONE identical vector and ALL carry {manual, high} stamps from the Kanto bulk pass. Statistically impossible for per-record manual review; strongest laundering case."
-  },
-  "ratings:dd930b0d8ec6": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile at base 8.5; 9 castles; {assisted, low}."
-  },
-  "ratings:6ac49dde2a4c": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 8.6; 8 quasi-national parks; {assisted, low/medium}."
-  },
-  "ratings:e3130d158469": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile at base 8.4; 8 castles; {assisted, low}."
-  },
-  "ratings:6a560b360dc4": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 8.5; 6 quasi-national parks; {assisted, low}."
-  },
-  "ratings:c40cf6674c83": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 8.8; 6 quasi-national parks; {assisted, medium/low}."
-  },
-  "ratings:ceaf1d5cd0a7": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile at base 8.8; 6 castles; {assisted, low}."
-  },
-  "ratings:265f5359c798": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile at base 8.7; 5 castles; {assisted, low}."
-  },
-  "ratings:9f901c5ff7b5": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile at base 8.9; 5 castles; {assisted, low}."
-  },
-  "ratings:aab1f870dbbd": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 8.7; 5 quasi-national parks; {assisted, medium/low}."
-  },
-  "ratings:b6a37d7b475f": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 9.0; 5 quasi-national parks; {assisted, low/medium}."
-  },
-  "ratings:cee6d167ed6d": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Arithmetic staircase template (values 7.5..8.4 sequential, overall below mean by -0.50) across 5 unrelated POIs; {assisted, low}. Not credible as ratings."
-  },
-  "ratings:dd559d8d9f7e": {
-   "category": "C",
-   "action": "confidence-gated",
-   "reason": "Okinawa-tuned hub template (summer 9.5, rain 5.0, overall 9.0) across 5 Ryukyu hubs with official tourism sources, NO metadata. Seasonal shape plausible; hubs scored like attractions; unverified."
-  },
-  "ratings:99e6164cd738": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Extreme-divergence template: couple 9.3/summer 9.4/winter 9.5 but food 6.1/photography 6.2; overall 9.2 vs mean 7.3 (delta +1.9). Meiji Jingu with photography 6.2 is implausible; {assisted, low}."
-  },
-  "ratings:9bfd9eae2c45": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile at base 9.0; 4 castles; {assisted, low}."
-  },
-  "ratings:edb4c47778f5": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 8.9; 4 quasi-national parks; {assisted, medium/low}."
-  },
-  "ratings:f1f11bfa0236": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Extreme-divergence template (overall 9.3 vs mean 7.0, delta +2.3); {assisted, low}."
-  },
-  "ratings:fcb278268115": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Extreme-divergence template (overall 9.1 vs mean 7.6, delta +1.5, rain 9.5); {assisted, low}."
-  },
-  "ratings:4b5593e7fa4c": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
-  },
-  "ratings:9b829ec74e5f": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
-  },
-  "ratings:b7544620eb2b": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 9.2; 3 national parks incl. daisetsuzan (stamped {assisted, high} - invalid combo per rubric; assisted cannot be high); {medium/low}."
-  },
-  "ratings:c9c42faca501": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
-  },
-  "ratings:cab01376f45a": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile at base 8.2; 3 castles; {assisted, low}."
-  },
-  "ratings:e0bc90b54f5a": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
-  },
-  "budget:fd9f513773d2": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940 (v1.9.2, 2026-07-29) + 8341eb96 (v1.7.62 catalog sync, 2026-07-28): identical hub budget stamped on all city/ward/town/village hubs; 114/119 already identical in d1f36940"
-  },
-  "budget:daf2276429d2": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940: expand-major-city-catalog.ts createDestination() formula (indoorPercent<70): min 1500, rec=min+2500=4000, max=rec+3000=7000, breakdown {35%,20%,35%,10% of rec}"
-  },
-  "budget:40b49658779a": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940 template variant after repair pass: tickets forced 0, transport/food rebalanced (1300/2300/400); venues are free-to-enter public spaces -> tickets=0 largely correct; several kind labels wrong (Dotonbori/Fushimi Inari/Canal City marked museum)"
-  },
-  "budget:59f041cab981": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940 template variant after repair pass (FREE_PLACE_TICKET_COST rule): tickets forced 0, cafe rebalanced +800 (400->1200); tickets=0 correct only for genuinely free venues"
-  },
-  "budget:8462a9aba38e": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940: same createDestination() formula with indoorPercent>=70: min 3000, rec 5500, max 8500, breakdown {1925,1100,1925,550}"
-  },
-  "budget:1492d34ccf0d": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "8341eb96-era standalone template: min, rec=min+2250, max=rec+2250, NO breakdown; runtime getEffectiveBudgetBreakdown() fabricates breakdown (transport 3000, tickets 1500/2000, food/cafe 65/35%)"
-  },
-  "budget:e7f741482ab8": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "add-reviewed-city-hubs.ts + kai-57-tohoku-expansion.ts fixed hub template {7000,10500,14000, 3000/1500/4500/1500}"
-  },
-  "budget:e3faae4d22f2": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940-era UNESCO/major-site template {4000,9500,15000, 3000/2000/3000/1500}; tickets 2000 formulaic - many sites free (Ogasawara, Shirakami) or 500-1500 (Horyuji 1500, Tomioka 1000, Western Art 500)"
-  },
-  "budget:434d3e77be35": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940-era Yokohama template {3000,6500,10000, 650/1300/3250/1300}"
-  },
-  "budget:ce38cece2d81": {
-   "category": "B",
-   "action": "corrected",
-   "reason": "pr12c-kyushu-expansion.ts buildPoi() formula: breakdown = {35%, ticketCost, 40%, 10% of budgetMin} -> sum 850 != rec 3000 (formula bug: uses min not rec)"
-  },
-  "budget:617b00b691ff": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "kai-57-tohoku-expansion.ts template [0,1500,3000] + {800,0,500,200} (exact match line 1169-1170); min=0 for free-entry sites"
-  },
-  "budget:15120e1b4d74": {
-   "category": "B",
-   "action": "corrected",
-   "reason": "d1f36940 template variant after repair pass (FREE_PLACE_TICKET_COST rule): tickets forced 0, cafe rebalanced +800 (400->1200); tickets=0 correct only for genuinely free venues"
-  },
-  "budget:4e10f1520f6f": {
-   "category": "B",
-   "action": "corrected",
-   "reason": "pr12c-era formula variant {300,0,450,100} (30/45/10% of min 1000); sum 850 != rec 3000"
-  },
-  "budget:4ec318cbea5e": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940-era template {7000,11000,15000, 4400/2200/3300/1100} applied to Fukui City hub AND free nature sites (Kiso Valley, Lake Hamanako)"
-  },
-  "budget:b1cf2df6b1e5": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "kai-31-shikoku-expansion.ts template [1000,3000,6000] + {1000,0,1300,700} (exact match line 1041-1042)"
-  },
-  "budget:e53636839823": {
-   "category": "B",
-   "action": "corrected",
-   "reason": "pr12c formula with budgetMin=1500, ticketCost=0 -> {525,0,600,150}; sum 1275 != rec 4000"
-  },
-  "budget:f548a105d9bc": {
-   "category": "B",
-   "action": "corrected",
-   "reason": "template {2000,5000,8000, 700/500/800/200}; sum 2200 != rec 5000"
-  },
-  "visitDuration:1cf659956fa2": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "Attraction convention: 1-3h museums/temples/shrines/districts (69+22+18+16 of 172). Applied via assisted generation (161/172 assisted-low) but the range is the standard Japan visit-duration convention."
-  },
-  "visitDuration:c7f7bd9ca006": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "v1.6.0 hub template + later backfill: 120 city/ward/town hubs share identical 6-12h. 45 members carry manual/high metadata over template values. City hubs inherit attraction-style visit semantics."
-  },
-  "visitDuration:bb109b6c5b53": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Museum 2-4h convention (31 museums) + 35 unknown-kind members; appears in kai-31/kai-32 script tuples."
-  },
-  "visitDuration:1c84ff3f729a": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "Quick-visit convention across museums/temples/nature/markets."
-  },
-  "visitDuration:db24647aa9a1": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "Castle convention: 54/72 members are castles; 1.5-3.5h is the standard Japanese castle-visit window."
-  },
-  "visitDuration:e7d3c053b289": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "63/69 members unknown kind; standalone/destination nature areas."
-  },
-  "visitDuration:ce28d84e211b": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "Nature-park convention: 63/64 members kind=nature."
-  },
-  "visitDuration:2e8cc740f9f8": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Mountain/lake/onsen full-day; plausible for hikes."
-  },
-  "visitDuration:ace9c9cbe7de": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "add-reviewed-city-hubs.ts template for 30 city hubs; full-day+ for historic cities plausible."
-  },
-  "visitDuration:408511fca028": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Parks 1.5-4h plausible."
-  },
-  "visitDuration:4b9f3c3ff6be": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "Quick-stop convention: bridges/shrines/monuments/viewpoints."
-  },
-  "visitDuration:159ea4ea79ef": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "23/24 unknown kind."
-  },
-  "visitDuration:807f7cbc4b49": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "visitDuration:5e5a880cdcfd": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Remote nature/trekking overnight (12/14 nature)."
-  },
-  "visitDuration:e229b7d66d77": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "visitDuration:6bbdfa97dc07": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "visitDuration:9bf072f0ba51": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "visitDuration:b745c8933575": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "visitDuration:c006402eb46c": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Temple/museum destinations 0.8-1.8h."
-  },
-  "visitDuration:c5cf365f9397": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Point value 1h for small temples/museums."
-  },
-  "visitDuration:768f833d8371": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Historic towns/onsen full-day."
-  },
-  "visitDuration:afa8461550d9": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Nature/theme-park."
-  },
-  "visitDuration:0cfdaf6aec7b": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "City/town hubs (5) with 4-24h 'visit' = overnight; legacy no-metadata."
-  },
-  "visitDuration:843cc3ccc08a": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "visitDuration:9d14d0c7aff9": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "visitDuration:1340e735644b": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Nature areas."
-  },
-  "visitDuration:1e512511c45d": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Nature/town."
-  },
-  "visitDuration:92a78565b4e3": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Nature/onsen/mountain 11-13h."
-  },
-  "visitDuration:177d1672d861": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Temples/rock formation."
-  },
-  "visitDuration:575defb7c1f5": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Quick POIs."
-  },
-  "walking:2d90a4109c91": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "pipeline.cjs 60/40 derivation: sun=0.6*walkingMin, shade=0.4*walkingMin. 1h total is a plausible attraction convention but the split is formula-produced (135 members)."
-  },
-  "walking:aa3b6f7df1ac": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "v1.6.0 hub template in METRES (4000m) while contract/validator expects MINUTES (walkingMin <= visit.max*60; commit 8d47f316 canonicalized minutes). All 81 members no metadata. sun(1500)<shade(2500); metre values violate WALKING_MIN_IMPLAUSIBLE (430 baselined)."
-  },
-  "walking:60beaed5cb37": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
-  },
-  "walking:77706da7c561": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 pipeline split on 40-min base for wards/cities; minute units."
-  },
-  "walking:aa3d7e67078c": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "METRES base 3000 + 60/40 pipeline split (1800/1200)."
-  },
-  "walking:64ae3d80fef3": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "pipeline.cjs missing-walkingMin default 8000 + 60/40 split; metres; violates visit bound for most members."
-  },
-  "walking:e0c100594591": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "add-reviewed-city-hubs.ts 70/35/35 minutes, 50/50 split; 22 regional cities."
-  },
-  "walking:a35263c294a8": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "expand-major-city-catalog.ts indoor formula (indoor>=70 -> 3000/500/2500), metres; museums."
-  },
-  "walking:3130a9a55115": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, minutes."
-  },
-  "walking:e1569a255ea7": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "58/42 split (not exact 60/40); 2h total plausible for museums/castles."
-  },
-  "walking:e1da4f1b17b3": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, metres."
-  },
-  "walking:b2fb7e4cb5e6": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split on 10000m base (nagano-city etc.); metres; 10km city walk implausible as hub default."
-  },
-  "walking:b69fedcfcb0a": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, metres."
-  },
-  "walking:1ba35c095262": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "50/50 metres; kai-31 style."
-  },
-  "walking:4f2248de56fd": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "50/50 metres."
-  },
-  "walking:b8e5d9244ed0": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, minutes."
-  },
-  "walking:2542676c6077": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, metres."
-  },
-  "walking:52cf6e4a8ea7": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Shade-heavy; plausible for gardens/onsen."
-  },
-  "walking:6f0b93752e6e": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "walking:7d8ae0ab4300": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, metres."
-  },
-  "walking:e348917b6a3b": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, minutes."
-  },
-  "walking:3033b7c8b87b": {
-   "category": "D",
-   "action": "manual-review",
-   "reason": "Internally implausible: 7-9h mountain visits (Nokogiriyama, Mt Tsukuba, Mt Mitake) with walkingMin=5 (manual/high metadata). Units broken (5 min impossible; 5 m trivial)."
-  },
-  "walking:3289b8e05c1f": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, minutes."
-  },
-  "walking:568de2824259": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, minutes."
-  },
-  "walking:7d5bc60e54a4": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "50/50 metres."
-  },
-  "walking:d2140cf5964e": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "kai-32 tuple {4000,2500,1500}; metres."
-  },
-  "walking:1bb34baeaf62": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, metres."
-  },
-  "walking:2be8e2b9f6a8": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "walking:492882bc22fc": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "walking:61d8c87c6479": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "walking:6f3fc4f9f6d2": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "walking:8d36b1f66a76": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, metres."
-  },
-  "walking:c3ca92d57420": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "season:f2d562fc71a2": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "v1.6.0 Travel Hub Catalog template (commit 2d6c656d): all city/ward/town hubs got an identical season vector. 57 members carry manual/high ratingMetadata over template values (metadata integrity issue)."
-  },
-  "season:0f73fc9f8ecc": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Deterministic hash generation: scripts/expand-major-city-catalog.ts rating() = 6.2+(hash%34)/10; all 57 members (assisted/low)."
-  },
-  "season:160e45562994": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "pipeline.cjs Stage 3 default: missing season -> {4,4,4,4}; missing bestMonths -> [3,4,5,9,10,11]."
-  },
-  "season:3c62faf8c17f": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible vector; no synthetic signature. 27/28 lack ratingMetadata."
-  },
-  "season:09cc2df4f20d": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "add-reviewed-city-hubs.ts vector for 22 regional city hubs."
-  },
-  "season:d5ca79b68dc7": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "No script signature found; mostly standalone/destination roles without metadata."
-  },
-  "season:d7e9883eb9a5": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible POI vector (gardens/museums/shrines); no metadata on members."
-  },
-  "season:abf22daa382b": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Flat all-12 with identical scores; 9/10 members assisted."
-  },
-  "season:1062fb9cb4b1": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Flat 8s; no metadata on members."
-  },
-  "season:4122fd3ebb7f": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible; 5/6 assisted."
-  },
-  "season:4fe6f92dad9b": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Fractional values = deterministic hash generation (assisted/low)."
-  },
-  "season:73a6efe51d6b": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible winter-up variant."
-  },
-  "season:7e70002644bf": {
-   "category": "D",
-   "action": "manual-review",
-   "reason": "Internal contradiction: summer score 9 is the max yet bestMonths excludes ALL summer months; all 5 are Okinawa parks (assisted/low)."
-  },
-  "season:0139c389095f": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible castle/temple vector."
-  },
-  "season:1837e35ba374": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible nature vector."
-  },
-  "season:3243481ba8b1": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "season:669e4247db30": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "All-12 for season-spanning POIs (aquarium/bridge/amusement/castle) with winter dip."
-  },
-  "season:de5567e0bff9": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Flat all-12."
-  },
-  "season:ecc02253fca6": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "All-12 hub-template variant on unknown-kind records."
-  },
-  "season:23e95ed88b2a": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Fractional = hash generation (assisted/low)."
-  },
-  "season:6558e8619a3b": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "season:6e000a850307": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Historic towns with summer included; plausible."
-  },
-  "season:730bf33538a0": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Perfect flat 10s with all-12 months."
-  },
-  "season:9d500fce4647": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "season:fd9b7ef29e6d": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "transport:ffd6f6849522": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:bfbeeffa6890": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:7400a209eda9": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:31e49e949bd8": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:06f324feb05f": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:c6470871d9cc": {
-   "category": "C",
-   "action": "corrected",
-   "reason": "estimated"
-  },
-  "transport:203e9e566e9b": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:928f25834c51": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:6b93ff76dd6a": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:5f13a3c8e03f": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:8e154fa9699d": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:0ca61547daa4": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "legit"
-  },
-  "transport:25969fe8d6bb": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:1a09e04d146b": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:38d800e59962": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:5e16a3f71051": {
-   "category": "C",
-   "action": "corrected",
-   "reason": "estimated"
-  },
-  "transport:ae4d6d219ddd": {
-   "category": "D",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:065ae4eb8d77": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:5411dbdeab8b": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:5536d0da8c0c": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:a1df472c9e0e": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:e4f5f3f5e71c": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "legit"
-  },
-  "transport:63c8fe7e0dbf": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:9bba2f9188d1": {
-   "category": "D",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:a1c8fc629bf0": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:a77c0e9347bb": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:c0171bec0b97": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:d98a02f9dd67": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:0b41e50e6292": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:323b97cb38ca": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:75e6141a02d8": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:e710b19b1379": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:01b1a1d26731": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:2b1e5080b728": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:45d13cea7bc8": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "legit"
-  },
-  "transport:47ba8eb8bd91": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:49bbb1d48d5d": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:ad981fc25ee7": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:b5b6a957edd0": {
-   "category": "D",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:ce85216196d2": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:e69e18d4b0b3": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:36c25a6b9c22": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:40700df14b6b": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:4525322dacf2": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:4d6873bb3a18": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:5e1fa514870b": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:68779e3c5c5c": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:766918dce32a": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:7fe62e806615": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:881b39c54b40": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:88d60c375800": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:9e7113408d9d": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:a6c340ff7222": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:c859ad703e3e": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:ce58ea87b9a3": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:d2da40161c8a": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:e11e3086dca5": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:e14f10a9d784": {
-   "category": "B",
-   "action": "corrected",
-   "reason": "template"
-  },
-  "transport:f89c3413a8dd": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "crowd:aeb53c01a6e5": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Mega-template: v1.6.0 hub hardcode + expand-major-city-catalog.ts hardcode crowd:{5,8,9}; 346 records = 35% of catalogue incl. 95 museums, 25 parks, 23 temples."
-  },
-  "crowd:3d9969c8a667": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "pipeline.cjs Stage 3 default: missing crowd -> {3,4,5}."
-  },
-  "crowd:2b8addefee18": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "kai-32 script tuple {4,7,8}; plausible for popular spots."
-  },
-  "crowd:87249d8ed5aa": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "kai-31/kai-57 tuple {3,5,6}; 38/41 assisted."
-  },
-  "crowd:a63bb33d85f7": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Script tuples; plausible."
-  },
-  "crowd:5bc9369cefb1": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "add-reviewed-city-hubs.ts vector for quiet regional hubs."
-  },
-  "crowd:de6d62c5d2e7": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:000c3197bce2": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:9e187b64b24b": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:544844daa4fd": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:5864eb0d5774": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:3e29bcdd1053": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:9ddb2f743def": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Very-crowded band; plausible for famous spots."
-  },
-  "crowd:9d044f6a5b29": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Flat top 10/10 weekend/holiday."
-  },
-  "crowd:442107b671a3": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:e645200547bb": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:ac9e0bbed373": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:c930e94e8871": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:fb18a6733483": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:0d7a593e7fc1": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:3496b1de81b9": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:5d5fa6221a94": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:c714689bf298": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:1b9642f02eaa": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:728b198b58a0": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:99dd7fe7d035": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "v1.6.0 hub template hardcode {8,8,3}; 120/139 hubs. heatTolerance==rainFriendly template signature."
-  },
-  "comfort:d3a1a4fd5616": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "expand-major-city-catalog.ts formula: heatTolerance=rainFriendly=round(indoorPercent/10), walkingIntensity 6 for indoor<70. All 136 members indoorPercent=20; 135/136 assisted-low. Kind labels unreliable (fushimi-inari-taisha labeled 'museum', kamakurakokomae-station 'museum')."
-  },
-  "comfort:1a835889f457": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "69/88 unknown kind; plausible general-outdoor profile."
-  },
-  "comfort:e0a68e6134f3": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "Indoor museum/aquarium convention: 30 museums + 4 aquariums, indoorPercent>=85. Formula-derived (round(indoor/10)) but semantically CORRECT for indoor venues."
-  },
-  "comfort:c10762385e8a": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Outdoor shrine/temple profile (13 shrines, 16 temples): exposed grounds, high walking."
-  },
-  "comfort:96a766addbf5": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Reviewed city hubs (22) + 2 POIs; differentiated from legacy template."
-  },
-  "comfort:3ff254fd7ba5": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Standalone nature."
-  },
-  "comfort:541e20f7bd6c": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Rain-friendly museums."
-  },
-  "comfort:3ad094aa0ecf": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Markets/districts."
-  },
-  "comfort:5b948a0e89ad": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Rain-friendly museums 8."
-  },
-  "comfort:9a297b3fa125": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:d15a9a2ce2db": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:055481000d3e": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:56fcf0c79914": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:8c840fd89a33": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:a45c9f518fa7": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:63aa8c244aa3": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:65fb3715363f": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:7834a91844de": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:c32d82b6aeb1": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:e173543a55f1": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:580c158ce395": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:65c174a17ef3": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:8819f989fe29": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:88cfb1b39f51": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:0aaf1f804a78": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:116b5b770ba3": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:1a02392e37b7": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:68e120cecde3": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:6df517d96442": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:8d074d9cdc5d": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:acbe414f37fc": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:b8dd62e195da": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:bb39b6ce371a": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:dc9972576816": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:e25e9173fabb": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+  "audit": "KAI-89 structured cluster dispositions",
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-13",
+  "note": "Reviewed disposition per structured cluster, keyed by <category>:<clusterId> (sha256 of category:value). category: A legitimate repetition, B generated/template, C plausible-unverified, D demonstrably incorrect, E manual/editorial review. action: legitimate | corrected | confidence-gated | manual-review. corrected = evidence-driven field corrections applied in kai-89-corrections.json for THIS category. Generated once from the parallel KAI-89 audit; the audit generator fails --check on unclassified clusters.",
+  "clusters": {
+    "ratings:43dd983ddcc5": {
+      "category": "D",
+      "action": "corrected",
+      "reason": "Template vector identical across 114 distinct cities/wards/towns/villages (role=hub). 44 records falsely stamped {rubricVersion:2, method:manual, confidence:high} from a bulk 'Coordinate Calibration' pass with the SAME generic gotokyo.org tourism-board source for all 22 Tokyo wards; 70 have no metad"
+    },
+    "ratings:f98cf1399e01": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula profile (nature-like offsets: food -1.0, rain -0.9, photo +0.3) at base 8.7 across 27 mixed attractions; all stamped {assisted, low} (honest). Generated, low-confidence."
+    },
+    "ratings:3bc1000f8f4f": {
+      "category": "C",
+      "action": "corrected",
+      "reason": "'Famous attraction' near-flat template (offsets ~0, rain -0.5, photo +0.2) at base 9.0. Sites genuinely notable (Tottori Sand Dunes, Naoshima, Sakurajima) with official sources on ~12/23, so base value plausible; but 21/23 lack metadata and vector is template. Values plausible, unverified."
+    },
+    "ratings:06be054374c3": {
+      "category": "D",
+      "action": "corrected",
+      "reason": "Hub-city template: identical vector incl. rain 5.5 across 22 climatically disparate cities (Aomori, Akita, Ise, Koriyama...). 4 records (ashikaga-city, choshi-city, hino-city, katori-city) laundered {manual,high}. Hubs scored like attractions."
+    },
+    "ratings:a898a32ad188": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile (food -1.1, rain -0.9, photo +0.3) at base 8.3 across 19 quasi-national parks; {assisted, low}."
+    },
+    "ratings:d12dbf9c1a83": {
+      "category": "C",
+      "action": "corrected",
+      "reason": "UNESCO/world-heritage template at base 9.2. Sites world-class (Hiroshima Peace Memorial, Horyuji, Shiretoko) with official sources; 14/18 lack metadata; 3 Kanto-stamped {manual,high} (national-museum-western-art-tokyo, ogasawara-islands-tokyo, tomioka-silk-mill-gunma) are laundered. Values plausible"
+    },
+    "ratings:62d6a8ed466d": {
+      "category": "C",
+      "action": "confidence-gated",
+      "reason": "Flat 8.9 template (offsets ~0) across 15 must-see attractions, all with official attraction sources but NO metadata. Plausible base, unverified."
+    },
+    "ratings:432d383e1bdf": {
+      "category": "B",
+      "action": "corrected",
+      "reason": "Formula nature profile at base 8.2; 14 quasi-national parks; {assisted, low/medium}."
+    },
+    "ratings:53e47f6d1272": {
+      "category": "C",
+      "action": "confidence-gated",
+      "reason": "Flat 9.1 template (rain 8.6, photo 9.3) across 12 famous temples/shrines (Byodoin, Toshodaiji, Yakushiji, Enryakuji), all with official sources, NO metadata. Plausible base for these sites, unverified."
+    },
+    "ratings:27e255972fbc": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile (food -0.9, photo +0.3, rain -1.0) at base 8.6; 11 castles; {assisted, low}."
+    },
+    "ratings:2c090ba67bf2": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 8.4; 11 quasi-national parks; {assisted, low}."
+    },
+    "ratings:5eae752fbf79": {
+      "category": "C",
+      "action": "confidence-gated",
+      "reason": "Flat 8.7 template across 10 distinct destinations with official sources (kawagoe-kurazukuri, takayama-sanmachi, sakai-city-museum...), NO metadata. Plausible, unverified."
+    },
+    "ratings:6d78ee73fce6": {
+      "category": "D",
+      "action": "corrected",
+      "reason": "10 distinct Yokohama attractions (museum, temple, park, ramen museum, theme park, red-brick warehouse) share ONE identical vector and ALL carry {manual, high} stamps from the Kanto bulk pass. Statistically impossible for per-record manual review; strongest laundering case."
+    },
+    "ratings:dd930b0d8ec6": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile at base 8.5; 9 castles; {assisted, low}."
+    },
+    "ratings:6ac49dde2a4c": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 8.6; 8 quasi-national parks; {assisted, low/medium}."
+    },
+    "ratings:e3130d158469": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile at base 8.4; 8 castles; {assisted, low}."
+    },
+    "ratings:6a560b360dc4": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 8.5; 6 quasi-national parks; {assisted, low}."
+    },
+    "ratings:c40cf6674c83": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 8.8; 6 quasi-national parks; {assisted, medium/low}."
+    },
+    "ratings:ceaf1d5cd0a7": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile at base 8.8; 6 castles; {assisted, low}."
+    },
+    "ratings:265f5359c798": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile at base 8.7; 5 castles; {assisted, low}."
+    },
+    "ratings:9f901c5ff7b5": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile at base 8.9; 5 castles; {assisted, low}."
+    },
+    "ratings:aab1f870dbbd": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 8.7; 5 quasi-national parks; {assisted, medium/low}."
+    },
+    "ratings:b6a37d7b475f": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 9.0; 5 quasi-national parks; {assisted, low/medium}."
+    },
+    "ratings:cee6d167ed6d": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Arithmetic staircase template (values 7.5..8.4 sequential, overall below mean by -0.50) across 5 unrelated POIs; {assisted, low}. Not credible as ratings."
+    },
+    "ratings:dd559d8d9f7e": {
+      "category": "C",
+      "action": "confidence-gated",
+      "reason": "Okinawa-tuned hub template (summer 9.5, rain 5.0, overall 9.0) across 5 Ryukyu hubs with official tourism sources, NO metadata. Seasonal shape plausible; hubs scored like attractions; unverified."
+    },
+    "ratings:99e6164cd738": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Extreme-divergence template: couple 9.3/summer 9.4/winter 9.5 but food 6.1/photography 6.2; overall 9.2 vs mean 7.3 (delta +1.9). Meiji Jingu with photography 6.2 is implausible; {assisted, low}."
+    },
+    "ratings:9bfd9eae2c45": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile at base 9.0; 4 castles; {assisted, low}."
+    },
+    "ratings:edb4c47778f5": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 8.9; 4 quasi-national parks; {assisted, medium/low}."
+    },
+    "ratings:f1f11bfa0236": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Extreme-divergence template (overall 9.3 vs mean 7.0, delta +2.3); {assisted, low}."
+    },
+    "ratings:fcb278268115": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Extreme-divergence template (overall 9.1 vs mean 7.6, delta +1.5, rain 9.5); {assisted, low}."
+    },
+    "ratings:4b5593e7fa4c": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
+    },
+    "ratings:9b829ec74e5f": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
+    },
+    "ratings:b7544620eb2b": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 9.2; 3 national parks incl. daisetsuzan (stamped {assisted, high} - invalid combo per rubric; assisted cannot be high); {medium/low}."
+    },
+    "ratings:c9c42faca501": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
+    },
+    "ratings:cab01376f45a": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile at base 8.2; 3 castles; {assisted, low}."
+    },
+    "ratings:e0bc90b54f5a": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
+    },
+    "budget:fd9f513773d2": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "d1f36940 (v1.9.2, 2026-07-29) + 8341eb96 (v1.7.62 catalog sync, 2026-07-28): identical hub budget stamped on all city/ward/town/village hubs; 114/119 already identical in d1f36940"
+    },
+    "budget:daf2276429d2": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "d1f36940: expand-major-city-catalog.ts createDestination() formula (indoorPercent<70): min 1500, rec=min+2500=4000, max=rec+3000=7000, breakdown {35%,20%,35%,10% of rec}"
+    },
+    "budget:40b49658779a": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "d1f36940 template variant after repair pass: tickets forced 0, transport/food rebalanced (1300/2300/400); venues are free-to-enter public spaces -> tickets=0 largely correct; several kind labels wrong (Dotonbori/Fushimi Inari/Canal City marked museum)"
+    },
+    "budget:59f041cab981": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "d1f36940 template variant after repair pass (FREE_PLACE_TICKET_COST rule): tickets forced 0, cafe rebalanced +800 (400->1200); tickets=0 correct only for genuinely free venues"
+    },
+    "budget:8462a9aba38e": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "d1f36940: same createDestination() formula with indoorPercent>=70: min 3000, rec 5500, max 8500, breakdown {1925,1100,1925,550}"
+    },
+    "budget:1492d34ccf0d": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "8341eb96-era standalone template: min, rec=min+2250, max=rec+2250, NO breakdown; runtime getEffectiveBudgetBreakdown() fabricates breakdown (transport 3000, tickets 1500/2000, food/cafe 65/35%)"
+    },
+    "budget:e7f741482ab8": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "add-reviewed-city-hubs.ts + kai-57-tohoku-expansion.ts fixed hub template {7000,10500,14000, 3000/1500/4500/1500}"
+    },
+    "budget:e3faae4d22f2": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "d1f36940-era UNESCO/major-site template {4000,9500,15000, 3000/2000/3000/1500}; tickets 2000 formulaic - many sites free (Ogasawara, Shirakami) or 500-1500 (Horyuji 1500, Tomioka 1000, Western Art 500)"
+    },
+    "budget:434d3e77be35": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "d1f36940-era Yokohama template {3000,6500,10000, 650/1300/3250/1300}"
+    },
+    "budget:ce38cece2d81": {
+      "category": "B",
+      "action": "corrected",
+      "reason": "pr12c-kyushu-expansion.ts buildPoi() formula: breakdown = {35%, ticketCost, 40%, 10% of budgetMin} -> sum 850 != rec 3000 (formula bug: uses min not rec)"
+    },
+    "budget:617b00b691ff": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "kai-57-tohoku-expansion.ts template [0,1500,3000] + {800,0,500,200} (exact match line 1169-1170); min=0 for free-entry sites"
+    },
+    "budget:15120e1b4d74": {
+      "category": "B",
+      "action": "corrected",
+      "reason": "d1f36940 template variant after repair pass (FREE_PLACE_TICKET_COST rule): tickets forced 0, cafe rebalanced +800 (400->1200); tickets=0 correct only for genuinely free venues"
+    },
+    "budget:4e10f1520f6f": {
+      "category": "B",
+      "action": "corrected",
+      "reason": "pr12c-era formula variant {300,0,450,100} (30/45/10% of min 1000); sum 850 != rec 3000"
+    },
+    "budget:4ec318cbea5e": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "d1f36940-era template {7000,11000,15000, 4400/2200/3300/1100} applied to Fukui City hub AND free nature sites (Kiso Valley, Lake Hamanako)"
+    },
+    "budget:b1cf2df6b1e5": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "kai-31-shikoku-expansion.ts template [1000,3000,6000] + {1000,0,1300,700} (exact match line 1041-1042)"
+    },
+    "budget:e53636839823": {
+      "category": "B",
+      "action": "corrected",
+      "reason": "pr12c formula with budgetMin=1500, ticketCost=0 -> {525,0,600,150}; sum 1275 != rec 4000"
+    },
+    "budget:f548a105d9bc": {
+      "category": "B",
+      "action": "corrected",
+      "reason": "template {2000,5000,8000, 700/500/800/200}; sum 2200 != rec 5000"
+    },
+    "visitDuration:1cf659956fa2": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Attraction convention: 1-3h museums/temples/shrines/districts (69+22+18+16 of 172). Applied via assisted generation (161/172 assisted-low) but the range is the standard Japan visit-duration convention."
+    },
+    "visitDuration:c7f7bd9ca006": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "v1.6.0 hub template + later backfill: 120 city/ward/town hubs share identical 6-12h. 45 members carry manual/high metadata over template values. City hubs inherit attraction-style visit semantics."
+    },
+    "visitDuration:bb109b6c5b53": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Museum 2-4h convention (31 museums) + 35 unknown-kind members; appears in kai-31/kai-32 script tuples."
+    },
+    "visitDuration:1c84ff3f729a": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Quick-visit convention across museums/temples/nature/markets."
+    },
+    "visitDuration:db24647aa9a1": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Castle convention: 54/72 members are castles; 1.5-3.5h is the standard Japanese castle-visit window."
+    },
+    "visitDuration:e7d3c053b289": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "63/69 members unknown kind; standalone/destination nature areas."
+    },
+    "visitDuration:ce28d84e211b": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Nature-park convention: 63/64 members kind=nature."
+    },
+    "visitDuration:2e8cc740f9f8": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Mountain/lake/onsen full-day; plausible for hikes."
+    },
+    "visitDuration:ace9c9cbe7de": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "add-reviewed-city-hubs.ts template for 30 city hubs; full-day+ for historic cities plausible."
+    },
+    "visitDuration:408511fca028": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Parks 1.5-4h plausible."
+    },
+    "visitDuration:4b9f3c3ff6be": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Quick-stop convention: bridges/shrines/monuments/viewpoints."
+    },
+    "visitDuration:159ea4ea79ef": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "23/24 unknown kind."
+    },
+    "visitDuration:807f7cbc4b49": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "visitDuration:5e5a880cdcfd": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Remote nature/trekking overnight (12/14 nature)."
+    },
+    "visitDuration:e229b7d66d77": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "visitDuration:6bbdfa97dc07": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "visitDuration:9bf072f0ba51": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "visitDuration:b745c8933575": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "visitDuration:c006402eb46c": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Temple/museum destinations 0.8-1.8h."
+    },
+    "visitDuration:c5cf365f9397": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Point value 1h for small temples/museums."
+    },
+    "visitDuration:768f833d8371": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Historic towns/onsen full-day."
+    },
+    "visitDuration:afa8461550d9": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Nature/theme-park."
+    },
+    "visitDuration:0cfdaf6aec7b": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "City/town hubs (5) with 4-24h 'visit' = overnight; legacy no-metadata."
+    },
+    "visitDuration:843cc3ccc08a": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "visitDuration:9d14d0c7aff9": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "visitDuration:1340e735644b": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Nature areas."
+    },
+    "visitDuration:1e512511c45d": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Nature/town."
+    },
+    "visitDuration:92a78565b4e3": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Nature/onsen/mountain 11-13h."
+    },
+    "visitDuration:177d1672d861": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Temples/rock formation."
+    },
+    "visitDuration:575defb7c1f5": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Quick POIs."
+    },
+    "walking:2d90a4109c91": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "pipeline.cjs 60/40 derivation: sun=0.6*walkingMin, shade=0.4*walkingMin. 1h total is a plausible attraction convention but the split is formula-produced (135 members)."
+    },
+    "walking:aa3b6f7df1ac": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "v1.6.0 hub template in METRES (4000m) while contract/validator expects MINUTES (walkingMin <= visit.max*60; commit 8d47f316 canonicalized minutes). All 81 members no metadata. sun(1500)<shade(2500); metre values violate WALKING_MIN_IMPLAUSIBLE (430 baselined)."
+    },
+    "walking:60beaed5cb37": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
+    },
+    "walking:77706da7c561": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 pipeline split on 40-min base for wards/cities; minute units."
+    },
+    "walking:aa3d7e67078c": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "METRES base 3000 + 60/40 pipeline split (1800/1200)."
+    },
+    "walking:64ae3d80fef3": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "pipeline.cjs missing-walkingMin default 8000 + 60/40 split; metres; violates visit bound for most members."
+    },
+    "walking:e0c100594591": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "add-reviewed-city-hubs.ts 70/35/35 minutes, 50/50 split; 22 regional cities."
+    },
+    "walking:a35263c294a8": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "expand-major-city-catalog.ts indoor formula (indoor>=70 -> 3000/500/2500), metres; museums."
+    },
+    "walking:3130a9a55115": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 split, minutes."
+    },
+    "walking:e1569a255ea7": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "58/42 split (not exact 60/40); 2h total plausible for museums/castles."
+    },
+    "walking:e1da4f1b17b3": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 split, metres."
+    },
+    "walking:b2fb7e4cb5e6": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 split on 10000m base (nagano-city etc.); metres; 10km city walk implausible as hub default."
+    },
+    "walking:b69fedcfcb0a": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 split, metres."
+    },
+    "walking:1ba35c095262": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "50/50 metres; kai-31 style."
+    },
+    "walking:4f2248de56fd": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "50/50 metres."
+    },
+    "walking:b8e5d9244ed0": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 split, minutes."
+    },
+    "walking:2542676c6077": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 split, metres."
+    },
+    "walking:52cf6e4a8ea7": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Shade-heavy; plausible for gardens/onsen."
+    },
+    "walking:6f0b93752e6e": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "walking:7d8ae0ab4300": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 split, metres."
+    },
+    "walking:e348917b6a3b": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 split, minutes."
+    },
+    "walking:3033b7c8b87b": {
+      "category": "D",
+      "action": "manual-review",
+      "reason": "Internally implausible: 7-9h mountain visits (Nokogiriyama, Mt Tsukuba, Mt Mitake) with walkingMin=5 (manual/high metadata). Units broken (5 min impossible; 5 m trivial)."
+    },
+    "walking:3289b8e05c1f": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 split, minutes."
+    },
+    "walking:568de2824259": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 split, minutes."
+    },
+    "walking:7d5bc60e54a4": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "50/50 metres."
+    },
+    "walking:d2140cf5964e": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "kai-32 tuple {4000,2500,1500}; metres."
+    },
+    "walking:1bb34baeaf62": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 split, metres."
+    },
+    "walking:2be8e2b9f6a8": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "walking:492882bc22fc": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "walking:61d8c87c6479": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "walking:6f3fc4f9f6d2": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "walking:8d36b1f66a76": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 split, metres."
+    },
+    "walking:c3ca92d57420": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "season:f2d562fc71a2": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "v1.6.0 Travel Hub Catalog template (commit 2d6c656d): all city/ward/town hubs got an identical season vector. 57 members carry manual/high ratingMetadata over template values (metadata integrity issue)."
+    },
+    "season:0f73fc9f8ecc": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "Deterministic hash generation: scripts/expand-major-city-catalog.ts rating() = 6.2+(hash%34)/10; all 57 members (assisted/low)."
+    },
+    "season:160e45562994": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "pipeline.cjs Stage 3 default: missing season -> {4,4,4,4}; missing bestMonths -> [3,4,5,9,10,11]."
+    },
+    "season:3c62faf8c17f": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible vector; no synthetic signature. 27/28 lack ratingMetadata."
+    },
+    "season:09cc2df4f20d": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "add-reviewed-city-hubs.ts vector for 22 regional city hubs."
+    },
+    "season:d5ca79b68dc7": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "No script signature found; mostly standalone/destination roles without metadata."
+    },
+    "season:d7e9883eb9a5": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible POI vector (gardens/museums/shrines); no metadata on members."
+    },
+    "season:abf22daa382b": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "Flat all-12 with identical scores; 9/10 members assisted."
+    },
+    "season:1062fb9cb4b1": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "Flat 8s; no metadata on members."
+    },
+    "season:4122fd3ebb7f": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible; 5/6 assisted."
+    },
+    "season:4fe6f92dad9b": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "Fractional values = deterministic hash generation (assisted/low)."
+    },
+    "season:73a6efe51d6b": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible winter-up variant."
+    },
+    "season:7e70002644bf": {
+      "category": "D",
+      "action": "manual-review",
+      "reason": "Internal contradiction: summer score 9 is the max yet bestMonths excludes ALL summer months; all 5 are Okinawa parks (assisted/low)."
+    },
+    "season:0139c389095f": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible castle/temple vector."
+    },
+    "season:1837e35ba374": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible nature vector."
+    },
+    "season:3243481ba8b1": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "season:669e4247db30": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "All-12 for season-spanning POIs (aquarium/bridge/amusement/castle) with winter dip."
+    },
+    "season:de5567e0bff9": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "Flat all-12."
+    },
+    "season:ecc02253fca6": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "All-12 hub-template variant on unknown-kind records."
+    },
+    "season:23e95ed88b2a": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "Fractional = hash generation (assisted/low)."
+    },
+    "season:6558e8619a3b": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "season:6e000a850307": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Historic towns with summer included; plausible."
+    },
+    "season:730bf33538a0": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "Perfect flat 10s with all-12 months."
+    },
+    "season:9d500fce4647": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "season:fd9b7ef29e6d": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "transport:ffd6f6849522": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:bfbeeffa6890": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:7400a209eda9": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:31e49e949bd8": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:06f324feb05f": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:c6470871d9cc": {
+      "category": "C",
+      "action": "corrected",
+      "reason": "estimated"
+    },
+    "transport:203e9e566e9b": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:928f25834c51": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:6b93ff76dd6a": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:5f13a3c8e03f": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:8e154fa9699d": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:0ca61547daa4": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "legit"
+    },
+    "transport:25969fe8d6bb": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:1a09e04d146b": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:38d800e59962": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:5e16a3f71051": {
+      "category": "C",
+      "action": "corrected",
+      "reason": "estimated"
+    },
+    "transport:ae4d6d219ddd": {
+      "category": "D",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:065ae4eb8d77": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:5411dbdeab8b": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:5536d0da8c0c": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:a1df472c9e0e": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:e4f5f3f5e71c": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "legit"
+    },
+    "transport:63c8fe7e0dbf": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:9bba2f9188d1": {
+      "category": "D",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:a1c8fc629bf0": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:a77c0e9347bb": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:c0171bec0b97": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:d98a02f9dd67": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:0b41e50e6292": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:323b97cb38ca": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:75e6141a02d8": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:e710b19b1379": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:01b1a1d26731": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:2b1e5080b728": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:45d13cea7bc8": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "legit"
+    },
+    "transport:47ba8eb8bd91": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:49bbb1d48d5d": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:ad981fc25ee7": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:b5b6a957edd0": {
+      "category": "D",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:ce85216196d2": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:e69e18d4b0b3": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:36c25a6b9c22": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:40700df14b6b": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:4525322dacf2": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:4d6873bb3a18": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:5e1fa514870b": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:68779e3c5c5c": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:766918dce32a": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:7fe62e806615": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:881b39c54b40": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:88d60c375800": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:9e7113408d9d": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:a6c340ff7222": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:c859ad703e3e": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:ce58ea87b9a3": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:d2da40161c8a": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:e11e3086dca5": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:e14f10a9d784": {
+      "category": "B",
+      "action": "corrected",
+      "reason": "template"
+    },
+    "transport:f89c3413a8dd": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "crowd:aeb53c01a6e5": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "Mega-template: v1.6.0 hub hardcode + expand-major-city-catalog.ts hardcode crowd:{5,8,9}; 346 records = 35% of catalogue incl. 95 museums, 25 parks, 23 temples."
+    },
+    "crowd:3d9969c8a667": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "pipeline.cjs Stage 3 default: missing crowd -> {3,4,5}."
+    },
+    "crowd:2b8addefee18": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "kai-32 script tuple {4,7,8}; plausible for popular spots."
+    },
+    "crowd:87249d8ed5aa": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "kai-31/kai-57 tuple {3,5,6}; 38/41 assisted."
+    },
+    "crowd:a63bb33d85f7": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Script tuples; plausible."
+    },
+    "crowd:5bc9369cefb1": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "add-reviewed-city-hubs.ts vector for quiet regional hubs."
+    },
+    "crowd:de6d62c5d2e7": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:000c3197bce2": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:9e187b64b24b": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:544844daa4fd": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:5864eb0d5774": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:3e29bcdd1053": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:9ddb2f743def": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Very-crowded band; plausible for famous spots."
+    },
+    "crowd:9d044f6a5b29": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Flat top 10/10 weekend/holiday."
+    },
+    "crowd:442107b671a3": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:e645200547bb": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:ac9e0bbed373": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:c930e94e8871": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:fb18a6733483": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:0d7a593e7fc1": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:3496b1de81b9": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:5d5fa6221a94": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:c714689bf298": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:1b9642f02eaa": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "crowd:728b198b58a0": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:99dd7fe7d035": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "v1.6.0 hub template hardcode {8,8,3}; 120/139 hubs. heatTolerance==rainFriendly template signature."
+    },
+    "comfort:d3a1a4fd5616": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "expand-major-city-catalog.ts formula: heatTolerance=rainFriendly=round(indoorPercent/10), walkingIntensity 6 for indoor<70. All 136 members indoorPercent=20; 135/136 assisted-low. Kind labels unreliable (fushimi-inari-taisha labeled 'museum', kamakurakokomae-station 'museum')."
+    },
+    "comfort:1a835889f457": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "69/88 unknown kind; plausible general-outdoor profile."
+    },
+    "comfort:e0a68e6134f3": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Indoor museum/aquarium convention: 30 museums + 4 aquariums, indoorPercent>=85. Formula-derived (round(indoor/10)) but semantically CORRECT for indoor venues."
+    },
+    "comfort:c10762385e8a": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Outdoor shrine/temple profile (13 shrines, 16 temples): exposed grounds, high walking."
+    },
+    "comfort:96a766addbf5": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Reviewed city hubs (22) + 2 POIs; differentiated from legacy template."
+    },
+    "comfort:3ff254fd7ba5": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Standalone nature."
+    },
+    "comfort:541e20f7bd6c": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Rain-friendly museums."
+    },
+    "comfort:3ad094aa0ecf": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Markets/districts."
+    },
+    "comfort:5b948a0e89ad": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Rain-friendly museums 8."
+    },
+    "comfort:9a297b3fa125": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:d15a9a2ce2db": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:055481000d3e": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:56fcf0c79914": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:8c840fd89a33": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:a45c9f518fa7": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:63aa8c244aa3": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:65fb3715363f": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:7834a91844de": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:c32d82b6aeb1": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:e173543a55f1": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:580c158ce395": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:65c174a17ef3": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:8819f989fe29": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:88cfb1b39f51": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:0aaf1f804a78": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:116b5b770ba3": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:1a02392e37b7": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:68e120cecde3": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:6df517d96442": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:8d074d9cdc5d": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:acbe414f37fc": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:b8dd62e195da": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:bb39b6ce371a": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:dc9972576816": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "comfort:e25e9173fabb": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    }
   }
- }
 }

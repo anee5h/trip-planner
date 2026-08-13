@@ -161,7 +161,10 @@ function buildReport(destinations: Destination[]) {
     GENERIC_TEMPLATE_COPY.test(destinationCopy(d)),
   ).length;
   const missingBudgetRecords = destinations.filter(
-    (d) => d.status === "published" && d.role !== "hub" && d.budgetRecommended === undefined,
+    (d) =>
+      d.status === "published" &&
+      d.role !== "hub" &&
+      d.budgetRecommended === undefined,
   ).length;
   const missingSeasonRecords = destinations.filter(
     (d) =>
@@ -246,7 +249,9 @@ if (process.argv.includes("--check")) {
   const report = JSON.parse(output) as ReturnType<typeof buildReport>;
   const unclassified = report.categories.flatMap((category) =>
     category.clusters.filter(
-      (cluster) => cluster.disposition.reason === "unclassified — requires editorial review",
+      (cluster) =>
+        cluster.disposition.reason ===
+        "unclassified — requires editorial review",
     ),
   );
   if (unclassified.length > 0) {

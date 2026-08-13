@@ -147,7 +147,9 @@ describe("DestinationCard responsive content", () => {
 
     const score = host.querySelector('[data-testid="meguruto-score"]');
     expect(score).not.toBeNull();
-    expect(score?.textContent).toBe(String(verifiedDestination.ratings.overall));
+    expect(score?.textContent).toBe(
+      String(verifiedDestination.ratings.overall),
+    );
     expect(score?.getAttribute("aria-label")).toContain(
       "destination.megurutoScore",
     );
