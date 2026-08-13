@@ -440,12 +440,12 @@
       "passengerService": true,
       "bidirectional": true,
       "durationMinutes": [10, 10],
-      "fare": [200, 200],
+      "fare": [180, 180],
       "fareBasis": "one-way",
       "sourceUrl": "https://jr-miyajimaferry.co.jp/en/fare/",
       "fareSourceUrl": "https://jr-miyajimaferry.co.jp/en/fare/",
       "checkedAt": "2026-08-13",
-      "notes": "Miyajimaguchi–Miyajima ~10 min; adult ¥200 (JR pass valid)."
+      "notes": "One-way 180 yen adult (Miyajimaguchi-Miyajima, ~10 min); +100 yen Miyajima Visitor Tax charged separately on entry; JR Pass valid."
     },
     {
       "id": "gunkanjima-tour-boat",
@@ -457,12 +457,12 @@
       "passengerService": true,
       "bidirectional": true,
       "durationMinutes": [40, 40],
-      "fare": [4000, 4810],
-      "fareBasis": "one-way",
+      "fare": [4500, 4500],
+      "fareBasis": "round-trip",
       "sourceUrl": "https://www.gunkan-jima.net/en/",
       "fareSourceUrl": "https://www.gunkan-jima.net/en/",
       "checkedAt": "2026-08-13",
-      "notes": "One-way ~40 min from Nagasaki Tokiwa Terminal; adult tour ¥4,000–4,810 + ¥310 landing fee."
+      "notes": "Round-trip landing tour (reservation-only) from Nagasaki Tokiwa Terminal; adult 4,500 yen boarding fee + 650 yen Gunkanjima entrance fee (charged by Nagasaki City, separate, cash); ~40 min each way; landing subject to weather (entrance fee refunded if landing impossible)."
     }
   ]
 }
