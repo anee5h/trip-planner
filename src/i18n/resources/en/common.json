@@ -450,7 +450,7 @@
       "bus": "Bus",
       "flight": "Flight",
       "ferry": "Ferry",
-      "car": "Rental car",
+      "car": "Car",
       "my_car": "Personal car",
       "travel": "Travel",
       "travelUnavailable": "Travel time unavailable",
