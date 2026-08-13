@@ -299,7 +299,9 @@ describe("KAI-63 Explore bus eligibility", () => {
     // destinations ARE bus-eligible — KAI-63 D4; the night gate lives in
     // the day-trip envelope, so this test pins the explicit day_trip mode.)
     setOrigin(TOKYO);
-    const hostEl = renderDestinations("/destinations?mode=bus&tripMode=day_trip");
+    const hostEl = renderDestinations(
+      "/destinations?mode=bus&tripMode=day_trip",
+    );
     const ids = cardIds(hostEl);
     expect(
       ids.some((id) => id.includes("fukuoka") || id.includes("hakata")),
