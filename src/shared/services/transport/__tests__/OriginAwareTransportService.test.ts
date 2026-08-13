@@ -696,6 +696,154 @@ describe("getOriginAwareTransportEstimate — 50 km bus catchment (KAI-12)", () 
   });
 });
 
+describe("getOriginAwareTransportEstimate — KAI-63 bus eligibility regressions", () => {
+  it("Naha postcode 900-8585 reaches Nago/Motobu by the verified Okinawa express bus", () => {
+    // KAI-63: 900-8585 (Naha city centre, ~0.5 km from Naha Bus Terminal)
+    // must resolve the verified naha⇔nago highway-bus corridor (111/117
+    // 高速バス). Nago City sits at the terminal: corridor time, verified.
+    const NAHA = { lat: 26.2124, lng: 127.6809 };
+    const nagoCity = dest({
+      id: "nago-city",
+      prefecture: "Okinawa",
+      municipalityId: "Okinawa:nago",
+      coordinates: { lat: 26.5915, lng: 127.9774 }, // Nago Bus Terminal
+      transportZoneId: "okinawa-main",
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      nagoCity,
+      { homeStationCoords: NAHA },
+      ["bus"],
+    );
+    expect(estimate).not.toBeNull();
+    expect(estimate!.mode).toBe("bus");
+    expect(estimate!.evidence).toBe("verified");
+    expect(estimate!.timeRange).toEqual([95, 112]);
+    expect(estimate!.fare).toEqual([2420, 2420]);
+    expect(estimate!.servicePeriod).toBe("day");
+    expect(estimate!.sourceUrl).toMatch(/^https?:\/\//);
+  });
+
+  it("Naha postcode origin reaches Motobu (Churaumi) with bounded onward access", () => {
+    const NAHA = { lat: 26.2124, lng: 127.6809 };
+    const churaumi = dest({
+      id: "churaumi-aquarium-motobu",
+      prefecture: "Okinawa",
+      municipalityId: "Okinawa:motobu",
+      coordinates: { lat: 26.6944, lng: 127.8779 },
+      transportZoneId: "okinawa-main",
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      churaumi,
+      { homeStationCoords: NAHA },
+      ["bus"],
+    );
+    expect(estimate).not.toBeNull();
+    expect(estimate!.evidence).toBe("estimated");
+    expect(estimate!.corridorEvidence).toBe("verified");
+    expect(estimate!.accessDistanceKm?.destination).toBeGreaterThan(10);
+    expect(estimate!.timeRange[0]).toBeGreaterThan(95);
+  });
+
+  it("Naha local city-bus destinations and outer islands stay unknown — no fabricated connectivity", () => {
+    // A Naha-city POI is served by local city bus only — that must never
+    // prove an intercity corridor (KAI-67 boundary). Ishigaki is a separate
+    // island with no bus edge from okinawa-main. A mainland destination must
+    // not gain a bus from Naha either (no mainland bus to Okinawa).
+    const NAHA = { lat: 26.2124, lng: 127.6809 };
+    const nahaCityPoi = dest({
+      id: "shuri-castle-okinawa",
+      prefecture: "Okinawa",
+      municipalityId: "Okinawa:naha",
+      coordinates: { lat: 26.217, lng: 127.7195 },
+      transportZoneId: "okinawa-main",
+    });
+    const ishigaki = dest({
+      id: "ishigaki-city",
+      prefecture: "Okinawa",
+      municipalityId: "Okinawa:ishigaki",
+      coordinates: { lat: 24.3448, lng: 124.1572 },
+      transportZoneId: "ishigaki",
+    });
+    const osaka = dest({
+      id: "osaka-city",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: OSAKA,
+    });
+    for (const d of [nahaCityPoi, ishigaki, osaka]) {
+      expect(
+        getOriginAwareTransportEstimate(d, { homeStationCoords: NAHA }, [
+          "bus",
+        ]),
+      ).toBeNull();
+    }
+  });
+
+  it("Iwakuni postcode origin resolves as mainland-honshu and uses the Hiroshima corridor", () => {
+    // KAI-63: Iwakuni (Yamaguchi) sits east of lng 132.2 — inside the shikoku
+    // box's west band. A coordinate-only/postcode origin previously resolved
+    // to mainland-shikoku (no bus terminal within 50 km → every bus result
+    // zeroed). With the Yamaguchi-honshu exclusion box it must resolve as
+    // honshu and reach the Hiroshima hub (~33 km) and its verified corridors.
+    const IWAKUNI = { lat: 34.1758, lng: 132.2251 };
+    const fukuoka = dest({
+      id: "fukuoka-city",
+      prefecture: "Fukuoka",
+      municipalityId: "Fukuoka:fukuoka",
+      coordinates: { lat: 33.5902, lng: 130.4017 },
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      fukuoka,
+      { homeStationCoords: IWAKUNI },
+      ["bus"],
+    );
+    expect(estimate).not.toBeNull();
+    expect(estimate!.mode).toBe("bus");
+    expect(estimate!.evidence).toBe("estimated");
+    expect(estimate!.corridorEvidence).toBe("verified");
+    expect(estimate!.accessDistanceKm?.origin).toBeGreaterThan(20);
+  });
+
+  it("a corridor with a known route but unknown fare stays eligible (fare null ≠ no route)", () => {
+    // オレンジライナーえひめ (osaka⇔matsuyama) has a verified timetable but
+    // no verified standard fare. Missing fare evidence must not exclude the
+    // destination: the estimate exists and carries fare null.
+    const matsuyama = dest({
+      id: "matsuyama-city",
+      prefecture: "Ehime",
+      municipalityId: "Ehime:matsuyama",
+      coordinates: { lat: 33.8404, lng: 132.7657 },
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      matsuyama,
+      { homeStationCoords: OSAKA },
+      ["bus"],
+    );
+    expect(estimate).not.toBeNull();
+    expect(estimate!.fare).toBeNull();
+    expect(estimate!.fareVariability).toBeNull();
+  });
+
+  it("night-only highway coaches keep an estimate but never a same-day day trip", () => {
+    // KAI-66 boundary: はかた号 (tokyo⇔fukuoka) is night-only. The corridor
+    // estimate exists for browsing/weekend one-way evaluation, but the
+    // day-trip feasibility gate must reject it.
+    const fukuoka = dest({
+      id: "fukuoka-city",
+      prefecture: "Fukuoka",
+      municipalityId: "Fukuoka:fukuoka",
+      coordinates: { lat: 33.5902, lng: 130.4017 },
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      fukuoka,
+      { homeStationCoords: TOKYO },
+      ["bus"],
+    );
+    expect(estimate).not.toBeNull();
+    expect(estimate!.servicePeriod).toBe("night");
+  });
+});
+
 describe("getOriginAwareTransportEstimate — Shinkansen access hubs", () => {
   const SHINAGAWA = { lat: 35.6285, lng: 139.7387 };
   const NAKAYAMA = { lat: 35.514745, lng: 139.539692 };

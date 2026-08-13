@@ -290,6 +290,46 @@ describe("TripDurationService", () => {
     ).toBe(false);
   });
 
+  it("night-only coach never passes the any-duration gate, even without visit hours", () => {
+    // KAI-63: the no-visit-band "any" branch must not admit a night-only
+    // highway coach into a same-day trip. Fukuoka from Tokyo is reachable
+    // only by the night-only はかた号; a visit-hours-less Fukuoka record must
+    // stay excluded. The same record in Osaka (day corridor exists) passes.
+    const tokyo = { lat: 35.6812, lng: 139.7671 };
+    const fukuokaNoVisit = {
+      ...destination,
+      id: "fukuoka-no-visit-hours",
+      prefecture: "Fukuoka",
+      municipalityId: "Fukuoka:fukuoka",
+      coordinates: { lat: 33.5902, lng: 130.4017 },
+      recommendedVisitHours: undefined,
+    };
+    const osakaNoVisit = {
+      ...destination,
+      id: "osaka-no-visit-hours",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 34.7025, lng: 135.4959 },
+      recommendedVisitHours: undefined,
+    };
+    expect(
+      matchesPersonalizedDayTripDuration(
+        fukuokaNoVisit,
+        { homeStationCoords: tokyo } as never,
+        ["bus"],
+        "any",
+      ),
+    ).toBe(false);
+    expect(
+      matchesPersonalizedDayTripDuration(
+        osakaNoVisit,
+        { homeStationCoords: tokyo } as never,
+        ["bus"],
+        "any",
+      ),
+    ).toBe(true);
+  });
+
   it("changes only the total duration when origin travel changes", () => {
     const dest = { ...destination, id: "personalized-total" };
     const noOrigin = estimateTripDuration(

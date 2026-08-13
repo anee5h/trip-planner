@@ -94,6 +94,31 @@ const SETO_HONSHU_EXCLUSION_BOX: {
 } = { latRange: [34.2, 34.38], lngRange: [132.2, 132.95] };
 
 /**
+ * Honshu Yamaguchi-coast strip below the SETO box that still falls inside
+ * the shikoku mainland box (Iwakuni city, Suo-Oshima, southern Otake): the
+ * shikoku box's west edge (lng 132.2) begins at the western limit of the
+ * Seto Inland Sea, but Yamaguchi prefecture's coast (Iwakuni at
+ * lng 132.22–132.35, lat 34.0–34.2) juts east of that line. Checked before
+ * the shikoku box so a coordinate-only origin there (e.g. a postcode in
+ * 742-xxxx) resolves to mainland-honshu instead of mainland-shikoku.
+ *
+ * The band is deliberately narrow in longitude: its east edge (lng 132.45)
+ * keeps every Matsuyama City island in the Seto (the Kutsuna group —
+ * Nakajima at ~33.97/132.61, Tsuwajima at ~33.99/132.67, and neighbours)
+ * out, so an Ehime island origin can never resolve as Honshu. No
+ * Ehime/Shikoku land lies inside [lat 33.8–34.2] × [lng 132.2–132.45]:
+ * Shikoku proper's north coast in that lng band is the Sadamisaki
+ * peninsula (lat ≤ 33.5), Matsuyama city sits east of lng 132.7, and the
+ * only islands in the band are Yamaguchi's Suo-Oshima group. Points east
+ * of 132.45 (including all Ehime islands) fall through to the shikoku box
+ * exactly as before the KAI-63 Iwakuni fix.
+ */
+const YAMAGUCHI_HONSHU_EXCLUSION_BOX: {
+  latRange: [number, number];
+  lngRange: [number, number];
+} = { latRange: [33.8, 34.2], lngRange: [132.2, 132.45] };
+
+/**
  * Geiyo-islands strip that falls inside the shikoku mainland box (southern
  * coast of Mukaishima island, Onomichi/Hiroshima — lat 34.36–34.38 between
  * the Seto coast exclusion and lng 133.5). No Shikoku land lies in this
@@ -225,6 +250,9 @@ function resolveFromMainlandBoxes(coordinates: {
   lng: number;
 }): TransportZoneId {
   if (pointInBox(coordinates, SETO_HONSHU_EXCLUSION_BOX)) {
+    return "mainland-honshu";
+  }
+  if (pointInBox(coordinates, YAMAGUCHI_HONSHU_EXCLUSION_BOX)) {
     return "mainland-honshu";
   }
   if (pointInBox(coordinates, GEIYO_HONSHU_EXCLUSION_BOX)) {

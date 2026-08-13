@@ -765,6 +765,21 @@
       "sourceUrl": "https://www.jr-shikokubus.co.jp/businfo/takamatsu_ex/kobe.html",
       "checkedAt": "2026-08-10",
       "servicePeriod": "day"
+    },
+    {
+      "from": "naha",
+      "to": "nago",
+      "bidirectional": true,
+      "mode": "bus",
+      "serviceName": "111/117 高速バス 那覇⇔名護",
+      "operator": "Ryukyu Bus / Okinawa Bus / Naha Bus / Toyo Bus",
+      "durationMinutes": [95, 112],
+      "reservationRequired": false,
+      "fare": [2420, 2420],
+      "fareVariability": "fixed",
+      "sourceUrl": "https://okinawabus.com/wp/wp-content/uploads/2024/03/9bba3a16978925d87f0e62c6d87360d0.pdf",
+      "checkedAt": "2026-08-13",
+      "servicePeriod": "day"
     }
   ]
 }

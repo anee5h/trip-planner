@@ -257,11 +257,24 @@ export function matchesPersonalizedDayTripDuration(
   if (!destination.recommendedVisitHours && requested === "any") {
     // Any remains neutral for legacy records without a published visit band,
     // but a selected origin still requires usable canonical travel evidence.
-    return (
-      !personalizedOrigin ||
-      getDayTripTravelDurationEvidence(destination, context, modes).evidence !==
-        "unknown"
+    if (!personalizedOrigin) return true;
+    const travel = getDayTripTravelDurationEvidence(
+      destination,
+      context,
+      modes,
     );
+    if (travel.evidence === "unknown") return false;
+    // KAI-66/KAI-63: a night-only highway coach cannot support a same-day
+    // outing even when no visit band is published. The night gate must apply
+    // to every day-trip record, not only those with recommendedVisitHours.
+    if (
+      travel.estimate?.mode === "bus" &&
+      "servicePeriod" in travel.estimate &&
+      travel.estimate.servicePeriod === "night"
+    ) {
+      return false;
+    }
+    return true;
   }
 
   const availableTimeHours = getDayTripAvailableTimeHours(requested);

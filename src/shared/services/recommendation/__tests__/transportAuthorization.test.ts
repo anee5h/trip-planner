@@ -775,7 +775,11 @@ describe("destination-level local access", () => {
     expect(modes).toEqual([]);
   });
 
-  it("Kouri production record returns no estimable modes, never Train", () => {
+  it("Kouri production record is Bus-only, never Train", () => {
+    // KAI-63: Naha now participates in the verified naha⇔nago highway-bus
+    // corridor, so Kouri (nago-side) gains an estimable Bus mode. Rail stays
+    // out: Okinawa has no intercity rail (Yui Rail is Naha-local) and no
+    // shinkansen.
     const dest = byId.get("kouri-island-okinawa")!;
     const modes = getValidModes(
       dest,
@@ -785,7 +789,7 @@ describe("destination-level local access", () => {
       undefined,
       "okinawa-main",
     );
-    expect(modes).toEqual([]);
+    expect(modes).toEqual(["bus"]);
   });
 
   it("Aoshima retains legitimate same-zone Train access and no Shinkansen", () => {
