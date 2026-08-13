@@ -55,11 +55,11 @@
   "description": "Tokyo Disneyland is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
   "budgetBreakdown": {
     "transport": 3101,
-    "tickets": 8400,
+    "tickets": 8900,
     "food": 6201,
     "cafe": 2067
   },
-  "reservation": "No advance reservation required; tickets available on arrival.",
+  "reservation": "Date-specific tickets must be purchased in advance via the official website/app; ticket booths at the parks are currently closed. Ticket prices and park hours vary by date — check the official calendar.",
   "parking": "Paid public parking options available nearby.",
   "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
@@ -114,7 +114,7 @@
         "Electrical Parade"
       ],
       "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
-      "reservation": "No advance reservation required; tickets available on arrival.",
+      "reservation": "Date-specific tickets must be purchased in advance via the official website/app; ticket booths at the parks are currently closed. Ticket prices and park hours vary by date — check the official calendar.",
       "parking": "Paid public parking options available nearby.",
       "openingHours": "Hours vary by date and season (typical 09:00-21:00); see official calendar"
     },
@@ -127,7 +127,7 @@
         "東京ディズニーランドの名所"
       ],
       "notes": "東京ディズニーランドは、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
-      "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+      "reservation": "日付指定のチケットは公式サイト・アプリでの事前購入が必要です（園内チケット売り場は現在閉鎖中）。料金・営業時間は日によって異なりますので、公式カレンダーをご確認ください。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "営業時間は日により変動（一般的に 09:00〜21:00）；公式カレンダーをご確認ください"
     }
@@ -138,7 +138,7 @@
     "confidence": "high"
   },
   "notesJa": "東京ディズニーランドは、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
-  "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
+  "reservationJa": "日付指定のチケットは公式サイト・アプリでの事前購入が必要です（園内チケット売り場は現在閉鎖中）。料金・営業時間は日によって異なりますので、公式カレンダーをご確認ください。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "Hours vary by date and season (typical 09:00-21:00); see official calendar",
   "openingHoursJa": "営業時間は日により変動（一般的に 09:00〜21:00）；公式カレンダーをご確認ください",
