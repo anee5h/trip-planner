@@ -9,15 +9,15 @@
 
 ## 1. Baseline reconciliation (983 vs 800)
 
-| Quantity | Count | Evidence |
-|---|---|---|
-| **Canonical source destination count** | **983** | `src/shared/data/destinations-index.json` @ f468a26d is the canonical runtime source (imported directly by `PlaceCatalog.getCanonicalPlaces`). No separate canonical raw registry exists in-tree; `scripts/data/*.json` are one-off import inputs for `pipeline.cjs` only. |
-| **Generated `destinations-index.json` count** | **983** | The committed index is both canonical input and the record set; nothing regenerates it from a larger source. |
-| **Generated detail/meta outputs** | 983 / 983 | `scripts/catalog/generate-outputs.ts` generates `public/data/destinations/<id>.json` (983 files) and `destinations-meta.json` (983) from the index; `check-catalog-sync` enforces byte-identical, idempotent regeneration. |
-| **Published count** | **736** | `status: published` 736 / `beta` 173 / `verified` 74 (983 total). `editorial.lifecycle`: published 736, in_review 128, none 119. |
-| **Explore-eligible count (EN)** | **983** | `isPlaceAvailableInLocale(place,"en")` returns `true` unconditionally — no status/role filter. |
-| **Explore-eligible count (JA)** | **708** | JA gate = `lifecycle==="published"` + ja name/description/highlights. |
-| **Status/role filtering that turns 983 → 800** | **None exists** | The 800 in the original report was a **stale checkout** (HEAD 44192f21, which predates f468a26d by 14 commits including KAI-66 #139/#140 and the collection PRs). All 258/136/49/… counts from the first revision are **withdrawn**. |
+| Quantity                                       | Count           | Evidence                                                                                                                                                                                                                                                                   |
+| ---------------------------------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Canonical source destination count**         | **983**         | `src/shared/data/destinations-index.json` @ f468a26d is the canonical runtime source (imported directly by `PlaceCatalog.getCanonicalPlaces`). No separate canonical raw registry exists in-tree; `scripts/data/*.json` are one-off import inputs for `pipeline.cjs` only. |
+| **Generated `destinations-index.json` count**  | **983**         | The committed index is both canonical input and the record set; nothing regenerates it from a larger source.                                                                                                                                                               |
+| **Generated detail/meta outputs**              | 983 / 983       | `scripts/catalog/generate-outputs.ts` generates `public/data/destinations/<id>.json` (983 files) and `destinations-meta.json` (983) from the index; `check-catalog-sync` enforces byte-identical, idempotent regeneration.                                                 |
+| **Published count**                            | **736**         | `status: published` 736 / `beta` 173 / `verified` 74 (983 total). `editorial.lifecycle`: published 736, in_review 128, none 119.                                                                                                                                           |
+| **Explore-eligible count (EN)**                | **983**         | `isPlaceAvailableInLocale(place,"en")` returns `true` unconditionally — no status/role filter.                                                                                                                                                                             |
+| **Explore-eligible count (JA)**                | **708**         | JA gate = `lifecycle==="published"` + ja name/description/highlights.                                                                                                                                                                                                      |
+| **Status/role filtering that turns 983 → 800** | **None exists** | The 800 in the original report was a **stale checkout** (HEAD 44192f21, which predates f468a26d by 14 commits including KAI-66 #139/#140 and the collection PRs). All 258/136/49/… counts from the first revision are **withdrawn**.                                       |
 
 The dirty working tree at the time of this audit also differs from f468a26d in transport registries (`ground-routes.json`: +6 train rows, +7 municipality rows, fare-provenance edits; `flight-estimates.json`: +SDJ arrival routes; `airports.json`/`airport-zones.json`: SDJ fields). Those are uncommitted user changes, not part of the f468a26d baseline.
 
@@ -27,25 +27,25 @@ The dirty working tree at the time of this audit also differs from f468a26d in t
 
 ### Current counts (reproduced against f468a26d, 2026-08-13)
 
-| Quantity | Value |
-|---|---|
-| Full catalogue (`destinations-index.json`) | **983** (historic KAI-63 observation: 731) |
-| Explore-eligible (EN) / fresh Explore, unfiltered | **983** |
-| No-origin + any transport mode selected | **983** (transport filter inert without an origin) |
-| **Yokohama origin — full UI gate** | train **260** · shinkansen **152** · car **52** · my_car **52** · flight **214** · ferry **0** |
-| Yokohama origin — authorization layer (`getValidModes` only) | train 711 · shinkansen 229 · car 281 · my_car 281 · flight 279 · ferry 3 |
-| Osaka origin — full gate | train 136 · shinkansen 227 · car 50 · flight 86 · ferry 2 |
-| Fukuoka origin — full gate | train 59 · shinkansen 169 · car 3 · flight 310 · ferry 21 |
-| Sapporo origin — full gate | train 18 · shinkansen 0 · car 0 · flight 355 · ferry 0 |
-| Takamatsu origin — full gate | train 42 · shinkansen 0 · car 34 · flight 208 · ferry 2 |
+| Quantity                                                     | Value                                                                                          |
+| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| Full catalogue (`destinations-index.json`)                   | **983** (historic KAI-63 observation: 731)                                                     |
+| Explore-eligible (EN) / fresh Explore, unfiltered            | **983**                                                                                        |
+| No-origin + any transport mode selected                      | **983** (transport filter inert without an origin)                                             |
+| **Yokohama origin — full UI gate**                           | train **260** · shinkansen **152** · car **52** · my_car **52** · flight **214** · ferry **0** |
+| Yokohama origin — authorization layer (`getValidModes` only) | train 711 · shinkansen 229 · car 281 · my_car 281 · flight 279 · ferry 3                       |
+| Osaka origin — full gate                                     | train 136 · shinkansen 227 · car 50 · flight 86 · ferry 2                                      |
+| Fukuoka origin — full gate                                   | train 59 · shinkansen 169 · car 3 · flight 310 · ferry 21                                      |
+| Sapporo origin — full gate                                   | train 18 · shinkansen 0 · car 0 · flight 355 · ferry 0                                         |
+| Takamatsu origin — full gate                                 | train 42 · shinkansen 0 · car 34 · flight 208 · ferry 2                                        |
 
 ### Historic reproducibility (revised)
 
-| Historic | Current (f468a26d) | Verdict |
-|---|---|---|
-| Unfiltered 731 | 983 | catalogue grew (KAI-31/32/57 + collections PRs #145–151 + KAI-83) |
-| Local train 259 | **260** (full gate, Yokohama) | **reproducible within catalogue drift** |
-| Shinkansen 10 | **152** | KAI-12 (#131) + KAI-66 (#139) corridors/hubs raised it; not reproducible as-is |
+| Historic                    | Current (f468a26d)              | Verdict                                                                               |
+| --------------------------- | ------------------------------- | ------------------------------------------------------------------------------------- |
+| Unfiltered 731              | 983                             | catalogue grew (KAI-31/32/57 + collections PRs #145–151 + KAI-83)                     |
+| Local train 259             | **260** (full gate, Yokohama)   | **reproducible within catalogue drift**                                               |
+| Shinkansen 10               | **152**                         | KAI-12 (#131) + KAI-66 (#139) corridors/hubs raised it; not reproducible as-is        |
 | Rental/Personal car 410/410 | **52** full gate / **281** auth | **not reproducible**; the day-trip duration gate + sparse car metadata (291/983 keys) |
 
 ### Biggest root causes (unchanged in kind, updated magnitudes)
@@ -152,14 +152,14 @@ Same as revision 1: default no-restriction; saved prefs inject only partySize; U
 
 ## D. Full exclusion breakdown (Yokohama origin, f468a26d)
 
-| Mode | Eligible | Topology-unsupported | Missing metadata | Missing verified route/registry | Unknown zone | User-visible (full gate) |
-|---|---|---|---|---|---|---|
-| Local train | 711 | 40 (islands) | 218 | 0 (duration-gate drop ≈ 451 not counted here) | 14 | 260 |
-| Shinkansen | 229 | 99 (Shikoku+islands) | 0 | **641** | 14 | 152 |
-| Personal car | 281 | 79 (Hokkaido+islands) | **609** | 0 | 14 | 52 |
-| Rental car | 281 | 79 | **609** | 0 | 14 | 52 |
-| Flight | 279 | n/a | 0 | 690 (no airport/route/zone match) | 14 | 214 |
-| Ferry | 3 | n/a | 0 | 966 (port >300 km / no service / seasonal) | 14 | 0 |
+| Mode         | Eligible | Topology-unsupported  | Missing metadata | Missing verified route/registry               | Unknown zone | User-visible (full gate) |
+| ------------ | -------- | --------------------- | ---------------- | --------------------------------------------- | ------------ | ------------------------ |
+| Local train  | 711      | 40 (islands)          | 218              | 0 (duration-gate drop ≈ 451 not counted here) | 14           | 260                      |
+| Shinkansen   | 229      | 99 (Shikoku+islands)  | 0                | **641**                                       | 14           | 152                      |
+| Personal car | 281      | 79 (Hokkaido+islands) | **609**          | 0                                             | 14           | 52                       |
+| Rental car   | 281      | 79                    | **609**          | 0                                             | 14           | 52                       |
+| Flight       | 279      | n/a                   | 0                | 690 (no airport/route/zone match)             | 14           | 214                      |
+| Ferry        | 3        | n/a                   | 0                | 966 (port >300 km / no service / seasonal)    | 14           | 0                        |
 
 (983 = eligible + unsupported + missing + unknown per row. Flight/ferry "unsupported" columns are the no-route remainder.)
 
@@ -169,23 +169,23 @@ Same as revision 1: default no-restriction; saved prefs inject only partySize; U
 
 **14 distinct root-cause families (D1–D14).** Code/state defects: 3 (D1, D7a, D7b). Data inconsistencies: 2 (D10a, D12). All others are coverage/semantics gaps.
 
-| ID | Family | Kind | Count / magnitude | Evidence |
-|---|---|---|---|---|
-| D1 | URL transport-state validation: `mode=ferry/local/express` or junk `car=` accepted; restriction active with zero chips and "Any transport" label; ferry has no chip | code/state | 1 | `destinationSearchParams.ts` (unvalidated parse), `DestinationFilters.tsx` (6 chips, no ferry) |
-| D2 | Legacy `transportOptions` presence gate for train/car; 190 empty records; 218 train + 609 car keys missing | data | 190 / 218 / 609 | census @ f468a26d |
-| D3 | Asymmetric eligibility: train/car = key presence; shinkansen/bus = corridor (with coords); flight/ferry = estimator | resolver semantics | 1 | `RecommendationScorer.getValidModes` |
-| D4 | Duration/evidence collapse: no-origin filter inert (983/983); "any" = 14 h cap; evidence-unknown excludes authorized cross-zone results. **Target (per §4.1/§5): reachability and duration independent — eligibility never requires a duration; "any" imposes no cap; duration filters run only under an explicit duration/trip-mode selection** | resolver semantics | 451 train / 229 car / 77 shinkansen / 65 flight dropped between auth and full gate (Yokohama; current behavior) | `TripDurationService.matchesPersonalizedDayTripDuration` |
-| D5 | Shinkansen registry: 641 authorized-unverified; 4 missing hubs (Utsunomiya, Takasaki, Shin-Yamaguchi, Nishi-Kyushu); no intra-zone rows; Kanazawa/Toyama wiring absent | registry data | 641 / 4 hubs | `GroundRouteEstimator.ts`, `ground-routes.json` |
-| D6 | Train corridor registry keyed on origin prefecture; no rows from kanagawa/saitama/… ⇒ cross-zone conventional rail invisible (Kansai/Chugoku/Tohoku/Kyushu = 0 from Yokohama) | registry data | 22 rows, 3 origin endpoints | `ground-routes.json` |
-| D7a | Flight nearest-airport zone mismatch never falls back to an in-zone airport (akiyoshido: FUK vs in-zone HIJ) | code | 1 | `FlightTransportEstimator.findArrivalAirport` |
-| D7b | `candidateAirportLimit=3` drops in-zone KOJ from Fukuoka (kills KOJ→ASJ/KUM year-round) | code | 1 | `FlightTransportEstimator.findNearestAirports` |
-| D8 | No arrival routes to SDJ (Sendai) at f468a26d; 102 Tohoku records flight-invisible from Tokyo | registry data | 1 route family | `flight-estimates.json` |
-| D9 | 14 records resolve to `unknown` zone (Miyajima ×6, amami-iriomote, +7 new: rishiri-rebun-sarobetsu, kerama-shoto, iki-tsushima, koshikijima, shodoshima, inujima, ogijima) — invisible to every transport filter | data | 14 | `resolveDestinationTransportZone` |
-| D10 | Ferry model: (a) sakurajima service without zone-pair row (inverse gap); (b) hokkaido/yakushima/amami/okinawa-main zone pairs without estimable services; (c) 300 km origin-port catchment + no rail→port→ferry legs (Naoshima/Teshima/Yakushima/Tomogashima unreachable from Tokyo); (d) tomogashima season-gated, invisible in date-less browse; (e) no ferry UI chip | data + model | (a) 1, (b) 4 pairs, (c) systemic, (d) 1, (e) 1 | `ferry-estimates.json`, `ferry-routes.json`, `FerryTransportEstimator.ts`, `DestinationFilters.tsx` |
-| D11 | Rental ≡ Personal car structural identity (same edge, same key, 0 `my_car` keys, runtime synthesis) | product/semantics | 1 | `RecommendationScorer.ts`, `DestinationService.ts` |
-| D12 | Fabricated legacy values: rail-less islands carry train 180–200 (naha-city, ishigaki-city, miyakojima-city, yakushima-town, kouri-island); `okinawa-main` zone lists `train` localMode (Yui Rail) | data truthfulness | ~12 records + 1 zone | index census, `transport-topology.json` |
-| D13 | No validators for key membership/value semantics; fabricated values pass | validation | 0 validators | `scripts/validators/destinations.ts` (MISSING_TRANSPORT_OPTIONS only, warning for suspicious estimates) |
-| D14 | Gateway fare provenance: corridor-endpoint fare attached to catchment trips (Tomioka via Karuizawa = Tokyo→Nagano 8,250 ¥) | fare provenance | 1 pattern | `OriginAwareTransportService` shinkansen branch |
+| ID  | Family                                                                                                                                                                                                                                                                                                                                                                  | Kind               | Count / magnitude                                                                                               | Evidence                                                                                                |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| D1  | URL transport-state validation: `mode=ferry/local/express` or junk `car=` accepted; restriction active with zero chips and "Any transport" label; ferry has no chip                                                                                                                                                                                                     | code/state         | 1                                                                                                               | `destinationSearchParams.ts` (unvalidated parse), `DestinationFilters.tsx` (6 chips, no ferry)          |
+| D2  | Legacy `transportOptions` presence gate for train/car; 190 empty records; 218 train + 609 car keys missing                                                                                                                                                                                                                                                              | data               | 190 / 218 / 609                                                                                                 | census @ f468a26d                                                                                       |
+| D3  | Asymmetric eligibility: train/car = key presence; shinkansen/bus = corridor (with coords); flight/ferry = estimator                                                                                                                                                                                                                                                     | resolver semantics | 1                                                                                                               | `RecommendationScorer.getValidModes`                                                                    |
+| D4  | Duration/evidence collapse: no-origin filter inert (983/983); "any" = 14 h cap; evidence-unknown excludes authorized cross-zone results. **Target (per §4.1/§5): reachability and duration independent — eligibility never requires a duration; "any" imposes no cap; duration filters run only under an explicit duration/trip-mode selection**                        | resolver semantics | 451 train / 229 car / 77 shinkansen / 65 flight dropped between auth and full gate (Yokohama; current behavior) | `TripDurationService.matchesPersonalizedDayTripDuration`                                                |
+| D5  | Shinkansen registry: 641 authorized-unverified; 4 missing hubs (Utsunomiya, Takasaki, Shin-Yamaguchi, Nishi-Kyushu); no intra-zone rows; Kanazawa/Toyama wiring absent                                                                                                                                                                                                  | registry data      | 641 / 4 hubs                                                                                                    | `GroundRouteEstimator.ts`, `ground-routes.json`                                                         |
+| D6  | Train corridor registry keyed on origin prefecture; no rows from kanagawa/saitama/… ⇒ cross-zone conventional rail invisible (Kansai/Chugoku/Tohoku/Kyushu = 0 from Yokohama)                                                                                                                                                                                           | registry data      | 22 rows, 3 origin endpoints                                                                                     | `ground-routes.json`                                                                                    |
+| D7a | Flight nearest-airport zone mismatch never falls back to an in-zone airport (akiyoshido: FUK vs in-zone HIJ)                                                                                                                                                                                                                                                            | code               | 1                                                                                                               | `FlightTransportEstimator.findArrivalAirport`                                                           |
+| D7b | `candidateAirportLimit=3` drops in-zone KOJ from Fukuoka (kills KOJ→ASJ/KUM year-round)                                                                                                                                                                                                                                                                                 | code               | 1                                                                                                               | `FlightTransportEstimator.findNearestAirports`                                                          |
+| D8  | No arrival routes to SDJ (Sendai) at f468a26d; 102 Tohoku records flight-invisible from Tokyo                                                                                                                                                                                                                                                                           | registry data      | 1 route family                                                                                                  | `flight-estimates.json`                                                                                 |
+| D9  | 14 records resolve to `unknown` zone (Miyajima ×6, amami-iriomote, +7 new: rishiri-rebun-sarobetsu, kerama-shoto, iki-tsushima, koshikijima, shodoshima, inujima, ogijima) — invisible to every transport filter                                                                                                                                                        | data               | 14                                                                                                              | `resolveDestinationTransportZone`                                                                       |
+| D10 | Ferry model: (a) sakurajima service without zone-pair row (inverse gap); (b) hokkaido/yakushima/amami/okinawa-main zone pairs without estimable services; (c) 300 km origin-port catchment + no rail→port→ferry legs (Naoshima/Teshima/Yakushima/Tomogashima unreachable from Tokyo); (d) tomogashima season-gated, invisible in date-less browse; (e) no ferry UI chip | data + model       | (a) 1, (b) 4 pairs, (c) systemic, (d) 1, (e) 1                                                                  | `ferry-estimates.json`, `ferry-routes.json`, `FerryTransportEstimator.ts`, `DestinationFilters.tsx`     |
+| D11 | Rental ≡ Personal car structural identity (same edge, same key, 0 `my_car` keys, runtime synthesis)                                                                                                                                                                                                                                                                     | product/semantics  | 1                                                                                                               | `RecommendationScorer.ts`, `DestinationService.ts`                                                      |
+| D12 | Fabricated legacy values: rail-less islands carry train 180–200 (naha-city, ishigaki-city, miyakojima-city, yakushima-town, kouri-island); `okinawa-main` zone lists `train` localMode (Yui Rail)                                                                                                                                                                       | data truthfulness  | ~12 records + 1 zone                                                                                            | index census, `transport-topology.json`                                                                 |
+| D13 | No validators for key membership/value semantics; fabricated values pass                                                                                                                                                                                                                                                                                                | validation         | 0 validators                                                                                                    | `scripts/validators/destinations.ts` (MISSING_TRANSPORT_OPTIONS only, warning for suspicious estimates) |
+| D14 | Gateway fare provenance: corridor-endpoint fare attached to catchment trips (Tomioka via Karuizawa = Tokyo→Nagano 8,250 ¥)                                                                                                                                                                                                                                              | fare provenance    | 1 pattern                                                                                                       | `OriginAwareTransportService` shinkansen branch                                                         |
 
 ---
 
@@ -201,11 +201,12 @@ The canonical model keeps **two orthogonal evidence axes** that must never colla
 - **Duration evidence** — verified corridor duration, bounded estimate, or nothing. This feeds (a) display ("Travel time unavailable" when absent) and (b) **duration filtering, which runs only when the user explicitly selects a duration or trip-mode constraint**. It must never gate eligibility.
 
 Consequences:
+
 - A destination with a valid route but **unknown duration** is mode-**eligible** and may show "Travel time unavailable" (the card copy already exists — `travelUnavailable`).
 - "Any" duration selects **no duration constraint** — it must not impose the 14-hour day-trip envelope. The 14 h cap belongs exclusively to an explicit Day-trip mode selection.
 - Missing duration is **never** a reason to exclude a reachable destination from a mode filter.
 
-**Proposed canonical model:** replace the *presence gate* with a per-destination **transport access fact** derived from three independent, evidence-bearing layers:
+**Proposed canonical model:** replace the _presence gate_ with a per-destination **transport access fact** derived from three independent, evidence-bearing layers:
 
 1. **Topology (physical)** — zone + edges + destination-level `localAccessModes` (already exists; extend from 4 records to all islands/gateway records). This answers "is this mode physically possible here?".
 2. **Verified routes (registries)** — corridor/ferry/flight/hub rows with `sourceUrl` + `checkedAt`. This answers "do we have evidence of a real route?".
@@ -214,6 +215,7 @@ Consequences:
 **Eligibility contract after migration:** mode is eligible in Explore iff topology authorizes it **and** (verified route exists **or** explicit access evidence exists) — never from an unprovenanced number, and **never conditioned on a stated duration**. Shinkansen = trunk corridor + modelled last-mile leg; car = drivable + parking/access evidence; train = station/station-pair evidence. Duration display and duration/trip-mode filtering read the same access facts plus the corridor/estimate registries, but as a separate step that Explore invokes only when a duration/trip-mode constraint is active.
 
 **Migration strategy (staged, reversible, count-compared at every step):**
+
 1. Add the new field + schema + validators (new records only; legacy field untouched).
 2. Run a one-pass evidence audit (per destination, per mode) producing the access facts; record `sourceUrl`/`checkedAt` for every non-"unknown" value; keep "unknown" wherever evidence is absent. Duration facts are recorded **separately** (same audit, distinct field), never folded into eligibility.
 3. Flip `getValidModes` train/car reads to the new field behind a runtime flag; run the audit harness (this report's harness) before/after and compare per-mode counts per origin — the delta is the documented effect. In the same flip, **remove the duration gate from the mode-selection path**: `getValidModes` stops consulting `matchesPersonalizedDayTripDuration`; eligibility = topology ∧ route/access evidence only.
@@ -239,31 +241,36 @@ Ownership: KAI-63 owns the schema/flag/validators and the resolver flip (steps 1
 ## 6. Reclassification of proposed work
 
 ### A. Immediate correctness bugs (fix first; P0)
-- **D1** — URL transport-state validation (ferry/junk modes; "Any transport" mislabel; ferry chip or rejection). *KAI-63.*
-- **D7a / D7b** — flight estimator: nearest in-zone airport fallback; zone-filter candidates before the limit-3 truncation (KOJ from Fukuoka). *KAI-63 logic + KAI-12 data.*
+
+- **D1** — URL transport-state validation (ferry/junk modes; "Any transport" mislabel; ferry chip or rejection). _KAI-63._
+- **D7a / D7b** — flight estimator: nearest in-zone airport fallback; zone-filter candidates before the limit-3 truncation (KOJ from Fukuoka). _KAI-63 logic + KAI-12 data._
 
 ### B. Resolver/product-semantic changes (P1)
-- **D3** — unified eligibility gate (retire the presence gate; canonical access facts). *KAI-63.*
-- **D4** — decouple reachability from duration: mode eligibility = topology ∧ route/access evidence only (no duration requirement); duration resolution moves to display + explicit duration/trip-mode filtering; "any" imposes no 14 h cap; unknown-duration destinations stay eligible and show "Travel time unavailable". *KAI-63.*
-- **D11** — merge Personal/Rental into one Car filter (product decision). *KAI-63.*
-- **D10e** — ferry chip decision deferred to the multimodal model. *KAI-63 product.*
+
+- **D3** — unified eligibility gate (retire the presence gate; canonical access facts). _KAI-63._
+- **D4** — decouple reachability from duration: mode eligibility = topology ∧ route/access evidence only (no duration requirement); duration resolution moves to display + explicit duration/trip-mode filtering; "any" imposes no 14 h cap; unknown-duration destinations stay eligible and show "Travel time unavailable". _KAI-63._
+- **D11** — merge Personal/Rental into one Car filter (product decision). _KAI-63._
+- **D10e** — ferry chip decision deferred to the multimodal model. _KAI-63 product._
 
 ### C. Verified registry expansion (P1, data)
-- **D5** — Shinkansen hubs/rows: Utsunomiya, Takasaki, Shin-Yamaguchi, Nishi-Kyushu; Kanazawa/Toyama wiring + `municipalityId`s; optional intra-zone rows. *KAI-12.*
-- **D6** — train corridors from non-hub origin prefectures (kanagawa→kyoto/osaka/aichi/shizuoka/nagano/tochigi/gunma/chiba/saitama/ibaraki/miyagi, …) with sourceUrl/checkedAt. *KAI-12.*
-- **D8** — HND→SDJ (+ provenance). *KAI-12.*
-- **D10a/b** — sakurajima zone-pair row; hokkaido/yakushima/amami/okinawa-main ferry services. *KAI-27.*
+
+- **D5** — Shinkansen hubs/rows: Utsunomiya, Takasaki, Shin-Yamaguchi, Nishi-Kyushu; Kanazawa/Toyama wiring + `municipalityId`s; optional intra-zone rows. _KAI-12._
+- **D6** — train corridors from non-hub origin prefectures (kanagawa→kyoto/osaka/aichi/shizuoka/nagano/tochigi/gunma/chiba/saitama/ibaraki/miyagi, …) with sourceUrl/checkedAt. _KAI-12._
+- **D8** — HND→SDJ (+ provenance). _KAI-12._
+- **D10a/b** — sakurajima zone-pair row; hokkaido/yakushima/amami/okinawa-main ferry services. _KAI-27._
 
 ### D. Destination-data cleanup (P1/P2, data)
-- **D2** — metadata repopulation through the canonical access-fact path (never bulk backfill; per-region evidence audits). *KAI-87 + KAI-12 evidence.*
-- **D9** — zone assignment for the 14 unknown-zone records (Miyajima cluster, Amami, 7 new collection islands). *KAI-28.*
-- **D12** — remove fabricated island transport values; revisit the `okinawa-main` `train` localMode (Yui Rail). *KAI-87.*
-- **D13** — validators: key membership, rail-less-zone rules, value sanity. *KAI-63/KAI-87.*
+
+- **D2** — metadata repopulation through the canonical access-fact path (never bulk backfill; per-region evidence audits). _KAI-87 + KAI-12 evidence._
+- **D9** — zone assignment for the 14 unknown-zone records (Miyajima cluster, Amami, 7 new collection islands). _KAI-28._
+- **D12** — remove fabricated island transport values; revisit the `okinawa-main` `train` localMode (Yui Rail). _KAI-87._
+- **D13** — validators: key membership, rail-less-zone rules, value sanity. _KAI-63/KAI-87._
 
 ### E. Longer-term multimodal modelling (P2)
-- **D10c/d** — rail→port→ferry access legs; origin-port catchment rework; seasonal ferry surfacing. *KAI-27/28.*
-- **D14** — access-leg fares and gateway-specific fares (endpoint fare no longer attached to catchment trips). *KAI-28.*
-- **D11-future** — rental-availability model (island rentals, one-way feasibility) if the split is ever reintroduced. *New ticket.*
+
+- **D10c/d** — rail→port→ferry access legs; origin-port catchment rework; seasonal ferry surfacing. _KAI-27/28._
+- **D14** — access-leg fares and gateway-specific fares (endpoint fare no longer attached to catchment trips). _KAI-28._
+- **D11-future** — rental-availability model (island rentals, one-way feasibility) if the split is ever reintroduced. _New ticket._
 
 ---
 
@@ -273,17 +280,17 @@ Ownership: KAI-63 owns the schema/flag/validators and the resolver flip (steps 1
 
 **Full-gate geography (Yokohama origin):**
 
-| Region | Total | Train | Shinkansen | Car | Flight |
-|---|---|---|---|---|---|
-| Kanto | 281 | 244 | 3 | 43 | 0 |
-| Chubu | 118 | 16 | 31 | 9 | 0 |
-| Kansai | 144 | 0 | 53 | 0 | 0 |
-| Chugoku | 76 | 0 | 6 | 0 | 29 |
-| Tohoku | 102 | 0 | 44 | 0 | 0 |
-| Shikoku | 63 | 0 | 0 | 0 | 49 |
-| Kyushu | 131 | 0 | 15 | 0 | 96 |
-| Hokkaido | 40 | 0 | 0 | 0 | 21 |
-| Okinawa | 28 | 0 | 0 | 0 | 19 |
+| Region   | Total | Train | Shinkansen | Car | Flight |
+| -------- | ----- | ----- | ---------- | --- | ------ |
+| Kanto    | 281   | 244   | 3          | 43  | 0      |
+| Chubu    | 118   | 16    | 31         | 9   | 0      |
+| Kansai   | 144   | 0     | 53         | 0   | 0      |
+| Chugoku  | 76    | 0     | 6          | 0   | 29     |
+| Tohoku   | 102   | 0     | 44         | 0   | 0      |
+| Shikoku  | 63    | 0     | 0          | 0   | 49     |
+| Kyushu   | 131   | 0     | 15         | 0   | 96     |
+| Hokkaido | 40    | 0     | 0          | 0   | 21     |
+| Okinawa  | 28    | 0     | 0          | 0   | 19     |
 
 Prefectures with **zero non-bus visibility from a Tokyo-area origin:** Wakayama 18/18, Yamaguchi 13/13, Fukui 6/6 (Tottori has 1 flight, Toyama 2 shinkansen, Mie 1 shinkansen — all new records). Per-prefecture table in the harness output (`fullgate-geography.test.ts`).
 
@@ -318,13 +325,13 @@ Prefectures with **zero non-bus visibility from a Tokyo-area origin:** Wakayama 
 
 ## Implemented (by PR)
 
-| PR | Branch | D-items | Change |
-|---|---|---|---|
-| #168 | fix/kai-63-flight-airport-fallback | D7a, D7b | Flight eligibility prefers in-zone airports (zone-filter before the limit-3 truncation; KOJ restored from Fukuoka). |
-| #169 | fix/kai-63-single-car-filter | D11 | Personal + Rental car merged into one Explore Car filter (union gate, no eligibility change). |
-| #170 | fix/kai-63-duration-independent-eligibility | D4 | Duration evidence decoupled from mode eligibility: "Any" duration = reachability only; day-trip envelope applies only under an explicit duration/trip-mode selection. |
-| #171 | data/kai-63-island-transport-validators | D12, D13 (part) | Fabricated island rail/car metadata removed (16 records); transport truthfulness validators added (canonical keys, rail-less island rules, localAccessModes). Rebased onto c836b364; sado-island car value additionally stripped; 10 generated files regenerated to index (KAI-87 ferry values). |
-| #172 | data/kai-63-corridor-coverage | D5 (part), D6 (part) | 4 Shinkansen hubs (Utsunomiya, Takasaki, Shin-Yamaguchi, Shin-Tosu) + 4 corridor rows + 3 wirings within the 30 km access catchment; 3 verified Kanagawa train corridors (kanagawa→aichi/kyoto/osaka, navitime/yahoo sources). |
+| PR   | Branch                                      | D-items              | Change                                                                                                                                                                                                                                                                                           |
+| ---- | ------------------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| #168 | fix/kai-63-flight-airport-fallback          | D7a, D7b             | Flight eligibility prefers in-zone airports (zone-filter before the limit-3 truncation; KOJ restored from Fukuoka).                                                                                                                                                                              |
+| #169 | fix/kai-63-single-car-filter                | D11                  | Personal + Rental car merged into one Explore Car filter (union gate, no eligibility change).                                                                                                                                                                                                    |
+| #170 | fix/kai-63-duration-independent-eligibility | D4                   | Duration evidence decoupled from mode eligibility: "Any" duration = reachability only; day-trip envelope applies only under an explicit duration/trip-mode selection.                                                                                                                            |
+| #171 | data/kai-63-island-transport-validators     | D12, D13 (part)      | Fabricated island rail/car metadata removed (16 records); transport truthfulness validators added (canonical keys, rail-less island rules, localAccessModes). Rebased onto c836b364; sado-island car value additionally stripped; 10 generated files regenerated to index (KAI-87 ferry values). |
+| #172 | data/kai-63-corridor-coverage               | D5 (part), D6 (part) | 4 Shinkansen hubs (Utsunomiya, Takasaki, Shin-Yamaguchi, Shin-Tosu) + 4 corridor rows + 3 wirings within the 30 km access catchment; 3 verified Kanagawa train corridors (kanagawa→aichi/kyoto/osaka, navitime/yahoo sources).                                                                   |
 
 Review fixes applied on final heads: #170 pins the night-only bus gate on the explicit day-trip surface (ExploreBusEligibility, previously vacuous under "any"); #172 updates the day-trip ranking pin to acknowledge verified Tochigi Shinkansen coverage (Utsunomiya ranks #1–2 from a Kanagawa origin, pushing the old Kanto-only top-10); #171 strips sado-island's fabricated `car: 240` and regenerates 10 generated files from the KAI-87 (978-record) index after the rebase onto c836b364.
 
@@ -334,13 +341,13 @@ Review fixes applied on final heads: #170 pins the night-only bus gate on the ex
 
 Measured on the integration tree via `getValidModes` (the Explore "Any" gate):
 
-| Mode | Before (f468a26d full gate) | After (integrated) |
-|---|---|---|
-| train | 260 | **709** (metadata-present + corridor; D6 rows add Kyoto/Osaka/Nagoya) |
-| shinkansen | 152 | **234** (D5 hubs/wirings; Nikko/Ashikaga remain outside the 30 km catchment) |
-| car (unified) | 52 / 52 | **281** (D4: no duration cap) |
-| flight | 214 | **308** (D7 in-zone preference) |
-| ferry | 0 | **3** (unchanged; no ferry chip, day-trip-impossible from Yokohama) |
+| Mode          | Before (f468a26d full gate) | After (integrated)                                                           |
+| ------------- | --------------------------- | ---------------------------------------------------------------------------- |
+| train         | 260                         | **709** (metadata-present + corridor; D6 rows add Kyoto/Osaka/Nagoya)        |
+| shinkansen    | 152                         | **234** (D5 hubs/wirings; Nikko/Ashikaga remain outside the 30 km catchment) |
+| car (unified) | 52 / 52                     | **281** (D4: no duration cap)                                                |
+| flight        | 214                         | **308** (D7 in-zone preference)                                              |
+| ferry         | 0                           | **3** (unchanged; no ferry chip, day-trip-impossible from Yokohama)          |
 
 Other origins (integrated): Osaka train 709 · shinkansen 312 · car 281 · flight 125 · ferry 2; Fukuoka train 631 · shinkansen 319 · car 233 · flight 518 · ferry 27; Sapporo train 577 · shinkansen 0 · car 1 · flight 612 · ferry 0; Takamatsu train 611 · shinkansen 0 · car 275 · flight 303 · ferry 2.
 
