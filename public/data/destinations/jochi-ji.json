@@ -35,7 +35,7 @@
   "officialWebsite": "https://www.city.kamakura.kanagawa.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
-  "tags": ["History", "Kamakura City", "v1.9.2"],
+  "tags": ["History", "Kamakura City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/J%C5%8Dchi-ji_-21735.jpeg/1280px-J%C5%8Dchi-ji_-21735.jpeg",
   "imageMetadata": {
     "source": "Wikimedia Commons",

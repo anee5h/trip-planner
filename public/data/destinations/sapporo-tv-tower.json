@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.tv-tower.co.jp/",
   "officialWebsiteRequirement": "required",
   "categories": ["Viewpoint"],
-  "tags": ["Viewpoint", "Sapporo City", "v1.9.2"],
+  "tags": ["Viewpoint", "Sapporo City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/93/Sapporo-TV-Tower-2025.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",

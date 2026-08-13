@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.usj.co.jp/web/en/us",
   "officialWebsiteRequirement": "required",
   "categories": ["Theme Park", "Entertainment"],
-  "tags": ["Culture", "Osaka City", "v1.9.2"],
+  "tags": ["Culture", "Osaka City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Harry%20Potter%20and%20the%20Forbidden%20Journey%20USJ.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

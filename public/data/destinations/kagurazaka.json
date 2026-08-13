@@ -38,7 +38,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Dining", "Historic Street", "Culture"],
-  "tags": ["Culture", "Shinjuku City", "v1.9.2"],
+  "tags": ["Culture", "Shinjuku City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Kagurazaka_Tokyo_Japan.jpg/1280px-Kagurazaka_Tokyo_Japan.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",

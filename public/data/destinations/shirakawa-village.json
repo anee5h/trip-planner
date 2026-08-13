@@ -75,7 +75,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/734/"
+      "source": "https://whc.unesco.org/en/list/734/",
+      "sortOrder": 29
     },
     {
       "collectionId": "historic-towns-japan",

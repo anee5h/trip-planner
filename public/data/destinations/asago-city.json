@@ -91,7 +91,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "A rural Hyogo city known for the Takeda Castle Ruins, often seen above a sea of clouds in autumn.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.asago.hyogo.jp/",
+        "title": "Asago City official website",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

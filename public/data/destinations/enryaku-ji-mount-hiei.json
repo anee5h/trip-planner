@@ -65,7 +65,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/688/"
+      "source": "https://whc.unesco.org/en/list/688/",
+      "sortOrder": 36
     }
   ],
   "relationships": {

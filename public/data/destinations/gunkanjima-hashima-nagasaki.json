@@ -76,11 +76,12 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/1484/"
+      "source": "https://whc.unesco.org/en/list/1484/",
+      "sortOrder": 4
     },
     {
       "collectionId": "islands-japan",
-      "sortOrder": 5
+      "sortOrder": 2
     }
   ],
   "relationships": {

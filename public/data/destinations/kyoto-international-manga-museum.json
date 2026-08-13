@@ -26,7 +26,7 @@
   "officialWebsite": "http://www.kyotomm.com/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
-  "tags": ["Museum", "Kyoto City", "v1.9.2"],
+  "tags": ["Museum", "Kyoto City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E3%83%9E%E3%83%B3%E3%82%AC%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

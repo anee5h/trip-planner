@@ -17,11 +17,7 @@
   "budgetMin": 4000,
   "budgetMax": 15000,
   "budgetRecommended": 9500,
-  "transportOptions": {
-    "train": 45,
-    "bus": 50,
-    "car": 60
-  },
+  "transportOptions": {},
   "totalTripHours": 6,
   "walkingMin": 120,
   "walkingSunMin": 70,
@@ -81,7 +77,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/1535/"
+      "source": "https://whc.unesco.org/en/list/1535/",
+      "sortOrder": 23
     }
   ],
   "relationships": {

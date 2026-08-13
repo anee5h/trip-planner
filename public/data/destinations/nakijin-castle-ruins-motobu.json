@@ -109,12 +109,13 @@
   "collections": [
     {
       "collectionId": "japan-top-castles",
-      "sortOrder": 98
+      "sortOrder": 35
     },
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/972/"
+      "source": "https://whc.unesco.org/en/list/972/",
+      "sortOrder": 41
     }
   ],
   "crowd": {

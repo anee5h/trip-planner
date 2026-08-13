@@ -35,7 +35,7 @@
   "officialWebsite": "https://www.kotoku-in.jp/en/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Kamakura City", "v1.9.2"],
+  "tags": ["Culture", "Kamakura City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/230128%20Kamakura%20Daibutsu%20Japan01s3.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -115,7 +115,7 @@
   "collections": [
     {
       "collectionId": "three-great-buddhas",
-      "sortOrder": 2
+      "sortOrder": 1
     }
   ],
   "addedAt": "2026-07-29",

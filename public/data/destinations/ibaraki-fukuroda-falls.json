@@ -84,12 +84,12 @@
   "collections": [
     {
       "collectionId": "three-great-waterfalls",
-      "sortOrder": 3,
+      "sortOrder": 1,
       "confirmed": true
     },
     {
       "collectionId": "waterfalls-gorges-japan",
-      "sortOrder": 5
+      "sortOrder": 1
     }
   ],
   "relationships": {

@@ -35,7 +35,7 @@
   "officialWebsite": "https://www.seiburailway.jp/railway/station/hon-kawagoe/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
-  "tags": ["History", "Kawagoe City", "v1.9.2"],
+  "tags": ["History", "Kawagoe City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Temple_Renkei-ji_%C3%A0_Kawagoe_au_Japon.jpg/1280px-Temple_Renkei-ji_%C3%A0_Kawagoe_au_Japon.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",

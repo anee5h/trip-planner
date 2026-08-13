@@ -26,7 +26,7 @@
   "officialWebsite": "http://www.kyohaku.go.jp/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
-  "tags": ["Museum", "Kyoto City", "v1.9.2"],
+  "tags": ["Museum", "Kyoto City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/260214%20Kyoto%20National%20Museum%20Kyoto%20Japan04bs4.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

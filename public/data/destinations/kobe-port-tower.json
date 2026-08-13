@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.kobe-port-tower.com/",
   "officialWebsiteRequirement": "required",
   "categories": ["Viewpoint"],
-  "tags": ["Viewpoint", "Kobe City", "v1.9.2"],
+  "tags": ["Viewpoint", "Kobe City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20port%20tower12s3200.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -108,7 +108,8 @@
   "collections": [
     {
       "collectionId": "japan-observatories-towers",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 4
     }
   ],
   "addedAt": "2026-07-29",

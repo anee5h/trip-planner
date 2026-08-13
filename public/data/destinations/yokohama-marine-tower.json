@@ -82,7 +82,8 @@
   "collections": [
     {
       "collectionId": "japan-observatories-towers",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 17
     }
   ],
   "relationships": {

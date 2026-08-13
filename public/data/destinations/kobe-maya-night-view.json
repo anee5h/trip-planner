@@ -39,7 +39,8 @@
   "collections": [
     {
       "collectionId": "great-night-views",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 4
     }
   ],
   "transportOptions": {

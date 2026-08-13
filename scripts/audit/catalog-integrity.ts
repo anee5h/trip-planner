@@ -26,13 +26,21 @@
  */
 
 import type { Destination } from "../../src/shared/types/destination.js";
+import type { Collection } from "../../src/shared/types/collection.js";
+import topologyData from "../../src/shared/data/transport-topology.json";
+import {
+  collectDestinationIssues,
+  collectCollectionIssues,
+  buildMembershipMap,
+  type DestinationRuleContext,
+} from "./data-quality-rules.js";
 
 export type AuditSeverity = "error" | "warning" | "info";
 
 export interface AuditFinding {
   code: string;
   severity: AuditSeverity;
-  category: "A" | "B" | "C" | "D" | "E";
+  category: "A" | "B" | "C" | "D" | "E" | "Q";
   targetId: string;
   message: string;
   /** Structured payload for machine consumers (never free-form prose only). */
@@ -861,6 +869,53 @@ function deepEqual(a: unknown, b: unknown): boolean {
   return false;
 }
 
+/**
+ * KAI-87 data-quality rules (report §G, PR 6) — emitted as warning findings
+ * so check:catalog-warnings baselines existing debt and fails on new
+ * fingerprints. Rules live in data-quality-rules.ts, shared with the
+ * validator suite; severity is decided here (warning) and there (preventive
+ * classes are errors in validate:catalog-fast).
+ */
+function checkDataQuality(
+  destinations: Destination[],
+  collections: Collection[],
+  findings: AuditFinding[],
+): void {
+  const zones = (
+    topologyData as unknown as {
+      zones: Array<{ id: string; localModes: string[] }>;
+    }
+  ).zones;
+  const zoneLocalModes = new Map<string, readonly string[]>(
+    zones.map((z) => [z.id, z.localModes]),
+  );
+  const ruleCtx: DestinationRuleContext = { zoneLocalModes };
+
+  for (const dest of destinations) {
+    for (const issue of collectDestinationIssues(dest, ruleCtx)) {
+      findings.push({
+        code: issue.code,
+        severity: "warning",
+        category: "Q",
+        targetId: dest.id,
+        message: issue.message,
+        details: { rule: issue.code },
+      });
+    }
+  }
+  const membershipMap = buildMembershipMap(destinations);
+  for (const issue of collectCollectionIssues(collections, membershipMap)) {
+    findings.push({
+      code: issue.code,
+      severity: "warning",
+      category: "Q",
+      targetId: issue.targetId,
+      message: issue.message,
+      details: { rule: issue.code },
+    });
+  }
+}
+
 function checkSync(
   destinations: Destination[],
   details: DetailFileEntry[],
@@ -1159,6 +1214,7 @@ export function runAudit(
   details: DetailFileEntry[],
   metaEntries: { id: string; [k: string]: unknown }[],
   options: AuditOptions = {},
+  collections: Collection[] = [],
 ): AuditReport {
   const findings: AuditFinding[] = [];
   const byId = new Map(destinations.map((d) => [d.id, d]));
@@ -1167,6 +1223,7 @@ export function runAudit(
   checkGeography(destinations, byId, findings);
   checkTiming(destinations, byId, findings);
   checkMunicipality(destinations, byId, findings);
+  checkDataQuality(destinations, collections, findings);
   checkSync(
     destinations,
     details,

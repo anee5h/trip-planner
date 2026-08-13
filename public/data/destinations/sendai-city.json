@@ -75,7 +75,8 @@
   "collections": [
     {
       "collectionId": "core-cities-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 18
     }
   ],
   "relationships": {

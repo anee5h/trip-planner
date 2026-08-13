@@ -26,7 +26,7 @@
   "officialWebsite": "https://www.city.kyoto.lg.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
-  "tags": ["History", "Kyoto City", "v1.9.2"],
+  "tags": ["History", "Kyoto City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RyoanJi-Dry_garden.jpg/1280px-RyoanJi-Dry_garden.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -109,7 +109,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/688/"
+      "source": "https://whc.unesco.org/en/list/688/",
+      "sortOrder": 25
     }
   ],
   "addedAt": "2026-07-29",

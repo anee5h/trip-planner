@@ -118,7 +118,8 @@
   "collections": [
     {
       "collectionId": "flower-parks-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 7
     }
   ],
   "addedAt": "2026-08-04",

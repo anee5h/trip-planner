@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.shokoku-ji.jp/en/kinkakuji/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
-  "tags": ["History", "Kyoto City", "v1.9.2"],
+  "tags": ["History", "Kyoto City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Golden_Pavilion_Kinkaku-ji_water_mirror_2024.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -110,7 +110,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/688/"
+      "source": "https://whc.unesco.org/en/list/688/",
+      "sortOrder": 9
     }
   ],
   "addedAt": "2026-07-29",

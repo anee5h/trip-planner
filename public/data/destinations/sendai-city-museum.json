@@ -27,7 +27,7 @@
   "officialWebsite": "http://www.city.sendai.jp/museum/index.html",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
-  "tags": ["Museum", "Sendai City", "v1.9.2"],
+  "tags": ["Museum", "Sendai City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sendai%20City%20Museum%2020251221a.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

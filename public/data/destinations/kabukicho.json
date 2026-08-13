@@ -39,7 +39,7 @@
   "officialWebsite": "http://www.kabukicho.or.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Nightlife", "Entertainment", "District"],
-  "tags": ["Culture", "Shinjuku City", "v1.9.2"],
+  "tags": ["Culture", "Shinjuku City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gate%20of%20Kabuki-cho%20Ichiban-gai.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

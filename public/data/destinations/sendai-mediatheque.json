@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.smt.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture", "Museum"],
-  "tags": ["Culture", "Sendai City", "v1.9.2"],
+  "tags": ["Culture", "Sendai City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sendai%20Mediatheque%202009.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
