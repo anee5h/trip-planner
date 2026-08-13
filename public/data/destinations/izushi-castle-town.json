@@ -93,5 +93,8 @@
       "collectionId": "historic-towns-japan",
       "sortOrder": 68
     }
-  ]
+  ],
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

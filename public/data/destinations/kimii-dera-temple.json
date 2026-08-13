@@ -89,5 +89,8 @@
     "car": 282
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Kimiidera_Wakayama03n4272.jpg/1920px-Kimiidera_Wakayama03n4272.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Kimiidera_Wakayama03n4272.jpg/1920px-Kimiidera_Wakayama03n4272.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

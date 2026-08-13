@@ -93,5 +93,8 @@
       "collectionId": "japan-top-castles",
       "sortOrder": 62
     }
-  ]
+  ],
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

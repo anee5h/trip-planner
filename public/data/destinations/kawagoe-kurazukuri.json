@@ -90,5 +90,8 @@
       "sortOrder": 1
     }
   ],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kurazukuri_Street_in_Little_Edo.jpg/1920px-Kurazukuri_Street_in_Little_Edo.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kurazukuri_Street_in_Little_Edo.jpg/1920px-Kurazukuri_Street_in_Little_Edo.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

@@ -1,7 +1,7 @@
 {
   "id": "shinjuku-gyo-en",
   "name": "Shinjuku Gyo-en",
-  "businessHours": "09:00 - 16:30 (Closed Mondays)",
+  "businessHours": "09:00-17:30 (Mar-Oct), 09:00-16:30 (Nov-Feb); closed Mon",
   "nameJa": "新宿御苑",
   "aliases": ["Shinjuku", "新宿区"],
   "content": {
@@ -186,7 +186,7 @@
   "notesJa": "日本庭園、イギリス風景式庭園、フランス式整形庭園の3つの庭園美と四季の花々を愉しめます。",
   "reservationJa": "春の特別開園（桜シーズン）の混雑期は事前予約が推奨されます。",
   "parkingJa": "新宿門横に有料駐車場が完備されています。",
-  "openingHours": "09:00 - 17:30 (Closed Mondays)",
+  "openingHours": "09:00-17:30 (Mar-Oct), 09:00-16:30 (Nov-Feb); closed Mon",
   "openingHoursJa": "09:00 - 17:30（月曜休園）",
   "municipalityId": "Tokyo:shinjuku"
 }

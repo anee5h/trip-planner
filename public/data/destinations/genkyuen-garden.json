@@ -88,5 +88,8 @@
     "car": 168
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Genkyuen01s3200.jpg/1920px-Genkyuen01s3200.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Genkyuen01s3200.jpg/1920px-Genkyuen01s3200.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

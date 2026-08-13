@@ -213,7 +213,7 @@
     "notesJa": "【見どころ】Abeno Harukas 300 (Osaka Skyline)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "openingHoursJa": "09:00〜22:00（最終入場 21:30）",
     "ratingsSchemaVersion": 2,
     "nameJa": "あべのハルカス300（展望台）",
     "content": {
@@ -838,7 +838,7 @@
       "max": 7
     },
     "officialWebsite": "https://visit-chiyoda.tokyo.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "10:00-20:00 (varies by shop)",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -3172,7 +3172,6 @@
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg/1920px-Japanese_wisteria%2C_Ashikaga_Flower_Park_13.jpg",
     "tags": ["flower", "wisteria", "park", "tochigi", "garden"],
     "rating": 4.8,
-    "bestSeasons": ["Spring"],
     "travelEstimate": {
       "minutesFromBase": 90,
       "confidence": "high"
@@ -3217,13 +3216,13 @@
       "holiday": 8
     },
     "season": {
-      "spring": 9,
-      "summer": 8,
-      "autumn": 9,
-      "winter": 7
+      "spring": 10,
+      "summer": 6,
+      "autumn": 8,
+      "winter": 9
     },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
+    "bestMonths": [4, 5, 10, 11, 12, 1, 2],
+    "bestSeason": "Spring & Winter",
     "weatherDependence": "moderate",
     "comfort": {
       "heatTolerance": 7,
@@ -6022,7 +6021,7 @@
     "placeType": "destination",
     "areaId": "chiba-port",
     "officialWebsite": "https://chiba-porttower.com/",
-    "businessHours": "10:00 - 21:00 (Last admission 20:30)",
+    "businessHours": "09:00-21:00 (Jun-Sep), 09:00-19:00/20:00 (Oct-May); last entry 30 min before close",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -6053,7 +6052,7 @@
         "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "09:00-21:00 (Jun-Sep), 09:00-19:00/20:00 (Oct-May); last entry 30 min before close"
       },
       "ja": {
         "name": "千葉ポートタワー",
@@ -6067,7 +6066,7 @@
         "notes": "千葉ポートタワーは、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "09:00〜21:00（6〜9月）、09:00〜19:00/20:00（10〜5月）"
       }
     },
     "ratingMetadata": {
@@ -6744,12 +6743,12 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access",
+    "businessHours": "09:30-16:30, last entry 16:00, closed Wednesdays (Dec 29-Jan 1)",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "09:30-16:30, last entry 16:00, closed Wednesdays (Dec 29-Jan 1)",
+    "openingHoursJa": "09:30-16:30, last entry 16:00, closed Wednesdays (Dec 29-Jan 1)",
     "municipalityId": "Chiba:chiba"
   },
   {
@@ -8205,7 +8204,7 @@
     "description": "Tokyo Disneyland is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
       "transport": 3101,
-      "tickets": 19431,
+      "tickets": 8400,
       "food": 6201,
       "cafe": 2067
     },
@@ -8236,7 +8235,7 @@
       "max": 13
     },
     "officialWebsite": "https://www.tokyodisneyresort.jp/tdl/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Hours vary by date and season (typical 09:00-21:00); see official calendar",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -8266,7 +8265,7 @@
         "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "Hours vary by date and season (typical 09:00-21:00); see official calendar"
       },
       "ja": {
         "name": "東京ディズニーランド",
@@ -8279,7 +8278,7 @@
         "notes": "東京ディズニーランドは、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "営業時間は日により変動（一般的に 09:00〜21:00）；公式カレンダーをご確認ください"
       }
     },
     "ratingMetadata": {
@@ -8290,8 +8289,8 @@
     "notesJa": "東京ディズニーランドは、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00",
+    "openingHours": "Hours vary by date and season (typical 09:00-21:00); see official calendar",
+    "openingHoursJa": "営業時間は日により変動（一般的に 09:00〜21:00）；公式カレンダーをご確認ください",
     "municipalityId": "Chiba:urayasu"
   },
   {
@@ -8351,7 +8350,7 @@
     "description": "DisneySea is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
       "transport": 3101,
-      "tickets": 19431,
+      "tickets": 8400,
       "food": 6201,
       "cafe": 2067
     },
@@ -8382,7 +8381,7 @@
       "max": 14
     },
     "officialWebsite": "https://www.tokyodisneyresort.jp/tds/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Hours vary by date and season (typical 09:00-21:00); see official calendar",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -8408,7 +8407,7 @@
         "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "Hours vary by date and season (typical 09:00-21:00); see official calendar"
       },
       "ja": {
         "name": "東京ディズニーシー",
@@ -8417,7 +8416,7 @@
         "notes": "東京ディズニーシーは、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "営業時間は日により変動（一般的に 09:00〜21:00）；公式カレンダーをご確認ください"
       }
     },
     "ratingMetadata": {
@@ -8428,8 +8427,8 @@
     "notesJa": "東京ディズニーシーは、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00",
+    "openingHours": "Hours vary by date and season (typical 09:00-21:00); see official calendar",
+    "openingHoursJa": "営業時間は日により変動（一般的に 09:00〜21:00）；公式カレンダーをご確認ください",
     "municipalityId": "Chiba:urayasu"
   },
   {
@@ -9219,7 +9218,7 @@
     "budgetMax": 8500,
     "budgetBreakdown": {
       "transport": 1925,
-      "tickets": 1100,
+      "tickets": 2800,
       "food": 1925,
       "cafe": 550
     },
@@ -9427,7 +9426,7 @@
     "relationships": {
       "parentDestinationId": "fujisawa-city"
     },
-    "bestSeason": "Spring & Autumn",
+    "bestSeason": "Summer",
     "weatherDependence": "moderate",
     "walkingIntensity": "high",
     "role": "poi",
@@ -9672,12 +9671,12 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.fujisawa-kanko.jp/spot/enoshima/17.html",
-    "businessHours": "Open access",
+    "businessHours": "~08:30-17:00 (seasonal)",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "~08:30-17:00 (seasonal)",
+    "openingHoursJa": "~08:30-17:00 (seasonal)",
     "municipalityId": "Kanagawa:fujisawa",
     "transportZoneId": "mainland-honshu"
   },
@@ -9694,7 +9693,7 @@
         "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "09:00-20:00 (last entry 19:30)"
       },
       "ja": {
         "name": "江の島シーキャンドル",
@@ -9703,7 +9702,7 @@
         "notes": "江の島シーキャンドルは、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "09:00〜20:00（最終入場 19:30）"
       }
     },
     "prefecture": "Kanagawa",
@@ -9737,7 +9736,7 @@
     "budgetMax": 7000,
     "budgetBreakdown": {
       "transport": 1400,
-      "tickets": 800,
+      "tickets": 500,
       "food": 1400,
       "cafe": 400
     },
@@ -9856,7 +9855,7 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access",
+    "businessHours": "09:00-20:00 (last entry 19:30), seasonal extensions",
     "notesJa": "江の島シーキャンドルは、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -10214,7 +10213,7 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "businessHours": "08:45-21:00 (reopened 2025-07-25; entry fee 300 JPY)",
     "municipalityId": "Hokkaido:sapporo"
   },
   {
@@ -10468,7 +10467,7 @@
     "budgetMax": 8500,
     "budgetBreakdown": {
       "transport": 1925,
-      "tickets": 1100,
+      "tickets": 1000,
       "food": 1925,
       "cafe": 550
     },
@@ -12372,7 +12371,7 @@
     "notesJa": "【見どころ】伏見稲荷大社は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "openingHoursJa": "24時間（社務所 08:30〜16:30）",
     "municipalityId": "Kyoto:kyoto"
   },
   {
@@ -12423,9 +12422,9 @@
     },
     "season": {
       "spring": 4,
-      "summer": 4,
-      "autumn": 4,
-      "winter": 4
+      "summer": 2,
+      "autumn": 3,
+      "winter": 10
     },
     "highlights": [
       "Explore top-rated mountain locations",
@@ -12433,7 +12432,7 @@
       "Perfect for a active day out"
     ],
     "description": "Discover Gala Yuzawa, a prominent destination in Niigata. With its rich mix of skiing, snow, shinkansen access, it's a highly recommended spot for a 8-hour getaway.",
-    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestMonths": [12, 1, 2, 3, 4, 5],
     "budgetBreakdown": {
       "transport": 8276,
       "tickets": 13448,
@@ -12449,7 +12448,7 @@
     "collections": [],
     "relationships": {},
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/F8_Tanigawa_79_Gala-Yuzawa_20060115.JPG",
-    "bestSeason": "Spring & Autumn",
+    "bestSeason": "Winter",
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
@@ -12462,7 +12461,7 @@
       "max": 9
     },
     "officialWebsite": "https://gala.co.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Ski season mid-Dec to early May; summer park mid-Jul to late Sep; closed in between",
     "nameJa": "GALA湯沢スノーリゾート"
   },
   {
@@ -12849,7 +12848,7 @@
     "description": "Ghibli Museum is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
     "budgetBreakdown": {
       "transport": 1101,
-      "tickets": 2202,
+      "tickets": 1000,
       "food": 5395,
       "cafe": 2202
     },
@@ -12880,7 +12879,7 @@
       "max": 7
     },
     "officialWebsite": "https://www.ghibli-museum.jp/",
-    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "businessHours": "10:00-18:00, closed Tuesdays (reservation-only)",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -12910,7 +12909,7 @@
         "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "10:00-18:00 (closed Tuesdays; reservation-only)"
       },
       "ja": {
         "name": "三鷹の森ジブリ美術館",
@@ -12923,7 +12922,7 @@
         "notes": "三鷹の森ジブリ美術館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "10:00〜18:00（火曜休館・予約制）"
       }
     },
     "ratingMetadata": {
@@ -12934,8 +12933,8 @@
     "notesJa": "三鷹の森ジブリ美術館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00",
+    "openingHours": "10:00-18:00",
+    "openingHoursJa": "10:00〜18:00（火曜休館・予約制）",
     "municipalityId": "Tokyo:mitaka"
   },
   {
@@ -13008,7 +13007,7 @@
     "description": "Perched 329 meters atop Mt. Kinka, Gifu Castle was Oda Nobunaga's formidable mountain stronghold, offering panoramic views over the Nagara River and Nobi Plain.",
     "budgetBreakdown": {
       "transport": 1300,
-      "tickets": 1192,
+      "tickets": 200,
       "food": 2925,
       "cafe": 1083
     },
@@ -13489,7 +13488,7 @@
     "notesJa": "【見どころ】慈照寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "openingHoursJa": "08:30〜17:00（12〜2月 09:00〜16:30）",
     "municipalityId": "Kyoto:kyoto"
   },
   {
@@ -13655,7 +13654,6 @@
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg/1920px-%E9%8A%80%E5%B1%B1%E6%B8%A9%E6%B3%89_Ginzan_Onsen_%287809473788%29.jpg",
     "tags": ["onsen", "yamagata", "winter", "snow", "historic"],
     "rating": 4.9,
-    "bestSeasons": ["Winter", "Autumn"],
     "travelEstimate": {
       "minutesFromBase": 210,
       "confidence": "high"
@@ -13696,13 +13694,13 @@
       "holiday": 8
     },
     "season": {
-      "spring": 9,
-      "summer": 8,
-      "autumn": 9,
-      "winter": 7
+      "spring": 7,
+      "summer": 6,
+      "autumn": 7,
+      "winter": 10
     },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
+    "bestMonths": [12, 1, 2, 3],
+    "bestSeason": "Winter",
     "weatherDependence": "moderate",
     "comfort": {
       "heatTolerance": 7,
@@ -15895,7 +15893,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg",
     "budgetBreakdown": {
       "transport": 1083,
-      "tickets": 542,
+      "tickets": 0,
       "food": 3169,
       "cafe": 1706
     },
@@ -17294,7 +17292,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg",
     "budgetBreakdown": {
       "transport": 1875,
-      "tickets": 937,
+      "tickets": 2500,
       "food": 3047,
       "cafe": 1641
     },
@@ -17333,7 +17331,7 @@
     "notesJa": "【見どころ】姫路城は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "openingHoursJa": "09:00〜17:00（最終入場 16:00；夏期 18:00まで）",
     "role": "destination",
     "content": {
       "en": {
@@ -17816,9 +17814,9 @@
       "holiday": 5
     },
     "season": {
-      "spring": 4,
-      "summer": 4,
-      "autumn": 4,
+      "spring": 10,
+      "summer": 7,
+      "autumn": 7,
       "winter": 4
     },
     "walkingMin": 8000,
@@ -17826,7 +17824,7 @@
     "walkingShadeMin": 3200,
     "indoorPercent": 20,
     "totalTripHours": 4,
-    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestMonths": [4, 5],
     "relationships": {
       "featuredDestinationIds": [],
       "parentDestinationId": "hirosaki-city"
@@ -17839,7 +17837,7 @@
       "cafe": 1575
     },
     "highlights": ["Explore Hirosaki Castle", "Local Culture & Scenery"],
-    "bestSeason": "Spring & Autumn",
+    "bestSeason": "Spring",
     "weatherDependence": "moderate",
     "comfort": {
       "heatTolerance": 7,
@@ -19350,7 +19348,7 @@
       "max": 9
     },
     "officialWebsite": "https://hitachikaihin.jp/",
-    "businessHours": "Open access",
+    "businessHours": "09:30-17:00 (Jul 21-Aug 31 to 18:00; Nov-Feb 16:30), closed Tue",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -19406,8 +19404,8 @@
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "09:30-17:00 (Jul 21-Aug 31 to 18:00; Nov-Feb 16:30), closed Tue",
+    "openingHoursJa": "09:30-17:00 (Jul 21-Aug 31 to 18:00; Nov-Feb 16:30), closed Tue",
     "municipalityId": "Ibaraki:hitachinaka"
   },
   {
@@ -20095,7 +20093,7 @@
       "max": 5
     },
     "officialWebsite": "https://sento.kunaicho.go.jp/Kyoto/",
-    "businessHours": "Open access",
+    "businessHours": "Outer grounds 24h; East Gardens 09:00-16:30, closed Mon & Fri",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -20919,7 +20917,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Naiku_04.jpg",
     "budgetBreakdown": {
       "transport": 1875,
-      "tickets": 937,
+      "tickets": 0,
       "food": 3047,
       "cafe": 1641
     },
@@ -20957,7 +20955,7 @@
     "notesJa": "【見どころ】伊勢神宮は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "openingHoursJa": "05:00〜17:00/18:00/19:00（季節により変動）",
     "nearHubs": ["ise-city"],
     "role": "destination",
     "content": {
@@ -22836,7 +22834,7 @@
       "autumn": 6.4,
       "winter": 8.9
     },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestMonths": [6, 7, 8],
     "weatherDependence": "moderate",
     "reservation": "Usually not required; check current visitor guidance.",
     "parking": "Check local parking and public transport guidance.",
@@ -23459,17 +23457,17 @@
       "holiday": 5
     },
     "season": {
-      "spring": 4,
-      "summer": 4,
-      "autumn": 4,
-      "winter": 4
+      "spring": 9,
+      "summer": 6,
+      "autumn": 6,
+      "winter": 7
     },
     "walkingMin": 60,
     "walkingSunMin": 36,
     "walkingShadeMin": 24,
     "indoorPercent": 20,
     "totalTripHours": 4,
-    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestMonths": [2, 3],
     "relationships": {
       "parentDestinationId": "mito-city"
     },
@@ -23481,7 +23479,7 @@
       "cafe": 499
     },
     "highlights": ["Explore Kairakuen Garden", "Local Culture & Scenery"],
-    "bestSeason": "Spring & Autumn",
+    "bestSeason": "Spring",
     "weatherDependence": "moderate",
     "comfort": {
       "heatTolerance": 7,
@@ -24481,7 +24479,7 @@
     "description": "The magnificent seat of the powerful Maeda clan (Kaga Domain), featuring meticulously reconstructed wooden turrets, white lead tile roofs, and Gyokusen'inmaru feudal garden adjacent to Kenrokuen.",
     "budgetBreakdown": {
       "transport": 1938,
-      "tickets": 345,
+      "tickets": 0,
       "food": 3446,
       "cafe": 1271
     },
@@ -25229,12 +25227,12 @@
       "holiday": 9
     },
     "season": {
-      "spring": 8.6,
-      "summer": 8.9,
-      "autumn": 9.2,
-      "winter": 9.5
+      "spring": 7,
+      "summer": 10,
+      "autumn": 6,
+      "winter": 3
     },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestMonths": [7, 8],
     "weatherDependence": "moderate",
     "reservation": "Open access; no entrance reservation required.",
     "parking": "Park parking lot available on site.",
@@ -25311,7 +25309,8 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
     "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Kanagawa:fujisawa"
+    "municipalityId": "Kanagawa:fujisawa",
+    "bestSeason": "Summer"
   },
   {
     "id": "katori-city",
@@ -27038,7 +27037,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg/1920px-Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg",
     "budgetBreakdown": {
       "transport": 1714,
-      "tickets": 1143,
+      "tickets": 600,
       "food": 743,
       "cafe": 400
     },
@@ -27304,7 +27303,7 @@
     "budgetMax": 7000,
     "budgetBreakdown": {
       "transport": 1400,
-      "tickets": 800,
+      "tickets": 500,
       "food": 1400,
       "cafe": 400
     },
@@ -29751,12 +29750,12 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access",
+    "businessHours": "Paid timed-entry; hours vary by season (typically ~10:00-22:00)",
     "nearHubs": ["kobe-city"],
     "notesJa": "【見どころ】神戸ポートタワーは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "openingHoursJa": "10:00〜22:00（季節により変動）",
     "municipalityId": "Hyogo:kobe"
   },
   {
@@ -30880,7 +30879,7 @@
       "autumn": 9,
       "winter": 7
     },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestMonths": [3, 4, 5, 6, 7, 8, 9, 10, 11],
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "comfort": {
@@ -31642,9 +31641,9 @@
     },
     "season": {
       "spring": 4,
-      "summer": 4,
-      "autumn": 4,
-      "winter": 4
+      "summer": 10,
+      "autumn": 7,
+      "winter": 2
     },
     "highlights": [
       "Explore top-rated nature locations",
@@ -31652,7 +31651,7 @@
       "Perfect for a active day out"
     ],
     "description": "Discover Kurobe Gorge, a prominent destination in Toyama. With its rich mix of scenic railway, ravine, onsen, it's a highly recommended spot for a 8-hour getaway.",
-    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestMonths": [5, 6, 7, 8, 9, 10, 11],
     "budgetBreakdown": {
       "transport": 6300,
       "tickets": 8400,
@@ -31679,7 +31678,7 @@
       }
     ],
     "relationships": {},
-    "bestSeason": "Spring & Autumn",
+    "bestSeason": "Summer & Autumn",
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
@@ -32737,7 +32736,7 @@
     "budgetMax": 8500,
     "budgetBreakdown": {
       "transport": 1925,
-      "tickets": 1100,
+      "tickets": 1200,
       "food": 1925,
       "cafe": 550
     },
@@ -32827,7 +32826,7 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "businessHours": "10:00-17:00 (last entry 16:30), closed Wednesdays",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】京都国際マンガミュージアムは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -32977,7 +32976,7 @@
     "notesJa": "【見どころ】京都国立博物館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "openingHoursJa": "09:30〜17:00（金曜 20:00まで、月曜休館）",
     "municipalityId": "Kyoto:kyoto"
   },
   {
@@ -33117,7 +33116,7 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "businessHours": "10:00-17:00 (last entry 16:30), closed Wednesdays",
     "nearHubs": ["kyoto-city"],
     "notesJa": "【見どころ】京都鉄道博物館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -35015,7 +35014,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/1280px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg",
     "budgetBreakdown": {
       "transport": 2375,
-      "tickets": 1187,
+      "tickets": 1200,
       "food": 3859,
       "cafe": 2079
     },
@@ -35399,7 +35398,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg",
     "budgetBreakdown": {
       "transport": 1875,
-      "tickets": 937,
+      "tickets": 0,
       "food": 3047,
       "cafe": 1641
     },
@@ -36605,7 +36604,7 @@
         "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
         "reservation": "Online advance ticket reservation recommended on weekends.",
         "parking": "Facility parking structure available.",
-        "openingHours": "09:30 - 17:00 (Last admission 16:30)"
+        "openingHours": "10:00-17:00, closed Tue"
       },
       "ja": {
         "name": "日本科学未来館",
@@ -36618,7 +36617,7 @@
         "notes": "日本科学未来館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:30 - 17:00（最終入館 16:30）"
+        "openingHours": "10:00〜17:00（火曜休館）"
       }
     },
     "prefecture": "Tokyo",
@@ -37181,7 +37180,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/960px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
     "budgetBreakdown": {
       "transport": 1875,
-      "tickets": 937,
+      "tickets": 300,
       "food": 3047,
       "cafe": 1641
     },
@@ -37798,7 +37797,7 @@
       "max": 9
     },
     "officialWebsite": "https://www.motherfarm.co.jp/",
-    "businessHours": "Open access",
+    "businessHours": "Winter 10:00-16:00 weekdays / 9:30-16:00 weekends; summer longer; irregular closures",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -37848,8 +37847,8 @@
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "Winter 10:00-16:00 weekdays / 9:30-16:00 weekends; summer longer; irregular closures",
+    "openingHoursJa": "Winter 10:00-16:00 weekdays / 9:30-16:00 weekends; summer longer; irregular closures",
     "municipalityId": "Chiba:futtsu"
   },
   {
@@ -38378,10 +38377,10 @@
       "holiday": 5
     },
     "season": {
-      "spring": 4,
-      "summer": 4,
-      "autumn": 4,
-      "winter": 4
+      "spring": 6,
+      "summer": 10,
+      "autumn": 6,
+      "winter": 2
     },
     "highlights": [
       "Explore top-rated mountain locations",
@@ -38389,7 +38388,7 @@
       "Perfect for a active day out"
     ],
     "description": "Mount Fuji is an active stratovolcano located on the Japanese island of Honshu, with a summit elevation of 3,776. 24 m.",
-    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestMonths": [7, 8, 9],
     "budgetBreakdown": {
       "transport": 2400,
       "tickets": 1200,
@@ -38423,7 +38422,7 @@
     ],
     "relationships": {},
     "nameJa": "富士山",
-    "bestSeason": "Spring & Autumn",
+    "bestSeason": "Summer",
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
@@ -38831,9 +38830,9 @@
       "holiday": 5
     },
     "season": {
-      "spring": 4,
-      "summer": 4,
-      "autumn": 4,
+      "spring": 10,
+      "summer": 6,
+      "autumn": 6,
       "winter": 4
     },
     "walkingMin": 8000,
@@ -38841,7 +38840,7 @@
     "walkingShadeMin": 3200,
     "indoorPercent": 20,
     "totalTripHours": 4,
-    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestMonths": [4],
     "relationships": {
       "gatewayHubId": "nara-city"
     },
@@ -38856,7 +38855,7 @@
       "Explore Mount Yoshino (Yoshinoyama)",
       "Local Culture & Scenery"
     ],
-    "bestSeason": "Spring & Autumn",
+    "bestSeason": "Spring",
     "weatherDependence": "moderate",
     "comfort": {
       "heatTolerance": 7,
@@ -38976,7 +38975,7 @@
       "autumn": 9,
       "winter": 10
     },
-    "bestMonths": [1, 2, 3, 6, 7, 8, 10, 11],
+    "bestMonths": [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12],
     "bestSeason": "Winter",
     "weatherDependence": "high",
     "comfort": {
@@ -41176,7 +41175,7 @@
       "max": 4
     },
     "officialWebsite": "https://nagoya-port-building.jp/",
-    "businessHours": "10:00 - 21:00 (Last admission 20:30)",
+    "businessHours": "Closed for renewal 2026-08-01 to 2026-11-30",
     "municipalityId": "Aichi:nagoya"
   },
   {
@@ -42376,7 +42375,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg/1280px-%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg",
     "budgetBreakdown": {
       "transport": 1250,
-      "tickets": 625,
+      "tickets": 800,
       "food": 2031,
       "cafe": 1094
     },
@@ -44037,7 +44036,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/1280px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg",
     "budgetBreakdown": {
       "transport": 1625,
-      "tickets": 812,
+      "tickets": 1300,
       "food": 2641,
       "cafe": 1422
     },
@@ -44508,7 +44507,7 @@
       "max": 4
     },
     "officialWebsite": "https://www.toshogu.jp/",
-    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
+    "businessHours": "09:00-17:00 (Apr-Oct), 09:00-16:00 (Nov-Mar), last entry 30 min before close",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -44557,8 +44556,8 @@
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "08:30 - 16:30",
-    "openingHoursJa": "08:30 - 16:30（境内自由）",
+    "openingHours": "09:00-17:00 (Apr-Oct), 09:00-16:00 (Nov-Mar), last entry 30 min before close",
+    "openingHoursJa": "09:00〜17:00（4〜10月）、09:00〜16:00（11〜3月）",
     "municipalityId": "Tochigi:nikko"
   },
   {
@@ -45791,7 +45790,7 @@
       "max": 4
     },
     "officialWebsite": "https://oarai-mt.jp/",
-    "businessHours": "10:00 - 21:00 (Last admission 20:30)",
+    "businessHours": "09:00-18:00",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -45821,7 +45820,7 @@
         "notes": "A top recommended attraction in Ibaraki, offering excellent photo opportunities and local cultural experiences.",
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "09:00-18:00"
       },
       "ja": {
         "name": "大洗マリンタワー",
@@ -45834,7 +45833,7 @@
         "notes": "大洗マリンタワーは、Ibarakiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "09:00〜18:00"
       }
     },
     "ratingMetadata": {
@@ -46663,7 +46662,6 @@
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Oirase-keiryu.jpg/1920px-Oirase-keiryu.jpg",
     "tags": ["gorge", "waterfall", "nature", "aomori", "hiking"],
     "rating": 4.8,
-    "bestSeasons": ["Summer", "Autumn"],
     "travelEstimate": {
       "minutesFromBase": 240,
       "confidence": "high"
@@ -46713,7 +46711,7 @@
       "winter": 7
     },
     "bestMonths": [3, 4, 5, 9, 10, 11],
-    "bestSeason": "Spring & Autumn",
+    "bestSeason": "Summer & Autumn",
     "weatherDependence": "moderate",
     "comfort": {
       "heatTolerance": 7,
@@ -48584,7 +48582,7 @@
     "notesJa": "【見どころ】海遊館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "openingHoursJa": "10:00〜20:00（最終入場 19:00）",
     "municipalityId": "Osaka:osaka"
   },
   {
@@ -48667,7 +48665,7 @@
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Osaka-zu_byobu.jpg/500px-Osaka-zu_byobu.jpg",
     "budgetBreakdown": {
       "transport": 1625,
-      "tickets": 813,
+      "tickets": 1200,
       "food": 2641,
       "cafe": 1421
     },
@@ -49162,7 +49160,7 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "businessHours": "10:00-17:00 (last entry 16:30), closed Tuesdays",
     "nearHubs": ["osaka-city"],
     "notesJa": "【見どころ】大阪くらしの今昔館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -50571,7 +50569,18 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）"
+    "openingHoursJa": "散策自由（24時間開放）",
+    "season": {
+      "spring": 4,
+      "summer": 10,
+      "autumn": 8,
+      "winter": 2
+    },
+    "bestMonths": [7, 8, 9, 10],
+    "bestSeason": "Summer & Autumn",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "philosopher-s-walk",
@@ -51196,7 +51205,7 @@
         "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "10:00-22:00 (last admission 21:30); Sky Deck closed since Apr 2024"
       },
       "ja": {
         "name": "六本木ヒルズ展望台（東京シティビュー）",
@@ -51209,7 +51218,7 @@
         "notes": "六本木ヒルズ展望台（東京シティビュー）は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "10:00〜22:00（最終入場 21:30）；スカイデッキは2024年4月より休止"
       }
     },
     "ratingMetadata": {
@@ -51220,8 +51229,8 @@
     "notesJa": "六本木ヒルズ展望台（東京シティビュー）は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "09:00 - 17:00",
-    "openingHoursJa": "09:00 - 17:00",
+    "openingHours": "10:00-22:00 (last admission 21:30); Sky Deck closed since Apr 2024",
+    "openingHoursJa": "10:00〜22:00（最終入場 21:30）；スカイデッキは2024年4月より休止",
     "municipalityId": "Tokyo:minato"
   },
   {
@@ -51271,7 +51280,7 @@
     "budgetMax": 7000,
     "budgetBreakdown": {
       "transport": 1400,
-      "tickets": 800,
+      "tickets": 600,
       "food": 1400,
       "cafe": 400
     },
@@ -51637,9 +51646,9 @@
       "holiday": 5
     },
     "season": {
-      "spring": 4,
-      "summer": 4,
-      "autumn": 4,
+      "spring": 6,
+      "summer": 10,
+      "autumn": 7,
       "winter": 4
     },
     "highlights": [
@@ -51648,7 +51657,7 @@
       "Tsurushi Silver Mine"
     ],
     "description": "Sado Island Gold Mines is a serial UNESCO World Heritage property on Sado Island, comprising the Nishimikawa Placer Gold Mine and the Aikawa-Tsurushi Gold and Silver Mine areas that preserve unmechanised mining and processing landscapes.",
-    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestMonths": [7, 8],
     "budgetBreakdown": {
       "transport": 6400,
       "tickets": 3200,
@@ -51687,7 +51696,7 @@
       "gatewayHubId": "niigata-city"
     },
     "nameJa": "佐渡島の金山",
-    "bestSeason": "Spring & Autumn",
+    "bestSeason": "Summer",
     "weatherDependence": "moderate",
     "reservation": "None required",
     "parking": "Available on site",
@@ -52951,7 +52960,7 @@
       "max": 5
     },
     "officialWebsite": "https://www.city.sakura.lg.jp/soshiki/sakuranooshiro/",
-    "businessHours": "Open access",
+    "businessHours": "Park grounds open; castle museum 09:00-16:30 (closed year-end)",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -53005,8 +53014,8 @@
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "Park grounds open; castle museum 09:00-16:30 (closed year-end)",
+    "openingHoursJa": "Park grounds open; castle museum 09:00-16:30 (closed year-end)",
     "municipalityId": "Chiba:sakura"
   },
   {
@@ -53311,12 +53320,12 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "Open access",
+    "businessHours": "~09:00-17:00 seasonal",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "~09:00-17:00 seasonal",
+    "openingHoursJa": "~09:00-17:00 seasonal",
     "municipalityId": "Kanagawa:fujisawa",
     "transportZoneId": "mainland-honshu"
   },
@@ -55947,7 +55956,7 @@
     "description": "A breathtaking 229-meter rooftop observation deck at Shibuya Scramble Square offering 360-degree views of Tokyo and Mount Fuji.",
     "budgetBreakdown": {
       "transport": 236,
-      "tickets": 2946,
+      "tickets": 2500,
       "food": 3771,
       "cafe": 1297
     },
@@ -56251,7 +56260,7 @@
         "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "11:00-21:00 weekdays, 10:30-21:00 weekends"
       },
       "ja": {
         "name": "新横浜ラーメン博物館",
@@ -56264,7 +56273,7 @@
         "notes": "新横浜ラーメン博物館は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "平日 11:00〜21:00、土日祝 10:30〜21:00"
       }
     },
     "ratingMetadata": {
@@ -56769,7 +56778,7 @@
   {
     "id": "shinjuku-gyo-en",
     "name": "Shinjuku Gyo-en",
-    "businessHours": "09:00 - 16:30 (Closed Mondays)",
+    "businessHours": "09:00-17:30 (Mar-Oct), 09:00-16:30 (Nov-Feb); closed Mon",
     "nameJa": "新宿御苑",
     "aliases": ["Shinjuku", "新宿区"],
     "content": {
@@ -56954,7 +56963,7 @@
     "notesJa": "日本庭園、イギリス風景式庭園、フランス式整形庭園の3つの庭園美と四季の花々を愉しめます。",
     "reservationJa": "春の特別開園（桜シーズン）の混雑期は事前予約が推奨されます。",
     "parkingJa": "新宿門横に有料駐車場が完備されています。",
-    "openingHours": "09:00 - 17:30 (Closed Mondays)",
+    "openingHours": "09:00-17:30 (Mar-Oct), 09:00-16:30 (Nov-Feb); closed Mon",
     "openingHoursJa": "09:00 - 17:30（月曜休園）",
     "municipalityId": "Tokyo:shinjuku"
   },
@@ -58872,7 +58881,7 @@
         "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "11:00-21:00 (last entry 20:00)"
       },
       "ja": {
         "name": "サンシャイン60展望台 てんぼうパーク",
@@ -58885,7 +58894,7 @@
         "notes": "サンシャイン60展望台 てんぼうパークは、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "11:00〜21:00（最終入場 20:00）"
       }
     },
     "ratingMetadata": {
@@ -58917,7 +58926,7 @@
         "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "09:30-21:00 (last entry 20:00)"
       },
       "ja": {
         "name": "サンシャイン水族館",
@@ -58930,7 +58939,7 @@
         "notes": "サンシャイン水族館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "09:30〜21:00（最終入場 20:00）"
       }
     },
     "prefecture": "Tokyo",
@@ -60498,7 +60507,7 @@
       "max": 9
     },
     "officialWebsite": "https://www.takaoka.or.jp/",
-    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
+    "businessHours": "No fixed hours (city area)"
   },
   {
     "id": "takato-castle-nagano",
@@ -61025,7 +61034,7 @@
       "max": 6
     },
     "officialWebsite": "https://www.tokyo-zoo.net/zoo/tama/",
-    "businessHours": "Open access",
+    "businessHours": "09:30-17:00, closed Mon (Dec 29-Jan 1)",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -61079,8 +61088,8 @@
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "09:30-17:00, closed Mon (Dec 29-Jan 1)",
+    "openingHoursJa": "09:30-17:00, closed Mon (Dec 29-Jan 1)",
     "municipalityId": "Tokyo:hino"
   },
   {
@@ -61647,7 +61656,7 @@
     "description": "An immersive water-filled digital art museum in Toyosu where visitors walk barefoot through water pools and flower gardens.",
     "budgetBreakdown": {
       "transport": 1068,
-      "tickets": 8121,
+      "tickets": 3600,
       "food": 4488,
       "cafe": 1923
     },
@@ -64246,7 +64255,7 @@
         "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "09:30-22:00 (closed certain days)"
       },
       "ja": {
         "name": "東京都庁展望室",
@@ -64259,7 +64268,7 @@
         "notes": "東京都庁展望室は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "09:30〜22:00（休館日あり）"
       }
     },
     "ratingMetadata": {
@@ -64848,7 +64857,7 @@
     "description": "Rising 634 meters over Tokyo, Tokyo Skytree is the world's tallest broadcasting tower, offering breath-taking 360-degree views of Mt. Fuji and the Kanto Plain from two observation decks.",
     "budgetBreakdown": {
       "transport": 559,
-      "tickets": 3465,
+      "tickets": 2600,
       "food": 3912,
       "cafe": 1564
     },
@@ -65824,7 +65833,7 @@
       "Perfect for a active day out"
     ],
     "description": "Discover Tateyama Kurobe Alpine Route, a prominent destination in Toyama. With its rich mix of snow wall, dam, scenic, it's a highly recommended spot for a 8-hour getaway.",
-    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestMonths": [4, 5, 6, 10, 11],
     "budgetBreakdown": {
       "transport": 10435,
       "tickets": 5217,
@@ -65859,7 +65868,7 @@
       "max": 9
     },
     "officialWebsite": "https://www.alpen-route.com/",
-    "businessHours": "Open access"
+    "businessHours": "Seasonal: 2026-04-15 to 2026-11-30; closed in winter"
   },
   {
     "id": "toyooka-city",
@@ -67317,7 +67326,7 @@
     "notesJa": "【見どころ】通天閣は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "openingHoursJa": "10:00〜20:00（最終入場 19:30）",
     "municipalityId": "Osaka:osaka"
   },
   {
@@ -67899,8 +67908,8 @@
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "09:30-17:00, closed Mon (Dec 29-Jan 1), last entry 16:00",
+    "openingHoursJa": "09:30〜17:00（月曜休園・12/29〜1/1、最終入園16:00）",
     "municipalityId": "Tokyo:taito"
   },
   {
@@ -68173,7 +68182,7 @@
     "notesJa": "【見どころ】梅田スカイビルは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "openingHoursJa": "09:30〜22:30（最終入場 22:00）",
     "municipalityId": "Osaka:osaka"
   },
   {
@@ -68319,7 +68328,7 @@
     "notesJa": "【見どころ】ユニバーサル・スタジオ・ジャパンは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "openingHoursJa": "08:30〜21:30（季節により変動）",
     "municipalityId": "Osaka:osaka"
   },
   {
@@ -68561,7 +68570,7 @@
       "max": 9
     },
     "officialWebsite": "https://daibutu.net/",
-    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
+    "businessHours": "09:30-17:00 weekdays / 17:30 weekends (Mar-Sep), 09:30-16:30 (Oct-Feb); last entry 30 min before close",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -70256,7 +70265,7 @@
       "max": 4
     },
     "officialWebsite": "https://www.chinatown.or.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "10:00-22:00 (varies by shop)",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -70738,7 +70747,7 @@
       "max": 4
     },
     "officialWebsite": "https://www.yokohama-landmark.jp/skygarden/",
-    "businessHours": "10:00 - 21:00 (Last admission 20:30)",
+    "businessHours": "Closed for renovation until ~2028",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -70925,7 +70934,7 @@
         "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
         "reservation": "No advance reservation required; tickets available on arrival.",
         "parking": "Paid public parking options available nearby.",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "10:00-21:00 (last entry 20:30)"
       },
       "ja": {
         "name": "横浜マリンタワー",
@@ -70938,7 +70947,7 @@
         "notes": "横浜マリンタワーは、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
         "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
         "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-        "openingHours": "09:00 - 17:00"
+        "openingHours": "10:00〜21:00（最終入場 20:30）"
       }
     },
     "ratingMetadata": {
@@ -71046,7 +71055,7 @@
       "max": 4
     },
     "officialWebsite": "https://www.yokohama-akarenga.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "11:00-20:00 (restaurants until 22:00)",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -71188,7 +71197,7 @@
       "max": 6
     },
     "officialWebsite": "https://www.hama-midorinokyokai.or.jp/zoo/zoorasia/",
-    "businessHours": "Open access",
+    "businessHours": "09:30-16:30, closed Tue",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -71242,8 +71251,8 @@
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "09:30-16:30, closed Tue",
+    "openingHoursJa": "09:30-16:30, closed Tue",
     "municipalityId": "Kanagawa:yokohama"
   },
   {
@@ -71942,12 +71951,12 @@
       "holiday": 9
     },
     "season": {
-      "spring": 6.4,
-      "summer": 6.7,
-      "autumn": 7,
-      "winter": 7.3
+      "spring": 7,
+      "summer": 10,
+      "autumn": 6,
+      "winter": 3
     },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestMonths": [7, 8],
     "weatherDependence": "moderate",
     "reservation": "Open access; no entrance reservation required.",
     "parking": "Park parking lot available on site.",
@@ -72024,7 +72033,8 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
     "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Kanagawa:kamakura"
+    "municipalityId": "Kanagawa:kamakura",
+    "bestSeason": "Summer"
   },
   {
     "id": "zao-fox-village-miyagi",
@@ -72926,7 +72936,7 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
-    "businessHours": "Open access",
+    "businessHours": "Gates sunrise-sunset (e.g. Jan 6:40-16:20, Jun 5:00-18:30); inner garden/museum separate",
     "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meiji_Jingu_Shrine_Tokyo_Japan.jpg?width=1600",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -72937,8 +72947,8 @@
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "Gates sunrise-sunset (e.g. Jan 6:40-16:20, Jun 5:00-18:30); inner garden/museum separate",
+    "openingHoursJa": "Gates sunrise-sunset (e.g. Jan 6:40-16:20, Jun 5:00-18:30); inner garden/museum separate",
     "municipalityId": "Tokyo:shibuya"
   },
   {
@@ -73570,7 +73580,7 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-    "businessHours": "Open access",
+    "businessHours": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Traditional_style_toilet_at_Hamarikyu_Gardens_in_Tokyo%2C_Japan_%2814063687677%29.jpg/1920px-Traditional_style_toilet_at_Hamarikyu_Gardens_in_Tokyo%2C_Japan_%2814063687677%29.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -73581,8 +73591,8 @@
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
+    "openingHoursJa": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
     "municipalityId": "Tokyo:chuo"
   },
   {
@@ -74376,7 +74386,7 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/eastern-tokyo/kiyosumi-shirakawa/index.html",
-    "businessHours": "Open access",
+    "businessHours": "09:00-17:00",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kiyosumi-4.JPG/1920px-Kiyosumi-4.JPG",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -74387,8 +74397,8 @@
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "09:00-17:00",
+    "openingHoursJa": "09:00-17:00",
     "municipalityId": "Tokyo:koto"
   },
   {
@@ -74449,7 +74459,7 @@
     "budgetMax": 7000,
     "budgetBreakdown": {
       "transport": 1400,
-      "tickets": 0,
+      "tickets": 500,
       "food": 1400,
       "cafe": 1200
     },
@@ -74610,7 +74620,7 @@
     "budgetMax": 7000,
     "budgetBreakdown": {
       "transport": 1400,
-      "tickets": 0,
+      "tickets": 400,
       "food": 1400,
       "cafe": 1200
     },
@@ -74771,7 +74781,7 @@
     "budgetMax": 7000,
     "budgetBreakdown": {
       "transport": 1400,
-      "tickets": 0,
+      "tickets": 400,
       "food": 1400,
       "cafe": 1200
     },
@@ -75181,7 +75191,7 @@
       "confidence": "low"
     },
     "officialWebsite": "https://visit-sumida.jp/en/",
-    "businessHours": "Open access",
+    "businessHours": "09:00-17:00, closed Mon",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/In_Mukojima-Hyakkaen_Garden.jpg/1920px-In_Mukojima-Hyakkaen_Garden.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -75192,8 +75202,8 @@
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "09:00-17:00, closed Mon",
+    "openingHoursJa": "09:00-17:00, closed Mon",
     "municipalityId": "Tokyo:sumida"
   },
   {
@@ -77113,13 +77123,13 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.hkc.or.jp/eng/",
-    "businessHours": "Open access",
+    "businessHours": "10:00-16:00, closed Tue",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Takao_599_Museum.jpg/1920px-Takao_599_Museum.jpg",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "10:00-16:00, closed Tue",
+    "openingHoursJa": "10:00-16:00, closed Tue",
     "municipalityId": "Tokyo:hachioji"
   },
   {
@@ -77274,13 +77284,13 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.hkc.or.jp/eng/",
-    "businessHours": "Open access",
+    "businessHours": "09:30-16:00, closed Mon (Dec 29-Jan 4)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/TAMA_FOREST_SCIENCE_GARDEN.JPG/1920px-TAMA_FOREST_SCIENCE_GARDEN.JPG",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "09:30-16:00, closed Mon (Dec 29-Jan 4)",
+    "openingHoursJa": "09:30-16:00, closed Mon (Dec 29-Jan 4)",
     "municipalityId": "Tokyo:hachioji"
   },
   {
@@ -77912,7 +77922,7 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.city.hino.lg.jp/",
-    "businessHours": "Open access",
+    "businessHours": "09:30-17:00 (seasonal)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Mogusaen_st.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -77923,8 +77933,8 @@
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "09:30-17:00 (seasonal)",
+    "openingHoursJa": "09:30-17:00 (seasonal)",
     "municipalityId": "Tokyo:hino"
   },
   {
@@ -78241,13 +78251,13 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.tokyo-park.or.jp/park/jindai/",
-    "businessHours": "Open access",
+    "businessHours": "09:30-17:00, closed Mon (Dec 29-Jan 1)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Jindai_Botanical_Garden-8.jpg/1920px-Jindai_Botanical_Garden-8.jpg",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "09:30-17:00, closed Mon (Dec 29-Jan 1)",
+    "openingHoursJa": "09:30-17:00, closed Mon (Dec 29-Jan 1)",
     "municipalityId": "Tokyo:chofu"
   },
   {
@@ -79028,7 +79038,7 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.omekanko.gr.jp/",
-    "businessHours": "Open access",
+    "businessHours": "09:30-17:00, closed Mon",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Gyokudo_Art_Museum.jpg/1920px-Gyokudo_Art_Museum.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -79039,8 +79049,8 @@
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "09:30-17:00, closed Mon",
+    "openingHoursJa": "09:30-17:00, closed Mon",
     "municipalityId": "Tokyo:ome"
   },
   {
@@ -79512,13 +79522,13 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.showakinen-koen.jp/",
-    "businessHours": "Open access",
+    "businessHours": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg/1920px-Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
+    "openingHours": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
+    "openingHoursJa": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
     "municipalityId": "Tokyo:tachikawa"
   },
   {
@@ -80928,7 +80938,7 @@
     "budgetMax": 7000,
     "budgetBreakdown": {
       "transport": 1400,
-      "tickets": 0,
+      "tickets": 350,
       "food": 1400,
       "cafe": 1200
     },
@@ -81534,7 +81544,10 @@
       "train": 200,
       "bus": 220
     },
-    "collections": []
+    "collections": [],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "byodoin-temple",
@@ -81628,6 +81641,9 @@
       "shinkansen": 147,
       "train": 247,
       "bus": 247
+    },
+    "travelEstimate": {
+      "confidence": "beta"
     }
   },
   {
@@ -81722,6 +81738,9 @@
       "shinkansen": 147,
       "train": 247,
       "bus": 247
+    },
+    "travelEstimate": {
+      "confidence": "beta"
     }
   },
   {
@@ -81810,7 +81829,10 @@
       "train": 252,
       "bus": 252
     },
-    "collections": []
+    "collections": [],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "ine-funaya-boathouses",
@@ -81903,7 +81925,10 @@
         "collectionId": "historic-towns-japan",
         "sortOrder": 64
       }
-    ]
+    ],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "kasamatsu-park-view",
@@ -81991,7 +82016,10 @@
       "bus": 192,
       "car": 212
     },
-    "collections": []
+    "collections": [],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "koko-en-garden",
@@ -82079,7 +82107,10 @@
       "train": 210,
       "car": 270
     },
-    "collections": []
+    "collections": [],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "engyo-ji-mount-shosha",
@@ -82171,7 +82202,10 @@
       "train": 215,
       "car": 275
     },
-    "collections": []
+    "collections": [],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "izushi-castle-town",
@@ -82268,7 +82302,10 @@
         "collectionId": "historic-towns-japan",
         "sortOrder": 68
       }
-    ]
+    ],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "genbudo-cave-park",
@@ -82356,7 +82393,10 @@
       "bus": 282,
       "car": 312
     },
-    "collections": []
+    "collections": [],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "ritsuunkyo-viewpoint",
@@ -82448,7 +82488,10 @@
       "car": 200
     },
     "collections": [],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Ritsuunkyo_Terrace.jpg/1920px-Ritsuunkyo_Terrace.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Ritsuunkyo_Terrace.jpg/1920px-Ritsuunkyo_Terrace.jpg",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "ikuno-silver-mine",
@@ -82540,7 +82583,10 @@
       "bus": 228,
       "car": 222
     },
-    "collections": []
+    "collections": [],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "hokki-ji-pagoda",
@@ -82634,6 +82680,9 @@
       "train": 175,
       "bus": 205,
       "car": 240
+    },
+    "travelEstimate": {
+      "confidence": "beta"
     }
   },
   {
@@ -82726,7 +82775,10 @@
       "bus": 200,
       "car": 235
     },
-    "collections": []
+    "collections": [],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "enryaku-ji-mount-hiei",
@@ -82824,6 +82876,9 @@
       "train": 150,
       "bus": 162,
       "car": 170
+    },
+    "travelEstimate": {
+      "confidence": "beta"
     }
   },
   {
@@ -82912,7 +82967,10 @@
       "bus": 160,
       "car": 175
     },
-    "collections": []
+    "collections": [],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "genkyuen-garden",
@@ -83004,7 +83062,10 @@
       "car": 168
     },
     "collections": [],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Genkyuen01s3200.jpg/1920px-Genkyuen01s3200.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Genkyuen01s3200.jpg/1920px-Genkyuen01s3200.jpg",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "miho-museum-koka",
@@ -83096,7 +83157,10 @@
       "car": 232
     },
     "collections": [],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Miho_Museum_%E7%BE%8E%E7%A7%80%E7%BE%8E%E8%A1%93%E9%A4%A8_-_panoramio_%282%29.jpg/1920px-Miho_Museum_%E7%BE%8E%E7%A7%80%E7%BE%8E%E8%A1%93%E9%A4%A8_-_panoramio_%282%29.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Miho_Museum_%E7%BE%8E%E7%A7%80%E7%BE%8E%E8%A1%93%E9%A4%A8_-_panoramio_%282%29.jpg/1920px-Miho_Museum_%E7%BE%8E%E7%A7%80%E7%BE%8E%E8%A1%93%E9%A4%A8_-_panoramio_%282%29.jpg",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "okage-yokocho-oharai-machi",
@@ -83185,7 +83249,10 @@
       "car": 240
     },
     "collections": [],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Okage_yokocho_%2C_%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81_-_panoramio.jpg/1920px-Okage_yokocho_%2C_%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81_-_panoramio.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Okage_yokocho_%2C_%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81_-_panoramio.jpg/1920px-Okage_yokocho_%2C_%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81_-_panoramio.jpg",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "kishi-station-tama-cat",
@@ -83205,7 +83272,7 @@
     "reservationJa": "【予約】事前予約不要です（いちご電車やたま電車の乗車券が便利です）。",
     "parking": "No station parking; take Kishigawa Line train",
     "parkingJa": "【駐車場】駅前駐車場無しため、和歌山駅から貴志川線電車利用を推奨。",
-    "openingHours": "10:00 - 16:00 (Cat duty hours)",
+    "openingHours": "10:00-16:00 (duty hours; closed Wed/Thu)",
     "openingHoursJa": "10:00 - 16:00 (駅長勤務時間・水木休み)",
     "coordinates": {
       "lat": 34.2094,
@@ -83278,7 +83345,10 @@
       "car": 292
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Stationmaster_Tama_20110715.jpg/1920px-Stationmaster_Tama_20110715.jpg",
-    "collections": []
+    "collections": [],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "okunoin-cemetery-koyasan",
@@ -83375,6 +83445,9 @@
     "transportOptions": {
       "train": 230,
       "bus": 272
+    },
+    "travelEstimate": {
+      "confidence": "beta"
     }
   },
   {
@@ -83468,7 +83541,10 @@
       "car": 342
     },
     "collections": [],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg/1920px-131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg/1920px-131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "sakai-city-museum",
@@ -83561,7 +83637,10 @@
       "bus": 212,
       "car": 235
     },
-    "collections": []
+    "collections": [],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "lake-biwa-shiga",
@@ -83654,7 +83733,10 @@
       "car": 175
     },
     "collections": [],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Lake_Biwa_%E7%90%B5%E7%90%B6%E6%B9%96_-_panoramio.jpg/1920px-Lake_Biwa_%E7%90%B5%E7%90%B6%E6%B9%96_-_panoramio.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Lake_Biwa_%E7%90%B5%E7%90%B6%E6%B9%96_-_panoramio.jpg/1920px-Lake_Biwa_%E7%90%B5%E7%90%B6%E6%B9%96_-_panoramio.jpg",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "meoto-iwa-wedded-rocks",
@@ -83747,7 +83829,10 @@
       "car": 248
     },
     "collections": [],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Meoto_Iwa_%28ise_Mie%29.JPG/1920px-Meoto_Iwa_%28ise_Mie%29.JPG"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Meoto_Iwa_%28ise_Mie%29.JPG/1920px-Meoto_Iwa_%28ise_Mie%29.JPG",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "wakayama-castle",
@@ -83844,7 +83929,10 @@
         "collectionId": "japan-top-castles",
         "sortOrder": 62
       }
-    ]
+    ],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "kataonami-beach-wakanoura",
@@ -83936,7 +84024,10 @@
       "bus": 278,
       "car": 285
     },
-    "collections": []
+    "collections": [],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "danjo-garan-koyasan",
@@ -84029,6 +84120,9 @@
     "transportOptions": {
       "train": 228,
       "bus": 270
+    },
+    "travelEstimate": {
+      "confidence": "beta"
     }
   },
   {
@@ -84118,7 +84212,10 @@
       "car": 338
     },
     "collections": [],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/131221_Shirarahama_Beach_Shirahama_Wakayama_pref_Japan05s3.jpg/1920px-131221_Shirarahama_Beach_Shirahama_Wakayama_pref_Japan05s3.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/131221_Shirarahama_Beach_Shirahama_Wakayama_pref_Japan05s3.jpg/1920px-131221_Shirarahama_Beach_Shirahama_Wakayama_pref_Japan05s3.jpg",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "toshodai-ji-temple",
@@ -84212,6 +84309,9 @@
       "train": 172,
       "bus": 202,
       "car": 242
+    },
+    "travelEstimate": {
+      "confidence": "beta"
     }
   },
   {
@@ -84306,6 +84406,9 @@
       "train": 172,
       "bus": 202,
       "car": 242
+    },
+    "travelEstimate": {
+      "confidence": "beta"
     }
   },
   {
@@ -84395,7 +84498,10 @@
       "car": 240
     },
     "collections": [],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg/1920px-Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg/1920px-Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "shirahige-shrine-lake-biwa",
@@ -84484,7 +84590,10 @@
       "car": 185
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Shirahige_Shrine_20200919_03.jpg/1920px-Shirahige_Shrine_20200919_03.jpg",
-    "collections": []
+    "collections": [],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "omi-hachiman-canal",
@@ -84577,7 +84686,10 @@
       "car": 205
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Hachimanbori_20220227.jpg/1920px-Hachimanbori_20220227.jpg",
-    "collections": []
+    "collections": [],
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "hiei-zan-driveway-observatory",
@@ -84669,7 +84781,10 @@
       "car": 165
     },
     "collections": [],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Drone_shot_of_Mount_Hiei_and_Kyoto.jpg/1920px-Drone_shot_of_Mount_Hiei_and_Kyoto.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Drone_shot_of_Mount_Hiei_and_Kyoto.jpg/1920px-Drone_shot_of_Mount_Hiei_and_Kyoto.jpg",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "kimii-dera-temple",
@@ -84762,7 +84877,10 @@
       "car": 282
     },
     "collections": [],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Kimiidera_Wakayama03n4272.jpg/1920px-Kimiidera_Wakayama03n4272.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Kimiidera_Wakayama03n4272.jpg/1920px-Kimiidera_Wakayama03n4272.jpg",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "kuroshio-market-marina-city",
@@ -84855,7 +84973,10 @@
       "car": 285
     },
     "collections": [],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Porto_Europe_-_Kuroshio-Ichiba.jpg/1920px-Porto_Europe_-_Kuroshio-Ichiba.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Porto_Europe_-_Kuroshio-Ichiba.jpg/1920px-Porto_Europe_-_Kuroshio-Ichiba.jpg",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "tomogashima-islands",
@@ -84948,7 +85069,10 @@
       "ferry": 20
     },
     "collections": [],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Tomogashima_Lighthouse_distant_view.jpg/1920px-Tomogashima_Lighthouse_distant_view.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Tomogashima_Lighthouse_distant_view.jpg/1920px-Tomogashima_Lighthouse_distant_view.jpg",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "kokusai-dori-naha",
@@ -85353,7 +85477,9 @@
     },
     "notesJa": "那覇の中心部近くにある静かな中国式庭園。福州との姉妹都市提携記念。",
     "transportZoneId": "okinawa-main",
-    "description": "A serene traditional Chinese landscape garden constructed in Naha's Kumemura district using granite and wood imported from Fuzhou, China."
+    "description": "A serene traditional Chinese landscape garden constructed in Naha's Kumemura district using granite and wood imported from Fuzhou, China.",
+    "openingHours": "~08:30-17:30 (seasonal)",
+    "openingHoursJa": "〜08:30〜17:30（季節により変動）"
   },
   {
     "id": "nago-pineapple-park",
@@ -85488,7 +85614,9 @@
     },
     "notesJa": "家族連れに人気のパイナップルテーマパーク。試食も楽しめます。",
     "transportZoneId": "okinawa-main",
-    "description": "A colorful pineapple theme park featuring automatic cart rides through subtropical botanical gardens, pineapple wine tasting, and fresh pineapple desserts."
+    "description": "A colorful pineapple theme park featuring automatic cart rides through subtropical botanical gardens, pineapple wine tasting, and fresh pineapple desserts.",
+    "openingHours": "10:00-18:00 (last admission 17:30)",
+    "openingHoursJa": "10:00〜18:00（最終入場 17:30）"
   },
   {
     "id": "busena-marine-park-nago",
@@ -85623,7 +85751,9 @@
     },
     "notesJa": "海中展望塔からサンゴと熱帯魚を眺められます。グラスボートも。",
     "transportZoneId": "okinawa-main",
-    "description": "Okinawa's premier marine facility on Busena Cape, offering a 360-degree underwater observation tower and whale-shaped glass-bottom boat tours over coral reefs."
+    "description": "Okinawa's premier marine facility on Busena Cape, offering a 360-degree underwater observation tower and whale-shaped glass-bottom boat tours over coral reefs.",
+    "openingHours": "Park area ~08:00-18:30; underwater observatory has its own hours",
+    "openingHoursJa": "公園エリア 〜08:00〜18:30；海中展望塔は別途時間"
   },
   {
     "id": "churaumi-aquarium-motobu",
@@ -85758,7 +85888,9 @@
     },
     "notesJa": "ジンベエザメが見られる世界有数の大水槽。混雑を避けるなら午前中の到着がおすすめ。",
     "transportZoneId": "okinawa-main",
-    "description": "One of the world's largest aquariums located inside Ocean Expo Park, world-renowned for its colossal 7,500m³ 'Kuroshio Sea' tank holding multiple whale sharks and reef manta rays."
+    "description": "One of the world's largest aquariums located inside Ocean Expo Park, world-renowned for its colossal 7,500m³ 'Kuroshio Sea' tank holding multiple whale sharks and reef manta rays.",
+    "openingHours": "08:30-18:30 (last entry 17:30; Jul 18-31 to 20:00, Aug to 21:00)",
+    "openingHoursJa": "08:30〜18:30（最終入場 17:30；7/18〜31 20:00、8月 21:00まで）"
   },
   {
     "id": "bise-fukugi-tree-road-motobu",
@@ -86041,7 +86173,9 @@
     },
     "notesJa": "世界遺産の城跡。1月下旬には沖縄で最も早い桜が見られます。",
     "transportZoneId": "okinawa-main",
-    "description": "A 14th-century World Heritage fortress of the Hokuzan Kingdom featuring undulating Ryukyu limestone walls snake-like along mountain ridges with sweeping East China Sea ocean views."
+    "description": "A 14th-century World Heritage fortress of the Hokuzan Kingdom featuring undulating Ryukyu limestone walls snake-like along mountain ridges with sweeping East China Sea ocean views.",
+    "openingHours": "08:30-17:30 (summer to 18:30, entry 30 min before close)",
+    "openingHoursJa": "08:30〜17:30（夏季 18:30まで、最終入場は閉園30分前）"
   },
   {
     "id": "kabira-bay-ishigaki",
@@ -92463,7 +92597,7 @@
       "autumn": 6,
       "winter": 4
     },
-    "bestMonths": [3, 4, 5, 9, 10, 11],
+    "bestMonths": [4, 5, 11],
     "weatherDependence": "moderate",
     "reservation": "Advance tickets required during peak bloom (late April–early May)",
     "parking": "Garden parking available",
@@ -106697,10 +106831,10 @@
       "holiday": 8
     },
     "season": {
-      "spring": 8,
-      "summer": 8,
+      "spring": 7,
+      "summer": 6,
       "autumn": 8,
-      "winter": 8
+      "winter": 10
     },
     "bestMonths": [1, 2, 3, 10, 11, 12],
     "bestSeason": "Winter (fugu)",
@@ -132028,7 +132162,10 @@
         "sortOrder": 1
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kurazukuri_Street_in_Little_Edo.jpg/1920px-Kurazukuri_Street_in_Little_Edo.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kurazukuri_Street_in_Little_Edo.jpg/1920px-Kurazukuri_Street_in_Little_Edo.jpg",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "takayama-sanmachi",
@@ -132122,7 +132259,10 @@
         "sortOrder": 6
       }
     ],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Sanmachi_Takayama02ds3872.jpg/1920px-Sanmachi_Takayama02ds3872.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Sanmachi_Takayama02ds3872.jpg/1920px-Sanmachi_Takayama02ds3872.jpg",
+    "travelEstimate": {
+      "confidence": "beta"
+    }
   },
   {
     "id": "sarakurayama",

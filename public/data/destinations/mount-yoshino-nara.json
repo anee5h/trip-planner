@@ -71,9 +71,9 @@
     "holiday": 5
   },
   "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
+    "spring": 10,
+    "summer": 6,
+    "autumn": 6,
     "winter": 4
   },
   "walkingMin": 8000,
@@ -81,7 +81,7 @@
   "walkingShadeMin": 3200,
   "indoorPercent": 20,
   "totalTripHours": 4,
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [4],
   "relationships": {
     "gatewayHubId": "nara-city"
   },
@@ -96,7 +96,7 @@
     "Explore Mount Yoshino (Yoshinoyama)",
     "Local Culture & Scenery"
   ],
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "Spring",
   "weatherDependence": "moderate",
   "comfort": {
     "heatTolerance": 7,

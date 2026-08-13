@@ -105,7 +105,7 @@
     "autumn": 6,
     "winter": 4
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [4, 5, 11],
   "weatherDependence": "moderate",
   "reservation": "Advance tickets required during peak bloom (late April–early May)",
   "parking": "Garden parking available",

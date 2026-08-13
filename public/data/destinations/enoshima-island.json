@@ -78,7 +78,7 @@
   "relationships": {
     "parentDestinationId": "fujisawa-city"
   },
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "Summer",
   "weatherDependence": "moderate",
   "walkingIntensity": "high",
   "role": "poi",

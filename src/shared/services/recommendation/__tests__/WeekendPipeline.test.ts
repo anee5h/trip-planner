@@ -870,9 +870,11 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     expect(results[0].weekend?.travelFit.oneWayMinutes).toBeGreaterThan(90);
     // Chiba is within the Tokyo-area Shinkansen origin catchment. The top
     // result may therefore be a verified Tokyo-endpoint corridor destination
-    // rather than the former prefecture-only Hakodate result.
+    // rather than the former prefecture-only Hakodate result. KAI-87 PR4
+    // season corrections legitimately rank Mount Fuji (verified bus
+    // corridor, summer-top) above the Shinkansen-verified Karuizawa.
     const topEstimate = results[0].transportEstimate;
-    expect(topEstimate?.mode).toBe("shinkansen");
+    expect(["shinkansen", "bus"]).toContain(topEstimate?.mode);
     expect(
       topEstimate && "corridorEvidence" in topEstimate
         ? topEstimate.corridorEvidence

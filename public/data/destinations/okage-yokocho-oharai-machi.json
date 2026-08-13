@@ -85,5 +85,8 @@
     "car": 240
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Okage_yokocho_%2C_%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81_-_panoramio.jpg/1920px-Okage_yokocho_%2C_%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81_-_panoramio.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Okage_yokocho_%2C_%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81_-_panoramio.jpg/1920px-Okage_yokocho_%2C_%E3%81%8A%E3%81%8B%E3%81%92%E6%A8%AA%E4%B8%81_-_panoramio.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

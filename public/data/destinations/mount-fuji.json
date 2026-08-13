@@ -47,10 +47,10 @@
     "holiday": 5
   },
   "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
+    "spring": 6,
+    "summer": 10,
+    "autumn": 6,
+    "winter": 2
   },
   "highlights": [
     "Explore top-rated mountain locations",
@@ -58,7 +58,7 @@
     "Perfect for a active day out"
   ],
   "description": "Mount Fuji is an active stratovolcano located on the Japanese island of Honshu, with a summit elevation of 3,776. 24 m.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [7, 8, 9],
   "budgetBreakdown": {
     "transport": 2400,
     "tickets": 1200,
@@ -92,7 +92,7 @@
   ],
   "relationships": {},
   "nameJa": "富士山",
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "Summer",
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Available on site",

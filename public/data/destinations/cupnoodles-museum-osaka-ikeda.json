@@ -87,5 +87,8 @@
     "train": 200,
     "bus": 220
   },
-  "collections": []
+  "collections": [],
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

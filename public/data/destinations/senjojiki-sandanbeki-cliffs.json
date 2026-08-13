@@ -89,5 +89,8 @@
     "car": 342
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg/1920px-131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg/1920px-131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

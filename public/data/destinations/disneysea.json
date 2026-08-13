@@ -55,7 +55,7 @@
   "description": "DisneySea is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
   "budgetBreakdown": {
     "transport": 3101,
-    "tickets": 19431,
+    "tickets": 8400,
     "food": 6201,
     "cafe": 2067
   },
@@ -86,7 +86,7 @@
     "max": 14
   },
   "officialWebsite": "https://www.tokyodisneyresort.jp/tds/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "Hours vary by date and season (typical 09:00-21:00); see official calendar",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -112,7 +112,7 @@
       "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
-      "openingHours": "09:00 - 17:00"
+      "openingHours": "Hours vary by date and season (typical 09:00-21:00); see official calendar"
     },
     "ja": {
       "name": "東京ディズニーシー",
@@ -121,7 +121,7 @@
       "notes": "東京ディズニーシーは、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-      "openingHours": "09:00 - 17:00"
+      "openingHours": "営業時間は日により変動（一般的に 09:00〜21:00）；公式カレンダーをご確認ください"
     }
   },
   "ratingMetadata": {
@@ -132,7 +132,7 @@
   "notesJa": "東京ディズニーシーは、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "09:00 - 17:00",
-  "openingHoursJa": "09:00 - 17:00",
+  "openingHours": "Hours vary by date and season (typical 09:00-21:00); see official calendar",
+  "openingHoursJa": "営業時間は日により変動（一般的に 09:00〜21:00）；公式カレンダーをご確認ください",
   "municipalityId": "Chiba:urayasu"
 }

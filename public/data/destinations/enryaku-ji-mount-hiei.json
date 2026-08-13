@@ -94,5 +94,8 @@
     "train": 150,
     "bus": 162,
     "car": 170
+  },
+  "travelEstimate": {
+    "confidence": "beta"
   }
 }

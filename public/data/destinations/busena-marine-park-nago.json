@@ -131,5 +131,7 @@
   },
   "notesJa": "海中展望塔からサンゴと熱帯魚を眺められます。グラスボートも。",
   "transportZoneId": "okinawa-main",
-  "description": "Okinawa's premier marine facility on Busena Cape, offering a 360-degree underwater observation tower and whale-shaped glass-bottom boat tours over coral reefs."
+  "description": "Okinawa's premier marine facility on Busena Cape, offering a 360-degree underwater observation tower and whale-shaped glass-bottom boat tours over coral reefs.",
+  "openingHours": "Park area ~08:00-18:30; underwater observatory has its own hours",
+  "openingHoursJa": "公園エリア 〜08:00〜18:30；海中展望塔は別途時間"
 }

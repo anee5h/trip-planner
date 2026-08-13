@@ -88,5 +88,8 @@
     "car": 200
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Ritsuunkyo_Terrace.jpg/1920px-Ritsuunkyo_Terrace.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Ritsuunkyo_Terrace.jpg/1920px-Ritsuunkyo_Terrace.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

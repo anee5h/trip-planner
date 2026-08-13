@@ -103,7 +103,7 @@
     "max": 5
   },
   "officialWebsite": "https://www.city.sakura.lg.jp/soshiki/sakuranooshiro/",
-  "businessHours": "Open access",
+  "businessHours": "Park grounds open; castle museum 09:00-16:30 (closed year-end)",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -157,7 +157,7 @@
   "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "24 Hours (Open access)",
-  "openingHoursJa": "散策自由（24時間開放）",
+  "openingHours": "Park grounds open; castle museum 09:00-16:30 (closed year-end)",
+  "openingHoursJa": "Park grounds open; castle museum 09:00-16:30 (closed year-end)",
   "municipalityId": "Chiba:sakura"
 }

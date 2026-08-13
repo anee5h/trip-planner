@@ -45,7 +45,7 @@
   "budgetMax": 8500,
   "budgetBreakdown": {
     "transport": 1925,
-    "tickets": 1100,
+    "tickets": 1200,
     "food": 1925,
     "cafe": 550
   },
@@ -135,7 +135,7 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "businessHours": "10:00-17:00 (last entry 16:30), closed Wednesdays",
   "nearHubs": ["kyoto-city"],
   "notesJa": "【見どころ】京都国際マンガミュージアムは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",

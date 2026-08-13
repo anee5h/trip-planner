@@ -89,5 +89,8 @@
     "car": 248
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Meoto_Iwa_%28ise_Mie%29.JPG/1920px-Meoto_Iwa_%28ise_Mie%29.JPG"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Meoto_Iwa_%28ise_Mie%29.JPG/1920px-Meoto_Iwa_%28ise_Mie%29.JPG",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

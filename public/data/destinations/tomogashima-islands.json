@@ -89,5 +89,8 @@
     "ferry": 20
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Tomogashima_Lighthouse_distant_view.jpg/1920px-Tomogashima_Lighthouse_distant_view.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Tomogashima_Lighthouse_distant_view.jpg/1920px-Tomogashima_Lighthouse_distant_view.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }
