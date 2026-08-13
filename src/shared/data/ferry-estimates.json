@@ -440,12 +440,12 @@
       "passengerService": true,
       "bidirectional": true,
       "durationMinutes": [10, 10],
-      "fare": [180, 180],
+      "fare": [200, 200],
       "fareBasis": "one-way",
-      "sourceUrl": "https://jr-miyajimaferry.co.jp/en/fare/",
-      "fareSourceUrl": "https://jr-miyajimaferry.co.jp/en/fare/",
+      "sourceUrl": "https://jr-miyajimaferry.co.jp/fare/",
+      "fareSourceUrl": "https://jr-miyajimaferry.co.jp/fare/",
       "checkedAt": "2026-08-13",
-      "notes": "One-way 180 yen adult (Miyajimaguchi-Miyajima, ~10 min); +100 yen Miyajima Visitor Tax charged separately on entry; JR Pass valid."
+      "notes": "One-way 200 yen adult (Miyajimaguchi-Miyajima, ~10 min); +100 yen Miyajima Visitor Tax charged separately on entry; JR Pass valid. Fare per the official Japanese fare page (the English page is stale)."
     },
     {
       "id": "gunkanjima-tour-boat",
