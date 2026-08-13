@@ -1,7 +1,7 @@
 {
   "id": "fukuoka-castle-ruins",
   "name": "Fukuoka Castle Ruins",
-  "nameJa": "福岡市",
+  "nameJa": "福岡城跡（舞鶴公園）",
   "aliases": ["Fukuoka", "福岡市"],
   "content": {
     "en": {
@@ -101,7 +101,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {

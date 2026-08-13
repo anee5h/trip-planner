@@ -1,7 +1,7 @@
 {
   "id": "nanzen-ji",
   "name": "Nanzen-ji",
-  "nameJa": "南禅院",
+  "nameJa": "南禅寺",
   "aliases": ["Nanzen-in", "南禅院"],
   "content": {
     "en": {
@@ -99,7 +99,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "notes": "9.2 city expansion record for Kyoto City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {

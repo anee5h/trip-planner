@@ -1,7 +1,7 @@
 {
   "id": "sanjusangen-do",
   "name": "Sanjusangen-do",
-  "nameJa": "江戸三十三間堂",
+  "nameJa": "蓮華王院三十三間堂",
   "aliases": ["Sanjūsangen-dō", "江戸三十三間堂"],
   "content": {
     "en": {
@@ -98,7 +98,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "notes": "9.2 city expansion record for Kyoto City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {

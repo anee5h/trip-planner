@@ -1,7 +1,7 @@
 {
   "id": "kitano-ijinkan",
   "name": "Kitano Ijinkan",
-  "nameJa": "神戸市",
+  "nameJa": "北野異人館（北野異人館街）",
   "aliases": ["Kobe", "神戸市"],
   "content": {
     "en": {
@@ -99,7 +99,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
