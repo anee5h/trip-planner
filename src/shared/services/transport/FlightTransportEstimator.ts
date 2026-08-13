@@ -47,8 +47,7 @@ export function findNearestAirports(
   // D7b), or the origin's own gateway would silently disappear.
   const withinCatchment = airports
     .filter(
-      (airport) =>
-        !zoneFilter || getAirportZone(airport.code) === zoneFilter,
+      (airport) => !zoneFilter || getAirportZone(airport.code) === zoneFilter,
     )
     .map((airport) => ({
       airport,
