@@ -288,6 +288,29 @@ describe("KAI-87 data quality validator", () => {
     ).toBe(true);
   });
 
+  it("flags imageMetadata with explicitly unverified attribution (warning debt)", async () => {
+    const r = await run([
+      {
+        ...base,
+        imageMetadata: {
+          source: "Unsplash",
+          license: "Unsplash License",
+          attribution:
+            "Unverified — photographer lookup requires Unsplash API access",
+          sourceUrl: "https://unsplash.com",
+        },
+      },
+    ]);
+    expect(r.passed).toBe(true);
+    expect(r.metrics.errorsCount).toBe(0);
+    expect(
+      r.issues.some(
+        (i) =>
+          i.code === "UNRESOLVED_IMAGE_ATTRIBUTION" && i.severity === "warning",
+      ),
+    ).toBe(true);
+  });
+
   it("flags template transport clusters shared by 3+ records", async () => {
     const r = await run([
       { ...base, id: "a", transportOptions: { train: 200 } },

@@ -59,7 +59,6 @@ function makeDest(
     transportOptions: { train: 60 },
     recommendedVisitHours: { min: 4, max: 8 },
     totalTripHours: 4,
-    walkingMin: 2000,
     walkingSunMin: 1000,
     walkingShadeMin: 1000,
     indoorPercent: 50,

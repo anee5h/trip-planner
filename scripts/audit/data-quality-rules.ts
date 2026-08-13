@@ -334,6 +334,21 @@ export function collectDestinationIssues(
   if (dest.status === "published" && !dest.imageMetadata) {
     push("MISSING_IMAGE_METADATA", "published record lacks imageMetadata");
   }
+  // An imageMetadata object is NOT provenance when the attribution is
+  // explicitly unverified or the sourceUrl is the generic Unsplash site
+  // root (KAI-87 PR 5 marked 23 Unsplash heroes unresolved pending API
+  // lookup; a CDN delivery URL is not provenance either).
+  const meta = dest.imageMetadata;
+  if (
+    meta &&
+    (meta.sourceUrl === "https://unsplash.com" ||
+      /^Unverified/.test(meta.attribution ?? ""))
+  ) {
+    push(
+      "UNRESOLVED_IMAGE_ATTRIBUTION",
+      "imageMetadata exists but attribution is explicitly unverified (Unsplash API lookup pending)",
+    );
+  }
 
   // ---- G11: walkingMin sanity ----
   const visitMaxMin = dest.recommendedVisitHours
