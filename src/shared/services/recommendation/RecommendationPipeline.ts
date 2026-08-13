@@ -205,15 +205,23 @@ export function runRecommendationPipeline(
       weekendEvalCache.set(destination.id, eval_);
       if (!eval_.eligible) return false;
     } else {
+      // KAI-63 D4: duration filtering applies only under an explicit
+      // duration constraint. Home always supplies one (planner default
+      // halfDay); absent/"any" must never re-impose the day-trip envelope —
+      // reachable destinations with unknown duration stay eligible.
+      const requestedDuration = context.tripDuration;
       if (
+        requestedDuration &&
+        requestedDuration !== "any" &&
         !matchesPersonalizedDayTripDuration(
           destination,
           context,
           modes,
-          context.tripDuration ?? "any",
+          requestedDuration,
         )
-      )
+      ) {
         return false;
+      }
     }
 
     if (context.budgetTier === "luxury") return true;

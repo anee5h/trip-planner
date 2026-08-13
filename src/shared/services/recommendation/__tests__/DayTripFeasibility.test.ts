@@ -98,7 +98,7 @@ describe("day-trip travel evidence", () => {
     expect(corridorEvidence).toBe("verified");
   });
 
-  it("does not recommend unknown travel for Nakayama Day Trip + Any", () => {
+  it("keeps a reachable destination with unknown travel under Any duration (KAI-63 D4)", () => {
     const source = catalog.find(
       (destination) => destination.id === "yokohama-city",
     )!;
@@ -110,9 +110,34 @@ describe("day-trip travel evidence", () => {
       transportOptions: { train: 30 },
     } as Destination;
 
+    // Duration evidence is independent of mode eligibility: "Any" imposes no
+    // hidden cap and must not exclude a reachable destination whose duration
+    // is unknown.
     const results = getRecommendations([unknownTravelCandidate], {
       ...contextFor(NAKAYAMA, "halfDay"),
       tripDuration: "any",
+    });
+
+    expect(results).toHaveLength(1);
+  });
+
+  it("excludes unknown travel under an explicit duration (KAI-63 D4)", () => {
+    const source = catalog.find(
+      (destination) => destination.id === "yokohama-city",
+    )!;
+    const unknownTravelCandidate = {
+      ...source,
+      id: "unknown-travel-day-trip-halfday",
+      coordinates: undefined,
+      recommendedVisitHours: { min: 1, max: 2 },
+      transportOptions: { train: 30 },
+    } as Destination;
+
+    // An explicit duration keeps the day-trip feasibility contract: unknown
+    // travel evidence is not a usable duration.
+    const results = getRecommendations([unknownTravelCandidate], {
+      ...contextFor(NAKAYAMA, "halfDay"),
+      tripDuration: "halfDay",
     });
 
     expect(results).toHaveLength(0);
