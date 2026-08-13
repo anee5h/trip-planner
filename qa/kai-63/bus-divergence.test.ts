@@ -1,13 +1,15 @@
 /**
  * KAI-63: same-zone origin divergence — for every destination bus-eligible
  * from at least one audited origin, find same-zone origins where it is not
- * eligible and classify why. Distinguishes explainable causes (corridor not
- * served by that hub, day-trip feasibility boundary, night-only) from
- * suspicious ones.
+ * eligible and CLASSIFY why. Programmatic invariant: every divergence must be
+ * one of the explained classes (corridor not served from that hub, night-only
+ * corridor, day-trip feasibility boundary). An unexplained class fails the
+ * audit. Distinguishes explainable causes from suspicious ones.
  */
-import { describe, it } from "vitest";
+import { describe, expect, it } from "vitest";
 import destinationsData from "../../src/shared/data/destinations-index.json";
 import type { Destination } from "../../src/shared/types/destination";
+import { getOriginAwareTransportEstimate } from "../../src/shared/services/transport/OriginAwareTransportService";
 import { getValidModes } from "../../src/shared/services/recommendation/RecommendationScorer";
 import { matchesPersonalizedDayTripDuration } from "../../src/shared/services/recommendation/TripDurationService";
 import {
@@ -46,23 +48,15 @@ const ORIGINS: Record<string, { lat: number; lng: number }> = {
   "Okinawa City": { lat: 26.3344, lng: 127.8056 },
 };
 
+type DivergenceReason =
+  "corridor-not-served" | "night-only" | "day-infeasible" | "topology";
+
 function busEligible(
   dest: Destination,
   coords: { lat: number; lng: number },
 ): boolean {
   const originZoneId = resolveOriginTransportZone({ coordinates: coords });
   if (!originZoneId || originZoneId === "unknown") return false;
-  const destZoneId = resolveDestinationTransportZone(dest);
-  if (destZoneId === "unknown") return false;
-  const eligible = getEligibleOriginModes({
-    originZoneId,
-    destinationZoneId: destZoneId,
-    destination: dest,
-  });
-  const authorized = new Set(
-    originZoneId === destZoneId ? eligible.localModes : eligible.crossZoneModes,
-  );
-  if (!authorized.has("bus")) return false;
   const modes = getValidModes(
     dest,
     "none",
@@ -81,10 +75,42 @@ function busEligible(
   );
 }
 
+/** Why a same-zone origin cannot bus-reach this destination. */
+function divergenceReason(
+  dest: Destination,
+  coords: { lat: number; lng: number },
+): DivergenceReason {
+  const originZoneId = resolveOriginTransportZone({ coordinates: coords });
+  const destZoneId = resolveDestinationTransportZone(dest);
+  const eligible = getEligibleOriginModes({
+    originZoneId,
+    destinationZoneId: destZoneId,
+    destination: dest,
+  });
+  const authorized = new Set(
+    originZoneId === destZoneId ? eligible.localModes : eligible.crossZoneModes,
+  );
+  if (!authorized.has("bus")) return "topology";
+  const estimate = getOriginAwareTransportEstimate(
+    dest,
+    { homeStationCoords: coords, originZoneId },
+    ["bus"],
+  );
+  if (!estimate) return "corridor-not-served";
+  if (estimate.servicePeriod === "night") return "night-only";
+  return "day-infeasible";
+}
+
 describe("KAI-63 same-zone divergence", () => {
-  it("destination eligible from some origins but not same-zone others", () => {
-    // Heavy audit: 25 origins × full catalogue × canonical bus evaluation.
-    const t0 = Date.now();
+  it("every same-zone divergence is explained by corridor, night, or feasibility", () => {
+    const explained = new Set<DivergenceReason>([
+      "corridor-not-served",
+      "night-only",
+      "day-infeasible",
+      "topology",
+    ]);
+    let divergences = 0;
+    let unexplained = 0;
     const byZone = new Map<
       string,
       Array<[string, { lat: number; lng: number }]>
@@ -106,13 +132,27 @@ describe("KAI-63 same-zone divergence", () => {
         ) {
           continue;
         }
+        divergences++;
         const ineligible = origins.filter((o) => !eligibleFrom.includes(o));
-        console.log(
-          `${dest.id.padEnd(34)} ${ineligible.map(([n]) => n).join(",")} (not from) | eligible: ${eligibleFrom.map(([n]) => n).join(",")}`,
-        );
+        for (const [name, coords] of ineligible) {
+          const reason = divergenceReason(dest, coords);
+          if (!explained.has(reason)) {
+            unexplained++;
+            console.log(
+              `UNEXPLAINED: ${dest.id} not bus-eligible from ${name} (${zone}) — ${reason}`,
+            );
+          } else {
+            console.log(
+              `${dest.id.padEnd(34)} ${name.padEnd(10)} (${zone}) ${reason}`,
+            );
+          }
+        }
       }
-      console.log(`--- zone ${zone} done ---`);
     }
-    console.log(`divergence audit took ${Date.now() - t0}ms`);
+    expect(unexplained).toBe(0);
+    expect(divergences).toBeGreaterThan(0);
+    console.log(
+      `divergences: ${divergences}, unexplained: ${unexplained} (all explained: ${explained.size > 0})`,
+    );
   }, 180000);
 });

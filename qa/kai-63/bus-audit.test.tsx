@@ -14,6 +14,7 @@ import type { Destination } from "../../src/shared/types/destination";
 import { getOriginAwareTransportEstimate } from "../../src/shared/services/transport/OriginAwareTransportService";
 import { getValidModes } from "../../src/shared/services/recommendation/RecommendationScorer";
 import { matchesPersonalizedDayTripDuration } from "../../src/shared/services/recommendation/TripDurationService";
+import { resolveOriginMunicipalityId } from "../../src/shared/services/recommendation/OriginAreaService";
 import {
   getEligibleOriginModes,
   resolveDestinationTransportZone,
@@ -176,7 +177,8 @@ type Reason =
   | "no-bus-corridor"
   | "night-only"
   | "day-infeasible"
-  | "no-visit-hours";
+  | "no-visit-hours"
+  | "origin-local";
 
 function classify(
   dest: Destination,
@@ -195,6 +197,17 @@ function classify(
     originZoneId === destZoneId ? eligible.localModes : eligible.crossZoneModes,
   );
   if (!authorized.has("bus")) return "topology-no-bus";
+
+  const originMunicipalityId = resolveOriginMunicipalityId(coords, allDests);
+  if (
+    originMunicipalityId !== undefined &&
+    dest.municipalityId === originMunicipalityId
+  ) {
+    // The Explore filter never returns origin-local destinations as getaways
+    // (same municipality as the base); mirror that gate so the audit's
+    // "bus-eligible" bucket matches the rendered count exactly.
+    return "origin-local";
+  }
 
   const modes = getValidModes(
     dest,
@@ -246,6 +259,13 @@ describe("KAI-63 bus audit", () => {
         reasons.set(reason, (reasons.get(reason) ?? 0) + 1);
       }
       const eligible = reasons.get("bus-eligible") ?? 0;
+      // Invariants (not pinned numbers): the rendered Explore count must
+      // equal the canonical pipeline count for the same origin, and the
+      // reason buckets must cover the whole catalogue.
+      expect(uiCount).toBe(eligible);
+      expect([...reasons.values()].reduce((a, b) => a + b, 0)).toBe(
+        allDests.length,
+      );
       console.log(
         `\n=== ${origin} (zone ${tripStoreMock.homeStationTransportZoneId}) | UI=${uiCount} pipeline=${eligible} ===`,
       );

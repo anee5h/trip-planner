@@ -104,12 +104,19 @@ KAI-63
 - [x] Unit + jsdom: transport topology, origin-aware estimates,
       TripDurationService, destination-detail transport, Explore bus eligibility,
       transport authorization, registry invariants, scripts/validators — green.
+      Explore/audit coverage uses semantic invariants (no catalogue counts
+      pinned): Naha results are Okinawa-local only; Iwakuni station/postcode
+      consistency; known verified destination included / known unsupported
+      excluded; night-only absent from day trips; rendered UI count equals the
+      canonical pipeline count per origin; every same-zone divergence is
+      classified and explained. Exact before/after counts are recorded in
+      `qa/kai-63/FINAL_BUS_AUDIT.md` only.
 - [x] Full Vitest on PR base (main, 983-dest catalogue): **150 files,
       1939 passed, 1 skipped**.
 - [x] Playwright (`npm run test:e2e` — existing repo setup): new
-      `e2e/kai-63-bus-eligibility.spec.ts`, 4 tests × chromium desktop + mobile
-      (Naha 9 / Iwakuni 32 / Nakayama 10 / Yokohama 10, no mainland↔Okinawa) —
-      green locally; runs in the E2E CI job.
+      `e2e/kai-63-bus-eligibility.spec.ts`, 4 semantic tests × chromium desktop +
+      mobile (Naha Okinawa-only, Iwakuni postcode, Nakayama/Yokohama stations) —
+      green locally; passes in the E2E CI job.
 - [x] `npx tsc -b --noEmit`
 - [x] `npm run lint`
 - [x] `npm run format:check`

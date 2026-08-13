@@ -19,6 +19,16 @@ import { MemoryRouter } from "react-router-dom";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import Destinations from "../Destinations";
 import { resolveOriginTransportZone } from "@/shared/services/transport/TransportTopologyService";
+import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
+import { matchesPersonalizedDayTripDuration } from "@/shared/services/recommendation/TripDurationService";
+import {
+  isOriginLocalDestination,
+  resolveOriginMunicipalityId,
+} from "@/shared/services/recommendation/OriginAreaService";
+import allDestinations from "@/shared/data/destinations-index.json";
+import type { Destination } from "@/shared/types/destination";
+
+const catalogue = allDestinations as unknown as Destination[];
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -134,6 +144,51 @@ function setOrigin(coords: { lat: number; lng: number }) {
   });
 }
 
+/** Card destination ids rendered by the current Explore results. */
+function cardIds(hostEl: HTMLDivElement): string[] {
+  return [...hostEl.querySelectorAll("a[href^='/destinations/']")].map((a) =>
+    (a.getAttribute("href") ?? "")
+      .slice("/destinations/".length)
+      .split("?")[0],
+  );
+}
+
+/**
+ * The canonical pipeline bus count for an origin — the same gate the Explore
+ * UI applies (getValidModes + the personalized day-trip duration check).
+ * Used to assert UI == pipeline without pinning a catalogue number.
+ */
+function pipelineBusCount(coords: { lat: number; lng: number }): number {
+  const originZoneId = resolveOriginTransportZone({ coordinates: coords });
+  const originMunicipalityId = resolveOriginMunicipalityId(coords, catalogue);
+  let count = 0;
+  for (const dest of catalogue) {
+    // The Explore filter never returns origin-local destinations as getaways.
+    if (isOriginLocalDestination(dest, originMunicipalityId)) continue;
+    const modes = getValidModes(
+      dest,
+      "none",
+      ["bus"],
+      coords,
+      undefined,
+      originZoneId,
+      undefined,
+    );
+    if (modes.length === 0) continue;
+    if (
+      matchesPersonalizedDayTripDuration(
+        dest,
+        { homeStationCoords: coords, originZoneId },
+        ["bus"],
+        "any",
+      )
+    ) {
+      count++;
+    }
+  }
+  return count;
+}
+
 const NAHA = { lat: 26.2124, lng: 127.6809 }; // postcode 900-8585
 const IWAKUNI = { lat: 34.1758, lng: 132.2251 };
 const AOMORI = { lat: 40.8246, lng: 140.7406 };
@@ -148,18 +203,13 @@ describe("KAI-63 Explore bus eligibility", () => {
     setOrigin(NAHA);
     const hostEl = renderDestinations("/destinations?mode=bus");
     const count = getResultCount(hostEl);
-    // 9 = Nago/Motobu/Onna destinations reachable via the verified naha⇔nago
+    // >0 = Nago/Motobu/Onna destinations reachable via the verified naha⇔nago
     // highway bus (Naha-city POIs are origin-local; outer islands and the
-    // mainland are topology-blocked).
+    // mainland are topology-blocked). No exact count is pinned.
     expect(count).toBeGreaterThan(0);
     // Every rendered card must be an Okinawa destination: no mainland bus
     // connectivity to Okinawa may be invented.
-    const cards = [...hostEl.querySelectorAll("a[href^='/destinations/']")].map(
-      (a) =>
-        (a.getAttribute("href") ?? "")
-          .slice("/destinations/".length)
-          .split("?")[0],
-    );
+    const cards = cardIds(hostEl);
     expect(cards.length).toBeGreaterThan(0);
     const okinawaIds = new Set([
       "nago-city",
@@ -206,37 +256,51 @@ describe("KAI-63 Explore bus eligibility", () => {
   });
 
   it.each([
-    ["Yokohama", YOKOHAMA, 10],
-    ["Nakayama", NAKAYAMA, 10],
-    ["Tokyo", TOKYO, 21],
-    ["Osaka", OSAKA, 49],
-    ["Hiroshima", HIROSHIMA, 91],
+    ["Yokohama", YOKOHAMA],
+    ["Nakayama", NAKAYAMA],
+    ["Tokyo", TOKYO],
+    ["Osaka", OSAKA],
+    ["Hiroshima", HIROSHIMA],
   ])(
-    "bus result count for %s is corridor-graph bound at %i",
-    (_name, coords, expected) => {
-      // Pinned regression values: day-trip-feasible, non-night-only bus
-      // results through the verified corridor registry + 50/30 km catchment.
-      // Update deliberately when corridors or catalogue entries change.
+    "bus results exist for %s and the UI count equals the canonical pipeline count",
+    (_name, coords) => {
+      // Semantic invariant, not a pinned number (KAI-63: catalogue/corridor
+      // expansion must not break this suite). Two properties hold by design:
+      // the Explore filter uses the same gate as the canonical pipeline, so
+      // the rendered count must equal the pipeline count for the same origin.
       setOrigin(coords);
-      expect(getResultCount(renderDestinations("/destinations?mode=bus"))).toBe(
-        expected,
-      );
+      const uiCount = getResultCount(renderDestinations("/destinations?mode=bus"));
+      expect(uiCount).toBeGreaterThan(0);
+      expect(uiCount).toBe(pipelineBusCount(coords));
     },
   );
+
+  it("a known verified corridor destination is included from Tokyo", () => {
+    // kofu-city is reachable from Tokyo via the verified tokyo⇔kofu coach;
+    // it must appear in the day-trip bus results.
+    setOrigin(TOKYO);
+    const hostEl = renderDestinations("/destinations?mode=bus");
+    const ids = cardIds(hostEl);
+    expect(ids).toContain("kofu-city");
+  });
+
+  it("a known unsupported destination is excluded from Tokyo", () => {
+    // Abashiri (Hokkaido) has no bus corridor from Tokyo and the topology has
+    // no honshu↔hokkaido bus edge: it must never appear.
+    setOrigin(TOKYO);
+    const hostEl = renderDestinations("/destinations?mode=bus");
+    const ids = cardIds(hostEl);
+    expect(ids).not.toContain("abashiri-city");
+  });
 
   it("night-only corridors never appear in day-trip bus results", () => {
     // From Tokyo, Fukuoka is bus-reachable only by the night-only はかた号 —
     // no Fukuoka destination may appear in a day-trip bus filter.
     setOrigin(TOKYO);
     const hostEl = renderDestinations("/destinations?mode=bus");
-    const cards = [...hostEl.querySelectorAll("a[href^='/destinations/']")].map(
-      (a) =>
-        (a.getAttribute("href") ?? "")
-          .slice("/destinations/".length)
-          .split("?")[0],
+    const ids = cardIds(hostEl);
+    expect(ids.some((id) => id.includes("fukuoka") || id.includes("hakata"))).toBe(
+      false,
     );
-    expect(
-      cards.some((id) => id.includes("fukuoka") || id.includes("hakata")),
-    ).toBe(false);
   });
 });

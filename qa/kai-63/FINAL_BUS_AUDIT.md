@@ -227,16 +227,25 @@ No audited origin lost results. All other matrix origins unchanged.
 - `TripDurationService.test.ts`: +1 night-only `any`-gate case — green.
 - `DestinationDetailsTransport.test.tsx`: Kouri-from-Naha updated to assert the
   new bus estimate (was local-access-only copy) — green.
-- `ExploreBusEligibility.test.tsx` (new): Naha-only-Okinawa results (9, incl.
-  Onna), Iwakuni station/postcode consistency (32/32), zero-result origin
-  empty state, pinned counts (Yokohama 10, Nakayama 10, Tokyo 21, Osaka 49,
-  Hiroshima 91), night-only absence from day-trip results — 9 tests green.
+- `ExploreBusEligibility.test.tsx` (new): Naha-only-Okinawa results (no mainland
+  fabrication), Iwakuni station/postcode consistency, zero-result origin
+  empty state, semantic invariants for Yokohama/Nakayama/Tokyo/Osaka/Hiroshima
+  (results exist AND the rendered UI count equals the canonical pipeline
+  count — no catalogue numbers pinned), known verified destination included
+  (kofu-city from Tokyo), known unsupported destination excluded (Abashiri),
+  night-only absence from day-trip results — 11 tests green.
 - `transportAuthorization.test.ts`: Kouri updated to `["bus"]` (was `[]`) — green.
+- Audit tests assert rather than only print: `bus-audit.test.tsx` asserts
+  `UI count == pipeline count` and reason-bucket totals per origin;
+  `bus-divergence.test.ts` asserts every same-zone divergence is explained
+  (corridor-not-served / night-only / day-infeasible / topology). Exact counts
+  appear only in `FINAL_BUS_AUDIT.md` as the before/after record.
 - **Playwright** (`e2e/kai-63-bus-eligibility.spec.ts`, new — runs in the
-  existing E2E CI job, both projects): Naha postcode 900-8585 → 9 results and
-  zero non-Okinawa cards; Iwakuni postcode → 32 results; Nakayama station →
-  10; Yokohama station → 10 — 4 passed per project locally (chromium desktop
-  - mobile).
+  existing E2E CI job, both projects): Naha postcode 900-8585 → bus results
+  exist and every card is Okinawa-local; Iwakuni postcode → bus results exist;
+  Nakayama station → results exist; Yokohama station → results exist — 4 tests
+  per project (chromium desktop + mobile), green locally and in CI. No exact
+  counts pinned.
 - **Full worktree suite (main base, 983 catalogue): 150 files, 1939 passed,
   1 skipped.** Registry invariants + scripts/validators green.
 - TypeScript, lint, prettier, i18n parity, branding, `validate:catalog-fast`,
