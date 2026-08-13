@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 120,
     "editorialSummary": "Kawagoe's 'Little Edo' Kurazukuri warehouse district — black clay-walled merchant storehouses along the Ichiba",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026", "japan-heritage-districts"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kawagoe.com/",
+        "title": "Kawagoe Kurazukuri District",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-12T00:00:00Z",
     "checkedAt": "2026-08-12T00:00:00Z",
     "freshness": "current"
@@ -87,8 +94,11 @@
   "collections": [
     {
       "collectionId": "historic-towns-japan",
-      "sortOrder": 1
+      "sortOrder": 10
     }
   ],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kurazukuri_Street_in_Little_Edo.jpg/1920px-Kurazukuri_Street_in_Little_Edo.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kurazukuri_Street_in_Little_Edo.jpg/1920px-Kurazukuri_Street_in_Little_Edo.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

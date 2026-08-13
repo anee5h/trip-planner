@@ -30,7 +30,7 @@
   "officialWebsite": "https://www.tcmit.org/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
-  "tags": ["Museum", "Nagoya City", "v1.9.2"],
+  "tags": ["Museum", "Nagoya City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toyota%20tecno%20museum.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -102,7 +102,7 @@
   "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Nagoya City.",
+  "notes": "9.2 city expansion record for Nagoya City.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {

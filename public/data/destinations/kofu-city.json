@@ -67,11 +67,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [
-      "fuji-5-lake",
-      "takeda-castle-yamanashi",
-      "yamanashi-fujiyoshida"
-    ],
+    "featuredDestinationIds": ["fuji-5-lake", "takeda-castle-yamanashi"],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
   "budgetBreakdown": {
@@ -87,5 +83,11 @@
     "max": 12
   },
   "businessHours": "Open access",
-  "municipalityId": "Yamanashi:kofu"
+  "municipalityId": "Yamanashi:kofu",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Halowand",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kofu_montage.jpg"
+  }
 }

@@ -238,7 +238,8 @@ describe("flight registry expansion (PR #102)", () => {
       expect(estimate?.details?.arrivalAirportCode).toBe("KUM");
     }
     // FUK→KUM is seasonal (Jul 1–Aug 31, JAC): available only inside the
-    // window; with no date (or out of season) the route is not offered.
+    // window. KAI-63 D7b: KOJ now survives the Fukuoka candidate limit, so
+    // year-round KOJ→KUM serves Yakushima off-season too.
     const inSeason = getFlightTransportEstimate(
       dest,
       FUKUOKA,
@@ -250,7 +251,8 @@ describe("flight registry expansion (PR #102)", () => {
       FUKUOKA,
       new Date("2026-12-10T12:00:00"),
     );
-    expect(offSeason).toBeNull();
+    expect(offSeason?.details?.departureAirportCode).toBe("KOJ");
+    expect(offSeason?.details?.arrivalAirportCode).toBe("KUM");
   });
 
   it("Sado has SDO in the airport registry but still returns no Flight", () => {
@@ -663,7 +665,10 @@ describe("flight cost and time use the origin gateway", () => {
 
 describe("no-route budget excludes origin transport", () => {
   it("calculateItemizedTripCost with null mode never prices Train", () => {
-    const dest = byId.get("ogasawara-islands-tokyo")!;
+    // KAI-87: ogasawara-islands-tokyo no longer carries train (ferry-only);
+    // use a mainland train-bearing destination so null mode must never
+    // price an origin train.
+    const dest = byId.get("fujiyoshida-city")!;
     const withNull = calculateItemizedTripCost(dest, { activeMode: null });
     const withTrain = calculateItemizedTripCost(dest, { activeMode: "train" });
     expect(withNull.transport).toBe(0);
@@ -938,5 +943,113 @@ describe("car/my_car cross-zone authorization", () => {
       "hokkaido",
     );
     expect(modes).toContain("train");
+  });
+});
+
+// ── KAI-63 verified corridor/hub coverage (PR #172) ──────────────────────────
+
+const YOKOHAMA = { lat: 35.4657, lng: 139.6222 };
+
+describe("KAI-63 corridor coverage from Kanagawa (PR #172)", () => {
+  it.each(["nagoya-city", "kyoto-city", "osaka-city"])(
+    "Yokohama → %s authorizes Train via the verified kanagawa corridor",
+    (id) => {
+      const dest = byId.get(id)!;
+      expect(dest).toBeDefined();
+      const modes = getValidModes(
+        dest,
+        "none",
+        ["train", "shinkansen"],
+        YOKOHAMA,
+        undefined,
+        undefined,
+        undefined,
+      );
+      expect(modes).toContain("train");
+    },
+  );
+
+  it("Yokohama → Utsunomiya authorizes Shinkansen via the Utsunomiya hub (tokyo⇔tochigi corridor)", () => {
+    for (const id of ["utsunomiya-city", "utsunomiya-oya"]) {
+      const modes = getValidModes(
+        byId.get(id)!,
+        "none",
+        ["shinkansen"],
+        YOKOHAMA,
+        undefined,
+        undefined,
+        undefined,
+      );
+      expect(modes).toContain("shinkansen");
+    }
+  });
+
+  it("Nikko and Ashikaga stay outside the 30 km Shinkansen access catchment", () => {
+    // Nikko (≈34 km) and Ashikaga (≈40 km) from their respective hubs are
+    // beyond the 30 km arrival radius: no fabricated gateway access is
+    // claimed. They remain train-eligible via local rail, never Shinkansen.
+    for (const id of ["nikko-city", "ashikaga-city"]) {
+      const modes = getValidModes(
+        byId.get(id)!,
+        "none",
+        ["train", "shinkansen"],
+        YOKOHAMA,
+        undefined,
+        undefined,
+        undefined,
+      );
+      expect(modes).toContain("train");
+      expect(modes).not.toContain("shinkansen");
+    }
+  });
+});
+
+describe("KAI-63 Shinkansen hub coverage from Kyushu (PR #172)", () => {
+  const FUKUOKA = { lat: 33.5902, lng: 130.4017 };
+
+  it.each([
+    "akiyoshido-cave-yamaguchi",
+    "mine-city",
+    "akiyoshidai-plateau",
+    "akiyoshidai",
+  ])("Fukuoka → %s authorizes Shinkansen via the Shin-Yamaguchi hub", (id) => {
+    const modes = getValidModes(
+      byId.get(id)!,
+      "none",
+      ["shinkansen"],
+      FUKUOKA,
+      undefined,
+      undefined,
+      undefined,
+    );
+    expect(modes).toContain("shinkansen");
+  });
+
+  it("Fukuoka → Saga authorizes Shinkansen via the Shin-Tosu hub (municipality wiring)", () => {
+    for (const id of ["saga-castle", "yoshinogari"]) {
+      const modes = getValidModes(
+        byId.get(id)!,
+        "none",
+        ["shinkansen"],
+        FUKUOKA,
+        undefined,
+        undefined,
+        undefined,
+      );
+      expect(modes).toContain("shinkansen");
+    }
+  });
+
+  it("Hagi (36 km from Shin-Yamaguchi) stays outside the 30 km catchment", () => {
+    const modes = getValidModes(
+      byId.get("hagi-castle")!,
+      "none",
+      ["shinkansen"],
+      FUKUOKA,
+      undefined,
+      undefined,
+      undefined,
+    );
+    expect(modes).not.toContain("shinkansen");
   });
 });

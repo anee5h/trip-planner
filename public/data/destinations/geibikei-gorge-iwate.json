@@ -113,5 +113,11 @@
         "method": "assisted"
       }
     ]
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:230729_Geibikei_Ichinoseki_Iwate_pref_Japan19s3.jpg"
   }
 }

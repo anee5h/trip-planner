@@ -95,12 +95,13 @@
   "collections": [
     {
       "collectionId": "great-night-views",
-      "sortOrder": 5,
+      "sortOrder": 1,
       "confirmed": true
     },
     {
       "collectionId": "japan-observatories-towers",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 1
     }
   ],
   "walkingIntensity": "low",
@@ -117,7 +118,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Rising 300 meters above Osaka, Abeno Harukas is Japan's tallest skyscraper, featuring a 3-story glass observatory and open-air wooden atrium garden.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.abenoharukas-300.jp/observatory/",
+        "title": "Abeno Harukas 300 (Osaka Skyline)",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -125,7 +133,7 @@
   "notesJa": "【見どころ】Abeno Harukas 300 (Osaka Skyline)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "openingHoursJa": "09:00〜22:00（最終入場 21:30）",
   "ratingsSchemaVersion": 2,
   "nameJa": "あべのハルカス300（展望台）",
   "content": {

@@ -76,10 +76,10 @@
   "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "imageMetadata": {
-    "source": "Wikimedia Commons / Wikipedia",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Yokohama Landmark Tower via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Landmark%20Tower"
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
+    "sourceUrl": "https://unsplash.com"
   },
   "status": "published",
   "travelEstimate": {
@@ -88,12 +88,13 @@
   "collections": [
     {
       "collectionId": "great-night-views",
-      "sortOrder": 6,
+      "sortOrder": 11,
       "confirmed": true
     },
     {
       "collectionId": "japan-observatories-towers",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 16
     }
   ],
   "relationships": {
@@ -106,7 +107,7 @@
     "max": 4
   },
   "officialWebsite": "https://www.yokohama-landmark.jp/skygarden/",
-  "businessHours": "10:00 - 21:00 (Last admission 20:30)",
+  "businessHours": "Closed for renovation until ~2028",
   "editorial": {
     "lifecycle": "published",
     "sources": [

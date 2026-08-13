@@ -97,6 +97,50 @@ describe("runRecommendationPipeline — day-trip parity", () => {
         resDayTrip[i].match.reasons.length,
       );
     }
+    // KAI-63 D4: parity holds only because both candidates satisfy the
+    // day-trip envelope (verified short corridor + visit band). The two
+    // inputs diverge when the envelope excludes a candidate — see the
+    // duration-gate contract tests below.
+  });
+});
+
+// ── Duration-gate contract (KAI-63 D4) ───────────────────────────────────────
+
+describe("runRecommendationPipeline — duration-gate contract", () => {
+  // Wakayama has train authorization from the tokyoHome origin (same-zone
+  // topology + transportOptions key) but no corridor row and no ≤120 km
+  // safe-ground estimate: travel-duration evidence is unknown and no visit
+  // band is published, so the day-trip envelope's "any" branch must reject
+  // it while pure reachability keeps it.
+  const unknownDuration = dest({
+    id: "unknown-duration",
+    prefecture: "Wakayama",
+    transportOptions: { train: 60 },
+    coordinates: { lat: 34.2, lng: 135.2 },
+  });
+
+  it("no explicit trip mode + duration 'any' ⇒ reachability only (unknown duration stays eligible)", () => {
+    const res = runRecommendationPipeline(
+      [unknownDuration],
+      ctx({ tripDuration: "any" }),
+    );
+    expect(res.some((r) => r.id === "unknown-duration")).toBe(true);
+  });
+
+  it("explicit tripMode day_trip + duration 'any' ⇒ day-trip envelope applies", () => {
+    const res = runRecommendationPipeline(
+      [unknownDuration],
+      ctx({ tripMode: "day_trip", tripDuration: "any" }),
+    );
+    expect(res.some((r) => r.id === "unknown-duration")).toBe(false);
+  });
+
+  it("explicit duration (halfDay) ⇒ that duration applies", () => {
+    const res = runRecommendationPipeline(
+      [unknownDuration],
+      ctx({ tripDuration: "halfDay" }),
+    );
+    expect(res.some((r) => r.id === "unknown-duration")).toBe(false);
   });
 });
 
@@ -870,9 +914,11 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     expect(results[0].weekend?.travelFit.oneWayMinutes).toBeGreaterThan(90);
     // Chiba is within the Tokyo-area Shinkansen origin catchment. The top
     // result may therefore be a verified Tokyo-endpoint corridor destination
-    // rather than the former prefecture-only Hakodate result.
+    // rather than the former prefecture-only Hakodate result. KAI-87 PR4
+    // season corrections legitimately rank Mount Fuji (verified bus
+    // corridor, summer-top) above the Shinkansen-verified Karuizawa.
     const topEstimate = results[0].transportEstimate;
-    expect(topEstimate?.mode).toBe("shinkansen");
+    expect(["shinkansen", "bus"]).toContain(topEstimate?.mode);
     expect(
       topEstimate && "corridorEvidence" in topEstimate
         ? topEstimate.corridorEvidence

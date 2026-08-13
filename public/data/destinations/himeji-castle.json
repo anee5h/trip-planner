@@ -37,16 +37,17 @@
   "collections": [
     {
       "collectionId": "original-12-castles",
-      "sortOrder": 1
+      "sortOrder": 3
     },
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/661/"
+      "source": "https://whc.unesco.org/en/list/661/",
+      "sortOrder": 5
     },
     {
       "collectionId": "japan-top-castles",
-      "sortOrder": 59
+      "sortOrder": 7
     }
   ],
   "transportOptions": {
@@ -91,7 +92,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/1280px-Himeji_castle_in_may_2015.jpg",
   "budgetBreakdown": {
     "transport": 1875,
-    "tickets": 937,
+    "tickets": 2500,
     "food": 3047,
     "cafe": 1641
   },
@@ -122,7 +123,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Himeji Castle is Japan's premier surviving feudal castle complex and a UNESCO World Heritage site, famous for its brilliant white plaster walls resembling a taking-off heron.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.himejicastle.jp/en/",
+        "title": "Himeji Castle (White Heron Castle)",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -130,7 +138,7 @@
   "notesJa": "【見どころ】姫路城は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "openingHoursJa": "09:00〜17:00（最終入場 16:00；夏期 18:00まで）",
   "role": "destination",
   "content": {
     "en": {
@@ -148,5 +156,11 @@
       ]
     }
   },
-  "municipalityId": "Hyogo:himeji"
+  "municipalityId": "Hyogo:himeji",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Nikos Kitsakis",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Himeji_castle_in_may_2015.jpg"
+  }
 }

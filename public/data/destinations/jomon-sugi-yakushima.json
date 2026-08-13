@@ -64,8 +64,7 @@
     "cafe": 300
   },
   "transportOptions": {
-    "train": 400,
-    "shinkansen": 510
+    "ferry": 240
   },
   "totalTripHours": 10,
   "recommendedVisitHours": {
@@ -120,7 +119,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/662/"
+      "source": "https://whc.unesco.org/en/list/662/",
+      "sortOrder": 42
     }
   ],
   "addedAt": "2026-08-04",

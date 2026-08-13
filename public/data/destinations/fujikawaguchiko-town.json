@@ -70,8 +70,7 @@
     "featuredDestinationIds": [
       "fuji-5-lake",
       "kofu-city",
-      "takeda-castle-yamanashi",
-      "yamanashi-fujiyoshida"
+      "takeda-castle-yamanashi"
     ],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
@@ -88,5 +87,11 @@
     "max": 12
   },
   "businessHours": "Open access",
-  "municipalityId": "Yamanashi:fujikawaguchiko"
+  "municipalityId": "Yamanashi:fujikawaguchiko",
+  "imageMetadata": {
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
+    "sourceUrl": "https://unsplash.com"
+  }
 }

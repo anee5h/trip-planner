@@ -9,12 +9,14 @@
 import fs from "fs";
 import path from "path";
 import type { Destination } from "../../src/shared/types/destination.js";
+import type { Collection } from "../../src/shared/types/collection.js";
 import type { DetailFileEntry } from "./catalog-integrity.js";
 
 export interface CatalogInputs {
   destinations: Destination[];
   details: DetailFileEntry[];
   metaEntries: { id: string; [k: string]: unknown }[];
+  collections: Collection[];
 }
 
 export function loadCatalogInputs(rootDir: string): CatalogInputs {
@@ -23,6 +25,10 @@ export function loadCatalogInputs(rootDir: string): CatalogInputs {
     "src/shared/data/destinations-index.json",
   );
   const metaPath = path.join(rootDir, "src/shared/data/destinations-meta.json");
+  const collectionsPath = path.join(
+    rootDir,
+    "src/shared/data/collections-index.json",
+  );
   const detailsDir = path.join(rootDir, "public/data/destinations");
 
   const destinations = JSON.parse(
@@ -32,6 +38,12 @@ export function loadCatalogInputs(rootDir: string): CatalogInputs {
     id: string;
     [k: string]: unknown;
   }[];
+  let collections: Collection[] = [];
+  if (fs.existsSync(collectionsPath)) {
+    collections = JSON.parse(
+      fs.readFileSync(collectionsPath, "utf-8"),
+    ) as Collection[];
+  }
 
   const details: DetailFileEntry[] = [];
   if (fs.existsSync(detailsDir)) {
@@ -45,5 +57,5 @@ export function loadCatalogInputs(rootDir: string): CatalogInputs {
     }
   }
 
-  return { destinations, details, metaEntries };
+  return { destinations, details, metaEntries, collections };
 }

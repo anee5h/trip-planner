@@ -78,7 +78,7 @@
   "collections": [
     {
       "collectionId": "waterfalls-gorges-japan",
-      "sortOrder": 8
+      "sortOrder": 7
     }
   ],
   "relationships": {
@@ -95,5 +95,11 @@
   },
   "officialWebsite": "https://www.shosenkyo-kankoukyoukai.com/",
   "businessHours": "Open access",
-  "municipalityId": "Yamanashi:kofu"
+  "municipalityId": "Yamanashi:kofu",
+  "imageMetadata": {
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
+    "sourceUrl": "https://unsplash.com"
+  }
 }

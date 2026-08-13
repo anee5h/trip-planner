@@ -67,7 +67,8 @@
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of The Architectural Work of Le Corbusier (NMWA Tokyo) via Wikipedia/Wikimedia Commons"
+    "attribution": "Lead photograph of The Architectural Work of Le Corbusier (NMWA Tokyo) via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:National museum of western art05s3200.jpg"
   },
   "status": "published",
   "travelEstimate": {
@@ -77,7 +78,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/1321/"
+      "source": "https://whc.unesco.org/en/list/1321/",
+      "sortOrder": 18
     }
   ],
   "relationships": {

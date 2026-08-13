@@ -1,7 +1,7 @@
 {
   "id": "yasaka-shrine",
   "name": "Yasaka Shrine",
-  "nameJa": "法観寺",
+  "nameJa": "八坂神社",
   "aliases": ["Yasaka Pagoda", "法観寺"],
   "content": {
     "en": {
@@ -25,7 +25,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
-  "tags": ["History", "Kyoto City", "v1.9.2"],
+  "tags": ["History", "Kyoto City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Yasaka-dori_early_morning_with_street_lanterns_and_the_Tower_of_Yasaka_%28Hokan-ji_Temple%29%2C_Kyoto%2C_Japan.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -98,7 +98,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "notes": "9.2 city expansion record for Kyoto City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -137,7 +137,7 @@
   "officialWebsite": "https://www.yasaka-jinja.or.jp/",
   "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
   "nearHubs": ["kyoto-city"],
-  "notesJa": "【見どころ】法観寺は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+  "notesJa": "【見どころ】八坂神社は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",

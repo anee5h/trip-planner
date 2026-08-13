@@ -21,7 +21,7 @@
   "collections": [
     {
       "collectionId": "scenic-bridges-japan",
-      "sortOrder": 3
+      "sortOrder": 2
     }
   ],
   "region": "Chugoku",
@@ -91,5 +91,11 @@
   "businessHours": "Bridge passable 24 hours; toll booth 08:00–17:00 (extended 18:00 peak, 19:00 summer). Night lighting until 22:00.",
   "ratingsSchemaVersion": 2,
   "municipalityId": "Yamaguchi:iwakuni",
-  "openingHoursJa": "橋は24時間通行可。渡橋料金所は8:00〜17:00（繁忙期は18:00、夏期は19:00まで延長）。ライトアップは22:00まで。"
+  "openingHoursJa": "橋は24時間通行可。渡橋料金所は8:00〜17:00（繁忙期は18:00、夏期は19:00まで延長）。ライトアップは22:00まで。",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Sailko",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iwakuni,_ponte_kintai-kyo,_03,0.jpg"
+  }
 }

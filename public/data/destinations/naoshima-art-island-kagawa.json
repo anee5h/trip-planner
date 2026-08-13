@@ -22,7 +22,7 @@
   "collections": [
     {
       "collectionId": "islands-japan",
-      "sortOrder": 2
+      "sortOrder": 7
     },
     {
       "collectionId": "art-islands-japan",
@@ -35,7 +35,7 @@
   "budgetMax": 6000,
   "budgetRecommended": 3750,
   "transportOptions": {
-    "train": 180
+    "ferry": 20
   },
   "ratings": {
     "overall": 9,
@@ -96,5 +96,11 @@
   },
   "officialWebsite": "https://naoshima.net/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "ratingsSchemaVersion": 2
+  "ratingsSchemaVersion": 2,
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "kajikawa",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:宮ノ浦港_-_panoramio_-_kajikawa_(1).jpg"
+  }
 }

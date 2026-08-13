@@ -16,9 +16,7 @@
   "budgetMax": 15000,
   "budgetRecommended": 9500,
   "transportOptions": {
-    "train": 45,
-    "bus": 50,
-    "car": 60
+    "ferry": 1440
   },
   "totalTripHours": 6,
   "walkingMin": 120,
@@ -64,7 +62,8 @@
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Ogasawara Islands via Wikipedia/Wikimedia Commons"
+    "attribution": "Lead photograph of Ogasawara Islands via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Minamijima.jpg"
   },
   "status": "published",
   "travelEstimate": {
@@ -74,7 +73,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/1362/"
+      "source": "https://whc.unesco.org/en/list/1362/",
+      "sortOrder": 22
     }
   ],
   "relationships": {},

@@ -17,11 +17,7 @@
   "budgetMin": 4000,
   "budgetMax": 15000,
   "budgetRecommended": 9500,
-  "transportOptions": {
-    "train": 45,
-    "bus": 50,
-    "car": 60
-  },
+  "transportOptions": {},
   "totalTripHours": 6,
   "walkingMin": 120,
   "walkingSunMin": 70,
@@ -62,15 +58,16 @@
   "parking": "Available nearby",
   "notes": "The island itself is off-limits to visitors; explore the mainland Munakata Taisha shrine and treasure museum instead.",
   "coordinates": {
-    "lat": 33.8042,
-    "lng": 130.5147
+    "lat": 34.2451,
+    "lng": 130.1053
   },
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/%E5%AE%97%E5%83%8F%E5%A4%A7%E7%A4%BE%E6%B2%96%E6%B4%A5%E5%AE%AE.JPG/960px-%E5%AE%97%E5%83%8F%E5%A4%A7%E7%A4%BE%E6%B2%96%E6%B4%A5%E5%AE%AE.JPG",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Sacred Island of Okinoshima and Associated Sites in Munakata via Wikipedia/Wikimedia Commons"
+    "attribution": "Lead photograph of Sacred Island of Okinoshima and Associated Sites in Munakata via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E5%AE%97%E5%83%8F%E5%A4%A7%E7%A4%BE%E6%B2%96%E6%B4%A5%E5%AE%AE.JPG"
   },
   "status": "published",
   "travelEstimate": {
@@ -80,7 +77,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/1535/"
+      "source": "https://whc.unesco.org/en/list/1535/",
+      "sortOrder": 23
     }
   ],
   "relationships": {

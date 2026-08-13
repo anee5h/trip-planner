@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 45,
     "editorialSummary": "Sacred sea rocks bound by heavy straw rope representing marriage and worship.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.isekanko.jp/spot/1283/",
+        "title": "Meoto Iwa Wedded Rocks",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -89,5 +96,8 @@
     "car": 248
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Meoto_Iwa_%28ise_Mie%29.JPG/1920px-Meoto_Iwa_%28ise_Mie%29.JPG"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Meoto_Iwa_%28ise_Mie%29.JPG/1920px-Meoto_Iwa_%28ise_Mie%29.JPG",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

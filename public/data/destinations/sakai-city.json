@@ -68,7 +68,8 @@
   "collections": [
     {
       "collectionId": "core-cities-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 16
     }
   ],
   "relationships": {
@@ -92,7 +93,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Ancient port city famous for Mozu Kofun Burial Mounds (UNESCO) and traditional Japanese kitchen knives.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.sakai.lg.jp/",
+        "title": "Sakai City official website",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

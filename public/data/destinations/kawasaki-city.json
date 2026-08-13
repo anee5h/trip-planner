@@ -72,7 +72,8 @@
   "collections": [
     {
       "collectionId": "core-cities-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 5
     }
   ],
   "relationships": {
@@ -83,7 +84,6 @@
       "kanayama-shrine",
       "taro-okamoto-museum-of-art",
       "fujiko-f-fujio-museum",
-      "toshiba-science-museum",
       "lazona-kawasaki-plaza",
       "todoroki-ryokuchi"
     ],
@@ -153,5 +153,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Kanagawa:kawasaki"
+  "municipalityId": "Kanagawa:kawasaki",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "ペン太",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kawasaki_Daishi_Main_Hall.jpg"
+  }
 }

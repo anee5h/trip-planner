@@ -26,7 +26,7 @@
   "officialWebsite": "https://www.nankinmachi.or.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Food"],
-  "tags": ["Food", "Kobe City", "v1.9.2"],
+  "tags": ["Food", "Kobe City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe-Nankinmachi.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -98,7 +98,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {

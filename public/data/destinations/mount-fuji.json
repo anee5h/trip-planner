@@ -47,10 +47,10 @@
     "holiday": 5
   },
   "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
+    "spring": 6,
+    "summer": 10,
+    "autumn": 6,
+    "winter": 2
   },
   "highlights": [
     "Explore top-rated mountain locations",
@@ -58,7 +58,7 @@
     "Perfect for a active day out"
   ],
   "description": "Mount Fuji is an active stratovolcano located on the Japanese island of Honshu, with a summit elevation of 3,776. 24 m.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [7, 8, 9],
   "budgetBreakdown": {
     "transport": 2400,
     "tickets": 1200,
@@ -69,10 +69,10 @@
   "schemaVersion": 2,
   "image": "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=1280&auto=format&fit=crop",
   "imageMetadata": {
-    "source": "Wikimedia Commons / Wikipedia",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Mount Fuji via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Mount%20Fuji"
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
+    "sourceUrl": "https://unsplash.com"
   },
   "status": "verified",
   "travelEstimate": {
@@ -81,18 +81,18 @@
   "collections": [
     {
       "collectionId": "unesco-japan",
-      "sortOrder": 7,
+      "sortOrder": 12,
       "confirmed": true,
       "source": "https://whc.unesco.org/en/list/1418/"
     },
     {
       "collectionId": "pilgrimage-routes-japan",
-      "sortOrder": 7
+      "sortOrder": 4
     }
   ],
   "relationships": {},
-  "nameJa": "富士山―信仰の対象と芸術の源泉",
-  "bestSeason": "Spring & Autumn",
+  "nameJa": "富士山",
+  "bestSeason": "Summer",
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Available on site",

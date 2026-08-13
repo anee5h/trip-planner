@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 60,
     "editorialSummary": "Ujigami Shrine, a Kyoto UNESCO World Heritage component, has Japan's oldest original shrine main hall; nearby tea houses offer matcha experiences.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.ujietor.jp/",
+        "title": "Uji Tea Culture Center & Ujigami Shrine",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -83,12 +90,16 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/688/"
+      "source": "https://whc.unesco.org/en/list/688/",
+      "sortOrder": 34
     }
   ],
   "transportOptions": {
     "shinkansen": 147,
     "train": 247,
     "bus": 247
+  },
+  "travelEstimate": {
+    "confidence": "beta"
   }
 }

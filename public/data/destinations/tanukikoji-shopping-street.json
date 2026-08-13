@@ -27,7 +27,7 @@
   "officialWebsite": "https://tanukikoji.or.jp/",
   "officialWebsiteRequirement": "none",
   "categories": ["History", "Food"],
-  "tags": ["History", "Food", "Sapporo City", "v1.9.2"],
+  "tags": ["History", "Food", "Sapporo City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tanukikoji%2001.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -98,7 +98,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+  "notes": "9.2 city expansion record for Sapporo City.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {

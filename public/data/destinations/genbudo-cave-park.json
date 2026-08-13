@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 60,
     "editorialSummary": "UNESCO Geopark site with 1.6-million-year-old hexagonal basalt column caves.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://genbudo-park.jp/",
+        "title": "Genbudo Basalt Cave Park",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -84,5 +91,8 @@
     "bus": 282,
     "car": 312
   },
-  "collections": []
+  "collections": [],
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

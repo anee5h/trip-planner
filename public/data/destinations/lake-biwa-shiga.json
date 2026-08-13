@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Japan's largest freshwater lake with Michigan paddle-wheel steamboat cruises.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.biwakokisen.co.jp/",
+        "title": "Lake Biwa Scenic Cruise & Coast",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -89,5 +96,8 @@
     "car": 175
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Lake_Biwa_%E7%90%B5%E7%90%B6%E6%B9%96_-_panoramio.jpg/1920px-Lake_Biwa_%E7%90%B5%E7%90%B6%E6%B9%96_-_panoramio.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Lake_Biwa_%E7%90%B5%E7%90%B6%E6%B9%96_-_panoramio.jpg/1920px-Lake_Biwa_%E7%90%B5%E7%90%B6%E6%B9%96_-_panoramio.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

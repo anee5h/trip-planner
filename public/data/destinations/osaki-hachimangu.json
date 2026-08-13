@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.oosaki-hachiman.or.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
-  "tags": ["History", "Sendai City", "v1.9.2"],
+  "tags": ["History", "Sendai City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Osaki%20Hachiman-gu%2020130819b.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -100,7 +100,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Sendai City.",
+  "notes": "9.2 city expansion record for Sendai City.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {

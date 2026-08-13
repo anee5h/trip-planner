@@ -207,7 +207,7 @@ export default function DestinationFilters({
   }, []);
 
   const selectedTransportModes = [
-    ...(carMode === "my_car" || carMode === "rental" ? [carMode] : []),
+    ...(carMode === "my_car" || carMode === "rental" ? ["car"] : []),
     ...(publicModes.includes("train") ? ["local"] : []),
     ...(publicModes.includes("shinkansen") ? ["express"] : []),
     ...(publicModes.includes("bus") ? ["bus"] : []),
@@ -235,10 +235,17 @@ export default function DestinationFilters({
           ? publicModes.filter((item) => item !== mode)
           : [...publicModes, mode],
       );
-    } else if (val === "my_car") {
-      setCarMode(carMode === "my_car" ? "none" : "my_car");
-    } else if (val === "rental") {
-      setCarMode(carMode === "rental" ? "none" : "rental");
+    } else if (val === "car") {
+      if (carMode !== "none") {
+        setCarMode("none");
+      } else {
+        // One visible Car chip; the underlying mode follows the user's
+        // car-ownership preference: rental (rental-fee budget) when the
+        // profile says rental, otherwise personal my_car (tolls/fuel
+        // budget only). "all"/unknown deliberately falls back to my_car —
+        // the cheaper, no-rental-fee model (KAI-63 D11).
+        setCarMode(carOwnership === "rental" ? "rental" : "my_car");
+      }
     } else if (val === "either") {
       setCarMode("none");
       setPublicModes([]);
@@ -284,8 +291,7 @@ export default function DestinationFilters({
     express: isJa ? "特急・新幹線" : "Express trains & Shinkansen",
     bus: isJa ? "バス" : "Bus",
     flight: isJa ? "国内線" : "Domestic flights",
-    my_car: isJa ? "マイカー" : "Personal car",
-    rental: isJa ? "レンタカー" : "Rental car",
+    car: t("home.transportModes.car"),
   };
   selectedTransportModes.forEach((mode) => {
     activeChips.push({
@@ -910,13 +916,8 @@ export default function DestinationFilters({
                       },
                       { val: "bus", label: isJa ? "バス" : "Bus", icon: Bus },
                       {
-                        val: "my_car",
-                        label: isJa ? "マイカー" : "Personal car",
-                        icon: Car,
-                      },
-                      {
-                        val: "rental",
-                        label: isJa ? "レンタカー" : "Rental car",
+                        val: "car",
+                        label: t("home.transportModes.car"),
                         icon: Car,
                       },
                     ].map((opt) => {

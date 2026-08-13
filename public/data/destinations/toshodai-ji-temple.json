@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 75,
     "editorialSummary": "UNESCO World Heritage temple founded in 759 AD by Chinese monk Ganjin with moss gardens.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.toshodaiji.jp/",
+        "title": "Toshodai-ji Temple",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -38,7 +45,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/870/"
+      "source": "https://whc.unesco.org/en/list/870/",
+      "sortOrder": 39
     }
   ],
   "relationships": {
@@ -90,5 +98,8 @@
     "train": 172,
     "bus": 202,
     "car": 242
+  },
+  "travelEstimate": {
+    "confidence": "beta"
   }
 }

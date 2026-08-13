@@ -1,7 +1,7 @@
 {
   "id": "fukuoka-castle-ruins",
   "name": "Fukuoka Castle Ruins",
-  "nameJa": "福岡市",
+  "nameJa": "福岡城跡（舞鶴公園）",
   "aliases": ["Fukuoka", "福岡市"],
   "content": {
     "en": {
@@ -29,17 +29,17 @@
   "officialWebsite": "https://www.city.fukuoka.lg.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
-  "tags": ["History", "Fukuoka City", "v1.9.2"],
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hakata%20Port%20from%20Fukuoka%20Tower.jpg?width=1600",
+  "tags": ["History", "Fukuoka City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Tamon-yagura_Turret_of_Fukuoka_Castle_Ruins_J%C5%8Dnai_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221018.jpg/1280px-Tamon-yagura_Turret_of_Fukuoka_Castle_Ruins_J%C5%8Dnai_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221018.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "attribution": "そらみみ",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hakata_Port_from_Fukuoka_Tower.jpg"
+    "attribution": "Hirho",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tamon-yagura_Turret_of_Fukuoka_Castle_Ruins_J%C5%8Dnai_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20221018.jpg"
   },
   "coordinates": {
-    "lat": 33.59013888888889,
-    "lng": 130.40172222222222
+    "lat": 33.585,
+    "lng": 130.3831
   },
   "description": "Fukuoka Castle Ruins is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History"],
@@ -101,7 +101,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -110,7 +110,7 @@
   "collections": [
     {
       "collectionId": "japan-top-castles",
-      "sortOrder": 85
+      "sortOrder": 3
     }
   ],
   "addedAt": "2026-07-29",

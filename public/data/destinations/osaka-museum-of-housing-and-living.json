@@ -26,7 +26,7 @@
   "officialWebsite": "http://konjyakukan.com/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
-  "tags": ["Museum", "Osaka City", "v1.9.2"],
+  "tags": ["Museum", "Osaka City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tenjimbashi6%20on%20Tenjimbashisuji-Mall.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -99,7 +99,7 @@
   "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+  "notes": "9.2 city expansion record for Osaka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -135,7 +135,7 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "businessHours": "10:00-17:00 (last entry 16:30), closed Tuesdays",
   "nearHubs": ["osaka-city"],
   "notesJa": "【見どころ】大阪くらしの今昔館は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",

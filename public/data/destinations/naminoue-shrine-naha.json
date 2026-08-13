@@ -22,7 +22,8 @@
   "imageMetadata": {
     "attribution": "Zairon via Wikimedia Commons",
     "license": "CC BY 4.0",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANaha_Naminoue_Beach_%26_Naminoue-gu_33.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANaha_Naminoue_Beach_%26_Naminoue-gu_33.jpg",
+    "source": "Wikimedia Commons"
   },
   "budgetMin": 0,
   "budgetRecommended": 500,
@@ -129,5 +130,7 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "notesJa": "波の上ビーチを見下ろす崖の上に立つ、沖縄随一の神社。"
+  "notesJa": "波の上ビーチを見下ろす崖の上に立つ、沖縄随一の神社。",
+  "transportZoneId": "okinawa-main",
+  "description": "The primary Shinto shrine of Okinawa perched dramatic on a coral cliff overlooking Naha's city beach and emerald ocean waters."
 }

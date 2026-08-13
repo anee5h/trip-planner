@@ -22,7 +22,8 @@
   "imageMetadata": {
     "attribution": "663highland via Wikimedia Commons",
     "license": "CC BY 2.5",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFukushuen_Naha_Okinawa01s3.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFukushuen_Naha_Okinawa01s3.jpg",
+    "source": "Wikimedia Commons"
   },
   "budgetMin": 300,
   "budgetRecommended": 500,
@@ -129,5 +130,9 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "notesJa": "那覇の中心部近くにある静かな中国式庭園。福州との姉妹都市提携記念。"
+  "notesJa": "那覇の中心部近くにある静かな中国式庭園。福州との姉妹都市提携記念。",
+  "transportZoneId": "okinawa-main",
+  "description": "A serene traditional Chinese landscape garden constructed in Naha's Kumemura district using granite and wood imported from Fuzhou, China.",
+  "openingHours": "~08:30-17:30 (seasonal)",
+  "openingHoursJa": "〜08:30〜17:30（季節により変動）"
 }

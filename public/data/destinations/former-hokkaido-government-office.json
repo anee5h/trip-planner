@@ -27,7 +27,7 @@
   "officialWebsite": "http://www.pref.hokkaido.lg.jp/sm/sum/sk/akarenga.htm",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Sapporo City", "v1.9.2"],
+  "tags": ["Culture", "Sapporo City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hokkaido%20Prefectural%20Office02s5s4272.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -98,7 +98,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+  "notes": "9.2 city expansion record for Sapporo City.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -163,6 +163,6 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "businessHours": "08:45-21:00 (reopened 2025-07-25; entry fee 300 JPY)",
   "municipalityId": "Hokkaido:sapporo"
 }

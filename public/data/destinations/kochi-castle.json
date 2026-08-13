@@ -32,12 +32,12 @@
   "collections": [
     {
       "collectionId": "original-12-castles",
-      "sortOrder": 7,
+      "sortOrder": 6,
       "confirmed": true
     },
     {
       "collectionId": "japan-top-castles",
-      "sortOrder": 84,
+      "sortOrder": 13,
       "confirmed": true
     }
   ],
@@ -101,5 +101,11 @@
     "rubricVersion": 2,
     "method": "assisted",
     "confidence": "medium"
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Saigen Jiro",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kochi_Castle,_Outemon-3.jpg"
   }
 }

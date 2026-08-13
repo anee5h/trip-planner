@@ -1,7 +1,7 @@
 {
   "id": "jochi-ji",
   "name": "Jochi-ji",
-  "nameJa": "鎌倉市",
+  "nameJa": "浄智寺",
   "aliases": ["Kamakura", "鎌倉市"],
   "content": {
     "en": {
@@ -35,17 +35,17 @@
   "officialWebsite": "https://www.city.kamakura.kanagawa.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
-  "tags": ["History", "Kamakura City", "v1.9.2"],
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/230128%20Kanagawa%20Prefectural%20Shichirigahama%20High%20School%20Japan07s3.jpg?width=1600",
+  "tags": ["History", "Kamakura City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/J%C5%8Dchi-ji_-21735.jpeg/1280px-J%C5%8Dchi-ji_-21735.jpeg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "CC BY-SA 4.0",
-    "attribution": "663highland",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:230128_Kanagawa_Prefectural_Shichirigahama_High_School_Japan07s3.jpg"
+    "license": "CC0",
+    "attribution": "Syced",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jōchi-ji_-21735.jpeg"
   },
   "coordinates": {
-    "lat": 35.31916666666667,
-    "lng": 139.54722222222222
+    "lat": 35.3334,
+    "lng": 139.5464
   },
   "description": "Jochi-ji is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History"],

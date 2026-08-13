@@ -58,8 +58,7 @@
   "collections": [
     {
       "collectionId": "japan-top-castles",
-      "name": "Japan's Top Castles",
-      "sortOrder": 22
+      "sortOrder": 5
     }
   ],
   "coordinates": {
@@ -142,5 +141,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tokyo:hachioji"
+  "municipalityId": "Tokyo:hachioji",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Mocchy",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hachioji_Castle_Hikibashi.JPG"
+  }
 }

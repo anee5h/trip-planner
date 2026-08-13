@@ -128,5 +128,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tokyo:minato"
+  "municipalityId": "Tokyo:minato",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wpcpey",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akasaka_skyline_201806.jpg"
+  }
 }

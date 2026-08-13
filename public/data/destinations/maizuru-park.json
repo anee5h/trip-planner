@@ -29,7 +29,7 @@
   "officialWebsite": "https://www.midorimachi.jp/maiduru/",
   "officialWebsiteRequirement": "none",
   "categories": ["Nature"],
-  "tags": ["Nature", "Fukuoka City", "v1.9.2"],
+  "tags": ["Nature", "Fukuoka City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shimonohashi%20Gomon%20and%20north%20moat%20of%20Fukuoka%20Castle.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -101,7 +101,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {

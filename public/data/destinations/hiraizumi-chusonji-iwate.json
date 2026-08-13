@@ -67,7 +67,8 @@
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Hiraizumi – Temples, Gardens and Archaeological Sites via Wikipedia/Wikimedia Commons"
+    "attribution": "Lead photograph of Hiraizumi – Temples, Gardens and Archaeological Sites via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:230728 Motsuji Hiraizumi Iwate pref Japan04s3.jpg"
   },
   "status": "published",
   "travelEstimate": {
@@ -77,7 +78,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/1277/"
+      "source": "https://whc.unesco.org/en/list/1277/",
+      "sortOrder": 6
     }
   ],
   "relationships": {

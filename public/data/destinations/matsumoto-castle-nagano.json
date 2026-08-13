@@ -51,12 +51,11 @@
   "collections": [
     {
       "collectionId": "original-12-castles",
-      "name": "Original 12 Surviving Castles"
+      "sortOrder": 10
     },
     {
       "collectionId": "japan-top-castles",
-      "name": "Japan's Top Castles",
-      "sortOrder": 29
+      "sortOrder": 18
     }
   ],
   "coordinates": {
@@ -89,5 +88,11 @@
   },
   "officialWebsite": "https://www.matsumoto-castle.jp/",
   "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-  "municipalityId": "Nagano:matsumoto"
+  "municipalityId": "Nagano:matsumoto",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Lightning toothed whale (稲妻ノ歯鯨)\n\n This photo was taken with Canon EOS 500D",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsumoto_Castle_Keep_Tower.jpg"
+  }
 }

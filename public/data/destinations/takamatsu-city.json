@@ -89,5 +89,11 @@
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Kagawa:takamatsu"
+  "municipalityId": "Kagawa:takamatsu",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Arabrity",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:香川県の風景.jpg"
+  }
 }

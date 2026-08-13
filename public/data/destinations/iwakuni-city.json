@@ -31,7 +31,6 @@
   "transportOptions": {
     "train": 120,
     "car": 120,
-    "shinkansen": 120,
     "bus": 150
   },
   "totalTripHours": 8,
@@ -88,5 +87,11 @@
     "max": 14
   },
   "businessHours": "Open access",
-  "municipalityId": "Yamaguchi:iwakuni"
+  "municipalityId": "Yamaguchi:iwakuni",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Sailko",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iwakuni,_ponte_kintai-kyo,_03,0.jpg"
+  }
 }

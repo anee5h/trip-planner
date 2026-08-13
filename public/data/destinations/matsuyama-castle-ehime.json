@@ -37,12 +37,12 @@
   "collections": [
     {
       "collectionId": "original-12-castles",
-      "sortOrder": 10,
+      "sortOrder": 11,
       "confirmed": true
     },
     {
       "collectionId": "japan-top-castles",
-      "sortOrder": 81,
+      "sortOrder": 19,
       "confirmed": true
     }
   ],
@@ -106,5 +106,11 @@
     "rubricVersion": 2,
     "method": "assisted",
     "confidence": "low"
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "Jyo81 (ja: User)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsuyama_castle(Iyo)6.JPG"
   }
 }

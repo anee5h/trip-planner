@@ -30,7 +30,6 @@
   "transportOptions": {
     "train": 120,
     "car": 120,
-    "shinkansen": 120,
     "bus": 150
   },
   "totalTripHours": 8,
@@ -112,5 +111,11 @@
       }
     ]
   },
-  "notesJa": "会津藩の歴史を伝える城下町。鶴ヶ城と武士の文化で知られます。"
+  "notesJa": "会津藩の歴史を伝える城下町。鶴ヶ城と武士の文化で知られます。",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Asturio Cantabrio",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aizuwakamatsu_Castle_ac_(1).jpg"
+  }
 }

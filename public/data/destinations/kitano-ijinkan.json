@@ -1,7 +1,7 @@
 {
   "id": "kitano-ijinkan",
   "name": "Kitano Ijinkan",
-  "nameJa": "神戸市",
+  "nameJa": "北野異人館（北野異人館街）",
   "aliases": ["Kobe", "神戸市"],
   "content": {
     "en": {
@@ -27,7 +27,7 @@
   "officialWebsite": "http://www.city.kobe.lg.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Kobe City", "v1.9.2"],
+  "tags": ["Culture", "Kobe City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Port%20Tower%20and%20Maritime%20Museum%2C%20November%202016.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -36,8 +36,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kobe_Port_Tower_and_Maritime_Museum,_November_2016.jpg"
   },
   "coordinates": {
-    "lat": 34.69016666666667,
-    "lng": 135.19544444444443
+    "lat": 34.6983,
+    "lng": 135.1903
   },
   "description": "Kitano Ijinkan is a visitor destination in Kobe City.  Visitors can experience historic architecture and local culture.",
   "highlights": ["History", "Museum"],
@@ -99,7 +99,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -108,7 +108,8 @@
   "collections": [
     {
       "collectionId": "historic-towns-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 3
     }
   ],
   "addedAt": "2026-07-29",

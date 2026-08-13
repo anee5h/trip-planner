@@ -91,11 +91,12 @@
   "collections": [
     {
       "collectionId": "original-12-castles",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 2
     },
     {
       "collectionId": "japan-top-castles",
-      "sortOrder": 50
+      "sortOrder": 6
     }
   ],
   "relationships": {
@@ -115,7 +116,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Completed in 1622, Hikone Castle is one of Japan's five original surviving National Treasure keeps, overlooking Lake Biwa with pristine feudal turrets and Genkyuen garden.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://hikonecastle.com/",
+        "title": "Hikone Castle (National Treasure)",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

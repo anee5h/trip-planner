@@ -87,7 +87,7 @@
     "max": 6
   },
   "officialWebsite": "https://www.hama-midorinokyokai.or.jp/zoo/zoorasia/",
-  "businessHours": "Open access",
+  "businessHours": "09:30-16:30, closed Tue",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -141,7 +141,13 @@
   "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "24 Hours (Open access)",
-  "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Kanagawa:yokohama"
+  "openingHours": "09:30-16:30, closed Tue",
+  "openingHoursJa": "09:30-16:30, closed Tue",
+  "municipalityId": "Kanagawa:yokohama",
+  "imageMetadata": {
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
+    "sourceUrl": "https://unsplash.com"
+  }
 }

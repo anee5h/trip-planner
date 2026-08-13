@@ -31,7 +31,6 @@
   "transportOptions": {
     "train": 120,
     "car": 120,
-    "shinkansen": 120,
     "bus": 150
   },
   "totalTripHours": 8,
@@ -93,7 +92,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "A northern Hyogo city known for Kinosaki Onsen, the San'in coast, and the reintroduction of Oriental storks.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.toyooka.hyogo.jp/",
+        "title": "Toyooka City official website",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

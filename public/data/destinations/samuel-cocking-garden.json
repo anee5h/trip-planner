@@ -35,7 +35,7 @@
   "officialWebsite": "https://enoshima-seacandle.com/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Nature"],
-  "tags": ["Nature", "Fujisawa City", "v1.9.2"],
+  "tags": ["Nature", "Fujisawa City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Enoshima_Samuel_Cocking_Garden_from_the_Enoshima_Sea_Candle_%28Feb_2022%29.jpg/1920px-Enoshima_Samuel_Cocking_Garden_from_the_Enoshima_Sea_Candle_%28Feb_2022%29.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -173,11 +173,12 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "Open access",
+  "businessHours": "~09:00-17:00 seasonal",
   "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "24 Hours (Open access)",
-  "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Kanagawa:fujisawa"
+  "openingHours": "~09:00-17:00 seasonal",
+  "openingHoursJa": "~09:00-17:00 seasonal",
+  "municipalityId": "Kanagawa:fujisawa",
+  "transportZoneId": "mainland-honshu"
 }

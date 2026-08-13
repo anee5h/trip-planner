@@ -26,7 +26,7 @@
   "officialWebsite": "http://www.kobe-maritime-museum.com/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
-  "tags": ["Museum", "Kobe City", "v1.9.2"],
+  "tags": ["Museum", "Kobe City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Maritime%20Museum-A%20bird's-eye%20view%20from%20Kobe%20Port%20Tower.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -98,7 +98,7 @@
   "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {

@@ -21,7 +21,7 @@
   "collections": [
     {
       "collectionId": "caves-japan",
-      "sortOrder": 1
+      "sortOrder": 2
     }
   ],
   "region": "Chugoku",
@@ -88,5 +88,11 @@
   "businessHours": "Regular season entry 09:00–16:30; Jul 1–Sep 30 09:00–17:30; GW & Obon dates 08:30–17:30. Open daily incl. year-end.",
   "ratingsSchemaVersion": 2,
   "municipalityId": "Yamaguchi:mine",
-  "openingHoursJa": "通常期は入場9:00〜16:30。7月1日〜9月30日は9:00〜17:30。GW・お盆期間は8:30〜17:30。年末年始も開洞。"
+  "openingHoursJa": "通常期は入場9:00〜16:30。7月1日〜9月30日は9:00〜17:30。GW・お盆期間は8:30〜17:30。年末年始も開洞。",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Wikimedia Commons contributor",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akiyoshidai-Syuhodou.jpg"
+  }
 }

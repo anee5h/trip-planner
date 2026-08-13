@@ -22,7 +22,8 @@
   "imageMetadata": {
     "attribution": "Bernie Ongewe via Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APineapple_Winery_%40_Nago_Pineapple_Park%2C_Okinawa_no.3.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APineapple_Winery_%40_Nago_Pineapple_Park%2C_Okinawa_no.3.jpg",
+    "source": "Wikimedia Commons"
   },
   "budgetMin": 1200,
   "budgetRecommended": 1600,
@@ -129,5 +130,9 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "notesJa": "家族連れに人気のパイナップルテーマパーク。試食も楽しめます。"
+  "notesJa": "家族連れに人気のパイナップルテーマパーク。試食も楽しめます。",
+  "transportZoneId": "okinawa-main",
+  "description": "A colorful pineapple theme park featuring automatic cart rides through subtropical botanical gardens, pineapple wine tasting, and fresh pineapple desserts.",
+  "openingHours": "10:00-18:00 (last admission 17:30)",
+  "openingHoursJa": "10:00〜18:00（最終入場 17:30）"
 }

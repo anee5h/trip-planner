@@ -32,7 +32,9 @@ export const majorCityExpansionValidator: ValidatorModule = {
         destination.addedAt === "2026-07-29" ||
         destination.tags?.includes("v1.9.2"),
     );
-    if (expansionRecords.length !== 159) {
+    // KAI-87 PR1: toshiba-science-museum (v1.9.2 expansion record,
+    // permanently closed 2024-06-29) was retired from the catalogue.
+    if (expansionRecords.length !== 158) {
       issues.push({
         severity: "error",
         code: "EXPANSION_RECORD_COUNT_CHANGED",

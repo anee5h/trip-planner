@@ -11,7 +11,7 @@
       "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
-      "openingHours": "09:00 - 17:00"
+      "openingHours": "09:00-20:00 (last entry 19:30)"
     },
     "ja": {
       "name": "江の島シーキャンドル",
@@ -20,7 +20,7 @@
       "notes": "江の島シーキャンドルは、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-      "openingHours": "09:00 - 17:00"
+      "openingHours": "09:00〜20:00（最終入場 19:30）"
     }
   },
   "prefecture": "Kanagawa",
@@ -35,7 +35,7 @@
   "officialWebsite": "https://enoshima-seacandle.com",
   "officialWebsiteRequirement": "required",
   "categories": ["Viewpoint"],
-  "tags": ["Viewpoint", "Fujisawa City", "v1.9.2"],
+  "tags": ["Viewpoint", "Fujisawa City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Enoshima%20Sea%20Candle%201.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -54,7 +54,7 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
+    "tickets": 500,
     "food": 1400,
     "cafe": 400
   },
@@ -173,11 +173,12 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "Open access",
+  "businessHours": "09:00-20:00 (last entry 19:30), seasonal extensions",
   "notesJa": "江の島シーキャンドルは、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Kanagawa:fujisawa"
+  "municipalityId": "Kanagawa:fujisawa",
+  "transportZoneId": "mainland-honshu"
 }

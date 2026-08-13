@@ -15,9 +15,7 @@
   "budgetMax": 15000,
   "budgetRecommended": 9500,
   "transportOptions": {
-    "train": 45,
-    "bus": 50,
-    "car": 60
+    "ferry": 40
   },
   "totalTripHours": 6,
   "walkingMin": 120,
@@ -67,7 +65,8 @@
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Sites of Japan’s Meiji Industrial Revolution (Gunkanjima) via Wikipedia/Wikimedia Commons"
+    "attribution": "Lead photograph of Sites of Japan’s Meiji Industrial Revolution (Gunkanjima) via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hashima Nagasaki Japan.jpg"
   },
   "status": "published",
   "travelEstimate": {
@@ -77,11 +76,12 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/1484/"
+      "source": "https://whc.unesco.org/en/list/1484/",
+      "sortOrder": 4
     },
     {
       "collectionId": "islands-japan",
-      "sortOrder": 5
+      "sortOrder": 2
     }
   ],
   "relationships": {
@@ -141,5 +141,6 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.gunkanjima-concierge.com/en/"
   },
-  "notesJa": "上陸ツアーは天候次第で高波時に欠航することがあります。"
+  "notesJa": "上陸ツアーは天候次第で高波時に欠航することがあります。",
+  "transportZoneId": "gunkanjima"
 }

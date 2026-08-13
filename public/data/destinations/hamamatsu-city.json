@@ -69,7 +69,8 @@
   "collections": [
     {
       "collectionId": "core-cities-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 3
     }
   ],
   "relationships": {
@@ -94,5 +95,11 @@
     "max": 12
   },
   "businessHours": "Open access",
-  "municipalityId": "Shizuoka:hamamatsu"
+  "municipalityId": "Shizuoka:hamamatsu",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "水だらけのプール",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hamamatsu_Montage2.jpg"
+  }
 }

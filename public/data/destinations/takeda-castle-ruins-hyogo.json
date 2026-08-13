@@ -21,7 +21,7 @@
   "collections": [
     {
       "collectionId": "japan-top-castles",
-      "sortOrder": 56
+      "sortOrder": 28
     }
   ],
   "region": "Kansai",
@@ -91,7 +91,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Famous as Japan's 'Castle in the Sky', these breathtaking 15th-century mountain ruins float above a sea of morning autumn fog.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.asago.hyogo.jp/site/takeda-castle/",
+        "title": "Takeda Castle Ruins",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

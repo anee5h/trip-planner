@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.tv-tower.co.jp/",
   "officialWebsiteRequirement": "required",
   "categories": ["Viewpoint"],
-  "tags": ["Viewpoint", "Sapporo City", "v1.9.2"],
+  "tags": ["Viewpoint", "Sapporo City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/93/Sapporo-TV-Tower-2025.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -98,7 +98,7 @@
   "weatherDependence": "moderate",
   "reservation": "Check the official website before visiting.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Sapporo City.",
+  "notes": "9.2 city expansion record for Sapporo City.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {

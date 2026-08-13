@@ -23,7 +23,8 @@
   "imageMetadata": {
     "attribution": "Paipateroma via Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_irabu_ohashi_2014_1.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_irabu_ohashi_2014_1.jpg",
+    "source": "Wikimedia Commons"
   },
   "budgetMin": 0,
   "budgetRecommended": 500,
@@ -130,5 +131,6 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "notesJa": "日本最長の無料橋。道の駅からのパノラマが絶好の写真スポット。"
+  "notesJa": "日本最長の無料橋。道の駅からのパノラマが絶好の写真スポット。",
+  "description": "Japan's longest toll-free bridge spanning 3,540 meters over emerald clear ocean, connecting Miyako Island to Irabu Island with exhilarating ocean drive vistas."
 }

@@ -28,7 +28,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Fukuoka City", "v1.9.2"],
+  "tags": ["Culture", "Fukuoka City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fukuoka-tenjin.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -100,7 +100,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {

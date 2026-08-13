@@ -46,17 +46,17 @@
   },
   "season": {
     "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
+    "summer": 2,
+    "autumn": 3,
+    "winter": 10
   },
   "highlights": [
     "Explore top-rated mountain locations",
     "Enjoy regional specialties and local culture",
     "Perfect for a active day out"
   ],
-  "description": "Discover Gala Yuzawa, a prominent destination in Shizuoka. With its rich mix of skiing, snow, shinkansen access, it's a highly recommended spot for a 8-hour getaway.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "description": "Discover Gala Yuzawa, a prominent destination in Niigata. With its rich mix of skiing, snow, shinkansen access, it's a highly recommended spot for a 8-hour getaway.",
+  "bestMonths": [12, 1, 2, 3, 4, 5],
   "budgetBreakdown": {
     "transport": 8276,
     "tickets": 13448,
@@ -72,7 +72,7 @@
   "collections": [],
   "relationships": {},
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/F8_Tanigawa_79_Gala-Yuzawa_20060115.JPG",
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "Winter",
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Available on site",
@@ -85,5 +85,12 @@
     "max": 9
   },
   "officialWebsite": "https://gala.co.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "Ski season mid-Dec to early May; summer park mid-Jul to late Sep; closed in between",
+  "nameJa": "GALA湯沢スノーリゾート",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "DAJF",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:F8_Tanigawa_79_Gala-Yuzawa_20060115.JPG"
+  }
 }

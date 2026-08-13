@@ -29,7 +29,7 @@
   "officialWebsite": "https://www.fukuokatower.co.jp/",
   "officialWebsiteRequirement": "required",
   "categories": ["Viewpoint"],
-  "tags": ["Viewpoint", "Fukuoka City", "v1.9.2"],
+  "tags": ["Viewpoint", "Fukuoka City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fukuoka%20Tower%20October%202011%2001.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -101,7 +101,7 @@
   "weatherDependence": "moderate",
   "reservation": "Check the official website before visiting.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {

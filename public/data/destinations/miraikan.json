@@ -15,7 +15,7 @@
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
       "parking": "Facility parking structure available.",
-      "openingHours": "09:30 - 17:00 (Last admission 16:30)"
+      "openingHours": "10:00-17:00, closed Tue"
     },
     "ja": {
       "name": "日本科学未来館",
@@ -28,7 +28,7 @@
       "notes": "日本科学未来館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-      "openingHours": "09:30 - 17:00（最終入館 16:30）"
+      "openingHours": "10:00〜17:00（火曜休館）"
     }
   },
   "prefecture": "Tokyo",
@@ -43,7 +43,7 @@
   "officialWebsite": "http://www.miraikan.jst.go.jp/index.html",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Koto City", "v1.9.2"],
+  "tags": ["Culture", "Koto City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Miraikan.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

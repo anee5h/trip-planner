@@ -25,7 +25,7 @@
   },
   "officialWebsiteRequirement": "none",
   "categories": ["Nature"],
-  "tags": ["Nature", "Kobe City", "v1.9.2"],
+  "tags": ["Nature", "Kobe City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20Meriken%20Park01bs3200.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -97,7 +97,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {

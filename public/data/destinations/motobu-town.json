@@ -55,9 +55,7 @@
     "rainFriendly": 8,
     "walkingIntensity": 3
   },
-  "transportOptions": {
-    "train": 200
-  },
+  "transportOptions": {},
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Motobu Town travel hub in Okinawa Prefecture.",
@@ -94,7 +92,8 @@
   "imageMetadata": {
     "attribution": "Jordy Meow via Wikimedia Commons",
     "license": "CC BY-SA 3.0",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOkinawa_Aquarium.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOkinawa_Aquarium.jpg",
+    "source": "Wikimedia Commons"
   },
   "editorial": {
     "lifecycle": "published",
@@ -136,5 +135,7 @@
       "openingHours": "終日（海洋博公園エリアは08:00〜19:00）。"
     }
   },
-  "municipalityId": "Okinawa:motobu"
+  "municipalityId": "Okinawa:motobu",
+  "localAccessModes": ["car", "my_car", "bus"],
+  "localAccessUnestimated": true
 }

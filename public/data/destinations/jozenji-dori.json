@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.city.sendai.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["History", "Sendai City", "v1.9.2"],
+  "tags": ["History", "Sendai City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1d/SendaiCity_Skylines_from_Mukaiyama2018.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -100,7 +100,7 @@
     "autumn": 6.4,
     "winter": 8.9
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [6, 7, 8],
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",

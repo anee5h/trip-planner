@@ -9,8 +9,8 @@
   "role": "standalone",
   "placeType": "destination",
   "coordinates": {
-    "lat": 34.455,
-    "lng": 134.097
+    "lat": 34.5627,
+    "lng": 134.1018
   },
   "categories": ["sightseeing", "culture", "nature"],
   "tags": ["Inujima Island", "Okayama", "Japan Travel"],
@@ -61,7 +61,7 @@
   "collections": [
     {
       "collectionId": "art-islands-japan",
-      "sortOrder": 3
+      "sortOrder": 6
     }
   ],
   "relationships": {},

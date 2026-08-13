@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 75,
     "editorialSummary": "Crescent white sand beach in historic Wakanoura Bay praised in Manyoshu poetry.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.wakayamakanko.com/spot/detail.php?id=38",
+        "title": "Kataonami Beach & Wakanoura Bay",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -88,5 +95,8 @@
     "bus": 278,
     "car": 285
   },
-  "collections": []
+  "collections": [],
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

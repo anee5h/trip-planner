@@ -43,7 +43,7 @@
   "officialWebsite": "https://sunshinecity.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Toshima City", "v1.9.2"],
+  "tags": ["Culture", "Toshima City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunshine%20City%202012.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

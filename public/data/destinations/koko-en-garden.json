@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 60,
     "editorialSummary": "Nine distinct Edo-style Japanese gardens built on samurai residence sites.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.himeji-machishin.jp/kokoen/",
+        "title": "Koko-en Garden",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -84,5 +91,8 @@
     "train": 210,
     "car": 270
   },
-  "collections": []
+  "collections": [],
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

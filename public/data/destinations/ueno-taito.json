@@ -64,10 +64,10 @@
   "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "imageMetadata": {
-    "source": "Wikimedia Commons / Wikipedia",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Ueno via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Ueno"
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
+    "sourceUrl": "https://unsplash.com"
   },
   "status": "published",
   "travelEstimate": {

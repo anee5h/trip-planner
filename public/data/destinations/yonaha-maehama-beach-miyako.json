@@ -23,7 +23,8 @@
   "imageMetadata": {
     "attribution": "Paipateroma via Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_maipama_1.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_maipama_1.jpg",
+    "source": "Wikimedia Commons"
   },
   "budgetMin": 0,
   "budgetRecommended": 1000,
@@ -130,5 +131,6 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "notesJa": "日本のベストビーチの一つ。遠浅で家族連れにも安心の白砂海岸。"
+  "notesJa": "日本のベストビーチの一つ。遠浅で家族連れにも安心の白砂海岸。",
+  "description": "Consistently voted Japan's top beach, featuring 7 continuous kilometers of soft white powder sand facing Kurima Island across translucent Miyako Blue water."
 }

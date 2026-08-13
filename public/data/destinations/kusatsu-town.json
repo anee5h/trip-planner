@@ -71,12 +71,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [
-      "gunma-ikaho-onsen",
-      "gunma-kusatsu-onsen",
-      "gunma-shima-onsen",
-      "oze-national-park"
-    ],
+    "featuredDestinationIds": ["gunma-kusatsu-onsen", "oze-national-park"],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
   "budgetBreakdown": {
@@ -147,5 +142,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Gunma:kusatsu"
+  "municipalityId": "Gunma:kusatsu",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Mikkabie",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:湯畑2.jpg"
+  }
 }

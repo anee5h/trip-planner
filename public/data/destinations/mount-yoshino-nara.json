@@ -40,15 +40,17 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/1142/"
+      "source": "https://whc.unesco.org/en/list/1142/",
+      "sortOrder": 13
     },
     {
       "collectionId": "flower-parks-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 3
     },
     {
       "collectionId": "pilgrimage-routes-japan",
-      "sortOrder": 3
+      "sortOrder": 5
     }
   ],
   "transportOptions": {
@@ -71,9 +73,9 @@
     "holiday": 5
   },
   "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
+    "spring": 10,
+    "summer": 6,
+    "autumn": 6,
     "winter": 4
   },
   "walkingMin": 8000,
@@ -81,7 +83,7 @@
   "walkingShadeMin": 3200,
   "indoorPercent": 20,
   "totalTripHours": 4,
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [4],
   "relationships": {
     "gatewayHubId": "nara-city"
   },
@@ -96,7 +98,7 @@
     "Explore Mount Yoshino (Yoshinoyama)",
     "Local Culture & Scenery"
   ],
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "Spring",
   "weatherDependence": "moderate",
   "comfort": {
     "heatTolerance": 7,
@@ -120,7 +122,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Mount Yoshino is Japan's most famous cherry blossom mountain, carpeted by over 30,000 Yamazakura trees blooming sequentially across four mountain elevations.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://yoshinoyama-kankou.com/",
+        "title": "Mount Yoshino (Yoshinoyama)",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

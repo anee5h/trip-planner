@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.skybldg.co.jp/en/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Viewpoint"],
-  "tags": ["Viewpoint", "Osaka City", "v1.9.2"],
+  "tags": ["Viewpoint", "Osaka City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2018%20Umeda%20Sky%20Building.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -100,7 +100,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Osaka City.",
+  "notes": "9.2 city expansion record for Osaka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -109,11 +109,13 @@
   "collections": [
     {
       "collectionId": "great-night-views",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 10
     },
     {
       "collectionId": "japan-observatories-towers",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 15
     }
   ],
   "addedAt": "2026-07-29",
@@ -150,6 +152,6 @@
   "notesJa": "【見どころ】梅田スカイビルは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "openingHoursJa": "09:30〜22:30（最終入場 22:00）",
   "municipalityId": "Osaka:osaka"
 }

@@ -1,7 +1,7 @@
 {
   "id": "sanjusangen-do",
   "name": "Sanjusangen-do",
-  "nameJa": "江戸三十三間堂",
+  "nameJa": "蓮華王院三十三間堂",
   "aliases": ["Sanjūsangen-dō", "江戸三十三間堂"],
   "content": {
     "en": {
@@ -25,13 +25,13 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Kyoto City", "v1.9.2"],
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/100%20views%20edo%20071.jpg?width=1600",
+  "tags": ["Culture", "Kyoto City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Sanjusangendo_Temple_%40_Kyoto_%2813310760984%29.jpg/1280px-Sanjusangendo_Temple_%40_Kyoto_%2813310760984%29.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "Public domain",
-    "attribution": "Utagawa Hiroshige",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:100_views_edo_071.jpg"
+    "license": "CC BY 2.0",
+    "attribution": "Guilhem Vellut",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanjusangendo_Temple_%40_Kyoto_%2813310760984%29.jpg"
   },
   "coordinates": {
     "lat": 34.9878,
@@ -98,7 +98,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "notes": "9.2 city expansion record for Kyoto City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {

@@ -57,7 +57,7 @@
     "Enjoy regional specialties and local culture",
     "Perfect for a active day out"
   ],
-  "description": "Discover Takaoka, a prominent destination in Shizuoka. With its rich mix of great buddha, doraemon, crafts, it's a highly recommended spot for a 8-hour getaway.",
+  "description": "Discover Takaoka, a prominent destination in Toyama. With its rich mix of great buddha, doraemon, crafts, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 3600,
@@ -87,5 +87,11 @@
     "max": 9
   },
   "officialWebsite": "https://www.takaoka.or.jp/",
-  "businessHours": "06:00 - 17:00 (Grounds open 24 hours)"
+  "businessHours": "No fixed hours (city area)",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "shiro524 (talk)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Takaoka_montage.JPG"
+  }
 }

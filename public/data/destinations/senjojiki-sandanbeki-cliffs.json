@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Spectacular multi-tiered sandstone plateau and 50m ocean cavern pirate cliffs.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://sandanbeki.com/",
+        "title": "Senjojiki & Sandanbeki Rock Cliffs",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -89,5 +96,8 @@
     "car": 342
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg/1920px-131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg/1920px-131221_Senjojiki_Shirahama_Wakayama_pref_Japan02s3.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

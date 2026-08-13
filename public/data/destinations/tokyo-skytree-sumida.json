@@ -68,7 +68,7 @@
   "description": "Rising 634 meters over Tokyo, Tokyo Skytree is the world's tallest broadcasting tower, offering breath-taking 360-degree views of Mt. Fuji and the Kanto Plain from two observation decks.",
   "budgetBreakdown": {
     "transport": 559,
-    "tickets": 3465,
+    "tickets": 2600,
     "food": 3912,
     "cafe": 1564
   },
@@ -89,12 +89,13 @@
   "collections": [
     {
       "collectionId": "great-night-views",
-      "sortOrder": 4,
+      "sortOrder": 9,
       "confirmed": true
     },
     {
       "collectionId": "japan-observatories-towers",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 12
     }
   ],
   "relationships": {

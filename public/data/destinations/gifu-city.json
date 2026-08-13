@@ -88,5 +88,11 @@
     "max": 12
   },
   "businessHours": "Open access",
-  "municipalityId": "Gifu:gifu"
+  "municipalityId": "Gifu:gifu",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Alpsdake",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gifu_City_Tower_43_and_Gifu_Sky_Wing_37_from_Twinarch138.jpg"
+  }
 }

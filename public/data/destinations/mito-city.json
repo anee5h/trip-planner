@@ -142,5 +142,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Ibaraki:mito"
+  "municipalityId": "Ibaraki:mito",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Σ64",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kairaku-en,_Ibaraki_24.jpg"
+  }
 }

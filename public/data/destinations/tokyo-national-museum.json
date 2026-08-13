@@ -43,7 +43,7 @@
   "officialWebsite": "https://www.tnm.jp/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
-  "tags": ["Museum", "Taito City", "v1.9.2"],
+  "tags": ["Museum", "Taito City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokyo%20National%20Museum%2C%20Honkan%202010.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

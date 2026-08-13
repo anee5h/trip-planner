@@ -67,7 +67,8 @@
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Jomon Prehistoric Sites in Northern Japan via Wikipedia/Wikimedia Commons"
+    "attribution": "Lead photograph of Jomon Prehistoric Sites in Northern Japan via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:140913 Sannai-Maruyama site Aomori Japan01bs6bs6.jpg"
   },
   "status": "published",
   "travelEstimate": {
@@ -77,7 +78,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/1632/"
+      "source": "https://whc.unesco.org/en/list/1632/",
+      "sortOrder": 27
     }
   ],
   "relationships": {

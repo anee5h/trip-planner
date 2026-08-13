@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Dramatic mountain temple on Mt. Shigi famous for giant paper-mache tiger statues.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.sigisan.or.jp/",
+        "title": "Chogosonshi-ji Tiger Temple",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -88,5 +95,8 @@
     "bus": 200,
     "car": 235
   },
-  "collections": []
+  "collections": [],
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

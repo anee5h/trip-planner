@@ -26,7 +26,7 @@
   "officialWebsite": "http://www.kyotomm.com/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
-  "tags": ["Museum", "Kyoto City", "v1.9.2"],
+  "tags": ["Museum", "Kyoto City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E3%83%9E%E3%83%B3%E3%82%AC%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -45,7 +45,7 @@
   "budgetMax": 8500,
   "budgetBreakdown": {
     "transport": 1925,
-    "tickets": 1100,
+    "tickets": 1200,
     "food": 1925,
     "cafe": 550
   },
@@ -99,7 +99,7 @@
   "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "notes": "9.2 city expansion record for Kyoto City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -135,7 +135,7 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "businessHours": "10:00-17:00 (last entry 16:30), closed Wednesdays",
   "nearHubs": ["kyoto-city"],
   "notesJa": "【見どころ】京都国際マンガミュージアムは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",

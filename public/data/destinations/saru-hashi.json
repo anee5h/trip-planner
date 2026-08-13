@@ -9,8 +9,8 @@
   "role": "standalone",
   "placeType": "destination",
   "coordinates": {
-    "lat": 35.604,
-    "lng": 138.947
+    "lat": 35.6157,
+    "lng": 138.9802
   },
   "categories": ["bridge", "sightseeing", "engineering"],
   "tags": ["Saru-hashi Bridge", "Yamanashi", "Japan Travel"],
@@ -61,7 +61,7 @@
   "collections": [
     {
       "collectionId": "scenic-bridges-japan",
-      "sortOrder": 4
+      "sortOrder": 6
     }
   ],
   "relationships": {},

@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.harborland.co.jp/en/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Kobe City", "v1.9.2"],
+  "tags": ["Culture", "Kobe City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Harborland%20district.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -99,7 +99,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -108,7 +108,8 @@
   "collections": [
     {
       "collectionId": "great-night-views",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 3
     }
   ],
   "addedAt": "2026-07-29",

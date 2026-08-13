@@ -68,7 +68,7 @@
   "collections": [
     {
       "collectionId": "pilgrimage-routes-japan",
-      "sortOrder": 3
+      "sortOrder": 2
     }
   ],
   "relationships": {
@@ -92,7 +92,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Sacred mountain monastic complex (Mount Koya / Koyasan), headquarters of Shingon Buddhism and Okunoin cemetery.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.town.koya.wakayama.jp/",
+        "title": "Koya Town official website",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -119,5 +126,11 @@
       ]
     }
   },
-  "municipalityId": "Wakayama:koya"
+  "municipalityId": "Wakayama:koya",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danjogaran_Koyasan16n4272.jpg"
+  }
 }

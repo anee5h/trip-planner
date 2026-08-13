@@ -16,7 +16,7 @@
   "reservationJa": "【予約】事前予約不要です（いちご電車やたま電車の乗車券が便利です）。",
   "parking": "No station parking; take Kishigawa Line train",
   "parkingJa": "【駐車場】駅前駐車場無しため、和歌山駅から貴志川線電車利用を推奨。",
-  "openingHours": "10:00 - 16:00 (Cat duty hours)",
+  "openingHours": "10:00-16:00 (duty hours; closed Wed/Thu)",
   "openingHoursJa": "10:00 - 16:00 (駅長勤務時間・水木休み)",
   "coordinates": {
     "lat": 34.2094,
@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 60,
     "editorialSummary": "Famous railway station home to feline Stationmaster Nitama and cat station building.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.wakayama-dentetsu.co.jp/",
+        "title": "Kishi Station Tama Cat Conductor",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -89,5 +96,8 @@
     "car": 292
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Stationmaster_Tama_20110715.jpg/1920px-Stationmaster_Tama_20110715.jpg",
-  "collections": []
+  "collections": [],
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

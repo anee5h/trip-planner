@@ -27,7 +27,7 @@
   "officialWebsite": "https://www.kobe-port-tower.com/",
   "officialWebsiteRequirement": "required",
   "categories": ["Viewpoint"],
-  "tags": ["Viewpoint", "Kobe City", "v1.9.2"],
+  "tags": ["Viewpoint", "Kobe City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe%20port%20tower12s3200.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -99,7 +99,7 @@
   "weatherDependence": "moderate",
   "reservation": "Check the official website before visiting.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -108,7 +108,8 @@
   "collections": [
     {
       "collectionId": "japan-observatories-towers",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 4
     }
   ],
   "addedAt": "2026-07-29",
@@ -140,11 +141,11 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "Open access",
+  "businessHours": "Paid timed-entry; hours vary by season (typically ~10:00-22:00)",
   "nearHubs": ["kobe-city"],
   "notesJa": "【見どころ】神戸ポートタワーは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "openingHoursJa": "10:00〜22:00（季節により変動）",
   "municipalityId": "Hyogo:kobe"
 }

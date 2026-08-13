@@ -1,7 +1,7 @@
 {
   "id": "enoshima-iwaya-caves",
   "name": "Enoshima Iwaya Caves",
-  "nameJa": "江の島",
+  "nameJa": "江の島岩屋",
   "aliases": ["Enoshima", "江の島"],
   "content": {
     "en": {
@@ -34,7 +34,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["Nature"],
-  "tags": ["Nature", "Fujisawa City", "v1.9.2"],
+  "tags": ["Nature", "Fujisawa City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Enoshima%2006.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -181,11 +181,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.fujisawa-kanko.jp/spot/enoshima/17.html",
-  "businessHours": "Open access",
+  "businessHours": "~08:30-17:00 (seasonal)",
   "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "24 Hours (Open access)",
-  "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Kanagawa:fujisawa"
+  "openingHours": "~08:30-17:00 (seasonal)",
+  "openingHoursJa": "~08:30-17:00 (seasonal)",
+  "municipalityId": "Kanagawa:fujisawa",
+  "transportZoneId": "mainland-honshu"
 }

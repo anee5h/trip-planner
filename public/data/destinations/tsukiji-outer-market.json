@@ -118,10 +118,10 @@
     "lifecycle": "published",
     "sources": [
       {
-        "type": "tourism_board",
+        "type": "official",
         "url": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
-        "title": "Chuo City official visitor guide",
-        "accessedAt": "2026-08-02"
+        "title": "Tsukiji Outer Market",
+        "accessedAt": "2026-08-13"
       }
     ],
     "checkedAt": "2026-08-02",

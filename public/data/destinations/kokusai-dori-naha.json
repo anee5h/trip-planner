@@ -22,7 +22,8 @@
   "imageMetadata": {
     "attribution": "663highland via Wikimedia Commons",
     "license": "CC BY 2.5",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKokusai-dori08s3s4440.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKokusai-dori08s3s4440.jpg",
+    "source": "Wikimedia Commons"
   },
   "budgetMin": 1500,
   "budgetRecommended": 2500,
@@ -129,5 +130,7 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "notesJa": "那覇のメインストリート。沖縄土産やストリートフードが楽しめる国際通り。"
+  "notesJa": "那覇のメインストリート。沖縄土産やストリートフードが楽しめる国際通り。",
+  "transportZoneId": "okinawa-main",
+  "description": "Naha's famous 'Miracle Mile' vibrant avenue lined with Okinawan souvenir shops, awamori distilleries, steak houses, and fresh tropical seafood dining upstairs at Makishi Market."
 }

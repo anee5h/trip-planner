@@ -32,11 +32,11 @@
   "collections": [
     {
       "collectionId": "original-12-castles",
-      "sortOrder": 1
+      "sortOrder": 4
     },
     {
       "collectionId": "japan-top-castles",
-      "sortOrder": 4
+      "sortOrder": 8
     }
   ],
   "transportOptions": {
@@ -62,9 +62,9 @@
     "holiday": 5
   },
   "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
+    "spring": 10,
+    "summer": 7,
+    "autumn": 7,
     "winter": 4
   },
   "walkingMin": 8000,
@@ -72,7 +72,7 @@
   "walkingShadeMin": 3200,
   "indoorPercent": 20,
   "totalTripHours": 4,
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [4, 5],
   "relationships": {
     "featuredDestinationIds": [],
     "parentDestinationId": "hirosaki-city"
@@ -85,7 +85,7 @@
     "cafe": 1575
   },
   "highlights": ["Explore Hirosaki Castle", "Local Culture & Scenery"],
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "Spring",
   "weatherDependence": "moderate",
   "comfort": {
     "heatTolerance": 7,
@@ -125,5 +125,11 @@
         "method": "assisted"
       }
     ]
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Si-take. at Japanese Wikipedia(しいたけ)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg"
   }
 }

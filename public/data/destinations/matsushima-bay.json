@@ -35,7 +35,7 @@
   "collections": [
     {
       "collectionId": "three-great-views",
-      "sortOrder": 1
+      "sortOrder": 2
     }
   ],
   "transportOptions": {
@@ -76,7 +76,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg/3840px-211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg",
   "budgetBreakdown": {
     "transport": 1875,
-    "tickets": 937,
+    "tickets": 0,
     "food": 3047,
     "cafe": 1641
   },
@@ -120,5 +120,11 @@
         "method": "assisted"
       }
     ]
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:211030_Kameshima_Matsushima_Miyagi_pref_Japan01n.jpg"
   }
 }

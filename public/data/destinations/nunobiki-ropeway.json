@@ -26,7 +26,7 @@
   "officialWebsite": "https://www.kobeherb.com/view/ropeway/",
   "officialWebsiteRequirement": "required",
   "categories": ["Viewpoint"],
-  "tags": ["Viewpoint", "Kobe City", "v1.9.2"],
+  "tags": ["Viewpoint", "Kobe City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/121208%20Kobe-Nunobiki%20ropeway%20Kobe%20Hyogo%20pref%20Japan05s3.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -98,7 +98,7 @@
   "weatherDependence": "moderate",
   "reservation": "Check the official website before visiting.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kobe City.",
+  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {

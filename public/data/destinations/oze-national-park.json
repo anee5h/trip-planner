@@ -42,12 +42,10 @@
   "collections": [
     {
       "collectionId": "national-parks-japan",
-      "sortOrder": 12
+      "sortOrder": 1
     }
   ],
-  "relationships": {
-    "parentDestinationId": "minakami-town"
-  },
+  "relationships": {},
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
   "role": "standalone",
@@ -114,5 +112,15 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Gunma:minakami"
+  "season": {
+    "spring": 4,
+    "summer": 10,
+    "autumn": 8,
+    "winter": 2
+  },
+  "bestMonths": [7, 8, 9, 10],
+  "bestSeason": "Summer & Autumn",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

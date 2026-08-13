@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Charming historic neighborhood filled with Edo-period wooden lattice townhouses.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.naramachi-info.jp/",
+        "title": "Naramachi Historic Lattice District",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -85,5 +92,8 @@
     "car": 240
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg/1920px-Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg/1920px-Naramachi_Tenjin_Reisai_Togyo_Nara_1.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

@@ -113,5 +113,11 @@
         "method": "assisted"
       }
     ]
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "attribution": "Raita Futo from Tokyo, Japan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jodogahama_Beach_(51971544590).jpg"
   }
 }

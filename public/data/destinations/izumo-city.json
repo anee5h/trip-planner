@@ -92,5 +92,11 @@
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
   "municipalityId": "Shimane:izumo",
-  "nameJa": "出雲市"
+  "nameJa": "出雲市",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Saigen Jiro",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Haiden_of_Izumo-taisha-1.JPG"
+  }
 }

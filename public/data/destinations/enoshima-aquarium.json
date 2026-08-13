@@ -35,7 +35,7 @@
   "officialWebsite": "https://www.enosui.com/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
-  "tags": ["Museum", "Fujisawa City", "v1.9.2"],
+  "tags": ["Museum", "Fujisawa City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/New%20Enoshima%20Aquarium.JPG?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -54,7 +54,7 @@
   "budgetMax": 8500,
   "budgetBreakdown": {
     "transport": 1925,
-    "tickets": 1100,
+    "tickets": 2800,
     "food": 1925,
     "cafe": 550
   },
@@ -179,5 +179,6 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Kanagawa:fujisawa"
+  "municipalityId": "Kanagawa:fujisawa",
+  "transportZoneId": "mainland-honshu"
 }

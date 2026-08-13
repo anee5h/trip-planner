@@ -9,8 +9,8 @@
   "role": "standalone",
   "placeType": "destination",
   "coordinates": {
-    "lat": 35.182,
-    "lng": 138.39
+    "lat": 34.9786,
+    "lng": 138.383
   },
   "categories": ["history", "culture", "sightseeing"],
   "tags": ["Top 100 Castle", "Castle", "History", "Shizuoka"],
@@ -62,7 +62,7 @@
   "collections": [
     {
       "collectionId": "japan-top-castles",
-      "sortOrder": 41
+      "sortOrder": 66
     }
   ],
   "relationships": {},

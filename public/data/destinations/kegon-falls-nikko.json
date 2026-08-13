@@ -39,12 +39,12 @@
   "collections": [
     {
       "collectionId": "three-great-waterfalls",
-      "sortOrder": 1,
+      "sortOrder": 2,
       "confirmed": true
     },
     {
       "collectionId": "waterfalls-gorges-japan",
-      "sortOrder": 4
+      "sortOrder": 2
     }
   ],
   "transportOptions": {
@@ -86,7 +86,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg/1920px-Iwakuni%2C_ponte_kintai-kyo%2C_03%2C0.jpg",
   "budgetBreakdown": {
     "transport": 1714,
-    "tickets": 1143,
+    "tickets": 600,
     "food": 743,
     "cafe": 400
   },
@@ -154,5 +154,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tochigi:nikko"
+  "municipalityId": "Tochigi:nikko",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Uraomote yamaneko",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_chuzenji_and_kegon_waterfall.jpg"
+  }
 }

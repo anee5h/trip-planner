@@ -35,7 +35,7 @@
   "officialWebsite": "https://ee-beach.com/",
   "officialWebsiteRequirement": "none",
   "categories": ["Nature"],
-  "tags": ["Nature", "Fujisawa City", "v1.9.2"],
+  "tags": ["Nature", "Fujisawa City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Katase%20East%20Beach%202018.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -97,12 +97,12 @@
     "holiday": 9
   },
   "season": {
-    "spring": 8.6,
-    "summer": 8.9,
-    "autumn": 9.2,
-    "winter": 9.5
+    "spring": 7,
+    "summer": 10,
+    "autumn": 6,
+    "winter": 3
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [7, 8],
   "weatherDependence": "moderate",
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
@@ -179,5 +179,6 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Kanagawa:fujisawa"
+  "municipalityId": "Kanagawa:fujisawa",
+  "bestSeason": "Summer"
 }

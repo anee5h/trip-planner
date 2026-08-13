@@ -35,7 +35,7 @@
   "officialWebsite": "https://pref.spec.ed.jp/momas/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
-  "tags": ["Museum", "Saitama City", "v1.9.2"],
+  "tags": ["Museum", "Saitama City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Museum%20of%20Modern%20Art%20Saitama%202010.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

@@ -76,7 +76,8 @@
   "collections": [
     {
       "collectionId": "core-cities-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 9
     }
   ],
   "relationships": {
@@ -114,7 +115,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Japan's ancient imperial capital, renowned for thousands of classical Buddhist temples, Shinto shrines, traditional wooden machiya, and zen gardens.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.kyoto.lg.jp/",
+        "title": "Kyoto City official website",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -141,5 +149,11 @@
       ]
     }
   },
-  "municipalityId": "Kyoto:kyoto"
+  "municipalityId": "Kyoto:kyoto",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Martin Falbisoner",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-02.jpg"
+  }
 }

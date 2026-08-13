@@ -788,9 +788,7 @@
     "role": "standalone",
     "kind": "nature",
     "status": "published",
-    "relationships": {
-      "parentDestinationId": "kisarazu-city"
-    }
+    "relationships": {}
   },
   {
     "id": "botchan-train-matsuyama",
@@ -1188,18 +1186,6 @@
     "kind": "nature",
     "status": "published",
     "relationships": {}
-  },
-  {
-    "id": "choshi-chiba",
-    "name": "Choshi",
-    "prefecture": "Chiba",
-    "region": "Kanto",
-    "role": "poi",
-    "kind": "attraction",
-    "status": "published",
-    "relationships": {
-      "parentDestinationId": "choshi-city"
-    }
   },
   {
     "id": "choshi-city",
@@ -1733,8 +1719,7 @@
       "featuredDestinationIds": [
         "fuji-5-lake",
         "kofu-city",
-        "takeda-castle-yamanashi",
-        "yamanashi-fujiyoshida"
+        "takeda-castle-yamanashi"
       ],
       "nearbyDestinationIds": [
         "nagoya-city",
@@ -1922,7 +1907,7 @@
   },
   {
     "id": "fukuoka-paypay-dome",
-    "name": "Fukuoka PayPay Dome & BOSS E-ZO",
+    "name": "Mizuho PayPay Dome Fukuoka & BOSS E-ZO",
     "prefecture": "Fukuoka",
     "region": "Kyushu",
     "role": "poi",
@@ -2424,9 +2409,7 @@
     "role": "standalone",
     "kind": "onsen",
     "status": "published",
-    "relationships": {
-      "parentDestinationId": "kusatsu-town"
-    }
+    "relationships": {}
   },
   {
     "id": "gunma-kusatsu-onsen",
@@ -2448,9 +2431,7 @@
     "role": "standalone",
     "kind": "onsen",
     "status": "published",
-    "relationships": {
-      "parentDestinationId": "kusatsu-town"
-    }
+    "relationships": {}
   },
   {
     "id": "gyokudo-art-museum",
@@ -4591,7 +4572,6 @@
         "kanayama-shrine",
         "taro-okamoto-museum-of-art",
         "fujiko-f-fujio-museum",
-        "toshiba-science-museum",
         "lazona-kawasaki-plaza",
         "todoroki-ryokuchi"
       ],
@@ -4838,9 +4818,7 @@
     "role": "standalone",
     "kind": "nature",
     "status": "verified",
-    "relationships": {
-      "parentDestinationId": "matsumoto-city"
-    }
+    "relationships": {}
   },
   {
     "id": "kita-city",
@@ -5126,11 +5104,7 @@
     "kind": "city",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": [
-        "fuji-5-lake",
-        "takeda-castle-yamanashi",
-        "yamanashi-fujiyoshida"
-      ],
+      "featuredDestinationIds": ["fuji-5-lake", "takeda-castle-yamanashi"],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -5518,12 +5492,7 @@
     "kind": "town",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": [
-        "gunma-ikaho-onsen",
-        "gunma-kusatsu-onsen",
-        "gunma-shima-onsen",
-        "oze-national-park"
-      ],
+      "featuredDestinationIds": ["gunma-kusatsu-onsen", "oze-national-park"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -7068,18 +7037,6 @@
     }
   },
   {
-    "id": "nagoya-castle-ruins-museum",
-    "name": "Nagoya Castle Ruins & Museum",
-    "prefecture": "Saga",
-    "region": "Kyushu",
-    "role": "poi",
-    "kind": "historic",
-    "status": "published",
-    "relationships": {
-      "parentDestinationId": "karatsu-city"
-    }
-  },
-  {
     "id": "nagoya-city",
     "name": "Nagoya City",
     "prefecture": "Aichi",
@@ -7243,9 +7200,7 @@
     "role": "standalone",
     "kind": "castle",
     "status": "published",
-    "relationships": {
-      "parentDestinationId": "motobu-town"
-    }
+    "relationships": {}
   },
   {
     "id": "naminoue-shrine-naha",
@@ -7894,18 +7849,6 @@
     "region": "Kyushu",
     "role": "poi",
     "kind": "castle",
-    "status": "published",
-    "relationships": {
-      "parentDestinationId": "nichinan-city"
-    }
-  },
-  {
-    "id": "obi-castle-town",
-    "name": "Obi Castle Town",
-    "prefecture": "Miyazaki",
-    "region": "Kyushu",
-    "role": "poi",
-    "kind": "historic",
     "status": "published",
     "relationships": {
       "parentDestinationId": "nichinan-city"
@@ -8695,9 +8638,7 @@
     "role": "standalone",
     "kind": "nature",
     "status": "published",
-    "relationships": {
-      "parentDestinationId": "minakami-town"
-    }
+    "relationships": {}
   },
   {
     "id": "ozu-castle",
@@ -11014,9 +10955,7 @@
     "role": "standalone",
     "kind": "nature",
     "status": "published",
-    "relationships": {
-      "parentDestinationId": "hachioji-tokyo"
-    }
+    "relationships": {}
   },
   {
     "id": "tokyo-metropolitan-government-building-shinjuku",
@@ -11062,9 +11001,7 @@
     "role": "standalone",
     "kind": "nature",
     "status": "published",
-    "relationships": {
-      "parentDestinationId": "ome-tokyo"
-    }
+    "relationships": {}
   },
   {
     "id": "tokyo-skytree-sumida",
@@ -11122,18 +11059,6 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "wakayama-city"
-    }
-  },
-  {
-    "id": "toshiba-science-museum",
-    "name": "Toshiba Science Museum",
-    "prefecture": "Kanagawa",
-    "region": "Kanto",
-    "role": "poi",
-    "kind": "museum",
-    "status": "published",
-    "relationships": {
-      "parentDestinationId": "kawasaki-city"
     }
   },
   {
@@ -11460,9 +11385,7 @@
     "role": "standalone",
     "kind": "attraction",
     "status": "verified",
-    "relationships": {
-      "parentDestinationId": "nagano-city"
-    }
+    "relationships": {}
   },
   {
     "id": "ueno-park",
@@ -11620,7 +11543,7 @@
   },
   {
     "id": "usuzumi-zakura",
-    "name": "Usuzumi-zakura (Rootani Usuzumi Cherry)",
+    "name": "Usuzumi-zakura (Neodani Usuzumi Cherry)",
     "prefecture": "Gifu",
     "region": "Chubu",
     "role": "standalone",
@@ -11914,18 +11837,6 @@
     "relationships": {}
   },
   {
-    "id": "yamanashi-fujiyoshida",
-    "name": "Fujiyoshida",
-    "prefecture": "Yamanashi",
-    "region": "Chubu",
-    "role": "standalone",
-    "kind": "nature",
-    "status": "verified",
-    "relationships": {
-      "parentDestinationId": "fujiyoshida-city"
-    }
-  },
-  {
     "id": "yamanashi-nishizawa-valley",
     "name": "Nishizawa Valley",
     "prefecture": "Yamanashi",
@@ -11933,9 +11844,7 @@
     "role": "standalone",
     "kind": "nature",
     "status": "verified",
-    "relationships": {
-      "parentDestinationId": "kofu-city"
-    }
+    "relationships": {}
   },
   {
     "id": "yamanashi-shosenkyo-gorge",

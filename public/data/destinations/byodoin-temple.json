@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "UNESCO World Heritage temple featuring the iconic Phoenix Hall.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.byodoin.or.jp/en/",
+        "title": "Byodoin Temple",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -50,7 +57,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/688/"
+      "source": "https://whc.unesco.org/en/list/688/",
+      "sortOrder": 33
     }
   ],
   "relationships": {
@@ -86,5 +94,8 @@
     "shinkansen": 147,
     "train": 247,
     "bus": 247
+  },
+  "travelEstimate": {
+    "confidence": "beta"
   }
 }

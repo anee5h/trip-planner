@@ -74,7 +74,28 @@ export type DestinationKind =
   | "station"
   | "onsen"
   | "zoo"
-  | "aquarium";
+  | "aquarium"
+  // KAI-87: legacy kinds present in the catalogue (schema contract extended
+  // to match data; report §A/M). Future migration to canonical kinds is an
+  // owner decision; the validator enforces membership in this set.
+  | "nature"
+  | "historic_town"
+  | "historic"
+  | "natural"
+  | "mixed"
+  | "theme_park"
+  | "memorial"
+  | "monument"
+  | "cruise"
+  | "cemetery"
+  | "cliff"
+  | "rock_formation"
+  | "amusement_park"
+  | "cape"
+  | "observation"
+  | "event"
+  | "entertainment"
+  | "cultural";
 
 /** A standalone place is a deliberate root: regional, multi-municipality, or island-wide. */
 export type DestinationRole = "hub" | "poi" | "standalone";
@@ -341,7 +362,7 @@ export interface Destination {
   recommendedDuration?: "1-2 hours" | "Half day" | "Full day" | "Weekend";
 
   /** Mandatory: Destination content quality status */
-  status: "verified" | "planned" | "beta";
+  status: "verified" | "planned" | "beta" | "published";
 
   /** Mandatory: Travel estimate calibration confidence level */
   travelEstimate: {

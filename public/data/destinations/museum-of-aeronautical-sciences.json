@@ -1,7 +1,7 @@
 {
   "id": "museum-of-aeronautical-sciences",
   "name": "Museum of Aeronautical Sciences",
-  "nameJa": "成田国際空港",
+  "nameJa": "航空科学博物館",
   "aliases": ["Narita International Airport", "成田国際空港"],
   "content": {
     "en": {
@@ -35,7 +35,7 @@
   "officialWebsite": "https://www.narita-airport.jp/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
-  "tags": ["Museum", "Narita City", "v1.9.2"],
+  "tags": ["Museum", "Narita City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Narita%20International%20Air%20Port%20(cropped).jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

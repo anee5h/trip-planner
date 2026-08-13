@@ -56,7 +56,7 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
+    "tickets": 400,
     "food": 1400,
     "cafe": 1200
   },
@@ -118,10 +118,10 @@
     "lifecycle": "published",
     "sources": [
       {
-        "type": "tourism_board",
+        "type": "official",
         "url": "https://www.gotokyo.org/en/destinations/eastern-tokyo/kiyosumi-shirakawa/index.html",
-        "title": "Koto City official visitor guide",
-        "accessedAt": "2026-08-02"
+        "title": "Fukagawa Edo Museum",
+        "accessedAt": "2026-08-13"
       }
     ],
     "checkedAt": "2026-08-02",

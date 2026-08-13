@@ -77,7 +77,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Naiku_04.jpg",
   "budgetBreakdown": {
     "transport": 1875,
-    "tickets": 937,
+    "tickets": 0,
     "food": 3047,
     "cafe": 1641
   },
@@ -107,7 +107,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Ise Grand Shrine is the spiritual heart of Shinto, dedicated to the Sun Goddess Amaterasu and rebuilt every 20 years in accordance with ancient Shikinen Sengu ritual.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.isejingu.or.jp/",
+        "title": "Ise Grand Shrine (Ise Jingu)",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -115,7 +122,7 @@
   "notesJa": "【見どころ】伊勢神宮は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "openingHoursJa": "05:00〜17:00/18:00/19:00（季節により変動）",
   "nearHubs": ["ise-city"],
   "role": "destination",
   "content": {
@@ -134,5 +141,11 @@
       ]
     }
   },
-  "municipalityId": "Mie:ise"
+  "municipalityId": "Mie:ise",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "N yotarou",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naiku_04.jpg"
+  }
 }

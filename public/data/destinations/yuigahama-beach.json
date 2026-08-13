@@ -35,7 +35,7 @@
   "officialWebsite": "https://yuigahama.sos.gr.jp/",
   "officialWebsiteRequirement": "none",
   "categories": ["Nature"],
-  "tags": ["Nature", "Kamakura City", "v1.9.2"],
+  "tags": ["Nature", "Kamakura City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/230128%20Yuigahama%20Kamakura%20Kanagawa%20pref%20Japan02s3.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -97,12 +97,12 @@
     "holiday": 9
   },
   "season": {
-    "spring": 6.4,
-    "summer": 6.7,
-    "autumn": 7,
-    "winter": 7.3
+    "spring": 7,
+    "summer": 10,
+    "autumn": 6,
+    "winter": 3
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [7, 8],
   "weatherDependence": "moderate",
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
@@ -179,5 +179,6 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Kanagawa:kamakura"
+  "municipalityId": "Kanagawa:kamakura",
+  "bestSeason": "Summer"
 }

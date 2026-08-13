@@ -30,7 +30,6 @@
   "transportOptions": {
     "train": 120,
     "car": 120,
-    "shinkansen": 120,
     "bus": 150
   },
   "totalTripHours": 8,
@@ -91,5 +90,11 @@
     "max": 14
   },
   "businessHours": "Open access",
-  "municipalityId": "Kagawa:marugame"
+  "municipalityId": "Kagawa:marugame",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Toto-tarou",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marugame_Castle01.jpg"
+  }
 }

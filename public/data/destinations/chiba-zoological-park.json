@@ -35,7 +35,7 @@
   "officialWebsite": "https://www.city.chiba.jp/zoo/",
   "officialWebsiteRequirement": "none",
   "categories": ["Nature"],
-  "tags": ["Nature", "Chiba City", "v1.9.2"],
+  "tags": ["Nature", "Chiba City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chiba%20zoo%20entrance.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -174,11 +174,11 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "Open access",
+  "businessHours": "09:30-16:30, last entry 16:00, closed Wednesdays (Dec 29-Jan 1)",
   "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "24 Hours (Open access)",
-  "openingHoursJa": "散策自由（24時間開放）",
+  "openingHours": "09:30-16:30, last entry 16:00, closed Wednesdays (Dec 29-Jan 1)",
+  "openingHoursJa": "09:30-16:30, last entry 16:00, closed Wednesdays (Dec 29-Jan 1)",
   "municipalityId": "Chiba:chiba"
 }

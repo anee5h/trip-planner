@@ -90,5 +90,11 @@
   },
   "officialWebsite": "https://www.bessho-spa.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Nagano:ueda"
+  "municipalityId": "Nagano:ueda",
+  "imageMetadata": {
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
+    "sourceUrl": "https://unsplash.com"
+  }
 }

@@ -35,7 +35,7 @@
   "officialWebsite": "http://www.kahaku.go.jp/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
-  "tags": ["Museum", "Taito City", "v1.9.2"],
+  "tags": ["Museum", "Taito City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/NMNC01s3200.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

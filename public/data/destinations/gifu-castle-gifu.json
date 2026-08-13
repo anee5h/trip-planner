@@ -68,7 +68,7 @@
   "description": "Perched 329 meters atop Mt. Kinka, Gifu Castle was Oda Nobunaga's formidable mountain stronghold, offering panoramic views over the Nagara River and Nobi Plain.",
   "budgetBreakdown": {
     "transport": 1300,
-    "tickets": 1192,
+    "tickets": 200,
     "food": 2925,
     "cafe": 1083
   },
@@ -89,7 +89,7 @@
   "collections": [
     {
       "collectionId": "japan-top-castles",
-      "sortOrder": 39
+      "sortOrder": 4
     }
   ],
   "relationships": {

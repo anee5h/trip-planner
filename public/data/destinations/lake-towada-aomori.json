@@ -111,5 +111,11 @@
         "method": "assisted"
       }
     ]
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Soica2001 (talk)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Towada_from_Ohanabe_2008.jpg"
   }
 }

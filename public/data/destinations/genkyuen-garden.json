@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 60,
     "editorialSummary": "Edo-period Japanese stroll garden reflecting Hikone Castle tower in its central pond.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://hikonecastle.com/",
+        "title": "Genkyuen Feudal Garden",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -88,5 +95,8 @@
     "car": 168
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Genkyuen01s3200.jpg/1920px-Genkyuen01s3200.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Genkyuen01s3200.jpg/1920px-Genkyuen01s3200.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

@@ -1,7 +1,7 @@
 {
   "id": "shinjuku-gyo-en",
   "name": "Shinjuku Gyo-en",
-  "businessHours": "09:00 - 16:30 (Closed Mondays)",
+  "businessHours": "09:00-17:30 (Mar-Oct), 09:00-16:30 (Nov-Feb); closed Mon",
   "nameJa": "新宿御苑",
   "aliases": ["Shinjuku", "新宿区"],
   "content": {
@@ -40,17 +40,17 @@
   "officialWebsite": "https://www.city.shinjuku.lg.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Shinjuku City", "v1.9.2"],
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/US%20Air%20Force%20photo%20170903-F-PM645-1558%20An%20aerial%20view%20of%20Shinjuku%E2%80%99s%20skyscraper%20district%20from%20a%20UH-1N%20Iroquois.jpg?width=1600",
+  "tags": ["Culture", "Shinjuku City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wooden_footbridge_in_Shinjuku_Gyoen_National_Garden%2C_Tokyo%2C_Japan%2C_a_sunny_day_with_blue_sky.jpg/1280px-Wooden_footbridge_in_Shinjuku_Gyoen_National_Garden%2C_Tokyo%2C_Japan%2C_a_sunny_day_with_blue_sky.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
-    "license": "Public domain",
-    "attribution": "U.S. Air Force photo by Yasuo Osakabe",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:US_Air_Force_photo_170903-F-PM645-1558_An_aerial_view_of_Shinjuku%E2%80%99s_skyscraper_district_from_a_UH-1N_Iroquois.jpg"
+    "license": "CC BY-SA 4.0",
+    "attribution": "Basile Morin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wooden_footbridge_in_Shinjuku_Gyoen_National_Garden%2C_Tokyo%2C_Japan%2C_a_sunny_day_with_blue_sky.jpg"
   },
   "coordinates": {
-    "lat": 35.693888888888885,
-    "lng": 139.70341666666667
+    "lat": 35.6852,
+    "lng": 139.71
   },
   "description": "A vast 58-hectare national park in Shinjuku blending traditional Japanese, English landscape, and French formal garden styles.",
   "highlights": [
@@ -120,7 +120,8 @@
   "collections": [
     {
       "collectionId": "flower-parks-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 4
     }
   ],
   "addedAt": "2026-07-29",
@@ -186,7 +187,7 @@
   "notesJa": "日本庭園、イギリス風景式庭園、フランス式整形庭園の3つの庭園美と四季の花々を愉しめます。",
   "reservationJa": "春の特別開園（桜シーズン）の混雑期は事前予約が推奨されます。",
   "parkingJa": "新宿門横に有料駐車場が完備されています。",
-  "openingHours": "09:00 - 17:30 (Closed Mondays)",
+  "openingHours": "09:00-17:30 (Mar-Oct), 09:00-16:30 (Nov-Feb); closed Mon",
   "openingHoursJa": "09:00 - 17:30（月曜休園）",
   "municipalityId": "Tokyo:shinjuku"
 }

@@ -83,9 +83,7 @@
       "confirmed": true
     }
   ],
-  "relationships": {
-    "parentDestinationId": "kusatsu-town"
-  },
+  "relationships": {},
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ikaho_Onsen_03.jpg/250px-Ikaho_Onsen_03.jpg",
   "walkingIntensity": "low",
   "role": "standalone",
@@ -149,5 +147,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Gunma:kusatsu"
+  "municipalityId": "Gunma:shibukawa",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.1 jp",
+    "attribution": "matsukaz",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ikaho_Onsen_03.jpg"
+  }
 }

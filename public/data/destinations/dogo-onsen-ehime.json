@@ -21,7 +21,7 @@
   "collections": [
     {
       "collectionId": "top-onsen-japan",
-      "sortOrder": 9
+      "sortOrder": 3
     }
   ],
   "region": "Shikoku",
@@ -87,5 +87,11 @@
   "officialWebsite": "https://dogo.jp/onsen/honkan",
   "businessHours": "Kami-no-Yu bathing 06:00–23:00 (last entry 22:30); Yushinden viewing 09:00–17:00 (last entry 16:30); other areas have separate hours",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Ehime:matsuyama"
+  "municipalityId": "Ehime:matsuyama",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Japanexperterna.se",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dogo_onsen_honkan_long_exposure.jpg"
+  }
 }

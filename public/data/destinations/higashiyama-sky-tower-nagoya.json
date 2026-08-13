@@ -77,10 +77,10 @@
   "notes": "Combination tickets available for both Higashiyama Zoo and Sky Tower.",
   "schemaVersion": 2,
   "imageMetadata": {
-    "source": "Wikimedia Commons / Wikipedia",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Higashiyama Sky Tower via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Higashiyama%20Sky%20Tower"
+    "source": "Unsplash",
+    "license": "Unsplash License",
+    "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
+    "sourceUrl": "https://unsplash.com"
   },
   "status": "verified",
   "travelEstimate": {
@@ -89,7 +89,8 @@
   "collections": [
     {
       "collectionId": "japan-observatories-towers",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 3
     }
   ],
   "relationships": {

@@ -117,7 +117,8 @@
   "collections": [
     {
       "collectionId": "flower-parks-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 6
     }
   ],
   "addedAt": "2026-08-02",
@@ -151,12 +152,12 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.showakinen-koen.jp/",
-  "businessHours": "Open access",
+  "businessHours": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg/1920px-Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg",
   "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "24 Hours (Open access)",
-  "openingHoursJa": "散策自由（24時間開放）",
+  "openingHours": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
+  "openingHoursJa": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
   "municipalityId": "Tokyo:tachikawa"
 }

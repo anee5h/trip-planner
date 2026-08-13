@@ -9,8 +9,8 @@
   "role": "standalone",
   "placeType": "destination",
   "coordinates": {
-    "lat": 43.429,
-    "lng": 142.469
+    "lat": 43.4189,
+    "lng": 142.4266
   },
   "categories": ["sightseeing", "culture", "nature"],
   "tags": ["Farm Tomita", "Hokkaido", "Japan Travel"],
@@ -61,7 +61,7 @@
   "collections": [
     {
       "collectionId": "flower-parks-japan",
-      "sortOrder": 5
+      "sortOrder": 8
     }
   ],
   "relationships": {},

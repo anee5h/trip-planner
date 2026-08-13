@@ -61,8 +61,8 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 1200,
-    "bus": 800
+    "train": 90,
+    "bus": 120
   },
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
@@ -74,7 +74,7 @@
   "collections": [
     {
       "collectionId": "top-onsen-japan",
-      "sortOrder": 2,
+      "sortOrder": 8,
       "confirmed": true
     }
   ],

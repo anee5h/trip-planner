@@ -19,7 +19,7 @@
   },
   "categories": ["shrine", "history", "culture"],
   "tags": ["Three Great Jingu", "Shinto", "Ibaraki", "National Treasure Sword"],
-  "description": "Kashima Jingu is one of Japan's Three Great Shrines (Nihon San-daijingu) together with Ise and Katori, and one of the oldest shrines in the Kanto region, founded in the first century BC. It enshrines Takemikazuchi-no-kami, the god of martial arts and swordsmanship, and its precincts include an ancient forest and a national treasure-class straight sword kept in the treasury.",
+  "description": "Kashima Jingu is one of Japan's Three Great Shrines (Nihon San-daijingu) together with Ise and Katori, and one of the oldest shrines in the Kanto region, founded in 660 BC. It enshrines Takemikazuchi-no-kami, the god of martial arts and swordsmanship, and its precincts include an ancient forest and a national treasure-class straight sword kept in the treasury.",
   "highlights": [
     "One of Japan's Three Great Jingu",
     "Ancient forest precinct (Kashima no Mori)",
@@ -65,7 +65,7 @@
   "collections": [
     {
       "collectionId": "three-great-shrines",
-      "sortOrder": 2
+      "sortOrder": 3
     }
   ],
   "relationships": {

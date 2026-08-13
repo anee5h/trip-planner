@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { calculateScore } from "../RecommendationScorer";
 import { createRecommendationMatch } from "../RecommendationExplainability";
+import { getTransportCost } from "@/shared/services/budget/BudgetService";
 import type { Destination } from "@/shared/types/destination";
 
 const { budgetCalls } = vi.hoisted(() => ({
@@ -111,5 +112,49 @@ describe("per-mode budget consistency", () => {
       expect(args.length).toBeLessThanOrEqual(6);
       expect(typeof args[4]).not.toBe("number");
     }
+  });
+});
+
+describe("car ownership budget semantics (KAI-63 D11)", () => {
+  const carDest = {
+    id: "car-ownership-dest",
+    name: "Car Ownership Dest",
+    prefecture: "Kanagawa",
+    region: "Kanto",
+    categories: [],
+    tags: [],
+    heroImage: "",
+    gallery: [],
+    highlights: [],
+    budgetMin: 3000,
+    budgetRecommended: 5000,
+    budgetMax: 10000,
+    transportOptions: { car: 60, my_car: 60 },
+    totalTripHours: 8,
+    walkingMin: 10,
+    walkingSunMin: 5,
+    walkingShadeMin: 5,
+    indoorPercent: 50,
+    ratings: { overall: 5, food: 5, summer: 5, winter: 5 },
+    season: { spring: 5, summer: 5, autumn: 5, winter: 5 },
+    coordinates: { lat: 35.5, lng: 139.6 },
+  } as unknown as Destination;
+
+  it("rental car prices include the rental fee; personal car does not", () => {
+    // Same car trip, same explicit 8 h mode duration: the single Car chip
+    // maps to "rental" (fee included) or "my_car" (tolls/fuel only) via the
+    // user's carOwnership preference — the two budget models must differ.
+    const rental = getTransportCost(carDest, "car", 2, undefined, undefined, 8);
+    const personal = getTransportCost(
+      carDest,
+      "my_car",
+      2,
+      undefined,
+      undefined,
+      8,
+    );
+    expect(rental).not.toBeNull();
+    expect(personal).not.toBeNull();
+    expect(rental!).toBeGreaterThan(personal!);
   });
 });

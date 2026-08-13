@@ -75,7 +75,8 @@
   "collections": [
     {
       "collectionId": "core-cities-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 10
     }
   ],
   "relationships": {
@@ -113,5 +114,11 @@
     "max": 12
   },
   "businessHours": "Open access",
-  "municipalityId": "Aichi:nagoya"
+  "municipalityId": "Aichi:nagoya",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "ウィキ太郎(WikiTaro)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg"
+  }
 }

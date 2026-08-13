@@ -1,7 +1,7 @@
 {
   "id": "narita-airport-observation-decks",
   "name": "Narita Airport Observation Decks",
-  "nameJa": "東京国際空港",
+  "nameJa": "成田国際空港",
   "aliases": ["Haneda Airport", "東京国際空港"],
   "content": {
     "en": {
@@ -35,7 +35,7 @@
   "officialWebsite": "http://www.haneda-airport.jp",
   "officialWebsiteRequirement": "optional",
   "categories": ["Viewpoint"],
-  "tags": ["Viewpoint", "Narita City", "v1.9.2"],
+  "tags": ["Viewpoint", "Narita City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokyo-International-Airport%20Satellite.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

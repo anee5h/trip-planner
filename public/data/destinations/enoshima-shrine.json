@@ -34,7 +34,7 @@
   },
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
-  "tags": ["History", "Fujisawa City", "v1.9.2"],
+  "tags": ["History", "Fujisawa City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Enoshimajinja%20-05.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -179,5 +179,6 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "08:30 - 16:30",
   "openingHoursJa": "08:30 - 16:30（境内自由）",
-  "municipalityId": "Kanagawa:fujisawa"
+  "municipalityId": "Kanagawa:fujisawa",
+  "transportZoneId": "mainland-honshu"
 }

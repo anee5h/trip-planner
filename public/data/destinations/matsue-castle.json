@@ -37,11 +37,11 @@
   "collections": [
     {
       "collectionId": "original-12-castles",
-      "sortOrder": 1
+      "sortOrder": 9
     },
     {
       "collectionId": "japan-top-castles",
-      "sortOrder": 64
+      "sortOrder": 17
     }
   ],
   "transportOptions": {
@@ -86,7 +86,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/1280px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg",
   "budgetBreakdown": {
     "transport": 2375,
-    "tickets": 1187,
+    "tickets": 1200,
     "food": 3859,
     "cafe": 2079
   },

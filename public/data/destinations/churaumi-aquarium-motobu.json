@@ -22,7 +22,8 @@
   "imageMetadata": {
     "attribution": "Jordy Meow via Wikimedia Commons",
     "license": "CC BY-SA 3.0",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOkinawa_Aquarium.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOkinawa_Aquarium.jpg",
+    "source": "Wikimedia Commons"
   },
   "budgetMin": 2180,
   "budgetRecommended": 3000,
@@ -129,5 +130,9 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "notesJa": "ジンベエザメが見られる世界有数の大水槽。混雑を避けるなら午前中の到着がおすすめ。"
+  "notesJa": "ジンベエザメが見られる世界有数の大水槽。混雑を避けるなら午前中の到着がおすすめ。",
+  "transportZoneId": "okinawa-main",
+  "description": "One of the world's largest aquariums located inside Ocean Expo Park, world-renowned for its colossal 7,500m³ 'Kuroshio Sea' tank holding multiple whale sharks and reef manta rays.",
+  "openingHours": "08:30-18:30 (last entry 17:30; Jul 18-31 to 20:00, Aug to 21:00)",
+  "openingHoursJa": "08:30〜18:30（最終入場 17:30；7/18〜31 20:00、8月 21:00まで）"
 }

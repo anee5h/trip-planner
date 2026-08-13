@@ -77,10 +77,10 @@
   "notes": "Entry is completely free of charge 365 days a year.",
   "schemaVersion": 2,
   "imageMetadata": {
-    "source": "Wikimedia Commons / Wikipedia",
-    "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Toki Messe via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Toki%20Messe"
+    "source": "iStock by Getty Images",
+    "license": "iStock Standard License",
+    "attribution": "iStock by Getty Images",
+    "sourceUrl": "https://media.istockphoto.com/id/1707386560/ja/%E3%82%B9%E3%83%88%E3%83%83%E3%82%AF%E3%83%95%E3%82%A9%E3%83%88/%E3%82%B9%E3%83%AD%E3%83%90%E3%82%AD%E3%82%A2%E3%81%AE%E3%82%BF%E3%83%88%E3%83%A9%E5%B1%B1%E3%81%AB%E3%81%82%E3%82%8B%E5%A4%A9%E6%96%87%E8%A6%B3%E6%B8%AC%E8%80%85%E3%81%AE%E5%BB%BA%E7%89%A9.jpg?s=2048x2048&w=is&k=20&c=PGN1QnPNdRCMtsy6jNAm4F_J59flQUHKgfV5UhNrrN4="
   },
   "status": "verified",
   "travelEstimate": {
@@ -89,12 +89,13 @@
   "collections": [
     {
       "collectionId": "great-night-views",
-      "sortOrder": 7,
+      "sortOrder": 8,
       "confirmed": true
     },
     {
       "collectionId": "japan-observatories-towers",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 11
     }
   ],
   "relationships": {

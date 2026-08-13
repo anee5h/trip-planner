@@ -32,7 +32,7 @@
   "collections": [
     {
       "collectionId": "three-great-gardens",
-      "sortOrder": 3
+      "sortOrder": 1
     }
   ],
   "transportOptions": {
@@ -58,17 +58,17 @@
     "holiday": 5
   },
   "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
+    "spring": 9,
+    "summer": 6,
+    "autumn": 6,
+    "winter": 7
   },
   "walkingMin": 60,
   "walkingSunMin": 36,
   "walkingShadeMin": 24,
   "indoorPercent": 20,
   "totalTripHours": 4,
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [2, 3],
   "relationships": {
     "parentDestinationId": "mito-city"
   },
@@ -80,7 +80,7 @@
     "cafe": 499
   },
   "highlights": ["Explore Kairakuen Garden", "Local Culture & Scenery"],
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "Spring",
   "weatherDependence": "moderate",
   "comfort": {
     "heatTolerance": 7,

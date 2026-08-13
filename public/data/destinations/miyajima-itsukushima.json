@@ -45,14 +45,17 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/776/"
+      "source": "https://whc.unesco.org/en/list/776/",
+      "sortOrder": 11
     },
     {
       "collectionId": "islands-japan",
-      "sortOrder": 11
+      "sortOrder": 5
     }
   ],
-  "transportOptions": {},
+  "transportOptions": {
+    "ferry": 10
+  },
   "budget": {
     "low": 4000,
     "mid": 8000,
@@ -87,7 +90,7 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/960px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
   "budgetBreakdown": {
     "transport": 1875,
-    "tickets": 937,
+    "tickets": 300,
     "food": 3047,
     "cafe": 1641
   },
@@ -121,5 +124,5 @@
     "attribution": "redlegsfan21, CC BY-SA 2.0, via Wikimedia Commons",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Itsukushima_Shrine_Torii_Gate_(13890465459).jpg"
   },
-  "transportZoneId": "unknown"
+  "transportZoneId": "miyajima"
 }

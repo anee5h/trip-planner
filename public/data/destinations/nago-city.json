@@ -55,9 +55,7 @@
     "rainFriendly": 8,
     "walkingIntensity": 3
   },
-  "transportOptions": {
-    "train": 200
-  },
+  "transportOptions": {},
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Nago City travel hub in Okinawa Prefecture.",
@@ -94,7 +92,8 @@
   "imageMetadata": {
     "attribution": "663highland via Wikimedia Commons",
     "license": "CC BY 2.5",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABusena_Resort18bs3200.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABusena_Resort18bs3200.jpg",
+    "source": "Wikimedia Commons"
   },
   "editorial": {
     "lifecycle": "published",
@@ -136,5 +135,7 @@
       "openingHours": "終日アクセス可能（主要施設は09:00〜18:00）。"
     }
   },
-  "municipalityId": "Okinawa:nago"
+  "municipalityId": "Okinawa:nago",
+  "localAccessModes": ["car", "my_car", "bus"],
+  "localAccessUnestimated": true
 }

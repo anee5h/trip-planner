@@ -91,5 +91,11 @@
   "officialWebsite": "http://zao-fox-village.com/",
   "businessHours": "09:00 - 17:00",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Miyagi:shiroishi"
+  "municipalityId": "Miyagi:shiroishi",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Piccolist",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitsune_mura_H26Dec13.JPG"
+  }
 }

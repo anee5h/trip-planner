@@ -63,7 +63,8 @@
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Shirakami-Sanchi via Wikipedia/Wikimedia Commons"
+    "attribution": "Lead photograph of Shirakami-Sanchi via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sirakami santi.JPG"
   },
   "status": "published",
   "travelEstimate": {
@@ -73,7 +74,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/663/"
+      "source": "https://whc.unesco.org/en/list/663/",
+      "sortOrder": 28
     }
   ],
   "relationships": {

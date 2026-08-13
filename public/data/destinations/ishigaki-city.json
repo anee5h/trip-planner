@@ -56,9 +56,7 @@
     "rainFriendly": 8,
     "walkingIntensity": 3
   },
-  "transportOptions": {
-    "train": 200
-  },
+  "transportOptions": {},
   "reservation": "None required",
   "parking": "Public parking available",
   "notes": "Ishigaki City travel hub in Okinawa Prefecture.",
@@ -69,7 +67,7 @@
   "collections": [
     {
       "collectionId": "islands-japan",
-      "sortOrder": 9
+      "sortOrder": 3
     }
   ],
   "relationships": {
@@ -100,7 +98,8 @@
   "imageMetadata": {
     "attribution": "663highland via Wikimedia Commons",
     "license": "CC BY 2.5",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKabira_Bay_Ishigaki_Island40bs3s4592.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKabira_Bay_Ishigaki_Island40bs3s4592.jpg",
+    "source": "Wikimedia Commons"
   },
   "editorial": {
     "lifecycle": "published",

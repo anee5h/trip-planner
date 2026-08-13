@@ -29,7 +29,14 @@
     "recommendedDurationMinutes": 150,
     "editorialSummary": "UNESCO World Heritage monastery atop Mt. Hiei overlooking Lake Biwa.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.hieizan.or.jp/en/",
+        "title": "Enryaku-ji Mount Hiei Monastery",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -58,7 +65,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/688/"
+      "source": "https://whc.unesco.org/en/list/688/",
+      "sortOrder": 36
     }
   ],
   "relationships": {
@@ -94,5 +102,8 @@
     "train": 150,
     "bus": 162,
     "car": 170
+  },
+  "travelEstimate": {
+    "confidence": "beta"
   }
 }

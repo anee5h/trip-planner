@@ -21,7 +21,7 @@
   "collections": [
     {
       "collectionId": "caves-japan",
-      "sortOrder": 3
+      "sortOrder": 1
     }
   ],
   "region": "Tohoku",
@@ -114,5 +114,11 @@
         "method": "assisted"
       }
     ]
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Brian Adler",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flowstones_and_Mushroom_Rocks_inside_Abukuma-do_Cave.JPG"
   }
 }

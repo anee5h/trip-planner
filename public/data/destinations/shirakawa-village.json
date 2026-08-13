@@ -61,7 +61,7 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "bus": 2600
+    "bus": 260
   },
   "officialWebsite": "https://www.vill.shirakawa.lg.jp/2680.htm",
   "reservation": "Highway bus reservation required",
@@ -75,7 +75,8 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/734/"
+      "source": "https://whc.unesco.org/en/list/734/",
+      "sortOrder": 29
     },
     {
       "collectionId": "historic-towns-japan",
@@ -102,5 +103,11 @@
     "max": 11
   },
   "businessHours": "Open access",
-  "municipalityId": "Gifu:shirakawa"
+  "municipalityId": "Gifu:shirakawa",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ogi_Shirakawa-gō,_Gifu,_Japan.jpg"
+  }
 }

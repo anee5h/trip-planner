@@ -66,7 +66,7 @@
   "description": "A breathtaking 229-meter rooftop observation deck at Shibuya Scramble Square offering 360-degree views of Tokyo and Mount Fuji.",
   "budgetBreakdown": {
     "transport": 236,
-    "tickets": 2946,
+    "tickets": 2500,
     "food": 3771,
     "cafe": 1297
   },
@@ -81,12 +81,13 @@
   "collections": [
     {
       "collectionId": "great-night-views",
-      "sortOrder": 3,
+      "sortOrder": 7,
       "confirmed": true
     },
     {
       "collectionId": "japan-observatories-towers",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 9
     }
   ],
   "relationships": {

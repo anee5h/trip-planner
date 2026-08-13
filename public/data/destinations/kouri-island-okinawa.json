@@ -24,11 +24,11 @@
   "collections": [
     {
       "collectionId": "islands-japan",
-      "sortOrder": 3
+      "sortOrder": 4
     },
     {
       "collectionId": "coastal-drives-japan",
-      "sortOrder": 5
+      "sortOrder": 2
     }
   ],
   "region": "Okinawa",
@@ -36,9 +36,7 @@
   "budgetMin": 300,
   "budgetMax": 2000,
   "budgetRecommended": 1000,
-  "transportOptions": {
-    "train": 180
-  },
+  "transportOptions": {},
   "ratings": {
     "overall": 9,
     "couple": 9.5,
@@ -70,7 +68,7 @@
     "autumn": 9,
     "winter": 7
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [3, 4, 5, 6, 7, 8, 9, 10, 11],
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "comfort": {
@@ -108,7 +106,8 @@
   "imageMetadata": {
     "attribution": "CEphoto, Uwe Aranas via Wikimedia Commons",
     "license": "CC BY-SA 3.0",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANago_Okinawa_Kouri-Bridge-01.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANago_Okinawa_Kouri-Bridge-01.jpg",
+    "source": "Wikimedia Commons"
   },
   "budgetBreakdown": {
     "transport": 300,

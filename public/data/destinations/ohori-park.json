@@ -29,7 +29,7 @@
   "officialWebsite": "https://www.ohorikouen.jp/",
   "officialWebsiteRequirement": "none",
   "categories": ["Nature"],
-  "tags": ["Nature", "Fukuoka City", "v1.9.2"],
+  "tags": ["Nature", "Fukuoka City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E5%A4%A7%E6%BF%A0%E5%85%AC%E5%9C%92%20(3359545709).jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -101,7 +101,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {

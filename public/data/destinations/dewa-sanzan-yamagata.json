@@ -111,5 +111,11 @@
         "method": "assisted"
       }
     ]
+  },
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Japanexperterna.se",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Torii_in_the_mist_v1.JPG"
   }
 }

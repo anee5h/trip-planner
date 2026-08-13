@@ -2,6 +2,7 @@ import airportsData from "../../data/airports.json";
 import flightRoutesData from "../../data/flight-estimates.json";
 import { TRANSPORT_CONFIG } from "../../config/transportConfig";
 import type { Destination } from "../../types/destination";
+import type { TransportZoneId } from "../../types/transportTopology";
 import { getBestEstimateBetween, getDistanceKm } from "./TransportEstimator";
 import {
   getAirportZone,
@@ -34,13 +35,20 @@ const ORIGIN_AIRPORT_CATCHMENT_KM = 250;
 export function findNearestAirports(
   coords: { lat: number; lng: number },
   limit: number = TRANSPORT_CONFIG.candidateAirportLimit,
+  zoneFilter?: TransportZoneId,
 ): Airport[] {
-  const cacheKey = `${coords.lat.toFixed(4)},${coords.lng.toFixed(4)}:${limit}`;
+  const cacheKey = `${coords.lat.toFixed(4)},${coords.lng.toFixed(4)}:${limit}:${zoneFilter ?? "any"}`;
   if (candidateCache.has(cacheKey)) {
     return candidateCache.get(cacheKey)!;
   }
 
+  // The zone filter is applied BEFORE the limit: an out-of-zone airport must
+  // never consume a candidate slot and push an in-zone airport out (KAI-63
+  // D7b), or the origin's own gateway would silently disappear.
   const withinCatchment = airports
+    .filter(
+      (airport) => !zoneFilter || getAirportZone(airport.code) === zoneFilter,
+    )
     .map((airport) => ({
       airport,
       distanceKm: getDistanceKm(
@@ -60,37 +68,38 @@ export function findNearestAirports(
 
 /**
  * Finds the destination's primary arrival airport.
+ *
+ * Among airports within the 250 km catchment, the nearest airport whose
+ * transport zone matches the destination's resolved zone is preferred
+ * (KAI-63 D7a): the globally nearest airport may sit in a neighbouring zone
+ * (e.g. Fukuoka for northern Yamaguchi, or Naha for the Amami islands), and
+ * arriving there would require an unmodelled cross-zone access leg. When no
+ * in-zone airport is within the catchment, no arrival airport exists.
  */
 export function findArrivalAirport(dest: Destination): Airport | null {
   if (!dest.coordinates) return null;
 
-  const sorted = [...airports].sort((a, b) => {
-    const distA = getDistanceKm(
-      dest.coordinates!.lat,
-      dest.coordinates!.lng,
-      a.coordinates.lat,
-      a.coordinates.lng,
-    );
-    const distB = getDistanceKm(
-      dest.coordinates!.lat,
-      dest.coordinates!.lng,
-      b.coordinates.lat,
-      b.coordinates.lng,
-    );
-    return distA - distB;
-  });
+  const destinationZoneId = resolveDestinationTransportZone(dest);
 
-  const nearest = sorted[0];
-  const distanceKm = getDistanceKm(
-    dest.coordinates.lat,
-    dest.coordinates.lng,
-    nearest.coordinates.lat,
-    nearest.coordinates.lng,
-  );
+  const withinCatchment = [...airports]
+    .map((airport) => ({
+      airport,
+      distanceKm: getDistanceKm(
+        dest.coordinates!.lat,
+        dest.coordinates!.lng,
+        airport.coordinates.lat,
+        airport.coordinates.lng,
+      ),
+    }))
+    .filter((candidate) => candidate.distanceKm <= 250)
+    .sort((a, b) => a.distanceKm - b.distanceKm);
 
-  // If destination is within 250 km of an airport, return it
-  if (distanceKm <= 250) {
-    return nearest;
+  if (destinationZoneId !== "unknown") {
+    const inZone = withinCatchment.find(
+      (candidate) =>
+        getAirportZone(candidate.airport.code) === destinationZoneId,
+    );
+    if (inZone) return inZone.airport;
   }
 
   return null;
@@ -171,16 +180,19 @@ export function getFlightTransportEstimate(
   // Origin access must use an airport in the origin's transport zone. A
   // departure airport in another zone (e.g. Osaka for Naoshima) would
   // require a modelled access leg; without one the generic straight-line
-  // origin access would cross water.
+  // origin access would cross water. The zone filter is applied inside
+  // findNearestAirports BEFORE the candidate limit, so out-of-zone airports
+  // cannot consume slots and drop the origin's own in-zone gateway (KAI-63
+  // D7b: from Fukuoka, Tsushima must not crowd out Kagoshima).
   const originZoneId = resolveOriginTransportZone({ coordinates: homeCoords });
-  const candidateDepAirports = findNearestAirports(
-    homeCoords,
-    TRANSPORT_CONFIG.candidateAirportLimit,
-  ).filter(
-    (airport) =>
-      originZoneId !== "unknown" &&
-      getAirportZone(airport.code) === originZoneId,
-  );
+  const candidateDepAirports =
+    originZoneId === "unknown"
+      ? []
+      : findNearestAirports(
+          homeCoords,
+          TRANSPORT_CONFIG.candidateAirportLimit,
+          originZoneId,
+        );
 
   const homeLoc: Location = { coordinates: homeCoords };
   const destLoc: Location = {

@@ -30,7 +30,6 @@
   "transportOptions": {
     "train": 120,
     "car": 120,
-    "shinkansen": 120,
     "bus": 150
   },
   "totalTripHours": 8,
@@ -137,5 +136,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Chiba:choshi"
+  "municipalityId": "Chiba:choshi",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "User:Suikotei\nHiroaki Kaneko\nUser:お口チャック\nくろふね\nUser:Xser21\nUser:Σ64\nUser:あばさー",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Choshi_Montage_2.jpg"
+  }
 }

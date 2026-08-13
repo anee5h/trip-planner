@@ -39,7 +39,8 @@
   "collections": [
     {
       "collectionId": "great-night-views",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 4
     }
   ],
   "transportOptions": {
@@ -115,7 +116,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Known as the Ten Million Dollar Night View, Kikuseidai observatory on Mount Maya captures a breathtaking sparkling panorama spanning Kobe, Osaka Bay, and Kansai.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://mayasan.jp/",
+        "title": "Mount Maya Kikuseidai (Kobe)",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

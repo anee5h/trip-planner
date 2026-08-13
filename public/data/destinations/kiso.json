@@ -57,7 +57,7 @@
     "Enjoy regional specialties and local culture",
     "Perfect for a active day out"
   ],
-  "description": "Discover Kiso Valley, a prominent destination in Shizuoka. With its rich mix of nakasendo, post towns, tsumago, it's a highly recommended spot for a 8-hour getaway.",
+  "description": "Discover Kiso Valley, a prominent destination in Nagano. With its rich mix of nakasendo, post towns, tsumago, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 4400,
@@ -79,9 +79,7 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {
-    "parentDestinationId": "matsumoto-city"
-  },
+  "relationships": {},
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
@@ -96,5 +94,5 @@
   },
   "officialWebsite": "https://kiso-magome.com/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Nagano:matsumoto"
+  "municipalityId": "Nagano:kiso"
 }

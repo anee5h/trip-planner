@@ -35,7 +35,8 @@
   "collections": [
     {
       "collectionId": "top-onsen-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 1
     }
   ],
   "transportOptions": {
@@ -109,7 +110,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Arima Onsen is Japan's oldest recorded hot spring resort, nestled behind Mount Rokko and famous for its iron-rich golden 'Kinsen' and clear radium 'Ginsen' waters.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.arima-onsen.com/",
+        "title": "Arima Onsen",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"

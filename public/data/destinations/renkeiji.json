@@ -1,7 +1,7 @@
 {
   "id": "renkeiji",
   "name": "Renkeiji",
-  "nameJa": "本川越駅",
+  "nameJa": "蓮馨寺",
   "aliases": ["Hon-Kawagoe Station", "本川越駅"],
   "content": {
     "en": {
@@ -35,13 +35,13 @@
   "officialWebsite": "https://www.seiburailway.jp/railway/station/hon-kawagoe/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
-  "tags": ["History", "Kawagoe City", "v1.9.2"],
-  "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Seibu-Hon-Kawagoe-STA%20PePe.jpg?width=1600",
+  "tags": ["History", "Kawagoe City"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Temple_Renkei-ji_%C3%A0_Kawagoe_au_Japon.jpg/1280px-Temple_Renkei-ji_%C3%A0_Kawagoe_au_Japon.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
-    "attribution": "MaedaAkihiko",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seibu-Hon-Kawagoe-STA_PePe.jpg"
+    "attribution": "Mehdi Fliss",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_Renkei-ji_à_Kawagoe_au_Japon.jpg"
   },
   "coordinates": {
     "lat": 35.91376389,

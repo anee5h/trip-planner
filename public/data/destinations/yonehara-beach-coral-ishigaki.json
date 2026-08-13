@@ -23,7 +23,8 @@
   "imageMetadata": {
     "attribution": "Syced via Wikimedia Commons",
     "license": "CC0",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYonehara_Beach_23.jpg"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AYonehara_Beach_23.jpg",
+    "source": "Wikimedia Commons"
   },
   "budgetMin": 500,
   "budgetRecommended": 1000,
@@ -128,5 +129,6 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "notesJa": "海岸からすぐのサンゴ礁でシュノーケリング。干潮時がねらい目。"
+  "notesJa": "海岸からすぐのサンゴ礁でシュノーケリング。干潮時がねらい目。",
+  "description": "A wild natural white-sand beach on northern Ishigaki where shallow coral reefs grow right up near the shore, making it a favorite spot for beachgoers and marine life watching."
 }

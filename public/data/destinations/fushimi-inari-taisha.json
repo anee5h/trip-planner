@@ -27,7 +27,7 @@
   "officialWebsite": "https://inari.jp/en/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Culture"],
-  "tags": ["Culture", "Kyoto City", "v1.9.2"],
+  "tags": ["Culture", "Kyoto City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fushimiinari-taisha%2C%20naihaiden-1.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -100,7 +100,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Kyoto City.",
+  "notes": "9.2 city expansion record for Kyoto City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -141,6 +141,6 @@
   "notesJa": "【見どころ】伏見稲荷大社は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "openingHoursJa": "24時間（社務所 08:30〜16:30）",
   "municipalityId": "Kyoto:kyoto"
 }

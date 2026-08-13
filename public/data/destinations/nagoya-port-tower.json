@@ -89,7 +89,8 @@
   "collections": [
     {
       "collectionId": "japan-observatories-towers",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 6
     }
   ],
   "relationships": {
@@ -102,6 +103,6 @@
     "max": 4
   },
   "officialWebsite": "https://nagoya-port-building.jp/",
-  "businessHours": "10:00 - 21:00 (Last admission 20:30)",
+  "businessHours": "Closed for renewal 2026-08-01 to 2026-11-30",
   "municipalityId": "Aichi:nagoya"
 }

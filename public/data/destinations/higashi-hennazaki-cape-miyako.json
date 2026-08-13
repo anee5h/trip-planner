@@ -23,7 +23,8 @@
   "imageMetadata": {
     "attribution": "Metatron via Wikimedia Commons",
     "license": "CC BY-SA 3.0",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_higashi_hennazaki.JPG"
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_higashi_hennazaki.JPG",
+    "source": "Wikimedia Commons"
   },
   "budgetMin": 300,
   "budgetRecommended": 500,
@@ -130,5 +131,6 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "notesJa": "宮古島最東端の岬。太平洋と東シナ海が出会う景勝地。"
+  "notesJa": "宮古島最東端の岬。太平洋と東シナ海が出会う景勝地。",
+  "description": "A narrow 2km long coral peninsula jutting into the ocean at Miyako Island's easternmost tip, crowned by a white climbable lighthouse with dramatic wave-crashing sea cliff views."
 }

@@ -43,7 +43,7 @@
   "officialWebsite": "http://goldengai.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Nightlife", "Dining", "Historic Alley"],
-  "tags": ["Culture", "Shinjuku City", "v1.9.2"],
+  "tags": ["Culture", "Shinjuku City"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Shinjuku%20Golden%20Gai.jpg?width=1600",
   "imageMetadata": {
     "source": "Wikimedia Commons",

@@ -70,7 +70,8 @@
   "collections": [
     {
       "collectionId": "core-cities-japan",
-      "confirmed": true
+      "confirmed": true,
+      "sortOrder": 12
     }
   ],
   "relationships": {

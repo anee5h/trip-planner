@@ -38,10 +38,8 @@
     "walkingIntensity": 5
   },
   "transportOptions": {
-    "car": 240,
-    "train": 180,
-    "shinkansen": 120,
-    "bus": 210
+    "bus": 210,
+    "ferry": 150
   },
   "crowd": {
     "weekday": 3,
@@ -49,9 +47,9 @@
     "holiday": 5
   },
   "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
+    "spring": 6,
+    "summer": 10,
+    "autumn": 7,
     "winter": 4
   },
   "highlights": [
@@ -60,7 +58,7 @@
     "Tsurushi Silver Mine"
   ],
   "description": "Sado Island Gold Mines is a serial UNESCO World Heritage property on Sado Island, comprising the Nishimikawa Placer Gold Mine and the Aikawa-Tsurushi Gold and Silver Mine areas that preserve unmechanised mining and processing landscapes.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [7, 8],
   "budgetBreakdown": {
     "transport": 6400,
     "tickets": 3200,
@@ -84,22 +82,23 @@
     {
       "collectionId": "unesco-japan",
       "confirmed": true,
-      "source": "https://whc.unesco.org/en/list/1698/"
+      "source": "https://whc.unesco.org/en/list/1698/",
+      "sortOrder": 26
     },
     {
       "collectionId": "islands-japan",
-      "sortOrder": 7
+      "sortOrder": 8
     },
     {
       "collectionId": "coastal-drives-japan",
-      "sortOrder": 8
+      "sortOrder": 4
     }
   ],
   "relationships": {
     "gatewayHubId": "niigata-city"
   },
   "nameJa": "佐渡島の金山",
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "Summer",
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Available on site",

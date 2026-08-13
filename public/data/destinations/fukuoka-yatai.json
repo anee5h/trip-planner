@@ -29,7 +29,7 @@
   "officialWebsite": "https://gofukuoka.jp/yatai/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Food"],
-  "tags": ["Food", "Fukuoka City", "v1.9.2"],
+  "tags": ["Food", "Fukuoka City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Hakata_yatai_and_yatai_food_-_2024_Sept_24_various.jpeg/1920px-Hakata_yatai_and_yatai_food_-_2024_Sept_24_various.jpeg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -101,7 +101,7 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "Source-backed v1.9.2 city expansion record for Fukuoka City.",
+  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {

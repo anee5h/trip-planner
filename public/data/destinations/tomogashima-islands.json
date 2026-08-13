@@ -30,7 +30,14 @@
     "recommendedDurationMinutes": 180,
     "editorialSummary": "Uninhabited island cluster with ivy-covered Meiji brick fortress ruins famous as Laputa Island.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.wakayama.wakayama.jp/kankou/tomogashima/",
+        "title": "Tomogashima Islands (Laputa Island)",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -85,10 +92,12 @@
   },
   "municipalityId": "Wakayama:wakayama",
   "transportOptions": {
-    "train": 260,
     "bus": 302,
-    "car": 295
+    "ferry": 20
   },
   "collections": [],
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Tomogashima_Lighthouse_distant_view.jpg/1920px-Tomogashima_Lighthouse_distant_view.jpg"
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Tomogashima_Lighthouse_distant_view.jpg/1920px-Tomogashima_Lighthouse_distant_view.jpg",
+  "travelEstimate": {
+    "confidence": "beta"
+  }
 }

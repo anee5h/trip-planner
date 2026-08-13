@@ -87,7 +87,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "Japan's 8th-century capital, renowned for free-roaming sacred deer in Nara Park and Todai-ji Great Buddha.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.nara.lg.jp/",
+        "title": "Nara City official website",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -110,5 +117,11 @@
       "highlights": ["東大寺・大仏殿", "春日大社と奈良公園の鹿", "興福寺五重塔"]
     }
   },
-  "municipalityId": "Nara:nara"
+  "municipalityId": "Nara:nara",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "User:名古屋太郎\nUser:Douglaspperkins\nUser:Fg2\nUser:663highland\nUser:Jakubhal\ncomposit",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nara_montage.jpg"
+  }
 }

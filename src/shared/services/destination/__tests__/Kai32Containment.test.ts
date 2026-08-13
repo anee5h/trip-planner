@@ -65,18 +65,19 @@ describe("KAI-32 Chugoku containment", () => {
     );
   });
 
-  it("does not expose a train-only route to the Miyajima island POI", () => {
-    // Miyajima is ferry-dependent. The island-marked record must carry no
-    // rail/shinkansen/car static option, and without a ferry route in the
-    // registry it is declared non-routable (transportZoneId "unknown")
-    // rather than inheriting a mainland rail corridor.
+  it("keeps Miyajima ferry-dependent without rail; routable via the verified ferry route", () => {
+    // KAI-87: Miyajima is ferry-dependent. The island-marked record carries
+    // no rail/shinkansen/car static option; with the JR West Miyajima Ferry
+    // route now in the registry it resolves to the dedicated miyajima zone
+    // (~10 min from Miyajimaguchi) instead of being declared non-routable.
     const miyajima = byId.get("miyajima-itsukushima")!;
     expect(miyajima.kind).toBe("island");
     const transportOptions = miyajima.transportOptions ?? {};
     expect(transportOptions.train).toBeUndefined();
     expect(transportOptions.shinkansen).toBeUndefined();
     expect(transportOptions.car).toBeUndefined();
-    expect(miyajima.transportZoneId).toBe("unknown");
+    expect(miyajima.transportZoneId).toBe("miyajima");
+    expect(transportOptions.ferry).toBe(10);
   });
 
   it("keeps every Chugoku child inside its parent municipality", () => {

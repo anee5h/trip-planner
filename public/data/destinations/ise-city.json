@@ -30,7 +30,6 @@
   "transportOptions": {
     "train": 120,
     "car": 120,
-    "shinkansen": 120,
     "bus": 150
   },
   "totalTripHours": 8,
@@ -92,7 +91,14 @@
     "recommendedDurationMinutes": 90,
     "editorialSummary": "A shrine city in Mie Prefecture and the location of Ise Jingu, Japan's most important Shinto shrine complex.",
     "lifecycle": "published",
-    "sources": ["editorial-review-2026"],
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://www.city.ise.mie.jp/",
+        "title": "Ise City official website",
+        "accessedAt": "2026-08-13"
+      }
+    ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current"
@@ -117,5 +123,11 @@
       ]
     }
   },
-  "municipalityId": "Mie:ise"
+  "municipalityId": "Mie:ise",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "N yotarou",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naiku_04.jpg"
+  }
 }

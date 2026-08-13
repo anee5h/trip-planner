@@ -57,7 +57,7 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 200
+    "ferry": 240
   },
   "reservation": "None required",
   "parking": "Public parking available",
@@ -69,7 +69,7 @@
   "collections": [
     {
       "collectionId": "islands-japan",
-      "sortOrder": 6
+      "sortOrder": 10
     }
   ],
   "relationships": {
