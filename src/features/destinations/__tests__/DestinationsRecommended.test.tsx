@@ -150,14 +150,18 @@ describe("Explore Recommended Day Trip ranking", () => {
     );
 
     expect(names).not.toContain("Abeno Harukas 300 (Osaka Skyline)");
-    // KAI-12: without a canonical Shinkansen corridor, Odawara/Atami-type
-    // destinations no longer rank via a 180 km/h display estimate. The
-    // honest top of the list is bus-reachable Yamanashi plus Kanto local
-    // POIs — Kanto names appear within the top 10.
+    // KAI-12/KAI-63: without a canonical Shinkansen corridor, Odawara/Atami-
+    // type destinations no longer rank via a 180 km/h display estimate. The
+    // honest top of the list is verified-corridor coverage — bus-reachable
+    // Yamanashi, Shinkansen-accessible Utsunomiya (KAI-63 D5: verified
+    // tokyo⇔tochigi corridor + Utsunomiya hub, 1.5 km wiring) and Kanto
+    // local POIs — a Kanto or Tochigi name appears within the top 10.
     expect(
       names
         .slice(0, 10)
-        .some((name) => /Yokohama|Kamakura|Kawasaki|Tokyo/i.test(name)),
+        .some((name) =>
+          /Yokohama|Kamakura|Kawasaki|Tokyo|Utsunomiya/i.test(name),
+        ),
     ).toBe(true);
   }, 30000);
 
