@@ -239,6 +239,11 @@ export default function DestinationFilters({
       if (carMode !== "none") {
         setCarMode("none");
       } else {
+        // One visible Car chip; the underlying mode follows the user's
+        // car-ownership preference: rental (rental-fee budget) when the
+        // profile says rental, otherwise personal my_car (tolls/fuel
+        // budget only). "all"/unknown deliberately falls back to my_car —
+        // the cheaper, no-rental-fee model (KAI-63 D11).
         setCarMode(carOwnership === "rental" ? "rental" : "my_car");
       }
     } else if (val === "either") {

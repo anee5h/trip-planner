@@ -151,16 +151,21 @@ function renderFilters(overrides: Partial<Props> = {}) {
 function StatefulFilters({
   initialCarMode = "none",
   overrides = {},
+  onCarModeChange,
 }: {
   initialCarMode?: string;
   overrides?: Partial<Props>;
+  onCarModeChange?: (mode: string) => void;
 } = {}) {
   const [carMode, setCarMode] = useState(initialCarMode);
   return (
     <DestinationFilters
       {...makeDefaults()}
       carMode={carMode}
-      setCarMode={setCarMode}
+      setCarMode={(mode) => {
+        setCarMode(mode);
+        onCarModeChange?.(mode);
+      }}
       {...overrides}
     />
   );
@@ -169,16 +174,22 @@ function StatefulFilters({
 function renderStatefulFilters({
   initialCarMode = "none",
   overrides = {},
+  onCarModeChange,
 }: {
   initialCarMode?: string;
   overrides?: Partial<Props>;
+  onCarModeChange?: (mode: string) => void;
 } = {}) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
   act(() =>
     root!.render(
-      <StatefulFilters initialCarMode={initialCarMode} overrides={overrides} />,
+      <StatefulFilters
+        initialCarMode={initialCarMode}
+        overrides={overrides}
+        onCarModeChange={onCarModeChange}
+      />,
     ),
   );
   return host;
@@ -294,17 +305,62 @@ describe("single Car transport chip (KAI-63)", () => {
     authMock.user = {
       user_metadata: { preferences: { carOwnership: "rental" } },
     };
-    const container = renderStatefulFilters();
+    const modes: string[] = [];
+    const container = renderStatefulFilters({
+      onCarModeChange: (mode) => modes.push(mode),
+    });
     openFiltersModal(container);
 
     const carChip = carChipButtons(container)[0];
     act(() => carChip?.click());
     expect(carChip?.className).toContain("dark:bg-emerald-500/20");
     expect(buttonByText(container, "1 selected · Clear")).toBeTruthy();
+    expect(modes.at(-1)).toBe("rental");
 
     act(() => carChip?.click());
     expect(carChip?.className).not.toContain("dark:bg-emerald-500/20");
     expect(buttonByText(container, "Any transport")).toBeTruthy();
+    expect(modes.at(-1)).toBe("none");
+  });
+
+  it("uses my_car carMode when the user preference is my_car", () => {
+    authMock.user = {
+      user_metadata: { preferences: { carOwnership: "my_car" } },
+    };
+    const modes: string[] = [];
+    const container = renderStatefulFilters({
+      onCarModeChange: (mode) => modes.push(mode),
+    });
+    openFiltersModal(container);
+
+    const carChip = carChipButtons(container)[0];
+    act(() => carChip?.click());
+    expect(modes.at(-1)).toBe("my_car");
+  });
+
+  it("falls back to personal car (my_car) for 'all' or unknown car ownership", () => {
+    // Default (no profile) and explicit "all" both resolve to the personal
+    // car budget model — no rental fee is assumed without a rental
+    // preference (KAI-63 D11 deliberate fallback).
+    for (const ownership of [undefined, "all"] as const) {
+      authMock.user = ownership
+        ? { user_metadata: { preferences: { carOwnership: ownership } } }
+        : null;
+      const modes: string[] = [];
+      const container = renderStatefulFilters({
+        onCarModeChange: (mode) => modes.push(mode),
+      });
+      openFiltersModal(container);
+
+      const carChip = carChipButtons(container)[0];
+      act(() => carChip?.click());
+      expect(modes.at(-1)).toBe("my_car");
+
+      root?.unmount();
+      host?.remove();
+      root = undefined;
+      host = undefined;
+    }
   });
 
   it("renders the Car chip selected for both internal car modes (e.g. car=rental URL)", () => {
