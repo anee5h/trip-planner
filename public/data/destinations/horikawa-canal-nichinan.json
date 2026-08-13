@@ -69,9 +69,7 @@
     "food": 225,
     "cafe": 50
   },
-  "transportOptions": {
-    "walk": 10
-  },
+  "transportOptions": {},
   "totalTripHours": 1.5,
   "recommendedVisitHours": {
     "min": 0.5,

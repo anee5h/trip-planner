@@ -129,5 +129,6 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "notesJa": "那覇のメインストリート。沖縄土産やストリートフードが楽しめる国際通り。"
+  "notesJa": "那覇のメインストリート。沖縄土産やストリートフードが楽しめる国際通り。",
+  "transportZoneId": "okinawa-main"
 }

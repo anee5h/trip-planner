@@ -57,7 +57,7 @@
     "walkingIntensity": 3
   },
   "transportOptions": {
-    "train": 200
+    "ferry": 240
   },
   "reservation": "None required",
   "parking": "Public parking available",

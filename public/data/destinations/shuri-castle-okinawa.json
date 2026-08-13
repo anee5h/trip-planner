@@ -159,5 +159,6 @@
       "openingHours": "08:30〜18:00（有料区域最終入園17:30）。"
     }
   },
-  "municipalityId": "Okinawa:naha"
+  "municipalityId": "Okinawa:naha",
+  "transportZoneId": "okinawa-main"
 }

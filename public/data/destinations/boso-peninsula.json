@@ -81,9 +81,7 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {
-    "parentDestinationId": "kisarazu-city"
-  },
+  "relationships": {},
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "walkingIntensity": "medium",
@@ -146,6 +144,5 @@
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
-  "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Chiba:kisarazu"
+  "openingHoursJa": "散策自由（24時間開放）"
 }

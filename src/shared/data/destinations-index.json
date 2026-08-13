@@ -531,7 +531,6 @@
     "transportOptions": {
       "train": 120,
       "car": 120,
-      "shinkansen": 120,
       "bus": 150
     },
     "totalTripHours": 8,
@@ -1239,9 +1238,7 @@
     "budgetMax": 15000,
     "budgetRecommended": 9500,
     "transportOptions": {
-      "train": 45,
-      "bus": 50,
-      "car": 60
+      "ferry": 780
     },
     "totalTripHours": 6,
     "walkingMin": 120,
@@ -2553,7 +2550,6 @@
     "transportOptions": {
       "train": 120,
       "car": 120,
-      "shinkansen": 120,
       "bus": 150
     },
     "totalTripHours": 8,
@@ -3053,7 +3049,6 @@
     "transportOptions": {
       "train": 120,
       "car": 120,
-      "shinkansen": 120,
       "bus": 150
     },
     "totalTripHours": 8,
@@ -4476,9 +4471,7 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {
-      "parentDestinationId": "kisarazu-city"
-    },
+    "relationships": {},
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "walkingIntensity": "medium",
@@ -4541,8 +4534,7 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Chiba:kisarazu"
+    "openingHoursJa": "散策自由（24時間開放）"
   },
   {
     "id": "bunkyo-city",
@@ -7397,7 +7389,6 @@
     "transportOptions": {
       "train": 120,
       "car": 120,
-      "shinkansen": 120,
       "bus": 150
     },
     "totalTripHours": 8,
@@ -9353,7 +9344,8 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Kanagawa:fujisawa"
+    "municipalityId": "Kanagawa:fujisawa",
+    "transportZoneId": "mainland-honshu"
   },
   {
     "id": "enoshima-island",
@@ -9686,7 +9678,8 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
     "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Kanagawa:fujisawa"
+    "municipalityId": "Kanagawa:fujisawa",
+    "transportZoneId": "mainland-honshu"
   },
   {
     "id": "enoshima-sea-candle",
@@ -9869,7 +9862,8 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
-    "municipalityId": "Kanagawa:fujisawa"
+    "municipalityId": "Kanagawa:fujisawa",
+    "transportZoneId": "mainland-honshu"
   },
   {
     "id": "enoshima-shrine",
@@ -10052,7 +10046,8 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
     "openingHoursJa": "08:30 - 16:30（境内自由）",
-    "municipalityId": "Kanagawa:fujisawa"
+    "municipalityId": "Kanagawa:fujisawa",
+    "transportZoneId": "mainland-honshu"
   },
   {
     "id": "former-hokkaido-government-office",
@@ -10881,7 +10876,6 @@
     "transportOptions": {
       "train": 120,
       "car": 120,
-      "shinkansen": 120,
       "bus": 150
     },
     "totalTripHours": 8,
@@ -11249,8 +11243,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hakata_Port_from_Fukuoka_Tower.jpg"
     },
     "coordinates": {
-      "lat": 33.59013888888889,
-      "lng": 130.40172222222222
+      "lat": 33.585,
+      "lng": 130.3831
     },
     "description": "Fukuoka Castle Ruins is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
     "highlights": ["History"],
@@ -14229,8 +14223,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Futako-Tamagawa_overview_2018.jpg"
     },
     "coordinates": {
-      "lat": 35.64655555555556,
-      "lng": 139.6532222222222
+      "lat": 35.6488,
+      "lng": 139.6474
     },
     "description": "A serene temple in Setagaya famous as the origin site of Maneki-neko (beckoning cats), featuring thousands of ceramic cat statues.",
     "highlights": [
@@ -17918,7 +17912,6 @@
     "transportOptions": {
       "train": 120,
       "car": 120,
-      "shinkansen": 120,
       "bus": 150
     },
     "totalTripHours": 8,
@@ -20754,7 +20747,6 @@
     "transportOptions": {
       "train": 120,
       "car": 120,
-      "shinkansen": 120,
       "bus": 150
     },
     "totalTripHours": 8,
@@ -21400,7 +21392,6 @@
     "transportOptions": {
       "train": 120,
       "car": 120,
-      "shinkansen": 120,
       "bus": 150
     },
     "totalTripHours": 8,
@@ -22194,8 +22185,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jōchi-ji_-21735.jpeg"
     },
     "coordinates": {
-      "lat": 35.31916666666667,
-      "lng": 139.54722222222222
+      "lat": 35.3334,
+      "lng": 139.5464
     },
     "description": "Jochi-ji is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
     "highlights": ["History"],
@@ -25353,7 +25344,6 @@
     "transportOptions": {
       "train": 120,
       "car": 120,
-      "shinkansen": 120,
       "bus": 150
     },
     "totalTripHours": 8,
@@ -28185,9 +28175,7 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {
-      "parentDestinationId": "matsumoto-city"
-    },
+    "relationships": {},
     "bestSeason": "Spring & Autumn",
     "weatherDependence": "moderate",
     "reservation": "None required",
@@ -28202,7 +28190,7 @@
     },
     "officialWebsite": "https://kiso-magome.com/",
     "businessHours": "09:00 - 17:00 (Daily)",
-    "municipalityId": "Nagano:matsumoto"
+    "municipalityId": "Nagano:kiso"
   },
   {
     "id": "kita-city",
@@ -28686,8 +28674,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kobe_Port_Tower_and_Maritime_Museum,_November_2016.jpg"
     },
     "coordinates": {
-      "lat": 34.69016666666667,
-      "lng": 135.19544444444443
+      "lat": 34.6983,
+      "lng": 135.1903
     },
     "description": "Kitano Ijinkan is a visitor destination in Kobe City.  Visitors can experience historic architecture and local culture.",
     "highlights": ["History", "Museum"],
@@ -30859,9 +30847,7 @@
     "budgetMin": 300,
     "budgetMax": 2000,
     "budgetRecommended": 1000,
-    "transportOptions": {
-      "train": 180
-    },
+    "transportOptions": {},
     "ratings": {
       "overall": 9,
       "couple": 9.5,
@@ -34447,7 +34433,6 @@
     "transportOptions": {
       "train": 120,
       "car": 120,
-      "shinkansen": 120,
       "bus": 150
     },
     "totalTripHours": 8,
@@ -36431,7 +36416,6 @@
     "transportOptions": {
       "train": 120,
       "car": 120,
-      "shinkansen": 120,
       "bus": 150
     },
     "totalTripHours": 8,
@@ -39798,8 +39782,8 @@
     },
     "indoorPercent": 50,
     "coordinates": {
-      "lat": 36.7,
-      "lng": 138.3
+      "lat": 36.6486,
+      "lng": 138.1947
     },
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/160501_Zenkoji_Nagano_Japan06s3.jpg/3840px-160501_Zenkoji_Nagano_Japan06s3.jpg",
     "prefecture": "Nagano",
@@ -50520,9 +50504,7 @@
         "sortOrder": 12
       }
     ],
-    "relationships": {
-      "parentDestinationId": "minakami-town"
-    },
+    "relationships": {},
     "reservation": "Open access; no entrance reservation required.",
     "parking": "Park parking lot available on site.",
     "role": "standalone",
@@ -50588,8 +50570,7 @@
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
-    "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Gunma:minakami"
+    "openingHoursJa": "散策自由（24時間開放）"
   },
   {
     "id": "philosopher-s-walk",
@@ -52235,8 +52216,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saitama_city_montage.jpg"
     },
     "coordinates": {
-      "lat": 35.86138888888889,
-      "lng": 139.64555555555555
+      "lat": 35.8936,
+      "lng": 139.634
     },
     "description": "Saitama Shintoshin is a visitor destination in Saitama City.  Visitors can experience the area's character and main sights.",
     "highlights": ["Culture", "Shopping"],
@@ -53057,7 +53038,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180
+      "ferry": 15
     },
     "ratings": {
       "overall": 9,
@@ -53335,7 +53316,8 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "24 Hours (Open access)",
     "openingHoursJa": "散策自由（24時間開放）",
-    "municipalityId": "Kanagawa:fujisawa"
+    "municipalityId": "Kanagawa:fujisawa",
+    "transportZoneId": "mainland-honshu"
   },
   {
     "id": "sanjusangen-do",
@@ -54606,7 +54588,6 @@
     "transportOptions": {
       "train": 120,
       "car": 120,
-      "shinkansen": 120,
       "bus": 150
     },
     "totalTripHours": 8,
@@ -56835,8 +56816,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:US_Air_Force_photo_170903-F-PM645-1558_An_aerial_view_of_Shinjuku%E2%80%99s_skyscraper_district_from_a_UH-1N_Iroquois.jpg"
     },
     "coordinates": {
-      "lat": 35.693888888888885,
-      "lng": 139.70341666666667
+      "lat": 35.6852,
+      "lng": 139.71
     },
     "description": "A vast 58-hectare national park in Shinjuku blending traditional Japanese, English landscape, and French formal garden styles.",
     "highlights": [
@@ -58318,7 +58299,8 @@
         "openingHours": "08:30〜18:00（有料区域最終入園17:30）。"
       }
     },
-    "municipalityId": "Okinawa:naha"
+    "municipalityId": "Okinawa:naha",
+    "transportZoneId": "okinawa-main"
   },
   {
     "id": "soji-ji-yokohama",
@@ -60116,7 +60098,6 @@
     "transportOptions": {
       "train": 120,
       "car": 120,
-      "shinkansen": 120,
       "bus": 150
     },
     "totalTripHours": 8,
@@ -65912,7 +65893,6 @@
     "transportOptions": {
       "train": 120,
       "car": 120,
-      "shinkansen": 120,
       "bus": 150
     },
     "totalTripHours": 8,
@@ -66816,7 +66796,7 @@
     "budgetMax": 6000,
     "budgetRecommended": 3750,
     "transportOptions": {
-      "train": 180
+      "car": 180
     },
     "ratings": {
       "overall": 9,
@@ -69211,7 +69191,7 @@
       "walkingIntensity": 3
     },
     "transportOptions": {
-      "train": 200
+      "ferry": 240
     },
     "reservation": "None required",
     "parking": "Public parking available",
@@ -69583,9 +69563,7 @@
       "confidence": "high"
     },
     "collections": [],
-    "relationships": {
-      "parentDestinationId": "kofu-city"
-    },
+    "relationships": {},
     "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000",
     "walkingIntensity": "low",
     "role": "standalone",
@@ -69597,7 +69575,7 @@
     },
     "officialWebsite": "https://www.city.yamanashi.yamanashi.jp/",
     "businessHours": "Open access",
-    "municipalityId": "Yamanashi:kofu"
+    "municipalityId": "Yamanashi:yamanashi"
   },
   {
     "id": "yamanashi-shosenkyo-gorge",
@@ -85102,7 +85080,8 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "notesJa": "那覇のメインストリート。沖縄土産やストリートフードが楽しめる国際通り。"
+    "notesJa": "那覇のメインストリート。沖縄土産やストリートフードが楽しめる国際通り。",
+    "transportZoneId": "okinawa-main"
   },
   {
     "id": "naminoue-shrine-naha",
@@ -85235,7 +85214,8 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "notesJa": "波の上ビーチを見下ろす崖の上に立つ、沖縄随一の神社。"
+    "notesJa": "波の上ビーチを見下ろす崖の上に立つ、沖縄随一の神社。",
+    "transportZoneId": "okinawa-main"
   },
   {
     "id": "fukushuen-garden-naha",
@@ -85368,7 +85348,8 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "notesJa": "那覇の中心部近くにある静かな中国式庭園。福州との姉妹都市提携記念。"
+    "notesJa": "那覇の中心部近くにある静かな中国式庭園。福州との姉妹都市提携記念。",
+    "transportZoneId": "okinawa-main"
   },
   {
     "id": "nago-pineapple-park",
@@ -85501,7 +85482,8 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "notesJa": "家族連れに人気のパイナップルテーマパーク。試食も楽しめます。"
+    "notesJa": "家族連れに人気のパイナップルテーマパーク。試食も楽しめます。",
+    "transportZoneId": "okinawa-main"
   },
   {
     "id": "busena-marine-park-nago",
@@ -85634,7 +85616,8 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "notesJa": "海中展望塔からサンゴと熱帯魚を眺められます。グラスボートも。"
+    "notesJa": "海中展望塔からサンゴと熱帯魚を眺められます。グラスボートも。",
+    "transportZoneId": "okinawa-main"
   },
   {
     "id": "churaumi-aquarium-motobu",
@@ -85767,7 +85750,8 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "notesJa": "ジンベエザメが見られる世界有数の大水槽。混雑を避けるなら午前中の到着がおすすめ。"
+    "notesJa": "ジンベエザメが見られる世界有数の大水槽。混雑を避けるなら午前中の到着がおすすめ。",
+    "transportZoneId": "okinawa-main"
   },
   {
     "id": "bise-fukugi-tree-road-motobu",
@@ -85900,7 +85884,8 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "notesJa": "古木のフクギ並木が続く静かな小道。レンタサイクルでの散策がおすすめ。"
+    "notesJa": "古木のフクギ並木が続く静かな小道。レンタサイクルでの散策がおすすめ。",
+    "transportZoneId": "okinawa-main"
   },
   {
     "id": "nakijin-castle-ruins-motobu",
@@ -86046,7 +86031,8 @@
     "travelEstimate": {
       "confidence": "medium"
     },
-    "notesJa": "世界遺産の城跡。1月下旬には沖縄で最も早い桜が見られます。"
+    "notesJa": "世界遺産の城跡。1月下旬には沖縄で最も早い桜が見られます。",
+    "transportZoneId": "okinawa-main"
   },
   {
     "id": "kabira-bay-ishigaki",
@@ -90691,8 +90677,7 @@
       "cafe": 150
     },
     "transportOptions": {
-      "train": 340,
-      "shinkansen": 450
+      "train": 340
     },
     "totalTripHours": 4,
     "recommendedVisitHours": {
@@ -93602,162 +93587,6 @@
           "changedAt": "2026-08-05",
           "changedBy": "Kyushu-to-100 Editorial Batch",
           "summary": "Added bilingual curated POI: Nanatsugama Sea Caves",
-          "method": "assisted"
-        }
-      ],
-      "reviewedAt": "2026-08-05",
-      "reviewedBy": "Kyushu-to-100 Editorial Batch"
-    },
-    "officialWebsite": null,
-    "municipalityId": "Saga:karatsu"
-  },
-  {
-    "id": "nagoya-castle-ruins-museum",
-    "name": "Nagoya Castle Ruins & Museum",
-    "nameJa": "名護屋城跡・佐賀県立名護屋城博物館",
-    "aliases": [
-      "Nagoya Castle Ruins & Museum",
-      "名護屋城跡・佐賀県立名護屋城博物館"
-    ],
-    "content": {
-      "en": {
-        "name": "Nagoya Castle Ruins & Museum",
-        "description": "The ruins of Nagoya Castle, the massive base built by Toyotomi Hideyoshi for his invasions of Korea (1592–98). Once one of Japan's largest castles, the stone walls and extensive foundations remain. The adjacent prefectural museum exhibits invasion-period artefacts, maps, and a reconstructed golden tea room.",
-        "highlights": [
-          "Massive stone walls of Hideyoshi's invasion headquarters",
-          "Prefectural museum with Korean campaign artefacts",
-          "Reconstructed golden tea room in the museum"
-        ],
-        "openingHours": "Castle ruins: open access (daylight hours). Museum: 09:00–17:00 (last admission 16:30, closed Mondays)"
-      },
-      "ja": {
-        "name": "名護屋城跡・佐賀県立名護屋城博物館",
-        "description": "豊臣秀吉が朝鮮出兵（文禄・慶長の役）の拠点として築いた名護屋城の城跡。かつて日本最大級だった城の石垣と広大な礎石が残ります。隣接する県立博物館では、出兵ゆかりの遺物、古地図、復元された黄金の茶室を展示しています。",
-        "highlights": [
-          "秀吉の出兵拠点の壮大な石垣群",
-          "文禄・慶長の役の遺物を展示する県立博物館",
-          "博物館内の復元黄金の茶室"
-        ],
-        "openingHours": "城跡：自由見学（日中推奨）。博物館：09:00～17:00（最終入館16:30、月曜休館）"
-      }
-    },
-    "prefecture": "Saga",
-    "region": "Kyushu",
-    "kind": "historic",
-    "role": "poi",
-    "placeType": "destination",
-    "relationships": {
-      "parentDestinationId": "karatsu-city"
-    },
-    "officialWebsiteRequirement": "optional",
-    "categories": ["Historic", "Museum & Art"],
-    "tags": ["Castle Ruins", "Museum", "History", "Karatsu City"],
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Nagoya_Castle_Baba_240812.jpg",
-    "imageMetadata": {
-      "source": "Wikimedia Commons",
-      "license": "CC0",
-      "attribution": "Umako",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagoya_Castle_Baba_240812.jpg"
-    },
-    "coordinates": {
-      "lat": 33.5639,
-      "lng": 129.8311
-    },
-    "description": "The ruins of Nagoya Castle, the massive base built by Toyotomi Hideyoshi for his invasions of Korea (1592–98). Once one of Japan's largest castles, the stone walls and extensive foundations remain. The adjacent prefectural museum exhibits invasion-period artefacts, maps, and a reconstructed golden tea room.",
-    "highlights": [
-      "Massive stone walls of Hideyoshi's invasion headquarters",
-      "Prefectural museum with Korean campaign artefacts",
-      "Reconstructed golden tea room in the museum"
-    ],
-    "openingHours": "Castle ruins: open access (daylight hours). Museum: 09:00–17:00 (last admission 16:30, closed Mondays)",
-    "openingHoursJa": "城跡：自由見学（日中推奨）。博物館：09:00～17:00（最終入館16:30、月曜休館）",
-    "openingHoursMetadata": {
-      "verifiedAt": "2026-08-05",
-      "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/7",
-      "closedDays": "Museum closed on Mondays (or Tuesday if Monday is a public holiday)"
-    },
-    "budgetMin": 1500,
-    "budgetRecommended": 4000,
-    "budgetMax": 7000,
-    "budgetBreakdown": {
-      "transport": 450,
-      "tickets": 500,
-      "food": 675,
-      "cafe": 150
-    },
-    "transportOptions": {
-      "bus": 350
-    },
-    "totalTripHours": 4,
-    "recommendedVisitHours": {
-      "min": 1.5,
-      "max": 3
-    },
-    "walkingMin": 3500,
-    "walkingIntensity": "medium",
-    "walkingSunMin": 2000,
-    "walkingShadeMin": 1000,
-    "indoorPercent": 40,
-    "comfort": {
-      "heatTolerance": 7,
-      "rainFriendly": 6,
-      "walkingIntensity": 4
-    },
-    "ratings": {
-      "overall": 8,
-      "couple": 7.5,
-      "summer": 7,
-      "winter": 7,
-      "rain": 7.5,
-      "food": 5.5,
-      "photography": 8.5,
-      "relaxation": 7,
-      "value": 8.5,
-      "uniqueness": 9
-    },
-    "ratingsSchemaVersion": 2,
-    "crowd": {
-      "weekday": 2,
-      "weekend": 4,
-      "holiday": 5
-    },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 9,
-      "winter": 6
-    },
-    "bestMonths": [3, 4, 5, 10, 11],
-    "weatherDependence": "moderate",
-    "reservation": "None required",
-    "parking": "Free parking available",
-    "notes": "The museum is closed on Mondays — the outdoor castle ruins remain accessible every day.",
-    "notesJa": "博物館は月曜休館。屋外の城跡は毎日見学可能です。",
-    "schemaVersion": 2,
-    "status": "published",
-    "travelEstimate": {
-      "confidence": "medium"
-    },
-    "collections": [],
-    "addedAt": "2026-08-05",
-    "editorial": {
-      "lifecycle": "published",
-      "sources": [
-        {
-          "type": "wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Nagoya_Castle_(Hizen_Province)",
-          "title": "Nagoya Castle (Hizen Province)",
-          "accessedAt": "2026-08-05"
-        }
-      ],
-      "checkedAt": "2026-08-05",
-      "freshness": "current",
-      "changeSummary": "Kyushu-to-100 expansion",
-      "changes": [
-        {
-          "changedAt": "2026-08-05",
-          "changedBy": "Kyushu-to-100 Editorial Batch",
-          "summary": "Added bilingual curated POI: Nagoya Castle Ruins & Museum",
           "method": "assisted"
         }
       ],
@@ -97092,9 +96921,7 @@
       "food": 225,
       "cafe": 50
     },
-    "transportOptions": {
-      "walk": 15
-    },
+    "transportOptions": {},
     "totalTripHours": 3,
     "recommendedVisitHours": {
       "min": 2,
@@ -97251,9 +97078,7 @@
       "food": 225,
       "cafe": 50
     },
-    "transportOptions": {
-      "walk": 10
-    },
+    "transportOptions": {},
     "totalTripHours": 1.5,
     "recommendedVisitHours": {
       "min": 0.5,
@@ -120173,7 +119998,7 @@
     "id": "hizen-nagoya-castle",
     "name": "Nagoya Castle (Hizen)",
     "nameJa": "名護屋城",
-    "aliases": ["名護屋城"],
+    "aliases": ["名護屋城", "名護屋城跡・佐賀県立名護屋城博物館"],
     "prefecture": "Saga",
     "region": "Kyushu",
     "kind": "castle",
@@ -132295,8 +132120,8 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 33.866,
-      "lng": 130.775
+      "lat": 33.8464,
+      "lng": 130.7964
     },
     "categories": ["sightseeing", "culture", "nature"],
     "tags": ["Mount Sarakura", "Fukuoka", "Japan Travel"],
@@ -132412,8 +132237,8 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 35.665,
-      "lng": 138.667
+      "lat": 35.7022,
+      "lng": 138.6653
     },
     "categories": ["sightseeing", "culture", "nature"],
     "tags": ["Fuefukigawa Fruit Park", "Yamanashi", "Japan Travel"],
@@ -132646,8 +132471,8 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 35.795,
-      "lng": 139.03
+      "lat": 35.8526,
+      "lng": 139.0409
     },
     "categories": ["sightseeing", "culture", "nature"],
     "tags": ["Nippara Limestone Cave", "Tokyo", "Japan Travel"],
@@ -132759,8 +132584,8 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 36.27,
-      "lng": 137.36
+      "lat": 36.1846,
+      "lng": 137.4245
     },
     "categories": ["sightseeing", "culture", "nature"],
     "tags": ["Hida Great Limestone Cave", "Gifu", "Japan Travel"],
@@ -132989,8 +132814,8 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 32.3,
-      "lng": 130.62
+      "lat": 32.2749,
+      "lng": 130.6152
     },
     "categories": ["sightseeing", "culture", "nature"],
     "tags": ["Kyusendo Cave", "Kumamoto", "Japan Travel"],
@@ -133102,8 +132927,8 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 27.35,
-      "lng": 128.57
+      "lat": 27.3626,
+      "lng": 128.5526
     },
     "categories": ["sightseeing", "culture", "nature"],
     "tags": ["Shoryu Cave", "Kagoshima", "Japan Travel"],
@@ -133331,8 +133156,8 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 35.604,
-      "lng": 138.947
+      "lat": 35.6157,
+      "lng": 138.9802
     },
     "categories": ["bridge", "sightseeing", "engineering"],
     "tags": ["Saru-hashi Bridge", "Yamanashi", "Japan Travel"],
@@ -133917,8 +133742,8 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 43.429,
-      "lng": 142.469
+      "lat": 43.4189,
+      "lng": 142.4266
     },
     "categories": ["sightseeing", "culture", "nature"],
     "tags": ["Farm Tomita", "Hokkaido", "Japan Travel"],
@@ -134151,8 +133976,8 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 35.068,
-      "lng": 136.688
+      "lat": 35.0811,
+      "lng": 136.7036
     },
     "categories": ["sightseeing", "culture", "nature"],
     "tags": ["Nabana no Sato", "Mie", "Japan Travel"],
@@ -134268,8 +134093,8 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 36.57,
-      "lng": 137.595
+      "lat": 36.5753,
+      "lng": 137.5233
     },
     "categories": ["sightseeing", "culture", "nature"],
     "tags": ["Shomyo Falls", "Toyama", "Japan Travel"],
@@ -135007,8 +134832,8 @@
     "role": "standalone",
     "placeType": "destination",
     "coordinates": {
-      "lat": 42.978,
-      "lng": 141.405
+      "lat": 42.9339,
+      "lng": 141.3372
     },
     "categories": ["sightseeing", "culture", "nature"],
     "tags": ["Sapporo Art Park", "Hokkaido", "Japan Travel"],

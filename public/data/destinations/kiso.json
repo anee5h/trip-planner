@@ -79,9 +79,7 @@
     "confidence": "high"
   },
   "collections": [],
-  "relationships": {
-    "parentDestinationId": "matsumoto-city"
-  },
+  "relationships": {},
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
@@ -96,5 +94,5 @@
   },
   "officialWebsite": "https://kiso-magome.com/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Nagano:matsumoto"
+  "municipalityId": "Nagano:kiso"
 }
