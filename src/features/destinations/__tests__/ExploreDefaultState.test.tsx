@@ -526,3 +526,62 @@ describe("URL state restoration — no invisible defaults", () => {
     expect(paramsCount).toBe(blankCount);
   });
 });
+
+// ---------------------------------------------------------------------------
+// KAI-63 D4: duration evidence must not gate mode eligibility
+// ---------------------------------------------------------------------------
+
+describe("D4: reachability and duration are independent (mode eligibility)", () => {
+  function setYokohamaOrigin() {
+    tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+  }
+
+  it("mode=train with Any duration keeps a reachable destination whose duration is unknown", () => {
+    setYokohamaOrigin();
+
+    // Kyoto is reachable by conventional rail (topology + transportOptions)
+    // but has no verified origin-aware duration from a Kanagawa origin — it
+    // was previously dropped by the hidden 14 h/evidence gate. The search
+    // query keeps the assertion independent of pagination.
+    const container = renderDestinations("/destinations?mode=train&q=kyoto");
+    const headings = Array.from(container.querySelectorAll("h3")).map(
+      (heading) => heading.textContent ?? "",
+    );
+
+    expect(headings.some((text) => text.includes("Kyoto City"))).toBe(true);
+  }, 15000);
+
+  it("explicit Day-trip mode still applies the duration gate", () => {
+    setYokohamaOrigin();
+
+    const container = renderDestinations(
+      "/destinations?mode=train&tripMode=day_trip&q=kyoto",
+    );
+    const headings = Array.from(container.querySelectorAll("h3")).map(
+      (heading) => heading.textContent ?? "",
+    );
+
+    // Same destination is excluded under the explicit day-trip contract.
+    expect(headings.some((text) => text.includes("Kyoto City"))).toBe(false);
+  }, 15000);
+
+  it("mode=train with Any duration shows strictly more than the day-trip gate", () => {
+    setYokohamaOrigin();
+
+    const containerAny = renderDestinations("/destinations?mode=train");
+    const anyCount = getResultCount(containerAny);
+    act(() => root!.unmount());
+    root = undefined;
+    host?.remove();
+    host = undefined;
+
+    const containerDayTrip = renderDestinations(
+      "/destinations?mode=train&tripMode=day_trip",
+    );
+    const dayTripCount = getResultCount(containerDayTrip);
+
+    expect(anyCount).toBeGreaterThan(0);
+    expect(anyCount).toBeGreaterThan(dayTripCount);
+  }, 30000);
+});

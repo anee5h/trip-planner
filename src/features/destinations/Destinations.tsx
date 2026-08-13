@@ -843,16 +843,29 @@ export default function Destinations() {
       hasRestrictedTransportSelection(carMode, publicModes)
     ) {
       const hasOrigin = hasPersonalizedOrigin(catalogContext);
+      // KAI-63 D4: duration filtering applies ONLY under an explicit
+      // duration/trip-mode constraint. With "Any" duration and no explicit
+      // day-trip mode, transport selection is pure reachability eligibility:
+      // a destination reachable by the selected mode stays visible even when
+      // its travel duration is unknown (cards show "Travel time
+      // unavailable"). The 14 h day-trip envelope belongs exclusively to the
+      // explicit Day-trip toggle / selected duration.
+      const durationConstrained =
+        tripMode === "day_trip" || tripDuration !== "any";
       result = result.filter((dest) => {
         // Keep no-origin browsing neutral, while using the same personalized
         // day-trip duration contract as Home when an origin is selected.
-        if (!hasOrigin)
-          return matchesPersonalizedDayTripDuration(
-            dest,
-            catalogContext,
-            [],
-            tripDuration,
+        if (!hasOrigin) {
+          return (
+            !durationConstrained ||
+            matchesPersonalizedDayTripDuration(
+              dest,
+              catalogContext,
+              [],
+              tripDuration,
+            )
           );
+        }
         const modes = getValidModes(
           dest,
           carMode,
@@ -875,6 +888,7 @@ export default function Destinations() {
         ) {
           return false;
         }
+        if (!durationConstrained) return true;
         return matchesPersonalizedDayTripDuration(
           dest,
           catalogContext,

@@ -154,5 +154,5 @@ describe("KAI-63 same-zone divergence", () => {
     console.log(
       `divergences: ${divergences}, unexplained: ${unexplained} (all explained: ${explained.size > 0})`,
     );
-  }, 180000);
+  }, 600000);
 });

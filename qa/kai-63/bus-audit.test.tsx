@@ -11,9 +11,7 @@ import { afterEach, beforeEach, describe, it, vi } from "vitest";
 import Destinations from "../../src/features/destinations/Destinations";
 import destinationsData from "../../src/shared/data/destinations-index.json";
 import type { Destination } from "../../src/shared/types/destination";
-import { getOriginAwareTransportEstimate } from "../../src/shared/services/transport/OriginAwareTransportService";
 import { getValidModes } from "../../src/shared/services/recommendation/RecommendationScorer";
-import { matchesPersonalizedDayTripDuration } from "../../src/shared/services/recommendation/TripDurationService";
 import { resolveOriginMunicipalityId } from "../../src/shared/services/recommendation/OriginAreaService";
 import {
   getEligibleOriginModes,
@@ -220,23 +218,11 @@ function classify(
   );
   if (modes.length === 0) return "no-bus-corridor";
 
-  const estimate = getOriginAwareTransportEstimate(
-    dest,
-    { homeStationCoords: coords, originZoneId },
-    ["bus"],
-  );
-  if (estimate?.mode === "bus" && estimate.servicePeriod === "night") {
-    return "night-only";
-  }
-  const dayOk = matchesPersonalizedDayTripDuration(
-    dest,
-    { homeStationCoords: coords, originZoneId },
-    ["bus"],
-    "any",
-  );
-  if (dayOk) return "bus-eligible";
-  if (!dest.recommendedVisitHours) return "no-visit-hours";
-  return "day-infeasible";
+  // KAI-63 D4: with "Any" duration, Explore applies mode eligibility only
+  // (reachability). The day-trip duration gate — including the night-only
+  // coach rule — runs only under an explicit duration/trip-mode selection,
+  // so neither is part of this mirror of the rendered "any" state.
+  return "bus-eligible";
 }
 
 describe("KAI-63 bus audit", () => {
