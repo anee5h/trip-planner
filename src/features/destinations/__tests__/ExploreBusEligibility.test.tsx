@@ -156,8 +156,10 @@ function cardIds(hostEl: HTMLDivElement): string[] {
 
 /**
  * The canonical pipeline bus count for an origin — the same gate the Explore
- * UI applies (getValidModes + the personalized day-trip duration check).
- * Used to assert UI == pipeline without pinning a catalogue number.
+ * UI applies for "Any" duration (mode eligibility / reachability only; the
+ * day-trip duration check runs only under an explicit duration or
+ * trip-mode selection — KAI-63 D4). Used to assert UI == pipeline without
+ * pinning a catalogue number.
  */
 function pipelineBusCount(coords: { lat: number; lng: number }): number {
   const originZoneId = resolveOriginTransportZone({ coordinates: coords });
@@ -292,9 +294,12 @@ describe("KAI-63 Explore bus eligibility", () => {
 
   it("night-only corridors never appear in day-trip bus results", () => {
     // From Tokyo, Fukuoka is bus-reachable only by the night-only はかた号 —
-    // no Fukuoka destination may appear in a day-trip bus filter.
+    // no Fukuoka destination may appear in a day-trip bus filter. (Under
+    // "Any" duration the night coach is legitimate reachability and those
+    // destinations ARE bus-eligible — KAI-63 D4; the night gate lives in
+    // the day-trip envelope, so this test pins the explicit day_trip mode.)
     setOrigin(TOKYO);
-    const hostEl = renderDestinations("/destinations?mode=bus");
+    const hostEl = renderDestinations("/destinations?mode=bus&tripMode=day_trip");
     const ids = cardIds(hostEl);
     expect(
       ids.some((id) => id.includes("fukuoka") || id.includes("hakata")),
