@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Kobe Maritime Museum",
-      "description": "Kobe Maritime Museum is a visitor destination in Kobe City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "A Kobe museum tracing the city’s relationship with its port through film, hands-on exhibits, and a distinctive roof inspired by sails and waves.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "神戸海洋博物館",
-      "description": "神戸海洋博物館はKobe Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "神戸海洋博物館は、帆船の帆と波をイメージした建物で、映像や体験展示を通して神戸と港の歩みを紹介しています。",
       "highlights": ["博物館"]
     }
   },
@@ -38,7 +38,7 @@
     "lat": 34.68277778,
     "lng": 135.18833333
   },
-  "description": "Kobe Maritime Museum is a visitor destination in Kobe City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "A Kobe museum tracing the city’s relationship with its port through film, hands-on exhibits, and a distinctive roof inspired by sails and waves.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -98,7 +98,6 @@
   "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -109,7 +108,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Kobe Maritime Museum is a visitor destination in Kobe City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "editorialSummary": "A Kobe museum tracing the city’s relationship with its port through film, hands-on exhibits, and a distinctive roof inspired by sails and waves.",
     "lifecycle": "published",
     "sources": [
       {
@@ -126,8 +125,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "http://www.kobe-maritime-museum.com/",
+          "title": "Kobe Maritime Museum official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "http://www.kobe-maritime-museum.com/",
+          "title": "Kobe Maritime Museum official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "http://www.kobe-maritime-museum.com/",
+          "title": "Kobe Maritime Museum official website",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

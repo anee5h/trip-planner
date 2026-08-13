@@ -134,6 +134,12 @@ export const PREVENTIVE_CODES = new Set([
   "ISLAND_RAIL_CLAIM",
   "LAM_TRANSPORT_CONTRADICTION",
   "QA_TEXT_LEAK",
+  "NONFINITE_USER_NUMBER",
+  "INVALID_BUDGET_RANGE",
+  "BUDGET_RECOMMENDED_OUTSIDE_RANGE",
+  "NONFINITE_TRANSPORT_VALUE",
+  "INVALID_VISIT_HOURS_RANGE",
+  "NONFINITE_RATING",
   "UNKNOWN_TRANSPORT_KEY",
   "HERO_LICENSE_HOST_MISMATCH",
   "MISSING_TRAVEL_ESTIMATE",
@@ -156,6 +162,35 @@ function isCoarseGrid(v: number): boolean {
   return Math.abs(v * 10 - Math.round(v * 10)) < 1e-6;
 }
 
+const USER_VISIBLE_NUMERIC_FIELDS = [
+  "budgetMin",
+  "budgetRecommended",
+  "budgetMax",
+  "walkingMin",
+  "walkingSunMin",
+  "walkingShadeMin",
+  "indoorPercent",
+  "totalTripHours",
+] as const;
+
+const DETERMINISTIC_COPY_LEAK =
+  /Source-backed|v1\.9\.2|KAI-31|city expansion record|Municipal hub record reviewed|Municipal hub created in/i;
+const GENERIC_TEMPLATE_COPY =
+  /visitor destination in|visitor hub in|travel hub in|A top recommended attraction in|訪問者向けの観光地/i;
+
+function destinationCopy(dest: Destination): string {
+  return JSON.stringify({
+    notes: dest.notes,
+    description: dest.description,
+    notesJa: dest.notesJa,
+    content: dest.content,
+  });
+}
+
+function finiteNonNegative(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value) && value >= 0;
+}
+
 export function collectDestinationIssues(
   dest: Destination,
   ctx: DestinationRuleContext,
@@ -165,6 +200,74 @@ export function collectDestinationIssues(
     issues.push({ code, message });
 
   // ---- G4: schema unions ----
+  for (const field of USER_VISIBLE_NUMERIC_FIELDS) {
+    const value = dest[field];
+    if (value !== undefined && !finiteNonNegative(value)) {
+      push(
+        "NONFINITE_USER_NUMBER",
+        `${field} must be a finite non-negative number`,
+      );
+    }
+  }
+  if (
+    dest.budgetMin !== undefined &&
+    dest.budgetMax !== undefined &&
+    finiteNonNegative(dest.budgetMin) &&
+    finiteNonNegative(dest.budgetMax) &&
+    dest.budgetMin > dest.budgetMax
+  ) {
+    push("INVALID_BUDGET_RANGE", "budgetMin must not exceed budgetMax");
+  }
+  if (
+    dest.budgetRecommended !== undefined &&
+    finiteNonNegative(dest.budgetRecommended) &&
+    dest.budgetMin !== undefined &&
+    dest.budgetMax !== undefined &&
+    finiteNonNegative(dest.budgetMin) &&
+    finiteNonNegative(dest.budgetMax) &&
+    (dest.budgetRecommended < dest.budgetMin ||
+      dest.budgetRecommended > dest.budgetMax)
+  ) {
+    push(
+      "BUDGET_RECOMMENDED_OUTSIDE_RANGE",
+      "budgetRecommended must fall within budgetMin and budgetMax",
+    );
+  }
+  for (const [mode, value] of Object.entries(dest.transportOptions ?? {})) {
+    if (!finiteNonNegative(value)) {
+      push(
+        "NONFINITE_TRANSPORT_VALUE",
+        `${mode} transport estimate must be finite and non-negative`,
+      );
+    }
+  }
+  if (dest.budgetBreakdown) {
+    for (const [field, value] of Object.entries(dest.budgetBreakdown)) {
+      if (!finiteNonNegative(value)) {
+        push(
+          "NONFINITE_USER_NUMBER",
+          `budgetBreakdown.${field} must be finite and non-negative`,
+        );
+      }
+    }
+  }
+  if (dest.recommendedVisitHours) {
+    const { min, max } = dest.recommendedVisitHours;
+    if (!finiteNonNegative(min) || !finiteNonNegative(max) || min > max) {
+      push(
+        "INVALID_VISIT_HOURS_RANGE",
+        "recommendedVisitHours must be a finite ascending range",
+      );
+    }
+  }
+  for (const [field, value] of Object.entries(dest.ratings ?? {})) {
+    if (value !== undefined && !finiteNonNegative(value)) {
+      push(
+        "NONFINITE_RATING",
+        `ratings.${field} must be finite and non-negative`,
+      );
+    }
+  }
   if (dest.kind && !VALID_KINDS.has(dest.kind)) {
     push(
       "OFF_UNION_KIND",
@@ -206,14 +309,16 @@ export function collectDestinationIssues(
       "editorial.sources contains a dangling placeholder (string or url-less entry)",
     );
   }
-  if (
-    /Source-backed|v1\.9\.2|KAI-31/.test(
-      `${dest.notes ?? ""} ${dest.description ?? ""}`,
-    )
-  ) {
+  if (DETERMINISTIC_COPY_LEAK.test(destinationCopy(dest))) {
     push(
       "QA_TEXT_LEAK",
       "notes/description contain QA/provenance template text",
+    );
+  }
+  if (GENERIC_TEMPLATE_COPY.test(destinationCopy(dest))) {
+    push(
+      "GENERIC_TEMPLATE_COPY",
+      "description contains a repeated destination-template phrase",
     );
   }
 

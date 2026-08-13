@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Osaka Museum of Housing and Living",
-      "description": "Osaka Museum of Housing and Living is a visitor destination in Osaka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "A museum that recreates Osaka streetscapes from the late Edo period, letting visitors explore the city’s homes, shops, and daily life.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "大阪くらしの今昔館",
-      "description": "大阪くらしの今昔館はOsaka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "大阪くらしの今昔館は、江戸時代後期の大阪の町並みを再現し、住まいや商店、当時の暮らしを体験できる博物館です。",
       "highlights": ["博物館"]
     }
   },
@@ -23,7 +23,7 @@
   "relationships": {
     "parentDestinationId": "osaka-city"
   },
-  "officialWebsite": "http://konjyakukan.com/",
+  "officialWebsite": "https://www.osaka-angenet.jp/konjyakukan/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
   "tags": ["Museum", "Osaka City"],
@@ -38,7 +38,7 @@
     "lat": 34.710306,
     "lng": 135.511694
   },
-  "description": "Osaka Museum of Housing and Living is a visitor destination in Osaka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "A museum that recreates Osaka streetscapes from the late Edo period, letting visitors explore the city’s homes, shops, and daily life.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -99,7 +99,6 @@
   "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Osaka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -110,7 +109,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Osaka Museum of Housing and Living is a visitor destination in Osaka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "editorialSummary": "A museum that recreates Osaka streetscapes from the late Edo period, letting visitors explore the city’s homes, shops, and daily life.",
     "lifecycle": "published",
     "sources": [
       {
@@ -121,14 +120,49 @@
       },
       {
         "type": "official",
-        "url": "http://konjyakukan.com/",
+        "url": "https://www.osaka-angenet.jp/konjyakukan/",
         "title": "Osaka Museum of Housing and Living official website",
         "accessedAt": "2026-07-29"
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.osaka-angenet.jp/konjyakukan/",
+          "title": "Osaka Museum of Housing and Living official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.osaka-angenet.jp/konjyakukan/",
+          "title": "Osaka Museum of Housing and Living official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.osaka-angenet.jp/konjyakukan/",
+          "title": "Osaka Museum of Housing and Living official website",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

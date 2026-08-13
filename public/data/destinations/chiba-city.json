@@ -63,7 +63,6 @@
     "food": 2400,
     "cafe": 800
   },
-  "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Chiba_montage.jpg",
   "imageMetadata": {
@@ -138,7 +137,6 @@
         "Chiba Port Tower",
         "Chiba Urban Monorail"
       ],
-      "notes": "A top recommended attraction in Chiba, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
       "openingHours": "09:00 - 17:00"
@@ -147,7 +145,6 @@
       "name": "千葉市",
       "description": "東京湾に面する千葉県の県都。幕張メッセ、千葉ポートタワー、世界長都市型モノレールなど見どころが集まる拠点的都市です。",
       "highlights": ["千葉市の名所", "千葉市の名所", "千葉市の名所"],
-      "notes": "千葉市は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"
@@ -158,7 +155,6 @@
     "method": "manual",
     "confidence": "high"
   },
-  "notesJa": "千葉市は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",

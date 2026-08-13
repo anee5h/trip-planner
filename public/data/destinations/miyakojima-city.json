@@ -11,6 +11,7 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/02/Miyako_maipama_1.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Miyako_maipama_1.jpg/1280px-Miyako_maipama_1.jpg",
   "description": "Island paradise famous for 'Miyako Blue' crystal waters, Yonaha Maehama Beach, and spectacular sea bridges.",
+  "notes": "Island hub known for Miyako Blue waters, white-sand beaches, and long sea bridges.",
   "highlights": ["Explore Miyakojima City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
@@ -59,7 +60,6 @@
   "transportOptions": {},
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Miyakojima City travel hub in Okinawa Prefecture.",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Fukuoka Tower",
-      "description": "Fukuoka Tower is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
+      "description": "A 234-meter seaside observation tower in Momochihama with 360-degree views from its 123-meter observation deck, cafes, and seasonal illumination.",
       "highlights": ["Viewpoint"],
       "openingHours": "09:30–22:00"
     },
     "ja": {
       "name": "福岡タワー",
-      "description": "福岡タワーはFukuoka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "福岡タワーは百道浜に立つ高さ234メートルの海浜タワーで、123メートルの展望室から360度の眺望や季節のイルミネーションを楽しめます。",
       "highlights": ["展望"],
       "openingHours": "09:30～22:00"
     }
@@ -41,7 +41,7 @@
     "lat": 33.59330555555555,
     "lng": 130.3515
   },
-  "description": "Fukuoka Tower is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
+  "description": "A 234-meter seaside observation tower in Momochihama with 360-degree views from its 123-meter observation deck, cafes, and seasonal illumination.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -101,7 +101,6 @@
   "weatherDependence": "moderate",
   "reservation": "Check the official website before visiting.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -125,9 +124,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-08-04",
+    "checkedAt": "2026-08-13",
     "freshness": "current",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
+    "changeSummary": "KAI-89 source-backed template-copy correction",
     "fieldSources": {
       "ratings": [
         {
@@ -144,6 +143,30 @@
           "title": "Fukuoka Tower",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.fukuokatower.co.jp/",
+          "title": "Fukuoka Tower official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.fukuokatower.co.jp/",
+          "title": "Fukuoka Tower official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.fukuokatower.co.jp/",
+          "title": "Fukuoka Tower official website",
+          "accessedAt": "2026-08-13"
+        }
       ]
     },
     "changes": [
@@ -157,6 +180,12 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
         "method": "assisted"
       }
     ],

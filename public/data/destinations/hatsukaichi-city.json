@@ -60,7 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Hatsukaichi City travel hub in Hiroshima Prefecture.",
   "status": "beta",
   "travelEstimate": {
     "confidence": "beta"

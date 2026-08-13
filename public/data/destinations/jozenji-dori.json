@@ -6,8 +6,12 @@
   "content": {
     "en": {
       "name": "Jozenji-dori",
-      "description": "Jozenji-dori is a visitor destination in Sendai City.  Visitors can experience historic architecture and local culture.",
-      "highlights": ["History"]
+      "description": "Sendai's elegant tree-lined boulevard, shaded by 160+ zelkova trees and lined with cafes, shops and public art. It hosts the annual Jozenji Street Jazz Festival in early September and winter illuminations.",
+      "highlights": [
+        "Zelkova-lined boulevard",
+        "Jozenji Street Jazz Festival",
+        "Seasonal illuminations"
+      ]
     },
     "ja": {
       "name": "定禅寺通",

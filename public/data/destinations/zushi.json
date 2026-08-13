@@ -64,7 +64,6 @@
     "food": 2100,
     "cafe": 700
   },
-  "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -115,7 +114,6 @@
         "Hayama Imperial Coast Views",
         "Yokosuka Naval Port Cruise"
       ],
-      "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
       "openingHours": "09:00 - 17:00"
@@ -124,7 +122,6 @@
       "name": "逗子・横須賀",
       "description": "逗子海岸の海水浴リゾート、葉山の御用邸海岸景色、横須賀のヴェルニー公園や軍港めぐりを楽しめる湘南・三浦エリアです。",
       "highlights": ["逗子海岸リゾート", "葉山海岸の景観", "横須賀軍港めぐり"],
-      "notes": "逗子・横須賀は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"
@@ -135,7 +132,6 @@
     "method": "manual",
     "confidence": "high"
   },
-  "notesJa": "逗子・横須賀は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",

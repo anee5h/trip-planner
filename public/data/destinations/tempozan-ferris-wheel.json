@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Tempozan Ferris Wheel",
-      "description": "Tempozan Ferris Wheel is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+      "description": "A large Ferris wheel in Osaka Bay offering elevated views across the harbor and the Tempozan waterfront.",
       "highlights": ["Culture"]
     },
     "ja": {
       "name": "天保山大観覧車",
-      "description": "天保山大観覧車はOsaka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "天保山大観覧車は大阪ベイエリアを見渡せる大観覧車で、港と天保山周辺の眺望を楽しめます。",
       "highlights": ["文化"]
     }
   },
@@ -38,7 +38,7 @@
     "lat": 34.6562,
     "lng": 135.431
   },
-  "description": "Tempozan Ferris Wheel is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+  "description": "A large Ferris wheel in Osaka Bay offering elevated views across the harbor and the Tempozan waterfront.",
   "highlights": ["Culture"],
   "budgetMin": 2500,
   "budgetRecommended": 4000,
@@ -99,7 +99,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Osaka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -110,7 +109,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Tempozan Ferris Wheel is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+    "editorialSummary": "A large Ferris wheel in Osaka Bay offering elevated views across the harbor and the Tempozan waterfront.",
     "lifecycle": "published",
     "sources": [
       {
@@ -127,8 +126,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "http://www.senyo.co.jp/tempozan/",
+          "title": "Tempozan Ferris Wheel official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "http://www.senyo.co.jp/tempozan/",
+          "title": "Tempozan Ferris Wheel official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "http://www.senyo.co.jp/tempozan/",
+          "title": "Tempozan Ferris Wheel official website",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

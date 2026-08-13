@@ -72,7 +72,6 @@
   },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
-  "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
   "status": "published",
   "relationships": {
     "featuredDestinationIds": [],
@@ -114,7 +113,6 @@
         "80m White Wisteria Tunnel",
         "Award-Winning Winter Illumination"
       ],
-      "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
       "openingHours": "09:00 - 17:00"
@@ -123,7 +121,6 @@
       "name": "足利フラワーパーク",
       "description": "樹齢150年超の「大藤」や80mに及ぶ白藤のトンネルで世界的に有名なテーマパーク。冬の「光の花の庭」イルミネーションも絶景です。",
       "highlights": ["150-散策", "80m散策", "-散策"],
-      "notes": "足利フラワーパークは、Tochigiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"
@@ -134,7 +131,6 @@
     "method": "manual",
     "confidence": "high"
   },
-  "notesJa": "足利フラワーパークは、Tochigiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",

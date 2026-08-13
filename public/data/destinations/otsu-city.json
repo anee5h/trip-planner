@@ -60,7 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Otsu City travel hub in Shiga Prefecture.",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

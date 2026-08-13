@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Kitano Ijinkan",
-      "description": "Kitano Ijinkan is a visitor destination in Kobe City.  Visitors can experience historic architecture and local culture.",
+      "description": "A hillside Kobe district preserving Western-style residences and streetscapes from the city’s international port era.",
       "highlights": ["History", "Museum"]
     },
     "ja": {
       "name": "神戸市",
-      "description": "神戸市はKobe Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "北野異人館街は、神戸港の国際化の時代に建てられた洋館と坂道の街並みを残す神戸の地区です。",
       "highlights": ["歴史", "博物館"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 34.6983,
     "lng": 135.1903
   },
-  "description": "Kitano Ijinkan is a visitor destination in Kobe City.  Visitors can experience historic architecture and local culture.",
+  "description": "A hillside Kobe district preserving Western-style residences and streetscapes from the city’s international port era.",
   "highlights": ["History", "Museum"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -99,7 +99,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -116,7 +115,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Kitano Ijinkan is a visitor destination in Kobe City.  Visitors can experience historic architecture and local culture.",
+    "editorialSummary": "A hillside Kobe district preserving Western-style residences and streetscapes from the city’s international port era.",
     "lifecycle": "published",
     "sources": [
       {
@@ -133,8 +132,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "http://www.city.kobe.lg.jp/",
+          "title": "Kitano Ijinkan official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "http://www.city.kobe.lg.jp/",
+          "title": "Kitano Ijinkan official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "http://www.city.kobe.lg.jp/",
+          "title": "Kitano Ijinkan official website",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

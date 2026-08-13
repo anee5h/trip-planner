@@ -60,7 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Izumo City travel hub in Shimane Prefecture.",
   "status": "beta",
   "travelEstimate": {
     "confidence": "beta"

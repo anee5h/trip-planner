@@ -8,6 +8,7 @@
   "prefecture": "Okinawa",
   "category": "Islands & Beaches",
   "description": "An enchanting island in northern Okinawa reached by a 2-kilometer sea bridge, famous for crystal emerald waters and Heart Rock beach.",
+  "notes": "Scenic island drive with emerald-water beaches and Heart Rock on northern Okinawa.",
   "coordinates": {
     "lat": 26.6966,
     "lng": 128.0245
@@ -78,7 +79,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "notes": "Kouri Island & Heart Rock located in Okinawa Prefecture.",
   "status": "published",
   "relationships": {
     "parentDestinationId": "nago-city"

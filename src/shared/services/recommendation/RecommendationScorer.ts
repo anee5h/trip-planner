@@ -239,7 +239,8 @@ export function calculateScore(
   const { actual, preferred } = resolveRecommendationWeather(context);
 
   const ratingWeight = ratingReliability(dest);
-  const ratingScore = (value: number) => value * ratingWeight;
+  const ratingScore = (value: number) =>
+    Number.isFinite(value) ? value * ratingWeight : 0;
   let score =
     SCORING_WEIGHTS.BASE_SCORE +
     ratingScore(
@@ -271,8 +272,11 @@ export function calculateScore(
   for (const mode of validModesForDest) {
     let budgetScore = 0;
 
-    let adjustedBudget = 999999;
-    if (dest.budgetRecommended) {
+    let adjustedBudget = Number.POSITIVE_INFINITY;
+    if (
+      Number.isFinite(dest.budgetRecommended) &&
+      dest.budgetRecommended >= 0
+    ) {
       const estimatedResult = getEstimatedBudgetRange(
         dest,
         mode,
@@ -489,7 +493,11 @@ export function calculateScore(
   // Reads destination.season[currentSeason] (0-10 scale, fully populated on all destinations).
   // Falls back to 5 (neutral mid-point) if the field is missing.
   const currentSeason = getFixedSeason();
-  const seasonScore = dest.season?.[currentSeason] ?? 5;
+  const seasonScore =
+    typeof dest.season?.[currentSeason] === "number" &&
+    Number.isFinite(dest.season[currentSeason])
+      ? dest.season[currentSeason]
+      : 5;
   score += (seasonScore - 5) * SCORING_WEIGHTS.SEASON_MULTIPLIER;
 
   // User Rating Adjustments (Netflix-style Thumbs Up / Down)

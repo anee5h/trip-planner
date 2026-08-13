@@ -10,6 +10,7 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/74/Busena_Resort18bs3200.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg/1280px-Cityscape_of_Nago_from_the_top_of_Mount_Nago_202007.jpg",
   "description": "Northern main island city featuring Busena Marine Park, Orion Happy Park brewery, and cherry blossom festivals.",
+  "notes": "Northern Okinawa city with coastal scenery, Busena Marine Park, and tropical attractions.",
   "highlights": ["Explore Nago City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
@@ -58,7 +59,6 @@
   "transportOptions": {},
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Nago City travel hub in Okinawa Prefecture.",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

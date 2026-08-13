@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Hokkaido Jingu",
-      "description": "Hokkaido Jingu is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
+      "description": "Sapporo’s principal Shinto shrine, enshrining four deities including the spirits associated with Hokkaido’s development and Emperor Meiji.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "北海道神宮",
-      "description": "北海道神宮はSapporo Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "北海道神宮は大国魂神・大那牟遅神・少彦名神・明治天皇を祀る札幌の総鎮守で、祭事や北海道神宮例祭でも知られます。",
       "highlights": ["歴史"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 43.05423527,
     "lng": 141.30770534
   },
-  "description": "Hokkaido Jingu is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
+  "description": "Sapporo’s principal Shinto shrine, enshrining four deities including the spirits associated with Hokkaido’s development and Emperor Meiji.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -98,7 +98,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Sapporo City.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -122,9 +121,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "changeSummary": "KAI-89 source-backed template-copy correction",
     "fieldSources": {
       "ratings": [
         {
@@ -141,6 +140,30 @@
           "title": "Hokkaidō Shrine",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "http://www.hokkaidojingu.or.jp/",
+          "title": "Hokkaido Jingu official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "http://www.hokkaidojingu.or.jp/",
+          "title": "Hokkaido Jingu official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "http://www.hokkaidojingu.or.jp/",
+          "title": "Hokkaido Jingu official website",
+          "accessedAt": "2026-08-13"
+        }
       ]
     },
     "changes": [
@@ -154,6 +177,12 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
         "method": "assisted"
       }
     ]

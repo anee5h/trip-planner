@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Universal Studios Japan",
-      "description": "Universal Studios Japan is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+      "description": "A major theme park in Osaka with Hollywood-inspired rides, shows, themed areas, and character entertainment for all ages.",
       "highlights": ["Theme Park"]
     },
     "ja": {
       "name": "ユニバーサル・スタジオ・ジャパン",
-      "description": "ユニバーサル・スタジオ・ジャパンはOsaka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "ユニバーサル・スタジオ・ジャパンは、映画をテーマにしたライドやショー、キャラクター、季節のイベントを楽しめる大阪のテーマパークです。",
       "highlights": ["テーマパーク"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 34.6647,
     "lng": 135.433
   },
-  "description": "Universal Studios Japan is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+  "description": "A major theme park in Osaka with Hollywood-inspired rides, shows, themed areas, and character entertainment for all ages.",
   "highlights": ["Theme Park"],
   "budgetMin": 10900,
   "budgetRecommended": 16000,
@@ -100,7 +100,6 @@
   "weatherDependence": "moderate",
   "reservation": "Check the official website before visiting.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Osaka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -111,7 +110,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Universal Studios Japan is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+    "editorialSummary": "A major theme park in Osaka with Hollywood-inspired rides, shows, themed areas, and character entertainment for all ages.",
     "lifecycle": "published",
     "sources": [
       {
@@ -128,8 +127,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.usj.co.jp/",
+          "title": "Universal Studios Japan official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.usj.co.jp/",
+          "title": "Universal Studios Japan official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.usj.co.jp/",
+          "title": "Universal Studios Japan official website",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

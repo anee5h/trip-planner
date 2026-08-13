@@ -60,7 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Nara City travel hub in Nara Prefecture.",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

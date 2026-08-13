@@ -11,6 +11,7 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Naha_Shuri_Castle02s5s3200.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/6/67/Naha_montage.jpg",
   "description": "Okinawa's capital and subtropical gateway, featuring Kokusai-dori shopping boulevard and historic Shuri Castle.",
+  "notes": "Okinawa capital and gateway for Ryukyu history, shopping, and southern-island travel.",
   "highlights": ["Explore Naha City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
@@ -61,7 +62,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Naha City travel hub in Okinawa Prefecture.",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

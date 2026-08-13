@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Philosopher's Walk",
-      "description": "Philosopher's Walk is a visitor destination in Kyoto City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "A canal-side Kyoto path between Ginkaku-ji and Nanzen-ji, especially popular for spring cherry blossoms and autumn color.",
       "highlights": ["Nature", "Culture"]
     },
     "ja": {
       "name": "哲学の道",
-      "description": "哲学の道はKyoto Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "哲学の道は銀閣寺と南禅寺を結ぶ疏水沿いの散策路で、春の桜や秋の紅葉を楽しめます。",
       "highlights": ["自然", "文化"]
     }
   },
@@ -38,7 +38,7 @@
     "lat": 35.025127777778,
     "lng": 135.79616666667
   },
-  "description": "Philosopher's Walk is a visitor destination in Kyoto City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "A canal-side Kyoto path between Ginkaku-ji and Nanzen-ji, especially popular for spring cherry blossoms and autumn color.",
   "highlights": ["Nature", "Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -99,7 +99,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Kyoto City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -110,7 +109,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Philosopher's Walk is a visitor destination in Kyoto City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "editorialSummary": "A canal-side Kyoto path between Ginkaku-ji and Nanzen-ji, especially popular for spring cherry blossoms and autumn color.",
     "lifecycle": "published",
     "sources": [
       {
@@ -127,8 +126,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "https://tetsugakunomichi.jp/",
+          "title": "Philosopher's Walk official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://tetsugakunomichi.jp/",
+          "title": "Philosopher's Walk official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://tetsugakunomichi.jp/",
+          "title": "Philosopher's Walk official website",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

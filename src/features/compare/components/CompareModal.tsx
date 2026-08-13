@@ -35,7 +35,10 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   const getMax = (arr: number[]) => (arr.length > 0 ? Math.max(...arr) : 0);
 
   const budgets = compareDestinations.map((d) => getAdjustedBudget(d, "all"));
-  const minBudget = getMin(budgets);
+  const knownBudgets = budgets.filter(
+    (budget): budget is number => budget !== null,
+  );
+  const minBudget = knownBudgets.length > 0 ? getMin(knownBudgets) : null;
 
   const travelTimes = compareDestinations.map((d) => {
     const times = Object.values(d.transportOptions || {}).filter(
@@ -196,9 +199,11 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                         </span>
                         <div className="flex items-center gap-1.5">
                           <span className="font-bold text-slate-900 dark:text-white text-xs">
-                            ¥{(cost / 1000).toFixed(0)}k
+                            {cost === null
+                              ? "N/A"
+                              : `¥${(cost / 1000).toFixed(0)}k`}
                           </span>
-                          {isLowestBudget && (
+                          {cost !== null && isLowestBudget && (
                             <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
                               {t("compare.lowest")}
                             </Badge>

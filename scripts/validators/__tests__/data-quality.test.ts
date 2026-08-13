@@ -100,6 +100,53 @@ describe("KAI-87 data quality validator", () => {
     expect(codes).toContain("QA_TEXT_LEAK");
   });
 
+  it("fails deterministic numeric corruption instead of accepting it as data", async () => {
+    const r = await run([
+      {
+        ...base,
+        budgetMin: Number.NaN,
+        budgetMax: 1000,
+        budgetRecommended: 5000,
+        transportOptions: { train: Number.POSITIVE_INFINITY },
+        recommendedVisitHours: { min: 4, max: 2 },
+        ratings: { overall: Number.NaN } as never,
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toEqual(
+      expect.arrayContaining([
+        "NONFINITE_USER_NUMBER",
+        "NONFINITE_TRANSPORT_VALUE",
+        "INVALID_VISIT_HOURS_RANGE",
+        "NONFINITE_RATING",
+      ]),
+    );
+    expect(r.passed).toBe(false);
+  });
+
+  it("fails unfinished migration text", async () => {
+    const r = await run([{ ...base, notes: "Municipal hub created in" }]);
+    expect(r.passed).toBe(false);
+    expect(r.issues.map((i) => i.code)).toContain("QA_TEXT_LEAK");
+  });
+
+  it("checks localized fields for deterministic migration text", async () => {
+    const r = await run([
+      {
+        ...base,
+        content: {
+          en: {
+            name: "Test",
+            description: "ok",
+            highlights: [],
+            notes: "Municipal hub created in",
+          },
+        },
+      },
+    ]);
+    expect(r.issues.map((i) => i.code)).toContain("QA_TEXT_LEAK");
+  });
+
   it("flags island rail claims on isIsland zones", async () => {
     const r = await run([
       {
@@ -318,5 +365,26 @@ describe("KAI-87 data quality validator", () => {
       { ...base, id: "c", transportOptions: { train: 200 } },
     ]);
     expect(r.issues.map((i) => i.code)).toContain("TEMPLATE_TRANSPORT_CLUSTER");
+  });
+
+  it("flags repeated destination-template descriptions as warning debt", async () => {
+    const r = await run([
+      {
+        ...base,
+        description: "A visitor destination in Kyoto City.",
+        content: {
+          en: {
+            name: "Template",
+            description: "A visitor destination in Kyoto City.",
+          },
+        },
+      },
+    ]);
+    expect(r.passed).toBe(true);
+    expect(
+      r.issues.some(
+        (i) => i.code === "GENERIC_TEMPLATE_COPY" && i.severity === "warning",
+      ),
+    ).toBe(true);
   });
 });

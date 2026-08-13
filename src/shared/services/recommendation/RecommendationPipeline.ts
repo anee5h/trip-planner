@@ -346,16 +346,23 @@ export function runRecommendationPipeline(
       // mode remains a ranking input; the displayed canonical estimate is the
       // source of truth for the card's mode and matching budget status. Its
       // evidence still distinguishes bounded access from a verified corridor.
-      const cardTransportMode =
-        transportEstimate?.mode ?? scoreResult.bestMode ?? "train";
-      const budgetResult = getEstimatedBudgetRange(
-        candidate,
-        cardTransportMode,
-        context.partySize,
-        context.budgetTier,
-        context.homeStationCoords || undefined,
-        context.ferryTemporal,
-      );
+      const cardTransportMode = transportEstimate?.mode ?? scoreResult.bestMode;
+      const budgetResult = cardTransportMode
+        ? getEstimatedBudgetRange(
+            candidate,
+            cardTransportMode,
+            context.partySize,
+            context.budgetTier,
+            context.homeStationCoords || undefined,
+            context.ferryTemporal,
+          )
+        : {
+            range: null,
+            transportIncluded: false,
+            transportFareScope: "unknown" as const,
+            durationIncluded: false,
+            food: null,
+          };
       const estimatedCostRange =
         budgetResult.transportIncluded &&
         budgetResult.durationIncluded &&

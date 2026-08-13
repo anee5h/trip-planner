@@ -60,7 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Nagasaki City travel hub in Nagasaki Prefecture.",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

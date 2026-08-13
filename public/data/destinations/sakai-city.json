@@ -60,7 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Sakai City travel hub in Osaka Prefecture.",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

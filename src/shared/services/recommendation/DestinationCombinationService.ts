@@ -15,7 +15,7 @@ export interface DestinationCombo {
   estimatedInterTravelMinutes: number;
   combinedVisitHours: [number, number];
   combinedTotalHours: [number, number];
-  combinedBudgetRange: [number, number];
+  combinedBudgetRange: [number, number] | null;
   combinedMaxMinutes?: number;
   isWeatherMatched: boolean;
   reasonCode: string;
@@ -156,15 +156,18 @@ export function findNearbyCombinations(
 
     const clampedTotalMaxMins = Math.min(600, totalMaxMins);
 
-    const pMinCost = primary.budgetMin ?? 0;
-    const pMaxCost = primary.budgetMax ?? 0;
-    const sMinCost = secondary.budgetMin ?? 0;
-    const sMaxCost = secondary.budgetMax ?? 0;
-
-    const combinedBudgetRange: [number, number] = [
-      pMinCost + sMinCost,
-      pMaxCost + sMaxCost,
-    ];
+    const hasPriceRange = (place: Destination) =>
+      Number.isFinite(place.budgetMin) &&
+      Number.isFinite(place.budgetMax) &&
+      place.budgetMin >= 0 &&
+      place.budgetMin <= place.budgetMax;
+    const combinedBudgetRange: [number, number] | null =
+      hasPriceRange(primary) && hasPriceRange(secondary)
+        ? [
+            primary.budgetMin + secondary.budgetMin,
+            primary.budgetMax + secondary.budgetMax,
+          ]
+        : null;
 
     const primaryName = primary.name;
     const secondaryName = secondary.name;

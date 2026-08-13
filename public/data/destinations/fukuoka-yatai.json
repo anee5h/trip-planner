@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Fukuoka Yatai",
-      "description": "Fukuoka Yatai is a visitor destination in Fukuoka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+      "description": "At dusk, more than 100 food stalls open around Fukuoka, serving ramen, oden, gyoza, yakitori, and other local dishes.",
       "highlights": ["Food", "Market"],
       "openingHours": "Typically 18:00–02:00"
     },
     "ja": {
       "name": "福岡の屋台",
-      "description": "福岡の屋台はFukuoka Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "福岡の屋台は夕暮れから市内各地に開店し、ラーメン、冬のおでん、餃子、焼き鳥など多彩な料理を味わえる福岡名物です。",
       "highlights": ["グルメ", "市場"],
       "openingHours": "通常 18:00～02:00"
     }
@@ -41,7 +41,7 @@
     "lat": 33.590514,
     "lng": 130.408067
   },
-  "description": "Fukuoka Yatai is a visitor destination in Fukuoka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+  "description": "At dusk, more than 100 food stalls open around Fukuoka, serving ramen, oden, gyoza, yakitori, and other local dishes.",
   "highlights": ["Food", "Market"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -101,7 +101,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -125,9 +124,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-08-04",
+    "checkedAt": "2026-08-13",
     "freshness": "current",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
+    "changeSummary": "KAI-89 source-backed template-copy correction",
     "fieldSources": {
       "ratings": [
         {
@@ -144,6 +143,30 @@
           "title": "Fukuoka Yatai",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://gofukuoka.jp/yatai/",
+          "title": "Fukuoka Yatai official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://gofukuoka.jp/yatai/",
+          "title": "Fukuoka Yatai official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://gofukuoka.jp/yatai/",
+          "title": "Fukuoka Yatai official website",
+          "accessedAt": "2026-08-13"
+        }
       ]
     },
     "changes": [
@@ -157,6 +180,12 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
         "method": "assisted"
       }
     ],

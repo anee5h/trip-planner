@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Kobe Port Tower",
-      "description": "Kobe Port Tower is a visitor destination in Kobe City.  Visitors can experience the area's character and main sights.",
+      "description": "A landmark Kobe tower with observation spaces and panoramic views over the harbor, city, and surrounding mountains.",
       "highlights": ["Viewpoint"]
     },
     "ja": {
       "name": "神戸ポートタワー",
-      "description": "神戸ポートタワーはKobe Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "神戸ポートタワーは、港や市街地、六甲山系を望む展望空間を備えた神戸のランドマークです。",
       "highlights": ["展望"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 34.6825,
     "lng": 135.18666666667
   },
-  "description": "Kobe Port Tower is a visitor destination in Kobe City.  Visitors can experience the area's character and main sights.",
+  "description": "A landmark Kobe tower with observation spaces and panoramic views over the harbor, city, and surrounding mountains.",
   "highlights": ["Viewpoint"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -99,7 +99,6 @@
   "weatherDependence": "moderate",
   "reservation": "Check the official website before visiting.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -116,7 +115,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Kobe Port Tower is a visitor destination in Kobe City.  Visitors can experience the area's character and main sights.",
+    "editorialSummary": "A landmark Kobe tower with observation spaces and panoramic views over the harbor, city, and surrounding mountains.",
     "lifecycle": "published",
     "sources": [
       {
@@ -133,8 +132,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.kobe-port-tower.com/",
+          "title": "Kobe Port Tower official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.kobe-port-tower.com/",
+          "title": "Kobe Port Tower official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.kobe-port-tower.com/",
+          "title": "Kobe Port Tower official website",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Meriken Park",
-      "description": "Meriken Park is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "A Kobe waterfront park around the Port Tower and Maritime Museum, with harbor promenades and the BE KOBE monument.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "メリケンパーク",
-      "description": "メリケンパークはKobe Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "メリケンパークは神戸ポートタワーや神戸海洋博物館を囲む港の公園で、海辺の散策とBE KOBEモニュメントを楽しめます。",
       "highlights": ["自然"]
     }
   },
@@ -37,7 +37,7 @@
     "lat": 34.68166667,
     "lng": 135.18833333
   },
-  "description": "Meriken Park is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "A Kobe waterfront park around the Port Tower and Maritime Museum, with harbor promenades and the BE KOBE monument.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -97,7 +97,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -108,7 +107,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Meriken Park is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "editorialSummary": "A Kobe waterfront park around the Port Tower and Maritime Museum, with harbor promenades and the BE KOBE monument.",
     "lifecycle": "published",
     "sources": [
       {
@@ -125,8 +124,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.harborland.co.jp/",
+          "title": "Official website for Meriken Park",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.harborland.co.jp/",
+          "title": "Official website for Meriken Park",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.harborland.co.jp/",
+          "title": "Official website for Meriken Park",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

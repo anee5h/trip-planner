@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Chiba City Folk Museum",
-      "description": "Chiba City Folk Museum is a visitor destination in Chiba City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "A Chiba City museum that introduces local history through permanent, special, and planned exhibitions.",
       "highlights": ["Museum"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,9 +15,8 @@
     },
     "ja": {
       "name": "千葉市立郷土博物館",
-      "description": "千葉市立郷土博物館はChiba Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "千葉市立郷土博物館は、常設展・特別展・企画展などを通して千葉市の歴史を紹介する博物館です。",
       "highlights": ["千葉市立郷土博物館の名所"],
-      "notes": "千葉市立郷土博物館は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:30 - 17:00（最終入館 16:30）"
@@ -47,7 +46,7 @@
     "lat": 35.6046,
     "lng": 140.12716
   },
-  "description": "Chiba City Folk Museum is a visitor destination in Chiba City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "A Chiba City museum that introduces local history through permanent, special, and planned exhibitions.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -131,9 +130,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-08-02",
+    "checkedAt": "2026-08-13",
     "freshness": "current",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "changeSummary": "KAI-89 source-backed template-copy correction",
     "fieldSources": {
       "ratings": [
         {
@@ -150,6 +149,30 @@
           "title": "Chiba (city)",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "http://www.city.chiba.jp/kyoiku/shogaigakushu/bunkazai/kyodo/kyodo_top.html",
+          "title": "Chiba City Folk Museum official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "http://www.city.chiba.jp/kyoiku/shogaigakushu/bunkazai/kyodo/kyodo_top.html",
+          "title": "Chiba City Folk Museum official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "http://www.city.chiba.jp/kyoiku/shogaigakushu/bunkazai/kyodo/kyodo_top.html",
+          "title": "Chiba City Folk Museum official website",
+          "accessedAt": "2026-08-13"
+        }
       ]
     },
     "changes": [
@@ -164,6 +187,12 @@
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
       }
     ],
     "reviewedAt": "2026-08-02",
@@ -175,7 +204,6 @@
     "confidence": "low"
   },
   "businessHours": "09:30 - 17:00 (Closed Mondays)",
-  "notesJa": "千葉市立郷土博物館は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:30 - 17:00 (Last admission 16:30)",

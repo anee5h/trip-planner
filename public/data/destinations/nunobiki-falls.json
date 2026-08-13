@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Nunobiki Falls",
-      "description": "Nunobiki Falls is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "A set of waterfalls in the hills behind central Kobe, reached by walking trails near Shin-Kobe Station.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "布引の滝 (兵庫県)",
-      "description": "布引の滝 (兵庫県)はKobe Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "布引の滝は新神戸駅の近くから遊歩道で訪ねられる、神戸市街の背後の山中にある滝群です。",
       "highlights": ["自然"]
     }
   },
@@ -37,7 +37,7 @@
     "lat": 34.709722222222,
     "lng": 135.19388888889
   },
-  "description": "Nunobiki Falls is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "A set of waterfalls in the hills behind central Kobe, reached by walking trails near Shin-Kobe Station.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -97,7 +97,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -108,7 +107,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Nunobiki Falls is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "editorialSummary": "A set of waterfalls in the hills behind central Kobe, reached by walking trails near Shin-Kobe Station.",
     "lifecycle": "published",
     "sources": [
       {
@@ -125,8 +124,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.kobe-kankou.jp/",
+          "title": "Official website for Nunobiki Falls",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.kobe-kankou.jp/",
+          "title": "Official website for Nunobiki Falls",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.kobe-kankou.jp/",
+          "title": "Official website for Nunobiki Falls",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

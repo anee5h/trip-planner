@@ -60,7 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Takachiho Town travel hub in Miyazaki Prefecture.",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

@@ -716,7 +716,7 @@ export default function DestinationDetails() {
       partySize,
       homeStationCoords ?? undefined,
     );
-    if (cost === null) return copy.costUnavailable;
+    if (cost === null || !Number.isFinite(cost)) return copy.costUnavailable;
     const label =
       groundEstimateFor(mode)?.evidence === "estimated"
         ? copy.corridorFareOnly
@@ -840,6 +840,9 @@ export default function DestinationDetails() {
     );
   }
 
+  const detailOverallScore = Number.isFinite(destination.ratings?.overall)
+    ? destination.ratings.overall
+    : null;
   return (
     <div className="bg-slate-50 dark:bg-background min-h-screen pb-20">
       {/* Hero Image Header */}
@@ -1527,6 +1530,8 @@ export default function DestinationDetails() {
                                           budgetService.getEffectiveBudgetBreakdown(
                                             destination,
                                           );
+                                        if (!breakdown)
+                                          return copy.costUnavailable;
                                         return Math.round(
                                           ((breakdown.tickets +
                                             breakdown.food +
@@ -1535,16 +1540,20 @@ export default function DestinationDetails() {
                                             partySize,
                                         ).toLocaleString();
                                       })()
-                                    : budgetService
-                                        .getAdjustedBudget(
-                                          destination,
-                                          selectedTransport ?? "all",
-                                          partySize,
-                                          homeStationCoords ?? undefined,
-                                          homeStationTransportZoneId,
-                                          ferryTemporal,
-                                        )
-                                        .toLocaleString()}
+                                    : (() => {
+                                        const adjustedBudget =
+                                          budgetService.getAdjustedBudget(
+                                            destination,
+                                            selectedTransport ?? "all",
+                                            partySize,
+                                            homeStationCoords ?? undefined,
+                                            homeStationTransportZoneId,
+                                            ferryTemporal,
+                                          );
+                                        return adjustedBudget === null
+                                          ? copy.costUnavailable
+                                          : adjustedBudget.toLocaleString();
+                                      })()}
                                 </div>
                               </>
                             );
@@ -1590,6 +1599,13 @@ export default function DestinationDetails() {
                             budgetService.getEffectiveBudgetBreakdown(
                               destination,
                             );
+                          if (!breakdown) {
+                            return (
+                              <div className="text-sm text-slate-500">
+                                {copy.costUnavailable}
+                              </div>
+                            );
+                          }
                           return (
                             <div className="space-y-2 mt-auto">
                               <div className="flex justify-between text-sm border-b border-slate-100 dark:border-slate-800 pb-1.5 mt-1.5 first:mt-0">
@@ -2002,13 +2018,17 @@ export default function DestinationDetails() {
                                   {locale === "ja"
                                     ? "概算合計: "
                                     : "Estimated total: "}
-                                  {formatLocalizedJPYRange(
-                                    [
-                                      combo.combinedBudgetRange[0] * partySize,
-                                      combo.combinedBudgetRange[1] * partySize,
-                                    ],
-                                    locale,
-                                  )}
+                                  {combo.combinedBudgetRange
+                                    ? formatLocalizedJPYRange(
+                                        [
+                                          combo.combinedBudgetRange[0] *
+                                            partySize,
+                                          combo.combinedBudgetRange[1] *
+                                            partySize,
+                                        ],
+                                        locale,
+                                      )
+                                    : copy.costUnavailable}
                                 </span>
                               </div>
                             </div>
@@ -2106,8 +2126,11 @@ export default function DestinationDetails() {
           <div className="space-y-6">
             <Card className="bg-emerald-600 text-white border-none shadow-lg">
               <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="text-5xl font-extrabold mb-2">
-                  {destination.ratings.overall}
+                <div
+                  data-testid="destination-detail-score"
+                  className="text-5xl font-extrabold mb-2"
+                >
+                  {detailOverallScore ?? "N/A"}
                 </div>
                 <div className="text-emerald-100 font-medium tracking-widest uppercase text-sm mb-4">
                   {copy.overall}
@@ -2152,25 +2175,36 @@ export default function DestinationDetails() {
                       </div>
                     </div>
                   )}
-                  {destination.recommendedVisitHours && (
-                    <div className="flex items-center gap-3">
-                      <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
-                        <Timer className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                          {locale === "ja"
-                            ? "おすすめ滞在時間"
-                            : "Recommended visit"}
+                  {(() => {
+                    const visitHours = destination.recommendedVisitHours;
+                    if (
+                      !visitHours ||
+                      !Number.isFinite(visitHours.min) ||
+                      !Number.isFinite(visitHours.max) ||
+                      visitHours.min < 0 ||
+                      visitHours.min > visitHours.max
+                    ) {
+                      return null;
+                    }
+                    return (
+                      <div className="flex items-center gap-3">
+                        <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
+                          <Timer className="w-4 h-4" />
                         </div>
-                        <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-                          {destination.recommendedVisitHours.min}–
-                          {destination.recommendedVisitHours.max}{" "}
-                          {locale === "ja" ? "時間" : "hours"}
+                        <div>
+                          <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                            {locale === "ja"
+                              ? "おすすめ滞在時間"
+                              : "Recommended visit"}
+                          </div>
+                          <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+                            {visitHours.min}–{visitHours.max}{" "}
+                            {locale === "ja" ? "時間" : "hours"}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  )}
+                    );
+                  })()}
                   {destination.bestSeason && (
                     <div className="flex items-center gap-3">
                       <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
@@ -2201,8 +2235,11 @@ export default function DestinationDetails() {
                     localizedDestination?.highlights ??
                     destination.highlights ??
                     []
-                  ).map((h) => (
-                    <li key={h} className="flex items-start">
+                  ).map((h, index) => (
+                    <li
+                      key={`${destination.id}-${index}`}
+                      className="flex items-start"
+                    >
                       <div className="min-w-6 min-h-6 bg-slate-100 dark:bg-slate-800 text-emerald-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </div>

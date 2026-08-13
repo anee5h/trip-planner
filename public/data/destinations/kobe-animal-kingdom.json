@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Kobe Animal Kingdom",
-      "description": "Kobe Animal Kingdom is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "An indoor and outdoor animal park in Kobe where visitors can see animals and seasonal flowers in a close-up setting.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "神戸どうぶつ王国",
-      "description": "神戸どうぶつ王国はKobe Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "神戸どうぶつ王国は、屋内外の展示で動物を間近に見られ、季節の花も楽しめる神戸の動物園です。",
       "highlights": ["自然"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 34.65416667,
     "lng": 135.22305556
   },
-  "description": "Kobe Animal Kingdom is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "An indoor and outdoor animal park in Kobe where visitors can see animals and seasonal flowers in a close-up setting.",
   "highlights": ["Nature"],
   "budgetMin": 5000,
   "budgetRecommended": 7500,
@@ -99,7 +99,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -110,7 +109,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Kobe Animal Kingdom is a visitor destination in Kobe City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "editorialSummary": "An indoor and outdoor animal park in Kobe where visitors can see animals and seasonal flowers in a close-up setting.",
     "lifecycle": "published",
     "sources": [
       {
@@ -127,8 +126,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.kobe-oukoku.com/",
+          "title": "Kobe Animal Kingdom official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.kobe-oukoku.com/",
+          "title": "Kobe Animal Kingdom official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.kobe-oukoku.com/",
+          "title": "Kobe Animal Kingdom official website",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

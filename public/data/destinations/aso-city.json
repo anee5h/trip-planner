@@ -60,7 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Aso City travel hub in Kumamoto Prefecture.",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

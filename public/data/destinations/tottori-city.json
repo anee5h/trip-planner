@@ -60,7 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Tottori City travel hub in Tottori Prefecture.",
   "status": "beta",
   "travelEstimate": {
     "confidence": "beta"

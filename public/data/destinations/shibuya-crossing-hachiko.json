@@ -8,7 +8,6 @@
       "name": "Shibuya Crossing and Hachiko",
       "description": "The world's busiest pedestrian intersection and iconic meeting landmark anchored by the beloved loyalty statue of Hachiko. Thousands cross simultaneously surrounded by giant digital screens and neon displays.",
       "highlights": ["Culture", "Landmark", "Photography"],
-      "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
       "openingHours": "09:00 - 17:00"
@@ -21,7 +20,6 @@
         "渋谷スクランブル交差点と忠犬ハチ公像の名所",
         "渋谷スクランブル交差点と忠犬ハチ公像の名所"
       ],
-      "notes": "渋谷スクランブル交差点と忠犬ハチ公像は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"
@@ -106,7 +104,6 @@
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
-  "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -152,7 +149,6 @@
     "attribution": "Benh LIEU SONG (Flickr)",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg"
   },
-  "notesJa": "渋谷スクランブル交差点と忠犬ハチ公像は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",

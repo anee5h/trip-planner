@@ -11,6 +11,7 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Kabira_Bay_Ishigaki_Island40bs3s4592.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Ishigaki_montage.JPG/1280px-Ishigaki_montage.JPG",
   "description": "Yaeyama archipelago tropical island hub, famous for Kabira Bay turquoise waters, coral reefs, and stargazing.",
+  "notes": "Yaeyama island hub with Kabira Bay, coral reefs, and ferry access to nearby islands.",
   "highlights": ["Explore Ishigaki City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
@@ -59,7 +60,6 @@
   "transportOptions": {},
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Ishigaki City travel hub in Okinawa Prefecture.",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

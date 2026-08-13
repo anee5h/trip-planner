@@ -61,7 +61,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Hakodate City travel hub in Hokkaido Prefecture.",
   "status": "beta",
   "travelEstimate": {
     "confidence": "beta"

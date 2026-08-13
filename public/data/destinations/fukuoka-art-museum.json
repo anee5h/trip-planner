@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Fukuoka Art Museum",
-      "description": "Fukuoka Art Museum is a visitor destination in Fukuoka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "An art museum in Ohori Park designed by Kunio Maekawa, reopened after renovation in 2019 with Western, Asian, and modern art collections.",
       "highlights": ["Museum"],
       "openingHours": "09:30–17:30 (Jul-Oct Fri/Sat until 20:00)"
     },
     "ja": {
       "name": "福岡市美術館",
-      "description": "福岡市美術館はFukuoka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "福岡市美術館は大濠公園の中にある前川國男設計の美術館で、2019年のリニューアル後も西洋・東洋美術や現代美術を紹介しています。",
       "highlights": ["博物館"],
       "openingHours": "09:30～17:30（7～10月の金・土は20:00まで）"
     }
@@ -41,7 +41,7 @@
     "lat": 33.58383,
     "lng": 130.37951
   },
-  "description": "Fukuoka Art Museum is a visitor destination in Fukuoka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "An art museum in Ohori Park designed by Kunio Maekawa, reopened after renovation in 2019 with Western, Asian, and modern art collections.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -101,7 +101,6 @@
   "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -125,9 +124,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-08-04",
+    "checkedAt": "2026-08-13",
     "freshness": "current",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
+    "changeSummary": "KAI-89 source-backed template-copy correction",
     "fieldSources": {
       "ratings": [
         {
@@ -144,6 +143,30 @@
           "title": "Fukuoka Art Museum",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.fukuoka-art-museum.jp/",
+          "title": "Fukuoka Art Museum official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.fukuoka-art-museum.jp/",
+          "title": "Fukuoka Art Museum official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.fukuoka-art-museum.jp/",
+          "title": "Fukuoka Art Museum official website",
+          "accessedAt": "2026-08-13"
+        }
       ]
     },
     "changes": [
@@ -157,6 +180,12 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
         "method": "assisted"
       }
     ],

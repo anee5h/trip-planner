@@ -10,6 +10,7 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/47/Okinawa_Aquarium.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Ocean_Expo_Park.JPG",
   "description": "Oceanic resort town home to Okinawa Churaumi Aquarium, Emerald Beach, and Bise Fukugi Tree Avenue.",
+  "notes": "Resort town centered on Churaumi Aquarium, Emerald Beach, and Bise Fukugi Tree Avenue.",
   "highlights": ["Explore Motobu Town", "Local Culture & Cuisine"],
   "totalTripHours": 6,
   "budgetMin": 3500,
@@ -58,7 +59,6 @@
   "transportOptions": {},
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Motobu Town travel hub in Okinawa Prefecture.",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

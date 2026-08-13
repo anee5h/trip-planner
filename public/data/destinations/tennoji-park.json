@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Tennoji Park",
-      "description": "Tennoji Park is a visitor destination in Osaka City.  Visitors can experience historic architecture and local culture.",
+      "description": "An urban Osaka park with landscaped grounds and cultural attractions near Tennoji and the city zoo.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "天王寺公園",
-      "description": "天王寺公園はOsaka Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "天王寺公園は、天王寺動物園や文化施設に近く、緑の中を散策できる大阪市内の公園です。",
       "highlights": ["歴史"]
     }
   },
@@ -38,7 +38,7 @@
     "lat": 34.65,
     "lng": 135.51
   },
-  "description": "Tennoji Park is a visitor destination in Osaka City.  Visitors can experience historic architecture and local culture.",
+  "description": "An urban Osaka park with landscaped grounds and cultural attractions near Tennoji and the city zoo.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -99,7 +99,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Osaka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -110,7 +109,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Tennoji Park is a visitor destination in Osaka City.  Visitors can experience historic architecture and local culture.",
+    "editorialSummary": "An urban Osaka park with landscaped grounds and cultural attractions near Tennoji and the city zoo.",
     "lifecycle": "published",
     "sources": [
       {
@@ -127,8 +126,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.city.osaka.lg.jp/contents/wdu170/tennojizoo/top.html",
+          "title": "Tennoji Park official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.city.osaka.lg.jp/contents/wdu170/tennojizoo/top.html",
+          "title": "Tennoji Park official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.city.osaka.lg.jp/contents/wdu170/tennojizoo/top.html",
+          "title": "Tennoji Park official website",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

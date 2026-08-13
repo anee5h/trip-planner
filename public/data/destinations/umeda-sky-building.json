@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Umeda Sky Building",
-      "description": "Umeda Sky Building is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+      "description": "A pair of towers joined by the Kuchu Teien Observatory, offering open-air views over Osaka from the Floating Garden.",
       "highlights": ["Culture"]
     },
     "ja": {
       "name": "梅田スカイビル",
-      "description": "梅田スカイビルはOsaka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "梅田スカイビルは二つの高層棟を空中庭園展望台で結び、大阪の街を見渡せるランドマークです。",
       "highlights": ["文化"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 34.705277777778,
     "lng": 135.48972222222
   },
-  "description": "Umeda Sky Building is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+  "description": "A pair of towers joined by the Kuchu Teien Observatory, offering open-air views over Osaka from the Floating Garden.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -100,7 +100,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Osaka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -122,7 +121,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Umeda Sky Building is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+    "editorialSummary": "A pair of towers joined by the Kuchu Teien Observatory, offering open-air views over Osaka from the Floating Garden.",
     "lifecycle": "published",
     "sources": [
       {
@@ -139,8 +138,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "http://www.skybldg.co.jp/skybldg/",
+          "title": "Umeda Sky Building official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "http://www.skybldg.co.jp/skybldg/",
+          "title": "Umeda Sky Building official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "http://www.skybldg.co.jp/skybldg/",
+          "title": "Umeda Sky Building official website",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

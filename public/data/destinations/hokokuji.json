@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Hokokuji",
-      "description": "Hokokuji is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+      "description": "A Kamakura temple where visitors can experience Japanese history and culture through traditional events, zazen, and its celebrated bamboo garden.",
       "highlights": ["History"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "報国寺",
-      "description": "報国寺 (鎌倉市)はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "報国寺は竹の庭や伝統行事、坐禅会を通して日本の歴史と文化を体験できる鎌倉の寺院です。",
       "highlights": ["報国寺の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.32,
     "lng": 139.5693
   },
-  "description": "Hokokuji is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+  "description": "A Kamakura temple where visitors can experience Japanese history and culture through traditional events, zazen, and its celebrated bamboo garden.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -130,9 +130,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-08-02",
+    "checkedAt": "2026-08-13",
     "freshness": "current",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "changeSummary": "KAI-89 source-backed template-copy correction",
     "fieldSources": {
       "ratings": [
         {
@@ -149,6 +149,30 @@
           "title": "Hōkoku-ji",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://houkokuji.or.jp/",
+          "title": "Hokokuji official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://houkokuji.or.jp/",
+          "title": "Hokokuji official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://houkokuji.or.jp/",
+          "title": "Hokokuji official website",
+          "accessedAt": "2026-08-13"
+        }
       ]
     },
     "changes": [
@@ -162,6 +186,12 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
         "method": "assisted"
       }
     ],

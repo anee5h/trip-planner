@@ -71,7 +71,6 @@
   "weatherDependence": "moderate",
   "reservation": "Not usually required; reserve popular accommodation in advance.",
   "parking": "Available around major attractions; confirm local restrictions.",
-  "notes": "Municipal hub record reviewed for strict city-boundary relationships.",
   "relationships": {
     "featuredDestinationIds": [
       "marugame-castle",

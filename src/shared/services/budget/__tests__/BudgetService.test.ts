@@ -44,6 +44,39 @@ describe("BudgetService", () => {
     expect(formatLocalizedJPYRange([7000, 26000], "ja")).toBe("¥7千〜2.6万");
   });
 
+  it("does not render malformed or unknown prices", () => {
+    expect(formatLocalizedJPYRange([Number.NaN, Number.NaN], "en")).toBe(
+      "Cost unavailable",
+    );
+    expect(formatLocalizedJPYRange(undefined, "ja")).toBe("料金不明");
+    expect(formatLocalizedJPYRange([3000, 1000], "en")).toBe(
+      "Cost unavailable",
+    );
+  });
+
+  it("normalizes invalid party size without producing NaN totals", () => {
+    const result = calculateItemizedTripCost(mockPaidDest, {
+      activeMode: "train",
+      partySize: Number.NaN,
+    });
+    expect(result.partyRange.every(Number.isFinite)).toBe(true);
+  });
+
+  it("keeps missing budget data distinct from free admission", () => {
+    const unknown = {
+      ...mockPaidDest,
+      budgetMin: undefined,
+      budgetMax: undefined,
+      budgetRecommended: undefined,
+      budgetBreakdown: undefined,
+      categories: ["Museum"],
+    } as unknown as Destination;
+    const result = calculateItemizedTripCost(unknown);
+    expect(result.budgetAvailable).toBe(false);
+    expect(result.isFreeTicket).toBe(false);
+    expect(formatLocalizedJPYRange(null, "en")).toBe("Cost unavailable");
+  });
+
   it("identifies free destinations accurately", () => {
     expect(isFreeDestination(mockFreeDest)).toBe(true);
     expect(isFreeDestination(mockPaidDest)).toBe(false);
@@ -352,14 +385,16 @@ describe("BudgetService", () => {
       ).toBe("corridor_only");
     });
 
-    it("canonical catchment mode is not vetoed by stale transportOptions", () => {
+    it("canonical catchment mode stays transport-visible when budget is unknown", () => {
       const osaka = dest("osaka-dest", "Osaka", "Osaka:osaka");
-      const onsiteBudget = (5000 - 3000) / 2;
       const corridorFare = Math.floor(((3300 + 19000) / 2) * 2);
 
+      expect(getTransportCost(osaka, "bus", 1, SHINAGAWA_COORDS)).toBe(
+        corridorFare,
+      );
       expect(
         getAdjustedBudget(osaka, "bus", 1, SHINAGAWA_COORDS, "mainland-honshu"),
-      ).toBe(onsiteBudget + corridorFare);
+      ).toBeNull();
     });
 
     it("round-trip × party scaling applies to the verified fare", () => {

@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Nankinmachi Chinatown",
-      "description": "Nankinmachi Chinatown is a visitor destination in Kobe City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+      "description": "One of Japan’s major Chinatowns, Kobe’s Nankinmachi combines Chinese-style streets, restaurants, shops, and seasonal events.",
       "highlights": ["Shopping", "Food"]
     },
     "ja": {
       "name": "南京町 (神戸市)",
-      "description": "南京町 (神戸市)はKobe Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "南京町は日本三大中華街の一つで、中華料理や買い物、イベントを楽しめる神戸元町の街区です。",
       "highlights": ["ショッピング", "グルメ"]
     }
   },
@@ -38,7 +38,7 @@
     "lat": 34.68805556,
     "lng": 135.18805556
   },
-  "description": "Nankinmachi Chinatown is a visitor destination in Kobe City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+  "description": "One of Japan’s major Chinatowns, Kobe’s Nankinmachi combines Chinese-style streets, restaurants, shops, and seasonal events.",
   "highlights": ["Shopping", "Food"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -98,7 +98,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -109,7 +108,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Nankinmachi Chinatown is a visitor destination in Kobe City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+    "editorialSummary": "One of Japan’s major Chinatowns, Kobe’s Nankinmachi combines Chinese-style streets, restaurants, shops, and seasonal events.",
     "lifecycle": "published",
     "sources": [
       {
@@ -126,8 +125,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.nankinmachi.or.jp/",
+          "title": "Nankinmachi Chinatown official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.nankinmachi.or.jp/",
+          "title": "Nankinmachi Chinatown official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.nankinmachi.or.jp/",
+          "title": "Nankinmachi Chinatown official website",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

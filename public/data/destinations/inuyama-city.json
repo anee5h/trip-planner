@@ -60,7 +60,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Inuyama City travel hub in Aichi Prefecture.",
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"

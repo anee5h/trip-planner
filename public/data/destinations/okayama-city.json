@@ -62,7 +62,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Okayama City travel hub in Okayama Prefecture.",
   "status": "beta",
   "travelEstimate": {
     "confidence": "beta"

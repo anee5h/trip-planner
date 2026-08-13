@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Canal City Hakata",
-      "description": "Canal City Hakata is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
+      "description": "A large Hakata shopping and entertainment complex with shops, restaurants, cafes, cinemas, hotels, events, and a canal running through the site.",
       "highlights": ["Culture", "Shopping"],
       "openingHours": "10:00–21:00 (Shops), 11:00–23:00 (Restaurants)"
     },
     "ja": {
       "name": "キャナルシティ博多",
-      "description": "キャナルシティ博多はFukuoka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "キャナルシティ博多は、ショッピング、飲食、映画館、ホテル、イベントなどが集まる博多の大型複合エンターテインメント施設です。",
       "highlights": ["文化", "ショッピング"],
       "openingHours": "10:00～21:00（ショップ）、11:00～23:00（レストラン）"
     }
@@ -41,7 +41,7 @@
     "lat": 33.59111111,
     "lng": 130.41055556
   },
-  "description": "Canal City Hakata is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
+  "description": "A large Hakata shopping and entertainment complex with shops, restaurants, cafes, cinemas, hotels, events, and a canal running through the site.",
   "highlights": ["Culture", "Shopping"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -101,7 +101,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -125,9 +124,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-08-04",
+    "checkedAt": "2026-08-13",
     "freshness": "current",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
+    "changeSummary": "KAI-89 source-backed template-copy correction",
     "fieldSources": {
       "ratings": [
         {
@@ -144,6 +143,30 @@
           "title": "Canal City Hakata",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://canalcity.co.jp/",
+          "title": "Canal City Hakata official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://canalcity.co.jp/",
+          "title": "Canal City Hakata official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://canalcity.co.jp/",
+          "title": "Canal City Hakata official website",
+          "accessedAt": "2026-08-13"
+        }
       ]
     },
     "changes": [
@@ -157,6 +180,12 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
         "method": "assisted"
       }
     ],

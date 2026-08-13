@@ -8,7 +8,7 @@ import { getOriginAwareTransportEstimate } from "./OriginAwareTransportService";
 export interface PreferredTransport {
   mode: string;
   timeRange: [number, number];
-  estimatedBudget: number;
+  estimatedBudget: number | null;
   evidence: "verified" | "estimated";
   corridorEvidence?: "verified";
 }

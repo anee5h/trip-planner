@@ -170,6 +170,46 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(result.score).toBeGreaterThan(-100);
   });
 
+  it("does not turn missing numeric evidence into a positive recommendation signal", () => {
+    const context = {
+      tripType: "any" as const,
+      budget: 20000,
+      carMode: "none",
+      publicModes: ["train"],
+      partySize: 1,
+      visitedIds: [],
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+    };
+    const complete = calculateScore(
+      {
+        ...mockDest,
+        ratings: {
+          ...mockDest.ratings,
+          overall: 5,
+          food: 5,
+          photography: 5,
+          summer: 5,
+          winter: 5,
+        },
+        season: { spring: 5, summer: 5, autumn: 5, winter: 5 },
+      },
+      context,
+    );
+    const incomplete = calculateScore(
+      {
+        ...mockDest,
+        budgetMin: undefined,
+        budgetRecommended: undefined,
+        budgetMax: undefined,
+        ratings: {} as Destination["ratings"],
+        season: undefined,
+      } as unknown as Destination,
+      context,
+    );
+
+    expect(incomplete.score).toBeLessThanOrEqual(complete.score);
+  });
+
   it("retains every authorized user-allowed mode regardless of budget tier", () => {
     const carDestination = {
       ...mockDest,

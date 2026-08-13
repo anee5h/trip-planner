@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Shinsaibashi",
-      "description": "Shinsaibashi is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+      "description": "A major Osaka shopping street with about 180 member shops, map-based browsing, dining, and local events.",
       "highlights": ["Culture"]
     },
     "ja": {
       "name": "心斎橋",
-      "description": "心斎橋はOsaka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "心斎橋筋商店街は約180の加盟店が並び、買い物や食事、イベントを楽しめる大阪ミナミの商店街です。",
       "highlights": ["文化"]
     }
   },
@@ -37,7 +37,7 @@
     "lat": 34.6725,
     "lng": 135.5
   },
-  "description": "Shinsaibashi is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+  "description": "A major Osaka shopping street with about 180 member shops, map-based browsing, dining, and local events.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -98,7 +98,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Osaka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -109,7 +108,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Shinsaibashi is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+    "editorialSummary": "A major Osaka shopping street with about 180 member shops, map-based browsing, dining, and local events.",
     "lifecycle": "published",
     "sources": [
       {
@@ -126,8 +125,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.shinsaibashi.or.jp/",
+          "title": "Official website for Shinsaibashi",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.shinsaibashi.or.jp/",
+          "title": "Official website for Shinsaibashi",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.shinsaibashi.or.jp/",
+          "title": "Official website for Shinsaibashi",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

@@ -61,7 +61,6 @@
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Kobe City travel hub in Hyogo Prefecture.",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"

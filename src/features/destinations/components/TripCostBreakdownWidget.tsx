@@ -84,6 +84,7 @@ export function TripCostBreakdownWidget({
         partyRange: planCostBreakdown.totalRange,
         perPersonRange: planCostBreakdown.totalRange,
         durationKnown: true,
+        budgetAvailable: true,
       };
     }
     return calculateItemizedTripCost(destination, {
@@ -105,6 +106,7 @@ export function TripCostBreakdownWidget({
     viewMode === "party"
       ? range
       : [Math.round(range[0] / partySize), Math.round(range[1] / partySize)];
+  const hasKnownCost = Boolean(planCostBreakdown || cost.budgetAvailable);
   const transportRange: [number, number] = planCostBreakdown
     ? [
         planCostBreakdown.originTransport.min +
@@ -129,11 +131,11 @@ export function TripCostBreakdownWidget({
     : [cost.parking, cost.parking];
   const hasMeals = planCostBreakdown
     ? planCostBreakdown.meals.applicable
-    : cost.food !== null;
+    : hasKnownCost && cost.food !== null;
   const hasCafe = !planCostBreakdown && cafeRange[1] > 0;
   const hasTransport = planCostBreakdown
     ? planCostBreakdown.localTransit.applicable
-    : cost.transportAvailable && transportRange[1] > 0;
+    : hasKnownCost && cost.transportAvailable && transportRange[1] > 0;
   const hasParking = planCostBreakdown
     ? planCostBreakdown.parking.applicable
     : parkingRange[1] > 0;
@@ -250,7 +252,11 @@ export function TripCostBreakdownWidget({
                 {locale === "ja" ? "概算合計" : "Est. Range"}
               </div>
               <div className="text-base font-extrabold text-slate-900 dark:text-white">
-                {formatLocalizedJPYRange(totalRange, locale)}
+                {hasKnownCost
+                  ? formatLocalizedJPYRange(totalRange, locale)
+                  : locale === "ja"
+                    ? "料金不明"
+                    : "Cost unavailable"}
               </div>
             </div>
 
@@ -325,7 +331,11 @@ export function TripCostBreakdownWidget({
                       : "Per Person Total"}
                 </span>
                 <div className="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">
-                  {formatLocalizedJPYRange(displayedTotalRange, locale)}
+                  {hasKnownCost
+                    ? formatLocalizedJPYRange(displayedTotalRange, locale)
+                    : locale === "ja"
+                      ? "料金不明"
+                      : "Cost unavailable"}
                 </div>
               </div>
 
@@ -379,20 +389,24 @@ export function TripCostBreakdownWidget({
                       : "Admission Tickets"}
                   </span>
                   <span className="text-slate-900 dark:text-white">
-                    {cost.isFreeTicket
+                    {!hasKnownCost
                       ? locale === "ja"
-                        ? "無料"
-                        : "Free"
-                      : planCostBreakdown?.admission.source === "unknown"
+                        ? "料金不明"
+                        : "Cost unavailable"
+                      : cost.isFreeTicket
                         ? locale === "ja"
-                          ? "変動・未確認"
-                          : "Variable / unknown admission"
-                        : formatLocalizedJPYRange(
-                            viewMode === "party"
-                              ? admissionRange
-                              : displayRange(admissionRange),
-                            locale,
-                          )}
+                          ? "無料"
+                          : "Free"
+                        : planCostBreakdown?.admission.source === "unknown"
+                          ? locale === "ja"
+                            ? "変動・未確認"
+                            : "Variable / unknown admission"
+                          : formatLocalizedJPYRange(
+                              viewMode === "party"
+                                ? admissionRange
+                                : displayRange(admissionRange),
+                              locale,
+                            )}
                   </span>
                 </div>
                 <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
@@ -558,14 +572,20 @@ export function TripCostBreakdownWidget({
                           </h5>
                           <div className="text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1 font-semibold">
                             <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
-                            {alt.budgetMin === 0
+                            {!Number.isFinite(alt.budgetMin) ||
+                            !Number.isFinite(alt.budgetMax) ||
+                            alt.budgetMin > alt.budgetMax
                               ? locale === "ja"
-                                ? "無料"
-                                : "Free"
-                              : formatLocalizedJPYRange(
-                                  [alt.budgetMin, alt.budgetMax],
-                                  locale,
-                                )}
+                                ? "料金不明"
+                                : "Cost unavailable"
+                              : alt.budgetMin === 0
+                                ? locale === "ja"
+                                  ? "無料"
+                                  : "Free"
+                                : formatLocalizedJPYRange(
+                                    [alt.budgetMin, alt.budgetMax],
+                                    locale,
+                                  )}
                           </div>
                         </div>
                       </Link>

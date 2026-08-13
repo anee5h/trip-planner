@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Chiba Zoological Park",
-      "description": "Chiba Zoological Park is a visitor destination in Chiba City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "A city zoo in Chiba with animal exhibits, outdoor paths, and direct access from the Chiba Monorail.",
       "highlights": ["Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "千葉市動物公園",
-      "description": "千葉市動物公園はChiba Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "千葉市動物公園は、動物展示や園内散策を楽しめ、千葉都市モノレールからもアクセスしやすい市立動物園です。",
       "highlights": ["千葉市動物公園の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,7 +47,7 @@
     "lat": 35.644444,
     "lng": 140.1255
   },
-  "description": "Chiba Zoological Park is a visitor destination in Chiba City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "A city zoo in Chiba with animal exhibits, outdoor paths, and direct access from the Chiba Monorail.",
   "highlights": ["Nature"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -131,9 +131,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-08-02",
+    "checkedAt": "2026-08-13",
     "freshness": "current",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "changeSummary": "KAI-89 source-backed template-copy correction",
     "fieldSources": {
       "ratings": [
         {
@@ -150,6 +150,30 @@
           "title": "Chiba Zoological Park",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.city.chiba.jp/zoo/",
+          "title": "Chiba Zoological Park official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.city.chiba.jp/zoo/",
+          "title": "Chiba Zoological Park official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.city.chiba.jp/zoo/",
+          "title": "Chiba Zoological Park official website",
+          "accessedAt": "2026-08-13"
+        }
       ]
     },
     "changes": [
@@ -163,6 +187,12 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
         "method": "assisted"
       }
     ],

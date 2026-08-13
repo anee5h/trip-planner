@@ -21,7 +21,6 @@ import { Badge } from "@/shared/components/ui/badge";
 import { Button } from "@/shared/components/ui/button";
 import {
   MapPin,
-  Train,
   TrainFront,
   Bus,
   Car,
@@ -172,6 +171,17 @@ export default function DestinationCard({
           score: t("destination.megurutoScore"),
           travelUnavailable: t("home.transportModes.travelUnavailable"),
         };
+  const overallScore = Number.isFinite(destination.ratings?.overall)
+    ? destination.ratings.overall
+    : null;
+  const visitHours = destination.recommendedVisitHours;
+  const hasValidVisitHours = Boolean(
+    visitHours &&
+    Number.isFinite(visitHours.min) &&
+    Number.isFinite(visitHours.max) &&
+    visitHours.min >= 0 &&
+    visitHours.min <= visitHours.max,
+  );
 
   const scoredDestination = destination as Partial<ScoredDestination>;
   const match = scoredDestination.match;
@@ -356,11 +366,11 @@ export default function DestinationCard({
           <div className="absolute bottom-3 right-3 z-20 flex items-center rounded-lg border border-white/80 bg-white/90 px-2.5 py-1 shadow-sm backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-900/90">
             <span
               data-testid="meguruto-score"
-              title={`${cardCopy.score}: ${destination.ratings.overall}`}
-              aria-label={`${cardCopy.score}: ${destination.ratings.overall}`}
+              title={`${cardCopy.score}: ${overallScore ?? "N/A"}`}
+              aria-label={`${cardCopy.score}: ${overallScore ?? "N/A"}`}
               className="text-xs font-bold text-slate-700 dark:text-slate-200 md:text-sm"
             >
-              {destination.ratings.overall}
+              {overallScore ?? "N/A"}
             </span>
           </div>
         )}
@@ -465,10 +475,9 @@ export default function DestinationCard({
                     // The Tokyo wards group shows the fastest shared gateway
                     // estimate across its members, not legacy transport options.
                     const gateway = wardGroup?.gatewayEstimate;
-                    const mode =
-                      gateway?.mode ?? preferredTransport?.mode ?? "train";
+                    const mode = gateway?.mode ?? preferredTransport?.mode;
 
-                    let Icon = Train;
+                    let Icon = MapPin;
                     if (mode === "car" || mode === "my_car") Icon = Car;
                     if (mode === "bus") Icon = Bus;
                     if (mode === "shinkansen") Icon = TrainFront;
@@ -508,10 +517,15 @@ export default function DestinationCard({
                     <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
                     <span className="truncate">
                       {formatLocalizedJPYRange(
-                        [
-                          destination.budgetMin * partySize,
-                          destination.budgetMax * partySize,
-                        ],
+                        Number.isFinite(destination.budgetMin) &&
+                          Number.isFinite(destination.budgetMax) &&
+                          destination.budgetMin >= 0 &&
+                          destination.budgetMin <= destination.budgetMax
+                          ? [
+                              destination.budgetMin * partySize,
+                              destination.budgetMax * partySize,
+                            ]
+                          : null,
                         locale,
                       )}
                       {partySize > 1
@@ -529,10 +543,10 @@ export default function DestinationCard({
                     <span className="truncate">
                       {durationEst
                         ? formatTripDurationLabel(durationEst, locale)
-                        : destination.recommendedVisitHours
+                        : hasValidVisitHours
                           ? locale === "ja"
-                            ? `滞在 ${destination.recommendedVisitHours.min}–${destination.recommendedVisitHours.max}時間`
-                            : `${destination.recommendedVisitHours.min}–${destination.recommendedVisitHours.max}h visit`
+                            ? `滞在 ${visitHours!.min}–${visitHours!.max}時間`
+                            : `${visitHours!.min}–${visitHours!.max}h visit`
                           : locale === "ja"
                             ? "滞在時間目安なし"
                             : "Visit time unavailable"}

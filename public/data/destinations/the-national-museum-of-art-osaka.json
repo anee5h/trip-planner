@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "The National Museum of Art, Osaka",
-      "description": "The National Museum of Art, Osaka is a visitor destination in Osaka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "An Osaka museum focused on postwar and contemporary art, housed in a distinctive underground building in Nakanoshima.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "国立国際美術館",
-      "description": "国立国際美術館はOsaka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "国立国際美術館は中之島の特徴的な地下建築にあり、戦後美術や現代美術を中心に紹介する美術館です。",
       "highlights": ["博物館"]
     }
   },
@@ -38,7 +38,7 @@
     "lat": 34.691786,
     "lng": 135.492024
   },
-  "description": "The National Museum of Art, Osaka is a visitor destination in Osaka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "An Osaka museum focused on postwar and contemporary art, housed in a distinctive underground building in Nakanoshima.",
   "highlights": ["Museum"],
   "budgetMin": 3000,
   "budgetRecommended": 5500,
@@ -99,7 +99,6 @@
   "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Osaka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -110,7 +109,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "The National Museum of Art, Osaka is a visitor destination in Osaka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "editorialSummary": "An Osaka museum focused on postwar and contemporary art, housed in a distinctive underground building in Nakanoshima.",
     "lifecycle": "published",
     "sources": [
       {
@@ -127,8 +126,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "http://www.nmao.go.jp",
+          "title": "The National Museum of Art, Osaka official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "http://www.nmao.go.jp",
+          "title": "The National Museum of Art, Osaka official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "http://www.nmao.go.jp",
+          "title": "The National Museum of Art, Osaka official website",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

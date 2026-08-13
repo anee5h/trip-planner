@@ -65,7 +65,6 @@
   },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
-  "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -111,7 +110,6 @@
         "Diagon Alley & Hogwarts Express",
         "Interactive Magic Experiences"
       ],
-      "notes": "A top recommended attraction in Tokyo, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
       "openingHours": "09:00 - 17:00"
@@ -124,7 +122,6 @@
         "ダイアゴン横丁とホグワーツ特急",
         "体験型アクティビティ"
       ],
-      "notes": "ワーナー ブラザース スタジオツアー東京 - ハリー・ポッターは、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"
@@ -135,7 +132,6 @@
     "method": "manual",
     "confidence": "high"
   },
-  "notesJa": "ワーナー ブラザース スタジオツアー東京 - ハリー・ポッターは、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",

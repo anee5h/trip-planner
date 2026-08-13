@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Enoshima Shrine",
-      "description": "Enoshima Shrine is a visitor destination in Fujisawa City.  Visitors can experience historic architecture and local culture.",
+      "description": "One of Japan’s three major Benzaiten shrines, Enoshima Shrine preserves the island’s long religious tradition across its wooded grounds.",
       "highlights": ["History"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "江島神社",
-      "description": "江島神社はFujisawa Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "江島神社は日本三大弁財天の一つで、緑豊かな江の島に伝わる長い信仰の歴史を今に伝える神社です。",
       "highlights": ["江島神社の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -46,7 +46,7 @@
     "lat": 35.30036111111111,
     "lng": 139.4796111111111
   },
-  "description": "Enoshima Shrine is a visitor destination in Fujisawa City.  Visitors can experience historic architecture and local culture.",
+  "description": "One of Japan’s three major Benzaiten shrines, Enoshima Shrine preserves the island’s long religious tradition across its wooded grounds.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -129,9 +129,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-08-02",
+    "checkedAt": "2026-08-13",
     "freshness": "current",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "changeSummary": "KAI-89 source-backed template-copy correction",
     "fieldSources": {
       "ratings": [
         {
@@ -148,6 +148,30 @@
           "title": "Enoshima Shrine",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "http://enoshimajinja.or.jp/",
+          "title": "Enoshima Shrine official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "http://enoshimajinja.or.jp/",
+          "title": "Enoshima Shrine official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "http://enoshimajinja.or.jp/",
+          "title": "Enoshima Shrine official website",
+          "accessedAt": "2026-08-13"
+        }
       ]
     },
     "changes": [
@@ -161,6 +185,12 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
         "method": "assisted"
       }
     ],

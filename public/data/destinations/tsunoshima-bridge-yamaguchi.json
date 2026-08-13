@@ -73,7 +73,6 @@
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "notes": "Tsunoshima Bridge located in Yamaguchi Prefecture.",
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],

@@ -62,7 +62,10 @@ export default function Compare() {
   const getMax = (arr: number[]) => Math.max(...arr);
 
   const budgets = compareDestinations.map((d) => getAdjustedBudget(d, "all"));
-  const minBudget = getMin(budgets);
+  const knownBudgets = budgets.filter(
+    (budget): budget is number => budget !== null,
+  );
+  const minBudget = knownBudgets.length > 0 ? getMin(knownBudgets) : null;
 
   const travelTimes = compareDestinations.map((d) => {
     const times = Object.values(d.transportOptions || {}).filter(
@@ -177,24 +180,29 @@ export default function Compare() {
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
                 Budget (Recommended)
               </TableCell>
-              {compareDestinations.map((dest) => (
-                <TableCell key={dest.id}>
-                  <span
-                    className={
-                      getAdjustedBudget(dest, "all") === minBudget
-                        ? "font-bold text-emerald-600 dark:text-emerald-400"
-                        : ""
-                    }
-                  >
-                    ¥{(getAdjustedBudget(dest, "all") / 1000).toFixed(0)}k
-                  </span>
-                  {getAdjustedBudget(dest, "all") === minBudget && (
-                    <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
-                      Lowest
-                    </Badge>
-                  )}
-                </TableCell>
-              ))}
+              {compareDestinations.map((dest) => {
+                const budget = getAdjustedBudget(dest, "all");
+                return (
+                  <TableCell key={dest.id}>
+                    <span
+                      className={
+                        budget !== null && budget === minBudget
+                          ? "font-bold text-emerald-600 dark:text-emerald-400"
+                          : ""
+                      }
+                    >
+                      {budget === null
+                        ? "N/A"
+                        : `¥${(budget / 1000).toFixed(0)}k`}
+                    </span>
+                    {budget !== null && budget === minBudget && (
+                      <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
+                        Lowest
+                      </Badge>
+                    )}
+                  </TableCell>
+                );
+              })}
             </TableRow>
             <TableRow>
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
@@ -393,8 +401,10 @@ export default function Compare() {
                     Budget (Recommended)
                   </p>
                   <p className="font-bold text-slate-900 dark:text-white">
-                    ¥{(budgetVal / 1000).toFixed(0)}k
-                    {budgetVal === minBudget && (
+                    {budgetVal === null
+                      ? "N/A"
+                      : `¥${(budgetVal / 1000).toFixed(0)}k`}
+                    {budgetVal !== null && budgetVal === minBudget && (
                       <span className="ml-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
                         Lowest
                       </span>

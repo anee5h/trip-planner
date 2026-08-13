@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Kuromon Market",
-      "description": "Kuromon Market is a visitor destination in Osaka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+      "description": "Osaka’s “Kitchen,” a central fish market where visitors can browse seasonal seafood, meat, produce, and ready-to-eat street food.",
       "highlights": ["Food", "Market"]
     },
     "ja": {
       "name": "黒門市場",
-      "description": "黒門市場はOsaka Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "黒門市場は「大阪の台所」と呼ばれ、鮮魚や肉、青果、食べ歩きの料理が並ぶ大阪ミナミの市場です。",
       "highlights": ["グルメ", "市場"]
     }
   },
@@ -38,7 +38,7 @@
     "lat": 34.6653277,
     "lng": 135.5069795
   },
-  "description": "Kuromon Market is a visitor destination in Osaka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+  "description": "Osaka’s “Kitchen,” a central fish market where visitors can browse seasonal seafood, meat, produce, and ready-to-eat street food.",
   "highlights": ["Food", "Market"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -99,7 +99,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Osaka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -110,7 +109,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Kuromon Market is a visitor destination in Osaka City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+    "editorialSummary": "Osaka’s “Kitchen,” a central fish market where visitors can browse seasonal seafood, meat, produce, and ready-to-eat street food.",
     "lifecycle": "published",
     "sources": [
       {
@@ -127,8 +126,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "https://kuromon.com/",
+          "title": "Kuromon Market official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://kuromon.com/",
+          "title": "Kuromon Market official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://kuromon.com/",
+          "title": "Kuromon Market official website",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

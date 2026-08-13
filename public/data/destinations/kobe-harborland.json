@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Kobe Harborland",
-      "description": "Kobe Harborland is a visitor destination in Kobe City.  Visitors can experience the area's character and main sights.",
+      "description": "A waterfront Kobe district combining shopping, dining, amusement, cinema, weddings, and hotels beside the harbor.",
       "highlights": ["Culture"]
     },
     "ja": {
       "name": "神戸ハーバーランド",
-      "description": "神戸ハーバーランドはKobe Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "神戸ハーバーランドは、港の景色を望みながらショッピング、グルメ、アミューズメント、映画館やホテルを楽しめるウォーターフロントエリアです。",
       "highlights": ["文化"]
     }
   },
@@ -39,7 +39,7 @@
     "lat": 34.67905556,
     "lng": 135.18180556
   },
-  "description": "Kobe Harborland is a visitor destination in Kobe City.  Visitors can experience the area's character and main sights.",
+  "description": "A waterfront Kobe district combining shopping, dining, amusement, cinema, weddings, and hotels beside the harbor.",
   "highlights": ["Culture"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
@@ -99,7 +99,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Kobe City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -116,7 +115,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Kobe Harborland is a visitor destination in Kobe City.  Visitors can experience the area's character and main sights.",
+    "editorialSummary": "A waterfront Kobe district combining shopping, dining, amusement, cinema, weddings, and hotels beside the harbor.",
     "lifecycle": "published",
     "sources": [
       {
@@ -133,8 +132,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.harborland.co.jp/",
+          "title": "Kobe Harborland official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.harborland.co.jp/",
+          "title": "Kobe Harborland official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.harborland.co.jp/",
+          "title": "Kobe Harborland official website",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

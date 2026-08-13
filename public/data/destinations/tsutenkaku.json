@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Tsutenkaku",
-      "description": "Tsutenkaku is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+      "description": "A landmark tower in Shinsekai with observation decks, the Billiken figure, cafes, shops, and views over southern Osaka.",
       "highlights": ["Viewpoint"]
     },
     "ja": {
       "name": "通天閣",
-      "description": "通天閣はOsaka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "通天閣は新世界のランドマークで、展望台やビリケン像、カフェ・ショップから大阪南部の景色を楽しめます。",
       "highlights": ["展望"]
     }
   },
@@ -38,7 +38,7 @@
     "lat": 34.6525,
     "lng": 135.5063
   },
-  "description": "Tsutenkaku is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+  "description": "A landmark tower in Shinsekai with observation decks, the Billiken figure, cafes, shops, and views over southern Osaka.",
   "highlights": ["Viewpoint"],
   "budgetMin": 2500,
   "budgetRecommended": 4000,
@@ -99,7 +99,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Osaka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -116,7 +115,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Tsutenkaku is a visitor destination in Osaka City.  Visitors can experience the area's character and main sights.",
+    "editorialSummary": "A landmark tower in Shinsekai with observation decks, the Billiken figure, cafes, shops, and views over southern Osaka.",
     "lifecycle": "published",
     "sources": [
       {
@@ -133,8 +132,43 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.tsutenkaku.co.jp/",
+          "title": "Tsutenkaku official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.tsutenkaku.co.jp/",
+          "title": "Tsutenkaku official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.tsutenkaku.co.jp/",
+          "title": "Tsutenkaku official website",
+          "accessedAt": "2026-08-13"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,

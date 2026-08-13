@@ -24,6 +24,43 @@ export type AccommodationAllowancePreset =
   keyof typeof ACCOMMODATION_ALLOWANCE_PRESETS;
 export const MAX_ACCOMMODATION_ALLOWANCE = 500000;
 
+const COST_UNAVAILABLE = { en: "Cost unavailable", ja: "料金不明" } as const;
+
+function isFiniteNonNegative(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value) && value >= 0;
+}
+
+function isValidPriceRange(range: readonly unknown[]): range is PriceRange {
+  return (
+    range.length === 2 &&
+    isFiniteNonNegative(range[0]) &&
+    isFiniteNonNegative(range[1]) &&
+    range[0] <= range[1]
+  );
+}
+
+function finiteNonNegativeOrUndefined(value: unknown): number | undefined {
+  return isFiniteNonNegative(value) ? value : undefined;
+}
+
+/** Returns false for legacy records with no trustworthy price source. */
+export function hasKnownBudget(dest: Destination): boolean {
+  const breakdown = dest.budgetBreakdown;
+  return Boolean(
+    (breakdown &&
+      [
+        breakdown.transport,
+        breakdown.tickets,
+        breakdown.food,
+        breakdown.cafe,
+      ].every(isFiniteNonNegative) &&
+      isFiniteNonNegative(dest.budgetRecommended)) ||
+    (isFiniteNonNegative(dest.budgetMin) &&
+      isFiniteNonNegative(dest.budgetMax) &&
+      dest.budgetMin <= dest.budgetMax),
+  );
+}
+
 /**
  * Runtime-derived trip duration in hours. Uses the canonical visit duration
  * and adds canonical origin-aware round-trip travel for exactly the requested
@@ -88,9 +125,12 @@ function formatSingleJPYValue(val: number, locale: "en" | "ja" = "en"): string {
 }
 
 export function formatLocalizedJPYRange(
-  range: PriceRange,
+  range: PriceRange | null | undefined,
   locale: "en" | "ja" = "en",
 ): string {
+  if (!range || !isValidPriceRange(range)) {
+    return COST_UNAVAILABLE[locale];
+  }
   const [min, max] = range.map((value) => Math.round(value));
   const rangeSep = locale === "ja" ? "〜" : "–";
 
@@ -101,7 +141,10 @@ export function formatLocalizedJPYRange(
   return `¥${formatSingleJPYValue(min, locale)}${rangeSep}${formatSingleJPYValue(max, locale)}`;
 }
 
-export function formatJPYRange(range: PriceRange): string {
+export function formatJPYRange(range: PriceRange | null | undefined): string {
+  if (!range || !isValidPriceRange(range)) {
+    return COST_UNAVAILABLE.en;
+  }
   const [min, max] = range.map((value) => Math.round(value));
   return min === max
     ? `¥${min.toLocaleString()}`
@@ -113,9 +156,15 @@ export function getDiningFoodRange(
   tripDurationHours: number | undefined,
   partySize: number,
 ): PriceRange | null {
-  if (tripDurationHours === undefined || !Number.isFinite(tripDurationHours)) {
+  if (
+    tripDurationHours === undefined ||
+    !Number.isFinite(tripDurationHours) ||
+    tripDurationHours < 0 ||
+    !isFiniteNonNegative(partySize)
+  ) {
     return null;
   }
+  const normalizedPartySize = Math.max(1, Math.floor(partySize));
   const meals =
     tripDurationHours < 5
       ? ["lunch"]
@@ -129,8 +178,8 @@ export function getDiningFoodRange(
       ],
   );
   return [
-    ranges.reduce((total, [min]) => total + min, 0) * partySize,
-    ranges.reduce((total, [, max]) => total + max, 0) * partySize,
+    ranges.reduce((total, [min]) => total + min, 0) * normalizedPartySize,
+    ranges.reduce((total, [, max]) => total + max, 0) * normalizedPartySize,
   ];
 }
 
@@ -203,6 +252,15 @@ export function getEstimatedBudgetRange(
     ferryTemporal,
     transportIncluded,
   );
+  if (!breakdown) {
+    return {
+      range: null,
+      transportIncluded,
+      transportFareScope,
+      durationIncluded: false,
+      food: null,
+    };
+  }
   const transport = rawTransport ?? 0;
   const food =
     effectiveTripDurationHours === undefined
@@ -336,20 +394,24 @@ export function getTransportCost(
    */
   tripDurationHours?: number,
 ): number | null {
+  if (!isFiniteNonNegative(partySize)) return null;
+  const normalizedPartySize = Math.max(1, Math.floor(partySize));
+
   // 1. Explicit Route Fare Precedence (if specified in destination JSON)
   const explicitFare =
     dest.transportFares?.[mode as keyof typeof dest.transportFares];
   if (explicitFare !== undefined) {
+    if (!isFiniteNonNegative(explicitFare)) return null;
     if (mode === "car" || mode === "my_car") {
       // For driving modes, explicitFare represents total round-trip vehicle cost per car (tolls + gas + rental).
       // Scale by vehicles needed for party size (4 seats per car).
-      const carsNeeded = Math.ceil(partySize / 4);
+      const carsNeeded = Math.ceil(normalizedPartySize / 4);
       return explicitFare * carsNeeded;
     }
     // For transit modes (train, bus, shinkansen), explicitFare represents one-way ticket fare per person.
     // Scale to round-trip (x2) across partySize.
     const roundTripPerPerson = explicitFare * 2;
-    return Math.floor(roundTripPerPerson * partySize);
+    return Math.floor(roundTripPerPerson * normalizedPartySize);
   }
 
   // 2. Verified origin-aware registry fare (ground modes only): when the
@@ -372,8 +434,15 @@ export function getTransportCost(
       // dynamic fare as fixed truth above it.
       const lower = estimate.fare[0];
       const upper = estimate.fare[1] ?? lower;
+      if (
+        !isFiniteNonNegative(lower) ||
+        !isFiniteNonNegative(upper) ||
+        lower > upper
+      ) {
+        return null;
+      }
       const avgOneWayPerPerson = Math.round((lower + upper) / 2);
-      return Math.floor(avgOneWayPerPerson * 2 * partySize);
+      return Math.floor(avgOneWayPerPerson * 2 * normalizedPartySize);
     }
     // A bounded access duration is not evidence for a duration-priced fare.
     if (estimate?.evidence === "estimated") return null;
@@ -393,9 +462,15 @@ export function getTransportCost(
       [mode as TransportMode],
     );
     if (!estimate) return null;
-    originAwareMinutes = Math.round(
-      (estimate.timeRange[0] + estimate.timeRange[1]) / 2,
-    );
+    const [minMinutes, maxMinutes] = estimate.timeRange;
+    if (
+      !isFiniteNonNegative(minMinutes) ||
+      !isFiniteNonNegative(maxMinutes) ||
+      minMinutes > maxMinutes
+    ) {
+      return null;
+    }
+    originAwareMinutes = Math.round((minMinutes + maxMinutes) / 2);
   }
 
   if (mode === "flight") {
@@ -404,18 +479,26 @@ export function getTransportCost(
       homeCoords,
       ferryTemporal?.travelDate,
     );
-    if (flightEst && !flightEst.costUnavailable) {
+    if (
+      flightEst &&
+      !flightEst.costUnavailable &&
+      isValidPriceRange(flightEst.costRange)
+    ) {
       const avgOneWayPerPerson = Math.round(
         (flightEst.costRange[0] + flightEst.costRange[1]) / 2,
       );
-      return Math.floor(avgOneWayPerPerson * 2 * partySize);
+      return Math.floor(avgOneWayPerPerson * 2 * normalizedPartySize);
     }
     return null;
   }
 
   if (mode === "ferry") {
     const ferryEst = getFerryTransportEstimate(dest, homeCoords, ferryTemporal);
-    if (ferryEst && !ferryEst.costUnavailable) {
+    if (
+      ferryEst &&
+      !ferryEst.costUnavailable &&
+      isValidPriceRange(ferryEst.costRange)
+    ) {
       const avgRoundTripPerPerson = Math.round(
         (ferryEst.costRange[0] + ferryEst.costRange[1]) / 2,
       );
@@ -423,50 +506,59 @@ export function getTransportCost(
       // already include it and must not be doubled again.
       const multiplier =
         ferryEst.details?.ferryFareBasis === "round-trip" ? 1 : 2;
-      return Math.floor(avgRoundTripPerPerson * multiplier * partySize);
+      return Math.floor(
+        avgRoundTripPerPerson * multiplier * normalizedPartySize,
+      );
     }
     return null;
   }
 
   if (mode === "shinkansen") {
-    const mins = originAwareMinutes ?? dest.transportOptions?.shinkansen;
+    const mins = finiteNonNegativeOrUndefined(
+      originAwareMinutes ?? dest.transportOptions?.shinkansen,
+    );
     if (mins === undefined) return null;
     const oneWayPerPerson = Math.round(
       cfg.shinkansen.baseFare + mins * cfg.shinkansen.perMinRate,
     );
-    return Math.floor(oneWayPerPerson * 2 * partySize);
+    return Math.floor(oneWayPerPerson * 2 * normalizedPartySize);
   }
 
   if (mode === "bus") {
-    const mins = originAwareMinutes ?? dest.transportOptions?.bus;
+    const mins = finiteNonNegativeOrUndefined(
+      originAwareMinutes ?? dest.transportOptions?.bus,
+    );
     if (mins === undefined) return null;
     const oneWayPerPerson = Math.round(
       cfg.bus.baseFare + mins * cfg.bus.perMinRate,
     );
-    return Math.floor(oneWayPerPerson * 2 * partySize);
+    return Math.floor(oneWayPerPerson * 2 * normalizedPartySize);
   }
 
   if (mode === "car") {
-    const driveTimeOneWayMin = originAwareMinutes ?? dest.transportOptions?.car;
+    const driveTimeOneWayMin = finiteNonNegativeOrUndefined(
+      originAwareMinutes ?? dest.transportOptions?.car,
+    );
     if (driveTimeOneWayMin === undefined) return null;
     const distanceKm = driveTimeOneWayMin * cfg.car.circuityMultiplier;
     const rentalDurationHours =
       tripDurationHours ??
       deriveTripDurationHours(dest, mode, homeCoords, ferryTemporal);
-    if (rentalDurationHours === undefined) return null;
+    if (!isFiniteNonNegative(rentalDurationHours)) return null;
     const rentalFee = getRentalBaseFee(rentalDurationHours);
     const tollsRoundTrip = Math.floor(distanceKm * cfg.car.tollRatePerKm * 2);
     const gasRoundTrip = Math.floor(
       ((distanceKm * 2) / cfg.car.fuelConsumptionKmPerLiter) *
         cfg.gasPricePerLiter,
     );
-    const carsNeeded = Math.ceil(partySize / 4);
+    const carsNeeded = Math.ceil(normalizedPartySize / 4);
     return (rentalFee + tollsRoundTrip + gasRoundTrip) * carsNeeded;
   }
 
   if (mode === "my_car") {
-    const driveTimeOneWayMin =
-      originAwareMinutes ?? dest.transportOptions?.my_car;
+    const driveTimeOneWayMin = finiteNonNegativeOrUndefined(
+      originAwareMinutes ?? dest.transportOptions?.my_car,
+    );
     if (driveTimeOneWayMin === undefined) return null;
     const distanceKm = driveTimeOneWayMin * cfg.car.circuityMultiplier;
     const tollsRoundTrip = Math.floor(distanceKm * cfg.car.tollRatePerKm * 2);
@@ -474,12 +566,14 @@ export function getTransportCost(
       ((distanceKm * 2) / cfg.car.fuelConsumptionKmPerLiter) *
         cfg.gasPricePerLiter,
     );
-    const carsNeeded = Math.ceil(partySize / 4);
+    const carsNeeded = Math.ceil(normalizedPartySize / 4);
     return (tollsRoundTrip + gasRoundTrip) * carsNeeded;
   }
 
   if (mode === "train") {
-    const mins = originAwareMinutes ?? dest.transportOptions?.train;
+    const mins = finiteNonNegativeOrUndefined(
+      originAwareMinutes ?? dest.transportOptions?.train,
+    );
     if (mins === undefined) return null;
     const tCfg = cfg.train;
     let oneWayPerPerson: number;
@@ -500,7 +594,7 @@ export function getTransportCost(
       );
     }
 
-    return Math.floor(oneWayPerPerson * 2 * partySize);
+    return Math.floor(oneWayPerPerson * 2 * normalizedPartySize);
   }
 
   return null;
@@ -514,6 +608,7 @@ export function getTransportCost(
  * explicit topology edges for rail/road/bus, the flight-route registry for
  * flight, and the ferry route registry for ferry. When no authorized mode
  * exists the generic breakdown fallback is returned — never a Train cost.
+ * A destination with no trustworthy price source returns null.
  */
 export function getAdjustedBudget(
   dest: Destination,
@@ -522,7 +617,9 @@ export function getAdjustedBudget(
   homeCoords?: { lat: number; lng: number },
   originZoneId?: TransportZoneId,
   ferryTemporal?: FerryTemporalContext,
-): number {
+): number | null {
+  if (!isFiniteNonNegative(partySize)) return null;
+  const normalizedPartySize = Math.max(1, Math.floor(partySize));
   let mode: string | undefined;
 
   const effectiveOriginZoneId =
@@ -588,10 +685,18 @@ export function getAdjustedBudget(
     mode === undefined
       ? null
       : getTransportCost(dest, mode, partySize, homeCoords, ferryTemporal);
-  const recBudget = dest.budgetRecommended || dest.budgetMin || 5000;
-  const otherCostsCouple =
-    recBudget - (dest.budgetBreakdown?.transport || 3000);
-  const otherCosts = Math.max(0, (otherCostsCouple / 2) * partySize);
+  const breakdown = getEffectiveBudgetBreakdown(dest);
+  if (!breakdown) return null;
+  const recBudget = isFiniteNonNegative(dest.budgetRecommended)
+    ? dest.budgetRecommended
+    : isFiniteNonNegative(dest.budgetMin) && isFiniteNonNegative(dest.budgetMax)
+      ? Math.max(dest.budgetMin, dest.budgetMax)
+      : breakdown.transport +
+        breakdown.tickets +
+        breakdown.food +
+        breakdown.cafe;
+  const otherCostsCouple = recBudget - breakdown.transport;
+  const otherCosts = Math.max(0, (otherCostsCouple / 2) * normalizedPartySize);
   return otherCosts + (transportCost ?? 0);
 }
 
@@ -600,11 +705,22 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
   tickets: number;
   food: number;
   cafe: number;
-} {
-  if (dest.budgetBreakdown) {
+} | null {
+  if (
+    dest.budgetBreakdown &&
+    [
+      dest.budgetBreakdown.transport,
+      dest.budgetBreakdown.tickets,
+      dest.budgetBreakdown.food,
+      dest.budgetBreakdown.cafe,
+    ].every(isFiniteNonNegative)
+  ) {
     return dest.budgetBreakdown;
   }
-  const totalRec = dest.budgetRecommended || dest.budgetMin || 12000;
+  if (!hasKnownBudget(dest)) return null;
+  const totalRec = isFiniteNonNegative(dest.budgetRecommended)
+    ? dest.budgetRecommended
+    : Math.max(dest.budgetMin, dest.budgetMax);
   const transport = 3000;
 
   // Check if destination is free ticket
@@ -618,16 +734,9 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
 }
 
 export function isFreeDestination(dest: Destination): boolean {
-  if (!dest) return false;
+  if (!dest || !hasKnownBudget(dest)) return false;
   if (dest.budgetMin === 0 && dest.budgetMax === 0) return true;
-  const freeKeywords = [
-    "free observatory",
-    "free",
-    "park",
-    "shrine",
-    "temple",
-    "garden",
-  ];
+  const freeKeywords = ["free observatory", "free"];
   const hasFreeCategory = dest.categories?.some((c) =>
     freeKeywords.some((k) => c.toLowerCase().includes(k)),
   );
@@ -654,6 +763,8 @@ export interface ItemizedCostBreakdown {
   accommodationAllowance: number;
   /** True when trip duration is known and meal/rental costs are included. */
   durationKnown: boolean;
+  /** False when the catalogue has no trustworthy price source. */
+  budgetAvailable: boolean;
 }
 
 export function calculateItemizedTripCost(
@@ -669,7 +780,15 @@ export function calculateItemizedTripCost(
     accommodationAllowance?: number;
   } = {},
 ): ItemizedCostBreakdown {
-  const partySize = options.partySize ?? 2;
+  const requestedPartySize = options.partySize ?? 2;
+  const partySize = isFiniteNonNegative(requestedPartySize)
+    ? Math.max(1, Math.floor(requestedPartySize))
+    : 2;
+  const accommodationAllowance = isValidAccommodationAllowance(
+    options.accommodationAllowance ?? 0,
+  )
+    ? (options.accommodationAllowance ?? 0)
+    : 0;
   // null means no estimable origin route: origin transport is excluded
   // from the total, never defaulted to Train.
   const mode = options.activeMode ?? null;
@@ -682,9 +801,11 @@ export function calculateItemizedTripCost(
       options.homeCoords,
       options.ferryTemporal,
     );
-  const durationKnown = tripDurationHours !== undefined;
+  const durationKnown =
+    tripDurationHours !== undefined &&
+    Number.isFinite(tripDurationHours) &&
+    tripDurationHours >= 0;
 
-  const isFreeTicket = isFreeDestination(dest);
   const breakdown = getEffectiveBudgetBreakdown(dest);
 
   const rawTransport: number | null =
@@ -700,15 +821,31 @@ export function calculateItemizedTripCost(
         );
   const transportAvailable = rawTransport !== null;
   const transport =
-    transportAvailable && !Number.isNaN(rawTransport) ? rawTransport : 0;
+    transportAvailable && Number.isFinite(rawTransport) ? rawTransport : 0;
+  if (!breakdown) {
+    return {
+      transport,
+      transportAvailable: transportAvailable && Number.isFinite(rawTransport),
+      tickets: 0,
+      food: null,
+      cafe: 0,
+      parking: 0,
+      perPersonRange: [0, 0],
+      partyRange: [0, 0],
+      isFreeTicket: false,
+      confidence: "estimated",
+      accommodationAllowance,
+      durationKnown: false,
+      budgetAvailable: false,
+    };
+  }
+  const isFreeTicket = isFreeDestination(dest);
   const tickets = isFreeTicket ? 0 : (breakdown.tickets || 0) * partySize;
   const food = durationKnown
     ? getDiningFoodRange(budgetTier, tripDurationHours, partySize)
     : null;
   const cafe = (breakdown.cafe || 0) * partySize;
   const parking = mode === "car" || mode === "my_car" ? 1200 : 0;
-  const accommodationAllowance = options.accommodationAllowance ?? 0;
-
   const minPartyTotal = Math.round(
     transport +
       tickets +
@@ -752,6 +889,7 @@ export function calculateItemizedTripCost(
     confidence,
     accommodationAllowance,
     durationKnown,
+    budgetAvailable: true,
   };
 }
 
