@@ -11,6 +11,7 @@ import { formatPrefectureId } from "@/shared/hooks/useTripStore";
 import type { OriginLocation } from "@/shared/hooks/useTripStore";
 import { resolveOriginTransportZone } from "@/shared/services/transport/TransportTopologyService";
 import { withJwtFutureRecovery } from "@/shared/hooks/jwtRecovery";
+import { getLocalizedStationNameOnly } from "@/shared/utils/formatOriginLocation";
 
 type VisitDates = Record<string, string[] | string>;
 type DestinationRatings = Record<string, "up" | "down">;
@@ -204,6 +205,13 @@ interface ResolvedStation {
   source: "station" | "postal_code";
 }
 
+function stationKey(name: string): string {
+  return getLocalizedStationNameOnly(name, "en")
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+}
+
 async function resolveHomeStationCoordinates(
   station: string,
 ): Promise<ResolvedStation | null> {
@@ -219,8 +227,9 @@ async function resolveHomeStationCoordinates(
         Array<{ name: string; lat: number; lng: number }>
       >;
 
+      const target = stationKey(stationName);
       const match = stationsByPrefecture[prefecture]?.find(
-        (candidate) => candidate.name === stationName,
+        (candidate) => stationKey(candidate.name) === target,
       );
 
       if (
@@ -256,8 +265,11 @@ async function resolveHomeStationCoordinates(
       >;
 
       const matches: Array<{ lat: number; lng: number }> = [];
+      const target = stationKey(station);
       for (const stations of Object.values(stationsByPrefecture)) {
-        const found = stations.find((s) => s.name === station);
+        const found = stations.find(
+          (candidate) => stationKey(candidate.name) === target,
+        );
         if (
           found &&
           isValidResolvedCoordinates({ lat: found.lat, lng: found.lng })

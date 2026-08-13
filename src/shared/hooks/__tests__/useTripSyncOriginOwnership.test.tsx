@@ -50,10 +50,15 @@ const STATIONS_BY_PREFECTURE: Record<
   Array<{ name: string; lat: number; lng: number }>
 > = {
   Kanagawa: [
-    { name: "Shin-Yokohama Station", lat: 35.5076, lng: 139.6177 },
-    { name: "Nakayama Station", lat: 35.5147, lng: 139.5393 },
+    {
+      name: "Shinyokohama Station (新横浜駅)",
+      lat: 35.5076,
+      lng: 139.6177,
+    },
+    { name: "Nakayama Station (中山駅)", lat: 35.5147, lng: 139.5393 },
+    { name: "Duplicate Station", lat: 35.6, lng: 139.5 },
   ],
-  Tokyo: [{ name: "Shin-Yokohama Station", lat: 35.5, lng: 139.6 }],
+  Tokyo: [{ name: "Duplicate Station", lat: 35.5, lng: 139.6 }],
 };
 
 vi.stubGlobal(
@@ -500,7 +505,7 @@ describe("useTripSync — origin ownership integration", () => {
         visited_prefectures: [],
         visited_dates: {},
         destination_ratings: {},
-        home_station: "Shin-Yokohama Station",
+        home_station: "Duplicate Station",
       },
       error: null,
     });
