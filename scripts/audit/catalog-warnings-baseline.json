@@ -4,10 +4,9 @@
   "warningsByCode": {
     "GEO_DUPLICATE_COORDINATES": 5,
     "MUNI_HUB_MISSING_NAME_JA": 34,
-    "REL_CROSS_MUNICIPALITY_FEATURED": 74,
+    "REL_CROSS_MUNICIPALITY_FEATURED": 71,
     "REL_CROSS_PREFECTURE_REF": 213,
-    "REL_FEATURED_NOT_CHILDREN": 5,
-    "TIME_CONTRADICTORY_OPEN_CLOSED": 1
+    "REL_FEATURED_NOT_CHILDREN": 5
   },
   "warningFingerprints": {
     "GEO_DUPLICATE_COORDINATES:jindaiji:chofu-historic-jindaiji-district,jindaiji": 1,
@@ -71,7 +70,6 @@
     "REL_CROSS_MUNICIPALITY_FEATURED:fujinomiya-city:atami-city": 1,
     "REL_CROSS_MUNICIPALITY_FEATURED:fujinomiya-city:ito-city": 1,
     "REL_CROSS_MUNICIPALITY_FEATURED:fujinomiya-city:izu": 1,
-    "REL_CROSS_MUNICIPALITY_FEATURED:funabashi-city:boso-peninsula": 1,
     "REL_CROSS_MUNICIPALITY_FEATURED:funabashi-city:chiba-nokogiriyama": 1,
     "REL_CROSS_MUNICIPALITY_FEATURED:funabashi-city:chiba-port-tower": 1,
     "REL_CROSS_MUNICIPALITY_FEATURED:funabashi-city:chiba-sawara": 1,
@@ -114,9 +112,7 @@
     "REL_CROSS_MUNICIPALITY_FEATURED:kisarazu-city:chiba-port-tower": 1,
     "REL_CROSS_MUNICIPALITY_FEATURED:kisarazu-city:chiba-sawara": 1,
     "REL_CROSS_MUNICIPALITY_FEATURED:kofu-city:fuji-5-lake": 1,
-    "REL_CROSS_MUNICIPALITY_FEATURED:kusatsu-town:oze-national-park": 1,
     "REL_CROSS_MUNICIPALITY_FEATURED:kushiro-city:hakodate-night-view": 1,
-    "REL_CROSS_MUNICIPALITY_FEATURED:matsudo-city:boso-peninsula": 1,
     "REL_CROSS_MUNICIPALITY_FEATURED:matsudo-city:chiba-nokogiriyama": 1,
     "REL_CROSS_MUNICIPALITY_FEATURED:matsudo-city:chiba-port-tower": 1,
     "REL_CROSS_MUNICIPALITY_FEATURED:matsudo-city:chiba-sawara": 1,
@@ -340,7 +336,6 @@
     "REL_FEATURED_NOT_CHILDREN:chichibu-city": 1,
     "REL_FEATURED_NOT_CHILDREN:hamamatsu-city": 1,
     "REL_FEATURED_NOT_CHILDREN:ikaruga-town": 1,
-    "REL_FEATURED_NOT_CHILDREN:inuyama-city": 1,
-    "TIME_CONTRADICTORY_OPEN_CLOSED:nagoya-castle-ruins-museum": 1
+    "REL_FEATURED_NOT_CHILDREN:inuyama-city": 1
   }
 }

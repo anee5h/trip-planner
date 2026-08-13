@@ -36,9 +36,7 @@
   "budgetMin": 300,
   "budgetMax": 2000,
   "budgetRecommended": 1000,
-  "transportOptions": {
-    "train": 180
-  },
+  "transportOptions": {},
   "ratings": {
     "overall": 9,
     "couple": 9.5,

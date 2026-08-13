@@ -142,5 +142,6 @@
   "travelEstimate": {
     "confidence": "medium"
   },
-  "notesJa": "世界遺産の城跡。1月下旬には沖縄で最も早い桜が見られます。"
+  "notesJa": "世界遺産の城跡。1月下旬には沖縄で最も早い桜が見られます。",
+  "transportZoneId": "okinawa-main"
 }

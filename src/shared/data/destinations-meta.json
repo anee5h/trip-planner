@@ -788,9 +788,7 @@
     "role": "standalone",
     "kind": "nature",
     "status": "published",
-    "relationships": {
-      "parentDestinationId": "kisarazu-city"
-    }
+    "relationships": {}
   },
   {
     "id": "botchan-train-matsuyama",
@@ -4820,9 +4818,7 @@
     "role": "standalone",
     "kind": "nature",
     "status": "verified",
-    "relationships": {
-      "parentDestinationId": "matsumoto-city"
-    }
+    "relationships": {}
   },
   {
     "id": "kita-city",
@@ -7041,18 +7037,6 @@
     }
   },
   {
-    "id": "nagoya-castle-ruins-museum",
-    "name": "Nagoya Castle Ruins & Museum",
-    "prefecture": "Saga",
-    "region": "Kyushu",
-    "role": "poi",
-    "kind": "historic",
-    "status": "published",
-    "relationships": {
-      "parentDestinationId": "karatsu-city"
-    }
-  },
-  {
     "id": "nagoya-city",
     "name": "Nagoya City",
     "prefecture": "Aichi",
@@ -8654,9 +8638,7 @@
     "role": "standalone",
     "kind": "nature",
     "status": "published",
-    "relationships": {
-      "parentDestinationId": "minakami-town"
-    }
+    "relationships": {}
   },
   {
     "id": "ozu-castle",
@@ -11862,9 +11844,7 @@
     "role": "standalone",
     "kind": "nature",
     "status": "verified",
-    "relationships": {
-      "parentDestinationId": "kofu-city"
-    }
+    "relationships": {}
   },
   {
     "id": "yamanashi-shosenkyo-gorge",

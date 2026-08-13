@@ -45,9 +45,7 @@
       "sortOrder": 12
     }
   ],
-  "relationships": {
-    "parentDestinationId": "minakami-town"
-  },
+  "relationships": {},
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
   "role": "standalone",
@@ -113,6 +111,5 @@
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
-  "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Gunma:minakami"
+  "openingHoursJa": "散策自由（24時間開放）"
 }

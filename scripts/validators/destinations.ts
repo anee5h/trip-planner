@@ -204,10 +204,16 @@ export const destinationsValidator: ValidatorModule = {
             targetId: dest.id,
           });
         }
+        // Route-known-but-unestimated records (localAccessModes set with
+        // localAccessUnestimated) intentionally carry no static minutes;
+        // the UI renders "route known — time and cost unavailable".
+        const routeKnownUnestimated =
+          dest.localAccessModes?.length && dest.localAccessUnestimated === true;
         if (
-          !dest.transportOptions ||
-          typeof dest.transportOptions !== "object" ||
-          Object.keys(dest.transportOptions).length === 0
+          !routeKnownUnestimated &&
+          (!dest.transportOptions ||
+            typeof dest.transportOptions !== "object" ||
+            Object.keys(dest.transportOptions).length === 0)
         ) {
           issues.push({
             severity: "error",
