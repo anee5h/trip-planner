@@ -270,6 +270,32 @@ for (const [id, kind] of Object.entries(KIND_FIXES)) {
   applied++;
 }
 
+// -------------------------------------------------- 10. Official websites
+// Wrong-subject officialWebsite fields (Haneda on Narita, station page on a
+// temple, Kyoto park on a Sapporo park).
+const OFFICIAL_WEBSITE_FIXES: Array<{ id: string; from: string; to: string }> =
+  corrections.sections.officialWebsiteFixes ?? [];
+for (const c of OFFICIAL_WEBSITE_FIXES) {
+  const d = get(c.id);
+  if (d.officialWebsite === c.from) {
+    d.officialWebsite = c.to;
+    applied++;
+  }
+}
+
+// --------------------------------------------------- 11. bestSeason fixes
+// Align the displayed bestSeason string with the source-backed bestMonths
+// corrections (drift ice / lavender / plum blossom seasons).
+const BEST_SEASON_FIXES: Array<{ id: string; value: string }> =
+  corrections.sections.bestSeasonFixes ?? [];
+for (const c of BEST_SEASON_FIXES) {
+  const d = get(c.id);
+  if (d.bestSeason !== c.value) {
+    d.bestSeason = c.value;
+    applied++;
+  }
+}
+
 // ------------------------------------------------------------ Invariants
 for (const d of destinations) {
   if (d.ratings) {

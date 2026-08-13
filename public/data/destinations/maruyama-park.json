@@ -24,7 +24,7 @@
   "relationships": {
     "parentDestinationId": "sapporo-city"
   },
-  "officialWebsite": "https://kyoto.travel/en/destinations/maruyama-park/",
+  "officialWebsite": "https://maruyamapark.jp/en/",
   "officialWebsiteRequirement": "none",
   "categories": ["Nature"],
   "tags": ["Nature", "Sapporo City"],

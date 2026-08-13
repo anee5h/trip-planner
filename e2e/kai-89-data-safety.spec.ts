@@ -155,7 +155,8 @@ test.describe("KAI-89 rendered data safety", () => {
   }) => {
     // otsu-city carries the 114-record template rating vector with no
     // ratingMetadata: the detail score card must show "—" + the
-    // under-review caption, never the bare 9.5 (REC-002).
+    // under-review caption, never the bare 9.5, and the detailed ratings
+    // tab (raw sub-scores) must be hidden (REC-002).
     for (const id of ["otsu-city", "tottori-city", "abashiri-city"]) {
       await page.goto(`/destinations/${id}`);
       await expect(page.locator("main")).toBeVisible();
@@ -163,6 +164,9 @@ test.describe("KAI-89 rendered data safety", () => {
         page.locator('[data-testid="destination-detail-score"]'),
       ).toHaveText("—");
       await expect(page.getByText("Score under editorial review")).toBeVisible();
+      await expect(
+        page.getByRole("tab", { name: "Detailed Ratings" }),
+      ).toHaveCount(0);
       await assertVisibleDataIsSafe(page);
     }
   });

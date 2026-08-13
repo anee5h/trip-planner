@@ -32,7 +32,7 @@
   "relationships": {
     "parentDestinationId": "kawagoe-city"
   },
-  "officialWebsite": "https://www.seiburailway.jp/railway/station/hon-kawagoe/",
+  "officialWebsite": "https://renkeiji.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
   "tags": ["History", "Kawagoe City"],

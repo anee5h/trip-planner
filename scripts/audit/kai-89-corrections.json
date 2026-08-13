@@ -897,7 +897,8 @@
    "sasebo-city",
    "ibusuki-city",
    "nichinan-city",
-   "hita-city"
+   "hita-city",
+   "narita-airport-observation-decks"
   ],
   "jaNameFixes": [
    {
@@ -1452,6 +1453,43 @@
    }
   },
   "transportNote": "The mode KEYS are access declarations consumed by runtime authorization and the published-record contract (MISSING_TRANSPORT_OPTIONS). Removing keys broke real rail/bus access, so removed keys are restored to their pre-KAI-89 values. The 18 source-verified corrections (TRANSPORT_CORRECTIONS) and the Naha Yui Rail values below are the evidence-driven fixes; the restored batch-default times remain dispositioned manual-review in kai-89-dispositions.json.",
-  "nahaYuiRailNote": "Naha records: train replaced with real Yui Rail monorail minutes (official timetable: Naha Airport->Makishi ~16 min, ->Shuri ~27 min rail; applied values 15-25 min are door-to-door with walk buffer, consistent with Agent C verified shuri 25). The batch train:200 was impossible (no intercity rail)."
+  "nahaYuiRailNote": "Naha records: train replaced with real Yui Rail monorail minutes (official timetable: Naha Airport->Makishi ~16 min, ->Shuri ~27 min rail; applied values 15-25 min are door-to-door with walk buffer, consistent with Agent C verified shuri 25). The batch train:200 was impossible (no intercity rail).",
+  "officialWebsiteFixes": [
+   {
+    "id": "narita-airport-observation-decks",
+    "from": "http://www.haneda-airport.jp",
+    "to": "https://www.narita-airport.jp/en/fun/view/",
+    "reason": "Haneda URL on Narita record (import mix-up); official Narita airport deck page"
+   },
+   {
+    "id": "renkeiji",
+    "from": "https://www.seiburailway.jp/railway/station/hon-kawagoe/",
+    "to": "https://renkeiji.jp/",
+    "reason": "Hon-Kawagoe Station page on temple record; official temple site"
+   },
+   {
+    "id": "maruyama-park",
+    "from": "https://kyoto.travel/en/destinations/maruyama-park/",
+    "to": "https://maruyamapark.jp/en/",
+    "reason": "Kyoto Maruyama Park URL on Sapporo record; official Sapporo park site"
+   }
+  ],
+  "bestSeasonFixes": [
+   {
+    "id": "abashiri-city",
+    "value": "Winter",
+    "reason": "drift ice Jan-Mar"
+   },
+   {
+    "id": "biei-town",
+    "value": "Summer",
+    "reason": "lavender Jun-Aug"
+   },
+   {
+    "id": "dazaifu-city",
+    "value": "Spring",
+    "reason": "plum blossom Feb-Mar"
+   }
+  ]
  }
 }

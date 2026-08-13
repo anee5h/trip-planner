@@ -1274,12 +1274,14 @@ export default function DestinationDetails() {
                 >
                   {copy.logistics}
                 </TabsTrigger>
-                <TabsTrigger
-                  value="ratings"
-                  className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-400 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
-                >
-                  {copy.ratings}
-                </TabsTrigger>
+                {showDetailScore && (
+                  <TabsTrigger
+                    value="ratings"
+                    className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-400 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
+                  >
+                    {copy.ratings}
+                  </TabsTrigger>
+                )}
                 {matchDetails && (
                   <TabsTrigger
                     value="match"
@@ -1741,6 +1743,16 @@ export default function DestinationDetails() {
               </TabsContent>
 
               <TabsContent value="ratings" className="mt-4 space-y-4">
+                {/* REC-002: unverified rating vectors must not render as
+                    facts anywhere, including the detailed ratings tab. */}
+                {!showDetailScore ? (
+                  <Card>
+                    <CardContent className="p-6 text-sm text-slate-500 dark:text-slate-400">
+                      {copy.ratingUnderReview}
+                    </CardContent>
+                  </Card>
+                ) : (
+                  <>
                 {/* Experience Ratings */}
                 <Card>
                   <CardContent className="p-6">
@@ -1847,6 +1859,8 @@ export default function DestinationDetails() {
                     </div>
                   </CardContent>
                 </Card>
+                  </>
+                )}
               </TabsContent>
 
               <TabsContent value="match" className="mt-4">

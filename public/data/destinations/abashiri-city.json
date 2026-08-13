@@ -43,7 +43,7 @@
     "winter": 8
   },
   "bestMonths": [1, 2, 3],
-  "bestSeason": "All Year",
+  "bestSeason": "Winter",
   "weatherDependence": "low",
   "tags": ["Abashiri City", "Hokkaido Travel", "Regional Hub"],
   "coordinates": {

@@ -8,7 +8,6 @@
       "name": "Narita Airport Observation Decks",
       "description": "Free observation decks at Narita Airport: the Terminal 1 deck on the fifth floor overlooks the 4,000-meter Runway A, one of Japan's best plane-spotting viewpoints, and Terminal 2 has its own deck. Both sit landside, so no boarding pass is needed.",
       "highlights": ["Viewpoint"],
-      "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
       "parking": "Facility parking structure available.",
       "openingHours": "09:30 - 17:00 (Last admission 16:30)"
@@ -31,7 +30,7 @@
   "relationships": {
     "parentDestinationId": "narita-city"
   },
-  "officialWebsite": "http://www.haneda-airport.jp",
+  "officialWebsite": "https://www.narita-airport.jp/en/fun/view/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Viewpoint"],
   "tags": ["Viewpoint", "Narita City"],
@@ -105,7 +104,6 @@
   "weatherDependence": "moderate",
   "reservation": "Online advance ticket reservation recommended on weekends.",
   "parking": "Facility parking structure available.",
-  "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
