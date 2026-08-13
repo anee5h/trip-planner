@@ -393,6 +393,64 @@ describe("Explicit URL transport filter", () => {
     expect(carCount).toBeGreaterThan(0);
     expect(carCount).toBeLessThan(allCount);
   }, 15000);
+
+  it("D1: ferry-only URL creates no hidden restriction (shows the full catalogue)", () => {
+    tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+
+    const containerAll = renderDestinations("/destinations");
+    const allCount = getResultCount(containerAll);
+    act(() => root!.unmount());
+    root = undefined;
+    host?.remove();
+    host = undefined;
+
+    const containerFerry = renderDestinations("/destinations?mode=ferry");
+    const ferryCount = getResultCount(containerFerry);
+
+    // Ferry has no Explore chip; a ferry-only URL must not silently filter
+    // the catalogue while the modal reads "Any transport".
+    expect(ferryCount).toBe(allCount);
+  }, 15000);
+
+  it("D1: junk car value and legacy mode labels are rejected, not restrictive", () => {
+    tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+
+    const containerAll = renderDestinations("/destinations");
+    const allCount = getResultCount(containerAll);
+    act(() => root!.unmount());
+    root = undefined;
+    host?.remove();
+    host = undefined;
+
+    const containerJunk = renderDestinations(
+      "/destinations?car=whatever&mode=local&mode=express",
+    );
+    const junkCount = getResultCount(containerJunk);
+
+    expect(junkCount).toBe(allCount);
+  }, 15000);
+
+  it("D1: mixed URL keeps valid modes and drops ferry from the restriction", () => {
+    tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+
+    const containerAll = renderDestinations("/destinations");
+    const allCount = getResultCount(containerAll);
+    act(() => root!.unmount());
+    root = undefined;
+    host?.remove();
+    host = undefined;
+
+    const containerMixed = renderDestinations(
+      "/destinations?mode=train&mode=shinkansen&mode=bus&mode=flight&mode=ferry",
+    );
+    const mixedCount = getResultCount(containerMixed);
+
+    expect(mixedCount).toBeGreaterThan(0);
+    expect(mixedCount).toBeLessThan(allCount);
+  }, 15000);
 });
 
 describe("Clear/Reset Behavior (KAI-63)", () => {
