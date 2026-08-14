@@ -268,6 +268,44 @@ describe("homepage discovery eligibility", () => {
 });
 
 describe("soft homepage deduplication", () => {
+  it("deduplicates the full ranked pool before applying the ten-card cap", () => {
+    const candidates = Array.from({ length: 20 }, (_, index) =>
+      destination(
+        index < 10 ? `used-${index}` : `unused-${index - 10}`,
+        index < 10 ? 100 : 97,
+        {
+          season: { spring: 8, summer: 5, autumn: 5, winter: 5 },
+          bestMonths: [4],
+          weekend: {
+            travelFit: {
+              eligible: true,
+              band: "acceptable",
+              oneWayMinutes: 250,
+            },
+            capacity: { eligible: true },
+          } as ScoredDestination["weekend"],
+        },
+      ),
+    );
+    const usedIds = new Set(candidates.slice(0, 10).map(({ id }) => id));
+    const selectors = [
+      () => getSeasonalDiscoveryDestinations(candidates, "2026-04-01"),
+      () => getUnder60Destinations(candidates, dayContext),
+      () => getUnexploredNearbyDestinations(candidates, dayContext),
+      () => getWeekendGetawayDestinations(candidates),
+      () => getWorthLongerJourneyDestinations(candidates),
+    ];
+    const expectedUnusedIds = candidates.slice(10).map(({ id }) => id);
+
+    selectors.forEach((select) => {
+      const rankedPool = select();
+      expect(rankedPool).toHaveLength(20);
+      const selected = softDeduplicateRail(rankedPool, usedIds);
+      expect(selected.map(({ id }) => id)).toEqual(expectedUnusedIds);
+      expect(selected).toHaveLength(10);
+    });
+  });
+
   it("prefers an equivalent unused candidate but keeps a materially stronger used one", () => {
     const candidates = [destination("used", 100), destination("unused", 99)];
     expect(

@@ -97,6 +97,8 @@ describe("ScrollContainer", () => {
     expect(host!.querySelector('button[aria-label="Scroll right"]')).toBeNull();
     expect(region.className).toContain("overflow-x-auto");
     expect(region.className).toContain("snap-x");
+    expect(region.className).toContain("scrollbar-hide");
+    expect(region.className).not.toContain("overflow-x-hidden");
   });
 
   it("preserves Japanese caller-provided region and control labels", () => {

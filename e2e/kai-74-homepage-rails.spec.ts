@@ -121,6 +121,18 @@ test.describe("KAI-74 homepage rails", () => {
     const rail = region.locator("..");
     const right = rail.getByRole("button", { name: "Scroll right" });
     const left = rail.getByRole("button", { name: "Scroll left" });
+    await expect(region).toHaveClass(/scrollbar-hide/);
+    await expect
+      .poll(() =>
+        region.evaluate((element) => ({
+          scrollbarWidth: getComputedStyle(element).scrollbarWidth,
+          webkitScrollbarDisplay: getComputedStyle(
+            element,
+            "::-webkit-scrollbar",
+          ).display,
+        })),
+      )
+      .toEqual({ scrollbarWidth: "none", webkitScrollbarDisplay: "none" });
 
     if (isMobile(testInfo.project.name)) {
       await expect(right).toBeHidden();

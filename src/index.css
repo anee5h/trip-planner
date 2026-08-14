@@ -169,6 +169,15 @@
 }
 
 @layer utilities {
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   .destination-filter-modal-body {
     scrollbar-width: thin;
     scrollbar-color: #94a3b8 transparent;

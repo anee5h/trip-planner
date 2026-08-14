@@ -60,10 +60,8 @@ function scoreOf(destination: RankedDestination): number {
     : 0;
 }
 
-function limit<T>(
-  destinations: readonly T[],
-  count = MAX_HOME_RAIL_CARDS,
-): T[] {
+function limit<T>(destinations: readonly T[], count?: number): T[] {
+  if (count === undefined) return [...destinations];
   return destinations.slice(0, Math.min(MAX_HOME_RAIL_CARDS, count));
 }
 
@@ -110,7 +108,7 @@ function seasonalScore(
 export function getSeasonalDiscoveryDestinations(
   candidates: readonly RankedDestination[],
   referenceDate: Date | string = new Date(),
-  count = MAX_HOME_RAIL_CARDS,
+  count?: number,
 ): RankedDestination[] {
   const { month } = getJapanDateParts(referenceDate);
   const season = getFixedSeason(referenceDate);
@@ -214,7 +212,7 @@ function sortOriginCandidates(
 export function getUnder60Destinations(
   candidates: readonly RankedDestination[],
   context: OriginRailContext,
-  count = MAX_HOME_RAIL_CARDS,
+  count?: number,
 ): RankedDestination[] {
   if (context.tripMode !== "day_trip") return [];
   return limit(
@@ -226,7 +224,7 @@ export function getUnder60Destinations(
 export function getUnexploredNearbyDestinations(
   candidates: readonly RankedDestination[],
   context: OriginRailContext,
-  count = MAX_HOME_RAIL_CARDS,
+  count?: number,
 ): RankedDestination[] {
   if (context.tripMode !== "day_trip") return [];
   return limit(
@@ -278,7 +276,7 @@ function isCoreWeekendGetawayCandidate(
 
 export function getWeekendGetawayDestinations(
   candidates: readonly RankedDestination[],
-  count = MAX_HOME_RAIL_CARDS,
+  count?: number,
 ): RankedDestination[] {
   return limit(
     candidates
@@ -295,7 +293,7 @@ export function getWeekendGetawayDestinations(
 
 export function getWorthLongerJourneyDestinations(
   candidates: readonly RankedDestination[],
-  count = MAX_HOME_RAIL_CARDS,
+  count?: number,
 ): RankedDestination[] {
   return limit(
     candidates
