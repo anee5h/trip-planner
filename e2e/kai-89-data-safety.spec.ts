@@ -246,6 +246,9 @@ test.describe("KAI-89 rendered data safety", () => {
     // template "24 Hours (Open access)" / "散策自由（24時間開放）" claims.
     await page.goto("/destinations/hamarikyu-gardens");
     await expect(page.locator("main")).toBeVisible();
+    // Wait for the actual detail content (SPA navigation can race the body
+    // read if the router lands on the home shell first).
+    await expect(page.locator("h1").first()).toBeVisible();
     const body = await page.locator("body").innerText();
     expect(body).not.toMatch(/24 Hours|Open access|24時間開放|散策自由/i);
     expect(body).toMatch(/09:00-17:00/);
