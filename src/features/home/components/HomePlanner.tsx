@@ -275,8 +275,18 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
   };
 
   const isWeekend = tripMode === "weekend_2d1n";
+  const [isCustomAllowanceMode, setIsCustomAllowanceMode] =
+    React.useState(false);
+
+  const isCustomAllowance =
+    isCustomAllowanceMode ||
+    !Object.values(ACCOMMODATION_ALLOWANCE_PRESETS).includes(
+      accommodationAllowance as (typeof ACCOMMODATION_ALLOWANCE_PRESETS)[keyof typeof ACCOMMODATION_ALLOWANCE_PRESETS],
+    );
+
   const accommodationPresetValue = (() => {
     if (!isWeekend) return undefined;
+    if (isCustomAllowance) return "custom";
     for (const [key, amount] of Object.entries(
       ACCOMMODATION_ALLOWANCE_PRESETS,
     )) {
@@ -288,6 +298,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
   const handleCustomAllowanceBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const raw = parseInt(e.target.value, 10);
     if (isNaN(raw)) {
+      setIsCustomAllowanceMode(false);
       onAccommodationAllowanceChange(ACCOMMODATION_ALLOWANCE_PRESETS.standard);
       return;
     }
@@ -340,7 +351,12 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             <Select
               value={accommodationPresetValue ?? ""}
               onValueChange={(val: string | null) => {
-                if (!val || val === "custom") return;
+                if (!val) return;
+                if (val === "custom") {
+                  setIsCustomAllowanceMode(true);
+                  return;
+                }
+                setIsCustomAllowanceMode(false);
                 const amount =
                   ACCOMMODATION_ALLOWANCE_PRESETS[
                     val as keyof typeof ACCOMMODATION_ALLOWANCE_PRESETS
@@ -389,6 +405,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                 step={1000}
                 value={accommodationAllowance}
                 onChange={(e) => {
+                  setIsCustomAllowanceMode(true);
                   const val = parseInt(e.target.value, 10);
                   if (isValidAccommodationAllowance(val)) {
                     onAccommodationAllowanceChange(val);

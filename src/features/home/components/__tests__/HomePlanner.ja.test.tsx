@@ -69,14 +69,17 @@ afterEach(() => {
   host?.remove();
   root = undefined;
   host = undefined;
+  document.body.innerHTML = "";
 });
 
 function renderHomePlanner(
   props: Partial<React.ComponentProps<typeof HomePlanner>> = {},
 ) {
-  host = document.createElement("div");
-  document.body.appendChild(host);
-  root = createRoot(host);
+  if (!host) {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+  }
   act(() => {
     root!.render(
       <HomePlanner
@@ -197,5 +200,60 @@ describe("HomePlanner (ja locale)", () => {
     const group = container.querySelector('[aria-label="旅行タイプ"]');
     expect(group).toBeDefined();
     expect(group?.getAttribute("role")).toBe("group");
+  });
+
+  describe("Japanese 2D1N custom allowance interaction", () => {
+    it("selecting Custom in Japanese locale immediately renders the input with Japanese label", () => {
+      const onAccommodationAllowanceChange = vi.fn();
+      const container = renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 15000,
+        onAccommodationAllowanceChange,
+      });
+
+      const trigger = container.querySelector(
+        '[aria-describedby="accommodation-help"]',
+      ) as HTMLButtonElement;
+      expect(trigger).toBeDefined();
+
+      act(() => {
+        trigger.click();
+      });
+
+      const customOption = Array.from(
+        document.body.querySelectorAll('[role="option"]'),
+      ).find((el) => el.textContent?.includes("カスタム")) as HTMLElement;
+      expect(customOption).toBeDefined();
+
+      act(() => {
+        customOption.click();
+      });
+
+      expect(onAccommodationAllowanceChange).not.toHaveBeenCalled();
+
+      const customInput = container.querySelector(
+        'input[aria-label="カスタム宿泊費目安"]',
+      ) as HTMLInputElement;
+      expect(customInput).toBeDefined();
+      expect(customInput.value).toBe("15000");
+    });
+
+    it("recognizes initially supplied non-preset allowance as Custom with Japanese labels", () => {
+      const container = renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 32000,
+      });
+
+      const trigger = container.querySelector(
+        '[aria-describedby="accommodation-help"]',
+      );
+      expect(trigger?.textContent).toContain("カスタム");
+
+      const customInput = container.querySelector(
+        'input[aria-label="カスタム宿泊費目安"]',
+      ) as HTMLInputElement;
+      expect(customInput).toBeDefined();
+      expect(customInput.value).toBe("32000");
+    });
   });
 });

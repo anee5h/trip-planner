@@ -66,14 +66,17 @@ afterEach(() => {
   host?.remove();
   root = undefined;
   host = undefined;
+  document.body.innerHTML = "";
 });
 
 function renderHomePlanner(
   props: Partial<React.ComponentProps<typeof HomePlanner>> = {},
 ) {
-  host = document.createElement("div");
-  document.body.appendChild(host);
-  root = createRoot(host);
+  if (!host) {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+  }
   act(() => {
     root!.render(
       <HomePlanner
@@ -191,21 +194,312 @@ describe("HomePlanner", () => {
     expect(onTripModeChange).toHaveBeenCalledWith("weekend_2d1n");
   });
 
-  it("calls onAccommodationAllowanceChange when preset is clicked", () => {
-    const onAccommodationAllowanceChange = vi.fn();
-    const container = renderHomePlanner({
-      tripMode: "weekend_2d1n",
-      onAccommodationAllowanceChange,
+  describe("2D1N accommodation allowance controls", () => {
+    const setInputValue = (input: HTMLInputElement, value: string) => {
+      const valueSetter = Object.getOwnPropertyDescriptor(
+        input.constructor.prototype,
+        "value",
+      )?.set;
+      valueSetter?.call(input, value);
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+      input.dispatchEvent(new Event("change", { bubbles: true }));
+    };
+
+    const triggerBlur = (input: HTMLInputElement) => {
+      input.dispatchEvent(new FocusEvent("blur", { bubbles: true }));
+      input.dispatchEvent(new FocusEvent("focusout", { bubbles: true }));
+    };
+
+    it("in day-trip mode, the accommodation control remains hidden", () => {
+      const container = renderHomePlanner({ tripMode: "day_trip" });
+      const trigger = container.querySelector(
+        '[aria-describedby="accommodation-help"]',
+      );
+      const customInput = container.querySelector(
+        'input[aria-label="Custom stay allowance"]',
+      );
+      expect(trigger).toBeNull();
+      expect(customInput).toBeNull();
     });
 
-    // Simulate clicking a preset via the Select — find the preset trigger first
-    // The SelectTrigger displays the current value, click it to open options
-    const trigger = Array.from(
-      container.querySelectorAll('[role="combobox"]'),
-    ).find(
-      (el) => el.getAttribute("aria-describedby") === "accommodation-help",
-    );
-    expect(trigger).toBeDefined();
+    it("in 2D1N mode with Standard preset, shows selector and initially hides Custom input", () => {
+      const container = renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 15000,
+      });
+      const trigger = container.querySelector(
+        '[aria-describedby="accommodation-help"]',
+      );
+      expect(trigger).toBeDefined();
+      expect(trigger?.textContent).toContain("Standard · ¥15,000");
+
+      const customInput = container.querySelector(
+        'input[aria-label="Custom stay allowance"]',
+      );
+      expect(customInput).toBeNull();
+    });
+
+    it("selecting Custom immediately renders the input with current allowance without altering allowance", () => {
+      const onAccommodationAllowanceChange = vi.fn();
+      const container = renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 15000,
+        onAccommodationAllowanceChange,
+      });
+
+      const trigger = container.querySelector(
+        '[aria-describedby="accommodation-help"]',
+      ) as HTMLButtonElement;
+      expect(trigger).toBeDefined();
+
+      act(() => {
+        trigger.click();
+      });
+
+      const customOption = Array.from(
+        document.body.querySelectorAll('[role="option"]'),
+      ).find((el) => el.textContent?.includes("Custom")) as HTMLElement;
+      expect(customOption).toBeDefined();
+
+      act(() => {
+        customOption.click();
+      });
+
+      // Does not alter the allowance callback merely by selecting Custom
+      expect(onAccommodationAllowanceChange).not.toHaveBeenCalled();
+
+      // Custom input appears immediately
+      const customInput = container.querySelector(
+        'input[aria-label="Custom stay allowance"]',
+      ) as HTMLInputElement;
+      expect(customInput).toBeDefined();
+      expect(customInput.value).toBe("15000");
+    });
+
+    it("entering a representative value calls onAccommodationAllowanceChange and stays in Custom mode", () => {
+      const onAccommodationAllowanceChange = vi.fn();
+      const container = renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 15000,
+        onAccommodationAllowanceChange,
+      });
+
+      const trigger = container.querySelector(
+        '[aria-describedby="accommodation-help"]',
+      ) as HTMLButtonElement;
+      act(() => {
+        trigger.click();
+      });
+
+      const customOption = Array.from(
+        document.body.querySelectorAll('[role="option"]'),
+      ).find((el) => el.textContent?.includes("Custom")) as HTMLElement;
+      act(() => {
+        customOption.click();
+      });
+
+      const customInput = container.querySelector(
+        'input[aria-label="Custom stay allowance"]',
+      ) as HTMLInputElement;
+
+      act(() => {
+        setInputValue(customInput, "32000");
+      });
+
+      expect(onAccommodationAllowanceChange).toHaveBeenCalledWith(32000);
+
+      // Controlled rerender with the updated allowance
+      renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 32000,
+        onAccommodationAllowanceChange,
+      });
+
+      const rerenderedInput = container.querySelector(
+        'input[aria-label="Custom stay allowance"]',
+      ) as HTMLInputElement;
+      expect(rerenderedInput).toBeDefined();
+      expect(rerenderedInput.value).toBe("32000");
+    });
+
+    it("keeps Custom input visible when user deliberately enters a value equal to a preset amount", () => {
+      const onAccommodationAllowanceChange = vi.fn();
+      const container = renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 15000,
+        onAccommodationAllowanceChange,
+      });
+
+      const trigger = container.querySelector(
+        '[aria-describedby="accommodation-help"]',
+      ) as HTMLButtonElement;
+      act(() => {
+        trigger.click();
+      });
+
+      const customOption = Array.from(
+        document.body.querySelectorAll('[role="option"]'),
+      ).find((el) => el.textContent?.includes("Custom")) as HTMLElement;
+      act(() => {
+        customOption.click();
+      });
+
+      const customInput = container.querySelector(
+        'input[aria-label="Custom stay allowance"]',
+      ) as HTMLInputElement;
+
+      // Enter 8000 (which happens to match the economy preset amount)
+      act(() => {
+        setInputValue(customInput, "8000");
+      });
+
+      expect(onAccommodationAllowanceChange).toHaveBeenCalledWith(8000);
+
+      // Controlled rerender with 8000 while staying in Custom mode
+      renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 8000,
+        onAccommodationAllowanceChange,
+      });
+
+      const rerenderedInput = container.querySelector(
+        'input[aria-label="Custom stay allowance"]',
+      ) as HTMLInputElement;
+      expect(rerenderedInput).toBeDefined();
+      expect(rerenderedInput.value).toBe("8000");
+    });
+
+    it("selecting a preset after Custom exits Custom mode, applies preset, and hides input", () => {
+      const onAccommodationAllowanceChange = vi.fn();
+      const container = renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 32000,
+        onAccommodationAllowanceChange,
+      });
+
+      // 32000 is a custom allowance, input is present
+      const initialInput = container.querySelector(
+        'input[aria-label="Custom stay allowance"]',
+      );
+      expect(initialInput).toBeDefined();
+
+      const trigger = container.querySelector(
+        '[aria-describedby="accommodation-help"]',
+      ) as HTMLButtonElement;
+      act(() => {
+        trigger.click();
+      });
+
+      const economyOption = Array.from(
+        document.body.querySelectorAll('[role="option"]'),
+      ).find((el) =>
+        el.textContent?.includes("Economy · ¥8,000"),
+      ) as HTMLElement;
+      expect(economyOption).toBeDefined();
+
+      act(() => {
+        economyOption.click();
+      });
+
+      expect(onAccommodationAllowanceChange).toHaveBeenCalledWith(8000);
+
+      // Controlled rerender with preset amount
+      renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 8000,
+        onAccommodationAllowanceChange,
+      });
+
+      const hiddenInput = container.querySelector(
+        'input[aria-label="Custom stay allowance"]',
+      );
+      expect(hiddenInput).toBeNull();
+    });
+
+    it("recognizes an initially supplied non-preset allowance as Custom", () => {
+      const container = renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 45000,
+      });
+
+      const trigger = container.querySelector(
+        '[aria-describedby="accommodation-help"]',
+      );
+      expect(trigger?.textContent).toContain("Custom");
+
+      const customInput = container.querySelector(
+        'input[aria-label="Custom stay allowance"]',
+      ) as HTMLInputElement;
+      expect(customInput).toBeDefined();
+      expect(customInput.value).toBe("45000");
+    });
+
+    it("handles invalid/blank values on blur by falling back to standard preset and exiting custom mode", () => {
+      const onAccommodationAllowanceChange = vi.fn();
+      const container = renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 32000,
+        onAccommodationAllowanceChange,
+      });
+
+      const customInput = container.querySelector(
+        'input[aria-label="Custom stay allowance"]',
+      ) as HTMLInputElement;
+
+      // Blur with NaN/empty value -> resets to Standard (15000) and exits custom mode
+      act(() => {
+        customInput.value = "";
+        triggerBlur(customInput);
+      });
+      expect(onAccommodationAllowanceChange).toHaveBeenCalledWith(15000);
+
+      // Controlled rerender with the standard allowance
+      renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 15000,
+        onAccommodationAllowanceChange,
+      });
+
+      const trigger = container.querySelector(
+        '[aria-describedby="accommodation-help"]',
+      );
+      expect(trigger?.textContent).toContain("Standard · ¥15,000");
+      expect(
+        container.querySelector('input[aria-label="Custom stay allowance"]'),
+      ).toBeNull();
+    });
+
+    it("clamps out-of-range values on blur while remaining in custom mode", () => {
+      const onAccommodationAllowanceChange = vi.fn();
+      const container = renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 32000,
+        onAccommodationAllowanceChange,
+      });
+
+      const customInput = container.querySelector(
+        'input[aria-label="Custom stay allowance"]',
+      ) as HTMLInputElement;
+
+      // Blur with clamped max
+      act(() => {
+        customInput.value = "9999999";
+        triggerBlur(customInput);
+      });
+      expect(onAccommodationAllowanceChange).toHaveBeenCalledWith(500000);
+
+      renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 500000,
+        onAccommodationAllowanceChange,
+      });
+
+      const rerenderedInput = container.querySelector(
+        'input[aria-label="Custom stay allowance"]',
+      ) as HTMLInputElement;
+      expect(rerenderedInput).toBeDefined();
+      expect(rerenderedInput.value).toBe("500000");
+    });
   });
 
   it("toggle buttons are focusable keyboard buttons", () => {
