@@ -32,7 +32,7 @@ describe("destinationSearchParams", () => {
       publicModes: ["flight", "bus"],
       partySize: 3,
       partyProfile: "group",
-      budgetTier: "comfortable",
+      budgetTier: "standard",
       vibe: "any",
       tripDuration: "any",
       walkingIntensity: "low",
@@ -273,6 +273,26 @@ describe("destinationSearchParams", () => {
     expect(DEFAULT_DESTINATION_EXPLORER_STATE.maxBudget).toBe(
       BUDGET_TIER_LIMITS.standard,
     );
+  });
+
+  it("KAI-91: retains Standard tier for numeric-only legacy budget parameters without budgetTier", () => {
+    const parsed = parseDestinationSearchParams(
+      new URLSearchParams("budget=45000"),
+    );
+    expect(parsed.budgetTier).toBe("standard");
+    expect(parsed.maxBudget).toBe(45000);
+
+    const parsedSmall = parseDestinationSearchParams(
+      new URLSearchParams("budget=10000"),
+    );
+    expect(parsedSmall.budgetTier).toBe("standard");
+    expect(parsedSmall.maxBudget).toBe(10000);
+  });
+
+  it("KAI-91: defaults to Any when no budget parameter is present", () => {
+    const parsed = parseDestinationSearchParams(new URLSearchParams(""));
+    expect(parsed.budgetTier).toBe("any");
+    expect(parsed.maxBudget).toBe(BUDGET_TIER_LIMITS.standard);
   });
 
   it("round-trips sort=nearest", () => {

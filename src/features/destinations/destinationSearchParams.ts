@@ -1,6 +1,5 @@
 import {
   BUDGET_TIER_LIMITS,
-  budgetTierForLimit,
   partyProfileForSize,
   type BudgetTier,
   type PartyProfile,
@@ -138,10 +137,7 @@ export function parseDestinationSearchParams(
   } else if (rawBudgetTier === "flexible") {
     budgetTier = "luxury";
   } else if (rawBudget !== null && /^\d+$/.test(rawBudget)) {
-    const numBudget = Number(rawBudget);
-    if (numBudget > 0) {
-      budgetTier = budgetTierForLimit(numBudget);
-    }
+    budgetTier = "standard";
   }
 
   const maxBudget =

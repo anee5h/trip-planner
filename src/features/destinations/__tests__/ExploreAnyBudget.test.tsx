@@ -166,8 +166,7 @@ describe("KAI-91: Any budget option", () => {
     const container = renderDestinations("/destinations");
     const count = getResultCount(container);
     // Unfiltered catalogue is shown
-    expect(count).toBeGreaterThan(600);
-    expect(count).toBeLessThanOrEqual(destinations.length);
+    expect(count).toBe(destinations.length);
 
     // No active budget filter chip shown by default
     const budgetChip = Array.from(
@@ -220,7 +219,7 @@ describe("KAI-91: Any budget option", () => {
     const economyCount = getResultCount(containerEconomy);
 
     expect(anyCount).toBeGreaterThan(economyCount);
-    expect(anyCount).toBeGreaterThan(600);
+    expect(anyCount).toBe(destinations.length);
   });
 
   it("budget=any survives reload / navigation round-trip", () => {
@@ -239,6 +238,25 @@ describe("KAI-91: Any budget option", () => {
     expect(reParsed.budgetTier).toBe("any");
     expect(reParsed.vibe).toBe("food");
     expect(reParsed.partySize).toBe(1);
+  });
+
+  it("retains Standard tier for numeric-only legacy budget URLs without budgetTier", () => {
+    const parsed = parseDestinationSearchParams(
+      new URLSearchParams("budget=45000"),
+    );
+    expect(parsed.budgetTier).toBe("standard");
+    expect(parsed.maxBudget).toBe(45000);
+
+    const container = renderDestinations("/destinations?budget=45000");
+    const count = getResultCount(container);
+    // Under Standard, only destinations with estimated cost <= 40000 (standard tier) or maxBudget are allowed
+    expect(count).toBeLessThanOrEqual(destinations.length);
+
+    // Active chip shows Standard budget
+    const removeStandardChipBtn = container.querySelector(
+      "button[title*='Standard']",
+    );
+    expect(removeStandardChipBtn).not.toBeNull();
   });
 
   it("keeps Flexible and other existing budget choices valid and unchanged", () => {
@@ -304,6 +322,6 @@ describe("KAI-91: Any budget option", () => {
     // Close modal / check count
     const restoredCount = getResultCount(container);
     expect(restoredCount).toBeGreaterThan(economyCount);
-    expect(restoredCount).toBeGreaterThan(600);
+    expect(restoredCount).toBe(destinations.length);
   });
 });

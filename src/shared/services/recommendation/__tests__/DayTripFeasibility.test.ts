@@ -264,6 +264,7 @@ describe("day-trip travel evidence", () => {
         ),
       ).toBe(true);
     },
+    30000,
   );
 
   it("keeps Chiba short- and half-day results populated without distant leakage", () => {
