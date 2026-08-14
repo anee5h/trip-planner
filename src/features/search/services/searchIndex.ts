@@ -2,6 +2,7 @@ import collectionsIndex from "@/shared/data/collections-index.json";
 import type { Destination } from "@/shared/types/destination";
 import type { Collection } from "@/shared/types/collection";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
+import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { getDestinationsForCollection } from "@/shared/utils/collections";
 import {
   buildTokyoWardsLink,
@@ -175,19 +176,32 @@ export function buildSearchIndex(locale: "en" | "ja" = "en"): SearchDocument[] {
   // Add destinations
   (getDestinationList(locale) as Destination[]).forEach((dest) => {
     const categoryName = dest.categories?.[0] || "Destination";
+    const localized = locale === "ja" ? getLocalizedPlace(dest, "ja") : dest;
+    const title = localized.name || dest.name;
+
+    const keywords = [
+      title.toLowerCase(),
+      dest.prefecture.toLowerCase(),
+      dest.region.toLowerCase(),
+      categoryName.toLowerCase(),
+      ...(dest.tags || []).map((t) => t.toLowerCase()),
+    ];
+
+    if (
+      locale === "ja" &&
+      dest.name &&
+      dest.name.toLowerCase() !== title.toLowerCase()
+    ) {
+      keywords.push(dest.name.toLowerCase());
+    }
+
     docs.push({
       id: `dest-${dest.id}`,
-      title: dest.name,
+      title,
       subtitle: `${dest.prefecture} • ${categoryName}`,
       type: "destination",
       url: `/destinations/${dest.id}`,
-      keywords: [
-        dest.name.toLowerCase(),
-        dest.prefecture.toLowerCase(),
-        dest.region.toLowerCase(),
-        categoryName.toLowerCase(),
-        ...(dest.tags || []).map((t) => t.toLowerCase()),
-      ],
+      keywords,
       icon: Icons.japanMap,
       badge: dest.prefecture,
       category: categoryName,
