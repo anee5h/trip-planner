@@ -6,7 +6,6 @@ import {
   serializeDestinationSearchParams,
   serializePlannerSearchParams,
 } from "../destinationSearchParams";
-import { DEFAULT_PLANNER_BUDGET_TIER } from "@/features/home/hooks/useTripPlannerState";
 import { BUDGET_TIER_LIMITS } from "@/shared/types/planner";
 import destinations from "@/shared/data/destinations-index.json";
 
@@ -33,7 +32,7 @@ describe("destinationSearchParams", () => {
       publicModes: ["flight", "bus"],
       partySize: 3,
       partyProfile: "group",
-      budgetTier: "standard",
+      budgetTier: "comfortable",
       vibe: "any",
       tripDuration: "any",
       walkingIntensity: "low",
@@ -248,12 +247,8 @@ describe("destinationSearchParams", () => {
   // PLN-004: Reset consistency — Home and Explorer use the same defaults
   // -------------------------------------------------------------------------
 
-  it("PLN-004: DEFAULT_PLANNER_BUDGET_TIER matches DEFAULT_DESTINATION_EXPLORER_STATE.budgetTier", () => {
-    // Both Home and Explorer must reset to the same budget tier so a user
-    // navigating from one to the other sees consistent defaults.
-    expect(DEFAULT_PLANNER_BUDGET_TIER).toBe(
-      DEFAULT_DESTINATION_EXPLORER_STATE.budgetTier,
-    );
+  it("KAI-91: DEFAULT_DESTINATION_EXPLORER_STATE.budgetTier is any", () => {
+    expect(DEFAULT_DESTINATION_EXPLORER_STATE.budgetTier).toBe("any");
   });
 
   it("omits weather parameter when manualWeatherPreference is undefined", () => {
@@ -274,10 +269,10 @@ describe("destinationSearchParams", () => {
     expect(params.get("budgetTier")).toBe("standard");
   });
 
-  it("PLN-004: default budgetTier maps to the correct BUDGET_TIER_LIMITS numeric value", () => {
-    const expectedBudget =
-      BUDGET_TIER_LIMITS[DEFAULT_DESTINATION_EXPLORER_STATE.budgetTier];
-    expect(expectedBudget).toBe(DEFAULT_DESTINATION_EXPLORER_STATE.maxBudget);
+  it("KAI-91: default maxBudget matches BUDGET_TIER_LIMITS.standard", () => {
+    expect(DEFAULT_DESTINATION_EXPLORER_STATE.maxBudget).toBe(
+      BUDGET_TIER_LIMITS.standard,
+    );
   });
 
   it("round-trips sort=nearest", () => {

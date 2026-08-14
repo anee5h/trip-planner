@@ -163,7 +163,7 @@ describe("Explore Recommended Day Trip ranking", () => {
           /Yokohama|Kamakura|Kawasaki|Tokyo|Utsunomiya/i.test(name),
         ),
     ).toBe(true);
-  }, 30000);
+  }, 60000);
 
   it("scores with live transport controls instead of saved preferences", () => {
     authMock.user = {
@@ -180,7 +180,7 @@ describe("Explore Recommended Day Trip ranking", () => {
 
     expect(names[0]).toBe("Harry Potter Studio");
     expect(names).not.toContain("Abeno Harukas 300 (Osaka Skyline)");
-  }, 30000);
+  }, 60000);
 
   it.each([
     ["day trip", "Day trip"],

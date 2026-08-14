@@ -48,7 +48,6 @@ import type { TripDuration } from "@/shared/services/recommendation/Recommendati
 import {
   BUDGET_TIER_LIMITS,
   partyProfileForSize,
-  type BudgetTier,
 } from "@/shared/types/planner";
 import {
   getBestOneWayTravelMinutes,
@@ -101,6 +100,7 @@ import {
   hasRestrictedTransportSelection,
   parseDestinationSearchParams,
   serializeDestinationSearchParams,
+  type ExplorerBudgetTier,
 } from "./destinationSearchParams";
 import { ALL_PUBLIC_MODES } from "@/features/home/services/TransportResolver";
 
@@ -137,7 +137,7 @@ export default function Destinations() {
     initialExplorerState.publicModes,
   );
   const [partySize, setPartySize] = useState(initialExplorerState.partySize);
-  const [budgetTier, setBudgetTier] = useState<BudgetTier>(
+  const [budgetTier, setBudgetTier] = useState<ExplorerBudgetTier>(
     initialExplorerState.budgetTier,
   );
   const [vibe, setVibe] = useState(initialExplorerState.vibe);
@@ -348,7 +348,7 @@ export default function Destinations() {
     return {
       vibe,
       weather: { preferred: weather },
-      budgetTier,
+      budgetTier: budgetTier === "any" ? undefined : budgetTier,
       budget: maxBudget,
       partySize,
       carMode,
@@ -499,7 +499,7 @@ export default function Destinations() {
 
     // 1.5. Budget filters use a destination's upper estimate: a trip must be
     // possible within the selected amount, not merely start below it.
-    if (budgetTier !== "standard") {
+    if (budgetTier !== "any") {
       result = result.filter((dest) => {
         const estimatedCost = dest.budgetMax ?? dest.budgetMin ?? Infinity;
         if (budgetTier === "economy") return estimatedCost < 10000;
@@ -647,7 +647,7 @@ export default function Destinations() {
           carMode,
           effectivePublicModes,
           homeStationCoords ?? undefined,
-          budgetTier,
+          budgetTier === "any" ? undefined : budgetTier,
           homeStationTransportZoneId,
           ferryTemporal,
         );
@@ -694,7 +694,7 @@ export default function Destinations() {
               carMode,
               effectivePublicModes,
               homeStationCoords ?? undefined,
-              budgetTier,
+              budgetTier === "any" ? undefined : budgetTier,
               homeStationTransportZoneId,
               ferryTemporal,
             );
@@ -871,7 +871,7 @@ export default function Destinations() {
           carMode,
           effectivePublicModes,
           homeStationCoords ?? undefined,
-          budgetTier,
+          budgetTier === "any" ? undefined : budgetTier,
           homeStationTransportZoneId,
           ferryTemporal,
         );
@@ -973,14 +973,14 @@ export default function Destinations() {
                 carMode,
                 effectivePublicModes,
                 homeStationCoords ?? undefined,
-                budgetTier,
+                budgetTier === "any" ? undefined : budgetTier,
                 homeStationTransportZoneId,
                 ferryTemporal,
               ),
               partySize,
               homeStationCoords ?? undefined,
               ferryTemporal,
-              budgetTier,
+              budgetTier === "any" ? "standard" : budgetTier,
             );
           return sortableBudget(a) - sortableBudget(b);
         }
@@ -994,7 +994,7 @@ export default function Destinations() {
               carMode,
               effectivePublicModes,
               homeStationCoords ?? undefined,
-              budgetTier,
+              budgetTier === "any" ? undefined : budgetTier,
               homeStationTransportZoneId,
               ferryTemporal,
             );
@@ -1211,7 +1211,11 @@ export default function Destinations() {
         budgetTier={budgetTier}
         setBudgetTier={(tier) => {
           setBudgetTier(tier);
-          setMaxBudget(BUDGET_TIER_LIMITS[tier]);
+          setMaxBudget(
+            tier === "any"
+              ? BUDGET_TIER_LIMITS.standard
+              : BUDGET_TIER_LIMITS[tier],
+          );
         }}
         vibe={vibe}
         setVibe={setVibe}

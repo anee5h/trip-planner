@@ -1,5 +1,6 @@
 import {
   BUDGET_TIER_LIMITS,
+  budgetTierForLimit,
   partyProfileForSize,
   type BudgetTier,
   type PartyProfile,
@@ -10,6 +11,8 @@ import type {
 } from "@/shared/services/recommendation/RecommendationContext";
 import { MAX_ACCOMMODATION_ALLOWANCE } from "@/shared/services/budget/BudgetService";
 import { normalizeTravelDateParam } from "@/shared/services/recommendation/TravelConditions";
+
+export type ExplorerBudgetTier = "any" | BudgetTier;
 
 export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   searchQuery: "",
@@ -29,7 +32,7 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   partySize: 2,
   partyProfile: "couple" as PartyProfile,
   weather: "any" as "any" | "rainy" | "hot" | "cold",
-  budgetTier: "standard" as BudgetTier,
+  budgetTier: "any" as ExplorerBudgetTier,
   vibe: "any",
   tripDuration: "any" as TripDuration,
   walkingIntensity: "all",
@@ -117,6 +120,37 @@ export function parseDestinationSearchParams(
           ? 4
           : 2;
 
+  const rawBudget = params.get("budget");
+  let budgetTier: ExplorerBudgetTier = defaults.budgetTier;
+  if (rawBudgetTier === "any" || rawBudget === "any") {
+    budgetTier = "any";
+  } else if (
+    rawBudgetTier === "economy" ||
+    rawBudgetTier === "standard" ||
+    rawBudgetTier === "comfortable" ||
+    rawBudgetTier === "luxury"
+  ) {
+    budgetTier = rawBudgetTier;
+  } else if (rawBudgetTier === "budget") {
+    budgetTier = "economy";
+  } else if (rawBudgetTier === "premium") {
+    budgetTier = "comfortable";
+  } else if (rawBudgetTier === "flexible") {
+    budgetTier = "luxury";
+  } else if (rawBudget !== null && /^\d+$/.test(rawBudget)) {
+    const numBudget = Number(rawBudget);
+    if (numBudget > 0) {
+      budgetTier = budgetTierForLimit(numBudget);
+    }
+  }
+
+  const maxBudget =
+    rawBudget !== null && /^\d+$/.test(rawBudget)
+      ? parseNumber(rawBudget, defaults.maxBudget)
+      : budgetTier === "any"
+        ? defaults.maxBudget
+        : BUDGET_TIER_LIMITS[budgetTier];
+
   return {
     searchQuery: params.get("q") ?? defaults.searchQuery,
     selectedRegions: params.getAll("region"),
@@ -130,7 +164,7 @@ export function parseDestinationSearchParams(
     ),
     season: params.get("season") ?? defaults.season,
     date: normalizeTravelDateParam(params.get("date")) ?? "",
-    maxBudget: parseNumber(params.get("budget"), defaults.maxBudget),
+    maxBudget,
     sortBy: params.get("sort") ?? defaults.sortBy,
     // KAI-63 D1: reject transport values Explore cannot render (ferry,
     // legacy chip labels like local/express, junk car values) so a URL can
@@ -151,17 +185,7 @@ export function parseDestinationSearchParams(
       params.get("weather") === "cold"
         ? (params.get("weather") as "rainy" | "hot" | "cold")
         : defaults.weather,
-    budgetTier:
-      rawBudgetTier === "economy" ||
-      rawBudgetTier === "standard" ||
-      rawBudgetTier === "comfortable" ||
-      rawBudgetTier === "luxury"
-        ? (rawBudgetTier as BudgetTier)
-        : rawBudgetTier === "budget"
-          ? "economy"
-          : rawBudgetTier === "premium"
-            ? "comfortable"
-            : defaults.budgetTier,
+    budgetTier,
     vibe: params.get("vibe") ?? defaults.vibe,
     tripDuration:
       params.get("duration") === "shortOuting" ||
@@ -213,7 +237,11 @@ export function serializeDestinationSearchParams(
   if (state.indoorMin > 0) params.set("indoor", String(state.indoorMin));
   if (state.season !== "any") params.set("season", state.season);
   if (state.date) params.set("date", state.date);
-  params.set("budget", String(state.maxBudget));
+  if (state.budgetTier === "any") {
+    params.set("budget", "any");
+  } else {
+    params.set("budget", String(state.maxBudget));
+  }
   params.set("sort", state.sortBy);
   params.set("car", sanitizeCarMode(state.carMode));
   const publicModes = sanitizePublicModes(state.publicModes);
