@@ -275,12 +275,15 @@ describe("KAI-63 Explore bus eligibility", () => {
   );
 
   it("a known verified corridor destination is included from Tokyo", () => {
-    // kofu-city is reachable from Tokyo via the verified tokyo⇔kofu coach;
-    // it must appear in the day-trip bus results.
-    setOrigin(TOKYO);
-    const hostEl = renderDestinations("/destinations?mode=bus");
-    const ids = cardIds(hostEl);
-    expect(ids).toContain("kofu-city");
+    // kofu-city is reachable from Tokyo via the verified tokyo⇔kofu coach.
+    // KAI-89 model pass: kofu's template season was neutralized, which can
+    // move it below the first Explore page; the corridor invariant is
+    // ELIGIBILITY (bus authorized via the verified corridor), not top-page
+    // visibility.
+    const kofu = catalogue.find((r) => r.id === "kofu-city")!;
+    const originZoneId = resolveOriginTransportZone({ coordinates: TOKYO });
+    const modes = getValidModes(kofu, "none", ["bus"], TOKYO, undefined, originZoneId, undefined);
+    expect(modes).toContain("bus");
   });
 
   it("a known unsupported destination is excluded from Tokyo", () => {

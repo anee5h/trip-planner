@@ -80,13 +80,26 @@ describe("Okinawa destination runtime contract", () => {
       expect(typeof r.crowd).toBe("object");
     });
 
-    it(`${r.id}: has season object`, () => {
-      expect(r.season).toBeDefined();
-      expect(typeof r.season).toBe("object");
+    // KAI-89 model pass: season/bestMonths are optional. Absence is
+    // allowed ONLY with the explicit neutral marker (seasonMetadata.method
+    // 'unknown'); anything else must be a valid object/array.
+    it(`${r.id}: has season object or explicit neutral marker`, () => {
+      const neutral = r.seasonMetadata?.method === "unknown";
+      if (neutral) {
+        expect(r.season).toBeUndefined();
+      } else {
+        expect(r.season).toBeDefined();
+        expect(typeof r.season).toBe("object");
+      }
     });
 
-    it(`${r.id}: has bestMonths array`, () => {
-      expect(Array.isArray(r.bestMonths)).toBe(true);
+    it(`${r.id}: has bestMonths array or explicit neutral marker`, () => {
+      const neutral = r.seasonMetadata?.method === "unknown";
+      if (neutral) {
+        expect(r.bestMonths).toBeUndefined();
+      } else {
+        expect(Array.isArray(r.bestMonths)).toBe(true);
+      }
     });
 
     it(`${r.id}: has notes`, () => {
@@ -109,16 +122,20 @@ describe("Okinawa destination runtime contract", () => {
       expect(r.walkingMin).toBeGreaterThanOrEqual(0);
     });
 
-    it(`${r.id}: has valid walkingSunMin`, () => {
-      expect(typeof r.walkingSunMin).toBe("number");
-      expect(Number.isFinite(r.walkingSunMin)).toBe(true);
-      expect(r.walkingSunMin).toBeGreaterThanOrEqual(0);
+    // KAI-89 walking model: synthetic 60/40 sun/shade splits are removed
+    // (REMOVE_SYNTHETIC_SPLIT); absence is the corrected state.
+    it(`${r.id}: has valid walkingSunMin or none (split removed)`, () => {
+      if (r.walkingSunMin !== undefined) {
+        expect(Number.isFinite(r.walkingSunMin)).toBe(true);
+        expect(r.walkingSunMin).toBeGreaterThanOrEqual(0);
+      }
     });
 
-    it(`${r.id}: has valid walkingShadeMin`, () => {
-      expect(typeof r.walkingShadeMin).toBe("number");
-      expect(Number.isFinite(r.walkingShadeMin)).toBe(true);
-      expect(r.walkingShadeMin).toBeGreaterThanOrEqual(0);
+    it(`${r.id}: has valid walkingShadeMin or none (split removed)`, () => {
+      if (r.walkingShadeMin !== undefined) {
+        expect(Number.isFinite(r.walkingShadeMin)).toBe(true);
+        expect(r.walkingShadeMin).toBeGreaterThanOrEqual(0);
+      }
     });
 
     it(`${r.id}: has valid indoorPercent`, () => {

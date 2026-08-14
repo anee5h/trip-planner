@@ -585,16 +585,22 @@ export default function DestinationCard({
                     data-testid="destination-card-sun"
                     className="hidden min-w-0 items-center whitespace-nowrap md:flex"
                   >
-                    <Sun className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
-                    <span className="truncate">
-                      {locale === "ja"
-                        ? destination.walkingSunMin < 3000
-                          ? "日差し少なめ"
-                          : "日差し多め"
-                        : destination.walkingSunMin < 3000
-                          ? "Low sun"
-                          : "High sun"}
-                    </span>
+                    {/* Only render when a finite sun-exposure value exists;
+                        unknown must not fall through to a default label. */}
+                    {Number.isFinite(destination.walkingSunMin) && (
+                      <>
+                        <Sun className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
+                        <span className="truncate">
+                          {locale === "ja"
+                            ? destination.walkingSunMin < 3000
+                              ? "日差し少なめ"
+                              : "日差し多め"
+                            : destination.walkingSunMin < 3000
+                              ? "Low sun"
+                              : "High sun"}
+                        </span>
+                      </>
+                    )}
                   </div>
                 </div>
 

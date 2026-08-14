@@ -297,19 +297,23 @@ export const destinationsValidator: ValidatorModule = {
             targetId: dest.id,
           });
         }
-        if (!dest.season || typeof dest.season !== "object") {
+        // KAI-89 model pass: season/bestMonths are optional. Absence is
+        // allowed ONLY with the explicit neutral marker (seasonMetadata.method
+        // 'unknown'); otherwise a published record must carry both.
+        const seasonNeutral = dest.seasonMetadata?.method === "unknown";
+        if (!seasonNeutral && (!dest.season || typeof dest.season !== "object")) {
           issues.push({
             severity: "error",
             code: "MISSING_SEASON",
-            message: `Published destination '${dest.id}' has missing 'season' object.`,
+            message: `Published destination '${dest.id}' has missing 'season' object (and no explicit neutral marker).`,
             targetId: dest.id,
           });
         }
-        if (dest.bestMonths === undefined || dest.bestMonths === null) {
+        if (!seasonNeutral && (dest.bestMonths === undefined || dest.bestMonths === null)) {
           issues.push({
             severity: "error",
             code: "MISSING_BEST_MONTHS",
-            message: `Published destination '${dest.id}' has missing 'bestMonths' field.`,
+            message: `Published destination '${dest.id}' has missing 'bestMonths' field (and no explicit neutral marker).`,
             targetId: dest.id,
           });
         }
@@ -346,10 +350,13 @@ export const destinationsValidator: ValidatorModule = {
             targetId: dest.id,
           });
         }
+        // KAI-89 walking model: synthetic 60/40 sun/shade splits are removed
+        // (REMOVE_SYNTHETIC_SPLIT); absence is the corrected state.
         if (
-          typeof dest.walkingSunMin !== "number" ||
-          !Number.isFinite(dest.walkingSunMin) ||
-          dest.walkingSunMin < 0
+          dest.walkingSunMin !== undefined &&
+          (typeof dest.walkingSunMin !== "number" ||
+            !Number.isFinite(dest.walkingSunMin) ||
+            dest.walkingSunMin < 0)
         ) {
           issues.push({
             severity: "error",
@@ -359,9 +366,10 @@ export const destinationsValidator: ValidatorModule = {
           });
         }
         if (
-          typeof dest.walkingShadeMin !== "number" ||
-          !Number.isFinite(dest.walkingShadeMin) ||
-          dest.walkingShadeMin < 0
+          dest.walkingShadeMin !== undefined &&
+          (typeof dest.walkingShadeMin !== "number" ||
+            !Number.isFinite(dest.walkingShadeMin) ||
+            dest.walkingShadeMin < 0)
         ) {
           issues.push({
             severity: "error",

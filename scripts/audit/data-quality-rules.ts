@@ -458,9 +458,14 @@ export function collectDestinationIssues(
   }
 
   // ---- G9: seasonality ----
+  // An explicit neutral state (seasonMetadata.method "unknown", written by
+  // the KAI-89 season model when no defensible seasonal signal exists) is
+  // NOT missing data: it is a deliberate, marked absence.
+  const seasonExplicitlyNeutral = dest.seasonMetadata?.method === "unknown";
   if (
     dest.status === "published" &&
     dest.role !== "hub" &&
+    !seasonExplicitlyNeutral &&
     (!dest.season || !dest.bestMonths?.length)
   ) {
     push(
@@ -499,7 +504,10 @@ export function collectDestinationIssues(
   if (
     dest.status === "published" &&
     dest.role !== "hub" &&
-    dest.budgetRecommended === undefined
+    dest.budgetRecommended === undefined &&
+    // Explicit neutral state written by the KAI-89 budget model (template
+    // budget deliberately returned to unknown) is NOT missing data.
+    dest.budgetMetadata?.method !== "unknown"
   ) {
     push("MISSING_BUDGET", "published non-hub record lacks budgetRecommended");
   }

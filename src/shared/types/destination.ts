@@ -319,14 +319,51 @@ export interface Destination {
     weekend: number;
     holiday: number;
   };
-  season: {
+  /**
+   * Experience-season suitability (0-10 per season). Optional since
+   * KAI-89 model pass: records without a defensible seasonal signal carry
+   * seasonMetadata.method "unknown" (an explicit neutral state, never a
+   * fabricated vector). Consumers fall back to the neutral mid-point 5.
+   */
+  season?: {
     spring: number;
     summer: number;
     autumn: number;
     winter: number;
   };
-  bestMonths: number[];
+  bestMonths?: number[];
   bestSeason?: string;
+  /**
+   * KAI-89 model provenance for derived season state (method "model") or the
+   * explicit neutral state (method "unknown").
+   */
+  seasonMetadata?: {
+    method: "manual" | "assisted" | "model" | "unknown";
+    modelVersion?: string;
+    confidence?: "high" | "medium" | "low" | "unknown";
+    basis?: string;
+  };
+  /**
+   * KAI-89 budget provenance: marks budgets derived by the model (method
+   * "model") and template budgets deliberately returned to unknown (method
+   * "unknown" — the explicit neutral state, not missing data).
+   */
+  budgetMetadata?: {
+    method: "model" | "unknown";
+    modelVersion?: string;
+    confidence?: "high" | "medium" | "low" | "unknown";
+    basis?: string;
+  };
+  /**
+   * KAI-89 transport provenance: tags legacy static transportOptions minutes
+   * as low-confidence fallback (never verified journey facts).
+   */
+  transportMetadata?: {
+    method: "source-verified" | "calculated" | "legacy-fallback" | "unknown";
+    modelVersion?: string;
+    confidence?: "high" | "medium" | "low" | "unknown";
+    basis?: string;
+  };
   weatherDependence?: "low" | "moderate" | "high";
   openingHoursMetadata?: {
     verifiedAt?: string;

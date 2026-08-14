@@ -487,7 +487,7 @@ export default function Destinations() {
 
     if (season !== "any") {
       result = result.filter(
-        (dest) => dest.season?.[season as keyof Destination["season"]] >= 7,
+        (dest) => (dest.season?.[season as keyof Destination["season"]] ?? 0) >= 7,
       );
     }
 

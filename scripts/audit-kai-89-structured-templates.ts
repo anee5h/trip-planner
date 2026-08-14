@@ -172,12 +172,14 @@ function buildReport(destinations: Destination[]) {
     (d) =>
       d.status === "published" &&
       d.role !== "hub" &&
-      d.budgetRecommended === undefined,
+      d.budgetRecommended === undefined &&
+      d.budgetMetadata?.method !== "unknown",
   ).length;
   const missingSeasonRecords = destinations.filter(
     (d) =>
       d.status === "published" &&
       d.role !== "hub" &&
+      d.seasonMetadata?.method !== "unknown" &&
       (!d.season || !d.bestMonths?.length),
   ).length;
   const dispositionCounts: Record<string, number> = {};
@@ -216,6 +218,14 @@ function buildReport(destinations: Destination[]) {
         genericTemplateCopyRecords,
         missingBudgetRecords,
         missingSeasonRecords,
+        // Deliberately neutral (explicit markers written by the KAI-89 models)
+        // — distinct from missing, which is the error class above.
+        explicitlyUnknownBudget: destinations.filter(
+          (d) => d.status === "published" && d.budgetMetadata?.method === "unknown",
+        ).length,
+        explicitlyUnknownSeason: destinations.filter(
+          (d) => d.status === "published" && d.seasonMetadata?.method === "unknown",
+        ).length,
       },
       dispositionCounts,
       categoryCounts,

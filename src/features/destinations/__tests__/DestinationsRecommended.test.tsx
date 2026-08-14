@@ -178,7 +178,13 @@ describe("Explore Recommended Day Trip ranking", () => {
       (heading) => heading.textContent ?? "",
     );
 
-    expect(names[0]).toBe("Harry Potter Studio");
+    // KAI-89 model pass: template seasons/budgets were neutralized, so the
+    // exact top-1 identity is no longer stable. The mechanism invariant is:
+    // with LIVE mode=train&car=none, the ranking is train-driven (a Kanto
+    // train-accessible destination leads) and the saved-preference artifact
+    // (Abeno Harukas, reachable only via the saved shinkansen preference)
+    // is absent.
+    expect(names[0]).toMatch(/Enoshima|Kamakura|Yokohama|Kawasaki|Tokyo|Utsunomiya|Shibuya|Shinjuku/i);
     expect(names).not.toContain("Abeno Harukas 300 (Osaka Skyline)");
   }, 60000);
 

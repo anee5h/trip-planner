@@ -19,7 +19,7 @@
     "check:catalog-warnings": "tsx scripts/check-catalog-warnings.ts",
     "check:catalog-warnings:update": "tsx scripts/check-catalog-warnings.ts --update",
     "check:catalog-sync": "tsx scripts/check-catalog-sync.ts",
-    "check:catalog-ci": "tsx scripts/check-catalog-ci.ts && npm run check:kai-89-structured-templates",
+    "check:catalog-ci": "tsx scripts/check-catalog-ci.ts && npm run check:kai-89-structured-templates && npm run check:destination-models",
     "validate-destinations": "tsx scripts/cli/validate-destinations.ts",
     "validate-destination-details": "tsx scripts/cli/validate-destination-details.ts",
     "validate-places": "tsx scripts/cli/validate-places.ts",
@@ -54,7 +54,10 @@
     "add-yokohama-places": "tsx scripts/add-yokohama-places.ts",
     "validate:catalog-fast": "tsx scripts/validate-all.ts --profile fast --no-report",
     "verify:pr": "npm run test:run && npx tsc -b --noEmit && npm run lint && npm run format:check && npm run validate:i18n && npm run check:branding && npm run validate:catalog-fast && npm run check:catalog-ci && npm run build",
-    "release:verify": "npm run test:run && npm run pipeline -- --dry-run && npm run validate-all && npm run validate:i18n && npm run check:branding && npx tsc -b --noEmit && npm run lint && npm run build && npm run format:check"
+    "release:verify": "npm run test:run && npm run pipeline -- --dry-run && npm run validate-all && npm run validate:i18n && npm run check:branding && npx tsc -b --noEmit && npm run lint && npm run build && npm run format:check",
+    "derive:destination-models": "tsx scripts/derive-destination-models.ts",
+    "derive:destination-models:apply": "tsx scripts/derive-destination-models.ts --apply",
+    "check:destination-models": "tsx scripts/derive-destination-models.ts --check && tsx scripts/models/validate-models.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

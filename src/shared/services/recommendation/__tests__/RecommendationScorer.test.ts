@@ -257,8 +257,12 @@ describe("RecommendationScorer Unit Tests", () => {
   });
 
   it("keeps day-trip efficiency on the selected usable transport mode", () => {
+    // KAI-89 model pass: karuizawa-town's template budget was honestly
+    // cleared (no verified ticket, insufficient peer samples), which would
+    // make this fare-semantics test vacuous. nagano-city retains its
+    // verified-fare corridor budget and exercises the same invariant.
     const destination = (getDestinationList("en") as Destination[]).find(
-      (candidate) => candidate.id === "karuizawa-town",
+      (candidate) => candidate.id === "nagano-city",
     )!;
     const context = {
       vibe: "any",
@@ -291,11 +295,10 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(shinkansen.usable).toBe(true);
     // KAI-12 verified-fare behavior: Tokyo→Nagano shinkansen carries a
     // verified reserved fare (¥8,250 one-way, FARE_POLICY §2) while the
-    // train corridor has none (heuristic only). For party 2 the verified
-    // shinkansen round trip is ¥33,000 vs the train heuristic ¥13,680, so
-    // the train's budget+transport score is higher — the budget-consistent
-    // selection is the train, and the day-trip efficiency must follow the
-    // selected mode, never a faster unselected one.
+    // train corridor has none (heuristic only). The KAI-89 model pass
+    // re-derived the destination's visit window, so the exact budget
+    // margin changed; the invariant is the ORDER (train cheaper than
+    // shinkansen for the verified-fare corridor), not a fixed margin.
     expect(train.budget + train.transport).toBeGreaterThan(
       shinkansen.budget + shinkansen.transport,
     );
