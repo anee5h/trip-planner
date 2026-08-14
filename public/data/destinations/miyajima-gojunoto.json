@@ -179,5 +179,11 @@
     "modelVersion": "comfort-model-v1",
     "confidence": "low",
     "basis": "derived from indoorPercent=0, kind='tower', walkingMin=unknown"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'tower'"
   }
 }

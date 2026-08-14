@@ -68,6 +68,7 @@ export function TripCostBreakdownWidget({
         transport:
           planCostBreakdown.originTransport.min +
           planCostBreakdown.localTransit.min,
+        localTransit: planCostBreakdown.localTransit.min,
         transportAvailable:
           planCostBreakdown.originTransport.applicable ||
           planCostBreakdown.localTransit.applicable,
@@ -115,7 +116,10 @@ export function TripCostBreakdownWidget({
         planCostBreakdown.originTransport.max +
           planCostBreakdown.localTransit.max,
       ]
-    : [cost.transport, cost.transport];
+    : [
+        cost.transport + (cost.localTransit ?? 0),
+        cost.transport + (cost.localTransit ?? 0),
+      ];
   const admissionRange: [number, number] = planCostBreakdown
     ? [planCostBreakdown.admission.min, planCostBreakdown.admission.max]
     : [cost.tickets, cost.tickets];

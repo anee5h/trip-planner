@@ -11,8 +11,8 @@
     "Historic Landmark",
     "Cultural Preservation Area"
   ],
-  "budgetMin": 5500,
-  "budgetMax": 15500,
+  "budgetMin": 9500,
+  "budgetMax": 11500,
   "budgetRecommended": 10500,
   "transportOptions": {
     "train": 45,
@@ -180,5 +180,11 @@
     "modelVersion": "crowd-model-v1",
     "confidence": "unknown",
     "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "budgetMetadata": {
+    "method": "model",
+    "modelVersion": "budget-model-v1",
+    "confidence": "low",
+    "basis": "peer cell 'none|full|poi' n=12; tickets source-verified"
   }
 }

@@ -796,7 +796,22 @@ function main() {
               )
             : undefined,
       };
-      if (changed(beforeComfort, d.comfort)) {
+      // FIX_CONTRADICTION is a MODEL correction: write the structured
+      // comfortMetadata too (the old code only wrote the field source,
+      // leaving a calculated source with NO metadata — a provenance hole,
+      // e.g. disneyland/disneysea/enoshima-island/imperial-palace-chiyoda).
+      if (d.comfortMetadata?.method !== "model") {
+        d.comfortMetadata = {
+          method: "model",
+          modelVersion: "comfort-model-v1",
+          confidence: "low",
+          basis:
+            "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin",
+        };
+      }
+      if (
+        changed(beforeComfort, { ...d.comfort, metadata: d.comfortMetadata })
+      ) {
         addFieldSource(
           d,
           "comfort",
@@ -807,7 +822,7 @@ function main() {
           "comfort-model-v1",
           "fix-contradiction",
           "impossible walkingIntensity corrected",
-          ["comfort.walkingIntensity"],
+          ["comfort.walkingIntensity", "comfortMetadata"],
         );
       }
     }
@@ -972,6 +987,228 @@ function main() {
             [field],
           );
         }
+      }
+    }
+  }
+
+  // ---- Pre-metadata-leftover reconciliation (bidirectional provenance) ----
+  // A calculated model source WITHOUT structured metadata (or with
+  // manual/unknown metadata) is a pre-metadata-era leftover or a stale echo.
+  // Invariant: a calculated source REQUIRES metadata.method "model". If the
+  // current value equals the owning model's deterministic output, write the
+  // metadata (migration); otherwise the source is stale → delete it. walkingMin
+  // is EXEMPT: legacy path B of isModelOwnedWalkingMinutes (title regex) is
+  // the authoritative legacy contract.
+  for (const d of destinations) {
+    if (!d.editorial?.fieldSources) continue;
+    const fs = d.editorial.fieldSources;
+    const writeMeta = (
+      field: string,
+      modelVersion: string,
+      basis: string,
+      confidence: "high" | "medium" | "low" | "unknown",
+    ) => {
+      // Callers guarantee the target metadata is absent or non-model
+      // (per-field guard above); assign to the right metadata field.
+      const metaObj = {
+        method: "model" as const,
+        modelVersion,
+        confidence,
+        basis,
+      };
+      if (modelVersion === "budget-model-v1") d.budgetMetadata = metaObj;
+      else if (modelVersion === "season-model-v1") d.seasonMetadata = metaObj;
+      else if (
+        modelVersion === "duration-model-v1" ||
+        modelVersion === "hub-window-model-v1"
+      )
+        d.durationMetadata = metaObj;
+      else if (modelVersion === "comfort-model-v1") d.comfortMetadata = metaObj;
+      else if (modelVersion === "crowd-model-v1") d.crowdMetadata = metaObj;
+      addFieldSource(d, field, `${modelVersion}; ${basis}`);
+      touch(
+        d,
+        modelVersion,
+        "migrate",
+        "pre-metadata leftover migrated to structured metadata",
+        [field],
+      );
+    };
+
+    // Budget: migrate model-shaped values (recommended + breakdown match the
+    // current deterministic output; only the min/max width drifted from an
+    // older calibration) to the full model output + structured metadata,
+    // rather than deleting provenance. Truly stale sources are deleted.
+    if (
+      d.budgetMetadata?.method !== "model" &&
+      (fs.budgetRecommended !== undefined ||
+        (d.budgetRecommended !== undefined && d.budgetBreakdown !== undefined))
+    ) {
+      const out = budgetModel(d, new Set([d.id]), destinations, truth);
+      const b = out.budget;
+      const shapeMatches =
+        out.action === "fill" &&
+        b !== undefined &&
+        d.budgetRecommended === b.budgetRecommended &&
+        JSON.stringify(d.budgetBreakdown) === JSON.stringify(b.breakdown);
+      if (shapeMatches) {
+        // Adopt the canonical model output (min/max re-calibrated) so the
+        // provenance describes the actual stored values.
+        d.budgetMin = b!.budgetMin;
+        d.budgetRecommended = b!.budgetRecommended;
+        d.budgetMax = b!.budgetMax;
+        d.budgetBreakdown = b!.breakdown;
+        writeMeta(
+          "budgetRecommended",
+          "budget-model-v1",
+          out.reason,
+          out.confidence,
+        );
+        touch(
+          d,
+          "budget-model-v1",
+          "migrate",
+          "budget reconciled to current model output with metadata",
+          [
+            "budgetMin",
+            "budgetRecommended",
+            "budgetMax",
+            "budgetBreakdown",
+            "budgetMetadata",
+          ],
+        );
+      } else if (fs.budgetRecommended) {
+        delete fs.budgetRecommended;
+        touch(
+          d,
+          "budget-model-v1",
+          "clear",
+          "stale calculated budget source removed (no model metadata)",
+          ["budgetRecommended"],
+        );
+      }
+    }
+    // Duration: migrate model-shaped windows (matches durationModel output)
+    // to structured metadata. Source-gated: a duration source is the model
+    // marker — value-shape alone is not (manual records share common kind
+    // bands like {1,2}).
+    if (fs.recommendedVisitHours && d.durationMetadata?.method !== "model") {
+      const out = durationModel(d, new Set([d.id]), childCountById);
+      if (
+        out.action === "set" &&
+        out.visitHours &&
+        d.recommendedVisitHours?.min === out.visitHours.min &&
+        d.recommendedVisitHours.max === out.visitHours.max
+      ) {
+        writeMeta(
+          "recommendedVisitHours",
+          out.modelVersion,
+          out.reason,
+          out.confidence,
+        );
+      } else {
+        delete fs.recommendedVisitHours;
+        touch(
+          d,
+          "duration-model-v1",
+          "clear",
+          "stale calculated duration source removed (no model metadata)",
+          ["recommendedVisitHours"],
+        );
+      }
+    }
+    // Comfort: migrate model-shaped values. FIX_CONTRADICTION-corrected
+    // records (source title marks the model correction) get structured
+    // metadata even though the full vector no longer equals comfortModel
+    // output (heatTolerance/rainFriendly are legacy — only the intensity is
+    // model-derived, and the basis says exactly that). Value-shape matching
+    // alone is NOT used (38 records share the derived band — coincidence,
+    // not model provenance).
+    if (
+      d.comfort &&
+      d.comfortMetadata?.method !== "model" &&
+      fs.comfort !== undefined
+    ) {
+      const minutes =
+        Number.isFinite(d.walkingMin) &&
+        (d.walkingMin < 300 || isModelOwnedWalkingMinutes(d))
+          ? d.walkingMin
+          : undefined;
+      const out = comfortModel(d, new Set([d.id]), minutes);
+      if (
+        out.action === "set" &&
+        out.comfort &&
+        JSON.stringify(d.comfort) === JSON.stringify(out.comfort)
+      ) {
+        writeMeta("comfort", "comfort-model-v1", out.reason, out.confidence);
+      } else if (/FIX_CONTRADICTION/.test(fs.comfort[0]?.title ?? "")) {
+        writeMeta(
+          "comfort",
+          "comfort-model-v1",
+          "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin",
+          "low",
+        );
+      } else {
+        delete fs.comfort;
+        touch(
+          d,
+          "comfort-model-v1",
+          "clear",
+          "stale calculated comfort source removed (no model metadata)",
+          ["comfort"],
+        );
+      }
+    }
+    if (fs.season && d.seasonMetadata?.method !== "model") {
+      const out = seasonModel(d, new Set([d.id]));
+      if (
+        out.action === "set" &&
+        out.season &&
+        JSON.stringify(d.season) === JSON.stringify(out.season) &&
+        JSON.stringify(d.bestMonths) === JSON.stringify(out.bestMonths)
+      ) {
+        writeMeta(
+          "season",
+          "season-model-v1",
+          out.reason,
+          out.metadata.confidence,
+        );
+        if (d.bestMonths && fs.bestMonths === undefined) {
+          addFieldSource(
+            d,
+            "bestMonths",
+            `${out.metadata.modelVersion}; ${out.reason}`,
+          );
+        }
+      } else {
+        delete fs.season;
+        delete fs.bestMonths;
+        touch(
+          d,
+          "season-model-v1",
+          "clear",
+          "stale calculated season source removed (no model metadata)",
+          ["season"],
+        );
+      }
+    }
+    if (fs.crowd && d.crowdMetadata?.method !== "model") {
+      const out = crowdModel(d, new Set([d.id]));
+      if (
+        out.action === "set" &&
+        out.crowd &&
+        JSON.stringify(d.crowd) === JSON.stringify(out.crowd)
+      ) {
+        writeMeta("crowd", "crowd-model-v1", out.reason, out.confidence);
+      } else {
+        delete fs.crowd;
+        touch(
+          d,
+          "crowd-model-v1",
+          "clear",
+          "stale calculated crowd source removed (no model metadata)",
+          ["crowd"],
+        );
       }
     }
   }

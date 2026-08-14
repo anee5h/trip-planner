@@ -308,19 +308,17 @@ export function getEstimatedBudgetRange(
       food: null,
     };
   }
-  const transfers: Record<BudgetTier, PriceRange> = {
-    economy: [0, 600],
-    standard: [500, 1500],
-    comfortable: [1500, 5000],
-    luxury: [5000, 15000],
-  };
-  const transfer = transfers[budgetTier];
+  // KAI-89 on-site transport contract: budgetBreakdown.transport is the
+  // PER-PERSON on-site/local-transit allowance and is part of the trip cost.
+  // It replaces the legacy hardcoded per-tier transfer band (which was a
+  // synthetic stand-in — keeping both would double count local transit).
+  const onsiteTransit = breakdown.transport * scale;
   const tickets = breakdown.tickets * scale;
   const cafe = breakdown.cafe * scale;
   return {
     range: [
-      Math.round((transport + tickets + food[0] + cafe + transfer[0]) * 1.05),
-      Math.round((transport + tickets + food[1] + cafe + transfer[1]) * 1.05),
+      Math.round((transport + onsiteTransit + tickets + food[0] + cafe) * 1.05),
+      Math.round((transport + onsiteTransit + tickets + food[1] + cafe) * 1.05),
     ],
     transportIncluded,
     transportFareScope,
@@ -731,10 +729,12 @@ export function getAdjustedBudget(
         breakdown.tickets +
         breakdown.food +
         breakdown.cafe;
-  // KAI-89 contract: catalogue values are per-person; other costs (everything
-  // except the on-site transit allowance) scale directly with the party.
-  const otherCosts =
-    Math.max(0, recBudget - breakdown.transport) * normalizedPartySize;
+  // KAI-89 contract: catalogue values are per-person; ALL on-site components
+  // (transport/tickets/food/cafe) scale directly with the party, and the
+  // per-person on-site/local-transit allowance is included (previously
+  // subtracted and never re-added — the adjusted total omitted on-site
+  // transit entirely). Origin transport is added separately by the caller.
+  const otherCosts = Math.max(0, recBudget) * normalizedPartySize;
   return otherCosts + (transportCost ?? 0);
 }
 
@@ -784,6 +784,9 @@ export interface ItemizedCostBreakdown {
   /** False when origin transport cost is unavailable or unknown; never
    *  presented as a verified zero-cost estimate. */
   transportAvailable: boolean;
+  /** Per-party on-site/local-transit allowance from the catalogue
+   *  (budgetBreakdown.transport × partySize; KAI-89 per-person contract). */
+  localTransit: number;
   tickets: number;
   /** Meal range, or null when trip duration is unknown. */
   food: PriceRange | null;
@@ -859,6 +862,7 @@ export function calculateItemizedTripCost(
     return {
       transport,
       transportAvailable: transportAvailable && Number.isFinite(rawTransport),
+      localTransit: 0,
       tickets: 0,
       food: null,
       cafe: 0,
@@ -878,9 +882,13 @@ export function calculateItemizedTripCost(
     ? getDiningFoodRange(budgetTier, tripDurationHours, partySize)
     : null;
   const cafe = (breakdown.cafe || 0) * partySize;
+  // KAI-89 on-site transport contract: budgetBreakdown.transport is the
+  // per-person on-site/local-transit allowance; it is part of the trip cost.
+  const localTransit = (breakdown.transport || 0) * partySize;
   const parking = mode === "car" || mode === "my_car" ? 1200 : 0;
   const minPartyTotal = Math.round(
     transport +
+      localTransit +
       tickets +
       (food?.[0] ?? 0) +
       cafe +
@@ -889,6 +897,7 @@ export function calculateItemizedTripCost(
   );
   const maxPartyTotal = Math.round(
     transport +
+      localTransit +
       tickets +
       (food?.[1] ?? 0) +
       cafe +
@@ -912,6 +921,7 @@ export function calculateItemizedTripCost(
   return {
     transport,
     transportAvailable,
+    localTransit,
     tickets,
     food,
     cafe,

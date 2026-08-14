@@ -108,7 +108,16 @@ describe("KAI-89 validate-models mutation guards", () => {
 
   it("out-of-range catches a fractional comfort value on a model-touched comfort record", () => {
     const touched = loadIndex()
-      .filter((d) => d.comfortMetadata?.method === "model")
+      .filter(
+        (d) =>
+          d.comfortMetadata?.method === "model" &&
+          // FIX_CONTRADICTION records derive ONLY walkingIntensity; the
+          // integer gate scopes to it, so pick a full-vector model record.
+          !(
+            typeof d.comfortMetadata.basis === "string" &&
+            d.comfortMetadata.basis.includes("FIX_CONTRADICTION")
+          ),
+      )
       .map((d) => d.id);
     const p = withMutations((idx) => {
       const d = idx.find(
@@ -256,6 +265,122 @@ describe("KAI-89 provenance-drift guards", () => {
     });
     const results = validateCatalogue(p);
     expect(gateOf(results, "field-source-agreement")?.pass).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+});
+
+describe("KAI-89 bidirectional provenance (5th-pass blockers)", () => {
+  const gate = (p: string, g: string): boolean | undefined =>
+    gateOf(validateCatalogue(p), g)?.pass;
+
+  it("1. model-owned walking value changed to unknown while walkingMin remains fails", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) =>
+          x.walkingMetadata?.method === "model" &&
+          Number.isFinite(x.walkingMin),
+      )!;
+      expect(d, "fixture: model-owned walking record").toBeTruthy();
+      d.walkingMetadata = { ...d.walkingMetadata, method: "unknown" };
+    });
+    expect(gate(p, "metadata-consistency")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("2. crowd metadata method model with no crowd vector fails", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find((x) => x.crowdMetadata?.method === "unknown")!;
+      expect(d, "fixture: neutralized crowd record").toBeTruthy();
+      d.crowdMetadata = { ...d.crowdMetadata, method: "model" };
+      delete d.crowd; // no vector
+    });
+    expect(gate(p, "metadata-consistency")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("3. calculated comfort source without comfort metadata fails", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) =>
+          x.comfortMetadata?.method === "model" &&
+          x.editorial?.fieldSources?.comfort?.[0]?.title,
+      )!;
+      expect(
+        d,
+        "fixture: comfort record with model metadata + source",
+      ).toBeTruthy();
+      delete d.comfortMetadata; // source survives, metadata gone
+    });
+    expect(gate(p, "field-source-agreement")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("4. calculated budget source without budget metadata fails", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) =>
+          x.budgetMetadata?.method === "model" &&
+          x.editorial?.fieldSources?.budgetRecommended?.[0]?.title,
+      )!;
+      expect(
+        d,
+        "fixture: budget record with model metadata + source",
+      ).toBeTruthy();
+      delete d.budgetMetadata;
+    });
+    expect(gate(p, "field-source-agreement")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("5. model metadata with its field missing fails (walking variant)", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) =>
+          x.walkingMetadata?.method === "model" &&
+          Number.isFinite(x.walkingMin),
+      )!;
+      delete d.walkingMin;
+    });
+    expect(gate(p, "metadata-consistency")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("6. unknown metadata with its field present fails (duration variant)", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find((x) => x.recommendedVisitHours !== undefined)!;
+      d.durationMetadata = { method: "unknown" };
+    });
+    expect(gate(p, "metadata-consistency")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("7. mismatched field-source basis fails", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) =>
+          x.durationMetadata?.method === "model" &&
+          x.editorial?.fieldSources?.recommendedVisitHours?.[0]?.title,
+      )!;
+      expect(d, "fixture: duration record with source").toBeTruthy();
+      d.editorial.fieldSources.recommendedVisitHours[0] = {
+        ...d.editorial.fieldSources.recommendedVisitHours[0],
+        title: "duration-model-v1; STALE basis",
+      };
+    });
+    expect(gate(p, "field-source-agreement")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("8. stale calculated source after a field becomes manual fails", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) =>
+          x.budgetMetadata?.method === "model" &&
+          x.editorial?.fieldSources?.budgetRecommended?.[0]?.title,
+      )!;
+      d.budgetMetadata = { ...d.budgetMetadata, method: "manual" };
+    });
+    expect(gate(p, "field-source-agreement")).toBe(false);
     fs.rmSync(p, { force: true });
   });
 });

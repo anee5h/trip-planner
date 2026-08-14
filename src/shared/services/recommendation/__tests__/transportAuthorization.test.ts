@@ -504,7 +504,7 @@ describe("pipeline-level budget filtering and metadata", () => {
 
     const high = runRecommendationPipeline([dest], {
       vibe: "any",
-      budget: 80000,
+      budget: 90000,
       carMode: "none",
       publicModes: ["shinkansen"],
       partySize: 2,

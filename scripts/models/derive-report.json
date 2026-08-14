@@ -1,8 +1,13 @@
 {
   "modelVersion": "kai-89-models-v1",
   "generatedAt": "2026-08-14",
-  "pendingChanges": 0,
-  "pendingByModel": [],
+  "pendingChanges": 12,
+  "pendingByModel": [
+    [
+      "budget-model-v1",
+      12
+    ]
+  ],
   "touchedRecords": {
     "budget-model-v1": [
       "abashiri-city",
@@ -36,6 +41,7 @@
       "hikone-city",
       "himeji-city",
       "hino-city",
+      "hiraizumi-chusonji-iwate",
       "hirosaki-city",
       "hiroshima-city",
       "inuyama-city",
@@ -76,6 +82,7 @@
       "nara-city",
       "narita-city",
       "naruto-city",
+      "national-museum-western-art-tokyo",
       "nikko-city",
       "numazu-city",
       "odawara-city",
@@ -84,8 +91,10 @@
       "onomichi-city",
       "otaru-city",
       "otsu-city",
+      "oura-church-nagasaki",
       "sagamihara-city",
       "sakai-city",
+      "sannai-maruyama-jomon-aomori",
       "sapporo-city",
       "semboku-city",
       "shimonoseki-city",
@@ -95,6 +104,7 @@
       "takayama-city",
       "tokorozawa-city",
       "tokushima-city",
+      "tomioka-silk-mill-gunma",
       "tottori-city",
       "toyooka-city",
       "toyota-city",
@@ -104,6 +114,7 @@
       "utsunomiya-city",
       "wakayama-city",
       "yamagata-city",
+      "yokohama-cosmo-world",
       "yokosuka-city",
       "yufu-city",
       "karatsu-city",
@@ -334,6 +345,7 @@
       "tama-zoological-park",
       "taro-okamoto-museum-of-art",
       "teamlab-borderless-azabudai",
+      "tennoji-park",
       "the-museum-of-modern-art-saitama",
       "the-national-museum-of-art-osaka",
       "tokugawa-art-museum",
@@ -352,6 +364,7 @@
       "yokohama-zoorasia",
       "yuigahama-beach",
       "zushi",
+      "engyo-ji-mount-shosha",
       "ikuno-silver-mine",
       "hokki-ji-pagoda",
       "enryaku-ji-mount-hiei",
@@ -365,6 +378,7 @@
       "busena-marine-park-nago",
       "nakijin-castle-ruins-motobu",
       "kabira-bay-ishigaki",
+      "tamatorizaki-viewpoint-ishigaki",
       "yonehara-beach-coral-ishigaki",
       "yonaha-maehama-beach-miyako",
       "fukuoka-city-museum",
@@ -400,9 +414,13 @@
       "okayama-castle",
       "ohara-museum-of-art",
       "bikan-historical-quarter",
+      "kojima-denim-street",
       "fukiya-village",
+      "miyajima-gojunoto",
+      "senjokaku",
       "matsue-vogel-park",
       "tanabe-museum-matsue",
+      "hinomisaki-lighthouse-izumo",
       "uradome-coast",
       "akiyoshidai-plateau",
       "iwakuni-castle",
@@ -776,11 +794,14 @@
       "dakigaeri-valley-akita",
       "dazaifu-city",
       "dewa-sanzan-yamagata",
+      "disneyland",
+      "disneysea",
       "dogo-onsen-ehime",
       "dotonbori",
       "edo-castle-tokyo",
       "edogawa-city",
       "engakuji",
+      "enoshima-island",
       "enoshima-iwaya-caves",
       "enoshima-sea-candle",
       "enoshima-shrine",
@@ -842,6 +863,7 @@
       "ibaraki-fukuroda-falls",
       "ikaruga-town",
       "ikuta-ryokuchi",
+      "imperial-palace-chiyoda",
       "inage-seaside-park",
       "inamuragasaki",
       "inuyama-castle-aichi",
@@ -1267,6 +1289,7 @@
       "katsurahama-beach",
       "chikurin-ji-kochi",
       "makino-botanical-garden",
+      "nakazu-banshoen-marugame",
       "marugame-uchiwa-museum",
       "oboke-koboke-gorge",
       "uwajima-date-museum",
@@ -1299,7 +1322,9 @@
       "koiwai-farm",
       "motsu-ji",
       "takkoku-no-iwa",
+      "fukushima-prefectural-museum-of-art",
       "oga-namahage-kan",
+      "akita-museum-of-art",
       "sendai-daikannon",
       "yamagata-bunshokan",
       "kaminoyama-castle-town",
@@ -1739,180 +1764,86 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-14T06:20",
-    "changeCount": 572,
+    "at": "2026-08-14T08:06",
+    "changeCount": 12,
     "byModel": [
       [
-        "season-model-v1",
-        242
-      ],
-      [
-        "comfort-model-v1",
-        194
-      ],
-      [
-        "hub-window-model-v1",
-        107
-      ],
-      [
-        "duration-model-v1",
-        24
-      ],
-      [
         "budget-model-v1",
-        5
+        12
       ]
     ],
     "sample": [
       {
-        "id": "abeno-harukas-300-osaka",
-        "model": "season-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "id": "hiraizumi-chusonji-iwate",
+        "model": "budget-model-v1",
+        "action": "migrate",
+        "reason": "pre-metadata leftover migrated to structured metadata"
       },
       {
-        "id": "abeno-harukas-300-osaka",
-        "model": "season-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "id": "hiraizumi-chusonji-iwate",
+        "model": "budget-model-v1",
+        "action": "migrate",
+        "reason": "budget reconciled to current model output with metadata"
       },
       {
-        "id": "abeno-harukas-300-osaka",
-        "model": "duration-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "id": "national-museum-western-art-tokyo",
+        "model": "budget-model-v1",
+        "action": "migrate",
+        "reason": "pre-metadata leftover migrated to structured metadata"
       },
       {
-        "id": "adachi-city",
-        "model": "hub-window-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "id": "national-museum-western-art-tokyo",
+        "model": "budget-model-v1",
+        "action": "migrate",
+        "reason": "budget reconciled to current model output with metadata"
       },
       {
-        "id": "aizuwakamatsu-city",
-        "model": "hub-window-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "id": "oura-church-nagasaki",
+        "model": "budget-model-v1",
+        "action": "migrate",
+        "reason": "pre-metadata leftover migrated to structured metadata"
       },
       {
-        "id": "akasaka-minato",
-        "model": "season-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "id": "oura-church-nagasaki",
+        "model": "budget-model-v1",
+        "action": "migrate",
+        "reason": "budget reconciled to current model output with metadata"
       },
       {
-        "id": "akasaka-minato",
-        "model": "season-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "id": "sannai-maruyama-jomon-aomori",
+        "model": "budget-model-v1",
+        "action": "migrate",
+        "reason": "pre-metadata leftover migrated to structured metadata"
       },
       {
-        "id": "akita-city",
-        "model": "hub-window-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "id": "sannai-maruyama-jomon-aomori",
+        "model": "budget-model-v1",
+        "action": "migrate",
+        "reason": "budget reconciled to current model output with metadata"
       },
       {
-        "id": "ameya-yokocho",
-        "model": "comfort-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "id": "tomioka-silk-mill-gunma",
+        "model": "budget-model-v1",
+        "action": "migrate",
+        "reason": "pre-metadata leftover migrated to structured metadata"
       },
       {
-        "id": "aomori-city",
-        "model": "hub-window-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "id": "tomioka-silk-mill-gunma",
+        "model": "budget-model-v1",
+        "action": "migrate",
+        "reason": "budget reconciled to current model output with metadata"
       },
       {
-        "id": "arakawa-city",
-        "model": "hub-window-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "id": "yokohama-cosmo-world",
+        "model": "budget-model-v1",
+        "action": "migrate",
+        "reason": "pre-metadata leftover migrated to structured metadata"
       },
       {
-        "id": "art-tower-mito",
-        "model": "season-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "art-tower-mito",
-        "model": "season-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "asago-city",
-        "model": "hub-window-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "ashigara",
-        "model": "comfort-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "ashikaga-city",
-        "model": "hub-window-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "aso-city",
-        "model": "hub-window-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "beppu-city",
-        "model": "hub-window-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "boso-no-mura",
-        "model": "season-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "boso-no-mura",
-        "model": "season-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "boso-no-mura",
-        "model": "comfort-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "bunkyo-city",
-        "model": "hub-window-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "canal-city-hakata",
-        "model": "comfort-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "chiba-city",
-        "model": "hub-window-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "chiba-city",
-        "model": "comfort-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "id": "yokohama-cosmo-world",
+        "model": "budget-model-v1",
+        "action": "migrate",
+        "reason": "budget reconciled to current model output with metadata"
       }
     ]
   }

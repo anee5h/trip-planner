@@ -11,6 +11,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { isModelOwnedWalkingMinutes } from "./walking-model-v1";
 
 const rootDir = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -168,15 +169,19 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
     scope: Set<string>,
     field: "season" | "comfort" | "crowd",
     keys: string[],
+    /** Only enforce these keys (default: all keys). Used to scope integer
+     *  strictness to the field the metadata basis actually derives. */
+    keysFor?: (d: Record<string, any>) => string[] | undefined,
   ): string[] =>
     [...scope].flatMap((id) => {
       const d = byId.get(id);
       if (!d) return [];
       const out: string[] = [];
-      if (d[field])
-        for (const k of keys)
-          if (d[field][k] !== undefined && !Number.isInteger(d[field][k]))
-            out.push(`${id}: ${field}.${k}=${d[field][k]}`);
+      if (!d[field]) return out;
+      const effectiveKeys = keysFor ? (keysFor(d) ?? keys) : keys;
+      for (const k of effectiveKeys)
+        if (d[field][k] !== undefined && !Number.isInteger(d[field][k]))
+          out.push(`${id}: ${field}.${k}=${d[field][k]}`);
       return out;
     });
   const modelIntegerViolations = [
@@ -186,11 +191,19 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
       "autumn",
       "winter",
     ]),
-    ...integerViolations(touchedComfort, "comfort", [
-      "heatTolerance",
-      "rainFriendly",
-      "walkingIntensity",
-    ]),
+    ...integerViolations(
+      touchedComfort,
+      "comfort",
+      ["heatTolerance", "rainFriendly", "walkingIntensity"],
+      (d) =>
+        // FIX_CONTRADICTION metadata derives ONLY walkingIntensity; the
+        // heatTolerance/rainFriendly are legacy values and are not model
+        // output (legacy fractional debt, e.g. enoshima-island 9.5).
+        typeof d.comfortMetadata?.basis === "string" &&
+        d.comfortMetadata.basis.includes("FIX_CONTRADICTION")
+          ? ["walkingIntensity"]
+          : undefined,
+    ),
     ...integerViolations(touchedCrowd, "crowd", [
       "weekday",
       "weekend",
@@ -349,8 +362,12 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
         out.push(`${d.id}: seasonMetadata unknown WITH vector`);
     }
     const duration = d.durationMetadata;
-    if (duration && duration.method === "model" && !d.recommendedVisitHours)
-      out.push(`${d.id}: durationMetadata model without visit window`);
+    if (duration) {
+      if (duration.method === "model" && !d.recommendedVisitHours)
+        out.push(`${d.id}: durationMetadata model without visit window`);
+      if (duration.method === "unknown" && d.recommendedVisitHours)
+        out.push(`${d.id}: durationMetadata unknown WITH visit window`);
+    }
     const comfort = d.comfortMetadata;
     if (comfort) {
       if (comfort.method === "model" && !d.comfort)
@@ -359,8 +376,19 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
         out.push(`${d.id}: comfortMetadata unknown WITH comfort`);
     }
     const crowd = d.crowdMetadata;
-    if (crowd && crowd.method === "unknown" && d.crowd)
-      out.push(`${d.id}: crowdMetadata unknown WITH crowd vector`);
+    if (crowd) {
+      if (crowd.method === "model" && !d.crowd)
+        out.push(`${d.id}: crowdMetadata model without crowd vector`);
+      if (crowd.method === "unknown" && d.crowd)
+        out.push(`${d.id}: crowdMetadata unknown WITH crowd vector`);
+    }
+    const walking = d.walkingMetadata;
+    if (walking) {
+      if (walking.method === "model" && !Number.isFinite(d.walkingMin))
+        out.push(`${d.id}: walkingMetadata model without walkingMin`);
+      if (walking.method === "unknown" && Number.isFinite(d.walkingMin))
+        out.push(`${d.id}: walkingMetadata unknown WITH walkingMin`);
+    }
     return out;
   });
   metaConsistency.length === 0
@@ -376,6 +404,11 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
   // must equal the canonical "<modelVersion>; <basis>" form. A stale basis
   // (e.g. 'walkingMin=unknown' next to a current walkingMin=60
   // comfortMetadata) is a provenance contradiction and fails here.
+  // BIDIRECTIONAL: a calculated source with NO structured metadata (or with
+  // manual/unknown metadata) is also a violation — a calculated value must
+  // never render as ordinary fact. walkingMin is exempt: the legacy path B
+  // of isModelOwnedWalkingMinutes (title regex) is the authoritative legacy
+  // contract for pre-metadata walking fills.
   const fieldSourceMismatch = index.flatMap((d) => {
     if (!d.editorial?.fieldSources) return [];
     const out: string[] = [];
@@ -385,7 +418,24 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
         { method?: string; modelVersion?: string; basis?: string } | undefined,
     ) => {
       const source = d.editorial!.fieldSources![field]?.[0];
-      if (!source || !meta || meta.method !== "model" || !meta.basis) return;
+      if (!source) return;
+      if (field === "walkingMin") {
+        // Legacy path B covers calculated walking sources without structured
+        // metadata; structured path still requires canonical title.
+        if (!meta || meta.method !== "model") {
+          if (!isModelOwnedWalkingMinutes(d))
+            out.push(
+              `${d.id}: walkingMin calculated source without model provenance`,
+            );
+          return;
+        }
+      } else if (!meta || meta.method !== "model") {
+        out.push(
+          `${d.id}: ${field} calculated source without model metadata (${source.title?.slice(0, 40)}…)`,
+        );
+        return;
+      }
+      if (!meta?.basis) return;
       const canonical = `${meta.modelVersion ?? "kai-89-model"}; ${meta.basis}`;
       if (source.title !== canonical)
         out.push(
@@ -394,6 +444,7 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
     };
     check("budgetRecommended", d.budgetMetadata);
     check("season", d.seasonMetadata);
+    check("bestMonths", d.seasonMetadata);
     check("recommendedVisitHours", d.durationMetadata);
     check("walkingMin", d.walkingMetadata);
     check("comfort", d.comfortMetadata);

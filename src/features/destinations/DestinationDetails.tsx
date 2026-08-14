@@ -1543,12 +1543,15 @@ export default function DestinationDetails() {
                                         if (!breakdown)
                                           return copy.costUnavailable;
                                         // KAI-89: breakdown components are
-                                        // per-person; scale by partySize
-                                        // (legacy /2 couple-scale removed).
+                                        // per-person (incl. the on-site
+                                        // local-transit allowance); scale by
+                                        // partySize (legacy /2 couple-scale
+                                        // removed).
                                         return Math.round(
                                           (breakdown.tickets +
                                             breakdown.food +
-                                            breakdown.cafe) *
+                                            breakdown.cafe +
+                                            breakdown.transport) *
                                             partySize,
                                         ).toLocaleString();
                                       })()

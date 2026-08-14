@@ -11142,6 +11142,12 @@
       "modelVersion": "crowd-model-v1",
       "confidence": "unknown",
       "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+    },
+    "comfortMetadata": {
+      "method": "model",
+      "modelVersion": "comfort-model-v1",
+      "confidence": "low",
+      "basis": "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin"
     }
   },
   {
@@ -11310,6 +11316,12 @@
       "modelVersion": "crowd-model-v1",
       "confidence": "unknown",
       "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+    },
+    "comfortMetadata": {
+      "method": "model",
+      "modelVersion": "comfort-model-v1",
+      "confidence": "low",
+      "basis": "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin"
     }
   },
   {
@@ -12657,6 +12669,12 @@
       "modelVersion": "transport-access-v1",
       "confidence": "low",
       "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+    },
+    "comfortMetadata": {
+      "method": "model",
+      "modelVersion": "comfort-model-v1",
+      "confidence": "low",
+      "basis": "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin"
     }
   },
   {
@@ -23460,8 +23478,8 @@
       "Historic Landmark",
       "Cultural Preservation Area"
     ],
-    "budgetMin": 3800,
-    "budgetMax": 9800,
+    "budgetMin": 5800,
+    "budgetMax": 7800,
     "budgetRecommended": 6800,
     "transportOptions": {
       "train": 45,
@@ -23607,6 +23625,12 @@
       "modelVersion": "crowd-model-v1",
       "confidence": "unknown",
       "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'none|full|standalone' n=7; tickets source-verified"
     }
   },
   {
@@ -26682,6 +26706,12 @@
       "modelVersion": "crowd-model-v1",
       "confidence": "unknown",
       "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+    },
+    "comfortMetadata": {
+      "method": "model",
+      "modelVersion": "comfort-model-v1",
+      "confidence": "low",
+      "basis": "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin"
     }
   },
   {
@@ -57219,8 +57249,8 @@
       "Historic Landmark",
       "Cultural Preservation Area"
     ],
-    "budgetMin": 5500,
-    "budgetMax": 15500,
+    "budgetMin": 9500,
+    "budgetMax": 11500,
     "budgetRecommended": 10500,
     "transportOptions": {
       "train": 45,
@@ -57388,6 +57418,12 @@
       "modelVersion": "crowd-model-v1",
       "confidence": "unknown",
       "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'none|full|poi' n=12; tickets source-verified"
     }
   },
   {
@@ -66617,8 +66653,8 @@
       "Historic Landmark",
       "Cultural Preservation Area"
     ],
-    "budgetMin": 6000,
-    "budgetMax": 16000,
+    "budgetMin": 10000,
+    "budgetMax": 12000,
     "budgetRecommended": 11000,
     "transportOptions": {
       "train": 45,
@@ -66773,6 +66809,12 @@
       "modelVersion": "crowd-model-v1",
       "confidence": "unknown",
       "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'none|full|poi' n=12; tickets source-verified"
     }
   },
   {
@@ -70691,8 +70733,8 @@
       "Historic Landmark",
       "Cultural Preservation Area"
     ],
-    "budgetMin": 5410,
-    "budgetMax": 15410,
+    "budgetMin": 9410,
+    "budgetMax": 11410,
     "budgetRecommended": 10410,
     "transportOptions": {
       "train": 45,
@@ -70836,6 +70878,12 @@
       "modelVersion": "crowd-model-v1",
       "confidence": "unknown",
       "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'none|full|poi' n=12; tickets source-verified"
     }
   },
   {
@@ -82017,6 +82065,12 @@
       "modelVersion": "crowd-model-v1",
       "confidence": "unknown",
       "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'temple'"
     }
   },
   {
@@ -85864,8 +85918,8 @@
       "Four component sites of the UNESCO property",
       "UNESCO World Heritage (2014)"
     ],
-    "budgetMin": 3800,
-    "budgetMax": 9800,
+    "budgetMin": 5800,
+    "budgetMax": 7800,
     "budgetRecommended": 6800,
     "transportOptions": {
       "train": 45,
@@ -86038,6 +86092,12 @@
       "modelVersion": "crowd-model-v1",
       "confidence": "unknown",
       "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'none|full|standalone' n=7; tickets source-verified"
     }
   },
   {
@@ -92765,9 +92825,9 @@
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Yokohama_Cosmoworld_2022.jpg/1920px-Yokohama_Cosmoworld_2022.jpg",
     "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
     "totalTripHours": 3,
-    "budgetMin": 2700,
+    "budgetMin": 5200,
     "budgetRecommended": 5700,
-    "budgetMax": 8700,
+    "budgetMax": 6200,
     "walkingMin": 40,
     "indoorPercent": 75,
     "ratings": {
@@ -92887,14 +92947,6 @@
             "accessedAt": "2026-08-14"
           }
         ],
-        "budgetRecommended": [
-          {
-            "type": "calculated",
-            "url": "catalogue-model://kai-89",
-            "title": "budget-model-v1; peer cell 'none|half|poi' n=19; tickets source-verified",
-            "accessedAt": "2026-08-14"
-          }
-        ],
         "season": [
           {
             "type": "calculated",
@@ -92908,6 +92960,14 @@
             "type": "calculated",
             "url": "catalogue-model://kai-89",
             "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "budgetRecommended": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "budget-model-v1; peer cell 'none|half|poi' n=19; tickets source-verified",
             "accessedAt": "2026-08-14"
           }
         ]
@@ -92971,6 +93031,12 @@
       "modelVersion": "crowd-model-v1",
       "confidence": "unknown",
       "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'none|half|poi' n=19; tickets source-verified"
     }
   },
   {
@@ -108012,6 +108078,12 @@
       "modelVersion": "budget-model-v1",
       "confidence": "unknown",
       "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'temple'"
     }
   },
   {
@@ -114099,6 +114171,12 @@
       "modelVersion": "crowd-model-v1",
       "confidence": "unknown",
       "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'viewpoint'"
     }
   },
   {
@@ -133831,6 +133909,12 @@
       "modelVersion": "crowd-model-v1",
       "confidence": "unknown",
       "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+    },
+    "comfortMetadata": {
+      "method": "model",
+      "modelVersion": "comfort-model-v1",
+      "confidence": "low",
+      "basis": "derived from indoorPercent=30, kind='garden', walkingMin=95"
     }
   },
   {
@@ -136985,6 +137069,12 @@
       "modelVersion": "walking-model-v1",
       "confidence": "low",
       "basis": "template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 50% of 2h visit"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'street'"
     }
   },
   {
@@ -138892,6 +138982,12 @@
       "modelVersion": "comfort-model-v1",
       "confidence": "low",
       "basis": "derived from indoorPercent=0, kind='tower', walkingMin=unknown"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'tower'"
     }
   },
   {
@@ -139067,6 +139163,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'shrine'"
     }
   },
   {
@@ -140622,6 +140724,12 @@
       "modelVersion": "walking-model-v1",
       "confidence": "low",
       "basis": "template metre value 2500 replaced by walk-share estimate (FIX_UNIT): 50% of 2h visit"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'tower'"
     }
   },
   {
@@ -146813,6 +146921,12 @@
       "modelVersion": "crowd-model-v1",
       "confidence": "unknown",
       "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+    },
+    "comfortMetadata": {
+      "method": "model",
+      "modelVersion": "comfort-model-v1",
+      "confidence": "low",
+      "basis": "derived from indoorPercent=90, kind='museum', walkingMin=35"
     }
   },
   {
@@ -147214,6 +147328,12 @@
       "modelVersion": "crowd-model-v1",
       "confidence": "unknown",
       "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+    },
+    "comfortMetadata": {
+      "method": "model",
+      "modelVersion": "comfort-model-v1",
+      "confidence": "low",
+      "basis": "derived from indoorPercent=90, kind='museum', walkingMin=35"
     }
   },
   {
