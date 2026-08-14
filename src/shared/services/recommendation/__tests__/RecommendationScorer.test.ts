@@ -497,12 +497,12 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(ratingReliability(dest)).toBe(1.0);
   });
 
-  it("getRatingDisplayState: 3-state contract (verified / estimated / unavailable)", () => {
+  it("getRatingDisplayState: verified from high/medium metadata, else estimated (rubric always scores)", () => {
     const noMetaDest = { ...mockDest } as Destination;
     delete (noMetaDest as unknown as Record<string, unknown>).ratingMetadata;
-    // No metadata + no trusted season evidence → unavailable (never the
-    // raw rating, never the old "under review" state).
-    expect(getRatingDisplayState(noMetaDest)).toBe("unavailable");
+    // No metadata → ESTIMATED from the Overall-Destination Rubric v1 (the
+    // rubric scores any Destination-shaped record; never the raw rating).
+    expect(getRatingDisplayState(noMetaDest)).toBe("estimated");
     expect(
       getRatingDisplayState({
         ...mockDest,
@@ -511,22 +511,10 @@ describe("RecommendationScorer Unit Tests", () => {
           method: "assisted",
           confidence: "low" as const,
         },
-      }),
-    ).toBe("unavailable");
-    // Low/missing metadata + a TRUSTED season vector → estimated.
-    expect(
-      getRatingDisplayState({
-        ...mockDest,
-        ratingMetadata: {
-          rubricVersion: 2,
-          method: "assisted",
-          confidence: "low" as const,
-        },
-        season: { spring: 8, summer: 7, autumn: 6, winter: 7 },
-        seasonMetadata: { method: "model" as const },
       }),
     ).toBe("estimated");
-    // Explicit-neutral season never fabricates a number → unavailable.
+    // Season is NEVER an overall score input; a seasonal destination is not
+    // penalized and explicit-neutral season does not change the state.
     expect(
       getRatingDisplayState({
         ...mockDest,
@@ -534,7 +522,7 @@ describe("RecommendationScorer Unit Tests", () => {
         season: { spring: 5, summer: 5, autumn: 5, winter: 5 },
         seasonMetadata: { method: "unknown" as const },
       }),
-    ).toBe("unavailable");
+    ).toBe("estimated");
     expect(
       getRatingDisplayState({
         ...mockDest,
@@ -557,22 +545,33 @@ describe("RecommendationScorer Unit Tests", () => {
     ).toBe("verified");
   });
 
-  it("getEstimatedOverallScore: trusted season mean, null for neutral/missing", () => {
-    expect(
-      getEstimatedOverallScore({
-        ...mockDest,
-        season: { spring: 8, summer: 7, autumn: 6, winter: 7 },
-        seasonMetadata: { method: "model" as const },
-      }),
-    ).toBe(7);
-    expect(
-      getEstimatedOverallScore({
-        ...mockDest,
-        season: { spring: 5, summer: 5, autumn: 5, winter: 5 },
-        seasonMetadata: { method: "unknown" as const },
-      }),
-    ).toBeNull();
-    expect(getEstimatedOverallScore(mockDest)).toBeNull(); // no season
+  it("getEstimatedOverallScore: deterministic rubric, never season-dependent", () => {
+    // The rubric measures destination VALUE from non-gated fields.
+    const significant = {
+      ...mockDest,
+      importance: "major" as const,
+      collections: [{ collectionId: "unesco-japan" as never, confirmed: true }],
+    } as Destination;
+    const plain = {
+      ...mockDest,
+      importance: "standard" as const,
+    } as Destination;
+    expect(getEstimatedOverallScore(significant)).toBeGreaterThan(
+      getEstimatedOverallScore(plain),
+    );
+    // A strongly seasonal destination is NOT penalized: changing the season
+    // vector (trusted or neutral) must not change the rubric score.
+    const seasonal = {
+      ...plain,
+      season: { spring: 10, summer: 2, autumn: 9, winter: 1 },
+    } as Destination;
+    expect(getEstimatedOverallScore(seasonal)).toBe(
+      getEstimatedOverallScore(plain),
+    );
+    // Range + determinism.
+    const s = getEstimatedOverallScore(mockDest);
+    expect(s).toBeGreaterThanOrEqual(1);
+    expect(s).toBeLessThanOrEqual(10);
   });
 
   // ---------------------------------------------------------------------------

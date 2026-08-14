@@ -50,9 +50,8 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   const minTravelTime = getMin(travelTimes);
 
   // REC-002: rating values only render as scores for verified rating evidence.
-  const ratingVerified = compareDestinations.map(
-    (d) => getScorePresentation(d).state === "verified",
-  );
+  const scoreStates = compareDestinations.map((d) => getScorePresentation(d));
+  const ratingVerified = scoreStates.map((s) => s.state === "verified");
   const coupleScores = compareDestinations.map((d, i) =>
     ratingVerified[i] ? d.ratings.couple : null,
   );
@@ -200,11 +199,22 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                           {t("compare.score")}
                         </span>
                         <div className="flex items-center gap-1.5">
-                          <span className="font-extrabold text-slate-900 dark:text-white text-xs">
-                            {ratingVerified[idx]
-                              ? `${dest.ratings.overall}/10`
-                              : "—"}
-                          </span>
+                          {scoreStates[idx].state === "unavailable" ? (
+                            <span className="text-[10px] font-semibold text-slate-400">
+                              {t("destination.scoreUnavailable")}
+                            </span>
+                          ) : (
+                            <span className="font-extrabold text-slate-900 dark:text-white text-xs">
+                              {ratingVerified[idx]
+                                ? `${dest.ratings.overall}/10`
+                                : `${scoreStates[idx].value}/10`}
+                              {!ratingVerified[idx] && (
+                                <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
+                                  {t("compare.estimated")}
+                                </span>
+                              )}
+                            </span>
+                          )}
                           {isBestOverall && (
                             <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
                               {t("compare.best")}

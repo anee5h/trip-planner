@@ -183,5 +183,12 @@
     "modelVersion": "comfort-model-v1",
     "confidence": "low",
     "basis": "derived from indoorPercent=80, kind='', walkingMin=30"
+  },
+  "scoreMetadata": {
+    "state": "verified",
+    "value": 8.4,
+    "method": "editorial",
+    "basis": "editorial ratingMetadata 2 manual confidence high",
+    "noteKey": "destination.scoreVerifiedNote"
   }
 }

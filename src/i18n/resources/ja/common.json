@@ -560,7 +560,26 @@
       "seasonal": "{{month}}の平年並みの気候",
       "mixed": "{{day}}の出発地予報・{{month}}の平年並みの気候"
     },
-    "scoreUnavailable": "スコアを表示できません"
+    "scoreUnavailable": "スコアを表示できません",
+    "scoreVerifiedNote": "編集で検証済みのスコアです",
+    "scoreEstimatedNote": "総合目的地ルーブリックによる推定スコアです",
+    "ratingsEstimatedNote": "検証済みの編集スコアがありません。この推定値は総合目的地ルーブリック（重要性・認知度・充実度・アクセス・整備度）から算出されています。",
+    "ratingsUnavailableNote": "この目的地は信頼できる指標からスコアを算出できません。",
+    "ratings": {
+      "couple": "カップル",
+      "family": "家族",
+      "photography": "写真",
+      "food": "食事",
+      "value": "コスパ",
+      "accessibility": "アクセシビリティ",
+      "nature": "自然",
+      "historyCulture": "歴史・文化",
+      "relaxation": "リラックス"
+    },
+    "mapScoreUnavailable": "スコアを表示できません",
+    "mapExplore": "ガイドを見る",
+    "mapSave": "お気に入り",
+    "mapRemove": "お気に入りから削除"
   },
   "ui": {
     "back": "戻る",
@@ -753,6 +772,18 @@
     "attraction": "観光スポット",
     "removeFromCompare": "比較から削除",
     "closeModal": "比較モーダルを閉じる",
-    "unavailable": "該当なし"
+    "unavailable": "該当なし",
+    "estimated": "目安",
+    "overallScore": "総合スコア",
+    "budgetRecommended": "予算（推奨）",
+    "travelTime": "移動時間",
+    "walkIntensity": "歩きやすさ",
+    "coupleScore": "カップルスコア",
+    "summerComfort": "夏の快適さ",
+    "vibeTags": "雰囲気タグ",
+    "features": "特徴",
+    "viewDetails": "詳細を見る",
+    "highest": "最高",
+    "removeFromCompareList": "比較リストから削除"
   }
 }

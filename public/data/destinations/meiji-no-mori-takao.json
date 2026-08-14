@@ -138,5 +138,12 @@
     "modelVersion": "budget-model-v1",
     "confidence": "unknown",
     "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "verified",
+    "value": 9.2,
+    "method": "editorial",
+    "basis": "editorial ratingMetadata 2 assisted confidence medium",
+    "noteKey": "destination.scoreVerifiedNote"
   }
 }

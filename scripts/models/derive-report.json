@@ -1759,20 +1759,164 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-14T10:11",
-    "changeCount": 1,
+    "at": "2026-08-14T10:37",
+    "changeCount": 978,
     "byModel": [
       [
-        "budget-model-v1",
-        1
+        "score-rubric-v1",
+        978
       ]
     ],
     "sample": [
       {
-        "id": "hiraizumi-chusonji-iwate",
-        "model": "budget-model-v1",
-        "action": "clear",
-        "reason": "stale calculated budget source removed (no model metadata)"
+        "id": "abashiri-city",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 5.8"
+      },
+      {
+        "id": "abeno-harukas-300-osaka",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 7.9"
+      },
+      {
+        "id": "abukuma-cave-fukushima",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 5.7"
+      },
+      {
+        "id": "adachi-city",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 5.6"
+      },
+      {
+        "id": "aizuwakamatsu-city",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 6.5"
+      },
+      {
+        "id": "akasaka-minato",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "verified editorial score metadata"
+      },
+      {
+        "id": "akihabara-chiyoda",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "verified editorial score metadata"
+      },
+      {
+        "id": "akita-city",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 6.5"
+      },
+      {
+        "id": "akiu-onsen-miyagi",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 5.3"
+      },
+      {
+        "id": "akiyoshido-cave-yamaguchi",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 5.7"
+      },
+      {
+        "id": "amami-iriomote-natural-site",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 7.1"
+      },
+      {
+        "id": "amanohashidate-kyoto",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 6.7"
+      },
+      {
+        "id": "ameya-yokocho",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 5.7"
+      },
+      {
+        "id": "aoba-castle-museum",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 5.7"
+      },
+      {
+        "id": "aomori-city",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 6.5"
+      },
+      {
+        "id": "arakawa-city",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 5.6"
+      },
+      {
+        "id": "arakurayama-sengen-park-yamanashi",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 5.2"
+      },
+      {
+        "id": "arima-onsen",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 6.7"
+      },
+      {
+        "id": "art-tower-mito",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "verified editorial score metadata"
+      },
+      {
+        "id": "asago-city",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 6.5"
+      },
+      {
+        "id": "asahikawa-city",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 6.1"
+      },
+      {
+        "id": "asakusa-taito",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "verified editorial score metadata"
+      },
+      {
+        "id": "ashigara",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "verified editorial score metadata"
+      },
+      {
+        "id": "ashikaga-city",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 6.5"
+      },
+      {
+        "id": "ashikaga-flower-park-tochigi",
+        "model": "score-rubric-v1",
+        "action": "set",
+        "reason": "estimated rubric score 5.8"
       }
     ]
   }

@@ -81,5 +81,14 @@
     "basis": "no rule matched; owner policy: unknown stays unknown"
   },
   "walkingMin": 210,
-  "walkingIntensity": "high"
+  "walkingIntensity": "high",
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.8,
+    "rubricVersion": "kai-89-overall-v1",
+    "confidence": "low",
+    "method": "calculated",
+    "basis": "{\"rubric\":\"kai-89-overall-v1\",\"significance\":\"importance+heritage\",\"recognition\":\"collections+tags\",\"richness\":\"categories+highlights+indoorPercent\",\"accessibility\":\"transportOptions+visitHours+walkingMin\",\"curation\":\"officialWebsite+status\"}",
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

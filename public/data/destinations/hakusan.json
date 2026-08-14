@@ -148,5 +148,12 @@
     "modelVersion": "duration-model-v1",
     "confidence": "medium",
     "basis": "kind band 'nature' + scale uplift"
+  },
+  "scoreMetadata": {
+    "state": "verified",
+    "value": 8.6,
+    "method": "editorial",
+    "basis": "editorial ratingMetadata 2 assisted confidence medium",
+    "noteKey": "destination.scoreVerifiedNote"
   }
 }

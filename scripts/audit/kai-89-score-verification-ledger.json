@@ -1,0 +1,87 @@
+{
+  "ledgerVersion": "kai-89-score-verification-ledger-v1",
+  "rubricVersion": "kai-89-overall-v1",
+  "generatedAt": "2026-08-14",
+  "coverage": {
+    "publishedTotal": 732,
+    "verified": 107,
+    "estimated": 625,
+    "unavailable": 0,
+    "unresolved": 0,
+    "blank": 0
+  },
+  "completeness": {
+    "everyRecordHasScoreMetadata": true,
+    "everyNoteKeyLocalized": true,
+    "rawRatingsWithoutProvenance": 0
+  },
+  "rubricInputsProvenance": {
+    "note": "All rubric inputs are existing catalogue fields with their own KAI-89 provenance (fieldSources / *Metadata); the rubric itself is the calculated layer (state estimated, confidence low, modelVersion kai-89-overall-v1). Spec: scripts/audit/kai-89-score-rubric-v1.json.",
+    "inputs": [
+      "importance",
+      "categories",
+      "tags",
+      "collections[].collectionId",
+      "highlights",
+      "indoorPercent",
+      "transportOptions",
+      "recommendedVisitHours",
+      "walkingMin",
+      "officialWebsite",
+      "status"
+    ]
+  },
+  "onlineVerification": {
+    "batch": "Deterministic sample: 30 published records (10 per research agent) verified against authoritative web sources.",
+    "checked": 30,
+    "fullyAccurate": 27,
+    "minorConflicts": 3,
+    "failures": 0,
+    "conflicts": [
+      {
+        "id": "shinjuku-gyo-en",
+        "finding": "catalogue description says national park; official designation is National Garden (Ministry of Environment). Rubric impact: none (RECOGNITION uses tags/collections, not the description)."
+      },
+      {
+        "id": "shirakami-sanchi-aomori",
+        "finding": "category Culture inaccurate — property is NATURAL UNESCO heritage (criterion ix). Rubric impact: category count only; UNESCO recognition is credited via collection membership regardless."
+      },
+      {
+        "id": "oze-national-park",
+        "finding": "description lists 3 prefectures; official MOE coverage includes 4 (Gunma, Fukushima, Niigata, Tochigi). Rubric impact: none (description not an input)."
+      }
+    ],
+    "officialWebsiteNotes": [
+      {
+        "id": "meiji-jingu",
+        "note": "officialWebsite points to a tourism-board page, not the shrine domain (meijijingu.or.jp). Presence still credits CURATION; URL quality is a documented follow-up."
+      },
+      {
+        "id": "shinjuku-gyo-en",
+        "note": "officialWebsite points to a city page, not the env.go.jp garden page. Same follow-up."
+      }
+    ],
+    "sources": {
+      "kinkaku_ji": "https://whc.unesco.org/en/list/688/",
+      "kyoto_city": "https://whc.unesco.org/en/list/688/",
+      "meiji_jingu": "https://www.meijijingu.or.jp/en/about/",
+      "nikko_city": "https://whc.unesco.org/en/list/913/",
+      "okinawa_kaigan": "https://www.env.go.jp/en/nature/nps/parks_list.html",
+      "osaka_castle": "https://www.osakacastle.net/",
+      "sapporo_city": "https://www.city.sapporo.jp/",
+      "shinjuku_gyo_en": "https://policies.env.go.jp/national-garden/shinjukugyoen/english/",
+      "tokyo_skytree_sumida": "https://www.tokyo-skytree.jp/",
+      "yokohama_city": "https://www.city.yokohama.lg.jp/",
+      "hiroshima_peace_memorial": "https://hpmmuseum.jp/?lang=eng",
+      "kamakura_city": "https://www.trip-kamakura.com/",
+      "kumamoto_castle": "https://jcastle.info/view/Top_100_Castles",
+      "mount_fuji": "https://whc.unesco.org/en/list/1418/",
+      "nara_park_todaiji": "https://www.todaiji.or.jp/en/",
+      "naoshima_art_island_kagawa": "https://naoshima.net/",
+      "nikko_toshogu_shrine_tochigi": "https://whc.unesco.org/en/list/913/",
+      "oze_national_park": "https://www.env.go.jp/park/oze/index.html",
+      "shirakami_sanchi_aomori": "https://whc.unesco.org/en/list/663/",
+      "yakushima_national_park": "https://www.env.go.jp/park/yakushima/index.html"
+    }
+  }
+}

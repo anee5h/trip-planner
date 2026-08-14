@@ -151,7 +151,7 @@ export default function DestinationMap({
                         <div className="text-xs font-semibold text-amber-600 dark:text-amber-400 mb-1.5">
                           ★ {sp.value}/10{" "}
                           <span className="ml-0.5 text-[10px] font-normal uppercase text-slate-400">
-                            est.
+                            {locale === "ja" ? "目安" : "est."}
                           </span>
                         </div>
                       );

@@ -106,71 +106,29 @@ export function ratingReliability(destination: Destination): number {
  *                    localized "Score unavailable" note, never blank, never
  *                    the generic "under editorial review" wording.
  */
-export type RatingDisplayState = "verified" | "estimated" | "unavailable";
-
-export function getRatingDisplayState(
-  destination: Destination,
-): RatingDisplayState {
-  const confidence = destination.ratingMetadata?.confidence;
-  if (confidence === "high" || confidence === "medium") return "verified";
-  // Estimated only from TRUSTED, separately-provenanced inputs — never the
-  // gated ratings vector.
-  return getEstimatedOverallScore(destination) === null
-    ? "unavailable"
-    : "estimated";
-}
-
 /**
- * Deterministic estimated overall score (0-10) from the season vector —
- * the only trusted non-gated 0-10 signal with its own KAI-89 provenance
- * (seasonMetadata). The mean of the four season values is used ONLY when
- * seasonMetadata.method is model/manual/assisted and all four values are
- * finite. Explicit-neutral (method "unknown") or missing season NEVER
- * becomes a fabricated number → null (unavailable).
+ * KAI-89 3-state contract (finishing pass):
+ *  - "verified"    — numeric score shown from trusted editorial provenance
+ *                    + a localized explanation;
+ *  - "estimated"   — a DETERMINISTIC score from the Overall-Destination
+ *                    Rubric v1 (trusted, non-gated catalogue fields),
+ *                    visibly labeled estimated + a localized note; NEVER
+ *                    the gated raw ratings, NEVER a seasonal-suitability
+ *                    mean (seasonal consistency is not destination quality);
+ *  - "unavailable" — cannot be scored from the rubric inputs; a consistent
+ *                    localized "Score unavailable" note, never blank, never
+ *                    the generic "under editorial review" wording.
  */
-export function getEstimatedOverallScore(
-  destination: Destination,
-): number | null {
-  const method = destination.seasonMetadata?.method;
-  if (method === undefined || method === "unknown") return null;
-  const s = destination.season;
-  if (!s) return null;
-  const values = [s.spring, s.summer, s.autumn, s.winter];
-  if (!values.every((v) => typeof v === "number" && Number.isFinite(v)))
-    return null;
-  const mean = values.reduce((a, b) => a + b, 0) / values.length;
-  return Math.round(mean * 10) / 10;
-}
-
-/**
- * One shared presentation resolution so every surface stays in lockstep:
- * state, the numeric value to render (null when unavailable), and whether
- * the value is an ESTIMATE (must be visibly labeled; never earns "Best"
- * badges or verified-only claims).
- */
-export function getScorePresentation(destination: Destination): {
-  state: RatingDisplayState;
-  value: number | null;
-  estimated: boolean;
-} {
-  const state = getRatingDisplayState(destination);
-  if (state === "verified")
-    return {
-      state,
-      value:
-        typeof destination.ratings?.overall === "number"
-          ? destination.ratings.overall
-          : null,
-      estimated: false,
-    };
-  if (state === "estimated")
-    return {
-      state,
-      value: getEstimatedOverallScore(destination),
-      estimated: true,
-    };
-  return { state, value: null, estimated: false };
-}
+export {
+  type RatingDisplayState,
+  OVERALL_SCORE_RUBRIC_VERSION,
+  getRatingDisplayState,
+  getEstimatedOverallScore,
+  getRubricBasis,
+  getScorePresentation,
+  buildScoreMetadata,
+  type ScoreMetadata,
+} from "./scoreRubric";
 
 export function getValidModes(
   dest: Destination,

@@ -537,6 +537,170 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
         fieldSourceMismatch.slice(0, 8).join("; "),
       );
 
+  // ---- 11. score presentation gates (KAI-89 final pass) ----
+  // Every published record must carry persisted scoreMetadata resolving to
+  // verified (editorial) or estimated (Overall-Destination Rubric v1).
+  // Targets: 0 unavailable, 0 unresolved, 0 blank score areas.
+  const published = index.filter((d) => d.status === "published");
+  const scorePresentationMissing = published
+    .filter((d) => !d.scoreMetadata)
+    .map((d) => d.id);
+  scorePresentationMissing.length === 0
+    ? pass("score-presentation", "every published record carries scoreMetadata")
+    : fail(
+        "score-presentation",
+        `published records without scoreMetadata: ${scorePresentationMissing.slice(0, 8).join("; ")}`,
+      );
+
+  // ---- 12. score provenance completeness ----
+  const scoreProvenanceIssues = published.flatMap((d) => {
+    const m = d.scoreMetadata;
+    if (!m) return [];
+    const out: string[] = [];
+    if (m.state === "estimated") {
+      if (!m.rubricVersion)
+        out.push(`${d.id}: estimated score missing rubricVersion`);
+      if (!m.confidence)
+        out.push(`${d.id}: estimated score missing confidence`);
+      if (!m.basis) out.push(`${d.id}: estimated score missing basis`);
+    }
+    if (m.state === "verified" && !m.basis)
+      out.push(`${d.id}: verified score missing basis`);
+    if (!m.method) out.push(`${d.id}: scoreMetadata missing method`);
+    if (!m.noteKey) out.push(`${d.id}: scoreMetadata missing noteKey`);
+    if (
+      m.state === "verified" &&
+      !(
+        d.ratingMetadata?.rubricVersion === 2 &&
+        d.ratingMetadata?.method !== undefined
+      )
+    )
+      out.push(
+        `${d.id}: verified score without valid editorial provenance (rubricVersion 2 + method)`,
+      );
+    return out;
+  });
+  scoreProvenanceIssues.length === 0
+    ? pass(
+        "score-provenance",
+        "calculated/verified scores carry rubric version, confidence, basis, method, noteKey",
+      )
+    : fail("score-provenance", scoreProvenanceIssues.slice(0, 8).join("; "));
+
+  // ---- 13. score range / finiteness ----
+  const scoreRangeIssues = published.flatMap((d) => {
+    const v = d.scoreMetadata?.value;
+    if (v === null || v === undefined) return [];
+    return typeof v !== "number" || !Number.isFinite(v) || v < 1 || v > 10
+      ? [`${d.id}: scoreMetadata.value=${JSON.stringify(v)}`]
+      : [];
+  });
+  scoreRangeIssues.length === 0
+    ? pass("score-range", "score values finite and within 1-10")
+    : fail("score-range", scoreRangeIssues.slice(0, 8).join("; "));
+
+  // ---- 14. persisted state agrees with the runtime predicate ----
+  // Replicates getRatingDisplayState: high/medium confidence -> verified,
+  // else estimated (the rubric always scores a Destination-shaped record).
+  const stateMismatch = published.flatMap((d) => {
+    const expected =
+      d.ratingMetadata?.confidence === "high" ||
+      d.ratingMetadata?.confidence === "medium"
+        ? "verified"
+        : "estimated";
+    return d.scoreMetadata?.state !== expected
+      ? [
+          `${d.id}: scoreMetadata.state=${d.scoreMetadata?.state} runtime=${expected}`,
+        ]
+      : [];
+  });
+  stateMismatch.length === 0
+    ? pass(
+        "score-state-agreement",
+        "persisted score state matches the runtime rating-confidence predicate",
+      )
+    : fail("score-state-agreement", stateMismatch.slice(0, 8).join("; "));
+
+  // ---- 15. score note i18n (EN + JA) ----
+  let enNotes: Record<string, unknown>;
+  let jaNotes: Record<string, unknown>;
+  try {
+    enNotes = JSON.parse(
+      fs.readFileSync(
+        path.join(rootDir, "src/i18n/resources/en/common.json"),
+        "utf8",
+      ),
+    );
+    jaNotes = JSON.parse(
+      fs.readFileSync(
+        path.join(rootDir, "src/i18n/resources/ja/common.json"),
+        "utf8",
+      ),
+    );
+  } catch {
+    enNotes = {};
+    jaNotes = {};
+  }
+  const resolveKey = (notes: Record<string, unknown>, key: string): boolean => {
+    const parts = key.split(".");
+    let cur: unknown = notes;
+    for (const p of parts) {
+      if (typeof cur !== "object" || cur === null) return false;
+      cur = (cur as Record<string, unknown>)[p];
+    }
+    return typeof cur === "string" && cur.length > 0;
+  };
+  const missingNotes = published.flatMap((d) => {
+    const key = d.scoreMetadata?.noteKey;
+    if (!key) return [];
+    if (!resolveKey(enNotes, key) || !resolveKey(jaNotes, key))
+      return [`${d.id}: noteKey ${key} missing in EN/JA`];
+    return [];
+  });
+  missingNotes.length === 0
+    ? pass(
+        "score-note-i18n",
+        "every score noteKey resolves to non-empty EN and JA copy",
+      )
+    : fail("score-note-i18n", missingNotes.slice(0, 8).join("; "));
+
+  // ---- 16. score-state audit counts agree with the committed audit ----
+  let auditJson: {
+    summary?: { publishedScoreStates?: Record<string, number> };
+  };
+  try {
+    auditJson = JSON.parse(
+      fs.readFileSync(
+        path.join(
+          rootDir,
+          "scripts/audit/kai-89-structured-template-audit.json",
+        ),
+        "utf8",
+      ),
+    );
+  } catch {
+    auditJson = {};
+  }
+  const committedCounts = auditJson.summary?.publishedScoreStates ?? {};
+  const computedCounts = {
+    verified: published.filter((d) => d.scoreMetadata?.state === "verified")
+      .length,
+    estimated: published.filter((d) => d.scoreMetadata?.state === "estimated")
+      .length,
+    unavailable: published.filter(
+      (d) => d.scoreMetadata?.state === "unavailable",
+    ).length,
+  };
+  JSON.stringify(committedCounts) === JSON.stringify(computedCounts)
+    ? pass(
+        "score-audit-counts",
+        `audit counts match runtime score states (${JSON.stringify(computedCounts)})`,
+      )
+    : fail(
+        "score-audit-counts",
+        `audit ${JSON.stringify(committedCounts)} != computed ${JSON.stringify(computedCounts)}`,
+      );
+
   return results;
 }
 

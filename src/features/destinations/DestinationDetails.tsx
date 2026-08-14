@@ -1810,18 +1810,14 @@ export default function DestinationDetails() {
                         </span>
                       </div>
                       <div className="mt-1">
-                        {locale === "ja"
-                          ? "検証済みの編集スコアがありません。季節別の指標から算出した推定値です。"
-                          : "No verified editorial score; this is an estimate derived from seasonal indicators."}
+                        {t("destination.ratingsEstimatedNote")}
                       </div>
                     </CardContent>
                   </Card>
                 ) : scoreUnavailable ? (
                   <Card>
                     <CardContent className="p-6 text-sm text-slate-500 dark:text-slate-400">
-                      {locale === "ja"
-                        ? "この目的地は信頼できる指標からスコアを算出できません。"
-                        : "This destination cannot be scored from trusted indicators."}
+                      {t("destination.ratingsUnavailableNote")}
                     </CardContent>
                   </Card>
                 ) : (
@@ -1835,29 +1831,29 @@ export default function DestinationDetails() {
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                           <RatingItem
                             icon={Heart}
-                            label="Couple"
+                            label={t("destination.ratings.couple")}
                             value={destination.ratings.couple}
                           />
                           {destination.ratings.family !== undefined && (
                             <RatingItem
                               icon={Users}
-                              label="Family"
+                              label={t("destination.ratings.family")}
                               value={destination.ratings.family}
                             />
                           )}
                           <RatingItem
                             icon={Camera}
-                            label="Photography"
+                            label={t("destination.ratings.photography")}
                             value={destination.ratings.photography}
                           />
                           <RatingItem
                             icon={Utensils}
-                            label="Food"
+                            label={t("destination.ratings.food")}
                             value={destination.ratings.food}
                           />
                           <RatingItem
                             icon={JapaneseYen}
-                            label="Value"
+                            label={t("destination.ratings.value")}
                             value={destination.ratings.value}
                           />
                           <WalkabilityRatingItem
@@ -1866,14 +1862,14 @@ export default function DestinationDetails() {
                           {destination.ratings.accessibility !== undefined && (
                             <RatingItem
                               icon={Train}
-                              label="Accessibility"
+                              label={t("destination.ratings.accessibility")}
                               value={destination.ratings.accessibility}
                             />
                           )}
                           {destination.ratings.nature !== undefined && (
                             <RatingItem
                               icon={Leaf}
-                              label="Nature"
+                              label={t("destination.ratings.nature")}
                               value={destination.ratings.nature}
                             />
                           )}
@@ -1881,13 +1877,13 @@ export default function DestinationDetails() {
                             undefined && (
                             <RatingItem
                               icon={Landmark}
-                              label="History & Culture"
+                              label={t("destination.ratings.historyCulture")}
                               value={destination.ratings.historyAndCulture}
                             />
                           )}
                           <RatingItem
                             icon={Coffee}
-                            label="Relaxation"
+                            label={t("destination.ratings.relaxation")}
                             value={destination.ratings.relaxation}
                           />
                         </div>
@@ -2232,24 +2228,18 @@ export default function DestinationDetails() {
                 </div>
                 {showDetailScore && (
                   <div className="text-emerald-100/90 text-sm mb-4">
-                    {locale === "ja"
-                      ? "編集で検証済みのスコアです"
-                      : "Editorially reviewed score"}
+                    {t("destination.scoreVerifiedNote")}
                   </div>
                 )}
                 {showEstimatedScore && (
                   <div className="text-emerald-100/90 text-sm mb-4">
                     <span className="uppercase text-xs">{copy.estimated}</span>{" "}
-                    {locale === "ja"
-                      ? "季節別の指標から算出した推定値です"
-                      : "Estimated from seasonal indicators"}
+                    {t("destination.scoreEstimatedNote")}
                   </div>
                 )}
                 {scoreUnavailable && (
                   <div className="text-emerald-100/90 text-sm mb-4">
-                    {locale === "ja"
-                      ? "スコアを表示できません"
-                      : "Score unavailable"}
+                    {t("destination.scoreUnavailable")}
                   </div>
                 )}
                 <div className="w-full h-px bg-white/20 mb-4"></div>

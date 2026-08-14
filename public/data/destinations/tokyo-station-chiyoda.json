@@ -168,5 +168,12 @@
     "modelVersion": "season-model-v1",
     "confidence": "low",
     "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "scoreMetadata": {
+    "state": "verified",
+    "value": 9.2,
+    "method": "editorial",
+    "basis": "editorial ratingMetadata 2 manual confidence high",
+    "noteKey": "destination.scoreVerifiedNote"
   }
 }

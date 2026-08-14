@@ -518,13 +518,18 @@ describe("KAI-89 3-state score presentation on the card", () => {
     expect(text).not.toContain("9.5"); // template raw rating never shown
   });
 
-  it("unavailable record renders the Score-unavailable chip (never blank)", () => {
-    // otsu-city: no ratingMetadata, explicit-neutral season → unavailable.
+  it("published records all resolve: otsu-city (no metadata) renders the estimated chip, never blank", () => {
+    // otsu-city: no ratingMetadata — the Overall-Destination Rubric scores
+    // it (estimated, labeled), so no published record is ever blank and the
+    // raw template rating is never shown.
     const h = renderFor("otsu-city");
     expect(
-      h.querySelector('[data-testid="meguruto-score-unavailable"]'),
+      h.querySelector('[data-testid="meguruto-score-estimated"]'),
     ).not.toBeNull();
     expect(h.querySelector('[data-testid="meguruto-score"]')).toBeNull();
-    expect(h.textContent).toContain("destination.scoreUnavailable");
+    expect(
+      h.querySelector('[data-testid="meguruto-score-unavailable"]'),
+    ).toBeNull();
+    expect(h.textContent).not.toContain("9.5");
   });
 });

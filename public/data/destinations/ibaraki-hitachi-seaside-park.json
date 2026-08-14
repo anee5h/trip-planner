@@ -150,5 +150,12 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:30-17:00 (Jul 21-Aug 31 to 18:00; Nov-Feb 16:30), closed Tue",
   "openingHoursJa": "09:30-17:00 (Jul 21-Aug 31 to 18:00; Nov-Feb 16:30), closed Tue",
-  "municipalityId": "Ibaraki:hitachinaka"
+  "municipalityId": "Ibaraki:hitachinaka",
+  "scoreMetadata": {
+    "state": "verified",
+    "value": 9.2,
+    "method": "editorial",
+    "basis": "editorial ratingMetadata 2 manual confidence high",
+    "noteKey": "destination.scoreVerifiedNote"
+  }
 }

@@ -144,5 +144,14 @@
     "modelVersion": "duration-model-v1",
     "confidence": "medium",
     "basis": "kind band 'nature' + scale uplift"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.1,
+    "rubricVersion": "kai-89-overall-v1",
+    "confidence": "low",
+    "method": "calculated",
+    "basis": "{\"rubric\":\"kai-89-overall-v1\",\"significance\":\"importance+heritage\",\"recognition\":\"collections+tags\",\"richness\":\"categories+highlights+indoorPercent\",\"accessibility\":\"transportOptions+visitHours+walkingMin\",\"curation\":\"officialWebsite+status\"}",
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

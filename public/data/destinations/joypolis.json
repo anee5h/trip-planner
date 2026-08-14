@@ -165,5 +165,12 @@
     "modelVersion": "transport-access-v1",
     "confidence": "low",
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "scoreMetadata": {
+    "state": "verified",
+    "value": 8.7,
+    "method": "editorial",
+    "basis": "editorial ratingMetadata 2 manual confidence high",
+    "noteKey": "destination.scoreVerifiedNote"
   }
 }

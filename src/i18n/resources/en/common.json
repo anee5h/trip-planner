@@ -560,7 +560,26 @@
       "seasonal": "Typical conditions for {{month}}",
       "mixed": "Origin forecast for {{day}} · typical conditions for {{month}}"
     },
-    "scoreUnavailable": "Score unavailable"
+    "scoreUnavailable": "Score unavailable",
+    "scoreVerifiedNote": "Editorially reviewed score",
+    "scoreEstimatedNote": "Estimated score from the overall-destination rubric",
+    "ratingsEstimatedNote": "No verified editorial score; this estimate is calculated from the overall-destination rubric (significance, recognition, richness, accessibility, curation).",
+    "ratingsUnavailableNote": "This destination cannot be scored from trusted indicators.",
+    "ratings": {
+      "couple": "Couple",
+      "family": "Family",
+      "photography": "Photography",
+      "food": "Food",
+      "value": "Value",
+      "accessibility": "Accessibility",
+      "nature": "Nature",
+      "historyCulture": "History & Culture",
+      "relaxation": "Relaxation"
+    },
+    "mapScoreUnavailable": "Score unavailable",
+    "mapExplore": "Explore",
+    "mapSave": "Save",
+    "mapRemove": "Remove"
   },
   "ui": {
     "back": "Back",
@@ -753,6 +772,18 @@
     "attraction": "Attraction",
     "removeFromCompare": "Remove from comparison",
     "closeModal": "Close comparison modal",
-    "unavailable": "N/A"
+    "unavailable": "N/A",
+    "estimated": "est.",
+    "overallScore": "Overall Score",
+    "budgetRecommended": "Budget (Recommended)",
+    "travelTime": "Travel Time",
+    "walkIntensity": "Walk Intensity",
+    "coupleScore": "Couple Score",
+    "summerComfort": "Summer Comfort",
+    "vibeTags": "Vibe Tags",
+    "features": "Features",
+    "viewDetails": "View Details",
+    "highest": "Highest",
+    "removeFromCompareList": "Remove destination from comparison list"
   }
 }

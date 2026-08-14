@@ -143,5 +143,14 @@
     "modelVersion": "budget-model-v1",
     "confidence": "unknown",
     "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.5,
+    "rubricVersion": "kai-89-overall-v1",
+    "confidence": "low",
+    "method": "calculated",
+    "basis": "{\"rubric\":\"kai-89-overall-v1\",\"significance\":\"importance+heritage\",\"recognition\":\"collections+tags\",\"richness\":\"categories+highlights+indoorPercent\",\"accessibility\":\"transportOptions+visitHours+walkingMin\",\"curation\":\"officialWebsite+status\"}",
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

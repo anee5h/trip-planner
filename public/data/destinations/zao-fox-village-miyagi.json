@@ -93,5 +93,14 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v1",
+    "confidence": "low",
+    "method": "calculated",
+    "basis": "{\"rubric\":\"kai-89-overall-v1\",\"significance\":\"importance+heritage\",\"recognition\":\"collections+tags\",\"richness\":\"categories+highlights+indoorPercent\",\"accessibility\":\"transportOptions+visitHours+walkingMin\",\"curation\":\"officialWebsite+status\"}",
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

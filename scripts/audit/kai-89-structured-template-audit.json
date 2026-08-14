@@ -1340,8 +1340,8 @@
     },
     "publishedScoreStates": {
       "verified": 107,
-      "estimated": 89,
-      "unavailable": 536
+      "estimated": 625,
+      "unavailable": 0
     },
     "dispositionCounts": {
       "corrected": 14,

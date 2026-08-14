@@ -141,7 +141,7 @@ export default function Compare() {
           <TableHeader>
             <TableRow className="hover:bg-transparent">
               <TableHead className="w-[200px] align-top py-6">
-                Features
+                {t("compare.features")}
               </TableHead>
               {compareDestinations.map((dest) => (
                 <TableHead
@@ -150,9 +150,9 @@ export default function Compare() {
                 >
                   <button
                     onClick={() => toggleCompare(dest.id)}
-                    aria-label="Remove destination from comparison list"
+                    aria-label={t("compare.removeFromCompareList")}
                     className="absolute top-2 right-2 p-1 text-slate-400 hover:text-red-500 rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
-                    title="Remove from comparison"
+                    title={t("compare.removeFromCompareList")}
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
@@ -171,7 +171,7 @@ export default function Compare() {
                   </div>
                   <Link to={`/destinations/${dest.id}`}>
                     <Button size="sm" variant="secondary" className="w-full">
-                      View Details
+                      {t("compare.viewDetails")}
                     </Button>
                   </Link>
                 </TableHead>
@@ -181,7 +181,7 @@ export default function Compare() {
           <TableBody>
             <TableRow>
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
-                Overall Score
+                {t("compare.overallScore")}
               </TableCell>
               {compareDestinations.map((dest, idx) => (
                 <TableCell key={dest.id} className="text-base">
@@ -202,14 +202,14 @@ export default function Compare() {
                   </span>
                   {!ratingVerified[idx] && estimatedScores[idx] !== null && (
                     <span className="ml-1.5 text-[10px] font-normal uppercase text-slate-400">
-                      est.
+                      {t("compare.estimated")}
                     </span>
                   )}
                   {ratingVerified[idx] &&
                     maxOverall !== null &&
                     dest.ratings.overall === maxOverall && (
                       <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
-                        Best
+                        {t("compare.best")}
                       </Badge>
                     )}
                 </TableCell>
@@ -217,7 +217,7 @@ export default function Compare() {
             </TableRow>
             <TableRow>
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
-                Budget (Recommended)
+                {t("compare.budgetRecommended")}
               </TableCell>
               {compareDestinations.map((dest) => {
                 const budget = getAdjustedBudget(dest, "all");
@@ -236,7 +236,7 @@ export default function Compare() {
                     </span>
                     {budget !== null && budget === minBudget && (
                       <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
-                        Lowest
+                        {t("compare.lowest")}
                       </Badge>
                     )}
                   </TableCell>
@@ -245,7 +245,7 @@ export default function Compare() {
             </TableRow>
             <TableRow>
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
-                Travel Time
+                {t("compare.travelTime")}
               </TableCell>
               {compareDestinations.map((dest) => {
                 const times = Object.entries(
@@ -272,7 +272,7 @@ export default function Compare() {
                     </span>
                     {time === minTravelTime && time !== 999 && (
                       <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
-                        Fastest
+                        {t("compare.fastest")}
                       </Badge>
                     )}
                   </TableCell>
@@ -281,7 +281,7 @@ export default function Compare() {
             </TableRow>
             <TableRow>
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
-                Walk Intensity
+                {t("compare.walkIntensity")}
               </TableCell>
               {compareDestinations.map((dest) => {
                 const walkMeta = getWalkingIntensityMetadata(
@@ -300,7 +300,7 @@ export default function Compare() {
             </TableRow>
             <TableRow>
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
-                Couple Score
+                {t("compare.coupleScore")}
               </TableCell>
               {compareDestinations.map((dest, idx) => (
                 <TableCell key={dest.id}>
@@ -319,7 +319,7 @@ export default function Compare() {
                     maxCoupleScore !== null &&
                     dest.ratings.couple === maxCoupleScore && (
                       <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
-                        Highest
+                        {t("compare.highest")}
                       </Badge>
                     )}
                 </TableCell>
@@ -327,7 +327,7 @@ export default function Compare() {
             </TableRow>
             <TableRow>
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
-                Summer Comfort
+                {t("compare.summerComfort")}
               </TableCell>
               {compareDestinations.map((dest, idx) => (
                 <TableCell key={dest.id}>
@@ -346,7 +346,7 @@ export default function Compare() {
                     maxSummerScore !== null &&
                     dest.ratings.summer === maxSummerScore && (
                       <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
-                        Best
+                        {t("compare.best")}
                       </Badge>
                     )}
                 </TableCell>
@@ -354,7 +354,7 @@ export default function Compare() {
             </TableRow>
             <TableRow>
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
-                Vibe Tags
+                {t("compare.vibeTags")}
               </TableCell>
               {compareDestinations.map((dest) => (
                 <TableCell key={dest.id}>
@@ -394,7 +394,7 @@ export default function Compare() {
             >
               <button
                 onClick={() => toggleCompare(dest.id)}
-                aria-label="Remove destination from comparison list"
+                aria-label={t("compare.removeFromCompareList")}
                 className="absolute top-4 right-4 p-1.5 bg-red-50 dark:bg-red-950/50 text-red-500 rounded-full hover:scale-105 transition-transform"
                 title="Remove"
               >
@@ -423,7 +423,7 @@ export default function Compare() {
                       variant="secondary"
                       className="h-7 text-xs px-3"
                     >
-                      View Details
+                      {t("compare.viewDetails")}
                     </Button>
                   </Link>
                 </div>
@@ -432,7 +432,7 @@ export default function Compare() {
               <div className="border-t border-slate-100 dark:border-slate-800 pt-4 grid grid-cols-2 gap-3 text-xs">
                 <div>
                   <p className="text-slate-400 font-semibold mb-0.5">
-                    Overall Score
+                    {t("compare.overallScore")}
                   </p>
                   <p className="font-bold text-slate-900 dark:text-white flex items-center">
                     {ratingVerified[idx] ? dest.ratings.overall : "—"}
@@ -440,14 +440,14 @@ export default function Compare() {
                       maxOverall !== null &&
                       dest.ratings.overall === maxOverall && (
                         <span className="ml-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
-                          Best
+                          {t("compare.best")}
                         </span>
                       )}
                   </p>
                 </div>
                 <div>
                   <p className="text-slate-400 font-semibold mb-0.5">
-                    Budget (Recommended)
+                    {t("compare.budgetRecommended")}
                   </p>
                   <p className="font-bold text-slate-900 dark:text-white">
                     {budgetVal === null
@@ -455,27 +455,27 @@ export default function Compare() {
                       : `¥${(budgetVal / 1000).toFixed(0)}k`}
                     {budgetVal !== null && budgetVal === minBudget && (
                       <span className="ml-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
-                        Lowest
+                        {t("compare.lowest")}
                       </span>
                     )}
                   </p>
                 </div>
                 <div>
                   <p className="text-slate-400 font-semibold mb-0.5">
-                    Travel Time
+                    {t("compare.travelTime")}
                   </p>
                   <p className="font-bold text-slate-900 dark:text-white">
                     {travelTime === 999 ? "N/A" : `${travelTime} min`}
                     {travelTime === minTravelTime && travelTime !== 999 && (
                       <span className="ml-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
-                        Fastest
+                        {t("compare.fastest")}
                       </span>
                     )}
                   </p>
                 </div>
                 <div>
                   <p className="text-slate-400 font-semibold mb-0.5">
-                    Walk Intensity
+                    {t("compare.walkIntensity")}
                   </p>
                   <p className="font-bold text-slate-900 dark:text-white">
                     {(() => {

@@ -1,0 +1,63 @@
+{
+  "rubricVersion": "kai-89-overall-v1",
+  "purpose": "Deterministic 0-10 ESTIMATED overall-destination score for published records without verified editorial rating evidence. Measures overall destination VALUE, not seasonal suitability (a highly seasonal destination must not be penalized for having one ideal season).",
+  "state": "estimated",
+  "confidence": "low",
+  "modelVersion": "kai-89-overall-v1",
+  "computedAt": "runtime (getEstimatedOverallScore in src/shared/services/recommendation/RecommendationScorer.ts)",
+  "neverUses": [
+    "ratings vector (gated by ratingMetadata; low/missing confidence means the raw numbers are unverified)",
+    "season vector (seasonal suitability is a separate dimension, never an overall score)",
+    "popularity rankings, user-review averages, or a source's existence as quality"
+  ],
+  "inputs": [
+    {
+      "component": "SIGNIFICANCE",
+      "weight": 0.35,
+      "catalogueFields": ["importance", "collections[].collectionId", "tags"],
+      "scoring": "importance tier: major 9 / notable 7 / standard 5 / minor 3 (unknown 5); +1 UNESCO world heritage (collectionId unesco-japan); +1 national treasure / important cultural property tag; +1 top-100-castle / three-great tag; clamped 1-10",
+      "rationale": "A destination's national/international standing is the primary driver of overall value for a traveller deciding what to see.",
+      "missingInputBehavior": "importance absent -> neutral 5; no heritage tags -> no bonus"
+    },
+    {
+      "component": "RECOGNITION",
+      "weight": 0.25,
+      "catalogueFields": ["collections[].collectionId", "tags"],
+      "scoring": "UNESCO world heritage (unesco-japan) -> 8; national park / Japan heritage / world heritage tag or national-parks-japan collection -> 7; any other collection membership or prefectural-heritage tag -> 6; none -> 4",
+      "rationale": "Third-party designations (UNESCO, national parks, heritage programmes) are independent recognition of quality.",
+      "missingInputBehavior": "no collections/tags -> 4 (absence of designation is evidence of absence)"
+    },
+    {
+      "component": "RICHNESS",
+      "weight": 0.2,
+      "catalogueFields": ["categories", "highlights", "indoorPercent"],
+      "scoring": "distinct category count >=4 -> 8, 2-3 -> 6, 1 -> 4; +1 for >=3 highlights, +0.5 for 1-2; +0.5 when indoorPercent 20-80 (balanced indoor/outdoor); clamped 1-10",
+      "rationale": "Depth and variety of things to see/do is a core value dimension; extreme single-focus or single-environment places are lower.",
+      "missingInputBehavior": "empty categories -> 4; no highlights -> no bonus; indoorPercent absent -> no balance bonus"
+    },
+    {
+      "component": "ACCESSIBILITY",
+      "weight": 0.1,
+      "catalogueFields": [
+        "transportOptions",
+        "recommendedVisitHours",
+        "walkingMin"
+      ],
+      "scoring": "finite transport modes >=3 -> 8, 1-2 -> 6, 0 -> 3; +1 with recommendedVisitHours; +0.5 with finite walkingMin; clamped 1-10",
+      "rationale": "A destination a traveller can actually reach and plan is worth more; pure accessibility, low weight.",
+      "missingInputBehavior": "no transport modes -> 3; missing visit window / walking data -> no bonus"
+    },
+    {
+      "component": "CURATION",
+      "weight": 0.1,
+      "catalogueFields": ["officialWebsite", "status"],
+      "scoring": "base 5; +1.5 with officialWebsite; +1.5 status verified, +0.5 status published; clamped 1-10",
+      "rationale": "Evidence maturity — official sources and catalogue status signal how trustworthy the record's facts are (never quality by itself; low weight).",
+      "missingInputBehavior": "no officialWebsite -> no bonus; unknown status -> base 5"
+    }
+  ],
+  "composite": "round(0.35*significance + 0.25*recognition + 0.2*richness + 0.1*accessibility + 0.1*curation) to 1 decimal; clamp 1-10",
+  "missingCompositeBehavior": "every component has a documented neutral fallback, so ANY Destination-shaped record scores (published target: 0 unavailable). A record with no rubric inputs at all scores 5 (documented neutral), never null.",
+  "versioning": "bump rubricVersion on any input/weight/scoring change; the basis note in the UI and the score-state audit must reference this version.",
+  "provenance": "component inputs are existing catalogue fields with their own KAI-89 provenance (fieldSources / *Metadata); the rubric itself is the calculated layer (state estimated, confidence low, modelVersion kai-89-overall-v1)."
+}

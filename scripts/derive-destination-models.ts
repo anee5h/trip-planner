@@ -31,6 +31,7 @@ import {
 } from "./models/walking-model-v1";
 import { comfortModel, crowdModel } from "./models/comfort-crowd-model-v1";
 import { transportModel } from "./models/transport-access-v1";
+import { buildScoreMetadata } from "../src/shared/services/recommendation/scoreRubric";
 import type { TransportMode } from "../src/shared/services/transport/types";
 
 const rootDir = path.resolve(
@@ -1005,6 +1006,26 @@ function main() {
           );
         }
       }
+    }
+  }
+
+  // ---- Score metadata emission (Overall-Destination Rubric v1) ----
+  // Persist scoreMetadata for every record (verified editorial or
+  // deterministic estimated rubric); the runtime reads it and the
+  // score-state gates compare it against the replicated runtime state.
+  for (const d of destinations) {
+    const meta = buildScoreMetadata(d);
+    if (JSON.stringify(d.scoreMetadata) !== JSON.stringify(meta)) {
+      d.scoreMetadata = meta;
+      touch(
+        d,
+        "score-rubric-v1",
+        "set",
+        meta.state === "verified"
+          ? "verified editorial score metadata"
+          : `estimated rubric score ${meta.value}`,
+        ["scoreMetadata"],
+      );
     }
   }
 

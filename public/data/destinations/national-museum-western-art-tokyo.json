@@ -186,5 +186,14 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "peer cell 'none|full|poi' n=12; tickets source-verified"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.3,
+    "rubricVersion": "kai-89-overall-v1",
+    "confidence": "low",
+    "method": "calculated",
+    "basis": "{\"rubric\":\"kai-89-overall-v1\",\"significance\":\"importance+heritage\",\"recognition\":\"collections+tags\",\"richness\":\"categories+highlights+indoorPercent\",\"accessibility\":\"transportOptions+visitHours+walkingMin\",\"curation\":\"officialWebsite+status\"}",
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

@@ -236,36 +236,23 @@ function buildReport(destinations: Destination[]) {
       // (renders a localized "Score unavailable" note — never blank, never
       // the old generic wording). Estimated values are labeled "est." and
       // never earn verified-only badges/claims.
+      // KAI-89 3-state score presentation (final pass): every published
+      // record carries persisted scoreMetadata (verified editorial OR
+      // deterministic Overall-Destination Rubric v1 estimated). Targets:
+      // 0 unavailable, 0 unresolved, 0 blank.
       publishedScoreStates: {
         verified: destinations.filter(
           (d) =>
-            d.status === "published" &&
-            (d.ratingMetadata?.confidence === "high" ||
-              d.ratingMetadata?.confidence === "medium"),
+            d.status === "published" && d.scoreMetadata?.state === "verified",
         ).length,
         estimated: destinations.filter(
           (d) =>
-            d.status === "published" &&
-            !(
-              d.ratingMetadata?.confidence === "high" ||
-              d.ratingMetadata?.confidence === "medium"
-            ) &&
-            d.seasonMetadata?.method !== undefined &&
-            d.seasonMetadata?.method !== "unknown" &&
-            d.season !== undefined,
+            d.status === "published" && d.scoreMetadata?.state === "estimated",
         ).length,
         unavailable: destinations.filter(
           (d) =>
             d.status === "published" &&
-            !(
-              d.ratingMetadata?.confidence === "high" ||
-              d.ratingMetadata?.confidence === "medium"
-            ) &&
-            !(
-              d.seasonMetadata?.method !== undefined &&
-              d.seasonMetadata?.method !== "unknown" &&
-              d.season !== undefined
-            ),
+            d.scoreMetadata?.state === "unavailable",
         ).length,
       },
       dispositionCounts,

@@ -389,8 +389,8 @@ export default function DestinationCard({
         {!isMultiPlaceGroup && showEstimatedScore && (
           <div
             data-testid="meguruto-score-estimated"
-            title={`${cardCopy.score}: ${scorePresentation.value ?? "N/A"} (est.)`}
-            aria-label={`${cardCopy.score}: ${scorePresentation.value ?? "N/A"} (est.)`}
+            title={`${cardCopy.score}: ${scorePresentation.value ?? "N/A"} `}
+            aria-label={`${cardCopy.score}: ${scorePresentation.value ?? "N/A"} `}
             className="absolute bottom-3 right-3 z-20 flex items-center rounded-lg border border-amber-300/80 bg-amber-50/95 px-2.5 py-1 shadow-sm backdrop-blur-sm dark:border-amber-500/40 dark:bg-slate-900/90"
           >
             <span className="text-xs font-bold text-slate-700 dark:text-slate-200 md:text-sm">

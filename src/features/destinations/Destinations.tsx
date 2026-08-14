@@ -44,6 +44,7 @@ import {
   getValidModes,
   scoreForCatalog,
 } from "@/shared/services/recommendation/RecommendationService";
+import { getScorePresentation } from "@/shared/services/recommendation/RecommendationScorer";
 import type {
   RecommendationContext,
   TripMode,
@@ -1098,8 +1099,16 @@ export default function Destinations() {
         case "winter":
           return (b.ratings?.winter ?? 0) - (a.ratings?.winter ?? 0);
         case "overall":
-        default:
-          return (b.ratings?.overall ?? 0) - (a.ratings?.overall ?? 0);
+        default: {
+          // KAI-89: raw ratings only rank when VERIFIED; unverified records
+          // rank by the deterministic estimated rubric score instead (an
+          // unverified template rating must never top a 'Top Rated' sort).
+          const scoreOf = (dest: Destination) => {
+            const sp = getScorePresentation(dest);
+            return sp.state === "verified" ? (sp.value ?? 0) : (sp.value ?? 0);
+          };
+          return scoreOf(b) - scoreOf(a);
+        }
       }
     });
 

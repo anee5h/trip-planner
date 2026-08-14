@@ -1,5 +1,6 @@
 import type { CollectionMembership } from "./collection";
 import type { TransportMode } from "../services/transport/types";
+import type { ScoreMetadata } from "../services/recommendation/scoreRubric";
 
 export interface ItineraryStep {
   time: string;
@@ -449,6 +450,16 @@ export interface Destination {
     method: "assisted" | "manual" | "calculated";
     confidence: "low" | "medium" | "high";
   };
+  /**
+   * KAI-89 score presentation metadata (final pass). PERSISTED by the
+   * deterministic generator for every record; runtime getScorePresentation
+   * reads it (with a computed fallback that must agree — gated). Distinct
+   * states:
+   *  - verified  → editorial score from high/medium ratingMetadata;
+   *  - estimated → Overall-Destination Rubric v1 (calculated, labeled);
+   *  - unavailable → safety state (published target: 0).
+   */
+  scoreMetadata?: ScoreMetadata;
   tags: string[];
   reservation: string;
   reservationJa?: string;

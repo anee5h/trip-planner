@@ -200,5 +200,14 @@
     "modelVersion": "comfort-model-v1",
     "confidence": "low",
     "basis": "derived from indoorPercent=80, kind='observation', walkingMin=25"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.7,
+    "rubricVersion": "kai-89-overall-v1",
+    "confidence": "low",
+    "method": "calculated",
+    "basis": "{\"rubric\":\"kai-89-overall-v1\",\"significance\":\"importance+heritage\",\"recognition\":\"collections+tags\",\"richness\":\"categories+highlights+indoorPercent\",\"accessibility\":\"transportOptions+visitHours+walkingMin\",\"curation\":\"officialWebsite+status\"}",
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }
