@@ -4,7 +4,7 @@ import {
   getDestinationForEditorialReview,
 } from "../DestinationService";
 
-describe("getDestination locale gating", () => {
+describe("getDestination locale availability", () => {
   beforeEach(() => {
     // Force the in-memory index fallback path (fetch is not available in
     // the test environment and would otherwise fail silently).
@@ -21,6 +21,8 @@ describe("getDestination locale gating", () => {
   it("returns null for an unknown id", async () => {
     const dest = await getDestination("no-such-destination-id", "en");
     expect(dest).toBeNull();
+    const destJa = await getDestination("no-such-destination-id", "ja");
+    expect(destJa).toBeNull();
   });
 
   it("loads a published English destination", async () => {
@@ -29,14 +31,15 @@ describe("getDestination locale gating", () => {
     expect(dest?.id).toBe("asakusa-taito");
   });
 
-  it("gates a destination that is unavailable in Japanese", async () => {
-    // abashiri-city is published in English but has no published Japanese
-    // content yet, so it must be reachable in EN and blocked in JA.
+  it("loads a destination with missing Japanese editorial content in both English and Japanese", async () => {
+    // abashiri-city has no Japanese editorial content yet, but must be reachable
+    // in both EN and JA with identical IDs.
     const en = await getDestination("abashiri-city", "en");
     expect(en).not.toBeNull();
     expect(en?.id).toBe("abashiri-city");
     const ja = await getDestination("abashiri-city", "ja");
-    expect(ja).toBeNull();
+    expect(ja).not.toBeNull();
+    expect(ja?.id).toBe("abashiri-city");
   });
 
   it("does not gate a reviewed bilingual destination in Japanese", async () => {
@@ -46,11 +49,7 @@ describe("getDestination locale gating", () => {
     expect(ja?.id).toBe("asakusa-taito");
   });
 
-  it("loads an unpublished Japanese record via the explicit editorial-review API", async () => {
-    // abashiri-city is EN-only; getDestination blocks it in JA but the
-    // editorial-review path must still load it.
-    const published = await getDestination("abashiri-city", "ja");
-    expect(published).toBeNull();
+  it("loads records via the explicit editorial-review API", async () => {
     const editorial = await getDestinationForEditorialReview("abashiri-city");
     expect(editorial).not.toBeNull();
     expect(editorial?.id).toBe("abashiri-city");

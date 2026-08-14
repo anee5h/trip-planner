@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { POPULAR_DESTINATION_IDS, searchDocuments } from "../searchIndex";
+import {
+  POPULAR_DESTINATION_IDS,
+  buildSearchIndex,
+  searchDocuments,
+} from "../searchIndex";
 import type { SearchGroup } from "../../types";
 
 // The curated empty-state list: Tokyo 23 Wards virtual group first, then the
@@ -81,19 +85,95 @@ describe("empty search state — locale behavior (KAI-83)", () => {
     expect(group?.items).toHaveLength(8);
   });
 
-  it("localizes the Tokyo 23 Wards entry and keeps the index naming elsewhere", () => {
-    const jaTitles =
-      destinationGroup(searchDocuments("", "ja"))?.items.map(
-        (item) => item.title,
-      ) ?? [];
-    const enTitles =
-      destinationGroup(searchDocuments("", "en"))?.items.map(
-        (item) => item.title,
-      ) ?? [];
+  it("localizes the popular destination entries in Japanese while maintaining curated order", () => {
+    const jaGroup = destinationGroup(searchDocuments("", "ja"));
+    const enGroup = destinationGroup(searchDocuments("", "en"));
+
+    expect(popularIds("ja")).toEqual(EXPECTED_POPULAR_IDS);
+    expect(popularIds("en")).toEqual(EXPECTED_POPULAR_IDS);
+
+    const jaTitles = jaGroup?.items.map((item) => item.title) ?? [];
+    const enTitles = enGroup?.items.map((item) => item.title) ?? [];
 
     expect(jaTitles[0]).toBe("東京23区");
     expect(enTitles[0]).toBe("Tokyo 23 Wards");
-    // Remaining entries inherit the existing search-index naming.
-    expect(jaTitles.slice(1)).toEqual(enTitles.slice(1));
+
+    // Localized Japanese titles for popular pilot hubs
+    expect(jaTitles).toEqual([
+      "東京23区",
+      "京都",
+      "大阪",
+      "札幌",
+      "福岡",
+      "広島",
+      "奈良",
+      "名古屋",
+    ]);
+  });
+});
+
+describe("search index destination availability parity (KAI-93)", () => {
+  it("indexes all 978 canonical destination IDs identically across English and Japanese", () => {
+    const enDocs = buildSearchIndex("en").filter(
+      (d) => d.type === "destination",
+    );
+    const jaDocs = buildSearchIndex("ja").filter(
+      (d) => d.type === "destination",
+    );
+
+    expect(enDocs).toHaveLength(978);
+    expect(jaDocs).toHaveLength(978);
+
+    const enIds = enDocs.map((d) => d.metadata?.dest?.id as string).sort();
+    const jaIds = jaDocs.map((d) => d.metadata?.dest?.id as string).sort();
+
+    expect(enIds).toHaveLength(978);
+    expect(jaIds).toEqual(enIds);
+  });
+
+  it("finds abashiri-city in Japanese search index using English fallback", () => {
+    const jaDestDocs = searchDocuments("abashiri", "ja");
+    const abashiri = jaDestDocs
+      .find((g) => g.type === "destination")
+      ?.items.find((item) => item.metadata?.dest?.id === "abashiri-city");
+
+    expect(abashiri).toBeDefined();
+    expect(abashiri?.title).toBe("Abashiri City");
+    expect(abashiri?.url).toBe("/destinations/abashiri-city");
+  });
+
+  it("searches and localizes destinations with Japanese names and aliases (e.g. あぶくま洞)", () => {
+    // 1. Japanese name search in JA locale
+    const jaQueryResults = searchDocuments("あぶくま洞", "ja");
+    const jaMatch = jaQueryResults
+      .find((g) => g.type === "destination")
+      ?.items.find(
+        (item) => item.metadata?.dest?.id === "abukuma-cave-fukushima",
+      );
+
+    expect(jaMatch).toBeDefined();
+    expect(jaMatch?.title).toBe("あぶくま洞");
+
+    // 2. English alias search in JA locale
+    const enAliasInJaResults = searchDocuments("abukuma", "ja");
+    const aliasMatch = enAliasInJaResults
+      .find((g) => g.type === "destination")
+      ?.items.find(
+        (item) => item.metadata?.dest?.id === "abukuma-cave-fukushima",
+      );
+
+    expect(aliasMatch).toBeDefined();
+    expect(aliasMatch?.title).toBe("あぶくま洞");
+
+    // 3. English search in EN locale displays English name
+    const enQueryResults = searchDocuments("abukuma", "en");
+    const enMatch = enQueryResults
+      .find((g) => g.type === "destination")
+      ?.items.find(
+        (item) => item.metadata?.dest?.id === "abukuma-cave-fukushima",
+      );
+
+    expect(enMatch).toBeDefined();
+    expect(enMatch?.title).toBe("Abukuma Cave");
   });
 });

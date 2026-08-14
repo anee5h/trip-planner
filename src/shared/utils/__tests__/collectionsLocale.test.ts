@@ -7,21 +7,40 @@ import {
   getUNESCOPropertyGroupDestinations,
 } from "../collections";
 import { getCollections } from "@/shared/data/collections";
-import { isPlaceAvailableInLocale } from "@/shared/services/place/PlaceCatalog";
 
 describe("localized collection membership", () => {
-  it("does not return English-only places for Japanese collections", () => {
+  it("exposes identical collection membership in English and Japanese", () => {
+    const collections = getCollections();
+    for (const collection of collections) {
+      const enDestinations = getDestinationsForCollection(collection.id, "en");
+      const jaDestinations = getDestinationsForCollection(collection.id, "ja");
+      const enIds = enDestinations.map((d) => d.id).sort();
+      const jaIds = jaDestinations.map((d) => d.id).sort();
+      expect(jaIds).toEqual(enIds);
+    }
+  });
+
+  it("preserves collection destination grouping semantics across locales", () => {
     const collectionIds = [
       "japan-observatories-towers",
       "core-cities-japan",
       "art-islands-japan",
+      "unesco-japan",
     ];
     for (const collectionId of collectionIds) {
-      expect(
-        getDestinationsForCollection(collectionId, "ja").every((place) =>
-          isPlaceAvailableInLocale(place, "ja"),
-        ),
-      ).toBe(true);
+      const enGroups = getCollectionDestinationGroups(collectionId, "en");
+      const jaGroups = getCollectionDestinationGroups(collectionId, "ja");
+      expect(jaGroups).toHaveLength(enGroups.length);
+
+      const enGroupMemberCount = enGroups.reduce(
+        (acc, g) => acc + g.destinations.length,
+        0,
+      );
+      const jaGroupMemberCount = jaGroups.reduce(
+        (acc, g) => acc + g.destinations.length,
+        0,
+      );
+      expect(jaGroupMemberCount).toBe(enGroupMemberCount);
     }
   });
 
