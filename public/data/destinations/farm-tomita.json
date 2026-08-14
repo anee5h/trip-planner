@@ -130,5 +130,11 @@
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
   },
-  "walkingMin": 170
+  "walkingMin": 170,
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "verified ticket ¥0 preserved; peer cell 'park|half|standalone' has 0 samples (< 5); components left as accepted debt"
+  }
 }

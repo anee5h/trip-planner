@@ -150,10 +150,20 @@ function main() {
       d.budgetRecommended = b.budget.budgetRecommended;
       d.budgetMax = b.budget.budgetMax;
       d.budgetBreakdown = b.budget.breakdown;
-      if (changed(beforeBudget, { min: d.budgetMin, rec: d.budgetRecommended, max: d.budgetMax, breakdown: d.budgetBreakdown })) {
+      // budgetMetadata written unconditionally (idempotent): already-filled
+      // records must keep their model provenance marker.
+      if (d.budgetMetadata?.method !== "model") {
         d.budgetMetadata = { method: "model", modelVersion: "budget-model-v1", confidence: b.confidence, basis: b.reason };
+      }
+      if (changed(beforeBudget, { min: d.budgetMin, rec: d.budgetRecommended, max: d.budgetMax, breakdown: d.budgetBreakdown })) {
         addFieldSource(d, "budgetRecommended", `budget-model-v1; ${b.reason}`);
         touch(d, "budget-model-v1", "fill", b.reason, ["budgetMin", "budgetRecommended", "budgetMax", "budgetBreakdown"]);
+      }
+    } else if (b.action === "keep" && b.reason.includes("verified ticket")) {
+      // Verified admission preserved but no model budget (insufficient peers):
+      // mark explicit-unknown so the record is not counted as missing.
+      if (d.budgetMetadata?.method !== "unknown") {
+        d.budgetMetadata = { method: "unknown", modelVersion: "budget-model-v1", confidence: "unknown", basis: b.reason };
       }
     } else if (b.action === "clear-to-unknown") {
       const before = { min: d.budgetMin, rec: d.budgetRecommended, max: d.budgetMax, breakdown: d.budgetBreakdown };

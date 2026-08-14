@@ -1332,9 +1332,9 @@
     },
     "remainingManualDebt": {
       "genericTemplateCopyRecords": 0,
-      "missingBudgetRecords": 13,
+      "missingBudgetRecords": 0,
       "missingSeasonRecords": 0,
-      "explicitlyUnknownBudget": 378,
+      "explicitlyUnknownBudget": 395,
       "explicitlyUnknownSeason": 383
     },
     "dispositionCounts": {

@@ -123,5 +123,11 @@
     "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
   },
   "walkingMin": 60,
-  "walkingIntensity": "medium"
+  "walkingIntensity": "medium",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "verified ticket ¥0 preserved; peer cell 'museum|short|destination' has 0 samples (< 5); components left as accepted debt"
+  }
 }

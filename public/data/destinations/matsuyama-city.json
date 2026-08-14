@@ -102,5 +102,11 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "budgetMetadata": {
+    "method": "model",
+    "modelVersion": "budget-model-v1",
+    "confidence": "low",
+    "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
   }
 }

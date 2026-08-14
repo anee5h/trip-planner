@@ -178,5 +178,11 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "verified ticket ¥150 preserved; peer cell 'garden|half|poi' has 0 samples (< 5); components left as accepted debt"
   }
 }

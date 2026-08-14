@@ -209,5 +209,11 @@
     "modelVersion": "transport-access-v1",
     "confidence": "low",
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "verified ticket ¥500 preserved; peer cell 'park|half|poi' has 0 samples (< 5); components left as accepted debt"
   }
 }

@@ -93,6 +93,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "medium",
       "basis": "source-corrected bestMonths [1,2,3] (ledger seasonBestMonths)"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -740,6 +746,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -1201,6 +1213,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -2326,6 +2344,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -3095,6 +3119,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -3191,6 +3221,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -3683,6 +3719,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -4006,6 +4048,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -4267,6 +4315,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -4537,6 +4591,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -8120,6 +8180,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -8301,6 +8367,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -8832,6 +8904,12 @@
       "modelVersion": "transport-access-v1",
       "confidence": "low",
       "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -9496,6 +9574,12 @@
       "modelVersion": "transport-access-v1",
       "confidence": "low",
       "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -12544,6 +12628,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -12729,6 +12819,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -12833,6 +12929,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -13522,6 +13624,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -14131,6 +14239,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -14306,6 +14420,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -14402,6 +14522,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -14941,6 +15067,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -15431,6 +15563,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -16613,6 +16751,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -17677,6 +17821,12 @@
       "modelVersion": "transport-access-v1",
       "confidence": "low",
       "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -18463,6 +18613,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -18939,6 +19095,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -19437,6 +19599,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -20072,6 +20240,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -20435,6 +20609,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -20617,6 +20797,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -21099,6 +21285,12 @@
       "modelVersion": "transport-access-v1",
       "confidence": "low",
       "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -21213,6 +21405,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -24153,6 +24351,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -24323,6 +24527,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -24692,6 +24902,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "medium",
       "basis": "tropical latitude band; calibrated 6/7 trusted summer peaks"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -24946,6 +25162,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -25046,6 +25268,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -25648,6 +25876,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -26966,6 +27200,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -27792,6 +28032,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -29470,6 +29716,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -30197,6 +30449,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -30803,6 +31061,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -30998,6 +31262,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -32607,6 +32877,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -33230,6 +33506,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -33929,6 +34211,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -34944,6 +35232,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -35044,6 +35338,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -35510,6 +35810,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -36577,6 +36883,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -36848,6 +37160,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -37615,6 +37933,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -40334,6 +40658,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -40822,6 +41152,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -41041,6 +41377,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -41226,6 +41568,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -41602,6 +41950,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -42578,6 +42932,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -43262,6 +43622,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -43581,6 +43947,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "medium",
       "basis": "tropical latitude band; calibrated 6/7 trusted summer peaks"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -43745,6 +44117,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -43913,6 +44291,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -44072,6 +44456,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -47057,6 +47447,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -47238,6 +47634,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -48102,6 +48504,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -49147,6 +49555,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -49872,6 +50286,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -50184,6 +50604,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -51703,6 +52129,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -52566,6 +52998,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -53859,6 +54297,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -54781,6 +55225,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -54871,6 +55321,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -56336,6 +56792,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -58320,6 +58782,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -58490,6 +58958,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -60437,6 +60911,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -61540,6 +62020,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -62736,6 +63222,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -63643,6 +64135,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -65303,6 +65801,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -66212,6 +66716,12 @@
       "modelVersion": "transport-access-v1",
       "confidence": "low",
       "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥500 preserved; peer cell 'park|half|poi' has 0 samples (< 5); components left as accepted debt"
     }
   },
   {
@@ -67406,6 +67916,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -69850,6 +70366,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -69952,6 +70474,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -70409,6 +70937,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -73699,6 +74233,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -74166,6 +74706,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -76032,6 +76578,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -76392,6 +76944,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -76688,6 +77246,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -77260,6 +77824,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -78733,6 +79303,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -79329,6 +79905,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -79659,6 +80241,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -80082,6 +80670,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -80513,6 +81107,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -82716,6 +83316,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -83025,6 +83631,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -87020,6 +87632,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥150 preserved; peer cell 'garden|half|poi' has 0 samples (< 5); components left as accepted debt"
     }
   },
   {
@@ -88445,6 +89063,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "low",
       "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥1500 preserved; peer cell 'museum|half|poi' has 1 samples (< 5); components left as accepted debt"
     }
   },
   {
@@ -90632,6 +91256,12 @@
       "modelVersion": "transport-access-v1",
       "confidence": "low",
       "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥0 preserved; peer cell 'museum|half|poi' has 1 samples (< 5); components left as accepted debt"
     }
   },
   {
@@ -91891,6 +92521,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥450 preserved; peer cell 'park|half|poi' has 0 samples (< 5); components left as accepted debt"
     }
   },
   {
@@ -92459,6 +93095,12 @@
       "modelVersion": "transport-access-v1",
       "confidence": "low",
       "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥400 preserved; peer cell 'museum|half|poi' has 1 samples (< 5); components left as accepted debt"
     }
   },
   {
@@ -94256,7 +94898,13 @@
       "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
     },
     "walkingMin": 60,
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥0 preserved; peer cell 'museum|short|destination' has 0 samples (< 5); components left as accepted debt"
+    }
   },
   {
     "id": "byodoin-temple",
@@ -95001,7 +95649,13 @@
       "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "walkingMin": 70,
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥400 preserved; peer cell 'garden|short|destination' has 0 samples (< 5); components left as accepted debt"
+    }
   },
   {
     "id": "engyo-ji-mount-shosha",
@@ -95382,7 +96036,13 @@
       "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "walkingMin": 70,
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥500 preserved; peer cell 'park|short|destination' has 0 samples (< 5); components left as accepted debt"
+    }
   },
   {
     "id": "ritsuunkyo-viewpoint",
@@ -95652,7 +96312,13 @@
       "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
     },
     "walkingMin": 90,
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥1200 preserved; peer cell 'museum|half|destination' has 0 samples (< 5); components left as accepted debt"
+    }
   },
   {
     "id": "hokki-ji-pagoda",
@@ -96298,7 +96964,13 @@
       "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "walkingMin": 70,
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥400 preserved; peer cell 'garden|short|destination' has 0 samples (< 5); components left as accepted debt"
+    }
   },
   {
     "id": "miho-museum-koka",
@@ -96434,7 +97106,13 @@
       "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
     },
     "walkingMin": 90,
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥1300 preserved; peer cell 'museum|half|destination' has 0 samples (< 5); components left as accepted debt"
+    }
   },
   {
     "id": "okage-yokocho-oharai-machi",
@@ -97080,7 +97758,13 @@
       "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
     },
     "walkingMin": 90,
-    "walkingIntensity": "medium"
+    "walkingIntensity": "medium",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥200 preserved; peer cell 'museum|half|destination' has 0 samples (< 5); components left as accepted debt"
+    }
   },
   {
     "id": "lake-biwa-shiga",
@@ -108350,6 +109034,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -109242,6 +109932,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -110320,6 +111016,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -111399,6 +112101,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -112122,6 +112830,12 @@
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "budgetMetadata": {
+      "method": "model",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
     }
   },
   {
@@ -131796,7 +132510,13 @@
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
     },
-    "walkingMin": 240
+    "walkingMin": 240,
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥320 preserved; peer cell 'garden|half|standalone' has 0 samples (< 5); components left as accepted debt"
+    }
   },
   {
     "status": "published",
@@ -156637,7 +157357,13 @@
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
     },
-    "walkingMin": 170
+    "walkingMin": 170,
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥0 preserved; peer cell 'park|half|standalone' has 0 samples (< 5); components left as accepted debt"
+    }
   },
   {
     "id": "shikisai-no-oka",
@@ -156771,7 +157497,13 @@
       "confidence": "unknown",
       "basis": "no rule matched; owner policy: unknown stays unknown"
     },
-    "walkingMin": 170
+    "walkingMin": 170,
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥800 preserved; peer cell 'park|half|standalone' has 0 samples (< 5); components left as accepted debt"
+    }
   },
   {
     "id": "nabana-no-sato",
@@ -157785,7 +158517,13 @@
       "confidence": "low",
       "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
     },
-    "walkingMin": 105
+    "walkingMin": 105,
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "verified ticket ¥2000 preserved; peer cell 'museum|half|standalone' has 1 samples (< 5); components left as accepted debt"
+    }
   },
   {
     "id": "sapporo-art-park",
