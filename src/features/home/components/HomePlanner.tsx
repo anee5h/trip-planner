@@ -298,6 +298,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
   const handleCustomAllowanceBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const raw = parseInt(e.target.value, 10);
     if (isNaN(raw)) {
+      setIsCustomAllowanceMode(false);
       onAccommodationAllowanceChange(ACCOMMODATION_ALLOWANCE_PRESETS.standard);
       return;
     }

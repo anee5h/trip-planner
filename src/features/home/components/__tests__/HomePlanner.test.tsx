@@ -434,7 +434,7 @@ describe("HomePlanner", () => {
       expect(customInput.value).toBe("45000");
     });
 
-    it("handles invalid/blank values on blur by falling back to standard preset or clamping", () => {
+    it("handles invalid/blank values on blur by falling back to standard preset and exiting custom mode", () => {
       const onAccommodationAllowanceChange = vi.fn();
       const container = renderHomePlanner({
         tripMode: "weekend_2d1n",
@@ -446,12 +446,40 @@ describe("HomePlanner", () => {
         'input[aria-label="Custom stay allowance"]',
       ) as HTMLInputElement;
 
-      // Blur with NaN/empty value -> resets to Standard (15000)
+      // Blur with NaN/empty value -> resets to Standard (15000) and exits custom mode
       act(() => {
         customInput.value = "";
         triggerBlur(customInput);
       });
       expect(onAccommodationAllowanceChange).toHaveBeenCalledWith(15000);
+
+      // Controlled rerender with the standard allowance
+      renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 15000,
+        onAccommodationAllowanceChange,
+      });
+
+      const trigger = container.querySelector(
+        '[aria-describedby="accommodation-help"]',
+      );
+      expect(trigger?.textContent).toContain("Standard · ¥15,000");
+      expect(
+        container.querySelector('input[aria-label="Custom stay allowance"]'),
+      ).toBeNull();
+    });
+
+    it("clamps out-of-range values on blur while remaining in custom mode", () => {
+      const onAccommodationAllowanceChange = vi.fn();
+      const container = renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 32000,
+        onAccommodationAllowanceChange,
+      });
+
+      const customInput = container.querySelector(
+        'input[aria-label="Custom stay allowance"]',
+      ) as HTMLInputElement;
 
       // Blur with clamped max
       act(() => {
@@ -459,6 +487,18 @@ describe("HomePlanner", () => {
         triggerBlur(customInput);
       });
       expect(onAccommodationAllowanceChange).toHaveBeenCalledWith(500000);
+
+      renderHomePlanner({
+        tripMode: "weekend_2d1n",
+        accommodationAllowance: 500000,
+        onAccommodationAllowanceChange,
+      });
+
+      const rerenderedInput = container.querySelector(
+        'input[aria-label="Custom stay allowance"]',
+      ) as HTMLInputElement;
+      expect(rerenderedInput).toBeDefined();
+      expect(rerenderedInput.value).toBe("500000");
     });
   });
 
