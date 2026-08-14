@@ -52,7 +52,7 @@ afterEach(() => {
   getRecent.mockReset();
 });
 
-function renderRail() {
+function renderRail(topMatchIds?: readonly string[]) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -64,6 +64,7 @@ function renderRail() {
           partySize={2}
           carMode="none"
           publicModes={["train"]}
+          topMatchIds={topMatchIds}
         />
       </MemoryRouter>,
     );
@@ -92,5 +93,19 @@ describe("RecentlyViewedRail", () => {
 
     expect(container.querySelectorAll("section")).toHaveLength(1);
     expect(container.textContent).not.toContain("Continue exploring");
+  });
+
+  it("prefers recent destinations outside Top matches when alternatives exist", () => {
+    getRecent.mockReturnValue([
+      { id: "top-match", name: "Top match" },
+      { id: "alternative", name: "Alternative" },
+    ] as Destination[]);
+    const container = renderRail(["top-match"]);
+
+    expect(
+      Array.from(container.querySelectorAll('a[href^="/destinations/"]')).map(
+        (link) => link.textContent,
+      ),
+    ).toEqual(["Alternative", "Top match"]);
   });
 });

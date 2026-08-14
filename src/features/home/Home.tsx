@@ -4,6 +4,7 @@ import { Cloud, CloudLightning, Snowflake, Sun } from "lucide-react";
 
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import type { Destination } from "@/shared/types/destination";
+import { getDistance } from "@/shared/utils/distance";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { getTabWeatherSummary } from "@/shared/services/weather/WeatherTabService";
@@ -84,7 +85,10 @@ export function formatCompactDateRange(
 
 export default function Home() {
   const { t } = useTranslation();
-  const allDestinations = getDestinationList() as Destination[];
+  const allDestinations = useMemo(
+    () => getDestinationList() as Destination[],
+    [],
+  );
 
   const [searchParams, setSearchParams] = useSearchParams();
   const { user } = useAuth();
@@ -378,8 +382,18 @@ export default function Home() {
       recommendedDestinations.slice(0, 10).map((d) => d.id),
     );
     favorites.forEach((id) => usedIds.add(id));
-    const pick = (candidates: Destination[]) => {
-      const selected = softDeduplicateRail(candidates, usedIds);
+    const pick = (
+      candidates: Destination[],
+      qualityOf?: (candidate: Destination) => number,
+      duplicateQualityMargin?: number,
+    ) => {
+      const selected = softDeduplicateRail(
+        candidates,
+        usedIds,
+        10,
+        qualityOf,
+        duplicateQualityMargin,
+      );
       selected.forEach((destination) => usedIds.add(destination.id));
       return selected;
     };
@@ -416,10 +430,17 @@ export default function Home() {
       getUnder60Destinations(recommendedDestinations, originRailContext),
     );
     const nearby = pick(
-      getUnexploredNearbyDestinations(
-        recommendedDestinations,
-        originRailContext,
-      ),
+      getUnexploredNearbyDestinations(allDestinations, originRailContext),
+      (destination) =>
+        homeStationCoords && destination.coordinates
+          ? -getDistance(
+              homeStationCoords.lat,
+              homeStationCoords.lng,
+              destination.coordinates.lat,
+              destination.coordinates.lng,
+            )
+          : Number.NEGATIVE_INFINITY,
+      0,
     );
     return {
       seasonal,
@@ -435,6 +456,7 @@ export default function Home() {
     homeStationTransportZoneId,
     resolvedApplied.carMode,
     resolvedApplied.publicModes,
+    allDestinations,
     resolvedApplied.budgetTier,
     ferryTemporal,
     visitedIds,
@@ -613,6 +635,7 @@ export default function Home() {
         carMode={resolvedApplied.carMode}
         publicModes={resolvedApplied.publicModes}
         travelDate={travelDateIso}
+        topMatchIds={recommendedDestinations.slice(0, 10).map((d) => d.id)}
       />
 
       {/* Bucket List remains conditional and keeps its existing user-data semantics. */}
@@ -673,7 +696,7 @@ export default function Home() {
             travelDate={travelDateIso}
           />
           <UnexploredNearbyRail
-            destinations={recommendedDestinations}
+            destinations={allDestinations}
             precomputedDestinations={discoveryRails.nearby}
             homeStationCoords={homeStationCoords}
             homeStationTransportZoneId={homeStationTransportZoneId}

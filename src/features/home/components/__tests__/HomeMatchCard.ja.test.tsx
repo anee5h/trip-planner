@@ -71,7 +71,7 @@ afterEach(async () => {
 });
 
 describe("HomeMatchCard Japanese busy-period rendering", () => {
-  it("renders Japanese advisory, evidence, source, and date text", async () => {
+  async function renderCard(cardDestination: Destination, travelDate: string) {
     await i18n.changeLanguage("ja");
     host = document.createElement("div");
     document.body.appendChild(host);
@@ -81,21 +81,38 @@ describe("HomeMatchCard Japanese busy-period rendering", () => {
       root!.render(
         <I18nextProvider i18n={i18n}>
           <HomeMatchCard
-            destination={destination}
+            destination={cardDestination}
             rank={1}
-            travelDate="2026-05-03"
+            travelDate={travelDate}
           />
         </I18nextProvider>,
       );
     });
 
-    const cue = host.querySelector<HTMLElement>(
+    return host;
+  }
+
+  it("does not render generic holiday or weekend card cues", async () => {
+    const card = await renderCard(destination, "2026-05-03");
+
+    expect(
+      card.querySelector('[aria-label*="混雑する可能性があります"]'),
+    ).toBeNull();
+  });
+
+  it("renders Japanese advisory, evidence, source, and date text for a peak season", async () => {
+    const card = await renderCard(
+      { ...destination, id: "shinjuku-gyo-en" },
+      "2026-03-20",
+    );
+
+    const cue = card.querySelector<HTMLElement>(
       '[aria-label*="混雑する可能性があります"]',
     );
     expect(cue).not.toBeNull();
     expect(cue?.getAttribute("aria-label")).toContain("根拠");
     expect(cue?.getAttribute("aria-label")).toContain("情報源");
-    expect(cue?.getAttribute("aria-label")).toContain("5月");
+    expect(cue?.getAttribute("aria-label")).toContain("3月");
     expect(cue?.getAttribute("aria-label")).not.toMatch(
       /Source|Evidence|Cabinet Office/,
     );

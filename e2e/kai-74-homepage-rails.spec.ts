@@ -205,6 +205,35 @@ test.describe("KAI-74 homepage rails", () => {
     await assertRailCardLimit(railSection(page, "Worth the longer journey"));
   });
 
+  test("keeps Unexplored Nearby tied to a configured Nakayama origin", async ({
+    page,
+  }) => {
+    await page.addInitScript(() => {
+      localStorage.setItem(
+        "meguruto-guest-origin",
+        JSON.stringify({
+          label: "Nakayama Station, Kanagawa",
+          coordinates: { lat: 35.514745, lng: 139.539692 },
+          source: "station",
+          transportZoneId: "mainland-honshu",
+        }),
+      );
+    });
+    await page.goto("/");
+
+    const section = railSection(page, "Unexplored places near you");
+    await expect(section).toBeVisible();
+    const cardNames = await section
+      .locator('a[href^="/destinations/"] h3')
+      .allTextContents();
+    expect(cardNames[0]).toBe("Yokohama Zoorasia");
+    expect(cardNames).toContain("Shin-Yokohama Ramen Museum");
+    expect(cardNames.some((name) => name.includes("Machida"))).toBe(true);
+    const text = await section.innerText();
+    expect(text).toMatch(/Kanagawa|Tokyo/);
+    expect(text).not.toMatch(/\bChiba\b|\bSaitama\b/);
+  });
+
   test("renders the KAI-74 homepage without Japanese key or English leakage", async ({
     page,
   }) => {
@@ -229,8 +258,8 @@ test.describe("KAI-74 homepage rails", () => {
       page.locator('[role="region"][aria-label="あなたへのおすすめ"]'),
     ).toBeVisible();
     await expect(
-      page.getByText("混雑する可能性があります").first(),
-    ).toBeVisible();
+      page.locator('[aria-label*="混雑する可能性があります"]'),
+    ).toHaveCount(0);
 
     await page
       .getByRole("radio", { name: "週末・2日間1泊" })
@@ -280,11 +309,5 @@ test.describe("KAI-74 homepage rails", () => {
     expect(
       await page.locator('[aria-label="右へスクロール"]').count(),
     ).toBeGreaterThan(0);
-
-    const cue = page
-      .locator('[aria-label*="混雑する可能性があります"]')
-      .first();
-    await expect(cue).toHaveAttribute("aria-label", /根拠/);
-    await expect(cue).toHaveAttribute("aria-label", /情報源/);
   });
 });

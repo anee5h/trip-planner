@@ -173,7 +173,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   const busyPeriodCue = getBusyPeriodCues(
     destination.id,
     travelDate ?? new Date(),
-  )[0];
+  ).find(({ kind }) => kind === "peakSeason" || kind === "localEvent");
   const translateRequired = (key: string) => {
     const value = t(key, { defaultValue: "" }).trim();
     return value === key ? "" : value;
@@ -200,7 +200,8 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
       : undefined
     : undefined;
   const busyPeriodCueLabel = busyPeriodCueText
-    ? busyPeriodEvidenceLabel &&
+    ? busyPeriodCue &&
+      busyPeriodEvidenceLabel &&
       busyPeriodSourceLabel &&
       busyPeriodCue.evidence[locale] &&
       busyPeriodCue.source[locale]
@@ -243,9 +244,12 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   const dayTripReason = !weekend
     ? getPrimaryDisplayReason(scoredDestination.match?.reasons ?? [])
     : undefined;
-  const dayTripReasonLabel = dayTripReason
-    ? localizeRecommendationReason(dayTripReason, locale).title
-    : undefined;
+  const dayTripReasonLabel =
+    dayTripReason &&
+    dayTripReason.code !== "generalHighlyRated" &&
+    dayTripReason.code !== "generalSolidMatch"
+      ? localizeRecommendationReason(dayTripReason, locale).title
+      : undefined;
   const transportCostWarning = scoredDestination.match?.reasons?.find(
     (reason) => reason.code === "weekendTransportExcluded",
   );

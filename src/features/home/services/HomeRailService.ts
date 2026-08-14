@@ -1,11 +1,12 @@
 import type { Destination } from "@/shared/types/destination";
-import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import { getDistance } from "@/shared/utils/distance";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
 import {
   WEEKEND_TRAVEL_POLICY,
   type WeekendTravelBand,
 } from "@/shared/services/recommendation/WeekendPolicy";
+import { getDayTripTravelDurationEvidence } from "@/shared/services/recommendation/TripDurationService";
 import type {
   TripDuration,
   TripMode,
@@ -20,7 +21,7 @@ import {
 import type { ScoredDestination } from "@/shared/services/recommendation/RecommendationTypes";
 
 export const MAX_HOME_RAIL_CARDS = 10;
-export const MAX_NEARBY_TRAVEL_MINUTES = 180;
+export const MAX_NEARBY_TRAVEL_MINUTES = 120;
 export const DUPLICATE_QUALITY_MARGIN = 5;
 
 export const DAY_TRIP_RAILS = [
@@ -162,7 +163,7 @@ function originEstimate(destination: Destination, context: OriginRailContext) {
     context.ferryTemporal,
   );
   if (modes.length === 0) return null;
-  const estimate = getOriginAwareTransportEstimate(
+  const estimate = getDayTripTravelDurationEvidence(
     destination,
     {
       homeStationCoords: context.homeStationCoords,
@@ -170,7 +171,7 @@ function originEstimate(destination: Destination, context: OriginRailContext) {
       ferryTemporal: context.ferryTemporal,
     },
     modes,
-  );
+  ).estimate;
   if (
     !estimate ||
     (estimate.evidence !== "verified" && estimate.evidence !== "estimated") ||
@@ -187,12 +188,22 @@ function sortOriginCandidates(
   candidates: readonly RankedDestination[],
   context: OriginRailContext,
   predicate: (maxMinutes: number) => boolean,
+  sortByDistance = false,
 ): RankedDestination[] {
   const visited = new Set(context.visitedIds ?? []);
   return candidates
     .map((destination) => ({
       destination,
       estimate: originEstimate(destination, context),
+      distanceKm:
+        context.homeStationCoords && destination.coordinates
+          ? getDistance(
+              context.homeStationCoords.lat,
+              context.homeStationCoords.lng,
+              destination.coordinates.lat,
+              destination.coordinates.lng,
+            )
+          : Number.POSITIVE_INFINITY,
     }))
     .filter(
       (item) =>
@@ -202,7 +213,9 @@ function sortOriginCandidates(
     )
     .sort(
       (a, b) =>
-        a.estimate!.timeRange[1] - b.estimate!.timeRange[1] ||
+        (sortByDistance
+          ? a.distanceKm - b.distanceKm
+          : a.estimate!.timeRange[1] - b.estimate!.timeRange[1]) ||
         scoreOf(b.destination) - scoreOf(a.destination) ||
         a.destination.id.localeCompare(b.destination.id),
     )
@@ -229,9 +242,10 @@ export function getUnexploredNearbyDestinations(
   if (context.tripMode !== "day_trip") return [];
   return limit(
     sortOriginCandidates(
-      candidates,
+      candidates.filter((destination) => destination.coordinates),
       context,
       (maxMinutes) => maxMinutes <= MAX_NEARBY_TRAVEL_MINUTES,
+      true,
     ),
     count,
   );
@@ -322,7 +336,10 @@ export function softDeduplicateRail<T extends RankedDestination>(
   candidates: readonly T[],
   usedIds: ReadonlySet<string>,
   count = MAX_HOME_RAIL_CARDS,
+  qualityOf?: (candidate: T) => number,
+  duplicateQualityMargin = DUPLICATE_QUALITY_MARGIN,
 ): T[] {
+  const quality = qualityOf ?? scoreOf;
   const unused = candidates.filter((candidate) => !usedIds.has(candidate.id));
   const used = candidates.filter((candidate) => usedIds.has(candidate.id));
   const selected: T[] = [];
@@ -334,7 +351,7 @@ export function softDeduplicateRail<T extends RankedDestination>(
     if (
       nextUnused &&
       (!nextUsed ||
-        scoreOf(nextUnused) + DUPLICATE_QUALITY_MARGIN >= scoreOf(nextUsed))
+        quality(nextUnused) + duplicateQualityMargin >= quality(nextUsed))
     ) {
       selected.push(unused.shift()!);
     } else {

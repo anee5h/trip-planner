@@ -15,6 +15,7 @@ interface RecentlyViewedRailProps {
   carMode: string;
   publicModes: string[];
   travelDate?: string;
+  topMatchIds?: readonly string[];
 }
 
 function translateRequired(
@@ -30,13 +31,26 @@ export const RecentlyViewedRail: React.FC<RecentlyViewedRailProps> = ({
   carMode,
   publicModes,
   travelDate,
+  topMatchIds,
 }) => {
   const { t } = useTranslation();
   const translate = t as (
     key: string,
     options?: Record<string, unknown>,
   ) => string;
-  const destinations = useRecentlyViewedDestinations();
+  const recentDestinations = useRecentlyViewedDestinations();
+  const topMatchIdSet = new Set(topMatchIds ?? []);
+  const destinations =
+    topMatchIdSet.size === 0
+      ? recentDestinations
+      : [
+          ...recentDestinations.filter(
+            (destination) => !topMatchIdSet.has(destination.id),
+          ),
+          ...recentDestinations.filter((destination) =>
+            topMatchIdSet.has(destination.id),
+          ),
+        ];
   if (destinations.length === 0) return null;
 
   const title = translateRequired(translate, "home.continueExploring");

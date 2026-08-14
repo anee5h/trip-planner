@@ -4,18 +4,23 @@ import type { ScoredDestination } from "@/shared/services/recommendation/Recomme
 import enCommon from "@/i18n/resources/en/common.json";
 import jaCommon from "@/i18n/resources/ja/common.json";
 
-const { estimate } = vi.hoisted(() => ({
+const { estimate, safeEstimate } = vi.hoisted(() => ({
   estimate: vi.fn((destination: Destination) => {
     const ranges: Record<string, [number, number] | null> = {
       fast: [20, 40],
       medium: [90, 120],
       slow: [61, 80],
       distant: [181, 220],
+      "coordinate-near": [90, 100],
+      "coordinate-far": [20, 30],
       unknown: null,
+      "local-fallback": null,
     };
     const timeRange = Object.hasOwn(ranges, destination.id)
       ? ranges[destination.id]
-      : [30, 50];
+      : destination.id.startsWith("nearby-")
+        ? ([61, 80] as [number, number])
+        : [30, 50];
     if (!timeRange) return null;
     return {
       mode: "train" as const,
@@ -24,10 +29,23 @@ const { estimate } = vi.hoisted(() => ({
       evidence: "verified" as const,
     };
   }),
+  safeEstimate: vi.fn((destination: Destination) => {
+    if (destination.id !== "local-fallback") return null;
+    return {
+      mode: "train" as const,
+      timeRange: [10, 20] as [number, number],
+      source: "calculated_local_display" as const,
+      evidence: "estimated" as const,
+    };
+  }),
 }));
 
 vi.mock("@/shared/services/transport/OriginAwareTransportService", () => ({
   getOriginAwareTransportEstimate: estimate,
+}));
+
+vi.mock("@/shared/services/transport/SafeGroundEstimateService", () => ({
+  getSafeGroundEstimate: safeEstimate,
 }));
 
 vi.mock("@/shared/services/recommendation/RecommendationScorer", () => ({
@@ -179,10 +197,14 @@ describe("homepage discovery eligibility", () => {
 
   it("uses canonical origin estimates, rejects unknown/over-limit times, and excludes visited places", () => {
     const candidates = [
-      destination("slow"),
+      destination("slow", 0, {
+        coordinates: { lat: 35.7, lng: 139.8 },
+      }),
       destination("fast"),
       destination("unknown"),
-      destination("medium"),
+      destination("medium", 0, {
+        coordinates: { lat: 35.72, lng: 139.82 },
+      }),
       destination("distant"),
     ];
     const context = { ...dayContext, visitedIds: ["fast"] };
@@ -200,6 +222,48 @@ describe("homepage discovery eligibility", () => {
       }),
       ["train"],
     );
+  });
+
+  it("uses the shared bounded origin estimate for local discovery", () => {
+    const candidates = [
+      destination("distant"),
+      destination("local-fallback", 0, {
+        coordinates: { lat: 35.68, lng: 139.76 },
+      }),
+    ];
+
+    expect(
+      getUnder60Destinations(candidates, dayContext).map(({ id }) => id),
+    ).toEqual(["local-fallback"]);
+    expect(
+      getUnexploredNearbyDestinations(candidates, dayContext).map(
+        ({ id }) => id,
+      ),
+    ).toEqual(["local-fallback"]);
+    expect(safeEstimate).toHaveBeenCalledWith(
+      expect.objectContaining({ id: "local-fallback" }),
+      expect.objectContaining({
+        homeStationCoords: dayContext.homeStationCoords,
+      }),
+    );
+  });
+
+  it("orders nearby destinations by origin coordinates, not travel-band order", () => {
+    const candidates = [
+      destination("coordinate-missing", 100),
+      destination("coordinate-far", 100, {
+        coordinates: { lat: 35.75, lng: 139.9 },
+      }),
+      destination("coordinate-near", 1, {
+        coordinates: { lat: 35.681, lng: 139.761 },
+      }),
+    ];
+
+    expect(
+      getUnexploredNearbyDestinations(candidates, dayContext).map(
+        ({ id }) => id,
+      ),
+    ).toEqual(["coordinate-near", "coordinate-far"]);
   });
 
   it("requires weekend fit and destination capacity, then separates longer journeys", () => {
@@ -287,18 +351,32 @@ describe("soft homepage deduplication", () => {
         },
       ),
     );
-    const usedIds = new Set(candidates.slice(0, 10).map(({ id }) => id));
-    const selectors = [
-      () => getSeasonalDiscoveryDestinations(candidates, "2026-04-01"),
-      () => getUnder60Destinations(candidates, dayContext),
-      () => getUnexploredNearbyDestinations(candidates, dayContext),
-      () => getWeekendGetawayDestinations(candidates),
-      () => getWorthLongerJourneyDestinations(candidates),
+    const nearbyCandidates = candidates.map((candidate, index) => ({
+      ...candidate,
+      id: `nearby-${candidate.id}`,
+      coordinates: { lat: 35.68 + index * 0.001, lng: 139.76 },
+    }));
+    type TestRankedDestination = Destination & { score?: number };
+    const selectors: Array<
+      [() => TestRankedDestination[], TestRankedDestination[]]
+    > = [
+      [
+        () => getSeasonalDiscoveryDestinations(candidates, "2026-04-01"),
+        candidates,
+      ],
+      [() => getUnder60Destinations(candidates, dayContext), candidates],
+      [
+        () => getUnexploredNearbyDestinations(nearbyCandidates, dayContext),
+        nearbyCandidates,
+      ],
+      [() => getWeekendGetawayDestinations(candidates), candidates],
+      [() => getWorthLongerJourneyDestinations(candidates), candidates],
     ];
-    const expectedUnusedIds = candidates.slice(10).map(({ id }) => id);
 
-    selectors.forEach((select) => {
+    selectors.forEach(([select, pool]) => {
       const rankedPool = select();
+      const usedIds = new Set(pool.slice(0, 10).map(({ id }) => id));
+      const expectedUnusedIds = pool.slice(10).map(({ id }) => id);
       expect(rankedPool).toHaveLength(20);
       const selected = softDeduplicateRail(rankedPool, usedIds);
       expect(selected.map(({ id }) => id)).toEqual(expectedUnusedIds);
@@ -317,6 +395,20 @@ describe("soft homepage deduplication", () => {
         new Set(["used"]),
       ).map(({ id }) => id),
     ).toEqual(["used", "unused"]);
+  });
+
+  it("keeps a nearer used candidate over a farther unused nearby alternative", () => {
+    const candidates = [destination("near-used"), destination("far-unused")];
+
+    expect(
+      softDeduplicateRail(
+        candidates,
+        new Set(["near-used"]),
+        10,
+        (candidate) => (candidate.id === "near-used" ? 0 : -10),
+        0,
+      ).map(({ id }) => id),
+    ).toEqual(["near-used", "far-unused"]);
   });
 
   it("never returns more than ten cards or pads a short rail", () => {
