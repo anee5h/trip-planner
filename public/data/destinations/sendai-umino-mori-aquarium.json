@@ -139,6 +139,14 @@
           "title": "walking-model-v1; template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 30% of 4h visit",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'aquarium'",
+          "accessedAt": "2026-08-14"
+        }
       ]
     }
   },

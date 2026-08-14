@@ -56,6 +56,22 @@
           "title": "walking-model-v1; walk-share estimate: 80% of 4h visit",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; temperate latitude band; calibrated beach peaks",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; temperate latitude band; calibrated beach peaks",
+          "accessedAt": "2026-08-14"
+        }
       ]
     }
   },

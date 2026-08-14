@@ -165,8 +165,15 @@ function addFieldSource(d: Destination, field: string, summary: string) {
 function main() {
   const apply = process.argv.includes("--apply");
   const check = process.argv.includes("--check");
+  // --index <path>: run against an alternative index (tests). --apply then
+  // writes the modified index back to THAT path; --check compares against it.
+  const indexArg = process.argv.indexOf("--index");
+  const effectiveIndexPath =
+    indexArg >= 0 && process.argv[indexArg + 1]
+      ? path.resolve(process.argv[indexArg + 1])
+      : indexPath;
   const destinations = JSON.parse(
-    fs.readFileSync(indexPath, "utf8"),
+    fs.readFileSync(effectiveIndexPath, "utf8"),
   ) as Destination[];
   const byId = new Map(destinations.map((d) => [d.id, d]));
   const truth = loadTruth();
@@ -930,6 +937,43 @@ function main() {
         touch(d, "transport-access-v1", "tag", t.reason, ["transportMetadata"]);
       }
     }
+
+    // ---- Field-source reconciliation (canonical provenance) ----
+    // Structured metadata is CANONICAL; calculated editorial.fieldSources
+    // are regenerated from it whenever the basis changes — even when the
+    // data value did NOT change (the old code only wrote sources on value
+    // change, leaving stale bases like 'walkingMin=unknown' next to a
+    // current walkingMin=60 comfortMetadata.basis). Idempotent: matching
+    // titles are a no-op. Unknown/neutral states were already swept above.
+    if (d.editorial) {
+      const canonicalSources: Array<{
+        field: string;
+        meta: Destination["comfortMetadata"] | undefined;
+      }> = [
+        { field: "budgetRecommended", meta: d.budgetMetadata },
+        { field: "season", meta: d.seasonMetadata },
+        { field: "bestMonths", meta: d.seasonMetadata },
+        { field: "recommendedVisitHours", meta: d.durationMetadata },
+        { field: "walkingMin", meta: d.walkingMetadata },
+        { field: "comfort", meta: d.comfortMetadata },
+        { field: "crowd", meta: d.crowdMetadata },
+      ];
+      for (const { field, meta } of canonicalSources) {
+        if (!meta || meta.method !== "model" || !meta.basis) continue;
+        const canonicalTitle = `${meta.modelVersion ?? "kai-89-model"}; ${meta.basis}`;
+        const existing = d.editorial.fieldSources?.[field]?.[0]?.title;
+        if (existing !== canonicalTitle) {
+          addFieldSource(d, field, canonicalTitle);
+          touch(
+            d,
+            meta.modelVersion ?? "kai-89-model",
+            "reconcile",
+            "calculated field source reconciled to canonical metadata basis",
+            [field],
+          );
+        }
+      }
+    }
   }
 
   // ---- model-output cluster detection (stable: pure-function value equality) ----
@@ -1039,21 +1083,40 @@ function main() {
     ? (JSON.parse(fs.readFileSync(reportPath, "utf8")) as Partial<ReportShape>)
     : undefined;
   // Ownership is DERIVED FROM CURRENT METADATA (provenance is the unit),
-  // never accumulated from past runs: a record is model-owned exactly when
-  // its CURRENT metadata declares the model's modelVersion. This makes the
-  // ledger self-healing AND precedence-safe — when a source-verified or
-  // manual correction supersedes a model value, the metadata is replaced
-  // and the record stops being model-owned (validate gates must not keep
-  // applying model rules to records the model no longer owns). A permanent
-  // union would fight the stated precedence rule source-verified > model.
-  const ownedByMetadataModel = (modelVersion: string) => (d: Destination) =>
-    d.seasonMetadata?.modelVersion === modelVersion ||
-    d.budgetMetadata?.modelVersion === modelVersion ||
-    d.durationMetadata?.modelVersion === modelVersion ||
-    d.comfortMetadata?.modelVersion === modelVersion ||
-    d.crowdMetadata?.modelVersion === modelVersion ||
-    d.transportMetadata?.modelVersion === modelVersion ||
-    d.walkingMetadata?.modelVersion === modelVersion;
+  // scoped PER FIELD + METHOD: a record is model-owned only when the
+  // relevant metadata declares method "model". An explicit unknown or
+  // manual state is NOT model ownership — the ledger must not list
+  // neutralized records as model-owned. A source-verified/manual
+  // correction replaces the metadata and ownership ends (precedence
+  // source-verified > model enforced by construction).
+  const ownedByModel = (model: string, d: Destination): boolean => {
+    switch (model) {
+      case "budget-model-v1":
+        return d.budgetMetadata?.method === "model";
+      case "season-model-v1":
+        return d.seasonMetadata?.method === "model";
+      case "duration-model-v1":
+        return (
+          d.durationMetadata?.method === "model" &&
+          d.durationMetadata?.modelVersion === "duration-model-v1"
+        );
+      case "hub-window-model-v1":
+        return (
+          d.durationMetadata?.method === "model" &&
+          d.durationMetadata?.modelVersion === "hub-window-model-v1"
+        );
+      case "walking-model-v1":
+        return d.walkingMetadata?.method === "model";
+      case "comfort-model-v1":
+        return d.comfortMetadata?.method === "model";
+      case "crowd-model-v1":
+        return d.crowdMetadata?.method === "model";
+      case "transport-access-v1":
+        return d.transportMetadata !== undefined;
+      default:
+        return false;
+    }
+  };
   const LEDGER_MODELS = [
     "budget-model-v1",
     "season-model-v1",
@@ -1067,9 +1130,7 @@ function main() {
   const ledgerTouchedByModel = Object.fromEntries(
     LEDGER_MODELS.map((model) => [
       model,
-      destinations
-        .filter((d) => ownedByMetadataModel(model)(d))
-        .map((d) => d.id),
+      destinations.filter((d) => ownedByModel(model, d)).map((d) => d.id),
     ]),
   ) as Record<string, string[]>;
   const report = nextReport(
@@ -1086,7 +1147,10 @@ function main() {
   // lastApplied evidence must never claim a migration the index did not
   // receive (if the index write fails, the report stays honest).
   if (apply) {
-    fs.writeFileSync(indexPath, `${JSON.stringify(destinations, null, 2)}\n`);
+    fs.writeFileSync(
+      effectiveIndexPath,
+      `${JSON.stringify(destinations, null, 2)}\n`,
+    );
     console.log(`Applied ${changes.length} model changes. Index written.`);
     if (!check) {
       fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);

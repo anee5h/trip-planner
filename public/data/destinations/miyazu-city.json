@@ -106,6 +106,14 @@
           "title": "comfort-model-v1; derived from indoorPercent=50, kind='city', walkingMin=360",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance notable, 2 children, metro=false",
+          "accessedAt": "2026-08-14"
+        }
       ]
     }
   },

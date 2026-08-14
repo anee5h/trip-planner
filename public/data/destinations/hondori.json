@@ -130,7 +130,24 @@
         "method": "assisted"
       }
     ],
-    "fieldSources": {}
+    "fieldSources": {
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

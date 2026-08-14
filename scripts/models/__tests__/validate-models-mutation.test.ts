@@ -165,26 +165,36 @@ describe("KAI-89 validate-models mutation guards", () => {
 describe("KAI-89 provenance-drift guards", () => {
   it("derive --check exits 1 when metadata is deleted with the vector intact", () => {
     // P0 review fix: deleting/corrupting provenance while leaving the data
-    // vector unchanged must make derive --check fail (metadata participates
-    // in change detection).
+    // vector unchanged must make derive --check fail. Uses --index <tmp> so
+    // the REAL repository index is never touched (vitest runs test files
+    // concurrently; a shared-file write would be a race).
     const indexPath = path.join(
       ROOT,
       "src/shared/data/destinations-index.json",
     );
-    const backup = fs.readFileSync(indexPath, "utf8");
+    const tmpIndex = path.join(
+      os.tmpdir(),
+      `kai89-drift-${Date.now()}-${Math.random().toString(36).slice(2)}.json`,
+    );
     try {
-      const idx = JSON.parse(backup);
+      const idx = JSON.parse(fs.readFileSync(indexPath, "utf8"));
       const d = idx.find(
         (x) => x.seasonMetadata?.method === "model" && x.season !== undefined,
       )!;
       expect(d, "fixture: a model-owned season record").toBeTruthy();
       delete d.seasonMetadata;
-      fs.writeFileSync(indexPath, JSON.stringify(idx));
+      fs.writeFileSync(tmpIndex, JSON.stringify(idx));
       let exit = 0;
       try {
         execFileSync(
           "npx",
-          ["tsx", "scripts/derive-destination-models.ts", "--check"],
+          [
+            "tsx",
+            "scripts/derive-destination-models.ts",
+            "--check",
+            "--index",
+            tmpIndex,
+          ],
           {
             cwd: ROOT,
             stdio: "pipe",
@@ -199,7 +209,7 @@ describe("KAI-89 provenance-drift guards", () => {
       }
       expect(exit).toBe(1);
     } finally {
-      fs.writeFileSync(indexPath, backup);
+      fs.rmSync(tmpIndex, { force: true });
     }
   });
 
@@ -211,6 +221,41 @@ describe("KAI-89 provenance-drift guards", () => {
     });
     const results = validateCatalogue(p);
     expect(gateOf(results, "metadata-consistency")?.pass).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("metadata-consistency gate catches unknown metadata with a lingering breakdown", () => {
+    // Fourth-pass hole: method "unknown" + budgetBreakdown alone (no range
+    // fields) must also fail — getEffectiveBudgetBreakdown would otherwise
+    // consume the supposedly-unknown breakdown.
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) => x.budgetBreakdown !== undefined && x.budgetMin === undefined,
+      )!;
+      d.budgetMetadata = { method: "unknown" };
+    });
+    const results = validateCatalogue(p);
+    expect(gateOf(results, "metadata-consistency")?.pass).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("field-source-agreement gate catches a stale calculated basis", () => {
+    // A fieldSource title that no longer matches the canonical metadata
+    // basis (e.g. Hamarikyu 'walkingMin=unknown' vs walkingMin=60) fails.
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) =>
+          x.comfortMetadata?.method === "model" &&
+          x.editorial?.fieldSources?.comfort?.[0]?.title,
+      )!;
+      expect(d, "fixture: comfort record with a field source").toBeTruthy();
+      d.editorial.fieldSources.comfort[0] = {
+        ...d.editorial.fieldSources.comfort[0],
+        title: "comfort-model-v1; STALE basis",
+      };
+    });
+    const results = validateCatalogue(p);
+    expect(gateOf(results, "field-source-agreement")?.pass).toBe(false);
     fs.rmSync(p, { force: true });
   });
 });

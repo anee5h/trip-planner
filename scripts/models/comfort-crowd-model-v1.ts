@@ -5,12 +5,15 @@
  * SeasonalSuitabilityService); heatTolerance is a coarse 3-5 band from
  * indoorPercent + climate/kind adjustments; walkingIntensity is ALWAYS
  * derived from walkingMin (never independently authored), so the two
- * representations cannot contradict.
+ * representations cannot contradict. indoorPercent is REQUIRED — without
+ * it the model returns unknown and the template comfort is neutralized.
  *
- * CROWD: informational only (verified: zero runtime/UI consumers). The
- * model replaces fabricated template vectors with deterministic band values
- * (2-3 low, 4-5 moderate, 6-7 busy, 8 very busy, 9-10 peak) so any future
- * display never shows template data; provenance is recorded as method model.
+ * CROWD: NEUTRALIZED (fourth-pass state). Zero runtime consumers exist,
+ * and a kind-derived band would be manufactured evidence, so crowdModel
+ * returns "unknown" for every eligible record; template crowd vectors are
+ * cleared to the explicit-neutral state (crowdMetadata.method "unknown").
+ * The historical band derivation (weekday by kind + importance/collection/
+ * reservation bumps, weekend=+2, holiday=+1) was removed as fabricated.
  */
 import type { Destination } from "../../src/shared/types/destination";
 import { walkingIntensityScore } from "./walking-model-v1";

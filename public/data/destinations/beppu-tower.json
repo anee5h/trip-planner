@@ -160,6 +160,22 @@
           "title": "walking-model-v1; template metre value 2000 replaced by walk-share estimate (FIX_UNIT): 30% of 1.5h visit",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
       ]
     }
   },

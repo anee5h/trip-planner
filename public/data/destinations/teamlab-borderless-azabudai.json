@@ -103,6 +103,22 @@
           "title": "duration-model-v1; kind band 'museum'",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
       ]
     }
   },

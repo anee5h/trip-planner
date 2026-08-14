@@ -48,7 +48,16 @@
       }
     ],
     "reviewedBy": "Okinawa Regional Editorial Batch",
-    "fieldSources": {}
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'beach'",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {

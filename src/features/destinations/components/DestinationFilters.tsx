@@ -54,7 +54,7 @@ import {
 } from "lucide-react";
 
 import { getCollections } from "@/shared/data/collections";
-import type { ExplorerBudgetTier } from "../destinationSearchParams";
+import type { BudgetFilter } from "@/shared/types/planner";
 import type {
   TripDuration,
   TripMode,
@@ -97,8 +97,8 @@ interface DestinationFiltersProps {
   setPartySize: (val: number) => void;
   weather: "any" | "rainy" | "hot" | "cold";
   setWeather: (val: "any" | "rainy" | "hot" | "cold") => void;
-  budgetTier: ExplorerBudgetTier;
-  setBudgetTier: (val: ExplorerBudgetTier) => void;
+  budgetTier: BudgetFilter;
+  setBudgetTier: (val: BudgetFilter) => void;
   vibe: string;
   setVibe: (val: string) => void;
   tripDuration: TripDuration;
@@ -302,8 +302,8 @@ export default function DestinationFilters({
     });
   });
   if (budgetTier !== "any") {
-    const budgetMap: Record<ExplorerBudgetTier, string> = {
-      any: isJa ? "指定なし" : "Any",
+    const budgetMap: Record<BudgetFilter, string> = {
+      any: isJa ? "指定なし" : "Any budget",
       economy: isJa ? "エコノミー" : "Economy",
       standard: isJa ? "スタンダード" : "Standard",
       comfortable: isJa ? "コンフォート" : "Comfort",
@@ -959,17 +959,19 @@ export default function DestinationFilters({
                       {isJa ? "予算の目安" : "Budget preference"}
                     </label>
                     <span className="text-[10px] text-slate-600 dark:text-slate-300 font-semibold">
-                      {isJa ? "交通費の概算を含む" : "Includes transport"}
+                      {isJa
+                        ? "交通費込み（推定可能な場合）"
+                        : "Incl. transport when known"}
                     </span>
                   </div>
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
                     {[
                       {
                         val: "any",
-                        label: isJa ? "指定なし" : "Any",
-                        desc: isJa ? "制限なし" : "All price ranges",
-                        icon: Sparkles,
-                        color: "text-emerald-600",
+                        label: isJa ? "指定なし" : "Any budget",
+                        desc: isJa ? "予算を指定しない" : "No budget limit",
+                        icon: CircleDollarSign,
+                        color: "text-slate-500",
                       },
                       {
                         val: "economy",
@@ -1006,12 +1008,12 @@ export default function DestinationFilters({
                         <button
                           key={opt.val}
                           type="button"
-                          onClick={() =>
-                            setBudgetTier(opt.val as ExplorerBudgetTier)
-                          }
+                          onClick={() => setBudgetTier(opt.val as BudgetFilter)}
                           className={`min-h-[52px] px-3 py-2 rounded-xl border text-left transition-all ${
                             isSelected
-                              ? "border-emerald-500 bg-emerald-50 text-emerald-700 shadow-sm dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
+                              ? opt.val === "any"
+                                ? "border-slate-300 bg-white text-slate-900 shadow-xs dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] dark:text-[hsl(var(--text-primary))] dark:ring-1 dark:ring-emerald-400/50"
+                                : "border-emerald-500 bg-emerald-50 text-emerald-700 shadow-sm dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
                               : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] dark:text-slate-400"
                           }`}
                         >

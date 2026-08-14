@@ -138,6 +138,14 @@
           "title": "Sunshine Aquarium",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'aquarium'",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [

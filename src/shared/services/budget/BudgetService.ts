@@ -744,6 +744,9 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
   food: number;
   cafe: number;
 } | null {
+  // KAI-89: budgetMetadata.method "unknown" is AUTHORITATIVE — even a
+  // breakdown present on the record must not be consumed as known.
+  if (dest.budgetMetadata?.method === "unknown") return null;
   if (
     dest.budgetBreakdown &&
     [

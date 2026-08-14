@@ -325,10 +325,14 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
     const out: string[] = [];
     const budget = d.budgetMetadata;
     if (budget) {
+      // ANY budget numeric state or breakdown with method "unknown" is two
+      // competing truths (a breakdown alone would let BudgetService consume
+      // a supposedly-unknown budget).
       const hasNumbers =
         d.budgetMin !== undefined ||
         d.budgetRecommended !== undefined ||
-        d.budgetMax !== undefined;
+        d.budgetMax !== undefined ||
+        d.budgetBreakdown !== undefined;
       if (budget.method === "model" && !hasNumbers)
         out.push(`${d.id}: budgetMetadata model without numbers`);
       if (budget.method === "unknown" && hasNumbers)
@@ -365,6 +369,46 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
         "metadata method matches the data it describes (model→field, unknown→absent)",
       )
     : fail("metadata-consistency", metaConsistency.slice(0, 10).join("; "));
+
+  // ---- 10. calculated field-source / metadata agreement ----
+  // Structured metadata is CANONICAL; when a record ALSO carries a
+  // calculated editorial.fieldSource for a model field, the source title
+  // must equal the canonical "<modelVersion>; <basis>" form. A stale basis
+  // (e.g. 'walkingMin=unknown' next to a current walkingMin=60
+  // comfortMetadata) is a provenance contradiction and fails here.
+  const fieldSourceMismatch = index.flatMap((d) => {
+    if (!d.editorial?.fieldSources) return [];
+    const out: string[] = [];
+    const check = (
+      field: string,
+      meta:
+        { method?: string; modelVersion?: string; basis?: string } | undefined,
+    ) => {
+      const source = d.editorial!.fieldSources![field]?.[0];
+      if (!source || !meta || meta.method !== "model" || !meta.basis) return;
+      const canonical = `${meta.modelVersion ?? "kai-89-model"}; ${meta.basis}`;
+      if (source.title !== canonical)
+        out.push(
+          `${d.id}: ${field} fieldSource != metadata (${source.title?.slice(0, 40)}…)`,
+        );
+    };
+    check("budgetRecommended", d.budgetMetadata);
+    check("season", d.seasonMetadata);
+    check("recommendedVisitHours", d.durationMetadata);
+    check("walkingMin", d.walkingMetadata);
+    check("comfort", d.comfortMetadata);
+    check("crowd", d.crowdMetadata);
+    return out;
+  });
+  fieldSourceMismatch.length === 0
+    ? pass(
+        "field-source-agreement",
+        "calculated fieldSources match canonical metadata basis",
+      )
+    : fail(
+        "field-source-agreement",
+        fieldSourceMismatch.slice(0, 8).join("; "),
+      );
 
   return results;
 }

@@ -810,9 +810,9 @@
    "reason": "template"
   },
   "comfort:438e501f22f6": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "v1.6.0 hub template hardcode {8,8,3}; 120/139 hubs. heatTolerance==rainFriendly template signature."
+   "category": "C",
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
   "comfort:fc8339d38bf3": {
    "category": "C",
@@ -851,8 +851,8 @@
   },
   "comfort:5cc52143a504": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "69/88 unknown kind; plausible general-outdoor profile."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
   "comfort:99dd7fe7d035": {
    "category": "C",
@@ -896,8 +896,8 @@
   },
   "comfort:4d3e2d59e09a": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Standalone nature."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
   "comfort:da1999751cb8": {
    "category": "C",

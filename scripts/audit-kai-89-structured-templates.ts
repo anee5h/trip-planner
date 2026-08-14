@@ -100,7 +100,7 @@ function signature(value: unknown): string {
 
 // Mirror of GENERIC_TEMPLATE_COPY in scripts/audit/data-quality-rules.ts.
 const GENERIC_TEMPLATE_COPY =
-  /visitor destination in|visitor hub in|travel hub in|A top recommended attraction in|訪問者向けの観光地/i;
+  /visitor destination in|visitor hub in|travel hub in|A top recommended attraction in|訪問者向けの観光地|curated destination within|popular tourist spot in|popular tourist destination in|art and culture hub|有名な観光スポット|アートとカルチャーの拠点/i;
 function destinationCopy(dest: Destination): string {
   return JSON.stringify({
     notes: dest.notes,
@@ -173,7 +173,8 @@ function buildReport(destinations: Destination[]) {
       d.status === "published" &&
       d.role !== "hub" &&
       d.budgetRecommended === undefined &&
-      d.budgetMetadata?.method !== "unknown",
+      d.budgetMetadata?.method !== "unknown" &&
+      d.budgetMetadata?.method !== "manual",
   ).length;
   const missingSeasonRecords = destinations.filter(
     (d) =>

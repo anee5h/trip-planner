@@ -44,7 +44,7 @@
     "train": 25
   },
   "highlights": ["Park", "Waterfront", "Views"],
-  "description": "Yamashita Park is a curated destination within Yokohama City.",
+  "description": "Yokohama's waterfront park opened in 1930, stretching along the harbor with rose gardens, the moored Hikawa Maru liner, and views across the bay.",
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -98,13 +98,29 @@
           "title": "comfort-model-v1; derived from indoorPercent=75, kind='', walkingMin=40",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
       ]
     }
   },
   "content": {
     "en": {
       "name": "Yamashita Park",
-      "description": "Yamashita Park is a curated destination within Yokohama City.",
+      "description": "Yokohama's waterfront park opened in 1930, stretching along the harbor with rose gardens, the moored Hikawa Maru liner, and views across the bay.",
       "highlights": ["Park", "Waterfront", "Views"],
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
@@ -112,7 +128,7 @@
     },
     "ja": {
       "name": "山下公園",
-      "description": "山下公園は神奈川県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
+      "description": "1930年に開園した横浜港沿いの公園。バラ園や係留された氷川丸、ベイブリッジを望む眺めが楽しめます。",
       "highlights": ["山下公園の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",

@@ -132,7 +132,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "comfort-model-v1; derived from indoorPercent=20, kind='park', walkingMin=unknown",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='park', walkingMin=60",
           "accessedAt": "2026-08-14"
         }
       ]
@@ -159,9 +159,9 @@
     "basis": "no rule matched; owner policy: unknown stays unknown"
   },
   "budgetMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
+    "confidence": "low",
     "basis": "verified ticket ¥450 preserved; peer cell 'park|half|poi' has 0 samples (< 5); components left as accepted debt"
   },
   "comfortMetadata": {

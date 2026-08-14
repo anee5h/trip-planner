@@ -44,7 +44,7 @@
     "train": 25
   },
   "highlights": ["Architecture", "Shopping", "Waterfront"],
-  "description": "Yokohama Red Brick Warehouse is a curated destination within Yokohama City.",
+  "description": "Restored Meiji-era brick warehouses on the waterfront now housing shops, restaurants, and event halls, beside the Red Brick Park promenade.",
   "reservation": "No reservation required for building entry.",
   "parking": "Paid parking space available adjacent to Red Brick Park.",
   "notes": "Enjoy shopping, oceanfront craft beers, and seasonal events in historic Meiji-era brick buildings.",
@@ -99,13 +99,29 @@
           "title": "comfort-model-v1; derived from indoorPercent=75, kind='', walkingMin=40",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
       ]
     }
   },
   "content": {
     "en": {
       "name": "Yokohama Red Brick Warehouse",
-      "description": "Yokohama Red Brick Warehouse is a curated destination within Yokohama City.",
+      "description": "Restored Meiji-era brick warehouses on the waterfront now housing shops, restaurants, and event halls, beside the Red Brick Park promenade.",
       "highlights": ["Architecture", "Shopping", "Waterfront"],
       "notes": "Enjoy shopping, oceanfront craft beers, and seasonal events in historic Meiji-era brick buildings.",
       "reservation": "No reservation required for building entry.",
@@ -114,7 +130,7 @@
     },
     "ja": {
       "name": "横浜赤レンガ倉庫",
-      "description": "横浜赤レンガ倉庫は神奈川県を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
+      "description": "明治時代の赤レンガ倉庫を再生した商業施設。ショップやレストラン、イベントホールが入り、隣接する赤レンガパークとあわせて楽しめます。",
       "highlights": ["横浜赤レンガ倉庫の名所"],
       "notes": "明治・大正期の歴史的赤レンガ倉庫で、潮風を感じながらショッピングやクラフトビールを楽しめます。",
       "reservation": "施設への入場・ショップ巡りは事前予約不要です。",

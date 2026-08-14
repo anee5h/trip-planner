@@ -20,6 +20,7 @@ import {
 import { getPaginationItems } from "./pagination";
 import {
   getSortableVerifiedBudget,
+  getEstimatedBudgetRange,
   hasKnownBudgetRange,
 } from "@/shared/services/budget/BudgetService";
 import StationInput from "@/shared/components/StationInput";
@@ -51,6 +52,8 @@ import type { TripDuration } from "@/shared/services/recommendation/Recommendati
 import {
   BUDGET_TIER_LIMITS,
   partyProfileForSize,
+  type BudgetTier,
+  type BudgetFilter,
 } from "@/shared/types/planner";
 import {
   getBestOneWayTravelMinutes,
@@ -140,7 +143,7 @@ export default function Destinations() {
     initialExplorerState.publicModes,
   );
   const [partySize, setPartySize] = useState(initialExplorerState.partySize);
-  const [budgetTier, setBudgetTier] = useState<ExplorerBudgetTier>(
+  const [budgetTier, setBudgetTier] = useState<BudgetFilter>(
     initialExplorerState.budgetTier,
   );
   const [vibe, setVibe] = useState(initialExplorerState.vibe);
@@ -351,6 +354,7 @@ export default function Destinations() {
     return {
       vibe,
       weather: { preferred: weather },
+      // Explore 'any' (no filter) maps to the scorer default tier.
       budgetTier: budgetTier === "any" ? undefined : budgetTier,
       budget: maxBudget,
       partySize,
@@ -503,24 +507,45 @@ export default function Destinations() {
       result = result.filter((dest) => matchesDestination(dest, tokens));
     }
 
-    // 1.5. Budget filters use a destination's upper estimate: a trip must be
-    // possible within the selected amount, not merely start below it.
-    // KAI-89/Any-budget: 'any' is the app's EXPLICIT no-filter default (any
-    // budget, unknown included — the filter UI treats it as the unselected
-    // state). Selecting economy/comfortable/luxury restricts to FINITE KNOWN
-    // budgets within the shared BUDGET_TIER_LIMITS contract; an unknown
-    // budget (absent values) NEVER passes a restricted tier.
+    // 1.5. Budget tier filter. 'any' = no restriction. A restricted tier
+    // caps the CANONICAL party-aware trip cost: origin transport (when an
+    // origin and a feasible public mode exist) + per-person on-site spend
+    // scaled by partySize (KAI-89 contract: catalogue budgets are per
+    // person; the old dest.budgetMax comparison compared a per-person
+    // number against a party budget and never included transport). When
+    // the origin-aware total cannot be estimated the destination falls
+    // back to the on-site party cost — the UI label says transport is
+    // included only when known, so no false claim is made. Unknown
+    // budgets never pass a restricted tier.
     if (budgetTier !== "any") {
+      const tierLimit = BUDGET_TIER_LIMITS[budgetTier as BudgetTier];
+      const filterModes =
+        publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
       result = result.filter((dest) => {
         if (!hasKnownBudgetRange(dest)) return false;
-        const estimatedCost = dest.budgetMax;
-        if (budgetTier === "economy")
-          return estimatedCost <= BUDGET_TIER_LIMITS.economy;
-        if (budgetTier === "comfortable")
-          return estimatedCost <= BUDGET_TIER_LIMITS.comfortable;
-        // luxury: a real tier (≤ its shared limit); every finite known
-        // budget today falls under it, unknown never does.
-        return estimatedCost <= BUDGET_TIER_LIMITS.luxury;
+        let costMax: number | undefined;
+        if (homeStationCoords) {
+          let best: number | undefined;
+          for (const mode of filterModes) {
+            const r = getEstimatedBudgetRange(
+              dest,
+              mode,
+              partySize,
+              budgetTier,
+              homeStationCoords,
+            );
+            if (r.range && r.transportIncluded && r.durationIncluded) {
+              best =
+                best === undefined ? r.range[1] : Math.min(best, r.range[1]);
+            }
+          }
+          costMax = best;
+        }
+        if (costMax === undefined) {
+          // On-site party cost (transport excluded — not claimed).
+          costMax = dest.budgetMax * partySize;
+        }
+        return costMax <= tierLimit;
       });
     }
 
@@ -996,7 +1021,7 @@ export default function Destinations() {
               partySize,
               homeStationCoords ?? undefined,
               ferryTemporal,
-              budgetTier === "any" ? "standard" : budgetTier,
+              budgetTier === "any" ? undefined : budgetTier,
             );
           return sortableBudget(a) - sortableBudget(b);
         }
@@ -1227,6 +1252,8 @@ export default function Destinations() {
         budgetTier={budgetTier}
         setBudgetTier={(tier) => {
           setBudgetTier(tier);
+          // 'any' (no filter) keeps the numeric default; a tier syncs the
+          // numeric scorer budget to its shared limit.
           setMaxBudget(
             tier === "any"
               ? BUDGET_TIER_LIMITS.standard

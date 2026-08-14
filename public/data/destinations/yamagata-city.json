@@ -110,7 +110,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "hub-window-model-v1; hub exploration window: importance notable, 3 children, metro adj",
+          "title": "hub-window-model-v1; hub exploration window: importance notable, 3 children, metro=false",
           "accessedAt": "2026-08-14"
         }
       ],

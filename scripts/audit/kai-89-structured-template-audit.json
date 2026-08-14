@@ -1333,19 +1333,19 @@
     },
     "remainingManualDebt": {
       "genericTemplateCopyRecords": 0,
-      "missingBudgetRecords": 0,
+      "missingBudgetRecords": 2,
       "missingSeasonRecords": 0,
-      "explicitlyUnknownBudget": 391,
+      "explicitlyUnknownBudget": 389,
       "explicitlyUnknownSeason": 391
     },
     "dispositionCounts": {
       "corrected": 14,
       "confidence-gated": 30,
-      "model-estimate": 40,
-      "manual-review": 96,
+      "model-estimate": 43,
+      "manual-review": 93,
       "legitimate": 9
     },
-    "categoryCounts": { "D": 6, "B": 64, "C": 79, "A": 9, "E": 31 }
+    "categoryCounts": { "D": 6, "B": 63, "C": 80, "A": 9, "E": 31 }
   },
   "categories": [
     {
@@ -10613,9 +10613,9 @@
             "walkingIntensity": 8
           },
           "disposition": {
-            "category": "B",
-            "action": "manual-review",
-            "reason": "v1.6.0 hub template hardcode {8,8,3}; 120/139 hubs. heatTolerance==rainFriendly template signature."
+            "category": "C",
+            "action": "model-estimate",
+            "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
           }
         },
         {
@@ -11119,8 +11119,8 @@
           },
           "disposition": {
             "category": "C",
-            "action": "manual-review",
-            "reason": "69/88 unknown kind; plausible general-outdoor profile."
+            "action": "model-estimate",
+            "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
           }
         },
         {
@@ -11381,8 +11381,8 @@
           },
           "disposition": {
             "category": "C",
-            "action": "manual-review",
-            "reason": "Standalone nature."
+            "action": "model-estimate",
+            "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
           }
         },
         {

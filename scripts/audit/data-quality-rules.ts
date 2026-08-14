@@ -183,7 +183,7 @@ const USER_VISIBLE_NUMERIC_FIELDS = [
 const DETERMINISTIC_COPY_LEAK =
   /Source-backed|v1\.9\.2|KAI-31|city expansion record|Municipal hub record reviewed|Municipal hub created in/i;
 const GENERIC_TEMPLATE_COPY =
-  /visitor destination in|visitor hub in|travel hub in|A top recommended attraction in|訪問者向けの観光地/i;
+  /visitor destination in|visitor hub in|travel hub in|A top recommended attraction in|訪問者向けの観光地|curated destination within|popular tourist spot in|popular tourist destination in|art and culture hub|有名な観光スポット|アートとカルチャーの拠点/i;
 
 function destinationCopy(dest: Destination): string {
   return JSON.stringify({
@@ -506,8 +506,11 @@ export function collectDestinationIssues(
     dest.role !== "hub" &&
     dest.budgetRecommended === undefined &&
     // Explicit neutral state written by the KAI-89 budget model (template
-    // budget deliberately returned to unknown) is NOT missing data.
-    dest.budgetMetadata?.method !== "unknown"
+    // budget deliberately returned to unknown) is NOT missing data, and a
+    // "manual" state (verified ticket preserved, components accepted debt)
+    // is a reviewed budget decision, not a missing one.
+    dest.budgetMetadata?.method !== "unknown" &&
+    dest.budgetMetadata?.method !== "manual"
   ) {
     push("MISSING_BUDGET", "published non-hub record lacks budgetRecommended");
   }

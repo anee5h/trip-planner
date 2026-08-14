@@ -90,7 +90,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "hub-window-model-v1; hub exploration window: importance major, 7 children, metro adj",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 7 children, metro=true",
           "accessedAt": "2026-08-14"
         }
       ],

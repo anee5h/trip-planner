@@ -103,7 +103,24 @@
     "checkedAt": "2026-08-12",
     "freshness": "current",
     "changeSummary": "PR C parks audit: new quasi-national park record",
-    "fieldSources": {}
+    "fieldSources": {
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; tropical latitude band; calibrated 6/7 trusted summer peaks",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; tropical latitude band; calibrated 6/7 trusted summer peaks",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 2,

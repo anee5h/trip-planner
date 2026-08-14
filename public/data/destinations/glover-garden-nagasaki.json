@@ -132,7 +132,16 @@
     ],
     "reviewedAt": "2026-08-04",
     "reviewedBy": "Kyushu Regional Editorial Batch",
-    "fieldSources": {}
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'garden'",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://glover-garden.jp/",
   "municipalityId": "Nagasaki:nagasaki",

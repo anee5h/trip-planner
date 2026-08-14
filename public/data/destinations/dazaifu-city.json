@@ -104,7 +104,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "hub-window-model-v1; hub exploration window: importance notable, 3 children, metro adj",
+          "title": "hub-window-model-v1; hub exploration window: importance notable, 3 children, metro=false",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -121,6 +121,22 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=50, kind='city', walkingMin=360",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; source-corrected bestMonths [2,3] (ledger seasonBestMonths)",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; source-corrected bestMonths [2,3] (ledger seasonBestMonths)",
           "accessedAt": "2026-08-14"
         }
       ]

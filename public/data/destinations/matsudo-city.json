@@ -96,7 +96,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "budget-model-v1; peer cell 'city|full|hub' n=5; tickets source-verified (hub class convention)",
+          "title": "budget-model-v1; peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -112,7 +112,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "hub-window-model-v1; hub exploration window: importance standard, 0 children, metro adj",
+          "title": "hub-window-model-v1; hub exploration window: importance standard, 0 children, metro=false",
           "accessedAt": "2026-08-14"
         }
       ]

@@ -44,7 +44,7 @@
     "train": 25
   },
   "highlights": ["Temple", "History", "Culture"],
-  "description": "Soji-ji Temple is a curated destination within Yokohama City.",
+  "description": "Soji-ji, the head temple of the Soto Zen school, relocated from Noto to its Yokohama grounds in 1911; its grand gate and halls stand in the Tsurumi district.",
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -98,13 +98,29 @@
           "title": "comfort-model-v1; derived from indoorPercent=75, kind='', walkingMin=40",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
       ]
     }
   },
   "content": {
     "en": {
       "name": "Soji-ji Temple",
-      "description": "Soji-ji Temple is a curated destination within Yokohama City.",
+      "description": "Soji-ji, the head temple of the Soto Zen school, relocated from Noto to its Yokohama grounds in 1911; its grand gate and halls stand in the Tsurumi district.",
       "highlights": ["Temple", "History", "Culture"],
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
@@ -112,7 +128,7 @@
     },
     "ja": {
       "name": "總持寺",
-      "description": "總持寺は神奈川県の歴史と伝統文化を今に伝える歴史的スポットです。由緒ある建築と静寂な境内が訪れる人々を魅了します。",
+      "description": "曹洞宗の大本山・總持寺。1911年に能登から現在の横浜・鶴見の地へ移転しました。壮大な山門と諸堂が広大な境内に立ちます。",
       "highlights": ["總持寺の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",

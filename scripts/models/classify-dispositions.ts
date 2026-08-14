@@ -19,7 +19,7 @@ import { loadTruth } from "./calibration";
 import { budgetModel } from "./budget-model-v1";
 import { seasonModel } from "./season-model-v1";
 import { durationModel } from "./duration-model-v1";
-import { walkingModel } from "./walking-model-v1";
+import { walkingModel, isModelOwnedWalkingMinutes } from "./walking-model-v1";
 import { comfortModel, crowdModel } from "./comfort-crowd-model-v1";
 
 const rootDir = path.resolve(
@@ -59,18 +59,16 @@ const corr = JSON.parse(
 ) as {
   sections: Record<string, Array<{ id: string }> | undefined>;
 };
-const A = JSON.parse(
-  fs.readFileSync("/tmp/kai89-audit/AgentA-ratings.json", "utf8"),
-);
-const B = JSON.parse(
-  fs.readFileSync("/tmp/kai89-audit/AgentB-budget.json", "utf8"),
-);
-const C = JSON.parse(
-  fs.readFileSync("/tmp/kai89-audit/AgentC-transport.json", "utf8"),
-);
-const D = JSON.parse(
-  fs.readFileSync("/tmp/kai89-audit/AgentD-season-crowd-duration.json", "utf8"),
-);
+// Agent review classifications are COMMITTED repository inputs
+// (scripts/audit/kai-89-inputs/): the disposition builder must be
+// reproducible from a clean checkout, never from ephemeral /tmp files.
+const INPUTS_DIR = path.join(rootDir, "scripts/audit/kai-89-inputs");
+const readInput = (name: string) =>
+  JSON.parse(fs.readFileSync(path.join(INPUTS_DIR, name), "utf8"));
+const A = readInput("AgentA-ratings.json");
+const B = readInput("AgentB-budget.json");
+const C = readInput("AgentC-transport.json");
+const D = readInput("AgentD-season-crowd-duration.json");
 
 const idsOf = (list: Array<{ id: string } | string> | undefined) =>
   new Set(
@@ -180,8 +178,11 @@ function isModelCluster(category: string, ids: string[]): boolean {
         return false;
       }
       case "comfort": {
+        // Same ownership rule as the generator: a model-owned >=300 value
+        // is MINUTES (isModelOwnedWalkingMinutes), never excluded here.
         const minutes =
-          Number.isFinite(rec.walkingMin) && rec.walkingMin < 300
+          Number.isFinite(rec.walkingMin) &&
+          (rec.walkingMin < 300 || isModelOwnedWalkingMinutes(rec))
             ? rec.walkingMin
             : undefined;
         const out = comfortModel(rec, new Set([id]), minutes);

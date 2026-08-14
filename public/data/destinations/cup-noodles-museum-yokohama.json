@@ -5,7 +5,7 @@
   "region": "Kanto",
   "categories": ["Museum", "Family", "Food"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Cupnoodles-Museum-Yokohama.jpg",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Cupnoodles-Museum-Yokohama.jpg",
   "totalTripHours": 3,
   "budgetMin": 3000,
   "budgetRecommended": 6500,
@@ -47,7 +47,7 @@
     "train": 25
   },
   "highlights": ["Museum", "Family", "Food"],
-  "description": "Cup Noodles Museum Yokohama is a curated destination within Yokohama City.",
+  "description": "Hands-on food museum where visitors can learn how instant ramen was invented and create their own noodles in the My CUPNOODLES FACTORY and Chicken Ramen Factory workshops.",
   "budgetBreakdown": {
     "transport": 650,
     "tickets": 500,
@@ -60,8 +60,8 @@
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",
-    "attribution": "Lead photograph of Yokohama Marine Tower via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Yokohama%20Marine%20Tower"
+    "attribution": "Cup Noodles Museum Yokohama via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cupnoodles-Museum-Yokohama.jpg"
   },
   "status": "published",
   "travelEstimate": {
@@ -107,13 +107,29 @@
           "title": "comfort-model-v1; derived from indoorPercent=75, kind='', walkingMin=40",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
       ]
     }
   },
   "content": {
     "en": {
       "name": "Cup Noodles Museum Yokohama",
-      "description": "Cup Noodles Museum Yokohama is a curated destination within Yokohama City.",
+      "description": "Hands-on food museum where visitors can learn how instant ramen was invented and create their own noodles in the My CUPNOODLES FACTORY and Chicken Ramen Factory workshops.",
       "highlights": ["Museum", "Family", "Food"],
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
@@ -121,7 +137,7 @@
     },
     "ja": {
       "name": "カップヌードルミュージアム 横浜",
-      "description": "カップヌードルミュージアム 横浜は神奈川県にあるアートと文化の発信地です。充実した展示空間とユニークなコレクションを通じて新たな発見とインスピレーションを提供します。",
+      "description": "インスタントラーメンの歴史を学べる体験型ミュージアム。マイカップヌードルファクトリーやチキンラーメンファクトリーでオリジナルのカップ麺・チキンラーメン作りを体験できます。",
       "highlights": ["カップヌードルミュージアム 横浜の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",

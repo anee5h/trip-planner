@@ -155,7 +155,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "comfort-model-v1; derived from indoorPercent=10, kind='market', walkingMin=unknown",
+          "title": "comfort-model-v1; derived from indoorPercent=10, kind='market', walkingMin=60",
           "accessedAt": "2026-08-14"
         }
       ],

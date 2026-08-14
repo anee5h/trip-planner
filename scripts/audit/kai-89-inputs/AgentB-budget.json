@@ -1,0 +1,4448 @@
+{
+  "auditId": "KAI-89",
+  "agentId": "AgentB_Budget",
+  "phase": 1,
+  "phaseNote": "READ-ONLY investigation. No repository files were modified.",
+  "generatedAt": "2026-08-13",
+  "worktree": "/home/aneesh/Desktop/projects/trip-kai89",
+  "scope": "budgetMin/budgetRecommended/budgetMax/budgetBreakdown on 978 destinations; 413 records in 18 repeated-value clusters; 227 no-budget records",
+  "semantics": {
+    "budgetMin_budgetMax": "PER-PERSON daily estimate - DestinationCard.tsx renders [budgetMin*partySize, budgetMax*partySize]; Explore filter thresholds use budgetMax per person",
+    "budgetRecommended": "per-person midpoint; pipeline.cjs + normalize-destination-budgets.ts enforce round((min+max)/2) and rescale breakdown to sum==recommended",
+    "budgetBreakdown": "per-person daily components (transport=local transit allowance, tickets=admission, food, cafe); calculateItemizedTripCost multiplies tickets/cafe by partySize",
+    "semanticConflict": "getAdjustedBudget() and getEstimatedBudgetRange() still treat recommended/breakdown as COUPLE-scale (otherCostsCouple = rec - transport, /2*partySize; scale=partySize/2) - stale code contradicting DestinationCard + calculateItemizedTripCost; code-level fix, not data",
+    "transportNote": "breakdown.transport is an ON-SITE local-transit allowance, NOT origin round-trip fare; widget replaces it with origin fares when a mode is active",
+    "admissionVsBudget": "budget totals include food/cafe/transport on top of admission; admission alone must not be compared to budgetMin/Max"
+  },
+  "clusterClassification": [
+    {
+      "clusterIndex": 0,
+      "size": 119,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 3117,
+          "food": 5789,
+          "tickets": 1781,
+          "transport": 3563
+        },
+        "budgetMax": 25000,
+        "budgetMin": 3500,
+        "budgetRecommended": 14250
+      },
+      "breakdownSumEqualsRecommended": true,
+      "recommendedEqualsMidpoint": true,
+      "primaryClass": "B_generated_template",
+      "severity": "high",
+      "rootCause": "d1f36940 (v1.9.2, 2026-07-29) + 8341eb96 (v1.7.62 catalog sync, 2026-07-28): identical hub budget stamped on all city/ward/town/village hubs; 114/119 already identical in d1f36940",
+      "recordRole": "hub",
+      "dSubRecords": null,
+      "editorialNote": "per-hub editorial budget",
+      "ids": [
+        "abashiri-city",
+        "adachi-city",
+        "arakawa-city",
+        "asahikawa-city",
+        "aso-city",
+        "atami-city",
+        "beppu-city",
+        "biei-town",
+        "bunkyo-city",
+        "chichibu-city",
+        "chigasaki-city",
+        "chiyoda-city",
+        "chuo-city",
+        "dazaifu-city",
+        "edogawa-city",
+        "fujikawaguchiko-town",
+        "fujinomiya-city",
+        "fujisawa-city",
+        "fukuoka-city",
+        "funabashi-city",
+        "furano-city",
+        "gero-city",
+        "gifu-city",
+        "gotemba-city",
+        "hakodate-city",
+        "hakuba-village",
+        "hamamatsu-city",
+        "hatsukaichi-city",
+        "hikone-city",
+        "himeji-city",
+        "hiroshima-city",
+        "hita-city",
+        "ibusuki-city",
+        "ikaruga-town",
+        "inuyama-city",
+        "ishigaki-city",
+        "itabashi-city",
+        "ito-city",
+        "izumo-city",
+        "kagoshima-city",
+        "kamakura-city",
+        "karatsu-city",
+        "karuizawa-town",
+        "katsushika-city",
+        "kawagoe-city",
+        "kawaguchi-city",
+        "kawasaki-city",
+        "kisarazu-city",
+        "kita-city",
+        "kitakyushu-city",
+        "kobe-city",
+        "kochi-city",
+        "kofu-city",
+        "koto-city",
+        "koya-town",
+        "kumamoto-city",
+        "kurashiki-city",
+        "kusatsu-town",
+        "kushiro-city",
+        "matsudo-city",
+        "matsue-city",
+        "matsumoto-city",
+        "matsuyama-city",
+        "meguro-city",
+        "minakami-town",
+        "minato-city",
+        "mito-city",
+        "miyakojima-city",
+        "miyazaki-city",
+        "miyazu-city",
+        "motobu-town",
+        "nagasaki-city",
+        "nago-city",
+        "naha-city",
+        "nakano-city",
+        "nara-city",
+        "narita-city",
+        "naruto-city",
+        "nerima-city",
+        "nichinan-city",
+        "nikko-city",
+        "niseko-town",
+        "numazu-city",
+        "odawara-city",
+        "okayama-city",
+        "okazaki-city",
+        "onomichi-city",
+        "ota-city",
+        "otaru-city",
+        "otsu-city",
+        "sagamihara-city",
+        "sakai-city",
+        "sapporo-city",
+        "sasebo-city",
+        "setagaya-city",
+        "shimonoseki-city",
+        "shinagawa-city",
+        "shinjuku-city",
+        "shirahama-town",
+        "shizuoka-city",
+        "suginami-city",
+        "sumida-city",
+        "taito-city",
+        "takachiho-town",
+        "takamatsu-city",
+        "takayama-city",
+        "tokorozawa-city",
+        "tokushima-city",
+        "toshima-city",
+        "tottori-city",
+        "toyota-city",
+        "tsukuba-city",
+        "uji-city",
+        "urayasu-city",
+        "utsunomiya-city",
+        "wakayama-city",
+        "yakushima-town",
+        "yokosuka-city",
+        "yufu-city"
+      ]
+    },
+    {
+      "clusterIndex": 1,
+      "size": 68,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 400,
+          "food": 1400,
+          "tickets": 800,
+          "transport": 1400
+        },
+        "budgetMax": 7000,
+        "budgetMin": 1500,
+        "budgetRecommended": 4000
+      },
+      "breakdownSumEqualsRecommended": true,
+      "recommendedEqualsMidpoint": false,
+      "primaryClass": "B_generated_template",
+      "severity": "high",
+      "rootCause": "d1f36940: expand-major-city-catalog.ts createDestination() formula (indoorPercent<70): min 1500, rec=min+2500=4000, max=rec+3000=7000, breakdown {35%,20%,35%,10% of rec}",
+      "recordRole": "poi/destination",
+      "dSubRecords": "2 verified ticket mismatches (Engakuji, Boso-no-Mura)",
+      "editorialNote": "65 venues admission unverified",
+      "ids": [
+        "boso-no-mura",
+        "chiba-park",
+        "chiba-port-park",
+        "chiba-zoological-park",
+        "engakuji",
+        "enoshima-iwaya-caves",
+        "fukuoka-castle-ruins",
+        "fukuoka-tower",
+        "ginkaku-ji",
+        "gotoku-ji",
+        "hasedera",
+        "heian-jingu",
+        "hokokuji",
+        "honmaru-palace",
+        "inage-seaside-park",
+        "jochi-ji",
+        "kasori-shell-mounds",
+        "katase-higashihama-beach",
+        "kawasaki-daishi",
+        "kennin-ji",
+        "kita-in",
+        "kitano-ijinkan",
+        "kobe-port-tower",
+        "komachi-street",
+        "kotoku-in-great-buddha",
+        "kyoto-imperial-palace",
+        "maizuru-park",
+        "makuhari-seaside-park",
+        "maruyama-park",
+        "meriken-park",
+        "miraikan",
+        "nanzen-ji",
+        "naritasan-park",
+        "nihon-minka-en",
+        "nijo-market",
+        "ninna-ji",
+        "nishiki-market",
+        "nunobiki-falls",
+        "nunobiki-herb-gardens",
+        "odori-park",
+        "ohori-park",
+        "omiya-bonsai-village",
+        "omiya-park",
+        "osaka-castle-park",
+        "osu-kannon",
+        "rakuten-mobile-park-miyagi",
+        "renkeiji",
+        "saitama-stadium-2002",
+        "saitama-super-arena",
+        "samuel-cocking-garden",
+        "sanjusangen-do",
+        "sapporo-clock-tower",
+        "sapporo-tv-tower",
+        "scmaglev-and-railway-park",
+        "sendai-mediatheque",
+        "shinsho-ji",
+        "shonan-kaigan-park",
+        "tennoji-park",
+        "tochoji",
+        "toki-no-kane",
+        "tokugawa-garden",
+        "toyosu-market",
+        "tsujido-seaside-park",
+        "ueno-park",
+        "yugyo-ji",
+        "yuigahama-beach",
+        "zeniarai-benten",
+        "zuihoden"
+      ]
+    },
+    {
+      "clusterIndex": 2,
+      "size": 49,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 1200,
+          "food": 1400,
+          "tickets": 0,
+          "transport": 1400
+        },
+        "budgetMax": 7000,
+        "budgetMin": 1500,
+        "budgetRecommended": 4000
+      },
+      "breakdownSumEqualsRecommended": true,
+      "recommendedEqualsMidpoint": false,
+      "primaryClass": "B_generated_template",
+      "severity": "high",
+      "rootCause": "d1f36940 template variant after repair pass (FREE_PLACE_TICKET_COST rule): tickets forced 0, cafe rebalanced +800 (400->1200); tickets=0 correct only for genuinely free venues",
+      "recordRole": "poi",
+      "dSubRecords": "10 verified paid venues with tickets=0",
+      "editorialNote": "10 paid-unverified venues",
+      "ids": [
+        "buaiso",
+        "chofu-historic-jindaiji-district",
+        "fudaten-shrine",
+        "ginza-itoya",
+        "gyokudo-art-museum",
+        "hamarikyu-gardens",
+        "harajuku-takeshita-street",
+        "hijikata-toshizo-museum",
+        "hiroshima-castle",
+        "jindai-botanical-gardens",
+        "jindaiji",
+        "kabukiza",
+        "keio-mogusaen",
+        "keio-rail-land",
+        "kitaro-chaya",
+        "kiyosumi-gardens",
+        "machida-graphic-arts-museum",
+        "meiji-jingu",
+        "mitaki-dera",
+        "mount-takao",
+        "mukojima-hyakkaen",
+        "musashi-mitake-shrine",
+        "nakanoshima-museum-art-osaka",
+        "nihonbashi",
+        "nozuta-park",
+        "okonomimura",
+        "ome-railway-park",
+        "ome-retro-town",
+        "osaka-central-public-hall",
+        "play-museum-tachikawa",
+        "polar-science-museum",
+        "ryogoku-kokugikan-sumo-museum",
+        "seiko-museum-ginza",
+        "serigaya-park",
+        "shibuya-crossing-hachiko",
+        "shitennoji",
+        "sugamo-jizo-dori",
+        "sumida-river-walk",
+        "suwa-shrine-tachikawa",
+        "tachikawa-manga-park",
+        "takahata-fudoson",
+        "takao-599-museum",
+        "takaosan-yakuoin",
+        "tama-forest-science-garden",
+        "tokiwaso-manga-museum",
+        "tsukiji-outer-market",
+        "yakushi-ike-park",
+        "yoyogi-park",
+        "zoshigaya-kishimojindo"
+      ]
+    },
+    {
+      "clusterIndex": 3,
+      "size": 46,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 400,
+          "food": 2300,
+          "tickets": 0,
+          "transport": 1300
+        },
+        "budgetMax": 7000,
+        "budgetMin": 1500,
+        "budgetRecommended": 4000
+      },
+      "breakdownSumEqualsRecommended": true,
+      "recommendedEqualsMidpoint": false,
+      "primaryClass": "B_generated_template",
+      "severity": "high",
+      "rootCause": "d1f36940 template variant after repair pass: tickets forced 0, transport/food rebalanced (1300/2300/400); venues are free-to-enter public spaces -> tickets=0 largely correct; several kind labels wrong (Dotonbori/Fushimi Inari/Canal City marked museum)",
+      "recordRole": "poi",
+      "dSubRecords": null,
+      "editorialNote": null,
+      "ids": [
+        "canal-city-hakata",
+        "chiba-shrine",
+        "dotonbori",
+        "enoshima-shrine",
+        "former-hokkaido-government-office",
+        "fukuoka-yatai",
+        "fushimi-inari-taisha",
+        "golden-gai",
+        "hokkaido-jingu",
+        "ikuta-ryokuchi",
+        "inamuragasaki",
+        "kabukicho",
+        "kagurazaka",
+        "kamakurakokomae-station",
+        "kanayama-shrine",
+        "kashiya-yokocho",
+        "katori-jingu",
+        "kawagoe-hikawa-shrine",
+        "kobe-harborland",
+        "kuromon-market",
+        "kushida-shrine",
+        "lazona-kawasaki-plaza",
+        "musashi-ichinomiya-hikawa-shrine",
+        "nakasu",
+        "nankinmachi-chinatown",
+        "narita-airport-observation-decks",
+        "omoide-yokocho",
+        "osaka-station-city",
+        "osaki-hachimangu",
+        "osu-shopping-district",
+        "philosopher-s-walk",
+        "saitama-shintoshin",
+        "sasuke-inari-shrine",
+        "shingashi-river",
+        "shinsaibashi",
+        "shinsekai",
+        "sunshine-city",
+        "susukino",
+        "taisho-roman-street",
+        "tanukikoji-shopping-street",
+        "tenjin",
+        "todoroki-ryokuchi",
+        "tsurugaoka-hachimangu",
+        "umeda-sky-building",
+        "yanaka",
+        "yasaka-shrine"
+      ]
+    },
+    {
+      "clusterIndex": 4,
+      "size": 28,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 550,
+          "food": 1925,
+          "tickets": 1100,
+          "transport": 1925
+        },
+        "budgetMax": 8500,
+        "budgetMin": 3000,
+        "budgetRecommended": 5500
+      },
+      "breakdownSumEqualsRecommended": true,
+      "recommendedEqualsMidpoint": false,
+      "primaryClass": "B_generated_template",
+      "severity": "high",
+      "rootCause": "d1f36940: same createDestination() formula with indoorPercent>=70: min 3000, rec 5500, max 8500, breakdown {1925,1100,1925,550}",
+      "recordRole": "poi/destination",
+      "dSubRecords": "4 verified ticket mismatches",
+      "editorialNote": "24 venues admission unverified",
+      "ids": [
+        "aoba-castle-museum",
+        "chiba-city-folk-museum",
+        "chiba-city-museum-of-art",
+        "fukuoka-art-museum",
+        "hakata-machiya-folk-museum",
+        "hokkaido-museum-of-modern-art",
+        "iwatsuki-ningyo-museum",
+        "kawagoe-festival-museum",
+        "kobe-maritime-museum",
+        "kyoto-national-museum",
+        "kyoto-railway-museum",
+        "museum-of-aeronautical-sciences",
+        "nagoya-city-art-museum",
+        "nagoya-city-science-museum",
+        "national-museum-of-nature-and-science",
+        "omiya-bonsai-art-museum",
+        "osaka-aquarium-kaiyukan",
+        "osaka-museum-of-housing-and-living",
+        "sapporo-beer-museum",
+        "sendai-city-museum",
+        "sendai-umino-mori-aquarium",
+        "sunshine-aquarium",
+        "taro-okamoto-museum-of-art",
+        "the-museum-of-modern-art-saitama",
+        "the-national-museum-of-art-osaka",
+        "tokugawa-art-museum",
+        "tokyo-national-museum",
+        "toyota-commemorative-museum-of-industry-and-technology"
+      ]
+    },
+    {
+      "clusterIndex": 5,
+      "size": 23,
+      "value": {
+        "budgetMax": 6000,
+        "budgetMin": 1500,
+        "budgetRecommended": 3750
+      },
+      "breakdownSumEqualsRecommended": null,
+      "recommendedEqualsMidpoint": true,
+      "primaryClass": "B_generated_template",
+      "severity": "medium",
+      "rootCause": "8341eb96-era standalone template: min, rec=min+2250, max=rec+2250, NO breakdown; runtime getEffectiveBudgetBreakdown() fabricates breakdown (transport 3000, tickets 1500/2000, food/cafe 65/35%)",
+      "recordRole": "standalone",
+      "dSubRecords": null,
+      "editorialNote": "no breakdown; runtime fabricates - add breakdown or hasBudget=false",
+      "ids": [
+        "abukuma-cave-fukushima",
+        "akiyoshido-cave-yamaguchi",
+        "arakurayama-sengen-park-yamanashi",
+        "ashikaga-flower-park-tochigi",
+        "beppu-hells-oita",
+        "dewa-sanzan-yamagata",
+        "dogo-onsen-ehime",
+        "ginzan-onsen-yamagata",
+        "iya-valley-tokushima",
+        "kakunodate-samurai-district-akita",
+        "kintai-bridge-yamaguchi",
+        "kiyotsu-gorge-niigata",
+        "motonosumi-shrine-yamaguchi",
+        "mount-aso-kumamoto",
+        "naoshima-art-island-kagawa",
+        "oirase-gorge-aomori",
+        "ryugado-cave-kochi",
+        "sakurajima-volcano-kagoshima",
+        "takeda-castle-ruins-hyogo",
+        "teshima-island-kagawa",
+        "tojinbo-cliffs-fukui",
+        "tottori-sand-dunes",
+        "tsunoshima-bridge-yamaguchi"
+      ]
+    },
+    {
+      "clusterIndex": 6,
+      "size": 23,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 1500,
+          "food": 4500,
+          "tickets": 1500,
+          "transport": 3000
+        },
+        "budgetMax": 14000,
+        "budgetMin": 7000,
+        "budgetRecommended": 10500
+      },
+      "breakdownSumEqualsRecommended": true,
+      "recommendedEqualsMidpoint": true,
+      "primaryClass": "B_generated_template",
+      "severity": "high",
+      "rootCause": "add-reviewed-city-hubs.ts + kai-57-tohoku-expansion.ts fixed hub template {7000,10500,14000, 3000/1500/4500/1500}",
+      "recordRole": "hub",
+      "dSubRecords": null,
+      "editorialNote": "per-hub editorial budget",
+      "ids": [
+        "aizuwakamatsu-city",
+        "akita-city",
+        "aomori-city",
+        "asago-city",
+        "ashikaga-city",
+        "choshi-city",
+        "fujiyoshida-city",
+        "fukushima-city",
+        "hachinohe-city",
+        "hino-city",
+        "hirosaki-city",
+        "ise-city",
+        "iwakuni-city",
+        "katori-city",
+        "koriyama-city",
+        "marugame-city",
+        "matsushima-town",
+        "mine-city",
+        "morioka-city",
+        "semboku-city",
+        "takahashi-city",
+        "toyooka-city",
+        "yamagata-city"
+      ]
+    },
+    {
+      "clusterIndex": 7,
+      "size": 16,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 1500,
+          "food": 3000,
+          "tickets": 2000,
+          "transport": 3000
+        },
+        "budgetMax": 15000,
+        "budgetMin": 4000,
+        "budgetRecommended": 9500
+      },
+      "breakdownSumEqualsRecommended": true,
+      "recommendedEqualsMidpoint": true,
+      "primaryClass": "B_generated_template",
+      "severity": "medium",
+      "rootCause": "d1f36940-era UNESCO/major-site template {4000,9500,15000, 3000/2000/3000/1500}; tickets 2000 formulaic - many sites free (Ogasawara, Shirakami) or 500-1500 (Horyuji 1500, Tomioka 1000, Western Art 500)",
+      "recordRole": "destination",
+      "dSubRecords": null,
+      "editorialNote": "per-site tickets",
+      "ids": [
+        "amami-iriomote-natural-site",
+        "asuka-fujiwara-nara",
+        "gunkanjima-hashima-nagasaki",
+        "hiraizumi-chusonji-iwate",
+        "horyuji-temple-nara",
+        "iwami-ginzan-shimane",
+        "kumano-kodo-koya-wakayama",
+        "mozufuruichi-kofun-osaka",
+        "nara-historic",
+        "national-museum-western-art-tokyo",
+        "ogasawara-islands-tokyo",
+        "okinoshima-munakata-fukuoka",
+        "oura-church-nagasaki",
+        "sannai-maruyama-jomon-aomori",
+        "shirakami-sanchi-aomori",
+        "tomioka-silk-mill-gunma"
+      ]
+    },
+    {
+      "clusterIndex": 8,
+      "size": 10,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 1300,
+          "food": 3250,
+          "tickets": 1300,
+          "transport": 650
+        },
+        "budgetMax": 10000,
+        "budgetMin": 3000,
+        "budgetRecommended": 6500
+      },
+      "breakdownSumEqualsRecommended": true,
+      "recommendedEqualsMidpoint": true,
+      "primaryClass": "B_generated_template",
+      "severity": "medium",
+      "rootCause": "d1f36940-era Yokohama template {3000,6500,10000, 650/1300/3250/1300}",
+      "recordRole": "poi",
+      "dSubRecords": "2 verified ticket mismatches",
+      "editorialNote": "Cosmo World / Marine Tower",
+      "ids": [
+        "cup-noodles-museum-yokohama",
+        "kannai-yokohama",
+        "minato-mirai-yokohama",
+        "shin-yokohama-ramen-museum",
+        "soji-ji-yokohama",
+        "yamashita-park-yokohama",
+        "yokohama-chinatown",
+        "yokohama-cosmo-world",
+        "yokohama-marine-tower",
+        "yokohama-red-brick-warehouse"
+      ]
+    },
+    {
+      "clusterIndex": 9,
+      "size": 6,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 100,
+          "food": 400,
+          "tickets": 0,
+          "transport": 350
+        },
+        "budgetMax": 5000,
+        "budgetMin": 1000,
+        "budgetRecommended": 3000
+      },
+      "breakdownSumEqualsRecommended": false,
+      "recommendedEqualsMidpoint": true,
+      "primaryClass": "B_generated_template",
+      "severity": "medium",
+      "rootCause": "pr12c-kyushu-expansion.ts buildPoi() formula: breakdown = {35%, ticketCost, 40%, 10% of budgetMin} -> sum 850 != rec 3000 (formula bug: uses min not rec)",
+      "recordRole": "poi",
+      "dSubRecords": "all 6 breakdown sum mismatch",
+      "editorialNote": null,
+      "ids": [
+        "amanoiwato-shrine",
+        "daikanbo-viewpoint-aso",
+        "heiwadai-park-miyazaki",
+        "kinrin-lake-yufuin",
+        "meganebashi-bridge-nagasaki",
+        "miyazaki-jingu-shrine"
+      ]
+    },
+    {
+      "clusterIndex": 10,
+      "size": 4,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 200,
+          "food": 500,
+          "tickets": 0,
+          "transport": 800
+        },
+        "budgetMax": 3000,
+        "budgetMin": 0,
+        "budgetRecommended": 1500
+      },
+      "breakdownSumEqualsRecommended": true,
+      "recommendedEqualsMidpoint": true,
+      "primaryClass": "B_generated_template",
+      "severity": "low",
+      "rootCause": "kai-57-tohoku-expansion.ts template [0,1500,3000] + {800,0,500,200} (exact match line 1169-1170); min=0 for free-entry sites",
+      "recordRole": "poi",
+      "dSubRecords": null,
+      "editorialNote": null,
+      "ids": [
+        "godaido",
+        "kabushima-shrine",
+        "oshima",
+        "saigyo-modoshi-no-matsu"
+      ]
+    },
+    {
+      "clusterIndex": 11,
+      "size": 3,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 975,
+          "food": 2275,
+          "tickets": 8667,
+          "transport": 1083
+        },
+        "budgetMax": 17000,
+        "budgetMin": 9000,
+        "budgetRecommended": 13000
+      },
+      "breakdownSumEqualsRecommended": true,
+      "recommendedEqualsMidpoint": true,
+      "primaryClass": "B_generated_template",
+      "severity": "medium",
+      "rootCause": "d1f36940 template {9000,13000,17000, 1083/8667/2275/975}; tickets 8667 (67% of rec) nonsense for free districts Ikebukuro/Odaiba; roughly plausible for Yomiuriland day pass (real 5900)",
+      "recordRole": "mixed",
+      "dSubRecords": "2 free districts with tickets 8667",
+      "editorialNote": null,
+      "ids": ["ikebukuro-toshima", "odaiba-minato", "yomiuriland"]
+    },
+    {
+      "clusterIndex": 12,
+      "size": 3,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 1100,
+          "food": 3300,
+          "tickets": 2200,
+          "transport": 4400
+        },
+        "budgetMax": 15000,
+        "budgetMin": 7000,
+        "budgetRecommended": 11000
+      },
+      "breakdownSumEqualsRecommended": true,
+      "recommendedEqualsMidpoint": true,
+      "primaryClass": "B_generated_template",
+      "severity": "low",
+      "rootCause": "d1f36940-era template {7000,11000,15000, 4400/2200/3300/1100} applied to Fukui City hub AND free nature sites (Kiso Valley, Lake Hamanako)",
+      "recordRole": "mixed",
+      "dSubRecords": null,
+      "editorialNote": "hub-scale budget on free nature sites",
+      "ids": ["fukui", "kiso", "lake-hamanako"]
+    },
+    {
+      "clusterIndex": 13,
+      "size": 3,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 150,
+          "food": 600,
+          "tickets": 0,
+          "transport": 525
+        },
+        "budgetMax": 7000,
+        "budgetMin": 1500,
+        "budgetRecommended": 4000
+      },
+      "breakdownSumEqualsRecommended": false,
+      "recommendedEqualsMidpoint": false,
+      "primaryClass": "B_generated_template",
+      "severity": "medium",
+      "rootCause": "pr12c formula with budgetMin=1500, ticketCost=0 -> {525,0,600,150}; sum 1275 != rec 4000",
+      "recordRole": "poi",
+      "dSubRecords": "all 3 breakdown sum mismatch",
+      "editorialNote": null,
+      "ids": [
+        "aoshima-island-miyazaki",
+        "dazaifu-tenmangu",
+        "kusasenri-meadow-aso"
+      ]
+    },
+    {
+      "clusterIndex": 14,
+      "size": 3,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 200,
+          "food": 800,
+          "tickets": 500,
+          "transport": 700
+        },
+        "budgetMax": 8000,
+        "budgetMin": 2000,
+        "budgetRecommended": 5000
+      },
+      "breakdownSumEqualsRecommended": false,
+      "recommendedEqualsMidpoint": true,
+      "primaryClass": "B_generated_template",
+      "severity": "medium",
+      "rootCause": "template {2000,5000,8000, 700/500/800/200}; sum 2200 != rec 5000",
+      "recordRole": "poi",
+      "dSubRecords": "all 3 breakdown sum mismatch",
+      "editorialNote": "tickets values unverified",
+      "ids": [
+        "kawachi-wisteria-garden",
+        "shiratani-unsuikyo-ravine",
+        "yakusugi-land-yakushima"
+      ]
+    },
+    {
+      "clusterIndex": 15,
+      "size": 3,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 700,
+          "food": 1300,
+          "tickets": 0,
+          "transport": 1000
+        },
+        "budgetMax": 6000,
+        "budgetMin": 1000,
+        "budgetRecommended": 3000
+      },
+      "breakdownSumEqualsRecommended": true,
+      "recommendedEqualsMidpoint": false,
+      "primaryClass": "B_generated_template",
+      "severity": "low",
+      "rootCause": "kai-31-shikoku-expansion.ts template [1000,3000,6000] + {1000,0,1300,700} (exact match line 1041-1042)",
+      "recordRole": "poi",
+      "dSubRecords": null,
+      "editorialNote": null,
+      "ids": [
+        "ryozen-ji-naruto",
+        "warei-taisha-shrine",
+        "yuzuki-castle-ruins-matsuyama"
+      ]
+    },
+    {
+      "clusterIndex": 16,
+      "size": 3,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 875,
+          "food": 1625,
+          "tickets": 2000,
+          "transport": 3000
+        },
+        "budgetMax": 12000,
+        "budgetMin": 3000,
+        "budgetRecommended": 7500
+      },
+      "breakdownSumEqualsRecommended": true,
+      "recommendedEqualsMidpoint": true,
+      "primaryClass": "B_generated_template",
+      "severity": "medium",
+      "rootCause": "d1f36940-era template {3000,7500,12000, 3000/2000/1625/875}",
+      "recordRole": "destination",
+      "dSubRecords": "1 verified ticket overstatement (Korakuen)",
+      "editorialNote": "Amanohashidate/Mt Yoshino tickets",
+      "ids": ["amanohashidate-kyoto", "korakuen-okayama", "mount-yoshino-nara"]
+    },
+    {
+      "clusterIndex": 17,
+      "size": 3,
+      "value": {
+        "budgetBreakdown": {
+          "cafe": 100,
+          "food": 450,
+          "tickets": 0,
+          "transport": 300
+        },
+        "budgetMax": 6000,
+        "budgetMin": 1000,
+        "budgetRecommended": 3000
+      },
+      "breakdownSumEqualsRecommended": false,
+      "recommendedEqualsMidpoint": false,
+      "primaryClass": "B_generated_template",
+      "severity": "medium",
+      "rootCause": "pr12c-era formula variant {300,0,450,100} (30/45/10% of min 1000); sum 850 != rec 3000",
+      "recordRole": "poi",
+      "dSubRecords": "all 3 breakdown sum mismatch",
+      "editorialNote": null,
+      "ids": [
+        "ishidake-observatory",
+        "lake-ikeda",
+        "nijinomatsubara-pine-grove"
+      ]
+    }
+  ],
+  "counts": {
+    "clusters": {
+      "primaryClass": {
+        "B_generated_template": 18
+      },
+      "note": "all 18 clusters are template-stamped; A/C/D/E apply at record/field level"
+    },
+    "records": {
+      "C_plausible_unverified": 88,
+      "A_tickets_legit": 89,
+      "D_incorrect": 37,
+      "E_manual_review": 199
+    },
+    "recordFlags": {
+      "tickets_wrong_verified": 22,
+      "breakdown_sum_mismatch": 15,
+      "tickets_ok_verified": 101,
+      "editorial": 202
+    },
+    "noBudget": {
+      "FREE_VERIFIED": 143,
+      "PAID_VERIFIED": 11,
+      "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE": 43,
+      "FREE_GROUNDS_MANUAL": 30,
+      "note": "computed from the 227-record noBudget array"
+    }
+  },
+  "verifiedPrices": [
+    {
+      "recordId": "hamarikyu-gardens",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "verifiedValue": 300,
+      "confidence": "high",
+      "note": "paid garden - official Tokyo metro parks",
+      "sources": [
+        "https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html",
+        "https://www.gotokyo.org/en/spot/25/index.html"
+      ],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "kiyosumi-gardens",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "verifiedValue": 150,
+      "confidence": "high",
+      "note": "paid garden - official Tokyo metro parks",
+      "sources": [
+        "https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html"
+      ],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "hiroshima-castle",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "verifiedValue": 370,
+      "confidence": "high",
+      "note": "castle keep admission",
+      "sources": [
+        "https://www.japan-guide.com/e/e3402.html",
+        "https://www.gltjp.com/en/directory/item/11284/"
+      ],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "keio-rail-land",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "verifiedValue": 310,
+      "confidence": "high",
+      "note": "railway museum admission",
+      "sources": [
+        "https://www.japan.travel/en/au/news-blog/keio-rail-land-railway-museum/"
+      ],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "ome-railway-park",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "verifiedValue": 100,
+      "confidence": "medium",
+      "note": "JR East railway park admission",
+      "sources": [
+        "https://www.japan-experience.com/all-about-japan/tokyo/museums-galleries/ome-railway-park",
+        "https://en.wikipedia.org/wiki/Ome_Railway_Park"
+      ],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "play-museum-tachikawa",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "verifiedValue": 1800,
+      "confidence": "high",
+      "note": "museum admission",
+      "sources": [
+        "https://play2020.jp/en/",
+        "https://www.tokyoartbeat.com/en/venues/-/B43A7496"
+      ],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "jindai-botanical-gardens",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "verifiedValue": 500,
+      "confidence": "high",
+      "note": "botanical garden admission",
+      "sources": ["https://en.wikipedia.org/wiki/Jindai_Botanical_Garden"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "hijikata-toshizo-museum",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "verifiedValue": 500,
+      "confidence": "high",
+      "note": "museum admission - official Tokyo guide",
+      "sources": ["https://www.gotokyo.org/en/spot/882/index.html"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "gyokudo-art-museum",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "verifiedValue": 600,
+      "confidence": "high",
+      "note": "museum admission - official museum site",
+      "sources": ["http://www.gyokudo.jp/guide_english.html"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "keio-mogusaen",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "verifiedValue": 500,
+      "confidence": "high",
+      "note": "garden admission - official site",
+      "sources": ["https://www.keio-mogusaen.jp/en/"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "engakuji",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 800,
+      "verifiedValue": 500,
+      "confidence": "high",
+      "note": "temple admission - official temple site",
+      "sources": ["https://www.engakuji.or.jp/en/access/"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "boso-no-mura",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 800,
+      "verifiedValue": 300,
+      "confidence": "high",
+      "note": "open-air museum admission",
+      "sources": ["https://www.japan-guide.com/e/e6403.html"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "chiba-zoological-park",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 800,
+      "verifiedValue": 800,
+      "confidence": "high",
+      "note": "zoo admission - confirmed correct",
+      "sources": [
+        "https://www.chibacity-ta.or.jp/en/omotenashi-chiba/archives/member-page/%E5%8D%83%E8%91%89%E5%B8%82%E5%8B%95%E7%89%A9%E5%85%AC%E5%9C%92"
+      ],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "chiba-city-museum-of-art",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 1100,
+      "verifiedValue": 300,
+      "confidence": "high",
+      "note": "museum collection admission",
+      "sources": ["https://www.chibacity-ta.or.jp/en/spots/chiba-muse"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "hakata-machiya-folk-museum",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 1100,
+      "verifiedValue": 200,
+      "confidence": "high",
+      "note": "folk museum admission",
+      "sources": [
+        "https://japancheapo.com/place/hakata-machiya-hometown-museum/"
+      ],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "kawagoe-festival-museum",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 1100,
+      "verifiedValue": 300,
+      "confidence": "high",
+      "note": "festival museum admission - official",
+      "sources": ["https://www.kawagoematsuri.jp/English/museum.html"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "hokkaido-museum-of-modern-art",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 1100,
+      "verifiedValue": 510,
+      "confidence": "high",
+      "note": "museum admission - official",
+      "sources": [
+        "https://artmuseum.pref.hokkaido.lg.jp/knb/english/guide/about"
+      ],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "cup-noodles-museum-yokohama",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 1300,
+      "verifiedValue": 500,
+      "confidence": "high",
+      "note": "museum admission - official",
+      "sources": [
+        "https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
+      ],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "shin-yokohama-ramen-museum",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 1300,
+      "verifiedValue": 450,
+      "confidence": "high",
+      "note": "museum admission - official",
+      "sources": ["https://www.raumen.co.jp/english/"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "yomiuriland",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 8667,
+      "verifiedValue": 5900,
+      "confidence": "high",
+      "note": "one-day pass adult - official",
+      "sources": ["https://www.yomiuriland.com/charge/"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "ikebukuro-toshima",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 8667,
+      "verifiedValue": 0,
+      "confidence": "high",
+      "note": "free district - no admission product exists",
+      "sources": "",
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "odaiba-minato",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 8667,
+      "verifiedValue": 0,
+      "confidence": "high",
+      "note": "free district - no admission product exists",
+      "sources": "",
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "korakuen-okayama",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 2000,
+      "verifiedValue": 500,
+      "confidence": "high",
+      "note": "garden admission - official",
+      "sources": [
+        "https://okayama-korakuen.jp/section/english/info/index.html"
+      ],
+      "accessed": "2026-08-13"
+    }
+  ],
+  "noBudgetVerifiedAdmissions": [
+    {
+      "recordId": "kenroku-en",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": null,
+      "verifiedValue": 320,
+      "confidence": "high",
+      "note": "garden admission - official Kanazawa",
+      "sources": [
+        "https://visitkanazawa.jp/en/attractions/detail_10106.html",
+        "https://shiro-niwa.pref.ishikawa.lg.jp/kenrokuen-garden/e/info.html"
+      ],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "shinjuku-gyo-en",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": null,
+      "verifiedValue": 500,
+      "confidence": "high",
+      "note": "national garden - official env.go.jp",
+      "sources": ["https://www.env.go.jp/garden/content/000365316.pdf"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "byodoin-temple",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": null,
+      "verifiedValue": 700,
+      "confidence": "high",
+      "note": "temple grounds+museum - official",
+      "sources": ["https://www.byodoin.or.jp/en/guide/"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "toshodai-ji-temple",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": null,
+      "verifiedValue": 1000,
+      "confidence": "high",
+      "note": "temple admission",
+      "sources": ["https://qrtranslator.com/0000001592/000080/000068"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "odawara-castle",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": null,
+      "verifiedValue": 600,
+      "confidence": "high",
+      "note": "castle keep admission",
+      "sources": ["https://www.japan-guide.com/e/e5222.html"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "wakayama-castle",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": null,
+      "verifiedValue": 410,
+      "confidence": "high",
+      "note": "castle keep admission",
+      "sources": ["https://www.japan.travel/en/spot/957/"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "matsumae-castle",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": null,
+      "verifiedValue": 360,
+      "confidence": "high",
+      "note": "castle museum admission",
+      "sources": [
+        "https://hokkaido-digital-museum.jp/en/facility/matsumae-castle-museum/"
+      ],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "goryokaku",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": null,
+      "verifiedValue": 1200,
+      "confidence": "high",
+      "note": "tower admission - official",
+      "sources": ["https://www.goryokaku-tower.co.jp/en/price/"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "miho-museum-koka",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": null,
+      "verifiedValue": 1300,
+      "confidence": "high",
+      "note": "museum admission - official",
+      "sources": ["https://www.miho.jp/en/faq/"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "hakone-open-air-museum",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": null,
+      "verifiedValue": 1800,
+      "confidence": "medium",
+      "note": "museum admission (2000 at gate, 1800 online)",
+      "sources": ["https://www.hakone-oam.or.jp/en/info/"],
+      "accessed": "2026-08-13"
+    },
+    {
+      "recordId": "nabana-no-sato",
+      "field": "budgetBreakdown.tickets",
+      "oldValue": null,
+      "verifiedValue": 2500,
+      "confidence": "medium",
+      "note": "illumination admission (2500-3000 seasonal)",
+      "sources": ["https://www.japan.travel/en/spot/1208/"],
+      "accessed": "2026-08-13"
+    }
+  ],
+  "recordCorrections": [
+    {
+      "id": "hamarikyu-gardens",
+      "cluster": 2,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "proposedValue": 300,
+      "confidence": "high",
+      "evidence": "paid garden - official Tokyo metro parks",
+      "sources": [
+        "https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html",
+        "https://www.gotokyo.org/en/spot/25/index.html"
+      ],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "kiyosumi-gardens",
+      "cluster": 2,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "proposedValue": 150,
+      "confidence": "high",
+      "evidence": "paid garden - official Tokyo metro parks",
+      "sources": [
+        "https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html"
+      ],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "hiroshima-castle",
+      "cluster": 2,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "proposedValue": 370,
+      "confidence": "high",
+      "evidence": "castle keep admission",
+      "sources": [
+        "https://www.japan-guide.com/e/e3402.html",
+        "https://www.gltjp.com/en/directory/item/11284/"
+      ],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "keio-rail-land",
+      "cluster": 2,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "proposedValue": 310,
+      "confidence": "high",
+      "evidence": "railway museum admission",
+      "sources": [
+        "https://www.japan.travel/en/au/news-blog/keio-rail-land-railway-museum/"
+      ],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "ome-railway-park",
+      "cluster": 2,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "proposedValue": 100,
+      "confidence": "medium",
+      "evidence": "JR East railway park admission",
+      "sources": [
+        "https://www.japan-experience.com/all-about-japan/tokyo/museums-galleries/ome-railway-park",
+        "https://en.wikipedia.org/wiki/Ome_Railway_Park"
+      ],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "play-museum-tachikawa",
+      "cluster": 2,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "proposedValue": 1800,
+      "confidence": "high",
+      "evidence": "museum admission",
+      "sources": [
+        "https://play2020.jp/en/",
+        "https://www.tokyoartbeat.com/en/venues/-/B43A7496"
+      ],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "jindai-botanical-gardens",
+      "cluster": 2,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "proposedValue": 500,
+      "confidence": "high",
+      "evidence": "botanical garden admission",
+      "sources": ["https://en.wikipedia.org/wiki/Jindai_Botanical_Garden"],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "hijikata-toshizo-museum",
+      "cluster": 2,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "proposedValue": 500,
+      "confidence": "high",
+      "evidence": "museum admission - official Tokyo guide",
+      "sources": ["https://www.gotokyo.org/en/spot/882/index.html"],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "gyokudo-art-museum",
+      "cluster": 2,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "proposedValue": 600,
+      "confidence": "high",
+      "evidence": "museum admission - official museum site",
+      "sources": ["http://www.gyokudo.jp/guide_english.html"],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "keio-mogusaen",
+      "cluster": 2,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 0,
+      "proposedValue": 500,
+      "confidence": "high",
+      "evidence": "garden admission - official site",
+      "sources": ["https://www.keio-mogusaen.jp/en/"],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "engakuji",
+      "cluster": 1,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 800,
+      "proposedValue": 500,
+      "confidence": "high",
+      "evidence": "temple admission - official temple site",
+      "sources": ["https://www.engakuji.or.jp/en/access/"],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "boso-no-mura",
+      "cluster": 1,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 800,
+      "proposedValue": 300,
+      "confidence": "high",
+      "evidence": "open-air museum admission",
+      "sources": ["https://www.japan-guide.com/e/e6403.html"],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "chiba-zoological-park",
+      "cluster": 1,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 800,
+      "proposedValue": 800,
+      "confidence": "high",
+      "evidence": "zoo admission - confirmed correct",
+      "sources": [
+        "https://www.chibacity-ta.or.jp/en/omotenashi-chiba/archives/member-page/%E5%8D%83%E8%91%89%E5%B8%82%E5%8B%95%E7%89%A9%E5%85%AC%E5%9C%92"
+      ],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "chiba-city-museum-of-art",
+      "cluster": 4,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 1100,
+      "proposedValue": 300,
+      "confidence": "high",
+      "evidence": "museum collection admission",
+      "sources": ["https://www.chibacity-ta.or.jp/en/spots/chiba-muse"],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "hakata-machiya-folk-museum",
+      "cluster": 4,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 1100,
+      "proposedValue": 200,
+      "confidence": "high",
+      "evidence": "folk museum admission",
+      "sources": [
+        "https://japancheapo.com/place/hakata-machiya-hometown-museum/"
+      ],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "kawagoe-festival-museum",
+      "cluster": 4,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 1100,
+      "proposedValue": 300,
+      "confidence": "high",
+      "evidence": "festival museum admission - official",
+      "sources": ["https://www.kawagoematsuri.jp/English/museum.html"],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "hokkaido-museum-of-modern-art",
+      "cluster": 4,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 1100,
+      "proposedValue": 510,
+      "confidence": "high",
+      "evidence": "museum admission - official",
+      "sources": [
+        "https://artmuseum.pref.hokkaido.lg.jp/knb/english/guide/about"
+      ],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "cup-noodles-museum-yokohama",
+      "cluster": 8,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 1300,
+      "proposedValue": 500,
+      "confidence": "high",
+      "evidence": "museum admission - official",
+      "sources": [
+        "https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
+      ],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "shin-yokohama-ramen-museum",
+      "cluster": 8,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 1300,
+      "proposedValue": 450,
+      "confidence": "high",
+      "evidence": "museum admission - official",
+      "sources": ["https://www.raumen.co.jp/english/"],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "yomiuriland",
+      "cluster": 11,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 8667,
+      "proposedValue": 5900,
+      "confidence": "high",
+      "evidence": "one-day pass adult - official",
+      "sources": ["https://www.yomiuriland.com/charge/"],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "ikebukuro-toshima",
+      "cluster": 11,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 8667,
+      "proposedValue": 0,
+      "confidence": "high",
+      "evidence": "free district - no admission product exists",
+      "sources": "",
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "odaiba-minato",
+      "cluster": 11,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 8667,
+      "proposedValue": 0,
+      "confidence": "high",
+      "evidence": "free district - no admission product exists",
+      "sources": "",
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    },
+    {
+      "id": "korakuen-okayama",
+      "cluster": 16,
+      "field": "budgetBreakdown.tickets",
+      "oldValue": 2000,
+      "proposedValue": 500,
+      "confidence": "high",
+      "evidence": "garden admission - official",
+      "sources": [
+        "https://okayama-korakuen.jp/section/english/info/index.html"
+      ],
+      "action": "change on evidence",
+      "note": "breakdown must be rebalanced (sum==recommended) after ticket change per normalize-destination-budgets.ts"
+    }
+  ],
+  "recordLeaveUnknown": [
+    "aoba-castle-museum",
+    "canal-city-hakata",
+    "chiba-city-folk-museum",
+    "chiba-park",
+    "chiba-port-park",
+    "chiba-shrine",
+    "chiba-zoological-park",
+    "chofu-historic-jindaiji-district",
+    "dotonbori",
+    "enoshima-iwaya-caves",
+    "enoshima-shrine",
+    "former-hokkaido-government-office",
+    "fudaten-shrine",
+    "fukuoka-art-museum",
+    "fukuoka-castle-ruins",
+    "fukuoka-yatai",
+    "fushimi-inari-taisha",
+    "ginkaku-ji",
+    "ginza-itoya",
+    "godaido",
+    "golden-gai",
+    "gotoku-ji",
+    "harajuku-takeshita-street",
+    "hasedera",
+    "heian-jingu",
+    "hokkaido-jingu",
+    "hokokuji",
+    "honmaru-palace",
+    "ikuta-ryokuchi",
+    "inage-seaside-park",
+    "inamuragasaki",
+    "iwatsuki-ningyo-museum",
+    "jindaiji",
+    "jochi-ji",
+    "kabukicho",
+    "kabushima-shrine",
+    "kagurazaka",
+    "kamakurakokomae-station",
+    "kanayama-shrine",
+    "kannai-yokohama",
+    "kashiya-yokocho",
+    "kasori-shell-mounds",
+    "katase-higashihama-beach",
+    "katori-jingu",
+    "kawagoe-hikawa-shrine",
+    "kawasaki-daishi",
+    "kennin-ji",
+    "kita-in",
+    "kitano-ijinkan",
+    "kobe-harborland",
+    "kobe-maritime-museum",
+    "kobe-port-tower",
+    "komachi-street",
+    "kotoku-in-great-buddha",
+    "kuromon-market",
+    "kushida-shrine",
+    "kyoto-imperial-palace",
+    "kyoto-national-museum",
+    "kyoto-railway-museum",
+    "lazona-kawasaki-plaza",
+    "machida-graphic-arts-museum",
+    "maizuru-park",
+    "makuhari-seaside-park",
+    "maruyama-park",
+    "meiji-jingu",
+    "meriken-park",
+    "minato-mirai-yokohama",
+    "miraikan",
+    "mitaki-dera",
+    "mount-takao",
+    "musashi-ichinomiya-hikawa-shrine",
+    "musashi-mitake-shrine",
+    "museum-of-aeronautical-sciences",
+    "nagoya-city-art-museum",
+    "nagoya-city-science-museum",
+    "nakasu",
+    "nankinmachi-chinatown",
+    "nanzen-ji",
+    "narita-airport-observation-decks",
+    "naritasan-park",
+    "national-museum-of-nature-and-science",
+    "nihon-minka-en",
+    "nihonbashi",
+    "nijo-market",
+    "ninna-ji",
+    "nishiki-market",
+    "nozuta-park",
+    "nunobiki-falls",
+    "nunobiki-herb-gardens",
+    "odori-park",
+    "ohori-park",
+    "okonomimura",
+    "ome-retro-town",
+    "omiya-bonsai-art-museum",
+    "omiya-bonsai-village",
+    "omiya-park",
+    "omoide-yokocho",
+    "osaka-aquarium-kaiyukan",
+    "osaka-castle-park",
+    "osaka-central-public-hall",
+    "osaka-museum-of-housing-and-living",
+    "osaka-station-city",
+    "osaki-hachimangu",
+    "oshima",
+    "osu-kannon",
+    "osu-shopping-district",
+    "philosopher-s-walk",
+    "polar-science-museum",
+    "rakuten-mobile-park-miyagi",
+    "renkeiji",
+    "ryogoku-kokugikan-sumo-museum",
+    "ryozen-ji-naruto",
+    "saigyo-modoshi-no-matsu",
+    "saitama-shintoshin",
+    "saitama-stadium-2002",
+    "saitama-super-arena",
+    "samuel-cocking-garden",
+    "sanjusangen-do",
+    "sapporo-beer-museum",
+    "sapporo-clock-tower",
+    "sapporo-tv-tower",
+    "sasuke-inari-shrine",
+    "scmaglev-and-railway-park",
+    "seiko-museum-ginza",
+    "sendai-city-museum",
+    "sendai-mediatheque",
+    "sendai-umino-mori-aquarium",
+    "serigaya-park",
+    "shibuya-crossing-hachiko",
+    "shingashi-river",
+    "shinsaibashi",
+    "shinsekai",
+    "shinsho-ji",
+    "shonan-kaigan-park",
+    "soji-ji-yokohama",
+    "sugamo-jizo-dori",
+    "sumida-river-walk",
+    "sunshine-aquarium",
+    "sunshine-city",
+    "susukino",
+    "suwa-shrine-tachikawa",
+    "taisho-roman-street",
+    "takao-599-museum",
+    "takaosan-yakuoin",
+    "tanukikoji-shopping-street",
+    "taro-okamoto-museum-of-art",
+    "tenjin",
+    "tennoji-park",
+    "the-museum-of-modern-art-saitama",
+    "the-national-museum-of-art-osaka",
+    "tochoji",
+    "todoroki-ryokuchi",
+    "toki-no-kane",
+    "tokugawa-art-museum",
+    "tokugawa-garden",
+    "tokyo-national-museum",
+    "toyosu-market",
+    "toyota-commemorative-museum-of-industry-and-technology",
+    "tsujido-seaside-park",
+    "tsukiji-outer-market",
+    "tsurugaoka-hachimangu",
+    "ueno-park",
+    "umeda-sky-building",
+    "warei-taisha-shrine",
+    "yakushi-ike-park",
+    "yamashita-park-yokohama",
+    "yanaka",
+    "yasaka-shrine",
+    "yokohama-chinatown",
+    "yokohama-red-brick-warehouse",
+    "yoyogi-park",
+    "yugyo-ji",
+    "yuigahama-beach",
+    "yuzuki-castle-ruins-matsuyama",
+    "zeniarai-benten",
+    "zoshigaya-kishimojindo",
+    "zuihoden"
+  ],
+  "recordManualReview": [
+    {
+      "id": "abashiri-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "abukuma-cave-fukushima",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "adachi-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "aizuwakamatsu-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "akita-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "akiyoshido-cave-yamaguchi",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "amami-iriomote-natural-site",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "amanohashidate-kyoto",
+      "cluster": 16,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "aomori-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "arakawa-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "arakurayama-sengen-park-yamanashi",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "asago-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "asahikawa-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "ashikaga-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "ashikaga-flower-park-tochigi",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "aso-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "asuka-fujiwara-nara",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "atami-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "beppu-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "beppu-hells-oita",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "biei-town",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "buaiso",
+      "cluster": 2,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "bunkyo-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "chichibu-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "chigasaki-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "chiyoda-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "choshi-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "chuo-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "dazaifu-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "dewa-sanzan-yamagata",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "dogo-onsen-ehime",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "edogawa-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "fujikawaguchiko-town",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "fujinomiya-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "fujisawa-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "fujiyoshida-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "fukui",
+      "cluster": 12,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "fukuoka-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "fukuoka-tower",
+      "cluster": 1,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "fukushima-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "funabashi-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "furano-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "gero-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "gifu-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "ginzan-onsen-yamagata",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "gotemba-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "gunkanjima-hashima-nagasaki",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "hachinohe-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "hakodate-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "hakuba-village",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "hamamatsu-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "hatsukaichi-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "hikone-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "himeji-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "hino-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "hiraizumi-chusonji-iwate",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "hirosaki-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "hiroshima-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "hita-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "horyuji-temple-nara",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "ibusuki-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "ikaruga-town",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "inuyama-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "ise-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "ishigaki-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "itabashi-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "ito-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "iwakuni-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "iwami-ginzan-shimane",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "iya-valley-tokushima",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "izumo-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "kabukiza",
+      "cluster": 2,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "kagoshima-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "kakunodate-samurai-district-akita",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "kamakura-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "karatsu-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "karuizawa-town",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "katori-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "katsushika-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "kawagoe-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "kawaguchi-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "kawasaki-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "kintai-bridge-yamaguchi",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "kisarazu-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "kiso",
+      "cluster": 12,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "kita-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "kitakyushu-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "kitaro-chaya",
+      "cluster": 2,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "kiyotsu-gorge-niigata",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "kobe-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "kochi-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "kofu-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "koriyama-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "koto-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "koya-town",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "kumamoto-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "kumano-kodo-koya-wakayama",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "kurashiki-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "kusatsu-town",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "kushiro-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "lake-hamanako",
+      "cluster": 12,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "marugame-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "matsudo-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "matsue-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "matsumoto-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "matsushima-town",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "matsuyama-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "meguro-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "minakami-town",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "minato-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "mine-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "mito-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "miyakojima-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "miyazaki-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "miyazu-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "morioka-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "motobu-town",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "motonosumi-shrine-yamaguchi",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "mount-aso-kumamoto",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "mount-yoshino-nara",
+      "cluster": 16,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "mozufuruichi-kofun-osaka",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "mukojima-hyakkaen",
+      "cluster": 2,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "nagasaki-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "nago-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "naha-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "nakano-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "nakanoshima-museum-art-osaka",
+      "cluster": 2,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "naoshima-art-island-kagawa",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "nara-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "nara-historic",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "narita-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "naruto-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "national-museum-western-art-tokyo",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "nerima-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "nichinan-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "nikko-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "niseko-town",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "numazu-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "odawara-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "ogasawara-islands-tokyo",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "oirase-gorge-aomori",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "okayama-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "okazaki-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "okinoshima-munakata-fukuoka",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "onomichi-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "ota-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "otaru-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "otsu-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "oura-church-nagasaki",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "ryugado-cave-kochi",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "sagamihara-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "sakai-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "sakurajima-volcano-kagoshima",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "sannai-maruyama-jomon-aomori",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "sapporo-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "sasebo-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "semboku-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "setagaya-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "shimonoseki-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "shinagawa-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "shinjuku-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "shirahama-town",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "shirakami-sanchi-aomori",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "shitennoji",
+      "cluster": 2,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "shizuoka-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "suginami-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "sumida-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "tachikawa-manga-park",
+      "cluster": 2,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "taito-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "takachiho-town",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "takahashi-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "takahata-fudoson",
+      "cluster": 2,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "takamatsu-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "takayama-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "takeda-castle-ruins-hyogo",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "tama-forest-science-garden",
+      "cluster": 2,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "teshima-island-kagawa",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "tojinbo-cliffs-fukui",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "tokiwaso-manga-museum",
+      "cluster": 2,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "tokorozawa-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "tokushima-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "tomioka-silk-mill-gunma",
+      "cluster": 7,
+      "reason": "UNESCO site - per-site ticket verification"
+    },
+    {
+      "id": "toshima-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "tottori-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "tottori-sand-dunes",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "toyooka-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "toyota-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "tsukuba-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "tsunoshima-bridge-yamaguchi",
+      "cluster": 5,
+      "reason": "no budgetBreakdown - runtime fabricates; add explicit breakdown or mark hasBudget=false"
+    },
+    {
+      "id": "uji-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "urayasu-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "utsunomiya-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "wakayama-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "yakushima-town",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "yamagata-city",
+      "cluster": 6,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "yokohama-cosmo-world",
+      "cluster": 8,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "yokohama-marine-tower",
+      "cluster": 8,
+      "reason": "paid venue with unverified admission - verify official price"
+    },
+    {
+      "id": "yokosuka-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    },
+    {
+      "id": "yufu-city",
+      "cluster": 0,
+      "reason": "hub budget identical across all hubs - needs per-hub editorial review"
+    }
+  ],
+  "noBudget": [
+    {
+      "id": "oze-national-park",
+      "name": "Oze National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "shinjuku-gyo-en",
+      "name": "Shinjuku Gyo-en",
+      "kind": "park",
+      "class": "PAID_VERIFIED",
+      "note": "500 adult"
+    },
+    {
+      "id": "shiretoko-national-park-hokkaido",
+      "name": "Shiretoko",
+      "kind": null,
+      "class": "FREE_VERIFIED",
+      "note": "national park - free"
+    },
+    {
+      "id": "showa-kinen-park",
+      "name": "Showa Kinen Park",
+      "kind": "park",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "450 adult - verify"
+    },
+    {
+      "id": "cupnoodles-museum-osaka-ikeda",
+      "name": "CupNoodles Museum Osaka Ikeda",
+      "kind": "museum",
+      "class": "FREE_VERIFIED",
+      "note": "entry free; workshops extra"
+    },
+    {
+      "id": "byodoin-temple",
+      "name": "Byodoin Temple",
+      "kind": "temple",
+      "class": "PAID_VERIFIED",
+      "note": "700 garden+museum; +300 Phoenix Hall"
+    },
+    {
+      "id": "uji-tea-culture-center",
+      "name": "Uji Tea Culture Center & Ujigami Shrine",
+      "kind": "shrine",
+      "class": "FREE_VERIFIED",
+      "note": "shrine grounds free"
+    },
+    {
+      "id": "mimuroto-ji-temple",
+      "name": "Mimuroto-ji Hydrangea Temple",
+      "kind": "temple",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "~600 - verify"
+    },
+    {
+      "id": "ine-funaya-boathouses",
+      "name": "Ine Funaya Boathouses",
+      "kind": "historic_town",
+      "class": "FREE_VERIFIED",
+      "note": "walkable district; inner museums may charge"
+    },
+    {
+      "id": "kasamatsu-park-view",
+      "name": "Kasamatsu Park Lookout",
+      "kind": "viewpoint",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "koko-en-garden",
+      "name": "Koko-en Garden",
+      "kind": "garden",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "~510 adult - verify"
+    },
+    {
+      "id": "engyo-ji-mount-shosha",
+      "name": "Engyo-ji Temple Mount Shosha",
+      "kind": "temple",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "~1000 - verify"
+    },
+    {
+      "id": "izushi-castle-town",
+      "name": "Izushi Historic Castle Town",
+      "kind": "historic_town",
+      "class": "FREE_VERIFIED",
+      "note": "walkable district; inner museums may charge"
+    },
+    {
+      "id": "genbudo-cave-park",
+      "name": "Genbudo Basalt Cave Park",
+      "kind": "park",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "cave admission - verify"
+    },
+    {
+      "id": "ritsuunkyo-viewpoint",
+      "name": "Ritsuunkyo Sea of Clouds Viewpoint",
+      "kind": "viewpoint",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "ikuno-silver-mine",
+      "name": "Ikuno Historic Silver Mine",
+      "kind": "museum",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "~600 adult - verify"
+    },
+    {
+      "id": "hokki-ji-pagoda",
+      "name": "Hokki-ji Three-Story Pagoda",
+      "kind": "temple",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "~500 - verify"
+    },
+    {
+      "id": "chogosonshi-ji-temple",
+      "name": "Chogosonshi-ji Tiger Temple",
+      "kind": "temple",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "~1000 - verify"
+    },
+    {
+      "id": "enryaku-ji-mount-hiei",
+      "name": "Enryaku-ji Mount Hiei Monastery",
+      "kind": "temple",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "halls ~700-1000 - verify"
+    },
+    {
+      "id": "ukimido-mangetsu-ji",
+      "name": "Ukimido Mangetsu-ji Floating Temple",
+      "kind": "temple",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "small admission - verify"
+    },
+    {
+      "id": "genkyuen-garden",
+      "name": "Genkyuen Feudal Garden",
+      "kind": "garden",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "~500 adult - verify"
+    },
+    {
+      "id": "miho-museum-koka",
+      "name": "Miho Museum Koka",
+      "kind": "museum",
+      "class": "PAID_VERIFIED",
+      "note": "1300 adult"
+    },
+    {
+      "id": "okage-yokocho-oharai-machi",
+      "name": "Okage Yokocho & Oharai-machi",
+      "kind": "historic_town",
+      "class": "FREE_VERIFIED",
+      "note": "walkable district; inner museums may charge"
+    },
+    {
+      "id": "kishi-station-tama-cat",
+      "name": "Kishi Station Tama Cat Conductor",
+      "kind": "station",
+      "class": "FREE_VERIFIED",
+      "note": "station - free"
+    },
+    {
+      "id": "okunoin-cemetery-koyasan",
+      "name": "Okunoin Sacred Forest Cemetery",
+      "kind": "cemetery",
+      "class": "FREE_VERIFIED",
+      "note": "temple cemetery - free"
+    },
+    {
+      "id": "senjojiki-sandanbeki-cliffs",
+      "name": "Senjojiki & Sandanbeki Rock Cliffs",
+      "kind": "cliff",
+      "class": "FREE_VERIFIED",
+      "note": "cliffs - free"
+    },
+    {
+      "id": "sakai-city-museum",
+      "name": "Sakai City Museum & Daisen Kofun View",
+      "kind": "museum",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "~300 adult - verify"
+    },
+    {
+      "id": "lake-biwa-shiga",
+      "name": "Lake Biwa Scenic Cruise & Coast",
+      "kind": "lake",
+      "class": "FREE_VERIFIED",
+      "note": "lake - free"
+    },
+    {
+      "id": "meoto-iwa-wedded-rocks",
+      "name": "Meoto Iwa Wedded Rocks",
+      "kind": "rock_formation",
+      "class": "FREE_VERIFIED",
+      "note": "rock formation - free"
+    },
+    {
+      "id": "wakayama-castle",
+      "name": "Wakayama Castle",
+      "kind": "castle",
+      "class": "PAID_VERIFIED",
+      "note": "410 keep adult"
+    },
+    {
+      "id": "kataonami-beach-wakanoura",
+      "name": "Kataonami Beach & Wakanoura Bay",
+      "kind": "beach",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "danjo-garan-koyasan",
+      "name": "Danjo Garan Sacred Temple Complex",
+      "kind": "temple",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "~1000 halls - verify"
+    },
+    {
+      "id": "shirahama-beach-adventure-world",
+      "name": "Shirahama White Beach & Coastal Resort",
+      "kind": "beach",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "toshodai-ji-temple",
+      "name": "Toshodai-ji Temple",
+      "kind": "temple",
+      "class": "PAID_VERIFIED",
+      "note": "1000 adult"
+    },
+    {
+      "id": "yakushi-ji-temple",
+      "name": "Yakushi-ji Temple",
+      "kind": "temple",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "~800 - verify"
+    },
+    {
+      "id": "naramachi-historic-district",
+      "name": "Naramachi Historic Lattice District",
+      "kind": "historic_town",
+      "class": "FREE_VERIFIED",
+      "note": "walkable district; inner museums may charge"
+    },
+    {
+      "id": "shirahige-shrine-lake-biwa",
+      "name": "Shirahige Shrine Floating Torii",
+      "kind": "shrine",
+      "class": "FREE_VERIFIED",
+      "note": "shrine grounds free"
+    },
+    {
+      "id": "omi-hachiman-canal",
+      "name": "Omi-Hachiman Merchant Canal",
+      "kind": "historic_town",
+      "class": "FREE_VERIFIED",
+      "note": "walkable district; inner museums may charge"
+    },
+    {
+      "id": "hiei-zan-driveway-observatory",
+      "name": "Mount Hiei Driveway & Yumemi Observatory",
+      "kind": "viewpoint",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "kimii-dera-temple",
+      "name": "Kimii-dera Temple",
+      "kind": "temple",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "~400 - verify"
+    },
+    {
+      "id": "kuroshio-market-marina-city",
+      "name": "Kuroshio Market Wakayama Marina City",
+      "kind": "market",
+      "class": "FREE_VERIFIED",
+      "note": "public market - free"
+    },
+    {
+      "id": "tomogashima-islands",
+      "name": "Tomogashima Islands (Laputa Island)",
+      "kind": "island",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "kenroku-en",
+      "name": "Kenrokuen Garden",
+      "kind": "garden",
+      "class": "PAID_VERIFIED",
+      "note": "320 adult"
+    },
+    {
+      "id": "kashima-jingu",
+      "name": "Kashima Jingu",
+      "kind": "shrine",
+      "class": "FREE_VERIFIED",
+      "note": "shrine grounds free"
+    },
+    {
+      "id": "takaoka-daibutsu",
+      "name": "Takaoka Daibutsu",
+      "kind": "monument",
+      "class": "FREE_VERIFIED",
+      "note": "open-air statue - free"
+    },
+    {
+      "id": "miharu-takizakura",
+      "name": "Miharu Takizakura",
+      "kind": "natural",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "usuzumi-zakura",
+      "name": "Usuzumi-zakura (Neodani Usuzumi Cherry)",
+      "kind": "natural",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "jindai-zakura",
+      "name": "Jindai-zakura (Yamataka Jindai Cherry)",
+      "kind": "natural",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "nemuro-peninsula-chashi-sites",
+      "name": "Nemuro Peninsula Chashi Sites",
+      "kind": "historic",
+      "class": "FREE_VERIFIED",
+      "note": "Ainu fortress ruins - free"
+    },
+    {
+      "id": "goryokaku",
+      "name": "Goryokaku (Star Fort)",
+      "kind": "castle",
+      "class": "PAID_VERIFIED",
+      "note": "1200 tower; fort free adult"
+    },
+    {
+      "id": "matsumae-castle",
+      "name": "Matsumae Castle",
+      "kind": "castle",
+      "class": "PAID_VERIFIED",
+      "note": "360 museum adult"
+    },
+    {
+      "id": "ne-castle-hachinohe",
+      "name": "Ne Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "taga-castle",
+      "name": "Taga Castle",
+      "kind": "historic",
+      "class": "FREE_VERIFIED",
+      "note": "castle ruins - free"
+    },
+    {
+      "id": "kubota-castle",
+      "name": "Kubota Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "yamagata-castle",
+      "name": "Yamagata Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "nihonmatsu-castle",
+      "name": "Nihonmatsu Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "shirakawa-komine-castle",
+      "name": "Shirakawa Komine Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "ashikaga-shi-yakata",
+      "name": "Ashikaga-shi Yakata (Banna-ji)",
+      "kind": "historic",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "grounds free; yakata museum may charge - verify"
+    },
+    {
+      "id": "minowa-castle",
+      "name": "Minowa Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "kanayama-castle",
+      "name": "Kanayama Castle (Nitta Kanayama)",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "hachigata-castle",
+      "name": "Hachigata Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "odawara-castle",
+      "name": "Odawara Castle",
+      "kind": "castle",
+      "class": "PAID_VERIFIED",
+      "note": "600 keep adult"
+    },
+    {
+      "id": "kofu-castle",
+      "name": "Kofu Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "matsushiro-castle",
+      "name": "Matsushiro Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "komoro-castle",
+      "name": "Komoro Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "shibata-castle",
+      "name": "Shibata Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "kasugayama-castle",
+      "name": "Kasugayama Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "takaoka-castle",
+      "name": "Takaoka Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "nanao-castle",
+      "name": "Nanao Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "ichijodani-castle",
+      "name": "Ichijodani Castle (Asakura site)",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "iwamura-castle",
+      "name": "Iwamura Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "yamanaka-castle",
+      "name": "Yamanaka Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "sunpu-castle",
+      "name": "Sunpu Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "okazaki-castle",
+      "name": "Okazaki Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "nagashino-castle",
+      "name": "Nagashino Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "iga-ueno-castle",
+      "name": "Iga Ueno Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "matsusaka-castle",
+      "name": "Matsusaka Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "odani-castle",
+      "name": "Odani Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "azuchi-castle",
+      "name": "Azuchi Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "kannonji-castle",
+      "name": "Kannonji Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "chihaya-castle",
+      "name": "Chihaya Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "sasayama-castle",
+      "name": "Sasayama Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "akashi-castle",
+      "name": "Akashi Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "ako-castle",
+      "name": "Ako Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "takatori-castle",
+      "name": "Takatori Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "tottori-castle",
+      "name": "Tottori Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "gassantoda-castle",
+      "name": "Gassantoda Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "tsuwano-castle",
+      "name": "Tsuwano Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "tsuyama-castle",
+      "name": "Tsuyama Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "kinojo",
+      "name": "Ki-no-jo (Kinojo)",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "fukuyama-castle",
+      "name": "Fukuyama Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "yoshida-koriyama-castle",
+      "name": "Koriyama Castle (Yoshida-Koriyama)",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "hagi-castle",
+      "name": "Hagi Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "tokushima-castle",
+      "name": "Tokushima Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "imabari-castle",
+      "name": "Imabari Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "ozu-castle",
+      "name": "Ozu Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "ono-castle-dazaifu",
+      "name": "Ono Castle (Onojo)",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "hizen-nagoya-castle",
+      "name": "Nagoya Castle (Hizen)",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "yoshinogari",
+      "name": "Yoshinogari (Yoshinogari site)",
+      "kind": "historic",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "Yoshinogari park charges (~460) - verify"
+    },
+    {
+      "id": "saga-castle",
+      "name": "Saga Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "hirado-castle",
+      "name": "Hirado Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "shimabara-castle",
+      "name": "Shimabara Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "hitoyoshi-castle",
+      "name": "Hitoyoshi Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "funai-castle",
+      "name": "Funai Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "oka-castle-oita",
+      "name": "Oka Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "kagoshima-castle",
+      "name": "Kagoshima Castle",
+      "kind": "castle",
+      "class": "FREE_GROUNDS_MANUAL",
+      "note": "castle ruins: grounds free; verify keep/museum"
+    },
+    {
+      "id": "nakagusuku-castle",
+      "name": "Nakagusuku Castle",
+      "kind": "castle",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "standing keep/museum - admission exists, verify (300-1200)"
+    },
+    {
+      "id": "rishiri-rebun-sarobetsu",
+      "name": "Rishiri-Rebun-Sarobetsu National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "akan-mashu",
+      "name": "Akan-Mashu National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "kushiro-shitsugen",
+      "name": "Kushiroshitsugen National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "daisetsuzan",
+      "name": "Daisetsuzan National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "hidakasanmyaku-erimo-tokachi",
+      "name": "Hidakasanmyaku-Erimo-Tokachi National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "shikotsu-toya",
+      "name": "Shikotsu-Toya National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "towada-hachimantai",
+      "name": "Towada-Hachimantai National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "sanriku-fukko",
+      "name": "Sanriku Fukko (reconstruction) National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "bandai-asahi",
+      "name": "Bandai-Asahi National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "nikko-national-park",
+      "name": "Nikko National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "joshinetsu-kogen",
+      "name": "Joshin'etsukogen National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "myoko-togakushi",
+      "name": "Myoko-Togakushi renzan National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "chichibu-tama-kai",
+      "name": "Chichibu-Tama-Kai National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "ogasawara-national-park",
+      "name": "Ogasawara National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "fuji-hakone-izu",
+      "name": "Fuji-Hakone-Izu National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "chubu-sangaku",
+      "name": "Chubusangaku National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "hakusan",
+      "name": "Hakusan National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "minami-alps",
+      "name": "Minami Alps National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "ise-shima",
+      "name": "Ise-Shima National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "yoshino-kumano",
+      "name": "Yoshino-Kumano National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "sanin-kaigan",
+      "name": "San'inkaigan National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "setonaikai",
+      "name": "Setonaikai National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "daisen-oki",
+      "name": "Daisen-Oki National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "ashizuri-uwakai",
+      "name": "Ashizuri-Uwakai National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "saikai",
+      "name": "Saikai National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "unzen-amakusa",
+      "name": "Unzen-Amakusa National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "aso-kuju",
+      "name": "Aso-Kuju National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "kirishima-kinkowan",
+      "name": "Kirishima-Kinkowan National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "yakushima-national-park",
+      "name": "Yakushima (Island) National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "amami-gunto",
+      "name": "Amamigunto National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "yambaru",
+      "name": "Yambaru National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "kerama-shoto",
+      "name": "Keramashoto National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "iriomote-ishigaki",
+      "name": "Iriomote-Ishigaki National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "shokanbetsu-teuri-yagishiri",
+      "name": "Shokanbetsu-Teuri-Yagishiri Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "abashiri",
+      "name": "Abashiri Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "niseko-shakotan-otaru-kaigan",
+      "name": "Niseko-Shakotan-Otaru Kaigan Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "onuma",
+      "name": "Onuma Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "akkeshi-kiritappu-konbumori",
+      "name": "Akkeshi-Kiritappu-Konbumori Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "shimokita-hanto",
+      "name": "Shimokita Hanto Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "tsugaru",
+      "name": "Tsugaru Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "hayachine",
+      "name": "Hayachine Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "kurikoma",
+      "name": "Kurikoma Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "zao",
+      "name": "Zao Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "oga",
+      "name": "Oga Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "chokai",
+      "name": "Chokai Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "echigo-sanzan-tadami",
+      "name": "Echigo Sanzan Tadami Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "suigo-tsukuba",
+      "name": "Suigo Tsukuba Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "myogi-arafune-saku-kogen",
+      "name": "Myogi Arafune Saku Kogen Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "minami-boso",
+      "name": "Minami Boso Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "meiji-no-mori-takao",
+      "name": "Meiji no Mori Takao Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "tanzawa-oyama",
+      "name": "Tanzawa-Oyama Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "sado-yahiko-yoneyama",
+      "name": "Sado-Yahiko-Yoneyama Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "noto-hanto",
+      "name": "Noto Hanto Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "echizen-kaga-kaigan",
+      "name": "Echizen-Kaga Kaigan Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "wakasa-wan",
+      "name": "Wakasa Wan Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "yatsugatake-chushin-kogen",
+      "name": "Yatsugatake Chushin Kogen Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "chuo-alps",
+      "name": "Chuo Alps Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "tenryu-okumikawa",
+      "name": "Tenryu-Okumikawa Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "ibi-sekigahara-yoro",
+      "name": "Ibi-Sekigahara-Yoro Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "hida-kisogawa",
+      "name": "Hida-Kisogawa Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "ontakesan",
+      "name": "Ontakesan Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "aichi-kogen",
+      "name": "Aichi Kogen Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "mikawa-wan",
+      "name": "Mikawa Wan Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "suzuka",
+      "name": "Suzuka Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "muro-akame-aoyama",
+      "name": "Muro-Akame-Aoyama Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "biwako",
+      "name": "Biwako Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "tango-amanohashidate-oeyama",
+      "name": "Tango-Amanohashidate-Oeyama Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "kyoto-tamba-kogen",
+      "name": "Kyoto Tamba Kogen Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "meiji-no-mori-mino",
+      "name": "Meiji no Mori Mino Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "kongo-ikoma-kisen",
+      "name": "Kongo-Ikoma-Kisen Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "hyonosen-ushiro-yama-nagisan",
+      "name": "Hyonosen-Ushiroyama-Nagisan Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "yamato-aogaki",
+      "name": "Yamato Aogaki Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "koya-ryujin",
+      "name": "Koya-Ryujin Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "hiba-dogo-taishaku",
+      "name": "Hiba-Dogo-Taishaku Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "nishi-chugoku-sanchi",
+      "name": "Nishi-Chugoku Sanchi Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "kita-nagato-kaigan",
+      "name": "Kita-Nagato Kaigan Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "akiyoshidai",
+      "name": "Akiyoshidai Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "tsurugisan",
+      "name": "Tsurugisan Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "muroto-anan-kaigan",
+      "name": "Muroto-Anan Kaigan Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "ishizuchi",
+      "name": "Ishizuchi Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "kitakyushu",
+      "name": "Kitakyushu Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "genkai",
+      "name": "Genkai Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "yaba-hita-hikosan",
+      "name": "Yaba-Hita-Hikosan Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "iki-tsushima",
+      "name": "Iki-Tsushima Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "kyushu-chuo-sanchi",
+      "name": "Kyushu Chuo Sanchi Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "nippo-kaigan",
+      "name": "Nippo Kaigan Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "sobo-katamuki",
+      "name": "Sobo-Katamuki Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "nichinan-kaigan",
+      "name": "Nichinan Kaigan Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "koshikijima",
+      "name": "Koshikijima Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "okinawa-kaigan",
+      "name": "Okinawa Kaigan Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "okinawa-senseki",
+      "name": "Okinawa Senseki Quasi-National Park",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "kawagoe-kurazukuri",
+      "name": "Kawagoe Kurazukuri District",
+      "kind": "historic_town",
+      "class": "FREE_VERIFIED",
+      "note": "walkable district; inner museums may charge"
+    },
+    {
+      "id": "takayama-sanmachi",
+      "name": "Takayama Sanmachi",
+      "kind": "historic_town",
+      "class": "FREE_VERIFIED",
+      "note": "walkable district; inner museums may charge"
+    },
+    {
+      "id": "sarakurayama",
+      "name": "Mount Sarakura",
+      "kind": "mountain",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "fuefukigawa-fruit-park",
+      "name": "Fuefukigawa Fruit Park",
+      "kind": "park",
+      "class": "FREE_VERIFIED",
+      "note": "free entry; pay for picking"
+    },
+    {
+      "id": "wakakusayama",
+      "name": "Mount Wakakusa",
+      "kind": "mountain",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "nippara-cave",
+      "name": "Nippara Limestone Cave",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "hida-cave",
+      "name": "Hida Great Limestone Cave",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "nanatsugama-cave",
+      "name": "Nanatsugama Cave",
+      "kind": "nature",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "show cave with admission (~600-1100) - verify value"
+    },
+    {
+      "id": "kyusendo-cave",
+      "name": "Kyusendo Cave",
+      "kind": "nature",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "show cave with admission (~600-1100) - verify value"
+    },
+    {
+      "id": "shoryu-cave",
+      "name": "Shoryu Cave",
+      "kind": "nature",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "show cave with admission (~600-1100) - verify value"
+    },
+    {
+      "id": "nichinan-kaigan-drive",
+      "name": "Nichinan Coast Scenic Drive",
+      "kind": "nature",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "saru-hashi",
+      "name": "Saru-hashi Bridge",
+      "kind": "bridge",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "akashi-kaikyo-bridge",
+      "name": "Akashi Kaikyo Bridge",
+      "kind": "bridge",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "seto-ohashi-bridge",
+      "name": "Seto Ohashi Bridge",
+      "kind": "bridge",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "rainbow-bridge",
+      "name": "Rainbow Bridge",
+      "kind": "bridge",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "omishima-bridge",
+      "name": "Omishima Bridge",
+      "kind": "bridge",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "farm-tomita",
+      "name": "Farm Tomita",
+      "kind": "park",
+      "class": "FREE_VERIFIED",
+      "note": "free entry"
+    },
+    {
+      "id": "shikisai-no-oka",
+      "name": "Shikisai-no-Oka",
+      "kind": "park",
+      "class": "FREE_VERIFIED",
+      "note": "free entry"
+    },
+    {
+      "id": "nabana-no-sato",
+      "name": "Nabana no Sato",
+      "kind": "park",
+      "class": "PAID_VERIFIED",
+      "note": "2500-3000 seasonal"
+    },
+    {
+      "id": "shomyo-falls",
+      "name": "Shomyo Falls",
+      "kind": "waterfall",
+      "class": "FREE_VERIFIED",
+      "note": "waterfall - free"
+    },
+    {
+      "id": "shiraito-falls",
+      "name": "Shiraito Falls",
+      "kind": "waterfall",
+      "class": "FREE_VERIFIED",
+      "note": "waterfall - free"
+    },
+    {
+      "id": "shodoshima",
+      "name": "Shodoshima Island",
+      "kind": "island",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "inujima",
+      "name": "Inujima Island",
+      "kind": "island",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "hakone-open-air-museum",
+      "name": "Hakone Open-Air Museum",
+      "kind": "museum",
+      "class": "PAID_VERIFIED",
+      "note": "1800 online/2000 gate"
+    },
+    {
+      "id": "sapporo-art-park",
+      "name": "Sapporo Art Park",
+      "kind": "park",
+      "class": "FREE_VERIFIED",
+      "note": "free entry; galleries may charge"
+    },
+    {
+      "id": "kanazawa-21",
+      "name": "21st Century Museum of Contemporary Art",
+      "kind": "museum",
+      "class": "PAID_SHOULD_BE_KNOWN_MANUAL_VALUE",
+      "note": "base entry free; exhibitions ~360-1000 - verify"
+    },
+    {
+      "id": "ogijima",
+      "name": "Ogijima Island",
+      "kind": "island",
+      "class": "FREE_VERIFIED",
+      "note": "free to access; paid facilities inside may apply"
+    },
+    {
+      "id": "shikoku-henro",
+      "name": "Shikoku Henro (88 Temple Pilgrimage)",
+      "kind": "historic",
+      "class": "FREE_VERIFIED",
+      "note": "pilgrimage - free"
+    },
+    {
+      "id": "saigoku-33",
+      "name": "Saigoku Kannon Pilgrimage (33 Temples)",
+      "kind": "historic",
+      "class": "FREE_VERIFIED",
+      "note": "pilgrimage - free"
+    }
+  ],
+  "validators": [
+    {
+      "code": "BUDGET_BREAKDOWN_SUM",
+      "level": "ERROR",
+      "rule": "sum(breakdown) must equal budgetRecommended (or be absent)",
+      "currentViolations": 15,
+      "ids": [
+        "amanoiwato-shrine",
+        "aoshima-island-miyazaki",
+        "daikanbo-viewpoint-aso",
+        "dazaifu-tenmangu",
+        "heiwadai-park-miyazaki",
+        "ishidake-observatory",
+        "kawachi-wisteria-garden",
+        "kinrin-lake-yufuin",
+        "kusasenri-meadow-aso",
+        "lake-ikeda",
+        "meganebashi-bridge-nagasaki",
+        "miyazaki-jingu-shrine",
+        "nijinomatsubara-pine-grove",
+        "shiratani-unsuikyo-ravine",
+        "yakusugi-land-yakushima"
+      ]
+    },
+    {
+      "code": "BUDGET_REC_MIDPOINT",
+      "level": "WARNING",
+      "rule": "budgetRecommended must equal round((budgetMin+budgetMax)/2); pipeline.cjs auto-fixes at build; source index currently deviates (C1/C2/C3/C4/C13/C15/C17)",
+      "currentViolations": 200
+    },
+    {
+      "code": "TEMPLATE_CLUSTER_DETECT",
+      "level": "WARNING",
+      "rule": "identical full budget tuple shared by >=5 records across >=2 prefectures -> template suspect",
+      "currentViolations": "18 clusters / 413 records"
+    },
+    {
+      "code": "TICKET_ZERO_PAID_VENUE",
+      "level": "ERROR",
+      "rule": "budgetBreakdown.tickets==0 on a venue with verified paid admission (22 verified wrong in this audit)",
+      "currentViolations": 22
+    },
+    {
+      "code": "TICKET_TEMPLATE_VALUE",
+      "level": "WARNING",
+      "rule": "tickets equals formulaic template value (800/1100/1300/2000/8667) -> verify against official admission",
+      "currentViolations": "~160"
+    },
+    {
+      "code": "HUB_BUDGET_EDITORIAL",
+      "level": "MANUAL_REVIEW",
+      "rule": "role=hub budgets identical across hubs; per-hub editorial budget required",
+      "currentViolations": 142
+    },
+    {
+      "code": "NO_BREAKDOWN_RUNTIME_FABRICATED",
+      "level": "MANUAL_REVIEW",
+      "rule": "records without budgetBreakdown get runtime-fabricated breakdown (getEffectiveBudgetBreakdown); add explicit breakdown or hasBudget=false",
+      "currentViolations": 23
+    },
+    {
+      "code": "NO_BUDGET_PAID_VENUE",
+      "level": "WARNING",
+      "rule": "hasBudget=false on venues with official admission prices (castles/museums/gardens/temples/caves) - add budget with verified tickets",
+      "currentViolations": "~90 of 227 no-budget records"
+    },
+    {
+      "code": "BUDGET_SCALE_CONFLICT",
+      "level": "MANUAL_REVIEW",
+      "rule": "code-level: getAdjustedBudget/getEstimatedBudgetRange use couple-scale math while UI uses per-person - pick one scale",
+      "currentViolations": "code"
+    }
+  ],
+  "sources": [
+    "http://www.gyokudo.jp/guide_english.html",
+    "https://artmuseum.pref.hokkaido.lg.jp/knb/english/guide/about",
+    "https://en.wikipedia.org/wiki/Jindai_Botanical_Garden",
+    "https://en.wikipedia.org/wiki/Ome_Railway_Park",
+    "https://hokkaido-digital-museum.jp/en/facility/matsumae-castle-museum/",
+    "https://japancheapo.com/place/hakata-machiya-hometown-museum/",
+    "https://okayama-korakuen.jp/section/english/info/index.html",
+    "https://play2020.jp/en/",
+    "https://qrtranslator.com/0000001592/000080/000068",
+    "https://shiro-niwa.pref.ishikawa.lg.jp/kenrokuen-garden/e/info.html",
+    "https://visitkanazawa.jp/en/attractions/detail_10106.html",
+    "https://www.byodoin.or.jp/en/guide/",
+    "https://www.chibacity-ta.or.jp/en/omotenashi-chiba/archives/member-page/%E5%8D%83%E8%91%89%E5%B8%82%E5%8B%95%E7%89%A9%E5%85%AC%E5%9C%92",
+    "https://www.chibacity-ta.or.jp/en/spots/chiba-muse",
+    "https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/",
+    "https://www.engakuji.or.jp/en/access/",
+    "https://www.env.go.jp/garden/content/000365316.pdf",
+    "https://www.gltjp.com/en/directory/item/11284/",
+    "https://www.goryokaku-tower.co.jp/en/price/",
+    "https://www.gotokyo.org/en/spot/25/index.html",
+    "https://www.gotokyo.org/en/spot/882/index.html",
+    "https://www.hakone-oam.or.jp/en/info/",
+    "https://www.japan-experience.com/all-about-japan/tokyo/museums-galleries/ome-railway-park",
+    "https://www.japan-guide.com/e/e3402.html",
+    "https://www.japan-guide.com/e/e5222.html",
+    "https://www.japan-guide.com/e/e6403.html",
+    "https://www.japan.travel/en/au/news-blog/keio-rail-land-railway-museum/",
+    "https://www.japan.travel/en/spot/1208/",
+    "https://www.japan.travel/en/spot/957/",
+    "https://www.kawagoematsuri.jp/English/museum.html",
+    "https://www.keio-mogusaen.jp/en/",
+    "https://www.miho.jp/en/faq/",
+    "https://www.raumen.co.jp/english/",
+    "https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html",
+    "https://www.tokyoartbeat.com/en/venues/-/B43A7496",
+    "https://www.yomiuriland.com/charge/"
+  ]
+}

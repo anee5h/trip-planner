@@ -2,6 +2,7 @@ import {
   BUDGET_TIER_LIMITS,
   partyProfileForSize,
   type BudgetTier,
+  type BudgetFilter,
   type PartyProfile,
 } from "@/shared/types/planner";
 import type {
@@ -31,7 +32,10 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   partySize: 2,
   partyProfile: "couple" as PartyProfile,
   weather: "any" as "any" | "rainy" | "hot" | "cold",
-  budgetTier: "any" as ExplorerBudgetTier,
+  /** "any" = no budget restriction; a tier = party-aware, transport-inclusive
+   *  trip-cost cap. The old "standard"-as-no-filter default is gone: a real
+   *  tier must not double as the unselected state. */
+  budgetTier: "any" as BudgetFilter,
   vibe: "any",
   tripDuration: "any" as TripDuration,
   walkingIntensity: "all",
