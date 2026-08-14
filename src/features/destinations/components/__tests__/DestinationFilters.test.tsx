@@ -117,7 +117,7 @@ function makeDefaults(): Props {
     setPartySize: vi.fn(),
     weather: "any",
     setWeather: vi.fn(),
-    budgetTier: "standard",
+    budgetTier: "any",
     setBudgetTier: vi.fn(),
     vibe: "any",
     setVibe: vi.fn(),
