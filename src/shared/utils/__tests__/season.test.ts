@@ -1,5 +1,10 @@
 import { describe, it, expect } from "vitest";
-import { getFixedSeason, type Season } from "../season";
+import {
+  getFixedSeason,
+  getJapanDateIso,
+  getJapanWeekday,
+  type Season,
+} from "../season";
 
 describe("getFixedSeason", () => {
   // Helper: build a Date for the 15th of a given 1-indexed month
@@ -33,5 +38,14 @@ describe("getFixedSeason", () => {
     // Just verify it returns a valid season type without throwing
     const result = getFixedSeason();
     expect(["spring", "summer", "autumn", "winter"]).toContain(result);
+  });
+
+  it("uses the Japan calendar at UTC/JST month boundaries", () => {
+    expect(getFixedSeason(new Date("2026-02-28T14:59:59Z"))).toBe("winter");
+    expect(getFixedSeason(new Date("2026-02-28T15:00:00Z"))).toBe("spring");
+    expect(getJapanDateIso(new Date("2026-12-31T15:00:00Z"))).toBe(
+      "2027-01-01",
+    );
+    expect(getJapanWeekday("2026-08-15")).toBe(6);
   });
 });

@@ -38,6 +38,10 @@ import { formatTravelConditionParams } from "@/shared/services/recommendation/Tr
 import { getPrimaryDisplayReason } from "@/shared/services/recommendation/RecommendationExplainability";
 import { Sun, Cloud, CloudRain, CloudSnow, CloudLightning } from "lucide-react";
 import { localizeRecommendationReason } from "@/shared/utils/recommendationLabels";
+import {
+  formatBusyPeriodDateRange,
+  getBusyPeriodCues,
+} from "@/shared/data/busyPeriodCues";
 
 import { ALL_PUBLIC_MODES } from "../services/TransportResolver";
 
@@ -165,6 +169,16 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
 
   // Forecast/seasonal/unknown evaluation for the planned trip dates
   const condition = scoredDestination.condition;
+  const busyPeriodCue = getBusyPeriodCues(
+    destination.id,
+    travelDate ?? new Date(),
+  )[0];
+  const busyPeriodCueText = busyPeriodCue
+    ? `${t("home.busyPeriod.advisory")} — ${t(`home.busyPeriod.${busyPeriodCue.kind}`)}: ${busyPeriodCue.reason[locale]} (${formatBusyPeriodDateRange(busyPeriodCue.dateRange, locale)})`
+    : undefined;
+  const busyPeriodCueLabel = busyPeriodCueText
+    ? `${busyPeriodCueText}. ${busyPeriodCue.evidence} Source: ${busyPeriodCue.source}`
+    : undefined;
 
   const conditionLine = useMemo(() => {
     if (!condition || condition.reasons.length === 0) return undefined;
@@ -348,6 +362,17 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
               title={conditionLine}
             >
               {conditionLine}
+            </p>
+          )}
+
+          {busyPeriodCueText && (
+            <p
+              className="mt-1 flex min-w-0 items-center gap-1 text-[11px] font-semibold text-amber-700 dark:text-amber-300 sm:text-xs"
+              aria-label={busyPeriodCueLabel}
+              title={busyPeriodCueLabel}
+            >
+              <AlertTriangle className="size-3 shrink-0" aria-hidden="true" />
+              <span className="truncate">{busyPeriodCueText}</span>
             </p>
           )}
 

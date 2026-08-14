@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { Compass, ChevronLeft, ChevronRight, Layers } from "lucide-react";
+import { Compass, Layers } from "lucide-react";
 import { getCollections } from "@/shared/data/collections";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import { LazyImage } from "@/shared/components/ui/LazyImage";
@@ -8,6 +8,8 @@ import { getDestinationsForCollection } from "@/shared/utils/collections";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { useTranslation } from "react-i18next";
 import { SectionViewAllLink } from "./SectionViewAllLink";
+import { ScrollContainer } from "@/shared/components/ui/ScrollContainer";
+import { HOME_RAIL_SECTION_SPACING } from "./HomeRailLayout";
 
 interface FeaturedCollectionPresentation {
   collectionId: string;
@@ -60,17 +62,11 @@ export const CollectionsRail: React.FC = () => {
   const { locale } = useLocale();
   const destinations = getDestinationList(locale);
   const { t } = useTranslation();
-  const railRef = useRef<HTMLDivElement>(null);
-
-  const scrollRail = (direction: -1 | 1) => {
-    railRef.current?.scrollBy({
-      left: direction * railRef.current.clientWidth * 0.8,
-      behavior: "smooth",
-    });
-  };
 
   return (
-    <section className="border-t border-slate-100 bg-slate-50 py-10 sm:py-12 lg:py-12 dark:border-slate-800/80 dark:bg-slate-900/50">
+    <section
+      className={`border-t border-slate-100 bg-slate-50 ${HOME_RAIL_SECTION_SPACING} dark:border-slate-800/80 dark:bg-slate-900/50`}
+    >
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="flex items-start justify-between mb-4 sm:mb-6 gap-3">
@@ -84,35 +80,17 @@ export const CollectionsRail: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex items-center gap-1">
-            <button
-              type="button"
-              onClick={() => scrollRail(-1)}
-              className="hidden lg:inline-flex size-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-200 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
-              aria-label={t("home.previousCollection")}
-              title={t("home.previousCollection")}
-            >
-              <ChevronLeft className="size-4" />
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollRail(1)}
-              className="hidden lg:inline-flex size-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-200 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
-              aria-label={t("home.nextCollection")}
-              title={t("home.nextCollection")}
-            >
-              <ChevronRight className="size-4" />
-            </button>
-            <SectionViewAllLink
-              to="/collections"
-              ariaLabel={t("home.viewAllCollections")}
-            />
-          </div>
+          <SectionViewAllLink
+            to="/collections"
+            ariaLabel={t("home.viewAllCollections")}
+          />
         </div>
 
-        <div
-          ref={railRef}
-          className="flex gap-3 sm:gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-none py-2 -mx-4 px-4 sm:mx-0 sm:px-0"
+        <ScrollContainer
+          ariaLabel={t("home.featuredCollections")}
+          previousLabel={t("home.previousRail")}
+          nextLabel={t("home.nextRail")}
+          className="-mx-4 flex gap-3 px-4 py-2 md:mx-0 md:px-10 sm:gap-5"
         >
           {FEATURED_COLLECTIONS.map((item) => {
             const rawCol = collections.find((c) => c.id === item.collectionId);
@@ -163,9 +141,8 @@ export const CollectionsRail: React.FC = () => {
               </Link>
             );
           })}
-          {/* Rail Trailing Padding Element for Mobile */}
           <div className="w-1 shrink-0 sm:hidden" />
-        </div>
+        </ScrollContainer>
       </div>
     </section>
   );

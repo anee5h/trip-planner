@@ -116,6 +116,7 @@ vi.mock("react-i18next", () => ({
         "home.tripModes.weekend_2d1n": "Weekend · 2 days / 1 night",
         "home.weekendMatches": "Weekend getaways",
         "home.weekendYourMatches": "Your best weekend getaways",
+        "home.topMatchesForYou": "Top matches for you",
         "home.weekendDates": "{{day1}} – {{day2}}",
         "home.day1Label": "Day 1",
         "home.day2Label": "Day 2",
@@ -170,7 +171,7 @@ describe("Home Integration Tests", () => {
     expect(container.textContent).toContain("home.headline");
     expect(container.textContent).toContain("home.planner");
     expect(container.textContent).toContain("home.find");
-    expect(container.textContent).toContain("home.topMatches");
+    expect(container.textContent).toContain("Top matches for you");
     expect(container.textContent).toContain("origin.from");
     const today = Array.from(container.querySelectorAll("button")).find(
       (button) => button.textContent?.startsWith("Today"),
@@ -262,8 +263,7 @@ describe("Home Integration Tests", () => {
       surpriseBtn?.click();
     });
 
-    // Heading should still say "Top matches for today" because applyPlannerState was not called
-    expect(container.textContent).toContain("home.topMatches");
+    expect(container.textContent).toContain("Top matches for you");
   });
 
   it("weekend mode: toggling to Weekend changes heading after apply", () => {
@@ -283,7 +283,7 @@ describe("Home Integration Tests", () => {
 
     // The toggle should now show weekend mode
     // Default heading should still be day-trip since we haven't applied yet
-    expect(container.textContent).toContain("home.topMatches");
+    expect(container.textContent).toContain("Top matches for you");
 
     // Click Find/Apply to see if weekend heading appears
     const applyBtn = Array.from(container.querySelectorAll("button")).find(
@@ -295,8 +295,8 @@ describe("Home Integration Tests", () => {
     act(() => {
       applyBtn?.click();
     });
-    // After applying, the heading should show weekend user matches
-    expect(container.textContent).toContain("Your best weekend getaways");
+    // Top matches stays the first rail in every trip mode.
+    expect(container.textContent).toContain("Top matches for you");
   });
 });
 

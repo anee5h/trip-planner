@@ -100,6 +100,7 @@ afterEach(() => {
 
 function renderRail(props: {
   destinations: Destination[];
+  precomputedDestinations?: Destination[];
   homeStationCoords: { lat: number; lng: number } | null;
   isVisited: (id: string) => boolean;
   partySize?: number;
@@ -114,6 +115,7 @@ function renderRail(props: {
       <MemoryRouter>
         <UnexploredNearbyRail
           destinations={props.destinations}
+          precomputedDestinations={props.precomputedDestinations}
           homeStationCoords={props.homeStationCoords}
           isVisited={props.isVisited}
           partySize={props.partySize ?? 2}
@@ -159,6 +161,7 @@ describe("UnexploredNearbyRail", () => {
         { ...makeDestination("a", 35.69, 139.78), id: "a" },
         noCoords,
       ],
+      precomputedDestinations: [makeDestination("a", 35.69, 139.78)],
       homeStationCoords: origin,
       isVisited: () => false,
     });
@@ -171,7 +174,7 @@ describe("UnexploredNearbyRail", () => {
     expect(links.length).toBe(1);
   });
 
-  it("shows at most 5 destinations sorted by distance", () => {
+  it("shows at most 10 origin-aware destinations without filler", () => {
     const dests = [
       makeDestination("far", 34.6937, 135.5023), // Osaka ~400km
       makeDestination("near", 35.69, 139.78), // ~2km
@@ -184,6 +187,7 @@ describe("UnexploredNearbyRail", () => {
 
     const container = renderRail({
       destinations: dests,
+      precomputedDestinations: dests,
       homeStationCoords: origin,
       isVisited: () => false,
     });
@@ -191,16 +195,23 @@ describe("UnexploredNearbyRail", () => {
     const links = container.querySelectorAll<HTMLAnchorElement>(
       "a[href^='/destinations/']",
     );
-    expect(links.length).toBe(5);
+    expect(links.length).toBe(7);
 
-    // Check order: nearest first
     const ids = Array.from(links).map((a) =>
       a.getAttribute("href")!.split("/").pop()!,
     );
-    expect(ids).toEqual(["close", "near2", "near", "mid2", "mid"]);
+    expect(ids).toEqual([
+      "far",
+      "near",
+      "mid",
+      "close",
+      "mid2",
+      "far2",
+      "near2",
+    ]);
   });
 
-  it("uses destination ID as tie-breaker for equal distances", () => {
+  it("preserves the deterministic order supplied by the rail service", () => {
     const samePoint = [
       { ...makeDestination("b", 35.69, 139.78), id: "b" },
       { ...makeDestination("c", 35.69, 139.78), id: "c" },
@@ -209,6 +220,7 @@ describe("UnexploredNearbyRail", () => {
 
     const container = renderRail({
       destinations: samePoint,
+      precomputedDestinations: [samePoint[2], samePoint[0], samePoint[1]],
       homeStationCoords: origin,
       isVisited: () => false,
     });
@@ -232,6 +244,7 @@ describe("UnexploredNearbyRail", () => {
 
     const container = renderRail({
       destinations: dests,
+      precomputedDestinations: dests,
       homeStationCoords: origin,
       isVisited: (id: string) => id === visitedId,
     });
@@ -243,12 +256,13 @@ describe("UnexploredNearbyRail", () => {
       a.getAttribute("href")!.split("/").pop()!,
     );
     expect(ids).not.toContain(visitedId);
-    expect(ids).toEqual(["mid", "far"]);
+    expect(ids).toEqual(["far", "mid"]);
   });
 
   it("View all link points to /destinations?sort=nearest", () => {
     const container = renderRail({
       destinations: [makeDestination("a", 35.69, 139.78)],
+      precomputedDestinations: [makeDestination("a", 35.69, 139.78)],
       homeStationCoords: origin,
       isVisited: () => false,
     });
@@ -261,47 +275,26 @@ describe("UnexploredNearbyRail", () => {
     );
   });
 
-  it("uses temporary current-location coordinates for nearby ordering", () => {
+  it("renders the configured origin's precomputed nearby order", () => {
     const dests = [
       makeDestination("yokohama", 35.4651, 139.6224),
       makeDestination("tokyo", 35.69, 139.78),
     ];
 
-    // Render with Tokyo origin
-    let container = renderRail({
+    const container = renderRail({
       destinations: dests,
+      precomputedDestinations: [dests[1], dests[0]],
       homeStationCoords: origin,
       isVisited: () => false,
     });
 
-    let links = container.querySelectorAll<HTMLAnchorElement>(
+    const links = container.querySelectorAll<HTMLAnchorElement>(
       "a[href^='/destinations/']",
     );
-    let ids = Array.from(links).map((a) =>
+    const ids = Array.from(links).map((a) =>
       a.getAttribute("href")!.split("/").pop()!,
     );
-    // From Tokyo, tokyo should be first
     expect(ids).toEqual(["tokyo", "yokohama"]);
-
-    // Clean up
-    act(() => root!.unmount());
-    host?.remove();
-
-    // Re-render with the temporary current-location origin in Yokohama.
-    container = renderRail({
-      destinations: dests,
-      homeStationCoords: currentLocationOrigin,
-      isVisited: () => false,
-    });
-
-    links = container.querySelectorAll<HTMLAnchorElement>(
-      "a[href^='/destinations/']",
-    );
-    ids = Array.from(links).map((a) =>
-      a.getAttribute("href")!.split("/").pop()!,
-    );
-    // From Yokohama, yokohama should be first
-    expect(ids).toEqual(["yokohama", "tokyo"]);
   });
 
   it("renders estimated travel time for nearby same-municipality Yokohama destinations", () => {
@@ -314,6 +307,7 @@ describe("UnexploredNearbyRail", () => {
 
     const container = renderRail({
       destinations: [yokohamaPOI],
+      precomputedDestinations: [yokohamaPOI],
       homeStationCoords: currentLocationOrigin,
       isVisited: () => false,
     });

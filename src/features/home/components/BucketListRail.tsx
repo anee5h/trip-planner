@@ -9,11 +9,17 @@ import { useAuthModal } from "@/shared/context/AuthModalContext";
 import { useTranslation } from "react-i18next";
 import { SectionViewAllLink } from "./SectionViewAllLink";
 import HomeMatchCard from "./HomeMatchCard";
+import { ScrollContainer } from "@/shared/components/ui/ScrollContainer";
+import {
+  HOME_RAIL_CARD_CLASS,
+  HOME_RAIL_SECTION_SPACING,
+} from "./HomeRailLayout";
 
 interface BucketListRailProps {
   partySize?: number;
   carMode?: string;
   publicModes?: string[];
+  travelDate?: string;
   isCompactPromptOnly?: boolean;
 }
 
@@ -21,6 +27,7 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
   partySize = 2,
   carMode,
   publicModes,
+  travelDate,
   isCompactPromptOnly = false,
 }) => {
   const { favorites } = useTripStore();
@@ -83,7 +90,9 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
 
   // Full Rail for Signed-In Users with Saved Items (Dense ~2.2 cards visible on mobile)
   return (
-    <section className="border-t border-slate-100 bg-slate-50 py-10 sm:py-12 lg:py-12 dark:border-slate-800/80 dark:bg-slate-900/50">
+    <section
+      className={`border-t border-slate-100 bg-slate-50 ${HOME_RAIL_SECTION_SPACING} dark:border-slate-800/80 dark:bg-slate-900/50`}
+    >
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Section Header */}
         <div className="flex items-start justify-between mb-4 sm:mb-6 gap-3">
@@ -103,13 +112,14 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
           />
         </div>
 
-        {/* Dense Mobile Saved Places Rail */}
-        <div className="flex gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none py-2 -mx-4 px-4 sm:mx-0 sm:px-0">
-          {savedDestinations.map((dest, index) => (
-            <div
-              key={dest.id}
-              className="flex h-full w-[46vw] min-w-[160px] max-w-[180px] shrink-0 snap-start flex-col sm:w-[250px] sm:min-w-[250px] sm:max-w-[250px]"
-            >
+        <ScrollContainer
+          ariaLabel={t("home.bucketList")}
+          previousLabel={t("home.previousRail")}
+          nextLabel={t("home.nextRail")}
+          className="-mx-4 flex gap-3 px-4 py-2 md:mx-0 md:px-10 sm:gap-4"
+        >
+          {savedDestinations.slice(0, 10).map((dest, index) => (
+            <div key={dest.id} className={HOME_RAIL_CARD_CLASS}>
               <HomeMatchCard
                 destination={dest}
                 rank={index + 1}
@@ -117,12 +127,12 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
                 partySize={partySize}
                 carMode={carMode}
                 publicModes={publicModes}
+                travelDate={travelDate}
               />
             </div>
           ))}
-          {/* Rail Trailing Padding Element for Mobile */}
           <div className="w-1 shrink-0 sm:hidden" />
-        </div>
+        </ScrollContainer>
       </div>
     </section>
   );
