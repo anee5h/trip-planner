@@ -18,7 +18,11 @@ import { walkingIntensityScore } from "./walking-model-v1";
 export interface ComfortModelOutput {
   action: "set" | "keep" | "unknown";
   reason: string;
-  comfort?: { heatTolerance: number; rainFriendly: number; walkingIntensity: number };
+  comfort?: {
+    heatTolerance: number;
+    rainFriendly: number;
+    walkingIntensity: number;
+  };
   confidence: "high" | "medium" | "low" | "unknown";
   modelVersion: "comfort-model-v1";
 }
@@ -39,7 +43,17 @@ function rainFriendlyFromIndoor(indoorPercent: number, kind: string): number {
   else if (indoorPercent >= 30) base = 5;
   else if (indoorPercent >= 16) base = 4;
   else base = 2;
-  if (["museum", "aquarium", "shopping", "market", "theme_park", "amusement_park"].includes(kind)) base += 1;
+  if (
+    [
+      "museum",
+      "aquarium",
+      "shopping",
+      "market",
+      "theme_park",
+      "amusement_park",
+    ].includes(kind)
+  )
+    base += 1;
   if (["mountain", "nature", "natural", "beach"].includes(kind)) base -= 1;
   return Math.max(1, Math.min(10, base));
 }
@@ -49,8 +63,10 @@ function heatToleranceFromIndoor(indoorPercent: number, kind: string): number {
   if (indoorPercent >= 70) band = 8;
   else if (indoorPercent >= 31) band = 6;
   else band = 5;
-  if (["mountain", "garden", "nature", "natural", "lake"].includes(kind)) band += 2; // cool retreat
-  if (["beach", "market", "onsen", "street", "district"].includes(kind)) band -= 1;
+  if (["mountain", "garden", "nature", "natural", "lake"].includes(kind))
+    band += 2; // cool retreat
+  if (["beach", "market", "onsen", "street", "district"].includes(kind))
+    band -= 1;
   return Math.max(1, Math.min(10, band));
 }
 
@@ -60,14 +76,25 @@ export function comfortModel(
   walkingMinutes: number | undefined,
 ): ComfortModelOutput {
   if (!eligibleIds.has(dest.id)) {
-    return { action: "keep", reason: "outside model scope (override precedence)", confidence: "unknown", modelVersion: "comfort-model-v1" };
+    return {
+      action: "keep",
+      reason: "outside model scope (override precedence)",
+      confidence: "unknown",
+      modelVersion: "comfort-model-v1",
+    };
   }
   const indoorPercent = dest.indoorPercent ?? 0;
   const kind = dest.kind ?? "";
   if (dest.indoorPercent === undefined && !kind) {
-    return { action: "unknown", reason: "no indoorPercent/kind inputs; comfort hidden (UNKNOWN)", confidence: "unknown", modelVersion: "comfort-model-v1" };
+    return {
+      action: "unknown",
+      reason: "no indoorPercent/kind inputs; comfort hidden (UNKNOWN)",
+      confidence: "unknown",
+      modelVersion: "comfort-model-v1",
+    };
   }
-  const walkingIntensity = walkingMinutes !== undefined ? walkingIntensityScore(walkingMinutes) : 5;
+  const walkingIntensity =
+    walkingMinutes !== undefined ? walkingIntensityScore(walkingMinutes) : 5;
   return {
     action: "set",
     reason: `derived from indoorPercent=${indoorPercent}, kind='${kind}', walkingMin=${walkingMinutes ?? "unknown"}`,
@@ -84,29 +111,67 @@ export function comfortModel(
 function crowdBaseWeekday(kind: string, isHub: boolean): number {
   if (isHub) return 6;
   switch (kind) {
-    case "theme_park": case "amusement_park": case "aquarium": case "zoo": return 8;
-    case "museum": case "temple": case "shrine": case "castle": case "palace": case "garden": return 5;
-    case "park": case "nature": case "natural": case "mountain": case "lake": case "beach": case "island": return 3;
-    case "shopping": case "market": case "street": case "district": return 6;
-    default: return 4;
+    case "theme_park":
+    case "amusement_park":
+    case "aquarium":
+    case "zoo":
+      return 8;
+    case "museum":
+    case "temple":
+    case "shrine":
+    case "castle":
+    case "palace":
+    case "garden":
+      return 5;
+    case "park":
+    case "nature":
+    case "natural":
+    case "mountain":
+    case "lake":
+    case "beach":
+    case "island":
+      return 3;
+    case "shopping":
+    case "market":
+    case "street":
+    case "district":
+      return 6;
+    default:
+      return 4;
   }
 }
 
-const OUTDOOR_KINDS = new Set(["park", "nature", "natural", "mountain", "lake", "beach", "island", "garden", "viewpoint"]);
+const OUTDOOR_KINDS = new Set([
+  "park",
+  "nature",
+  "natural",
+  "mountain",
+  "lake",
+  "beach",
+  "island",
+  "garden",
+  "viewpoint",
+]);
 
 export function crowdModel(
   dest: Destination,
   eligibleIds: Set<string>,
 ): CrowdModelOutput {
   if (!eligibleIds.has(dest.id)) {
-    return { action: "keep", reason: "outside model scope (override precedence)", confidence: "unknown", modelVersion: "crowd-model-v1" };
+    return {
+      action: "keep",
+      reason: "outside model scope (override precedence)",
+      confidence: "unknown",
+      modelVersion: "crowd-model-v1",
+    };
   }
   const kind = dest.kind ?? "";
   const isHub = ["city", "ward", "town", "village"].includes(kind);
   let weekday = crowdBaseWeekday(kind, isHub);
   if (dest.importance === "major") weekday += 1;
   if (dest.collections?.length) weekday += 1;
-  if (dest.reservation && /reservation|booking|advance/i.test(dest.reservation)) weekday += 1;
+  if (dest.reservation && /reservation|booking|advance/i.test(dest.reservation))
+    weekday += 1;
   const outdoorBonus = OUTDOOR_KINDS.has(kind) ? 1 : 0;
   const weekend = Math.min(10, weekday + 2 + outdoorBonus);
   let holiday = Math.min(10, weekday + 1);

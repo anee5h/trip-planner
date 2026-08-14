@@ -30,7 +30,9 @@ const METRE_LIKE = 300; // >= 300 in a minute field is metre-typed
 const PACE_M = 80; // documented pace: 80 m/min
 const SYNTHETIC_SPLIT = 0.6; // sun = 0.6 * walkingMin signature
 
-export function walkingIntensityFromMinutes(minutes: number): "low" | "medium" | "high" {
+export function walkingIntensityFromMinutes(
+  minutes: number,
+): "low" | "medium" | "high" {
   if (minutes <= 45) return "low";
   if (minutes <= 95) return "medium";
   return "high";
@@ -48,7 +50,18 @@ function walkShare(dest: Destination): number | undefined {
   const indoor = dest.indoorPercent ?? 0;
   if (indoor >= 70) return 0.3;
   if (indoor >= 40) return 0.5;
-  const outdoorKinds = new Set(["mountain", "nature", "natural", "lake", "waterfall", "park", "garden", "island", "beach", "viewpoint"]);
+  const outdoorKinds = new Set([
+    "mountain",
+    "nature",
+    "natural",
+    "lake",
+    "waterfall",
+    "park",
+    "garden",
+    "island",
+    "beach",
+    "viewpoint",
+  ]);
   if (outdoorKinds.has(kind)) return 0.8;
   if (["temple", "shrine", "castle", "palace"].includes(kind)) return 0.6;
   return 0.5;
@@ -60,7 +73,12 @@ export function walkingModel(
   trustedWalkingIds: Set<string>,
 ): WalkingModelOutput {
   if (!eligibleIds.has(dest.id)) {
-    return { action: "keep", reason: "outside model scope (override precedence)", confidence: "unknown", modelVersion: "walking-model-v1" };
+    return {
+      action: "keep",
+      reason: "outside model scope (override precedence)",
+      confidence: "unknown",
+      modelVersion: "walking-model-v1",
+    };
   }
   const visitMax = dest.recommendedVisitHours?.max;
 
@@ -71,11 +89,13 @@ export function walkingModel(
     Number.isFinite(dest.walkingSunMin) &&
     Number.isFinite(dest.walkingShadeMin) &&
     Math.abs(dest.walkingSunMin / dest.walkingMin - SYNTHETIC_SPLIT) < 0.05 &&
-    Math.abs(dest.walkingShadeMin / dest.walkingMin - (1 - SYNTHETIC_SPLIT)) < 0.05;
+    Math.abs(dest.walkingShadeMin / dest.walkingMin - (1 - SYNTHETIC_SPLIT)) <
+      0.05;
   if (hasSyntheticSplit) {
     return {
       action: "clear",
-      reason: "synthetic 60/40 sun/shade split removed (REMOVE_SYNTHETIC_SPLIT)",
+      reason:
+        "synthetic 60/40 sun/shade split removed (REMOVE_SYNTHETIC_SPLIT)",
       walkingSunMin: 0,
       walkingShadeMin: 0,
       confidence: "unknown",
@@ -90,7 +110,8 @@ export function walkingModel(
     trustedWalkingIds.has(dest.id)
   ) {
     const minutes = roundTo5(dest.walkingMin / PACE_M);
-    const clamped = visitMax && minutes > visitMax * 60 ? roundTo5(visitMax * 60) : minutes;
+    const clamped =
+      visitMax && minutes > visitMax * 60 ? roundTo5(visitMax * 60) : minutes;
     return {
       action: "convert",
       reason: `real-distance metres ${dest.walkingMin} -> minutes (pace ${PACE_M} m/min, clamped to visit window)`,
@@ -107,7 +128,11 @@ export function walkingModel(
   // the defensible minute-scale replacement. Without a visit duration, clear.
   if (Number.isFinite(dest.walkingMin) && dest.walkingMin >= METRE_LIKE) {
     const share = walkShare(dest);
-    if (share !== undefined && visitMax !== undefined && Number.isFinite(visitMax)) {
+    if (
+      share !== undefined &&
+      visitMax !== undefined &&
+      Number.isFinite(visitMax)
+    ) {
       const minutes = roundTo5(visitMax * 60 * share);
       return {
         action: "fill",
@@ -130,7 +155,11 @@ export function walkingModel(
   // ---- Missing walkingMin: walk-share estimate ----
   if (!Number.isFinite(dest.walkingMin)) {
     const share = walkShare(dest);
-    if (share !== undefined && visitMax !== undefined && Number.isFinite(visitMax)) {
+    if (
+      share !== undefined &&
+      visitMax !== undefined &&
+      Number.isFinite(visitMax)
+    ) {
       const minutes = roundTo5(visitMax * 60 * share);
       return {
         action: "fill",
@@ -149,5 +178,10 @@ export function walkingModel(
     };
   }
 
-  return { action: "keep", reason: "minute value outside model scope", confidence: "unknown", modelVersion: "walking-model-v1" };
+  return {
+    action: "keep",
+    reason: "minute value outside model scope",
+    confidence: "unknown",
+    modelVersion: "walking-model-v1",
+  };
 }

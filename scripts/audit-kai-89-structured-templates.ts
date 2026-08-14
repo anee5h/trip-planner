@@ -221,10 +221,12 @@ function buildReport(destinations: Destination[]) {
         // Deliberately neutral (explicit markers written by the KAI-89 models)
         // — distinct from missing, which is the error class above.
         explicitlyUnknownBudget: destinations.filter(
-          (d) => d.status === "published" && d.budgetMetadata?.method === "unknown",
+          (d) =>
+            d.status === "published" && d.budgetMetadata?.method === "unknown",
         ).length,
         explicitlyUnknownSeason: destinations.filter(
-          (d) => d.status === "published" && d.seasonMetadata?.method === "unknown",
+          (d) =>
+            d.status === "published" && d.seasonMetadata?.method === "unknown",
         ).length,
       },
       dispositionCounts,

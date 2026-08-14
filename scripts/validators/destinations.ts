@@ -301,7 +301,10 @@ export const destinationsValidator: ValidatorModule = {
         // allowed ONLY with the explicit neutral marker (seasonMetadata.method
         // 'unknown'); otherwise a published record must carry both.
         const seasonNeutral = dest.seasonMetadata?.method === "unknown";
-        if (!seasonNeutral && (!dest.season || typeof dest.season !== "object")) {
+        if (
+          !seasonNeutral &&
+          (!dest.season || typeof dest.season !== "object")
+        ) {
           issues.push({
             severity: "error",
             code: "MISSING_SEASON",
@@ -309,7 +312,10 @@ export const destinationsValidator: ValidatorModule = {
             targetId: dest.id,
           });
         }
-        if (!seasonNeutral && (dest.bestMonths === undefined || dest.bestMonths === null)) {
+        if (
+          !seasonNeutral &&
+          (dest.bestMonths === undefined || dest.bestMonths === null)
+        ) {
           issues.push({
             severity: "error",
             code: "MISSING_BEST_MONTHS",

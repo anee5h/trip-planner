@@ -43,17 +43,31 @@ export function transportModel(
     return {
       action: "keep",
       reason: "source-verified transport facts (ledger)",
-      metadata: { method: "source-verified", modelVersion: "transport-access-v1", confidence: "high", basis: "corrections ledger / official sources" },
+      metadata: {
+        method: "source-verified",
+        modelVersion: "transport-access-v1",
+        confidence: "high",
+        basis: "corrections ledger / official sources",
+      },
     };
   }
   if (!eligibleIds.has(dest.id)) {
-    return { action: "keep", reason: "outside model scope (override precedence)", confidence: undefined, metadata: undefined } as TransportModelOutput;
+    return {
+      action: "keep",
+      reason: "outside model scope (override precedence)",
+      confidence: undefined,
+      metadata: undefined,
+    } as TransportModelOutput;
   }
   // Availability derivation (informational): does the zone or localAccessModes
   // declare the record's transportOptions modes?
-  const zoneModes = dest.transportZoneId ? (zoneLocalModes.get(dest.transportZoneId) ?? []) : [];
+  const zoneModes = dest.transportZoneId
+    ? (zoneLocalModes.get(dest.transportZoneId) ?? [])
+    : [];
   const declared = Object.keys(dest.transportOptions ?? {}) as TransportMode[];
-  const supportedByZone = declared.filter((m) => zoneModes.includes(m) || dest.localAccessModes?.includes(m));
+  const supportedByZone = declared.filter(
+    (m) => zoneModes.includes(m) || dest.localAccessModes?.includes(m),
+  );
   return {
     action: "tag",
     reason: `legacy static minutes tagged as fallback; ${supportedByZone.length}/${declared.length} declared modes supported by zone topology`,
@@ -61,7 +75,8 @@ export function transportModel(
       method: "legacy-fallback",
       modelVersion: "transport-access-v1",
       confidence: "low",
-      basis: "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative",
+      basis:
+        "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative",
     },
   };
 }

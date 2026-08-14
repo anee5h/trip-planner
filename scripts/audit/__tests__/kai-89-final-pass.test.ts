@@ -44,8 +44,7 @@ describe("KAI-89 final-pass regression tests", () => {
       // pre-KAI-89 baseline (no synthetic precision from rebalancing).
       for (const c of corrections.sections.budgetTicketCorrections) {
         const d = get(c.id);
-        const baseline =
-          corrections.sections.budgetComponentBaseline[c.id];
+        const baseline = corrections.sections.budgetComponentBaseline[c.id];
         expect(baseline, `baseline for ${c.id}`).toBeDefined();
         expect(d.budgetBreakdown.tickets, `${c.id} tickets`).toBe(c.value);
         expect(d.budgetBreakdown.transport, `${c.id} transport untouched`).toBe(
@@ -63,8 +62,7 @@ describe("KAI-89 final-pass regression tests", () => {
     it("rebalance-only records use the documented midpoint, components untouched", () => {
       for (const c of corrections.sections.budgetRebalanceOnly) {
         const d = get(c.id);
-        const baseline =
-          corrections.sections.budgetComponentBaseline[c.id];
+        const baseline = corrections.sections.budgetComponentBaseline[c.id];
         expect(baseline, `baseline for ${c.id}`).toBeDefined();
         expect(d.budgetRecommended).toBe(
           Math.round((d.budgetMin + d.budgetMax) / 2),
@@ -93,9 +91,13 @@ describe("KAI-89 final-pass regression tests", () => {
       expect(hoursText).toMatch(/09:00-17:00|9時〜午後5時|9:00〜17:00/i);
       // Parking: no general on-site parking claim.
       expect(h.parking).toMatch(/No general on-site parking/i);
-      expect(h.content?.ja?.parking).toMatch(/駐車場はありません|最寄りの公共駐車場/);
+      expect(h.content?.ja?.parking).toMatch(
+        /駐車場はありません|最寄りの公共駐車場/,
+      );
       // Official website + source provenance.
-      expect(h.officialWebsite).toBe("https://www.tokyo-park.or.jp/park/hama-rikyu/");
+      expect(h.officialWebsite).toBe(
+        "https://www.tokyo-park.or.jp/park/hama-rikyu/",
+      );
       expect(h.editorial?.sources?.map((s) => s.url)).toContain(
         "https://www.tokyo-park.or.jp/park/hama-rikyu/",
       );

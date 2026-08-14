@@ -32,7 +32,12 @@ export interface BudgetModelOutput {
     budgetMin: number;
     budgetRecommended: number;
     budgetMax: number;
-    breakdown: { transport: number; tickets: number; food: number; cafe: number };
+    breakdown: {
+      transport: number;
+      tickets: number;
+      food: number;
+      cafe: number;
+    };
   };
   modelVersion: "budget-model-v1";
 }
@@ -87,7 +92,8 @@ function cellMedians(cell: PeerCell): {
     transport: med(cell.transport),
     food: med(cell.food),
     cafe: med(cell.cafe),
-    dispersionOk: dispOk(cell.transport) && dispOk(cell.food) && dispOk(cell.cafe),
+    dispersionOk:
+      dispOk(cell.transport) && dispOk(cell.food) && dispOk(cell.cafe),
   };
 }
 
@@ -103,7 +109,12 @@ export function budgetModel(
   truth: CalibrationTruth,
 ): BudgetModelOutput {
   if (!eligibleIds.has(dest.id)) {
-    return { action: "keep", reason: "outside model scope (override precedence)", confidence: "unknown", modelVersion: "budget-model-v1" };
+    return {
+      action: "keep",
+      reason: "outside model scope (override precedence)",
+      confidence: "unknown",
+      modelVersion: "budget-model-v1",
+    };
   }
 
   // ---- Tickets: factual only ----
@@ -125,7 +136,8 @@ export function budgetModel(
     // a source verifies it).
     return {
       action: "clear-to-unknown",
-      reason: "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)",
+      reason:
+        "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)",
       confidence: "unknown",
       modelVersion: "budget-model-v1",
     };
@@ -137,8 +149,17 @@ export function budgetModel(
   // one identical median for an entire peer class. Falls back to the
   // importance-agnostic cell when the split cell is too small.
   const cells = buildPeerCells(destinations, truth);
-  const importanceGroup = dest.importance === "major" ? "major" : dest.importance === "notable" ? "notable" : "standard";
-  const cellKey = [kindGroup(dest), durationBucket(dest.recommendedVisitHours?.max), dest.role ?? "poi"].join("|");
+  const importanceGroup =
+    dest.importance === "major"
+      ? "major"
+      : dest.importance === "notable"
+        ? "notable"
+        : "standard";
+  const cellKey = [
+    kindGroup(dest),
+    durationBucket(dest.recommendedVisitHours?.max),
+    dest.role ?? "poi",
+  ].join("|");
   const importanceKey = `${cellKey}|${importanceGroup}`;
   let cell = cells.get(importanceKey);
   if (!cell || cell.n < MIN_CELL_SAMPLES) cell = cells.get(cellKey);
@@ -207,8 +228,20 @@ export function budgetModel(
   // >= tickets. min/max are symmetric around recommended, so the documented
   // midpoint model round((min+max)/2) holds exactly.
   const spread = Math.max(
-    roundTo(quantile(effective.transport.concat(effective.food, effective.cafe), 0.25), 500),
-    roundTo(quantile(effective.transport.concat(effective.food, effective.cafe), 0.75), 500),
+    roundTo(
+      quantile(
+        effective.transport.concat(effective.food, effective.cafe),
+        0.25,
+      ),
+      500,
+    ),
+    roundTo(
+      quantile(
+        effective.transport.concat(effective.food, effective.cafe),
+        0.75,
+      ),
+      500,
+    ),
   );
   let budgetMin = budgetRecommended - spread;
   if (budgetMin < tickets) budgetMin = tickets;

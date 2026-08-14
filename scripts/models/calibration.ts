@@ -61,7 +61,9 @@ export function roundTo5(value: number): number {
 }
 
 /** Visit-duration bucket used by the budget model (hours). */
-export function durationBucket(maxHours: number | undefined): "short" | "half" | "full" {
+export function durationBucket(
+  maxHours: number | undefined,
+): "short" | "half" | "full" {
   const max = maxHours ?? 2;
   if (max <= 2.5) return "short";
   if (max <= 5) return "half";
@@ -98,15 +100,28 @@ export function kindGroup(dest: Destination): string {
 }
 
 /** Calendar seasons (Japan convention) for month lookups. */
-export const SEASON_OF_MONTH: Record<number, "spring" | "summer" | "autumn" | "winter"> = {
-  3: "spring", 4: "spring", 5: "spring",
-  6: "summer", 7: "summer", 8: "summer",
-  9: "autumn", 10: "autumn", 11: "autumn",
-  12: "winter", 1: "winter", 2: "winter",
+export const SEASON_OF_MONTH: Record<
+  number,
+  "spring" | "summer" | "autumn" | "winter"
+> = {
+  3: "spring",
+  4: "spring",
+  5: "spring",
+  6: "summer",
+  7: "summer",
+  8: "summer",
+  9: "autumn",
+  10: "autumn",
+  11: "autumn",
+  12: "winter",
+  1: "winter",
+  2: "winter",
 };
 
 /** Japan climate band from latitude (coarse; no false precision). */
-export function latitudeBand(dest: Destination): "tropical" | "temperate" | "cool" | "unknown" {
+export function latitudeBand(
+  dest: Destination,
+): "tropical" | "temperate" | "cool" | "unknown" {
   const lat = dest.coordinates?.lat;
   if (lat === undefined) return "unknown";
   if (lat < 28) return "tropical"; // Okinawa/Amami

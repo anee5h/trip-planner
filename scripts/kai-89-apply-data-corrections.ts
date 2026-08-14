@@ -304,7 +304,8 @@ if (hama) {
   d.officialWebsite = hama.officialWebsite;
   if (d.editorial) {
     const keep = d.editorial.sources.filter(
-      (s) => !hama.sourceReplace.some((r: { from: string }) => r.from === s.url),
+      (s) =>
+        !hama.sourceReplace.some((r: { from: string }) => r.from === s.url),
     );
     const additions = hama.sourceReplace
       .map((r: { to: string; type: string; title: string }) => ({
@@ -317,9 +318,30 @@ if (hama) {
     d.editorial.sources = keep.concat(additions);
     d.editorial.fieldSources = {
       ...(d.editorial.fieldSources ?? {}),
-      openingHours: [{ type: "official", url: hama.officialWebsite, title: "浜離宮恩賜庭園｜公園へ行こう！", accessedAt: "2026-08-13" }],
-      parking: [{ type: "official", url: hama.officialWebsite, title: "浜離宮恩賜庭園｜公園へ行こう！", accessedAt: "2026-08-13" }],
-      "budgetBreakdown.tickets": [{ type: "official", url: hama.officialWebsite, title: "浜離宮恩賜庭園｜公園へ行こう！", accessedAt: "2026-08-13" }],
+      openingHours: [
+        {
+          type: "official",
+          url: hama.officialWebsite,
+          title: "浜離宮恩賜庭園｜公園へ行こう！",
+          accessedAt: "2026-08-13",
+        },
+      ],
+      parking: [
+        {
+          type: "official",
+          url: hama.officialWebsite,
+          title: "浜離宮恩賜庭園｜公園へ行こう！",
+          accessedAt: "2026-08-13",
+        },
+      ],
+      "budgetBreakdown.tickets": [
+        {
+          type: "official",
+          url: hama.officialWebsite,
+          title: "浜離宮恩賜庭園｜公園へ行こう！",
+          accessedAt: "2026-08-13",
+        },
+      ],
     };
   }
   applied++;
@@ -333,7 +355,14 @@ if (CROSS.engakujiParking) {
   if (d.editorial) {
     d.editorial.fieldSources = {
       ...(d.editorial.fieldSources ?? {}),
-      parking: [{ type: "official", url: "https://www.engakuji.or.jp/en/", title: "ENGAKUJI ZEN TEMPLE", accessedAt: "2026-08-13" }],
+      parking: [
+        {
+          type: "official",
+          url: "https://www.engakuji.or.jp/en/",
+          title: "ENGAKUJI ZEN TEMPLE",
+          accessedAt: "2026-08-13",
+        },
+      ],
     };
   }
   applied++;

@@ -282,7 +282,15 @@ describe("KAI-63 Explore bus eligibility", () => {
     // visibility.
     const kofu = catalogue.find((r) => r.id === "kofu-city")!;
     const originZoneId = resolveOriginTransportZone({ coordinates: TOKYO });
-    const modes = getValidModes(kofu, "none", ["bus"], TOKYO, undefined, originZoneId, undefined);
+    const modes = getValidModes(
+      kofu,
+      "none",
+      ["bus"],
+      TOKYO,
+      undefined,
+      originZoneId,
+      undefined,
+    );
     expect(modes).toContain("bus");
   });
 

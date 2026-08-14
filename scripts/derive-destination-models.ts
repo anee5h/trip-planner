@@ -30,9 +30,15 @@ import { comfortModel, crowdModel } from "./models/comfort-crowd-model-v1";
 import { transportModel } from "./models/transport-access-v1";
 import type { TransportMode } from "../src/shared/services/transport/types";
 
-const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const rootDir = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  "..",
+);
 const indexPath = path.join(rootDir, "src/shared/data/destinations-index.json");
-const dispositionsPath = path.join(rootDir, "scripts/audit/kai-89-dispositions.json");
+const dispositionsPath = path.join(
+  rootDir,
+  "scripts/audit/kai-89-dispositions.json",
+);
 const reportPath = path.join(rootDir, "scripts/models/derive-report.json");
 
 interface Change {
@@ -51,27 +57,50 @@ function addFieldSource(d: Destination, field: string, summary: string) {
   if (!d.editorial) return;
   if (!d.editorial.fieldSources) d.editorial.fieldSources = {};
   d.editorial.fieldSources[field] = [
-    { type: "calculated", url: "catalogue-model://kai-89", title: summary, accessedAt: "2026-08-14" },
+    {
+      type: "calculated",
+      url: "catalogue-model://kai-89",
+      title: summary,
+      accessedAt: "2026-08-14",
+    },
   ];
 }
 
 function main() {
   const apply = process.argv.includes("--apply");
   const check = process.argv.includes("--check");
-  const destinations = JSON.parse(fs.readFileSync(indexPath, "utf8")) as Destination[];
+  const destinations = JSON.parse(
+    fs.readFileSync(indexPath, "utf8"),
+  ) as Destination[];
   const byId = new Map(destinations.map((d) => [d.id, d]));
   const truth = loadTruth();
-  const dispositions = JSON.parse(fs.readFileSync(dispositionsPath, "utf8")) as {
+  const dispositions = JSON.parse(
+    fs.readFileSync(dispositionsPath, "utf8"),
+  ) as {
     clusters: Record<string, { action: string }>;
   };
   const audit = JSON.parse(
-    fs.readFileSync(path.join(rootDir, "scripts/audit/kai-89-structured-template-audit.json"), "utf8"),
-  ) as { categories: Array<{ category: string; clusters: Array<{ id: string; ids: string[] }> }> };
+    fs.readFileSync(
+      path.join(rootDir, "scripts/audit/kai-89-structured-template-audit.json"),
+      "utf8",
+    ),
+  ) as {
+    categories: Array<{
+      category: string;
+      clusters: Array<{ id: string; ids: string[] }>;
+    }>;
+  };
   const corrections = JSON.parse(
-    fs.readFileSync(path.join(rootDir, "scripts/audit/kai-89-corrections.json"), "utf8"),
+    fs.readFileSync(
+      path.join(rootDir, "scripts/audit/kai-89-corrections.json"),
+      "utf8",
+    ),
   ) as { sections: Record<string, Array<{ id: string }> | undefined> };
   const topology = JSON.parse(
-    fs.readFileSync(path.join(rootDir, "src/shared/data/transport-topology.json"), "utf8"),
+    fs.readFileSync(
+      path.join(rootDir, "src/shared/data/transport-topology.json"),
+      "utf8",
+    ),
   ) as { zones: Array<{ id: string; localModes: string[] }> };
   const zoneLocalModes = new Map<string, readonly TransportMode[]>(
     topology.zones.map((z) => [z.id, z.localModes as TransportMode[]]),
@@ -109,30 +138,47 @@ function main() {
     }
   }
   const seasonEligible = new Set(manualByField.season ?? []);
-  for (const d of destinations) if (!d.season || !d.bestMonths?.length) seasonEligible.add(d.id);
+  for (const d of destinations)
+    if (!d.season || !d.bestMonths?.length) seasonEligible.add(d.id);
   const durationEligible = new Set(manualByField.visitDuration ?? []);
   const walkingEligible = new Set(manualByField.walking ?? []);
-  for (const d of destinations) if (d.walkingMin === undefined) walkingEligible.add(d.id);
+  for (const d of destinations)
+    if (d.walkingMin === undefined) walkingEligible.add(d.id);
   const comfortEligible = new Set(manualByField.comfort ?? []);
   const crowdEligible = new Set(manualByField.crowd ?? []);
   const transportEligible = new Set(manualByField.transport ?? []);
 
   const trustedWalking = new Set(truth.trusted.walking ?? []);
   const sourceVerifiedTransport = new Set<string>();
-  for (const c of corrections.sections.transportCorrections ?? []) sourceVerifiedTransport.add(c.id);
-  for (const id of ["naha-city", "kokusai-dori-naha", "naminoue-shrine-naha", "fukushuen-garden-naha"]) sourceVerifiedTransport.add(id);
+  for (const c of corrections.sections.transportCorrections ?? [])
+    sourceVerifiedTransport.add(c.id);
+  for (const id of [
+    "naha-city",
+    "kokusai-dori-naha",
+    "naminoue-shrine-naha",
+    "fukushuen-garden-naha",
+  ])
+    sourceVerifiedTransport.add(id);
 
   const childCountById = new Map<string, number>();
   for (const d of destinations) {
     const parent = d.relationships?.parentDestinationId;
-    if (parent) childCountById.set(parent, (childCountById.get(parent) ?? 0) + 1);
+    if (parent)
+      childCountById.set(parent, (childCountById.get(parent) ?? 0) + 1);
   }
 
   const changes: Change[] = [];
-  const touch = (d: Destination, model: string, action: string, reason: string, fields: string[]) => {
+  const touch = (
+    d: Destination,
+    model: string,
+    action: string,
+    reason: string,
+    fields: string[],
+  ) => {
     changes.push({ id: d.id, model, action, reason, fields });
   };
-  const changed = (before: unknown, after: unknown) => JSON.stringify(before) !== JSON.stringify(after);
+  const changed = (before: unknown, after: unknown) =>
+    JSON.stringify(before) !== JSON.stringify(after);
   // Persistent model-touched ledger: every record each model made a decision
   // for this run (even when the value was already applied), consumed by the
   // disposition builder and validate-models for model-scoped classification.
@@ -142,7 +188,12 @@ function main() {
   };
 
   for (const d of destinations) {
-    const beforeBudget = { min: d.budgetMin, rec: d.budgetRecommended, max: d.budgetMax, breakdown: d.budgetBreakdown };
+    const beforeBudget = {
+      min: d.budgetMin,
+      rec: d.budgetRecommended,
+      max: d.budgetMax,
+      breakdown: d.budgetBreakdown,
+    };
     const b = budgetModel(d, budgetEligible, destinations, truth);
     if (b.action !== "keep") markTouched("budget-model-v1", d.id);
     if (b.action === "fill" && b.budget) {
@@ -153,20 +204,47 @@ function main() {
       // budgetMetadata written unconditionally (idempotent): already-filled
       // records must keep their model provenance marker.
       if (d.budgetMetadata?.method !== "model") {
-        d.budgetMetadata = { method: "model", modelVersion: "budget-model-v1", confidence: b.confidence, basis: b.reason };
+        d.budgetMetadata = {
+          method: "model",
+          modelVersion: "budget-model-v1",
+          confidence: b.confidence,
+          basis: b.reason,
+        };
       }
-      if (changed(beforeBudget, { min: d.budgetMin, rec: d.budgetRecommended, max: d.budgetMax, breakdown: d.budgetBreakdown })) {
+      if (
+        changed(beforeBudget, {
+          min: d.budgetMin,
+          rec: d.budgetRecommended,
+          max: d.budgetMax,
+          breakdown: d.budgetBreakdown,
+        })
+      ) {
         addFieldSource(d, "budgetRecommended", `budget-model-v1; ${b.reason}`);
-        touch(d, "budget-model-v1", "fill", b.reason, ["budgetMin", "budgetRecommended", "budgetMax", "budgetBreakdown"]);
+        touch(d, "budget-model-v1", "fill", b.reason, [
+          "budgetMin",
+          "budgetRecommended",
+          "budgetMax",
+          "budgetBreakdown",
+        ]);
       }
     } else if (b.action === "keep" && b.reason.includes("verified ticket")) {
       // Verified admission preserved but no model budget (insufficient peers):
       // mark explicit-unknown so the record is not counted as missing.
       if (d.budgetMetadata?.method !== "unknown") {
-        d.budgetMetadata = { method: "unknown", modelVersion: "budget-model-v1", confidence: "unknown", basis: b.reason };
+        d.budgetMetadata = {
+          method: "unknown",
+          modelVersion: "budget-model-v1",
+          confidence: "unknown",
+          basis: b.reason,
+        };
       }
     } else if (b.action === "clear-to-unknown") {
-      const before = { min: d.budgetMin, rec: d.budgetRecommended, max: d.budgetMax, breakdown: d.budgetBreakdown };
+      const before = {
+        min: d.budgetMin,
+        rec: d.budgetRecommended,
+        max: d.budgetMax,
+        breakdown: d.budgetBreakdown,
+      };
       delete (d as Partial<Destination>).budgetMin;
       delete (d as Partial<Destination>).budgetRecommended;
       delete (d as Partial<Destination>).budgetMax;
@@ -175,31 +253,82 @@ function main() {
       // already cleared by a previous run must still carry the explicit
       // unknown marker so validators treat it as neutral, not missing.
       if (d.budgetMetadata?.method !== "unknown") {
-        d.budgetMetadata = { method: "unknown", modelVersion: "budget-model-v1", confidence: "unknown", basis: b.reason };
+        d.budgetMetadata = {
+          method: "unknown",
+          modelVersion: "budget-model-v1",
+          confidence: "unknown",
+          basis: b.reason,
+        };
       }
-      if (changed(before, { min: d.budgetMin, rec: d.budgetRecommended, max: d.budgetMax, breakdown: d.budgetBreakdown })) {
-        touch(d, "budget-model-v1", "clear-to-unknown", b.reason, ["budgetMin", "budgetRecommended", "budgetMax", "budgetBreakdown"]);
+      if (
+        changed(before, {
+          min: d.budgetMin,
+          rec: d.budgetRecommended,
+          max: d.budgetMax,
+          breakdown: d.budgetBreakdown,
+        })
+      ) {
+        touch(d, "budget-model-v1", "clear-to-unknown", b.reason, [
+          "budgetMin",
+          "budgetRecommended",
+          "budgetMax",
+          "budgetBreakdown",
+        ]);
       }
     }
 
-    const beforeSeason = { season: d.season, bestMonths: d.bestMonths, bestSeason: d.bestSeason };
+    const beforeSeason = {
+      season: d.season,
+      bestMonths: d.bestMonths,
+      bestSeason: d.bestSeason,
+    };
     const s = seasonModel(d, seasonEligible);
     if (s.action !== "keep") markTouched("season-model-v1", d.id);
     if (s.action === "set" && s.season) {
       d.season = s.season;
       d.bestMonths = s.bestMonths;
       if (s.bestSeason) d.bestSeason = s.bestSeason;
-      d.seasonMetadata = { method: "model", modelVersion: s.metadata.modelVersion, confidence: s.metadata.confidence, basis: s.metadata.basis };
-      if (changed(beforeSeason, { season: d.season, bestMonths: d.bestMonths, bestSeason: d.bestSeason })) {
-        touch(d, "season-model-v1", "set", s.reason, ["season", "bestMonths", "bestSeason"]);
+      d.seasonMetadata = {
+        method: "model",
+        modelVersion: s.metadata.modelVersion,
+        confidence: s.metadata.confidence,
+        basis: s.metadata.basis,
+      };
+      if (
+        changed(beforeSeason, {
+          season: d.season,
+          bestMonths: d.bestMonths,
+          bestSeason: d.bestSeason,
+        })
+      ) {
+        touch(d, "season-model-v1", "set", s.reason, [
+          "season",
+          "bestMonths",
+          "bestSeason",
+        ]);
       }
     } else if (s.action === "neutralize") {
       delete (d as Partial<Destination>).season;
       delete (d as Partial<Destination>).bestMonths;
       delete (d as Partial<Destination>).bestSeason;
-      d.seasonMetadata = { method: "unknown", modelVersion: s.metadata.modelVersion, confidence: "unknown", basis: s.metadata.basis };
-      if (changed(beforeSeason, { season: d.season, bestMonths: d.bestMonths, bestSeason: d.bestSeason })) {
-        touch(d, "season-model-v1", "neutralize", s.reason, ["season", "bestMonths", "bestSeason"]);
+      d.seasonMetadata = {
+        method: "unknown",
+        modelVersion: s.metadata.modelVersion,
+        confidence: "unknown",
+        basis: s.metadata.basis,
+      };
+      if (
+        changed(beforeSeason, {
+          season: d.season,
+          bestMonths: d.bestMonths,
+          bestSeason: d.bestSeason,
+        })
+      ) {
+        touch(d, "season-model-v1", "neutralize", s.reason, [
+          "season",
+          "bestMonths",
+          "bestSeason",
+        ]);
       }
     }
 
@@ -213,24 +342,58 @@ function main() {
       const entry = sourceBestMonths.find((c) => c.id === d.id);
       if (entry && Array.isArray(d.bestMonths) && d.bestMonths.length > 0) {
         const seasonScores = { spring: 5, summer: 5, autumn: 5, winter: 5 };
-        const monthToSeason: Record<number, "spring" | "summer" | "autumn" | "winter"> = {
-          3: "spring", 4: "spring", 5: "spring",
-          6: "summer", 7: "summer", 8: "summer",
-          9: "autumn", 10: "autumn", 11: "autumn",
-          12: "winter", 1: "winter", 2: "winter",
+        const monthToSeason: Record<
+          number,
+          "spring" | "summer" | "autumn" | "winter"
+        > = {
+          3: "spring",
+          4: "spring",
+          5: "spring",
+          6: "summer",
+          7: "summer",
+          8: "summer",
+          9: "autumn",
+          10: "autumn",
+          11: "autumn",
+          12: "winter",
+          1: "winter",
+          2: "winter",
         };
         for (const m of d.bestMonths) seasonScores[monthToSeason[m]] += 2;
-        const peak = (Object.entries(seasonScores) as Array<[keyof typeof seasonScores, number]>)
-          .sort((a, b) => b[1] - a[1])[0][0];
+        const peak = (
+          Object.entries(seasonScores) as Array<
+            [keyof typeof seasonScores, number]
+          >
+        ).sort((a, b) => b[1] - a[1])[0][0];
         const vector = { spring: 5, summer: 5, autumn: 5, winter: 5 };
         vector[peak] = 10;
-        const secondary = (Object.entries(seasonScores) as Array<[keyof typeof seasonScores, number]>)
-          .sort((a, b) => b[1] - a[1])[1];
+        const secondary = (
+          Object.entries(seasonScores) as Array<
+            [keyof typeof seasonScores, number]
+          >
+        ).sort((a, b) => b[1] - a[1])[1];
         if (secondary[1] > 5) vector[secondary[0]] = 8;
         d.season = vector;
-        d.seasonMetadata = { method: "model", modelVersion: "season-model-v1", confidence: "medium", basis: `source-corrected bestMonths ${JSON.stringify(d.bestMonths)} (ledger seasonBestMonths)` };
-        if (changed(beforeSeason, { season: d.season, bestMonths: d.bestMonths, bestSeason: d.bestSeason })) {
-          touch(d, "season-model-v1", "set", "vector derived from source-corrected bestMonths peak", ["season"]);
+        d.seasonMetadata = {
+          method: "model",
+          modelVersion: "season-model-v1",
+          confidence: "medium",
+          basis: `source-corrected bestMonths ${JSON.stringify(d.bestMonths)} (ledger seasonBestMonths)`,
+        };
+        if (
+          changed(beforeSeason, {
+            season: d.season,
+            bestMonths: d.bestMonths,
+            bestSeason: d.bestSeason,
+          })
+        ) {
+          touch(
+            d,
+            "season-model-v1",
+            "set",
+            "vector derived from source-corrected bestMonths peak",
+            ["season"],
+          );
         }
       }
     }
@@ -241,8 +404,14 @@ function main() {
     if (dur.action === "set" && dur.visitHours) {
       d.recommendedVisitHours = dur.visitHours;
       if (changed(beforeDur, d.recommendedVisitHours)) {
-        addFieldSource(d, "recommendedVisitHours", `${dur.modelVersion}; ${dur.reason}`);
-        touch(d, dur.modelVersion, "set", dur.reason, ["recommendedVisitHours"]);
+        addFieldSource(
+          d,
+          "recommendedVisitHours",
+          `${dur.modelVersion}; ${dur.reason}`,
+        );
+        touch(d, dur.modelVersion, "set", dur.reason, [
+          "recommendedVisitHours",
+        ]);
       }
     }
 
@@ -254,25 +423,51 @@ function main() {
       d.walkingMin = w.walkingMin;
       d.walkingIntensity = w.walkingIntensity;
       walkingMinutes = w.walkingMin;
-      if (changed(before, { min: d.walkingMin, intensity: d.walkingIntensity })) {
+      if (
+        changed(before, { min: d.walkingMin, intensity: d.walkingIntensity })
+      ) {
         addFieldSource(d, "walkingMin", `walking-model-v1; ${w.reason}`);
-        touch(d, "walking-model-v1", w.action, w.reason, ["walkingMin", "walkingIntensity"]);
+        touch(d, "walking-model-v1", w.action, w.reason, [
+          "walkingMin",
+          "walkingIntensity",
+        ]);
       }
     } else if (w.action === "clear") {
-      const before = { min: d.walkingMin, sun: d.walkingSunMin, shade: d.walkingShadeMin };
+      const before = {
+        min: d.walkingMin,
+        sun: d.walkingSunMin,
+        shade: d.walkingShadeMin,
+      };
       if (w.walkingSunMin !== undefined) {
         delete (d as Partial<Destination>).walkingSunMin;
         delete (d as Partial<Destination>).walkingShadeMin;
       }
       if (w.walkingMin === 0) delete (d as Partial<Destination>).walkingMin;
-      if (changed(before, { min: d.walkingMin, sun: d.walkingSunMin, shade: d.walkingShadeMin })) {
-        touch(d, "walking-model-v1", "clear", w.reason, w.walkingSunMin !== undefined ? ["walkingSunMin", "walkingShadeMin"] : ["walkingMin"]);
+      if (
+        changed(before, {
+          min: d.walkingMin,
+          sun: d.walkingSunMin,
+          shade: d.walkingShadeMin,
+        })
+      ) {
+        touch(
+          d,
+          "walking-model-v1",
+          "clear",
+          w.reason,
+          w.walkingSunMin !== undefined
+            ? ["walkingSunMin", "walkingShadeMin"]
+            : ["walkingMin"],
+        );
       }
     } else {
       // Legacy values < 300 are minute-scale; metre-typed legacy values
       // (>= 300) are unit-invalid and must not produce an intensity. Values
       // WRITTEN by the walking model above are minutes by construction.
-      walkingMinutes = Number.isFinite(d.walkingMin) && d.walkingMin < 300 ? d.walkingMin : undefined;
+      walkingMinutes =
+        Number.isFinite(d.walkingMin) && d.walkingMin < 300
+          ? d.walkingMin
+          : undefined;
     }
 
     const beforeComfort = d.comfort;
@@ -293,11 +488,30 @@ function main() {
       // intensity from walkingMin, never by clamping the corrupt value.
       d.comfort = {
         ...d.comfort,
-        walkingIntensity: walkingMinutes !== undefined ? Math.max(1, Math.min(10, walkingMinutes <= 45 ? 3 : walkingMinutes <= 95 ? 5 : 8)) : 5,
+        walkingIntensity:
+          walkingMinutes !== undefined
+            ? Math.max(
+                1,
+                Math.min(
+                  10,
+                  walkingMinutes <= 45 ? 3 : walkingMinutes <= 95 ? 5 : 8,
+                ),
+              )
+            : 5,
       };
       if (changed(beforeComfort, d.comfort)) {
-        addFieldSource(d, "comfort", `comfort-model-v1; FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin`);
-        touch(d, "comfort-model-v1", "fix-contradiction", "impossible walkingIntensity corrected", ["comfort.walkingIntensity"]);
+        addFieldSource(
+          d,
+          "comfort",
+          `comfort-model-v1; FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin`,
+        );
+        touch(
+          d,
+          "comfort-model-v1",
+          "fix-contradiction",
+          "impossible walkingIntensity corrected",
+          ["comfort.walkingIntensity"],
+        );
       }
     }
 
@@ -313,7 +527,12 @@ function main() {
     }
 
     const beforeTransportMeta = d.transportMetadata;
-    const t = transportModel(d, transportEligible, sourceVerifiedTransport, zoneLocalModes);
+    const t = transportModel(
+      d,
+      transportEligible,
+      sourceVerifiedTransport,
+      zoneLocalModes,
+    );
     if (t.action !== "keep") markTouched("transport-access-v1", d.id);
     if (t.action === "tag" && t.metadata) {
       d.transportMetadata = t.metadata;
@@ -328,8 +547,16 @@ function main() {
   // deterministic output for that field is a documented model-estimate
   // cluster (used by the disposition builder; independent of eligibility).
   const auditForClusters = JSON.parse(
-    fs.readFileSync(path.join(rootDir, "scripts/audit/kai-89-structured-template-audit.json"), "utf8"),
-  ) as { categories: Array<{ category: string; clusters: Array<{ id: string; ids: string[] }> }> };
+    fs.readFileSync(
+      path.join(rootDir, "scripts/audit/kai-89-structured-template-audit.json"),
+      "utf8",
+    ),
+  ) as {
+    categories: Array<{
+      category: string;
+      clusters: Array<{ id: string; ids: string[] }>;
+    }>;
+  };
   const modelClusterIds: string[] = [];
   for (const cat of auditForClusters.categories) {
     for (const cl of cat.clusters) {
@@ -340,48 +567,75 @@ function main() {
           case "budget": {
             const out = budgetModel(rec, new Set([id]), destinations, truth);
             if (out.action !== "fill" || !out.budget) return false;
-            return rec.budgetMin === out.budget.budgetMin &&
+            return (
+              rec.budgetMin === out.budget.budgetMin &&
               rec.budgetRecommended === out.budget.budgetRecommended &&
               rec.budgetMax === out.budget.budgetMax &&
-              JSON.stringify(rec.budgetBreakdown) === JSON.stringify(out.budget.breakdown);
+              JSON.stringify(rec.budgetBreakdown) ===
+                JSON.stringify(out.budget.breakdown)
+            );
           }
           case "season": {
             const out = seasonModel(rec, new Set([id]));
             if (out.action === "set" && out.season) {
-              return JSON.stringify(rec.season) === JSON.stringify(out.season) &&
-                JSON.stringify(rec.bestMonths) === JSON.stringify(out.bestMonths);
+              return (
+                JSON.stringify(rec.season) === JSON.stringify(out.season) &&
+                JSON.stringify(rec.bestMonths) ===
+                  JSON.stringify(out.bestMonths)
+              );
             }
             if (out.action === "neutralize") {
-              return rec.season === undefined && rec.bestMonths === undefined && rec.seasonMetadata?.method === "unknown";
+              return (
+                rec.season === undefined &&
+                rec.bestMonths === undefined &&
+                rec.seasonMetadata?.method === "unknown"
+              );
             }
             return false;
           }
           case "visitDuration": {
             const out = durationModel(rec, new Set([id]), childCountById);
-            return out.action === "set" && out.visitHours &&
+            return (
+              out.action === "set" &&
+              out.visitHours &&
               rec.recommendedVisitHours?.min === out.visitHours.min &&
-              rec.recommendedVisitHours.max === out.visitHours.max;
+              rec.recommendedVisitHours.max === out.visitHours.max
+            );
           }
           case "walking": {
             const out = walkingModel(rec, new Set([id]), trustedWalking);
-            if (out.action === "fill" || out.action === "convert") return rec.walkingMin === out.walkingMin;
-            if (out.action === "clear" && out.walkingSunMin !== undefined) return rec.walkingSunMin === undefined;
+            if (out.action === "fill" || out.action === "convert")
+              return rec.walkingMin === out.walkingMin;
+            if (out.action === "clear" && out.walkingSunMin !== undefined)
+              return rec.walkingSunMin === undefined;
             return false;
           }
           case "comfort": {
-            const minutes = Number.isFinite(rec.walkingMin) && rec.walkingMin < 300 ? rec.walkingMin : undefined;
+            const minutes =
+              Number.isFinite(rec.walkingMin) && rec.walkingMin < 300
+                ? rec.walkingMin
+                : undefined;
             const out = comfortModel(rec, new Set([id]), minutes);
-            return out.action === "set" && out.comfort && JSON.stringify(rec.comfort) === JSON.stringify(out.comfort);
+            return (
+              out.action === "set" &&
+              out.comfort &&
+              JSON.stringify(rec.comfort) === JSON.stringify(out.comfort)
+            );
           }
           case "crowd": {
             const out = crowdModel(rec, new Set([id]));
-            return out.action === "set" && out.crowd && JSON.stringify(rec.crowd) === JSON.stringify(out.crowd);
+            return (
+              out.action === "set" &&
+              out.crowd &&
+              JSON.stringify(rec.crowd) === JSON.stringify(out.crowd)
+            );
           }
           default:
             return false;
         }
       });
-      if (cl.ids.length > 0 && allMatch) modelClusterIds.push(`${cat.category}:${cl.id}`);
+      if (cl.ids.length > 0 && allMatch)
+        modelClusterIds.push(`${cat.category}:${cl.id}`);
     }
   }
 
@@ -397,7 +651,12 @@ function main() {
     ).sort((a, b) => b[1] - a[1]),
     sample: changes.slice(0, 25).map((c) => ({ ...c })),
     // Full change list consumed by validate-models.ts gates (model-scoped).
-    allChanges: changes.map((c) => ({ id: c.id, model: c.model, action: c.action, fields: c.fields })),
+    allChanges: changes.map((c) => ({
+      id: c.id,
+      model: c.model,
+      action: c.action,
+      fields: c.fields,
+    })),
     touchedRecords: touchedByModel,
     modelClusterIds,
   };
@@ -408,12 +667,16 @@ function main() {
     console.log(`Applied ${changes.length} model changes. Index written.`);
   } else if (check) {
     if (changes.length > 0) {
-      console.error(`KAI-89 model outputs are stale: ${changes.length} change(s) pending. Run npm run derive:destination-models --apply.`);
+      console.error(
+        `KAI-89 model outputs are stale: ${changes.length} change(s) pending. Run npm run derive:destination-models --apply.`,
+      );
       process.exit(1);
     }
     console.log("KAI-89 model outputs are current.");
   } else {
-    console.log(`Dry run: ${changes.length} changes pending. See ${path.relative(rootDir, reportPath)}.`);
+    console.log(
+      `Dry run: ${changes.length} changes pending. See ${path.relative(rootDir, reportPath)}.`,
+    );
   }
 }
 

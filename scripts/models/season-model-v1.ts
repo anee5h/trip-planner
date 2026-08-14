@@ -30,14 +30,21 @@ export interface SeasonModelOutput {
 }
 
 const INDOOR_KINDS = new Set([
-  "museum", "aquarium", "theme_park", "amusement_park",
-  "shopping", "market", "entertainment", "cultural",
+  "museum",
+  "aquarium",
+  "theme_park",
+  "amusement_park",
+  "shopping",
+  "market",
+  "entertainment",
+  "cultural",
 ]);
 
 const SNOW_RE = /\b(ski|snow|winter sport)\b|スキー|スノー/i;
 const BEACH_RE = /\b(beach|coast|sea)\b|ビーチ|海|海岸/i;
 const FOLIAGE_RE = /\b(autumn|foliage|momiji)\b|紅葉|もみじ/i;
-const SPRING_RE = /\b(cherry blossom|sakura|spring flower|plum blossom)\b|花見|桜|梅/i;
+const SPRING_RE =
+  /\b(cherry blossom|sakura|spring flower|plum blossom)\b|花見|桜|梅/i;
 
 /** Eligibility: template/missing season records this model may touch. */
 export function seasonModel(
@@ -47,7 +54,12 @@ export function seasonModel(
   const never = {
     action: "keep" as const,
     reason: "outside model scope (override precedence)",
-    metadata: { method: "unknown" as const, modelVersion: "season-model-v1" as const, confidence: "unknown" as const, basis: "n/a" },
+    metadata: {
+      method: "unknown" as const,
+      modelVersion: "season-model-v1" as const,
+      confidence: "unknown" as const,
+      basis: "n/a",
+    },
   };
   if (!eligibleIds.has(dest.id)) return never;
 
@@ -66,7 +78,12 @@ export function seasonModel(
       season: { spring: 4, summer: 2, autumn: 6, winter: 10 },
       bestMonths: [12, 1, 2, 3],
       bestSeason: "Winter",
-      metadata: { method: "model", modelVersion: "season-model-v1", confidence: "medium", basis: "snow/ski category signal; calibrated 4/4 trusted winter peaks" },
+      metadata: {
+        method: "model",
+        modelVersion: "season-model-v1",
+        confidence: "medium",
+        basis: "snow/ski category signal; calibrated 4/4 trusted winter peaks",
+      },
     };
   }
 
@@ -79,7 +96,12 @@ export function seasonModel(
         season: { spring: 9, summer: 10, autumn: 9, winter: 6 },
         bestMonths: [5, 6, 7, 8, 9, 10],
         bestSeason: "Summer",
-        metadata: { method: "model", modelVersion: "season-model-v1", confidence: "medium", basis: "tropical latitude band; calibrated 6/7 trusted summer peaks" },
+        metadata: {
+          method: "model",
+          modelVersion: "season-model-v1",
+          confidence: "medium",
+          basis: "tropical latitude band; calibrated 6/7 trusted summer peaks",
+        },
       };
     }
     return {
@@ -88,7 +110,12 @@ export function seasonModel(
       season: { spring: 7, summer: 10, autumn: 6, winter: 3 },
       bestMonths: [7, 8],
       bestSeason: "Summer",
-      metadata: { method: "model", modelVersion: "season-model-v1", confidence: "medium", basis: "temperate latitude band; calibrated beach peaks" },
+      metadata: {
+        method: "model",
+        modelVersion: "season-model-v1",
+        confidence: "medium",
+        basis: "temperate latitude band; calibrated beach peaks",
+      },
     };
   }
 
@@ -102,7 +129,13 @@ export function seasonModel(
       season: { spring: 7, summer: 6, autumn: 7, winter: 7 },
       bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       bestSeason: "All Year (indoor)",
-      metadata: { method: "model", modelVersion: "season-model-v1", confidence: "low", basis: "indoorPercent/kind; year-round marker; calibration gap documented" },
+      metadata: {
+        method: "model",
+        modelVersion: "season-model-v1",
+        confidence: "low",
+        basis:
+          "indoorPercent/kind; year-round marker; calibration gap documented",
+      },
     };
   }
 
@@ -114,7 +147,12 @@ export function seasonModel(
       season: { spring: 8, summer: 6, autumn: 10, winter: 5 },
       bestMonths: [10, 11],
       bestSeason: "Autumn",
-      metadata: { method: "model", modelVersion: "season-model-v1", confidence: "medium", basis: "foliage category; calibrated 4/4 trusted autumn peaks" },
+      metadata: {
+        method: "model",
+        modelVersion: "season-model-v1",
+        confidence: "medium",
+        basis: "foliage category; calibrated 4/4 trusted autumn peaks",
+      },
     };
   }
 
@@ -126,7 +164,12 @@ export function seasonModel(
       season: { spring: 10, summer: 6, autumn: 7, winter: 4 },
       bestMonths: [4, 5, 10, 11],
       bestSeason: "Spring & Autumn",
-      metadata: { method: "model", modelVersion: "season-model-v1", confidence: "medium", basis: "spring-flower category; calibrated 8/9 trusted" },
+      metadata: {
+        method: "model",
+        modelVersion: "season-model-v1",
+        confidence: "medium",
+        basis: "spring-flower category; calibrated 8/9 trusted",
+      },
     };
   }
 
@@ -137,7 +180,13 @@ export function seasonModel(
   // unknown, with an explicit marker (never a fabricated vector).
   return {
     action: "neutralize",
-    reason: "no defensible seasonal model signal; template vector neutralized to unknown (R7)",
-    metadata: { method: "unknown", modelVersion: "season-model-v1", confidence: "unknown", basis: "no rule matched; owner policy: unknown stays unknown" },
+    reason:
+      "no defensible seasonal model signal; template vector neutralized to unknown (R7)",
+    metadata: {
+      method: "unknown",
+      modelVersion: "season-model-v1",
+      confidence: "unknown",
+      basis: "no rule matched; owner policy: unknown stays unknown",
+    },
   };
 }

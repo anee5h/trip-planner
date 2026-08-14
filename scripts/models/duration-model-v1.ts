@@ -55,10 +55,15 @@ const KIND_BANDS: Record<string, { min: number; max: number }> = {
 const SCALE_UPLIFT = { min: 1, max: 2 }; // unesco/collection/highlights >= 4
 
 /** Hub window model: exploration window, not attraction visit time. */
-function hubWindow(dest: Destination, childrenCount: number): { min: number; max: number } {
-  const importanceAdj = dest.importance === "major" ? 2 : dest.importance === "notable" ? 1 : 0;
+function hubWindow(
+  dest: Destination,
+  childrenCount: number,
+): { min: number; max: number } {
+  const importanceAdj =
+    dest.importance === "major" ? 2 : dest.importance === "notable" ? 1 : 0;
   const childrenAdj = childrenCount >= 10 ? 1 : childrenCount >= 3 ? 0.5 : 0;
-  const metroAdj = dest.categories?.includes("Metro") || dest.region === "Kanto" ? 1 : 0;
+  const metroAdj =
+    dest.categories?.includes("Metro") || dest.region === "Kanto" ? 1 : 0;
   const center = Math.round(8 + importanceAdj + childrenAdj + metroAdj);
   const min = Math.max(4, center - 3);
   // Cap at 12h (the legacy template maximum): longer hub windows push
@@ -74,7 +79,12 @@ export function durationModel(
   childCountById: Map<string, number>,
 ): DurationModelOutput {
   if (!eligibleIds.has(dest.id)) {
-    return { action: "keep", reason: "outside model scope (override precedence)", confidence: "unknown", modelVersion: "duration-model-v1" };
+    return {
+      action: "keep",
+      reason: "outside model scope (override precedence)",
+      confidence: "unknown",
+      modelVersion: "duration-model-v1",
+    };
   }
 
   if (HUB_KINDS.has(dest.kind ?? "")) {
@@ -102,7 +112,8 @@ export function durationModel(
 
   const unescoOrCollection = Boolean(dest.collections?.length);
   const highlights = (dest.highlights ?? []).length;
-  const uplift = unescoOrCollection || highlights >= 4 ? SCALE_UPLIFT : { min: 0, max: 0 };
+  const uplift =
+    unescoOrCollection || highlights >= 4 ? SCALE_UPLIFT : { min: 0, max: 0 };
   return {
     action: "set",
     reason: `kind band '${kind}'${uplift.min ? " + scale uplift" : ""}`,
