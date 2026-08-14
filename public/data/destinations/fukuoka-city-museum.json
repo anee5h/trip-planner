@@ -79,7 +79,7 @@
   "comfort": {
     "heatTolerance": 8,
     "rainFriendly": 9,
-    "walkingIntensity": 4
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 9,
@@ -95,17 +95,17 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 4,
+    "weekday": 5,
     "weekend": 7,
-    "holiday": 7
+    "holiday": 6
   },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Museum parking available",
@@ -145,7 +145,25 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=80, kind='museum', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://museum.city.fukuoka.jp/",
   "municipalityId": "Fukuoka:fukuoka",
@@ -155,5 +173,12 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "国宝「金印」が常設展示の最大の見どころです。"
+  "notesJa": "国宝「金印」が常設展示の最大の見どころです。",
+  "bestSeason": "All Year (indoor)",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  }
 }

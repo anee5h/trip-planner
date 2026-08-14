@@ -71,8 +71,8 @@
   "transportOptions": {},
   "totalTripHours": 3,
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 4
+    "min": 3,
+    "max": 5
   },
   "walkingMin": 2000,
   "walkingIntensity": "low",
@@ -98,9 +98,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
+    "weekday": 4,
     "weekend": 6,
-    "holiday": 7
+    "holiday": 5
   },
   "season": {
     "spring": 8,
@@ -149,7 +149,25 @@
       }
     ],
     "reviewedAt": "2026-08-05",
-    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    "reviewedBy": "Kyushu-to-100 Editorial Batch",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'onsen'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='onsen', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://oidehita.com/archives/51871",
   "municipalityId": "Oita:hita"

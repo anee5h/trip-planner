@@ -19,14 +19,14 @@
   "kind": "city",
   "importance": "notable",
   "categories": ["City", "Culture", "Food"],
-  "budgetMin": 7000,
-  "budgetMax": 14000,
-  "budgetRecommended": 10500,
+  "budgetMin": 4600,
+  "budgetMax": 10600,
+  "budgetRecommended": 7600,
   "budgetBreakdown": {
     "transport": 3000,
-    "tickets": 1500,
-    "food": 4500,
-    "cafe": 1500
+    "tickets": 0,
+    "food": 3000,
+    "cafe": 1600
   },
   "transportOptions": {
     "train": 120,
@@ -43,7 +43,7 @@
   "comfort": {
     "heatTolerance": 6,
     "rainFriendly": 5,
-    "walkingIntensity": 6
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 7.8,
@@ -58,18 +58,10 @@
     "uniqueness": 7.6
   },
   "crowd": {
-    "weekday": 2,
-    "weekend": 3,
-    "holiday": 4
+    "weekday": 7,
+    "weekend": 9,
+    "holiday": 8
   },
-  "season": {
-    "spring": 8,
-    "summer": 7,
-    "autumn": 8,
-    "winter": 6
-  },
-  "bestMonths": [4, 5, 10, 11],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "Not usually required; reserve popular accommodation in advance.",
   "parking": "Available around major attractions; confirm local restrictions.",
@@ -84,8 +76,8 @@
   "collections": [],
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 8,
-    "max": 14
+    "min": 6,
+    "max": 12
   },
   "businessHours": "Open access",
   "municipalityId": "Akita:akita",
@@ -111,7 +103,41 @@
         "summary": "KAI-57 existing-data audit correction",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "budgetRecommended": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "budget-model-v1; peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance notable, 1 children, metro adj",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=35, kind='city', walkingMin=70",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='city', importance=notable, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "notesJa": "日本海側の秋田県都。竿燈まつりと千秋公園で知られます。",
   "imageMetadata": {
@@ -119,5 +145,17 @@
     "license": "CC BY-SA 4.0",
     "attribution": "水だらけのプール",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akita_Montage2.jpg"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   }
 }

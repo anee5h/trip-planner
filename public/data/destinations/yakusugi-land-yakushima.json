@@ -97,15 +97,8 @@
   "crowd": {
     "weekday": 3,
     "weekend": 6,
-    "holiday": 7
+    "holiday": 4
   },
-  "season": {
-    "spring": 9,
-    "summer": 9,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Trailhead parking available",
@@ -145,7 +138,17 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='nature', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.yakushima.or.jp/",
   "municipalityId": "Kagoshima:yakushima",
@@ -155,5 +158,11 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "縄文杉より易しく木道も整備された家族向けトレイルです。"
+  "notesJa": "縄文杉より易しく木道も整備された家族向けトレイルです。",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

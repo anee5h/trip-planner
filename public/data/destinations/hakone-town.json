@@ -21,8 +21,6 @@
   "budgetRecommended": 25500,
   "budgetMax": 45000,
   "walkingMin": 40,
-  "walkingSunMin": 24,
-  "walkingShadeMin": 16,
   "indoorPercent": 50,
   "ratings": {
     "overall": 9.7,
@@ -56,8 +54,8 @@
     "lng": 139.1069
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 8,
+    "heatTolerance": 6,
+    "rainFriendly": 6,
     "walkingIntensity": 3
   },
   "transportOptions": {
@@ -93,7 +91,7 @@
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 8,
-    "max": 14
+    "max": 12
   },
   "businessHours": "Open access",
   "editorial": {
@@ -110,7 +108,25 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 0 children, metro adj",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=50, kind='town', walkingMin=40",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "箱根",
   "content": {

@@ -68,8 +68,8 @@
   },
   "totalTripHours": 3,
   "recommendedVisitHours": {
-    "min": 1,
-    "max": 2.5
+    "min": 1.5,
+    "max": 3
   },
   "walkingMin": 3500,
   "walkingIntensity": "low",
@@ -95,17 +95,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 8
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 6
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Garden parking available",
@@ -145,7 +138,25 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'garden'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='garden', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.suizenji.or.jp/",
   "municipalityId": "Kumamoto:kumamoto",
@@ -155,5 +166,11 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "池の反射が最も美しい午前中の訪問がおすすめです。"
+  "notesJa": "池の反射が最も美しい午前中の訪問がおすすめです。",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

@@ -50,8 +50,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kojima_Jeans_Street_2021-08_ac_(5).jpg"
   },
   "recommendedVisitHours": {
-    "min": 1.5,
-    "max": 3
+    "min": 1,
+    "max": 2
   },
   "walkingMin": 3000,
   "walkingSunMin": 2000,
@@ -59,9 +59,9 @@
   "walkingIntensity": "medium",
   "indoorPercent": 40,
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 6,
-    "walkingIntensity": 4
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.4,
@@ -77,9 +77,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 2,
-    "weekend": 4,
-    "holiday": 5
+    "weekday": 6,
+    "weekend": 8,
+    "holiday": 7
   },
   "season": {
     "spring": 8,
@@ -153,7 +153,33 @@
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=40, kind='street', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='street', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'street'",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

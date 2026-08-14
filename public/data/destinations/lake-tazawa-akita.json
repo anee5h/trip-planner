@@ -53,9 +53,9 @@
   "walkingShadeMin": 500,
   "indoorPercent": 10,
   "crowd": {
-    "weekday": 3,
-    "weekend": 5,
-    "holiday": 7
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 5
   },
   "season": {
     "spring": 8,
@@ -67,9 +67,9 @@
   "bestSeason": "Summer",
   "weatherDependence": "high",
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 5,
-    "walkingIntensity": 2
+    "heatTolerance": 5,
+    "rainFriendly": 2,
+    "walkingIntensity": 5
   },
   "walkingIntensity": "low",
   "reservation": "None required",
@@ -108,7 +108,25 @@
         "summary": "KAI-57 existing-data audit correction",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=10, kind='', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "imageMetadata": {
     "source": "Wikimedia Commons",

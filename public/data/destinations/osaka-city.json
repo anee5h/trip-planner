@@ -33,18 +33,18 @@
     "uniqueness": 9.7
   },
   "crowd": {
-    "weekday": 6,
-    "weekend": 9,
-    "holiday": 10
+    "weekday": 8,
+    "weekend": 10,
+    "holiday": 9
   },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "low",
   "tags": ["Osaka City", "Dotonbori", "Kuromon Market", "Takoyaki Capital"],
   "coordinates": {
@@ -53,8 +53,8 @@
   },
   "comfort": {
     "heatTolerance": 8,
-    "rainFriendly": 9,
-    "walkingIntensity": 3
+    "rainFriendly": 8,
+    "walkingIntensity": 5
   },
   "transportOptions": {
     "train": 190,
@@ -108,7 +108,7 @@
   },
   "walkingIntensity": "medium",
   "recommendedVisitHours": {
-    "min": 6,
+    "min": 8,
     "max": 12
   },
   "businessHours": "Open access",
@@ -127,7 +127,33 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 19 children, metro adj",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=70, kind='city', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='city', importance=major, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "notesJa": "【見どころ】Osaka Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -157,5 +183,17 @@
     "license": "Unsplash License",
     "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
     "sourceUrl": "https://unsplash.com"
+  },
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
   }
 }

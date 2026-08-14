@@ -54,9 +54,9 @@
     "uniqueness": 9
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 7,
-    "holiday": 8
+    "weekday": 6,
+    "weekend": 8,
+    "holiday": 7
   },
   "season": {
     "spring": 8,
@@ -89,8 +89,8 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 9,
-    "max": 11
+    "min": 4,
+    "max": 7
   },
   "officialWebsite": "https://www.ikaho-kankou.com/",
   "businessHours": "09:00 - 17:00 (Daily)",
@@ -108,7 +108,25 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'onsen' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='onsen', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "伊香保温泉",
   "content": {

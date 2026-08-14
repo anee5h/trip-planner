@@ -69,8 +69,8 @@
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 4
+    "min": 2.5,
+    "max": 5
   },
   "walkingMin": 5000,
   "walkingIntensity": "medium",
@@ -78,9 +78,9 @@
   "walkingShadeMin": 2500,
   "indoorPercent": 30,
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 6,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 9,
@@ -96,17 +96,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 8
+    "weekday": 6,
+    "weekend": 8,
+    "holiday": 7
   },
-  "season": {
-    "spring": 9,
-    "summer": 7,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 10, 11],
   "weatherDependence": "moderate",
   "reservation": "None required for public areas; individual museums may charge admission",
   "reservationJa": "町並み散策は自由。各博物館は別途入館料あり。",
@@ -153,7 +146,33 @@
       }
     ],
     "reviewedAt": "2026-08-12",
-    "reviewedBy": "Collections audit correction"
+    "reviewedBy": "Collections audit correction",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'castle' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=30, kind='castle', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='castle', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/obi/",
   "municipalityId": "Miyazaki:nichinan",
@@ -161,5 +180,11 @@
     "rubricVersion": 2,
     "method": "assisted",
     "confidence": "medium"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   }
 }

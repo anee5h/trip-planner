@@ -49,32 +49,21 @@
   },
   "description": "Botanical garden on Enoshima, named after the British merchant Samuel Cocking who built a greenhouse here in the late 19th century. Today the garden displays seasonal flowers around the base of the Enoshima Sea Candle lighthouse, with evening illumination events.",
   "highlights": ["Nature"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 50
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {
     "min": 1.5,
-    "max": 4
+    "max": 3
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 7,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8,
@@ -92,9 +81,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 6,
+    "weekend": 9,
+    "holiday": 7
   },
   "season": {
     "spring": 8.5,
@@ -149,6 +138,30 @@
           "title": "Samuel Cocking Garden",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'garden'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='garden', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='garden', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -180,5 +193,17 @@
   "openingHours": "~09:00-17:00 seasonal",
   "openingHoursJa": "~09:00-17:00 seasonal",
   "municipalityId": "Kanagawa:fujisawa",
-  "transportZoneId": "mainland-honshu"
+  "transportZoneId": "mainland-honshu",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  }
 }

@@ -28,13 +28,13 @@
   "budgetMin": 20000,
   "budgetMax": 28000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
+  "walkingMin": 290,
   "walkingSunMin": 4000,
   "walkingShadeMin": 6000,
   "comfort": {
-    "heatTolerance": 5,
-    "rainFriendly": 4,
-    "walkingIntensity": 5
+    "heatTolerance": 7,
+    "rainFriendly": 1,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "car": 280,
@@ -43,8 +43,8 @@
   },
   "crowd": {
     "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
+    "weekend": 6,
+    "holiday": 4
   },
   "season": {
     "spring": 4,
@@ -89,8 +89,8 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 3,
+    "max": 6
   },
   "officialWebsite": "https://www.alpen-route.com/",
   "businessHours": "Seasonal: 2026-04-15 to 2026-11-30; closed in winter"

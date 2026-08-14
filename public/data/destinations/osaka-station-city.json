@@ -39,15 +39,6 @@
   },
   "description": "A large complex above Osaka Station with shopping, dining, entertainment, offices, and public spaces across its north and south buildings.",
   "highlights": ["Culture"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1300,
-    "tickets": 0,
-    "food": 2300,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 192,
     "bus": 212,
@@ -58,15 +49,13 @@
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 90,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 6.5,
@@ -85,8 +74,8 @@
   "ratingsSchemaVersion": 2,
   "crowd": {
     "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekend": 7,
+    "holiday": 6
   },
   "season": {
     "spring": 9.4,
@@ -151,6 +140,30 @@
           "title": "Osaka Station City official website",
           "accessedAt": "2026-08-13"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 50% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changeSummary": "KAI-89 source-backed template-copy correction",
@@ -175,5 +188,17 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "municipalityId": "Osaka:osaka"
+  "municipalityId": "Osaka:osaka",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  }
 }

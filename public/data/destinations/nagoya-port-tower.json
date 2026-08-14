@@ -10,7 +10,7 @@
   "budgetMin": 2500,
   "budgetRecommended": 5500,
   "budgetMax": 8500,
-  "walkingMin": 3500,
+  "walkingMin": 70,
   "walkingSunMin": 1200,
   "walkingShadeMin": 2300,
   "indoorPercent": 85,
@@ -27,8 +27,8 @@
     "uniqueness": 8.6
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
+    "weekday": 6,
+    "weekend": 8,
     "holiday": 7
   },
   "season": {
@@ -52,8 +52,8 @@
   },
   "comfort": {
     "heatTolerance": 8,
-    "rainFriendly": 9,
-    "walkingIntensity": 3
+    "rainFriendly": 8,
+    "walkingIntensity": 5
   },
   "transportOptions": {
     "train": 100,
@@ -96,7 +96,7 @@
   "relationships": {
     "parentDestinationId": "nagoya-city"
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "medium",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 2,

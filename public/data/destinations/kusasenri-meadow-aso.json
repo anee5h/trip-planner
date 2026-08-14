@@ -68,13 +68,11 @@
   },
   "totalTripHours": 4,
   "recommendedVisitHours": {
-    "min": 1,
-    "max": 2.5
+    "min": 3,
+    "max": 6
   },
-  "walkingMin": 5000,
-  "walkingIntensity": "medium",
-  "walkingSunMin": 3000,
-  "walkingShadeMin": 2000,
+  "walkingMin": 290,
+  "walkingIntensity": "high",
   "indoorPercent": 0,
   "comfort": {
     "heatTolerance": 7,
@@ -95,17 +93,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 8
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 4
   },
-  "season": {
-    "spring": 9,
-    "summer": 9,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Grassland parking available",
@@ -139,7 +130,33 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'nature'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='nature', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 5000 replaced by walk-share estimate (FIX_UNIT): 80% of 6h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": null,
   "municipalityId": "Kumamoto:aso",
@@ -149,5 +166,17 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "暖かい季節には草原での乗馬体験が楽しめます。"
+  "notesJa": "暖かい季節には草原での乗馬体験が楽しめます。",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

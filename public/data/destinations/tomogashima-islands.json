@@ -40,7 +40,17 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 3.5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "relationships": {
     "parentDestinationId": "wakayama-city"
@@ -99,5 +109,19 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Tomogashima_Lighthouse_distant_view.jpg/1920px-Tomogashima_Lighthouse_distant_view.jpg",
   "travelEstimate": {
     "confidence": "beta"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 170,
+  "walkingIntensity": "high",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
   }
 }

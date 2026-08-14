@@ -18,14 +18,14 @@
   "kind": "city",
   "importance": "notable",
   "categories": ["City", "Culture", "Food"],
-  "budgetMin": 7000,
-  "budgetMax": 14000,
-  "budgetRecommended": 10500,
+  "budgetMin": 4600,
+  "budgetMax": 10600,
+  "budgetRecommended": 7600,
   "budgetBreakdown": {
     "transport": 3000,
-    "tickets": 1500,
-    "food": 4500,
-    "cafe": 1500
+    "tickets": 0,
+    "food": 3000,
+    "cafe": 1600
   },
   "transportOptions": {
     "train": 120,
@@ -41,7 +41,7 @@
   "comfort": {
     "heatTolerance": 6,
     "rainFriendly": 5,
-    "walkingIntensity": 6
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 7.8,
@@ -56,18 +56,10 @@
     "uniqueness": 7.6
   },
   "crowd": {
-    "weekday": 2,
-    "weekend": 3,
-    "holiday": 4
+    "weekday": 7,
+    "weekend": 9,
+    "holiday": 8
   },
-  "season": {
-    "spring": 8,
-    "summer": 7,
-    "autumn": 8,
-    "winter": 6
-  },
-  "bestMonths": [4, 5, 10, 11],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "Not usually required; reserve popular accommodation in advance.",
   "parking": "Available around major attractions; confirm local restrictions.",
@@ -84,8 +76,8 @@
   "collections": [],
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 8,
-    "max": 14
+    "min": 6,
+    "max": 12
   },
   "businessHours": "Open access",
   "municipalityId": "Yamaguchi:mine",
@@ -94,5 +86,17 @@
     "license": "CC BY-SA 3.0",
     "attribution": "Wikimedia Commons contributor",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akiyoshidai-Syuhodou.jpg"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   }
 }

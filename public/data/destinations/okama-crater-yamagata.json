@@ -54,8 +54,8 @@
   "indoorPercent": 5,
   "crowd": {
     "weekday": 4,
-    "weekend": 7,
-    "holiday": 9
+    "weekend": 6,
+    "holiday": 5
   },
   "season": {
     "spring": 7,
@@ -109,6 +109,16 @@
         "summary": "KAI-57 existing-data audit correction",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   }
 }

@@ -28,13 +28,13 @@
   "budgetMin": 15000,
   "budgetMax": 23000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
+  "walkingMin": 150,
   "walkingSunMin": 4000,
   "walkingShadeMin": 6000,
   "comfort": {
-    "heatTolerance": 5,
+    "heatTolerance": 4,
     "rainFriendly": 4,
-    "walkingIntensity": 5
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "car": 260,
@@ -42,15 +42,9 @@
     "train": 210
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
+    "weekday": 4,
+    "weekend": 6,
     "holiday": 5
-  },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
   },
   "highlights": [
     "Explore top-rated hot spring locations",
@@ -58,7 +52,6 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Okuhida, a prominent destination in Gifu. With its rich mix of onsen, ropeway, alps, it's a highly recommended spot for a 8-hour getaway.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 7600,
     "tickets": 3800,
@@ -76,7 +69,6 @@
     "parentDestinationId": "takayama-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/0/05/YariKamikohchiTagged.jpg",
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Available on site",
@@ -85,10 +77,16 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 3,
+    "max": 5
   },
   "officialWebsite": "https://www.okuhida.or.jp/",
   "businessHours": "Open access",
-  "municipalityId": "Gifu:takayama"
+  "municipalityId": "Gifu:takayama",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

@@ -71,7 +71,7 @@
     "min": 1,
     "max": 3
   },
-  "walkingMin": 4000,
+  "walkingMin": 90,
   "walkingIntensity": "medium",
   "walkingSunMin": 1500,
   "walkingShadeMin": 2500,
@@ -96,8 +96,8 @@
   "ratingsSchemaVersion": 2,
   "crowd": {
     "weekday": 4,
-    "weekend": 7,
-    "holiday": 8
+    "weekend": 6,
+    "holiday": 5
   },
   "season": {
     "spring": 8,
@@ -139,7 +139,25 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='onsen', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 50% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": null,
   "municipalityId": "Oita:beppu",

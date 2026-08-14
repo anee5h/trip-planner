@@ -10,7 +10,7 @@
   "budgetMin": 3000,
   "budgetRecommended": 6500,
   "budgetMax": 10000,
-  "walkingMin": 4500,
+  "walkingMin": 90,
   "walkingSunMin": 1800,
   "walkingShadeMin": 2700,
   "indoorPercent": 70,
@@ -27,18 +27,18 @@
     "uniqueness": 9.6
   },
   "crowd": {
-    "weekday": 5,
+    "weekday": 6,
     "weekend": 8,
-    "holiday": 8
+    "holiday": 7
   },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "medium",
   "tags": [
     "Oda Nobunaga",
@@ -103,5 +103,11 @@
   },
   "officialWebsite": "https://www.city.gifu.lg.jp/kanko/gifucastle/",
   "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-  "municipalityId": "Gifu:gifu"
+  "municipalityId": "Gifu:gifu",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  }
 }

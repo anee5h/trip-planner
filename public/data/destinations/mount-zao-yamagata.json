@@ -61,8 +61,8 @@
   "indoorPercent": 20,
   "crowd": {
     "weekday": 4,
-    "weekend": 7,
-    "holiday": 9
+    "weekend": 6,
+    "holiday": 5
   },
   "season": {
     "spring": 9,
@@ -74,9 +74,9 @@
   "bestSeason": "Winter",
   "weatherDependence": "high",
   "comfort": {
-    "heatTolerance": 6,
-    "rainFriendly": 5,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "walkingIntensity": "moderate",
   "reservation": "Ropeway: none. Ski area: lift ticket required.",

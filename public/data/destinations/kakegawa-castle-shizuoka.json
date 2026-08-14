@@ -15,7 +15,7 @@
   "budgetMin": 3000,
   "budgetRecommended": 6250,
   "budgetMax": 9500,
-  "walkingMin": 3500,
+  "walkingMin": 70,
   "walkingSunMin": 1200,
   "walkingShadeMin": 2300,
   "indoorPercent": 80,
@@ -32,18 +32,18 @@
     "uniqueness": 9.4
   },
   "crowd": {
-    "weekday": 4,
-    "weekend": 7,
+    "weekday": 6,
+    "weekend": 8,
     "holiday": 7
   },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 9
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "low",
   "tags": [
     "Authentic Wooden Keep",
@@ -58,7 +58,7 @@
   "comfort": {
     "heatTolerance": 8,
     "rainFriendly": 8,
-    "walkingIntensity": 3
+    "walkingIntensity": 5
   },
   "transportOptions": {
     "train": 75,
@@ -100,7 +100,7 @@
   "relationships": {
     "gatewayHubId": "hamamatsu-city"
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "medium",
   "role": "standalone",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
@@ -110,5 +110,11 @@
   },
   "officialWebsite": "https://kakegawajo.com/",
   "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-  "municipalityId": "Shizuoka:kakegawa"
+  "municipalityId": "Shizuoka:kakegawa",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  }
 }

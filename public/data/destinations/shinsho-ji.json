@@ -49,15 +49,6 @@
   },
   "description": "Naritasan Shinsho-ji, head temple of the Shingon Chizan school, founded in 940 and among Japan's most visited temples. Its grand halls and five-story pagoda sit at the head of a lively approach street, and daily goma fire rituals draw crowds.",
   "highlights": ["History"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 201
   },
@@ -68,13 +59,11 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 25,
   "comfort": {
-    "heatTolerance": 3,
-    "rainFriendly": 3,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 9.3,
@@ -92,9 +81,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
+    "weekday": 6,
     "weekend": 8,
-    "holiday": 9
+    "holiday": 7
   },
   "season": {
     "spring": 6.8,
@@ -149,6 +138,22 @@
           "title": "Narita-san",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=25, kind='temple', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='temple', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -179,5 +184,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "08:30 - 16:30",
   "openingHoursJa": "08:30 - 16:30（境内自由）",
-  "municipalityId": "Chiba:narita"
+  "municipalityId": "Chiba:narita",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  }
 }

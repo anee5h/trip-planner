@@ -50,8 +50,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:20100724_Iwakuni_Castle_5262.jpg"
   },
   "recommendedVisitHours": {
-    "min": 1.5,
-    "max": 2.5
+    "min": 2.5,
+    "max": 5
   },
   "walkingMin": 3500,
   "walkingSunMin": 2500,
@@ -59,9 +59,9 @@
   "walkingIntensity": "low",
   "indoorPercent": 30,
   "comfort": {
-    "heatTolerance": 6,
+    "heatTolerance": 5,
     "rainFriendly": 5,
-    "walkingIntensity": 3
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.4,
@@ -77,18 +77,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
+    "weekday": 6,
+    "weekend": 8,
     "holiday": 7
   },
-  "season": {
-    "spring": 9,
-    "summer": 7,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 10, 11],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None",
   "parking": "Paid lots near Kintai Bridge / ropeway base",
@@ -147,7 +139,33 @@
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'castle' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=30, kind='castle', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='castle', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -157,5 +175,11 @@
   "relationships": {
     "parentDestinationId": "iwakuni-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

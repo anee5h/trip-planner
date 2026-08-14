@@ -10,8 +10,6 @@
   "budgetRecommended": 10900,
   "budgetMax": 14900,
   "walkingMin": 50,
-  "walkingSunMin": 30,
-  "walkingShadeMin": 20,
   "indoorPercent": 90,
   "ratings": {
     "overall": 9.5,
@@ -26,15 +24,15 @@
     "uniqueness": 10
   },
   "crowd": {
-    "weekday": 8,
-    "weekend": 10,
-    "holiday": 10
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
   "season": {
-    "spring": 9,
-    "summer": 9,
-    "autumn": 9,
-    "winter": 9
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "tags": ["Anime", "Indoor", "Art"],
@@ -74,7 +72,7 @@
   },
   "collections": [],
   "relationships": {},
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "moderate",
   "walkingIntensity": "medium",
   "role": "standalone",
@@ -100,7 +98,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "三鷹の森ジブリ美術館",
   "content": {
@@ -138,5 +146,17 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "10:00-18:00",
   "openingHoursJa": "10:00〜18:00（火曜休館・予約制）",
-  "municipalityId": "Tokyo:mitaka"
+  "municipalityId": "Tokyo:mitaka",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

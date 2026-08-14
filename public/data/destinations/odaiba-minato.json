@@ -13,8 +13,6 @@
   "budgetRecommended": 13000,
   "budgetMax": 17000,
   "walkingMin": 60,
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 60,
   "ratings": {
     "overall": 9,
@@ -29,17 +27,17 @@
     "uniqueness": 8.5
   },
   "crowd": {
-    "weekday": 6,
+    "weekday": 7,
     "weekend": 9,
-    "holiday": 10
+    "holiday": 8
   },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 9
+    "spring": 7,
+    "summer": 10,
+    "autumn": 6,
+    "winter": 3
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [7, 8],
   "tags": ["Date Spot", "Entertainment", "Ocean View"],
   "coordinates": {
     "lat": 35.6190032,
@@ -81,13 +79,13 @@
     "parentDestinationId": "koto-city",
     "featuredDestinationIds": ["miraikan", "joypolis"]
   },
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "Summer",
   "weatherDependence": "moderate",
   "walkingIntensity": "high",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 2,
+    "max": 4
   },
   "officialWebsite": "https://tokyo-odaiba.net/",
   "businessHours": "09:00 - 17:00 (Daily)",
@@ -105,7 +103,25 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'district'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='district', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "お台場",
   "content": {
@@ -139,5 +155,17 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tokyo:koto"
+  "municipalityId": "Tokyo:koto",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "temperate latitude band; calibrated beach peaks"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

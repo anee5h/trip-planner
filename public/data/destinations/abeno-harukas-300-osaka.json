@@ -33,18 +33,18 @@
     "uniqueness": 9.8
   },
   "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 7,
+    "weekend": 10,
+    "holiday": 8
   },
   "season": {
-    "spring": 9,
-    "summer": 9,
-    "autumn": 9,
-    "winter": 9
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "low",
   "tags": [
     "300m Skyscraper",
@@ -57,9 +57,9 @@
     "lng": 135.5133
   },
   "comfort": {
-    "heatTolerance": 9,
-    "rainFriendly": 10,
-    "walkingIntensity": 2
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 5
   },
   "transportOptions": {
     "train": 180,
@@ -128,7 +128,25 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=90, kind='viewpoint', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='viewpoint', importance=major, collections=2",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "notesJa": "【見どころ】Abeno Harukas 300 (Osaka Skyline)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -152,5 +170,11 @@
       ]
     }
   },
-  "municipalityId": "Osaka:osaka"
+  "municipalityId": "Osaka:osaka",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  }
 }

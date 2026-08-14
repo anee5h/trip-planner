@@ -21,7 +21,7 @@
   "budgetMin": 4000,
   "budgetRecommended": 14500,
   "budgetMax": 25000,
-  "walkingMin": 4000,
+  "walkingMin": 360,
   "walkingSunMin": 1500,
   "walkingShadeMin": 2500,
   "indoorPercent": 60,
@@ -38,18 +38,10 @@
     "uniqueness": 9.3
   },
   "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 8
+    "weekday": 8,
+    "weekend": 10,
+    "holiday": 9
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
   "weatherDependence": "low",
   "tags": ["Nagoya City", "Aichi Hub", "Samurai Heritage", "Nagoya Meshi"],
   "coordinates": {
@@ -57,9 +49,9 @@
     "lng": 136.9066
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 9,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "train": 200,
@@ -107,10 +99,10 @@
     "food": 5891,
     "cafe": 3171
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 6,
+    "min": 8,
     "max": 12
   },
   "businessHours": "Open access",
@@ -120,5 +112,11 @@
     "license": "Public domain",
     "attribution": "ウィキ太郎(WikiTaro)",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagoya_Station_-_View_from_the_Main_Building_in_Nagoya_Campus_of_Aichi_University_2022-6-29.jpg"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   }
 }

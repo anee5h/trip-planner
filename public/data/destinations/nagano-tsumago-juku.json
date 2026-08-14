@@ -36,9 +36,9 @@
     "lng": 137.595
   },
   "comfort": {
-    "walkingIntensity": 3,
-    "heatTolerance": 8,
-    "rainFriendly": 5
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 9,
@@ -53,18 +53,10 @@
     "uniqueness": 9.5
   },
   "crowd": {
-    "weekday": 3,
+    "weekday": 5,
     "weekend": 7,
-    "holiday": 8
+    "holiday": 6
   },
-  "season": {
-    "spring": 8,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [5, 6, 10, 11],
-  "bestSeason": "Autumn",
   "weatherDependence": "medium",
   "tags": ["Post Town", "Historic Preservation", "Nakasendo", "Hiking"],
   "reservation": "Not required",
@@ -101,5 +93,17 @@
     "max": 11
   },
   "officialWebsite": "https://tumago.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

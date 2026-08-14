@@ -21,16 +21,16 @@
   "highlights": ["Explore Sasebo City", "Local Culture & Cuisine"],
   "highlightsJa": ["佐世保市を探索", "地元の文化と料理"],
   "totalTripHours": 6,
-  "budgetMin": 3500,
-  "budgetRecommended": 14250,
-  "budgetMax": 25000,
+  "budgetMin": 4600,
+  "budgetRecommended": 7600,
+  "budgetMax": 10600,
   "budgetBreakdown": {
-    "transport": 3563,
-    "tickets": 1781,
-    "food": 5789,
-    "cafe": 3117
+    "transport": 3000,
+    "tickets": 0,
+    "food": 3000,
+    "cafe": 1600
   },
-  "walkingMin": 4000,
+  "walkingMin": 360,
   "walkingSunMin": 1500,
   "walkingShadeMin": 2500,
   "indoorPercent": 50,
@@ -48,18 +48,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
+    "weekday": 6,
     "weekend": 8,
-    "holiday": 9
+    "holiday": 7
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
   "weatherDependence": "low",
   "tags": ["Sasebo City", "Nagasaki Travel", "Regional Hub"],
   "coordinates": {
@@ -67,9 +59,9 @@
     "lng": 129.7151
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 8,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "train": 280
@@ -85,9 +77,9 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["nagasaki-city", "karatsu-city", "fukuoka-city"]
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "recommendedVisitHours": {
-    "min": 6,
+    "min": 7,
     "max": 12
   },
   "municipalityId": "Nagasaki:sasebo",
@@ -111,7 +103,49 @@
         "title": "Sasebo",
         "accessedAt": "2026-08-05"
       }
-    ]
+    ],
+    "fieldSources": {
+      "budgetRecommended": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "budget-model-v1; peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance notable, 5 children, metro adj",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 50% of 12h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=50, kind='city', walkingMin=360",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='city', importance=notable, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "openingHours": "No fixed opening hours (city area); individual attractions have their own schedules.",
   "openingHoursJa": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。",
@@ -132,5 +166,11 @@
       "highlights": ["佐世保市を探索", "地元の文化と料理"],
       "openingHours": "市内エリアに固定営業時間なし。各施設の営業時間は個別に確認。"
     }
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   }
 }

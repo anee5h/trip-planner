@@ -99,8 +99,8 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 2,
-    "weekend": 4,
+    "weekday": 4,
+    "weekend": 6,
     "holiday": 5
   },
   "season": {
@@ -150,7 +150,17 @@
       }
     ],
     "reviewedAt": "2026-08-05",
-    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    "reviewedBy": "Kyushu-to-100 Editorial Batch",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='historic', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.kankou-nichinan.jp/tourisms/316/",
   "municipalityId": "Miyazaki:nichinan"

@@ -108,11 +108,35 @@
     ],
     "checkedAt": "2026-08-12",
     "freshness": "current",
-    "changeSummary": "PR C parks audit: new quasi-national park record"
+    "changeSummary": "PR C parks audit: new quasi-national park record",
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "assisted",
     "confidence": "medium"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 240,
+  "walkingIntensity": "high",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
   }
 }

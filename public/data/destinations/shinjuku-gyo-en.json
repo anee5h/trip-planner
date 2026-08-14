@@ -73,13 +73,11 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 6.3,
@@ -99,7 +97,7 @@
   "crowd": {
     "weekday": 5,
     "weekend": 8,
-    "holiday": 9
+    "holiday": 6
   },
   "season": {
     "spring": 9.5,
@@ -160,6 +158,22 @@
           "title": "Shinjuku",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='park', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='park', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -189,5 +203,11 @@
   "parkingJa": "新宿門横に有料駐車場が完備されています。",
   "openingHours": "09:00-17:30 (Mar-Oct), 09:00-16:30 (Nov-Feb); closed Mon",
   "openingHoursJa": "09:00 - 17:30（月曜休園）",
-  "municipalityId": "Tokyo:shinjuku"
+  "municipalityId": "Tokyo:shinjuku",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

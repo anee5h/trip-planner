@@ -70,13 +70,11 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 7,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.8,
@@ -92,17 +90,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 6,
+    "weekend": 9,
+    "holiday": 7
   },
-  "season": {
-    "spring": 9.4,
-    "summer": 7.7,
-    "autumn": 9.4,
-    "winter": 9.3
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; admission ticket purchased at the gate.",
   "parking": "No general on-site parking. Limited spaces across the main gate for wheelchair/disabled vehicles and tour buses only; other vehicles use the nearest public parking (e.g. Shiodome Parking).",
@@ -161,6 +152,22 @@
           "title": "浜離宮恩賜庭園｜公園へ行こう！",
           "accessedAt": "2026-08-13"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='garden', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='garden', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
       ]
     }
   },
@@ -183,5 +190,11 @@
   "parkingJa": "専用駐車場はありません（大手門橋を渡った所に障害者用・観光バス用の限られた駐車スペースのみ）。一般車両は最寄りの公共駐車場（汐留駐車場など）をご利用ください。",
   "openingHours": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
   "openingHoursJa": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
-  "municipalityId": "Tokyo:chuo"
+  "municipalityId": "Tokyo:chuo",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

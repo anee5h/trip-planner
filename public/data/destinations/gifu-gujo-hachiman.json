@@ -36,9 +36,9 @@
     "lng": 136.9589
   },
   "comfort": {
-    "walkingIntensity": 2,
-    "heatTolerance": 8,
-    "rainFriendly": 5
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.6,
@@ -53,9 +53,9 @@
     "uniqueness": 9
   },
   "crowd": {
-    "weekday": 2,
+    "weekday": 4,
     "weekend": 6,
-    "holiday": 7
+    "holiday": 5
   },
   "season": {
     "spring": 8,
@@ -96,5 +96,11 @@
   },
   "officialWebsite": "https://www.gujokankou.com/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Gifu:gujo"
+  "municipalityId": "Gifu:gujo",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

@@ -36,9 +36,9 @@
     "lng": 138.1633
   },
   "comfort": {
-    "walkingIntensity": 2,
-    "heatTolerance": 9,
-    "rainFriendly": 6
+    "heatTolerance": 5,
+    "rainFriendly": 6,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.8,
@@ -53,9 +53,9 @@
     "uniqueness": 9.2
   },
   "crowd": {
-    "weekday": 2,
+    "weekday": 4,
     "weekend": 6,
-    "holiday": 7
+    "holiday": 5
   },
   "season": {
     "spring": 8,
@@ -85,8 +85,8 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 9,
-    "max": 11
+    "min": 4,
+    "max": 7
   },
   "officialWebsite": "https://www.bessho-spa.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",

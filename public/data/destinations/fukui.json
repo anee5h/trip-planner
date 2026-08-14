@@ -5,7 +5,6 @@
   "region": "Chubu",
   "categories": ["City", "Museum", "Coast"],
   "tags": ["Dinosaurs", "Cliffs", "Crab"],
-  "budgetRecommended": 11000,
   "ratings": {
     "overall": 8.2,
     "photography": 8.5,
@@ -25,16 +24,14 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Skyline_of_Fukui_City02.jpg",
   "prefecture": "Fukui",
-  "budgetMin": 7000,
-  "budgetMax": 15000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
+  "walkingMin": 360,
   "walkingSunMin": 4000,
   "walkingShadeMin": 6000,
   "comfort": {
-    "heatTolerance": 5,
-    "rainFriendly": 4,
-    "walkingIntensity": 5
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "car": 300,
@@ -42,15 +39,15 @@
     "shinkansen": 170
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
+    "weekday": 6,
+    "weekend": 8,
+    "holiday": 7
   },
   "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
+    "spring": 7,
+    "summer": 10,
+    "autumn": 6,
+    "winter": 3
   },
   "highlights": [
     "Explore top-rated city locations",
@@ -58,13 +55,7 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Fukui, a prominent destination in Fukui. With its rich mix of dinosaurs, cliffs, crab, it's a highly recommended spot for a 8-hour getaway.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "budgetBreakdown": {
-    "transport": 4400,
-    "tickets": 2200,
-    "food": 3300,
-    "cafe": 1100
-  },
+  "bestMonths": [7, 8],
   "notes": "A fantastic trip to Fukui. Known for its dinosaurs and cliffs vibes, it offers a great escape with an overall score of 8.2.",
   "schemaVersion": 2,
   "status": "verified",
@@ -74,7 +65,7 @@
   "collections": [],
   "relationships": {},
   "image": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Skyline_of_Fukui_City02.jpg",
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "Summer",
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Available on site",
@@ -83,9 +74,15 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 5,
+    "max": 12
   },
   "officialWebsite": "https://www.fukuikankou.jp/",
-  "businessHours": "09:30 - 17:00 (Closed Mondays)"
+  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "temperate latitude band; calibrated beach peaks"
+  }
 }

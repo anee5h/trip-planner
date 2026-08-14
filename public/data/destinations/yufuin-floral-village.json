@@ -71,15 +71,15 @@
     "min": 1,
     "max": 2.5
   },
-  "walkingMin": 3000,
+  "walkingMin": 75,
   "walkingIntensity": "medium",
   "walkingSunMin": 1500,
   "walkingShadeMin": 1500,
   "indoorPercent": 40,
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8,
@@ -95,17 +95,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 5
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Nearby paid parking",
@@ -145,7 +138,33 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=40, kind='mixed', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='mixed', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 50% of 2.5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://floral-village.com/",
   "municipalityId": "Oita:yufu",
@@ -155,5 +174,17 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "多くの旅館で日帰り入浴が可能。人気旅館は早めの予約を。"
+  "notesJa": "多くの旅館で日帰り入浴が可能。人気旅館は早めの予約を。",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

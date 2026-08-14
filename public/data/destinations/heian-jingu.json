@@ -40,15 +40,6 @@
   },
   "description": "A Kyoto shrine known for its large vermilion torii, expansive gardens, and ceremonies commemorating the city’s imperial heritage.",
   "highlights": ["History"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 231,
     "bus": 231,
@@ -59,15 +50,13 @@
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
-  "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
+  "walkingMin": 110,
+  "walkingIntensity": "high",
   "indoorPercent": 25,
   "comfort": {
-    "heatTolerance": 3,
-    "rainFriendly": 3,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 7,
@@ -86,8 +75,8 @@
   "ratingsSchemaVersion": 2,
   "crowd": {
     "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekend": 7,
+    "holiday": 6
   },
   "season": {
     "spring": 9.2,
@@ -152,6 +141,30 @@
           "title": "Heian Jingu official website",
           "accessedAt": "2026-08-13"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=25, kind='shrine', walkingMin=110",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='shrine', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 60% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changeSummary": "KAI-89 source-backed template-copy correction",
@@ -175,5 +188,11 @@
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "nearHubs": ["kyoto-city"],
-  "municipalityId": "Kyoto:kyoto"
+  "municipalityId": "Kyoto:kyoto",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  }
 }

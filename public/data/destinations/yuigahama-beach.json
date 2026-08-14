@@ -49,32 +49,21 @@
   },
   "description": "Sandy beach along Kamakura's coast, one of the closest shorelines to central Tokyo. Popular for swimming in summer and surfing year-round, it is lined with cafes and shops and framed by views of Enoshima.",
   "highlights": ["Nature"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 46
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {
-    "min": 1.5,
+    "min": 2,
     "max": 4
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 4,
+    "rainFriendly": 3,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 9.2,
@@ -92,9 +81,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 5
   },
   "season": {
     "spring": 7,
@@ -149,6 +138,30 @@
           "title": "Yuigahama",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'beach'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='beach', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='beach', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -180,5 +193,23 @@
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
   "municipalityId": "Kanagawa:kamakura",
-  "bestSeason": "Summer"
+  "bestSeason": "Summer",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "temperate latitude band; calibrated beach peaks"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  }
 }

@@ -11,8 +11,6 @@
   "budgetRecommended": 5500,
   "budgetMax": 9000,
   "walkingMin": 45,
-  "walkingSunMin": 27,
-  "walkingShadeMin": 18,
   "indoorPercent": 60,
   "ratings": {
     "overall": 9.6,
@@ -29,16 +27,8 @@
   "crowd": {
     "weekday": 6,
     "weekend": 8,
-    "holiday": 9
+    "holiday": 7
   },
-  "season": {
-    "spring": 10,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [3, 4, 5, 10, 11],
-  "bestSeason": "Spring",
   "weatherDependence": "low",
   "tags": [
     "Shogunate Seat",
@@ -51,8 +41,8 @@
     "lng": 139.7528
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 8,
+    "heatTolerance": 6,
+    "rainFriendly": 6,
     "walkingIntensity": 3
   },
   "transportOptions": {
@@ -114,7 +104,25 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=60, kind='', walkingMin=45",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "江戸城跡（皇居東御苑）",
   "content": {
@@ -152,5 +160,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tokyo:chiyoda"
+  "municipalityId": "Tokyo:chiyoda",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

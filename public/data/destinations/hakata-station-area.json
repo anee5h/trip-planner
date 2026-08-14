@@ -78,8 +78,8 @@
   "indoorPercent": 70,
   "comfort": {
     "heatTolerance": 8,
-    "rainFriendly": 9,
-    "walkingIntensity": 4
+    "rainFriendly": 8,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.5,
@@ -95,17 +95,17 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 8
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 5
   },
   "season": {
-    "spring": 8,
-    "summer": 8,
-    "autumn": 8,
-    "winter": 8
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Station parking available",
@@ -145,7 +145,25 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=70, kind='mixed', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='mixed', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.jrhakatacity.com/",
   "municipalityId": "Fukuoka:fukuoka",
@@ -155,5 +173,12 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/hakata-station-area/"
   },
-  "notesJa": "9階の屋上庭園は無料で市内の展望が楽しめます。"
+  "notesJa": "9階の屋上庭園は無料で市内の展望が楽しめます。",
+  "bestSeason": "All Year (indoor)",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  }
 }

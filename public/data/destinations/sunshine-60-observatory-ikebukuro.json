@@ -11,8 +11,6 @@
   "budgetRecommended": 5750,
   "budgetMax": 9000,
   "walkingMin": 30,
-  "walkingSunMin": 18,
-  "walkingShadeMin": 12,
   "indoorPercent": 95,
   "ratings": {
     "overall": 9.2,
@@ -27,18 +25,18 @@
     "uniqueness": 9.3
   },
   "crowd": {
-    "weekday": 5,
+    "weekday": 6,
     "weekend": 8,
-    "holiday": 8
+    "holiday": 7
   },
   "season": {
-    "spring": 9,
-    "summer": 9,
-    "autumn": 9,
-    "winter": 9
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "low",
   "tags": ["251m Sky Park", "Indoor Lawn", "Ikebukuro Skyline", "Tenbou Park"],
   "coordinates": {
@@ -46,9 +44,9 @@
     "lng": 139.7194
   },
   "comfort": {
-    "heatTolerance": 9,
-    "rainFriendly": 10,
-    "walkingIntensity": 2
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 3
   },
   "transportOptions": {
     "train": 15
@@ -110,7 +108,25 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=95, kind='', walkingMin=30",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "サンシャイン60展望台 てんぼうパーク",
   "content": {
@@ -148,5 +164,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tokyo:toshima"
+  "municipalityId": "Tokyo:toshima",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  }
 }

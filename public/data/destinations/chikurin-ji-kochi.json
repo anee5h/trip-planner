@@ -54,9 +54,9 @@
   "walkingIntensity": "medium",
   "indoorPercent": 30,
   "comfort": {
-    "heatTolerance": 6,
-    "rainFriendly": 6,
-    "walkingIntensity": 4
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.4,
@@ -72,9 +72,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
   "season": {
     "spring": 8.6,
@@ -126,7 +126,25 @@
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=30, kind='temple', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='temple', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -136,5 +154,11 @@
   "relationships": {
     "parentDestinationId": "kochi-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

@@ -53,15 +53,15 @@
     "min": 0.8,
     "max": 1.5
   },
-  "walkingMin": 1500,
+  "walkingMin": 45,
   "walkingSunMin": 700,
   "walkingShadeMin": 800,
-  "walkingIntensity": "medium",
+  "walkingIntensity": "low",
   "indoorPercent": 40,
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 6,
-    "walkingIntensity": 4
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 3
   },
   "ratings": {
     "overall": 8.6,
@@ -153,7 +153,25 @@
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=40, kind='temple', walkingMin=45",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 1500 replaced by walk-share estimate (FIX_UNIT): 50% of 1.5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

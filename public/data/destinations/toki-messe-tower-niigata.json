@@ -10,7 +10,7 @@
   "budgetMin": 2000,
   "budgetRecommended": 5000,
   "budgetMax": 8000,
-  "walkingMin": 3000,
+  "walkingMin": 70,
   "walkingSunMin": 1000,
   "walkingShadeMin": 2000,
   "indoorPercent": 90,
@@ -101,7 +101,7 @@
   "relationships": {
     "parentDestinationId": "niigata-city"
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "medium",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 2,

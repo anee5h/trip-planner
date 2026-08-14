@@ -12,10 +12,7 @@
   "description": "Sacred mountain monastic complex (Mount Koya / Koyasan), headquarters of Shingon Buddhism and Okunoin cemetery.",
   "highlights": ["Explore Koya Town", "Local Culture & Cuisine"],
   "totalTripHours": 6,
-  "budgetMin": 3500,
-  "budgetRecommended": 14250,
-  "budgetMax": 25000,
-  "walkingMin": 4000,
+  "walkingMin": 360,
   "walkingSunMin": 1500,
   "walkingShadeMin": 2500,
   "indoorPercent": 50,
@@ -32,18 +29,10 @@
     "uniqueness": 9.4
   },
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
+    "weekday": 8,
+    "weekend": 10,
     "holiday": 9
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
   "weatherDependence": "low",
   "tags": ["Koya Town", "Wakayama Travel", "Regional Hub"],
   "coordinates": {
@@ -51,9 +40,9 @@
     "lng": 135.5864
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 8,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "train": 200
@@ -74,15 +63,9 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
   },
-  "budgetBreakdown": {
-    "transport": 3563,
-    "tickets": 1781,
-    "food": 5789,
-    "cafe": 3117
-  },
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "recommendedVisitHours": {
-    "min": 6,
+    "min": 8,
     "max": 12
   },
   "businessHours": "Open access",
@@ -101,7 +84,41 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 3 children, metro adj",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 50% of 12h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=50, kind='town', walkingMin=360",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='town', importance=major, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "notesJa": "【見どころ】Koya Townは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -131,5 +148,17 @@
     "license": "CC BY 2.5",
     "attribution": "663highland",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danjogaran_Koyasan16n4272.jpg"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   }
 }

@@ -101,17 +101,17 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 4,
+    "weekday": 5,
     "weekend": 7,
-    "holiday": 8
+    "holiday": 6
   },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 7
+    "spring": 7,
+    "summer": 10,
+    "autumn": 6,
+    "winter": 3
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [7, 8],
   "weatherDependence": "high",
   "reservation": "Cruise tickets at the terminal; online booking available for peak season",
   "parking": "Paid parking available",
@@ -152,8 +152,31 @@
       }
     ],
     "reviewedAt": "2026-08-05",
-    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    "reviewedBy": "Kyushu-to-100 Editorial Batch",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='mixed', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.pearlsea.jp/en/",
-  "municipalityId": "Nagasaki:sasebo"
+  "municipalityId": "Nagasaki:sasebo",
+  "bestSeason": "Summer",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "temperate latitude band; calibrated beach peaks"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

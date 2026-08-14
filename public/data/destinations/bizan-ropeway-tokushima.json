@@ -54,9 +54,9 @@
   "walkingIntensity": "medium",
   "indoorPercent": 30,
   "comfort": {
-    "heatTolerance": 6,
+    "heatTolerance": 5,
     "rainFriendly": 5,
-    "walkingIntensity": 4
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.4,
@@ -72,9 +72,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 5,
-    "holiday": 6
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 5
   },
   "season": {
     "spring": 8.8,
@@ -126,7 +126,25 @@
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=30, kind='viewpoint', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='viewpoint', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -136,5 +154,11 @@
   "relationships": {
     "parentDestinationId": "tokushima-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

@@ -117,7 +117,17 @@
     ],
     "checkedAt": "2026-08-12",
     "freshness": "current",
-    "changeSummary": "PR C parks audit: new national park record"
+    "changeSummary": "PR C parks audit: new national park record",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='nature', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "transportZoneId": "unknown",
   "ratingMetadata": {
@@ -126,17 +136,22 @@
     "confidence": "low"
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 7
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 5
   },
-  "season": {
-    "spring": 8,
-    "summer": 9,
-    "autumn": 8,
-    "winter": 7
-  },
-  "bestMonths": [10, 11, 12, 1, 2, 3, 4],
   "walkingSunMin": 100,
-  "walkingShadeMin": 50
+  "walkingShadeMin": 50,
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  }
 }

@@ -35,9 +35,9 @@
     "lng": 140.4075
   },
   "comfort": {
-    "walkingIntensity": 2,
-    "heatTolerance": 8,
-    "rainFriendly": 5
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.6,
@@ -119,7 +119,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='', walkingMin=60",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "袋田の滝",
   "content": {

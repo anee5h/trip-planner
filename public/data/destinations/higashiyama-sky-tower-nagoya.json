@@ -10,7 +10,7 @@
   "budgetMin": 2500,
   "budgetRecommended": 5500,
   "budgetMax": 8500,
-  "walkingMin": 4000,
+  "walkingMin": 70,
   "walkingSunMin": 1500,
   "walkingShadeMin": 2500,
   "indoorPercent": 80,
@@ -27,18 +27,18 @@
     "uniqueness": 8.5
   },
   "crowd": {
-    "weekday": 4,
-    "weekend": 7,
+    "weekday": 6,
+    "weekend": 8,
     "holiday": 7
   },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "low",
   "tags": [
     "Zoo & Botanical",
@@ -53,7 +53,7 @@
   "comfort": {
     "heatTolerance": 8,
     "rainFriendly": 8,
-    "walkingIntensity": 3
+    "walkingIntensity": 5
   },
   "transportOptions": {
     "train": 95,
@@ -96,7 +96,7 @@
   "relationships": {
     "parentDestinationId": "nagoya-city"
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "medium",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 2,
@@ -104,5 +104,11 @@
   },
   "officialWebsite": "https://www.higashiyama.city.nagoya.jp/",
   "businessHours": "Open access",
-  "municipalityId": "Aichi:nagoya"
+  "municipalityId": "Aichi:nagoya",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  }
 }

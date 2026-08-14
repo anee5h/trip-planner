@@ -11,8 +11,6 @@
   "budgetRecommended": 9500,
   "budgetMax": 15000,
   "walkingMin": 45,
-  "walkingSunMin": 27,
-  "walkingShadeMin": 18,
   "indoorPercent": 90,
   "ratings": {
     "overall": 9.6,
@@ -32,13 +30,13 @@
     "holiday": 10
   },
   "season": {
-    "spring": 9,
-    "summer": 9,
-    "autumn": 9,
-    "winter": 9
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "low",
   "tags": [
     "World's Tallest Tower",
@@ -166,5 +164,17 @@
   "parkingJa": "東京ソラマチの大型地下有料駐車場をご利用いただけます。",
   "openingHours": "08:00 - 22:00 (Last admission 21:00)",
   "openingHoursJa": "08:00 - 22:00（最終入場 21:00）",
-  "municipalityId": "Tokyo:sumida"
+  "municipalityId": "Tokyo:sumida",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

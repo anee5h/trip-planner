@@ -11,8 +11,6 @@
   "budgetRecommended": 10000,
   "budgetMax": 15000,
   "walkingMin": 40,
-  "walkingSunMin": 24,
-  "walkingShadeMin": 16,
   "indoorPercent": 85,
   "ratings": {
     "overall": 9.2,
@@ -32,10 +30,10 @@
     "holiday": 9
   },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 9
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "tags": ["Iconic", "Historic Architecture", "Ramen Street", "Shinkansen Hub"],
@@ -69,7 +67,7 @@
   "parking": "Commercial district paid parking garages available nearby.",
   "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
   "schemaVersion": 2,
-  "bestSeason": "All Year",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "low",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -146,5 +144,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "10:00 - 20:00",
   "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
-  "municipalityId": "Tokyo:chiyoda"
+  "municipalityId": "Tokyo:chiyoda",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  }
 }

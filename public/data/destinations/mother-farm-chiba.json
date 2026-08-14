@@ -70,9 +70,9 @@
     "cafe": 2800
   },
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "walkingIntensity": "low",
   "role": "standalone",
@@ -98,7 +98,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=25, kind='', walkingMin=55",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "マザー牧場",
   "content": {

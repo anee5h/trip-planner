@@ -47,15 +47,6 @@
   },
   "description": "Free observation decks at Narita Airport: the Terminal 1 deck on the fifth floor overlooks the 4,000-meter Runway A, one of Japan's best plane-spotting viewpoints, and Terminal 2 has its own deck. Both sit landside, so no boarding pass is needed.",
   "highlights": ["Viewpoint"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1300,
-    "tickets": 0,
-    "food": 2300,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 70
   },
@@ -66,13 +57,11 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 9.5,
@@ -90,9 +79,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
+    "weekday": 6,
     "weekend": 8,
-    "holiday": 9
+    "holiday": 7
   },
   "season": {
     "spring": 7.7,
@@ -146,6 +135,22 @@
           "title": "Haneda Airport",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -175,5 +180,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:30 - 17:00 (Last admission 16:30)",
   "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
-  "municipalityId": "Chiba:narita"
+  "municipalityId": "Chiba:narita",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  }
 }

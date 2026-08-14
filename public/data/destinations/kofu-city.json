@@ -12,10 +12,10 @@
   "description": "Historic home of samurai warlord Takeda Shingen, featuring Maizuru Castle Park and Shosenkyo Gorge.",
   "highlights": ["Explore Kofu City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
-  "budgetMin": 3500,
-  "budgetRecommended": 14250,
-  "budgetMax": 25000,
-  "walkingMin": 4000,
+  "budgetMin": 4600,
+  "budgetRecommended": 7600,
+  "budgetMax": 10600,
+  "walkingMin": 360,
   "walkingSunMin": 1500,
   "walkingShadeMin": 2500,
   "indoorPercent": 50,
@@ -32,18 +32,10 @@
     "uniqueness": 9.4
   },
   "crowd": {
-    "weekday": 5,
+    "weekday": 6,
     "weekend": 8,
-    "holiday": 9
+    "holiday": 7
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
   "weatherDependence": "low",
   "tags": ["Kofu City", "Yamanashi Travel", "Regional Hub"],
   "coordinates": {
@@ -51,9 +43,9 @@
     "lng": 138.5683
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 8,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "train": 200
@@ -70,12 +62,12 @@
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
   "budgetBreakdown": {
-    "transport": 3563,
-    "tickets": 1781,
-    "food": 5789,
-    "cafe": 3117
+    "transport": 3000,
+    "tickets": 0,
+    "food": 3000,
+    "cafe": 1600
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 6,
@@ -88,5 +80,17 @@
     "license": "CC BY-SA 3.0",
     "attribution": "Halowand",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kofu_montage.jpg"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   }
 }

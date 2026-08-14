@@ -28,13 +28,13 @@
   "budgetMin": 9000,
   "budgetMax": 17000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
+  "walkingMin": 290,
   "walkingSunMin": 4000,
   "walkingShadeMin": 6000,
   "comfort": {
-    "heatTolerance": 5,
-    "rainFriendly": 4,
-    "walkingIntensity": 5
+    "heatTolerance": 7,
+    "rainFriendly": 3,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "train": 120,
@@ -42,14 +42,14 @@
   },
   "crowd": {
     "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
+    "weekend": 6,
+    "holiday": 4
   },
   "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
+    "spring": 7,
+    "summer": 10,
+    "autumn": 6,
+    "winter": 3
   },
   "highlights": [
     "Explore top-rated coast locations",
@@ -57,7 +57,7 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Izu Peninsula, a prominent destination in Shizuoka. With its rich mix of beaches, onsen, scuba, it's a highly recommended spot for a 8-hour getaway.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [7, 8],
   "budgetBreakdown": {
     "transport": 5200,
     "tickets": 2600,
@@ -81,7 +81,7 @@
   "relationships": {
     "parentDestinationId": "ito-city"
   },
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "Summer",
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Available on site",
@@ -90,10 +90,16 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 3,
+    "max": 6
   },
   "officialWebsite": "https://kanko.city.izu.shizuoka.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Shizuoka:ito"
+  "municipalityId": "Shizuoka:ito",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "temperate latitude band; calibrated beach peaks"
+  }
 }

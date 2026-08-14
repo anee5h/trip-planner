@@ -40,15 +40,6 @@
   },
   "description": "One of the world’s largest aquariums, presenting Pacific Rim marine life around the enormous Kuroshio tank.",
   "highlights": ["Aquarium"],
-  "budgetMin": 3000,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
-  "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 1100,
-    "food": 1925,
-    "cafe": 550
-  },
   "transportOptions": {
     "train": 186,
     "bus": 206,
@@ -85,8 +76,8 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
+    "weekday": 8,
+    "weekend": 10,
     "holiday": 9
   },
   "season": {
@@ -152,6 +143,14 @@
           "title": "Osaka Aquarium Kaiyukan official website",
           "accessedAt": "2026-08-13"
         }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='aquarium', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changeSummary": "KAI-89 source-backed template-copy correction",
@@ -175,5 +174,11 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "10:00〜20:00（最終入場 19:00）",
-  "municipalityId": "Osaka:osaka"
+  "municipalityId": "Osaka:osaka",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  }
 }

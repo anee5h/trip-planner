@@ -66,22 +66,15 @@
   "notes": "Miyajima (Itsukushima) Island is in Hatsukaichi City, Hiroshima Prefecture. Reached by ferry from Miyajimaguchi (JR West Miyajima Ferry or Matsudai); no private cars on the island.",
   "budgetRecommended": 7500,
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
+    "weekday": 4,
+    "weekend": 7,
     "holiday": 5
-  },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
   },
   "walkingMin": 8000,
   "walkingSunMin": 4800,
   "walkingShadeMin": 3200,
   "indoorPercent": 20,
   "totalTripHours": 4,
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": [],
@@ -98,20 +91,19 @@
     "Explore Itsukushima Shrine (Miyajima Island)",
     "Local Culture & Scenery"
   ],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "reservation": "None required",
   "parking": "No private cars on Miyajima; use JR West Miyajima Ferry or Matsudai ferry from Miyajimaguchi, then walk or ride the local shuttle.",
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 3,
-    "max": 5
+    "min": 4,
+    "max": 10
   },
   "officialWebsite": "https://www.itsukushimajinja.jp/",
   "businessHours": "Jan 1 00:00–18:30; Jan 2–3 06:30–18:30; Jan 4–Feb 06:30–17:30; Mar 1–Oct 14 06:30–18:00; Oct 15–Nov 30 06:30–17:30; Dec 06:30–17:00",
@@ -124,5 +116,11 @@
     "attribution": "redlegsfan21, CC BY-SA 2.0, via Wikimedia Commons",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Itsukushima_Shrine_Torii_Gate_(13890465459).jpg"
   },
-  "transportZoneId": "miyajima"
+  "transportZoneId": "miyajima",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

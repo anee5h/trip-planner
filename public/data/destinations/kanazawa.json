@@ -28,13 +28,13 @@
   "budgetMin": 9000,
   "budgetMax": 17000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
+  "walkingMin": 360,
   "walkingSunMin": 4000,
   "walkingShadeMin": 6000,
   "comfort": {
-    "heatTolerance": 9,
-    "rainFriendly": 9,
-    "walkingIntensity": 5
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "shinkansen": 140,
@@ -42,15 +42,9 @@
     "car": 290
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
+    "weekday": 6,
+    "weekend": 8,
+    "holiday": 7
   },
   "highlights": [
     "Explore top-rated city locations",
@@ -58,7 +52,6 @@
     "Perfect for a active day out"
   ],
   "description": "Kanazawa is the capital of Ishikawa Prefecture in central Japan.  As of 1 January 2018, the city had an estimated population of 466,029 in 203,271 households, and a population density of 990 persons per km2.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 5200,
     "tickets": 2600,
@@ -80,7 +73,6 @@
   },
   "collections": [],
   "relationships": {},
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Available on site",
@@ -89,9 +81,15 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 5,
+    "max": 12
   },
   "officialWebsite": "https://www.kanazawa-kankoukyoukai.or.jp/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

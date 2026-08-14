@@ -84,7 +84,7 @@
   "walkingShadeMin": 4000,
   "indoorPercent": 60,
   "comfort": {
-    "heatTolerance": 7,
+    "heatTolerance": 6,
     "rainFriendly": 7,
     "walkingIntensity": 5
   },
@@ -102,8 +102,8 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 9,
+    "weekday": 9,
+    "weekend": 10,
     "holiday": 10
   },
   "season": {
@@ -153,7 +153,25 @@
       }
     ],
     "reviewedAt": "2026-08-05",
-    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    "reviewedBy": "Kyushu-to-100 Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=60, kind='theme_park', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='theme_park', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://english.huistenbosch.co.jp/",
   "municipalityId": "Nagasaki:sasebo"

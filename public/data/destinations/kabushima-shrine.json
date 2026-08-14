@@ -32,15 +32,6 @@
     "bus": 25,
     "car": 20
   },
-  "budgetMin": 0,
-  "budgetRecommended": 1500,
-  "budgetMax": 3000,
-  "budgetBreakdown": {
-    "transport": 800,
-    "tickets": 0,
-    "food": 500,
-    "cafe": 200
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Kabushima-Shrine.jpg/1280px-Kabushima-Shrine.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Kabushima-Shrine.jpg/1280px-Kabushima-Shrine.jpg",
   "imageMetadata": {
@@ -56,15 +47,13 @@
     "min": 1,
     "max": 2
   },
-  "walkingMin": 2000,
-  "walkingSunMin": 1200,
-  "walkingShadeMin": 800,
+  "walkingMin": 70,
   "walkingIntensity": "medium",
   "indoorPercent": 10,
   "comfort": {
-    "heatTolerance": 6,
-    "rainFriendly": 4,
-    "walkingIntensity": 4
+    "heatTolerance": 5,
+    "rainFriendly": 2,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.6,
@@ -87,8 +76,8 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
+    "weekday": 6,
+    "weekend": 8,
     "holiday": 7
   },
   "season": {
@@ -151,7 +140,33 @@
         "summary": "Added source-backed KAI-57 Tohoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=10, kind='shrine', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='shrine', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 2000 replaced by walk-share estimate (FIX_UNIT): 60% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

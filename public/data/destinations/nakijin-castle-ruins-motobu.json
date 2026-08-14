@@ -49,7 +49,25 @@
         "type": "encyclopedia"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'castle' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='castle', importance=standard, collections=2",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
@@ -96,8 +114,8 @@
   },
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 1,
-    "max": 2.5
+    "min": 2.5,
+    "max": 5
   },
   "municipalityId": "Okinawa:nakijin",
   "categories": ["Historic", "Sightseeing"],
@@ -119,8 +137,8 @@
     }
   ],
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
+    "weekday": 6,
+    "weekend": 8,
     "holiday": 7
   },
   "season": {

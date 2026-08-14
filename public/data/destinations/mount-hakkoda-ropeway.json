@@ -56,15 +56,15 @@
     "min": 2,
     "max": 4
   },
-  "walkingMin": 4000,
+  "walkingMin": 190,
   "walkingSunMin": 2000,
   "walkingShadeMin": 2000,
-  "walkingIntensity": "medium",
+  "walkingIntensity": "high",
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 4,
-    "rainFriendly": 3,
-    "walkingIntensity": 5
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 8.8,
@@ -87,9 +87,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 7
+    "weekday": 5,
+    "weekend": 8,
+    "holiday": 6
   },
   "season": {
     "spring": 8,
@@ -151,7 +151,33 @@
         "summary": "Added source-backed KAI-57 Tohoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='viewpoint', walkingMin=190",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='viewpoint', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 80% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

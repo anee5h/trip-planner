@@ -47,7 +47,17 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='cape', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
@@ -106,17 +116,10 @@
   ],
   "collections": [],
   "crowd": {
-    "weekday": 2,
-    "weekend": 5,
-    "holiday": 6
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 5
   },
-  "season": {
-    "spring": 9,
-    "summer": 9,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "transportOptions": {
     "bus": 300
   },
@@ -132,5 +135,17 @@
     "confidence": "medium"
   },
   "notesJa": "宮古島最東端の岬。太平洋と東シナ海が出会う景勝地。",
-  "description": "A narrow 2km long coral peninsula jutting into the ocean at Miyako Island's easternmost tip, crowned by a white climbable lighthouse with dramatic wave-crashing sea cliff views."
+  "description": "A narrow 2km long coral peninsula jutting into the ocean at Miyako Island's easternmost tip, crowned by a white climbable lighthouse with dramatic wave-crashing sea cliff views.",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

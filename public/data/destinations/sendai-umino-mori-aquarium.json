@@ -41,15 +41,6 @@
   },
   "description": "Aquarium on Sendai's Miyagino seaside, featuring the huge 'Sendai Bay' tank and dolphin and seal shows built around Tohoku's marine life.",
   "highlights": ["Aquarium"],
-  "budgetMin": 3000,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
-  "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 1100,
-    "food": 1925,
-    "cafe": 550
-  },
   "transportOptions": {
     "train": 29,
     "bus": 39,
@@ -86,8 +77,8 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
+    "weekday": 8,
+    "weekend": 10,
     "holiday": 9
   },
   "season": {
@@ -146,7 +137,17 @@
         "summary": "KAI-57 existing-data audit correction",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='aquarium', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

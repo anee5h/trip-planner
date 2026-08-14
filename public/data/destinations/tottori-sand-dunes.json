@@ -26,9 +26,6 @@
   ],
   "region": "Chugoku",
   "categories": ["Nature & Parks"],
-  "budgetMin": 1500,
-  "budgetMax": 6000,
-  "budgetRecommended": 3750,
   "transportOptions": {
     "train": 180
   },
@@ -46,26 +43,18 @@
   },
   "highlights": ["Explore Tottori Sand Dunes", "Local Culture & Scenery"],
   "totalTripHours": 4,
-  "walkingMin": 3000,
+  "walkingMin": 150,
   "indoorPercent": 30,
   "crowd": {
-    "weekday": 4,
+    "weekday": 5,
     "weekend": 7,
-    "holiday": 8
+    "holiday": 6
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "reservation": "None required",
   "parking": "Available on site",
@@ -76,9 +65,7 @@
     "parentDestinationId": "tottori-city"
   },
   "image": "https://images.unsplash.com/photo-1693188074158-00e5edb3d0ac?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "walkingIntensity": "low",
-  "walkingSunMin": 1800,
-  "walkingShadeMin": 1200,
+  "walkingIntensity": "high",
   "role": "standalone",
   "placeType": "destination",
   "recommendedVisitHours": {
@@ -95,5 +82,17 @@
     "license": "Unsplash License",
     "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
     "sourceUrl": "https://unsplash.com"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
   }
 }

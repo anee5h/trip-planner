@@ -29,12 +29,12 @@
   "budgetMin": 12000,
   "budgetMax": 20000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
+  "walkingMin": 480,
   "walkingSunMin": 4000,
   "walkingShadeMin": 6000,
   "comfort": {
     "heatTolerance": 5,
-    "rainFriendly": 4,
+    "rainFriendly": 5,
     "walkingIntensity": 5
   },
   "transportOptions": {
@@ -42,8 +42,8 @@
     "ferry": 150
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
+    "weekday": 4,
+    "weekend": 7,
     "holiday": 5
   },
   "season": {
@@ -107,8 +107,8 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 4,
+    "max": 10
   },
   "officialWebsite": "https://www.pref.niigata.lg.jp/site/sado-goldmine/",
   "businessHours": "Open access",

@@ -53,18 +53,18 @@
     "verifiedAt": "2026-08-11"
   },
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 4
+    "min": 3,
+    "max": 6
   },
-  "walkingMin": 4000,
+  "walkingMin": 180,
   "walkingSunMin": 2000,
   "walkingShadeMin": 2000,
-  "walkingIntensity": "medium",
+  "walkingIntensity": "high",
   "indoorPercent": 40,
   "comfort": {
     "heatTolerance": 5,
-    "rainFriendly": 6,
-    "walkingIntensity": 5
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 8.6,
@@ -87,9 +87,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 7
+    "weekday": 7,
+    "weekend": 9,
+    "holiday": 8
   },
   "season": {
     "spring": 8.6,
@@ -146,7 +146,41 @@
         "summary": "Added source-backed KAI-57 Tohoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'district' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=40, kind='district', walkingMin=180",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='district', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 50% of 6h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

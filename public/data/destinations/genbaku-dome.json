@@ -79,18 +79,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
-  "season": {
-    "spring": 8,
-    "summer": 7,
-    "autumn": 8,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 10, 11],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required.",
   "parking": "No on-site lot; use Peace Park area parking or public transport (Hiroden tram: Genbaku Dome-mae).",
@@ -149,7 +141,17 @@
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='monument', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -159,5 +161,11 @@
   "relationships": {
     "parentDestinationId": "hiroshima-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

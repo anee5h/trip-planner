@@ -73,5 +73,13 @@
     "rubricVersion": 2,
     "method": "assisted",
     "confidence": "low"
-  }
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 210,
+  "walkingIntensity": "high"
 }

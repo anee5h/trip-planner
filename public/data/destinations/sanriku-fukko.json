@@ -96,7 +96,17 @@
     ],
     "checkedAt": "2026-08-12",
     "freshness": "current",
-    "changeSummary": "PR C parks audit: new national park record"
+    "changeSummary": "PR C parks audit: new national park record",
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; real-distance metres 385 -> minutes (pace 80 m/min, clamped to visit window)",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
@@ -106,5 +116,19 @@
   "recommendedVisitHours": {
     "min": 4,
     "max": 8
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 5,
+  "walkingIntensity": "low",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
   }
 }

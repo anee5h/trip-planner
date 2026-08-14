@@ -74,8 +74,8 @@
   },
   "totalTripHours": 3,
   "recommendedVisitHours": {
-    "min": 1,
-    "max": 1.5
+    "min": 1.5,
+    "max": 3
   },
   "walkingMin": 1500,
   "walkingIntensity": "low",
@@ -152,7 +152,17 @@
       }
     ],
     "reviewedAt": "2026-08-05",
-    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    "reviewedBy": "Kyushu-to-100 Editorial Batch",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'museum'",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.oidehita.com/en/spot/yamahoko/",
   "municipalityId": "Oita:hita"

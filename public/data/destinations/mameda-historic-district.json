@@ -78,15 +78,15 @@
     "min": 2,
     "max": 4
   },
-  "walkingMin": 4000,
-  "walkingIntensity": "low",
+  "walkingMin": 120,
+  "walkingIntensity": "high",
   "walkingSunMin": 2000,
   "walkingShadeMin": 2000,
   "indoorPercent": 25,
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 2
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 9,
@@ -102,17 +102,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 7,
-    "holiday": 8
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 5
   },
-  "season": {
-    "spring": 9,
-    "summer": 7,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 10, 11],
   "weatherDependence": "moderate",
   "reservation": "None required for public streets; individual shops and museums set their own policies",
   "reservationJa": "町並み散策は自由。各店舗・博物館は独自の入場ポリシーあり。",
@@ -154,8 +147,40 @@
       }
     ],
     "reviewedAt": "2026-08-05",
-    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    "reviewedBy": "Kyushu-to-100 Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=25, kind='historic', walkingMin=120",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='historic', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 50% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.oidehita.com/en/spot/mameda/",
-  "municipalityId": "Oita:hita"
+  "municipalityId": "Oita:hita",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

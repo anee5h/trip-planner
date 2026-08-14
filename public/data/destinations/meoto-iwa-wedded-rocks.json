@@ -39,7 +39,17 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 1.3h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
@@ -99,5 +109,19 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Meoto_Iwa_%28ise_Mie%29.JPG/1920px-Meoto_Iwa_%28ise_Mie%29.JPG",
   "travelEstimate": {
     "confidence": "beta"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 40,
+  "walkingIntensity": "low",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
   }
 }

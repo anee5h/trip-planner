@@ -11,16 +11,11 @@
     "Historic Landmark",
     "Cultural Preservation Area"
   ],
-  "budgetMin": 4000,
-  "budgetMax": 15000,
-  "budgetRecommended": 9500,
   "transportOptions": {
     "ferry": 40
   },
   "totalTripHours": 6,
   "walkingMin": 120,
-  "walkingSunMin": 70,
-  "walkingShadeMin": 50,
   "indoorPercent": 35,
   "ratings": {
     "overall": 9.2,
@@ -35,18 +30,10 @@
     "uniqueness": 9.5
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
-  "season": {
-    "spring": 5,
-    "summer": 4,
-    "autumn": 5,
-    "winter": 4
-  },
-  "bestMonths": [3, 4, 5, 10, 11],
-  "bestSeason": "Autumn",
   "weatherDependence": "moderate",
   "tags": [
     "UNESCO World Heritage",
@@ -87,17 +74,11 @@
   "relationships": {
     "parentDestinationId": "nagasaki-city"
   },
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 3000,
-    "cafe": 1500
-  },
   "nameJa": "明治日本の産業革命遺産 製鉄・製鋼、造船、石炭産業",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
@@ -121,7 +102,25 @@
         "title": "Hashima Island",
         "accessedAt": "2026-08-04"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=35, kind='', walkingMin=120",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=2",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "ja": {
@@ -142,5 +141,17 @@
     "sourceUrl": "https://www.gunkanjima-concierge.com/en/"
   },
   "notesJa": "上陸ツアーは天候次第で高波時に欠航することがあります。",
-  "transportZoneId": "gunkanjima"
+  "transportZoneId": "gunkanjima",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  }
 }

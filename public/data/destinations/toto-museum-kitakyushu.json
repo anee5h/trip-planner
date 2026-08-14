@@ -78,8 +78,8 @@
     "min": 1.5,
     "max": 3
   },
-  "walkingMin": 2000,
-  "walkingIntensity": "low",
+  "walkingMin": 55,
+  "walkingIntensity": "medium",
   "walkingSunMin": 500,
   "walkingShadeMin": 1500,
   "indoorPercent": 95,
@@ -102,9 +102,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 8
+    "weekday": 6,
+    "weekend": 8,
+    "holiday": 7
   },
   "season": {
     "spring": 8,
@@ -152,10 +152,34 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 2000 replaced by walk-share estimate (FIX_UNIT): 30% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://jp.toto.com/knowledge/visit/en_museum/",
   "municipalityId": "Fukuoka:kitakyushu",
   "notesJa": "ガイド付き見学と20名以上の団体は事前予約が必要です。",
-  "reservationJa": "個人での自由見学は予約不要。ガイド付き見学と20名以上の団体は事前予約が必要です。"
+  "reservationJa": "個人での自由見学は予約不要。ガイド付き見学と20名以上の団体は事前予約が必要です。",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

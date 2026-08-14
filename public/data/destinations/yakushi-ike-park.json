@@ -45,15 +45,6 @@
   },
   "description": "Selected as one of Japan's Top 100 Historic Parks, featuring a scenic central pond, historic thatched farmhouses, and seasonal plum and iris gardens. It offers quiet walking trails and a craft brewery café in Machida.",
   "highlights": ["Nature", "Park", "Culture"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 0,
-    "food": 1400,
-    "cafe": 1200
-  },
   "transportOptions": {
     "train": 35
   },
@@ -64,13 +55,11 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 7.5,
@@ -86,17 +75,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 5
   },
-  "season": {
-    "spring": 9.4,
-    "summer": 7.7,
-    "autumn": 9.4,
-    "winter": 9.3
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
@@ -130,7 +112,25 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer"
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='park', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='park', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -151,5 +151,23 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Tokyo:machida"
+  "municipalityId": "Tokyo:machida",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  }
 }

@@ -26,9 +26,6 @@
   ],
   "region": "Kansai",
   "categories": ["Castles & History"],
-  "budgetMin": 1500,
-  "budgetMax": 6000,
-  "budgetRecommended": 3750,
   "transportOptions": {
     "train": 180
   },
@@ -45,26 +42,26 @@
     "uniqueness": 9.2
   },
   "highlights": ["Explore Takeda Castle Ruins", "Local Culture & Scenery"],
-  "walkingMin": 3000,
+  "walkingMin": 150,
   "indoorPercent": 30,
   "crowd": {
-    "weekday": 4,
+    "weekday": 5,
     "weekend": 7,
-    "holiday": 8
+    "holiday": 6
   },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 7
+    "spring": 8,
+    "summer": 6,
+    "autumn": 10,
+    "winter": 5
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "bestSeason": "Spring & Autumn",
+  "bestMonths": [10, 11],
+  "bestSeason": "Autumn",
   "weatherDependence": "moderate",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "reservation": "None required",
   "parking": "Available on site",
@@ -75,9 +72,7 @@
     "parentDestinationId": "asago-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/%E7%AB%B9%E7%94%B0%E5%9F%8E.JPG",
-  "walkingIntensity": "low",
-  "walkingSunMin": 1800,
-  "walkingShadeMin": 1200,
+  "walkingIntensity": "high",
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
@@ -100,7 +95,33 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=30, kind='', walkingMin=150",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 50% of 5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "notesJa": "【見どころ】竹田城跡は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -129,5 +150,23 @@
     "rubricVersion": 2,
     "method": "assisted",
     "confidence": "low"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "foliage category; calibrated 4/4 trusted autumn peaks"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
   }
 }

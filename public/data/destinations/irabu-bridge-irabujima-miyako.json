@@ -47,7 +47,17 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='bridge', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
@@ -106,17 +116,17 @@
   ],
   "collections": [],
   "crowd": {
-    "weekday": 2,
-    "weekend": 5,
-    "holiday": 6
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 5
   },
   "season": {
     "spring": 9,
-    "summer": 9,
+    "summer": 10,
     "autumn": 9,
-    "winter": 8
+    "winter": 6
   },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestMonths": [5, 6, 7, 8, 9, 10],
   "transportOptions": {
     "bus": 250
   },
@@ -132,5 +142,18 @@
     "confidence": "medium"
   },
   "notesJa": "日本最長の無料橋。道の駅からのパノラマが絶好の写真スポット。",
-  "description": "Japan's longest toll-free bridge spanning 3,540 meters over emerald clear ocean, connecting Miyako Island to Irabu Island with exhilarating ocean drive vistas."
+  "description": "Japan's longest toll-free bridge spanning 3,540 meters over emerald clear ocean, connecting Miyako Island to Irabu Island with exhilarating ocean drive vistas.",
+  "bestSeason": "Summer",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "tropical latitude band; calibrated 6/7 trusted summer peaks"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

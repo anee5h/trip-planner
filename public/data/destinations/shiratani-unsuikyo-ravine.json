@@ -68,8 +68,8 @@
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {
-    "min": 1.5,
-    "max": 4
+    "min": 3,
+    "max": 6
   },
   "walkingMin": 15000,
   "walkingIntensity": "high",
@@ -77,9 +77,9 @@
   "walkingShadeMin": 7000,
   "indoorPercent": 0,
   "comfort": {
-    "heatTolerance": 5,
-    "rainFriendly": 5,
-    "walkingIntensity": 8
+    "heatTolerance": 7,
+    "rainFriendly": 1,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 9.3,
@@ -95,17 +95,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 8
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 4
   },
-  "season": {
-    "spring": 9,
-    "summer": 9,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
   "reservation": "None required; trail may be slippery after rain",
   "parking": "Trailhead parking available (¥500/day)",
@@ -139,7 +132,33 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'nature'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=0, kind='nature', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='nature', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": null,
   "municipalityId": "Kagoshima:yakushima",
@@ -149,5 +168,11 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.kagoshima-kankou.com/for/attractions/51079"
   },
-  "notesJa": "苔むす森はジブリ『もののけ姫』のインスピレーション源です。"
+  "notesJa": "苔むす森はジブリ『もののけ姫』のインスピレーション源です。",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

@@ -11,9 +11,9 @@
     "Historic Landmark",
     "Cultural Preservation Area"
   ],
-  "budgetMin": 4000,
-  "budgetMax": 15000,
-  "budgetRecommended": 9500,
+  "budgetMin": 3800,
+  "budgetMax": 9800,
+  "budgetRecommended": 6800,
   "transportOptions": {
     "train": 45,
     "bus": 50,
@@ -21,8 +21,6 @@
   },
   "totalTripHours": 6,
   "walkingMin": 120,
-  "walkingSunMin": 70,
-  "walkingShadeMin": 50,
   "indoorPercent": 35,
   "ratings": {
     "overall": 9.2,
@@ -37,18 +35,10 @@
     "uniqueness": 9.5
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
-  "season": {
-    "spring": 5,
-    "summer": 4,
-    "autumn": 5,
-    "winter": 4
-  },
-  "bestMonths": [3, 4, 5, 10, 11],
-  "bestSeason": "Autumn",
   "weatherDependence": "moderate",
   "tags": [
     "UNESCO World Heritage",
@@ -86,16 +76,16 @@
     "gatewayHubId": "morioka-city"
   },
   "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 3000,
-    "cafe": 1500
+    "transport": 2500,
+    "tickets": 1000,
+    "food": 2300,
+    "cafe": 1000
   },
   "nameJa": "平泉―仏国土（浄土）を表す建築・庭園及び考古学的遺跡群―",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "walkingIntensity": "low",
   "role": "standalone",
@@ -130,6 +120,44 @@
         "summary": "KAI-57 existing-data audit correction",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=35, kind='', walkingMin=120",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "budgetRecommended": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "budget-model-v1; peer cell 'none|full|standalone' n=7; tickets source-verified",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   }
 }

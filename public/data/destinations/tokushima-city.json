@@ -12,10 +12,10 @@
   "description": "Eastern Shikoku city world-famous for the Awa Odori summer dance festival and the Mount Bizan ropeway.",
   "highlights": ["Explore Tokushima City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
-  "budgetMin": 3500,
-  "budgetRecommended": 14250,
-  "budgetMax": 25000,
-  "walkingMin": 4000,
+  "budgetMin": 4600,
+  "budgetRecommended": 7600,
+  "budgetMax": 10600,
+  "walkingMin": 360,
   "walkingSunMin": 1500,
   "walkingShadeMin": 2500,
   "indoorPercent": 50,
@@ -32,18 +32,10 @@
     "uniqueness": 9.4
   },
   "crowd": {
-    "weekday": 5,
+    "weekday": 6,
     "weekend": 8,
-    "holiday": 9
+    "holiday": 7
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
   "weatherDependence": "low",
   "tags": ["Tokushima City", "Tokushima Travel", "Regional Hub"],
   "coordinates": {
@@ -51,9 +43,9 @@
     "lng": 134.5548
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 8,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "train": 200
@@ -75,17 +67,29 @@
     "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
   },
   "budgetBreakdown": {
-    "transport": 3563,
-    "tickets": 1781,
-    "food": 5789,
-    "cafe": 3117
+    "transport": 3000,
+    "tickets": 0,
+    "food": 3000,
+    "cafe": 1600
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "recommendedVisitHours": {
-    "min": 6,
+    "min": 7,
     "max": 12
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Tokushima:tokushima"
+  "municipalityId": "Tokushima:tokushima",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

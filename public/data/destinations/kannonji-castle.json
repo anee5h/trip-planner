@@ -26,7 +26,7 @@
     "min": 1.5,
     "max": 3.5
   },
-  "walkingIntensity": "medium",
+  "walkingIntensity": "high",
   "ratings": {
     "overall": 8.9,
     "couple": 8.7,
@@ -109,11 +109,34 @@
     ],
     "checkedAt": "2026-08-12",
     "freshness": "current",
-    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    "changeSummary": "PR B 100名城 audit: new record completing the official list",
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 60% of 3.5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "assisted",
     "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 125,
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
   }
 }

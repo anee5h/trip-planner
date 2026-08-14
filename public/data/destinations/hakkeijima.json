@@ -28,11 +28,9 @@
   "budgetMax": 25800,
   "totalTripHours": 8,
   "walkingMin": 60,
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "comfort": {
-    "heatTolerance": 9,
-    "rainFriendly": 9,
+    "heatTolerance": 8,
+    "rainFriendly": 8,
     "walkingIntensity": 5
   },
   "transportOptions": {
@@ -40,15 +38,15 @@
     "car": 40
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
   "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
+    "spring": 7,
+    "summer": 10,
+    "autumn": 6,
+    "winter": 3
   },
   "highlights": [
     "Explore top-rated theme park locations",
@@ -56,7 +54,7 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Hakkeijima Sea Paradise, a prominent destination in Kanagawa. With its rich mix of family, entertainment, it's a highly recommended spot for a 8-hour getaway.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [7, 8],
   "budgetBreakdown": {
     "transport": 5031,
     "tickets": 11738,
@@ -73,7 +71,7 @@
     "parentDestinationId": "yokohama-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg/330px-Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg",
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "Summer",
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
@@ -99,7 +97,25 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=70, kind='', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "横浜・八景島シーパラダイス",
   "content": {
@@ -133,5 +149,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Kanagawa:yokohama"
+  "municipalityId": "Kanagawa:yokohama",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "temperate latitude band; calibrated beach peaks"
+  }
 }

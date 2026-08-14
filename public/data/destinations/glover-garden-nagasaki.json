@@ -97,15 +97,8 @@
   "crowd": {
     "weekday": 5,
     "weekend": 8,
-    "holiday": 8
+    "holiday": 6
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Nearby public parking",
@@ -145,7 +138,17 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='garden', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://glover-garden.jp/",
   "municipalityId": "Nagasaki:nagasaki",
@@ -155,5 +158,11 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://glover-garden.jp/"
   },
-  "notesJa": "坂や階段が多いため歩きやすい靴で訪れましょう。"
+  "notesJa": "坂や階段が多いため歩きやすい靴で訪れましょう。",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

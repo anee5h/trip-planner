@@ -108,11 +108,43 @@
     ],
     "checkedAt": "2026-08-12",
     "freshness": "current",
-    "changeSummary": "PR C parks audit: new national park record"
+    "changeSummary": "PR C parks audit: new national park record",
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "assisted",
     "confidence": "medium"
+  },
+  "season": {
+    "spring": 7,
+    "summer": 10,
+    "autumn": 6,
+    "winter": 3
+  },
+  "bestMonths": [7, 8],
+  "bestSeason": "Summer",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "temperate latitude band; calibrated beach peaks"
+  },
+  "walkingMin": 240,
+  "walkingIntensity": "high",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
   }
 }

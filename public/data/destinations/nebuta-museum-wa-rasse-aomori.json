@@ -53,9 +53,9 @@
   "walkingShadeMin": 1300,
   "indoorPercent": 95,
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 8
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
   "season": {
     "spring": 9,
@@ -115,7 +115,17 @@
         "summary": "KAI-57 existing-data audit correction",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "imageMetadata": {
     "source": "Wikimedia Commons",

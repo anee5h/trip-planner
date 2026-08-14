@@ -15,7 +15,7 @@
   "budgetMin": 3000,
   "budgetRecommended": 6250,
   "budgetMax": 9500,
-  "walkingMin": 3500,
+  "walkingMin": 70,
   "walkingSunMin": 1200,
   "walkingShadeMin": 2300,
   "indoorPercent": 75,
@@ -32,18 +32,18 @@
     "uniqueness": 9.8
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
+    "weekday": 6,
+    "weekend": 8,
     "holiday": 7
   },
   "season": {
-    "spring": 10,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
-  "bestMonths": [3, 4, 5, 10, 11],
-  "bestSeason": "Spring",
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "low",
   "tags": [
     "12 Original Keeps",
@@ -59,7 +59,7 @@
   "comfort": {
     "heatTolerance": 8,
     "rainFriendly": 8,
-    "walkingIntensity": 4
+    "walkingIntensity": 5
   },
   "transportOptions": {
     "train": 160,
@@ -104,7 +104,7 @@
     }
   ],
   "relationships": {},
-  "walkingIntensity": "low",
+  "walkingIntensity": "medium",
   "role": "standalone",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
@@ -113,5 +113,11 @@
     "max": 4
   },
   "officialWebsite": "https://maruoka-castle.jp/",
-  "businessHours": "09:00 - 17:00 (Last admission 16:30)"
+  "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  }
 }

@@ -90,8 +90,8 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 4,
+    "max": 8
   },
   "officialWebsite": "https://www.shosenkyo-kankoukyoukai.com/",
   "businessHours": "Open access",

@@ -59,15 +59,6 @@
     "Jellyfish Way Display",
     "Rooftop Marine Oasis"
   ],
-  "budgetMin": 3000,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
-  "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 1100,
-    "food": 1925,
-    "cafe": 550
-  },
   "transportOptions": {
     "train": 18
   },
@@ -78,8 +69,6 @@
   },
   "walkingMin": 30,
   "walkingIntensity": "low",
-  "walkingSunMin": 18,
-  "walkingShadeMin": 12,
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
@@ -102,9 +91,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 9,
+    "weekend": 10,
+    "holiday": 10
   },
   "season": {
     "spring": 7.1,
@@ -158,6 +147,14 @@
           "title": "Sunshine Aquarium",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='aquarium', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -187,5 +184,17 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tokyo:toshima"
+  "municipalityId": "Tokyo:toshima",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  }
 }

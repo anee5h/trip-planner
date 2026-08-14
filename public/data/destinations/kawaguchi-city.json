@@ -16,12 +16,10 @@
     "Kawaguchi Green Center"
   ],
   "totalTripHours": 6,
-  "budgetMin": 3500,
-  "budgetRecommended": 14250,
-  "budgetMax": 25000,
+  "budgetMin": 4600,
+  "budgetRecommended": 7600,
+  "budgetMax": 10600,
   "walkingMin": 40,
-  "walkingSunMin": 24,
-  "walkingShadeMin": 16,
   "indoorPercent": 50,
   "ratings": {
     "overall": 9.5,
@@ -36,18 +34,10 @@
     "uniqueness": 9.4
   },
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 7,
+    "weekend": 9,
+    "holiday": 8
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
   "weatherDependence": "low",
   "tags": ["Kawaguchi City", "Saitama Travel", "Regional Hub"],
   "coordinates": {
@@ -55,8 +45,8 @@
     "lng": 139.7241
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 8,
+    "heatTolerance": 6,
+    "rainFriendly": 6,
     "walkingIntensity": 3
   },
   "transportOptions": {
@@ -79,10 +69,10 @@
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
   "budgetBreakdown": {
-    "transport": 3563,
-    "tickets": 1781,
-    "food": 5789,
-    "cafe": 3117
+    "transport": 3000,
+    "tickets": 0,
+    "food": 3000,
+    "cafe": 1600
   },
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
@@ -105,7 +95,33 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "budgetRecommended": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "budget-model-v1; peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=50, kind='city', walkingMin=40",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='city', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "川口市",
   "content": {
@@ -149,5 +165,11 @@
     "license": "CC BY-SA 3.0",
     "attribution": "tak1701d",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arakawa_River_and_Kawaguchi_Zenko-ji_202106.jpg"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   }
 }

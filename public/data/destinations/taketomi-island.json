@@ -49,9 +49,9 @@
   "walkingIntensity": "medium",
   "indoorPercent": 15,
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 6,
-    "walkingIntensity": 5
+    "heatTolerance": 5,
+    "rainFriendly": 2,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 8.7,
@@ -68,8 +68,8 @@
   },
   "crowd": {
     "weekday": 4,
-    "weekend": 6,
-    "holiday": 7
+    "weekend": 7,
+    "holiday": 5
   },
   "season": {
     "spring": 8,
@@ -144,7 +144,25 @@
     ],
     "checkedAt": "2026-08-12",
     "freshness": "current",
-    "changeSummary": "PR E thematic audit: new curated member record"
+    "changeSummary": "PR E thematic audit: new curated member record",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=15, kind='island', walkingMin=150",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='island', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "transportZoneId": "ishigaki",
   "ratingMetadata": {

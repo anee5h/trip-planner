@@ -116,7 +116,25 @@
     ],
     "checkedAt": "2026-08-12",
     "freshness": "current",
-    "changeSummary": "PR C parks audit: new national park record"
+    "changeSummary": "PR C parks audit: new national park record",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'nature' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='nature', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "transportZoneId": "ishigaki",
   "ratingMetadata": {
@@ -125,21 +143,26 @@
     "confidence": "low"
   },
   "recommendedVisitHours": {
-    "min": 8,
-    "max": 24
+    "min": 4,
+    "max": 8
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 7
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 5
   },
-  "season": {
-    "spring": 8,
-    "summer": 9,
-    "autumn": 8,
-    "winter": 7
-  },
-  "bestMonths": [10, 11, 12, 1, 2, 3, 4],
   "walkingSunMin": 160,
-  "walkingShadeMin": 80
+  "walkingShadeMin": 80,
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  }
 }

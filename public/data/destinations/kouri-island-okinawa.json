@@ -61,7 +61,7 @@
   "crowd": {
     "weekday": 4,
     "weekend": 7,
-    "holiday": 8
+    "holiday": 5
   },
   "season": {
     "spring": 9,
@@ -73,8 +73,8 @@
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
+    "heatTolerance": 5,
+    "rainFriendly": 5,
     "walkingIntensity": 3
   },
   "reservation": "None required",
@@ -90,8 +90,8 @@
   "role": "destination",
   "placeType": "destination",
   "recommendedVisitHours": {
-    "min": 1.5,
-    "max": 3
+    "min": 4,
+    "max": 10
   },
   "officialWebsite": "https://www.nakijin-kankou.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
@@ -127,7 +127,33 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'island' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=30, kind='island', walkingMin=35",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='island', importance=standard, collections=2",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {

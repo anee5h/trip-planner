@@ -27,8 +27,6 @@
   },
   "totalTripHours": 8,
   "walkingMin": 5,
-  "walkingSunMin": 3,
-  "walkingShadeMin": 2,
   "indoorPercent": 15,
   "coordinates": {
     "lat": 35.7828,
@@ -53,8 +51,8 @@
   },
   "crowd": {
     "weekday": 4,
-    "weekend": 8,
-    "holiday": 9
+    "weekend": 7,
+    "holiday": 5
   },
   "season": {
     "spring": 8,
@@ -90,8 +88,8 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 4,
+    "max": 8
   },
   "officialWebsite": "https://www.ces-net.jp/mitakevc/",
   "businessHours": "Open access",
@@ -109,7 +107,25 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'mountain'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='mountain', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "御岳山",
   "content": {

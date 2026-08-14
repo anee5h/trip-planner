@@ -58,9 +58,9 @@
   "walkingShadeMin": 1800,
   "indoorPercent": 100,
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 7
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
   "season": {
     "spring": 9,
@@ -116,6 +116,16 @@
         "summary": "KAI-57 existing-data audit correction",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   }
 }

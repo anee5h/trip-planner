@@ -17,8 +17,6 @@
   "transportOptions": {},
   "totalTripHours": 6,
   "walkingMin": 120,
-  "walkingSunMin": 70,
-  "walkingShadeMin": 50,
   "indoorPercent": 35,
   "ratings": {
     "overall": 9.2,
@@ -33,18 +31,18 @@
     "uniqueness": 9.5
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
+    "weekday": 6,
+    "weekend": 8,
+    "holiday": 7
   },
   "season": {
-    "spring": 5,
-    "summer": 4,
-    "autumn": 5,
-    "winter": 4
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
-  "bestMonths": [3, 4, 5, 10, 11],
-  "bestSeason": "Autumn",
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "moderate",
   "tags": [
     "Hiroshima Peace Memorial Museum",
@@ -83,15 +81,15 @@
   },
   "nameJa": "広島平和記念資料館",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 8
   },
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 4
+    "min": 1.5,
+    "max": 3
   },
   "officialWebsite": "https://pcf.city.hiroshima.jp/",
   "businessHours": "Mar–Nov 07:30–19:00 (Aug until 20:00; Aug 5–6 until 21:00); Dec–Feb 07:30–18:00; last entry 30 min before close; closed Dec 30–31. Online reservation required for the 07:30–08:30 window and the last hour of the day.",
@@ -145,6 +143,38 @@
         "summary": "Split Genbaku Dome from the museum record; source-backed KAI-32 correction",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'museum'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=35, kind='museum', walkingMin=120",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
+  },
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
   }
 }

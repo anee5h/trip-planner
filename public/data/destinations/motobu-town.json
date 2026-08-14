@@ -13,10 +13,7 @@
   "notes": "Resort town centered on Churaumi Aquarium, Emerald Beach, and Bise Fukugi Tree Avenue.",
   "highlights": ["Explore Motobu Town", "Local Culture & Cuisine"],
   "totalTripHours": 6,
-  "budgetMin": 3500,
-  "budgetRecommended": 14250,
-  "budgetMax": 25000,
-  "walkingMin": 4000,
+  "walkingMin": 360,
   "walkingSunMin": 1500,
   "walkingShadeMin": 2500,
   "indoorPercent": 50,
@@ -33,18 +30,10 @@
     "uniqueness": 9
   },
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 7,
+    "weekend": 9,
+    "holiday": 8
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
   "weatherDependence": "low",
   "tags": ["Hub", "Okinawa", "Aquarium", "Nature", "Castle"],
   "coordinates": {
@@ -52,9 +41,9 @@
     "lng": 127.8906
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 8,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 8
   },
   "transportOptions": {},
   "reservation": "None required",
@@ -68,16 +57,10 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["naha-city", "nago-city", "ishigaki-city"]
   },
-  "budgetBreakdown": {
-    "transport": 3563,
-    "tickets": 1781,
-    "food": 5789,
-    "cafe": 3117
-  },
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "recommendedVisitHours": {
-    "min": 4,
-    "max": 24
+    "min": 7,
+    "max": 12
   },
   "businessHours": "Open access",
   "ratingsSchemaVersion": 2,
@@ -107,7 +90,41 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 2 children, metro adj",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 50% of 12h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=50, kind='town', walkingMin=360",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='town', importance=major, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
@@ -137,5 +154,11 @@
   },
   "municipalityId": "Okinawa:motobu",
   "localAccessModes": ["car", "my_car", "bus"],
-  "localAccessUnestimated": true
+  "localAccessUnestimated": true,
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

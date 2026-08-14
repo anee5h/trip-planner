@@ -48,9 +48,7 @@
     "min": 1,
     "max": 2
   },
-  "walkingMin": 3000,
-  "walkingSunMin": 1800,
-  "walkingShadeMin": 1200,
+  "walkingMin": 35,
   "walkingIntensity": "low",
   "indoorPercent": 80,
   "comfort": {
@@ -72,9 +70,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 7
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
   "season": {
     "spring": 8.4,
@@ -126,7 +124,25 @@
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='onsen', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 30% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -136,5 +152,11 @@
   "relationships": {
     "parentDestinationId": "matsuyama-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

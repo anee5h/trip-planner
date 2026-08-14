@@ -41,15 +41,6 @@
   },
   "description": "Japanese stroll garden on the site of the Owari Tokugawa clan's Nagoya villa, with a waterfall, streams and azaleas. It adjoins the Tokugawa Art Museum, and plum and cherry blossoms color the garden in early spring.",
   "highlights": ["Nature"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 195,
     "shinkansen": 85
@@ -57,17 +48,15 @@
   "totalTripHours": 6,
   "recommendedVisitHours": {
     "min": 1.5,
-    "max": 4
+    "max": 3
   },
-  "walkingMin": 6500,
-  "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
+  "walkingMin": 145,
+  "walkingIntensity": "high",
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 7,
+    "rainFriendly": 4,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 7.5,
@@ -87,7 +76,7 @@
   "crowd": {
     "weekday": 5,
     "weekend": 8,
-    "holiday": 9
+    "holiday": 6
   },
   "season": {
     "spring": 8.3,
@@ -140,6 +129,38 @@
           "url": "https://en.wikipedia.org/wiki/Tokugawa_Garden",
           "title": "Tokugawa Garden",
           "accessedAt": "2026-07-29"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'garden'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='garden', walkingMin=145",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='garden', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 80% of 3h visit",
+          "accessedAt": "2026-08-14"
         }
       ]
     },

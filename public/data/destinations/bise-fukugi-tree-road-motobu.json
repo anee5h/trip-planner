@@ -46,7 +46,17 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='nature', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
@@ -105,9 +115,9 @@
   ],
   "collections": [],
   "crowd": {
-    "weekday": 2,
-    "weekend": 4,
-    "holiday": 5
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 4
   },
   "season": {
     "spring": 9,
@@ -132,5 +142,11 @@
   },
   "notesJa": "古木のフクギ並木が続く静かな小道。レンタサイクルでの散策がおすすめ。",
   "transportZoneId": "okinawa-main",
-  "description": "A quiet coastal village surrounded by thousands of ancient Garcinia (Fukugi) windbreak trees forming green vaulted tunnels that filter sunlight down to sandy footpaths."
+  "description": "A quiet coastal village surrounded by thousands of ancient Garcinia (Fukugi) windbreak trees forming green vaulted tunnels that filter sunlight down to sandy footpaths.",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

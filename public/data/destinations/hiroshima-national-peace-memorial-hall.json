@@ -72,9 +72,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 2,
-    "weekend": 3,
-    "holiday": 4
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 5
   },
   "season": {
     "spring": 6,
@@ -142,7 +142,17 @@
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='memorial', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

@@ -16,12 +16,7 @@
     "Peaceful Green Parks"
   ],
   "totalTripHours": 6,
-  "budgetMin": 3500,
-  "budgetRecommended": 14250,
-  "budgetMax": 25000,
   "walkingMin": 40,
-  "walkingSunMin": 24,
-  "walkingShadeMin": 16,
   "indoorPercent": 50,
   "ratings": {
     "overall": 9.5,
@@ -36,18 +31,10 @@
     "uniqueness": 9.4
   },
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 7,
+    "weekend": 9,
+    "holiday": 8
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
   "weatherDependence": "low",
   "tags": ["Itabashi City", "Tokyo Travel", "Regional Hub"],
   "coordinates": {
@@ -55,8 +42,8 @@
     "lng": 139.7093
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 8,
+    "heatTolerance": 6,
+    "rainFriendly": 6,
     "walkingIntensity": 3
   },
   "transportOptions": {
@@ -77,12 +64,6 @@
       "minato-city",
       "taito-city"
     ]
-  },
-  "budgetBreakdown": {
-    "transport": 3563,
-    "tickets": 1781,
-    "food": 5789,
-    "cafe": 3117
   },
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
@@ -105,7 +86,25 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=50, kind='ward', walkingMin=40",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='ward', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "板橋区",
   "content": {
@@ -145,5 +144,11 @@
     "license": "CC BY-SA 3.0",
     "attribution": "Missmikage",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Itabashi-at-nakajuku.JPG"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   }
 }

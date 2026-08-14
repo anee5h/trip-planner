@@ -78,8 +78,8 @@
   "indoorPercent": 0,
   "comfort": {
     "heatTolerance": 7,
-    "rainFriendly": 4,
-    "walkingIntensity": 2
+    "rainFriendly": 1,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 9,
@@ -95,17 +95,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 8
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 4
   },
-  "season": {
-    "spring": 9,
-    "summer": 9,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Viewpoint parking available",
@@ -139,7 +132,25 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=0, kind='nature', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='nature', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": null,
   "municipalityId": "Kumamoto:aso",
@@ -149,5 +160,11 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "カルデラを眺めるなら朝日か夕暮れが最も幻想的です。"
+  "notesJa": "カルデラを眺めるなら朝日か夕暮れが最も幻想的です。",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

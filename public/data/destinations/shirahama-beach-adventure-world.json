@@ -39,7 +39,17 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
@@ -95,5 +105,27 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/131221_Shirarahama_Beach_Shirahama_Wakayama_pref_Japan05s3.jpg/1920px-131221_Shirarahama_Beach_Shirahama_Wakayama_pref_Japan05s3.jpg",
   "travelEstimate": {
     "confidence": "beta"
+  },
+  "season": {
+    "spring": 7,
+    "summer": 10,
+    "autumn": 6,
+    "winter": 3
+  },
+  "bestMonths": [7, 8],
+  "bestSeason": "Summer",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "temperate latitude band; calibrated beach peaks"
+  },
+  "walkingMin": 95,
+  "walkingIntensity": "medium",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
   }
 }

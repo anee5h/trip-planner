@@ -77,9 +77,9 @@
   "walkingShadeMin": 1500,
   "indoorPercent": 5,
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 2
+    "heatTolerance": 5,
+    "rainFriendly": 2,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.5,
@@ -95,17 +95,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 5,
+    "weekday": 5,
+    "weekend": 7,
     "holiday": 6
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Nearby coin parking",
@@ -139,7 +132,25 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=5, kind='temple', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='temple', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": null,
   "municipalityId": "Fukuoka:dazaifu",
@@ -149,5 +160,17 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.crossroadfukuoka.jp/en/spots/detail/4000000000108"
   },
-  "notesJa": "紅葉の名所で11月下旬が見頃です。"
+  "notesJa": "紅葉の名所で11月下旬が見頃です。",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

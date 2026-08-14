@@ -31,10 +31,10 @@
     "holiday": 10
   },
   "season": {
-    "spring": 10,
-    "summer": 10,
-    "autumn": 10,
-    "winter": 10
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "tags": ["Indoor", "Action"],
@@ -75,7 +75,7 @@
   "relationships": {
     "parentDestinationId": "koto-city"
   },
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "moderate",
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
@@ -137,5 +137,17 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tokyo:koto"
+  "municipalityId": "Tokyo:koto",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

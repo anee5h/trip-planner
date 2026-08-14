@@ -10,8 +10,6 @@
   "budgetRecommended": 30800,
   "budgetMax": 34800,
   "walkingMin": 60,
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 40,
   "ratings": {
     "overall": 9.5,
@@ -26,9 +24,9 @@
     "uniqueness": 9.5
   },
   "crowd": {
-    "weekday": 8,
-    "weekend": 10,
-    "holiday": 10
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
   "season": {
     "spring": 9,
@@ -45,7 +43,7 @@
   "comfort": {
     "heatTolerance": 8,
     "rainFriendly": 4,
-    "walkingIntensity": 12
+    "walkingIntensity": 5
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg/1920px-Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg",
   "transportOptions": {
@@ -100,7 +98,25 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "東京ディズニーランド",
   "content": {
@@ -138,5 +154,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "Hours vary by date and season (typical 09:00-21:00); see official calendar",
   "openingHoursJa": "営業時間は日により変動（一般的に 09:00〜21:00）；公式カレンダーをご確認ください",
-  "municipalityId": "Chiba:urayasu"
+  "municipalityId": "Chiba:urayasu",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

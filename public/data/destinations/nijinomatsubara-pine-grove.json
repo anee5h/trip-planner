@@ -77,15 +77,15 @@
     "min": 1,
     "max": 2
   },
-  "walkingMin": 4000,
-  "walkingIntensity": "low",
+  "walkingMin": 95,
+  "walkingIntensity": "medium",
   "walkingSunMin": 2000,
   "walkingShadeMin": 2000,
   "indoorPercent": 5,
   "comfort": {
     "heatTolerance": 7,
-    "rainFriendly": 5,
-    "walkingIntensity": 2
+    "rainFriendly": 1,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8,
@@ -103,7 +103,7 @@
   "crowd": {
     "weekday": 3,
     "weekend": 6,
-    "holiday": 7
+    "holiday": 4
   },
   "season": {
     "spring": 9,
@@ -152,7 +152,33 @@
       }
     ],
     "reviewedAt": "2026-08-05",
-    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    "reviewedBy": "Kyushu-to-100 Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=5, kind='natural', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='natural', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 80% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.karatsu-kankou.jp/en/spots/detail/4",
   "municipalityId": "Saga:karatsu"

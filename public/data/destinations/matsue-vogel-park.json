@@ -54,10 +54,8 @@
     "min": 2,
     "max": 4
   },
-  "walkingMin": 4000,
-  "walkingSunMin": 2500,
-  "walkingShadeMin": 1500,
-  "walkingIntensity": "low",
+  "walkingMin": 120,
+  "walkingIntensity": "high",
   "indoorPercent": 45,
   "comfort": {
     "heatTolerance": 7,
@@ -80,7 +78,7 @@
   "crowd": {
     "weekday": 3,
     "weekend": 6,
-    "holiday": 7
+    "holiday": 4
   },
   "season": {
     "spring": 9,
@@ -148,7 +146,25 @@
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='park', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 50% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

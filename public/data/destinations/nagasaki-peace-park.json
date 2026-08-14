@@ -80,8 +80,8 @@
   "walkingShadeMin": 3000,
   "indoorPercent": 40,
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
+    "heatTolerance": 6,
+    "rainFriendly": 5,
     "walkingIntensity": 5
   },
   "ratings": {
@@ -98,17 +98,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 8
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 5
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Museum parking available",
@@ -148,7 +141,25 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=40, kind='memorial', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='memorial', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://nagasakipeace.jp/",
   "municipalityId": "Nagasaki:nagasaki",
@@ -158,5 +169,17 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
   },
-  "notesJa": "平和公園と原爆資料館を合わせて最低2時間は確保しましょう。"
+  "notesJa": "平和公園と原爆資料館を合わせて最低2時間は確保しましょう。",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

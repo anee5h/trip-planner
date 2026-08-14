@@ -12,10 +12,10 @@
   "description": "Largest city in Shikoku, featuring historic Matsuyama Castle atop Mt. Katsuyama and 3,000-year-old Dogo Onsen.",
   "highlights": ["Explore Matsuyama City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
-  "budgetMin": 3500,
-  "budgetRecommended": 14250,
-  "budgetMax": 25000,
-  "walkingMin": 4000,
+  "budgetMin": 4600,
+  "budgetRecommended": 7600,
+  "budgetMax": 10600,
+  "walkingMin": 360,
   "walkingSunMin": 1500,
   "walkingShadeMin": 2500,
   "indoorPercent": 50,
@@ -32,18 +32,10 @@
     "uniqueness": 9.4
   },
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 7,
+    "weekend": 9,
+    "holiday": 8
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
   "weatherDependence": "low",
   "tags": ["Matsuyama City", "Ehime Travel", "Regional Hub"],
   "coordinates": {
@@ -51,9 +43,9 @@
     "lng": 132.7656
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 8,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "train": 200
@@ -80,14 +72,14 @@
     "nearbyDestinationIds": ["takamatsu-city", "kochi-city", "tokushima-city"]
   },
   "budgetBreakdown": {
-    "transport": 3563,
-    "tickets": 1781,
-    "food": 5789,
-    "cafe": 3117
+    "transport": 3000,
+    "tickets": 0,
+    "food": 3000,
+    "cafe": 1600
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "recommendedVisitHours": {
-    "min": 6,
+    "min": 8,
     "max": 12
   },
   "businessHours": "Open access",
@@ -98,5 +90,17 @@
     "license": "CC BY-SA 3.0",
     "attribution": "File:Dōgo Onsen Honkan.jpg by Simon, Uploaded by User:トトト\nFile:Shiki Masaoka sto",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsuyama_montage.jpg"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   }
 }

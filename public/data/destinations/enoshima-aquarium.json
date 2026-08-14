@@ -66,8 +66,6 @@
   },
   "walkingMin": 30,
   "walkingIntensity": "low",
-  "walkingSunMin": 18,
-  "walkingShadeMin": 12,
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
@@ -90,9 +88,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 9,
+    "weekend": 10,
+    "holiday": 10
   },
   "season": {
     "spring": 8.7,
@@ -170,6 +168,14 @@
           "title": "Enoshima Aquarium official website",
           "accessedAt": "2026-08-13"
         }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='aquarium', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -206,5 +212,11 @@
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
   "municipalityId": "Kanagawa:fujisawa",
-  "transportZoneId": "mainland-honshu"
+  "transportZoneId": "mainland-honshu",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

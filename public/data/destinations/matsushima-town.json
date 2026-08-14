@@ -51,8 +51,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsushima_Town-Hall.jpg"
   },
   "recommendedVisitHours": {
-    "min": 6,
-    "max": 8
+    "min": 8,
+    "max": 12
   },
   "walkingMin": 6000,
   "walkingSunMin": 3000,
@@ -60,7 +60,7 @@
   "walkingIntensity": "medium",
   "indoorPercent": 30,
   "comfort": {
-    "heatTolerance": 6,
+    "heatTolerance": 5,
     "rainFriendly": 5,
     "walkingIntensity": 5
   },
@@ -85,9 +85,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 8
+    "weekday": 8,
+    "weekend": 10,
+    "holiday": 9
   },
   "season": {
     "spring": 9,
@@ -156,7 +156,33 @@
         "summary": "Added Matsushima Town hub",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 9 children, metro adj",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=30, kind='town', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='town', importance=major, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

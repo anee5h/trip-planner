@@ -114,11 +114,34 @@
     "freshness": "current",
     "changeSummary": "PR A fixed-set audit: new Takaoka Daibutsu record replacing city-hub proxy in three-great-buddhas",
     "reviewedAt": "2026-08-12",
-    "reviewedBy": "Meguruto editorial"
+    "reviewedBy": "Meguruto editorial",
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "assisted",
     "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 60,
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
   }
 }

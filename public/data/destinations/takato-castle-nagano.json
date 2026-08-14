@@ -27,9 +27,9 @@
     "uniqueness": 9.6
   },
   "crowd": {
-    "weekday": 5,
-    "weekend": 9,
-    "holiday": 10
+    "weekday": 6,
+    "weekend": 8,
+    "holiday": 7
   },
   "season": {
     "spring": 10,

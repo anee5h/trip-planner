@@ -36,9 +36,9 @@
     "lng": 137.8139
   },
   "comfort": {
-    "walkingIntensity": 2,
-    "heatTolerance": 9,
-    "rainFriendly": 6
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.8,
@@ -53,18 +53,10 @@
     "uniqueness": 9.2
   },
   "crowd": {
-    "weekday": 2,
-    "weekend": 6,
-    "holiday": 7
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
-  "season": {
-    "spring": 8,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [5, 6, 10, 11],
-  "bestSeason": "Autumn",
   "weatherDependence": "low",
   "tags": ["Nakasendo", "Post Town", "Historic", "Wooden Bridge"],
   "reservation": "Not required",
@@ -101,5 +93,11 @@
     "max": 10
   },
   "officialWebsite": "https://www.naraijuku.org/",
-  "businessHours": "09:00 - 17:00 (Daily)"
+  "businessHours": "09:00 - 17:00 (Daily)",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

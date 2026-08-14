@@ -40,18 +40,10 @@
     "uniqueness": 8.7
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
-  "season": {
-    "spring": 5,
-    "summer": 4,
-    "autumn": 5,
-    "winter": 4
-  },
-  "bestMonths": [3, 4, 5, 10, 11],
-  "bestSeason": "Spring",
   "weatherDependence": "moderate",
   "tags": ["Core Designated City", "Metropolis Hub", "Niigata"],
   "reservation": "Not required",
@@ -87,9 +79,9 @@
     "cafe": 2500
   },
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
@@ -98,5 +90,11 @@
     "max": 14
   },
   "businessHours": "Open access",
-  "municipalityId": "Niigata:niigata"
+  "municipalityId": "Niigata:niigata",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

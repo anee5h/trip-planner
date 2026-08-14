@@ -10,7 +10,7 @@
   "budgetMin": 3500,
   "budgetRecommended": 7750,
   "budgetMax": 12000,
-  "walkingMin": 4500,
+  "walkingMin": 90,
   "walkingSunMin": 1800,
   "walkingShadeMin": 2700,
   "indoorPercent": 75,
@@ -55,7 +55,7 @@
   "comfort": {
     "heatTolerance": 8,
     "rainFriendly": 8,
-    "walkingIntensity": 4
+    "walkingIntensity": 5
   },
   "transportOptions": {
     "train": 110,
@@ -126,7 +126,25 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4500 replaced by walk-share estimate (FIX_UNIT): 30% of 5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=75, kind='', walkingMin=90",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "notesJa": "【見どころ】Hikone Castle (National Treasure)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",

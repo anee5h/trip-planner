@@ -54,9 +54,7 @@
     "min": 1,
     "max": 2
   },
-  "walkingMin": 2500,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 1000,
+  "walkingMin": 35,
   "walkingIntensity": "low",
   "indoorPercent": 85,
   "comfort": {
@@ -78,18 +76,18 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 5,
+    "weekday": 5,
+    "weekend": 7,
     "holiday": 6
   },
   "season": {
-    "spring": 8,
-    "summer": 7,
-    "autumn": 8,
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
     "winter": 7
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "bestSeason": "All Year",
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "No dedicated parking; use nearby public lots or buses",
@@ -148,7 +146,25 @@
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 2500 replaced by walk-share estimate (FIX_UNIT): 30% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -158,5 +174,11 @@
   "relationships": {
     "parentDestinationId": "matsue-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  }
 }

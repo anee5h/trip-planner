@@ -11,8 +11,6 @@
   "budgetRecommended": 7000,
   "budgetMax": 10000,
   "walkingMin": 50,
-  "walkingSunMin": 30,
-  "walkingShadeMin": 20,
   "indoorPercent": 25,
   "ratings": {
     "overall": 8.7,
@@ -27,8 +25,8 @@
     "uniqueness": 8.6
   },
   "crowd": {
-    "weekday": 6,
-    "weekend": 9,
+    "weekday": 9,
+    "weekend": 10,
     "holiday": 10
   },
   "season": {
@@ -44,8 +42,8 @@
     "lng": 139.7713
   },
   "comfort": {
-    "heatTolerance": 6,
-    "rainFriendly": 6,
+    "heatTolerance": 5,
+    "rainFriendly": 4,
     "walkingIntensity": 5
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Ueno_Zoo_20220414a1.jpg/1920px-Ueno_Zoo_20220414a1.jpg",
@@ -83,8 +81,8 @@
   "walkingIntensity": "medium",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 3,
-    "max": 5
+    "min": 2,
+    "max": 4
   },
   "officialWebsite": "https://www.tokyo-zoo.net/zoo/ueno/",
   "businessHours": "09:30 - 17:00 (Closed Mondays)",
@@ -102,7 +100,33 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'zoo'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=25, kind='zoo', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='zoo', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "東京都恩賜上野動物園",
   "content": {

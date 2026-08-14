@@ -32,15 +32,6 @@
     "bus": 50,
     "car": 45
   },
-  "budgetMin": 0,
-  "budgetRecommended": 1500,
-  "budgetMax": 3000,
-  "budgetBreakdown": {
-    "transport": 800,
-    "tickets": 0,
-    "food": 500,
-    "cafe": 200
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Matsushima_Godaido_4.jpg/1280px-Matsushima_Godaido_4.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Matsushima_Godaido_4.jpg/1280px-Matsushima_Godaido_4.jpg",
   "imageMetadata": {
@@ -53,8 +44,8 @@
     "verifiedAt": "2026-08-11"
   },
   "recommendedVisitHours": {
-    "min": 1,
-    "max": 1
+    "min": 2,
+    "max": 4
   },
   "walkingMin": 800,
   "walkingSunMin": 400,
@@ -87,9 +78,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 8
+    "weekday": 6,
+    "weekend": 8,
+    "holiday": 7
   },
   "season": {
     "spring": 9,
@@ -151,7 +142,25 @@
         "summary": "Added source-backed KAI-57 Tohoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'temple' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='temple', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

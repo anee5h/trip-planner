@@ -82,9 +82,9 @@
   "walkingShadeMin": 300,
   "indoorPercent": 5,
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 4,
-    "walkingIntensity": 2
+    "heatTolerance": 5,
+    "rainFriendly": 2,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.5,
@@ -100,17 +100,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 7
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 5
   },
-  "season": {
-    "spring": 9,
-    "summer": 9,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Free parking available",
@@ -145,8 +138,38 @@
       }
     ],
     "reviewedAt": "2026-08-05",
-    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    "reviewedBy": "Kyushu-to-100 Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=5, kind='viewpoint', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='viewpoint', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": null,
-  "municipalityId": "Nagasaki:sasebo"
+  "municipalityId": "Nagasaki:sasebo",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

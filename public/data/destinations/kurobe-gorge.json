@@ -28,12 +28,12 @@
   "budgetMin": 17000,
   "budgetMax": 25000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
+  "walkingMin": 385,
   "walkingSunMin": 4000,
   "walkingShadeMin": 6000,
   "comfort": {
-    "heatTolerance": 5,
-    "rainFriendly": 4,
+    "heatTolerance": 7,
+    "rainFriendly": 1,
     "walkingIntensity": 5
   },
   "transportOptions": {
@@ -42,8 +42,8 @@
     "train": 200
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
+    "weekday": 4,
+    "weekend": 7,
     "holiday": 5
   },
   "season": {
@@ -94,8 +94,8 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 4,
+    "max": 8
   },
   "officialWebsite": "https://www.kurobe-unazuki.jp/",
   "businessHours": "Open access"

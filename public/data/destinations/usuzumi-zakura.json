@@ -119,11 +119,42 @@
     "freshness": "current",
     "changeSummary": "PR A fixed-set audit: new Usuzumi-zakura record for three-cherry-blossom-spots",
     "reviewedAt": "2026-08-12",
-    "reviewedBy": "Meguruto editorial"
+    "reviewedBy": "Meguruto editorial",
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "assisted",
     "confidence": "low"
+  },
+  "season": {
+    "spring": 10,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 4
+  },
+  "bestMonths": [4, 5, 10, 11],
+  "bestSeason": "Spring & Autumn",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "spring-flower category; calibrated 8/9 trusted"
+  },
+  "walkingMin": 95,
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
   }
 }

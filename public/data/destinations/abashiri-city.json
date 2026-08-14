@@ -12,10 +12,10 @@
   "description": "Okhotsk coastal city famous for winter sea drift ice cruise ships (Garinko) and Abashiri Prison Museum.",
   "highlights": ["Explore Abashiri City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
-  "budgetMin": 3500,
-  "budgetRecommended": 14250,
-  "budgetMax": 25000,
-  "walkingMin": 4000,
+  "budgetMin": 4600,
+  "budgetRecommended": 7600,
+  "budgetMax": 10600,
+  "walkingMin": 360,
   "walkingSunMin": 1500,
   "walkingShadeMin": 2500,
   "indoorPercent": 50,
@@ -32,15 +32,15 @@
     "uniqueness": 9.4
   },
   "crowd": {
-    "weekday": 5,
+    "weekday": 6,
     "weekend": 8,
-    "holiday": 9
+    "holiday": 7
   },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
+    "spring": 8,
+    "summer": 5,
+    "autumn": 5,
+    "winter": 10
   },
   "bestMonths": [1, 2, 3],
   "bestSeason": "Winter",
@@ -51,9 +51,9 @@
     "lng": 144.2734
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 8,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 8
   },
   "transportOptions": {},
   "reservation": "None required",
@@ -68,12 +68,12 @@
     "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
   },
   "budgetBreakdown": {
-    "transport": 3563,
-    "tickets": 1781,
-    "food": 5789,
-    "cafe": 3117
+    "transport": 3000,
+    "tickets": 0,
+    "food": 3000,
+    "cafe": 1600
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "recommendedVisitHours": {
     "min": 6,
     "max": 12
@@ -86,5 +86,11 @@
     "license": "Unsplash License",
     "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
     "sourceUrl": "https://unsplash.com"
+  },
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "source-corrected bestMonths [1,2,3] (ledger seasonBestMonths)"
   }
 }

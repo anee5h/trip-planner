@@ -54,15 +54,13 @@
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
-  "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
+  "walkingMin": 145,
+  "walkingIntensity": "high",
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 6.2,
@@ -78,17 +76,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 4,
+    "weekend": 7,
+    "holiday": 5
   },
-  "season": {
-    "spring": 9.4,
-    "summer": 7.7,
-    "autumn": 9.4,
-    "winter": 9.3
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
@@ -120,7 +111,33 @@
         "summary": "Added itinerary-ready hub POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='viewpoint', walkingMin=145",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='viewpoint', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 80% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -137,5 +154,11 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:HIROSHIMA_ORIZURU_TOWER_2016-1006-1.jpg"
   },
   "municipalityId": "Hiroshima:hiroshima",
-  "openingHoursJa": "10:00〜18:00（最終入場17:30）。"
+  "openingHoursJa": "10:00〜18:00（最終入場17:30）。",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

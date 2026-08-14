@@ -28,11 +28,9 @@
   "budgetMax": 11500,
   "totalTripHours": 8,
   "walkingMin": 60,
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "comfort": {
-    "heatTolerance": 5,
-    "rainFriendly": 4,
+    "heatTolerance": 6,
+    "rainFriendly": 5,
     "walkingIntensity": 5
   },
   "transportOptions": {
@@ -40,15 +38,9 @@
     "car": 80
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
   "highlights": [
     "Explore top-rated shrine locations",
@@ -56,7 +48,6 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Ushiku Daibutsu, a prominent destination in Ibaraki. With its rich mix of giant statue, record breaking, it's a highly recommended spot for a 8-hour getaway.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 1500,
@@ -77,7 +68,6 @@
   },
   "collections": [],
   "relationships": {},
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
@@ -105,7 +95,25 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=40, kind='', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "牛久大仏",
   "content": {
@@ -139,5 +147,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Ibaraki:ushiku"
+  "municipalityId": "Ibaraki:ushiku",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

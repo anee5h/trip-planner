@@ -56,14 +56,12 @@
     "min": 1,
     "max": 2
   },
-  "walkingMin": 2500,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 1000,
+  "walkingMin": 35,
   "walkingIntensity": "low",
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 8,
-    "rainFriendly": 9,
+    "rainFriendly": 10,
     "walkingIntensity": 3
   },
   "ratings": {
@@ -87,9 +85,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 5,
-    "holiday": 6
+    "weekday": 6,
+    "weekend": 8,
+    "holiday": 7
   },
   "season": {
     "spring": 8,
@@ -151,7 +149,33 @@
         "summary": "Added source-backed KAI-57 Tohoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 2500 replaced by walk-share estimate (FIX_UNIT): 30% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=90, kind='museum', walkingMin=35",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -161,5 +185,11 @@
   "relationships": {
     "parentDestinationId": "fukushima-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

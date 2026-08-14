@@ -68,13 +68,11 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 25,
   "comfort": {
-    "heatTolerance": 3,
-    "rainFriendly": 3,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.1,
@@ -92,9 +90,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
+    "weekday": 6,
     "weekend": 8,
-    "holiday": 9
+    "holiday": 7
   },
   "season": {
     "spring": 8.4,
@@ -180,6 +178,22 @@
           "url": "https://www.engakuji.or.jp/en/",
           "title": "ENGAKUJI ZEN TEMPLE",
           "accessedAt": "2026-08-13"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=25, kind='temple', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='temple', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
         }
       ]
     },

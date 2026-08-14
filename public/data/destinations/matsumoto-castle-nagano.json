@@ -30,9 +30,9 @@
     "uniqueness": 9.8
   },
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 7,
+    "weekend": 9,
+    "holiday": 8
   },
   "season": {
     "spring": 9.8,
@@ -65,12 +65,10 @@
   "transportOptions": {
     "train": 160
   },
-  "walkingSunMin": 72,
-  "walkingShadeMin": 48,
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "reservation": "None required",
   "parking": "Available on site",
@@ -82,8 +80,8 @@
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 4
+    "min": 2.5,
+    "max": 5
   },
   "officialWebsite": "https://www.matsumoto-castle.jp/",
   "businessHours": "09:00 - 17:00 (Last admission 16:30)",

@@ -48,7 +48,7 @@
     "uniqueness": 9.8
   },
   "totalTripHours": 2,
-  "walkingMin": 2000,
+  "walkingMin": 90,
   "walkingSunMin": 500,
   "walkingShadeMin": 1500,
   "indoorPercent": 10,
@@ -57,21 +57,13 @@
     "weekend": 7,
     "holiday": 9
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "comfort": {
     "heatTolerance": 7,
     "rainFriendly": 6,
     "walkingIntensity": 2
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "medium",
   "reservation": "None required",
   "parking": "Free on site",
   "notes": "Admission ¥1,000. Do not bring food from outside — foxes are fed by staff only. Baby fox holding events typically run March–May. Foxes are most active in cooler months.",
@@ -97,5 +89,11 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Piccolist",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitsune_mura_H26Dec13.JPG"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   }
 }

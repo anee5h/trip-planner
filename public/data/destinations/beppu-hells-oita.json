@@ -26,9 +26,6 @@
   ],
   "region": "Kyushu",
   "categories": ["Onsen & Wellness"],
-  "budgetMin": 1500,
-  "budgetMax": 6000,
-  "budgetRecommended": 3750,
   "transportOptions": {
     "train": 180
   },
@@ -49,26 +46,18 @@
     "Local Culture & Scenery"
   ],
   "totalTripHours": 4,
-  "walkingMin": 3000,
+  "walkingMin": 150,
   "indoorPercent": 30,
   "crowd": {
-    "weekday": 4,
+    "weekday": 5,
     "weekend": 7,
-    "holiday": 8
+    "holiday": 6
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "reservation": "None required",
   "parking": "Available on site",
@@ -80,9 +69,7 @@
     "parentDestinationId": "beppu-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/180131_Umi-Jigoku.jpg/1920px-180131_Umi-Jigoku.jpg",
-  "walkingIntensity": "low",
-  "walkingSunMin": 1800,
-  "walkingShadeMin": 1200,
+  "walkingIntensity": "high",
   "recommendedVisitHours": {
     "min": 3,
     "max": 5
@@ -104,7 +91,33 @@
         "title": "Hells of Beppu",
         "accessedAt": "2026-08-04"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=30, kind='', walkingMin=150",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 50% of 5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "ja": {
@@ -130,5 +143,23 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Totti",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:180131_Umi-Jigoku.jpg"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
   }
 }

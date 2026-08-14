@@ -1,8 +1,8 @@
 {
  "audit": "KAI-89 structured cluster dispositions",
- "schemaVersion": 1,
- "generatedAt": "2026-08-13",
- "note": "Reviewed disposition per structured cluster, keyed by <category>:<clusterId> (sha256 of category:value). category: A legitimate repetition, B generated/template, C plausible-unverified, D demonstrably incorrect, E manual/editorial review. action: legitimate | corrected | confidence-gated | manual-review. corrected = evidence-driven field corrections applied in kai-89-corrections.json for THIS category. Generated once from the parallel KAI-89 audit; the audit generator fails --check on unclassified clusters.",
+ "schemaVersion": 2,
+ "generatedAt": "2026-08-14",
+ "note": "Per-cluster reviewed disposition. category A-E; action: legitimate | corrected | confidence-gated | manual-review | model-estimate. model-estimate = cluster whose members all equal the documented KAI-89 model output (pure-function value equality, scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources. The audit generator fails --check on unclassified clusters.",
  "clusters": {
   "ratings:43dd983ddcc5": {
    "category": "D",
@@ -184,75 +184,25 @@
    "action": "confidence-gated",
    "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
   },
-  "budget:fd9f513773d2": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940 (v1.9.2, 2026-07-29) + 8341eb96 (v1.7.62 catalog sync, 2026-07-28): identical hub budget stamped on all city/ward/town/village hubs; 114/119 already identical in d1f36940"
-  },
-  "budget:daf2276429d2": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940: expand-major-city-catalog.ts createDestination() formula (indoorPercent<70): min 1500, rec=min+2500=4000, max=rec+3000=7000, breakdown {35%,20%,35%,10% of rec}"
-  },
-  "budget:40b49658779a": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940 template variant after repair pass: tickets forced 0, transport/food rebalanced (1300/2300/400); venues are free-to-enter public spaces -> tickets=0 largely correct; several kind labels wrong (Dotonbori/Fushimi Inari/Canal City marked museum)"
-  },
-  "budget:59f041cab981": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940 template variant after repair pass (FREE_PLACE_TICKET_COST rule): tickets forced 0, cafe rebalanced +800 (400->1200); tickets=0 correct only for genuinely free venues"
-  },
-  "budget:8462a9aba38e": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940: same createDestination() formula with indoorPercent>=70: min 3000, rec 5500, max 8500, breakdown {1925,1100,1925,550}"
-  },
-  "budget:1492d34ccf0d": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "8341eb96-era standalone template: min, rec=min+2250, max=rec+2250, NO breakdown; runtime getEffectiveBudgetBreakdown() fabricates breakdown (transport 3000, tickets 1500/2000, food/cafe 65/35%)"
-  },
-  "budget:e7f741482ab8": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "add-reviewed-city-hubs.ts + kai-57-tohoku-expansion.ts fixed hub template {7000,10500,14000, 3000/1500/4500/1500}"
-  },
-  "budget:e3faae4d22f2": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940-era UNESCO/major-site template {4000,9500,15000, 3000/2000/3000/1500}; tickets 2000 formulaic - many sites free (Ogasawara, Shirakami) or 500-1500 (Horyuji 1500, Tomioka 1000, Western Art 500)"
-  },
-  "budget:434d3e77be35": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940-era Yokohama template {3000,6500,10000, 650/1300/3250/1300}"
+  "budget:dafcb0cb88a3": {
+   "category": "C",
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
   "budget:e39678941b25": {
    "category": "B",
    "action": "corrected",
    "reason": "pr12c-kyushu-expansion.ts buildPoi() formula: breakdown = {35%, ticketCost, 40%, 10% of budgetMin} -> sum 850 != rec 3000 (formula bug: uses min not rec)"
   },
-  "budget:617b00b691ff": {
+  "budget:59f041cab981": {
    "category": "B",
    "action": "manual-review",
-   "reason": "kai-57-tohoku-expansion.ts template [0,1500,3000] + {800,0,500,200} (exact match line 1169-1170); min=0 for free-entry sites"
+   "reason": "d1f36940 template variant after repair pass (FREE_PLACE_TICKET_COST rule): tickets forced 0, cafe rebalanced +800 (400->1200); tickets=0 correct only for genuinely free venues"
   },
   "budget:70babdf47301": {
    "category": "B",
    "action": "corrected",
    "reason": "d1f36940 template variant after repair pass (FREE_PLACE_TICKET_COST rule): tickets forced 0, cafe rebalanced +800 (400->1200); tickets=0 correct only for genuinely free venues"
-  },
-  "budget:288d1d99b5f7": {
-   "category": "B",
-   "action": "corrected",
-   "reason": "C1-variant template budget (1500/4000/7000, breakdown 1400/500/1400/400) shared by engakuji, enoshima-sea-candle, kinkaku-ji; engakuji tickets corrected to verified 500 (engakuji.or.jp), other components legacy template values (manual review)."
-  },
-  "budget:4ec318cbea5e": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940-era template {7000,11000,15000, 4400/2200/3300/1100} applied to Fukui City hub AND free nature sites (Kiso Valley, Lake Hamanako)"
   },
   "budget:546bb5ac6a3c": {
    "category": "B",
@@ -264,11 +214,6 @@
    "action": "corrected",
    "reason": "template {2000,5000,8000, 700/500/800/200}; sum 2200 != rec 5000"
   },
-  "budget:b1cf2df6b1e5": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "kai-31-shikoku-expansion.ts template [1000,3000,6000] + {1000,0,1300,700} (exact match line 1041-1042)"
-  },
   "budget:bd0a0d5cebfb": {
    "category": "B",
    "action": "corrected",
@@ -279,20 +224,15 @@
    "action": "legitimate",
    "reason": "Attraction convention: 1-3h museums/temples/shrines/districts (69+22+18+16 of 172). Applied via assisted generation (161/172 assisted-low) but the range is the standard Japan visit-duration convention."
   },
-  "visitDuration:c7f7bd9ca006": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "v1.6.0 hub template + later backfill: 120 city/ward/town hubs share identical 6-12h. 45 members carry manual/high metadata over template values. City hubs inherit attraction-style visit semantics."
+  "visitDuration:1c84ff3f729a": {
+   "category": "A",
+   "action": "legitimate",
+   "reason": "Quick-visit convention across museums/temples/nature/markets."
   },
   "visitDuration:bb109b6c5b53": {
    "category": "C",
    "action": "manual-review",
    "reason": "Museum 2-4h convention (31 museums) + 35 unknown-kind members; appears in kai-31/kai-32 script tuples."
-  },
-  "visitDuration:1c84ff3f729a": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "Quick-visit convention across museums/temples/nature/markets."
   },
   "visitDuration:db24647aa9a1": {
    "category": "A",
@@ -304,25 +244,35 @@
    "action": "manual-review",
    "reason": "63/69 members unknown kind; standalone/destination nature areas."
   },
+  "visitDuration:3339bcb2ae09": {
+   "category": "C",
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+  },
   "visitDuration:ce28d84e211b": {
    "category": "A",
    "action": "legitimate",
    "reason": "Nature-park convention: 63/64 members kind=nature."
   },
-  "visitDuration:2e8cc740f9f8": {
+  "visitDuration:807f7cbc4b49": {
    "category": "C",
    "action": "manual-review",
-   "reason": "Mountain/lake/onsen full-day; plausible for hikes."
+   "reason": "Museum 2-4h convention (31 museums) + 35 unknown-kind members; appears in kai-31/kai-32 script tuples."
   },
-  "visitDuration:ace9c9cbe7de": {
+  "visitDuration:c7f7bd9ca006": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "add-reviewed-city-hubs.ts template for 30 city hubs; full-day+ for historic cities plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "visitDuration:408511fca028": {
+  "visitDuration:afa8461550d9": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Parks 1.5-4h plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+  },
+  "visitDuration:a8d277c24598": {
+   "category": "C",
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
   "visitDuration:4b9f3c3ff6be": {
    "category": "A",
@@ -334,385 +284,230 @@
    "action": "manual-review",
    "reason": "23/24 unknown kind."
   },
-  "visitDuration:807f7cbc4b49": {
+  "visitDuration:0f753cf4bbb0": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "visitDuration:5e5a880cdcfd": {
+  "visitDuration:d59c365ae4c0": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Remote nature/trekking overnight (12/14 nature)."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "visitDuration:e229b7d66d77": {
+  "visitDuration:4cd5ba30889e": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "visitDuration:6bbdfa97dc07": {
+  "visitDuration:2e8cc740f9f8": {
    "category": "C",
    "action": "manual-review",
-   "reason": "Plausible."
+   "reason": "Mountain/lake/onsen full-day; plausible for hikes."
   },
-  "visitDuration:9bf072f0ba51": {
+  "visitDuration:b2a5eb034cbe": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "visitDuration:b745c8933575": {
-   "category": "C",
+  "visitDuration:99843a89b1e2": {
+   "category": "E",
    "action": "manual-review",
-   "reason": "Plausible."
+   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
   },
-  "visitDuration:c006402eb46c": {
+  "visitDuration:480983978476": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Temple/museum destinations 0.8-1.8h."
-  },
-  "visitDuration:c5cf365f9397": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Point value 1h for small temples/museums."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
   "visitDuration:768f833d8371": {
    "category": "C",
    "action": "manual-review",
    "reason": "Historic towns/onsen full-day."
   },
-  "visitDuration:afa8461550d9": {
+  "visitDuration:e229b7d66d77": {
    "category": "C",
    "action": "manual-review",
-   "reason": "Nature/theme-park."
+   "reason": "Plausible."
   },
-  "visitDuration:0cfdaf6aec7b": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "City/town hubs (5) with 4-24h 'visit' = overnight; legacy no-metadata."
+  "visitDuration:fe496e42c678": {
+   "category": "C",
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
   "visitDuration:843cc3ccc08a": {
    "category": "C",
    "action": "manual-review",
    "reason": "Plausible."
   },
-  "visitDuration:9d14d0c7aff9": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "visitDuration:1340e735644b": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Nature areas."
-  },
-  "visitDuration:1e512511c45d": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Nature/town."
-  },
-  "visitDuration:92a78565b4e3": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Nature/onsen/mountain 11-13h."
-  },
-  "visitDuration:177d1672d861": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Temples/rock formation."
-  },
-  "visitDuration:575defb7c1f5": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Quick POIs."
-  },
-  "walking:2d90a4109c91": {
+  "walking:2da3e147dbe3": {
    "category": "B",
    "action": "manual-review",
    "reason": "pipeline.cjs 60/40 derivation: sun=0.6*walkingMin, shade=0.4*walkingMin. 1h total is a plausible attraction convention but the split is formula-produced (135 members)."
   },
-  "walking:aa3b6f7df1ac": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "v1.6.0 hub template in METRES (4000m) while contract/validator expects MINUTES (walkingMin <= visit.max*60; commit 8d47f316 canonicalized minutes). All 81 members no metadata. sun(1500)<shade(2500); metre values violate WALKING_MIN_IMPLAUSIBLE (430 baselined)."
+  "walking:c628fc8ba4b2": {
+   "category": "C",
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "walking:60beaed5cb37": {
-   "category": "B",
+  "walking:a5c2919dfbb8": {
+   "category": "E",
    "action": "manual-review",
-   "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
+   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
   },
-  "walking:77706da7c561": {
+  "walking:79390c65d95f": {
    "category": "B",
    "action": "manual-review",
    "reason": "60/40 pipeline split on 40-min base for wards/cities; minute units."
   },
-  "walking:aa3d7e67078c": {
+  "walking:9fee176d5529": {
+   "category": "E",
+   "action": "manual-review",
+   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+  },
+  "walking:3d368f449db1": {
    "category": "B",
    "action": "manual-review",
-   "reason": "METRES base 3000 + 60/40 pipeline split (1800/1200)."
+   "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
   },
-  "walking:64ae3d80fef3": {
+  "walking:52b14c9c17b9": {
    "category": "B",
    "action": "manual-review",
    "reason": "pipeline.cjs missing-walkingMin default 8000 + 60/40 split; metres; violates visit bound for most members."
+  },
+  "walking:8184feae45ad": {
+   "category": "C",
+   "action": "manual-review",
+   "reason": "58/42 split (not exact 60/40); 2h total plausible for museums/castles."
+  },
+  "walking:154a4586dc2f": {
+   "category": "E",
+   "action": "manual-review",
+   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
   },
   "walking:e0c100594591": {
    "category": "C",
    "action": "manual-review",
    "reason": "add-reviewed-city-hubs.ts 70/35/35 minutes, 50/50 split; 22 regional cities."
   },
-  "walking:a35263c294a8": {
+  "walking:47f1236f5181": {
+   "category": "E",
+   "action": "manual-review",
+   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+  },
+  "walking:b02b173faa86": {
+   "category": "E",
+   "action": "manual-review",
+   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+  },
+  "walking:3c247d7c6e27": {
+   "category": "B",
+   "action": "manual-review",
+   "reason": "60/40 split, minutes."
+  },
+  "walking:f3d342d2a566": {
    "category": "B",
    "action": "manual-review",
    "reason": "expand-major-city-catalog.ts indoor formula (indoor>=70 -> 3000/500/2500), metres; museums."
   },
-  "walking:3130a9a55115": {
+  "walking:fad0df6ef9f2": {
+   "category": "E",
+   "action": "manual-review",
+   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+  },
+  "walking:89873aec239d": {
+   "category": "B",
+   "action": "manual-review",
+   "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
+  },
+  "walking:43314730306e": {
+   "category": "C",
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+  },
+  "walking:1e4109ee1e47": {
+   "category": "E",
+   "action": "manual-review",
+   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+  },
+  "walking:ecb6b523936d": {
+   "category": "E",
+   "action": "manual-review",
+   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+  },
+  "walking:a632295bef14": {
+   "category": "E",
+   "action": "manual-review",
+   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+  },
+  "walking:0e42a5221c6a": {
+   "category": "E",
+   "action": "manual-review",
+   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+  },
+  "walking:dd90a22e6ec0": {
+   "category": "B",
+   "action": "manual-review",
+   "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
+  },
+  "walking:31f3c597aca5": {
+   "category": "E",
+   "action": "manual-review",
+   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+  },
+  "walking:53b0f36ab934": {
+   "category": "C",
+   "action": "manual-review",
+   "reason": "Plausible."
+  },
+  "walking:faa58d4d2f61": {
    "category": "B",
    "action": "manual-review",
    "reason": "60/40 split, minutes."
   },
-  "walking:e1569a255ea7": {
+  "walking:8644e42aa4ee": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "58/42 split (not exact 60/40); 2h total plausible for museums/castles."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "walking:e1da4f1b17b3": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, metres."
-  },
-  "walking:b2fb7e4cb5e6": {
+  "walking:d6b5ea2ace98": {
    "category": "B",
    "action": "manual-review",
    "reason": "60/40 split on 10000m base (nagano-city etc.); metres; 10km city walk implausible as hub default."
   },
-  "walking:b69fedcfcb0a": {
+  "walking:3e9460bad101": {
    "category": "B",
    "action": "manual-review",
    "reason": "60/40 split, metres."
   },
-  "walking:1ba35c095262": {
+  "walking:70c5fddaf2cb": {
    "category": "C",
    "action": "manual-review",
    "reason": "50/50 metres; kai-31 style."
   },
-  "walking:4f2248de56fd": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "50/50 metres."
-  },
-  "walking:b8e5d9244ed0": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, minutes."
-  },
-  "walking:2542676c6077": {
+  "walking:caace1894bbc": {
    "category": "B",
    "action": "manual-review",
    "reason": "60/40 split, metres."
   },
-  "walking:52cf6e4a8ea7": {
+  "season:248edaf45789": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Shade-heavy; plausible for gardens/onsen."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "walking:6f0b93752e6e": {
+  "season:96690f810f73": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "walking:7d8ae0ab4300": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, metres."
-  },
-  "walking:e348917b6a3b": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, minutes."
-  },
-  "walking:3033b7c8b87b": {
-   "category": "D",
-   "action": "manual-review",
-   "reason": "Internally implausible: 7-9h mountain visits (Nokogiriyama, Mt Tsukuba, Mt Mitake) with walkingMin=5 (manual/high metadata). Units broken (5 min impossible; 5 m trivial)."
-  },
-  "walking:3289b8e05c1f": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, minutes."
-  },
-  "walking:568de2824259": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, minutes."
-  },
-  "walking:7d5bc60e54a4": {
+  "season:f5ecd368b011": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "50/50 metres."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "walking:d2140cf5964e": {
+  "season:cf719c225387": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "kai-32 tuple {4000,2500,1500}; metres."
-  },
-  "walking:1bb34baeaf62": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, metres."
-  },
-  "walking:2be8e2b9f6a8": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "walking:492882bc22fc": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "walking:61d8c87c6479": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "walking:6f3fc4f9f6d2": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "walking:8d36b1f66a76": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, metres."
-  },
-  "walking:c3ca92d57420": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "season:f2d562fc71a2": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "v1.6.0 Travel Hub Catalog template (commit 2d6c656d): all city/ward/town hubs got an identical season vector. 57 members carry manual/high ratingMetadata over template values (metadata integrity issue)."
-  },
-  "season:0f73fc9f8ecc": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Deterministic hash generation: scripts/expand-major-city-catalog.ts rating() = 6.2+(hash%34)/10; all 57 members (assisted/low)."
-  },
-  "season:160e45562994": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "pipeline.cjs Stage 3 default: missing season -> {4,4,4,4}; missing bestMonths -> [3,4,5,9,10,11]."
-  },
-  "season:3c62faf8c17f": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible vector; no synthetic signature. 27/28 lack ratingMetadata."
-  },
-  "season:09cc2df4f20d": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "add-reviewed-city-hubs.ts vector for 22 regional city hubs."
-  },
-  "season:d5ca79b68dc7": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "No script signature found; mostly standalone/destination roles without metadata."
-  },
-  "season:d7e9883eb9a5": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible POI vector (gardens/museums/shrines); no metadata on members."
-  },
-  "season:abf22daa382b": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Flat all-12 with identical scores; 9/10 members assisted."
-  },
-  "season:1062fb9cb4b1": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Flat 8s; no metadata on members."
-  },
-  "season:4122fd3ebb7f": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible; 5/6 assisted."
-  },
-  "season:4fe6f92dad9b": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Fractional values = deterministic hash generation (assisted/low)."
-  },
-  "season:73a6efe51d6b": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible winter-up variant."
-  },
-  "season:7e70002644bf": {
-   "category": "D",
-   "action": "manual-review",
-   "reason": "Internal contradiction: summer score 9 is the max yet bestMonths excludes ALL summer months; all 5 are Okinawa parks (assisted/low)."
-  },
-  "season:0139c389095f": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible castle/temple vector."
-  },
-  "season:1837e35ba374": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible nature vector."
-  },
-  "season:3243481ba8b1": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "season:669e4247db30": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "All-12 for season-spanning POIs (aquarium/bridge/amusement/castle) with winter dip."
-  },
-  "season:de5567e0bff9": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Flat all-12."
-  },
-  "season:ecc02253fca6": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "All-12 hub-template variant on unknown-kind records."
-  },
-  "season:23e95ed88b2a": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Fractional = hash generation (assisted/low)."
-  },
-  "season:6558e8619a3b": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "season:6e000a850307": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Historic towns with summer included; plausible."
-  },
-  "season:730bf33538a0": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Perfect flat 10s with all-12 months."
-  },
-  "season:9d500fce4647": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "season:fd9b7ef29e6d": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
   "transport:ffd6f6849522": {
    "category": "B",
@@ -1009,310 +804,195 @@
    "action": "manual-review",
    "reason": "template"
   },
-  "crowd:aeb53c01a6e5": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "Mega-template: v1.6.0 hub hardcode + expand-major-city-catalog.ts hardcode crowd:{5,8,9}; 346 records = 35% of catalogue incl. 95 museums, 25 parks, 23 temples."
-  },
-  "crowd:3d9969c8a667": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "pipeline.cjs Stage 3 default: missing crowd -> {3,4,5}."
-  },
-  "crowd:2b8addefee18": {
+  "crowd:0596e07a957b": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "kai-32 script tuple {4,7,8}; plausible for popular spots."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "crowd:87249d8ed5aa": {
+  "crowd:c69266c02b79": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "kai-31/kai-57 tuple {3,5,6}; 38/41 assisted."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "crowd:a63bb33d85f7": {
+  "crowd:bb7cb6e0ee06": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Script tuples; plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "crowd:5bc9369cefb1": {
+  "crowd:0c3f94fe77c6": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "add-reviewed-city-hubs.ts vector for quiet regional hubs."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "crowd:de6d62c5d2e7": {
+  "crowd:f2ded39f5f7f": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "crowd:000c3197bce2": {
+  "crowd:49da3fde88b9": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "crowd:9e187b64b24b": {
+  "crowd:7152096e8d77": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "crowd:544844daa4fd": {
+  "crowd:061e45cdb883": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "crowd:5864eb0d5774": {
+  "crowd:343dfd81f430": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "crowd:3e29bcdd1053": {
+  "crowd:212c21c66417": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "crowd:9ddb2f743def": {
+  "crowd:96eee6017c5b": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Very-crowded band; plausible for famous spots."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "crowd:9d044f6a5b29": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Flat top 10/10 weekend/holiday."
-  },
-  "crowd:442107b671a3": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:e645200547bb": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:ac9e0bbed373": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:c930e94e8871": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:fb18a6733483": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:0d7a593e7fc1": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:3496b1de81b9": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:5d5fa6221a94": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:c714689bf298": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:1b9642f02eaa": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "crowd:728b198b58a0": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:99dd7fe7d035": {
+  "comfort:438e501f22f6": {
    "category": "B",
    "action": "manual-review",
    "reason": "v1.6.0 hub template hardcode {8,8,3}; 120/139 hubs. heatTolerance==rainFriendly template signature."
   },
-  "comfort:d3a1a4fd5616": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "expand-major-city-catalog.ts formula: heatTolerance=rainFriendly=round(indoorPercent/10), walkingIntensity 6 for indoor<70. All 136 members indoorPercent=20; 135/136 assisted-low. Kind labels unreliable (fushimi-inari-taisha labeled 'museum', kamakurakokomae-station 'museum')."
-  },
-  "comfort:1a835889f457": {
+  "comfort:fc8339d38bf3": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "69/88 unknown kind; plausible general-outdoor profile."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+  },
+  "comfort:3ff254fd7ba5": {
+   "category": "C",
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+  },
+  "comfort:d4bab1a51e44": {
+   "category": "C",
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+  },
+  "comfort:75a33a9f8510": {
+   "category": "C",
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
   "comfort:e0a68e6134f3": {
    "category": "A",
    "action": "legitimate",
    "reason": "Indoor museum/aquarium convention: 30 museums + 4 aquariums, indoorPercent>=85. Formula-derived (round(indoor/10)) but semantically CORRECT for indoor venues."
   },
-  "comfort:c10762385e8a": {
+  "comfort:c32d82b6aeb1": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Outdoor shrine/temple profile (13 shrines, 16 temples): exposed grounds, high walking."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "comfort:96a766addbf5": {
+  "comfort:b1c1966d7620": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Reviewed city hubs (22) + 2 POIs; differentiated from legacy template."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "comfort:3ff254fd7ba5": {
+  "comfort:5cc52143a504": {
    "category": "C",
    "action": "manual-review",
-   "reason": "Standalone nature."
+   "reason": "69/88 unknown kind; plausible general-outdoor profile."
+  },
+  "comfort:99dd7fe7d035": {
+   "category": "C",
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+  },
+  "comfort:2be75416ddba": {
+   "category": "C",
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+  },
+  "comfort:06eb44964c79": {
+   "category": "C",
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+  },
+  "comfort:074cd025871b": {
+   "category": "C",
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
   "comfort:541e20f7bd6c": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Rain-friendly museums."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "comfort:3ad094aa0ecf": {
+  "comfort:ef4b5ffd8fff": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Markets/districts."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "comfort:5b948a0e89ad": {
+  "comfort:33ad413ebe7a": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Rain-friendly museums 8."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "comfort:9a297b3fa125": {
+  "comfort:1832c76e2596": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "comfort:d15a9a2ce2db": {
+  "comfort:20c7254a9b75": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "comfort:055481000d3e": {
+  "comfort:ede1d8426e84": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "comfort:56fcf0c79914": {
+  "comfort:3a8e699be686": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "comfort:8c840fd89a33": {
+  "comfort:5017dfa271c1": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:a45c9f518fa7": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:63aa8c244aa3": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:65fb3715363f": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:7834a91844de": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:c32d82b6aeb1": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:e173543a55f1": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:580c158ce395": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:65c174a17ef3": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:8819f989fe29": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:88cfb1b39f51": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:0aaf1f804a78": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:116b5b770ba3": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:1a02392e37b7": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:68e120cecde3": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:6df517d96442": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
   "comfort:8d074d9cdc5d": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "comfort:acbe414f37fc": {
+  "comfort:ad9e707b0c96": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+  },
+  "comfort:a627db49b646": {
+   "category": "C",
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
   "comfort:b8dd62e195da": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "comfort:bb39b6ce371a": {
+  "comfort:da1999751cb8": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   },
-  "comfort:dc9972576816": {
+  "comfort:e08a042bbee9": {
    "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "comfort:e25e9173fabb": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
+   "action": "model-estimate",
+   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
   }
  }
 }

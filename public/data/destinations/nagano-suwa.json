@@ -35,9 +35,9 @@
     "lng": 138.1189
   },
   "comfort": {
-    "walkingIntensity": 2,
-    "heatTolerance": 8,
-    "rainFriendly": 5
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.8,
@@ -52,9 +52,9 @@
     "uniqueness": 9
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 7,
-    "holiday": 8
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 5
   },
   "season": {
     "spring": 8,

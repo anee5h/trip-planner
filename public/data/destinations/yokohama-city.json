@@ -10,8 +10,6 @@
   "budgetRecommended": 12000,
   "budgetMax": 16000,
   "walkingMin": 60,
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 70,
   "ratings": {
     "overall": 9,
@@ -117,8 +115,8 @@
   "walkingIntensity": "medium",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 8,
-    "max": 14
+    "min": 9,
+    "max": 12
   },
   "businessHours": "Open access",
   "editorial": {
@@ -135,7 +133,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 14 children, metro adj",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "横浜",
   "content": {

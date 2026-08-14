@@ -72,13 +72,11 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 7.5,
@@ -96,15 +94,8 @@
   "crowd": {
     "weekday": 5,
     "weekend": 8,
-    "holiday": 9
+    "holiday": 6
   },
-  "season": {
-    "spring": 9.4,
-    "summer": 7.7,
-    "autumn": 9.4,
-    "winter": 9.3
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
@@ -144,7 +135,25 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer"
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='park', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='park', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
@@ -159,5 +168,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
   "openingHoursJa": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
-  "municipalityId": "Tokyo:tachikawa"
+  "municipalityId": "Tokyo:tachikawa",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

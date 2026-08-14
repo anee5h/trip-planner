@@ -46,7 +46,17 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='garden', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
@@ -105,8 +115,8 @@
   ],
   "collections": [],
   "crowd": {
-    "weekday": 2,
-    "weekend": 5,
+    "weekday": 5,
+    "weekend": 8,
     "holiday": 6
   },
   "season": {

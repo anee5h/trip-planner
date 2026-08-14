@@ -27,21 +27,21 @@
   "budgetMin": 26000,
   "budgetMax": 34000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
+  "walkingMin": 270,
   "walkingSunMin": 4000,
   "walkingShadeMin": 6000,
   "comfort": {
     "heatTolerance": 5,
-    "rainFriendly": 4,
-    "walkingIntensity": 5
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "train": 100,
     "shinkansen": 60
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
+    "weekday": 4,
+    "weekend": 6,
     "holiday": 5
   },
   "season": {

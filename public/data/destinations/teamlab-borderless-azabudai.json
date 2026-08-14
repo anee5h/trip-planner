@@ -26,15 +26,15 @@
     "uniqueness": 10
   },
   "crowd": {
-    "weekday": 8,
-    "weekend": 10,
-    "holiday": 10
+    "weekday": 6,
+    "weekend": 8,
+    "holiday": 7
   },
   "season": {
-    "spring": 9,
-    "summer": 9,
-    "autumn": 9,
-    "winter": 9
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "tags": ["Digital Art", "Photogenic", "Date Spot", "Interactive Museum"],
@@ -77,13 +77,13 @@
   },
   "kind": "museum",
   "role": "poi",
-  "bestSeason": "Year-round",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "indoor",
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 3,
-    "max": 5
+    "min": 1.5,
+    "max": 3
   },
   "officialWebsite": "https://borderless.teamlab.art/jp/",
   "businessHours": "10:00 - 21:00 (Last admission 20:00)",
@@ -101,7 +101,25 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'museum'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "チームラボボーダレス（麻布台ヒルズ）",
   "content": {
@@ -148,5 +166,17 @@
     "license": "Unsplash License",
     "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
     "sourceUrl": "https://unsplash.com"
+  },
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
   }
 }

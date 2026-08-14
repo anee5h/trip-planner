@@ -46,18 +46,18 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iya_Valley_01.jpg"
   },
   "recommendedVisitHours": {
-    "min": 8,
-    "max": 14
+    "min": 7,
+    "max": 12
   },
-  "walkingMin": 4000,
+  "walkingMin": 360,
   "walkingSunMin": 1500,
   "walkingShadeMin": 2500,
-  "walkingIntensity": "medium",
+  "walkingIntensity": "high",
   "indoorPercent": 40,
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 6,
-    "walkingIntensity": 5
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 8.4,
@@ -73,18 +73,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 7
+    "weekday": 7,
+    "weekend": 9,
+    "holiday": 8
   },
-  "season": {
-    "spring": 9,
-    "summer": 7,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "Not usually required; reserve popular accommodation in advance.",
   "parking": "Check local parking and public transport guidance.",
@@ -111,5 +103,17 @@
     ],
     "nearbyDestinationIds": ["tokushima-city", "naruto-city"]
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

@@ -51,15 +51,6 @@
   },
   "description": "A bustling historic food district packed with narrow alleys offering fresh seafood, tamagoyaki, and sushi. Visitors can sample traditional Japanese street snacks and kitchenware from hundreds of stalls.",
   "highlights": ["Food", "Market", "Culture"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 0,
-    "food": 1400,
-    "cafe": 1200
-  },
   "transportOptions": {
     "train": 14
   },
@@ -70,8 +61,6 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
     "heatTolerance": 2,
@@ -92,17 +81,17 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 7,
+    "weekend": 9,
+    "holiday": 8
   },
   "season": {
-    "spring": 9.4,
-    "summer": 7.7,
-    "autumn": 9.4,
-    "winter": 9.3
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "weatherDependence": "moderate",
   "reservation": "No reservation required for street market stalls; select restaurants accept bookings.",
   "parking": "Paid underground parking structure at Tsukiji Market site.",
@@ -136,7 +125,17 @@
       }
     ],
     "reviewedAt": "2026-08-02",
-    "reviewedBy": "Meguruto Editorial Reviewer"
+    "reviewedBy": "Meguruto Editorial Reviewer",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='market', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -157,5 +156,24 @@
   "parkingJa": "築地川第一駐車場など近隣の有料駐車場をご利用ください。",
   "openingHours": "05:00 - 14:00 (Varies by shop; closed Sundays/Wednesdays)",
   "openingHoursJa": "05:00 - 14:00（店舗により異なる、日曜・水曜休業多し）",
-  "municipalityId": "Tokyo:chuo"
+  "municipalityId": "Tokyo:chuo",
+  "bestSeason": "All Year (indoor)",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  }
 }

@@ -73,22 +73,13 @@
   "notes": "Anraku-ji's octagonal three-storied pagoda is a national treasure and the only one of its kind in Japan.",
   "budgetRecommended": 6500,
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
-  },
-  "walkingMin": 8000,
-  "walkingSunMin": 4800,
-  "walkingShadeMin": 3200,
+  "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
     "gatewayHubId": "shirahama-town"
   },
@@ -100,17 +91,16 @@
     "cafe": 650
   },
   "highlights": ["Explore Nachi Falls & Pagoda", "Local Culture & Scenery"],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 8
   },
   "reservation": "None required",
   "parking": "Available on site",
   "schemaVersion": 2,
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "role": "destination",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
@@ -135,7 +125,33 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='', walkingMin=150",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=4",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 8000 replaced by walk-share estimate (FIX_UNIT): 50% of 5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "notesJa": "【見どころ】那智滝は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -158,5 +174,11 @@
         "熊野那智大社参道"
       ]
     }
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   }
 }

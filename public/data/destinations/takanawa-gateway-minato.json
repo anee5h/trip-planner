@@ -11,8 +11,6 @@
   "budgetRecommended": 6500,
   "budgetMax": 10000,
   "walkingMin": 30,
-  "walkingSunMin": 18,
-  "walkingShadeMin": 12,
   "indoorPercent": 80,
   "ratings": {
     "overall": 8.4,
@@ -32,10 +30,10 @@
     "holiday": 5
   },
   "season": {
-    "spring": 8,
-    "summer": 8,
-    "autumn": 8,
-    "winter": 8
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "tags": [
@@ -50,7 +48,7 @@
   },
   "comfort": {
     "heatTolerance": 8,
-    "rainFriendly": 9,
+    "rainFriendly": 8,
     "walkingIntensity": 3
   },
   "transportOptions": {
@@ -71,7 +69,7 @@
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
-  "bestSeason": "All Year",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "low",
   "imageMetadata": {
     "source": "Wikimedia Commons / Wikipedia",
@@ -109,7 +107,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=80, kind='', walkingMin=30",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "高輪ゲートウェイ",
   "content": {
@@ -147,5 +155,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tokyo:minato"
+  "municipalityId": "Tokyo:minato",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  }
 }

@@ -29,11 +29,9 @@
   "budgetMax": 21400,
   "totalTripHours": 8,
   "walkingMin": 60,
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "comfort": {
-    "heatTolerance": 9,
-    "rainFriendly": 9,
+    "heatTolerance": 5,
+    "rainFriendly": 6,
     "walkingIntensity": 5
   },
   "transportOptions": {
@@ -42,15 +40,9 @@
     "train": 120
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
+    "weekday": 6,
+    "weekend": 8,
+    "holiday": 7
   },
   "highlights": [
     "Explore top-rated hot spring locations",
@@ -58,7 +50,6 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Kinugawa Onsen, a prominent destination in Tochigi. With its rich mix of onsen, edo wonderland, it's a highly recommended spot for a 8-hour getaway.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 5517,
     "tickets": 6366,
@@ -87,7 +78,6 @@
   "relationships": {
     "parentDestinationId": "nikko-city"
   },
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
@@ -96,8 +86,8 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 4,
+    "max": 7
   },
   "officialWebsite": "https://www.nikko-kankou.org/",
   "businessHours": "09:00 - 17:00 (Daily)",
@@ -115,7 +105,33 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'onsen' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=50, kind='onsen', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='onsen', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "鬼怒川温泉",
   "content": {
@@ -149,5 +165,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tochigi:nikko"
+  "municipalityId": "Tochigi:nikko",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

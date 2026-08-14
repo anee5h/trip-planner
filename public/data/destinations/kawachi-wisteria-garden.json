@@ -68,13 +68,11 @@
   },
   "totalTripHours": 4,
   "recommendedVisitHours": {
-    "min": 1,
-    "max": 2.5
+    "min": 2.5,
+    "max": 5
   },
-  "walkingMin": 4000,
-  "walkingIntensity": "medium",
-  "walkingSunMin": 2500,
-  "walkingShadeMin": 1500,
+  "walkingMin": 240,
+  "walkingIntensity": "high",
   "indoorPercent": 5,
   "comfort": {
     "heatTolerance": 7,
@@ -95,9 +93,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 6,
-    "weekend": 9,
-    "holiday": 10
+    "weekday": 7,
+    "weekend": 10,
+    "holiday": 8
   },
   "season": {
     "spring": 10,
@@ -151,7 +149,33 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'garden' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='garden', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 80% of 5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://kawachi-fujien.com/",
   "municipalityId": "Fukuoka:kitakyushu",

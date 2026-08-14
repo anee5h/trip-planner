@@ -37,9 +37,9 @@
     "uniqueness": 7.8
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
+    "weekday": 7,
+    "weekend": 9,
+    "holiday": 8
   },
   "season": {
     "spring": 4,
@@ -81,8 +81,8 @@
     "cafe": 1225
   },
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
+    "heatTolerance": 6,
+    "rainFriendly": 5,
     "walkingIntensity": 3
   },
   "walkingIntensity": "low",
@@ -90,8 +90,8 @@
   "placeType": "hub",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 5,
-    "max": 7
+    "min": 7,
+    "max": 12
   },
   "businessHours": "09:00 - 17:00 (Daily)",
   "kind": "city",
@@ -109,7 +109,33 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance standard, 5 children, metro adj",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=40, kind='city', walkingMin=45",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='city', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "町田市",
   "content": {

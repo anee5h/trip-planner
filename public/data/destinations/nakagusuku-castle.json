@@ -120,7 +120,17 @@
     ],
     "checkedAt": "2026-08-12",
     "freshness": "current",
-    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    "changeSummary": "PR B 100名城 audit: new record completing the official list",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='castle', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
@@ -128,8 +138,8 @@
     "confidence": "low"
   },
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
+    "weekday": 6,
+    "weekend": 8,
     "holiday": 7
   },
   "season": {
@@ -142,5 +152,11 @@
   "walkingMin": 90,
   "walkingSunMin": 60,
   "walkingShadeMin": 30,
-  "indoorPercent": 10
+  "indoorPercent": 10,
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  }
 }

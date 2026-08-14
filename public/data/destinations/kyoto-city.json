@@ -57,9 +57,9 @@
     "lng": 135.7681
   },
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 8,
-    "walkingIntensity": 4
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "transportOptions": {
     "train": 230,
@@ -107,7 +107,7 @@
   "walkingIntensity": "medium",
   "recommendedVisitHours": {
     "min": 8,
-    "max": 14
+    "max": 12
   },
   "businessHours": "Open access",
   "editorial": {
@@ -125,7 +125,25 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 18 children, metro adj",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=40, kind='city', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "notesJa": "【見どころ】Kyoto Cityは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",

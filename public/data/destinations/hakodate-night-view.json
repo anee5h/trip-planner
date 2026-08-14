@@ -58,22 +58,13 @@
   "notes": "One of Japan's Three Great Night Views — sweeping views over Hakodate Bay from Mount Hakodate.",
   "budgetRecommended": 6500,
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
-  },
-  "walkingMin": 8000,
-  "walkingSunMin": 4800,
-  "walkingShadeMin": 3200,
+  "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
     "parentDestinationId": "hakodate-city",
     "featuredDestinationIds": [],
@@ -91,16 +82,15 @@
     "Explore Mount Hakodate Night View",
     "Local Culture & Scenery"
   ],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 8
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 3,
@@ -108,5 +98,11 @@
   },
   "officialWebsite": "https://334.co.jp/",
   "businessHours": "Open access",
-  "municipalityId": "Hokkaido:hakodate"
+  "municipalityId": "Hokkaido:hakodate",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

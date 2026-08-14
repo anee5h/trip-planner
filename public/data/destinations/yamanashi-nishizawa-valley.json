@@ -83,8 +83,8 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 8,
-    "max": 10
+    "min": 4,
+    "max": 8
   },
   "officialWebsite": "https://www.city.yamanashi.yamanashi.jp/",
   "businessHours": "Open access",

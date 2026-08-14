@@ -75,8 +75,8 @@
   },
   "totalTripHours": 4,
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 3
+    "min": 3,
+    "max": 6
   },
   "walkingMin": 4000,
   "walkingIntensity": "medium",
@@ -102,9 +102,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 2,
-    "weekend": 5,
-    "holiday": 7
+    "weekday": 3,
+    "weekend": 6,
+    "holiday": 4
   },
   "season": {
     "spring": 9,
@@ -153,7 +153,25 @@
       }
     ],
     "reviewedAt": "2026-08-05",
-    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    "reviewedBy": "Kyushu-to-100 Editorial Batch",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'natural'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='natural', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.ibusuki.or.jp/en/spot/chiringashima/",
   "municipalityId": "Kagoshima:ibusuki"

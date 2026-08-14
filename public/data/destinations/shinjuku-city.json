@@ -16,12 +16,7 @@
     "Golden Gai & Omoide Yokocho"
   ],
   "totalTripHours": 6,
-  "budgetMin": 3500,
-  "budgetRecommended": 14250,
-  "budgetMax": 25000,
   "walkingMin": 40,
-  "walkingSunMin": 24,
-  "walkingShadeMin": 16,
   "indoorPercent": 50,
   "ratings": {
     "overall": 9.5,
@@ -36,18 +31,10 @@
     "uniqueness": 9.4
   },
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
+    "weekday": 8,
+    "weekend": 10,
     "holiday": 9
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
   "weatherDependence": "low",
   "tags": ["Shinjuku City", "Tokyo Travel", "Regional Hub"],
   "coordinates": {
@@ -55,8 +42,8 @@
     "lng": 139.7034
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 8,
+    "heatTolerance": 6,
+    "rainFriendly": 6,
     "walkingIntensity": 3
   },
   "transportOptions": {
@@ -80,16 +67,10 @@
     ],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
-  "budgetBreakdown": {
-    "transport": 3563,
-    "tickets": 1781,
-    "food": 5789,
-    "cafe": 3117
-  },
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 6,
+    "min": 9,
     "max": 12
   },
   "businessHours": "Open access",
@@ -107,7 +88,33 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 6 children, metro adj",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=50, kind='ward', walkingMin=40",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='ward', importance=major, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "新宿区",
   "content": {
@@ -141,5 +148,17 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tokyo:shinjuku"
+  "municipalityId": "Tokyo:shinjuku",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

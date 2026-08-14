@@ -62,22 +62,15 @@
   "budgetMax": 14000,
   "budgetRecommended": 9000,
   "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
+    "weekday": 6,
+    "weekend": 8,
+    "holiday": 7
   },
   "walkingMin": 8000,
   "walkingSunMin": 4800,
   "walkingShadeMin": 3200,
   "indoorPercent": 20,
   "totalTripHours": 4,
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
     "parentDestinationId": "takahashi-city"
   },
@@ -89,12 +82,11 @@
     "cafe": 1400
   },
   "highlights": ["Explore Bitchu Matsuyama Castle", "Local Culture & Scenery"],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "reservation": "None required",
   "parking": "Available on site",
@@ -110,7 +102,7 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 3,
+    "min": 2.5,
     "max": 5
   },
   "officialWebsite": "https://www.bitchumatsuyamacastle.jp/",
@@ -122,5 +114,11 @@
     "lastAdmission": "17:00 (Apr-Sep) / 16:00 (Oct-Mar)",
     "closedDays": "Dec 29 - Jan 3"
   },
-  "kind": "castle"
+  "kind": "castle",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

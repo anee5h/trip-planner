@@ -10,8 +10,6 @@
   "budgetRecommended": 13000,
   "budgetMax": 17000,
   "walkingMin": 60,
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 80,
   "ratings": {
     "overall": 8.5,
@@ -26,9 +24,9 @@
     "uniqueness": 8
   },
   "crowd": {
-    "weekday": 8,
-    "weekend": 10,
-    "holiday": 10
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
   "season": {
     "spring": 8,
@@ -105,7 +103,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "池袋",
   "content": {

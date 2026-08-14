@@ -53,8 +53,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Autumnal_leaves_and_Itsukushima_shrine_five-storied_pagoda.jpg"
   },
   "recommendedVisitHours": {
-    "min": 0.5,
-    "max": 1
+    "min": 1,
+    "max": 2
   },
   "walkingMin": 500,
   "walkingSunMin": 300,
@@ -63,8 +63,8 @@
   "indoorPercent": 0,
   "comfort": {
     "heatTolerance": 5,
-    "rainFriendly": 5,
-    "walkingIntensity": 3
+    "rainFriendly": 2,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8,
@@ -84,14 +84,6 @@
     "weekend": 5,
     "holiday": 6
   },
-  "season": {
-    "spring": 8,
-    "summer": 7,
-    "autumn": 8,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 10, 11],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None.",
   "parking": "No cars on Miyajima; walk from shrine precincts.",
@@ -150,7 +142,25 @@
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=0, kind='tower', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'tower'",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -160,5 +170,11 @@
   "relationships": {
     "parentDestinationId": "hatsukaichi-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

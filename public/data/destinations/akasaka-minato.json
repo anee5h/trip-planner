@@ -10,8 +10,6 @@
   "budgetRecommended": 11600,
   "budgetMax": 15600,
   "walkingMin": 50,
-  "walkingSunMin": 30,
-  "walkingShadeMin": 20,
   "indoorPercent": 70,
   "ratings": {
     "overall": 8.5,
@@ -31,10 +29,10 @@
     "holiday": 6
   },
   "season": {
-    "spring": 8,
-    "summer": 8,
-    "autumn": 8,
-    "winter": 8
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "tags": ["Upscale", "Dining", "Business"],
@@ -70,7 +68,7 @@
   "relationships": {
     "parentDestinationId": "minato-city"
   },
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "moderate",
   "walkingIntensity": "medium",
   "ratingsSchemaVersion": 2,
@@ -130,5 +128,17 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Wpcpey",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akasaka_skyline_201806.jpg"
+  },
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
   }
 }

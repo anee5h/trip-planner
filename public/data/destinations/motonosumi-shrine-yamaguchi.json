@@ -26,9 +26,6 @@
   ],
   "region": "Chugoku",
   "categories": ["Shrines & Temples"],
-  "budgetMin": 1500,
-  "budgetMax": 6000,
-  "budgetRecommended": 3750,
   "transportOptions": {
     "train": 180
   },
@@ -46,26 +43,18 @@
   },
   "highlights": ["Explore Motonosumi Shrine", "Local Culture & Scenery"],
   "totalTripHours": 4,
-  "walkingMin": 3000,
+  "walkingMin": 150,
   "indoorPercent": 30,
   "crowd": {
-    "weekday": 4,
+    "weekday": 5,
     "weekend": 7,
-    "holiday": 8
+    "holiday": 6
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "reservation": "None required",
   "parking": "Available on site",
@@ -76,9 +65,7 @@
     "gatewayHubId": "shimonoseki-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/9/9b/%E5%85%83%E4%B9%83%E9%9A%85%E7%A8%B2%E6%88%90%E7%A5%9E%E7%A4%BE_Motonosumi-Inari-jinja_20090504.jpg",
-  "walkingIntensity": "low",
-  "walkingSunMin": 1800,
-  "walkingShadeMin": 1200,
+  "walkingIntensity": "high",
   "role": "standalone",
   "placeType": "destination",
   "recommendedVisitHours": {
@@ -89,5 +76,17 @@
   "businessHours": "Shrine grounds open 24 hours, free of charge.",
   "ratingsSchemaVersion": 2,
   "municipalityId": "Yamaguchi:nagato",
-  "openingHoursJa": "神社境内は24時間・無料で参拝可能。"
+  "openingHoursJa": "神社境内は24時間・無料で参拝可能。",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

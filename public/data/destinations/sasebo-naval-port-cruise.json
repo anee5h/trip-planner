@@ -83,9 +83,9 @@
   "walkingShadeMin": 500,
   "indoorPercent": 30,
   "comfort": {
-    "heatTolerance": 7,
+    "heatTolerance": 5,
     "rainFriendly": 5,
-    "walkingIntensity": 2
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8,
@@ -101,17 +101,10 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 7
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "high",
   "reservation": "Tickets at the port terminal; group reservations accepted by phone",
   "parking": "Paid parking near the terminal",
@@ -152,8 +145,32 @@
       }
     ],
     "reviewedAt": "2026-08-05",
-    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    "reviewedBy": "Kyushu-to-100 Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=30, kind='cruise', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='cruise', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.sasebo99.com/en/spot/556",
-  "municipalityId": "Nagasaki:sasebo"
+  "municipalityId": "Nagasaki:sasebo",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

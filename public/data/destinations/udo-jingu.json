@@ -82,9 +82,9 @@
   "walkingShadeMin": 1000,
   "indoorPercent": 10,
   "comfort": {
-    "heatTolerance": 6,
-    "rainFriendly": 4,
-    "walkingIntensity": 4
+    "heatTolerance": 5,
+    "rainFriendly": 2,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 9,
@@ -100,9 +100,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 8
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
   "season": {
     "spring": 9,
@@ -151,8 +151,32 @@
       }
     ],
     "reviewedAt": "2026-08-05",
-    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    "reviewedBy": "Kyushu-to-100 Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=10, kind='shrine', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='shrine', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.kankou-nichinan.jp/en/spot/udo-jingu/",
-  "municipalityId": "Miyazaki:nichinan"
+  "municipalityId": "Miyazaki:nichinan",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

@@ -5,7 +5,6 @@
   "region": "Chubu",
   "categories": ["Town", "History", "Mountain"],
   "tags": ["Nakasendo", "Post Towns", "Tsumago"],
-  "budgetRecommended": 11000,
   "ratings": {
     "overall": 9.1,
     "photography": 9.5,
@@ -25,16 +24,14 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Kiso_Valley_from_Doppyo.jpg/1280px-Kiso_Valley_from_Doppyo.jpg",
   "prefecture": "Nagano",
-  "budgetMin": 7000,
-  "budgetMax": 15000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
+  "walkingMin": 290,
   "walkingSunMin": 4000,
   "walkingShadeMin": 6000,
   "comfort": {
-    "heatTolerance": 5,
-    "rainFriendly": 4,
-    "walkingIntensity": 5
+    "heatTolerance": 7,
+    "rainFriendly": 3,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "car": 210,
@@ -43,14 +40,8 @@
   },
   "crowd": {
     "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
+    "weekend": 6,
+    "holiday": 4
   },
   "highlights": [
     "Explore top-rated town locations",
@@ -58,13 +49,6 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Kiso Valley, a prominent destination in Nagano. With its rich mix of nakasendo, post towns, tsumago, it's a highly recommended spot for a 8-hour getaway.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "budgetBreakdown": {
-    "transport": 4400,
-    "tickets": 2200,
-    "food": 3300,
-    "cafe": 1100
-  },
   "notes": "A fantastic trip to Kiso Valley. Known for its nakasendo and post towns vibes, it offers a great escape with an overall score of 9.1.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Kiso_Valley_from_Doppyo.jpg/1280px-Kiso_Valley_from_Doppyo.jpg",
@@ -80,7 +64,6 @@
   },
   "collections": [],
   "relationships": {},
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Available on site",
@@ -89,10 +72,16 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 3,
+    "max": 6
   },
   "officialWebsite": "https://kiso-magome.com/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Nagano:kiso"
+  "municipalityId": "Nagano:kiso",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  }
 }

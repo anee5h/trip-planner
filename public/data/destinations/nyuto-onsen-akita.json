@@ -49,14 +49,14 @@
     "uniqueness": 9.7
   },
   "totalTripHours": 8,
-  "walkingMin": 2000,
+  "walkingMin": 210,
   "walkingSunMin": 500,
   "walkingShadeMin": 1500,
   "indoorPercent": 60,
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 8
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
   "season": {
     "spring": 8,
@@ -72,7 +72,7 @@
     "rainFriendly": 9,
     "walkingIntensity": 2
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "reservation": "Required for Tsurunoyu (advance booking essential)",
   "parking": "Available at each inn",
   "notes": "An Onsen Meguri (hot spring tour) passport lets visitors bathe at all 7 inns. Tsurunoyu is the most iconic — book months ahead for weekend stays.",
@@ -89,8 +89,8 @@
   "role": "standalone",
   "placeType": "destination",
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 4,
+    "max": 7
   },
   "officialWebsite": "https://www.nyuto-onsenkyo.gr.jp/",
   "businessHours": "Day-use bathing hours vary by inn (e.g. Tsurunoyu 10:00–15:30, closed Mondays)",
@@ -116,6 +116,32 @@
         "summary": "KAI-57 existing-data audit correction",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'onsen' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='onsen', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 2000 replaced by walk-share estimate (FIX_UNIT): 50% of 7h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   }
 }

@@ -85,7 +85,7 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 6,
+    "min": 4,
     "max": 8
   },
   "officialWebsite": "https://www.town.otaki.chiba.jp/",
@@ -104,7 +104,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'nature' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "養老渓谷",
   "content": {

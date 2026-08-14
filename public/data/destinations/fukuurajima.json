@@ -56,14 +56,12 @@
     "min": 1,
     "max": 2
   },
-  "walkingMin": 2500,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 1000,
+  "walkingMin": 95,
   "walkingIntensity": "medium",
   "indoorPercent": 10,
   "comfort": {
-    "heatTolerance": 6,
-    "rainFriendly": 4,
+    "heatTolerance": 5,
+    "rainFriendly": 2,
     "walkingIntensity": 5
   },
   "ratings": {
@@ -88,8 +86,8 @@
   "ratingsSchemaVersion": 2,
   "crowd": {
     "weekday": 4,
-    "weekend": 6,
-    "holiday": 7
+    "weekend": 7,
+    "holiday": 5
   },
   "season": {
     "spring": 9,
@@ -146,7 +144,33 @@
         "summary": "Added source-backed KAI-57 Tohoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=10, kind='island', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='island', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 2500 replaced by walk-share estimate (FIX_UNIT): 80% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,

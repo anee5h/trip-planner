@@ -79,7 +79,7 @@
   "comfort": {
     "heatTolerance": 8,
     "rainFriendly": 9,
-    "walkingIntensity": 3
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.3,
@@ -95,17 +95,17 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 7
+    "weekday": 5,
+    "weekend": 7,
+    "holiday": 6
   },
   "season": {
-    "spring": 8,
-    "summer": 8,
-    "autumn": 8,
-    "winter": 8
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Museum parking available",
@@ -145,7 +145,25 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=85, kind='museum', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.asomuse.jp/",
   "municipalityId": "Kumamoto:aso",
@@ -155,5 +173,18 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.asomuseum.jp/en/"
   },
-  "notesJa": "火口へ向かう前の火山状況確認に便利です。"
+  "notesJa": "火口へ向かう前の火山状況確認に便利です。",
+  "bestSeason": "All Year (indoor)",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

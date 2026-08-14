@@ -27,15 +27,6 @@
     "bus": 125,
     "car": 130
   },
-  "budgetMin": 1000,
-  "budgetRecommended": 3000,
-  "budgetMax": 6000,
-  "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 0,
-    "food": 1300,
-    "cafe": 700
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Gate_of_Ryozenji_Temple_in_Naruto%2C_Tokushima.jpg/1280px-Gate_of_Ryozenji_Temple_in_Naruto%2C_Tokushima.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Gate_of_Ryozenji_Temple_in_Naruto%2C_Tokushima.jpg/1280px-Gate_of_Ryozenji_Temple_in_Naruto%2C_Tokushima.jpg",
   "imageMetadata": {
@@ -48,15 +39,13 @@
     "min": 1,
     "max": 2
   },
-  "walkingMin": 3000,
-  "walkingSunMin": 1800,
-  "walkingShadeMin": 1200,
+  "walkingMin": 70,
   "walkingIntensity": "medium",
   "indoorPercent": 25,
   "comfort": {
-    "heatTolerance": 6,
-    "rainFriendly": 5,
-    "walkingIntensity": 4
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.4,
@@ -72,8 +61,8 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 3,
-    "weekend": 5,
+    "weekday": 5,
+    "weekend": 7,
     "holiday": 6
   },
   "season": {
@@ -132,7 +121,33 @@
         "summary": "Added source-backed KAI-31 Shikoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=25, kind='temple', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='temple', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 60% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -142,5 +157,11 @@
   "relationships": {
     "parentDestinationId": "naruto-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

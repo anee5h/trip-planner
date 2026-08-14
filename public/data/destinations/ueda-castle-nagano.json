@@ -10,7 +10,7 @@
   "budgetMin": 2500,
   "budgetRecommended": 5750,
   "budgetMax": 9000,
-  "walkingMin": 3500,
+  "walkingMin": 70,
   "walkingSunMin": 1200,
   "walkingShadeMin": 2300,
   "indoorPercent": 75,
@@ -27,18 +27,18 @@
     "uniqueness": 9.4
   },
   "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 8
+    "weekday": 6,
+    "weekend": 8,
+    "holiday": 7
   },
   "season": {
-    "spring": 10,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
-  "bestMonths": [3, 4, 5, 10, 11],
-  "bestSeason": "Spring",
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "low",
   "tags": [
     "Sanada Clan",
@@ -53,7 +53,7 @@
   "comfort": {
     "heatTolerance": 8,
     "rainFriendly": 8,
-    "walkingIntensity": 3
+    "walkingIntensity": 5
   },
   "transportOptions": {
     "train": 85,
@@ -93,7 +93,7 @@
     }
   ],
   "relationships": {},
-  "walkingIntensity": "low",
+  "walkingIntensity": "medium",
   "role": "standalone",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
@@ -103,5 +103,11 @@
   },
   "officialWebsite": "https://www.uedajo.myu-shop.jp/",
   "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-  "municipalityId": "Nagano:ueda"
+  "municipalityId": "Nagano:ueda",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  }
 }

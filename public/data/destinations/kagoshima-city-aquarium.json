@@ -68,8 +68,8 @@
   },
   "totalTripHours": 4,
   "recommendedVisitHours": {
-    "min": 1.5,
-    "max": 3
+    "min": 2,
+    "max": 4
   },
   "walkingMin": 3500,
   "walkingIntensity": "medium",
@@ -79,7 +79,7 @@
   "comfort": {
     "heatTolerance": 8,
     "rainFriendly": 9,
-    "walkingIntensity": 4
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.3,
@@ -95,17 +95,17 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 8
+    "weekday": 8,
+    "weekend": 10,
+    "holiday": 9
   },
   "season": {
-    "spring": 8,
-    "summer": 8,
-    "autumn": 8,
-    "winter": 8
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "weatherDependence": "low",
   "reservation": "None required",
   "parking": "Aquarium parking available",
@@ -145,7 +145,33 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'aquarium'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=80, kind='aquarium', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='aquarium', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://ioworld.jp/",
   "municipalityId": "Kagoshima:kagoshima",
@@ -155,5 +181,12 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://ioworld.jp/english"
   },
-  "notesJa": "巨大な黒潮水槽の給餌ショーは1日数回開催されます。"
+  "notesJa": "巨大な黒潮水槽の給餌ショーは1日数回開催されます。",
+  "bestSeason": "All Year (indoor)",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  }
 }

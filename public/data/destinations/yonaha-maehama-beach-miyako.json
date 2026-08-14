@@ -47,7 +47,17 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='beach', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
@@ -107,8 +117,8 @@
   "collections": [],
   "crowd": {
     "weekday": 3,
-    "weekend": 7,
-    "holiday": 8
+    "weekend": 6,
+    "holiday": 4
   },
   "season": {
     "spring": 9,
@@ -132,5 +142,11 @@
     "confidence": "medium"
   },
   "notesJa": "日本のベストビーチの一つ。遠浅で家族連れにも安心の白砂海岸。",
-  "description": "Consistently voted Japan's top beach, featuring 7 continuous kilometers of soft white powder sand facing Kurima Island across translucent Miyako Blue water."
+  "description": "Consistently voted Japan's top beach, featuring 7 continuous kilometers of soft white powder sand facing Kurima Island across translucent Miyako Blue water.",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  }
 }

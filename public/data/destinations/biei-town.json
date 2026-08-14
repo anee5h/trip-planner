@@ -12,10 +12,7 @@
   "description": "Scenic landscape town renowned for the Shirogane Blue Pond, Patchwork Road hills, and Panoramic Flower Gardens.",
   "highlights": ["Explore Biei Town", "Local Culture & Cuisine"],
   "totalTripHours": 6,
-  "budgetMin": 3500,
-  "budgetRecommended": 14250,
-  "budgetMax": 25000,
-  "walkingMin": 4000,
+  "walkingMin": 360,
   "walkingSunMin": 1500,
   "walkingShadeMin": 2500,
   "indoorPercent": 50,
@@ -32,15 +29,15 @@
     "uniqueness": 9.4
   },
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 7,
+    "weekend": 9,
+    "holiday": 8
   },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
+    "spring": 5,
+    "summer": 10,
+    "autumn": 5,
+    "winter": 5
   },
   "bestMonths": [6, 7, 8],
   "bestSeason": "Summer",
@@ -51,9 +48,9 @@
     "lng": 142.4632
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 8,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "train": 200
@@ -69,15 +66,9 @@
     "featuredDestinationIds": ["hakodate-night-view"],
     "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
   },
-  "budgetBreakdown": {
-    "transport": 3563,
-    "tickets": 1781,
-    "food": 5789,
-    "cafe": 3117
-  },
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "recommendedVisitHours": {
-    "min": 6,
+    "min": 7,
     "max": 12
   },
   "businessHours": "Open access",
@@ -88,5 +79,17 @@
     "license": "CC BY-SA 3.0",
     "attribution": "Jialiang Gao www.peace-on-earth.org",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Biei_Hokkaido.jpg"
+  },
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "source-corrected bestMonths [6,7,8] (ledger seasonBestMonths)"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
   }
 }

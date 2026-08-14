@@ -21,8 +21,6 @@
   "budgetRecommended": 14000,
   "budgetMax": 25000,
   "walkingMin": 45,
-  "walkingSunMin": 27,
-  "walkingShadeMin": 18,
   "indoorPercent": 65,
   "ratings": {
     "overall": 9.8,
@@ -37,18 +35,10 @@
     "uniqueness": 9.9
   },
   "crowd": {
-    "weekday": 7,
+    "weekday": 8,
     "weekend": 10,
-    "holiday": 10
+    "holiday": 9
   },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
   "weatherDependence": "low",
   "tags": ["Shibuya Ward", "Scramble Crossing", "Harajuku", "Meiji Jingu"],
   "coordinates": {
@@ -56,8 +46,8 @@
     "lng": 139.7016
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 9,
+    "heatTolerance": 6,
+    "rainFriendly": 6,
     "walkingIntensity": 3
   },
   "transportOptions": {
@@ -109,7 +99,25 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=65, kind='ward', walkingMin=45",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='ward', importance=major, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "渋谷区",
   "content": {
@@ -150,5 +158,17 @@
     "license": "Unsplash License",
     "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
     "sourceUrl": "https://unsplash.com"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   }
 }

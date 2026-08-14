@@ -62,13 +62,11 @@
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 4
+    "min": 1.5,
+    "max": 3
   },
   "walkingMin": 30,
   "walkingIntensity": "low",
-  "walkingSunMin": 18,
-  "walkingShadeMin": 12,
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
@@ -91,9 +89,9 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
+    "weekday": 6,
     "weekend": 8,
-    "holiday": 9
+    "holiday": 7
   },
   "season": {
     "spring": 9.5,
@@ -171,6 +169,22 @@
           "url": "http://fujiko-museum.com",
           "title": "Fujiko F. Fujio Museum official website",
           "accessedAt": "2026-08-13"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'museum'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
         }
       ]
     },

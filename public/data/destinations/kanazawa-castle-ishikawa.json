@@ -10,7 +10,7 @@
   "budgetMin": 3000,
   "budgetRecommended": 7000,
   "budgetMax": 11000,
-  "walkingMin": 4500,
+  "walkingMin": 90,
   "walkingSunMin": 1800,
   "walkingShadeMin": 2700,
   "indoorPercent": 75,
@@ -29,7 +29,7 @@
   "crowd": {
     "weekday": 6,
     "weekend": 8,
-    "holiday": 9
+    "holiday": 7
   },
   "season": {
     "spring": 10,
@@ -52,8 +52,8 @@
   },
   "comfort": {
     "heatTolerance": 8,
-    "rainFriendly": 9,
-    "walkingIntensity": 3
+    "rainFriendly": 8,
+    "walkingIntensity": 5
   },
   "transportOptions": {
     "train": 150,

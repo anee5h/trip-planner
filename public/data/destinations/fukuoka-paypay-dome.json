@@ -74,15 +74,15 @@
     "min": 1.5,
     "max": 4
   },
-  "walkingMin": 3000,
+  "walkingMin": 70,
   "walkingIntensity": "medium",
   "walkingSunMin": 1000,
   "walkingShadeMin": 2000,
   "indoorPercent": 70,
   "comfort": {
     "heatTolerance": 8,
-    "rainFriendly": 9,
-    "walkingIntensity": 4
+    "rainFriendly": 8,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.3,
@@ -98,17 +98,17 @@
   },
   "ratingsSchemaVersion": 2,
   "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
+    "weekday": 4,
+    "weekend": 6,
+    "holiday": 5
   },
   "season": {
-    "spring": 8,
-    "summer": 8,
-    "autumn": 8,
-    "winter": 8
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "weatherDependence": "low",
   "reservation": "Required for game days",
   "parking": "Dome parking and nearby lots",
@@ -148,7 +148,33 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=70, kind='entertainment', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "crowd": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "crowd-model-v1; derived from kind='entertainment', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 30% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://e-zo.jp/",
   "municipalityId": "Fukuoka:fukuoka",
@@ -158,5 +184,12 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.softbankhawks.co.jp/global/english/"
   },
-  "notesJa": "試合がない日はフィールドを見学できるドームツアーがおすすめです。"
+  "notesJa": "試合がない日はフィールドを見学できるドームツアーがおすすめです。",
+  "bestSeason": "All Year (indoor)",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  }
 }
