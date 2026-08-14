@@ -110,9 +110,10 @@ export function durationModel(
   if (HUB_KINDS.has(dest.kind ?? "")) {
     const children = childCountById.get(dest.id) ?? 0;
     const v = hubWindow(dest, children);
+    const isMetro = dest.kind === "ward" || METRO_CITY_IDS.has(dest.id);
     return {
       action: "set",
-      reason: `hub exploration window: importance ${dest.importance ?? "standard"}, ${children} children, metro adj`,
+      reason: `hub exploration window: importance ${dest.importance ?? "standard"}, ${children} children, metro=${isMetro}`,
       visitHours: v,
       confidence: "low",
       modelVersion: "hub-window-model-v1",

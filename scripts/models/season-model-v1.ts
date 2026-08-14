@@ -47,6 +47,12 @@ const BEACH_RE = /\b(beach|coast|sea)\b|ビーチ|海|海岸/i;
 const FOLIAGE_RE = /\b(autumn|foliage|momiji)\b|紅葉|もみじ/i;
 const SPRING_RE =
   /\b(cherry blossom|sakura|spring flower|plum blossom)\b|花見|桜|梅/i;
+// Bare kanji 桜/梅 are place-name components (桜島 Sakurajima volcano,
+// 青梅 Ome town) and are NOT spring signals in NAMES — only the full
+// signal set applies to curated categories/tags, while names accept only
+// unambiguous spring tokens (花見/さくら/桜花 or explicit English terms).
+const SPRING_NAME_SAFE_RE =
+  /\b(cherry blossom|sakura|spring flower|plum blossom)\b|花見|さくら|桜花/i;
 
 /** Eligibility: template/missing season records this model may touch. */
 export function seasonModel(
@@ -68,6 +74,12 @@ export function seasonModel(
   const cats = (dest.categories ?? []).join(" ");
   const tags = (dest.tags ?? []).join(" ");
   const haystack = `${cats} ${tags} ${dest.name ?? ""} ${dest.nameJa ?? ""}`;
+  // Spring uses a two-tier signal: full regex (incl. kanji 桜/梅) on the
+  // curated categories/tags, name-safe regex on the name/nameJa (bare kanji
+  // place names like 桜島/青梅 are NOT spring signals).
+  const springSignal =
+    SPRING_RE.test(`${cats} ${tags}`) ||
+    SPRING_NAME_SAFE_RE.test(`${dest.name ?? ""} ${dest.nameJa ?? ""}`);
   const indoorPercent = dest.indoorPercent ?? 0;
   const kind = dest.kind ?? "";
   const latBand = latitudeBand(dest);
@@ -161,11 +173,33 @@ export function seasonModel(
     };
   }
 
-  // R4 foliage: autumn peak.
+  // R4 foliage + spring DUAL SIGNAL: both signals present, so BOTH peaks
+  // are claimed. Must precede the foliage-only and spring-only rules —
+  // otherwise the earlier rule returns first and the dual branch is
+  // unreachable (review fix: rule order is
+  // hub → snow → beach → indoor → dual → foliage-only → spring-only).
+  if (springSignal && FOLIAGE_RE.test(haystack)) {
+    return {
+      action: "set",
+      reason: "spring-flower with independent foliage signal (R4 dual)",
+      season: { spring: 10, summer: 6, autumn: 9, winter: 4 },
+      bestMonths: [4, 5, 10, 11],
+      bestSeason: "Spring & Autumn",
+      metadata: {
+        method: "model",
+        modelVersion: "season-model-v1",
+        confidence: "medium",
+        basis:
+          "independent spring + foliage signals; both peaks claimed, autumn never inferred from spring alone",
+      },
+    };
+  }
+
+  // R5 foliage-only: autumn peak. (Foliage matched above without spring.)
   if (FOLIAGE_RE.test(haystack)) {
     return {
       action: "set",
-      reason: "autumn-foliage destination (R4)",
+      reason: "autumn-foliage destination (R5)",
       season: { spring: 8, summer: 6, autumn: 10, winter: 5 },
       bestMonths: [10, 11],
       bestSeason: "Autumn",
@@ -178,44 +212,37 @@ export function seasonModel(
     };
   }
 
-  // R5 spring-flower: SPRING ONLY. The legacy rule always emitted the
+  // R6 spring-flower: SPRING ONLY. The legacy rule always emitted the
   // dual-peak vector [4,5,10,11] "Spring & Autumn" from a bare spring
   // signal — fabricating an autumn peak (Miharu Takizakura peaks
-  // mid-April but claimed Oct/Nov). Autumn is claimed ONLY when an
-  // independent foliage signal co-occurs; foliage-only records already
-  // took R4, so reaching R5 with foliage means both signals are present.
-  if (SPRING_RE.test(haystack)) {
-    const autumnSignal = FOLIAGE_RE.test(haystack);
+  // mid-April but claimed Oct/Nov). Autumn requires an independent foliage
+  // signal (handled by the dual rule above).
+  if (springSignal) {
     return {
       action: "set",
-      reason: autumnSignal
-        ? "spring-flower with independent foliage signal (R5 dual)"
-        : "spring-flower destination (R5)",
-      season: autumnSignal
-        ? { spring: 10, summer: 6, autumn: 9, winter: 4 }
-        : { spring: 10, summer: 6, autumn: 5, winter: 4 },
-      bestMonths: autumnSignal ? [4, 5, 10, 11] : [4, 5],
-      bestSeason: autumnSignal ? "Spring & Autumn" : "Spring",
+      reason: "spring-flower destination (R6)",
+      season: { spring: 10, summer: 6, autumn: 5, winter: 4 },
+      bestMonths: [4, 5],
+      bestSeason: "Spring",
       metadata: {
         method: "model",
         modelVersion: "season-model-v1",
         confidence: "medium",
-        basis: autumnSignal
-          ? "spring-flower + foliage signals; calibrated on trusted peaks"
-          : "spring-flower signal; spring-only months 4-5 (autumn never inferred)",
+        basis:
+          "spring-flower signal; spring-only months 4-5 (autumn never inferred)",
       },
     };
   }
 
-  // R6 events/illumination: source-backed only — no model claim without a
+  // R7 events/illumination: source-backed only — no model claim without a
   // source fact, so falls through to unknown.
 
-  // R7 UNKNOWN: neutralize templates and leave genuinely missing records
+  // R8 UNKNOWN: neutralize templates and leave genuinely missing records
   // unknown, with an explicit marker (never a fabricated vector).
   return {
     action: "neutralize",
     reason:
-      "no defensible seasonal model signal; template vector neutralized to unknown (R7)",
+      "no defensible seasonal model signal; template vector neutralized to unknown (R8)",
     metadata: {
       method: "unknown",
       modelVersion: "season-model-v1",

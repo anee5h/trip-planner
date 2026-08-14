@@ -33,7 +33,10 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
+import {
+  formatLocalizedJPYRange,
+  hasKnownBudgetRange,
+} from "@/shared/services/budget/BudgetService";
 import { getRatingDisplayState } from "@/shared/services/recommendation/RecommendationScorer";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import {
@@ -520,18 +523,19 @@ export default function DestinationCard({
                   <div className="flex min-w-0 items-center whitespace-nowrap">
                     <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
                     <span className="truncate">
-                      {formatLocalizedJPYRange(
-                        Number.isFinite(destination.budgetMin) &&
-                          Number.isFinite(destination.budgetMax) &&
-                          destination.budgetMin >= 0 &&
-                          destination.budgetMin <= destination.budgetMax
-                          ? [
-                              destination.budgetMin * partySize,
-                              destination.budgetMax * partySize,
-                            ]
-                          : null,
-                        locale,
-                      )}
+                      {(() => {
+                        // KAI-89: unknown budgets (absent values) render as
+                        // unavailable — never as zero or free.
+                        return hasKnownBudgetRange(destination)
+                          ? formatLocalizedJPYRange(
+                              [
+                                destination.budgetMin * partySize,
+                                destination.budgetMax * partySize,
+                              ],
+                              locale,
+                            )
+                          : formatLocalizedJPYRange(null, locale);
+                      })()}
                       {partySize > 1
                         ? locale === "ja"
                           ? `（${partySize}人分）`

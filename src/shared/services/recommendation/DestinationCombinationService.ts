@@ -4,6 +4,7 @@ import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
 import { getEffectiveVisitDuration } from "./VisitDurationPolicy";
 import { getRatingDisplayState } from "./RecommendationScorer";
+import { hasKnownBudgetRange } from "@/shared/services/budget/BudgetService";
 import {
   estimateLocalTransitMinutes,
   hasCoordinates,
@@ -164,13 +165,10 @@ export function findNearbyCombinations(
 
     const clampedTotalMaxMins = Math.min(600, totalMaxMins);
 
-    const hasPriceRange = (place: Destination) =>
-      Number.isFinite(place.budgetMin) &&
-      Number.isFinite(place.budgetMax) &&
-      place.budgetMin >= 0 &&
-      place.budgetMin <= place.budgetMax;
+    // KAI-89: unknown budgets (absent) must not contribute a fabricated 0
+    // to the combined range — require finite known values on both sides.
     const combinedBudgetRange: [number, number] | null =
-      hasPriceRange(primary) && hasPriceRange(secondary)
+      hasKnownBudgetRange(primary) && hasKnownBudgetRange(secondary)
         ? [
             primary.budgetMin + secondary.budgetMin,
             primary.budgetMax + secondary.budgetMax,

@@ -3,6 +3,7 @@ import type { Destination } from "@/shared/types/destination";
 import {
   calculateItemizedTripCost,
   formatLocalizedJPYRange,
+  hasKnownBudgetRange,
 } from "@/shared/services/budget/BudgetService";
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
@@ -579,20 +580,18 @@ export function TripCostBreakdownWidget({
                           </h5>
                           <div className="text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1 font-semibold">
                             <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
-                            {!Number.isFinite(alt.budgetMin) ||
-                            !Number.isFinite(alt.budgetMax) ||
-                            alt.budgetMin > alt.budgetMax
-                              ? locale === "ja"
-                                ? "料金不明"
-                                : "Cost unavailable"
-                              : alt.budgetMin === 0
+                            {hasKnownBudgetRange(alt)
+                              ? alt.budgetMin === 0
                                 ? locale === "ja"
                                   ? "無料"
                                   : "Free"
                                 : formatLocalizedJPYRange(
                                     [alt.budgetMin, alt.budgetMax],
                                     locale,
-                                  )}
+                                  )
+                              : locale === "ja"
+                                ? "料金不明"
+                                : "Cost unavailable"}
                           </div>
                         </div>
                       </Link>

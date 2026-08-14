@@ -292,9 +292,11 @@ export function calculateScore(
     let budgetScore = 0;
 
     let adjustedBudget = Number.POSITIVE_INFINITY;
+    const budgetRecommended = dest.budgetRecommended;
     if (
-      Number.isFinite(dest.budgetRecommended) &&
-      dest.budgetRecommended >= 0
+      typeof budgetRecommended === "number" &&
+      Number.isFinite(budgetRecommended) &&
+      budgetRecommended >= 0
     ) {
       const estimatedResult = getEstimatedBudgetRange(
         dest,

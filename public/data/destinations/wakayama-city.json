@@ -37,7 +37,8 @@
   },
   "comfort": {
     "heatTolerance": 6,
-    "rainFriendly": 6
+    "rainFriendly": 6,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "train": 200
@@ -110,7 +111,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "comfort-model-v1; derived from indoorPercent=50, kind='city', walkingMin=unknown",
+          "title": "comfort-model-v1; derived from indoorPercent=50, kind='city', walkingMin=360",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -169,13 +170,13 @@
     "method": "model",
     "modelVersion": "hub-window-model-v1",
     "confidence": "low",
-    "basis": "hub exploration window: importance notable, 5 children, metro adj"
+    "basis": "hub exploration window: importance notable, 5 children, metro=false"
   },
   "comfortMetadata": {
     "method": "model",
     "modelVersion": "comfort-model-v1",
     "confidence": "low",
-    "basis": "derived from indoorPercent=50, kind='city', walkingMin=unknown"
+    "basis": "derived from indoorPercent=50, kind='city', walkingMin=360"
   },
   "crowdMetadata": {
     "method": "unknown",

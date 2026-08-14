@@ -18,7 +18,10 @@ import {
   CalendarDays,
 } from "lucide-react";
 import { getPaginationItems } from "./pagination";
-import { getSortableVerifiedBudget } from "@/shared/services/budget/BudgetService";
+import {
+  getSortableVerifiedBudget,
+  hasKnownBudgetRange,
+} from "@/shared/services/budget/BudgetService";
 import StationInput from "@/shared/components/StationInput";
 import { useWeatherContext } from "@/features/home/hooks/useWeatherContext";
 import {
@@ -504,10 +507,12 @@ export default function Destinations() {
     // possible within the selected amount, not merely start below it.
     if (budgetTier !== "any") {
       result = result.filter((dest) => {
-        const estimatedCost = dest.budgetMax ?? dest.budgetMin ?? Infinity;
+        if (budgetTier === "luxury") return true;
+        if (!hasKnownBudgetRange(dest)) return false;
+        const estimatedCost = dest.budgetMax;
         if (budgetTier === "economy") return estimatedCost < 10000;
         if (budgetTier === "comfortable") return estimatedCost < 20000;
-        return budgetTier === "luxury" || estimatedCost < 40000;
+        return estimatedCost < 40000;
       });
     }
 

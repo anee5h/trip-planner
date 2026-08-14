@@ -28,6 +28,13 @@ export interface HubPlanBudget {
   partyTotal: number;
   perPersonRange: { min: number; max: number };
   partyRange: { min: number; max: number };
+  /**
+   * KAI-89: true when any itinerary POI has an UNKNOWN budget (absent
+   * values). Unknown items contribute 0 to the totals — they are never
+   * treated as free — so the estimate covers only the known items; the
+   * plan must not claim a complete cost.
+   */
+  hasUnknownBudgetItems: boolean;
 }
 
 export interface HubPlan {
@@ -165,6 +172,7 @@ export class HubPlanningService {
     let totalLocalTransit = 0;
     let totalTickets = 0;
     let totalFood = 0;
+    let hasUnknownBudgetItems = false;
 
     for (const item of items) {
       totalLocalTransit += item.localTransitCost;
@@ -174,6 +182,13 @@ export class HubPlanningService {
           partySize: 1,
           activeMode: travelMode,
         });
+        // KAI-89: an unknown-budget POI contributes NOTHING to the totals
+        // (0 is 'free', which is a false claim); the plan flags the gap so
+        // the estimate is never presented as a complete cost.
+        if (!itemBreakdown.budgetAvailable) {
+          hasUnknownBudgetItems = true;
+          continue;
+        }
         totalTickets += itemBreakdown.tickets || 0;
         const foodAvg = itemBreakdown.food
           ? Math.round((itemBreakdown.food[0] + itemBreakdown.food[1]) / 2)
@@ -198,6 +213,7 @@ export class HubPlanningService {
       localTransitCost: totalLocalTransit,
       ticketCost: totalTickets,
       foodCost: totalFood,
+      hasUnknownBudgetItems,
       perPersonTotal: Math.round(perPersonBase),
       partyTotal: Math.round(partyBase),
       perPersonRange: { min: perPersonMin, max: perPersonMax },

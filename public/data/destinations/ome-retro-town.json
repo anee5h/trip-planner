@@ -72,13 +72,6 @@
     "uniqueness": 8.8
   },
   "ratingsSchemaVersion": 2,
-  "season": {
-    "spring": 10,
-    "summer": 6,
-    "autumn": 5,
-    "winter": 4
-  },
-  "bestMonths": [4, 5],
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
@@ -150,12 +143,11 @@
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
   "municipalityId": "Tokyo:ome",
-  "bestSeason": "Spring",
   "seasonMetadata": {
-    "method": "model",
+    "method": "unknown",
     "modelVersion": "season-model-v1",
-    "confidence": "medium",
-    "basis": "spring-flower signal; spring-only months 4-5 (autumn never inferred)"
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   },
   "transportMetadata": {
     "method": "legacy-fallback",

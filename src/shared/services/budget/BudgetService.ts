@@ -46,6 +46,8 @@ function finiteNonNegativeOrUndefined(value: unknown): number | undefined {
 /** Returns false for legacy records with no trustworthy price source. */
 export function hasKnownBudget(dest: Destination): boolean {
   const breakdown = dest.budgetBreakdown;
+  const bMin = dest.budgetMin;
+  const bMax = dest.budgetMax;
   return Boolean(
     (breakdown &&
       [
@@ -55,9 +57,26 @@ export function hasKnownBudget(dest: Destination): boolean {
         breakdown.cafe,
       ].every(isFiniteNonNegative) &&
       isFiniteNonNegative(dest.budgetRecommended)) ||
-    (isFiniteNonNegative(dest.budgetMin) &&
-      isFiniteNonNegative(dest.budgetMax) &&
-      dest.budgetMin <= dest.budgetMax),
+    (isFiniteNonNegative(bMin) && isFiniteNonNegative(bMax) && bMin <= bMax),
+  );
+}
+
+/**
+ * KAI-89 type guard: both budget bounds are finite known values with a
+ * valid order. Narrows the Destination so consumers can safely do price
+ * arithmetic (unknown budgets must never act as 0/free in comparisons,
+ * ranking, or rendering).
+ */
+export function hasKnownBudgetRange(
+  dest: Destination,
+): dest is Destination & { budgetMin: number; budgetMax: number } {
+  return (
+    typeof dest.budgetMin === "number" &&
+    Number.isFinite(dest.budgetMin) &&
+    typeof dest.budgetMax === "number" &&
+    Number.isFinite(dest.budgetMax) &&
+    dest.budgetMin >= 0 &&
+    dest.budgetMin <= dest.budgetMax
   );
 }
 
@@ -727,9 +746,16 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
     return dest.budgetBreakdown;
   }
   if (!hasKnownBudget(dest)) return null;
+  // KAI-89: arithmetic requires finite known values; unknown (missing)
+  // budget never falls back to a fabricated breakdown.
+  const bMin = dest.budgetMin;
+  const bMax = dest.budgetMax;
   const totalRec = isFiniteNonNegative(dest.budgetRecommended)
     ? dest.budgetRecommended
-    : Math.max(dest.budgetMin, dest.budgetMax);
+    : isFiniteNonNegative(bMin) && isFiniteNonNegative(bMax)
+      ? Math.max(bMin, bMax)
+      : 0;
+  if (totalRec <= 0) return null;
   const transport = 3000;
 
   // Check if destination is free ticket

@@ -89,7 +89,7 @@
     "method": "model",
     "modelVersion": "hub-window-model-v1",
     "confidence": "low",
-    "basis": "hub exploration window: importance major, 0 children, metro adj"
+    "basis": "hub exploration window: importance major, 0 children, metro=false"
   },
   "walkingMetadata": {
     "method": "model",

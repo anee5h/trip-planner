@@ -5,7 +5,9 @@ import {
   isValidAccommodationAllowance,
   calculateItemizedTripCost,
   getAdjustedBudget,
+  getEffectiveBudgetBreakdown,
   getEstimatedBudgetRange,
+  hasKnownBudgetRange,
   getDiningFoodRange,
   getTransportCost,
   isFreeDestination,
@@ -513,5 +515,66 @@ describe("KAI-89 per-person budget contract", () => {
     // Party 1 must NOT be half of party 2 (the legacy /2 bug).
     expect((a2 ?? 0) - (a1 ?? 0)).toBeGreaterThan(0);
     expect(a1 ?? 0).toBeGreaterThan(2000);
+  });
+});
+
+describe("KAI-89 unknown-budget contract (missing ≠ 0/free)", () => {
+  it("a record with no budget fields has no known range and no breakdown", () => {
+    const unknown = getDestinationList("en").find(
+      (d) => d.id === "amami-iriomote-natural-site",
+    ) as unknown as Destination;
+    expect(unknown.budgetMetadata?.method).toBe("unknown");
+    expect(unknown.budgetMin).toBeUndefined();
+    expect(unknown.budgetRecommended).toBeUndefined();
+    expect(unknown.budgetMax).toBeUndefined();
+    expect(hasKnownBudgetRange(unknown)).toBe(false);
+    expect(getEffectiveBudgetBreakdown(unknown)).toBeNull();
+  });
+
+  it("unknown budget never yields a zero/positive estimate range", () => {
+    const unknown = getDestinationList("en").find(
+      (d) => d.id === "amami-iriomote-natural-site",
+    ) as unknown as Destination;
+    const r = getEstimatedBudgetRange(unknown, "train", 2, "standard", {
+      lat: 35.6812,
+      lng: 139.7671,
+    });
+    expect(r.range).toBeNull();
+  });
+
+  it("getAdjustedBudget returns null for an unknown budget", () => {
+    const unknown = getDestinationList("en").find(
+      (d) => d.id === "amami-iriomote-natural-site",
+    ) as unknown as Destination;
+    expect(
+      getAdjustedBudget(
+        unknown,
+        "train",
+        1,
+        { lat: 35.6812, lng: 139.7671 },
+        "mainland-honshu",
+      ),
+    ).toBeNull();
+  });
+
+  it("known per-person budgets still scale correctly for parties 1/2/3/4", () => {
+    const d = getDestinationList("en").find(
+      (x) => x.id === "nagano-city",
+    ) as unknown as Destination;
+    const coords = { lat: 35.6812, lng: 139.7671 };
+    const mids = [1, 2, 3, 4].map((p) => {
+      const r = getEstimatedBudgetRange(d, "train", p, "standard", coords);
+      if (!r.range) throw new Error(`no range for party ${p}`);
+      return (r.range[0] + r.range[1]) / 2;
+    });
+    // Each additional person adds a strictly positive per-person increment
+    // (legacy couple-scale /2 made party 1 cheaper than party 2).
+    for (let i = 1; i < mids.length; i += 1) {
+      expect(mids[i]).toBeGreaterThan(mids[i - 1]);
+    }
+    // Approximate linearity: the party-4 total is ~2× the party-2 total
+    // (transport round-trip is flat per party; per-person components scale).
+    expect(mids[3] / mids[1]).toBeGreaterThan(1.7);
+    expect(mids[3] / mids[1]).toBeLessThan(2.3);
   });
 });

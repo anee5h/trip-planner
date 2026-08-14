@@ -6,7 +6,7 @@
   "totalRecords": 978,
   "summary": {
     "categoryCount": 8,
-    "clusterCount": 191,
+    "clusterCount": 189,
     "affectedRecordCount": 977,
     "affectedIds": [
       "abashiri",
@@ -1336,16 +1336,16 @@
       "missingBudgetRecords": 0,
       "missingSeasonRecords": 0,
       "explicitlyUnknownBudget": 395,
-      "explicitlyUnknownSeason": 389
+      "explicitlyUnknownSeason": 391
     },
     "dispositionCounts": {
       "corrected": 14,
       "confidence-gated": 30,
-      "model-estimate": 42,
+      "model-estimate": 40,
       "manual-review": 96,
       "legitimate": 9
     },
-    "categoryCounts": { "D": 6, "B": 64, "C": 81, "A": 9, "E": 31 }
+    "categoryCounts": { "D": 6, "B": 64, "C": 79, "A": 9, "E": 31 }
   },
   "categories": [
     {
@@ -7961,9 +7961,9 @@
           "ids": ["miyajima-itsukushima", "mount-fuji", "sado-island"],
           "value": { "walkingMin": 480 },
           "disposition": {
-            "category": "C",
-            "action": "model-estimate",
-            "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+            "category": "E",
+            "action": "manual-review",
+            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
           }
         },
         {
@@ -7988,7 +7988,7 @@
       "category": "season",
       "severity": "review",
       "clusterCount": 4,
-      "affectedRecordCount": 131,
+      "affectedRecordCount": 129,
       "affectedIds": [
         "abeno-harukas-300-osaka",
         "aizu-bukeyashiki",
@@ -8071,7 +8071,6 @@
         "ohara-museum-of-art",
         "okinawa-kaigan",
         "ome-railway-park",
-        "ome-retro-town",
         "omiya-railway",
         "onta-pottery-village",
         "osaka-castle",
@@ -8084,7 +8083,6 @@
         "ryogoku-kokugikan-sumo-museum",
         "saikai",
         "sakai-city-museum",
-        "sakurajima-volcano-kagoshima",
         "sanin-kaigan",
         "seiko-museum-ginza",
         "setonaikai",
@@ -8280,13 +8278,11 @@
         {
           "id": "6b05ba8b5e86",
           "severity": "review",
-          "count": 6,
+          "count": 4,
           "ids": [
             "jindai-zakura",
             "miharu-takizakura",
-            "ome-retro-town",
             "osaka-castle",
-            "sakurajima-volcano-kagoshima",
             "usuzumi-zakura"
           ],
           "value": {
@@ -9916,8 +9912,8 @@
     {
       "category": "comfort",
       "severity": "review",
-      "clusterCount": 30,
-      "affectedRecordCount": 605,
+      "clusterCount": 28,
+      "affectedRecordCount": 603,
       "affectedIds": [
         "abashiri-city",
         "abeno-harukas-300-osaka",
@@ -10185,6 +10181,7 @@
         "kusatsu-town",
         "kushida-shrine",
         "kushiro-city",
+        "kyoto-city",
         "kyoto-historic",
         "kyoto-imperial-palace",
         "kyoto-international-manga-museum",
@@ -10226,7 +10223,6 @@
         "mitaki-dera",
         "mito-castle-ibaraki",
         "mito-city",
-        "miyajima-itsukushima",
         "miyakojima-city",
         "miyazaki-city",
         "miyazaki-jingu-shrine",
@@ -10242,7 +10238,6 @@
         "mount-fuji",
         "mount-hakkoda-ropeway",
         "mount-inasa-nagasaki",
-        "mount-kaimon",
         "mount-moiwa",
         "mount-takao",
         "mount-yoshino-nara",
@@ -10402,7 +10397,6 @@
         "shinsho-ji",
         "shirahama-town",
         "shirakami-sanchi-aomori",
-        "shiratani-unsuikyo-ravine",
         "shitennoji",
         "shizuoka-city",
         "shonan-kaigan-park",
@@ -10526,6 +10520,104 @@
         "zushi"
       ],
       "clusters": [
+        {
+          "id": "438e501f22f6",
+          "severity": "review",
+          "count": 81,
+          "ids": [
+            "abashiri-city",
+            "asahikawa-city",
+            "aso-city",
+            "atami-city",
+            "beppu-city",
+            "biei-town",
+            "dazaifu-city",
+            "fujikawaguchiko-town",
+            "fujinomiya-city",
+            "fukuoka-city",
+            "furano-city",
+            "gero-city",
+            "gifu-city",
+            "gotemba-city",
+            "hakodate-city",
+            "hakuba-village",
+            "hamamatsu-city",
+            "hatsukaichi-city",
+            "hikone-city",
+            "himeji-city",
+            "hiroshima-city",
+            "hiroshima-peace-memorial",
+            "hita-city",
+            "ibusuki-city",
+            "ikaruga-town",
+            "inuyama-city",
+            "ishigaki-city",
+            "ito-city",
+            "izumo-city",
+            "kagoshima-city",
+            "kanazawa",
+            "karatsu-city",
+            "karuizawa-town",
+            "kitakyushu-city",
+            "kobe-city",
+            "kochi-city",
+            "kofu-city",
+            "koya-town",
+            "kumamoto-city",
+            "kurashiki-city",
+            "kushiro-city",
+            "matsue-city",
+            "matsumoto-city",
+            "matsuyama-city",
+            "miyakojima-city",
+            "miyazaki-city",
+            "miyazu-city",
+            "motobu-town",
+            "nagano-city",
+            "nagasaki-city",
+            "nago-city",
+            "nagoya-city",
+            "naha-city",
+            "nara-city",
+            "naruto-city",
+            "nichinan-city",
+            "niseko-town",
+            "numazu-city",
+            "okayama-castle",
+            "okayama-city",
+            "okazaki-city",
+            "onomichi-city",
+            "otaru-city",
+            "otsu-city",
+            "sakai-city",
+            "sapporo-city",
+            "sasebo-city",
+            "shimonoseki-city",
+            "shirahama-town",
+            "shizuoka-city",
+            "takachiho-town",
+            "takamatsu-city",
+            "takaoka",
+            "takayama-city",
+            "tokushima-city",
+            "tottori-city",
+            "toyota-city",
+            "uji-city",
+            "wakayama-city",
+            "yakushima-town",
+            "yufu-city"
+          ],
+          "value": {
+            "heatTolerance": 6,
+            "rainFriendly": 6,
+            "walkingIntensity": 8
+          },
+          "disposition": {
+            "category": "B",
+            "action": "manual-review",
+            "reason": "v1.6.0 hub template hardcode {8,8,3}; 120/139 hubs. heatTolerance==rainFriendly template signature."
+          }
+        },
         {
           "id": "fc8339d38bf3",
           "severity": "review",
@@ -10699,7 +10791,7 @@
         {
           "id": "d4bab1a51e44",
           "severity": "review",
-          "count": 61,
+          "count": 60,
           "ids": [
             "amanohashidate-kyoto",
             "arima-onsen",
@@ -10734,7 +10826,6 @@
             "matsuyama-castle-ehime",
             "meriken-park",
             "mitaki-dera",
-            "miyajima-itsukushima",
             "mount-hakkoda-ropeway",
             "mount-inasa-nagasaki",
             "mount-yoshino-nara",
@@ -10769,73 +10860,9 @@
             "walkingIntensity": 8
           },
           "disposition": {
-            "category": "E",
-            "action": "manual-review",
-            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-          }
-        },
-        {
-          "id": "438e501f22f6",
-          "severity": "review",
-          "count": 47,
-          "ids": [
-            "abashiri-city",
-            "asahikawa-city",
-            "atami-city",
-            "biei-town",
-            "fujikawaguchiko-town",
-            "fujinomiya-city",
-            "furano-city",
-            "gero-city",
-            "gifu-city",
-            "gotemba-city",
-            "hakodate-city",
-            "hakuba-village",
-            "hamamatsu-city",
-            "hatsukaichi-city",
-            "hiroshima-city",
-            "hiroshima-peace-memorial",
-            "inuyama-city",
-            "ito-city",
-            "izumo-city",
-            "kanazawa",
-            "karuizawa-town",
-            "kochi-city",
-            "kofu-city",
-            "kurashiki-city",
-            "kushiro-city",
-            "matsue-city",
-            "matsumoto-city",
-            "matsuyama-city",
-            "nagano-city",
-            "nagoya-city",
-            "naruto-city",
-            "niseko-town",
-            "numazu-city",
-            "okayama-castle",
-            "okayama-city",
-            "okazaki-city",
-            "onomichi-city",
-            "otaru-city",
-            "sapporo-city",
-            "shimonoseki-city",
-            "shizuoka-city",
-            "takamatsu-city",
-            "takaoka",
-            "takayama-city",
-            "tokushima-city",
-            "tottori-city",
-            "toyota-city"
-          ],
-          "value": {
-            "heatTolerance": 6,
-            "rainFriendly": 6,
-            "walkingIntensity": 8
-          },
-          "disposition": {
-            "category": "B",
-            "action": "manual-review",
-            "reason": "v1.6.0 hub template hardcode {8,8,3}; 120/139 hubs. heatTolerance==rainFriendly template signature."
+            "category": "C",
+            "action": "model-estimate",
+            "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
           }
         },
         {
@@ -10955,53 +10982,6 @@
           }
         },
         {
-          "id": "aa4891047b74",
-          "severity": "review",
-          "count": 34,
-          "ids": [
-            "aso-city",
-            "beppu-city",
-            "dazaifu-city",
-            "fukuoka-city",
-            "hikone-city",
-            "himeji-city",
-            "hita-city",
-            "ibusuki-city",
-            "ikaruga-town",
-            "ishigaki-city",
-            "kagoshima-city",
-            "karatsu-city",
-            "kitakyushu-city",
-            "kobe-city",
-            "koya-town",
-            "kumamoto-city",
-            "miyakojima-city",
-            "miyazaki-city",
-            "miyazu-city",
-            "motobu-town",
-            "nagasaki-city",
-            "nago-city",
-            "naha-city",
-            "nara-city",
-            "nichinan-city",
-            "otsu-city",
-            "sakai-city",
-            "sasebo-city",
-            "shirahama-town",
-            "takachiho-town",
-            "uji-city",
-            "wakayama-city",
-            "yakushima-town",
-            "yufu-city"
-          ],
-          "value": { "heatTolerance": 6, "rainFriendly": 6 },
-          "disposition": {
-            "category": "C",
-            "action": "model-estimate",
-            "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-          }
-        },
-        {
           "id": "c32d82b6aeb1",
           "severity": "review",
           "count": 32,
@@ -11101,7 +11081,7 @@
         {
           "id": "5cc52143a504",
           "severity": "review",
-          "count": 27,
+          "count": 28,
           "ids": [
             "amami-iriomote-natural-site",
             "asuka-fujiwara-nara",
@@ -11113,6 +11093,7 @@
             "iwami-ginzan-shimane",
             "kaminoyama-castle-town",
             "kumano-kodo-koya-wakayama",
+            "kyoto-city",
             "matsumoto-castle-nagano",
             "miyoshi-city",
             "mozufuruichi-kofun-osaka",
@@ -11381,6 +11362,30 @@
           }
         },
         {
+          "id": "4d3e2d59e09a",
+          "severity": "review",
+          "count": 7,
+          "ids": [
+            "kurobe-gorge",
+            "mount-fuji",
+            "nakadake-crater-aso",
+            "nanatsugama-sea-caves",
+            "noto",
+            "takachiho-gorge",
+            "toyama-alpine"
+          ],
+          "value": {
+            "heatTolerance": 7,
+            "rainFriendly": 1,
+            "walkingIntensity": 8
+          },
+          "disposition": {
+            "category": "C",
+            "action": "manual-review",
+            "reason": "Standalone nature."
+          }
+        },
+        {
           "id": "da1999751cb8",
           "severity": "review",
           "count": 7,
@@ -11402,29 +11407,6 @@
             "category": "C",
             "action": "model-estimate",
             "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-          }
-        },
-        {
-          "id": "4d3e2d59e09a",
-          "severity": "review",
-          "count": 6,
-          "ids": [
-            "kurobe-gorge",
-            "mount-fuji",
-            "nakadake-crater-aso",
-            "nanatsugama-sea-caves",
-            "noto",
-            "toyama-alpine"
-          ],
-          "value": {
-            "heatTolerance": 7,
-            "rainFriendly": 1,
-            "walkingIntensity": 8
-          },
-          "disposition": {
-            "category": "C",
-            "action": "manual-review",
-            "reason": "Standalone nature."
           }
         },
         {
@@ -11547,22 +11529,6 @@
             "rainFriendly": 7,
             "walkingIntensity": 5
           },
-          "disposition": {
-            "category": "C",
-            "action": "model-estimate",
-            "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-          }
-        },
-        {
-          "id": "76abd4858e6d",
-          "severity": "review",
-          "count": 3,
-          "ids": [
-            "mount-kaimon",
-            "shiratani-unsuikyo-ravine",
-            "takachiho-gorge"
-          ],
-          "value": { "heatTolerance": 7, "rainFriendly": 1 },
           "disposition": {
             "category": "C",
             "action": "model-estimate",

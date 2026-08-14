@@ -87,8 +87,7 @@
   "weatherDependence": "moderate",
   "comfort": {
     "heatTolerance": 5,
-    "rainFriendly": 4,
-    "walkingIntensity": 8
+    "rainFriendly": 4
   },
   "reservation": "None required",
   "parking": "No private cars on Miyajima; use JR West Miyajima Ferry or Matsudai ferry from Miyajimaguchi, then walk or ride the local shuttle.",
@@ -126,7 +125,7 @@
     "method": "model",
     "modelVersion": "comfort-model-v1",
     "confidence": "low",
-    "basis": "derived from indoorPercent=20, kind='island', walkingMin=480"
+    "basis": "derived from indoorPercent=20, kind='island', walkingMin=unknown"
   },
   "crowdMetadata": {
     "method": "unknown",

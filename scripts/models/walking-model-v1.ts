@@ -30,6 +30,38 @@ const METRE_LIKE = 300; // >= 300 in a minute field is metre-typed
 const PACE_M = 80; // documented pace: 80 m/min
 const SYNTHETIC_SPLIT = 0.6; // sun = 0.6 * walkingMin signature
 
+/**
+ * ONE authoritative ownership test: is a (possibly large) walkingMin value
+ * model-generated MINUTES, or legacy data?
+ *
+ * KAI-89 provenance contract: "provenance is the unit". A model-generated
+ * value (300/360/480/576 min…) must NEVER be re-detected as metre-typed on a
+ * second run. Two equivalent evidence paths:
+ *
+ *  A. structured provenance: walkingMetadata { method: "model", unit:
+ *     "minutes" } — canonical KAI-89 marker, works WITHOUT an editorial
+ *     block (records that never had editorial provenance);
+ *  B. legacy field source: editorial.fieldSources.walkingMin contains a
+ *     walking-model-v1 calculated source (records written before
+ *     walkingMetadata existed).
+ *
+ * Use THIS function everywhere metre-vs-minute detection happens
+ * (walking-model-v1, derive-destination-models split-integrity guard,
+ * validators) — never duplicate a slightly different ownership test.
+ */
+export function isModelOwnedWalkingMinutes(dest: Destination): boolean {
+  const structured =
+    dest.walkingMetadata?.method === "model" &&
+    dest.walkingMetadata?.unit === "minutes";
+  if (structured) return true;
+  // Legacy field sources are titled "walking-model-v1; <reason>"; match the
+  // model name as a whole token (no prefix collision with e.g. a future
+  // "walking-model-v10") and tolerate malformed/missing titles.
+  return (dest.editorial?.fieldSources?.walkingMin ?? []).some((s) =>
+    /^walking-model-v1(?:;|$)/.test(s.title ?? ""),
+  );
+}
+
 export function walkingIntensityFromMinutes(
   minutes: number,
 ): "low" | "medium" | "high" {
@@ -86,23 +118,18 @@ export function walkingModel(
   // Values written by this model are minutes BY CONSTRUCTION (roundTo5 of
   // a pace/walk-share product). Without this guard a legitimately large
   // fill (e.g. 0.8 × 12h = 576 min) would be re-detected as metre-typed
-  // on the next run and mis-converted/corrupted. Provenance is the unit.
-  const modelOwnedMinutes =
-    (dest.editorial?.fieldSources?.walkingMin ?? []).some((s) =>
-      s.title.startsWith("walking-model-v1"),
-    ) ?? false;
+  // on the next run and mis-converted/corrupted. Provenance is the unit:
+  // structured walkingMetadata OR legacy fieldSources (isModelOwnedWalkingMinutes).
+  const modelOwnedMinutes = isModelOwnedWalkingMinutes(dest);
 
   // ---- Un-sourced / unit-invalid sun-shade splits: clear ----
   // walkingSunMin/walkingShadeMin are SUBSETS of walkingMin: a split can
   // never exceed the total, and a metre-typed total (>= 300) cannot have
   // minute splits. Batch-template splits (incl. Abashiri's
   // 360/1500/2500 — sun+shade ≫ total) are cleared, never kept.
-  const metreTotalWithSplits =
-    !modelOwnedMinutes &&
-    Number.isFinite(dest.walkingMin) &&
-    dest.walkingMin >= METRE_LIKE &&
-    (Number.isFinite(dest.walkingSunMin) ||
-      Number.isFinite(dest.walkingShadeMin));
+  // (Metre-typed totals carry their split-clearing in the convert/fill/clear
+  // outputs below — one-pass convergence — so only the minute-scale subset
+  // violation clears the splits here.)
   const splitSubsetViolation =
     (Number.isFinite(dest.walkingSunMin) &&
       Number.isFinite(dest.walkingShadeMin) &&
@@ -113,9 +140,6 @@ export function walkingModel(
     (Number.isFinite(dest.walkingShadeMin) &&
       Number.isFinite(dest.walkingSunMin) === false &&
       dest.walkingShadeMin > dest.walkingMin);
-  // Metre-typed totals carry their split-clearing in the convert/fill/clear
-  // outputs below (one-pass convergence); a minute-scale total with invalid
-  // splits clears only the splits here.
   if (
     splitSubsetViolation &&
     (Number.isFinite(dest.walkingMin) === false || dest.walkingMin < METRE_LIKE)

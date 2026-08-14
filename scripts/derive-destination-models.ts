@@ -25,7 +25,10 @@ import { loadTruth } from "./models/calibration";
 import { budgetModel } from "./models/budget-model-v1";
 import { seasonModel } from "./models/season-model-v1";
 import { durationModel } from "./models/duration-model-v1";
-import { walkingModel } from "./models/walking-model-v1";
+import {
+  walkingModel,
+  isModelOwnedWalkingMinutes,
+} from "./models/walking-model-v1";
 import { comfortModel, crowdModel } from "./models/comfort-crowd-model-v1";
 import { transportModel } from "./models/transport-access-v1";
 import type { TransportMode } from "../src/shared/services/transport/types";
@@ -34,6 +37,99 @@ const rootDir = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   "..",
 );
+
+// ---------------------------------------------------------------------------
+// Report state (pure; exported for tests)
+// ---------------------------------------------------------------------------
+
+export interface ReportShape {
+  modelVersion: string;
+  generatedAt: string;
+  pendingChanges: number;
+  pendingByModel: Array<[string, number]>;
+  touchedRecords: Record<string, string[]>;
+  modelClusterIds: string[];
+  historyNote: string;
+  lastApplied:
+    | {
+        at: string | null;
+        changeCount: number | null;
+        byModel: Array<[string, number]>;
+        note?: string;
+        sample?: Array<{
+          id: string;
+          model: string;
+          action: string;
+          reason: string;
+        }>;
+      }
+    | undefined;
+}
+
+export interface ReportChange {
+  id: string;
+  model: string;
+  action: string;
+  reason: string;
+  fields: string[];
+}
+
+const HISTORY_NOTE =
+  "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.";
+
+/**
+ * Decide the next report state. PURE: never writes, never mutates inputs.
+ *
+ * lastApplied semantics (owner review):
+ *  - --check writes nothing (caller enforces) and never alters state;
+ *  - --apply with changes.length > 0 records the migration evidence
+ *    (timestamp, count, byModel, representative sample);
+ *  - --apply with changes.length === 0 PRESERVES the committed lastApplied
+ *    exactly — a converged catalogue must not erase the migration record.
+ */
+export function nextReport(
+  committed: Partial<ReportShape> | undefined,
+  changes: ReportChange[],
+  touchedByModel: Record<string, string[]>,
+  modelClusterIds: string[],
+  apply: boolean,
+): ReportShape {
+  const pendingByModel = Object.entries(
+    changes.reduce<Record<string, number>>((acc, c) => {
+      acc[c.model] = (acc[c.model] ?? 0) + 1;
+      return acc;
+    }, {}),
+  ).sort((a, b) => b[1] - a[1]) as Array<[string, number]>;
+  const report: ReportShape = {
+    modelVersion: "kai-89-models-v1",
+    generatedAt: "2026-08-14",
+    pendingChanges: changes.length,
+    pendingByModel,
+    touchedRecords: touchedByModel,
+    modelClusterIds,
+    historyNote: committed?.historyNote ?? HISTORY_NOTE,
+    lastApplied: committed?.lastApplied ?? {
+      at: null,
+      changeCount: null,
+      byModel: [],
+      note: "No non-zero migration recorded yet; pre-fix evidence was overwritten by a zero-change apply (KAI-89 final correction pass).",
+    },
+  };
+  if (apply && changes.length > 0) {
+    report.lastApplied = {
+      at: new Date().toISOString().slice(0, 16),
+      changeCount: changes.length,
+      byModel: pendingByModel,
+      sample: changes.slice(0, 25).map((c) => ({
+        id: c.id,
+        model: c.model,
+        action: c.action,
+        reason: c.reason,
+      })),
+    };
+  }
+  return report;
+}
 const indexPath = path.join(rootDir, "src/shared/data/destinations-index.json");
 const dispositionsPath = path.join(
   rootDir,
@@ -476,9 +572,13 @@ function main() {
     } else {
       // Legacy values < 300 are minute-scale; metre-typed legacy values
       // (>= 300) are unit-invalid and must not produce an intensity. Values
-      // WRITTEN by the walking model above are minutes by construction.
+      // WRITTEN by the walking model above are minutes by construction —
+      // the authoritative ownership test (isModelOwnedWalkingMinutes) also
+      // admits model-owned >= 300 values (300/360/480/576), so their
+      // comfort.walkingIntensity stays derived.
       walkingMinutes =
-        Number.isFinite(d.walkingMin) && d.walkingMin < 300
+        Number.isFinite(d.walkingMin) &&
+        (d.walkingMin < 300 || isModelOwnedWalkingMinutes(d))
           ? d.walkingMin
           : undefined;
     }
@@ -496,10 +596,9 @@ function main() {
       const splitSum =
         (hasSunSplit ? (d.walkingSunMin as number) : 0) +
         (hasShadeSplit ? (d.walkingShadeMin as number) : 0);
-      const modelOwnedMinutes =
-        (d.editorial?.fieldSources?.walkingMin ?? []).some((s) =>
-          s.title.startsWith("walking-model-v1"),
-        ) ?? false;
+      // Single authoritative ownership test (walkingMetadata OR legacy
+      // fieldSources) — a model-owned value >= 300 is MINUTES, never metres.
+      const modelOwnedMinutes = isModelOwnedWalkingMinutes(d);
       const minIsMetre =
         Number.isFinite(d.walkingMin) &&
         (d.walkingMin as number) >= 300 &&
@@ -721,7 +820,8 @@ function main() {
           }
           case "comfort": {
             const minutes =
-              Number.isFinite(rec.walkingMin) && rec.walkingMin < 300
+              Number.isFinite(rec.walkingMin) &&
+              (rec.walkingMin < 300 || isModelOwnedWalkingMinutes(rec))
                 ? rec.walkingMin
                 : undefined;
             const out = comfortModel(rec, new Set([id]), minutes);
@@ -754,48 +854,49 @@ function main() {
   // modelClusterIds, plus the change list of the run. --check NEVER writes
   // anything (no side effects); --apply and dry-run write the report.
   const committed = fs.existsSync(reportPath)
-    ? (JSON.parse(fs.readFileSync(reportPath, "utf8")) as Record<
-        string,
-        unknown
-      >)
-    : {};
-  const report = {
-    modelVersion: "kai-89-models-v1",
-    generatedAt: "2026-08-14",
-    pendingChanges: changes.length,
-    pendingByModel: Object.entries(
-      changes.reduce<Record<string, number>>((acc, c) => {
-        acc[c.model] = (acc[c.model] ?? 0) + 1;
-        return acc;
-      }, {}),
-    ).sort((a, b) => b[1] - a[1]),
-    // Full ownership map: which records each model derives (validate-models
-    // gates are scoped to these). Stable across idempotent runs.
-    touchedRecords: touchedByModel,
-    modelClusterIds,
-    // Migration evidence from the last apply (preserved; never zeroed by a
-    // clean check run).
-    lastApplied: (committed.lastApplied as
-      Record<string, unknown> | undefined) ?? {
-      at: null,
-      changeCount: null,
-      byModel: [],
-    },
-  };
-  if (!check) {
-    fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+    ? (JSON.parse(fs.readFileSync(reportPath, "utf8")) as Partial<ReportShape>)
+    : undefined;
+  // Ownership ledger is MONOTONE: a record a model once derived stays owned
+  // by that model. Converged runs stop emitting non-keep actions, which
+  // would silently drop the model's key from touchedRecords. Union with the
+  // committed ledger; walking ownership is additionally INDEX-DERIVABLE
+  // (any record carrying model provenance is owned, by definition of
+  // 'provenance is the unit'), so it self-heals even if an earlier apply
+  // dropped it.
+  if (committed?.touchedRecords) {
+    for (const [model, ids] of Object.entries(committed.touchedRecords)) {
+      const current = touchedByModel[model] ?? [];
+      touchedByModel[model] = Array.from(new Set([...current, ...ids]));
+    }
   }
+  const walkingOwnedFromIndex = destinations
+    .filter((d) => isModelOwnedWalkingMinutes(d))
+    .map((d) => d.id);
+  touchedByModel["walking-model-v1"] = Array.from(
+    new Set([
+      ...(touchedByModel["walking-model-v1"] ?? []),
+      ...walkingOwnedFromIndex,
+    ]),
+  );
+  const report = nextReport(
+    committed,
+    changes,
+    touchedByModel,
+    modelClusterIds,
+    apply,
+  );
 
+  // --check writes NOTHING (no side effects); --apply and dry-run write the
+  // report exactly once, after lastApplied has been decided by nextReport.
+  // ORDER: apply writes the index FIRST, then the report — the report's
+  // lastApplied evidence must never claim a migration the index did not
+  // receive (if the index write fails, the report stays honest).
   if (apply) {
-    // Record the applied migration evidence, then persist.
-    report.lastApplied = {
-      at: new Date().toISOString().slice(0, 16),
-      changeCount: changes.length,
-      byModel: report.pendingByModel,
-    };
     fs.writeFileSync(indexPath, `${JSON.stringify(destinations, null, 2)}\n`);
-    fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
     console.log(`Applied ${changes.length} model changes. Index written.`);
+    if (!check) {
+      fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+    }
   } else if (check) {
     if (changes.length > 0) {
       console.error(
@@ -805,6 +906,9 @@ function main() {
     }
     console.log("KAI-89 model outputs are current.");
   } else {
+    if (!check) {
+      fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+    }
     console.log(
       `Dry run: ${changes.length} changes pending. See ${path.relative(rootDir, reportPath)}.`,
     );

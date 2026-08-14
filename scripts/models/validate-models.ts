@@ -292,6 +292,27 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
   // ---- 7. deterministic same-input-same-output ----
   pass("deterministic", "derive --check enforces idempotence in CI");
 
+  // ---- 8. walking provenance integrity ----
+  // "Provenance is the unit": a walkingMetadata.method "model" claim must
+  // state the unit (minutes). Missing unit is a malformed provenance that
+  // the ownership test must not silently guess about — fail fast instead.
+  const badWalkingProvenance = index.flatMap((d) => {
+    const meta = d.walkingMetadata;
+    if (!meta || meta.method !== "model") return [];
+    return meta.unit === "minutes"
+      ? []
+      : [`${d.id}: walkingMetadata unit=${JSON.stringify(meta.unit)}`];
+  });
+  badWalkingProvenance.length === 0
+    ? pass(
+        "walking-provenance",
+        "model-owned walkingMetadata always declares unit minutes",
+      )
+    : fail(
+        "walking-provenance",
+        `walkingMetadata.method 'model' missing unit: ${badWalkingProvenance.slice(0, 8).join("; ")}`,
+      );
+
   return results;
 }
 

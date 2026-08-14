@@ -164,7 +164,7 @@
     "method": "model",
     "modelVersion": "hub-window-model-v1",
     "confidence": "low",
-    "basis": "hub exploration window: importance notable, 0 children, metro adj"
+    "basis": "hub exploration window: importance notable, 0 children, metro=true"
   },
   "comfortMetadata": {
     "method": "model",

@@ -228,9 +228,16 @@ export interface Destination {
   heroImage: string;
   description: string;
   highlights: string[];
-  budgetRecommended: number;
-  budgetMin: number;
-  budgetMax: number;
+  /**
+   * Budget contract (KAI-89): values are PER-PERSON and OPTIONAL. Absence
+   * is the explicit unknown state (budgetMetadata.method "unknown" — never
+   * treat missing as free or zero; unknown must remain unknown in price
+   * comparisons, ranking, and rendering). Consumers must require finite
+   * known values before arithmetic.
+   */
+  budgetRecommended?: number;
+  budgetMin?: number;
+  budgetMax?: number;
   budgetBreakdown?: {
     transport: number;
     tickets: number;

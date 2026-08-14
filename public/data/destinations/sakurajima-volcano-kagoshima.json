@@ -43,14 +43,6 @@
   "totalTripHours": 4,
   "walkingMin": 150,
   "indoorPercent": 30,
-  "season": {
-    "spring": 10,
-    "summer": 6,
-    "autumn": 5,
-    "winter": 4
-  },
-  "bestMonths": [4, 5],
-  "bestSeason": "Spring",
   "weatherDependence": "moderate",
   "comfort": {
     "heatTolerance": 5,
@@ -138,10 +130,10 @@
   },
   "notesJa": "降灰が多いので帽子と濃い色の服装がおすすめです。",
   "seasonMetadata": {
-    "method": "model",
+    "method": "unknown",
     "modelVersion": "season-model-v1",
-    "confidence": "medium",
-    "basis": "spring-flower signal; spring-only months 4-5 (autumn never inferred)"
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   },
   "budgetMetadata": {
     "method": "unknown",
