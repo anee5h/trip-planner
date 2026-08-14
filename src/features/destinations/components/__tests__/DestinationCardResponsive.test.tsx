@@ -481,3 +481,50 @@ describe("DestinationCard badges", () => {
     expect(host.textContent).toContain("Transport Excluded");
   });
 });
+
+describe("KAI-89 3-state score presentation on the card", () => {
+  function renderFor(id: string) {
+    const d = destinations.find((x) => x.id === id) as Destination;
+    act(() =>
+      root.render(
+        <MemoryRouter>
+          <DestinationCard destination={d} />
+        </MemoryRouter>,
+      ),
+    );
+    return host;
+  }
+
+  it("verified record renders the numeric score badge (never blank)", () => {
+    // yokohama-city: ratingMetadata high/manual.
+    const h = renderFor("yokohama-city");
+    expect(h.querySelector('[data-testid="meguruto-score"]')).not.toBeNull();
+    expect(
+      h.querySelector('[data-testid="meguruto-score-estimated"]'),
+    ).toBeNull();
+    expect(
+      h.querySelector('[data-testid="meguruto-score-unavailable"]'),
+    ).toBeNull();
+  });
+
+  it("estimated record renders a labeled est. badge, never the raw rating", () => {
+    // abashiri-city: no ratingMetadata, trusted season vector → estimated.
+    const h = renderFor("abashiri-city");
+    expect(
+      h.querySelector('[data-testid="meguruto-score-estimated"]'),
+    ).not.toBeNull();
+    expect(h.querySelector('[data-testid="meguruto-score"]')).toBeNull();
+    const text = h.textContent ?? "";
+    expect(text).not.toContain("9.5"); // template raw rating never shown
+  });
+
+  it("unavailable record renders the Score-unavailable chip (never blank)", () => {
+    // otsu-city: no ratingMetadata, explicit-neutral season → unavailable.
+    const h = renderFor("otsu-city");
+    expect(
+      h.querySelector('[data-testid="meguruto-score-unavailable"]'),
+    ).not.toBeNull();
+    expect(h.querySelector('[data-testid="meguruto-score"]')).toBeNull();
+    expect(h.textContent).toContain("destination.scoreUnavailable");
+  });
+});

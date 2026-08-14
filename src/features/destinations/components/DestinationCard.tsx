@@ -37,7 +37,7 @@ import {
   formatLocalizedJPYRange,
   hasKnownBudgetRange,
 } from "@/shared/services/budget/BudgetService";
-import { getRatingDisplayState } from "@/shared/services/recommendation/RecommendationScorer";
+import { getScorePresentation } from "@/shared/services/recommendation/RecommendationScorer";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import {
   formatApproximateTransportTime,
@@ -177,10 +177,15 @@ export default function DestinationCard({
   const overallScore = Number.isFinite(destination.ratings?.overall)
     ? destination.ratings.overall
     : null;
-  // REC-002: raw ratings are only presented as a score when backed by
-  // high/medium-confidence ratingMetadata; unverified (template/assisted)
-  // ratings must not render as authoritative numbers.
-  const showScore = getRatingDisplayState(destination) === "verified";
+  // REC-002/KAI-89 3-state: raw ratings are only presented as a VERIFIED
+  // score with high/medium-confidence ratingMetadata; otherwise a
+  // deterministic ESTIMATED score (from the trusted season vector) is shown
+  // labeled "est.", or a consistent "Score unavailable" state — never blank,
+  // never the raw unverified numbers, never the old generic wording.
+  const scorePresentation = getScorePresentation(destination);
+  const showScore = scorePresentation.state === "verified";
+  const showEstimatedScore = scorePresentation.state === "estimated";
+  const scoreUnavailable = scorePresentation.state === "unavailable";
   const visitHours = destination.recommendedVisitHours;
   const hasValidVisitHours = Boolean(
     visitHours &&
@@ -378,6 +383,31 @@ export default function DestinationCard({
               className="text-xs font-bold text-slate-700 dark:text-slate-200 md:text-sm"
             >
               {overallScore ?? "N/A"}
+            </span>
+          </div>
+        )}
+        {!isMultiPlaceGroup && showEstimatedScore && (
+          <div
+            data-testid="meguruto-score-estimated"
+            title={`${cardCopy.score}: ${scorePresentation.value ?? "N/A"} (est.)`}
+            aria-label={`${cardCopy.score}: ${scorePresentation.value ?? "N/A"} (est.)`}
+            className="absolute bottom-3 right-3 z-20 flex items-center rounded-lg border border-amber-300/80 bg-amber-50/95 px-2.5 py-1 shadow-sm backdrop-blur-sm dark:border-amber-500/40 dark:bg-slate-900/90"
+          >
+            <span className="text-xs font-bold text-slate-700 dark:text-slate-200 md:text-sm">
+              {scorePresentation.value ?? "N/A"}
+            </span>
+            <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
+              {t("ui.estimated")}
+            </span>
+          </div>
+        )}
+        {!isMultiPlaceGroup && scoreUnavailable && (
+          <div
+            data-testid="meguruto-score-unavailable"
+            className="absolute bottom-3 right-3 z-20 flex items-center rounded-lg border border-slate-200 bg-slate-100/95 px-2.5 py-1 shadow-sm backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-900/90"
+          >
+            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400">
+              {t("destination.scoreUnavailable")}
             </span>
           </div>
         )}

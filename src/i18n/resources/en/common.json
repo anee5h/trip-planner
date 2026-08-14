@@ -559,7 +559,8 @@
       "forecastRange": "Origin forecast for {{day1}}–{{day2}}",
       "seasonal": "Typical conditions for {{month}}",
       "mixed": "Origin forecast for {{day}} · typical conditions for {{month}}"
-    }
+    },
+    "scoreUnavailable": "Score unavailable"
   },
   "ui": {
     "back": "Back",
@@ -682,7 +683,8 @@
     "defaultLanguage": "Default language",
     "baseLocation": "Base location",
     "failedSave": "Failed to save settings",
-    "settingsSaved": "Settings saved successfully!"
+    "settingsSaved": "Settings saved successfully!",
+    "estimated": "est."
   },
   "settings": {
     "fullName": "Full name",

@@ -103,8 +103,12 @@ export function nextReport(
   const report: ReportShape = {
     modelVersion: "kai-89-models-v1",
     generatedAt: "2026-08-14",
-    pendingChanges: changes.length,
-    pendingByModel,
+    // pendingChanges/pendingByModel describe UNAPPLIED changes: a dry run
+    // reports the computed delta; a SUCCESSFUL apply has applied them all,
+    // so the committed report must say 0 (never a stale non-zero count that
+    // contradicts a clean `derive --check`).
+    pendingChanges: apply ? 0 : changes.length,
+    pendingByModel: apply ? [] : pendingByModel,
     touchedRecords: touchedByModel,
     modelClusterIds,
     historyNote: committed?.historyNote ?? HISTORY_NOTE,
@@ -167,11 +171,18 @@ function main() {
   const check = process.argv.includes("--check");
   // --index <path>: run against an alternative index (tests). --apply then
   // writes the modified index back to THAT path; --check compares against it.
+  // --report <path>: redirect the derive-report write (tests must never
+  // mutate the committed report artifact).
   const indexArg = process.argv.indexOf("--index");
   const effectiveIndexPath =
     indexArg >= 0 && process.argv[indexArg + 1]
       ? path.resolve(process.argv[indexArg + 1])
       : indexPath;
+  const reportArg = process.argv.indexOf("--report");
+  const effectiveReportPath =
+    reportArg >= 0 && process.argv[reportArg + 1]
+      ? path.resolve(process.argv[reportArg + 1])
+      : reportPath;
   const destinations = JSON.parse(
     fs.readFileSync(effectiveIndexPath, "utf8"),
   ) as Destination[];
@@ -800,13 +811,19 @@ function main() {
       // comfortMetadata too (the old code only wrote the field source,
       // leaving a calculated source with NO metadata — a provenance hole,
       // e.g. disneyland/disneysea/enoshima-island/imperial-palace-chiyoda).
-      if (d.comfortMetadata?.method !== "model") {
+      // Only walkingIntensity is model-derived; heatTolerance/rainFriendly
+      // stay legacy (derivedFields scopes the claim).
+      if (
+        d.comfortMetadata?.method !== "model" ||
+        d.comfortMetadata.derivedFields === undefined
+      ) {
         d.comfortMetadata = {
           method: "model",
           modelVersion: "comfort-model-v1",
           confidence: "low",
           basis:
             "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin",
+          derivedFields: ["walkingIntensity"],
         };
       }
       if (
@@ -1035,14 +1052,15 @@ function main() {
       );
     };
 
-    // Budget: migrate model-shaped values (recommended + breakdown match the
-    // current deterministic output; only the min/max width drifted from an
-    // older calibration) to the full model output + structured metadata,
-    // rather than deleting provenance. Truly stale sources are deleted.
+    // Budget: migrate pre-metadata model fills ONLY on positive provenance
+    // evidence — a calculated budgetRecommended source carrying the model
+    // version — plus a current value matching the deterministic model output.
+    // Value shape alone is NEVER provenance (a manual/source-verified record
+    // must not be promoted to model ownership by coincidence).
     if (
       d.budgetMetadata?.method !== "model" &&
-      (fs.budgetRecommended !== undefined ||
-        (d.budgetRecommended !== undefined && d.budgetBreakdown !== undefined))
+      fs.budgetRecommended !== undefined &&
+      /^budget-model-v1(?:;|$)/.test(fs.budgetRecommended[0]?.title ?? "")
     ) {
       const out = budgetModel(d, new Set([d.id]), destinations, truth);
       const b = out.budget;
@@ -1077,8 +1095,14 @@ function main() {
             "budgetMetadata",
           ],
         );
-      } else if (fs.budgetRecommended) {
-        delete fs.budgetRecommended;
+      } else {
+        // Remove ONLY the stale calculated entry — legitimate factual
+        // sources in the same array (official etc.) are preserved.
+        const kept = fs.budgetRecommended.filter(
+          (s) => s.type !== "calculated",
+        );
+        if (kept.length > 0) fs.budgetRecommended = kept;
+        else delete fs.budgetRecommended;
         touch(
           d,
           "budget-model-v1",
@@ -1107,7 +1131,11 @@ function main() {
           out.confidence,
         );
       } else {
-        delete fs.recommendedVisitHours;
+        const keptDur = fs.recommendedVisitHours.filter(
+          (s) => s.type !== "calculated",
+        );
+        if (keptDur.length > 0) fs.recommendedVisitHours = keptDur;
+        else delete fs.recommendedVisitHours;
         touch(
           d,
           "duration-model-v1",
@@ -1148,8 +1176,12 @@ function main() {
           "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin",
           "low",
         );
+        if (d.comfortMetadata)
+          d.comfortMetadata.derivedFields = ["walkingIntensity"];
       } else {
-        delete fs.comfort;
+        const keptComfort = fs.comfort.filter((s) => s.type !== "calculated");
+        if (keptComfort.length > 0) fs.comfort = keptComfort;
+        else delete fs.comfort;
         touch(
           d,
           "comfort-model-v1",
@@ -1181,8 +1213,15 @@ function main() {
           );
         }
       } else {
-        delete fs.season;
-        delete fs.bestMonths;
+        const keptSeason = fs.season.filter((s) => s.type !== "calculated");
+        if (keptSeason.length > 0) fs.season = keptSeason;
+        else delete fs.season;
+        const keptBestMonths = fs.bestMonths
+          ? fs.bestMonths.filter((s) => s.type !== "calculated")
+          : undefined;
+        if (keptBestMonths && keptBestMonths.length > 0)
+          fs.bestMonths = keptBestMonths;
+        else delete fs.bestMonths;
         touch(
           d,
           "season-model-v1",
@@ -1201,7 +1240,9 @@ function main() {
       ) {
         writeMeta("crowd", "crowd-model-v1", out.reason, out.confidence);
       } else {
-        delete fs.crowd;
+        const keptCrowd = fs.crowd.filter((s) => s.type !== "calculated");
+        if (keptCrowd.length > 0) fs.crowd = keptCrowd;
+        else delete fs.crowd;
         touch(
           d,
           "crowd-model-v1",
@@ -1316,8 +1357,10 @@ function main() {
   // touchedRecords (which records each model OWNS) and modelClusterIds, plus
   // the change list of the run. --check NEVER writes anything (no side
   // effects); --apply and dry-run write the report.
-  const committed = fs.existsSync(reportPath)
-    ? (JSON.parse(fs.readFileSync(reportPath, "utf8")) as Partial<ReportShape>)
+  const committed = fs.existsSync(effectiveReportPath)
+    ? (JSON.parse(
+        fs.readFileSync(effectiveReportPath, "utf8"),
+      ) as Partial<ReportShape>)
     : undefined;
   // Ownership is DERIVED FROM CURRENT METADATA (provenance is the unit),
   // scoped PER FIELD + METHOD: a record is model-owned only when the
@@ -1390,7 +1433,10 @@ function main() {
     );
     console.log(`Applied ${changes.length} model changes. Index written.`);
     if (!check) {
-      fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+      fs.writeFileSync(
+        effectiveReportPath,
+        `${JSON.stringify(report, null, 2)}\n`,
+      );
     }
   } else if (check) {
     if (changes.length > 0) {
@@ -1402,7 +1448,10 @@ function main() {
     console.log("KAI-89 model outputs are current.");
   } else {
     if (!check) {
-      fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+      fs.writeFileSync(
+        effectiveReportPath,
+        `${JSON.stringify(report, null, 2)}\n`,
+      );
     }
     console.log(
       `Dry run: ${changes.length} changes pending. See ${path.relative(rootDir, reportPath)}.`,

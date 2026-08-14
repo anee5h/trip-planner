@@ -8,8 +8,10 @@ import { isValidWalkability } from "@/shared/utils/ratings";
  */
 export function WalkingIntensityRow({
   intensity,
+  estimated,
 }: {
   intensity: number | undefined;
+  estimated?: boolean;
 }) {
   const { t } = useTranslation();
   if (intensity === undefined) return null;
@@ -18,6 +20,11 @@ export function WalkingIntensityRow({
       <span className="text-slate-500">🚶 {t("ui.walkingIntensity")}</span>
       <span className="font-semibold text-slate-700 dark:text-slate-300">
         {`${intensity}/10`}
+        {estimated && (
+          <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
+            {t("ui.estimated")}
+          </span>
+        )}
       </span>
     </div>
   );

@@ -11147,7 +11147,10 @@
       "method": "model",
       "modelVersion": "comfort-model-v1",
       "confidence": "low",
-      "basis": "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin"
+      "basis": "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin",
+      "derivedFields": [
+        "walkingIntensity"
+      ]
     }
   },
   {
@@ -11321,7 +11324,10 @@
       "method": "model",
       "modelVersion": "comfort-model-v1",
       "confidence": "low",
-      "basis": "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin"
+      "basis": "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin",
+      "derivedFields": [
+        "walkingIntensity"
+      ]
     }
   },
   {
@@ -12674,7 +12680,10 @@
       "method": "model",
       "modelVersion": "comfort-model-v1",
       "confidence": "low",
-      "basis": "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin"
+      "basis": "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin",
+      "derivedFields": [
+        "walkingIntensity"
+      ]
     }
   },
   {
@@ -26711,7 +26720,10 @@
       "method": "model",
       "modelVersion": "comfort-model-v1",
       "confidence": "low",
-      "basis": "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin"
+      "basis": "FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin",
+      "derivedFields": [
+        "walkingIntensity"
+      ]
     }
   },
   {

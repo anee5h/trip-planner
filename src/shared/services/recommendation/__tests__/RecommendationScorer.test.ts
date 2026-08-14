@@ -4,6 +4,7 @@ import {
   calculateScore,
   CONFIDENCE_MULTIPLIERS,
   getRatingDisplayState,
+  getEstimatedOverallScore,
   getValidModes,
   ratingReliability,
 } from "../RecommendationScorer";
@@ -496,10 +497,12 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(ratingReliability(dest)).toBe(1.0);
   });
 
-  it("getRatingDisplayState: high/medium metadata is verified; low/missing is under review", () => {
+  it("getRatingDisplayState: 3-state contract (verified / estimated / unavailable)", () => {
     const noMetaDest = { ...mockDest } as Destination;
     delete (noMetaDest as unknown as Record<string, unknown>).ratingMetadata;
-    expect(getRatingDisplayState(noMetaDest)).toBe("under-review"); // no metadata
+    // No metadata + no trusted season evidence → unavailable (never the
+    // raw rating, never the old "under review" state).
+    expect(getRatingDisplayState(noMetaDest)).toBe("unavailable");
     expect(
       getRatingDisplayState({
         ...mockDest,
@@ -509,7 +512,29 @@ describe("RecommendationScorer Unit Tests", () => {
           confidence: "low" as const,
         },
       }),
-    ).toBe("under-review");
+    ).toBe("unavailable");
+    // Low/missing metadata + a TRUSTED season vector → estimated.
+    expect(
+      getRatingDisplayState({
+        ...mockDest,
+        ratingMetadata: {
+          rubricVersion: 2,
+          method: "assisted",
+          confidence: "low" as const,
+        },
+        season: { spring: 8, summer: 7, autumn: 6, winter: 7 },
+        seasonMetadata: { method: "model" as const },
+      }),
+    ).toBe("estimated");
+    // Explicit-neutral season never fabricates a number → unavailable.
+    expect(
+      getRatingDisplayState({
+        ...mockDest,
+        ratingMetadata: undefined,
+        season: { spring: 5, summer: 5, autumn: 5, winter: 5 },
+        seasonMetadata: { method: "unknown" as const },
+      }),
+    ).toBe("unavailable");
     expect(
       getRatingDisplayState({
         ...mockDest,
@@ -530,6 +555,24 @@ describe("RecommendationScorer Unit Tests", () => {
         },
       }),
     ).toBe("verified");
+  });
+
+  it("getEstimatedOverallScore: trusted season mean, null for neutral/missing", () => {
+    expect(
+      getEstimatedOverallScore({
+        ...mockDest,
+        season: { spring: 8, summer: 7, autumn: 6, winter: 7 },
+        seasonMetadata: { method: "model" as const },
+      }),
+    ).toBe(7);
+    expect(
+      getEstimatedOverallScore({
+        ...mockDest,
+        season: { spring: 5, summer: 5, autumn: 5, winter: 5 },
+        seasonMetadata: { method: "unknown" as const },
+      }),
+    ).toBeNull();
+    expect(getEstimatedOverallScore(mockDest)).toBeNull(); // no season
   });
 
   // ---------------------------------------------------------------------------

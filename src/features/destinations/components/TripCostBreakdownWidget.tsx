@@ -138,9 +138,13 @@ export function TripCostBreakdownWidget({
     ? planCostBreakdown.meals.applicable
     : hasKnownCost && cost.food !== null;
   const hasCafe = !planCostBreakdown && cafeRange[1] > 0;
-  const hasTransport = planCostBreakdown
-    ? planCostBreakdown.localTransit.applicable
-    : hasKnownCost && cost.transportAvailable && transportRange[1] > 0;
+  // Transport visibility follows the DISPLAYED ROW (origin + on-site/local
+  // transit combined), not origin availability alone: when origin transport
+  // is unavailable but the on-site allowance is known, the row must still
+  // show (its amount is part of the total) with an origin-excluded note.
+  const hasTransport = transportRange[1] > 0;
+  const originTransportExcluded =
+    !planCostBreakdown && hasTransport && !cost.transportAvailable;
   const hasParking = planCostBreakdown
     ? planCostBreakdown.parking.applicable
     : parkingRange[1] > 0;
@@ -370,7 +374,7 @@ export function TripCostBreakdownWidget({
                       ) : activeTransportMode ? (
                         <Train className="w-4 h-4 text-emerald-500 shrink-0" />
                       ) : null}
-                      {locale === "ja" ? "現地交通費" : "Local transport"}
+                      {locale === "ja" ? "交通費" : "Transport"}
                     </span>
                     <span className="text-slate-900 dark:text-white">
                       {formatLocalizedJPYRange(
@@ -381,6 +385,13 @@ export function TripCostBreakdownWidget({
                       )}
                     </span>
                   </div>
+                  {originTransportExcluded && (
+                    <div className="text-[10px] font-semibold text-slate-400 dark:text-slate-500">
+                      {locale === "ja"
+                        ? "往復の交通費は推定できません。現地の交通費のみを含みます。"
+                        : "Origin transport not estimated; on-site transit only."}
+                    </div>
+                  )}
                   <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-emerald-500 rounded-full transition-all"

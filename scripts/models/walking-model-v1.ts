@@ -50,13 +50,18 @@ const SYNTHETIC_SPLIT = 0.6; // sun = 0.6 * walkingMin signature
  * validators) — never duplicate a slightly different ownership test.
  */
 export function isModelOwnedWalkingMinutes(dest: Destination): boolean {
-  const structured =
-    dest.walkingMetadata?.method === "model" &&
-    dest.walkingMetadata?.unit === "minutes";
-  if (structured) return true;
-  // Legacy field sources are titled "walking-model-v1; <reason>"; match the
-  // model name as a whole token (no prefix collision with e.g. a future
-  // "walking-model-v10") and tolerate malformed/missing titles.
+  // Structured metadata, when present, is AUTHORITATIVE:
+  //  - method "model" + unit "minutes" → model-owned minutes;
+  //  - method manual/assisted/unknown → NOT model-owned (a calculated source
+  //    under such metadata is a stale contradiction, flagged by the
+  //    field-source-agreement validator).
+  const meta = dest.walkingMetadata;
+  if (meta) {
+    return meta.method === "model" && meta.unit === "minutes";
+  }
+  // Legacy path B applies ONLY when structured metadata is COMPLETELY absent:
+  // a field source titled "walking-model-v1; <reason>" is the authoritative
+  // legacy contract for pre-metadata walking fills.
   return (dest.editorial?.fieldSources?.walkingMin ?? []).some((s) =>
     /^walking-model-v1(?:;|$)/.test(s.title ?? ""),
   );

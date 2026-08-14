@@ -14,7 +14,7 @@ import {
 import { Map, PlusSquare, Trash2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
 import { getAdjustedBudget } from "@/shared/utils/utils";
-import { getRatingDisplayState } from "@/shared/services/recommendation/RecommendationScorer";
+import { getScorePresentation } from "@/shared/services/recommendation/RecommendationScorer";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -76,10 +76,14 @@ export default function Compare() {
   });
   const minTravelTime = getMin(travelTimes);
 
-  // REC-002: rating rows are only presented for destinations with verified
-  // rating evidence; unverified records render "—" and never win badges.
+  // REC-002/KAI-89 3-state: rating rows present VERIFIED values as facts
+  // and ESTIMATED values (from the trusted season vector) labeled est.;
+  // unverifiable records render "—". Only verified values can win badges.
   const ratingVerified = compareDestinations.map(
-    (d) => getRatingDisplayState(d) === "verified",
+    (d) => getScorePresentation(d).state === "verified",
+  );
+  const estimatedScores = compareDestinations.map(
+    (d) => getScorePresentation(d).value,
   );
   const coupleScores = compareDestinations.map((d, i) =>
     ratingVerified[i] ? d.ratings.couple : null,
@@ -190,8 +194,17 @@ export default function Compare() {
                         : ""
                     }`}
                   >
-                    {ratingVerified[idx] ? dest.ratings.overall : "—"}
+                    {ratingVerified[idx]
+                      ? dest.ratings.overall
+                      : estimatedScores[idx] !== null
+                        ? estimatedScores[idx]
+                        : "—"}
                   </span>
+                  {!ratingVerified[idx] && estimatedScores[idx] !== null && (
+                    <span className="ml-1.5 text-[10px] font-normal uppercase text-slate-400">
+                      est.
+                    </span>
+                  )}
                   {ratingVerified[idx] &&
                     maxOverall !== null &&
                     dest.ratings.overall === maxOverall && (

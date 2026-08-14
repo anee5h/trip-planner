@@ -28,7 +28,7 @@ import {
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import {
   calculateScore,
-  getRatingDisplayState,
+  getScorePresentation,
 } from "@/shared/services/recommendation/RecommendationScorer";
 import { createRecommendationMatch } from "@/shared/services/recommendation/RecommendationExplainability";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
@@ -190,7 +190,6 @@ const DETAIL_COPY = {
     food: "Food & Drink",
     match: "Why This Matches You",
     overall: "Overall Score",
-    ratingUnderReview: "Score under editorial review",
     suggested: "Suggested Visit",
     bestSeason: "Best Season",
     nearby: "Nearby Attractions",
@@ -231,7 +230,6 @@ const DETAIL_COPY = {
     food: "食事・カフェ",
     match: "おすすめの理由",
     overall: "総合評価",
-    ratingUnderReview: "スコアは編集レビュー中です",
     suggested: "おすすめの滞在",
     bestSeason: "ベストシーズン",
     nearby: "近くの見どころ",
@@ -260,6 +258,24 @@ const DETAIL_COPY = {
     corridorFareOnly: "都市間交通の料金のみ（現地アクセス費は未算出）",
   },
 } as const;
+
+function comfortFieldIsDerived(
+  meta:
+    | {
+        derivedFields?: Array<
+          "heatTolerance" | "rainFriendly" | "walkingIntensity"
+        >;
+      }
+    | undefined,
+  field: "heatTolerance" | "rainFriendly" | "walkingIntensity",
+): boolean {
+  // Absent derivedFields = the WHOLE vector is model output (every field
+  // derived); present = only the listed fields are model output. Callers
+  // additionally require comfortMetadata.method === "model".
+  return meta?.derivedFields === undefined
+    ? true
+    : meta.derivedFields.includes(field);
+}
 
 export default function DestinationDetails() {
   const { t } = useTranslation();
@@ -845,12 +861,14 @@ export default function DestinationDetails() {
     );
   }
 
-  const detailOverallScore = Number.isFinite(destination.ratings?.overall)
-    ? destination.ratings.overall
-    : null;
-  // REC-002: raw ratings only render as a score when backed by
-  // high/medium-confidence ratingMetadata; otherwise show "under review".
-  const showDetailScore = getRatingDisplayState(destination) === "verified";
+  // REC-002/KAI-89 3-state: verified numeric score (trusted provenance +
+  // note), deterministic estimated score (labeled est., from the trusted
+  // season vector), or a consistent Score-unavailable note — never blank,
+  // never the old "under editorial review" wording.
+  const scorePresentation = getScorePresentation(destination);
+  const showDetailScore = scorePresentation.state === "verified";
+  const showEstimatedScore = scorePresentation.state === "estimated";
+  const scoreUnavailable = scorePresentation.state === "unavailable";
   return (
     <div className="bg-slate-50 dark:bg-background min-h-screen pb-20">
       {/* Hero Image Header */}
@@ -1726,11 +1744,15 @@ export default function DestinationDetails() {
                             <span className="font-semibold text-slate-700 dark:text-slate-300">
                               {destination.comfort.heatTolerance}/10
                               {destination.comfortMetadata?.method ===
-                                "model" && (
-                                <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
-                                  {copy.estimated}
-                                </span>
-                              )}
+                                "model" &&
+                                comfortFieldIsDerived(
+                                  destination.comfortMetadata,
+                                  "heatTolerance",
+                                ) && (
+                                  <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
+                                    {copy.estimated}
+                                  </span>
+                                )}
                             </span>
                           </div>
                           <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
@@ -1741,18 +1763,31 @@ export default function DestinationDetails() {
                             <span className="font-semibold text-slate-700 dark:text-slate-300">
                               {destination.comfort.rainFriendly}/10
                               {destination.comfortMetadata?.method ===
-                                "model" && (
-                                <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
-                                  {copy.estimated}
-                                </span>
-                              )}
+                                "model" &&
+                                comfortFieldIsDerived(
+                                  destination.comfortMetadata,
+                                  "rainFriendly",
+                                ) && (
+                                  <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
+                                    {copy.estimated}
+                                  </span>
+                                )}
                             </span>
                           </div>
                           {(() => {
                             const walkScore =
                               destination.comfort?.walkingIntensity;
+                            const walkEstimated =
+                              destination.comfortMetadata?.method === "model" &&
+                              comfortFieldIsDerived(
+                                destination.comfortMetadata,
+                                "walkingIntensity",
+                              );
                             return (
-                              <WalkingIntensityRow intensity={walkScore} />
+                              <WalkingIntensityRow
+                                intensity={walkScore}
+                                estimated={walkEstimated}
+                              />
                             );
                           })()}
                         </div>
@@ -1765,10 +1800,28 @@ export default function DestinationDetails() {
               <TabsContent value="ratings" className="mt-4 space-y-4">
                 {/* REC-002: unverified rating vectors must not render as
                     facts anywhere, including the detailed ratings tab. */}
-                {!showDetailScore ? (
+                {showEstimatedScore ? (
                   <Card>
                     <CardContent className="p-6 text-sm text-slate-500 dark:text-slate-400">
-                      {copy.ratingUnderReview}
+                      <div className="font-bold text-slate-700 dark:text-slate-300">
+                        {detailOverallScore}
+                        <span className="ml-1.5 text-[10px] font-normal uppercase text-slate-400">
+                          {copy.estimated}
+                        </span>
+                      </div>
+                      <div className="mt-1">
+                        {locale === "ja"
+                          ? "検証済みの編集スコアがありません。季節別の指標から算出した推定値です。"
+                          : "No verified editorial score; this is an estimate derived from seasonal indicators."}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ) : scoreUnavailable ? (
+                  <Card>
+                    <CardContent className="p-6 text-sm text-slate-500 dark:text-slate-400">
+                      {locale === "ja"
+                        ? "この目的地は信頼できる指標からスコアを算出できません。"
+                        : "This destination cannot be scored from trusted indicators."}
                     </CardContent>
                   </Card>
                 ) : (
@@ -2170,14 +2223,33 @@ export default function DestinationDetails() {
                   data-testid="destination-detail-score"
                   className="text-5xl font-extrabold mb-2"
                 >
-                  {showDetailScore ? (detailOverallScore ?? "N/A") : "—"}
+                  {showDetailScore || showEstimatedScore
+                    ? (detailOverallScore ?? "N/A")
+                    : "—"}
                 </div>
                 <div className="text-emerald-100 font-medium tracking-widest uppercase text-sm mb-4">
                   {copy.overall}
                 </div>
-                {!showDetailScore && (
+                {showDetailScore && (
                   <div className="text-emerald-100/90 text-sm mb-4">
-                    {copy.ratingUnderReview}
+                    {locale === "ja"
+                      ? "編集で検証済みのスコアです"
+                      : "Editorially reviewed score"}
+                  </div>
+                )}
+                {showEstimatedScore && (
+                  <div className="text-emerald-100/90 text-sm mb-4">
+                    <span className="uppercase text-xs">{copy.estimated}</span>{" "}
+                    {locale === "ja"
+                      ? "季節別の指標から算出した推定値です"
+                      : "Estimated from seasonal indicators"}
+                  </div>
+                )}
+                {scoreUnavailable && (
+                  <div className="text-emerald-100/90 text-sm mb-4">
+                    {locale === "ja"
+                      ? "スコアを表示できません"
+                      : "Score unavailable"}
                   </div>
                 )}
                 <div className="w-full h-px bg-white/20 mb-4"></div>

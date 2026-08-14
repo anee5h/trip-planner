@@ -230,6 +230,44 @@ function buildReport(destinations: Destination[]) {
             d.status === "published" && d.seasonMetadata?.method === "unknown",
         ).length,
       },
+      // KAI-89 3-state score presentation (finishing pass): every published
+      // record resolves to verified (trusted rating metadata), estimated
+      // (deterministic score from the trusted season vector), or unavailable
+      // (renders a localized "Score unavailable" note — never blank, never
+      // the old generic wording). Estimated values are labeled "est." and
+      // never earn verified-only badges/claims.
+      publishedScoreStates: {
+        verified: destinations.filter(
+          (d) =>
+            d.status === "published" &&
+            (d.ratingMetadata?.confidence === "high" ||
+              d.ratingMetadata?.confidence === "medium"),
+        ).length,
+        estimated: destinations.filter(
+          (d) =>
+            d.status === "published" &&
+            !(
+              d.ratingMetadata?.confidence === "high" ||
+              d.ratingMetadata?.confidence === "medium"
+            ) &&
+            d.seasonMetadata?.method !== undefined &&
+            d.seasonMetadata?.method !== "unknown" &&
+            d.season !== undefined,
+        ).length,
+        unavailable: destinations.filter(
+          (d) =>
+            d.status === "published" &&
+            !(
+              d.ratingMetadata?.confidence === "high" ||
+              d.ratingMetadata?.confidence === "medium"
+            ) &&
+            !(
+              d.seasonMetadata?.method !== undefined &&
+              d.seasonMetadata?.method !== "unknown" &&
+              d.season !== undefined
+            ),
+        ).length,
+      },
       dispositionCounts,
       categoryCounts,
     },

@@ -214,3 +214,51 @@ describe("walking provenance edge cases (reviewer C)", () => {
     expect(isModelOwnedWalkingMinutes(d2)).toBe(false);
   });
 });
+
+describe("walking legacy 3-state contract (finishing pass)", () => {
+  const legacySource = () =>
+    ({
+      editorial: {
+        fieldSources: {
+          walkingMin: [
+            {
+              type: "calculated",
+              url: "catalogue-model://kai-89",
+              title: "walking-model-v1; walk-share estimate: 50% of 12h visit",
+              accessedAt: "2026-08-14",
+            },
+          ],
+        },
+      },
+    }) as Partial<Destination>;
+
+  it("structured metadata model + minutes unit → model-owned (metadata authoritative)", () => {
+    const d = baseDest({
+      walkingMin: 360,
+      walkingMetadata: {
+        method: "model",
+        unit: "minutes",
+        modelVersion: "walking-model-v1",
+      },
+      ...legacySource(),
+    });
+    expect(isModelOwnedWalkingMinutes(d)).toBe(true);
+  });
+
+  it("metadata COMPLETELY absent + valid legacy calculated source → legacy model-owned", () => {
+    const d = baseDest({ walkingMin: 360, ...legacySource() });
+    expect(d.walkingMetadata).toBeUndefined();
+    expect(isModelOwnedWalkingMinutes(d)).toBe(true);
+  });
+
+  it("metadata manual/assisted/unknown + calculated source → NOT owned (stale contradiction)", () => {
+    for (const method of ["manual", "assisted", "unknown"] as const) {
+      const d = baseDest({
+        walkingMin: 360,
+        walkingMetadata: { method, unit: "minutes" },
+        ...legacySource(),
+      });
+      expect(isModelOwnedWalkingMinutes(d)).toBe(false);
+    }
+  });
+});

@@ -384,3 +384,104 @@ describe("KAI-89 bidirectional provenance (5th-pass blockers)", () => {
     fs.rmSync(p, { force: true });
   });
 });
+
+describe("KAI-89 finishing-pass false-greens + factual-source preservation", () => {
+  const gate = (p: string, g: string): boolean | undefined =>
+    gateOf(validateCatalogue(p), g)?.pass;
+
+  it("seasonMetadata unknown + bestSeason retained fails metadata-consistency", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find((x) => x.seasonMetadata?.method === "unknown")!;
+      expect(d).toBeTruthy();
+      d.bestSeason = "Spring";
+    });
+    expect(gate(p, "metadata-consistency")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("model metadata with missing basis fails metadata-consistency", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) => x.seasonMetadata?.method === "model" && x.season,
+      )!;
+      expect(d).toBeTruthy();
+      delete d.seasonMetadata.basis;
+    });
+    expect(gate(p, "metadata-consistency")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("walking metadata manual + calculated source fails field-source-agreement", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) =>
+          x.walkingMetadata?.method === "model" &&
+          x.editorial?.fieldSources?.walkingMin?.[0]?.title,
+      )!;
+      expect(d).toBeTruthy();
+      d.walkingMetadata = { ...d.walkingMetadata, method: "manual" };
+    });
+    expect(gate(p, "field-source-agreement")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("stale SECOND calculated source in the array fails (not just [0])", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) =>
+          x.comfortMetadata?.method === "model" &&
+          x.editorial?.fieldSources?.comfort?.[0]?.title,
+      )!;
+      expect(d).toBeTruthy();
+      // Append a stale calculated entry after the canonical one.
+      d.editorial.fieldSources.comfort.push({
+        type: "calculated",
+        url: "catalogue-model://kai-89",
+        title: "comfort-model-v1; STALE basis",
+        accessedAt: "2026-08-14",
+      });
+    });
+    expect(gate(p, "field-source-agreement")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("incomplete model budget (only budgetMin) fails metadata-consistency", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) =>
+          x.budgetMetadata?.method === "model" && x.budgetMin !== undefined,
+      )!;
+      expect(d).toBeTruthy();
+      delete d.budgetRecommended;
+      delete d.budgetMax;
+      delete d.budgetBreakdown;
+    });
+    expect(gate(p, "metadata-consistency")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("manual budget metadata + OFFICIAL field source PASSES (factual sources preserved)", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) =>
+          x.budgetMetadata?.method === "model" && x.budgetMin !== undefined,
+      )!;
+      expect(d).toBeTruthy();
+      d.budgetMetadata = { ...d.budgetMetadata, method: "manual" };
+      // Keep a legit OFFICIAL source (never treated as calculated).
+      d.editorial = d.editorial ?? { lifecycle: "draft" as never, sources: [] };
+      d.editorial.fieldSources = d.editorial.fieldSources ?? {};
+      d.editorial.fieldSources.budgetRecommended = [
+        {
+          type: "official",
+          url: "https://example.com/official",
+          title: "Official admission page",
+          accessedAt: "2026-08-14",
+        },
+      ];
+    });
+    expect(gate(p, "metadata-consistency")).toBe(true);
+    expect(gate(p, "field-source-agreement")).toBe(true);
+    fs.rmSync(p, { force: true });
+  });
+});

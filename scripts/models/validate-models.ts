@@ -195,14 +195,20 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
       touchedComfort,
       "comfort",
       ["heatTolerance", "rainFriendly", "walkingIntensity"],
-      (d) =>
-        // FIX_CONTRADICTION metadata derives ONLY walkingIntensity; the
-        // heatTolerance/rainFriendly are legacy values and are not model
-        // output (legacy fractional debt, e.g. enoshima-island 9.5).
-        typeof d.comfortMetadata?.basis === "string" &&
-        d.comfortMetadata.basis.includes("FIX_CONTRADICTION")
-          ? ["walkingIntensity"]
-          : undefined,
+      (d) => {
+        // Field-level ownership: comfortMetadata.derivedFields scopes
+        // integer strictness to the fields the model actually derived
+        // (FIX_CONTRADICTION derives only walkingIntensity; the
+        // heatTolerance/rainFriendly are legacy values, e.g.
+        // enoshima-island 9.5).
+        if (
+          Array.isArray(d.comfortMetadata?.derivedFields) &&
+          d.comfortMetadata.derivedFields.length > 0
+        ) {
+          return d.comfortMetadata.derivedFields as string[];
+        }
+        return undefined;
+      },
     ),
     ...integerViolations(touchedCrowd, "crowd", [
       "weekday",
@@ -326,45 +332,84 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
         `walkingMetadata.method 'model' missing unit: ${badWalkingProvenance.slice(0, 8).join("; ")}`,
       );
 
-  // ---- 9. metadata/data consistency (per-model provenance contract) ----
-  // Provenance must match the data it describes: a "model" claim requires
-  // the model-derived field present; an explicit-unknown claim requires the
-  // field ABSENT (unknown is authoritative — numbers with method "unknown"
-  // are two competing truths and fail here). This is the gate that catches
-  // deleted/corrupted metadata even when the numeric values were left
-  // intact (the --check side detects it on the next apply; this gate fails
-  // immediately on the committed catalogue).
+  // ---- 9. metadata/data consistency (complete per-model matrix) ----
+  // Provenance must match the data it describes, bidirectionally:
+  //  - method "model" requires the model-derived field(s) PRESENT and
+  //    complete, plus a non-empty modelVersion and basis;
+  //  - method "unknown" requires the field(s) ABSENT (unknown is
+  //    authoritative — numbers with method "unknown" are two competing
+  //    truths).
   const metaConsistency = index.flatMap((d) => {
     const out: string[] = [];
+    const metaShape = (
+      label: string,
+      meta:
+        { method?: string; modelVersion?: string; basis?: string } | undefined,
+    ) => {
+      if (meta?.method !== "model") return;
+      if (!meta.modelVersion || !meta.basis)
+        out.push(`${d.id}: ${label} model metadata missing modelVersion/basis`);
+    };
+    metaShape("budget", d.budgetMetadata);
+    metaShape("season", d.seasonMetadata);
+    metaShape("duration", d.durationMetadata);
+    metaShape("comfort", d.comfortMetadata);
+    metaShape("crowd", d.crowdMetadata);
+    metaShape("walking", d.walkingMetadata);
+
     const budget = d.budgetMetadata;
     if (budget) {
-      // ANY budget numeric state or breakdown with method "unknown" is two
-      // competing truths (a breakdown alone would let BudgetService consume
-      // a supposedly-unknown budget).
-      const hasNumbers =
+      const hasAny =
         d.budgetMin !== undefined ||
         d.budgetRecommended !== undefined ||
         d.budgetMax !== undefined ||
         d.budgetBreakdown !== undefined;
-      if (budget.method === "model" && !hasNumbers)
-        out.push(`${d.id}: budgetMetadata model without numbers`);
-      if (budget.method === "unknown" && hasNumbers)
-        out.push(`${d.id}: budgetMetadata unknown WITH numbers (two truths)`);
+      const completeBreakdown =
+        d.budgetBreakdown &&
+        ["transport", "tickets", "food", "cafe"].every((k) =>
+          Number.isFinite(d.budgetBreakdown[k]),
+        );
+      const completeTuple =
+        Number.isFinite(d.budgetMin) &&
+        Number.isFinite(d.budgetRecommended) &&
+        Number.isFinite(d.budgetMax);
+      if (budget.method === "model") {
+        if (!completeTuple)
+          out.push(
+            `${d.id}: budgetMetadata model with incomplete budget tuple`,
+          );
+        if (!completeBreakdown)
+          out.push(`${d.id}: budgetMetadata model with incomplete breakdown`);
+      }
+      if (budget.method === "unknown" && hasAny)
+        out.push(
+          `${d.id}: budgetMetadata unknown WITH budget state (two truths)`,
+        );
     }
     const season = d.seasonMetadata;
     if (season) {
-      if (season.method === "model" && !d.season)
-        out.push(`${d.id}: seasonMetadata model without season vector`);
-      if (
-        season.method === "unknown" &&
-        (d.season !== undefined || d.bestMonths !== undefined)
-      )
-        out.push(`${d.id}: seasonMetadata unknown WITH vector`);
+      const hasAny =
+        d.season !== undefined ||
+        d.bestMonths !== undefined ||
+        d.bestSeason !== undefined;
+      if (season.method === "model") {
+        if (!d.season || !d.bestMonths || !d.bestSeason)
+          out.push(
+            `${d.id}: seasonMetadata model missing season/bestMonths/bestSeason`,
+          );
+      }
+      if (season.method === "unknown" && hasAny)
+        out.push(`${d.id}: seasonMetadata unknown WITH season state`);
     }
     const duration = d.durationMetadata;
     if (duration) {
-      if (duration.method === "model" && !d.recommendedVisitHours)
-        out.push(`${d.id}: durationMetadata model without visit window`);
+      const validWindow =
+        d.recommendedVisitHours &&
+        Number.isFinite(d.recommendedVisitHours.min) &&
+        Number.isFinite(d.recommendedVisitHours.max) &&
+        d.recommendedVisitHours.min <= d.recommendedVisitHours.max;
+      if (duration.method === "model" && !validWindow)
+        out.push(`${d.id}: durationMetadata model without valid visit window`);
       if (duration.method === "unknown" && d.recommendedVisitHours)
         out.push(`${d.id}: durationMetadata unknown WITH visit window`);
     }
@@ -377,8 +422,13 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
     }
     const crowd = d.crowdMetadata;
     if (crowd) {
-      if (crowd.method === "model" && !d.crowd)
-        out.push(`${d.id}: crowdMetadata model without crowd vector`);
+      const completeVector =
+        d.crowd &&
+        Number.isFinite(d.crowd.weekday) &&
+        Number.isFinite(d.crowd.weekend) &&
+        Number.isFinite(d.crowd.holiday);
+      if (crowd.method === "model" && !completeVector)
+        out.push(`${d.id}: crowdMetadata model without complete crowd vector`);
       if (crowd.method === "unknown" && d.crowd)
         out.push(`${d.id}: crowdMetadata unknown WITH crowd vector`);
     }
@@ -394,21 +444,24 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
   metaConsistency.length === 0
     ? pass(
         "metadata-consistency",
-        "metadata method matches the data it describes (model→field, unknown→absent)",
+        "metadata method matches complete data (model→field, unknown→absent)",
       )
     : fail("metadata-consistency", metaConsistency.slice(0, 10).join("; "));
 
   // ---- 10. calculated field-source / metadata agreement ----
-  // Structured metadata is CANONICAL; when a record ALSO carries a
-  // calculated editorial.fieldSource for a model field, the source title
-  // must equal the canonical "<modelVersion>; <basis>" form. A stale basis
-  // (e.g. 'walkingMin=unknown' next to a current walkingMin=60
-  // comfortMetadata) is a provenance contradiction and fails here.
-  // BIDIRECTIONAL: a calculated source with NO structured metadata (or with
-  // manual/unknown metadata) is also a violation — a calculated value must
-  // never render as ordinary fact. walkingMin is exempt: the legacy path B
-  // of isModelOwnedWalkingMinutes (title regex) is the authoritative legacy
-  // contract for pre-metadata walking fills.
+  // ONLY SourceReference.type === "calculated" is model provenance (official,
+  // government, tourism-board, Wikipedia, manual, and editor-observation
+  // sources are factual/editorial and are NEVER treated as calculated model
+  // sources — they are preserved). Structured metadata is CANONICAL:
+  //  - every calculated source in EVERY position of a field-source array
+  //    must equal the canonical "<modelVersion>; <basis>" title;
+  //  - a calculated source with missing/non-model metadata is a violation
+  //    (a calculated value must never render as ordinary fact) — except the
+  //    walking legacy fallback, which applies ONLY when structured walking
+  //    metadata is COMPLETELY ABSENT;
+  //  - metadata present with method manual/assisted/unknown + calculated
+  //    source → stale contradiction.
+  const CALCULATED_ONLY = ["calculated"] as const;
   const fieldSourceMismatch = index.flatMap((d) => {
     if (!d.editorial?.fieldSources) return [];
     const out: string[] = [];
@@ -417,30 +470,53 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
       meta:
         { method?: string; modelVersion?: string; basis?: string } | undefined,
     ) => {
-      const source = d.editorial!.fieldSources![field]?.[0];
-      if (!source) return;
-      if (field === "walkingMin") {
-        // Legacy path B covers calculated walking sources without structured
-        // metadata; structured path still requires canonical title.
-        if (!meta || meta.method !== "model") {
-          if (!isModelOwnedWalkingMinutes(d))
-            out.push(
-              `${d.id}: walkingMin calculated source without model provenance`,
-            );
-          return;
+      const sources = d.editorial!.fieldSources![field] ?? [];
+      const calculated = sources.filter((s) =>
+        CALCULATED_ONLY.includes(s.type as (typeof CALCULATED_ONLY)[number]),
+      );
+      if (calculated.length === 0) return; // factual/editorial sources only
+      for (const source of calculated) {
+        if (field === "walkingMin") {
+          // Legacy fallback ONLY when structured metadata is completely
+          // absent; otherwise metadata is authoritative.
+          if (!meta) {
+            if (!isModelOwnedWalkingMinutes(d))
+              out.push(
+                `${d.id}: walkingMin calculated source without legacy/model provenance`,
+              );
+            continue;
+          }
+          if (meta.method === "model") {
+            const canonical = `${meta.modelVersion}; ${meta.basis}`;
+            if (source.title !== canonical)
+              out.push(
+                `${d.id}: walkingMin fieldSource != metadata (${source.title?.slice(0, 40)}…)`,
+              );
+            continue;
+          }
+          out.push(
+            `${d.id}: walkingMin calculated source under ${meta.method} metadata (stale contradiction)`,
+          );
+          continue;
         }
-      } else if (!meta || meta.method !== "model") {
-        out.push(
-          `${d.id}: ${field} calculated source without model metadata (${source.title?.slice(0, 40)}…)`,
-        );
-        return;
+        if (!meta || meta.method !== "model") {
+          out.push(
+            `${d.id}: ${field} calculated source without model metadata (${source.title?.slice(0, 40)}…)`,
+          );
+          continue;
+        }
+        if (!meta.modelVersion || !meta.basis) {
+          out.push(
+            `${d.id}: ${field} calculated source with incomplete model metadata`,
+          );
+          continue;
+        }
+        const canonical = `${meta.modelVersion}; ${meta.basis}`;
+        if (source.title !== canonical)
+          out.push(
+            `${d.id}: ${field} fieldSource != metadata (${source.title?.slice(0, 40)}…)`,
+          );
       }
-      if (!meta?.basis) return;
-      const canonical = `${meta.modelVersion ?? "kai-89-model"}; ${meta.basis}`;
-      if (source.title !== canonical)
-        out.push(
-          `${d.id}: ${field} fieldSource != metadata (${source.title?.slice(0, 40)}…)`,
-        );
     };
     check("budgetRecommended", d.budgetMetadata);
     check("season", d.seasonMetadata);
@@ -454,7 +530,7 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
   fieldSourceMismatch.length === 0
     ? pass(
         "field-source-agreement",
-        "calculated fieldSources match canonical metadata basis",
+        "calculated fieldSources match canonical metadata; factual sources preserved",
       )
     : fail(
         "field-source-agreement",

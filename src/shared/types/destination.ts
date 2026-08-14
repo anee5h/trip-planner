@@ -416,6 +416,15 @@ export interface Destination {
     modelVersion?: string;
     confidence?: "high" | "medium" | "low" | "unknown";
     basis?: string;
+    /**
+     * Field-level ownership (KAI-89): which comfort fields the model actually
+     * derived. Absent = the whole vector is model output. FIX_CONTRADICTION
+     * corrections derive ONLY walkingIntensity — heatTolerance/rainFriendly
+     * remain legacy values, and the UI must not mark them estimated.
+     */
+    derivedFields?: Array<
+      "heatTolerance" | "rainFriendly" | "walkingIntensity"
+    >;
   };
   /**
    * KAI-89 crowd provenance: marks crowd band vectors derived by the model.

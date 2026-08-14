@@ -559,7 +559,8 @@
       "forecastRange": "出発地の予報 {{day1}}〜{{day2}}",
       "seasonal": "{{month}}の平年並みの気候",
       "mixed": "{{day}}の出発地予報・{{month}}の平年並みの気候"
-    }
+    },
+    "scoreUnavailable": "スコアを表示できません"
   },
   "ui": {
     "back": "戻る",
@@ -682,7 +683,8 @@
     "defaultLanguage": "既定の言語",
     "baseLocation": "出発地",
     "failedSave": "設定の保存に失敗しました",
-    "settingsSaved": "設定を保存しました"
+    "settingsSaved": "設定を保存しました",
+    "estimated": "目安"
   },
   "settings": {
     "fullName": "名前",

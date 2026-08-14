@@ -153,24 +153,36 @@ test.describe("KAI-89 rendered data safety", () => {
   test("unverified template hubs never render a raw authoritative score", async ({
     page,
   }) => {
-    // otsu-city carries the 114-record template rating vector with no
-    // ratingMetadata: the detail score card must show "—" + the
-    // under-review caption, never the bare 9.5, and the detailed ratings
-    // tab (raw sub-scores) must be hidden (REC-002).
-    for (const id of ["otsu-city", "tottori-city", "abashiri-city"]) {
+    // otsu-city/tottori-city carry the 114-record template rating vector
+    // with no ratingMetadata and no trusted season evidence: the detail
+    // score card shows the "Score unavailable" note, never the bare 9.5.
+    // abashiri-city has a trusted season vector → a labeled ESTIMATED score
+    // (7, never the raw 9.5). The detailed ratings tab (raw sub-scores) is
+    // hidden for all three (REC-002/KAI-89 3-state).
+    for (const id of ["otsu-city", "tottori-city"]) {
       await page.goto(`/destinations/${id}`);
       await expect(page.locator("main")).toBeVisible();
       await expect(
         page.locator('[data-testid="destination-detail-score"]'),
       ).toHaveText("—");
-      await expect(
-        page.getByText("Score under editorial review"),
-      ).toBeVisible();
+      await expect(page.getByText("Score unavailable").first()).toBeVisible();
       await expect(
         page.getByRole("tab", { name: "Detailed Ratings" }),
       ).toHaveCount(0);
       await assertVisibleDataIsSafe(page);
     }
+    await page.goto("/destinations/abashiri-city");
+    await expect(page.locator("main")).toBeVisible();
+    await expect(
+      page.locator('[data-testid="destination-detail-score"]'),
+    ).toHaveText(/7/);
+    await expect(
+      page.getByText("Estimated from seasonal indicators"),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("tab", { name: "Detailed Ratings" }),
+    ).toHaveCount(0);
+    await assertVisibleDataIsSafe(page);
   });
 
   test("verified rating evidence still renders a raw score", async ({

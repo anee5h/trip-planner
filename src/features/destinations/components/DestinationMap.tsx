@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import L from "leaflet";
 import type { Destination } from "@/shared/types/destination";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
-import { getRatingDisplayState } from "@/shared/services/recommendation/RecommendationScorer";
+import { getScorePresentation } from "@/shared/services/recommendation/RecommendationScorer";
 import { Compass } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
@@ -130,14 +130,40 @@ export default function DestinationMap({
                   <h3 className="font-bold text-base text-slate-900 dark:text-white mb-0.5 truncate">
                     {placeName}
                   </h3>
-                  {/* REC-002: only show a rating star for verified rating
-                      evidence; never fabricate a fallback score. */}
-                  {getRatingDisplayState(dest) === "verified" &&
-                    Number.isFinite(dest.ratings?.overall) && (
-                      <div className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-1.5">
-                        ★ {dest.ratings.overall}/10
+                  {/* REC-002/KAI-89 3-state: verified shows ★ overall/10;
+                      estimated shows ★ value/10 labeled est. (from the
+                      trusted season vector); unverifiable shows the
+                      localized Score-unavailable line — never blank. */}
+                  {(() => {
+                    const sp = getScorePresentation(dest);
+                    if (
+                      sp.state === "verified" &&
+                      Number.isFinite(dest.ratings?.overall)
+                    ) {
+                      return (
+                        <div className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-1.5">
+                          ★ {dest.ratings.overall}/10
+                        </div>
+                      );
+                    }
+                    if (sp.state === "estimated" && sp.value !== null) {
+                      return (
+                        <div className="text-xs font-semibold text-amber-600 dark:text-amber-400 mb-1.5">
+                          ★ {sp.value}/10{" "}
+                          <span className="ml-0.5 text-[10px] font-normal uppercase text-slate-400">
+                            est.
+                          </span>
+                        </div>
+                      );
+                    }
+                    return (
+                      <div className="text-xs font-semibold text-slate-400 mb-1.5">
+                        {locale === "ja"
+                          ? "スコアを表示できません"
+                          : "Score unavailable"}
                       </div>
-                    )}
+                    );
+                  })()}
                   <p className="text-xs text-slate-500 line-clamp-2 mb-3">
                     {dest.description
                       ? `${dest.description.slice(0, 60)}...`

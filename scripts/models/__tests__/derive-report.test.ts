@@ -96,7 +96,7 @@ describe("nextReport lastApplied semantics", () => {
 });
 
 describe("derive --check side effects (integration)", () => {
-  it("--check writes no files and preserves lastApplied", () => {
+  it("--check exits 0 on the committed catalogue and writes nothing", () => {
     const reportPath = path.join(ROOT, "scripts/models/derive-report.json");
     const indexPath = path.join(
       ROOT,
@@ -106,30 +106,44 @@ describe("derive --check side effects (integration)", () => {
     const indexBefore = fs.readFileSync(indexPath, "utf8");
     const statBefore = fs.statSync(reportPath);
 
-    // The tree may be converged (exit 0) or stale (exit 1) depending on
-    // where in the regeneration cycle this runs — the property under test
-    // is that --check NEVER writes, in either case.
-    let exitCode = 0;
-    try {
-      execFileSync(
-        "npx",
-        ["tsx", "scripts/derive-destination-models.ts", "--check"],
-        {
-          cwd: ROOT,
-          stdio: "pipe",
-        },
-      );
-    } catch (e) {
-      const status =
-        typeof e === "object" && e !== null && "status" in e
-          ? (e.status as number)
-          : 1;
-      exitCode = status;
-    }
-    expect([0, 1]).toContain(exitCode);
+    // The committed catalogue MUST be converged: a clean checkout makes
+    // --check exit exactly 0 (a non-zero exit here means stale generated
+    // files were committed). --check NEVER writes, proven by byte+mtime.
+    execFileSync(
+      "npx",
+      ["tsx", "scripts/derive-destination-models.ts", "--check"],
+      { cwd: ROOT, stdio: "pipe" },
+    );
     expect(fs.readFileSync(reportPath, "utf8")).toBe(reportBefore);
     expect(fs.readFileSync(indexPath, "utf8")).toBe(indexBefore);
     // mtime must be untouched (no rewrite).
     expect(fs.statSync(reportPath).mtimeMs).toBe(statBefore.mtimeMs);
+  });
+
+  it("apply with changes records pendingChanges 0 and lastApplied evidence", () => {
+    const committed = committedWith({
+      at: "2026-08-14T02:16",
+      changeCount: 88,
+      byModel: [["comfort-model-v1", 86]],
+    });
+    const report = nextReport(
+      committed,
+      [change("a"), change("b", "budget-model-v1")],
+      { "budget-model-v1": ["a", "b"] },
+      [],
+      true,
+    );
+    // A successful apply leaves NO pending changes (the committed report
+    // must never claim unapplied work that `derive --check` says is 0).
+    expect(report.pendingChanges).toBe(0);
+    expect(report.pendingByModel).toEqual([]);
+    expect(report.lastApplied?.changeCount).toBe(2);
+  });
+
+  it("dry run reports pending changes; apply zeroes them", () => {
+    const dry = nextReport(undefined, [change("a")], {}, [], false);
+    expect(dry.pendingChanges).toBe(1);
+    const applied = nextReport(undefined, [change("a")], {}, [], true);
+    expect(applied.pendingChanges).toBe(0);
   });
 });

@@ -1338,6 +1338,11 @@
       "explicitlyUnknownBudget": 389,
       "explicitlyUnknownSeason": 391
     },
+    "publishedScoreStates": {
+      "verified": 107,
+      "estimated": 89,
+      "unavailable": 536
+    },
     "dispositionCounts": {
       "corrected": 14,
       "confidence-gated": 30,

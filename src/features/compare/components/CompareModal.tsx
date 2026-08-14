@@ -5,7 +5,7 @@ import type { Destination } from "@/shared/types/destination";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
 import { getAdjustedBudget } from "@/shared/utils/utils";
-import { getRatingDisplayState } from "@/shared/services/recommendation/RecommendationScorer";
+import { getScorePresentation } from "@/shared/services/recommendation/RecommendationScorer";
 import {
   getWalkingIntensity,
   getWalkingIntensityMetadata,
@@ -51,7 +51,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
 
   // REC-002: rating values only render as scores for verified rating evidence.
   const ratingVerified = compareDestinations.map(
-    (d) => getRatingDisplayState(d) === "verified",
+    (d) => getScorePresentation(d).state === "verified",
   );
   const coupleScores = compareDestinations.map((d, i) =>
     ratingVerified[i] ? d.ratings.couple : null,

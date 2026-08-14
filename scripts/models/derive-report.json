@@ -1,13 +1,8 @@
 {
   "modelVersion": "kai-89-models-v1",
   "generatedAt": "2026-08-14",
-  "pendingChanges": 12,
-  "pendingByModel": [
-    [
-      "budget-model-v1",
-      12
-    ]
-  ],
+  "pendingChanges": 0,
+  "pendingByModel": [],
   "touchedRecords": {
     "budget-model-v1": [
       "abashiri-city",
@@ -1764,86 +1759,20 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-14T08:06",
-    "changeCount": 12,
+    "at": "2026-08-14T10:11",
+    "changeCount": 1,
     "byModel": [
       [
         "budget-model-v1",
-        12
+        1
       ]
     ],
     "sample": [
       {
         "id": "hiraizumi-chusonji-iwate",
         "model": "budget-model-v1",
-        "action": "migrate",
-        "reason": "pre-metadata leftover migrated to structured metadata"
-      },
-      {
-        "id": "hiraizumi-chusonji-iwate",
-        "model": "budget-model-v1",
-        "action": "migrate",
-        "reason": "budget reconciled to current model output with metadata"
-      },
-      {
-        "id": "national-museum-western-art-tokyo",
-        "model": "budget-model-v1",
-        "action": "migrate",
-        "reason": "pre-metadata leftover migrated to structured metadata"
-      },
-      {
-        "id": "national-museum-western-art-tokyo",
-        "model": "budget-model-v1",
-        "action": "migrate",
-        "reason": "budget reconciled to current model output with metadata"
-      },
-      {
-        "id": "oura-church-nagasaki",
-        "model": "budget-model-v1",
-        "action": "migrate",
-        "reason": "pre-metadata leftover migrated to structured metadata"
-      },
-      {
-        "id": "oura-church-nagasaki",
-        "model": "budget-model-v1",
-        "action": "migrate",
-        "reason": "budget reconciled to current model output with metadata"
-      },
-      {
-        "id": "sannai-maruyama-jomon-aomori",
-        "model": "budget-model-v1",
-        "action": "migrate",
-        "reason": "pre-metadata leftover migrated to structured metadata"
-      },
-      {
-        "id": "sannai-maruyama-jomon-aomori",
-        "model": "budget-model-v1",
-        "action": "migrate",
-        "reason": "budget reconciled to current model output with metadata"
-      },
-      {
-        "id": "tomioka-silk-mill-gunma",
-        "model": "budget-model-v1",
-        "action": "migrate",
-        "reason": "pre-metadata leftover migrated to structured metadata"
-      },
-      {
-        "id": "tomioka-silk-mill-gunma",
-        "model": "budget-model-v1",
-        "action": "migrate",
-        "reason": "budget reconciled to current model output with metadata"
-      },
-      {
-        "id": "yokohama-cosmo-world",
-        "model": "budget-model-v1",
-        "action": "migrate",
-        "reason": "pre-metadata leftover migrated to structured metadata"
-      },
-      {
-        "id": "yokohama-cosmo-world",
-        "model": "budget-model-v1",
-        "action": "migrate",
-        "reason": "budget reconciled to current model output with metadata"
+        "action": "clear",
+        "reason": "stale calculated budget source removed (no model metadata)"
       }
     ]
   }
