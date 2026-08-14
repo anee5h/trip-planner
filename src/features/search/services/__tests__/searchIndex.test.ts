@@ -97,3 +97,21 @@ describe("empty search state — locale behavior (KAI-83)", () => {
     expect(jaTitles.slice(1)).toEqual(enTitles.slice(1));
   });
 });
+
+describe("search index destination availability parity (KAI-93)", () => {
+  it("indexes the exact same destination IDs in English and Japanese", () => {
+    const enDestDocs = searchDocuments("abashiri", "en");
+    const jaDestDocs = searchDocuments("abashiri", "ja");
+
+    const enAbashiri = enDestDocs
+      .find((g) => g.type === "destination")
+      ?.items.find((item) => item.metadata?.dest?.id === "abashiri-city");
+    const jaAbashiri = jaDestDocs
+      .find((g) => g.type === "destination")
+      ?.items.find((item) => item.metadata?.dest?.id === "abashiri-city");
+
+    expect(enAbashiri).toBeDefined();
+    expect(jaAbashiri).toBeDefined();
+    expect(jaAbashiri?.url).toBe("/destinations/abashiri-city");
+  });
+});

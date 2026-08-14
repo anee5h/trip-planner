@@ -77,27 +77,71 @@ describe("PlaceCatalog", () => {
   });
 
   it("falls back to English when Japanese content is unavailable", () => {
-    const place = getCanonicalPlaces().find((item) => !item.content.ja);
+    const place = getCanonicalPlaces().find(
+      (item) => !item.content.ja && !item.nameJa,
+    );
     expect(place).toBeTruthy();
-    expect(getLocalizedPlace(place!, "ja").name).toBe(place!.content.en.name);
+    const localized = getLocalizedPlace(place!, "ja");
+    expect(localized.name).toBe(place!.content.en.name);
+    expect(localized.description).toBe(place!.content.en.description);
+    expect(localized.highlights).toEqual(place!.content.en.highlights);
   });
 
-  it("gates Japanese discovery to reviewed bilingual places", () => {
+  it("provides identical destination availability in English and Japanese", () => {
     const allPlaces = getCanonicalPlaces();
-    const reviewMode = import.meta.env.VITE_EDITORIAL_REVIEW_MODE === "true";
-    expect(getAvailablePlaces("en")).toHaveLength(978);
-    expect(getAvailablePlaces("ja")).toHaveLength(reviewMode ? 978 : 746);
+    const enPlaces = getAvailablePlaces("en");
+    const jaPlaces = getAvailablePlaces("ja");
+
+    expect(enPlaces).toHaveLength(978);
+    expect(jaPlaces).toHaveLength(978);
+
+    const enIds = enPlaces.map((place) => place.id).sort();
+    const jaIds = jaPlaces.map((place) => place.id).sort();
+    expect(jaIds).toEqual(enIds);
+
     expect(
       allPlaces.every((place) => isPlaceAvailableInLocale(place, "en")),
     ).toBe(true);
-    if (!reviewMode) {
-      expect(
-        getAvailablePlaces("ja").every(
-          (place) =>
-            place.editorial.lifecycle === "published" &&
-            Boolean(place.content.ja?.description),
-        ),
-      ).toBe(true);
-    }
+    expect(
+      allPlaces.every((place) => isPlaceAvailableInLocale(place, "ja")),
+    ).toBe(true);
+  });
+
+  it("retains full Japanese content when available", () => {
+    const place = getCanonicalPlaces().find(
+      (item) =>
+        item.content.ja?.name &&
+        item.content.ja.description &&
+        item.content.ja.highlights.length > 0,
+    );
+    expect(place).toBeTruthy();
+    const localized = getLocalizedPlace(place!, "ja");
+    expect(localized.name).toBe(place!.content.ja!.name);
+    expect(localized.description).toBe(place!.content.ja!.description);
+    expect(localized.highlights).toEqual(place!.content.ja!.highlights);
+  });
+
+  it("performs safe per-field fallback for partial Japanese content", () => {
+    // abukuma-cave-fukushima has Japanese name (nameJa) but English description & highlights
+    const place = getCanonicalPlaces().find(
+      (item) => item.id === "abukuma-cave-fukushima",
+    );
+    expect(place).toBeTruthy();
+    const localized = getLocalizedPlace(place!, "ja");
+    expect(localized.name).toBe("あぶくま洞");
+    expect(localized.description).toBe(place!.content.en.description);
+    expect(localized.highlights).toEqual(place!.content.en.highlights);
+  });
+
+  it("performs safe per-field fallback for places with no Japanese content", () => {
+    // abashiri-city has no Japanese editorial content
+    const place = getCanonicalPlaces().find(
+      (item) => item.id === "abashiri-city",
+    );
+    expect(place).toBeTruthy();
+    const localized = getLocalizedPlace(place!, "ja");
+    expect(localized.name).toBe(place!.content.en.name);
+    expect(localized.description).toBe(place!.content.en.description);
+    expect(localized.highlights).toEqual(place!.content.en.highlights);
   });
 });

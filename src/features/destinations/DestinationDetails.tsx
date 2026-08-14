@@ -258,7 +258,7 @@ const DETAIL_COPY = {
 
 export default function DestinationDetails() {
   const { t } = useTranslation();
-  const { locale, setLocale } = useLocale();
+  const { locale } = useLocale();
   const copy = DETAIL_COPY[locale];
   const { id } = useParams();
   const location = useLocation();
@@ -836,25 +836,6 @@ export default function DestinationDetails() {
         <Link to={{ pathname: "/destinations", search: location.search }}>
           <Button>{copy.back}</Button>
         </Link>
-      </div>
-    );
-  }
-
-  if (!isPlaceAvailableInLocale(destination, locale)) {
-    return (
-      <div className="container mx-auto max-w-xl px-4 py-20 text-center">
-        <h1 className="mb-3 text-3xl font-extrabold text-slate-900 dark:text-white">
-          この場所はまだ日本語で利用できません
-        </h1>
-        <p className="mb-7 text-slate-600 dark:text-slate-400">
-          日本語の内容を確認・翻訳中です。英語版では現在の情報をご覧いただけます。
-        </p>
-        <div className="flex justify-center gap-3">
-          <Button onClick={() => setLocale("en")}>View in English</Button>
-          <Link to={{ pathname: "/destinations", search: location.search }}>
-            <Button variant="outline">目的地一覧へ</Button>
-          </Link>
-        </div>
       </div>
     );
   }

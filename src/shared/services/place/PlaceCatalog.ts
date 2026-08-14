@@ -5,10 +5,6 @@ import type {
   LocalizedPlaceContent,
 } from "../../types/destination";
 
-function isEditorialReviewMode() {
-  return Boolean(import.meta.env?.VITE_EDITORIAL_REVIEW_MODE === "true");
-}
-
 export type CanonicalPlace = Destination &
   Required<Pick<Destination, "placeType" | "content" | "editorial">>;
 
@@ -66,46 +62,73 @@ export function getCanonicalPlaces(): CanonicalPlace[] {
 }
 
 /**
- * Japanese discovery is editorially gated: a translated name alone is not
- * enough to make a place public in the Japanese catalogue.
+ * Checks whether a destination is available in the requested locale.
+ * Public destinations are equally accessible in English and Japanese;
+ * translation/editorial completeness affects only display content, not availability.
  */
 export function isPlaceAvailableInLocale(
   place: Destination,
-  locale: "en" | "ja",
+  _locale: "en" | "ja" = "en",
 ): boolean {
-  if (locale === "en") return true;
-  if (isEditorialReviewMode()) {
-    return true;
-  }
-  const canonical = toCanonicalPlace(place);
-  const japanese = canonical.content.ja;
-  return Boolean(
-    canonical.editorial.lifecycle === "published" &&
-    japanese?.name &&
-    japanese.description &&
-    japanese.highlights.length > 0,
-  );
+  return Boolean(place);
 }
 
-export function getAvailablePlaces(locale: "en" | "ja"): CanonicalPlace[] {
+export function getAvailablePlaces(
+  locale: "en" | "ja" = "en",
+): CanonicalPlace[] {
   return getCanonicalPlaces().filter((place) =>
     isPlaceAvailableInLocale(place, locale),
   );
 }
 
+/**
+ * Returns a localized copy of the place for the specified locale.
+ * Japanese rendering uses per-field fallback to English for any missing localized fields.
+ */
 export function getLocalizedPlace(
   place: Destination,
-  locale: "en" | "ja",
+  locale: "en" | "ja" = "en",
 ): Destination {
   const canonical = toCanonicalPlace(place);
-  const content =
-    locale === "ja"
-      ? canonical.content.ja || canonical.content.en
-      : canonical.content.en;
+  if (locale === "en") {
+    return {
+      ...canonical,
+      name: canonical.content.en.name || canonical.name,
+      description: canonical.content.en.description || canonical.description,
+      highlights:
+        canonical.content.en.highlights &&
+        canonical.content.en.highlights.length > 0
+          ? canonical.content.en.highlights
+          : canonical.highlights,
+    };
+  }
+
+  const ja = canonical.content.ja;
+  const en = canonical.content.en;
+
+  const name =
+    ja?.name && ja.name.trim() !== ""
+      ? ja.name
+      : canonical.nameJa && canonical.nameJa.trim() !== ""
+        ? canonical.nameJa
+        : en?.name || canonical.name;
+
+  const description =
+    ja?.description && ja.description.trim() !== ""
+      ? ja.description
+      : en?.description || canonical.description;
+
+  const highlights =
+    ja?.highlights && ja.highlights.length > 0
+      ? ja.highlights
+      : en?.highlights && en.highlights.length > 0
+        ? en.highlights
+        : canonical.highlights;
+
   return {
     ...canonical,
-    name: content.name,
-    description: content.description,
-    highlights: content.highlights,
+    name,
+    description,
+    highlights,
   };
 }

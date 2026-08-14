@@ -25,11 +25,9 @@ export function getDestinationList(
 }
 
 /**
- * Loads a published destination for the given locale, gating it through
- * isPlaceAvailableInLocale so unpublished Japanese records are not reachable
- * via a direct /destinations/:id route. The locale is mandatory: publication
- * safety is the default contract. Editorial callers that need an ungated copy
- * must use getDestinationForEditorialReview explicitly.
+ * Loads a destination for the given locale. Public destinations are available
+ * in both English and Japanese regardless of translation completeness.
+ * Unknown IDs return null.
  */
 export async function getDestination(
   id: string,
@@ -42,8 +40,7 @@ export async function getDestination(
 }
 
 /**
- * Explicitly ungated load for editorial review of unpublished records. Do not
- * use on public routes.
+ * Ungated load for editorial review.
  */
 export async function getDestinationForEditorialReview(
   id: string,
