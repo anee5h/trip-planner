@@ -252,4 +252,28 @@ test.describe("KAI-89 rendered data safety", () => {
     expect(body).toMatch(/No general on-site parking/i);
     await assertVisibleDataIsSafe(page);
   });
+
+  test("model outputs render as estimates, never as verified facts", async ({
+    page,
+  }) => {
+    // Verified budget (source-backed ticket) stays concrete.
+    await page.goto("/destinations/engakuji");
+    await expect(page.locator("main")).toBeVisible();
+    await expect(page.getByText(/500/).first()).toBeVisible();
+
+    // Template budget cleared to unknown renders as unavailable, not a
+    // fabricated price.
+    await page.goto("/destinations/abukuma-cave-fukushima");
+    await expect(page.locator("main")).toBeVisible();
+    const abukuma = await page.locator("body").innerText();
+    expect(abukuma).not.toMatch(/¥\d{4,}[–〜-]\d{4,}/);
+
+    // Seasonally neutralized destination must not claim "All Year" as a
+    // verified fact.
+    await page.goto("/destinations/edo-castle-tokyo");
+    await expect(page.locator("main")).toBeVisible();
+    const edo = await page.locator("body").innerText();
+    expect(edo).not.toMatch(/Best Season[\s\S]{0,20}All Year/i);
+    await assertVisibleDataIsSafe(page);
+  });
 });
