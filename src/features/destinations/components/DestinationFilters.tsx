@@ -50,7 +50,6 @@ import {
   CircleDollarSign,
   Ticket,
   MapPin,
-  Sparkles,
 } from "lucide-react";
 
 import { getCollections } from "@/shared/data/collections";
@@ -969,7 +968,7 @@ export default function DestinationFilters({
                       {
                         val: "any",
                         label: isJa ? "指定なし" : "Any budget",
-                        desc: isJa ? "予算を指定しない" : "No budget limit",
+                        desc: isJa ? "制限なし" : "All price ranges",
                         icon: CircleDollarSign,
                         color: "text-slate-500",
                       },

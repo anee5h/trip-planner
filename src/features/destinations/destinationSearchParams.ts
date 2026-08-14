@@ -12,7 +12,7 @@ import type {
 import { MAX_ACCOMMODATION_ALLOWANCE } from "@/shared/services/budget/BudgetService";
 import { normalizeTravelDateParam } from "@/shared/services/recommendation/TravelConditions";
 
-export type ExplorerBudgetTier = "any" | BudgetTier;
+/** "any" | BudgetTier, expressed via the canonical planner BudgetFilter. */
 
 export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   searchQuery: "",
@@ -124,7 +124,7 @@ export function parseDestinationSearchParams(
           : 2;
 
   const rawBudget = params.get("budget");
-  let budgetTier: ExplorerBudgetTier = defaults.budgetTier;
+  let budgetTier: BudgetFilter = defaults.budgetTier;
   if (rawBudgetTier === "any" || rawBudget === "any") {
     budgetTier = "any";
   } else if (

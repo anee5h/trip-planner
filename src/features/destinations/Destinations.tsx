@@ -107,7 +107,6 @@ import {
   hasRestrictedTransportSelection,
   parseDestinationSearchParams,
   serializeDestinationSearchParams,
-  type ExplorerBudgetTier,
 } from "./destinationSearchParams";
 import { ALL_PUBLIC_MODES } from "@/features/home/services/TransportResolver";
 

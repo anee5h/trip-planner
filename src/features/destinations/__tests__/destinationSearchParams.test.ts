@@ -7,6 +7,7 @@ import {
   serializePlannerSearchParams,
 } from "../destinationSearchParams";
 import { BUDGET_TIER_LIMITS } from "@/shared/types/planner";
+import { DEFAULT_PLANNER_BUDGET_TIER } from "@/features/home/hooks/useTripPlannerState";
 import destinations from "@/shared/data/destinations-index.json";
 
 describe("destinationSearchParams", () => {
@@ -32,7 +33,7 @@ describe("destinationSearchParams", () => {
       publicModes: ["flight", "bus"],
       partySize: 3,
       partyProfile: "group",
-      budgetTier: "any",
+      budgetTier: "standard",
       vibe: "any",
       tripDuration: "any",
       walkingIntensity: "low",
