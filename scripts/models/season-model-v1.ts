@@ -40,6 +40,8 @@ const INDOOR_KINDS = new Set([
   "cultural",
 ]);
 
+const HUB_KINDS = new Set(["city", "ward", "town", "village"]);
+
 const SNOW_RE = /\b(ski|snow|winter sport)\b|スキー|スノー/i;
 const BEACH_RE = /\b(beach|coast|sea)\b|ビーチ|海|海岸/i;
 const FOLIAGE_RE = /\b(autumn|foliage|momiji)\b|紅葉|もみじ/i;
@@ -69,6 +71,26 @@ export function seasonModel(
   const indoorPercent = dest.indoorPercent ?? 0;
   const kind = dest.kind ?? "";
   const latBand = latitudeBand(dest);
+
+  // R0 contract: city/ward/town/village HUBS receive NO experience-season
+  // vectors — a municipality spans many microclimates and a single vector
+  // would be a fabricated claim (design decision; the 3 source-corrected
+  // bestMonths hubs are handled by the orchestrator's ledger override).
+  // Enforced BEFORE any heuristic so a hub's tags (e.g. Ishigaki "Beach")
+  // cannot produce a vector.
+  if (HUB_KINDS.has(kind)) {
+    return {
+      action: "neutralize",
+      reason: "hub record: no experience-season vector (R0 contract)",
+      metadata: {
+        method: "unknown",
+        modelVersion: "season-model-v1",
+        confidence: "unknown",
+        basis:
+          "hub records span multiple microclimates; single vector would be fabricated",
+      },
+    };
+  }
 
   // R1 snow: winter peak, bestMonths Dec-Mar.
   if (SNOW_RE.test(haystack)) {
@@ -156,19 +178,31 @@ export function seasonModel(
     };
   }
 
-  // R5 spring-flower (incl. dual-peak variant).
+  // R5 spring-flower: SPRING ONLY. The legacy rule always emitted the
+  // dual-peak vector [4,5,10,11] "Spring & Autumn" from a bare spring
+  // signal — fabricating an autumn peak (Miharu Takizakura peaks
+  // mid-April but claimed Oct/Nov). Autumn is claimed ONLY when an
+  // independent foliage signal co-occurs; foliage-only records already
+  // took R4, so reaching R5 with foliage means both signals are present.
   if (SPRING_RE.test(haystack)) {
+    const autumnSignal = FOLIAGE_RE.test(haystack);
     return {
       action: "set",
-      reason: "spring-flower destination (R5)",
-      season: { spring: 10, summer: 6, autumn: 7, winter: 4 },
-      bestMonths: [4, 5, 10, 11],
-      bestSeason: "Spring & Autumn",
+      reason: autumnSignal
+        ? "spring-flower with independent foliage signal (R5 dual)"
+        : "spring-flower destination (R5)",
+      season: autumnSignal
+        ? { spring: 10, summer: 6, autumn: 9, winter: 4 }
+        : { spring: 10, summer: 6, autumn: 5, winter: 4 },
+      bestMonths: autumnSignal ? [4, 5, 10, 11] : [4, 5],
+      bestSeason: autumnSignal ? "Spring & Autumn" : "Spring",
       metadata: {
         method: "model",
         modelVersion: "season-model-v1",
         confidence: "medium",
-        basis: "spring-flower category; calibrated 8/9 trusted",
+        basis: autumnSignal
+          ? "spring-flower + foliage signals; calibrated on trusted peaks"
+          : "spring-flower signal; spring-only months 4-5 (autumn never inferred)",
       },
     };
   }

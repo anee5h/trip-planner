@@ -37,24 +37,12 @@
     "train": 70,
     "car": 60
   },
-  "crowd": {
-    "weekday": 8,
-    "weekend": 10,
-    "holiday": 9
-  },
-  "season": {
-    "spring": 7,
-    "summer": 6,
-    "autumn": 7,
-    "winter": 7
-  },
   "highlights": [
     "Makuhari Messe Event Complex",
     "Chiba Port Tower",
     "Chiba Urban Monorail"
   ],
   "description": "Chiba Prefecture's capital facing Tokyo Bay, home to Makuhari Messe, Chiba Port Tower, and urban monorail system.",
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "budgetBreakdown": {
     "transport": 3200,
     "tickets": 1600,
@@ -98,7 +86,6 @@
     ],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "saitama-city"]
   },
-  "bestSeason": "All Year (indoor)",
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
@@ -185,9 +172,27 @@
   "openingHoursJa": "09:00 - 17:00",
   "municipalityId": "Chiba:chiba",
   "seasonMetadata": {
-    "method": "model",
+    "method": "unknown",
     "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "hub records span multiple microclimates; single vector would be fabricated"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
     "confidence": "low",
-    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+    "basis": "hub exploration window: importance notable, 10 children, metro adj"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=70, kind='city', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

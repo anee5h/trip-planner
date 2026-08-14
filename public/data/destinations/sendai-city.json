@@ -23,8 +23,6 @@
   },
   "totalTripHours": 8,
   "walkingMin": 90,
-  "walkingSunMin": 50,
-  "walkingShadeMin": 40,
   "indoorPercent": 40,
   "ratings": {
     "overall": 8.8,
@@ -37,11 +35,6 @@
     "relaxation": 8.5,
     "value": 8.8,
     "uniqueness": 8.7
-  },
-  "crowd": {
-    "weekday": 7,
-    "weekend": 9,
-    "holiday": 8
   },
   "weatherDependence": "moderate",
   "tags": ["Core Designated City", "Metropolis Hub", "Miyagi"],
@@ -100,7 +93,7 @@
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 6,
+    "min": 7,
     "max": 12
   },
   "businessHours": "Open access",
@@ -161,6 +154,24 @@
     "method": "unknown",
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "basis": "hub records span multiple microclimates; single vector would be fabricated"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance standard, 14 children, metro adj"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=40, kind='city', walkingMin=90"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

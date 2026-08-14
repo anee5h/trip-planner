@@ -21,8 +21,6 @@
   },
   "totalTripHours": 6,
   "walkingMin": 45,
-  "walkingSunMin": 30,
-  "walkingShadeMin": 15,
   "indoorPercent": 40,
   "ratings": {
     "overall": 8,
@@ -35,11 +33,6 @@
     "relaxation": 8,
     "value": 8.8,
     "uniqueness": 7.8
-  },
-  "crowd": {
-    "weekday": 7,
-    "weekend": 9,
-    "holiday": 8
   },
   "season": {
     "spring": 4,
@@ -90,7 +83,7 @@
   "placeType": "hub",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
+    "min": 6,
     "max": 12
   },
   "businessHours": "09:00 - 17:00 (Daily)",
@@ -177,5 +170,23 @@
     "license": "CC0",
     "attribution": "かなえゆうじん",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Machida_city.jpg"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance standard, 5 children, metro adj"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=40, kind='city', walkingMin=45"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

@@ -73,8 +73,6 @@
   },
   "walkingMin": 25,
   "walkingIntensity": "low",
-  "walkingSunMin": 500,
-  "walkingShadeMin": 1500,
   "indoorPercent": 80,
   "comfort": {
     "heatTolerance": 8,
@@ -180,5 +178,11 @@
     "modelVersion": "season-model-v1",
     "confidence": "low",
     "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=80, kind='observation', walkingMin=25"
   }
 }

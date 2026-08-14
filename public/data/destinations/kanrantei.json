@@ -57,8 +57,6 @@
     "max": 5
   },
   "walkingMin": 600,
-  "walkingSunMin": 300,
-  "walkingShadeMin": 300,
   "walkingIntensity": "low",
   "indoorPercent": 60,
   "comfort": {
@@ -86,11 +84,6 @@
     "autumn": 9
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 7
-  },
   "season": {
     "spring": 8.8,
     "summer": 8,
@@ -179,5 +172,17 @@
   "relationships": {
     "parentDestinationId": "matsushima-town"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'museum' + scale uplift"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

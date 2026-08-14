@@ -46,11 +46,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Atsuta_Shrine.jpg/3840px-Atsuta_Shrine.jpg",
   "description": "Atsuta Shrine in central Nagoya is a sacred ancient Shinto sanctuary surrounded by a tranquil cedar forest, enshrining the legendary Kusanagi-no-Tsurugi sacred sword.",
   "budgetRecommended": 4000,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 5
-  },
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -98,5 +93,17 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='', walkingMin=150"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

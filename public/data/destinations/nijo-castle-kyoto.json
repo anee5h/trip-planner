@@ -62,11 +62,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/1280px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg",
   "description": "Nijo Castle in Kyoto was the residence of Tokugawa Ieyasu, famous for its Ninomaru Palace featuring squeaking 'nightingale floors' designed to alert guards to intruders.",
   "budgetRecommended": 6500,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 6
-  },
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -178,5 +173,17 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='', walkingMin=150"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

@@ -73,13 +73,10 @@
   },
   "walkingMin": 385,
   "walkingIntensity": "high",
-  "walkingSunMin": 2500,
-  "walkingShadeMin": 2500,
   "indoorPercent": 0,
   "comfort": {
     "heatTolerance": 7,
-    "rainFriendly": 1,
-    "walkingIntensity": 5
+    "rainFriendly": 1
   },
   "ratings": {
     "overall": 9.5,
@@ -94,11 +91,6 @@
     "uniqueness": 9.8
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 5
-  },
   "weatherDependence": "moderate",
   "reservation": "Boat rental available on site first-come-first-served",
   "parking": "Gorge parking available",
@@ -193,5 +185,23 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=0, kind='nature', walkingMin=unknown"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

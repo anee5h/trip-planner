@@ -44,8 +44,6 @@
     "max": 3.5
   },
   "walkingMin": 150,
-  "walkingSunMin": 90,
-  "walkingShadeMin": 60,
   "walkingIntensity": "medium",
   "indoorPercent": 15,
   "comfort": {
@@ -65,11 +63,6 @@
     "value": 8.6,
     "uniqueness": 8.9,
     "walkability": 6
-  },
-  "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 5
   },
   "season": {
     "spring": 8,
@@ -169,5 +162,17 @@
     "rubricVersion": 2,
     "method": "assisted",
     "confidence": "low"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=15, kind='island', walkingMin=150"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

@@ -16,8 +16,6 @@
   "budgetRecommended": 6250,
   "budgetMax": 9500,
   "walkingMin": 70,
-  "walkingSunMin": 1200,
-  "walkingShadeMin": 2300,
   "indoorPercent": 75,
   "ratings": {
     "overall": 9.3,
@@ -30,11 +28,6 @@
     "relaxation": 8.8,
     "value": 9.2,
     "uniqueness": 9.8
-  },
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 7
   },
   "season": {
     "spring": 7,
@@ -119,5 +112,17 @@
     "modelVersion": "season-model-v1",
     "confidence": "low",
     "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=75, kind='', walkingMin=70"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

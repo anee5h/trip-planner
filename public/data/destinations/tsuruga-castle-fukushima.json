@@ -140,5 +140,11 @@
         }
       ]
     }
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=40, kind='', walkingMin=120"
   }
 }

@@ -121,19 +121,12 @@
     "Overlooks the coral-rich Hirakubo Peninsula"
   ],
   "collections": [],
-  "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 5
-  },
   "transportOptions": {
     "bus": 350
   },
   "notes": "Free observation point with views of the Hirakubo Peninsula — best in clear morning light.",
   "totalTripHours": 1,
   "walkingMin": 10,
-  "walkingSunMin": 8,
-  "walkingShadeMin": 1,
   "indoorPercent": 5,
   "reservation": "None required",
   "parking": "Free parking available",
@@ -153,5 +146,11 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

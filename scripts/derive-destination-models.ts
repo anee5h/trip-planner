@@ -403,6 +403,12 @@ function main() {
     if (dur.action !== "keep") markTouched(dur.modelVersion, d.id);
     if (dur.action === "set" && dur.visitHours) {
       d.recommendedVisitHours = dur.visitHours;
+      d.durationMetadata = {
+        method: "model",
+        modelVersion: dur.modelVersion,
+        confidence: dur.confidence,
+        basis: dur.reason,
+      };
       if (changed(beforeDur, d.recommendedVisitHours)) {
         addFieldSource(
           d,
@@ -423,6 +429,13 @@ function main() {
       d.walkingMin = w.walkingMin;
       d.walkingIntensity = w.walkingIntensity;
       walkingMinutes = w.walkingMin;
+      d.walkingMetadata = {
+        method: "model",
+        unit: "minutes",
+        modelVersion: "walking-model-v1",
+        confidence: w.confidence,
+        basis: w.reason,
+      };
       if (
         changed(before, { min: d.walkingMin, intensity: d.walkingIntensity })
       ) {
@@ -470,22 +483,101 @@ function main() {
           : undefined;
     }
 
+    // ---- Split-integrity guard (ALL records, incl. non-eligible) ----
+    // Data-integrity fix, not a model estimate: sun/shade splits are
+    // SUBSETS of walkingMin. Batch-template splits that are unit-invalid
+    // (metre-typed total with splits), violate the subset bound (sum >
+    // total), or are synthetic partitions (sum ≈ total) are cleared even
+    // on manual/trusted records — a wrong unit or impossible subset is
+    // never kept as a fact (review: Abashiri 360/1500/2500).
+    const hasSunSplit = Number.isFinite(d.walkingSunMin);
+    const hasShadeSplit = Number.isFinite(d.walkingShadeMin);
+    if (hasSunSplit || hasShadeSplit) {
+      const splitSum =
+        (hasSunSplit ? (d.walkingSunMin as number) : 0) +
+        (hasShadeSplit ? (d.walkingShadeMin as number) : 0);
+      const modelOwnedMinutes =
+        (d.editorial?.fieldSources?.walkingMin ?? []).some((s) =>
+          s.title.startsWith("walking-model-v1"),
+        ) ?? false;
+      const minIsMetre =
+        Number.isFinite(d.walkingMin) &&
+        (d.walkingMin as number) >= 300 &&
+        !modelOwnedMinutes;
+      const splitInvalid =
+        Number.isFinite(d.walkingMin) === false ||
+        splitSum > (d.walkingMin as number) ||
+        (Number.isFinite(d.walkingMin) &&
+          Math.abs(splitSum - (d.walkingMin as number)) <=
+            Math.max(1, (d.walkingMin as number) * 0.05)) ||
+        (minIsMetre && splitSum > 0) ||
+        // No provenance at all: splits without a fieldSources entry are
+        // batch-template residue (review rule: explicit provenance or clear).
+        !(
+          (d.editorial?.fieldSources?.walkingSunMin?.length ?? 0) > 0 ||
+          (d.editorial?.fieldSources?.walkingShadeMin?.length ?? 0) > 0
+        );
+      if (splitInvalid) {
+        const beforeSplits = { sun: d.walkingSunMin, shade: d.walkingShadeMin };
+        delete (d as Partial<Destination>).walkingSunMin;
+        delete (d as Partial<Destination>).walkingShadeMin;
+        if (
+          changed(beforeSplits, {
+            sun: d.walkingSunMin,
+            shade: d.walkingShadeMin,
+          })
+        ) {
+          markTouched("walking-model-v1", d.id);
+          touch(
+            d,
+            "walking-model-v1",
+            "clear",
+            "split-integrity guard: unit-invalid or synthetic sun/shade split cleared (FIX_UNIT)",
+            ["walkingSunMin", "walkingShadeMin"],
+          );
+        }
+      }
+    }
+
     const beforeComfort = d.comfort;
     const c = comfortModel(d, comfortEligible, walkingMinutes);
     if (c.action !== "keep") markTouched("comfort-model-v1", d.id);
     if (c.action === "set" && c.comfort) {
       d.comfort = c.comfort;
+      d.comfortMetadata = {
+        method: "model",
+        modelVersion: "comfort-model-v1",
+        confidence: c.confidence,
+        basis: c.reason,
+      };
       if (changed(beforeComfort, d.comfort)) {
         addFieldSource(d, "comfort", `comfort-model-v1; ${c.reason}`);
         touch(d, "comfort-model-v1", "set", c.reason, ["comfort"]);
       }
+    } else if (c.action === "unknown") {
+      // Explicit neutral: no indoorPercent input -> comfort cannot be
+      // derived; the template vector is cleared (never kept as a fact).
+      if (d.comfort !== undefined) {
+        delete (d as Partial<Destination>).comfort;
+        touch(d, "comfort-model-v1", "neutralize", c.reason, ["comfort"]);
+      }
+      if (d.comfortMetadata?.method !== "unknown") {
+        d.comfortMetadata = {
+          method: "unknown",
+          modelVersion: "comfort-model-v1",
+          confidence: "unknown",
+          basis: c.reason,
+        };
+      }
     } else if (
       d.comfort &&
+      d.comfort.walkingIntensity !== undefined &&
       (d.comfort.walkingIntensity < 1 || d.comfort.walkingIntensity > 10)
     ) {
       // FIX_CONTRADICTION (workbook P0): impossible walkingIntensity values
       // (step-scale contamination like 12/20) are corrected by deriving the
       // intensity from walkingMin, never by clamping the corrupt value.
+      // Without a walkingMin the field is removed, never defaulted to 5.
       d.comfort = {
         ...d.comfort,
         walkingIntensity:
@@ -497,7 +589,7 @@ function main() {
                   walkingMinutes <= 45 ? 3 : walkingMinutes <= 95 ? 5 : 8,
                 ),
               )
-            : 5,
+            : undefined,
       };
       if (changed(beforeComfort, d.comfort)) {
         addFieldSource(
@@ -520,10 +612,27 @@ function main() {
     if (cr.action !== "keep") markTouched("crowd-model-v1", d.id);
     if (cr.action === "set" && cr.crowd) {
       d.crowd = cr.crowd;
+      d.crowdMetadata = {
+        method: "model",
+        modelVersion: "crowd-model-v1",
+        confidence: cr.confidence,
+        basis: cr.reason,
+      };
       if (changed(beforeCrowd, d.crowd)) {
         addFieldSource(d, "crowd", `crowd-model-v1; ${cr.reason}`);
         touch(d, "crowd-model-v1", "set", cr.reason, ["crowd"]);
       }
+    } else if (cr.action === "unknown" && d.crowd !== undefined) {
+      // Explicit neutral: no runtime consumer; kind-derived bands would be
+      // manufactured. Template crowd vectors are cleared.
+      delete (d as Partial<Destination>).crowd;
+      d.crowdMetadata = {
+        method: "unknown",
+        modelVersion: "crowd-model-v1",
+        confidence: "unknown",
+        basis: cr.reason,
+      };
+      touch(d, "crowd-model-v1", "neutralize", cr.reason, ["crowd"]);
     }
 
     const beforeTransportMeta = d.transportMetadata;
@@ -639,31 +748,53 @@ function main() {
     }
   }
 
+  // ---- report ----
+  // The report is a committed migration/ownership artifact: it always carries
+  // touchedRecords (which records each model OWNS — stable across runs) and
+  // modelClusterIds, plus the change list of the run. --check NEVER writes
+  // anything (no side effects); --apply and dry-run write the report.
+  const committed = fs.existsSync(reportPath)
+    ? (JSON.parse(fs.readFileSync(reportPath, "utf8")) as Record<
+        string,
+        unknown
+      >)
+    : {};
   const report = {
     modelVersion: "kai-89-models-v1",
     generatedAt: "2026-08-14",
-    changes: changes.length,
-    byModel: Object.entries(
+    pendingChanges: changes.length,
+    pendingByModel: Object.entries(
       changes.reduce<Record<string, number>>((acc, c) => {
         acc[c.model] = (acc[c.model] ?? 0) + 1;
         return acc;
       }, {}),
     ).sort((a, b) => b[1] - a[1]),
-    sample: changes.slice(0, 25).map((c) => ({ ...c })),
-    // Full change list consumed by validate-models.ts gates (model-scoped).
-    allChanges: changes.map((c) => ({
-      id: c.id,
-      model: c.model,
-      action: c.action,
-      fields: c.fields,
-    })),
+    // Full ownership map: which records each model derives (validate-models
+    // gates are scoped to these). Stable across idempotent runs.
     touchedRecords: touchedByModel,
     modelClusterIds,
+    // Migration evidence from the last apply (preserved; never zeroed by a
+    // clean check run).
+    lastApplied: (committed.lastApplied as
+      Record<string, unknown> | undefined) ?? {
+      at: null,
+      changeCount: null,
+      byModel: [],
+    },
   };
-  fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+  if (!check) {
+    fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+  }
 
   if (apply) {
+    // Record the applied migration evidence, then persist.
+    report.lastApplied = {
+      at: new Date().toISOString().slice(0, 16),
+      changeCount: changes.length,
+      byModel: report.pendingByModel,
+    };
     fs.writeFileSync(indexPath, `${JSON.stringify(destinations, null, 2)}\n`);
+    fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
     console.log(`Applied ${changes.length} model changes. Index written.`);
   } else if (check) {
     if (changes.length > 0) {

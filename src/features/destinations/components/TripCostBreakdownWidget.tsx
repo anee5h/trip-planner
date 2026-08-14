@@ -183,9 +183,16 @@ export function TripCostBreakdownWidget({
 
   const lowerCostAlternatives = useMemo(() => {
     const combos = findNearbyCombinations(destination, undefined, 5);
+    // KAI-89: only FINITE known ranges may be compared — an unknown budget
+    // (budgetMetadata.method "unknown", value absent) must never qualify as
+    // "Lower-Cost" via a (?? 0) fallback. Both sides must be finite.
+    const destMin = destination.budgetMin;
+    if (!Number.isFinite(destMin)) return [];
     return combos
       .map((c) => c.secondary)
-      .filter((sec) => (sec.budgetMin ?? 0) <= (destination.budgetMin ?? 0))
+      .filter(
+        (sec) => Number.isFinite(sec.budgetMin) && sec.budgetMin! <= destMin!,
+      )
       .slice(0, 2);
   }, [destination]);
 

@@ -61,14 +61,7 @@
   "budgetMin": 4000,
   "budgetMax": 14000,
   "budgetRecommended": 9000,
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 7
-  },
-  "walkingMin": 8000,
-  "walkingSunMin": 4800,
-  "walkingShadeMin": 3200,
+  "walkingMin": 180,
   "indoorPercent": 20,
   "totalTripHours": 4,
   "relationships": {
@@ -86,7 +79,7 @@
   "comfort": {
     "heatTolerance": 5,
     "rainFriendly": 4,
-    "walkingIntensity": 5
+    "walkingIntensity": 8
   },
   "reservation": "None required",
   "parking": "Available on site",
@@ -97,7 +90,7 @@
     "attribution": "Reggaeman, CC BY-SA 3.0, via Wikimedia Commons",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bitchu_Matsuyama_Castle_1.JPG"
   },
-  "walkingIntensity": "medium",
+  "walkingIntensity": "high",
   "role": "standalone",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
@@ -120,5 +113,30 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'castle' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='castle', walkingMin=180"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 8000 replaced by walk-share estimate (FIX_UNIT): 60% of 5h visit"
   }
 }

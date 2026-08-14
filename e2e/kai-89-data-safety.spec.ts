@@ -259,10 +259,12 @@ test.describe("KAI-89 rendered data safety", () => {
   test("model outputs render as estimates, never as verified facts", async ({
     page,
   }) => {
-    // Verified budget (source-backed ticket) stays concrete.
+    // Verified budget (source-backed ticket) stays concrete. KAI-89
+    // contract: catalogue values are PER-PERSON — the details page scales
+    // the ¥500 Engakuji ticket by party size (default 2 → ¥1,000 total).
     await page.goto("/destinations/engakuji");
     await expect(page.locator("main")).toBeVisible();
-    await expect(page.getByText(/500/).first()).toBeVisible();
+    await expect(page.getByText(/1,000/).first()).toBeVisible();
 
     // Template budget cleared to unknown renders as unavailable, not a
     // fabricated price.

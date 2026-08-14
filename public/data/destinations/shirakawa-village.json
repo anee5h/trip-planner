@@ -20,9 +20,7 @@
   "budgetMin": 3000,
   "budgetRecommended": 11500,
   "budgetMax": 20000,
-  "walkingMin": 3500,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2000,
+  "walkingMin": 330,
   "indoorPercent": 40,
   "ratings": {
     "overall": 9.8,
@@ -96,7 +94,7 @@
     "cafe": 2013
   },
   "nameJa": "白川郷・荻町合掌造り集落",
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 5,
@@ -109,5 +107,12 @@
     "license": "CC BY 2.5",
     "attribution": "663highland",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ogi_Shirakawa-gō,_Gifu,_Japan.jpg"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 3500 replaced by walk-share estimate (FIX_UNIT): 50% of 11h visit"
   }
 }

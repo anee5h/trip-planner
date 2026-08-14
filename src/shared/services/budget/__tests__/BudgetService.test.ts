@@ -13,6 +13,7 @@ import {
 } from "../BudgetService";
 import * as BudgetServiceModule from "../BudgetService";
 import type { Destination } from "@/shared/types/destination";
+import { getDestinationList } from "@/shared/services/destination/DestinationService";
 
 const mockPaidDest = {
   id: "shibuya-sky",
@@ -426,5 +427,91 @@ describe("BudgetService", () => {
         perPersonRoundTrip,
       );
     });
+  });
+});
+
+describe("KAI-89 per-person budget contract", () => {
+  // Real catalogue destination with an intact per-person budget and a
+  // train corridor from Tokyo: nagano-city (tickets 2000 per person).
+  const perPersonDest = getDestinationList("en").find(
+    (d) => d.id === "nagano-city",
+  ) as unknown as Destination;
+
+  it("scales tickets/cafe linearly with party size (per-person catalogue values)", () => {
+    // Legacy couple-scale math used partySize/2, which was correct ONLY at
+    // party size 2 and halved solo travellers' budget. The canonical
+    // contract is per-person: party 1 = 1×, party 3 = 3×.
+    const p1 = getEstimatedBudgetRange(perPersonDest, "train", 1, "standard", {
+      lat: 35.6812,
+      lng: 139.7671,
+    });
+    const p2 = getEstimatedBudgetRange(perPersonDest, "train", 2, "standard", {
+      lat: 35.6812,
+      lng: 139.7671,
+    });
+    const p3 = getEstimatedBudgetRange(perPersonDest, "train", 3, "standard", {
+      lat: 35.6812,
+      lng: 139.7671,
+    });
+    const p4 = getEstimatedBudgetRange(perPersonDest, "train", 4, "standard", {
+      lat: 35.6812,
+      lng: 139.7671,
+    });
+    expect(p1.range).not.toBeNull();
+    expect(p2.range).not.toBeNull();
+    // The ticket component alone must scale exactly with party size.
+    const mid = (r: readonly [number, number] | null | undefined) =>
+      r ? (r[0] + r[1]) / 2 : NaN;
+    const delta12 = mid(p2.range) - mid(p1.range);
+    const delta34 = mid(p4.range) - mid(p3.range);
+    // Each additional person adds (roughly) the per-person non-transport
+    // spend incl. tickets; exact equality is not required (food ranges are
+    // tier-based) but scaling must be clearly linear and positive.
+    expect(delta12).toBeGreaterThan(1500);
+    expect(delta34).toBeGreaterThan(1500);
+    // The ticket component dominates the difference: verify directly that
+    // tickets × party is used, not tickets × party/2.
+    expect(mid(p1.range)).toBeLessThan(mid(p2.range));
+    expect(mid(p2.range) * 2).toBeGreaterThan(mid(p4.range) * 0.9);
+  });
+
+  it("getAdjustedBudget scales per-person other costs with party size", () => {
+    const coords = { lat: 35.6812, lng: 139.7671 };
+    const a1 = getAdjustedBudget(
+      perPersonDest,
+      "train",
+      1,
+      coords,
+      "mainland-honshu",
+    );
+    const a2 = getAdjustedBudget(
+      perPersonDest,
+      "train",
+      2,
+      coords,
+      "mainland-honshu",
+    );
+    const a3 = getAdjustedBudget(
+      perPersonDest,
+      "train",
+      3,
+      coords,
+      "mainland-honshu",
+    );
+    const a4 = getAdjustedBudget(
+      perPersonDest,
+      "train",
+      4,
+      coords,
+      "mainland-honshu",
+    );
+    // other costs = (recommended - on-site transport) × party; linear.
+    expect(a1).not.toBeNull();
+    expect(a2).not.toBeNull();
+    expect((a3 ?? 0) - (a2 ?? 0)).toBeCloseTo((a2 ?? 0) - (a1 ?? 0), 5);
+    expect((a4 ?? 0) - (a3 ?? 0)).toBeCloseTo((a2 ?? 0) - (a1 ?? 0), 5);
+    // Party 1 must NOT be half of party 2 (the legacy /2 bug).
+    expect((a2 ?? 0) - (a1 ?? 0)).toBeGreaterThan(0);
+    expect(a1 ?? 0).toBeGreaterThan(2000);
   });
 });

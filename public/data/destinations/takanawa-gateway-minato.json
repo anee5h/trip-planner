@@ -161,5 +161,11 @@
     "modelVersion": "season-model-v1",
     "confidence": "low",
     "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=80, kind='', walkingMin=30"
   }
 }

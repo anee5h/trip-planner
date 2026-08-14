@@ -50,36 +50,26 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
   const truth = JSON.parse(fs.readFileSync(truthPath, "utf8")) as {
     ticketEvidence: Record<string, { jpy: number }>;
   };
+  // Ownership comes from the report's touchedRecords map (the stable
+  // model-ownership ledger), NOT the pending-change list: after a clean
+  // apply the pending list is empty while ownership must still scope the
+  // gates (otherwise 'tickets never modelled' etc. examine zero records
+  // and pass vacuously).
   let report: {
-    sample: Array<{
-      id: string;
-      model: string;
-      action: string;
-      fields: string[];
-    }>;
+    touchedRecords?: Record<string, string[]>;
+    modelClusterIds?: string[];
   };
   try {
     report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
   } catch {
-    report = { sample: [] };
+    report = {};
   }
+  const touchedRecords = report.touchedRecords ?? {};
   const byId = new Map(index.map((d) => [d.id, d]));
-  const touchedBudget = new Set(
-    report.sample.filter((c) => c.model === "budget-model-v1").map((c) => c.id),
-  );
-  const touchedSeason = new Set(
-    report.sample
-      .filter((c) => c.model === "season-model-v1" && c.action === "set")
-      .map((c) => c.id),
-  );
-  const touchedComfort = new Set(
-    report.sample
-      .filter((c) => c.model === "comfort-model-v1")
-      .map((c) => c.id),
-  );
-  const touchedCrowd = new Set(
-    report.sample.filter((c) => c.model === "crowd-model-v1").map((c) => c.id),
-  );
+  const touchedBudget = new Set(touchedRecords["budget-model-v1"] ?? []);
+  const touchedSeason = new Set(touchedRecords["season-model-v1"] ?? []);
+  const touchedComfort = new Set(touchedRecords["comfort-model-v1"] ?? []);
+  const touchedCrowd = new Set(touchedRecords["crowd-model-v1"] ?? []);
 
   const results: GateResult[] = [];
   const fail = (gate: string, detail: string) =>
@@ -169,31 +159,44 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
       out.push(`${d.id}: walkingMin<0`);
     return out;
   });
-  // Integer strictness: model-generated season/comfort/crowd values must be
-  // integers (the models emit only integers; fractional legacy values are
-  // tracked debt, not model output).
+  // Integer strictness: model-generated values must be integers (the models
+  // emit only integers). Scoped PER FIELD to the model that owns the field
+  // (a season-touched record's legacy comfort must not be integer-checked
+  // as model output), and optional fields (comfort.walkingIntensity is
+  // absent when no walking estimate exists) are skipped.
+  const integerViolations = (
+    scope: Set<string>,
+    field: "season" | "comfort" | "crowd",
+    keys: string[],
+  ): string[] =>
+    [...scope].flatMap((id) => {
+      const d = byId.get(id);
+      if (!d) return [];
+      const out: string[] = [];
+      if (d[field])
+        for (const k of keys)
+          if (d[field][k] !== undefined && !Number.isInteger(d[field][k]))
+            out.push(`${id}: ${field}.${k}=${d[field][k]}`);
+      return out;
+    });
   const modelIntegerViolations = [
-    ...touchedSeason,
-    ...touchedComfort,
-    ...touchedCrowd,
-  ].flatMap((id) => {
-    const d = byId.get(id);
-    if (!d) return [];
-    const out: string[] = [];
-    if (d.season)
-      for (const k of ["spring", "summer", "autumn", "winter"])
-        if (!Number.isInteger(d.season[k]))
-          out.push(`${id}: season.${k}=${d.season[k]}`);
-    if (d.comfort)
-      for (const k of ["heatTolerance", "rainFriendly", "walkingIntensity"])
-        if (!Number.isInteger(d.comfort[k]))
-          out.push(`${id}: comfort.${k}=${d.comfort[k]}`);
-    if (d.crowd)
-      for (const k of ["weekday", "weekend", "holiday"])
-        if (!Number.isInteger(d.crowd[k]))
-          out.push(`${id}: crowd.${k}=${d.crowd[k]}`);
-    return out;
-  });
+    ...integerViolations(touchedSeason, "season", [
+      "spring",
+      "summer",
+      "autumn",
+      "winter",
+    ]),
+    ...integerViolations(touchedComfort, "comfort", [
+      "heatTolerance",
+      "rainFriendly",
+      "walkingIntensity",
+    ]),
+    ...integerViolations(touchedCrowd, "crowd", [
+      "weekday",
+      "weekend",
+      "holiday",
+    ]),
+  ];
   if (oor.length > 0) fail("out-of-range", oor.slice(0, 10).join("; "));
   else if (modelIntegerViolations.length > 0)
     fail(

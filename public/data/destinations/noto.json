@@ -29,8 +29,6 @@
   "budgetMax": 16000,
   "totalTripHours": 8,
   "walkingMin": 290,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
   "comfort": {
     "heatTolerance": 7,
     "rainFriendly": 1,
@@ -40,11 +38,6 @@
     "car": 360,
     "train": 260,
     "bus": 300
-  },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 4
   },
   "season": {
     "spring": 7,
@@ -99,5 +92,23 @@
     "modelVersion": "season-model-v1",
     "confidence": "medium",
     "basis": "temperate latitude band; calibrated beach peaks"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=10, kind='nature', walkingMin=290"
   }
 }

@@ -16,8 +16,6 @@
   },
   "totalTripHours": 8,
   "walkingMin": 55,
-  "walkingSunMin": 40,
-  "walkingShadeMin": 15,
   "indoorPercent": 25,
   "ratings": {
     "overall": 8.6,
@@ -151,5 +149,11 @@
     "license": "Unsplash License",
     "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
     "sourceUrl": "https://unsplash.com"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=25, kind='', walkingMin=55"
   }
 }

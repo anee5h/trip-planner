@@ -89,11 +89,6 @@
     "uniqueness": 6.1
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 6,
-    "weekend": 9,
-    "holiday": 7
-  },
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; admission ticket purchased at the gate.",
   "parking": "No general on-site parking. Limited spaces across the main gate for wheelchair/disabled vehicles and tour buses only; other vehicles use the nearest public parking (e.g. Shiodome Parking).",
@@ -196,5 +191,17 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='garden', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

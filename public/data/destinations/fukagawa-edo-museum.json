@@ -88,11 +88,6 @@
     "uniqueness": 7
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 7
-  },
   "season": {
     "spring": 7,
     "summer": 6,
@@ -178,5 +173,17 @@
     "modelVersion": "season-model-v1",
     "confidence": "low",
     "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='museum', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

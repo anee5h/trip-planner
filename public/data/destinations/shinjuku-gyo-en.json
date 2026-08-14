@@ -94,11 +94,6 @@
     "accessibility": 6.8
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 6
-  },
   "season": {
     "spring": 9.5,
     "summer": 7,
@@ -215,5 +210,17 @@
     "modelVersion": "budget-model-v1",
     "confidence": "unknown",
     "basis": "verified ticket ¥500 preserved; peer cell 'park|half|poi' has 0 samples (< 5); components left as accepted debt"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='park', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

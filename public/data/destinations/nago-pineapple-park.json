@@ -122,11 +122,6 @@
     "Free pineapple tasting at the end"
   ],
   "collections": [],
-  "crowd": {
-    "weekday": 8,
-    "weekend": 10,
-    "holiday": 9
-  },
   "season": {
     "spring": 7,
     "summer": 6,
@@ -140,8 +135,6 @@
   "notes": "A whimsical pineapple-themed park — great for families and pineapple lovers.",
   "totalTripHours": 4,
   "walkingMin": 45,
-  "walkingSunMin": 20,
-  "walkingShadeMin": 15,
   "indoorPercent": 40,
   "reservation": "None required",
   "parking": "Free parking available",
@@ -165,5 +158,17 @@
     "modelVersion": "transport-access-v1",
     "confidence": "low",
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'amusement_park'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

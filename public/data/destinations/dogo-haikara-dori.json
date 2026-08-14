@@ -69,11 +69,6 @@
     "uniqueness": 7.4
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 7
-  },
   "season": {
     "spring": 8.2,
     "summer": 7.8,
@@ -166,5 +161,17 @@
     "modelVersion": "transport-access-v1",
     "confidence": "low",
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=60, kind='street', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

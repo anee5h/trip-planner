@@ -114,11 +114,6 @@
     "Naminoue Beach below the shrine"
   ],
   "collections": [],
-  "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 6
-  },
   "season": {
     "spring": 9,
     "summer": 8,
@@ -132,8 +127,6 @@
   "notes": "The only major Shinto shrine in Okinawa, perched on a clifftop overlooking Naminoue Beach.",
   "totalTripHours": 2,
   "walkingMin": 25,
-  "walkingSunMin": 10,
-  "walkingShadeMin": 10,
   "indoorPercent": 10,
   "reservation": "None required",
   "parking": "Free parking available",
@@ -142,5 +135,11 @@
   },
   "notesJa": "波の上ビーチを見下ろす崖の上に立つ、沖縄随一の神社。",
   "transportZoneId": "okinawa-main",
-  "description": "The primary Shinto shrine of Okinawa perched dramatic on a coral cliff overlooking Naha's city beach and emerald ocean waters."
+  "description": "The primary Shinto shrine of Okinawa perched dramatic on a coral cliff overlooking Naha's city beach and emerald ocean waters.",
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

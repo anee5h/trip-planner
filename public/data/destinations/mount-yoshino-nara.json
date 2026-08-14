@@ -67,11 +67,6 @@
   "description": "Mount Yoshino is Japan's most famous cherry blossom mountain, carpeted by over 30,000 Yamazakura trees blooming sequentially across four mountain elevations.",
   "notes": "Part of the Sacred Sites and Pilgrimage Routes in the Kii Mountain Range UNESCO site.",
   "budgetRecommended": 7500,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 6
-  },
   "season": {
     "spring": 10,
     "summer": 6,
@@ -175,5 +170,17 @@
       "highlights": ["一目千本の桜景観", "金峯山寺蔵王堂", "修験道の聖地巡礼"]
     }
   },
-  "municipalityId": "Nara:yoshino"
+  "municipalityId": "Nara:yoshino",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='', walkingMin=150"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

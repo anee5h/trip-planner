@@ -21,8 +21,6 @@
   },
   "totalTripHours": 7,
   "walkingMin": 60,
-  "walkingSunMin": 35,
-  "walkingShadeMin": 25,
   "indoorPercent": 30,
   "ratings": {
     "overall": 8.6,
@@ -164,5 +162,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Tokyo:hachioji"
+  "municipalityId": "Tokyo:hachioji",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=30, kind='city', walkingMin=60"
+  }
 }

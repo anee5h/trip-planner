@@ -75,11 +75,6 @@
     "uniqueness": 8.4
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 8,
-    "weekend": 10,
-    "holiday": 9
-  },
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Commercial district paid parking garages available nearby.",
@@ -174,5 +169,17 @@
     "modelVersion": "budget-model-v1",
     "confidence": "unknown",
     "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='district', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

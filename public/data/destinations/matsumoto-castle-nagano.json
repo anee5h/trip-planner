@@ -29,11 +29,6 @@
     "value": 9.5,
     "uniqueness": 9.8
   },
-  "crowd": {
-    "weekday": 7,
-    "weekend": 9,
-    "holiday": 8
-  },
   "season": {
     "spring": 9.8,
     "summer": 8.5,
@@ -91,5 +86,23 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Lightning toothed whale (稲妻ノ歯鯨)\n\n This photo was taken with Canon EOS 500D",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsumoto_Castle_Keep_Tower.jpg"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'castle' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=40, kind='castle', walkingMin=120"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

@@ -53,15 +53,13 @@
     "min": 2.5,
     "max": 5
   },
-  "walkingMin": 3500,
-  "walkingSunMin": 2500,
-  "walkingShadeMin": 1000,
-  "walkingIntensity": "low",
+  "walkingMin": 180,
+  "walkingIntensity": "high",
   "indoorPercent": 30,
   "comfort": {
     "heatTolerance": 5,
     "rainFriendly": 5,
-    "walkingIntensity": 5
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 8.4,
@@ -76,11 +74,6 @@
     "uniqueness": 8.8
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 7
-  },
   "weatherDependence": "moderate",
   "reservation": "None",
   "parking": "Paid lots near Kintai Bridge / ropeway base",
@@ -153,7 +146,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "comfort-model-v1; derived from indoorPercent=30, kind='castle', walkingMin=unknown",
+          "title": "comfort-model-v1; derived from indoorPercent=30, kind='castle', walkingMin=180",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -162,6 +155,14 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "crowd-model-v1; derived from kind='castle', importance=standard, collections=1",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 3500 replaced by walk-share estimate (FIX_UNIT): 60% of 5h visit",
           "accessedAt": "2026-08-14"
         }
       ]
@@ -181,5 +182,30 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'castle' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=30, kind='castle', walkingMin=180"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 3500 replaced by walk-share estimate (FIX_UNIT): 60% of 5h visit"
   }
 }

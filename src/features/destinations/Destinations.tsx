@@ -471,13 +471,15 @@ export default function Destinations() {
     }
 
     if (indoorMin > 0) {
-      result = result.filter((dest) => dest.indoorPercent >= indoorMin);
+      result = result.filter((dest) => (dest.indoorPercent ?? 0) >= indoorMin);
     }
 
     if (weather !== "any") {
       result = result.filter((dest) => {
         if (weather === "rainy") {
-          return dest.indoorPercent >= 50 || (dest.ratings?.rain ?? 0) >= 7;
+          return (
+            (dest.indoorPercent ?? 0) >= 50 || (dest.ratings?.rain ?? 0) >= 7
+          );
         }
         return (
           (dest.ratings?.[weather === "hot" ? "summer" : "winter"] ?? 0) >= 7

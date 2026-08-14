@@ -47,6 +47,11 @@ interface PeerCell {
   transport: number[];
   food: number[];
   cafe: number[];
+  /** Per-record discretionary totals (transport+food+cafe), used for the
+   *  range spread. The pooled component arrays are for component medians
+   *  only — the pooled CONCATENATION is never used as a total distribution
+   *  (it mixes component scales and has no meaning for the total). */
+  totals: number[];
 }
 
 export const MIN_CELL_SAMPLES = 5;
@@ -60,19 +65,44 @@ function buildPeerCells(
 ): Map<string, PeerCell> {
   const trusted = new Set(truth.trusted.budget ?? []);
   const cells = new Map<string, PeerCell>();
+  const add = (key: string, d: Destination) => {
+    const cell = cells.get(key) ?? {
+      n: 0,
+      transport: [],
+      food: [],
+      cafe: [],
+      totals: [],
+    };
+    cell.n += 1;
+    cell.transport.push(d.budgetBreakdown!.transport);
+    cell.food.push(d.budgetBreakdown!.food);
+    cell.cafe.push(d.budgetBreakdown!.cafe);
+    cell.totals.push(
+      d.budgetBreakdown!.transport +
+        d.budgetBreakdown!.food +
+        d.budgetBreakdown!.cafe,
+    );
+    cells.set(key, cell);
+  };
   for (const d of destinations) {
     if (!trusted.has(d.id) || !d.budgetBreakdown) continue;
-    const key = [
+    const base = [
       kindGroup(d),
       durationBucket(d.recommendedVisitHours?.max),
       d.role ?? "poi",
     ].join("|");
-    const cell = cells.get(key) ?? { n: 0, transport: [], food: [], cafe: [] };
-    cell.n += 1;
-    cell.transport.push(d.budgetBreakdown.transport);
-    cell.food.push(d.budgetBreakdown.food);
-    cell.cafe.push(d.budgetBreakdown.cafe);
-    cells.set(key, cell);
+    // Base cell (kind+duration+role) AND the importance-split cell
+    // (kind+duration+role+importance). The model prefers the split cell and
+    // falls back to the base cell when it is too small; both must exist or
+    // the split lookup is dead code.
+    const importanceGroup =
+      d.importance === "major"
+        ? "major"
+        : d.importance === "notable"
+          ? "notable"
+          : "standard";
+    add(base, d);
+    add(`${base}|${importanceGroup}`, d);
   }
   return cells;
 }
@@ -168,12 +198,22 @@ export function budgetModel(
   if (!cell || cell.n < MIN_CELL_SAMPLES) {
     const merged = new Map<string, PeerCell>();
     for (const [k, c] of cells) {
+      // Merge only the base (3-part) cells: importance-split cells would
+      // double-count their members in the merged bucket.
+      if (k.split("|").length !== 3) continue;
       const base = k.split("|").slice(0, 1).join("|") + "|" + k.split("|")[2];
-      const m = merged.get(base) ?? { n: 0, transport: [], food: [], cafe: [] };
+      const m = merged.get(base) ?? {
+        n: 0,
+        transport: [],
+        food: [],
+        cafe: [],
+        totals: [],
+      };
       m.n += c.n;
       m.transport.push(...c.transport);
       m.food.push(...c.food);
       m.cafe.push(...c.cafe);
+      m.totals.push(...c.totals);
       merged.set(base, m);
     }
     cell2 = merged.get(fallbackKey);
@@ -224,25 +264,16 @@ export function budgetModel(
   // recommended = exact component sum (all components are model-generated
   // for this record; no unrelated field is altered to preserve a total).
   const budgetRecommended = transport + tickets + food + cafe;
-  // Range spread from peer base quantiles, rounded to ¥500; min clamped to
-  // >= tickets. min/max are symmetric around recommended, so the documented
-  // midpoint model round((min+max)/2) holds exactly.
-  const spread = Math.max(
-    roundTo(
-      quantile(
-        effective.transport.concat(effective.food, effective.cafe),
-        0.25,
-      ),
-      500,
-    ),
-    roundTo(
-      quantile(
-        effective.transport.concat(effective.food, effective.cafe),
-        0.75,
-      ),
-      500,
-    ),
-  );
+  // Range spread from PER-RECORD discretionary totals in the effective cell
+  // (half the IQR, rounded to ¥500, floor ¥500): each peer record's
+  // transport+food+cafe total is one observation, so the band describes the
+  // spread of plausible per-person totals. The legacy code quantiled the
+  // POOLED component array (transport ∥ food ∥ cafe), mixing component
+  // scales into a meaningless distribution. min/max stay symmetric around
+  // recommended (documented midpoint model round((min+max)/2) holds).
+  const q25 = quantile(effective.totals, 0.25);
+  const q75 = quantile(effective.totals, 0.75);
+  const spread = Math.max(roundTo((q75 - q25) / 2, 500), 500);
   let budgetMin = budgetRecommended - spread;
   if (budgetMin < tickets) budgetMin = tickets;
   const budgetMax = budgetRecommended + spread;

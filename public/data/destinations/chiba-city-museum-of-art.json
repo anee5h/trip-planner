@@ -89,11 +89,6 @@
     "accessibility": 6.9
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 7
-  },
   "season": {
     "spring": 7.2,
     "summer": 7.5,
@@ -222,5 +217,17 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:30 - 17:00 (Last admission 16:30)",
   "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
-  "municipalityId": "Chiba:chiba"
+  "municipalityId": "Chiba:chiba",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'museum'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

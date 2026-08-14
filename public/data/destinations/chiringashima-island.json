@@ -78,10 +78,8 @@
     "min": 3,
     "max": 6
   },
-  "walkingMin": 4000,
-  "walkingIntensity": "medium",
-  "walkingSunMin": 3000,
-  "walkingShadeMin": 500,
+  "walkingMin": 290,
+  "walkingIntensity": "high",
   "indoorPercent": 5,
   "comfort": {
     "heatTolerance": 6,
@@ -101,11 +99,6 @@
     "uniqueness": 9.5
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 4
-  },
   "season": {
     "spring": 9,
     "summer": 9,
@@ -170,9 +163,36 @@
           "title": "crowd-model-v1; derived from kind='natural', importance=standard, collections=0",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 80% of 6h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     }
   },
   "officialWebsite": "https://www.ibusuki.or.jp/en/spot/chiringashima/",
-  "municipalityId": "Kagoshima:ibusuki"
+  "municipalityId": "Kagoshima:ibusuki",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'natural'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 80% of 6h visit"
+  }
 }

@@ -49,14 +49,7 @@
   },
   "totalTripHours": 5,
   "walkingMin": 180,
-  "walkingSunMin": 2000,
-  "walkingShadeMin": 2000,
   "indoorPercent": 10,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 5
-  },
   "season": {
     "spring": 8,
     "summer": 9,
@@ -143,5 +136,17 @@
     "license": "Public domain",
     "attribution": "Soica2001 (talk)",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Towada_from_Ohanabe_2008.jpg"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=10, kind='', walkingMin=180"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

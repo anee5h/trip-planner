@@ -114,11 +114,6 @@
     "Views across to Ie Island"
   ],
   "collections": [],
-  "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 4
-  },
   "season": {
     "spring": 9,
     "summer": 8,
@@ -132,8 +127,6 @@
   "notes": "A peaceful tree-lined lane near Churaumi — walk or rent a bicycle for the full experience.",
   "totalTripHours": 2,
   "walkingMin": 25,
-  "walkingSunMin": 10,
-  "walkingShadeMin": 15,
   "indoorPercent": 5,
   "reservation": "None required",
   "parking": "Nearby paid parking",
@@ -148,5 +141,11 @@
     "modelVersion": "transport-access-v1",
     "confidence": "low",
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

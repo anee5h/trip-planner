@@ -78,11 +78,6 @@
     "accessibility": 8.4
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 6
-  },
   "season": {
     "spring": 8.1,
     "summer": 9.4,
@@ -223,5 +218,17 @@
     "modelVersion": "budget-model-v1",
     "confidence": "unknown",
     "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='tower', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

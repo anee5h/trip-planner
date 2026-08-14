@@ -16,9 +16,9 @@
     "Shonan Surf Culture"
   ],
   "totalTripHours": 6,
-  "budgetMin": 4600,
-  "budgetRecommended": 7600,
-  "budgetMax": 10600,
+  "budgetMin": 7100,
+  "budgetRecommended": 8100,
+  "budgetMax": 9100,
   "walkingMin": 40,
   "indoorPercent": 50,
   "ratings": {
@@ -32,11 +32,6 @@
     "relaxation": 9.2,
     "value": 9.4,
     "uniqueness": 9.4
-  },
-  "crowd": {
-    "weekday": 7,
-    "weekend": 9,
-    "holiday": 8
   },
   "weatherDependence": "low",
   "tags": ["Chigasaki City", "Kanagawa Travel", "Regional Hub"],
@@ -71,13 +66,13 @@
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 0,
-    "food": 3000,
-    "cafe": 1600
+    "food": 3300,
+    "cafe": 1800
   },
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 6,
+    "min": 5,
     "max": 12
   },
   "businessHours": "Open access",
@@ -101,7 +96,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "budget-model-v1; peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)",
+          "title": "budget-model-v1; peer cell 'city|full|hub' n=5; tickets source-verified (hub class convention)",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -118,6 +113,14 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "crowd-model-v1; derived from kind='city', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance standard, 0 children, metro adj",
           "accessedAt": "2026-08-14"
         }
       ]
@@ -176,12 +179,30 @@
     "method": "unknown",
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "basis": "hub records span multiple microclimates; single vector would be fabricated"
   },
   "budgetMetadata": {
     "method": "model",
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance standard, 0 children, metro adj"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=50, kind='city', walkingMin=40"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

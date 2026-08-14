@@ -25,11 +25,6 @@
     "value": 10,
     "uniqueness": 9.4
   },
-  "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 6
-  },
   "season": {
     "spring": 7,
     "summer": 6,
@@ -169,5 +164,17 @@
     "modelVersion": "season-model-v1",
     "confidence": "low",
     "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=95, kind='', walkingMin=30"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

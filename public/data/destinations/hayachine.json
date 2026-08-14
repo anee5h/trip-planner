@@ -138,5 +138,11 @@
     "modelVersion": "budget-model-v1",
     "confidence": "unknown",
     "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature' + scale uplift"
   }
 }

@@ -83,25 +83,31 @@ export function comfortModel(
       modelVersion: "comfort-model-v1",
     };
   }
-  const indoorPercent = dest.indoorPercent ?? 0;
+  const indoorPercent = dest.indoorPercent;
   const kind = dest.kind ?? "";
-  if (dest.indoorPercent === undefined && !kind) {
+  // indoorPercent is the ONLY strong input for heat/rain bands. Without it
+  // the model refuses to manufacture bands from kind alone (the legacy
+  // default `indoorPercent ?? 0` fabricated a heatTolerance/rainFriendly
+  // claim for every record).
+  if (indoorPercent === undefined) {
     return {
       action: "unknown",
-      reason: "no indoorPercent/kind inputs; comfort hidden (UNKNOWN)",
+      reason: "no indoorPercent input; comfort neutralized (UNKNOWN_NOT_FREE)",
       confidence: "unknown",
       modelVersion: "comfort-model-v1",
     };
   }
   const walkingIntensity =
-    walkingMinutes !== undefined ? walkingIntensityScore(walkingMinutes) : 5;
+    walkingMinutes !== undefined
+      ? walkingIntensityScore(walkingMinutes)
+      : undefined;
   return {
     action: "set",
     reason: `derived from indoorPercent=${indoorPercent}, kind='${kind}', walkingMin=${walkingMinutes ?? "unknown"}`,
     comfort: {
       heatTolerance: heatToleranceFromIndoor(indoorPercent, kind),
       rainFriendly: rainFriendlyFromIndoor(indoorPercent, kind),
-      walkingIntensity,
+      ...(walkingIntensity !== undefined ? { walkingIntensity } : {}),
     },
     confidence: "low",
     modelVersion: "comfort-model-v1",
@@ -165,22 +171,18 @@ export function crowdModel(
       modelVersion: "crowd-model-v1",
     };
   }
-  const kind = dest.kind ?? "";
-  const isHub = ["city", "ward", "town", "village"].includes(kind);
-  let weekday = crowdBaseWeekday(kind, isHub);
-  if (dest.importance === "major") weekday += 1;
-  if (dest.collections?.length) weekday += 1;
-  if (dest.reservation && /reservation|booking|advance/i.test(dest.reservation))
-    weekday += 1;
-  const outdoorBonus = OUTDOOR_KINDS.has(kind) ? 1 : 0;
-  const weekend = Math.min(10, weekday + 2 + outdoorBonus);
-  let holiday = Math.min(10, weekday + 1);
-  if (isHub) holiday = Math.max(weekday, weekend - 1); // metro hubs dip on holidays
+  // KAI-89 review: crowd has ZERO runtime/UI consumers, and a vector derived
+  // from kind alone is manufactured evidence. Template crowd vectors on
+  // eligible records are neutralized to the explicit unknown state instead
+  // of being replaced with new fabricated bands. (The legacy holiday rule
+  // `weekday + 1` also inverted the real relationship — holidays are as
+  // busy as weekends; with the model neutralized no corrected claim is
+  // needed.)
   return {
-    action: "set",
-    reason: `derived from kind='${kind}', importance=${dest.importance ?? "standard"}, collections=${dest.collections?.length ?? 0}`,
-    crowd: { weekday: Math.min(10, weekday), weekend, holiday },
-    confidence: "low",
+    action: "unknown",
+    reason:
+      "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)",
+    confidence: "unknown",
     modelVersion: "crowd-model-v1",
   };
 }

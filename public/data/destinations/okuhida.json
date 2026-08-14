@@ -29,8 +29,6 @@
   "budgetMax": 23000,
   "totalTripHours": 8,
   "walkingMin": 150,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
   "comfort": {
     "heatTolerance": 4,
     "rainFriendly": 4,
@@ -40,11 +38,6 @@
     "car": 260,
     "bus": 240,
     "train": 210
-  },
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 5
   },
   "highlights": [
     "Explore top-rated hot spring locations",
@@ -88,5 +81,17 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'onsen'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

@@ -94,11 +94,6 @@
     "uniqueness": 6.6
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 7
-  },
   "season": {
     "spring": 7,
     "summer": 6,
@@ -190,5 +185,17 @@
     "modelVersion": "budget-model-v1",
     "confidence": "unknown",
     "basis": "verified ticket ¥400 preserved; peer cell 'museum|half|poi' has 1 samples (< 5); components left as accepted debt"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='museum', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

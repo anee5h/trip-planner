@@ -80,11 +80,6 @@
     "uniqueness": 7.3
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 7
-  },
   "weatherDependence": "moderate",
   "reservation": "No reservation required for general temple ground visits.",
   "parking": "Temple visitor parking available on site.",
@@ -175,5 +170,17 @@
     "modelVersion": "budget-model-v1",
     "confidence": "unknown",
     "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='temple', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

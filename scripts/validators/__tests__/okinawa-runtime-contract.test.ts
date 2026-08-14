@@ -75,9 +75,18 @@ describe("Okinawa destination runtime contract", () => {
       }
     });
 
-    it(`${r.id}: has crowd object`, () => {
-      expect(r.crowd).toBeDefined();
-      expect(typeof r.crowd).toBe("object");
+    // KAI-89 review: crowd is optional — zero runtime consumers, and
+    // kind-derived bands would be manufactured evidence. Absence is allowed
+    // ONLY with the explicit neutral marker (crowdMetadata.method
+    // 'unknown'); anything else must be a valid object.
+    it(`${r.id}: has crowd object or explicit neutral marker`, () => {
+      const neutral = r.crowdMetadata?.method === "unknown";
+      if (neutral) {
+        expect(r.crowd).toBeUndefined();
+      } else {
+        expect(r.crowd).toBeDefined();
+        expect(typeof r.crowd).toBe("object");
+      }
     });
 
     // KAI-89 model pass: season/bestMonths are optional. Absence is

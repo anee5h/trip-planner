@@ -10,8 +10,6 @@
   "budgetRecommended": 15600,
   "budgetMax": 19600,
   "walkingMin": 30,
-  "walkingSunMin": 0,
-  "walkingShadeMin": 12,
   "indoorPercent": 100,
   "ratings": {
     "overall": 9.2,
@@ -24,11 +22,6 @@
     "relaxation": 8.5,
     "value": 8.5,
     "uniqueness": 10
-  },
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 5
   },
   "season": {
     "spring": 7,
@@ -168,5 +161,11 @@
     "modelVersion": "transport-access-v1",
     "confidence": "low",
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

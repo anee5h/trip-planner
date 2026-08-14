@@ -299,22 +299,31 @@ export interface Destination {
     transferMinutes?: number;
     ferryMinutes?: number;
   };
-  walkingMin: number;
+  walkingMin?: number;
   walkingIntensity?: "low" | "medium" | "high";
-  walkingSunMin: number;
-  walkingShadeMin: number;
-  indoorPercent: number;
+  /** Sun/shade splits were batch-template artefacts and are removed as
+   *  unsourced (KAI-89): absent = explicit unknown, never a default label. */
+  walkingSunMin?: number;
+  walkingShadeMin?: number;
+  indoorPercent?: number;
   coordinates?: { lat: number; lng: number };
   comfort?: {
     heatTolerance: number;
     rainFriendly: number;
-    walkingIntensity: number;
+    /** Present only when a walking estimate exists (KAI-89: never
+     *  manufactured from a default when walkingMin is unknown). */
+    walkingIntensity?: number;
   };
   ratings: Ratings;
   ratingsSchemaVersion?: 2;
   matchScore?: number;
   matchReasons?: string[];
-  crowd: {
+  /**
+   * Crowd bands. OPTIONAL since KAI-89: zero runtime consumers exist, and a
+   * kind-derived band would be manufactured evidence. Absent value +
+   * crowdMetadata.method "unknown" is the explicit neutral state.
+   */
+  crowd?: {
     weekday: number;
     weekend: number;
     holiday: number;
@@ -360,6 +369,49 @@ export interface Destination {
    */
   transportMetadata?: {
     method: "source-verified" | "calculated" | "legacy-fallback" | "unknown";
+    modelVersion?: string;
+    confidence?: "high" | "medium" | "low" | "unknown";
+    basis?: string;
+  };
+  /**
+   * KAI-89 walking provenance: method "model" marks model-derived minutes
+   * (pace-converted or walk-share fill; unit is always MINUTES), method
+   * "unknown" marks the explicit neutral state.
+   */
+  walkingMetadata?: {
+    method: "manual" | "model" | "unknown";
+    unit?: "minutes" | "metres";
+    modelVersion?: string;
+    confidence?: "high" | "medium" | "low" | "unknown";
+    basis?: string;
+  };
+  /**
+   * KAI-89 duration provenance: method "model" marks hub exploration
+   * windows / POI kind-band visits derived by the duration model.
+   */
+  durationMetadata?: {
+    method: "manual" | "model" | "unknown";
+    modelVersion?: string;
+    confidence?: "high" | "medium" | "low" | "unknown";
+    basis?: string;
+  };
+  /**
+   * KAI-89 comfort provenance: marks comfort vectors derived by the model
+   * (method "model") vs manually reviewed. UI renders model values as
+   * estimates, never facts.
+   */
+  comfortMetadata?: {
+    method: "manual" | "model" | "unknown";
+    modelVersion?: string;
+    confidence?: "high" | "medium" | "low" | "unknown";
+    basis?: string;
+  };
+  /**
+   * KAI-89 crowd provenance: marks crowd band vectors derived by the model.
+   * No runtime consumer scores crowd, so derived bands are presentation-only.
+   */
+  crowdMetadata?: {
+    method: "manual" | "model" | "unknown";
     modelVersion?: string;
     confidence?: "high" | "medium" | "low" | "unknown";
     basis?: string;

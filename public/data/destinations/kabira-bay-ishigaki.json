@@ -122,11 +122,6 @@
     "Glass-bottom boat tours available"
   ],
   "collections": [],
-  "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 4
-  },
   "season": {
     "spring": 9,
     "summer": 9,
@@ -140,8 +135,6 @@
   "notes": "Swimming is not allowed in the bay — take a glass-bottom boat to see the coral and pearls.",
   "totalTripHours": 2,
   "walkingMin": 15,
-  "walkingSunMin": 10,
-  "walkingShadeMin": 2,
   "indoorPercent": 5,
   "reservation": "Glass-bottom boat tickets at the pier",
   "parking": "Free parking available",
@@ -155,5 +148,17 @@
     "modelVersion": "transport-access-v1",
     "confidence": "low",
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

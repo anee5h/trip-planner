@@ -74,11 +74,6 @@
     "accessibility": 7.7
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 7
-  },
   "season": {
     "spring": 7.6,
     "summer": 9.3,
@@ -208,5 +203,17 @@
     "modelVersion": "budget-model-v1",
     "confidence": "unknown",
     "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=25, kind='temple', walkingMin=110"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

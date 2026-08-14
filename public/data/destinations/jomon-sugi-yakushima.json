@@ -73,8 +73,6 @@
   },
   "walkingMin": 30000,
   "walkingIntensity": "high",
-  "walkingSunMin": 15000,
-  "walkingShadeMin": 15000,
   "indoorPercent": 0,
   "comfort": {
     "heatTolerance": 5,
@@ -94,11 +92,6 @@
     "uniqueness": 9.8
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 5
-  },
   "weatherDependence": "high",
   "reservation": "Guided tours recommended; trail may close in heavy rain",
   "parking": "Trailhead parking at Arakawa Dam",
@@ -179,5 +172,17 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature' + scale uplift"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

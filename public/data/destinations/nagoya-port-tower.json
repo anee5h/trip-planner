@@ -11,8 +11,6 @@
   "budgetRecommended": 5500,
   "budgetMax": 8500,
   "walkingMin": 70,
-  "walkingSunMin": 1200,
-  "walkingShadeMin": 2300,
   "indoorPercent": 85,
   "ratings": {
     "overall": 8.5,
@@ -25,11 +23,6 @@
     "relaxation": 8.6,
     "value": 9,
     "uniqueness": 8.6
-  },
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 7
   },
   "season": {
     "spring": 8,
@@ -104,5 +97,17 @@
   },
   "officialWebsite": "https://nagoya-port-building.jp/",
   "businessHours": "Closed for renewal 2026-08-01 to 2026-11-30",
-  "municipalityId": "Aichi:nagoya"
+  "municipalityId": "Aichi:nagoya",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=85, kind='', walkingMin=70"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

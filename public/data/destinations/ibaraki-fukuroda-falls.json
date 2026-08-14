@@ -27,8 +27,6 @@
   },
   "totalTripHours": 9,
   "walkingMin": 60,
-  "walkingSunMin": 30,
-  "walkingShadeMin": 30,
   "indoorPercent": 20,
   "coordinates": {
     "lat": 36.7644,
@@ -172,5 +170,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Ibaraki:daigo"
+  "municipalityId": "Ibaraki:daigo",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='', walkingMin=60"
+  }
 }

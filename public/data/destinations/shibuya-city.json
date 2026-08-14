@@ -34,11 +34,6 @@
     "value": 9.3,
     "uniqueness": 9.9
   },
-  "crowd": {
-    "weekday": 8,
-    "weekend": 10,
-    "holiday": 9
-  },
   "weatherDependence": "low",
   "tags": ["Shibuya Ward", "Scramble Crossing", "Harajuku", "Meiji Jingu"],
   "coordinates": {
@@ -169,6 +164,18 @@
     "method": "unknown",
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "basis": "hub records span multiple microclimates; single vector would be fabricated"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=65, kind='ward', walkingMin=45"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

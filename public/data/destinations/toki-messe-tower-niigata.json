@@ -11,8 +11,6 @@
   "budgetRecommended": 5000,
   "budgetMax": 8000,
   "walkingMin": 70,
-  "walkingSunMin": 1000,
-  "walkingShadeMin": 2000,
   "indoorPercent": 90,
   "ratings": {
     "overall": 8.7,

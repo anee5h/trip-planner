@@ -19,8 +19,8 @@
   "kind": "city",
   "importance": "notable",
   "categories": ["City", "Culture", "Food"],
-  "budgetMin": 4600,
-  "budgetMax": 10600,
+  "budgetMin": 6600,
+  "budgetMax": 8600,
   "budgetRecommended": 7600,
   "budgetBreakdown": {
     "transport": 3000,
@@ -36,8 +36,6 @@
   },
   "totalTripHours": 8,
   "walkingMin": 70,
-  "walkingSunMin": 35,
-  "walkingShadeMin": 35,
   "walkingIntensity": "medium",
   "indoorPercent": 35,
   "comfort": {
@@ -57,19 +55,6 @@
     "value": 8,
     "uniqueness": 7.6
   },
-  "crowd": {
-    "weekday": 7,
-    "weekend": 9,
-    "holiday": 8
-  },
-  "season": {
-    "spring": 7,
-    "summer": 10,
-    "autumn": 6,
-    "winter": 3
-  },
-  "bestMonths": [7, 8],
-  "bestSeason": "Summer",
   "weatherDependence": "moderate",
   "reservation": "Not usually required; reserve popular accommodation in advance.",
   "parking": "Available around major attractions; confirm local restrictions.",
@@ -155,10 +140,10 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kabushima,_-8_May_2010_a.jpg"
   },
   "seasonMetadata": {
-    "method": "model",
+    "method": "unknown",
     "modelVersion": "season-model-v1",
-    "confidence": "medium",
-    "basis": "temperate latitude band; calibrated beach peaks"
+    "confidence": "unknown",
+    "basis": "hub records span multiple microclimates; single vector would be fabricated"
   },
   "transportMetadata": {
     "method": "legacy-fallback",
@@ -171,5 +156,23 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance notable, 2 children, metro adj"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=35, kind='city', walkingMin=70"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

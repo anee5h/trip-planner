@@ -140,16 +140,16 @@
   "season": {
     "spring": 10,
     "summer": 6,
-    "autumn": 7,
+    "autumn": 5,
     "winter": 4
   },
-  "bestMonths": [4, 5, 10, 11],
-  "bestSeason": "Spring & Autumn",
+  "bestMonths": [4, 5],
+  "bestSeason": "Spring",
   "seasonMetadata": {
     "method": "model",
     "modelVersion": "season-model-v1",
     "confidence": "medium",
-    "basis": "spring-flower category; calibrated 8/9 trusted"
+    "basis": "spring-flower signal; spring-only months 4-5 (autumn never inferred)"
   },
   "walkingMin": 95,
   "budgetMetadata": {

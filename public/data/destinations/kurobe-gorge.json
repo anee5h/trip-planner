@@ -29,22 +29,15 @@
   "budgetMax": 25000,
   "totalTripHours": 8,
   "walkingMin": 385,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
   "comfort": {
     "heatTolerance": 7,
     "rainFriendly": 1,
-    "walkingIntensity": 5
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "car": 280,
     "shinkansen": 160,
     "train": 200
-  },
-  "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 5
   },
   "season": {
     "spring": 4,
@@ -98,5 +91,30 @@
     "max": 8
   },
   "officialWebsite": "https://www.kurobe-unazuki.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=10, kind='nature', walkingMin=385"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 385 replaced by walk-share estimate (FIX_UNIT): 80% of 8h visit"
+  }
 }

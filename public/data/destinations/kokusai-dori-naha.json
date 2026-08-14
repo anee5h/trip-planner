@@ -122,8 +122,6 @@
   "notes": "Naha's main shopping street — great for Okinawan souvenirs and street food.",
   "totalTripHours": 3,
   "walkingMin": 60,
-  "walkingSunMin": 10,
-  "walkingShadeMin": 45,
   "indoorPercent": 30,
   "reservation": "None required",
   "parking": "Nearby paid parking available",
@@ -132,5 +130,11 @@
   },
   "notesJa": "那覇のメインストリート。沖縄土産やストリートフードが楽しめる国際通り。",
   "transportZoneId": "okinawa-main",
-  "description": "Naha's famous 'Miracle Mile' vibrant avenue lined with Okinawan souvenir shops, awamori distilleries, steak houses, and fresh tropical seafood dining upstairs at Makishi Market."
+  "description": "Naha's famous 'Miracle Mile' vibrant avenue lined with Okinawan souvenir shops, awamori distilleries, steak houses, and fresh tropical seafood dining upstairs at Makishi Market.",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'district'"
+  }
 }

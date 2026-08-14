@@ -57,14 +57,11 @@
     "max": 2
   },
   "walkingMin": 500,
-  "walkingSunMin": 300,
-  "walkingShadeMin": 200,
   "walkingIntensity": "low",
   "indoorPercent": 0,
   "comfort": {
     "heatTolerance": 5,
-    "rainFriendly": 2,
-    "walkingIntensity": 5
+    "rainFriendly": 2
   },
   "ratings": {
     "overall": 8,
@@ -176,5 +173,11 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=0, kind='tower', walkingMin=unknown"
   }
 }

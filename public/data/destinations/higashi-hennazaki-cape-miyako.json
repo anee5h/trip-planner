@@ -115,19 +115,12 @@
     "White lighthouse and coastal walking path"
   ],
   "collections": [],
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 5
-  },
   "transportOptions": {
     "bus": 300
   },
   "notes": "A dramatic cape where two seas meet — arrive early for sunrise at the easternmost point.",
   "totalTripHours": 2,
   "walkingMin": 20,
-  "walkingSunMin": 15,
-  "walkingShadeMin": 2,
   "indoorPercent": 5,
   "reservation": "None required",
   "parking": "Free parking available",
@@ -147,5 +140,11 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

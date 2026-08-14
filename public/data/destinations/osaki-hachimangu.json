@@ -74,11 +74,6 @@
     "accessibility": 8.9
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 6
-  },
   "season": {
     "spring": 8.2,
     "summer": 9.3,
@@ -178,5 +173,17 @@
     "confidence": "low"
   },
   "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
-  "municipalityId": "Miyagi:sendai"
+  "municipalityId": "Miyagi:sendai",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=25, kind='shrine', walkingMin=110"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

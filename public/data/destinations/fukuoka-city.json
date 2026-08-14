@@ -12,12 +12,10 @@
   "description": "Kyushu's largest metropolis, famous for Nakasu yatai food stalls, Hakata Tonkotsu ramen, and Ohori Park.",
   "highlights": ["Explore Fukuoka City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
-  "budgetMin": 4600,
+  "budgetMin": 6600,
   "budgetRecommended": 7600,
-  "budgetMax": 10600,
+  "budgetMax": 8600,
   "walkingMin": 360,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2500,
   "indoorPercent": 50,
   "ratings": {
     "overall": 9.5,
@@ -31,11 +29,6 @@
     "value": 9.4,
     "uniqueness": 9.4
   },
-  "crowd": {
-    "weekday": 8,
-    "weekend": 10,
-    "holiday": 9
-  },
   "weatherDependence": "low",
   "tags": ["Fukuoka City", "Fukuoka Travel", "Regional Hub"],
   "coordinates": {
@@ -44,8 +37,7 @@
   },
   "comfort": {
     "heatTolerance": 6,
-    "rainFriendly": 6,
-    "walkingIntensity": 8
+    "rainFriendly": 6
   },
   "transportOptions": {
     "train": 200,
@@ -89,7 +81,7 @@
   },
   "walkingIntensity": "high",
   "recommendedVisitHours": {
-    "min": 8,
+    "min": 9,
     "max": 12
   },
   "ratingsSchemaVersion": 2,
@@ -139,7 +131,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "comfort-model-v1; derived from indoorPercent=50, kind='city', walkingMin=360",
+          "title": "comfort-model-v1; derived from indoorPercent=50, kind='city', walkingMin=unknown",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -163,12 +155,30 @@
     "method": "unknown",
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "basis": "hub records span multiple microclimates; single vector would be fabricated"
   },
   "budgetMetadata": {
     "method": "model",
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance major, 15 children, metro adj"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=50, kind='city', walkingMin=unknown"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

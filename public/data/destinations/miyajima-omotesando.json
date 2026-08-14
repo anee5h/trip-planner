@@ -52,14 +52,11 @@
     "max": 2
   },
   "walkingMin": 900,
-  "walkingSunMin": 450,
-  "walkingShadeMin": 450,
   "walkingIntensity": "low",
   "indoorPercent": 60,
   "comfort": {
     "heatTolerance": 5,
-    "rainFriendly": 6,
-    "walkingIntensity": 5
+    "rainFriendly": 6
   },
   "ratings": {
     "overall": 8,
@@ -74,11 +71,6 @@
     "uniqueness": 7.5
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 7
-  },
   "season": {
     "spring": 8,
     "summer": 6,
@@ -167,5 +159,17 @@
   "relationships": {
     "parentDestinationId": "hatsukaichi-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=60, kind='district', walkingMin=unknown"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

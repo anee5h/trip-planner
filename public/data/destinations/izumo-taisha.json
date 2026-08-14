@@ -47,11 +47,6 @@
   "description": "Izumo Taisha is one of Japan's oldest Shinto shrines, famed for its massive 5.2-ton straw Shimenawa rope hanging at the Kaguraden hall and its deity of marriage and destiny.",
   "notes": "One of Japan's oldest and most important Shinto shrines; the main hall (rebuilt 1744) is a National Treasure. Deity: Okuninushi no Mikoto, god of enmusubi (relationships).",
   "budgetRecommended": 6500,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 5
-  },
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -97,5 +92,17 @@
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
   },
-  "walkingIntensity": "high"
+  "walkingIntensity": "high",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='', walkingMin=150"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

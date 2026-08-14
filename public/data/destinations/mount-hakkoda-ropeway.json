@@ -57,8 +57,6 @@
     "max": 4
   },
   "walkingMin": 190,
-  "walkingSunMin": 2000,
-  "walkingShadeMin": 2000,
   "walkingIntensity": "high",
   "indoorPercent": 20,
   "comfort": {
@@ -86,11 +84,6 @@
     "autumn": 9.2
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 6
-  },
   "season": {
     "spring": 8,
     "summer": 8.2,
@@ -187,5 +180,23 @@
   "relationships": {
     "parentDestinationId": "aomori-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'viewpoint' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='viewpoint', walkingMin=190"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

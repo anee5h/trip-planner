@@ -109,7 +109,9 @@ describe("DestinationCard responsive content", () => {
     const score = host.querySelector('[data-testid="meguruto-score"]');
     expect(score).toBeNull();
     expect(host.querySelector(".lucide-sparkles")).toBeNull();
-    expect(host.textContent).toContain("Low sun");
+    // KAI-89: sun/shade splits are unsourced and removed; the sun badge no
+    // longer renders (no fabricated sun-exposure claim).
+    expect(host.textContent).not.toContain("Low sun");
     expect(host.textContent).toContain("Explore");
 
     const mobileCost = Array.from(host.querySelectorAll("span")).find((node) =>

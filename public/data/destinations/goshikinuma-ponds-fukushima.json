@@ -56,15 +56,8 @@
     "uniqueness": 9.6
   },
   "totalTripHours": 3,
-  "walkingMin": 4000,
-  "walkingSunMin": 1000,
-  "walkingShadeMin": 3000,
+  "walkingMin": 120,
   "indoorPercent": 5,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 5
-  },
   "season": {
     "spring": 8,
     "summer": 9,
@@ -77,9 +70,9 @@
   "comfort": {
     "heatTolerance": 5,
     "rainFriendly": 2,
-    "walkingIntensity": 5
+    "walkingIntensity": 8
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "reservation": "None required",
   "parking": "Bishamon-numa car park (free)",
   "notes": "Free entry. The 3.6 km one-way trail runs from Goshiki-numa visitor centre to Bandai-Kogen bus stop. Trail takes 1.5–2 hours. Rurikuma pond is the most vivid cobalt blue.",
@@ -125,7 +118,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "comfort-model-v1; derived from indoorPercent=5, kind='', walkingMin=unknown",
+          "title": "comfort-model-v1; derived from indoorPercent=5, kind='', walkingMin=120",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -136,6 +129,14 @@
           "title": "crowd-model-v1; derived from kind='', importance=standard, collections=0",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 50% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     }
   },
@@ -144,5 +145,24 @@
     "license": "CC BY 3.0",
     "attribution": "Jordy Meow",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Goshikinuma.jpg"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=5, kind='', walkingMin=120"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 50% of 4h visit"
   }
 }

@@ -289,11 +289,15 @@ export const destinationsValidator: ValidatorModule = {
             }
           }
         }
-        if (!dest.crowd || typeof dest.crowd !== "object") {
+        // KAI-89 review: crowd is optional with the explicit neutral marker
+        // (crowdMetadata.method 'unknown' — zero runtime consumers, and
+        // kind-derived bands would be manufactured evidence).
+        const crowdNeutral = dest.crowdMetadata?.method === "unknown";
+        if (!crowdNeutral && (!dest.crowd || typeof dest.crowd !== "object")) {
           issues.push({
             severity: "error",
             code: "MISSING_CROWD",
-            message: `Published destination '${dest.id}' has missing 'crowd' object.`,
+            message: `Published destination '${dest.id}' has missing 'crowd' object (and no explicit neutral marker).`,
             targetId: dest.id,
           });
         }

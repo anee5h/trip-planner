@@ -20,8 +20,6 @@
   },
   "totalTripHours": 5,
   "walkingMin": 40,
-  "walkingSunMin": 25,
-  "walkingShadeMin": 15,
   "indoorPercent": 40,
   "ratings": {
     "overall": 8.3,
@@ -95,7 +93,7 @@
   "placeType": "hub",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
+    "min": 6,
     "max": 12
   },
   "businessHours": "Open access",
@@ -169,5 +167,17 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Tokyo:chofu"
+  "municipalityId": "Tokyo:chofu",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance standard, 5 children, metro adj"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=40, kind='city', walkingMin=40"
+  }
 }

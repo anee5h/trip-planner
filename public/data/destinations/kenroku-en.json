@@ -167,5 +167,11 @@
     "modelVersion": "budget-model-v1",
     "confidence": "unknown",
     "basis": "verified ticket ¥320 preserved; peer cell 'garden|half|standalone' has 0 samples (< 5); components left as accepted debt"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'garden' + scale uplift"
   }
 }

@@ -69,11 +69,6 @@
     "uniqueness": 8.8
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 5
-  },
   "season": {
     "spring": 9,
     "summer": 7,
@@ -174,5 +169,11 @@
   "relationships": {
     "parentDestinationId": "matsue-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

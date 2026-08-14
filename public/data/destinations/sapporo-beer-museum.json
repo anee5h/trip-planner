@@ -51,8 +51,6 @@
   },
   "walkingMin": 55,
   "walkingIntensity": "medium",
-  "walkingSunMin": 500,
-  "walkingShadeMin": 2500,
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
@@ -74,11 +72,6 @@
     "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 6
-  },
   "season": {
     "spring": 8.6,
     "summer": 6.3,
@@ -184,5 +177,17 @@
     "modelVersion": "transport-access-v1",
     "confidence": "low",
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'museum'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

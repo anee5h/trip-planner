@@ -76,8 +76,6 @@
   },
   "walkingMin": 70,
   "walkingIntensity": "medium",
-  "walkingSunMin": 1000,
-  "walkingShadeMin": 2000,
   "indoorPercent": 70,
   "comfort": {
     "heatTolerance": 8,
@@ -97,11 +95,6 @@
     "uniqueness": 8.2
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 5
-  },
   "season": {
     "spring": 7,
     "summer": 6,
@@ -191,5 +184,17 @@
     "modelVersion": "season-model-v1",
     "confidence": "low",
     "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=70, kind='entertainment', walkingMin=70"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

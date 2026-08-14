@@ -74,11 +74,6 @@
     "uniqueness": 8.5
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 4
-  },
   "season": {
     "spring": 8,
     "summer": 7,
@@ -167,5 +162,11 @@
   "relationships": {
     "parentDestinationId": "hiroshima-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

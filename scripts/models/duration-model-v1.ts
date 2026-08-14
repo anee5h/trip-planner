@@ -54,6 +54,26 @@ const KIND_BANDS: Record<string, { min: number; max: number }> = {
 
 const SCALE_UPLIFT = { min: 1, max: 2 }; // unesco/collection/highlights >= 4
 
+// Explicit metropolitan hubs (review fix): the legacy `region === "Kanto"`
+// test flagged rural Kanto towns (Nikko, Chichibu, Minakami) as metro.
+// Metro = the 23 Tokyo wards (all ward-kind hubs are exactly those) plus
+// the named major cities below; anything else gets no metro adjustment.
+const METRO_CITY_IDS = new Set([
+  "yokohama-city",
+  "osaka-city",
+  "kyoto-city",
+  "nagoya-city",
+  "sapporo-city",
+  "kobe-city",
+  "fukuoka-city",
+  "sendai-city",
+  "hiroshima-city",
+  "naha-city",
+  "kawasaki-city",
+  "saitama-city",
+  "chiba-city",
+]);
+
 /** Hub window model: exploration window, not attraction visit time. */
 function hubWindow(
   dest: Destination,
@@ -62,8 +82,8 @@ function hubWindow(
   const importanceAdj =
     dest.importance === "major" ? 2 : dest.importance === "notable" ? 1 : 0;
   const childrenAdj = childrenCount >= 10 ? 1 : childrenCount >= 3 ? 0.5 : 0;
-  const metroAdj =
-    dest.categories?.includes("Metro") || dest.region === "Kanto" ? 1 : 0;
+  const isMetro = dest.kind === "ward" || METRO_CITY_IDS.has(dest.id);
+  const metroAdj = isMetro ? 1 : 0;
   const center = Math.round(8 + importanceAdj + childrenAdj + metroAdj);
   const min = Math.max(4, center - 3);
   // Cap at 12h (the legacy template maximum): longer hub windows push

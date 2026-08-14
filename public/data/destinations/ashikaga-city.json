@@ -22,8 +22,8 @@
   "kind": "city",
   "importance": "notable",
   "categories": ["City", "Culture", "Food"],
-  "budgetMin": 4600,
-  "budgetMax": 10600,
+  "budgetMin": 6600,
+  "budgetMax": 8600,
   "budgetRecommended": 7600,
   "budgetBreakdown": {
     "transport": 3000,
@@ -38,8 +38,6 @@
   },
   "totalTripHours": 8,
   "walkingMin": 70,
-  "walkingSunMin": 35,
-  "walkingShadeMin": 35,
   "walkingIntensity": "medium",
   "indoorPercent": 35,
   "comfort": {
@@ -59,11 +57,6 @@
     "value": 8,
     "uniqueness": 7.6
   },
-  "crowd": {
-    "weekday": 7,
-    "weekend": 9,
-    "holiday": 8
-  },
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
@@ -77,7 +70,7 @@
   "collections": [],
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
+    "min": 6,
     "max": 12
   },
   "businessHours": "Open access",
@@ -173,12 +166,30 @@
     "method": "unknown",
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "basis": "hub records span multiple microclimates; single vector would be fabricated"
   },
   "budgetMetadata": {
     "method": "model",
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance notable, 1 children, metro adj"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=35, kind='city', walkingMin=70"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

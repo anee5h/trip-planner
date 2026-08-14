@@ -178,5 +178,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "10:00 - 20:00",
   "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
-  "municipalityId": "Kanagawa:yokohama"
+  "municipalityId": "Kanagawa:yokohama",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance major, 14 children, metro adj"
+  }
 }

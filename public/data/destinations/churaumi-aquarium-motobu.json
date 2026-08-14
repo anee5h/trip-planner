@@ -114,11 +114,6 @@
     "Kuroshio Sea tank viewing"
   ],
   "collections": [],
-  "crowd": {
-    "weekday": 8,
-    "weekend": 10,
-    "holiday": 9
-  },
   "season": {
     "spring": 9,
     "summer": 10,
@@ -132,8 +127,6 @@
   "notes": "Home to whale sharks — arrive early to avoid the heaviest crowds at the Kuroshio tank.",
   "totalTripHours": 5,
   "walkingMin": 60,
-  "walkingSunMin": 5,
-  "walkingShadeMin": 50,
   "indoorPercent": 80,
   "reservation": "Online tickets recommended during peak season",
   "parking": "Free parking available",
@@ -151,5 +144,11 @@
     "modelVersion": "season-model-v1",
     "confidence": "medium",
     "basis": "tropical latitude band; calibrated 6/7 trusted summer peaks"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

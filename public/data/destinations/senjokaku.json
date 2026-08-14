@@ -57,8 +57,6 @@
     "max": 2
   },
   "walkingMin": 400,
-  "walkingSunMin": 200,
-  "walkingShadeMin": 200,
   "walkingIntensity": "low",
   "indoorPercent": 60,
   "comfort": {

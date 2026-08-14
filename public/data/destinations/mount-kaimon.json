@@ -79,13 +79,10 @@
   },
   "walkingMin": 10000,
   "walkingIntensity": "high",
-  "walkingSunMin": 6000,
-  "walkingShadeMin": 2000,
   "indoorPercent": 0,
   "comfort": {
     "heatTolerance": 7,
-    "rainFriendly": 1,
-    "walkingIntensity": 5
+    "rainFriendly": 1
   },
   "ratings": {
     "overall": 8.5,
@@ -100,11 +97,6 @@
     "uniqueness": 8.5
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 4
-  },
   "season": {
     "spring": 9,
     "summer": 6,
@@ -187,5 +179,23 @@
     "modelVersion": "transport-access-v1",
     "confidence": "low",
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'natural'"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=0, kind='natural', walkingMin=unknown"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

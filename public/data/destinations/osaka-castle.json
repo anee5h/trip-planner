@@ -52,21 +52,16 @@
   "description": "Osaka Castle is an iconic 16th-century fortress constructed by Toyotomi Hideyoshi, featuring golden roof ornaments, massive stone ramparts, and a lush park surrounded by moats.",
   "notes": "Food capital of Japan (Kuidaore culture).",
   "budgetRecommended": 6500,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 6
-  },
   "season": {
     "spring": 10,
     "summer": 6,
-    "autumn": 7,
+    "autumn": 5,
     "winter": 4
   },
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
-  "bestMonths": [4, 5, 10, 11],
+  "bestMonths": [4, 5],
   "relationships": {
     "featuredDestinationIds": ["abeno-harukas-300-osaka"],
     "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
@@ -81,7 +76,7 @@
     "cafe": 1421
   },
   "highlights": ["Explore Osaka Castle (Osaka-jo)", "Local Culture & Scenery"],
-  "bestSeason": "Spring & Autumn",
+  "bestSeason": "Spring",
   "weatherDependence": "moderate",
   "comfort": {
     "heatTolerance": 5,
@@ -170,6 +165,18 @@
     "method": "model",
     "modelVersion": "season-model-v1",
     "confidence": "medium",
-    "basis": "spring-flower category; calibrated 8/9 trusted"
+    "basis": "spring-flower signal; spring-only months 4-5 (autumn never inferred)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='', walkingMin=150"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

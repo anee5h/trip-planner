@@ -28,8 +28,6 @@
   },
   "totalTripHours": 7,
   "walkingMin": 100,
-  "walkingSunMin": 50,
-  "walkingShadeMin": 50,
   "indoorPercent": 15,
   "coordinates": {
     "lat": 35.2539,
@@ -158,5 +156,11 @@
     "license": "Unsplash License",
     "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
     "sourceUrl": "https://unsplash.com"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature' + scale uplift"
   }
 }

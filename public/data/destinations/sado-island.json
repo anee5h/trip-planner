@@ -30,21 +30,13 @@
   "budgetMax": 20000,
   "totalTripHours": 8,
   "walkingMin": 480,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
   "comfort": {
     "heatTolerance": 5,
-    "rainFriendly": 5,
-    "walkingIntensity": 5
+    "rainFriendly": 5
   },
   "transportOptions": {
     "bus": 210,
     "ferry": 150
-  },
-  "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 5
   },
   "season": {
     "spring": 6,
@@ -112,5 +104,30 @@
   },
   "officialWebsite": "https://www.pref.niigata.lg.jp/site/sado-goldmine/",
   "businessHours": "Open access",
-  "municipalityId": "Niigata:sado"
+  "municipalityId": "Niigata:sado",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'island' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=30, kind='island', walkingMin=unknown"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 480 replaced by walk-share estimate (FIX_UNIT): 80% of 10h visit"
+  }
 }

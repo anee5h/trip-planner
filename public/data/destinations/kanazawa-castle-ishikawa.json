@@ -11,8 +11,6 @@
   "budgetRecommended": 7000,
   "budgetMax": 11000,
   "walkingMin": 90,
-  "walkingSunMin": 1800,
-  "walkingShadeMin": 2700,
   "indoorPercent": 75,
   "ratings": {
     "overall": 9.7,
@@ -25,11 +23,6 @@
     "relaxation": 9.3,
     "value": 9.5,
     "uniqueness": 9.7
-  },
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 7
   },
   "season": {
     "spring": 10,
@@ -102,5 +95,17 @@
     "max": 5
   },
   "officialWebsite": "https://www.pref.ishikawa.jp/kanko/castle/",
-  "businessHours": "09:00 - 17:00 (Last admission 16:30)"
+  "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=75, kind='', walkingMin=90"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

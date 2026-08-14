@@ -235,7 +235,11 @@ export function getEstimatedBudgetRange(
     ferryTemporal,
   );
   const breakdown = getEffectiveBudgetBreakdown(dest);
-  const scale = partySize / 2;
+  // KAI-89 contract: catalogue budget values are PER-PERSON (budgetMin/Max
+  // multiply by partySize in the card; the budget model emits per-person
+  // components). The legacy couple-scale assumption (partySize / 2) made
+  // solo travellers pay half and masked the bug at party size 2.
+  const scale = partySize;
   const rawTransport = getTransportCost(
     dest,
     mode,
@@ -698,8 +702,10 @@ export function getAdjustedBudget(
         breakdown.tickets +
         breakdown.food +
         breakdown.cafe;
-  const otherCostsCouple = recBudget - breakdown.transport;
-  const otherCosts = Math.max(0, (otherCostsCouple / 2) * normalizedPartySize);
+  // KAI-89 contract: catalogue values are per-person; other costs (everything
+  // except the on-site transit allowance) scale directly with the party.
+  const otherCosts =
+    Math.max(0, recBudget - breakdown.transport) * normalizedPartySize;
   return otherCosts + (transportCost ?? 0);
 }
 

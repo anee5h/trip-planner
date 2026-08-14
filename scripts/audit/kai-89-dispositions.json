@@ -184,7 +184,12 @@
       "action": "confidence-gated",
       "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
     },
-    "budget:dafcb0cb88a3": {
+    "budget:3bcb2a3c5cdd": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "budget:c178216b2bef": {
       "category": "C",
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
@@ -244,15 +249,15 @@
       "action": "manual-review",
       "reason": "63/69 members unknown kind; standalone/destination nature areas."
     },
-    "visitDuration:3339bcb2ae09": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
     "visitDuration:ce28d84e211b": {
       "category": "A",
       "action": "legitimate",
       "reason": "Nature-park convention: 63/64 members kind=nature."
+    },
+    "visitDuration:3339bcb2ae09": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
     "visitDuration:807f7cbc4b49": {
       "category": "C",
@@ -269,15 +274,15 @@
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
-    "visitDuration:a8d277c24598": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
     "visitDuration:4b9f3c3ff6be": {
       "category": "A",
       "action": "legitimate",
       "reason": "Quick-stop convention: bridges/shrines/monuments/viewpoints."
+    },
+    "visitDuration:a8d277c24598": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
     "visitDuration:159ea4ea79ef": {
       "category": "C",
@@ -289,12 +294,12 @@
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
-    "visitDuration:d59c365ae4c0": {
+    "visitDuration:4cd5ba30889e": {
       "category": "C",
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
-    "visitDuration:4cd5ba30889e": {
+    "visitDuration:d59c365ae4c0": {
       "category": "C",
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
@@ -303,6 +308,11 @@
       "category": "C",
       "action": "manual-review",
       "reason": "Mountain/lake/onsen full-day; plausible for hikes."
+    },
+    "visitDuration:480983978476": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
     "visitDuration:b2a5eb034cbe": {
       "category": "C",
@@ -313,11 +323,6 @@
       "category": "E",
       "action": "manual-review",
       "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-    },
-    "visitDuration:480983978476": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
     "visitDuration:768f833d8371": {
       "category": "C",
@@ -344,10 +349,20 @@
       "action": "manual-review",
       "reason": "pipeline.cjs 60/40 derivation: sun=0.6*walkingMin, shade=0.4*walkingMin. 1h total is a plausible attraction convention but the split is formula-produced (135 members)."
     },
-    "walking:c628fc8ba4b2": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    "walking:78ee2462f5ff": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "v1.6.0 hub template in METRES (4000m) while contract/validator expects MINUTES (walkingMin <= visit.max*60; commit 8d47f316 canonicalized minutes). All 81 members no metadata. sun(1500)<shade(2500); metre values violate WALKING_MIN_IMPLAUSIBLE (430 baselined)."
+    },
+    "walking:3d368f449db1": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
+    },
+    "walking:b02b173faa86": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
     },
     "walking:a5c2919dfbb8": {
       "category": "E",
@@ -359,82 +374,17 @@
       "action": "manual-review",
       "reason": "60/40 pipeline split on 40-min base for wards/cities; minute units."
     },
+    "walking:52b14c9c17b9": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
     "walking:9fee176d5529": {
       "category": "E",
       "action": "manual-review",
       "reason": "unclassified by KAI-89 audit agents; requires editorial review"
     },
-    "walking:3d368f449db1": {
-      "category": "B",
-      "action": "manual-review",
-      "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
-    },
-    "walking:52b14c9c17b9": {
-      "category": "B",
-      "action": "manual-review",
-      "reason": "pipeline.cjs missing-walkingMin default 8000 + 60/40 split; metres; violates visit bound for most members."
-    },
     "walking:8184feae45ad": {
-      "category": "C",
-      "action": "manual-review",
-      "reason": "58/42 split (not exact 60/40); 2h total plausible for museums/castles."
-    },
-    "walking:154a4586dc2f": {
-      "category": "E",
-      "action": "manual-review",
-      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-    },
-    "walking:e0c100594591": {
-      "category": "C",
-      "action": "manual-review",
-      "reason": "add-reviewed-city-hubs.ts 70/35/35 minutes, 50/50 split; 22 regional cities."
-    },
-    "walking:47f1236f5181": {
-      "category": "E",
-      "action": "manual-review",
-      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-    },
-    "walking:b02b173faa86": {
-      "category": "E",
-      "action": "manual-review",
-      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-    },
-    "walking:3c247d7c6e27": {
-      "category": "B",
-      "action": "manual-review",
-      "reason": "60/40 split, minutes."
-    },
-    "walking:f3d342d2a566": {
-      "category": "B",
-      "action": "manual-review",
-      "reason": "expand-major-city-catalog.ts indoor formula (indoor>=70 -> 3000/500/2500), metres; museums."
-    },
-    "walking:fad0df6ef9f2": {
-      "category": "E",
-      "action": "manual-review",
-      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-    },
-    "walking:89873aec239d": {
-      "category": "B",
-      "action": "manual-review",
-      "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
-    },
-    "walking:43314730306e": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "walking:1e4109ee1e47": {
-      "category": "E",
-      "action": "manual-review",
-      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-    },
-    "walking:ecb6b523936d": {
-      "category": "E",
-      "action": "manual-review",
-      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-    },
-    "walking:a632295bef14": {
       "category": "E",
       "action": "manual-review",
       "reason": "unclassified by KAI-89 audit agents; requires editorial review"
@@ -444,50 +394,105 @@
       "action": "manual-review",
       "reason": "unclassified by KAI-89 audit agents; requires editorial review"
     },
+    "walking:154a4586dc2f": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:3c247d7c6e27": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 split, minutes."
+    },
+    "walking:47f1236f5181": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:89873aec239d": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
+    },
+    "walking:fad0df6ef9f2": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:1e4109ee1e47": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:43314730306e": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:ecb6b523936d": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
     "walking:dd90a22e6ec0": {
       "category": "B",
       "action": "manual-review",
       "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
+    },
+    "walking:9360e7c9bb23": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:a632295bef14": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:caace1894bbc": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:127a36315638": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
     },
     "walking:31f3c597aca5": {
       "category": "E",
       "action": "manual-review",
       "reason": "unclassified by KAI-89 audit agents; requires editorial review"
     },
-    "walking:53b0f36ab934": {
-      "category": "C",
-      "action": "manual-review",
-      "reason": "Plausible."
-    },
     "walking:faa58d4d2f61": {
       "category": "B",
       "action": "manual-review",
       "reason": "60/40 split, minutes."
     },
-    "walking:8644e42aa4ee": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "walking:d6b5ea2ace98": {
-      "category": "B",
-      "action": "manual-review",
-      "reason": "60/40 split on 10000m base (nagano-city etc.); metres; 10km city walk implausible as hub default."
-    },
-    "walking:3e9460bad101": {
-      "category": "B",
-      "action": "manual-review",
-      "reason": "60/40 split, metres."
-    },
-    "walking:70c5fddaf2cb": {
+    "walking:49908606ba6a": {
       "category": "C",
       "action": "manual-review",
       "reason": "50/50 metres; kai-31 style."
     },
-    "walking:caace1894bbc": {
-      "category": "B",
+    "walking:da386b1ae837": {
+      "category": "E",
       "action": "manual-review",
-      "reason": "60/40 split, metres."
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:7100f3a0a0b9": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:ac22bdc97cc3": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "walking:b7e9721e1e32": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
     },
     "season:248edaf45789": {
       "category": "C",
@@ -499,7 +504,7 @@
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
-    "season:f5ecd368b011": {
+    "season:6b05ba8b5e86": {
       "category": "C",
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
@@ -804,66 +809,6 @@
       "action": "manual-review",
       "reason": "template"
     },
-    "crowd:0596e07a957b": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "crowd:c69266c02b79": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "crowd:bb7cb6e0ee06": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "crowd:0c3f94fe77c6": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "crowd:f2ded39f5f7f": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "crowd:49da3fde88b9": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "crowd:7152096e8d77": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "crowd:061e45cdb883": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "crowd:343dfd81f430": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "crowd:212c21c66417": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "crowd:96eee6017c5b": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "comfort:438e501f22f6": {
-      "category": "B",
-      "action": "manual-review",
-      "reason": "v1.6.0 hub template hardcode {8,8,3}; 120/139 hubs. heatTolerance==rainFriendly template signature."
-    },
     "comfort:fc8339d38bf3": {
       "category": "C",
       "action": "model-estimate",
@@ -875,9 +820,14 @@
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
     "comfort:d4bab1a51e44": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "comfort:438e501f22f6": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "v1.6.0 hub template hardcode {8,8,3}; 120/139 hubs. heatTolerance==rainFriendly template signature."
     },
     "comfort:75a33a9f8510": {
       "category": "C",
@@ -888,6 +838,11 @@
       "category": "A",
       "action": "legitimate",
       "reason": "Indoor museum/aquarium convention: 30 museums + 4 aquariums, indoorPercent>=85. Formula-derived (round(indoor/10)) but semantically CORRECT for indoor venues."
+    },
+    "comfort:aa4891047b74": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
     "comfort:c32d82b6aeb1": {
       "category": "C",
@@ -909,12 +864,7 @@
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
-    "comfort:2be75416ddba": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "comfort:06eb44964c79": {
+    "comfort:541e20f7bd6c": {
       "category": "C",
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
@@ -924,12 +874,7 @@
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
-    "comfort:541e20f7bd6c": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "comfort:ef4b5ffd8fff": {
+    "comfort:2be75416ddba": {
       "category": "C",
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
@@ -944,22 +889,37 @@
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
+    "comfort:06eb44964c79": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
     "comfort:20c7254a9b75": {
       "category": "C",
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:da1999751cb8": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:4d3e2d59e09a": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Standalone nature."
     },
     "comfort:ede1d8426e84": {
       "category": "C",
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
-    "comfort:3a8e699be686": {
+    "comfort:ef4b5ffd8fff": {
       "category": "C",
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
-    "comfort:5017dfa271c1": {
+    "comfort:3a8e699be686": {
       "category": "C",
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
@@ -974,17 +934,22 @@
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
+    "comfort:5017dfa271c1": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:76abd4858e6d": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
     "comfort:a627db49b646": {
       "category": "C",
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
     "comfort:b8dd62e195da": {
-      "category": "C",
-      "action": "model-estimate",
-      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-    },
-    "comfort:da1999751cb8": {
       "category": "C",
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"

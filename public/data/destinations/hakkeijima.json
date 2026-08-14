@@ -37,11 +37,6 @@
     "train": 45,
     "car": 40
   },
-  "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 6
-  },
   "season": {
     "spring": 7,
     "summer": 10,
@@ -155,5 +150,17 @@
     "modelVersion": "season-model-v1",
     "confidence": "medium",
     "basis": "temperate latitude band; calibrated beach peaks"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=70, kind='', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

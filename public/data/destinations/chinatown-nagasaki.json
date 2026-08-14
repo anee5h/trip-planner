@@ -73,8 +73,6 @@
   },
   "walkingMin": 90,
   "walkingIntensity": "medium",
-  "walkingSunMin": 1000,
-  "walkingShadeMin": 2000,
   "indoorPercent": 60,
   "comfort": {
     "heatTolerance": 7,
@@ -94,11 +92,6 @@
     "uniqueness": 8.5
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 7
-  },
   "season": {
     "spring": 7,
     "summer": 6,
@@ -186,5 +179,11 @@
     "modelVersion": "transport-access-v1",
     "confidence": "low",
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

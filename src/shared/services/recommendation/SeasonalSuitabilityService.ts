@@ -132,7 +132,7 @@ export function evaluateSeasonalSuitability(
 
     // Indoor/outdoor balance for hot and cold seasons.
     if (season === "summer") {
-      if (dest.indoorPercent >= 70) {
+      if ((dest.indoorPercent ?? 0) >= 70) {
         comfortDelta += SEASONAL_WEIGHTS.INDOOR_COMFORT_BONUS;
         evidence.push("indoorPercent");
         reasons.push({
@@ -142,7 +142,7 @@ export function evaluateSeasonalSuitability(
           description: "Indoor share keeps summer heat manageable",
         });
       } else if (
-        dest.indoorPercent <= 30 &&
+        (dest.indoorPercent ?? 0) <= 30 &&
         dest.weatherDependence === "high"
       ) {
         comfortDelta -= SEASONAL_WEIGHTS.OUTDOOR_EXPOSURE_PENALTY;
@@ -156,7 +156,7 @@ export function evaluateSeasonalSuitability(
       }
     }
     if (season === "winter") {
-      if (dest.indoorPercent >= 70) {
+      if ((dest.indoorPercent ?? 0) >= 70) {
         comfortDelta += SEASONAL_WEIGHTS.INDOOR_COMFORT_BONUS;
         evidence.push("indoorPercent");
         reasons.push({
@@ -166,7 +166,7 @@ export function evaluateSeasonalSuitability(
           description: "Indoor share keeps winter cold manageable",
         });
       } else if (
-        dest.indoorPercent <= 30 &&
+        (dest.indoorPercent ?? 0) <= 30 &&
         dest.weatherDependence === "high"
       ) {
         comfortDelta -= SEASONAL_WEIGHTS.OUTDOOR_EXPOSURE_PENALTY;

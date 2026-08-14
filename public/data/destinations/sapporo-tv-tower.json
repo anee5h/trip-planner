@@ -72,11 +72,6 @@
     "accessibility": 8.2
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 5
-  },
   "season": {
     "spring": 8.9,
     "summer": 7.8,
@@ -176,5 +171,17 @@
     "confidence": "low"
   },
   "businessHours": "09:00 - 22:00 (Last admission 21:50)",
-  "municipalityId": "Hokkaido:sapporo"
+  "municipalityId": "Hokkaido:sapporo",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='tower', walkingMin=90"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

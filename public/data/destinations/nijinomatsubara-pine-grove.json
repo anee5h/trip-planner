@@ -79,8 +79,6 @@
   },
   "walkingMin": 95,
   "walkingIntensity": "medium",
-  "walkingSunMin": 2000,
-  "walkingShadeMin": 2000,
   "indoorPercent": 5,
   "comfort": {
     "heatTolerance": 7,
@@ -100,11 +98,6 @@
     "uniqueness": 7.5
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 4
-  },
   "season": {
     "spring": 9,
     "summer": 8,
@@ -181,5 +174,17 @@
     }
   },
   "officialWebsite": "https://www.karatsu-kankou.jp/en/spots/detail/4",
-  "municipalityId": "Saga:karatsu"
+  "municipalityId": "Saga:karatsu",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=5, kind='natural', walkingMin=95"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

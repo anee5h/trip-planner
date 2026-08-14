@@ -28,8 +28,6 @@
     "train": 30
   },
   "walkingMin": 25,
-  "walkingSunMin": 15,
-  "walkingShadeMin": 10,
   "indoorPercent": 85,
   "ratings": {
     "overall": 8.4,
@@ -42,11 +40,6 @@
     "relaxation": 7.8,
     "value": 8.4,
     "uniqueness": 8.5
-  },
-  "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 6
   },
   "season": {
     "spring": 8,
@@ -152,5 +145,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Kanagawa:yokohama"
+  "municipalityId": "Kanagawa:yokohama",
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

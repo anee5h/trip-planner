@@ -92,11 +92,6 @@
     "uniqueness": 9.5
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 7,
-    "weekend": 10,
-    "holiday": 8
-  },
   "season": {
     "spring": 10,
     "summer": 6,
@@ -185,5 +180,17 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://kawachi-fujien.com/"
   },
-  "notesJa": "藤と紅葉のシーズンのみ開園します。"
+  "notesJa": "藤と紅葉のシーズンのみ開園します。",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'garden' + scale uplift"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

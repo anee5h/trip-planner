@@ -11,8 +11,6 @@
   "budgetRecommended": 6500,
   "budgetMax": 10000,
   "walkingMin": 4500,
-  "walkingSunMin": 2000,
-  "walkingShadeMin": 2500,
   "indoorPercent": 40,
   "ratings": {
     "overall": 9.5,
@@ -25,11 +23,6 @@
     "relaxation": 9.2,
     "value": 9.3,
     "uniqueness": 9.6
-  },
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 7
   },
   "season": {
     "spring": 10,
@@ -99,5 +92,11 @@
     "max": 5
   },
   "officialWebsite": "https://inadani-see.net/en/takato-castle-site-park/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

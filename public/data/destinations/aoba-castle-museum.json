@@ -52,8 +52,6 @@
   },
   "walkingMin": 55,
   "walkingIntensity": "medium",
-  "walkingSunMin": 500,
-  "walkingShadeMin": 2500,
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
@@ -75,11 +73,6 @@
     "accessibility": 7.7
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 6
-  },
   "season": {
     "spring": 8.2,
     "summer": 8.7,
@@ -175,5 +168,17 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-11",
     "sourceUrl": "https://honmarukaikan.com/tenji/"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'museum'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

@@ -49,8 +49,6 @@
   },
   "totalTripHours": 2,
   "walkingMin": 90,
-  "walkingSunMin": 500,
-  "walkingShadeMin": 1500,
   "indoorPercent": 10,
   "crowd": {
     "weekday": 3,

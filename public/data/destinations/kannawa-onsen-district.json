@@ -73,8 +73,6 @@
   },
   "walkingMin": 90,
   "walkingIntensity": "medium",
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2500,
   "indoorPercent": 40,
   "comfort": {
     "heatTolerance": 6,
@@ -94,11 +92,6 @@
     "uniqueness": 9.3
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 5
-  },
   "season": {
     "spring": 8,
     "summer": 7,
@@ -167,5 +160,11 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/kannawa-onsen-district/"
   },
-  "notesJa": "浴衣で共同浴場を巡るのがこの温泉地の定番スタイルです。"
+  "notesJa": "浴衣で共同浴場を巡るのがこの温泉地の定番スタイルです。",
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

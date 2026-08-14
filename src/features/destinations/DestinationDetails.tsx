@@ -509,7 +509,7 @@ export default function DestinationDetails() {
   const indoorChildren = useMemo(
     () =>
       childDestinations
-        .filter((place) => place.indoorPercent >= 70)
+        .filter((place) => (place.indoorPercent ?? 0) >= 70)
         .sort((a, b) => b.ratings.rain - a.ratings.rain)
         .slice(0, 3),
     [childDestinations],
@@ -1691,7 +1691,7 @@ export default function DestinationDetails() {
                                 <span className="font-semibold text-slate-700 dark:text-slate-300">
                                   <JapaneseYen className="inline w-3 h-3" />
                                   {Math.round(
-                                    (breakdown.tickets / 2) * partySize,
+                                    breakdown.tickets * partySize,
                                   ).toLocaleString()}
                                 </span>
                               </div>
@@ -1720,6 +1720,12 @@ export default function DestinationDetails() {
                             </span>
                             <span className="font-semibold text-slate-700 dark:text-slate-300">
                               {destination.comfort.heatTolerance}/10
+                              {destination.comfortMetadata?.method ===
+                                "model" && (
+                                <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
+                                  {copy.estimated}
+                                </span>
+                              )}
                             </span>
                           </div>
                           <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
@@ -1729,6 +1735,12 @@ export default function DestinationDetails() {
                             </span>
                             <span className="font-semibold text-slate-700 dark:text-slate-300">
                               {destination.comfort.rainFriendly}/10
+                              {destination.comfortMetadata?.method ===
+                                "model" && (
+                                <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
+                                  {copy.estimated}
+                                </span>
+                              )}
                             </span>
                           </div>
                           {(() => {
@@ -2246,6 +2258,11 @@ export default function DestinationDetails() {
                           {localizeEditorialValue(
                             destination.bestSeason,
                             locale,
+                          )}
+                          {destination.seasonMetadata?.method === "model" && (
+                            <span className="ml-1.5 text-[10px] font-normal uppercase text-slate-400">
+                              {copy.estimated}
+                            </span>
                           )}
                         </div>
                       </div>

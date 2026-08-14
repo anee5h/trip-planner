@@ -11,8 +11,6 @@
   "budgetRecommended": 7750,
   "budgetMax": 12000,
   "walkingMin": 90,
-  "walkingSunMin": 1800,
-  "walkingShadeMin": 2700,
   "indoorPercent": 75,
   "ratings": {
     "overall": 9.8,
@@ -151,5 +149,11 @@
   "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
   "role": "destination",
-  "municipalityId": "Shiga:hikone"
+  "municipalityId": "Shiga:hikone",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=75, kind='', walkingMin=90"
+  }
 }

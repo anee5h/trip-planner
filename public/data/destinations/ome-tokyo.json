@@ -20,8 +20,6 @@
   },
   "totalTripHours": 8,
   "walkingMin": 55,
-  "walkingSunMin": 30,
-  "walkingShadeMin": 25,
   "indoorPercent": 35,
   "ratings": {
     "overall": 8.3,
@@ -89,7 +87,7 @@
   "placeType": "hub",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
+    "min": 6,
     "max": 12
   },
   "businessHours": "Open access",
@@ -163,5 +161,17 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Tokyo:ome"
+  "municipalityId": "Tokyo:ome",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance standard, 5 children, metro adj"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=35, kind='city', walkingMin=55"
+  }
 }

@@ -30,11 +30,6 @@
     "value": 9.4,
     "uniqueness": 9.4
   },
-  "crowd": {
-    "weekday": 7,
-    "weekend": 9,
-    "holiday": 8
-  },
   "weatherDependence": "low",
   "tags": ["Ota City", "Tokyo Travel", "Regional Hub"],
   "coordinates": {
@@ -157,6 +152,24 @@
     "method": "unknown",
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "basis": "hub records span multiple microclimates; single vector would be fabricated"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance notable, 0 children, metro adj"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=50, kind='ward', walkingMin=40"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

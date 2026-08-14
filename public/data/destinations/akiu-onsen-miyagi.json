@@ -49,14 +49,7 @@
   },
   "totalTripHours": 6,
   "walkingMin": 210,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 1500,
   "indoorPercent": 60,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 5
-  },
   "season": {
     "spring": 8,
     "summer": 8,
@@ -135,5 +128,11 @@
     "license": "CC BY-SA 4.0",
     "attribution": "663highland",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:211029_Akiu_Onsen_Sendai_Miyagi_pref_Japan01s3.jpg"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

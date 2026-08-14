@@ -28,8 +28,6 @@
   },
   "totalTripHours": 10,
   "walkingMin": 70,
-  "walkingSunMin": 35,
-  "walkingShadeMin": 35,
   "indoorPercent": 50,
   "coordinates": {
     "lat": 36.3533,
@@ -51,11 +49,6 @@
     "relaxation": 9.6,
     "value": 8.5,
     "uniqueness": 9.2
-  },
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 5
   },
   "season": {
     "spring": 8,
@@ -96,5 +89,23 @@
     "license": "Unsplash License",
     "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
     "sourceUrl": "https://unsplash.com"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'onsen' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=50, kind='onsen', walkingMin=70"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

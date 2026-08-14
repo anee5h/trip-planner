@@ -27,8 +27,6 @@
   },
   "totalTripHours": 8,
   "walkingMin": 90,
-  "walkingSunMin": 80,
-  "walkingShadeMin": 10,
   "indoorPercent": 10,
   "coordinates": {
     "lat": 36.4053,

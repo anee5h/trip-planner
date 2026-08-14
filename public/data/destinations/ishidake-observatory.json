@@ -76,10 +76,8 @@
     "min": 0.5,
     "max": 1.5
   },
-  "walkingMin": 1500,
-  "walkingIntensity": "low",
-  "walkingSunMin": 800,
-  "walkingShadeMin": 300,
+  "walkingMin": 70,
+  "walkingIntensity": "medium",
   "indoorPercent": 5,
   "comfort": {
     "heatTolerance": 5,
@@ -99,11 +97,6 @@
     "uniqueness": 8
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 5
-  },
   "weatherDependence": "high",
   "reservation": "None required",
   "parking": "Free parking available",
@@ -144,7 +137,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "comfort-model-v1; derived from indoorPercent=5, kind='viewpoint', walkingMin=unknown",
+          "title": "comfort-model-v1; derived from indoorPercent=5, kind='viewpoint', walkingMin=70",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -153,6 +146,14 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "crowd-model-v1; derived from kind='viewpoint', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 1500 replaced by walk-share estimate (FIX_UNIT): 80% of 1.5h visit",
           "accessedAt": "2026-08-14"
         }
       ]
@@ -171,5 +172,24 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=5, kind='viewpoint', walkingMin=70"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 1500 replaced by walk-share estimate (FIX_UNIT): 80% of 1.5h visit"
   }
 }

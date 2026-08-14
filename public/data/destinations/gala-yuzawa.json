@@ -28,8 +28,6 @@
   "budgetMax": 34000,
   "totalTripHours": 8,
   "walkingMin": 270,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
   "comfort": {
     "heatTolerance": 5,
     "rainFriendly": 5,
@@ -38,11 +36,6 @@
   "transportOptions": {
     "train": 100,
     "shinkansen": 60
-  },
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 5
   },
   "season": {
     "spring": 4,
@@ -92,5 +85,17 @@
     "license": "CC BY-SA 3.0",
     "attribution": "DAJF",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:F8_Tanigawa_79_Gala-Yuzawa_20060115.JPG"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=30, kind='', walkingMin=270"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

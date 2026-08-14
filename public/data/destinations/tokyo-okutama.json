@@ -28,8 +28,6 @@
   },
   "totalTripHours": 9,
   "walkingMin": 120,
-  "walkingSunMin": 60,
-  "walkingShadeMin": 60,
   "indoorPercent": 20,
   "coordinates": {
     "lat": 35.8087,
@@ -51,11 +49,6 @@
     "relaxation": 8.5,
     "value": 8.8,
     "uniqueness": 8.2
-  },
-  "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 5
   },
   "season": {
     "spring": 8,
@@ -169,5 +162,17 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Tokyo:okutama"
+  "municipalityId": "Tokyo:okutama",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature' + scale uplift"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

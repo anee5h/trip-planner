@@ -114,11 +114,6 @@
     "Gift from Fuzhou, Naha's sister city"
   ],
   "collections": [],
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 6
-  },
   "season": {
     "spring": 9,
     "summer": 7,
@@ -132,8 +127,6 @@
   "notes": "A tranquil Chinese garden near the city centre — a quiet escape from busy Kokusai Dori.",
   "totalTripHours": 2,
   "walkingMin": 20,
-  "walkingSunMin": 5,
-  "walkingShadeMin": 10,
   "indoorPercent": 10,
   "reservation": "None required",
   "parking": "Nearby paid parking",
@@ -144,5 +137,11 @@
   "transportZoneId": "okinawa-main",
   "description": "A serene traditional Chinese landscape garden constructed in Naha's Kumemura district using granite and wood imported from Fuzhou, China.",
   "openingHours": "~08:30-17:30 (seasonal)",
-  "openingHoursJa": "〜08:30〜17:30（季節により変動）"
+  "openingHoursJa": "〜08:30〜17:30（季節により変動）",
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

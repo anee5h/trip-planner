@@ -48,10 +48,8 @@
     "min": 3,
     "max": 6
   },
-  "walkingMin": 5000,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 1000,
-  "walkingIntensity": "low",
+  "walkingMin": 290,
+  "walkingIntensity": "high",
   "indoorPercent": 5,
   "comfort": {
     "heatTolerance": 6,
@@ -71,11 +69,6 @@
     "uniqueness": 9.2
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 4
-  },
   "season": {
     "spring": 8,
     "summer": 9,
@@ -159,6 +152,14 @@
           "title": "crowd-model-v1; derived from kind='nature', importance=standard, collections=0",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 5000 replaced by walk-share estimate (FIX_UNIT): 80% of 6h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     }
   },
@@ -170,5 +171,24 @@
   "relationships": {
     "gatewayHubId": "tottori-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 5000 replaced by walk-share estimate (FIX_UNIT): 80% of 6h visit"
+  }
 }

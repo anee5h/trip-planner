@@ -56,11 +56,6 @@
   "budgetMin": 4000,
   "budgetMax": 15000,
   "budgetRecommended": 9500,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 6
-  },
   "season": {
     "spring": 10,
     "summer": 7,
@@ -156,5 +151,17 @@
     "attribution": "Si-take. at Japanese Wikipedia(しいたけ)",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg"
   },
-  "walkingIntensity": "high"
+  "walkingIntensity": "high",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='', walkingMin=150"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  }
 }

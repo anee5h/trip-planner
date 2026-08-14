@@ -71,15 +71,13 @@
     "min": 1,
     "max": 2
   },
-  "walkingMin": 2500,
+  "walkingMin": 35,
   "walkingIntensity": "low",
-  "walkingSunMin": 500,
-  "walkingShadeMin": 2000,
   "indoorPercent": 85,
   "comfort": {
     "heatTolerance": 8,
     "rainFriendly": 9,
-    "walkingIntensity": 5
+    "walkingIntensity": 3
   },
   "ratings": {
     "overall": 8.3,
@@ -94,11 +92,6 @@
     "uniqueness": 8.8
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 6
-  },
   "season": {
     "spring": 7,
     "summer": 6,
@@ -151,7 +144,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "comfort-model-v1; derived from indoorPercent=85, kind='museum', walkingMin=unknown",
+          "title": "comfort-model-v1; derived from indoorPercent=85, kind='museum', walkingMin=35",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -160,6 +153,14 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 2500 replaced by walk-share estimate (FIX_UNIT): 30% of 2h visit",
           "accessedAt": "2026-08-14"
         }
       ]
@@ -186,5 +187,24 @@
     "modelVersion": "transport-access-v1",
     "confidence": "low",
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=85, kind='museum', walkingMin=35"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 2500 replaced by walk-share estimate (FIX_UNIT): 30% of 2h visit"
   }
 }

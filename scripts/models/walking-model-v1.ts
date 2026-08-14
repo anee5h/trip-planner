@@ -82,15 +82,70 @@ export function walkingModel(
   }
   const visitMax = dest.recommendedVisitHours?.max;
 
-  // ---- Synthetic 60/40 sun/shade splits: clear (REMOVE_SYNTHETIC_SPLIT) ----
+  // ---- Model-owned minutes: skip metre detection ----
+  // Values written by this model are minutes BY CONSTRUCTION (roundTo5 of
+  // a pace/walk-share product). Without this guard a legitimately large
+  // fill (e.g. 0.8 × 12h = 576 min) would be re-detected as metre-typed
+  // on the next run and mis-converted/corrupted. Provenance is the unit.
+  const modelOwnedMinutes =
+    (dest.editorial?.fieldSources?.walkingMin ?? []).some((s) =>
+      s.title.startsWith("walking-model-v1"),
+    ) ?? false;
+
+  // ---- Un-sourced / unit-invalid sun-shade splits: clear ----
+  // walkingSunMin/walkingShadeMin are SUBSETS of walkingMin: a split can
+  // never exceed the total, and a metre-typed total (>= 300) cannot have
+  // minute splits. Batch-template splits (incl. Abashiri's
+  // 360/1500/2500 — sun+shade ≫ total) are cleared, never kept.
+  const metreTotalWithSplits =
+    !modelOwnedMinutes &&
+    Number.isFinite(dest.walkingMin) &&
+    dest.walkingMin >= METRE_LIKE &&
+    (Number.isFinite(dest.walkingSunMin) ||
+      Number.isFinite(dest.walkingShadeMin));
+  const splitSubsetViolation =
+    (Number.isFinite(dest.walkingSunMin) &&
+      Number.isFinite(dest.walkingShadeMin) &&
+      dest.walkingSunMin + dest.walkingShadeMin > dest.walkingMin) ||
+    (Number.isFinite(dest.walkingSunMin) &&
+      Number.isFinite(dest.walkingShadeMin) === false &&
+      dest.walkingSunMin > dest.walkingMin) ||
+    (Number.isFinite(dest.walkingShadeMin) &&
+      Number.isFinite(dest.walkingSunMin) === false &&
+      dest.walkingShadeMin > dest.walkingMin);
+  // Metre-typed totals carry their split-clearing in the convert/fill/clear
+  // outputs below (one-pass convergence); a minute-scale total with invalid
+  // splits clears only the splits here.
+  if (
+    splitSubsetViolation &&
+    (Number.isFinite(dest.walkingMin) === false || dest.walkingMin < METRE_LIKE)
+  ) {
+    return {
+      action: "clear",
+      reason: `sun/shade split exceeds walkingMin total; cleared (REMOVE_UNSOURCED_SPLIT)`,
+      walkingSunMin: 0,
+      walkingShadeMin: 0,
+      confidence: "unknown",
+      modelVersion: "walking-model-v1",
+    };
+  }
+
+  // ---- Synthetic sun/shade splits: clear (REMOVE_SYNTHETIC_SPLIT) ----
+  // Two batch-template signatures: the 60/40 proportional split and the
+  // complementary partition (sun + shade ≈ total). Genuine independent
+  // measurements would not partition the total exactly.
   const hasSyntheticSplit =
     Number.isFinite(dest.walkingMin) &&
     dest.walkingMin > 0 &&
     Number.isFinite(dest.walkingSunMin) &&
     Number.isFinite(dest.walkingShadeMin) &&
-    Math.abs(dest.walkingSunMin / dest.walkingMin - SYNTHETIC_SPLIT) < 0.05 &&
-    Math.abs(dest.walkingShadeMin / dest.walkingMin - (1 - SYNTHETIC_SPLIT)) <
-      0.05;
+    (Math.abs(dest.walkingSunMin + dest.walkingShadeMin - dest.walkingMin) <=
+      Math.max(1, dest.walkingMin * 0.05) ||
+      (Math.abs(dest.walkingSunMin / dest.walkingMin - SYNTHETIC_SPLIT) <
+        0.05 &&
+        Math.abs(
+          dest.walkingShadeMin / dest.walkingMin - (1 - SYNTHETIC_SPLIT),
+        ) < 0.05));
   if (hasSyntheticSplit) {
     return {
       action: "clear",
@@ -105,6 +160,7 @@ export function walkingModel(
 
   // ---- Real-distance metres -> minutes (trusted provenance only) ----
   if (
+    !modelOwnedMinutes &&
     Number.isFinite(dest.walkingMin) &&
     dest.walkingMin >= METRE_LIKE &&
     trustedWalkingIds.has(dest.id)
@@ -117,6 +173,10 @@ export function walkingModel(
       reason: `real-distance metres ${dest.walkingMin} -> minutes (pace ${PACE_M} m/min, clamped to visit window)`,
       walkingMin: clamped,
       walkingIntensity: walkingIntensityFromMinutes(clamped),
+      // Any splits on a converted record were metre-typed alongside the
+      // total: unsourced, cleared with the conversion.
+      walkingSunMin: 0,
+      walkingShadeMin: 0,
       confidence: "medium",
       modelVersion: "walking-model-v1",
     };
@@ -126,7 +186,11 @@ export function walkingModel(
   // (FIX_UNIT P0). The wrong-unit value is not converted (that would launder
   // templates) and not left empty: the visit-duration walk-share estimate is
   // the defensible minute-scale replacement. Without a visit duration, clear.
-  if (Number.isFinite(dest.walkingMin) && dest.walkingMin >= METRE_LIKE) {
+  if (
+    !modelOwnedMinutes &&
+    Number.isFinite(dest.walkingMin) &&
+    dest.walkingMin >= METRE_LIKE
+  ) {
     const share = walkShare(dest);
     if (
       share !== undefined &&
@@ -139,6 +203,9 @@ export function walkingModel(
         reason: `template metre value ${dest.walkingMin} replaced by walk-share estimate (FIX_UNIT): ${Math.round(share * 100)}% of ${visitMax}h visit`,
         walkingMin: minutes,
         walkingIntensity: walkingIntensityFromMinutes(minutes),
+        // Un-sourced splits (metre-typed with the total) cleared with the fill.
+        walkingSunMin: 0,
+        walkingShadeMin: 0,
         confidence: "low",
         modelVersion: "walking-model-v1",
       };
@@ -147,6 +214,8 @@ export function walkingModel(
       action: "clear",
       reason: `template metre value ${dest.walkingMin} cleared (FIX_UNIT); no visit duration for a walk-share estimate`,
       walkingMin: 0,
+      walkingSunMin: 0,
+      walkingShadeMin: 0,
       confidence: "unknown",
       modelVersion: "walking-model-v1",
     };

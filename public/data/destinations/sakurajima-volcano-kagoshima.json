@@ -43,19 +43,14 @@
   "totalTripHours": 4,
   "walkingMin": 150,
   "indoorPercent": 30,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 5
-  },
   "season": {
     "spring": 10,
     "summer": 6,
-    "autumn": 7,
+    "autumn": 5,
     "winter": 4
   },
-  "bestMonths": [4, 5, 10, 11],
-  "bestSeason": "Spring & Autumn",
+  "bestMonths": [4, 5],
+  "bestSeason": "Spring",
   "weatherDependence": "moderate",
   "comfort": {
     "heatTolerance": 5,
@@ -146,12 +141,24 @@
     "method": "model",
     "modelVersion": "season-model-v1",
     "confidence": "medium",
-    "basis": "spring-flower category; calibrated 8/9 trusted"
+    "basis": "spring-flower signal; spring-only months 4-5 (autumn never inferred)"
   },
   "budgetMetadata": {
     "method": "unknown",
     "modelVersion": "budget-model-v1",
     "confidence": "unknown",
     "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=30, kind='', walkingMin=150"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   }
 }

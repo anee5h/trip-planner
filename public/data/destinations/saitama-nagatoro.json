@@ -28,8 +28,6 @@
   },
   "totalTripHours": 8,
   "walkingMin": 80,
-  "walkingSunMin": 60,
-  "walkingShadeMin": 20,
   "indoorPercent": 10,
   "coordinates": {
     "lat": 36.0964,
@@ -158,5 +156,11 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Saitama:chichibu"
+  "municipalityId": "Saitama:chichibu",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature' + scale uplift"
+  }
 }

@@ -28,7 +28,6 @@ import {
   JapaneseYen,
   CheckCircle2,
   Scale,
-  Sun,
   Plus,
   Timer,
   AlertTriangle,
@@ -585,22 +584,10 @@ export default function DestinationCard({
                     data-testid="destination-card-sun"
                     className="hidden min-w-0 items-center whitespace-nowrap md:flex"
                   >
-                    {/* Only render when a finite sun-exposure value exists;
-                        unknown must not fall through to a default label. */}
-                    {Number.isFinite(destination.walkingSunMin) && (
-                      <>
-                        <Sun className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
-                        <span className="truncate">
-                          {locale === "ja"
-                            ? destination.walkingSunMin < 3000
-                              ? "日差し少なめ"
-                              : "日差し多め"
-                            : destination.walkingSunMin < 3000
-                              ? "Low sun"
-                              : "High sun"}
-                        </span>
-                      </>
-                    )}
+                    {/* Sun/shade splits were batch-template artefacts, not
+                        source-verified; KAI-89 removes them as unsourced.
+                        No sun-exposure claim is shown without a sourced
+                        split. */}
                   </div>
                 </div>
 
