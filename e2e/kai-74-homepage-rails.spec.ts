@@ -25,6 +25,25 @@ async function mockHomeWeather(page: Page) {
   });
 }
 
+async function switchToJapanese(page: Page) {
+  const desktopLanguage = page.getByRole("button", {
+    name: "Select language",
+  });
+  if (await desktopLanguage.isVisible()) {
+    await desktopLanguage.click();
+    await page.getByRole("button", { name: "日本語", exact: true }).click();
+  } else {
+    await page.getByRole("button", { name: "Toggle menu" }).click();
+    await page
+      .locator("#mobile-menu-drawer button")
+      .filter({ hasText: "English" })
+      .click();
+    await page.keyboard.press("Escape");
+    await expect(page.locator("#mobile-menu-drawer")).toHaveCount(0);
+  }
+  await expect(page.locator("html")).toHaveAttribute("lang", "ja");
+}
+
 function railSection(page: Page, heading: string) {
   return page
     .getByRole("heading", { name: heading, exact: true })
@@ -172,5 +191,88 @@ test.describe("KAI-74 homepage rails", () => {
 
     await assertRailCardLimit(railSection(page, "Weekend getaways"));
     await assertRailCardLimit(railSection(page, "Worth the longer journey"));
+  });
+
+  test("renders the KAI-74 homepage without Japanese key or English leakage", async ({
+    page,
+  }) => {
+    await page.clock.setFixedTime("2026-08-15T12:00:00+09:00");
+    await page.goto("/?date=2026-08-15");
+    await switchToJapanese(page);
+
+    for (const heading of [
+      "あなたへのおすすめ",
+      "続きを見る",
+      "この夏に訪れたい場所",
+      "60分以内の小さな旅",
+      "近くの未訪問スポット",
+      "おすすめコレクション",
+    ]) {
+      await expect(
+        page.getByRole("heading", { name: heading, exact: true }),
+      ).toBeVisible();
+    }
+
+    await expect(
+      page.locator('[role="region"][aria-label="あなたへのおすすめ"]'),
+    ).toBeVisible();
+    await expect(
+      page.getByText("混雑する可能性があります").first(),
+    ).toBeVisible();
+
+    await page
+      .getByRole("radio", { name: "週末・2日間1泊" })
+      .click({ force: true });
+    await expect(
+      page.getByRole("radio", { name: "週末・2日間1泊" }),
+    ).toHaveAttribute("aria-checked", "true");
+    await page
+      .getByRole("button", { name: /旅先を探す|おすすめを見る|条件で更新/ })
+      .first()
+      .click({ force: true });
+
+    await expect(
+      page.getByRole("heading", { name: "週末のおすすめ", exact: true }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", {
+        name: "遠くても行く価値のある旅",
+        exact: true,
+      }),
+    ).toBeVisible();
+
+    const body = await page.locator("body").innerText();
+    expect(body).not.toMatch(/\bhome\.[A-Za-z0-9_.-]+/);
+    for (const forbidden of [
+      "Top matches for you",
+      "Continue exploring",
+      "Weekend getaways",
+      "Best places to visit this summer",
+      "Great escapes under 60 minutes",
+      "Unexplored places near you",
+      "Worth the longer journey",
+      "Scrollable content",
+      "Scroll left",
+      "Scroll right",
+    ]) {
+      expect(body).not.toContain(forbidden);
+    }
+
+    const regionLabels = await page
+      .locator('[role="region"]')
+      .evaluateAll((regions) =>
+        regions.map((region) => region.getAttribute("aria-label")),
+      );
+    expect(regionLabels).toContain("あなたへのおすすめ");
+    expect(regionLabels).not.toContain("Scrollable content");
+    expect(
+      await page.locator('[aria-label="右へスクロール"]').count(),
+    ).toBeGreaterThan(0);
+
+    const cue = page
+      .locator('[aria-label*="混雑する可能性があります"]')
+      .first();
+    await expect(cue).toHaveAttribute("aria-label", /根拠/);
+    await expect(cue).toHaveAttribute("aria-label", /情報源/);
   });
 });

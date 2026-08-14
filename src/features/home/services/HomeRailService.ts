@@ -79,13 +79,19 @@ function seasonalScore(
 
   const rating = destination.season?.[season];
   const inBestMonths = destination.bestMonths?.includes(month) ?? false;
-  const bestSeason = destination.bestSeason?.toLowerCase() ?? "";
-  const matchesBestSeason =
-    bestSeason.includes(season) || bestSeason.includes("all year");
-  const hasEvidence =
-    (typeof rating === "number" && Number.isFinite(rating)) ||
-    inBestMonths ||
-    matchesBestSeason;
+  const seasonalRecord = destination as RankedDestination & {
+    bestSeasons?: readonly string[];
+  };
+  const explicitSeasonNames = [
+    seasonalRecord.bestSeason,
+    ...(seasonalRecord.bestSeasons ?? []),
+  ];
+  const matchesBestSeason = explicitSeasonNames.some((value) =>
+    value?.toLowerCase().includes(season),
+  );
+  const hasMeaningfulRating =
+    typeof rating === "number" && Number.isFinite(rating) && rating > 5;
+  const hasEvidence = hasMeaningfulRating || inBestMonths || matchesBestSeason;
   if (!hasEvidence) return undefined;
 
   const normalizedRating = rating ?? 5;
@@ -95,8 +101,8 @@ function seasonalScore(
     (matchesBestSeason ? 5 : 0) +
     (normalizedRating >= 8 ? 3 : 0);
 
-  // A neutral/year-round record is not strong enough to fill a seasonal rail
-  // on its own. It may still appear when canonical month/season evidence fires.
+  // Neutral ratings and year-round labels are not seasonal evidence on their
+  // own. A current best month or explicit current-season label is sufficient.
   if (score < 55) return undefined;
   return score;
 }
@@ -236,11 +242,17 @@ export function getUnexploredNearbyDestinations(
 const WEEKEND_BAND_ORDER: readonly WeekendTravelBand[] = [
   "strong",
   "normal",
-  "nearby",
   "acceptable",
+  "nearby",
   "weak",
   "local",
 ];
+
+const CORE_WEEKEND_GETAWAY_BANDS = new Set<WeekendTravelBand>([
+  "strong",
+  "normal",
+  "acceptable",
+]);
 
 function weekendRank(destination: RankedDestination): number {
   const band = (destination as ScoredDestination).weekend?.travelFit.band;
@@ -253,13 +265,24 @@ function isWeekendCandidate(destination: RankedDestination): boolean {
   return Boolean(weekend?.travelFit.eligible && weekend.capacity.eligible);
 }
 
+function isCoreWeekendGetawayCandidate(
+  destination: RankedDestination,
+): boolean {
+  const weekend = (destination as ScoredDestination).weekend;
+  return Boolean(
+    isWeekendCandidate(destination) &&
+    weekend &&
+    CORE_WEEKEND_GETAWAY_BANDS.has(weekend.travelFit.band),
+  );
+}
+
 export function getWeekendGetawayDestinations(
   candidates: readonly RankedDestination[],
   count = MAX_HOME_RAIL_CARDS,
 ): RankedDestination[] {
   return limit(
     candidates
-      .filter(isWeekendCandidate)
+      .filter(isCoreWeekendGetawayCandidate)
       .sort(
         (a, b) =>
           weekendRank(a) - weekendRank(b) ||
@@ -287,9 +310,10 @@ export function getWorthLongerJourneyDestinations(
       })
       .sort(
         (a, b) =>
-          ((b as ScoredDestination).weekend?.travelFit.oneWayMinutes ?? 0) -
-            ((a as ScoredDestination).weekend?.travelFit.oneWayMinutes ?? 0) ||
           scoreOf(b) - scoreOf(a) ||
+          weekendRank(a) - weekendRank(b) ||
+          ((a as ScoredDestination).weekend?.travelFit.oneWayMinutes ?? 0) -
+            ((b as ScoredDestination).weekend?.travelFit.oneWayMinutes ?? 0) ||
           a.id.localeCompare(b.id),
       ),
     count,

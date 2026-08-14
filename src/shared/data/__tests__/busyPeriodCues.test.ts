@@ -12,22 +12,31 @@ describe("getBusyPeriodCues", () => {
     expect(cue).toMatchObject({
       kind: "nationalHoliday",
       dateRange: ["2026-05-03", "2026-05-03"],
-      source: expect.stringContaining("Cabinet Office"),
+      source: expect.objectContaining({
+        en: expect.stringContaining("Cabinet Office"),
+        ja: expect.stringContaining("内閣府"),
+      }),
       reviewedAt: "2026-08-01",
     });
-    expect(cue.evidence).toContain(JAPAN_HOLIDAY_DATA_VERSION);
+    expect(cue.evidence.en).toContain(JAPAN_HOLIDAY_DATA_VERSION);
+    expect(cue.evidence.ja).toContain("2026年版");
     expect(cue.reason.en).toBe("Constitution Memorial Day");
     expect(cue.reason.ja).toBe("憲法記念日");
   });
 
   it("returns a weekend cue using Japan time", () => {
     const cues = getBusyPeriodCues("any-destination", "2026-08-15");
-    expect(cues).toContainEqual(
-      expect.objectContaining({
-        kind: "weekend",
-        dateRange: ["2026-08-15", "2026-08-15"],
-      }),
-    );
+    const cue = cues.find(({ kind }) => kind === "weekend");
+    expect(cue).toMatchObject({
+      kind: "weekend",
+      dateRange: ["2026-08-15", "2026-08-15"],
+      evidence: {
+        ja: expect.stringContaining("日本標準時"),
+      },
+      source: {
+        ja: expect.stringContaining("カレンダー"),
+      },
+    });
   });
 
   it("returns the curated peak-season record with date and provenance", () => {
@@ -43,6 +52,8 @@ describe("getBusyPeriodCues", () => {
       reviewedAt: period.reviewedAt,
       expiresAt: period.expiresAt,
     });
+    expect(cue?.evidence.ja).toContain("桜");
+    expect(cue?.source.ja).toContain("新宿御苑");
   });
 
   it("keeps unknown crowd state unknown", () => {

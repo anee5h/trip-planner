@@ -6,18 +6,18 @@ import { cn } from "@/shared/utils/utils";
 interface ScrollContainerProps {
   children: React.ReactNode;
   className?: string;
-  ariaLabel?: string;
-  previousLabel?: string;
-  nextLabel?: string;
+  ariaLabel: string;
+  previousLabel: string;
+  nextLabel: string;
   resetKey?: unknown;
 }
 
 export function ScrollContainer({
   children,
   className,
-  ariaLabel = "Scrollable content",
-  previousLabel = "Scroll left",
-  nextLabel = "Scroll right",
+  ariaLabel,
+  previousLabel,
+  nextLabel,
   resetKey,
 }: ScrollContainerProps) {
   const ref = useRef<HTMLDivElement>(null);

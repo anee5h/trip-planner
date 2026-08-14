@@ -41,6 +41,7 @@ import { localizeRecommendationReason } from "@/shared/utils/recommendationLabel
 import {
   formatBusyPeriodDateRange,
   getBusyPeriodCues,
+  type BusyPeriodCueKind,
 } from "@/shared/data/busyPeriodCues";
 
 import { ALL_PUBLIC_MODES } from "../services/TransportResolver";
@@ -173,11 +174,40 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     destination.id,
     travelDate ?? new Date(),
   )[0];
+  const translateRequired = (key: string) => {
+    const value = t(key, { defaultValue: "" }).trim();
+    return value === key ? "" : value;
+  };
+  const busyPeriodKindKey: Record<BusyPeriodCueKind, string> = {
+    nationalHoliday: "home.busyPeriod.nationalHoliday",
+    weekend: "home.busyPeriod.weekend",
+    peakSeason: "home.busyPeriod.peakSeason",
+    localEvent: "home.busyPeriod.localEvent",
+  };
+  const busyPeriodKindLabel = busyPeriodCue
+    ? translateRequired(busyPeriodKindKey[busyPeriodCue.kind])
+    : "";
+  const busyPeriodAdvisory = translateRequired("home.busyPeriod.advisory");
+  const busyPeriodEvidenceLabel = translateRequired(
+    "home.busyPeriod.evidenceLabel",
+  );
+  const busyPeriodSourceLabel = translateRequired(
+    "home.busyPeriod.sourceLabel",
+  );
   const busyPeriodCueText = busyPeriodCue
-    ? `${t("home.busyPeriod.advisory")} — ${t(`home.busyPeriod.${busyPeriodCue.kind}`)}: ${busyPeriodCue.reason[locale]} (${formatBusyPeriodDateRange(busyPeriodCue.dateRange, locale)})`
+    ? busyPeriodAdvisory && busyPeriodKindLabel && busyPeriodCue.reason[locale]
+      ? `${busyPeriodAdvisory} — ${busyPeriodKindLabel}: ${busyPeriodCue.reason[locale]} (${formatBusyPeriodDateRange(busyPeriodCue.dateRange, locale)})`
+      : undefined
     : undefined;
   const busyPeriodCueLabel = busyPeriodCueText
-    ? `${busyPeriodCueText}. ${busyPeriodCue.evidence} Source: ${busyPeriodCue.source}`
+    ? busyPeriodEvidenceLabel &&
+      busyPeriodSourceLabel &&
+      busyPeriodCue.evidence[locale] &&
+      busyPeriodCue.source[locale]
+      ? locale === "ja"
+        ? `${busyPeriodCueText}。${busyPeriodEvidenceLabel}：${busyPeriodCue.evidence[locale]}。${busyPeriodSourceLabel}：${busyPeriodCue.source[locale]}`
+        : `${busyPeriodCueText}. ${busyPeriodEvidenceLabel}: ${busyPeriodCue.evidence[locale]}. ${busyPeriodSourceLabel}: ${busyPeriodCue.source[locale]}`
+      : undefined
     : undefined;
 
   const conditionLine = useMemo(() => {

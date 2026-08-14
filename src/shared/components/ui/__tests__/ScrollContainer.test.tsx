@@ -18,16 +18,22 @@ afterEach(() => {
   host = undefined;
 });
 
-function renderRail() {
+function renderRail(
+  labels = {
+    ariaLabel: "Seasonal destinations",
+    previousLabel: "Scroll left",
+    nextLabel: "Scroll right",
+  },
+) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
   act(() => {
     root!.render(
       <ScrollContainer
-        ariaLabel="Seasonal destinations"
-        previousLabel="Scroll left"
-        nextLabel="Scroll right"
+        ariaLabel={labels.ariaLabel}
+        previousLabel={labels.previousLabel}
+        nextLabel={labels.nextLabel}
       >
         <div style={{ width: "1200px" }}>cards</div>
       </ScrollContainer>,
@@ -91,5 +97,29 @@ describe("ScrollContainer", () => {
     expect(host!.querySelector('button[aria-label="Scroll right"]')).toBeNull();
     expect(region.className).toContain("overflow-x-auto");
     expect(region.className).toContain("snap-x");
+  });
+
+  it("preserves Japanese caller-provided region and control labels", () => {
+    const region = renderRail({
+      ariaLabel: "季節の旅先",
+      previousLabel: "左へスクロール",
+      nextLabel: "右へスクロール",
+    });
+    refresh(region);
+
+    expect(region.getAttribute("aria-label")).toBe("季節の旅先");
+    expect(
+      host!.querySelector('button[aria-label="右へスクロール"]'),
+    ).not.toBeNull();
+
+    Object.defineProperty(region, "scrollLeft", {
+      configurable: true,
+      writable: true,
+      value: 200,
+    });
+    refresh(region);
+    expect(
+      host!.querySelector('button[aria-label="左へスクロール"]'),
+    ).not.toBeNull();
   });
 });

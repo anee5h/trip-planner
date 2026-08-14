@@ -442,7 +442,9 @@
       "nationalHoliday": "national holiday",
       "weekend": "weekend",
       "peakSeason": "peak season",
-      "localEvent": "local event"
+      "localEvent": "local event",
+      "evidenceLabel": "Evidence",
+      "sourceLabel": "Source"
     },
     "viewAllTopMatches": "View all top matches",
     "viewAllBucketList": "View all saved destinations",
@@ -460,7 +462,10 @@
       "nature": "Nature & parks",
       "gardens": "Gardens",
       "views": "Scenic views",
-      "waterfalls": "Waterfalls"
+      "waterfalls": "Waterfalls",
+      "official": "Official collection",
+      "historical": "Historical collection",
+      "curated": "Curated collection"
     },
     "places": "{{count}} places",
     "places_one": "{{count}} place",

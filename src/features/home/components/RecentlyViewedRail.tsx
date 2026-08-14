@@ -17,6 +17,14 @@ interface RecentlyViewedRailProps {
   travelDate?: string;
 }
 
+function translateRequired(
+  translate: (key: string, options?: Record<string, unknown>) => string,
+  key: string,
+): string {
+  const value = translate(key, { defaultValue: "" }).trim();
+  return value === key ? "" : value;
+}
+
 export const RecentlyViewedRail: React.FC<RecentlyViewedRailProps> = ({
   partySize,
   carMode,
@@ -24,8 +32,26 @@ export const RecentlyViewedRail: React.FC<RecentlyViewedRailProps> = ({
   travelDate,
 }) => {
   const { t } = useTranslation();
+  const translate = t as (
+    key: string,
+    options?: Record<string, unknown>,
+  ) => string;
   const destinations = useRecentlyViewedDestinations();
   if (destinations.length === 0) return null;
+
+  const title = translateRequired(translate, "home.continueExploring");
+  const description = translateRequired(
+    translate,
+    "home.continueExploringDescription",
+  );
+  const viewAllLabel = translateRequired(
+    translate,
+    "home.viewAllContinueExploring",
+  );
+  const previousLabel = translateRequired(translate, "home.previousRail");
+  const nextLabel = translateRequired(translate, "home.nextRail");
+  if (!title || !description || !viewAllLabel || !previousLabel || !nextLabel)
+    return null;
 
   return (
     <section
@@ -36,22 +62,19 @@ export const RecentlyViewedRail: React.FC<RecentlyViewedRailProps> = ({
           <div className="min-w-0">
             <h2 className="flex items-center gap-2 text-xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-2xl lg:text-3xl">
               <History className="size-5 shrink-0 text-emerald-500 sm:size-6" />
-              <span>{t("home.continueExploring")}</span>
+              <span>{title}</span>
             </h2>
             <p className="mt-1 text-[13px] leading-relaxed text-slate-500 dark:text-slate-400 sm:text-sm">
-              {t("home.continueExploringDescription")}
+              {description}
             </p>
           </div>
-          <SectionViewAllLink
-            to="/destinations"
-            ariaLabel={t("home.viewAllContinueExploring")}
-          />
+          <SectionViewAllLink to="/destinations" ariaLabel={viewAllLabel} />
         </div>
 
         <ScrollContainer
-          ariaLabel={t("home.continueExploring")}
-          previousLabel={t("home.previousRail")}
-          nextLabel={t("home.nextRail")}
+          ariaLabel={title}
+          previousLabel={previousLabel}
+          nextLabel={nextLabel}
           className="-mx-4 flex gap-3 px-4 py-2 md:mx-0 md:px-10 sm:gap-4"
         >
           {destinations.map((destination) => (

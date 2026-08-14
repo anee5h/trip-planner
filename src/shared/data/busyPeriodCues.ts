@@ -7,13 +7,18 @@ import {
 export type BusyPeriodCueKind =
   "nationalHoliday" | "weekend" | "peakSeason" | "localEvent";
 
+export interface LocalizedBusyPeriodText {
+  en: string;
+  ja: string;
+}
+
 export interface BusyPeriodCue {
   id: string;
   kind: BusyPeriodCueKind;
   dateRange: readonly [string, string];
-  reason: { en: string; ja: string };
-  evidence: string;
-  source: string;
+  reason: LocalizedBusyPeriodText;
+  evidence: LocalizedBusyPeriodText;
+  source: LocalizedBusyPeriodText;
   sourceUrl?: string;
   reviewedAt: string;
   expiresAt: string;
@@ -21,7 +26,7 @@ export interface BusyPeriodCue {
 
 interface NationalHoliday {
   date: string;
-  name: { en: string; ja: string };
+  name: LocalizedBusyPeriodText;
 }
 
 interface CuratedPeakPeriod {
@@ -29,9 +34,9 @@ interface CuratedPeakPeriod {
   destinationIds: readonly string[];
   startMonthDay: string;
   endMonthDay: string;
-  reason: { en: string; ja: string };
-  evidence: string;
-  source: string;
+  reason: LocalizedBusyPeriodText;
+  evidence: LocalizedBusyPeriodText;
+  source: LocalizedBusyPeriodText;
   sourceUrl: string;
   reviewedAt: string;
   expiresAt: string;
@@ -39,8 +44,10 @@ interface CuratedPeakPeriod {
 
 /** Cabinet Office national-holiday extract committed for the beta calendar. */
 export const JAPAN_HOLIDAY_DATA_VERSION = "cabinet-office-2026.1";
-const JAPAN_HOLIDAY_SOURCE =
-  "Japan Cabinet Office national-holiday calendar (2026 extract)";
+const JAPAN_HOLIDAY_SOURCE: LocalizedBusyPeriodText = {
+  en: "Japan Cabinet Office national-holiday calendar (2026 extract)",
+  ja: "日本の内閣府・国民の祝日カレンダー（2026年版）",
+};
 const JAPAN_HOLIDAY_SOURCE_URL =
   "https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html";
 
@@ -76,9 +83,14 @@ export const CURATED_PEAK_PERIODS: readonly CuratedPeakPeriod[] = [
       en: "Cherry blossom peak season",
       ja: "桜の見頃シーズン",
     },
-    evidence:
-      "Official garden guidance identifies spring cherry blossoms as a peak visiting period.",
-    source: "Shinjuku Gyoen National Garden seasonal guidance",
+    evidence: {
+      en: "Official garden guidance identifies spring cherry blossoms as a peak visiting period.",
+      ja: "庭園公式案内で、春の桜が見頃の時期として案内されています。",
+    },
+    source: {
+      en: "Shinjuku Gyoen National Garden seasonal guidance",
+      ja: "新宿御苑の季節案内",
+    },
     sourceUrl: "https://www.env.go.jp/garden/shinjukugyoen/english/index.html",
     reviewedAt: "2026-08-01",
     expiresAt: "2027-04-30",
@@ -97,7 +109,10 @@ function nationalHolidayCue(holiday: NationalHoliday): BusyPeriodCue {
     kind: "nationalHoliday",
     dateRange: [holiday.date, holiday.date],
     reason: holiday.name,
-    evidence: `${holiday.name.en} is listed in the ${JAPAN_HOLIDAY_DATA_VERSION} local holiday extract.`,
+    evidence: {
+      en: `${holiday.name.en} is listed in the ${JAPAN_HOLIDAY_DATA_VERSION} local holiday extract.`,
+      ja: `${holiday.name.ja}は、日本の2026年版祝日データに記載されています。`,
+    },
     source: JAPAN_HOLIDAY_SOURCE,
     sourceUrl: JAPAN_HOLIDAY_SOURCE_URL,
     reviewedAt: "2026-08-01",
@@ -148,8 +163,14 @@ export function getBusyPeriodCues(
       kind: "weekend",
       dateRange: [date, date],
       reason: { en: "Weekend", ja: "週末" },
-      evidence: "The date falls on Saturday or Sunday in Japan Standard Time.",
-      source: "Japan Standard Time calendar",
+      evidence: {
+        en: "The date falls on Saturday or Sunday in Japan Standard Time.",
+        ja: "日本標準時で土曜日または日曜日にあたります。",
+      },
+      source: {
+        en: "Japan Standard Time calendar",
+        ja: "日本標準時カレンダー",
+      },
       reviewedAt: "2026-08-01",
       expiresAt: "2099-12-31",
     });
@@ -172,5 +193,6 @@ export function formatBusyPeriodDateRange(
   };
   const start = format(dateRange[0]);
   const end = format(dateRange[1]);
-  return start === end ? start : `${start} – ${end}`;
+  if (start === end) return start;
+  return locale === "ja" ? `${start}〜${end}` : `${start} – ${end}`;
 }

@@ -72,6 +72,14 @@ function titleKeyFor(kind: DiscoveryRailKind, season: Season) {
   return meta[kind].titleKey;
 }
 
+function translateRequired(
+  translate: (key: string, options?: Record<string, unknown>) => string,
+  key: string,
+): string {
+  const value = translate(key, { defaultValue: "" }).trim();
+  return value === key ? "" : value;
+}
+
 export const DiscoveryRail: React.FC<DiscoveryRailProps> = ({
   kind,
   destinations,
@@ -91,7 +99,13 @@ export const DiscoveryRail: React.FC<DiscoveryRailProps> = ({
     key: string,
     options?: Record<string, unknown>,
   ) => string;
-  const title = translate(titleKey, { defaultValue: titleKey });
+  const title = translateRequired(translate, titleKey);
+  const description = translateRequired(translate, rail.descriptionKey);
+  const viewAllLabel = translateRequired(translate, rail.viewAllKey);
+  const previousLabel = translateRequired(translate, "home.previousRail");
+  const nextLabel = translateRequired(translate, "home.nextRail");
+  if (!title || !description || !viewAllLabel || !previousLabel || !nextLabel)
+    return null;
   return (
     <section
       className={`border-t border-slate-100 bg-white ${HOME_RAIL_SECTION_SPACING} dark:border-slate-800/80 dark:bg-slate-950`}
@@ -104,19 +118,16 @@ export const DiscoveryRail: React.FC<DiscoveryRailProps> = ({
               <span>{title}</span>
             </h2>
             <p className="mt-1 text-[13px] leading-relaxed text-slate-500 dark:text-slate-400 sm:text-sm">
-              {translate(rail.descriptionKey)}
+              {description}
             </p>
           </div>
-          <SectionViewAllLink
-            to={rail.to}
-            ariaLabel={translate(rail.viewAllKey)}
-          />
+          <SectionViewAllLink to={rail.to} ariaLabel={viewAllLabel} />
         </div>
 
         <ScrollContainer
           ariaLabel={title}
-          previousLabel={t("home.previousRail")}
-          nextLabel={t("home.nextRail")}
+          previousLabel={previousLabel}
+          nextLabel={nextLabel}
           className="-mx-4 flex gap-3 px-4 py-2 md:mx-0 md:px-10 sm:gap-4"
         >
           {destinations.map((destination) => (

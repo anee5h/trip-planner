@@ -109,6 +109,57 @@ describe("homepage rail configuration", () => {
 });
 
 describe("homepage discovery eligibility", () => {
+  it("excludes All-Year-only records without meaningful current-season evidence", () => {
+    const results = getSeasonalDiscoveryDestinations(
+      [
+        destination("all-year-only", 100, {
+          season: undefined,
+          bestMonths: [],
+          bestSeason: "All Year",
+        }),
+      ],
+      "2026-04-01",
+    );
+
+    expect(results).toEqual([]);
+  });
+
+  it("keeps real current-season evidence and unknown-method exclusions", () => {
+    const results = getSeasonalDiscoveryDestinations(
+      [
+        destination("real-season", 1, {
+          season: { spring: 8, summer: 5, autumn: 5, winter: 5 },
+          bestMonths: [],
+          bestSeason: "All Year",
+        }),
+        destination("unknown-season", 100, {
+          season: { spring: 10, summer: 5, autumn: 5, winter: 5 },
+          bestMonths: [3, 4],
+          seasonMetadata: { method: "unknown" },
+        } as unknown as Partial<ScoredDestination>),
+      ],
+      "2026-04-01",
+    );
+
+    expect(results.map(({ id }) => id)).toEqual(["real-season"]);
+  });
+
+  it("accepts explicit current-season metadata without treating All Year as evidence", () => {
+    const results = getSeasonalDiscoveryDestinations(
+      [
+        destination("explicit-season", 0, {
+          season: undefined,
+          bestMonths: [],
+          bestSeason: "All Year",
+          bestSeasons: ["Spring"],
+        } as unknown as Partial<ScoredDestination>),
+      ],
+      "2026-04-01",
+    );
+
+    expect(results.map(({ id }) => id)).toEqual(["explicit-season"]);
+  });
+
   it("ranks seasonal evidence instead of alphabetical IDs or tag slicing", () => {
     const results = getSeasonalDiscoveryDestinations(
       [
@@ -165,6 +216,18 @@ describe("homepage discovery eligibility", () => {
           capacity: { eligible: true },
         } as ScoredDestination["weekend"],
       }),
+      destination("acceptable", 8, {
+        weekend: {
+          travelFit: { eligible: true, band: "acceptable", oneWayMinutes: 270 },
+          capacity: { eligible: true },
+        } as ScoredDestination["weekend"],
+      }),
+      destination("local", 100, {
+        weekend: {
+          travelFit: { eligible: true, band: "local", oneWayMinutes: 45 },
+          capacity: { eligible: true },
+        } as ScoredDestination["weekend"],
+      }),
       destination("reachOnly", 100),
       destination("notEnough", 100, {
         weekend: {
@@ -176,10 +239,31 @@ describe("homepage discovery eligibility", () => {
 
     expect(
       getWeekendGetawayDestinations(candidates).map(({ id }) => id),
-    ).toEqual(["strong", "long"]);
+    ).toEqual(["strong", "acceptable"]);
     expect(
       getWorthLongerJourneyDestinations(candidates).map(({ id }) => id),
-    ).toEqual(["long"]);
+    ).toEqual(["long", "acceptable"]);
+  });
+
+  it("ranks a stronger 250-minute journey above a weaker 400-minute journey", () => {
+    const candidates = [
+      destination("farther-but-weaker", 10, {
+        weekend: {
+          travelFit: { eligible: true, band: "weak", oneWayMinutes: 400 },
+          capacity: { eligible: true },
+        } as ScoredDestination["weekend"],
+      }),
+      destination("closer-but-stronger", 90, {
+        weekend: {
+          travelFit: { eligible: true, band: "acceptable", oneWayMinutes: 250 },
+          capacity: { eligible: true },
+        } as ScoredDestination["weekend"],
+      }),
+    ];
+
+    expect(
+      getWorthLongerJourneyDestinations(candidates).map(({ id }) => id),
+    ).toEqual(["closer-but-stronger", "farther-but-weaker"]);
   });
 });
 

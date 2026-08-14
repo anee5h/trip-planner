@@ -442,7 +442,9 @@
       "nationalHoliday": "国民の祝日",
       "weekend": "週末",
       "peakSeason": "見頃・繁忙期",
-      "localEvent": "地域イベント"
+      "localEvent": "地域イベント",
+      "evidenceLabel": "根拠",
+      "sourceLabel": "情報源"
     },
     "viewAllTopMatches": "おすすめをすべて見る",
     "viewAllBucketList": "保存した目的地をすべて見る",
@@ -460,7 +462,10 @@
       "nature": "自然・公園",
       "gardens": "庭園",
       "views": "絶景",
-      "waterfalls": "滝"
+      "waterfalls": "滝",
+      "official": "公式コレクション",
+      "historical": "歴史的コレクション",
+      "curated": "厳選コレクション"
     },
     "places": "{{count}}か所",
     "places_one": "{{count}}か所",
