@@ -28,7 +28,6 @@ import {
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import {
   calculateScore,
-  getScorePresentation,
   isRatingVerified,
 } from "@/shared/services/recommendation/RecommendationScorer";
 import { createRecommendationMatch } from "@/shared/services/recommendation/RecommendationExplainability";
@@ -190,7 +189,6 @@ const DETAIL_COPY = {
     ratings: "Detailed Ratings",
     food: "Food & Drink",
     match: "Why This Matches You",
-    overall: "Overall Score",
     suggested: "Suggested Visit",
     bestSeason: "Best Season",
     nearby: "Nearby Attractions",
@@ -230,7 +228,6 @@ const DETAIL_COPY = {
     ratings: "詳細評価",
     food: "食事・カフェ",
     match: "おすすめの理由",
-    overall: "総合評価",
     suggested: "おすすめの滞在",
     bestSeason: "ベストシーズン",
     nearby: "近くの見どころ",
@@ -862,19 +859,12 @@ export default function DestinationDetails() {
     );
   }
 
-  // REC-002/KAI-89 3-state: verified numeric score (trusted provenance +
-  // KAI-89 rubric v2: ONE rubric value backs verified and estimated (state
-  // is provenance, not a different formula); unavailable shows "—" with the
-  // localized note — never blank, never the old "under editorial review"
-  // wording. The Detailed Ratings tab is the LEGACY ratings evidence family,
-  // gated by rating-vector confidence (isRatingVerified), independent of the
-  // overall-score state.
-  const scorePresentation = getScorePresentation(destination);
-  const showDetailScore = scorePresentation.state === "verified";
-  const showEstimatedScore = scorePresentation.state === "estimated";
-  const scoreUnavailable = scorePresentation.state === "unavailable";
+  // Beta product decision (KAI-89): the overall destination score is hidden
+  // from all user-facing surfaces; scoreMetadata stays internal (rubric,
+  // provenance, gates) and never affects ranking. The Detailed Ratings tab
+  // is the LEGACY ratings evidence family, gated by rating-vector confidence
+  // (isRatingVerified), independent of the hidden overall-score state.
   const showRatingsTab = isRatingVerified(destination);
-  const detailOverallScore = scorePresentation.value;
   return (
     <div className="bg-slate-50 dark:bg-background min-h-screen pb-20">
       {/* Hero Image Header */}
@@ -1918,26 +1908,6 @@ export default function DestinationDetails() {
                       </CardContent>
                     </Card>
                   </>
-                ) : showEstimatedScore ? (
-                  <Card>
-                    <CardContent className="p-6 text-sm text-slate-500 dark:text-slate-400">
-                      <div className="font-bold text-slate-700 dark:text-slate-300">
-                        {detailOverallScore}
-                        <span className="ml-1.5 text-[10px] font-normal uppercase text-slate-400">
-                          {copy.estimated}
-                        </span>
-                      </div>
-                      <div className="mt-1">
-                        {t("destination.ratingsEstimatedNote")}
-                      </div>
-                    </CardContent>
-                  </Card>
-                ) : scoreUnavailable ? (
-                  <Card>
-                    <CardContent className="p-6 text-sm text-slate-500 dark:text-slate-400">
-                      {t("destination.ratingsUnavailableNote")}
-                    </CardContent>
-                  </Card>
                 ) : null}
               </TabsContent>
 
@@ -2221,52 +2191,33 @@ export default function DestinationDetails() {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <Card className="bg-emerald-600 text-white border-none shadow-lg">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <div
-                  data-testid="destination-detail-score"
-                  className="text-5xl font-extrabold mb-2"
-                >
-                  {showDetailScore || showEstimatedScore
-                    ? (detailOverallScore ?? "N/A")
-                    : "—"}
-                </div>
-                <div className="text-emerald-100 font-medium tracking-widest uppercase text-sm mb-4">
-                  {copy.overall}
-                </div>
-                {showDetailScore && (
-                  <div className="text-emerald-100/90 text-sm mb-4">
-                    {t("destination.scoreVerifiedNote")}
-                  </div>
-                )}
-                {showEstimatedScore && (
-                  <div className="text-emerald-100/90 text-sm mb-4">
-                    <span className="uppercase text-xs">{copy.estimated}</span>{" "}
-                    {t("destination.scoreEstimatedNote")}
-                  </div>
-                )}
-                {scoreUnavailable && (
-                  <div className="text-emerald-100/90 text-sm mb-4">
-                    {t("destination.scoreUnavailable")}
-                  </div>
-                )}
-                <div className="w-full h-px bg-white/20 mb-4"></div>
-                {(() => {
-                  const notesText =
-                    locale === "ja"
-                      ? destination.content?.ja?.notes ||
-                        destination.notesJa ||
-                        localizeEditorialValue(destination.notes, "ja")
-                      : destination.content?.en?.notes || destination.notes;
-                  return (
-                    notesText &&
-                    !notesText.startsWith("Source-backed") && (
-                      <p className="text-emerald-50 text-sm">{notesText}</p>
-                    )
-                  );
-                })()}
-              </CardContent>
-            </Card>
+            {(() => {
+              const notesText =
+                locale === "ja"
+                  ? destination.content?.ja?.notes ||
+                    destination.notesJa ||
+                    localizeEditorialValue(destination.notes, "ja")
+                  : destination.content?.en?.notes || destination.notes;
+              const visibleNotes =
+                notesText && !notesText.startsWith("Source-backed")
+                  ? notesText
+                  : null;
+              if (!visibleNotes) return null;
+              return (
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-3">
+                      <div className="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-slate-500 dark:text-slate-400 shrink-0">
+                        <Info className="w-4 h-4" />
+                      </div>
+                      <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                        {visibleNotes}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })()}
 
             {/* Suggested Visit Card */}
             <Card>

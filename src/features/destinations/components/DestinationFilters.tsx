@@ -12,7 +12,6 @@ import {
 import {
   Search,
   Clock,
-  Star,
   Footprints,
   Coins,
   Filter,
@@ -626,12 +625,6 @@ export default function DestinationFilters({
                   {isJa ? "おすすめ順" : "Recommended"}
                 </div>
               )}
-              {sortBy === "overall" && (
-                <div className="flex items-center whitespace-nowrap">
-                  <Star className="w-3.5 h-3.5 mr-1.5 text-amber-500 shrink-0" />{" "}
-                  {isJa ? "評価が高い順" : "Top Rated"}
-                </div>
-              )}
               {sortBy === "travelTime" && (
                 <div className="flex items-center whitespace-nowrap">
                   <Clock className="w-3.5 h-3.5 mr-1.5 text-blue-500 shrink-0" />{" "}
@@ -665,15 +658,6 @@ export default function DestinationFilters({
                 <div className="flex items-center whitespace-nowrap">
                   <Compass className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
                   {isJa ? "おすすめ順" : "Recommended"}
-                </div>
-              </SelectItem>
-              <SelectItem
-                value="overall"
-                className="py-2 px-3 text-xs cursor-pointer"
-              >
-                <div className="flex items-center whitespace-nowrap">
-                  <Star className="w-3.5 h-3.5 mr-2 text-amber-500" />{" "}
-                  {isJa ? "評価が高い順" : "Highest Rated"}
                 </div>
               </SelectItem>
               <SelectItem

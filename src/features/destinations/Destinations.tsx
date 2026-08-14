@@ -44,7 +44,7 @@ import {
   getValidModes,
   scoreForCatalog,
 } from "@/shared/services/recommendation/RecommendationService";
-import { compareOverallScore } from "./destinationSorting";
+
 import type {
   RecommendationContext,
   TripMode,
@@ -988,11 +988,15 @@ export default function Destinations() {
     result = [...result].sort((a, b) => {
       switch (sortBy) {
         case "recommended":
-          // 2D1N uses the weekend-aware score so the explorer ranks
+        default:
+          // Beta product decision (KAI-89): the overall score is hidden and
+          // never drives list order — the legacy 'overall' URL value and any
+          // unknown sort fall back to the personalized recommendation
+          // ranking. 2D1N uses the weekend-aware score so the explorer ranks
           // consistently with the Home pipeline (and the Tokyo wards group
-          // ranks as its best member, not at a plain catalog position).
-          // The forecast/seasonal condition delta for the planned dates is
-          // added for both modes when a date is selected.
+          // ranks as its best member, not at a plain catalog position). The
+          // forecast/seasonal condition delta for the planned dates is added
+          // for both modes when a date is selected.
           return (
             (weekendRecommendedScoreById.get(b.id) ??
               recommendedScoreById.get(b.id) ??
@@ -1097,14 +1101,6 @@ export default function Destinations() {
           return (b.ratings?.summer ?? 0) - (a.ratings?.summer ?? 0);
         case "winter":
           return (b.ratings?.winter ?? 0) - (a.ratings?.winter ?? 0);
-        case "overall":
-        default: {
-          // KAI-89 rubric v2: verified and estimated share ONE rubric scale,
-          // but verified evidence outranks estimates regardless of value — an
-          // estimated 8.5 must never top a verified 7.0 in a "Top Rated"
-          // sort. State-major, then value descending, then id.
-          return compareOverallScore(a, b);
-        }
       }
     });
 

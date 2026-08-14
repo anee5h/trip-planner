@@ -108,16 +108,18 @@ test.describe("KAI-89 rendered data safety", () => {
   });
 
   for (const id of DESTINATION_MATRIX) {
-    test(`type matrix detail ${id} has finite score and safe fallbacks`, async ({
+    test(`type matrix detail ${id} hides the overall score with safe fallbacks`, async ({
       page,
     }) => {
       await page.goto(`/destinations/${id}`);
       await expect(page.locator("main")).toBeVisible();
       await expect(page.locator("h1").first()).toBeVisible();
       await assertVisibleDataIsSafe(page);
+      // Beta product decision (KAI-89): the overall destination score is
+      // hidden — no score element on any detail page.
       await expect(
         page.locator('[data-testid="destination-detail-score"]'),
-      ).toHaveText(/^(?:\d+(?:\.\d+)?|N\/A|—)$/);
+      ).toHaveCount(0);
     });
   }
 
@@ -150,62 +152,64 @@ test.describe("KAI-89 rendered data safety", () => {
     await assertVisibleDataIsSafe(page);
   });
 
-  test("unverified template hubs never render a raw authoritative score", async ({
+  test("template hubs never render any raw or estimated score", async ({
     page,
   }) => {
     // otsu-city/tottori-city/abashiri-city carry the 114-record template
-    // rating vector with no ratingMetadata: the Overall-Destination Rubric
-    // v1 produces a labeled ESTIMATED score (never the bare 9.5). The
-    // detailed ratings tab (raw sub-scores) is hidden for all three
-    // (REC-002/KAI-89 3-state).
+    // rating vector with no ratingMetadata. Beta decision: the overall
+    // score (raw or rubric-estimated) is hidden everywhere — the detail
+    // page shows no score element, no rubric note, and never the bare 9.5.
+    // The Detailed Ratings tab (legacy ratings) is hidden for unverified
+    // rating vectors (REC-002).
     for (const id of ["otsu-city", "tottori-city", "abashiri-city"]) {
       await page.goto(`/destinations/${id}`);
       await expect(page.locator("main")).toBeVisible();
       await expect(
         page.locator('[data-testid="destination-detail-score"]'),
-      ).toHaveText(/^\d+(\.\d+)?$/);
-      await expect(page.getByText(/rubric/i).first()).toBeVisible();
+      ).toHaveCount(0);
+      const body = await page.locator("body").innerText();
+      expect(body).not.toMatch(/rubric/i);
+      expect(body).not.toContain("9.5");
       await expect(
         page.getByRole("tab", { name: "Detailed Ratings" }),
       ).toHaveCount(0);
-      const body = await page.locator("body").innerText();
-      expect(body).not.toContain("9.5");
       await assertVisibleDataIsSafe(page);
     }
   });
 
-  test("verified rating evidence still renders a raw score", async ({
+  test("verified rating evidence keeps the experience tab but no overall score", async ({
     page,
   }) => {
-    // yokohama-city has ratingMetadata high/manual (genuine distinct vector).
+    // yokohama-city has ratingMetadata high/manual: the legacy experience
+    // ratings tab (a separate evidence family) stays visible, while the
+    // overall destination score is hidden.
     await page.goto("/destinations/yokohama-city");
     await expect(page.locator("main")).toBeVisible();
     await expect(
       page.locator('[data-testid="destination-detail-score"]'),
-    ).toHaveText(/^\d+(?:\.\d+)?$/);
+    ).toHaveCount(0);
+    await expect(
+      page.getByRole("tab", { name: "Detailed Ratings" }),
+    ).toBeVisible();
     await assertVisibleDataIsSafe(page);
   });
 
-  test("Explore cards hide the score chip for unverified ratings", async ({
-    page,
-  }) => {
+  test("Explore cards never show a score chip", async ({ page }) => {
     const cardFor = (hrefPrefix: string) =>
       page
         .locator(`a[href^="${hrefPrefix}"]`)
         .first()
         .locator('xpath=ancestor::div[contains(@class,"rounded-card")]');
+    const scoreChips =
+      '[data-testid="meguruto-score"], [data-testid="meguruto-score-estimated"], [data-testid="meguruto-score-unavailable"]';
     await page.goto("/destinations?q=otsu");
     const otsuCard = cardFor("/destinations/otsu-city");
     await expect(otsuCard).toBeVisible();
-    await expect(
-      otsuCard.locator('[data-testid="meguruto-score"]'),
-    ).toHaveCount(0);
+    await expect(otsuCard.locator(scoreChips)).toHaveCount(0);
     await page.goto("/destinations?q=yokohama");
     const verifiedCard = cardFor("/destinations/yokohama-city");
     await expect(verifiedCard).toBeVisible();
-    await expect(
-      verifiedCard.locator('[data-testid="meguruto-score"]'),
-    ).toHaveCount(1);
+    await expect(verifiedCard.locator(scoreChips)).toHaveCount(0);
   });
 
   test("day-plan widget duration range is monotonic (no reversed 9–8)", async ({

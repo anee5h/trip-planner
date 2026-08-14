@@ -529,7 +529,6 @@
     "originForecastHint": "予報は出発地付近の天気です"
   },
   "destination": {
-    "megurutoScore": "メグルートスコア",
     "tokyoWardsGroup": "東京23区",
     "tokyoWardsCount": "{{count}}区",
     "tokyoWardsBadge": "23区",
@@ -563,8 +562,6 @@
     "scoreUnavailable": "スコアを表示できません",
     "scoreVerifiedNote": "編集で検証済みのスコアです",
     "scoreEstimatedNote": "総合目的地ルーブリックによる推定スコアです",
-    "ratingsEstimatedNote": "検証済みの編集スコアがありません。この推定値は総合目的地ルーブリック（重要性・認知度・充実度・アクセス・整備度）から算出されています。",
-    "ratingsUnavailableNote": "この目的地は信頼できる指標からスコアを算出できません。",
     "ratings": {
       "couple": "カップル",
       "family": "家族",
@@ -760,7 +757,6 @@
     "system": "システム"
   },
   "compare": {
-    "score": "スコア",
     "best": "最高",
     "budget": "予算",
     "lowest": "最安",
@@ -774,7 +770,6 @@
     "closeModal": "比較モーダルを閉じる",
     "unavailable": "該当なし",
     "estimated": "目安",
-    "overallScore": "総合スコア",
     "budgetRecommended": "予算（推奨）",
     "travelTime": "移動時間",
     "walkIntensity": "歩きやすさ",

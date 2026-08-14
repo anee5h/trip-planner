@@ -133,7 +133,7 @@ describe("DestinationCard responsive content", () => {
     ).toContain("hidden");
   });
 
-  it("shows the rubric score for verified evidence (one scale)", () => {
+  it("hides the overall destination score chip (beta product decision)", () => {
     const verifiedDestination = destinations.find(
       (candidate) => candidate.id === "yokohama-city",
     ) as Destination;
@@ -147,16 +147,16 @@ describe("DestinationCard responsive content", () => {
       ),
     );
 
-    const score = host.querySelector('[data-testid="meguruto-score"]');
-    expect(score).not.toBeNull();
-    // KAI-89 rubric v2: the verified chip shows the ONE rubric value, not
-    // the legacy ratings.overall — state is provenance, not a formula.
-    expect(score?.textContent).toBe(
-      String(verifiedDestination.scoreMetadata?.value),
-    );
-    expect(score?.getAttribute("aria-label")).toContain(
-      "destination.megurutoScore",
-    );
+    // KAI-89 beta decision: the overall score is hidden from all surfaces;
+    // scoreMetadata stays internal (rubric, provenance, gates) and never
+    // affects ranking or card rendering.
+    expect(host.querySelector('[data-testid="meguruto-score"]')).toBeNull();
+    expect(
+      host.querySelector('[data-testid="meguruto-score-estimated"]'),
+    ).toBeNull();
+    expect(
+      host.querySelector('[data-testid="meguruto-score-unavailable"]'),
+    ).toBeNull();
   });
 
   it("renders the shared approximate estimate when Explore has no canonical route", () => {
@@ -497,41 +497,26 @@ describe("KAI-89 3-state score presentation on the card", () => {
     return host;
   }
 
-  it("verified record renders the numeric score badge (never blank)", () => {
-    // yokohama-city: ratingMetadata high/manual.
-    const h = renderFor("yokohama-city");
-    expect(h.querySelector('[data-testid="meguruto-score"]')).not.toBeNull();
-    expect(
-      h.querySelector('[data-testid="meguruto-score-estimated"]'),
-    ).toBeNull();
-    expect(
-      h.querySelector('[data-testid="meguruto-score-unavailable"]'),
-    ).toBeNull();
-  });
-
-  it("estimated record renders a labeled est. badge, never the raw rating", () => {
-    // abashiri-city: no ratingMetadata, trusted season vector → estimated.
-    const h = renderFor("abashiri-city");
-    expect(
-      h.querySelector('[data-testid="meguruto-score-estimated"]'),
-    ).not.toBeNull();
-    expect(h.querySelector('[data-testid="meguruto-score"]')).toBeNull();
-    const text = h.textContent ?? "";
-    expect(text).not.toContain("9.5"); // template raw rating never shown
-  });
-
-  it("published records all resolve: otsu-city (no metadata) renders the estimated chip, never blank", () => {
-    // otsu-city: no ratingMetadata — the Overall-Destination Rubric scores
-    // it (estimated, labeled), so no published record is ever blank and the
-    // raw template rating is never shown.
-    const h = renderFor("otsu-city");
-    expect(
-      h.querySelector('[data-testid="meguruto-score-estimated"]'),
-    ).not.toBeNull();
-    expect(h.querySelector('[data-testid="meguruto-score"]')).toBeNull();
-    expect(
-      h.querySelector('[data-testid="meguruto-score-unavailable"]'),
-    ).toBeNull();
-    expect(h.textContent).not.toContain("9.5");
+  it("never renders the overall score chip, regardless of score state", () => {
+    // Beta product decision (KAI-89): the overall destination score is
+    // hidden from every surface — verified (yokohama-city), estimated
+    // (abashiri-city / otsu-city) and unavailable records render no chip
+    // at all; the raw template rating (9.5) is never shown.
+    for (const id of ["yokohama-city", "abashiri-city", "otsu-city"]) {
+      const h = renderFor(id);
+      expect(
+        h.querySelector('[data-testid="meguruto-score"]'),
+        `${id}: verified chip hidden`,
+      ).toBeNull();
+      expect(
+        h.querySelector('[data-testid="meguruto-score-estimated"]'),
+        `${id}: estimated chip hidden`,
+      ).toBeNull();
+      expect(
+        h.querySelector('[data-testid="meguruto-score-unavailable"]'),
+        `${id}: unavailable chip hidden`,
+      ).toBeNull();
+      expect(h.textContent).not.toContain("9.5");
+    }
   });
 });

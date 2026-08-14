@@ -14,11 +14,7 @@ import {
 import { Map, PlusSquare, Trash2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
 import { getAdjustedBudget } from "@/shared/utils/utils";
-import {
-  getScorePresentation,
-  isRatingVerified,
-} from "@/shared/services/recommendation/RecommendationScorer";
-import { bestVerifiedScoreIndex } from "./compareScore";
+import { isRatingVerified } from "@/shared/services/recommendation/RecommendationScorer";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -64,7 +60,6 @@ export default function Compare() {
 
   // Helpers to find best values
   const getMin = (arr: number[]) => Math.min(...arr);
-  const getMax = (arr: number[]) => Math.max(...arr);
 
   const budgets = compareDestinations.map((d) => getAdjustedBudget(d, "all"));
   const knownBudgets = budgets.filter(
@@ -80,28 +75,11 @@ export default function Compare() {
   });
   const minTravelTime = getMin(travelTimes);
 
-  // KAI-89 rubric v2: the overall row shows the ONE rubric value for both
-  // verified and estimated (same scale), with an est. label for estimates;
-  // unavailable renders "—". Only VERIFIED states can win the Best badge
-  // (bestVerifiedScoreIndex) — an estimate never beats verified evidence.
-  // The legacy experience rows (couple/summer) remain the separate ratings
-  // evidence family, gated by rating-vector confidence (isRatingVerified).
-  const scoreStates = compareDestinations.map((d) => getScorePresentation(d));
+  // Beta product decision (KAI-89): the overall destination score is hidden
+  // from Compare too. The legacy experience rows (couple/summer) remain the
+  // separate ratings evidence family, gated by rating-vector confidence
+  // (isRatingVerified).
   const ratingVerified = compareDestinations.map((d) => isRatingVerified(d));
-  const bestOverallIndex = bestVerifiedScoreIndex(compareDestinations);
-  const coupleScores = compareDestinations.map((d, i) =>
-    ratingVerified[i] ? d.ratings.couple : null,
-  );
-  const maxCoupleScore = coupleScores.every((v) => v === null)
-    ? null
-    : getMax(coupleScores.filter((v): v is number => v !== null));
-
-  const summerScores = compareDestinations.map((d, i) =>
-    ratingVerified[i] ? d.ratings.summer : null,
-  );
-  const maxSummerScore = summerScores.every((v) => v === null)
-    ? null
-    : getMax(summerScores.filter((v): v is number => v !== null));
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
@@ -176,38 +154,6 @@ export default function Compare() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            <TableRow>
-              <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
-                {t("compare.overallScore")}
-              </TableCell>
-              {compareDestinations.map((dest, idx) => (
-                <TableCell key={dest.id} className="text-base">
-                  <span
-                    className={`font-bold ${
-                      bestOverallIndex === idx
-                        ? "text-emerald-600 dark:text-emerald-400"
-                        : ""
-                    }`}
-                  >
-                    {scoreStates[idx].state === "unavailable" ||
-                    scoreStates[idx].value === null
-                      ? "—"
-                      : scoreStates[idx].value}
-                  </span>
-                  {scoreStates[idx].state === "estimated" &&
-                    scoreStates[idx].value !== null && (
-                      <span className="ml-1.5 text-[10px] font-normal uppercase text-slate-400">
-                        {t("compare.estimated")}
-                      </span>
-                    )}
-                  {bestOverallIndex === idx && (
-                    <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
-                      {t("compare.best")}
-                    </Badge>
-                  )}
-                </TableCell>
-              ))}
-            </TableRow>
             <TableRow>
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
                 {t("compare.budgetRecommended")}
@@ -297,24 +243,9 @@ export default function Compare() {
               </TableCell>
               {compareDestinations.map((dest, idx) => (
                 <TableCell key={dest.id}>
-                  <span
-                    className={
-                      ratingVerified[idx] &&
-                      maxCoupleScore !== null &&
-                      dest.ratings.couple === maxCoupleScore
-                        ? "font-bold text-emerald-600 dark:text-emerald-400"
-                        : ""
-                    }
-                  >
+                  <span>
                     {ratingVerified[idx] ? `${dest.ratings.couple}/10` : "—"}
                   </span>
-                  {ratingVerified[idx] &&
-                    maxCoupleScore !== null &&
-                    dest.ratings.couple === maxCoupleScore && (
-                      <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
-                        {t("compare.highest")}
-                      </Badge>
-                    )}
                 </TableCell>
               ))}
             </TableRow>
@@ -324,24 +255,9 @@ export default function Compare() {
               </TableCell>
               {compareDestinations.map((dest, idx) => (
                 <TableCell key={dest.id}>
-                  <span
-                    className={
-                      ratingVerified[idx] &&
-                      maxSummerScore !== null &&
-                      dest.ratings.summer === maxSummerScore
-                        ? "font-bold text-emerald-600 dark:text-emerald-400"
-                        : ""
-                    }
-                  >
+                  <span>
                     {ratingVerified[idx] ? `${dest.ratings.summer}/10` : "—"}
                   </span>
-                  {ratingVerified[idx] &&
-                    maxSummerScore !== null &&
-                    dest.ratings.summer === maxSummerScore && (
-                      <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
-                        {t("compare.best")}
-                      </Badge>
-                    )}
                 </TableCell>
               ))}
             </TableRow>
@@ -370,7 +286,7 @@ export default function Compare() {
 
       {/* Mobile Stacked View */}
       <div className="grid grid-cols-1 gap-6 md:hidden">
-        {compareDestinations.map((dest, idx) => {
+        {compareDestinations.map((dest) => {
           const budgetVal = getAdjustedBudget(dest, "all");
           const travelTimesForDest = Object.values(
             dest.transportOptions || {},
@@ -423,28 +339,6 @@ export default function Compare() {
               </div>
 
               <div className="border-t border-slate-100 dark:border-slate-800 pt-4 grid grid-cols-2 gap-3 text-xs">
-                <div>
-                  <p className="text-slate-400 font-semibold mb-0.5">
-                    {t("compare.overallScore")}
-                  </p>
-                  <p className="font-bold text-slate-900 dark:text-white flex items-center">
-                    {scoreStates[idx].state === "unavailable" ||
-                    scoreStates[idx].value === null
-                      ? "—"
-                      : scoreStates[idx].value}
-                    {scoreStates[idx].state === "estimated" &&
-                      scoreStates[idx].value !== null && (
-                        <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
-                          {t("compare.estimated")}
-                        </span>
-                      )}
-                    {bestOverallIndex === idx && (
-                      <span className="ml-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
-                        {t("compare.best")}
-                      </span>
-                    )}
-                  </p>
-                </div>
                 <div>
                   <p className="text-slate-400 font-semibold mb-0.5">
                     {t("compare.budgetRecommended")}

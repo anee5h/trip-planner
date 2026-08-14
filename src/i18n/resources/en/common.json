@@ -529,7 +529,6 @@
     "originForecastHint": "Forecast shows weather near your origin"
   },
   "destination": {
-    "megurutoScore": "Meguruto score",
     "tokyoWardsGroup": "Tokyo 23 Wards",
     "tokyoWardsCount": "{{count}} wards",
     "tokyoWardsBadge": "23 Wards",
@@ -563,8 +562,6 @@
     "scoreUnavailable": "Score unavailable",
     "scoreVerifiedNote": "Editorially reviewed score",
     "scoreEstimatedNote": "Estimated score from the overall-destination rubric",
-    "ratingsEstimatedNote": "No verified editorial score; this estimate is calculated from the overall-destination rubric (significance, recognition, richness, accessibility, curation).",
-    "ratingsUnavailableNote": "This destination cannot be scored from trusted indicators.",
     "ratings": {
       "couple": "Couple",
       "family": "Family",
@@ -760,7 +757,6 @@
     "system": "System"
   },
   "compare": {
-    "score": "Score",
     "best": "Best",
     "budget": "Budget",
     "lowest": "Lowest",
@@ -774,7 +770,6 @@
     "closeModal": "Close comparison modal",
     "unavailable": "N/A",
     "estimated": "est.",
-    "overallScore": "Overall Score",
     "budgetRecommended": "Budget (Recommended)",
     "travelTime": "Travel Time",
     "walkIntensity": "Walk Intensity",

@@ -5,11 +5,7 @@ import type { Destination } from "@/shared/types/destination";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
 import { getAdjustedBudget } from "@/shared/utils/utils";
-import {
-  getScorePresentation,
-  isRatingVerified,
-} from "@/shared/services/recommendation/RecommendationScorer";
-import { bestVerifiedScoreIndex } from "../compareScore";
+import { isRatingVerified } from "@/shared/services/recommendation/RecommendationScorer";
 import {
   getWalkingIntensity,
   getWalkingIntensityMetadata,
@@ -37,7 +33,6 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
 
   // Best value helpers
   const getMin = (arr: number[]) => (arr.length > 0 ? Math.min(...arr) : 0);
-  const getMax = (arr: number[]) => (arr.length > 0 ? Math.max(...arr) : 0);
 
   const budgets = compareDestinations.map((d) => getAdjustedBudget(d, "all"));
   const knownBudgets = budgets.filter(
@@ -53,19 +48,10 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   });
   const minTravelTime = getMin(travelTimes);
 
-  // KAI-89 rubric v2: the overall row shows the ONE rubric value for both
-  // verified and estimated (same scale, est. label for estimates); only
-  // verified states can win the Best badge. The couple row remains the
-  // legacy ratings family, gated by rating-vector confidence.
-  const scoreStates = compareDestinations.map((d) => getScorePresentation(d));
+  // Beta product decision (KAI-89): the overall destination score is hidden
+  // from CompareModal too. The couple row remains the legacy ratings
+  // family, gated by rating-vector confidence.
   const ratingVerified = compareDestinations.map((d) => isRatingVerified(d));
-  const bestOverallIndex = bestVerifiedScoreIndex(compareDestinations);
-  const coupleScores = compareDestinations.map((d, i) =>
-    ratingVerified[i] ? d.ratings.couple : null,
-  );
-  const maxCoupleScore = coupleScores.every((v) => v === null)
-    ? null
-    : getMax(coupleScores.filter((v): v is number => v !== null));
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200">
@@ -129,7 +115,6 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
               className={`flex md:grid md:grid-cols-3 gap-3 sm:gap-4 pb-2 ${compareDestinations.length > 1 ? "overflow-x-auto snap-x snap-mandatory" : ""}`}
             >
               {compareDestinations.map((dest, idx) => {
-                const isBestOverall = bestOverallIndex === idx;
                 const cost = budgets[idx];
                 const isLowestBudget = cost === minBudget;
                 const time = travelTimes[idx];
@@ -137,10 +122,6 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                 const walkMeta = getWalkingIntensityMetadata(
                   getWalkingIntensity(dest),
                 );
-                const isMaxCouple =
-                  ratingVerified[idx] &&
-                  maxCoupleScore !== null &&
-                  dest.ratings.couple === maxCoupleScore;
 
                 return (
                   <div
@@ -191,35 +172,6 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
 
                     {/* Metrics Stack for this Destination */}
                     <div className="space-y-2.5 pt-2 border-t border-slate-200/80 dark:border-slate-800/80">
-                      {/* Overall Score */}
-                      <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
-                          {t("compare.score")}
-                        </span>
-                        <div className="flex items-center gap-1.5">
-                          {scoreStates[idx].state === "unavailable" ||
-                          scoreStates[idx].value === null ? (
-                            <span className="text-[10px] font-semibold text-slate-400">
-                              {t("destination.scoreUnavailable")}
-                            </span>
-                          ) : (
-                            <span className="font-extrabold text-slate-900 dark:text-white text-xs">
-                              {scoreStates[idx].value}/10
-                              {scoreStates[idx].state === "estimated" && (
-                                <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
-                                  {t("compare.estimated")}
-                                </span>
-                              )}
-                            </span>
-                          )}
-                          {isBestOverall && (
-                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
-                              {t("compare.best")}
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-
                       {/* Est. Budget */}
                       <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
                         <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
@@ -281,11 +233,6 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                               ? `${dest.ratings.couple}/10`
                               : "—"}
                           </span>
-                          {isMaxCouple && (
-                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
-                              {t("compare.top")}
-                            </Badge>
-                          )}
                         </div>
                       </div>
                     </div>
