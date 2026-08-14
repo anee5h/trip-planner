@@ -182,14 +182,6 @@
           "title": "comfort-model-v1; derived from indoorPercent=25, kind='temple', walkingMin=unknown",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='temple', importance=standard, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     },
     "changes": [
@@ -220,7 +212,7 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "08:30 - 17:00 (Last admission 16:30)",
+  "businessHours": "08:30 - 16:30 (Last admission 16:00), Dec-Feb 08:30 - 16:00",
   "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",

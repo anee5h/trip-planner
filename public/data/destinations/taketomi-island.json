@@ -146,14 +146,6 @@
           "title": "comfort-model-v1; derived from indoorPercent=15, kind='island', walkingMin=150",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='island', importance=standard, collections=1",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },

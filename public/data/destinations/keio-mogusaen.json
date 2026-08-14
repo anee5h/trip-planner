@@ -16,11 +16,7 @@
     "ja": {
       "name": "京王百草園",
       "description": "江戸時代から続く多摩丘陵の伝統ある庭園で、樹齢数百年の白梅や秋の紅葉が見事です。若山牧水などの文人に愛された茅葺きの松連庵と高台からの眺望が魅力です。",
-      "highlights": [
-        "京王百草園の名所",
-        "京王百草園の名所",
-        "京王百草園の名所"
-      ],
+      "highlights": ["京王百草園の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -129,14 +125,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='garden', walkingMin=unknown",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='garden', importance=standard, collections=0",
           "accessedAt": "2026-08-14"
         }
       ]

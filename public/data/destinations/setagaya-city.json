@@ -98,14 +98,6 @@
           "title": "comfort-model-v1; derived from indoorPercent=50, kind='ward', walkingMin=40",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='ward', importance=notable, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },
@@ -126,7 +118,7 @@
     "ja": {
       "name": "世田谷区",
       "description": "下北沢の古着・演劇カルチャー、三軒茶屋のレトロ酒場、都内唯一の渓谷・等々力渓谷や豪徳寺など多彩な魅力を持つ緑豊なエリアです。",
-      "highlights": ["世田谷区の名所", "世田谷区の名所", "世田谷区の名所"],
+      "highlights": ["世田谷区の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"

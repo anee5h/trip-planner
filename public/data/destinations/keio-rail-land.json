@@ -16,11 +16,7 @@
     "ja": {
       "name": "京王れーるランド",
       "description": "多摩動物公園駅に隣接する京王電鉄の鉄道テーマパークで、往年の車両展示や本格的な運転シミュレーターが完備されています。制服着用体験やミニ電車運転も楽しめます。",
-      "highlights": [
-        "京王れーるランドの名所",
-        "京王れーるランドの名所",
-        "京王れーるランドの名所"
-      ],
+      "highlights": ["京王れーるランドの名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:30 - 17:00（最終入館 16:30）"
@@ -135,14 +131,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=unknown",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
           "accessedAt": "2026-08-14"
         }
       ]

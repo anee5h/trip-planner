@@ -24,6 +24,7 @@ const mockPaidDest = {
   budgetMin: 2000,
   budgetMax: 3000,
   budgetRecommended: 8000,
+  budgetBreakdown: { transport: 1500, tickets: 2000, food: 3000, cafe: 1500 },
   recommendedVisitHours: { min: 1, max: 2 },
   totalTripHours: 3,
   transportOptions: { train: 30 },
@@ -36,9 +37,26 @@ const mockFreeDest = {
   tags: ["Free"],
   budgetMin: 0,
   budgetMax: 1000,
+  budgetRecommended: 0,
+  budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
   recommendedVisitHours: { min: 1, max: 2 },
   totalTripHours: 2,
   transportOptions: { train: 20 },
+} as unknown as Destination;
+
+// KAI-89 review: a record with a KNOWN RANGE but NO valid breakdown must
+// NOT receive a synthesized breakdown (tickets are factual-only; the
+// runtime never invents admission). Itemized cost is simply unavailable.
+const mockRangeOnlyDest = {
+  id: "range-only-dest",
+  name: "Range Only",
+  categories: ["Museum"],
+  budgetMin: 2000,
+  budgetMax: 5000,
+  budgetRecommended: 3500,
+  recommendedVisitHours: { min: 1, max: 2 },
+  totalTripHours: 3,
+  transportOptions: { train: 30 },
 } as unknown as Destination;
 
 describe("BudgetService", () => {
@@ -576,5 +594,21 @@ describe("KAI-89 unknown-budget contract (missing ≠ 0/free)", () => {
     // (transport round-trip is flat per party; per-person components scale).
     expect(mids[3] / mids[1]).toBeGreaterThan(1.7);
     expect(mids[3] / mids[1]).toBeLessThan(2.3);
+  });
+});
+
+describe("KAI-89 no-synthetic-breakdown contract", () => {
+  it("a known range WITHOUT a breakdown never gets invented admission", () => {
+    const itemized = calculateItemizedTripCost(mockRangeOnlyDest, {
+      partySize: 2,
+      activeMode: "train",
+    });
+    // The range is known, but tickets are factual-only — the runtime must
+    // NOT synthesize tickets=1500/2000 or a 65/35 food/cafe split.
+    expect(itemized.budgetAvailable).toBe(false);
+    expect(itemized.tickets).toBe(0);
+    expect(itemized.food).toBeNull();
+    expect(itemized.perPersonRange).toEqual([0, 0]);
+    expect(getEffectiveBudgetBreakdown(mockRangeOnlyDest)).toBeNull();
   });
 });

@@ -16,11 +16,7 @@
     "ja": {
       "name": "浜離宮恩賜庭園",
       "description": "東京湾の潮の満ち引きによって水位が変わる「潮入の池」を持つ江戸時代の代表的な大名庭園です。水上の茶屋での抹茶体験や、高層ビル群と歴史的庭園の対比を楽しめます。",
-      "highlights": [
-        "浜離宮恩賜庭園の名所",
-        "浜離宮恩賜庭園の名所",
-        "浜離宮恩賜庭園の名所"
-      ],
+      "highlights": ["浜離宮恩賜庭園の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。入園券は入口でご購入いただけます。",
       "parking": "専用駐車場はありません（大手門橋を渡った所に障害者用・観光バス用の限られた駐車スペースのみ）。一般車両は最寄りの公共駐車場（汐留駐車場など）をご利用ください。",
@@ -155,14 +151,6 @@
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='garden', walkingMin=unknown",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='garden', importance=standard, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },
@@ -184,7 +172,7 @@
   "reservationJa": "事前予約不要。入園券は入口でご購入いただけます。",
   "parkingJa": "専用駐車場はありません（大手門橋を渡った所に障害者用・観光バス用の限られた駐車スペースのみ）。一般車両は最寄りの公共駐車場（汐留駐車場など）をご利用ください。",
   "openingHours": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
-  "openingHoursJa": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
+  "openingHoursJa": "午前9時〜午後5時（入園は午後4時30分まで）。12月29日〜1月1日休園",
   "municipalityId": "Tokyo:chuo",
   "seasonMetadata": {
     "method": "unknown",

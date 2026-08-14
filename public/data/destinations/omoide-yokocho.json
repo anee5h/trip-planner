@@ -20,11 +20,7 @@
     "ja": {
       "name": "思い出横丁",
       "description": "新宿駅西口に位置する昭和レトロな横丁。香ばしい煙が立ち込める焼き鳥店やもつ焼き店、小居酒屋が所狭しと並びます。",
-      "highlights": [
-        "思い出横丁の名所",
-        "思い出横丁の名所",
-        "思い出横丁の名所"
-      ],
+      "highlights": ["思い出横丁の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:30 - 17:00（最終入館 16:30）"
@@ -150,14 +146,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=unknown",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
           "accessedAt": "2026-08-14"
         }
       ]

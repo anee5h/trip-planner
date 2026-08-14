@@ -99,14 +99,6 @@
           "title": "comfort-model-v1; derived from indoorPercent=50, kind='ward', walkingMin=40",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='ward', importance=major, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },
@@ -127,7 +119,7 @@
     "ja": {
       "name": "墨田区",
       "description": "高さ634mの東京スカイツリー、大相撲の聖地・両国国技館、隅田川花火大会など、江戸の伝統と現代のランドマークが共存します。",
-      "highlights": ["&散策", "墨田区の名所", "墨田区の名所"],
+      "highlights": ["&散策", "墨田区の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"

@@ -8,6 +8,7 @@ import { describe, expect, it } from "vitest";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 import { validateCatalogue, type GateResult } from "../validate-models";
 
 const ROOT = path.resolve(__dirname, "..", "..", "..");
@@ -65,14 +66,9 @@ describe("KAI-89 validate-models mutation guards", () => {
   });
 
   it("tickets-never-modelled catches a fabricated ticket on a model-touched budget", () => {
-    const report = JSON.parse(
-      fs.readFileSync(
-        path.join(ROOT, "scripts/models/derive-report.json"),
-        "utf8",
-      ),
-    );
-    const touched = (report.touchedRecords["budget-model-v1"] ??
-      []) as string[];
+    const touched = loadIndex()
+      .filter((d) => d.budgetMetadata?.method === "model")
+      .map((d) => d.id);
     const p = withMutations((idx) => {
       // A hub-convention record (tickets must be 0 without evidence);
       // fabricate a non-zero ticket on it.
@@ -91,14 +87,9 @@ describe("KAI-89 validate-models mutation guards", () => {
   });
 
   it("midpoint-invariant catches an off-midpoint recommended budget", () => {
-    const report = JSON.parse(
-      fs.readFileSync(
-        path.join(ROOT, "scripts/models/derive-report.json"),
-        "utf8",
-      ),
-    );
-    const touched = (report.touchedRecords["budget-model-v1"] ??
-      []) as string[];
+    const touched = loadIndex()
+      .filter((d) => d.budgetMetadata?.method === "model")
+      .map((d) => d.id);
     const p = withMutations((idx) => {
       const d = idx.find(
         (x) =>
@@ -116,14 +107,9 @@ describe("KAI-89 validate-models mutation guards", () => {
   });
 
   it("out-of-range catches a fractional comfort value on a model-touched comfort record", () => {
-    const report = JSON.parse(
-      fs.readFileSync(
-        path.join(ROOT, "scripts/models/derive-report.json"),
-        "utf8",
-      ),
-    );
-    const touched = (report.touchedRecords["comfort-model-v1"] ??
-      []) as string[];
+    const touched = loadIndex()
+      .filter((d) => d.comfortMetadata?.method === "model")
+      .map((d) => d.id);
     const p = withMutations((idx) => {
       const d = idx.find(
         (x) => touched.includes(x.id) && x.comfort !== undefined,
@@ -172,6 +158,59 @@ describe("KAI-89 validate-models mutation guards", () => {
     });
     const results = validateCatalogue(p);
     expect(gateOf(results, "contamination-guard")?.pass).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+});
+
+describe("KAI-89 provenance-drift guards", () => {
+  it("derive --check exits 1 when metadata is deleted with the vector intact", () => {
+    // P0 review fix: deleting/corrupting provenance while leaving the data
+    // vector unchanged must make derive --check fail (metadata participates
+    // in change detection).
+    const indexPath = path.join(
+      ROOT,
+      "src/shared/data/destinations-index.json",
+    );
+    const backup = fs.readFileSync(indexPath, "utf8");
+    try {
+      const idx = JSON.parse(backup);
+      const d = idx.find(
+        (x) => x.seasonMetadata?.method === "model" && x.season !== undefined,
+      )!;
+      expect(d, "fixture: a model-owned season record").toBeTruthy();
+      delete d.seasonMetadata;
+      fs.writeFileSync(indexPath, JSON.stringify(idx));
+      let exit = 0;
+      try {
+        execFileSync(
+          "npx",
+          ["tsx", "scripts/derive-destination-models.ts", "--check"],
+          {
+            cwd: ROOT,
+            stdio: "pipe",
+          },
+        );
+      } catch (e) {
+        const status =
+          typeof e === "object" && e !== null && "status" in e
+            ? (e.status as number)
+            : 1;
+        exit = status;
+      }
+      expect(exit).toBe(1);
+    } finally {
+      fs.writeFileSync(indexPath, backup);
+    }
+  });
+
+  it("metadata-consistency gate catches unknown metadata WITH lingering numbers", () => {
+    // Two-truths state: budgetMetadata.method "unknown" + budget numbers.
+    const p = withMutations((idx) => {
+      const d = idx.find((x) => x.budgetMin !== undefined)!;
+      d.budgetMetadata = { method: "unknown" };
+    });
+    const results = validateCatalogue(p);
+    expect(gateOf(results, "metadata-consistency")?.pass).toBe(false);
     fs.rmSync(p, { force: true });
   });
 });

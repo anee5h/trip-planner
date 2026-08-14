@@ -362,10 +362,14 @@ export interface Destination {
   /**
    * KAI-89 budget provenance: marks budgets derived by the model (method
    * "model") and template budgets deliberately returned to unknown (method
-   * "unknown" — the explicit neutral state, not missing data).
+   * "unknown" — the explicit neutral state, not missing data; UNKNOWN IS
+   * AUTHORITATIVE: unknown metadata implies no usable numeric budget, so
+   * consumers treat it as unknown even if legacy numbers linger). method
+   * "manual" marks accepted-debt budgets (verified ticket preserved with
+   * legacy components — numbers remain usable, provenance states the fact).
    */
   budgetMetadata?: {
-    method: "model" | "unknown";
+    method: "model" | "manual" | "unknown";
     modelVersion?: string;
     confidence?: "high" | "medium" | "low" | "unknown";
     basis?: string;

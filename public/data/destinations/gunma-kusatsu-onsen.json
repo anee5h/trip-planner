@@ -119,14 +119,6 @@
           "title": "duration-model-v1; kind band 'onsen' + scale uplift",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='onsen', importance=standard, collections=1",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },
@@ -149,12 +141,7 @@
     "ja": {
       "name": "草津温泉",
       "description": "Kusatsu Onsenは群馬県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
-      "highlights": [
-        "草津温泉の名所",
-        "草津温泉の名所",
-        "公園散策",
-        "草津温泉の名所"
-      ],
+      "highlights": ["草津温泉の名所", "公園散策"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",

@@ -16,11 +16,7 @@
     "ja": {
       "name": "立川まんがぱーく",
       "description": "4万冊以上のコミックが揃う畳敷きのマンガ読書施設で、入館料のみで一日中くつろぎながら読書を楽しめます。押し入れのような小上がりスペースで自分だけの読書時間を過ごせます。",
-      "highlights": [
-        "立川まんがぱーくの名所",
-        "立川まんがぱーくの名所",
-        "立川まんがぱーくの名所"
-      ],
+      "highlights": ["立川まんがぱーくの名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:30 - 17:00（最終入館 16:30）"
@@ -143,14 +139,6 @@
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=unknown",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },
@@ -181,9 +169,9 @@
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
   },
   "budgetMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
+    "confidence": "low",
     "basis": "verified ticket ¥400 preserved; peer cell 'museum|half|poi' has 1 samples (< 5); components left as accepted debt"
   },
   "comfortMetadata": {

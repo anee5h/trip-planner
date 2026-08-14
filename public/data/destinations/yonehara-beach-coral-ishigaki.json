@@ -56,14 +56,6 @@
           "title": "duration-model-v1; kind band 'beach'",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='beach', importance=standard, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },

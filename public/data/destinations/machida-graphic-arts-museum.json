@@ -16,11 +16,7 @@
     "ja": {
       "name": "町田市立国際版画美術館",
       "description": "版画を専門に扱う世界でも珍しい市立美術館で、8世紀の印刷物から現代の西洋・日本版画まで3万点以上を収蔵しています。芹ヶ谷公園の豊かな緑に囲まれています。",
-      "highlights": [
-        "町田市立国際版画美術館の名所",
-        "町田市立国際版画美術館の名所",
-        "町田市立国際版画美術館の名所"
-      ],
+      "highlights": ["町田市立国際版画美術館の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:30 - 17:00（最終入館 16:30）"
@@ -120,14 +116,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=unknown",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
           "accessedAt": "2026-08-14"
         }
       ]

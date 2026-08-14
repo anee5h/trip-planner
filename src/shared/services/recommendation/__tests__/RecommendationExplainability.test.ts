@@ -20,6 +20,7 @@ const baseDest = {
   budgetMin: 5000,
   budgetRecommended: 10000,
   budgetMax: 15000,
+  budgetBreakdown: { transport: 1000, tickets: 1000, food: 3000, cafe: 1500 },
   ratings: {
     overall: 8.5,
     couple: 8.0,

@@ -137,14 +137,6 @@
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='shopping', walkingMin=15",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='shopping', importance=standard, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },

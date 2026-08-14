@@ -15,7 +15,7 @@
     "ja": {
       "name": "小町通り",
       "description": "鎌倉駅から鶴岡八幡宮方面へ延びる商店街。土産物店やカフェ、名物スイーツの店が軒を連ね、終日にぎわう。",
-      "highlights": ["小町通りの名所", "小町通りの名所"],
+      "highlights": ["小町通りの名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"
@@ -136,14 +136,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=55, kind='district', walkingMin=unknown",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='district', importance=standard, collections=0",
           "accessedAt": "2026-08-14"
         }
       ]

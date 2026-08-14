@@ -103,16 +103,7 @@
     "checkedAt": "2026-08-12",
     "freshness": "current",
     "changeSummary": "PR C parks audit: new quasi-national park record",
-    "fieldSources": {
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='nature', importance=standard, collections=1",
-          "accessedAt": "2026-08-14"
-        }
-      ]
-    }
+    "fieldSources": {}
   },
   "ratingMetadata": {
     "rubricVersion": 2,

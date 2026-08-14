@@ -16,11 +16,7 @@
     "ja": {
       "name": "深川江戸資料館",
       "description": "江戸時代末期の深川の街並みを実物大で忠実に再現した体感型博物館です。火の見櫓や船宿、長屋の内部まで自由に立ち入り、当時の町人の暮らしを体感できます。",
-      "highlights": [
-        "深川江戸資料館の名所",
-        "深川江戸資料館の名所",
-        "深川江戸資料館の名所"
-      ],
+      "highlights": ["深川江戸資料館の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:30 - 17:00（最終入館 16:30）"
@@ -135,14 +131,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=unknown",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
           "accessedAt": "2026-08-14"
         }
       ]

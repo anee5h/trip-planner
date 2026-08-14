@@ -174,14 +174,6 @@
           "title": "duration-model-v1; kind band 'museum'",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     },
     "changes": [

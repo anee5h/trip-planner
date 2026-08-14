@@ -16,7 +16,7 @@
     "ja": {
       "name": "日本橋",
       "description": "五街道の起点として日本の道路網の中心を担ってきた歴史と伝統の商業街です。老舗の和菓子店や百貨店、重厚な石造りの日本橋が独特の風情を醸し出しています。",
-      "highlights": ["日本橋の名所", "日本橋の名所", "日本橋の名所"],
+      "highlights": ["日本橋の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "10:00 - 20:00（店舗により異なる）"
@@ -120,14 +120,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='district', walkingMin=unknown",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='district', importance=standard, collections=1",
           "accessedAt": "2026-08-14"
         }
       ]

@@ -43,8 +43,14 @@ function finiteNonNegativeOrUndefined(value: unknown): number | undefined {
   return isFiniteNonNegative(value) ? value : undefined;
 }
 
-/** Returns false for legacy records with no trustworthy price source. */
+/**
+ * Returns false for legacy records with no trustworthy price source.
+ * KAI-89: budgetMetadata.method "unknown" is AUTHORITATIVE — even if legacy
+ * numbers linger on the record, the metadata state wins and the budget is
+ * treated as unknown (never 0, never free, never compared).
+ */
 export function hasKnownBudget(dest: Destination): boolean {
+  if (dest.budgetMetadata?.method === "unknown") return false;
   const breakdown = dest.budgetBreakdown;
   const bMin = dest.budgetMin;
   const bMax = dest.budgetMax;
@@ -70,6 +76,10 @@ export function hasKnownBudget(dest: Destination): boolean {
 export function hasKnownBudgetRange(
   dest: Destination,
 ): dest is Destination & { budgetMin: number; budgetMax: number } {
+  // budgetMetadata.method "unknown" is authoritative: even with numbers on
+  // the record, the budget is unknown (two competing truths must never
+  // surface through the type guard).
+  if (dest.budgetMetadata?.method === "unknown") return false;
   return (
     typeof dest.budgetMin === "number" &&
     Number.isFinite(dest.budgetMin) &&
@@ -745,27 +755,12 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
   ) {
     return dest.budgetBreakdown;
   }
-  if (!hasKnownBudget(dest)) return null;
-  // KAI-89: arithmetic requires finite known values; unknown (missing)
-  // budget never falls back to a fabricated breakdown.
-  const bMin = dest.budgetMin;
-  const bMax = dest.budgetMax;
-  const totalRec = isFiniteNonNegative(dest.budgetRecommended)
-    ? dest.budgetRecommended
-    : isFiniteNonNegative(bMin) && isFiniteNonNegative(bMax)
-      ? Math.max(bMin, bMax)
-      : 0;
-  if (totalRec <= 0) return null;
-  const transport = 3000;
-
-  // Check if destination is free ticket
-  const isFree = isFreeDestination(dest);
-  const tickets = isFree ? 0 : dest.role === "hub" ? 1500 : 2000;
-  const remaining = Math.max(2000, totalRec - transport - tickets);
-  const food = Math.round(remaining * 0.65);
-  const cafe = Math.round(remaining * 0.35);
-
-  return { transport, tickets, food, cafe };
+  // KAI-89 review: NO synthetic breakdown. A known range without a valid
+  // breakdown returns null — the runtime must NEVER invent admission
+  // (tickets are factual-only: "NEVER estimated from kind") or split a
+  // remainder 65/35 into food/cafe. Unknown stays unknown; consumers render
+  // "cost unavailable" instead of fabricated numbers.
+  return null;
 }
 
 export function isFreeDestination(dest: Destination): boolean {

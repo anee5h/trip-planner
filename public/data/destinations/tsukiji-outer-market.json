@@ -16,11 +16,7 @@
     "ja": {
       "name": "築地場外市場",
       "description": "新鮮な海鮮丼、玉子焼き、本格寿司の名店が立ち並ぶ歴史ある食の街です。細い路地に数百の店舗が集まり、活気溢れる食べ歩きと名産品買い出しを楽しめます。",
-      "highlights": [
-        "築地場外市場の名所",
-        "築地場外市場の名所",
-        "築地場外市場の名所"
-      ],
+      "highlights": ["築地場外市場の名所"],
       "notes": "朝8時頃に訪問し、玉子焼き、ウニ丼、新鮮なマグロ寿司などの食べ歩きを楽しむのが最高のコースです。",
       "reservation": "場外市場の散策・食べ歩きは予約不要。一部の有名寿司店は予約可能です。",
       "parking": "築地川第一駐車場など近隣の有料駐車場をご利用ください。",
@@ -121,16 +117,7 @@
     ],
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "fieldSources": {
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='market', importance=standard, collections=0",
-          "accessedAt": "2026-08-14"
-        }
-      ]
-    }
+    "fieldSources": {}
   },
   "ratingMetadata": {
     "rubricVersion": 1,

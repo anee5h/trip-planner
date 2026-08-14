@@ -113,14 +113,6 @@
           "accessedAt": "2026-08-14"
         }
       ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=1",
-          "accessedAt": "2026-08-14"
-        }
-      ],
       "budgetRecommended": [
         {
           "type": "calculated",
@@ -148,8 +140,6 @@
       "name": "ル・コルビュジエの建築作品-近代建築運動への顕著な貢献-",
       "description": "ル・コルビュジエの建築作品-近代建築運動への顕著な貢献-は東京都にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
       "highlights": [
-        "ル・コルビュジエの建築作品-近代建築運動への顕著な貢献-の名所",
-        "ル・コルビュジエの建築作品-近代建築運動への顕著な貢献-の名所",
         "ル・コルビュジエの建築作品-近代建築運動への顕著な貢献-の名所"
       ],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",

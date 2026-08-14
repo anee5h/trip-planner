@@ -19,7 +19,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import type { Destination } from "../src/shared/types/destination";
 import { loadTruth } from "./models/calibration";
 import { budgetModel } from "./models/budget-model-v1";
@@ -289,6 +289,7 @@ function main() {
       rec: d.budgetRecommended,
       max: d.budgetMax,
       breakdown: d.budgetBreakdown,
+      metadata: d.budgetMetadata,
     };
     const b = budgetModel(d, budgetEligible, destinations, truth);
     if (b.action !== "keep") markTouched("budget-model-v1", d.id);
@@ -307,12 +308,16 @@ function main() {
           basis: b.reason,
         };
       }
+      // Metadata participates in change detection: deleting/corrupting
+      // budgetMetadata with the numbers intact must fail --check (provenance
+      // is part of the derived state, not decoration).
       if (
         changed(beforeBudget, {
           min: d.budgetMin,
           rec: d.budgetRecommended,
           max: d.budgetMax,
           breakdown: d.budgetBreakdown,
+          metadata: d.budgetMetadata,
         })
       ) {
         addFieldSource(d, "budgetRecommended", `budget-model-v1; ${b.reason}`);
@@ -321,18 +326,28 @@ function main() {
           "budgetRecommended",
           "budgetMax",
           "budgetBreakdown",
+          "budgetMetadata",
         ]);
       }
     } else if (b.action === "keep" && b.reason.includes("verified ticket")) {
-      // Verified admission preserved but no model budget (insufficient peers):
-      // mark explicit-unknown so the record is not counted as missing.
-      if (d.budgetMetadata?.method !== "unknown") {
+      // Verified admission preserved but no model budget (insufficient
+      // peers): the record's budget is ACCEPTED DEBT (legacy numbers with a
+      // verified ticket), not unknown and not model-derived. method "manual"
+      // keeps the numbers usable while the basis states the ticket fact;
+      // "unknown" would create two competing truths (metadata unknown but
+      // numbers present) — the budget guards treat "unknown" as authoritative
+      // and would hide the verified ticket.
+      const beforeMeta = d.budgetMetadata;
+      if (d.budgetMetadata?.method !== "manual") {
         d.budgetMetadata = {
-          method: "unknown",
+          method: "manual",
           modelVersion: "budget-model-v1",
-          confidence: "unknown",
+          confidence: "low",
           basis: b.reason,
         };
+      }
+      if (changed(beforeMeta, d.budgetMetadata)) {
+        touch(d, "budget-model-v1", "keep", b.reason, ["budgetMetadata"]);
       }
     } else if (b.action === "clear-to-unknown") {
       const before = {
@@ -340,6 +355,7 @@ function main() {
         rec: d.budgetRecommended,
         max: d.budgetMax,
         breakdown: d.budgetBreakdown,
+        metadata: d.budgetMetadata,
       };
       delete (d as Partial<Destination>).budgetMin;
       delete (d as Partial<Destination>).budgetRecommended;
@@ -356,12 +372,25 @@ function main() {
           basis: b.reason,
         };
       }
+      // Obsolete field sources die with the numbers (no stale 'calculated'
+      // claims on a cleared record).
+      if (d.editorial?.fieldSources) {
+        for (const f of [
+          "budgetMin",
+          "budgetRecommended",
+          "budgetMax",
+          "budgetBreakdown",
+        ]) {
+          delete d.editorial.fieldSources[f];
+        }
+      }
       if (
         changed(before, {
           min: d.budgetMin,
           rec: d.budgetRecommended,
           max: d.budgetMax,
           breakdown: d.budgetBreakdown,
+          metadata: d.budgetMetadata,
         })
       ) {
         touch(d, "budget-model-v1", "clear-to-unknown", b.reason, [
@@ -369,6 +398,7 @@ function main() {
           "budgetRecommended",
           "budgetMax",
           "budgetBreakdown",
+          "budgetMetadata",
         ]);
       }
     }
@@ -377,6 +407,7 @@ function main() {
       season: d.season,
       bestMonths: d.bestMonths,
       bestSeason: d.bestSeason,
+      metadata: d.seasonMetadata,
     };
     const s = seasonModel(d, seasonEligible);
     if (s.action !== "keep") markTouched("season-model-v1", d.id);
@@ -390,17 +421,21 @@ function main() {
         confidence: s.metadata.confidence,
         basis: s.metadata.basis,
       };
+      // seasonMetadata participates in change detection: corrupting or
+      // deleting it with the vector intact must fail --check.
       if (
         changed(beforeSeason, {
           season: d.season,
           bestMonths: d.bestMonths,
           bestSeason: d.bestSeason,
+          metadata: d.seasonMetadata,
         })
       ) {
         touch(d, "season-model-v1", "set", s.reason, [
           "season",
           "bestMonths",
           "bestSeason",
+          "seasonMetadata",
         ]);
       }
     } else if (s.action === "neutralize") {
@@ -413,17 +448,26 @@ function main() {
         confidence: "unknown",
         basis: s.metadata.basis,
       };
+      // Obsolete seasonal field sources die with the vector (no stale
+      // 'calculated' claims on a neutralized record).
+      if (d.editorial?.fieldSources) {
+        for (const f of ["season", "bestMonths", "bestSeason"]) {
+          delete d.editorial.fieldSources[f];
+        }
+      }
       if (
         changed(beforeSeason, {
           season: d.season,
           bestMonths: d.bestMonths,
           bestSeason: d.bestSeason,
+          metadata: d.seasonMetadata,
         })
       ) {
         touch(d, "season-model-v1", "neutralize", s.reason, [
           "season",
           "bestMonths",
           "bestSeason",
+          "seasonMetadata",
         ]);
       }
     }
@@ -481,6 +525,7 @@ function main() {
             season: d.season,
             bestMonths: d.bestMonths,
             bestSeason: d.bestSeason,
+            metadata: d.seasonMetadata,
           })
         ) {
           touch(
@@ -488,13 +533,16 @@ function main() {
             "season-model-v1",
             "set",
             "vector derived from source-corrected bestMonths peak",
-            ["season"],
+            ["season", "seasonMetadata"],
           );
         }
       }
     }
 
-    const beforeDur = d.recommendedVisitHours;
+    const beforeDur = {
+      visitHours: d.recommendedVisitHours,
+      metadata: d.durationMetadata,
+    };
     const dur = durationModel(d, durationEligible, childCountById);
     if (dur.action !== "keep") markTouched(dur.modelVersion, d.id);
     if (dur.action === "set" && dur.visitHours) {
@@ -505,7 +553,14 @@ function main() {
         confidence: dur.confidence,
         basis: dur.reason,
       };
-      if (changed(beforeDur, d.recommendedVisitHours)) {
+      // durationMetadata participates in change detection (provenance
+      // corruption with the window intact must fail --check).
+      if (
+        changed(beforeDur, {
+          visitHours: d.recommendedVisitHours,
+          metadata: d.durationMetadata,
+        })
+      ) {
         addFieldSource(
           d,
           "recommendedVisitHours",
@@ -513,6 +568,7 @@ function main() {
         );
         touch(d, dur.modelVersion, "set", dur.reason, [
           "recommendedVisitHours",
+          "durationMetadata",
         ]);
       }
     }
@@ -521,7 +577,11 @@ function main() {
     if (w.action !== "keep") markTouched("walking-model-v1", d.id);
     let walkingMinutes: number | undefined;
     if (w.action === "convert" || w.action === "fill") {
-      const before = { min: d.walkingMin, intensity: d.walkingIntensity };
+      const before = {
+        min: d.walkingMin,
+        intensity: d.walkingIntensity,
+        metadata: d.walkingMetadata,
+      };
       d.walkingMin = w.walkingMin;
       d.walkingIntensity = w.walkingIntensity;
       walkingMinutes = w.walkingMin;
@@ -533,12 +593,17 @@ function main() {
         basis: w.reason,
       };
       if (
-        changed(before, { min: d.walkingMin, intensity: d.walkingIntensity })
+        changed(before, {
+          min: d.walkingMin,
+          intensity: d.walkingIntensity,
+          metadata: d.walkingMetadata,
+        })
       ) {
         addFieldSource(d, "walkingMin", `walking-model-v1; ${w.reason}`);
         touch(d, "walking-model-v1", w.action, w.reason, [
           "walkingMin",
           "walkingIntensity",
+          "walkingMetadata",
         ]);
       }
     } else if (w.action === "clear") {
@@ -551,7 +616,13 @@ function main() {
         delete (d as Partial<Destination>).walkingSunMin;
         delete (d as Partial<Destination>).walkingShadeMin;
       }
-      if (w.walkingMin === 0) delete (d as Partial<Destination>).walkingMin;
+      if (w.walkingMin === 0) {
+        delete (d as Partial<Destination>).walkingMin;
+        // Obsolete walking sources die with the value.
+        if (d.editorial?.fieldSources) {
+          delete d.editorial.fieldSources.walkingMin;
+        }
+      }
       if (
         changed(before, {
           min: d.walkingMin,
@@ -638,7 +709,10 @@ function main() {
       }
     }
 
-    const beforeComfort = d.comfort;
+    const beforeComfort = {
+      comfort: d.comfort,
+      metadata: d.comfortMetadata,
+    };
     const c = comfortModel(d, comfortEligible, walkingMinutes);
     if (c.action !== "keep") markTouched("comfort-model-v1", d.id);
     if (c.action === "set" && c.comfort) {
@@ -649,17 +723,32 @@ function main() {
         confidence: c.confidence,
         basis: c.reason,
       };
-      if (changed(beforeComfort, d.comfort)) {
+      // comfortMetadata participates in change detection (provenance
+      // corruption with the vector intact must fail --check).
+      if (
+        changed(beforeComfort, {
+          comfort: d.comfort,
+          metadata: d.comfortMetadata,
+        })
+      ) {
         addFieldSource(d, "comfort", `comfort-model-v1; ${c.reason}`);
-        touch(d, "comfort-model-v1", "set", c.reason, ["comfort"]);
+        touch(d, "comfort-model-v1", "set", c.reason, [
+          "comfort",
+          "comfortMetadata",
+        ]);
       }
     } else if (c.action === "unknown") {
       // Explicit neutral: no indoorPercent input -> comfort cannot be
       // derived; the template vector is cleared (never kept as a fact).
+      // Runs even when the comfort field is ALREADY absent — stale
+      // fieldSources.comfort must be cleared on already-neutralized records.
       if (d.comfort !== undefined) {
         delete (d as Partial<Destination>).comfort;
-        touch(d, "comfort-model-v1", "neutralize", c.reason, ["comfort"]);
       }
+      if (d.editorial?.fieldSources) {
+        delete d.editorial.fieldSources.comfort;
+      }
+      const beforeMeta = d.comfortMetadata;
       if (d.comfortMetadata?.method !== "unknown") {
         d.comfortMetadata = {
           method: "unknown",
@@ -667,6 +756,16 @@ function main() {
           confidence: "unknown",
           basis: c.reason,
         };
+      }
+      if (
+        d.comfort !== undefined ||
+        changed(beforeMeta, d.comfortMetadata) ||
+        changed(beforeComfort.metadata, d.comfortMetadata)
+      ) {
+        touch(d, "comfort-model-v1", "neutralize", c.reason, [
+          "comfort",
+          "comfortMetadata",
+        ]);
       }
     } else if (
       d.comfort &&
@@ -706,7 +805,11 @@ function main() {
       }
     }
 
-    const beforeCrowd = d.crowd;
+    const beforeCrowd = {
+      crowd: d.crowd,
+      metadata: d.crowdMetadata,
+      fieldSources: d.editorial?.fieldSources?.crowd,
+    };
     const cr = crowdModel(d, crowdEligible);
     if (cr.action !== "keep") markTouched("crowd-model-v1", d.id);
     if (cr.action === "set" && cr.crowd) {
@@ -717,21 +820,100 @@ function main() {
         confidence: cr.confidence,
         basis: cr.reason,
       };
-      if (changed(beforeCrowd, d.crowd)) {
+      if (
+        changed(beforeCrowd, {
+          crowd: d.crowd,
+          metadata: d.crowdMetadata,
+        })
+      ) {
         addFieldSource(d, "crowd", `crowd-model-v1; ${cr.reason}`);
-        touch(d, "crowd-model-v1", "set", cr.reason, ["crowd"]);
+        touch(d, "crowd-model-v1", "set", cr.reason, [
+          "crowd",
+          "crowdMetadata",
+        ]);
       }
-    } else if (cr.action === "unknown" && d.crowd !== undefined) {
+    } else if (cr.action === "unknown") {
       // Explicit neutral: no runtime consumer; kind-derived bands would be
-      // manufactured. Template crowd vectors are cleared.
-      delete (d as Partial<Destination>).crowd;
-      d.crowdMetadata = {
-        method: "unknown",
-        modelVersion: "crowd-model-v1",
-        confidence: "unknown",
-        basis: cr.reason,
-      };
-      touch(d, "crowd-model-v1", "neutralize", cr.reason, ["crowd"]);
+      // manufactured. Runs even when the crowd field is ALREADY absent —
+      // stale fieldSources.crowd (claiming a calculated model result) must
+      // be cleared on already-neutralized records too.
+      if (d.crowd !== undefined) {
+        delete (d as Partial<Destination>).crowd;
+      }
+      const beforeMeta = d.crowdMetadata;
+      if (d.crowdMetadata?.method !== "unknown") {
+        d.crowdMetadata = {
+          method: "unknown",
+          modelVersion: "crowd-model-v1",
+          confidence: "unknown",
+          basis: cr.reason,
+        };
+      }
+      if (d.editorial?.fieldSources) {
+        delete d.editorial.fieldSources.crowd;
+      }
+      if (
+        d.crowd !== undefined ||
+        changed(beforeMeta, d.crowdMetadata) ||
+        changed(beforeCrowd.fieldSources, d.editorial?.fieldSources?.crowd)
+      ) {
+        touch(d, "crowd-model-v1", "neutralize", cr.reason, [
+          "crowd",
+          "crowdMetadata",
+        ]);
+      }
+    }
+
+    // ---- Stale-source sweep (idempotent, ALL records) ----
+    // Records neutralized in an EARLIER run may no longer be eligible, so
+    // the neutralize branch above never fires for them and their obsolete
+    // fieldSources would survive forever (e.g. Hamarikyu/Engakuji still
+    // claimed a calculated crowd model result after crowd neutralization).
+    // Any record whose metadata declares the explicit-neutral state must
+    // not carry a 'calculated' field source for that field.
+    if (
+      d.crowdMetadata?.method === "unknown" &&
+      d.editorial?.fieldSources?.crowd
+    ) {
+      delete d.editorial.fieldSources.crowd;
+      touch(
+        d,
+        "crowd-model-v1",
+        "neutralize",
+        "stale calculated crowd source cleared after neutralization",
+        ["crowd"],
+      );
+    }
+    if (
+      d.comfortMetadata?.method === "unknown" &&
+      d.editorial?.fieldSources?.comfort
+    ) {
+      delete d.editorial.fieldSources.comfort;
+      touch(
+        d,
+        "comfort-model-v1",
+        "neutralize",
+        "stale calculated comfort source cleared after neutralization",
+        ["comfort"],
+      );
+    }
+    if (
+      d.seasonMetadata?.method === "unknown" &&
+      d.editorial?.fieldSources &&
+      (d.editorial.fieldSources.season ||
+        d.editorial.fieldSources.bestMonths ||
+        d.editorial.fieldSources.bestSeason)
+    ) {
+      delete d.editorial.fieldSources.season;
+      delete d.editorial.fieldSources.bestMonths;
+      delete d.editorial.fieldSources.bestSeason;
+      touch(
+        d,
+        "season-model-v1",
+        "neutralize",
+        "stale calculated season sources cleared after neutralization",
+        ["season"],
+      );
     }
 
     const beforeTransportMeta = d.transportMetadata;
@@ -850,38 +1032,50 @@ function main() {
 
   // ---- report ----
   // The report is a committed migration/ownership artifact: it always carries
-  // touchedRecords (which records each model OWNS — stable across runs) and
-  // modelClusterIds, plus the change list of the run. --check NEVER writes
-  // anything (no side effects); --apply and dry-run write the report.
+  // touchedRecords (which records each model OWNS) and modelClusterIds, plus
+  // the change list of the run. --check NEVER writes anything (no side
+  // effects); --apply and dry-run write the report.
   const committed = fs.existsSync(reportPath)
     ? (JSON.parse(fs.readFileSync(reportPath, "utf8")) as Partial<ReportShape>)
     : undefined;
-  // Ownership ledger is MONOTONE: a record a model once derived stays owned
-  // by that model. Converged runs stop emitting non-keep actions, which
-  // would silently drop the model's key from touchedRecords. Union with the
-  // committed ledger; walking ownership is additionally INDEX-DERIVABLE
-  // (any record carrying model provenance is owned, by definition of
-  // 'provenance is the unit'), so it self-heals even if an earlier apply
-  // dropped it.
-  if (committed?.touchedRecords) {
-    for (const [model, ids] of Object.entries(committed.touchedRecords)) {
-      const current = touchedByModel[model] ?? [];
-      touchedByModel[model] = Array.from(new Set([...current, ...ids]));
-    }
-  }
-  const walkingOwnedFromIndex = destinations
-    .filter((d) => isModelOwnedWalkingMinutes(d))
-    .map((d) => d.id);
-  touchedByModel["walking-model-v1"] = Array.from(
-    new Set([
-      ...(touchedByModel["walking-model-v1"] ?? []),
-      ...walkingOwnedFromIndex,
+  // Ownership is DERIVED FROM CURRENT METADATA (provenance is the unit),
+  // never accumulated from past runs: a record is model-owned exactly when
+  // its CURRENT metadata declares the model's modelVersion. This makes the
+  // ledger self-healing AND precedence-safe — when a source-verified or
+  // manual correction supersedes a model value, the metadata is replaced
+  // and the record stops being model-owned (validate gates must not keep
+  // applying model rules to records the model no longer owns). A permanent
+  // union would fight the stated precedence rule source-verified > model.
+  const ownedByMetadataModel = (modelVersion: string) => (d: Destination) =>
+    d.seasonMetadata?.modelVersion === modelVersion ||
+    d.budgetMetadata?.modelVersion === modelVersion ||
+    d.durationMetadata?.modelVersion === modelVersion ||
+    d.comfortMetadata?.modelVersion === modelVersion ||
+    d.crowdMetadata?.modelVersion === modelVersion ||
+    d.transportMetadata?.modelVersion === modelVersion ||
+    d.walkingMetadata?.modelVersion === modelVersion;
+  const LEDGER_MODELS = [
+    "budget-model-v1",
+    "season-model-v1",
+    "duration-model-v1",
+    "hub-window-model-v1",
+    "walking-model-v1",
+    "comfort-model-v1",
+    "crowd-model-v1",
+    "transport-access-v1",
+  ];
+  const ledgerTouchedByModel = Object.fromEntries(
+    LEDGER_MODELS.map((model) => [
+      model,
+      destinations
+        .filter((d) => ownedByMetadataModel(model)(d))
+        .map((d) => d.id),
     ]),
-  );
+  ) as Record<string, string[]>;
   const report = nextReport(
     committed,
     changes,
-    touchedByModel,
+    ledgerTouchedByModel,
     modelClusterIds,
     apply,
   );
@@ -915,4 +1109,13 @@ function main() {
   }
 }
 
-main();
+// Entrypoint guard: this module exports nextReport/ReportShape for tests;
+// importing it must NOT run the generator (the dry-run path writes
+// derive-report.json — a side effect that would corrupt the '--check writes
+// nothing' integration test). Run main() only when executed directly.
+const isMainModule =
+  process.argv[1] !== undefined &&
+  import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href;
+if (isMainModule) {
+  main();
+}

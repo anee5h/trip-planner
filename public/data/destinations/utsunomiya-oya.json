@@ -93,16 +93,7 @@
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
-    "fieldSources": {
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=0",
-          "accessedAt": "2026-08-14"
-        }
-      ]
-    }
+    "fieldSources": {}
   },
   "nameJa": "宇都宮・大谷エリア",
   "content": {

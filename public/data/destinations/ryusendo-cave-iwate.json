@@ -110,16 +110,7 @@
         "method": "assisted"
       }
     ],
-    "fieldSources": {
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=1",
-          "accessedAt": "2026-08-14"
-        }
-      ]
-    }
+    "fieldSources": {}
   },
   "crowdMetadata": {
     "method": "unknown",

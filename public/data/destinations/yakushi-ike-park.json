@@ -16,11 +16,7 @@
     "ja": {
       "name": "薬師池公園 四季彩の杜",
       "description": "日本の歴史公園100選に選ばれた町田市の公園で、大きな池を中心に茅葺きの旧永井家住宅や梅林、菖蒲田が広がります。四季の花々と直売所カフェが親しまれています。",
-      "highlights": [
-        "薬師池公園 四季彩の杜の名所",
-        "薬師池公園 四季彩の杜の名所",
-        "薬師池公園 四季彩の杜の名所"
-      ],
+      "highlights": ["薬師池公園 四季彩の杜の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -114,14 +110,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='park', walkingMin=unknown",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='park', importance=standard, collections=0",
           "accessedAt": "2026-08-14"
         }
       ]

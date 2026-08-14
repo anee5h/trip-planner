@@ -147,14 +147,6 @@
     "reviewedAt": "2026-08-05",
     "reviewedBy": "Kyushu-to-100 Editorial Batch",
     "fieldSources": {
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='mixed', importance=standard, collections=0",
-          "accessedAt": "2026-08-14"
-        }
-      ],
       "walkingMin": [
         {
           "type": "calculated",

@@ -16,11 +16,7 @@
     "ja": {
       "name": "玉堂美術館",
       "description": "多摩川の清流沿いに建つ日本画の巨匠・川合玉堂の記念美術館です。四季折々の自然を描いた名作群と、多摩川の渓谷美を望む見事な枯山水庭園が訪れる人を魅了します。",
-      "highlights": [
-        "玉堂美術館の名所",
-        "玉堂美術館の名所",
-        "玉堂美術館の名所"
-      ],
+      "highlights": ["玉堂美術館の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -130,14 +126,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=unknown",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
           "accessedAt": "2026-08-14"
         }
       ]

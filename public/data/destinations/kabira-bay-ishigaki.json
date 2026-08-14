@@ -56,14 +56,6 @@
           "title": "duration-model-v1; kind band 'nature'",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='nature', importance=standard, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },

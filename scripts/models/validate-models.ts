@@ -22,7 +22,6 @@ const truthPath = path.join(
   rootDir,
   "scripts/audit/kai-89-calibration-truth.json",
 );
-const reportPath = path.join(rootDir, "scripts/models/derive-report.json");
 
 const RATING_KEYS = [
   "overall",
@@ -50,26 +49,27 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
   const truth = JSON.parse(fs.readFileSync(truthPath, "utf8")) as {
     ticketEvidence: Record<string, { jpy: number }>;
   };
-  // Ownership comes from the report's touchedRecords map (the stable
-  // model-ownership ledger), NOT the pending-change list: after a clean
-  // apply the pending list is empty while ownership must still scope the
-  // gates (otherwise 'tickets never modelled' etc. examine zero records
-  // and pass vacuously).
-  let report: {
-    touchedRecords?: Record<string, string[]>;
-    modelClusterIds?: string[];
-  };
-  try {
-    report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
-  } catch {
-    report = {};
-  }
-  const touchedRecords = report.touchedRecords ?? {};
+  // Ownership is DERIVED FROM CURRENT METADATA (provenance is the unit),
+  // scoped to the method that carries the model's contract:
+  //  - method "model"  → the model FILLED the field (midpoint/integers/
+  //    tickets rules apply)
+  //  - method "unknown" → explicit neutral (cleared; no data → gates no-op)
+  // This is precedence-safe: a source-verified/manual correction replaces
+  // the metadata, the record stops being model-owned, and the model rules
+  // stop applying — a permanent ledger would keep old model rules forever.
   const byId = new Map(index.map((d) => [d.id, d]));
-  const touchedBudget = new Set(touchedRecords["budget-model-v1"] ?? []);
-  const touchedSeason = new Set(touchedRecords["season-model-v1"] ?? []);
-  const touchedComfort = new Set(touchedRecords["comfort-model-v1"] ?? []);
-  const touchedCrowd = new Set(touchedRecords["crowd-model-v1"] ?? []);
+  const touchedBudget = new Set(
+    index.filter((d) => d.budgetMetadata?.method === "model").map((d) => d.id),
+  );
+  const touchedSeason = new Set(
+    index.filter((d) => d.seasonMetadata?.method === "model").map((d) => d.id),
+  );
+  const touchedComfort = new Set(
+    index.filter((d) => d.comfortMetadata?.method === "model").map((d) => d.id),
+  );
+  const touchedCrowd = new Set(
+    index.filter((d) => d.crowdMetadata?.method === "model").map((d) => d.id),
+  );
 
   const results: GateResult[] = [];
   const fail = (gate: string, detail: string) =>
@@ -312,6 +312,59 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
         "walking-provenance",
         `walkingMetadata.method 'model' missing unit: ${badWalkingProvenance.slice(0, 8).join("; ")}`,
       );
+
+  // ---- 9. metadata/data consistency (per-model provenance contract) ----
+  // Provenance must match the data it describes: a "model" claim requires
+  // the model-derived field present; an explicit-unknown claim requires the
+  // field ABSENT (unknown is authoritative — numbers with method "unknown"
+  // are two competing truths and fail here). This is the gate that catches
+  // deleted/corrupted metadata even when the numeric values were left
+  // intact (the --check side detects it on the next apply; this gate fails
+  // immediately on the committed catalogue).
+  const metaConsistency = index.flatMap((d) => {
+    const out: string[] = [];
+    const budget = d.budgetMetadata;
+    if (budget) {
+      const hasNumbers =
+        d.budgetMin !== undefined ||
+        d.budgetRecommended !== undefined ||
+        d.budgetMax !== undefined;
+      if (budget.method === "model" && !hasNumbers)
+        out.push(`${d.id}: budgetMetadata model without numbers`);
+      if (budget.method === "unknown" && hasNumbers)
+        out.push(`${d.id}: budgetMetadata unknown WITH numbers (two truths)`);
+    }
+    const season = d.seasonMetadata;
+    if (season) {
+      if (season.method === "model" && !d.season)
+        out.push(`${d.id}: seasonMetadata model without season vector`);
+      if (
+        season.method === "unknown" &&
+        (d.season !== undefined || d.bestMonths !== undefined)
+      )
+        out.push(`${d.id}: seasonMetadata unknown WITH vector`);
+    }
+    const duration = d.durationMetadata;
+    if (duration && duration.method === "model" && !d.recommendedVisitHours)
+      out.push(`${d.id}: durationMetadata model without visit window`);
+    const comfort = d.comfortMetadata;
+    if (comfort) {
+      if (comfort.method === "model" && !d.comfort)
+        out.push(`${d.id}: comfortMetadata model without comfort`);
+      if (comfort.method === "unknown" && d.comfort)
+        out.push(`${d.id}: comfortMetadata unknown WITH comfort`);
+    }
+    const crowd = d.crowdMetadata;
+    if (crowd && crowd.method === "unknown" && d.crowd)
+      out.push(`${d.id}: crowdMetadata unknown WITH crowd vector`);
+    return out;
+  });
+  metaConsistency.length === 0
+    ? pass(
+        "metadata-consistency",
+        "metadata method matches the data it describes (model→field, unknown→absent)",
+      )
+    : fail("metadata-consistency", metaConsistency.slice(0, 10).join("; "));
 
   return results;
 }

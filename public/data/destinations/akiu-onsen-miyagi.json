@@ -112,14 +112,6 @@
           "title": "walking-model-v1; template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 50% of 7h visit",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },

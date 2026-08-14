@@ -16,11 +16,7 @@
     "ja": {
       "name": "雑司ヶ谷鬼子母神堂",
       "description": "安産・育児の神様として親しまれる歴史ある堂宇で、樹齢約700年の大イチョウが境内を護ります。1781年創業の日本最古の駄菓子屋「上川口屋」も営業しています。",
-      "highlights": [
-        "雑司ヶ谷鬼子母神堂の名所",
-        "雑司ヶ谷鬼子母神堂の名所",
-        "雑司ヶ谷鬼子母神堂の名所"
-      ],
+      "highlights": ["雑司ヶ谷鬼子母神堂の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -120,14 +116,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='temple', walkingMin=unknown",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='temple', importance=standard, collections=0",
           "accessedAt": "2026-08-14"
         }
       ]

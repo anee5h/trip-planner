@@ -1,6 +1,9 @@
 # KAI-89 Logical Data Models — Design Report (v1)
 
-Status: DESIGN — pending critical review before bulk generation.
+Status: IMPLEMENTED — models, generator, and validation harness are merged in
+PR #174 and applied to the catalogue (978 records). See the correction-pass
+commits for review-resolution history; this document is the reference for
+the implemented behavior.
 Date: 2026-08-14 · PR #174 · reconciled from ModelAgent A–E designs + AgentE calibration audit + owner-reviewed workbook.
 
 ## Model philosophy (all models)

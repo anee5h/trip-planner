@@ -16,11 +16,7 @@
     "ja": {
       "name": "鬼太郎茶屋",
       "description": "深大寺門前に位置する水木しげる氏の「ゲゲゲの鬼太郎」をテーマにした妖怪カフェ＆ショップです。妖怪モチーフのオリジナル甘味や、屋根の上の巨大下駄など写真スポットが満載です。",
-      "highlights": [
-        "鬼太郎茶屋の名所",
-        "鬼太郎茶屋の名所",
-        "鬼太郎茶屋の名所"
-      ],
+      "highlights": ["鬼太郎茶屋の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:30 - 17:00（最終入館 16:30）"
@@ -137,14 +133,6 @@
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=unknown",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },
@@ -175,9 +163,9 @@
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
   },
   "budgetMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
+    "confidence": "low",
     "basis": "verified ticket ¥0 preserved; peer cell 'museum|half|poi' has 1 samples (< 5); components left as accepted debt"
   },
   "comfortMetadata": {

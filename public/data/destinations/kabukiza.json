@@ -16,7 +16,7 @@
     "ja": {
       "name": "歌舞伎座",
       "description": "銀座に位置する歌舞伎の殿堂であり、伝統的な劇場美と荘厳な舞台公演を鑑賞できます。一幕見席チケットも用意されており、気軽に伝統芸能に触れることができます。",
-      "highlights": ["歌舞伎座の名所", "歌舞伎座の名所", "歌舞伎座の名所"],
+      "highlights": ["歌舞伎座の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:30 - 17:00（最終入館 16:30）"
@@ -122,14 +122,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=unknown",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
           "accessedAt": "2026-08-14"
         }
       ]

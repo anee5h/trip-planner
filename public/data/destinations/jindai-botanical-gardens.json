@@ -16,11 +16,7 @@
     "ja": {
       "name": "神代植物公園",
       "description": "約400品種・5,200株のバラが咲き誇る都内最大級のバラ園を擁する植物公園です。大温室やつつじ園、梅園など、年間を通じて多彩な植物の美しさを鑑賞できます。",
-      "highlights": [
-        "神代植物公園の名所",
-        "神代植物公園の名所",
-        "神代植物公園の名所"
-      ],
+      "highlights": ["神代植物公園の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -141,14 +137,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='garden', walkingMin=unknown",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='garden', importance=standard, collections=1",
           "accessedAt": "2026-08-14"
         }
       ]

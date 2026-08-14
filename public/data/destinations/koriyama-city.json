@@ -120,14 +120,6 @@
           "title": "comfort-model-v1; derived from indoorPercent=35, kind='city', walkingMin=70",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='city', importance=notable, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },

@@ -121,14 +121,6 @@
           "title": "comfort-model-v1; derived from indoorPercent=50, kind='city', walkingMin=40",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='city', importance=notable, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },
@@ -149,7 +141,7 @@
     "ja": {
       "name": "藤沢",
       "description": "江の島への玄関口となる湘南エリアの中心都市。江ノ電沿線の海景色、湘南海岸のビーチ、片瀬江ノ島エリア観光の拠点です。",
-      "highlights": ["藤沢の名所", "藤沢の名所", "藤沢の名所"],
+      "highlights": ["藤沢の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"

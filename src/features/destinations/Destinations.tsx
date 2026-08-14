@@ -505,14 +505,22 @@ export default function Destinations() {
 
     // 1.5. Budget filters use a destination's upper estimate: a trip must be
     // possible within the selected amount, not merely start below it.
+    // KAI-89/Any-budget: 'any' is the app's EXPLICIT no-filter default (any
+    // budget, unknown included — the filter UI treats it as the unselected
+    // state). Selecting economy/comfortable/luxury restricts to FINITE KNOWN
+    // budgets within the shared BUDGET_TIER_LIMITS contract; an unknown
+    // budget (absent values) NEVER passes a restricted tier.
     if (budgetTier !== "any") {
       result = result.filter((dest) => {
-        if (budgetTier === "luxury") return true;
         if (!hasKnownBudgetRange(dest)) return false;
         const estimatedCost = dest.budgetMax;
-        if (budgetTier === "economy") return estimatedCost < 10000;
-        if (budgetTier === "comfortable") return estimatedCost < 20000;
-        return estimatedCost < 40000;
+        if (budgetTier === "economy")
+          return estimatedCost <= BUDGET_TIER_LIMITS.economy;
+        if (budgetTier === "comfortable")
+          return estimatedCost <= BUDGET_TIER_LIMITS.comfortable;
+        // luxury: a real tier (≤ its shared limit); every finite known
+        // budget today falls under it, unknown never does.
+        return estimatedCost <= BUDGET_TIER_LIMITS.luxury;
       });
     }
 

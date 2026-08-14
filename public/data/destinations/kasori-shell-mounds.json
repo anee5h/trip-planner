@@ -16,7 +16,7 @@
     "ja": {
       "name": "加曽利貝塚",
       "description": "縄文時代の日本最大級の貝塚で、国の史跡に指定されている。博物館と保存された貝塚の断面から、海辺で暮らした縄文人の生活をうかがい知ることができる。",
-      "highlights": ["加曽利貝塚の名所", "加曽利貝塚の名所"],
+      "highlights": ["加曽利貝塚の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:30 - 17:00（最終入館 16:30）"
@@ -139,14 +139,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=unknown",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='museum', importance=standard, collections=0",
           "accessedAt": "2026-08-14"
         }
       ]

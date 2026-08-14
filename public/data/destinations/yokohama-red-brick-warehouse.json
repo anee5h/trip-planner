@@ -99,14 +99,6 @@
           "title": "comfort-model-v1; derived from indoorPercent=75, kind='', walkingMin=40",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },
@@ -123,11 +115,7 @@
     "ja": {
       "name": "横浜赤レンガ倉庫",
       "description": "横浜赤レンガ倉庫は神奈川県を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
-      "highlights": [
-        "横浜赤レンガ倉庫の名所",
-        "横浜赤レンガ倉庫の名所",
-        "横浜赤レンガ倉庫の名所"
-      ],
+      "highlights": ["横浜赤レンガ倉庫の名所"],
       "notes": "明治・大正期の歴史的赤レンガ倉庫で、潮風を感じながらショッピングやクラフトビールを楽しめます。",
       "reservation": "施設への入場・ショップ巡りは事前予約不要です。",
       "parking": "赤レンガパーク隣接の有料駐車場をご利用いただけます。",

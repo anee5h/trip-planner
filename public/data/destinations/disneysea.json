@@ -102,14 +102,6 @@
           "title": "comfort-model-v1; FIX_CONTRADICTION impossible walkingIntensity derived from walkingMin",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='', importance=standard, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },
@@ -126,7 +118,7 @@
     "ja": {
       "name": "東京ディズニーシー",
       "description": "DisneySeaは千葉県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["東京ディズニーシーの名所", "東京ディズニーシーの名所"],
+      "highlights": ["東京ディズニーシーの名所"],
       "reservation": "日付指定のチケットは公式サイト・アプリでの事前購入が必要です（園内チケット売り場は現在閉鎖中）。料金・営業時間は日によって異なりますので、公式カレンダーをご確認ください。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "営業時間は日により変動（一般的に 09:00〜21:00）；公式カレンダーをご確認ください"

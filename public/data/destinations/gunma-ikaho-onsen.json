@@ -110,14 +110,6 @@
           "title": "duration-model-v1; kind band 'onsen' + scale uplift",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='onsen', importance=standard, collections=1",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },

@@ -134,14 +134,6 @@
           "title": "comfort-model-v1; derived from indoorPercent=35, kind='castle', walkingMin=120",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='castle', importance=standard, collections=2",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },

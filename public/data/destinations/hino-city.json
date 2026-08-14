@@ -117,14 +117,6 @@
           "title": "comfort-model-v1; derived from indoorPercent=35, kind='city', walkingMin=70",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='city', importance=notable, collections=0",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },
@@ -144,7 +136,7 @@
     "ja": {
       "name": "日野",
       "description": "日野は東京都にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
-      "highlights": ["公園散策", "日野の名所", "日野の名所"],
+      "highlights": ["公園散策", "日野の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"

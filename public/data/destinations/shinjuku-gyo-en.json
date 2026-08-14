@@ -21,7 +21,7 @@
     "ja": {
       "name": "新宿御苑",
       "description": "広さ58ヘクタールの皇室ゆかりの庭園。日本庭園、イギリス風景式庭園、フランス式整形庭園が融合し、四季の自然や桜を楽しめます。",
-      "highlights": ["庭園 &散策", "新宿御苑の名所", "新宿御苑の名所"],
+      "highlights": ["庭園 &散策", "新宿御苑の名所"],
       "notes": "日本庭園、イギリス風景式庭園、フランス式整形庭園の3つの庭園美と四季の花々を愉しめます。",
       "reservation": "春の特別開園（桜シーズン）の混雑期は事前予約が推奨されます。",
       "parking": "新宿門横に有料駐車場が完備されています。",
@@ -159,14 +159,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=20, kind='park', walkingMin=unknown",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "crowd": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "crowd-model-v1; derived from kind='park', importance=standard, collections=1",
           "accessedAt": "2026-08-14"
         }
       ]
