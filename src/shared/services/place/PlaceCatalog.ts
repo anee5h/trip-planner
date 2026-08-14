@@ -93,13 +93,9 @@ export function getLocalizedPlace(
   if (locale === "en") {
     return {
       ...canonical,
-      name: canonical.content.en.name || canonical.name,
-      description: canonical.content.en.description || canonical.description,
-      highlights:
-        canonical.content.en.highlights &&
-        canonical.content.en.highlights.length > 0
-          ? canonical.content.en.highlights
-          : canonical.highlights,
+      name: canonical.content.en.name,
+      description: canonical.content.en.description,
+      highlights: canonical.content.en.highlights,
     };
   }
 
@@ -111,19 +107,15 @@ export function getLocalizedPlace(
       ? ja.name
       : canonical.nameJa && canonical.nameJa.trim() !== ""
         ? canonical.nameJa
-        : en?.name || canonical.name;
+        : en.name;
 
   const description =
     ja?.description && ja.description.trim() !== ""
       ? ja.description
-      : en?.description || canonical.description;
+      : en.description;
 
   const highlights =
-    ja?.highlights && ja.highlights.length > 0
-      ? ja.highlights
-      : en?.highlights && en.highlights.length > 0
-        ? en.highlights
-        : canonical.highlights;
+    ja?.highlights && ja.highlights.length > 0 ? ja.highlights : en.highlights;
 
   return {
     ...canonical,

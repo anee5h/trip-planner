@@ -10,6 +10,7 @@ import {
   getLocalizedPlace,
   isPlaceAvailableInLocale,
 } from "../PlaceCatalog";
+import type { Destination } from "@/shared/types/destination";
 
 describe("PlaceCatalog", () => {
   it("creates canonical records for the complete catalog", () => {
@@ -143,5 +144,39 @@ describe("PlaceCatalog", () => {
     expect(localized.name).toBe(place!.content.en.name);
     expect(localized.description).toBe(place!.content.en.description);
     expect(localized.highlights).toEqual(place!.content.en.highlights);
+  });
+
+  it("preserves intentionally empty English highlights without leaking legacy top-level highlights", () => {
+    const basePlace = getCanonicalPlaces()[0];
+    const place: Destination = {
+      ...basePlace,
+      id: "test-place-empty-en-highlights",
+      name: "Test Place",
+      description: "Test description",
+      highlights: ["Legacy Highlight 1", "Legacy Highlight 2"],
+      content: {
+        en: {
+          name: "Test Place English",
+          description: "English description",
+          highlights: [],
+        },
+        ja: {
+          name: "テスト場所",
+          description: "日本語説明",
+          highlights: ["日本語ハイライト1"],
+        },
+      },
+    };
+
+    const enLocalized = getLocalizedPlace(place, "en");
+    expect(enLocalized.name).toBe("Test Place English");
+    expect(enLocalized.description).toBe("English description");
+    // Must remain strictly empty, never falling back to legacy top-level highlights
+    expect(enLocalized.highlights).toEqual([]);
+
+    const jaLocalized = getLocalizedPlace(place, "ja");
+    expect(jaLocalized.name).toBe("テスト場所");
+    expect(jaLocalized.description).toBe("日本語説明");
+    expect(jaLocalized.highlights).toEqual(["日本語ハイライト1"]);
   });
 });
