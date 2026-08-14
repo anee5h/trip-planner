@@ -44,7 +44,7 @@ import {
   getValidModes,
   scoreForCatalog,
 } from "@/shared/services/recommendation/RecommendationService";
-import { getScorePresentation } from "@/shared/services/recommendation/RecommendationScorer";
+import { compareOverallScore } from "./destinationSorting";
 import type {
   RecommendationContext,
   TripMode,
@@ -1100,14 +1100,11 @@ export default function Destinations() {
           return (b.ratings?.winter ?? 0) - (a.ratings?.winter ?? 0);
         case "overall":
         default: {
-          // KAI-89: raw ratings only rank when VERIFIED; unverified records
-          // rank by the deterministic estimated rubric score instead (an
-          // unverified template rating must never top a 'Top Rated' sort).
-          const scoreOf = (dest: Destination) => {
-            const sp = getScorePresentation(dest);
-            return sp.state === "verified" ? (sp.value ?? 0) : (sp.value ?? 0);
-          };
-          return scoreOf(b) - scoreOf(a);
+          // KAI-89 rubric v2: verified and estimated share ONE rubric scale,
+          // but verified evidence outranks estimates regardless of value — an
+          // estimated 8.5 must never top a verified 7.0 in a "Top Rated"
+          // sort. State-major, then value descending, then id.
+          return compareOverallScore(a, b);
         }
       }
     });

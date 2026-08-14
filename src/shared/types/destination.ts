@@ -451,13 +451,17 @@ export interface Destination {
     confidence: "low" | "medium" | "high";
   };
   /**
-   * KAI-89 score presentation metadata (final pass). PERSISTED by the
+   * KAI-89 overall-destination score metadata (rubric v2). PERSISTED by the
    * deterministic generator for every record; runtime getScorePresentation
-   * reads it (with a computed fallback that must agree — gated). Distinct
-   * states:
-   *  - verified  → editorial score from high/medium ratingMetadata;
-   *  - estimated → Overall-Destination Rubric v1 (calculated, labeled);
-   *  - unavailable → safety state (published target: 0).
+   * reads it (with a computed fallback that must agree — gated). ONE rubric
+   * computes the value for verified AND estimated; the state is a
+   * provenance/coverage label, never a different formula. States:
+   *  - verified  → rubric value with editorial score provenance (date +
+   *    authoritative sources, committed verification ledger);
+   *  - estimated → rubric value with model provenance (sourceClass "model");
+   *  - unavailable → evidence coverage below threshold; value null.
+   * Distinct from the legacy ratings vector (ratings.*) and its
+   * ratingMetadata confidence, which are a separate evidence family.
    */
   scoreMetadata?: ScoreMetadata;
   tags: string[];

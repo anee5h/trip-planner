@@ -10,7 +10,7 @@ import type {
 } from "./RecommendationTypes";
 import {
   calculateConfidence,
-  getRatingDisplayState,
+  isRatingVerified,
   getValidModes,
 } from "./RecommendationScorer";
 import {
@@ -280,8 +280,8 @@ export function createRecommendationMatch(
   // Rating-derived claims ("Top-tier Food Scene", "Highly rated for rainy-day
   // visits", "Highly recommended by other travelers") must not fire on
   // unverified/template rating data — only high/medium-confidence metadata is
-  // presentation-worthy evidence (REC-002).
-  const ratingsTrusted = getRatingDisplayState(dest) === "verified";
+  // presentation-worthy evidence (REC-002, legacy rating vector trust).
+  const ratingsTrusted = isRatingVerified(dest);
   const cats = dest.categories || [];
   const tags = dest.tags || [];
 

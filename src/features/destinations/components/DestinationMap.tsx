@@ -9,6 +9,7 @@ import { getScorePresentation } from "@/shared/services/recommendation/Recommend
 import { Compass } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
+import { useTranslation } from "react-i18next";
 import "leaflet/dist/leaflet.css";
 
 // Fix default Leaflet icon paths
@@ -71,6 +72,7 @@ export default function DestinationMap({
   locale = "en",
 }: DestinationMapProps) {
   const location = useLocation();
+  const { t } = useTranslation();
 
   const validDestinations = useMemo(() => {
     return destinations.filter(
@@ -130,19 +132,16 @@ export default function DestinationMap({
                   <h3 className="font-bold text-base text-slate-900 dark:text-white mb-0.5 truncate">
                     {placeName}
                   </h3>
-                  {/* REC-002/KAI-89 3-state: verified shows ★ overall/10;
-                      estimated shows ★ value/10 labeled est. (from the
-                      trusted season vector); unverifiable shows the
-                      localized Score-unavailable line — never blank. */}
+                  {/* KAI-89 rubric v2: verified and estimated show the ONE
+                      rubric value (same scale); estimated is labeled via i18n;
+                      unavailable shows the localized Score-unavailable line —
+                      never blank. */}
                   {(() => {
                     const sp = getScorePresentation(dest);
-                    if (
-                      sp.state === "verified" &&
-                      Number.isFinite(dest.ratings?.overall)
-                    ) {
+                    if (sp.state === "verified" && sp.value !== null) {
                       return (
                         <div className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-1.5">
-                          ★ {dest.ratings.overall}/10
+                          ★ {sp.value}/10
                         </div>
                       );
                     }
@@ -151,16 +150,14 @@ export default function DestinationMap({
                         <div className="text-xs font-semibold text-amber-600 dark:text-amber-400 mb-1.5">
                           ★ {sp.value}/10{" "}
                           <span className="ml-0.5 text-[10px] font-normal uppercase text-slate-400">
-                            {locale === "ja" ? "目安" : "est."}
+                            {t("ui.estimated")}
                           </span>
                         </div>
                       );
                     }
                     return (
                       <div className="text-xs font-semibold text-slate-400 mb-1.5">
-                        {locale === "ja"
-                          ? "スコアを表示できません"
-                          : "Score unavailable"}
+                        {t("destination.scoreUnavailable")}
                       </div>
                     );
                   })()}

@@ -12,6 +12,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { isModelOwnedWalkingMinutes } from "./walking-model-v1";
+import {
+  buildScoreMetadata,
+  SCORE_EVIDENCE_THRESHOLD,
+} from "../../src/shared/services/recommendation/scoreRubric";
+import { loadVerifiedScoreProvenance } from "../audit/kai-89-score-verification";
 
 const rootDir = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -537,10 +542,11 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
         fieldSourceMismatch.slice(0, 8).join("; "),
       );
 
-  // ---- 11. score presentation gates (KAI-89 final pass) ----
+  // ---- 11. score presentation gates (KAI-89 rubric v2) ----
   // Every published record must carry persisted scoreMetadata resolving to
-  // verified (editorial) or estimated (Overall-Destination Rubric v1).
-  // Targets: 0 unavailable, 0 unresolved, 0 blank score areas.
+  // verified (editorial provenance), estimated (model provenance) or
+  // unavailable (evidence coverage below threshold). unavailable is a real
+  // state: sparse records must never be silently given a neutral-5 estimate.
   const published = index.filter((d) => d.status === "published");
   const scorePresentationMissing = published
     .filter((d) => !d.scoreMetadata)
@@ -552,38 +558,69 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
         `published records without scoreMetadata: ${scorePresentationMissing.slice(0, 8).join("; ")}`,
       );
 
-  // ---- 12. score provenance completeness ----
+  // ---- 12. score provenance completeness (rubric v2) ----
+  // verified requires score-specific editorial provenance (date + source
+  // URLs from the committed verification ledger) and a value equal to the
+  // rubric's output; estimated requires model provenance and the rubric
+  // value; unavailable requires a null value below the evidence threshold.
+  // Generic ratingMetadata.confidence NEVER upgrades a record to verified.
+  const verifiedProvenance = loadVerifiedScoreProvenance();
   const scoreProvenanceIssues = published.flatMap((d) => {
     const m = d.scoreMetadata;
     if (!m) return [];
     const out: string[] = [];
+    const expected = buildScoreMetadata(d, verifiedProvenance.get(d.id));
+    if (m.state === "verified") {
+      if (!m.rubricVersion)
+        out.push(`${d.id}: verified score missing rubricVersion`);
+      if (m.confidence !== "high")
+        out.push(`${d.id}: verified score confidence must be high`);
+      if (m.provenance?.sourceClass !== "editorial-review")
+        out.push(`${d.id}: verified score without editorial-review provenance`);
+      if (!m.provenance?.verifiedAt)
+        out.push(`${d.id}: verified score missing verification date`);
+      if (!m.provenance?.sources || m.provenance.sources.length === 0)
+        out.push(`${d.id}: verified score without authoritative source URLs`);
+      if (m.value === null || m.value !== expected.value)
+        out.push(
+          `${d.id}: verified value ${m.value} != rubric value ${expected.value}`,
+        );
+    }
     if (m.state === "estimated") {
       if (!m.rubricVersion)
         out.push(`${d.id}: estimated score missing rubricVersion`);
-      if (!m.confidence)
-        out.push(`${d.id}: estimated score missing confidence`);
-      if (!m.basis) out.push(`${d.id}: estimated score missing basis`);
+      if (m.confidence !== "low")
+        out.push(`${d.id}: estimated score confidence must be low`);
+      if (m.provenance?.sourceClass !== "model")
+        out.push(`${d.id}: estimated score without model provenance`);
+      if (!m.provenance?.basis)
+        out.push(`${d.id}: estimated score missing basis`);
+      if (m.coverage < SCORE_EVIDENCE_THRESHOLD)
+        out.push(
+          `${d.id}: estimated score below evidence threshold (coverage ${m.coverage})`,
+        );
+      if (m.value === null || m.value !== expected.value)
+        out.push(
+          `${d.id}: estimated value ${m.value} != rubric value ${expected.value}`,
+        );
     }
-    if (m.state === "verified" && !m.basis)
-      out.push(`${d.id}: verified score missing basis`);
-    if (!m.method) out.push(`${d.id}: scoreMetadata missing method`);
+    if (m.state === "unavailable") {
+      if (m.value !== null)
+        out.push(`${d.id}: unavailable score must have null value`);
+      if (m.confidence !== "unknown")
+        out.push(`${d.id}: unavailable score confidence must be unknown`);
+      if (m.coverage >= SCORE_EVIDENCE_THRESHOLD)
+        out.push(
+          `${d.id}: unavailable score above evidence threshold (coverage ${m.coverage})`,
+        );
+    }
     if (!m.noteKey) out.push(`${d.id}: scoreMetadata missing noteKey`);
-    if (
-      m.state === "verified" &&
-      !(
-        d.ratingMetadata?.rubricVersion === 2 &&
-        d.ratingMetadata?.method !== undefined
-      )
-    )
-      out.push(
-        `${d.id}: verified score without valid editorial provenance (rubricVersion 2 + method)`,
-      );
     return out;
   });
   scoreProvenanceIssues.length === 0
     ? pass(
         "score-provenance",
-        "calculated/verified scores carry rubric version, confidence, basis, method, noteKey",
+        "verified/estimated/unavailable scores carry complete provenance and the rubric value",
       )
     : fail("score-provenance", scoreProvenanceIssues.slice(0, 8).join("; "));
 
@@ -600,14 +637,10 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
     : fail("score-range", scoreRangeIssues.slice(0, 8).join("; "));
 
   // ---- 14. persisted state agrees with the runtime predicate ----
-  // Replicates getRatingDisplayState: high/medium confidence -> verified,
-  // else estimated (the rubric always scores a Destination-shaped record).
+  // Runs the REAL shared buildScoreMetadata (same module the generator and
+  // the runtime use) so the gate can never drift from the rubric.
   const stateMismatch = published.flatMap((d) => {
-    const expected =
-      d.ratingMetadata?.confidence === "high" ||
-      d.ratingMetadata?.confidence === "medium"
-        ? "verified"
-        : "estimated";
+    const expected = buildScoreMetadata(d, verifiedProvenance.get(d.id)).state;
     return d.scoreMetadata?.state !== expected
       ? [
           `${d.id}: scoreMetadata.state=${d.scoreMetadata?.state} runtime=${expected}`,
@@ -617,7 +650,7 @@ export function validateCatalogue(indexPathOverride?: string): GateResult[] {
   stateMismatch.length === 0
     ? pass(
         "score-state-agreement",
-        "persisted score state matches the runtime rating-confidence predicate",
+        "persisted score state matches the shared rubric state predicate",
       )
     : fail("score-state-agreement", stateMismatch.slice(0, 8).join("; "));
 

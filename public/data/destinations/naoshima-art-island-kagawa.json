@@ -103,12 +103,17 @@
     "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
   },
   "scoreMetadata": {
-    "state": "estimated",
-    "value": 5.7,
-    "rubricVersion": "kai-89-overall-v1",
-    "confidence": "low",
-    "method": "calculated",
-    "basis": "{\"rubric\":\"kai-89-overall-v1\",\"significance\":\"importance+heritage\",\"recognition\":\"collections+tags\",\"richness\":\"categories+highlights+indoorPercent\",\"accessibility\":\"transportOptions+visitHours+walkingMin\",\"curation\":\"officialWebsite+status\"}",
-    "noteKey": "destination.scoreEstimatedNote"
+    "state": "verified",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "high",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "editorial-review",
+      "verifiedAt": "2026-08-14",
+      "sources": ["https://naoshima.net/"],
+      "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
+    },
+    "noteKey": "destination.scoreVerifiedNote"
   }
 }

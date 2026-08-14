@@ -486,7 +486,7 @@ describe("KAI-89 finishing-pass false-greens + factual-source preservation", () 
   });
 });
 
-describe("KAI-89 score-state gates (final pass)", () => {
+describe("KAI-89 score-state gates (rubric v2)", () => {
   const gate = (p: string, g: string): boolean | undefined =>
     gateOf(validateCatalogue(p), g)?.pass;
 
@@ -513,13 +513,76 @@ describe("KAI-89 score-state gates (final pass)", () => {
     fs.rmSync(p, { force: true });
   });
 
-  it("verified-provenance fails when verified metadata lacks rubricVersion 2", () => {
+  it("score-provenance fails when an estimated score drops below the evidence threshold", () => {
     const p = withMutations((idx) => {
       const d = idx.find(
-        (x) => x.ratingMetadata?.confidence === "high" && x.scoreMetadata,
+        (x) =>
+          x.status === "published" && x.scoreMetadata?.state === "estimated",
+      )!;
+      expect(d, "fixture: estimated record").toBeTruthy();
+      d.scoreMetadata = { ...d.scoreMetadata, coverage: 0.2 };
+    });
+    expect(gate(p, "score-provenance")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("score-provenance fails when an estimated value diverges from the rubric", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) =>
+          x.status === "published" && x.scoreMetadata?.state === "estimated",
+      )!;
+      expect(d, "fixture: estimated record").toBeTruthy();
+      d.scoreMetadata = { ...d.scoreMetadata, value: 9.9 };
+    });
+    expect(gate(p, "score-provenance")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("score-provenance fails when a verified score loses its editorial source URLs", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) =>
+          x.status === "published" &&
+          x.scoreMetadata?.state === "verified" &&
+          x.scoreMetadata?.provenance?.sourceClass === "editorial-review",
       )!;
       expect(d, "fixture: verified record").toBeTruthy();
-      d.ratingMetadata = { ...d.ratingMetadata, rubricVersion: 1 };
+      d.scoreMetadata = {
+        ...d.scoreMetadata,
+        provenance: {
+          ...d.scoreMetadata.provenance,
+          sources: [],
+        },
+      };
+    });
+    expect(gate(p, "score-provenance")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("score-provenance fails when a verified value diverges from the rubric", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) =>
+          x.status === "published" &&
+          x.scoreMetadata?.state === "verified" &&
+          x.scoreMetadata?.provenance?.sourceClass === "editorial-review",
+      )!;
+      expect(d, "fixture: verified record").toBeTruthy();
+      d.scoreMetadata = { ...d.scoreMetadata, value: 10 };
+    });
+    expect(gate(p, "score-provenance")).toBe(false);
+    fs.rmSync(p, { force: true });
+  });
+
+  it("score-provenance fails when an unavailable score gains a numeric value", () => {
+    const p = withMutations((idx) => {
+      const d = idx.find(
+        (x) =>
+          x.status === "published" && x.scoreMetadata?.state === "unavailable",
+      )!;
+      expect(d, "fixture: unavailable record").toBeTruthy();
+      d.scoreMetadata = { ...d.scoreMetadata, value: 5.5 };
     });
     expect(gate(p, "score-provenance")).toBe(false);
     fs.rmSync(p, { force: true });
@@ -537,16 +600,13 @@ describe("KAI-89 score-state gates (final pass)", () => {
     fs.rmSync(p, { force: true });
   });
 
-  it("score-state-agreement fails when persisted state contradicts the runtime predicate", () => {
+  it("score-state-agreement fails when persisted state contradicts the shared rubric predicate", () => {
     const p = withMutations((idx) => {
       const d = idx.find(
         (x) =>
           x.status === "published" &&
           x.scoreMetadata?.state === "estimated" &&
-          !(
-            x.ratingMetadata?.confidence === "high" ||
-            x.ratingMetadata?.confidence === "medium"
-          ),
+          x.scoreMetadata?.provenance?.sourceClass === "model",
       )!;
       expect(d, "fixture: estimated record").toBeTruthy();
       d.scoreMetadata = { ...d.scoreMetadata, state: "verified" };
@@ -573,16 +633,10 @@ describe("KAI-89 score-state gates (final pass)", () => {
         (x) =>
           x.status === "published" && x.scoreMetadata?.state === "estimated",
       )!;
-      // Flip the persisted state so counts change without breaking the
-      // per-record agreement (also bump ratingMetadata to keep gate 14 green
-      // is unnecessary — the agreement gate checks state vs confidence and
-      // would fail too; here we only assert the audit-counts gate).
-      d.scoreMetadata = { ...d.scoreMetadata, state: "verified" };
-      d.ratingMetadata = {
-        rubricVersion: 2,
-        method: "manual",
-        confidence: "high",
-      };
+      // Flip the persisted state so the published counts change (the
+      // agreement/provenance gates would also fail; we assert the counts
+      // gate here as the contract under test).
+      d.scoreMetadata = { ...d.scoreMetadata, state: "unavailable" };
     });
     expect(gate(p, "score-audit-counts")).toBe(false);
     fs.rmSync(p, { force: true });

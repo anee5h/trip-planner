@@ -164,10 +164,15 @@
     "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
   },
   "scoreMetadata": {
-    "state": "verified",
-    "value": 8.6,
-    "method": "editorial",
-    "basis": "editorial ratingMetadata 2 assisted confidence medium",
-    "noteKey": "destination.scoreVerifiedNote"
+    "state": "estimated",
+    "value": 6.6,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.5,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

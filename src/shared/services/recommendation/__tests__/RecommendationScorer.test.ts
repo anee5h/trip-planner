@@ -3,8 +3,12 @@ import {
   calculateConfidence,
   calculateScore,
   CONFIDENCE_MULTIPLIERS,
-  getRatingDisplayState,
-  getEstimatedOverallScore,
+  computeOverallScore,
+  isRatingVerified,
+  buildScoreMetadata,
+  getScorePresentation,
+  SCORE_EVIDENCE_THRESHOLD,
+  OVERALL_SCORE_RUBRIC_VERSION,
   getValidModes,
   ratingReliability,
 } from "../RecommendationScorer";
@@ -497,44 +501,9 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(ratingReliability(dest)).toBe(1.0);
   });
 
-  it("getRatingDisplayState: verified from high/medium metadata, else estimated (rubric always scores)", () => {
-    const noMetaDest = { ...mockDest } as Destination;
-    delete (noMetaDest as unknown as Record<string, unknown>).ratingMetadata;
-    // No metadata → ESTIMATED from the Overall-Destination Rubric v1 (the
-    // rubric scores any Destination-shaped record; never the raw rating).
-    expect(getRatingDisplayState(noMetaDest)).toBe("estimated");
+  it("isRatingVerified: legacy rating-vector trust from confidence only", () => {
     expect(
-      getRatingDisplayState({
-        ...mockDest,
-        ratingMetadata: {
-          rubricVersion: 2,
-          method: "assisted",
-          confidence: "low" as const,
-        },
-      }),
-    ).toBe("estimated");
-    // Season is NEVER an overall score input; a seasonal destination is not
-    // penalized and explicit-neutral season does not change the state.
-    expect(
-      getRatingDisplayState({
-        ...mockDest,
-        ratingMetadata: undefined,
-        season: { spring: 5, summer: 5, autumn: 5, winter: 5 },
-        seasonMetadata: { method: "unknown" as const },
-      }),
-    ).toBe("estimated");
-    expect(
-      getRatingDisplayState({
-        ...mockDest,
-        ratingMetadata: {
-          rubricVersion: 2,
-          method: "assisted",
-          confidence: "medium" as const,
-        },
-      }),
-    ).toBe("verified");
-    expect(
-      getRatingDisplayState({
+      isRatingVerified({
         ...mockDest,
         ratingMetadata: {
           rubricVersion: 2,
@@ -542,36 +511,273 @@ describe("RecommendationScorer Unit Tests", () => {
           confidence: "high" as const,
         },
       }),
-    ).toBe("verified");
+    ).toBe(true);
+    expect(
+      isRatingVerified({
+        ...mockDest,
+        ratingMetadata: {
+          rubricVersion: 2,
+          method: "assisted",
+          confidence: "medium" as const,
+        },
+      }),
+    ).toBe(true);
+    expect(
+      isRatingVerified({
+        ...mockDest,
+        ratingMetadata: {
+          rubricVersion: 2,
+          method: "assisted",
+          confidence: "low" as const,
+        },
+      }),
+    ).toBe(false);
+    const noMeta = { ...mockDest } as Destination;
+    delete (noMeta as unknown as Record<string, unknown>).ratingMetadata;
+    expect(isRatingVerified(noMeta)).toBe(false);
   });
 
-  it("getEstimatedOverallScore: deterministic rubric, never season-dependent", () => {
-    // The rubric measures destination VALUE from non-gated fields.
-    const significant = {
+  it("computeOverallScore: sparse evidence yields unavailable, never a neutral 5", () => {
+    // A record with NO direct rubric evidence (no importance, no tags/
+    // collections, no categories/highlights/indoor, no transport) must be
+    // unavailable — a lack of evidence is not evidence of average quality.
+    const sparse = {
+      id: "sparse",
+      name: "Sparse",
+      prefecture: "Tokyo",
+      region: "Kanto",
+      categories: [],
+      tags: [],
+      collections: [],
+      highlights: [],
+      ratings: mockDest.ratings,
+      status: "published" as const,
+    } as unknown as Destination;
+    const r = computeOverallScore(sparse);
+    expect(r.value).toBeNull();
+    expect(r.coverage).toBeLessThan(SCORE_EVIDENCE_THRESHOLD);
+    expect(getScorePresentation(sparse).state).toBe("unavailable");
+    // Defaults/empty arrays must not manufacture evidence.
+    expect(getScorePresentation(sparse).value).toBeNull();
+  });
+
+  it("computeOverallScore: neutral/default values cannot manufacture evidence", () => {
+    // Only importance (0.40 weight) — below the 0.5 threshold. All other
+    // rubric-input fields are cleared (indoorPercent/visit hours/walking
+    // minutes are NOT importance evidence).
+    const importanceOnly = {
+      ...mockDest,
+      categories: [],
+      tags: [],
+      collections: [],
+      highlights: [],
+      transportOptions: {},
+      indoorPercent: undefined,
+      recommendedVisitHours: undefined,
+      walkingMin: undefined,
+      importance: "major" as const,
+    } as Destination;
+    expect(computeOverallScore(importanceOnly).value).toBeNull();
+    // importance + tags (0.40 + 0.30 = 0.70) crosses the threshold.
+    const importanceAndTags = {
+      ...importanceOnly,
+      tags: ["Hot Spring"],
+    } as Destination;
+    const scored = computeOverallScore(importanceAndTags);
+    expect(scored.coverage).toBeGreaterThanOrEqual(SCORE_EVIDENCE_THRESHOLD);
+    expect(scored.value).not.toBeNull();
+    // A single weak dimension is never enough: tags alone = 0.30.
+    const tagsOnly = {
+      ...importanceOnly,
+      importance: undefined,
+      tags: ["Hot Spring"],
+    } as Destination;
+    expect(computeOverallScore(tagsOnly).value).toBeNull();
+  });
+
+  it("computeOverallScore: designation credited once, never in SIGNIFICANCE", () => {
+    // Anti-double-counting: UNESCO appears in RECOGNITION only. Removing the
+    // designation must not change the SIGNIFICANCE dimension.
+    const base = {
       ...mockDest,
       importance: "major" as const,
+      tags: [],
+      categories: ["Shrine", "Garden"],
+    } as Destination;
+    const unesco = {
+      ...base,
       collections: [{ collectionId: "unesco-japan" as never, confirmed: true }],
     } as Destination;
+    const plain = {
+      ...base,
+      collections: [],
+    } as Destination;
+    const rUnesco = computeOverallScore(unesco);
+    const rPlain = computeOverallScore(plain);
+    expect(rUnesco.dimensions.significance).toBe(
+      rPlain.dimensions.significance,
+    );
+    expect(rUnesco.dimensions.recognition).toBeGreaterThan(
+      rPlain.dimensions.recognition,
+    );
+    // Stacked designations never exceed the tier: UNESCO + national park
+    // still credits tier 9 once.
+    const stacked = {
+      ...unesco,
+      tags: ["National Park"],
+    } as Destination;
+    expect(computeOverallScore(stacked).dimensions.recognition).toBe(
+      rUnesco.dimensions.recognition,
+    );
+  });
+
+  it("computeOverallScore: never season-dependent and range-bounded", () => {
     const plain = {
       ...mockDest,
       importance: "standard" as const,
     } as Destination;
-    expect(getEstimatedOverallScore(significant)).toBeGreaterThan(
-      getEstimatedOverallScore(plain),
-    );
-    // A strongly seasonal destination is NOT penalized: changing the season
-    // vector (trusted or neutral) must not change the rubric score.
     const seasonal = {
       ...plain,
       season: { spring: 10, summer: 2, autumn: 9, winter: 1 },
+      seasonMetadata: { method: "unknown" as const },
     } as Destination;
-    expect(getEstimatedOverallScore(seasonal)).toBe(
-      getEstimatedOverallScore(plain),
+    expect(computeOverallScore(seasonal).value).toBe(
+      computeOverallScore(plain).value,
     );
-    // Range + determinism.
-    const s = getEstimatedOverallScore(mockDest);
-    expect(s).toBeGreaterThanOrEqual(1);
-    expect(s).toBeLessThanOrEqual(10);
+    const v = computeOverallScore(mockDest).value;
+    expect(v).not.toBeNull();
+    expect(v as number).toBeGreaterThanOrEqual(1);
+    expect(v as number).toBeLessThanOrEqual(10);
+  });
+
+  it("verified and estimated share ONE rubric scale (same formula)", () => {
+    // buildScoreMetadata with editorial provenance (verified) must produce
+    // the SAME value as the plain estimated build: the state is a
+    // provenance label, never a different formula.
+    const editorial = {
+      verifiedAt: "2026-08-14",
+      sources: ["https://example.com/official"],
+    };
+    const verified = buildScoreMetadata(mockDest, editorial);
+    const estimated = buildScoreMetadata(mockDest);
+    expect(verified.state).toBe("verified");
+    expect(estimated.state).toBe("estimated");
+    expect(verified.value).toBe(estimated.value);
+    expect(verified.value).toBe(computeOverallScore(mockDest).value);
+    expect(verified.rubricVersion).toBe(OVERALL_SCORE_RUBRIC_VERSION);
+    expect(verified.provenance.sourceClass).toBe("editorial-review");
+    expect(verified.provenance.sources).toEqual(editorial.sources);
+    expect(estimated.provenance.sourceClass).toBe("model");
+    // A verified label requires score-specific provenance: an editorial
+    // record below the evidence threshold must NOT become verified.
+    const sparse = {
+      ...mockDest,
+      categories: [],
+      tags: [],
+      collections: [],
+      highlights: [],
+      transportOptions: {},
+      importance: undefined,
+    } as Destination;
+    expect(buildScoreMetadata(sparse, editorial).state).toBe("unavailable");
+  });
+
+  it("getScorePresentation: persisted metadata is authoritative; fallback never verified", () => {
+    const withMeta = {
+      ...mockDest,
+      scoreMetadata: buildScoreMetadata(mockDest, {
+        verifiedAt: "2026-08-14",
+        sources: ["https://example.com/official"],
+      }),
+    } as Destination;
+    const sp = getScorePresentation(withMeta);
+    expect(sp.state).toBe("verified");
+    expect(sp.estimated).toBe(false);
+    // No persisted metadata → the computed fallback can be estimated or
+    // unavailable, but NEVER verified (verified requires persisted
+    // editorial provenance).
+    const fallback = getScorePresentation(mockDest);
+    expect(["estimated", "unavailable"]).toContain(fallback.state);
+    expect(fallback.state).not.toBe("verified");
+  });
+
+  it("scoreMetadata cannot alter the personalized recommendation score", () => {
+    const context = {
+      tripType: "any",
+      budget: 20000,
+      carMode: "none",
+      publicModes: ["train"],
+      partySize: 1,
+      currentWeatherCondition: "any",
+      visitedIds: [],
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+    };
+    const baseline = calculateScore(mockDest, context);
+    const mutated = (scoreMetadata: Destination["scoreMetadata"]) =>
+      calculateScore({ ...mockDest, scoreMetadata } as Destination, context);
+    for (const meta of [
+      {
+        state: "verified" as const,
+        value: 9.9,
+        rubricVersion: OVERALL_SCORE_RUBRIC_VERSION,
+        confidence: "high" as const,
+        coverage: 1,
+        provenance: {
+          sourceClass: "editorial-review" as const,
+          verifiedAt: "2026-08-14",
+          sources: ["https://example.com/official"],
+          basis: "test",
+        },
+        noteKey: "destination.scoreVerifiedNote",
+      },
+      {
+        state: "unavailable" as const,
+        value: null,
+        rubricVersion: OVERALL_SCORE_RUBRIC_VERSION,
+        confidence: "unknown" as const,
+        coverage: 0.2,
+        provenance: {
+          sourceClass: "model" as const,
+          basis: "test",
+        },
+        noteKey: "destination.scoreUnavailable",
+      },
+    ]) {
+      const res = mutated(meta);
+      expect(res.score).toBe(baseline.score);
+      expect(res.eligible).toBe(baseline.eligible);
+      expect(res.bestMode).toBe(baseline.bestMode);
+      expect(res.bestModeScore).toBe(baseline.bestModeScore);
+      expect(res.modeScoreBreakdown).toEqual(baseline.modeScoreBreakdown);
+    }
+    // Ranking order is likewise invariant: two destinations ranked by the
+    // personalized score keep their relative order when only the
+    // scoreMetadata (overall-score presentation) is mutated.
+    const second = {
+      ...mockDest,
+      id: "second-dest",
+      ratings: { ...mockDest.ratings, overall: 6 },
+    } as Destination;
+    const orderWith = (scoreMetadata: Destination["scoreMetadata"]) => {
+      const a = calculateScore(
+        { ...mockDest, scoreMetadata } as Destination,
+        context,
+      ).score;
+      const b = calculateScore(second, context).score;
+      return a >= b ? "a-first" : "b-first";
+    };
+    expect(orderWith(undefined)).toBe("a-first");
+    expect(
+      orderWith({
+        state: "unavailable",
+        value: null,
+        rubricVersion: OVERALL_SCORE_RUBRIC_VERSION,
+        confidence: "unknown",
+        coverage: 0.2,
+        provenance: { sourceClass: "model", basis: "test" },
+        noteKey: "destination.scoreUnavailable",
+      }),
+    ).toBe("a-first");
   });
 
   // ---------------------------------------------------------------------------

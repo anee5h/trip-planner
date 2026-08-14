@@ -206,10 +206,15 @@
     "basis": "template metre value 5000 replaced by walk-share estimate (FIX_UNIT): 60% of 5h visit"
   },
   "scoreMetadata": {
-    "state": "verified",
-    "value": 9,
-    "method": "editorial",
-    "basis": "editorial ratingMetadata 2 assisted confidence medium",
-    "noteKey": "destination.scoreVerifiedNote"
+    "state": "estimated",
+    "value": 6.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

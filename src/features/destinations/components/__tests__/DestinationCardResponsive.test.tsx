@@ -133,7 +133,7 @@ describe("DestinationCard responsive content", () => {
     ).toContain("hidden");
   });
 
-  it("shows the raw score only for verified rating evidence", () => {
+  it("shows the rubric score for verified evidence (one scale)", () => {
     const verifiedDestination = destinations.find(
       (candidate) => candidate.id === "yokohama-city",
     ) as Destination;
@@ -149,8 +149,10 @@ describe("DestinationCard responsive content", () => {
 
     const score = host.querySelector('[data-testid="meguruto-score"]');
     expect(score).not.toBeNull();
+    // KAI-89 rubric v2: the verified chip shows the ONE rubric value, not
+    // the legacy ratings.overall — state is provenance, not a formula.
     expect(score?.textContent).toBe(
-      String(verifiedDestination.ratings.overall),
+      String(verifiedDestination.scoreMetadata?.value),
     );
     expect(score?.getAttribute("aria-label")).toContain(
       "destination.megurutoScore",

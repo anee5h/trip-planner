@@ -138,12 +138,15 @@
     "basis": "kind band 'temple'"
   },
   "scoreMetadata": {
-    "state": "estimated",
-    "value": 5.6,
-    "rubricVersion": "kai-89-overall-v1",
-    "confidence": "low",
-    "method": "calculated",
-    "basis": "{\"rubric\":\"kai-89-overall-v1\",\"significance\":\"importance+heritage\",\"recognition\":\"collections+tags\",\"richness\":\"categories+highlights+indoorPercent\",\"accessibility\":\"transportOptions+visitHours+walkingMin\",\"curation\":\"officialWebsite+status\"}",
-    "noteKey": "destination.scoreEstimatedNote"
+    "state": "unavailable",
+    "value": null,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "unknown",
+    "coverage": 0.3,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "evidence coverage 0.30 below threshold 0.5"
+    },
+    "noteKey": "destination.scoreUnavailable"
   }
 }

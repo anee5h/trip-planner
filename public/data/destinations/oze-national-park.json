@@ -156,12 +156,17 @@
     "basis": "kind band 'nature' + scale uplift"
   },
   "scoreMetadata": {
-    "state": "estimated",
-    "value": 6.1,
-    "rubricVersion": "kai-89-overall-v1",
-    "confidence": "low",
-    "method": "calculated",
-    "basis": "{\"rubric\":\"kai-89-overall-v1\",\"significance\":\"importance+heritage\",\"recognition\":\"collections+tags\",\"richness\":\"categories+highlights+indoorPercent\",\"accessibility\":\"transportOptions+visitHours+walkingMin\",\"curation\":\"officialWebsite+status\"}",
-    "noteKey": "destination.scoreEstimatedNote"
+    "state": "verified",
+    "value": 6.6,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "high",
+    "coverage": 0.5,
+    "provenance": {
+      "sourceClass": "editorial-review",
+      "verifiedAt": "2026-08-14",
+      "sources": ["https://www.env.go.jp/park/oze/index.html"],
+      "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
+    },
+    "noteKey": "destination.scoreVerifiedNote"
   }
 }

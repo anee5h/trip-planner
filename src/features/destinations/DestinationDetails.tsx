@@ -29,6 +29,7 @@ import type { TransportZoneId } from "@/shared/types/transportTopology";
 import {
   calculateScore,
   getScorePresentation,
+  isRatingVerified,
 } from "@/shared/services/recommendation/RecommendationScorer";
 import { createRecommendationMatch } from "@/shared/services/recommendation/RecommendationExplainability";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
@@ -862,13 +863,18 @@ export default function DestinationDetails() {
   }
 
   // REC-002/KAI-89 3-state: verified numeric score (trusted provenance +
-  // note), deterministic estimated score (labeled est., from the trusted
-  // season vector), or a consistent Score-unavailable note — never blank,
-  // never the old "under editorial review" wording.
+  // KAI-89 rubric v2: ONE rubric value backs verified and estimated (state
+  // is provenance, not a different formula); unavailable shows "—" with the
+  // localized note — never blank, never the old "under editorial review"
+  // wording. The Detailed Ratings tab is the LEGACY ratings evidence family,
+  // gated by rating-vector confidence (isRatingVerified), independent of the
+  // overall-score state.
   const scorePresentation = getScorePresentation(destination);
   const showDetailScore = scorePresentation.state === "verified";
   const showEstimatedScore = scorePresentation.state === "estimated";
   const scoreUnavailable = scorePresentation.state === "unavailable";
+  const showRatingsTab = isRatingVerified(destination);
+  const detailOverallScore = scorePresentation.value;
   return (
     <div className="bg-slate-50 dark:bg-background min-h-screen pb-20">
       {/* Hero Image Header */}
@@ -1295,7 +1301,7 @@ export default function DestinationDetails() {
                 >
                   {copy.logistics}
                 </TabsTrigger>
-                {showDetailScore && (
+                {showRatingsTab && (
                   <TabsTrigger
                     value="ratings"
                     className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-400 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
@@ -1798,29 +1804,11 @@ export default function DestinationDetails() {
               </TabsContent>
 
               <TabsContent value="ratings" className="mt-4 space-y-4">
-                {/* REC-002: unverified rating vectors must not render as
-                    facts anywhere, including the detailed ratings tab. */}
-                {showEstimatedScore ? (
-                  <Card>
-                    <CardContent className="p-6 text-sm text-slate-500 dark:text-slate-400">
-                      <div className="font-bold text-slate-700 dark:text-slate-300">
-                        {detailOverallScore}
-                        <span className="ml-1.5 text-[10px] font-normal uppercase text-slate-400">
-                          {copy.estimated}
-                        </span>
-                      </div>
-                      <div className="mt-1">
-                        {t("destination.ratingsEstimatedNote")}
-                      </div>
-                    </CardContent>
-                  </Card>
-                ) : scoreUnavailable ? (
-                  <Card>
-                    <CardContent className="p-6 text-sm text-slate-500 dark:text-slate-400">
-                      {t("destination.ratingsUnavailableNote")}
-                    </CardContent>
-                  </Card>
-                ) : (
+                {/* KAI-89 rubric v2: the legacy experience-ratings grid is a
+                    separate evidence family, gated by rating-vector
+                    confidence (isRatingVerified); otherwise the tab explains
+                    the overall-score state. */}
+                {showRatingsTab ? (
                   <>
                     {/* Experience Ratings */}
                     <Card>
@@ -1930,7 +1918,27 @@ export default function DestinationDetails() {
                       </CardContent>
                     </Card>
                   </>
-                )}
+                ) : showEstimatedScore ? (
+                  <Card>
+                    <CardContent className="p-6 text-sm text-slate-500 dark:text-slate-400">
+                      <div className="font-bold text-slate-700 dark:text-slate-300">
+                        {detailOverallScore}
+                        <span className="ml-1.5 text-[10px] font-normal uppercase text-slate-400">
+                          {copy.estimated}
+                        </span>
+                      </div>
+                      <div className="mt-1">
+                        {t("destination.ratingsEstimatedNote")}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ) : scoreUnavailable ? (
+                  <Card>
+                    <CardContent className="p-6 text-sm text-slate-500 dark:text-slate-400">
+                      {t("destination.ratingsUnavailableNote")}
+                    </CardContent>
+                  </Card>
+                ) : null}
               </TabsContent>
 
               <TabsContent value="match" className="mt-4">

@@ -88,46 +88,41 @@ export function ratingReliability(destination: Destination): number {
 }
 
 /**
- * REC-002: Whether a destination's rating vector may be presented as a
- * reviewed fact in the UI (card score, detail score card, compare table,
- * map popup, "Highly recommended" claims). Only high/medium-confidence
- * metadata counts as verified evidence; low confidence or missing metadata
- * means the raw numbers are unverified (template/assisted) and must not be
- * shown as authoritative.
+ * REC-002: Whether a destination's legacy RATING VECTOR (ratings.overall,
+ * food, couple, …) may be presented as reviewed evidence in the UI ("Highly
+ * recommended" claims, experience-ratings grid, combination tie-break).
+ * Only high/medium-confidence ratingMetadata counts; low confidence or
+ * missing metadata means the raw numbers are unverified (template/assisted)
+ * and must not be shown as authoritative. This is a DIFFERENT concept from
+ * the overall-score state — see isRatingVerified.
  *
- * KAI-89 3-state contract (finishing pass):
- *  - "verified"    — numeric score shown from trusted provenance + a
- *                    localized explanation;
- *  - "estimated"   — a DETERMINISTIC score derived from trusted non-gated
- *                    inputs (the season vector with its own provenance),
- *                    visibly labeled estimated + a localized note; NEVER
- *                    the gated raw ratings;
- *  - "unavailable" — cannot be scored from trusted inputs; a consistent
- *                    localized "Score unavailable" note, never blank, never
- *                    the generic "under editorial review" wording.
- */
-/**
- * KAI-89 3-state contract (finishing pass):
- *  - "verified"    — numeric score shown from trusted editorial provenance
- *                    + a localized explanation;
- *  - "estimated"   — a DETERMINISTIC score from the Overall-Destination
- *                    Rubric v1 (trusted, non-gated catalogue fields),
- *                    visibly labeled estimated + a localized note; NEVER
- *                    the gated raw ratings, NEVER a seasonal-suitability
- *                    mean (seasonal consistency is not destination quality);
- *  - "unavailable" — cannot be scored from the rubric inputs; a consistent
- *                    localized "Score unavailable" note, never blank, never
+ * KAI-89 overall-score 3-state contract (rubric v2):
+ *  - "verified"    — ONE rubric value whose inputs were editorially
+ *                    verified against authoritative sources (score-specific
+ *                    provenance, date + source URLs, persisted by the
+ *                    generator); localized note;
+ *  - "estimated"   — the SAME rubric value (Overall-Destination Rubric v2)
+ *                    over trusted non-gated catalogue fields, visibly
+ *                    labeled estimated + a localized note; NEVER the gated
+ *                    raw ratings, NEVER a seasonal-suitability mean;
+ *  - "unavailable" — weighted evidence coverage below the documented
+ *                    threshold; a consistent localized "Score unavailable"
+ *                    note, never blank, never a neutral-5 estimate, never
  *                    the generic "under editorial review" wording.
  */
 export {
-  type RatingDisplayState,
-  OVERALL_SCORE_RUBRIC_VERSION,
-  getRatingDisplayState,
-  getEstimatedOverallScore,
-  getRubricBasis,
-  getScorePresentation,
-  buildScoreMetadata,
+  type ScoreState,
   type ScoreMetadata,
+  type ScoreProvenance,
+  type RubricResult,
+  type RubricDimensions,
+  type EditorialScoreProvenance,
+  OVERALL_SCORE_RUBRIC_VERSION,
+  SCORE_EVIDENCE_THRESHOLD,
+  computeOverallScore,
+  isRatingVerified,
+  buildScoreMetadata,
+  getScorePresentation,
 } from "./scoreRubric";
 
 export function getValidModes(

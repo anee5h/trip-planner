@@ -168,11 +168,14 @@
   },
   "scoreMetadata": {
     "state": "estimated",
-    "value": 7.3,
-    "rubricVersion": "kai-89-overall-v1",
+    "value": 8,
+    "rubricVersion": "kai-89-overall-v2",
     "confidence": "low",
-    "method": "calculated",
-    "basis": "{\"rubric\":\"kai-89-overall-v1\",\"significance\":\"importance+heritage\",\"recognition\":\"collections+tags\",\"richness\":\"categories+highlights+indoorPercent\",\"accessibility\":\"transportOptions+visitHours+walkingMin\",\"curation\":\"officialWebsite+status\"}",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
     "noteKey": "destination.scoreEstimatedNote"
   }
 }

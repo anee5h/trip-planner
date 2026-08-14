@@ -125,12 +125,17 @@
     "basis": "template metre value 480 replaced by walk-share estimate (FIX_UNIT): 80% of 10h visit"
   },
   "scoreMetadata": {
-    "state": "estimated",
-    "value": 7.3,
-    "rubricVersion": "kai-89-overall-v1",
-    "confidence": "low",
-    "method": "calculated",
-    "basis": "{\"rubric\":\"kai-89-overall-v1\",\"significance\":\"importance+heritage\",\"recognition\":\"collections+tags\",\"richness\":\"categories+highlights+indoorPercent\",\"accessibility\":\"transportOptions+visitHours+walkingMin\",\"curation\":\"officialWebsite+status\"}",
-    "noteKey": "destination.scoreEstimatedNote"
+    "state": "verified",
+    "value": 7.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "high",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "editorial-review",
+      "verifiedAt": "2026-08-14",
+      "sources": ["https://whc.unesco.org/en/list/1418/"],
+      "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
+    },
+    "noteKey": "destination.scoreVerifiedNote"
   }
 }

@@ -32,6 +32,7 @@ import {
 import { comfortModel, crowdModel } from "./models/comfort-crowd-model-v1";
 import { transportModel } from "./models/transport-access-v1";
 import { buildScoreMetadata } from "../src/shared/services/recommendation/scoreRubric";
+import { loadVerifiedScoreProvenance } from "./audit/kai-89-score-verification";
 import type { TransportMode } from "../src/shared/services/transport/types";
 
 const rootDir = path.resolve(
@@ -1009,21 +1010,27 @@ function main() {
     }
   }
 
-  // ---- Score metadata emission (Overall-Destination Rubric v1) ----
-  // Persist scoreMetadata for every record (verified editorial or
-  // deterministic estimated rubric); the runtime reads it and the
-  // score-state gates compare it against the replicated runtime state.
+  // ---- Score metadata emission (Overall-Destination Rubric v2) ----
+  // Persist scoreMetadata for every record: ONE rubric computes the value
+  // for verified and estimated alike; state reflects provenance/coverage
+  // (verified requires the committed editorial-provenance ledger, estimated
+  // is model provenance, unavailable is evidence coverage below threshold).
+  // The runtime reads the persisted metadata and the score-state gates
+  // compare it against the replicated runtime state.
+  const verifiedProvenance = loadVerifiedScoreProvenance();
   for (const d of destinations) {
-    const meta = buildScoreMetadata(d);
+    const meta = buildScoreMetadata(d, verifiedProvenance.get(d.id));
     if (JSON.stringify(d.scoreMetadata) !== JSON.stringify(meta)) {
       d.scoreMetadata = meta;
       touch(
         d,
-        "score-rubric-v1",
+        "score-rubric-v2",
         "set",
         meta.state === "verified"
-          ? "verified editorial score metadata"
-          : `estimated rubric score ${meta.value}`,
+          ? "verified rubric score metadata"
+          : meta.state === "estimated"
+            ? `estimated rubric score ${meta.value}`
+            : "score unavailable (evidence coverage below threshold)",
         ["scoreMetadata"],
       );
     }

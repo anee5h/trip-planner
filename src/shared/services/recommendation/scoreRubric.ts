@@ -1,161 +1,372 @@
 /**
- * scoreRubric — KAI-89 Overall-Destination Score Rubric v1.
+ * scoreRubric — KAI-89 Overall-Destination Score Rubric v2.
  *
  * ALIAS-FREE shared module (no `@/` imports) so BOTH the runtime
  * (RecommendationScorer re-exports) and the deterministic generator
  * (scripts/derive-destination-models.ts) compute the SAME score. The
  * generator persists scoreMetadata; gates verify persisted == runtime.
  *
- * Contract (see scripts/audit/kai-89-score-rubric-v1.json):
- *  - verified: ratingMetadata.confidence high/medium → editorial score
- *    (ratings.overall), never re-estimated;
- *  - estimated: the deterministic rubric over trusted, non-gated catalogue
- *    fields; visibly labeled estimated, never presented as editorial;
- *  - unavailable: only when the rubric cannot run (safety state).
- * NEVER uses the gated ratings vector or the seasonal-suitability vector
- * (seasonal consistency is NOT destination quality).
+ * Contract (see scripts/audit/kai-89-score-rubric-v2.json):
+ *
+ *  - ONE rubric computes the user-facing overall destination score for
+ *    every destination that has enough evidence. `verified` and
+ *    `estimated` are PROVENANCE/confidence states over that same formula —
+ *    never different formulas on the same scale. A verified score and an
+ *    estimated score are numerically comparable because they come from the
+ *    identical rubric.
+ *  - verified  → rubric value whose inputs were editorially verified
+ *    against authoritative sources (score-specific provenance: date +
+ *    source URLs). Never derived from generic ratingMetadata.confidence.
+ *  - estimated → rubric value over catalogue fields with model provenance
+ *    (sourceClass "model"); visibly labeled estimated.
+ *  - unavailable → weighted evidence coverage below SCORE_EVIDENCE_THRESHOLD.
+ *    Sparse records show a localized unavailable state, never a neutral-5
+ *    estimate. A lack of evidence is not evidence of average quality.
+ *
+ * Anti-double-counting: a designation (UNESCO, national park, top-100
+ * castle, …) is credited in exactly ONE dimension — RECOGNITION.
+ * SIGNIFICANCE reads ONLY the catalogue `importance` tier. Importance and
+ * external designations are disjoint inputs; nothing is credited twice.
+ *
+ * Catalogue-completeness guard: officialWebsite, status, fieldSources,
+ * highlight count, visit-window presence and walking-data presence NEVER
+ * affect the numeric value. They are evidence-maturity signals that belong
+ * to confidence/provenance, not destination quality.
+ *
+ * NEVER uses the gated legacy ratings vector or the seasonal-suitability
+ * vector (seasonal consistency is NOT destination quality).
  */
 import type { Destination } from "@/shared/types/destination";
 
-export type RatingDisplayState = "verified" | "estimated" | "unavailable";
+export type ScoreState = "verified" | "estimated" | "unavailable";
 
-export const OVERALL_SCORE_RUBRIC_VERSION = "kai-89-overall-v1";
+export const OVERALL_SCORE_RUBRIC_VERSION = "kai-89-overall-v2";
+
+/**
+ * Weighted evidence-coverage threshold (0..1) below which a destination has
+ * NO numeric overall score. With weights 0.40/0.30/0.20/0.10, 0.5 means at
+ * least half of the rubric weight must be backed by direct evidence —
+ * equivalently SIGNIFICANCE plus any secondary dimension, or RECOGNITION
+ * plus RICHNESS. Chosen so a two-dimension evidence pair (the minimum
+ * defensible basis) scores, while a single sparse dimension does not.
+ */
+export const SCORE_EVIDENCE_THRESHOLD = 0.5;
+
+export interface ScoreProvenance {
+  /** editorial-review = rubric inputs verified against authoritative sources. */
+  sourceClass: "editorial-review" | "model";
+  /** ISO date of the editorial verification (editorial-review only). */
+  verifiedAt?: string;
+  /** Authoritative source URLs backing the verification (editorial-review only). */
+  sources?: string[];
+  /** Human/JSON basis describing what produced the score. */
+  basis: string;
+}
 
 export interface ScoreMetadata {
-  state: RatingDisplayState;
-  /** The numeric value to display (null when unavailable). */
+  state: ScoreState;
+  /** Rubric value (1-10, null when unavailable). */
   value: number | null;
-  /** Present for estimated scores; n/a for verified editorial scores. */
-  rubricVersion?: string;
-  confidence?: "high" | "medium" | "low" | "unknown";
-  /** Human/JSON basis explaining what produced the value. */
-  basis?: string;
-  method: "editorial" | "calculated";
+  rubricVersion: string;
+  confidence: "high" | "low" | "unknown";
+  /** Weighted evidence coverage 0..1; value present only when >= threshold. */
+  coverage: number;
+  provenance: ScoreProvenance;
   /** i18n key for the localized note (both locales must define it). */
   noteKey: string;
 }
 
-export function getRatingDisplayState(
-  destination: Destination,
-): RatingDisplayState {
-  const confidence = destination.ratingMetadata?.confidence;
-  if (confidence === "high" || confidence === "medium") return "verified";
-  // The rubric scores any Destination-shaped record (missing inputs →
-  // documented neutral 5), so published records resolve to estimated.
-  return "estimated";
+const IMPORTANCE_TIER: Record<string, number> = {
+  major: 9,
+  notable: 7,
+  standard: 5,
+  minor: 3,
+};
+
+export interface RubricDimensions {
+  significance: number;
+  recognition: number;
+  richness: number;
+  accessibility: number;
 }
+
+export interface RubricResult {
+  /** null when weighted evidence coverage < SCORE_EVIDENCE_THRESHOLD. */
+  value: number | null;
+  /** Weighted evidence coverage 0..1 (2 decimals). */
+  coverage: number;
+  dimensions: RubricDimensions;
+}
+
+const WEIGHTS = {
+  significance: 0.4,
+  recognition: 0.3,
+  richness: 0.2,
+  accessibility: 0.1,
+};
 
 function clampScore(v: number): number {
   return Math.max(1, Math.min(10, Math.round(v * 10) / 10));
 }
 
 /**
- * Deterministic ESTIMATED overall score (0-10) from the Overall-Destination
- * Rubric v1 — a composite over trusted, non-gated catalogue fields that each
- * measure a defensible dimension of destination VALUE:
- *
- *  - SIGNIFICANCE (w 0.35): importance tier + heritage designations.
- *  - RECOGNITION  (w 0.25): external designations (UNESCO, national parks,
- *    heritage programmes).
- *  - RICHNESS     (w 0.20): category variety, highlights, indoor/outdoor
- *    balance.
- *  - ACCESSIBILITY(w 0.10): public-transport modes, visit window, walking.
- *  - CURATION     (w 0.10): official website + catalogue status.
- *
- * Missing input → component neutral 5 (documented). NEVER the gated ratings
- * vector, NEVER the seasonal-suitability vector.
+ * External-designation tier used by RECOGNITION ONLY (single credit:
+ * highest tier wins, never stacked). Returns null when the record carries
+ * no designation evidence at all (collections and tags both empty).
  */
-export function getEstimatedOverallScore(destination: Destination): number {
-  const importanceTier: Record<string, number> = {
-    major: 9,
-    notable: 7,
-    standard: 5,
-    minor: 3,
-  };
+function designationTier(destination: Destination): number | null {
+  const collectionIds = new Set(
+    (destination.collections ?? []).map((c) => c.collectionId),
+  );
   const tags = (destination.tags ?? []).join(" ");
+
+  if (
+    collectionIds.has("unesco-japan") ||
+    /\bunesco\b|\bworld heritage\b/i.test(tags)
+  ) {
+    return 9;
+  }
+  if (
+    collectionIds.has("national-parks-japan") ||
+    collectionIds.has("quasi-national-parks-japan") ||
+    collectionIds.has("japan-top-castles") ||
+    collectionIds.has("original-12-castles") ||
+    /national park|japan heritage|national treasure|top 100 castle|japan's top castles|three great|three famous|national scenic|natural monument/i.test(
+      tags,
+    )
+  ) {
+    return 7;
+  }
+  if (
+    collectionIds.size > 0 ||
+    /prefectural|registered|historic site/i.test(tags)
+  ) {
+    return 6;
+  }
+  return null;
+}
+
+/**
+ * Deterministic Overall-Destination Rubric v2 (0-10).
+ *
+ * Dimensions (weights sum to 1.0; every dimension needs DIRECT evidence —
+ * an absent input leaves the dimension uncovered and contributes neither
+ * value nor weight):
+ *
+ *  - SIGNIFICANCE (0.40): catalogue `importance` tier (major/notable/
+ *    standard/minor). No designation bonuses — designations belong to
+ *    RECOGNITION.
+ *  - RECOGNITION  (0.30): external designation tier (UNESCO 9; national
+ *    park / Japan heritage / national treasure / top-100 castle / three-
+ *    great 7; other curated collection or prefectural/registered 6; tags
+ *    present without designation → 4, absence of designation is evidence).
+ *  - RICHNESS     (0.20): distinct category count + indoor/outdoor balance
+ *    (indoorPercent 20-80). Highlight count is evidence-maturity, NOT
+ *    quality: it never changes the value.
+ *  - ACCESSIBILITY(0.10): finite transport-mode count (3+ → 8, 1-2 → 6).
+ *    visit-window / walking data are provenance signals, not value.
+ *
+ * Missing input never manufactures a neutral 5 in the numerator: uncovered
+ * dimensions are excluded from both numerator and denominator, and the
+ * result is re-normalized over covered weight. Below the coverage
+ * threshold the result is unavailable (value null).
+ */
+export function computeOverallScore(destination: Destination): RubricResult {
+  const importance = destination.importance;
+  const significancePresent =
+    typeof importance === "string" && IMPORTANCE_TIER[importance] !== undefined;
+
   const collectionIds = (destination.collections ?? []).map(
     (c) => c.collectionId,
   );
+  const tags = destination.tags ?? [];
+  const recognitionPresent = collectionIds.length > 0 || tags.length > 0;
 
-  // 1. SIGNIFICANCE: importance tier + heritage designations.
-  let significance = importanceTier[destination.importance ?? ""] ?? 5;
-  if (collectionIds.includes("unesco-japan")) significance += 1;
-  if (/national treasure|important cultural property/i.test(tags))
-    significance += 1;
-  if (/top 100 castle|three great|three famous/i.test(tags)) significance += 1;
-  significance = clampScore(significance);
-
-  // 2. RECOGNITION: external designations.
-  let recognition = 4;
-  if (collectionIds.includes("unesco-japan")) recognition = 8;
-  else if (
-    /japan heritage|national park|world heritage/i.test(tags) ||
-    collectionIds.includes("national-parks-japan") ||
-    collectionIds.includes("quasi-national-parks-japan")
-  )
-    recognition = 7;
-  else if (
-    collectionIds.length > 0 ||
-    /prefectural heritage|registered/i.test(tags)
-  )
-    recognition = 6;
-
-  // 3. RICHNESS: category variety + highlights + indoor/outdoor balance.
-  const categoryCount = new Set(
+  const categories = new Set(
     (destination.categories ?? []).map((c) => c.toLowerCase()),
-  ).size;
-  let richness = categoryCount >= 4 ? 8 : categoryCount >= 2 ? 6 : 4;
-  const highlightCount = (destination.highlights ?? []).length;
-  if (highlightCount >= 3) richness += 1;
-  else if (highlightCount >= 1) richness += 0.5;
-  const indoor = destination.indoorPercent;
-  if (typeof indoor === "number" && indoor >= 20 && indoor <= 80)
-    richness += 0.5;
-  richness = clampScore(richness);
+  );
+  const highlights = destination.highlights ?? [];
+  const indoorPercent = destination.indoorPercent;
+  const richnessPresent =
+    categories.size > 0 ||
+    highlights.length > 0 ||
+    typeof indoorPercent === "number";
 
-  // 4. ACCESSIBILITY: transport modes + visit window + walking data.
-  const transportModes = Object.entries(
+  const transportCount = Object.entries(
     destination.transportOptions ?? {},
   ).filter(([, v]) => Number.isFinite(v)).length;
-  let accessibility = transportModes >= 3 ? 8 : transportModes >= 1 ? 6 : 3;
-  if (destination.recommendedVisitHours) accessibility += 1;
-  if (Number.isFinite(destination.walkingMin)) accessibility += 0.5;
-  accessibility = clampScore(accessibility);
+  const accessibilityPresent = transportCount > 0;
 
-  // 5. CURATION: official website + catalogue status (evidence maturity).
-  let curation = 5;
-  if (destination.officialWebsite) curation += 1.5;
-  if (destination.status === "verified") curation += 1.5;
-  else if (destination.status === "published") curation += 0.5;
-  curation = clampScore(curation);
+  const coverage =
+    Math.round(
+      ((significancePresent ? WEIGHTS.significance : 0) +
+        (recognitionPresent ? WEIGHTS.recognition : 0) +
+        (richnessPresent ? WEIGHTS.richness : 0) +
+        (accessibilityPresent ? WEIGHTS.accessibility : 0)) *
+        100,
+    ) / 100;
 
-  const score =
-    significance * 0.35 +
-    recognition * 0.25 +
-    richness * 0.2 +
-    accessibility * 0.1 +
-    curation * 0.1;
-  return clampScore(Math.round(score * 10) / 10);
+  if (coverage < SCORE_EVIDENCE_THRESHOLD) {
+    return {
+      value: null,
+      coverage,
+      dimensions: {
+        significance: 0,
+        recognition: 0,
+        richness: 0,
+        accessibility: 0,
+      },
+    };
+  }
+
+  const significance = significancePresent ? IMPORTANCE_TIER[importance] : 0;
+  const tier = designationTier(destination);
+  const recognition = recognitionPresent ? (tier ?? 4) : 0;
+  let richness = categories.size >= 4 ? 8 : categories.size >= 2 ? 6 : 4;
+  if (
+    typeof indoorPercent === "number" &&
+    indoorPercent >= 20 &&
+    indoorPercent <= 80
+  ) {
+    richness += 0.5;
+  }
+  const accessibility = transportCount >= 3 ? 8 : 6;
+
+  const weighted =
+    (significancePresent ? significance * WEIGHTS.significance : 0) +
+    (recognitionPresent ? recognition * WEIGHTS.recognition : 0) +
+    (richnessPresent ? richness * WEIGHTS.richness : 0) +
+    (accessibilityPresent ? accessibility * WEIGHTS.accessibility : 0);
+
+  return {
+    value: clampScore(weighted / coverage),
+    coverage,
+    dimensions: {
+      significance,
+      recognition,
+      richness,
+      accessibility,
+    },
+  };
 }
 
-export function getRubricBasis(): string {
+/**
+ * REC-002 legacy rating-vector trust predicate: ratingMetadata confidence
+ * high/medium means the legacy ratings vector (ratings.overall, food,
+ * couple, …) may be presented as reviewed evidence. This is a DIFFERENT
+ * concept from the overall-score state — it never decides score states.
+ */
+export function isRatingVerified(destination: Destination): boolean {
+  const confidence = destination.ratingMetadata?.confidence;
+  return confidence === "high" || confidence === "medium";
+}
+
+export interface EditorialScoreProvenance {
+  /** ISO date of the editorial verification. */
+  verifiedAt: string;
+  /** Authoritative source URLs. */
+  sources: string[];
+}
+
+function dimensionBasis(
+  destination: Destination,
+  result: RubricResult,
+): string {
+  const importance = destination.importance;
+  const categories = new Set(
+    (destination.categories ?? []).map((c) => c.toLowerCase()),
+  ).size;
+  const transportCount = Object.entries(
+    destination.transportOptions ?? {},
+  ).filter(([, v]) => Number.isFinite(v)).length;
+  const tier = designationTier(destination);
+  const hasRecognitionEvidence =
+    (destination.collections ?? []).length > 0 ||
+    (destination.tags ?? []).length > 0;
   return JSON.stringify({
     rubric: OVERALL_SCORE_RUBRIC_VERSION,
-    significance: "importance+heritage",
-    recognition: "collections+tags",
-    richness: "categories+highlights+indoorPercent",
-    accessibility: "transportOptions+visitHours+walkingMin",
-    curation: "officialWebsite+status",
+    coverage: result.coverage,
+    significance:
+      typeof importance === "string" &&
+      IMPORTANCE_TIER[importance] !== undefined
+        ? importance
+        : "absent",
+    recognition:
+      tier !== null
+        ? `designation-tier-${tier}`
+        : hasRecognitionEvidence
+          ? "no-designation"
+          : "absent",
+    richness: categories > 0 ? `categories-${categories}` : "absent",
+    accessibility:
+      transportCount > 0 ? `transport-${transportCount}` : "absent",
   });
+}
+
+/**
+ * Canonical persisted scoreMetadata for a record (generator emission).
+ * `editorial` (from the committed verification ledger) upgrades an
+ * evidence-sufficient record to `verified`; without it the record is
+ * `estimated` (model provenance) or `unavailable` (below threshold).
+ */
+export function buildScoreMetadata(
+  destination: Destination,
+  editorial?: EditorialScoreProvenance,
+): ScoreMetadata {
+  const r = computeOverallScore(destination);
+  if (editorial && r.value !== null) {
+    return {
+      state: "verified",
+      value: r.value,
+      rubricVersion: OVERALL_SCORE_RUBRIC_VERSION,
+      confidence: "high",
+      coverage: r.coverage,
+      provenance: {
+        sourceClass: "editorial-review",
+        verifiedAt: editorial.verifiedAt,
+        sources: editorial.sources,
+        basis: `editorially reviewed ${editorial.verifiedAt} against ${editorial.sources.length} authoritative source(s)`,
+      },
+      noteKey: "destination.scoreVerifiedNote",
+    };
+  }
+  if (r.value === null) {
+    return {
+      state: "unavailable",
+      value: null,
+      rubricVersion: OVERALL_SCORE_RUBRIC_VERSION,
+      confidence: "unknown",
+      coverage: r.coverage,
+      provenance: {
+        sourceClass: "model",
+        basis: `evidence coverage ${r.coverage.toFixed(2)} below threshold ${SCORE_EVIDENCE_THRESHOLD}`,
+      },
+      noteKey: "destination.scoreUnavailable",
+    };
+  }
+  return {
+    state: "estimated",
+    value: r.value,
+    rubricVersion: OVERALL_SCORE_RUBRIC_VERSION,
+    confidence: "low",
+    coverage: r.coverage,
+    provenance: {
+      sourceClass: "model",
+      basis: dimensionBasis(destination, r),
+    },
+    noteKey: "destination.scoreEstimatedNote",
+  };
 }
 
 /**
  * One shared presentation resolution so every surface stays in lockstep.
  * Reads PERSISTED scoreMetadata when present (generated by the derive
  * generator) and falls back to computing it — the two must agree (gated).
+ * The fallback can never produce `verified`: that state requires persisted
+ * editorial provenance.
  */
 export function getScorePresentation(destination: Destination): {
-  state: RatingDisplayState;
+  state: ScoreState;
   value: number | null;
   estimated: boolean;
   noteKey: string;
@@ -169,55 +380,19 @@ export function getScorePresentation(destination: Destination): {
       noteKey: meta.noteKey,
     };
   }
-  const state = getRatingDisplayState(destination);
-  if (state === "verified")
+  const r = computeOverallScore(destination);
+  if (r.value === null) {
     return {
-      state,
-      value:
-        typeof destination.ratings?.overall === "number"
-          ? destination.ratings.overall
-          : null,
+      state: "unavailable",
+      value: null,
       estimated: false,
-      noteKey: "destination.scoreVerifiedNote",
-    };
-  if (state === "estimated")
-    return {
-      state,
-      value: getEstimatedOverallScore(destination),
-      estimated: true,
-      noteKey: "destination.scoreEstimatedNote",
-    };
-  return {
-    state,
-    value: null,
-    estimated: false,
-    noteKey: "destination.scoreUnavailable",
-  };
-}
-
-/** Canonical persisted scoreMetadata for a record (generator emission). */
-export function buildScoreMetadata(destination: Destination): ScoreMetadata {
-  const state = getRatingDisplayState(destination);
-  if (state === "verified") {
-    const value =
-      typeof destination.ratings?.overall === "number"
-        ? destination.ratings.overall
-        : null;
-    return {
-      state,
-      value,
-      method: "editorial",
-      basis: `editorial ratingMetadata ${destination.ratingMetadata?.rubricVersion ?? "?"} ${destination.ratingMetadata?.method ?? "?"} confidence ${destination.ratingMetadata?.confidence ?? "?"}`,
-      noteKey: "destination.scoreVerifiedNote",
+      noteKey: "destination.scoreUnavailable",
     };
   }
   return {
-    state,
-    value: getEstimatedOverallScore(destination),
-    rubricVersion: OVERALL_SCORE_RUBRIC_VERSION,
-    confidence: "low",
-    method: "calculated",
-    basis: getRubricBasis(),
+    state: "estimated",
+    value: r.value,
+    estimated: true,
     noteKey: "destination.scoreEstimatedNote",
   };
 }

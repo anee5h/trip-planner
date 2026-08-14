@@ -14,7 +14,11 @@ import {
 import { Map, PlusSquare, Trash2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
 import { getAdjustedBudget } from "@/shared/utils/utils";
-import { getScorePresentation } from "@/shared/services/recommendation/RecommendationScorer";
+import {
+  getScorePresentation,
+  isRatingVerified,
+} from "@/shared/services/recommendation/RecommendationScorer";
+import { bestVerifiedScoreIndex } from "./compareScore";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -76,15 +80,15 @@ export default function Compare() {
   });
   const minTravelTime = getMin(travelTimes);
 
-  // REC-002/KAI-89 3-state: rating rows present VERIFIED values as facts
-  // and ESTIMATED values (from the trusted season vector) labeled est.;
-  // unverifiable records render "—". Only verified values can win badges.
-  const ratingVerified = compareDestinations.map(
-    (d) => getScorePresentation(d).state === "verified",
-  );
-  const estimatedScores = compareDestinations.map(
-    (d) => getScorePresentation(d).value,
-  );
+  // KAI-89 rubric v2: the overall row shows the ONE rubric value for both
+  // verified and estimated (same scale), with an est. label for estimates;
+  // unavailable renders "—". Only VERIFIED states can win the Best badge
+  // (bestVerifiedScoreIndex) — an estimate never beats verified evidence.
+  // The legacy experience rows (couple/summer) remain the separate ratings
+  // evidence family, gated by rating-vector confidence (isRatingVerified).
+  const scoreStates = compareDestinations.map((d) => getScorePresentation(d));
+  const ratingVerified = compareDestinations.map((d) => isRatingVerified(d));
+  const bestOverallIndex = bestVerifiedScoreIndex(compareDestinations);
   const coupleScores = compareDestinations.map((d, i) =>
     ratingVerified[i] ? d.ratings.couple : null,
   );
@@ -98,13 +102,6 @@ export default function Compare() {
   const maxSummerScore = summerScores.every((v) => v === null)
     ? null
     : getMax(summerScores.filter((v): v is number => v !== null));
-
-  const overallScores = compareDestinations.map((d, i) =>
-    ratingVerified[i] ? d.ratings.overall : null,
-  );
-  const maxOverall = overallScores.every((v) => v === null)
-    ? null
-    : getMax(overallScores.filter((v): v is number => v !== null));
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
@@ -187,31 +184,27 @@ export default function Compare() {
                 <TableCell key={dest.id} className="text-base">
                   <span
                     className={`font-bold ${
-                      ratingVerified[idx] &&
-                      maxOverall !== null &&
-                      dest.ratings.overall === maxOverall
+                      bestOverallIndex === idx
                         ? "text-emerald-600 dark:text-emerald-400"
                         : ""
                     }`}
                   >
-                    {ratingVerified[idx]
-                      ? dest.ratings.overall
-                      : estimatedScores[idx] !== null
-                        ? estimatedScores[idx]
-                        : "—"}
+                    {scoreStates[idx].state === "unavailable" ||
+                    scoreStates[idx].value === null
+                      ? "—"
+                      : scoreStates[idx].value}
                   </span>
-                  {!ratingVerified[idx] && estimatedScores[idx] !== null && (
-                    <span className="ml-1.5 text-[10px] font-normal uppercase text-slate-400">
-                      {t("compare.estimated")}
-                    </span>
-                  )}
-                  {ratingVerified[idx] &&
-                    maxOverall !== null &&
-                    dest.ratings.overall === maxOverall && (
-                      <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
-                        {t("compare.best")}
-                      </Badge>
+                  {scoreStates[idx].state === "estimated" &&
+                    scoreStates[idx].value !== null && (
+                      <span className="ml-1.5 text-[10px] font-normal uppercase text-slate-400">
+                        {t("compare.estimated")}
+                      </span>
                     )}
+                  {bestOverallIndex === idx && (
+                    <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
+                      {t("compare.best")}
+                    </Badge>
+                  )}
                 </TableCell>
               ))}
             </TableRow>
@@ -435,14 +428,21 @@ export default function Compare() {
                     {t("compare.overallScore")}
                   </p>
                   <p className="font-bold text-slate-900 dark:text-white flex items-center">
-                    {ratingVerified[idx] ? dest.ratings.overall : "—"}
-                    {ratingVerified[idx] &&
-                      maxOverall !== null &&
-                      dest.ratings.overall === maxOverall && (
-                        <span className="ml-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
-                          {t("compare.best")}
+                    {scoreStates[idx].state === "unavailable" ||
+                    scoreStates[idx].value === null
+                      ? "—"
+                      : scoreStates[idx].value}
+                    {scoreStates[idx].state === "estimated" &&
+                      scoreStates[idx].value !== null && (
+                        <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
+                          {t("compare.estimated")}
                         </span>
                       )}
+                    {bestOverallIndex === idx && (
+                      <span className="ml-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
+                        {t("compare.best")}
+                      </span>
+                    )}
                   </p>
                 </div>
                 <div>

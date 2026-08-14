@@ -1759,164 +1759,164 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-14T10:37",
-    "changeCount": 978,
+    "at": "2026-08-14T16:07",
+    "changeCount": 570,
     "byModel": [
       [
-        "score-rubric-v1",
-        978
+        "score-rubric-v2",
+        570
       ]
     ],
     "sample": [
       {
         "id": "abashiri-city",
-        "model": "score-rubric-v1",
+        "model": "score-rubric-v2",
         "action": "set",
-        "reason": "estimated rubric score 5.8"
-      },
-      {
-        "id": "abeno-harukas-300-osaka",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "estimated rubric score 7.9"
-      },
-      {
-        "id": "abukuma-cave-fukushima",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "estimated rubric score 5.7"
+        "reason": "estimated rubric score 5.9"
       },
       {
         "id": "adachi-city",
-        "model": "score-rubric-v1",
+        "model": "score-rubric-v2",
         "action": "set",
-        "reason": "estimated rubric score 5.6"
+        "reason": "estimated rubric score 5.1"
       },
       {
         "id": "aizuwakamatsu-city",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "estimated rubric score 6.5"
-      },
-      {
-        "id": "akasaka-minato",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "verified editorial score metadata"
-      },
-      {
-        "id": "akihabara-chiyoda",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "verified editorial score metadata"
-      },
-      {
-        "id": "akita-city",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "estimated rubric score 6.5"
-      },
-      {
-        "id": "akiu-onsen-miyagi",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "estimated rubric score 5.3"
-      },
-      {
-        "id": "akiyoshido-cave-yamaguchi",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "estimated rubric score 5.7"
-      },
-      {
-        "id": "amami-iriomote-natural-site",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "estimated rubric score 7.1"
-      },
-      {
-        "id": "amanohashidate-kyoto",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "estimated rubric score 6.7"
-      },
-      {
-        "id": "ameya-yokocho",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "estimated rubric score 5.7"
-      },
-      {
-        "id": "aoba-castle-museum",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "estimated rubric score 5.7"
-      },
-      {
-        "id": "aomori-city",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "estimated rubric score 6.5"
-      },
-      {
-        "id": "arakawa-city",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "estimated rubric score 5.6"
-      },
-      {
-        "id": "arakurayama-sengen-park-yamanashi",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "estimated rubric score 5.2"
-      },
-      {
-        "id": "arima-onsen",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "estimated rubric score 6.7"
-      },
-      {
-        "id": "art-tower-mito",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "verified editorial score metadata"
-      },
-      {
-        "id": "asago-city",
-        "model": "score-rubric-v1",
-        "action": "set",
-        "reason": "estimated rubric score 6.5"
-      },
-      {
-        "id": "asahikawa-city",
-        "model": "score-rubric-v1",
+        "model": "score-rubric-v2",
         "action": "set",
         "reason": "estimated rubric score 6.1"
       },
       {
-        "id": "asakusa-taito",
-        "model": "score-rubric-v1",
+        "id": "akasaka-minato",
+        "model": "score-rubric-v2",
         "action": "set",
-        "reason": "verified editorial score metadata"
+        "reason": "estimated rubric score 5.2"
+      },
+      {
+        "id": "akihabara-chiyoda",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 5.2"
+      },
+      {
+        "id": "akita-city",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.1"
+      },
+      {
+        "id": "akiu-onsen-miyagi",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 4.5"
+      },
+      {
+        "id": "ameya-yokocho",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 5.2"
+      },
+      {
+        "id": "aoba-castle-museum",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 5.3"
+      },
+      {
+        "id": "aomori-city",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.1"
+      },
+      {
+        "id": "arakawa-city",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 5.1"
+      },
+      {
+        "id": "arakurayama-sengen-park-yamanashi",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 4.5"
+      },
+      {
+        "id": "asago-city",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.1"
+      },
+      {
+        "id": "asahikawa-city",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 5.9"
+      },
+      {
+        "id": "asakusa-taito",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 5.2"
       },
       {
         "id": "ashigara",
-        "model": "score-rubric-v1",
+        "model": "score-rubric-v2",
         "action": "set",
-        "reason": "verified editorial score metadata"
+        "reason": "estimated rubric score 5.3"
       },
       {
         "id": "ashikaga-city",
-        "model": "score-rubric-v1",
+        "model": "score-rubric-v2",
         "action": "set",
-        "reason": "estimated rubric score 6.5"
+        "reason": "estimated rubric score 6.1"
       },
       {
-        "id": "ashikaga-flower-park-tochigi",
-        "model": "score-rubric-v1",
+        "id": "aso-city",
+        "model": "score-rubric-v2",
         "action": "set",
-        "reason": "estimated rubric score 5.8"
+        "reason": "estimated rubric score 5.9"
+      },
+      {
+        "id": "atami-city",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 5.9"
+      },
+      {
+        "id": "beppu-city",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.7"
+      },
+      {
+        "id": "biei-town",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.7"
+      },
+      {
+        "id": "boso-no-mura",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 4.5"
+      },
+      {
+        "id": "boso-peninsula",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 5.5"
+      },
+      {
+        "id": "bunkyo-city",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.7"
+      },
+      {
+        "id": "canal-city-hakata",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 4.5"
       }
     ]
   }

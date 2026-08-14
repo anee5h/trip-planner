@@ -174,15 +174,13 @@ export default function DestinationCard({
           score: t("destination.megurutoScore"),
           travelUnavailable: t("home.transportModes.travelUnavailable"),
         };
-  const overallScore = Number.isFinite(destination.ratings?.overall)
-    ? destination.ratings.overall
-    : null;
-  // REC-002/KAI-89 3-state: raw ratings are only presented as a VERIFIED
-  // score with high/medium-confidence ratingMetadata; otherwise a
-  // deterministic ESTIMATED score (from the trusted season vector) is shown
-  // labeled "est.", or a consistent "Score unavailable" state — never blank,
-  // never the raw unverified numbers, never the old generic wording.
+  // KAI-89 rubric v2: ONE rubric value backs the verified and estimated
+  // chips alike (state is provenance, not a different formula); unavailable
+  // shows the localized score-unavailable chip — never blank, never raw
+  // unverified ratings, never the old generic wording.
   const scorePresentation = getScorePresentation(destination);
+  const overallScore =
+    scorePresentation.state === "verified" ? scorePresentation.value : null;
   const showScore = scorePresentation.state === "verified";
   const showEstimatedScore = scorePresentation.state === "estimated";
   const scoreUnavailable = scorePresentation.state === "unavailable";

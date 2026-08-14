@@ -192,9 +192,16 @@
   },
   "scoreMetadata": {
     "state": "verified",
-    "value": 9.6,
-    "method": "editorial",
-    "basis": "editorial ratingMetadata 2 manual confidence high",
+    "value": 6.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "high",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "editorial-review",
+      "verifiedAt": "2026-08-14",
+      "sources": ["https://www.tokyo-skytree.jp/"],
+      "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
+    },
     "noteKey": "destination.scoreVerifiedNote"
   }
 }

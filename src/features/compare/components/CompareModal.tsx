@@ -5,7 +5,11 @@ import type { Destination } from "@/shared/types/destination";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
 import { getAdjustedBudget } from "@/shared/utils/utils";
-import { getScorePresentation } from "@/shared/services/recommendation/RecommendationScorer";
+import {
+  getScorePresentation,
+  isRatingVerified,
+} from "@/shared/services/recommendation/RecommendationScorer";
+import { bestVerifiedScoreIndex } from "../compareScore";
 import {
   getWalkingIntensity,
   getWalkingIntensityMetadata,
@@ -49,22 +53,19 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   });
   const minTravelTime = getMin(travelTimes);
 
-  // REC-002: rating values only render as scores for verified rating evidence.
+  // KAI-89 rubric v2: the overall row shows the ONE rubric value for both
+  // verified and estimated (same scale, est. label for estimates); only
+  // verified states can win the Best badge. The couple row remains the
+  // legacy ratings family, gated by rating-vector confidence.
   const scoreStates = compareDestinations.map((d) => getScorePresentation(d));
-  const ratingVerified = scoreStates.map((s) => s.state === "verified");
+  const ratingVerified = compareDestinations.map((d) => isRatingVerified(d));
+  const bestOverallIndex = bestVerifiedScoreIndex(compareDestinations);
   const coupleScores = compareDestinations.map((d, i) =>
     ratingVerified[i] ? d.ratings.couple : null,
   );
   const maxCoupleScore = coupleScores.every((v) => v === null)
     ? null
     : getMax(coupleScores.filter((v): v is number => v !== null));
-
-  const overallScores = compareDestinations.map((d, i) =>
-    ratingVerified[i] ? d.ratings.overall : null,
-  );
-  const maxOverall = overallScores.every((v) => v === null)
-    ? null
-    : getMax(overallScores.filter((v): v is number => v !== null));
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200">
@@ -128,10 +129,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
               className={`flex md:grid md:grid-cols-3 gap-3 sm:gap-4 pb-2 ${compareDestinations.length > 1 ? "overflow-x-auto snap-x snap-mandatory" : ""}`}
             >
               {compareDestinations.map((dest, idx) => {
-                const isBestOverall =
-                  ratingVerified[idx] &&
-                  maxOverall !== null &&
-                  dest.ratings.overall === maxOverall;
+                const isBestOverall = bestOverallIndex === idx;
                 const cost = budgets[idx];
                 const isLowestBudget = cost === minBudget;
                 const time = travelTimes[idx];
@@ -199,16 +197,15 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                           {t("compare.score")}
                         </span>
                         <div className="flex items-center gap-1.5">
-                          {scoreStates[idx].state === "unavailable" ? (
+                          {scoreStates[idx].state === "unavailable" ||
+                          scoreStates[idx].value === null ? (
                             <span className="text-[10px] font-semibold text-slate-400">
                               {t("destination.scoreUnavailable")}
                             </span>
                           ) : (
                             <span className="font-extrabold text-slate-900 dark:text-white text-xs">
-                              {ratingVerified[idx]
-                                ? `${dest.ratings.overall}/10`
-                                : `${scoreStates[idx].value}/10`}
-                              {!ratingVerified[idx] && (
+                              {scoreStates[idx].value}/10
+                              {scoreStates[idx].state === "estimated" && (
                                 <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
                                   {t("compare.estimated")}
                                 </span>

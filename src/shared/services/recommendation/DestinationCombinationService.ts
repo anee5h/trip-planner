@@ -3,7 +3,7 @@ import { getDestinationList } from "@/shared/services/destination/DestinationSer
 import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
 import { getEffectiveVisitDuration } from "./VisitDurationPolicy";
-import { getRatingDisplayState } from "./RecommendationScorer";
+import { isRatingVerified } from "./RecommendationScorer";
 import { hasKnownBudgetRange } from "@/shared/services/budget/BudgetService";
 import {
   estimateLocalTransitMinutes,
@@ -125,7 +125,7 @@ export function findNearbyCombinations(
     // vectors return -1 so they never outrank a verified neighbour on a
     // number that is not a reviewed fact. Ties fall to distance.
     const ratingKey = (p: Destination): number =>
-      getRatingDisplayState(p) === "verified" ? (p.ratings?.overall ?? -1) : -1;
+      isRatingVerified(p) ? (p.ratings?.overall ?? -1) : -1;
     const ratingA = ratingKey(a.place);
     const ratingB = ratingKey(b.place);
     if (ratingB !== ratingA) return ratingB - ratingA;

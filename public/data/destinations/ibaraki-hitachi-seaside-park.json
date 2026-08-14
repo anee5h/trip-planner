@@ -152,10 +152,15 @@
   "openingHoursJa": "09:30-17:00 (Jul 21-Aug 31 to 18:00; Nov-Feb 16:30), closed Tue",
   "municipalityId": "Ibaraki:hitachinaka",
   "scoreMetadata": {
-    "state": "verified",
-    "value": 9.2,
-    "method": "editorial",
-    "basis": "editorial ratingMetadata 2 manual confidence high",
-    "noteKey": "destination.scoreVerifiedNote"
+    "state": "estimated",
+    "value": 6,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }
