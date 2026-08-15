@@ -62,9 +62,9 @@ jobs:
   e2e:
     name: E2E
     runs-on: ubuntu-latest
-    # Full suite (kai-63 + kai-85 + kai-89, mobile + desktop) runs ~14-15 min;
-    # 15 was too tight and cancelled the job after all tests passed.
-    timeout-minutes: 25
+    # Full suite (kai-63 + kai-85 + kai-89, mobile + desktop) runs 23-25 min
+    # on shared runners; 25 was still tight and cancelled a passing job.
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
