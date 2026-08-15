@@ -1,0 +1,26 @@
+# KAI-68: Meguruto crawl policy.
+#
+# Public discovery surfaces are fully allowed. Private/personalized surfaces
+# (account, trips, saved data, QA/editorial tools) are excluded from
+# indexing; they never appear in sitemap.xml either.
+#
+# Destinations are all public catalogue content. Individual destination pages
+# are served at /destinations/<id>/ — no per-record disallow is needed; the
+# sitemap lists only published destinations and unknown ids return HTTP 404.
+
+User-agent: *
+Allow: /
+
+# Private / personalized surfaces
+Disallow: /settings
+Disallow: /my-trips
+Disallow: /bucket-list
+Disallow: /passport
+Disallow: /profile
+Disallow: /favorites
+Disallow: /visited-map
+Disallow: /qa
+Disallow: /editorial
+Disallow: /compare
+
+Sitemap: https://meguruto.app/sitemap.xml

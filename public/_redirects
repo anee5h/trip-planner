@@ -1,1 +1,8 @@
+# KAI-68: canonical destination URLs carry no trailing slash. The SPA links
+# to /destinations/<id> everywhere; 308 preserves the canonical form for
+# crawlers and share previews while keeping the address bar stable.
+/destinations/:id/ /destinations/:id 308
+
+# SPA fallback: everything else loads the app shell (routes without
+# prerendered HTML resolve client-side).
 /* /index.html 200

@@ -6,3 +6,35 @@
   Cross-Origin-Resource-Policy: same-site
   Cross-Origin-Opener-Policy: same-origin
   Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.bunny.net; font-src 'self' https://fonts.bunny.net; img-src 'self' data: blob: https:; connect-src 'self' https://nkrfuowqzuvzgqnudchx.supabase.co wss://nkrfuowqzuvzgqnudchx.supabase.co https://api.open-meteo.com https://nominatim.openstreetmap.org https://cloudflareinsights.com https://en.wikipedia.org https://ja.wikipedia.org; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests;
+
+# KAI-68: private/personalized surfaces are excluded from indexing in depth
+# (robots.txt + sitemap omission + HTTP noindex). Never indexed, never shared.
+/settings*
+  X-Robots-Tag: noindex
+
+/my-trips*
+  X-Robots-Tag: noindex
+
+/bucket-list*
+  X-Robots-Tag: noindex
+
+/passport*
+  X-Robots-Tag: noindex
+
+/profile*
+  X-Robots-Tag: noindex
+
+/favorites*
+  X-Robots-Tag: noindex
+
+/visited-map*
+  X-Robots-Tag: noindex
+
+/qa*
+  X-Robots-Tag: noindex
+
+/editorial*
+  X-Robots-Tag: noindex
+
+/compare*
+  X-Robots-Tag: noindex
