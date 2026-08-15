@@ -17,7 +17,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
     signUpWithEmail,
     resetPasswordForEmail,
   } = useAuth();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,6 +27,42 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const [success, setSuccess] = useState("");
 
   if (!isOpen) return null;
+
+  const formatAuthError = (msg?: string) => {
+    if (!msg) return t("auth.errors.generic");
+    const lower = msg.toLowerCase();
+    if (
+      lower.includes("invalid login credentials") ||
+      lower.includes("invalid credentials")
+    ) {
+      return t("auth.errors.invalidCredentials");
+    }
+    if (lower.includes("email not confirmed")) {
+      return t("auth.errors.emailNotConfirmed");
+    }
+    if (
+      lower.includes("user already registered") ||
+      lower.includes("already registered")
+    ) {
+      return t("auth.errors.userAlreadyRegistered");
+    }
+    if (
+      lower.includes("at least 6 characters") ||
+      lower.includes("password should be at least")
+    ) {
+      return t("auth.errors.passwordTooShort");
+    }
+    if (lower.includes("rate limit") || lower.includes("too many requests")) {
+      return t("auth.errors.rateLimitExceeded");
+    }
+    if (lower.includes("network") || lower.includes("fetch")) {
+      return t("auth.errors.networkError");
+    }
+    return i18n.resolvedLanguage?.startsWith("ja") ||
+      i18n.language.startsWith("ja")
+      ? t("auth.errors.generic")
+      : msg;
+  };
 
   const handleEmail = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,10 +77,10 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
       } else {
         const { error } = (await signUpWithEmail(email, password)) ?? {};
         if (error) throw error;
-        setSuccess("Check your email to confirm your account!");
+        setSuccess(t("auth.confirmEmailSent"));
       }
     } catch (err: any) {
-      setError(err.message ?? "Something went wrong");
+      setError(formatAuthError(err.message));
     } finally {
       setLoading(false);
     }
@@ -63,7 +99,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
       if (error) throw error;
       setSuccess(t("auth.resetEmailSent"));
     } catch (err: any) {
-      setError(err.message ?? "Something went wrong");
+      setError(formatAuthError(err.message));
     } finally {
       setLoading(false);
     }
@@ -150,7 +186,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                   d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                 />
               </svg>
-              Continue with Google
+              {t("auth.continueWithGoogle")}
             </button>
           </div>
 
@@ -158,7 +194,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
           <div className="flex items-center gap-3 mb-6">
             <div className="flex-1 h-px bg-slate-200 dark:bg-white/10" />
             <span className="text-slate-500 dark:text-slate-500 text-xs">
-              or continue with email
+              {t("auth.orContinueWithEmail")}
             </span>
             <div className="flex-1 h-px bg-slate-200 dark:bg-white/10" />
           </div>
@@ -177,7 +213,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             )}
             <input
               type="email"
-              placeholder="Email address"
+              placeholder={t("auth.emailAddress")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -186,7 +222,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
-                placeholder="Password"
+                placeholder={t("auth.password")}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required

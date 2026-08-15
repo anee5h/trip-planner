@@ -114,7 +114,37 @@ function WeekendHarness() {
   return null;
 }
 
+function DisabledRouletteHarness() {
+  latestRoulette = useTripRecommendations({
+    allDestinations: [],
+    vibe: "art",
+    budget: 40_000,
+    carMode: "none",
+    publicModes: ["train"],
+    partySize: 2,
+    budgetTier: "standard",
+    tripDuration: "fullDay",
+    homeStationCoords: CURRENT_LOCATION,
+    isVisited: () => false,
+    tripMode: "day_trip",
+    accommodationAllowance: 0,
+    rouletteEnabled: false,
+  });
+  return null;
+}
+
 describe("useTripRecommendations", () => {
+  it("does not expand the roulette pool until it is enabled", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => root!.render(<DisabledRouletteHarness />));
+
+    expect(latestRoulette?.rouletteCandidates).toEqual([]);
+    expect(latestRoulette?.rouletteExpansion).toBe("exact");
+    expect(getRecommendations).toHaveBeenCalledTimes(1);
+  });
+
   it("uses draft hard constraints for roulette while loosening only vibe", () => {
     host = document.createElement("div");
     document.body.appendChild(host);

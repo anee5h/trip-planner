@@ -271,7 +271,10 @@ export default function ItineraryPlanner({
             type="text"
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
-            placeholder="e.g. Try local spicy noodles"
+            placeholder={t(
+              "trips.notesPlaceholder",
+              "e.g. Try local spicy noodles",
+            )}
             className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl"
           />
         </div>
@@ -335,7 +338,7 @@ export default function ItineraryPlanner({
                   <Button
                     variant="ghost"
                     size="icon"
-                    aria-label="Move stop up"
+                    aria-label={t("trips.moveUp", "Move stop up")}
                     disabled={index === 0}
                     onClick={() => onReorderStops(index, index - 1)}
                     className="h-8 w-8 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 disabled:opacity-20 rounded-full"
@@ -345,7 +348,7 @@ export default function ItineraryPlanner({
                   <Button
                     variant="ghost"
                     size="icon"
-                    aria-label="Move stop down"
+                    aria-label={t("trips.moveDown", "Move stop down")}
                     disabled={index === trip.stops.length - 1}
                     onClick={() => onReorderStops(index, index + 1)}
                     className="h-8 w-8 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 disabled:opacity-20 rounded-full"
@@ -355,7 +358,10 @@ export default function ItineraryPlanner({
                   <Button
                     variant="ghost"
                     size="icon"
-                    aria-label="Remove stop from itinerary"
+                    aria-label={t(
+                      "trips.removeStop",
+                      "Remove stop from itinerary",
+                    )}
                     onClick={() => onRemoveStop(stop.id)}
                     className="h-8 w-8 text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-full"
                   >

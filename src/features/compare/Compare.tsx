@@ -16,6 +16,12 @@ import { Badge } from "@/shared/components/ui/badge";
 import { getAdjustedBudget } from "@/shared/utils/utils";
 import { isRatingVerified } from "@/shared/services/recommendation/RecommendationScorer";
 import { useTranslation } from "react-i18next";
+import { useLocale } from "@/shared/context/LocaleContext";
+import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
+import {
+  formatPrefecture,
+  localizePlaceLabel,
+} from "@/shared/utils/placeLabels";
 
 import {
   getWalkingIntensity,
@@ -24,6 +30,7 @@ import {
 
 export default function Compare() {
   const { t } = useTranslation();
+  const { locale } = useLocale();
   const { compareList, toggleCompare, clearCompare } = useTripStore();
   const allDestinations = getDestinationList() as Destination[];
 
@@ -118,39 +125,42 @@ export default function Compare() {
               <TableHead className="w-[200px] align-top py-6">
                 {t("compare.features")}
               </TableHead>
-              {compareDestinations.map((dest) => (
-                <TableHead
-                  key={dest.id}
-                  className="min-w-[200px] align-top py-6 relative group"
-                >
-                  <button
-                    onClick={() => toggleCompare(dest.id)}
-                    aria-label={t("compare.removeFromCompareList")}
-                    className="absolute top-2 right-2 p-1 text-slate-400 hover:text-red-500 rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
-                    title={t("compare.removeFromCompareList")}
+              {compareDestinations.map((dest) => {
+                const localized = getLocalizedPlace(dest, locale);
+                return (
+                  <TableHead
+                    key={dest.id}
+                    className="min-w-[200px] align-top py-6 relative group"
                   >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
-                  <div className="relative">
-                    <img
-                      src={dest.heroImage}
-                      alt={dest.name}
-                      className="w-full h-32 object-cover rounded-md mb-3"
-                    />
-                  </div>
-                  <div className="font-bold text-lg text-slate-900 dark:text-white">
-                    {dest.name}
-                  </div>
-                  <div className="text-sm font-normal text-slate-500 mb-2">
-                    {dest.prefecture}
-                  </div>
-                  <Link to={`/destinations/${dest.id}`}>
-                    <Button size="sm" variant="secondary" className="w-full">
-                      {t("compare.viewDetails")}
-                    </Button>
-                  </Link>
-                </TableHead>
-              ))}
+                    <button
+                      onClick={() => toggleCompare(dest.id)}
+                      aria-label={t("compare.removeFromCompareList")}
+                      className="absolute top-2 right-2 p-1 text-slate-400 hover:text-red-500 rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
+                      title={t("compare.removeFromCompareList")}
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                    <div className="relative">
+                      <img
+                        src={localized.heroImage}
+                        alt={localized.name}
+                        className="w-full h-32 object-cover rounded-md mb-3"
+                      />
+                    </div>
+                    <div className="font-bold text-lg text-slate-900 dark:text-white">
+                      {localized.name}
+                    </div>
+                    <div className="text-sm font-normal text-slate-500 mb-2">
+                      {formatPrefecture(dest.prefecture, locale)}
+                    </div>
+                    <Link to={`/destinations/${dest.id}`}>
+                      <Button size="sm" variant="secondary" className="w-full">
+                        {t("compare.viewDetails")}
+                      </Button>
+                    </Link>
+                  </TableHead>
+                );
+              })}
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -170,7 +180,7 @@ export default function Compare() {
                       }
                     >
                       {budget === null
-                        ? "N/A"
+                        ? t("compare.unavailable")
                         : `¥${(budget / 1000).toFixed(0)}k`}
                     </span>
                     {budget !== null && budget === minBudget && (
@@ -198,6 +208,13 @@ export default function Compare() {
                     : ["none", 999];
                 const time = fastest[1];
                 const mode = fastest[0];
+                const modeLabel = t(`home.transportModes.${String(mode)}`, {
+                  defaultValue: String(mode),
+                });
+                const formattedTime =
+                  locale === "ja"
+                    ? `${time}分（${modeLabel}）`
+                    : `${time} min (${mode})`;
                 return (
                   <TableCell key={dest.id}>
                     <span
@@ -207,7 +224,7 @@ export default function Compare() {
                           : ""
                       }
                     >
-                      {time !== 999 ? `${time} min (${mode})` : "N/A"}
+                      {time !== 999 ? formattedTime : t("compare.unavailable")}
                     </span>
                     {time === minTravelTime && time !== 999 && (
                       <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
@@ -225,6 +242,7 @@ export default function Compare() {
               {compareDestinations.map((dest) => {
                 const walkMeta = getWalkingIntensityMetadata(
                   getWalkingIntensity(dest),
+                  locale,
                 );
                 return (
                   <TableCell key={dest.id}>
@@ -273,7 +291,7 @@ export default function Compare() {
                         key={tag}
                         className="text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-1 rounded-md"
                       >
-                        {tag}
+                        {localizePlaceLabel(tag, locale)}
                       </span>
                     ))}
                   </div>
@@ -287,6 +305,7 @@ export default function Compare() {
       {/* Mobile Stacked View */}
       <div className="grid grid-cols-1 gap-6 md:hidden">
         {compareDestinations.map((dest) => {
+          const localized = getLocalizedPlace(dest, locale);
           const budgetVal = getAdjustedBudget(dest, "all");
           const travelTimesForDest = Object.values(
             dest.transportOptions || {},
@@ -305,23 +324,23 @@ export default function Compare() {
                 onClick={() => toggleCompare(dest.id)}
                 aria-label={t("compare.removeFromCompareList")}
                 className="absolute top-4 right-4 p-1.5 bg-red-50 dark:bg-red-950/50 text-red-500 rounded-full hover:scale-105 transition-transform"
-                title="Remove"
+                title={t("compare.removeFromCompareList")}
               >
                 <Trash2 className="w-4 h-4" />
               </button>
 
               <div className="flex gap-4">
                 <img
-                  src={dest.heroImage}
-                  alt={dest.name}
+                  src={localized.heroImage}
+                  alt={localized.name}
                   className="w-24 h-24 object-cover rounded-2xl"
                 />
                 <div>
                   <h3 className="font-bold text-lg text-slate-950 dark:text-white">
-                    {dest.name}
+                    {localized.name}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    {dest.prefecture}
+                    {formatPrefecture(dest.prefecture, locale)}
                   </p>
                   <Link
                     to={`/destinations/${dest.id}`}
@@ -345,7 +364,7 @@ export default function Compare() {
                   </p>
                   <p className="font-bold text-slate-900 dark:text-white">
                     {budgetVal === null
-                      ? "N/A"
+                      ? t("compare.unavailable")
                       : `¥${(budgetVal / 1000).toFixed(0)}k`}
                     {budgetVal !== null && budgetVal === minBudget && (
                       <span className="ml-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
@@ -359,7 +378,11 @@ export default function Compare() {
                     {t("compare.travelTime")}
                   </p>
                   <p className="font-bold text-slate-900 dark:text-white">
-                    {travelTime === 999 ? "N/A" : `${travelTime} min`}
+                    {travelTime === 999
+                      ? t("compare.unavailable")
+                      : locale === "ja"
+                        ? `${travelTime}分`
+                        : `${travelTime} min`}
                     {travelTime === minTravelTime && travelTime !== 999 && (
                       <span className="ml-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
                         {t("compare.fastest")}
@@ -375,6 +398,7 @@ export default function Compare() {
                     {(() => {
                       const walkMeta = getWalkingIntensityMetadata(
                         getWalkingIntensity(dest),
+                        locale,
                       );
                       return `${walkMeta.icon} ${walkMeta.label}`;
                     })()}

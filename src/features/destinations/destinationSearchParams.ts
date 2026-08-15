@@ -73,6 +73,20 @@ export const EXPLORE_PUBLIC_MODE_KEYS = [
  */
 export const EXPLORE_CAR_MODE_KEYS = ["none", "my_car", "rental"] as const;
 
+const EXPOSED_SORT_KEYS = [
+  "recommended",
+  "travelTime",
+  "budget",
+  "walking",
+  "nearest",
+] as const;
+
+function sanitizeSort(raw: string | null): string {
+  return raw && (EXPOSED_SORT_KEYS as readonly string[]).includes(raw)
+    ? raw
+    : DEFAULT_DESTINATION_EXPLORER_STATE.sortBy;
+}
+
 function sanitizePublicModes(raw: string[]): string[] {
   const allowed = new Set<string>(EXPLORE_PUBLIC_MODE_KEYS);
   return raw.filter((mode) => allowed.has(mode));
@@ -165,7 +179,10 @@ export function parseDestinationSearchParams(
     season: params.get("season") ?? defaults.season,
     date: normalizeTravelDateParam(params.get("date")) ?? "",
     maxBudget,
-    sortBy: params.get("sort") ?? defaults.sortBy,
+    // `overall` was briefly exposed before the KAI-89 beta score-hiding
+    // decision. Keep old links working, but normalize them to Recommended so
+    // the hidden overall score never controls ordering or UI state.
+    sortBy: sanitizeSort(params.get("sort")),
     // KAI-63 D1: reject transport values Explore cannot render (ferry,
     // legacy chip labels like local/express, junk car values) so a URL can
     // never activate a restriction with no visible chips and an "Any
@@ -242,7 +259,7 @@ export function serializeDestinationSearchParams(
   } else {
     params.set("budget", String(state.maxBudget));
   }
-  params.set("sort", state.sortBy);
+  params.set("sort", sanitizeSort(state.sortBy));
   params.set("car", sanitizeCarMode(state.carMode));
   const publicModes = sanitizePublicModes(state.publicModes);
   if (publicModes.length === 0) params.set("mode", "none");

@@ -66,6 +66,21 @@ describe("destinationSearchParams", () => {
     expect(parsed.viewMode).toBe("grid");
   });
 
+  it("normalizes legacy and unknown score sorts to Recommended", () => {
+    expect(
+      parseDestinationSearchParams(new URLSearchParams("sort=overall")).sortBy,
+    ).toBe("recommended");
+    expect(
+      parseDestinationSearchParams(new URLSearchParams("sort=unknown")).sortBy,
+    ).toBe("recommended");
+    expect(
+      serializeDestinationSearchParams({
+        ...DEFAULT_DESTINATION_EXPLORER_STATE,
+        sortBy: "overall",
+      }).get("sort"),
+    ).toBe("recommended");
+  });
+
   it("keeps the default transport selection non-restrictive", () => {
     expect(
       hasRestrictedTransportSelection(

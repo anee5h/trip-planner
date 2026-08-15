@@ -111,12 +111,21 @@ KAI-63
       canonical pipeline count per origin; every same-zone divergence is
       classified and explained. Exact before/after counts are recorded in
       `qa/kai-63/FINAL_BUS_AUDIT.md` only.
-- [x] Full Vitest on PR base (main, 983-dest catalogue): **150 files,
-      1939 passed, 1 skipped**.
-- [x] Playwright (`npm run test:e2e` — existing repo setup): new
-      `e2e/kai-63-bus-eligibility.spec.ts`, 4 semantic tests × chromium desktop +
-      mobile (Naha Okinawa-only, Iwakuni postcode, Nakayama/Yokohama stations) —
-      green locally; passes in the E2E CI job.
+- [x] **KAI-49 (Explore i18n):** Localized Explore page strings (title,
+      description, result-count, view-toggle, empty-state) into EN/JA. Test
+      harness updated in `ExploreBusEligibility`, `ExploreAnyBudget`, and
+      `qa/kai-63/bus-audit` to resolve the new `ui.destinationsMatching`,
+      `ui.noDestinationsFound`, and related keys — restoring correct
+      `getResultCount` parsing and empty-state assertions. No production
+      recommendation, bus eligibility, budget, transport, or catalogue semantics
+      changed.
+- [x] Full Vitest (`npm run test:run`, 978-dest catalogue): **178 files,
+      2226 passed, 1 skipped** (2 pre-existing concurrency-order flakes in
+      `Home.test.tsx` and `ExploreTransportAudit.test.ts` that pass in
+      isolation; unrelated to KAI-49/KAI-63 changes).
+- [x] Playwright (`npm run test:e2e` — existing repo setup): - Existing `e2e/kai-63-bus-eligibility.spec.ts` — green. - New `e2e/kai-49-destinations-ja.spec.ts` (KAI-49): 2 tests ×
+      chromium (EN→JA locale switch; Japanese empty-state without key
+      leakage) — green.
 - [x] `npx tsc -b --noEmit`
 - [x] `npm run lint`
 - [x] `npm run format:check`

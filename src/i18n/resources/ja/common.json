@@ -28,7 +28,12 @@
     "signIn": "ログイン",
     "signOut": "ログアウト",
     "back": "戻る",
-    "discover": "発見"
+    "discover": "発見",
+    "selectLanguage": "言語を選択",
+    "toggleTheme": "テーマを切り替え",
+    "userMenu": "ユーザーメニュー",
+    "toggleMenu": "メニューを開閉",
+    "mobileNav": "モバイルナビゲーション"
   },
   "legal": {
     "terms": "利用規約",
@@ -63,7 +68,21 @@
     "resetEmailSent": "パスワード再設定リンクをメールで送信しました。",
     "legalPrefix": "アカウントを作成すると、",
     "legalAnd": "および",
-    "legalSuffix": "に同意したものとみなされます。"
+    "legalSuffix": "に同意したものとみなされます。",
+    "continueWithGoogle": "Googleで続ける",
+    "orContinueWithEmail": "またはメールアドレスで続ける",
+    "emailAddress": "メールアドレス",
+    "password": "パスワード",
+    "confirmEmailSent": "アカウント確認メールを送信しました。メールをご確認ください。",
+    "errors": {
+      "invalidCredentials": "メールアドレスまたはパスワードが正しくありません。",
+      "emailNotConfirmed": "ログインする前にメールアドレスの確認を完了してください。",
+      "userAlreadyRegistered": "このメールアドレスは既に登録されています。",
+      "passwordTooShort": "パスワードは6文字以上で入力してください。",
+      "rateLimitExceeded": "リクエスト数が上限を超えました。しばらく待ってから再試行してください。",
+      "networkError": "ネットワークエラーが発生しました。接続を確認してください。",
+      "generic": "認証エラーが発生しました。もう一度お試しください。"
+    }
   },
   "recommendation": {
     "matchConfidence": "マッチ度",
@@ -103,8 +122,7 @@
       "art": "アート",
       "sea": "海",
       "cool": "涼しさ",
-      "themepark": "テーマパーク",
-      "weather": "天気"
+      "themepark": "テーマパーク"
     },
     "reasons": {
       "budgetGreatValue": {
@@ -529,6 +547,9 @@
     "originForecastHint": "予報は出発地付近の天気です"
   },
   "destination": {
+    "alreadyVisited": "訪問済み",
+    "markVisited": "訪問済みに設定",
+    "markUnvisited": "訪問済みを解除",
     "tokyoWardsGroup": "東京23区",
     "tokyoWardsCount": "{{count}}区",
     "tokyoWardsBadge": "23区",
@@ -559,26 +580,33 @@
       "seasonal": "{{month}}の平年並みの気候",
       "mixed": "{{day}}の出発地予報・{{month}}の平年並みの気候"
     },
+    "wikipediaAttributionTooltip": "{{source}}（{{license}}ライセンス）に基づく概要",
+    "betaConfidenceDisclaimer": "この地域の移動目安時間は現在調整中です。実際の所要時間と若干異なる場合があります。",
+    "wikipediaLoading": "Wikipediaの概要を読み込み中…",
+    "wikipediaSummary": "Wikipedia概要",
+    "wikipediaUnavailable": "この目的地のWikipedia追加概要は見つかりませんでした。",
     "scoreUnavailable": "スコアを表示できません",
     "scoreVerifiedNote": "編集で検証済みのスコアです",
     "scoreEstimatedNote": "総合目的地ルーブリックによる推定スコアです",
     "ratings": {
       "couple": "カップル",
-      "family": "家族",
-      "photography": "写真",
-      "food": "食事",
+      "family": "ファミリー",
+      "photography": "写真映え",
+      "food": "グルメ・食事",
       "value": "コスパ",
-      "accessibility": "アクセシビリティ",
-      "nature": "自然",
+      "accessibility": "アクセスの良さ",
+      "nature": "自然・景観",
       "historyCulture": "歴史・文化",
       "relaxation": "リラックス"
-    },
-    "mapScoreUnavailable": "スコアを表示できません",
-    "mapExplore": "ガイドを見る",
-    "mapSave": "お気に入り",
-    "mapRemove": "お気に入りから削除"
+    }
   },
   "ui": {
+    "language": "言語を選択",
+    "theme": "テーマ切替",
+    "openUserMenu": "ユーザーメニュー",
+    "toggleMenu": "メニュー切替",
+    "mobileNav": "モバイルナビゲーション",
+    "estimated": "目安",
     "back": "戻る",
     "cancel": "キャンセル",
     "save": "保存",
@@ -666,8 +694,31 @@
     "unescoBadge": "ユネスコ世界遺産",
     "unescoSummary": "世界遺産 {{properties}}件 · {{places}}か所",
     "unescoVisited": "訪問スポットがある世界遺産",
+    "places": "{{count}}か所",
     "places_one": "{{count}}か所",
     "places_other": "{{count}}か所",
+    "destinationsMatching": "該当する目的地：{{count}}件",
+    "destinationsMatching_one": "該当する目的地：{{count}}件",
+    "destinationsMatching_other": "該当する目的地：{{count}}件",
+    "noDestinationsFound": "条件に一致する目的地が見つかりませんでした。",
+    "noDestinationsFoundHint": "検索条件を変更するか、フィルターを解除してお試しください。",
+    "gridView": "グリッド表示に切り替え",
+    "mapView": "マップ表示に切り替え",
+    "grid": "グリッド",
+    "map": "マップ",
+    "destinationsDescription": "日本全国の旅先を探してみましょう。地域・都道府県・コレクション・予算・雰囲気でフィルタリングできます。",
+    "budgetTransportWhenKnown": "交通費込み（推定可能な場合）",
+    "allRegionsAndPrefectures": "全国（地方・都道府県）",
+    "anywhere": "全国",
+    "locationCount": "エリア ({{count}})",
+    "regionsAndPrefectures": "地方・都道府県",
+    "somethingWentWrong": "問題が発生しました",
+    "errorDescription": "コンテンツの読み込み中に予期しないエラーが発生しました。ページを再読み込みしてください。",
+    "reloadPage": "ページを再読み込み",
+    "tryAgain": "もう一度試す",
+    "heatTolerance": "夏の快適度",
+    "rainFriendly": "雨天時の快適度",
+    "linkCopied": "リンクをクリップボードにコピーしました！",
     "itineraries": "旅行の旅程",
     "travelPlanner": "旅行プランナー",
     "savedDestinations": "保存した目的地",
@@ -699,8 +750,34 @@
     "defaultLanguage": "既定の言語",
     "baseLocation": "出発地",
     "failedSave": "設定の保存に失敗しました",
-    "settingsSaved": "設定を保存しました",
-    "estimated": "目安"
+    "settingsSaved": "設定を保存しました"
+  },
+  "trips": {
+    "exportCalendar": "カレンダーに出力",
+    "printTrip": "旅程を印刷",
+    "copyTripLink": "旅程のリンクをコピー",
+    "linkCopied": "旅程のリンクをクリップボードにコピーしました！",
+    "status": "ステータス",
+    "statusLabels": {
+      "draft": "下書き",
+      "planned": "計画中",
+      "completed": "完了",
+      "cancelled": "キャンセル済み",
+      "active": "進行中",
+      "in_progress": "進行中",
+      "archived": "アーカイブ"
+    },
+    "journalNotes": "旅の記録・メモ",
+    "journalDescription": "旅の思い出、チケット情報、お店のメモなどを記録できます。",
+    "journalPlaceholder": "予約確認、電車のリンク、チケット情報などを入力...",
+    "saveJournal": "メモを保存",
+    "moveUp": "上に移動",
+    "moveDown": "下に移動",
+    "removeStop": "旅程から削除",
+    "customLocationPlaceholder": "例：ホテルサンルートプラザ新宿",
+    "notesPlaceholder": "例：地元名物の辛い麺を食べる",
+    "failedAdd": "旅程へのスポット追加に失敗しました",
+    "failedCreate": "旅行の作成に失敗しました"
   },
   "settings": {
     "fullName": "名前",
@@ -746,10 +823,12 @@
     "today": "今日",
     "tomorrow": "明日",
     "chooseTravelDate": "旅行日を選択",
-    "anyDate": "指定なし",
-    "close": "日付選択を閉じる",
     "forecastNearOrigin": "{{origin}}付近の予報",
-    "day2DerivedHint": "2日目（1泊2日の推測）"
+    "originForecastDefault": "{{date}}の出発地天気予報",
+    "day2DerivedHint": "2日目（1泊2日の推測）",
+    "day2": "2日目: {{date}}",
+    "anyDate": "いつでも",
+    "close": "閉じる"
   },
   "theme": {
     "light": "ライト",
@@ -757,6 +836,7 @@
     "system": "システム"
   },
   "compare": {
+    "score": "スコア",
     "best": "最高",
     "budget": "予算",
     "lowest": "最安",
@@ -768,17 +848,105 @@
     "attraction": "観光スポット",
     "removeFromCompare": "比較から削除",
     "closeModal": "比較モーダルを閉じる",
-    "unavailable": "該当なし",
-    "estimated": "目安",
-    "budgetRecommended": "予算（推奨）",
-    "travelTime": "移動時間",
-    "walkIntensity": "歩きやすさ",
-    "coupleScore": "カップルスコア",
-    "summerComfort": "夏の快適さ",
+    "unavailable": "比較情報なし",
+    "features": "比較項目",
+    "budgetRecommended": "予算（目安）",
+    "travelTime": "所要時間",
+    "walkIntensity": "歩行量",
+    "coupleScore": "カップル評価",
+    "summerComfort": "夏の快適度",
     "vibeTags": "雰囲気タグ",
-    "features": "特徴",
     "viewDetails": "詳細を見る",
     "highest": "最高",
-    "removeFromCompareList": "比較リストから削除"
+    "driving": " · 車",
+    "removeFromCompareList": "比較リストから目的地を削除",
+    "maxLimitAlert": "比較できる目的地は最大3件までです。"
+  },
+  "help": {
+    "title": "ヘルプセンター",
+    "subtitle": "ドキュメント＆サポート",
+    "description": "機能の使い方、キーボードショートカット、リリースノートの確認やフィードバックの送信ができます。",
+    "sendFeedback": "フィードバックを送信",
+    "searchPlaceholder": "ヘルプトピック、よくある質問、ショートカットを検索...",
+    "clearSearch": "クリア",
+    "sections": {
+      "gettingStarted": "はじめてガイド",
+      "faq": "よくある質問",
+      "shortcuts": "キーボードショートカット",
+      "changelog": "更新履歴"
+    },
+    "gettingStarted": {
+      "title": "Megurutoの使い方",
+      "subtitle": "日本の旅を最大限に楽しむための3つのステップ。",
+      "step1Title": "見つける・保存する",
+      "step1Description": "日本各地の見どころやユネスコ遺産コレクションを探索。行きたい場所を行きたいリストに保存しましょう。",
+      "step2Title": "旅程を計画する",
+      "step2Description": "「旅程」で毎日の旅行プランを作成。設定で出発地を登録すれば、正確な移動時間を計算できます。",
+      "step3Title": "旅の記録を残す",
+      "step3Description": "訪れたスポットを「パスポート」に記録。日本地図を塗りつぶし、達成バッジを獲得しましょう。"
+    },
+    "faq": {
+      "title": "よくある質問",
+      "subtitle": "Megurutoに関する一般的な質問と回答。",
+      "items": {
+        "visited": {
+          "question": "目的地や観光地を訪問済みにするにはどうすればよいですか？",
+          "answer": "目的地の詳細ページやカードの「訪問済みにする」チェックボタンをクリックしてください。訪問履歴はトラベルパスポートおよび都道府県マップに自動反映されます。"
+        },
+        "baseLocation": {
+          "question": "出発地設定はどのように機能しますか？",
+          "answer": "設定 > 一般 で出発地（例：東京駅、大阪駅など）を設定できます。Megurutoはこの場所を基準にして移動時間やルート提案を算出します。"
+        },
+        "achievements": {
+          "question": "実績とバッジの違いは何ですか？",
+          "answer": "実績はユネスコ世界遺産や現存十二天守などの公式な文化的指標を表します。バッジは地域探訪やマイルストーン達成によって獲得できるゲーム感覚のリワードです。"
+        },
+        "calendar": {
+          "question": "旅程をGoogleカレンダーにエクスポートするにはどうすればよいですか？",
+          "answer": "「旅程」で任意のプランを開き、「カレンダーに出力」ボタンをクリックしてください。.icsファイルのダウンロードまたはGoogleカレンダーへの直接追加が可能です。"
+        }
+      }
+    },
+    "shortcuts": {
+      "title": "キーボードショートカット一覧",
+      "subtitle": "ショートカットを使ってMegurutoを素早く操作できます。",
+      "globalSearch": "グローバル検索・コマンドパレットを開く",
+      "closeDialog": "コマンドパレットやモーダル／メニューを閉じる",
+      "navigateItems": "検索結果やリストの項目を上下に移動",
+      "selectItem": "選択中の項目またはアクションを実行"
+    },
+    "changelog": {
+      "title": "リリース履歴＆更新情報",
+      "subtitle": "Megurutoに追加された最新の機能と改善内容。",
+      "version152Title": "バージョン 1.5.2 — デザインシステム＆UIのブラッシュアップ",
+      "version152Date": "2026年7月",
+      "item1": "Lucideアイコンレジストリの統合とUnicode絵文字の廃止",
+      "item2": "リアルタイムテーマ切り替え対応のThemeProvider",
+      "item3": "StationInputによる出発地の一元管理",
+      "item4": "安全なリターンナビゲーション（?return=）",
+      "item5": "schemaVersion: 1対応のJSONデータエクスポート",
+      "item6": "プロフィール・エクスプローラーハブのヘッダー刷新"
+    }
+  },
+  "feedbackModal": {
+    "title": "フィードバックを送信",
+    "subtitle": "Megurutoの改善にご協力ください",
+    "typesLabel": "フィードバックの種類",
+    "types": {
+      "general": "ご意見・感想",
+      "feature": "機能リクエスト",
+      "bug": "不具合の報告"
+    },
+    "messageLabel": "メッセージ",
+    "placeholder": "ご意見、ご要望、不具合の詳細などをお聞かせください...",
+    "cancel": "キャンセル",
+    "submit": "送信する",
+    "submitting": "送信中...",
+    "successToast": "フィードバックを送信しました。ご協力ありがとうございます。",
+    "errorGeneric": "フィードバックの送信に失敗しました。もう一度お試しください。",
+    "successTitle": "ご意見ありがとうございます！",
+    "successMessage": "フィードバックが正常に保存されました。",
+    "sendEmail": "メールでも送信する",
+    "done": "完了"
   }
 }

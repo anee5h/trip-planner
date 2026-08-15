@@ -28,7 +28,12 @@
     "signIn": "Sign In",
     "signOut": "Sign Out",
     "back": "Back",
-    "discover": "Discover"
+    "discover": "Discover",
+    "selectLanguage": "Select language",
+    "toggleTheme": "Toggle theme",
+    "userMenu": "User menu",
+    "toggleMenu": "Toggle menu",
+    "mobileNav": "Mobile navigation"
   },
   "legal": {
     "terms": "Terms",
@@ -63,7 +68,21 @@
     "resetEmailSent": "Check your email for a password reset link.",
     "legalPrefix": "By creating an account, you agree to the",
     "legalAnd": "and",
-    "legalSuffix": "."
+    "legalSuffix": ".",
+    "continueWithGoogle": "Continue with Google",
+    "orContinueWithEmail": "or continue with email",
+    "emailAddress": "Email address",
+    "password": "Password",
+    "confirmEmailSent": "Check your email to confirm your account!",
+    "errors": {
+      "invalidCredentials": "Invalid email or password.",
+      "emailNotConfirmed": "Please confirm your email address before signing in.",
+      "userAlreadyRegistered": "An account with this email already exists.",
+      "passwordTooShort": "Password must be at least 6 characters.",
+      "rateLimitExceeded": "Too many requests. Please wait a moment and try again.",
+      "networkError": "Network error. Please check your internet connection.",
+      "generic": "An authentication error occurred. Please try again."
+    }
   },
   "recommendation": {
     "matchConfidence": "Match Confidence",
@@ -103,8 +122,7 @@
       "art": "Art",
       "sea": "Sea",
       "cool": "Cool",
-      "themepark": "Theme park",
-      "weather": "Weather"
+      "themepark": "Theme park"
     },
     "reasons": {
       "budgetGreatValue": {
@@ -529,6 +547,9 @@
     "originForecastHint": "Forecast shows weather near your origin"
   },
   "destination": {
+    "alreadyVisited": "Already Visited",
+    "markVisited": "Mark as visited destination",
+    "markUnvisited": "Remove from visited destinations",
     "tokyoWardsGroup": "Tokyo 23 Wards",
     "tokyoWardsCount": "{{count}} wards",
     "tokyoWardsBadge": "23 Wards",
@@ -559,6 +580,11 @@
       "seasonal": "Typical conditions for {{month}}",
       "mixed": "Origin forecast for {{day}} · typical conditions for {{month}}"
     },
+    "wikipediaAttributionTooltip": "Overview sourced from {{source}} under {{license}} License",
+    "betaConfidenceDisclaimer": "Travel estimates for this region are still being refined. Actual travel times may vary slightly.",
+    "wikipediaLoading": "Loading Wikipedia summary…",
+    "wikipediaSummary": "Wikipedia Summary",
+    "wikipediaUnavailable": "No additional Wikipedia article summary found for this destination.",
     "scoreUnavailable": "Score unavailable",
     "scoreVerifiedNote": "Editorially reviewed score",
     "scoreEstimatedNote": "Estimated score from the overall-destination rubric",
@@ -566,19 +592,21 @@
       "couple": "Couple",
       "family": "Family",
       "photography": "Photography",
-      "food": "Food",
-      "value": "Value",
-      "accessibility": "Accessibility",
-      "nature": "Nature",
+      "food": "Food & Dining",
+      "value": "Value for Money",
+      "accessibility": "Transit Access",
+      "nature": "Nature & Scenery",
       "historyCulture": "History & Culture",
       "relaxation": "Relaxation"
-    },
-    "mapScoreUnavailable": "Score unavailable",
-    "mapExplore": "Explore",
-    "mapSave": "Save",
-    "mapRemove": "Remove"
+    }
   },
   "ui": {
+    "language": "Select language",
+    "theme": "Toggle theme",
+    "openUserMenu": "User menu",
+    "toggleMenu": "Toggle menu",
+    "mobileNav": "Mobile Navigation",
+    "estimated": "est.",
     "back": "Back",
     "cancel": "Cancel",
     "save": "Save",
@@ -666,8 +694,31 @@
     "unescoBadge": "UNESCO World Heritage",
     "unescoSummary": "{{properties}} properties · {{places}} places",
     "unescoVisited": "properties with a visited place",
+    "places": "{{count}} places",
     "places_one": "{{count}} place",
     "places_other": "{{count}} places",
+    "destinationsMatching": "{{count}} destinations matching",
+    "destinationsMatching_one": "{{count}} destination matching",
+    "destinationsMatching_other": "{{count}} destinations matching",
+    "noDestinationsFound": "No destinations match the selected filters.",
+    "noDestinationsFoundHint": "Try adjusting your search terms or clearing some filters.",
+    "gridView": "Switch to grid view",
+    "mapView": "Switch to map view",
+    "grid": "Grid",
+    "map": "Map",
+    "destinationsDescription": "Find the perfect adventure across Japan. Filter by region, prefecture, collections, budget, and vibe.",
+    "budgetTransportWhenKnown": "Incl. transport when known",
+    "allRegionsAndPrefectures": "All Regions & Prefectures",
+    "anywhere": "Anywhere",
+    "locationCount": "Location ({{count}})",
+    "regionsAndPrefectures": "Regions & Prefectures",
+    "somethingWentWrong": "Something went wrong",
+    "errorDescription": "We encountered an unexpected error while trying to load this content. Please try refreshing the page.",
+    "reloadPage": "Reload Page",
+    "tryAgain": "Try Again",
+    "heatTolerance": "Heat Comfort",
+    "rainFriendly": "Rainy Day Friendly",
+    "linkCopied": "Link copied to clipboard!",
     "itineraries": "Travel itineraries",
     "travelPlanner": "Travel planner",
     "savedDestinations": "Saved destinations",
@@ -699,8 +750,34 @@
     "defaultLanguage": "Default language",
     "baseLocation": "Base location",
     "failedSave": "Failed to save settings",
-    "settingsSaved": "Settings saved successfully!",
-    "estimated": "est."
+    "settingsSaved": "Settings saved successfully!"
+  },
+  "trips": {
+    "exportCalendar": "Export to calendar",
+    "printTrip": "Print trip",
+    "copyTripLink": "Copy trip link",
+    "linkCopied": "Trip link copied to clipboard!",
+    "status": "Status",
+    "statusLabels": {
+      "draft": "Draft",
+      "planned": "Planned",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "active": "Active",
+      "in_progress": "In Progress",
+      "archived": "Archived"
+    },
+    "journalNotes": "Trip Journal Notes",
+    "journalDescription": "Record memories, list tickets, notes about dining places, or write journal updates during your journey.",
+    "journalPlaceholder": "Write details about reservation confirmations, train links, ticket info...",
+    "saveJournal": "Save Journal",
+    "moveUp": "Move stop up",
+    "moveDown": "Move stop down",
+    "removeStop": "Remove stop from itinerary",
+    "customLocationPlaceholder": "e.g. Hotel Sunroute Plaza Shinjuku",
+    "notesPlaceholder": "e.g. Try local spicy noodles",
+    "failedAdd": "Failed to add destination to itinerary",
+    "failedCreate": "Failed to create trip"
   },
   "settings": {
     "fullName": "Full name",
@@ -746,10 +823,12 @@
     "today": "Today",
     "tomorrow": "Tomorrow",
     "chooseTravelDate": "Choose travel date",
-    "anyDate": "Any date",
-    "close": "Close date picker",
     "forecastNearOrigin": "Forecast near {{origin}}",
-    "day2DerivedHint": "Day 2 (derived for 2D1N trip)"
+    "originForecastDefault": "Origin weather forecast for {{date}}",
+    "day2DerivedHint": "Day 2 (derived for 2D1N trip)",
+    "day2": "Day 2: {{date}}",
+    "anyDate": "Any date",
+    "close": "Close"
   },
   "theme": {
     "light": "Light",
@@ -757,6 +836,7 @@
     "system": "System"
   },
   "compare": {
+    "score": "Score",
     "best": "Best",
     "budget": "Budget",
     "lowest": "Lowest",
@@ -769,16 +849,104 @@
     "removeFromCompare": "Remove from comparison",
     "closeModal": "Close comparison modal",
     "unavailable": "N/A",
-    "estimated": "est.",
+    "features": "Features",
     "budgetRecommended": "Budget (Recommended)",
     "travelTime": "Travel Time",
     "walkIntensity": "Walk Intensity",
     "coupleScore": "Couple Score",
     "summerComfort": "Summer Comfort",
     "vibeTags": "Vibe Tags",
-    "features": "Features",
     "viewDetails": "View Details",
     "highest": "Highest",
-    "removeFromCompareList": "Remove destination from comparison list"
+    "driving": " · Driving",
+    "removeFromCompareList": "Remove destination from comparison list",
+    "maxLimitAlert": "You can compare up to 3 destinations at a time."
+  },
+  "help": {
+    "title": "Help Center",
+    "subtitle": "Documentation & Support",
+    "description": "Learn feature workflows, view keyboard shortcuts, check release notes, or send feedback.",
+    "sendFeedback": "Send Feedback",
+    "searchPlaceholder": "Search help topics, FAQs, or keyboard shortcuts...",
+    "clearSearch": "Clear",
+    "sections": {
+      "gettingStarted": "Getting Started",
+      "faq": "Frequently Asked Questions",
+      "shortcuts": "Keyboard Shortcuts",
+      "changelog": "Release Changelog"
+    },
+    "gettingStarted": {
+      "title": "Getting Started with Meguruto",
+      "subtitle": "3 simple steps to master your travel exploration in Japan.",
+      "step1Title": "Discover & Bookmark",
+      "step1Description": "Explore Japan sights and curated UNESCO collections. Bookmark places to your Bucket List.",
+      "step2Title": "Plan Itineraries",
+      "step2Description": "Build daily travel plans in My Trips. Configure your Base Location in Settings for accurate transit times.",
+      "step3Title": "Track Progression",
+      "step3Description": "Log visited spots in Passport. Watch your Japan map light up and earn milestone badges."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find quick answers to common questions about Meguruto.",
+      "items": {
+        "visited": {
+          "question": "How do I mark a destination or sight as visited?",
+          "answer": "Browse to any destination page or sight card and click the 'Mark as Visited' checkmark button. Your visit history will automatically sync to your Travel Passport and prefecture map."
+        },
+        "baseLocation": {
+          "question": "How does the Base Location setting work?",
+          "answer": "Configure your Base Location (e.g., Tokyo Station, Osaka) in Settings > General. Meguruto uses this as your default home starting point when calculating travel times and daily route plans."
+        },
+        "achievements": {
+          "question": "What is the difference between Achievements and Badges?",
+          "answer": "Achievements represent official heritage benchmarks (like UNESCO World Heritage Sites or 12 Existing Castles). Badges represent gamified exploration rewards unlocked by visiting regions and reaching travel milestones."
+        },
+        "calendar": {
+          "question": "How do I export my trip itinerary to Google Calendar?",
+          "answer": "Open any itinerary in My Trips and click the 'Export to Calendar' button. You can download an .ics file or add it directly to Google Calendar."
+        }
+      }
+    },
+    "shortcuts": {
+      "title": "Keyboard Shortcuts Cheat Sheet",
+      "subtitle": "Speed up your navigation across Meguruto with global hotkeys.",
+      "globalSearch": "Open Global Search & Command Palette",
+      "closeDialog": "Close Command Palette or any open dialog/menu",
+      "navigateItems": "Navigate items in search results or command lists",
+      "selectItem": "Select highlighted search result or action"
+    },
+    "changelog": {
+      "title": "Release History & Changelog",
+      "subtitle": "Latest features and improvements added to Meguruto.",
+      "version152Title": "Version 1.5.2 — Design System & Product Polish",
+      "version152Date": "July 2026",
+      "item1": "Centralized Lucide icon registry & zero unicode emojis.",
+      "item2": "ThemeProvider service with live theme switching.",
+      "item3": "Single source of truth for Base Location with reusable StationInput.",
+      "item4": "Safe return navigation flow (?return=).",
+      "item5": "Functional JSON data export with schemaVersion: 1.",
+      "item6": "Redesigned Profile Explorer Hub hero header."
+    }
+  },
+  "feedbackModal": {
+    "title": "Send Feedback",
+    "subtitle": "Help us improve Meguruto for travelers",
+    "typesLabel": "Feedback Type",
+    "types": {
+      "general": "General",
+      "feature": "Feature",
+      "bug": "Bug Report"
+    },
+    "messageLabel": "Your Message",
+    "placeholder": "Share your thoughts, suggestions, or issues...",
+    "cancel": "Cancel",
+    "submit": "Submit Feedback",
+    "submitting": "Sending...",
+    "successToast": "Feedback submitted! Thank you for helping improve Meguruto.",
+    "errorGeneric": "Failed to submit feedback. Please try again.",
+    "successTitle": "Thank you for your feedback!",
+    "successMessage": "Your feedback has been saved locally.",
+    "sendEmail": "Also Send via Email",
+    "done": "Done"
   }
 }

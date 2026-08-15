@@ -4,10 +4,14 @@ import { MemoryRouter } from "react-router-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { AuthModal } from "../AuthModal";
 
+const authMock = vi.hoisted(() => ({
+  signInWithEmail: vi.fn(),
+}));
+
 vi.mock("@/shared/hooks/useAuth", () => ({
   useAuth: () => ({
     signInWithGoogle: vi.fn(),
-    signInWithEmail: vi.fn(),
+    signInWithEmail: authMock.signInWithEmail,
     signUpWithEmail: vi.fn(),
     resetPasswordForEmail: vi.fn(),
   }),
@@ -16,6 +20,7 @@ vi.mock("@/shared/hooks/useAuth", () => ({
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string) => key,
+    i18n: { language: "en", resolvedLanguage: "en" },
   }),
 }));
 
@@ -46,6 +51,25 @@ function renderAuthModal() {
 }
 
 describe("AuthModal", () => {
+  it("preserves a useful unknown backend error in English", async () => {
+    authMock.signInWithEmail.mockResolvedValueOnce({
+      error: new Error("Database temporarily unavailable"),
+    });
+    renderAuthModal();
+
+    await act(async () => {
+      document.body
+        .querySelector("form")
+        ?.dispatchEvent(
+          new Event("submit", { bubbles: true, cancelable: true }),
+        );
+    });
+
+    expect(document.body.textContent).toContain(
+      "Database temporarily unavailable",
+    );
+  });
+
   it("renders a light card with dark-mode variants and a separated brand mark", () => {
     renderAuthModal();
 

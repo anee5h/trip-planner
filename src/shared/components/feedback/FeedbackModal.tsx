@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
+import { useTranslation } from "react-i18next";
 import {
   X,
   Send,
@@ -20,6 +21,7 @@ interface FeedbackModalProps {
 }
 
 export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
+  const { t } = useTranslation();
   const [feedbackType, setFeedbackType] = useState<
     "general" | "bug" | "feature"
   >("general");
@@ -58,15 +60,13 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
           console.warn("Failed to write feedback to localStorage", err);
         }
 
-        toast.success(
-          "Feedback submitted! Thank you for helping improve Meguruto.",
-        );
+        toast.success(t("feedbackModal.successToast"));
         setIsSubmitting(false);
         setSubmitted(true);
       }, 600);
     } catch {
       setIsSubmitting(false);
-      setSubmitError("Failed to submit feedback. Please try again.");
+      setSubmitError(t("feedbackModal.errorGeneric"));
     }
   };
 
@@ -92,10 +92,10 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
             </div>
             <div>
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-                Send Feedback
+                {t("feedbackModal.title")}
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Help us improve Meguruto for travelers
+                {t("feedbackModal.subtitle")}
               </p>
             </div>
           </div>
@@ -116,116 +116,127 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
               </div>
               <div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                  Thank you for your feedback!
+                  {t("feedbackModal.successTitle")}
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs mx-auto mt-1">
-                  Your feedback has been saved locally.
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                  {t("feedbackModal.successMessage")}
                 </p>
               </div>
 
               <div className="pt-2 flex flex-col gap-2">
                 <a
-                  href={`mailto:kaihatsu.studio@gmail.com?subject=${encodeURIComponent(
-                    `Meguruto Feedback (${feedbackType})`,
-                  )}&body=${encodeURIComponent(message)}`}
-                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-bold text-slate-700 dark:text-slate-200 transition-colors"
+                  href={`mailto:info@meguruto.app?subject=[${feedbackType.toUpperCase()}] Feedback&body=${encodeURIComponent(message)}`}
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold transition-colors"
                 >
-                  <Mail className="w-3.5 h-3.5 text-emerald-500" />
-                  <span>Also Send via Email</span>
+                  <Mail className="w-4 h-4" />
+                  <span>{t("feedbackModal.sendEmail")}</span>
                 </a>
+
                 <Button
-                  type="button"
                   onClick={handleClose}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md"
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-2xl py-2.5 shadow-sm"
                 >
-                  Done
+                  {t("feedbackModal.done")}
                 </Button>
               </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               {submitError && (
-                <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-xs font-medium flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 shrink-0 text-rose-500" />
+                <div className="p-3 bg-red-50 dark:bg-red-950/50 border border-red-200 dark:border-red-800 rounded-2xl flex items-center gap-2 text-red-600 dark:text-red-400 text-xs">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
                   <span>{submitError}</span>
                 </div>
               )}
 
+              {/* Feedback Type Selection */}
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
-                  Feedback Type
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                  {t("feedbackModal.typesLabel")}
                 </label>
                 <div className="grid grid-cols-3 gap-2">
-                  {[
-                    {
-                      id: "general",
-                      label: "General",
-                      Icon: MessageSquare,
-                    },
-                    {
-                      id: "feature",
-                      label: "Feature",
-                      Icon: Sparkles,
-                    },
-                    {
-                      id: "bug",
-                      label: "Bug Report",
-                      Icon: Bug,
-                    },
-                  ].map(({ id, label, Icon }) => (
-                    <button
-                      key={id}
-                      type="button"
-                      onClick={() => setFeedbackType(id as any)}
-                      className={`py-2 px-2.5 rounded-xl text-xs font-bold transition-all border flex items-center justify-center gap-1.5 ${
-                        feedbackType === id
-                          ? "bg-emerald-500 text-white border-emerald-500 shadow-sm"
-                          : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700"
-                      }`}
-                    >
-                      <Icon className="w-3.5 h-3.5 shrink-0" />
-                      <span>{label}</span>
-                    </button>
-                  ))}
+                  <button
+                    type="button"
+                    onClick={() => setFeedbackType("general")}
+                    className={`flex items-center justify-center gap-1.5 py-2 px-3 rounded-2xl text-xs font-bold border transition-all ${
+                      feedbackType === "general"
+                        ? "bg-emerald-50 dark:bg-emerald-950/60 border-emerald-500/50 text-emerald-700 dark:text-emerald-300 shadow-2xs"
+                        : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/40"
+                    }`}
+                  >
+                    <MessageSquare className="w-3.5 h-3.5" />
+                    <span>{t("feedbackModal.types.general")}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setFeedbackType("feature")}
+                    className={`flex items-center justify-center gap-1.5 py-2 px-3 rounded-2xl text-xs font-bold border transition-all ${
+                      feedbackType === "feature"
+                        ? "bg-emerald-50 dark:bg-emerald-950/60 border-emerald-500/50 text-emerald-700 dark:text-emerald-300 shadow-2xs"
+                        : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/40"
+                    }`}
+                  >
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>{t("feedbackModal.types.feature")}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setFeedbackType("bug")}
+                    className={`flex items-center justify-center gap-1.5 py-2 px-3 rounded-2xl text-xs font-bold border transition-all ${
+                      feedbackType === "bug"
+                        ? "bg-emerald-50 dark:bg-emerald-950/60 border-emerald-500/50 text-emerald-700 dark:text-emerald-300 shadow-2xs"
+                        : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/40"
+                    }`}
+                  >
+                    <Bug className="w-3.5 h-3.5" />
+                    <span>{t("feedbackModal.types.bug")}</span>
+                  </button>
                 </div>
               </div>
 
+              {/* Message Input */}
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">
-                  Your Message
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                  {t("feedbackModal.messageLabel")}
                 </label>
                 <textarea
-                  required
                   rows={4}
+                  required
                   value={message}
-                  disabled={isSubmitting}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Share your thoughts, suggestions, or issues..."
-                  className="w-full p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 disabled:opacity-50"
+                  placeholder={t("feedbackModal.placeholder")}
+                  className="w-full p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl text-xs placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 resize-none transition-all"
                 />
               </div>
 
-              <div className="flex justify-end gap-3 pt-2">
+              {/* Action Buttons */}
+              <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
                 <Button
                   type="button"
-                  variant="outline"
+                  variant="ghost"
                   onClick={handleClose}
-                  disabled={isSubmitting}
-                  className="rounded-xl text-xs font-bold"
+                  className="text-xs text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 rounded-2xl"
                 >
-                  Cancel
+                  {t("feedbackModal.cancel")}
                 </Button>
                 <Button
                   type="submit"
-                  disabled={isSubmitting || !message.trim()}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={!message.trim() || isSubmitting}
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-2xl px-4 py-2 flex items-center gap-1.5 shadow-sm active:scale-95 transition-all"
                 >
                   {isSubmitting ? (
-                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                      <span>{t("feedbackModal.submitting")}</span>
+                    </>
                   ) : (
-                    <Send className="w-3.5 h-3.5" />
+                    <>
+                      <Send className="w-3.5 h-3.5" />
+                      <span>{t("feedbackModal.submit")}</span>
+                    </>
                   )}
-                  {isSubmitting ? "Sending..." : "Submit Feedback"}
                 </Button>
               </div>
             </form>
