@@ -547,7 +547,6 @@
     "originForecastHint": "予報は出発地付近の天気です"
   },
   "destination": {
-    "megurutoScore": "Megurutoスコア",
     "alreadyVisited": "訪問済み",
     "markVisited": "訪問済みに設定",
     "markUnvisited": "訪問済みを解除",
@@ -707,6 +706,8 @@
     "mapView": "マップ表示に切り替え",
     "grid": "グリッド",
     "map": "マップ",
+    "destinationsDescription": "日本全国の旅先を探してみましょう。地域・都道府県・コレクション・予算・雰囲気でフィルタリングできます。",
+    "budgetTransportWhenKnown": "交通費込み（推定可能な場合）",
     "allRegionsAndPrefectures": "全国（地方・都道府県）",
     "anywhere": "全国",
     "locationCount": "エリア ({{count}})",
@@ -849,7 +850,6 @@
     "closeModal": "比較モーダルを閉じる",
     "unavailable": "比較情報なし",
     "features": "比較項目",
-    "overallScore": "総合スコア",
     "budgetRecommended": "予算（目安）",
     "travelTime": "所要時間",
     "walkIntensity": "歩行量",

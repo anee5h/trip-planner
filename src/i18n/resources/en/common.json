@@ -547,7 +547,6 @@
     "originForecastHint": "Forecast shows weather near your origin"
   },
   "destination": {
-    "megurutoScore": "Meguruto score",
     "alreadyVisited": "Already Visited",
     "markVisited": "Mark as visited destination",
     "markUnvisited": "Remove from visited destinations",
@@ -707,6 +706,8 @@
     "mapView": "Switch to map view",
     "grid": "Grid",
     "map": "Map",
+    "destinationsDescription": "Find the perfect adventure across Japan. Filter by region, prefecture, collections, budget, and vibe.",
+    "budgetTransportWhenKnown": "Incl. transport when known",
     "allRegionsAndPrefectures": "All Regions & Prefectures",
     "anywhere": "Anywhere",
     "locationCount": "Location ({{count}})",
@@ -849,7 +850,6 @@
     "closeModal": "Close comparison modal",
     "unavailable": "N/A",
     "features": "Features",
-    "overallScore": "Overall Score",
     "budgetRecommended": "Budget (Recommended)",
     "travelTime": "Travel Time",
     "walkIntensity": "Walk Intensity",

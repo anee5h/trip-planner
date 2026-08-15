@@ -220,6 +220,16 @@ function buttonContainingText(container: HTMLDivElement, text: string) {
   );
 }
 
+describe("DestinationFilters score-sort presentation", () => {
+  it("does not expose the hidden overall-score sort", () => {
+    const container = renderFilters({ sortBy: "overall" });
+    const text = container.textContent ?? "";
+
+    expect(text).not.toMatch(/Top Rated|Highest Rated|overall/i);
+    expect(container.querySelector('[data-value="overall"]')).toBeNull();
+  });
+});
+
 describe("DestinationFilters dark-mode states", () => {
   it("uses the selected treatment for collections", () => {
     const container = renderFilters({ selectedCollections: ["unesco-japan"] });

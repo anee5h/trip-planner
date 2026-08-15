@@ -53,6 +53,41 @@ afterEach(() => {
 });
 
 describe("FeedbackModal — Japanese Localization", () => {
+  it("targets the configured beta feedback mailbox", async () => {
+    vi.useFakeTimers();
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => {
+      root!.render(<FeedbackModal isOpen={true} onClose={vi.fn()} />);
+    });
+
+    const textarea =
+      document.body.querySelector<HTMLTextAreaElement>("textarea");
+    act(() => {
+      const setter = Object.getOwnPropertyDescriptor(
+        HTMLTextAreaElement.prototype,
+        "value",
+      )?.set;
+      setter?.call(textarea, "テスト");
+      textarea?.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+    await act(async () => {
+      document.body
+        .querySelector("form")
+        ?.dispatchEvent(
+          new Event("submit", { bubbles: true, cancelable: true }),
+        );
+      await vi.advanceTimersByTimeAsync(600);
+    });
+
+    const emailLink =
+      document.body.querySelector<HTMLAnchorElement>('a[href^="mailto:"]');
+    expect(emailLink?.href).toMatch(/^mailto:info@meguruto\.app\?/);
+    expect(emailLink?.href).not.toContain("@meguruto.jp");
+    vi.useRealTimers();
+  });
+
   it("renders Japanese title, feedback categories, placeholders, and buttons", () => {
     host = document.createElement("div");
     document.body.appendChild(host);

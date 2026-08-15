@@ -125,7 +125,7 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
 
               <div className="pt-2 flex flex-col gap-2">
                 <a
-                  href={`mailto:feedback@meguruto.jp?subject=[${feedbackType.toUpperCase()}] Feedback&body=${encodeURIComponent(message)}`}
+                  href={`mailto:info@meguruto.app?subject=[${feedbackType.toUpperCase()}] Feedback&body=${encodeURIComponent(message)}`}
                   className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold transition-colors"
                 >
                   <Mail className="w-4 h-4" />

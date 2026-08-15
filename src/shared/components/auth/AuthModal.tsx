@@ -17,7 +17,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
     signUpWithEmail,
     resetPasswordForEmail,
   } = useAuth();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -58,7 +58,10 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
     if (lower.includes("network") || lower.includes("fetch")) {
       return t("auth.errors.networkError");
     }
-    return msg;
+    return i18n.resolvedLanguage?.startsWith("ja") ||
+      i18n.language.startsWith("ja")
+      ? t("auth.errors.generic")
+      : msg;
   };
 
   const handleEmail = async (e: React.FormEvent) => {

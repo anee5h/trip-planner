@@ -44,6 +44,7 @@ vi.mock("react-i18next", () => ({
       };
       return jaMap[key] ?? opts?.defaultValue ?? key;
     },
+    i18n: { language: "ja", resolvedLanguage: "ja" },
   }),
   initReactI18next: { type: "3rdParty", init: vi.fn() },
 }));
@@ -115,5 +116,36 @@ describe("AuthModal — Japanese Localization", () => {
       "メールアドレスまたはパスワードが正しくありません。",
     );
     expect(text).not.toContain("Invalid login credentials");
+  });
+
+  it("does not expose an unknown English backend error in Japanese", async () => {
+    authMock.signInWithEmail.mockResolvedValueOnce({
+      error: new Error("Database temporarily unavailable"),
+    });
+
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <AuthModal isOpen={true} onClose={vi.fn()} />
+        </MemoryRouter>,
+      );
+    });
+
+    await act(async () => {
+      document.body
+        .querySelector("form")
+        ?.dispatchEvent(
+          new Event("submit", { bubbles: true, cancelable: true }),
+        );
+    });
+
+    const text = document.body.textContent ?? "";
+    expect(text).toContain(
+      "認証エラーが発生しました。もう一度お試しください。",
+    );
+    expect(text).not.toContain("Database temporarily unavailable");
   });
 });
