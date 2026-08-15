@@ -51,7 +51,9 @@ export async function onRequest(context) {
   const manifest = await loadManifest(context.env, requestUrl);
   if (!manifest) {
     // Manifest missing: fail open to the SPA shell so valid destinations
-    // keep working even if the build step was skipped.
+    // keep working even if the build step was skipped — but without the
+    // manifest we cannot distinguish valid from unknown destination ids, so
+    // every destination response is de-indexed until the manifest exists.
     const shell = await context.env.ASSETS.fetch(
       assetUrl(requestUrl, "/index.html"),
     );
@@ -60,6 +62,7 @@ export async function onRequest(context) {
       headers: {
         ...SECURITY_HEADERS,
         "Content-Type": "text/html; charset=utf-8",
+        "X-Robots-Tag": "noindex, follow",
       },
     });
   }

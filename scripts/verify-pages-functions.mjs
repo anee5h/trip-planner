@@ -12,15 +12,44 @@
  *   unknown slug                 -> 404, X-Robots-Tag: noindex
  *   malformed id                 -> 404
  *   private SPA route (/settings)-> 200 + noindex (from public/_headers)
- *   normal SPA routes, static assets, sitemap, robots, manifest -> 200
+ *   normal SPA routes, built module asset, sitemap, robots, manifest -> 200
  *
- * Exit codes: 0 pass, 1 fail. Requires `npm run build` first (dist/).
+ * The built module asset is discovered from dist/index.html (not hardcoded)
+ * so the gate survives future Vite output changes.
+ *
+ * Exit codes: 0 pass, 1 fail (a failed assertion MUST make the script exit
+ * non-zero — assert() records process.exitCode and the final exit() call
+ * respects it instead of forcing 0). Requires `npm run build` first (dist/).
  */
 
 import { spawn } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
+
+const ROOT = process.cwd();
+const DIST = path.join(ROOT, "dist");
 
 const PORT = 8799 + Math.floor(Math.random() * 500);
 const BASE = `http://127.0.0.1:${PORT}`;
+
+/** Finds the Vite-built entry module URL (e.g. /assets/index-XXXX.js) from
+ *  dist/index.html so the check does not depend on a hashed filename. */
+function discoverBuiltAsset() {
+  const shellPath = path.join(DIST, "index.html");
+  if (!fs.existsSync(shellPath)) {
+    throw new Error(
+      `dist/index.html not found — run "npm run build" before this check.`,
+    );
+  }
+  const shell = fs.readFileSync(shellPath, "utf8");
+  const match = shell.match(/<script[^>]+type="module"[^>]+src="([^"]+)"/);
+  if (!match) {
+    throw new Error(
+      `No module script found in dist/index.html — cannot verify the built asset.`,
+    );
+  }
+  return match[1];
+}
 
 function fetchStatusAndRobots(path) {
   return new Promise((resolve, reject) => {
@@ -87,6 +116,8 @@ const exit = (code) => {
   } catch {
     // already gone
   }
+  // Prefer the explicit code; otherwise respect exitCode recorded by any
+  // failed assert(). Never force 0 over a failed assertion.
   process.exit(code ?? process.exitCode ?? 0);
 };
 server.on("exit", () => {
@@ -98,6 +129,9 @@ server.on("exit", () => {
 });
 
 try {
+  const builtAsset = discoverBuiltAsset();
+  console.log(`built module asset: ${builtAsset}`);
+
   await waitForServer(30_000);
 
   const published = await fetchStatusAndRobots(
@@ -151,7 +185,7 @@ try {
 
   for (const path of [
     "/destinations",
-    "/assets/index-CH2Wdn8Z.js",
+    builtAsset,
     "/sitemap.xml",
     "/robots.txt",
     "/data/kai68-public-destinations.json",
@@ -161,7 +195,8 @@ try {
   }
 
   console.log("Pages Function runtime verification complete.");
-  exit(0);
+  // Respect exitCode recorded by any failed assert().
+  exit();
 } catch (error) {
   console.error(error.message);
   console.error(serverLog.slice(-2000));

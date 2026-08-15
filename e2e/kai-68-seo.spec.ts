@@ -93,13 +93,27 @@ test.describe("KAI-68 destination deep-link + title sync", () => {
       .poll(() => page.title())
       .toBe("Meguruto: めぐると、見つかる。");
 
-    // Client-side navigation into a destination sets localized metadata.
-    await page.goto("/destinations/tokyo-station-chiyoda");
-    await expect.poll(() => page.title()).toContain("Tokyo Station");
+    // Client-side navigation (React Router) into a destination sets
+    // localized metadata.
+    const destinationLink = page.locator('a[href^="/destinations/"]').first();
+    await expect(destinationLink).toBeVisible();
+    await destinationLink.click();
+    await expect(page).toHaveURL(/\/destinations\/.+/);
+    await expect
+      .poll(() => page.title())
+      .not.toBe("Meguruto: めぐると、見つかる。");
+    await expect.poll(() => page.title()).toContain("| Meguruto");
+    const destinationDescription = await page
+      .locator('meta[name="description"]')
+      .getAttribute("content");
+    expect(destinationDescription).not.toBe(
+      "Find Japan day trips and weekend getaways that fit your time, budget, weather, and travel preferences.",
+    );
 
-    // Client-side navigation away must restore the shell defaults (KAI-68
-    // ownership/cleanup): the destination title must not leak onto Home.
-    await page.goto("/");
+    // Client-side navigation back home must restore the shell defaults
+    // (KAI-68 ownership/cleanup): the destination title must not leak.
+    await page.getByRole("link", { name: "Meguruto home" }).first().click();
+    await expect(page).toHaveURL(/\/$/);
     await expect
       .poll(() => page.title())
       .toBe("Meguruto: めぐると、見つかる。");
