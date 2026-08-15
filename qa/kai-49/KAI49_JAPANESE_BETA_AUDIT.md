@@ -18,13 +18,17 @@ This document certifies the final Japanese localization release audit for Meguru
    - Couple rating confidence is guarded by `isRatingVerified(destination)` in Compare and CompareModal.
 4. **Attribution & Tooltip Localization**:
    - Wikipedia attribution tooltip on `DestinationDetails` uses parameter-interpolated translation (`t("destination.wikipediaAttributionTooltip", { source: "Wikipedia", license: "CC BY-SA 4.0" })` -> `Wikipedia（CC BY-SA 4.0ライセンス）に基づく概要`).
+   - Beta travel estimate calibration notice and Wikipedia loading/summary/unavailable states are fully localized with `t(...)`.
+5. **Compare Travel-Time & Mode Localization**:
+   - Compare desktop table renders localized travel times with Japanese units and mode names (`XX分（新幹線）`, `XX分（電車）`, etc.).
+   - CompareModal renders localized travel times (`XX分`).
 
 ---
 
 ## 2. Resource Parity Audit
 
 - **Resource files**: `src/i18n/resources/en/common.json` and `src/i18n/resources/ja/common.json`
-- **Total Keys**: 736 keys per locale
+- **Total Keys**: 739 keys per locale
 - **Missing Keys**: 0
 - **Interpolation Placeholder Mismatches**: 0
 - **Parity Validator**: `node scripts/check-translation-parity.cjs` passes cleanly.
@@ -33,33 +37,34 @@ This document certifies the final Japanese localization release audit for Meguru
 
 ## 3. Comprehensive Route & Surface Localization Matrix
 
-| Route / Surface                     |   Status    | Japanese Verification Highlights                                                                                                                                                                  |
-| :---------------------------------- | :---------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`/` (Home)**                      | ✅ Verified | Planner segments, Vibe header (`home.vibe`), transport modes, date picker, station picker, match confidence reasons.                                                                              |
-| **`/destinations` (Explore)**       | ✅ Verified | Filter dropdowns, collection active chips, prefecture grouping (`WhereLocationPicker`), empty search results, sort selectors.                                                                     |
-| **`/destinations/:id` (Details)**   | ✅ Verified | Destination details, Wikipedia summary & attribution tooltip, beta confidence disclaimer, tags, walking intensity badges.                                                                         |
-| **`/compare` (Compare Page)**       | ✅ Verified | Table headers (`特徴`, `おすすめ予算`, `所要時間`, `歩行量`, `カップル向け`, `夏の快適度`, `雰囲気タグ`), place names, prefectures, `比較情報なし`, lowest/fastest badges. No numeric score rows. |
-| **`CompareModal`**                  | ✅ Verified | Compare header (`比較`), count, metrics, tags, `比較情報なし`, view details, remove button aria-labels.                                                                                           |
-| **`/trips` & `/trips/:id` (Trips)** | ✅ Verified | Trip title, status badges, day tabs, calendar export (.ics), PDF export, share link, journal notes, itinerary planner.                                                                            |
-| **`/passport` (Passport)**          | ✅ Verified | Visited places, regional progress, completion percentages, bucket list entries, stamp collection.                                                                                                 |
-| **`/help` (Help Center)**           | ✅ Verified | Help header, subtitle, search placeholder, category tabs, FAQs, keyboard shortcuts table, beta release notes changelog.                                                                           |
-| **`FeedbackModal`**                 | ✅ Verified | Modal title, type selector (Issue/Idea/Question), message textarea, submitting states, error handling, success toast.                                                                             |
-| **`AuthModal`**                     | ✅ Verified | Social login (Google), email magic link, validation messages, Supabase authentication error mappings.                                                                                             |
-| **Navigation & Layout**             | ✅ Verified | Navbar links, language menu switcher, theme toggle, user menu, mobile hamburger drawer, bottom navigation, error boundary.                                                                        |
+| Route / Surface                     |   Status    | Japanese Verification Highlights                                                                                                                                                                                                   |
+| :---------------------------------- | :---------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`/` (Home)**                      | ✅ Verified | Planner segments, Vibe header (`home.vibe`), transport modes, date picker, station picker, match confidence reasons.                                                                                                               |
+| **`/destinations` (Explore)**       | ✅ Verified | Filter dropdowns, collection active chips, prefecture grouping (`WhereLocationPicker`), empty search results, sort selectors.                                                                                                      |
+| **`/destinations/:id` (Details)**   | ✅ Verified | Destination details, Wikipedia summary & attribution tooltip, beta confidence disclaimer, tags, walking intensity badges, transport mode labels (`新幹線`, `電車`, etc.).                                                          |
+| **`/compare` (Compare Page)**       | ✅ Verified | Table headers (`特徴`, `おすすめ予算`, `所要時間`, `歩行量`, `カップル向け`, `夏の快適度`, `雰囲気タグ`), place names, prefectures, travel times (`XX分（新幹線）`), `比較情報なし`, lowest/fastest badges. No numeric score rows. |
+| **`CompareModal`**                  | ✅ Verified | Compare header (`比較`), count, metrics, tags, travel times (`XX分`), `比較情報なし`, view details, remove button aria-labels.                                                                                                     |
+| **`/trips` & `/trips/:id` (Trips)** | ✅ Verified | Trip title, status badges, day tabs, calendar export (.ics), PDF export, share link, journal notes, itinerary planner.                                                                                                             |
+| **`/passport` (Passport)**          | ✅ Verified | Visited places, regional progress, completion percentages, bucket list entries, stamp collection.                                                                                                                                  |
+| **`/help` (Help Center)**           | ✅ Verified | Help header, subtitle, search placeholder, category tabs, FAQs, keyboard shortcuts table, beta release notes changelog.                                                                                                            |
+| **`FeedbackModal`**                 | ✅ Verified | Modal title, type selector (Issue/Idea/Question), message textarea, submitting states, error handling, success toast.                                                                                                              |
+| **`AuthModal`**                     | ✅ Verified | Social login (Google), email magic link, validation messages, Supabase authentication error mappings.                                                                                                                              |
+| **Navigation & Layout**             | ✅ Verified | Navbar links, language menu switcher, theme toggle, user menu, mobile hamburger drawer, bottom navigation, error boundary.                                                                                                         |
 
 ---
 
 ## 4. Dedicated Japanese Regression Test Suites
 
-All 7 dedicated Japanese test suites pass with 100% coverage:
+All 8 dedicated Japanese regression test suites are passing (17 tests total):
 
-1. `src/features/help/__tests__/Help.ja.test.tsx` (Help center, FAQ search, shortcuts, changelog)
-2. `src/shared/components/feedback/__tests__/FeedbackModal.ja.test.tsx` (Feedback form, submission, toast)
-3. `src/shared/components/auth/__tests__/AuthModal.ja.test.tsx` (Auth forms, Supabase error message mappings)
-4. `src/features/trips/__tests__/TripDetails.ja.test.tsx` (Trip status, PDF/calendar export, journal notes)
-5. `src/features/compare/__tests__/Compare.ja.test.tsx` (Table headers, place names, vibe tags, `比較情報なし`, score absence)
-6. `src/features/destinations/__tests__/WhereLocationPicker.ja.test.tsx` (Region selector, prefecture grouping, reset action)
-7. `src/features/destinations/components/__tests__/DestinationCard.ja.test.tsx` (Place details, action buttons, `訪問済み` badge, score absence)
+1. `src/features/destinations/__tests__/DestinationDetails.ja.test.tsx` (Wikipedia trigger, summary, attribution tooltip, beta disclaimer)
+2. `src/features/help/__tests__/Help.ja.test.tsx` (Help center, FAQ search, shortcuts, changelog)
+3. `src/shared/components/feedback/__tests__/FeedbackModal.ja.test.tsx` (Feedback form, submission, toast)
+4. `src/shared/components/auth/__tests__/AuthModal.ja.test.tsx` (Auth forms, Supabase error message mappings)
+5. `src/features/trips/__tests__/TripDetails.ja.test.tsx` (Trip status, PDF/calendar export, journal notes)
+6. `src/features/compare/__tests__/Compare.ja.test.tsx` (Table headers, place names, vibe tags, `XX分（新幹線）`, `比較情報なし`, score absence)
+7. `src/features/destinations/__tests__/WhereLocationPicker.ja.test.tsx` (Region selector, prefecture grouping, reset action)
+8. `src/features/destinations/components/__tests__/DestinationCard.ja.test.tsx` (Place details, action buttons, `訪問済み` badge, score absence)
 
 ---
 
@@ -74,7 +79,9 @@ npx tsc -b --noEmit
 npm run lint
 
 # 3. Dedicated Japanese Test Suites
-npx vitest run src/features/help/__tests__/Help.ja.test.tsx \
+npx vitest run \
+  src/features/destinations/__tests__/DestinationDetails.ja.test.tsx \
+  src/features/help/__tests__/Help.ja.test.tsx \
   src/shared/components/feedback/__tests__/FeedbackModal.ja.test.tsx \
   src/shared/components/auth/__tests__/AuthModal.ja.test.tsx \
   src/features/trips/__tests__/TripDetails.ja.test.tsx \

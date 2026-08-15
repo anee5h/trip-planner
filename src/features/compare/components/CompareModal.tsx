@@ -210,7 +210,9 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                         <div className="flex items-center gap-1.5">
                           <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs">
                             {time !== 999
-                              ? `${time}m`
+                              ? locale === "ja"
+                                ? `${time}分`
+                                : `${time}m`
                               : t("compare.unavailable")}
                           </span>
                           {isFastest && (

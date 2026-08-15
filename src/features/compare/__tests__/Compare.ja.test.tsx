@@ -62,6 +62,9 @@ vi.mock("react-i18next", () => ({
         "ui.view": "詳細を見る",
         "home.transportModes.train": "電車",
         "home.transportModes.shinkansen": "新幹線",
+        "home.transportModes.bus": "バス",
+        "home.transportModes.car": "車",
+        "home.transportModes.my_car": "マイカー",
       };
       return jaMap[key] ?? opts?.defaultValue ?? key;
     },
@@ -121,6 +124,12 @@ describe("Compare Page & Modal — Japanese Localization", () => {
     expect(text).toContain("京都市");
     expect(text).toContain("道頓堀");
     expect(text).toContain("たこ焼きの本場");
+
+    // Japanese travel time and mode rendered instead of raw English "min (shinkansen)"
+    expect(text).toContain("130分（新幹線）");
+    expect(text).not.toContain("130 min");
+    expect(text).not.toContain("(shinkansen)");
+    expect(text).not.toContain("(train)");
   });
 
   it("renders '比較情報なし' when destination travel time is unavailable", () => {
@@ -165,6 +174,10 @@ describe("Compare Page & Modal — Japanese Localization", () => {
     expect(text).toContain("カップル");
     expect(text).toContain("詳細を見る");
     expect(text).toContain("すべてクリア");
+
+    // Japanese modal travel time (分 instead of m)
+    expect(text).toContain("130分");
+    expect(text).not.toContain("130m");
 
     // Close button has Japanese aria-label
     const closeBtn = host.querySelector(

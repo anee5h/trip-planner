@@ -208,6 +208,13 @@ export default function Compare() {
                     : ["none", 999];
                 const time = fastest[1];
                 const mode = fastest[0];
+                const modeLabel = t(`home.transportModes.${String(mode)}`, {
+                  defaultValue: String(mode),
+                });
+                const formattedTime =
+                  locale === "ja"
+                    ? `${time}分（${modeLabel}）`
+                    : `${time} min (${mode})`;
                 return (
                   <TableCell key={dest.id}>
                     <span
@@ -217,9 +224,7 @@ export default function Compare() {
                           : ""
                       }
                     >
-                      {time !== 999
-                        ? `${time} min (${mode})`
-                        : t("compare.unavailable")}
+                      {time !== 999 ? formattedTime : t("compare.unavailable")}
                     </span>
                     {time === minTravelTime && time !== 999 && (
                       <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
@@ -375,7 +380,9 @@ export default function Compare() {
                   <p className="font-bold text-slate-900 dark:text-white">
                     {travelTime === 999
                       ? t("compare.unavailable")
-                      : `${travelTime} min`}
+                      : locale === "ja"
+                        ? `${travelTime}分`
+                        : `${travelTime} min`}
                     {travelTime === minTravelTime && travelTime !== 999 && (
                       <span className="ml-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
                         {t("compare.fastest")}

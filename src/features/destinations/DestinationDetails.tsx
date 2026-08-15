@@ -1165,7 +1165,10 @@ export default function DestinationDetails() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full font-medium"
-                    title="Overview sourced from Wikipedia under CC BY-SA 4.0 License"
+                    title={t("destination.wikipediaAttributionTooltip", {
+                      source: "Wikipedia",
+                      license: "CC BY-SA 4.0",
+                    })}
                   >
                     <ExternalLink className="w-3 h-3" /> Wikipedia (CC BY-SA)
                   </a>
@@ -1214,10 +1217,7 @@ export default function DestinationDetails() {
               {destination.travelEstimate?.confidence === "beta" && (
                 <div className="bg-amber-500/10 border border-amber-500/30 text-amber-900 dark:text-amber-200 p-3.5 rounded-xl text-xs font-semibold flex items-center gap-2.5 mb-6">
                   <Info className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
-                  <span>
-                    Travel estimates for this region are still being refined.
-                    Actual travel times may vary slightly.
-                  </span>
+                  <span>{t("destination.betaConfidenceDisclaimer")}</span>
                 </div>
               )}
 
@@ -1235,21 +1235,24 @@ export default function DestinationDetails() {
                   {isWikiLoading ? (
                     <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2 animate-in fade-in duration-150 motion-reduce:animate-none">
                       <BookOpen className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                      <span>Loading Wikipedia summary…</span>
+                      <span>{t("destination.wikipediaLoading")}</span>
                     </div>
                   ) : wikiSummary ? (
                     <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 space-y-2 animate-in fade-in duration-150">
                       <div className="flex items-center justify-between font-semibold text-xs text-slate-500 dark:text-slate-400 border-b border-slate-200/60 dark:border-slate-700/60 pb-2">
                         <div className="flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-300">
                           <BookOpen className="w-3.5 h-3.5 text-emerald-500" />
-                          <span>Wikipedia Summary</span>
+                          <span>{t("destination.wikipediaSummary")}</span>
                         </div>
                         <a
                           href={wikiSummary.url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1 text-[11px] text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
-                          title="Overview sourced from Wikipedia under CC BY-SA 4.0 License"
+                          title={t("destination.wikipediaAttributionTooltip", {
+                            source: "Wikipedia",
+                            license: "CC BY-SA 4.0",
+                          })}
                         >
                           <ExternalLink className="w-3 h-3" /> Wikipedia (CC
                           BY-SA 4.0)
@@ -1261,8 +1264,7 @@ export default function DestinationDetails() {
                     </div>
                   ) : wikiFetched ? (
                     <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400 italic">
-                      No additional Wikipedia article summary found for this
-                      destination.
+                      {t("destination.wikipediaUnavailable")}
                     </div>
                   ) : null}
                 </div>
@@ -1366,7 +1368,7 @@ export default function DestinationDetails() {
                             <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                               <span className="text-slate-500 flex items-center">
                                 <TrainFront className="w-4 h-4 mr-1.5" />{" "}
-                                Shinkansen
+                                {locale === "ja" ? "新幹線" : "Shinkansen"}
                               </span>
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
@@ -1661,8 +1663,14 @@ export default function DestinationDetails() {
                                     (
                                       {
                                         train: copy.localTrain,
-                                        shinkansen: "Shinkansen",
-                                        car: "Rental Car & Tolls",
+                                        shinkansen:
+                                          locale === "ja"
+                                            ? "新幹線"
+                                            : "Shinkansen",
+                                        car:
+                                          locale === "ja"
+                                            ? "レンタカー・高速代"
+                                            : "Rental Car & Tolls",
                                         my_car:
                                           locale === "ja"
                                             ? "マイカー (ガソリン代・高速代)"
@@ -1671,7 +1679,10 @@ export default function DestinationDetails() {
                                           locale === "ja"
                                             ? "高速バス"
                                             : "Highway Bus",
-                                        flight: "Flight (Air & Access)",
+                                        flight:
+                                          locale === "ja"
+                                            ? "飛行機 (航空券・アクセス)"
+                                            : "Flight (Air & Access)",
                                       } as Record<string, string>
                                     )[selectedTransport]
                                   }
