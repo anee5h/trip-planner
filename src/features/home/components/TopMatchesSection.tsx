@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { Sparkles } from "lucide-react";
 import type { Destination } from "@/shared/types/destination";
 import HomeMatchCard from "./HomeMatchCard";
@@ -6,6 +6,11 @@ import { serializePlannerSearchParams } from "@/features/destinations/destinatio
 import type { ResolvedPlannerState } from "../hooks/useTripPlannerState";
 import { useTranslation } from "react-i18next";
 import { SectionViewAllLink } from "./SectionViewAllLink";
+import { ScrollContainer } from "@/shared/components/ui/ScrollContainer";
+import {
+  HOME_RAIL_CARD_CLASS,
+  HOME_RAIL_SECTION_SPACING,
+} from "./HomeRailLayout";
 
 interface TopMatchesSectionProps {
   recommendations: Destination[];
@@ -25,25 +30,12 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
   viewAllDate,
 }) => {
   const { t } = useTranslation();
-  const topFive = recommendations.slice(0, 5);
-  const railRef = useRef<HTMLDivElement>(null);
-
-  // Auto-reset horizontal scroll position to #1 when recommendations or appliedState change
-  useEffect(() => {
-    if (railRef.current) {
-      railRef.current.scrollLeft = 0;
-    }
-  }, [recommendations, appliedState]);
-
+  const topMatches = recommendations.slice(0, 10);
   const isWeekend = appliedState.tripMode === "weekend_2d1n";
 
-  const headingText = isWeekend
-    ? hasUserApplied
-      ? t("home.weekendYourMatches")
-      : t("home.weekendMatches")
-    : hasUserApplied
-      ? t("home.yourMatches")
-      : t("home.topMatches");
+  const headingText = t("home.topMatchesForYou", {
+    defaultValue: hasUserApplied ? t("home.yourMatches") : t("home.topMatches"),
+  });
 
   // Serializes applied filters to search params without serializing actual forecast weather
   const searchParamsString = serializePlannerSearchParams({
@@ -65,7 +57,7 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
     <section
       id="recommendations"
       tabIndex={-1}
-      className="bg-white py-10 sm:py-12 lg:py-12 dark:bg-slate-950"
+      className={`bg-white ${HOME_RAIL_SECTION_SPACING} dark:bg-slate-950`}
     >
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Section Header */}
@@ -86,7 +78,7 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
           />
         </div>
 
-        {/* Top 5 Recommendations Horizontal Scroll Rail */}
+        {/* Top matches horizontal scroll rail */}
         {isEmpty && isWeekend ? (
           <div className="flex flex-col items-center justify-center py-10 px-4 text-center">
             <h3 className="text-lg font-extrabold text-slate-700 dark:text-slate-300 mb-2">
@@ -97,15 +89,15 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
             </p>
           </div>
         ) : (
-          <div
-            ref={railRef}
-            className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 py-2 scrollbar-none sm:mx-0 sm:gap-4 sm:px-0"
+          <ScrollContainer
+            ariaLabel={headingText}
+            previousLabel={t("home.previousRail")}
+            nextLabel={t("home.nextRail")}
+            resetKey={`${recommendations.map((destination) => destination.id).join(",")}:${appliedState.tripMode}`}
+            className="-mx-4 flex gap-3 px-4 py-2 md:mx-0 md:px-10 sm:gap-4"
           >
-            {topFive.map((dest, index) => (
-              <div
-                key={dest.id}
-                className="flex h-full w-[46vw] min-w-[160px] max-w-[180px] shrink-0 snap-start flex-col sm:w-[250px] sm:min-w-[250px] sm:max-w-[250px]"
-              >
+            {topMatches.map((dest, index) => (
+              <div key={dest.id} className={HOME_RAIL_CARD_CLASS}>
                 <HomeMatchCard
                   destination={dest}
                   rank={index + 1}
@@ -117,9 +109,8 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
                 />
               </div>
             ))}
-            {/* Rail Trailing Padding Element for Mobile */}
             <div className="w-1 shrink-0 sm:hidden" />
-          </div>
+          </ScrollContainer>
         )}
       </div>
     </section>

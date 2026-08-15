@@ -487,6 +487,29 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
     expect(text).toContain("¥8k–12k");
   });
 
+  it("does not foreground a generic rating reason when no contextual reason exists", async () => {
+    const { HomeMatchCard } = await import("../HomeMatchCard");
+    const scored = {
+      ...seikoMuseum,
+      match: {
+        confidence: 88,
+        reasons: [
+          {
+            type: "General",
+            code: "generalHighlyRated",
+            title: "Highly Rated Choice",
+          },
+        ],
+      },
+    } as unknown as Destination;
+
+    await act(async () => {
+      root.render(<HomeMatchCard destination={scored} rank={1} />);
+    });
+
+    expect(host.textContent).not.toContain("Highly Rated Choice");
+  });
+
   it("keeps weekend area capacity and transport-excluded warning visible", async () => {
     const { HomeMatchCard } = await import("../HomeMatchCard");
     const scoredWeekend = {

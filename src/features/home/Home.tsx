@@ -4,8 +4,10 @@ import { Cloud, CloudLightning, Snowflake, Sun } from "lucide-react";
 
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import type { Destination } from "@/shared/types/destination";
+import { getDistance } from "@/shared/utils/distance";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
+import { useRecentlyViewedDestinations } from "@/shared/hooks/useRecentlyViewedDestinations";
 import { getTabWeatherSummary } from "@/shared/services/weather/WeatherTabService";
 import {
   deriveTripDates,
@@ -19,14 +21,27 @@ import { useTripRecommendations } from "@/features/home/hooks/useTripRecommendat
 import HomePlanner from "./components/HomePlanner";
 import TopMatchesSection from "./components/TopMatchesSection";
 import BucketListRail from "./components/BucketListRail";
-import WeatherContextRail from "./components/WeatherContextRail";
 import CollectionsRail from "./components/CollectionsRail";
 import UnexploredNearbyRail from "./components/UnexploredNearbyRail";
+import DiscoveryRail from "./components/DiscoveryRail";
+import RecentlyViewedRail from "./components/RecentlyViewedRail";
+import {
+  getHomepageRailConfig,
+  getSeasonalDiscoveryDestinations,
+  getUnder60Destinations,
+  getUnexploredNearbyDestinations,
+  getWeekendGetawayDestinations,
+  getWorthLongerJourneyDestinations,
+  orderRecentlyViewedDestinations,
+  softDeduplicateRail,
+  type OriginRailContext,
+} from "./services/HomeRailService";
 import { useTranslation } from "react-i18next";
 import StationInput from "@/shared/components/StationInput";
 import TravelDatePicker from "@/shared/components/travel/TravelDatePicker";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { getLocalizedStationLabel } from "@/shared/utils/formatOriginLocation";
+import { getFixedSeason } from "@/shared/utils/season";
 
 /**
  * Compact single-date label: "Aug 8" / "8/8".
@@ -72,7 +87,10 @@ export function formatCompactDateRange(
 
 export default function Home() {
   const { t } = useTranslation();
-  const allDestinations = getDestinationList() as Destination[];
+  const allDestinations = useMemo(
+    () => getDestinationList() as Destination[],
+    [],
+  );
 
   const [searchParams, setSearchParams] = useSearchParams();
   const { user } = useAuth();
@@ -334,6 +352,148 @@ export default function Home() {
       forecastMap,
     });
 
+  const railConfig = getHomepageRailConfig(
+    resolvedApplied.tripMode,
+    resolvedApplied.tripDuration,
+  );
+  const isWeekendMode = railConfig.includes("weekendGetaways");
+  const seasonalReferenceDate = useMemo(() => new Date(), []);
+  const currentSeason = useMemo(
+    () => getFixedSeason(seasonalReferenceDate),
+    [seasonalReferenceDate],
+  );
+  const visitedIds = useMemo(
+    () =>
+      allDestinations
+        .filter((destination) => isVisited(destination.id))
+        .map((destination) => destination.id),
+    [allDestinations, isVisited],
+  );
+  const recentDestinations = useRecentlyViewedDestinations();
+  const topMatchIds = useMemo(
+    () =>
+      recommendedDestinations.slice(0, 10).map((destination) => destination.id),
+    [recommendedDestinations],
+  );
+  const recentlyViewedDestinations = useMemo(
+    () => orderRecentlyViewedDestinations(recentDestinations, topMatchIds),
+    [recentDestinations, topMatchIds],
+  );
+  const bucketListDisplayedIds = useMemo(
+    () =>
+      favorites
+        .map((id) =>
+          allDestinations.find((destination) => destination.id === id),
+        )
+        .filter(
+          (destination): destination is Destination =>
+            destination !== undefined,
+        )
+        .slice(0, 10)
+        .map((destination) => destination.id),
+    [allDestinations, favorites],
+  );
+  const discoveryRails = useMemo(() => {
+    const originRailContext: OriginRailContext = {
+      homeStationCoords,
+      homeStationTransportZoneId,
+      carMode: resolvedApplied.carMode,
+      publicModes: resolvedApplied.publicModes,
+      budgetTier: resolvedApplied.budgetTier,
+      ferryTemporal,
+      visitedIds,
+      tripMode: resolvedApplied.tripMode,
+    };
+    const usedIds = new Set(topMatchIds);
+    recentlyViewedDestinations.forEach((destination) =>
+      usedIds.add(destination.id),
+    );
+    bucketListDisplayedIds.forEach((id) => usedIds.add(id));
+    const pick = (
+      candidates: Destination[],
+      qualityOf?: (candidate: Destination) => number,
+      duplicateQualityMargin?: number,
+    ) => {
+      const selected = softDeduplicateRail(
+        candidates,
+        usedIds,
+        10,
+        qualityOf,
+        duplicateQualityMargin,
+      );
+      selected.forEach((destination) => usedIds.add(destination.id));
+      return selected;
+    };
+
+    if (isWeekendMode) {
+      const weekendGetaways = pick(
+        getWeekendGetawayDestinations(recommendedDestinations),
+      );
+      const seasonal = pick(
+        getSeasonalDiscoveryDestinations(
+          recommendedDestinations,
+          seasonalReferenceDate,
+        ),
+      );
+      const longerJourney = pick(
+        getWorthLongerJourneyDestinations(recommendedDestinations),
+      );
+      return {
+        weekendGetaways,
+        seasonal,
+        longerJourney,
+        under60: [],
+        nearby: [],
+      };
+    }
+
+    const seasonal = pick(
+      getSeasonalDiscoveryDestinations(
+        recommendedDestinations,
+        seasonalReferenceDate,
+      ),
+    );
+    const under60 = pick(
+      getUnder60Destinations(recommendedDestinations, originRailContext),
+    );
+    const nearby = pick(
+      getUnexploredNearbyDestinations(allDestinations, originRailContext),
+      (destination) =>
+        homeStationCoords && destination.coordinates
+          ? -getDistance(
+              homeStationCoords.lat,
+              homeStationCoords.lng,
+              destination.coordinates.lat,
+              destination.coordinates.lng,
+            )
+          : Number.NEGATIVE_INFINITY,
+      0,
+    );
+    return {
+      seasonal,
+      under60,
+      nearby,
+      weekendGetaways: [],
+      longerJourney: [],
+    };
+  }, [
+    recommendedDestinations,
+    topMatchIds,
+    recentlyViewedDestinations,
+    bucketListDisplayedIds,
+    homeStationCoords,
+    homeStationTransportZoneId,
+    resolvedApplied.carMode,
+    resolvedApplied.publicModes,
+    allDestinations,
+    resolvedApplied.budgetTier,
+    ferryTemporal,
+    visitedIds,
+    resolvedApplied.tripMode,
+    isWeekendMode,
+    seasonalReferenceDate,
+  ]);
+
   const [rouletteOpen, setRouletteOpen] = useState(false);
 
   const handleApplyAndScroll = useCallback(() => {
@@ -498,37 +658,85 @@ export default function Home() {
         }
       />
 
-      {/* Unexplored Nearby Rail — nearest unvisited destinations from home origin.
-          Only shown for day trips; weekend mode has its own recommendation rail. */}
-      {resolvedApplied.tripMode !== "weekend_2d1n" && (
-        <UnexploredNearbyRail
-          destinations={allDestinations}
-          homeStationCoords={homeStationCoords}
-          isVisited={isVisited}
-          partySize={resolvedApplied.partySize}
-          carMode={resolvedApplied.carMode}
-          publicModes={resolvedApplied.publicModes}
-        />
-      )}
+      {/* Recently viewed remains conditional and sits directly below Top matches. */}
+      <RecentlyViewedRail
+        destinations={recentlyViewedDestinations}
+        partySize={resolvedApplied.partySize}
+        carMode={resolvedApplied.carMode}
+        publicModes={resolvedApplied.publicModes}
+        travelDate={travelDateIso}
+      />
 
-      {/* Conditional Placement: Bucket List Rail near top ONLY if user has saved items */}
+      {/* Bucket List remains conditional and keeps its existing user-data semantics. */}
       {hasSavedItems && (
         <BucketListRail
           partySize={resolvedApplied.partySize}
           carMode={resolvedApplied.carMode}
           publicModes={resolvedApplied.publicModes}
+          travelDate={travelDateIso}
         />
       )}
 
-      {/* Weather Context Rail (Max 2 Overlap Rule, hides if <3 distinct results) */}
-      <WeatherContextRail
-        recommendations={recommendedDestinations}
-        weatherDesc={currentSituation?.desc}
-        temperatureC={currentSituation?.temp}
-        partySize={resolvedApplied.partySize}
-        carMode={resolvedApplied.carMode}
-        publicModes={resolvedApplied.publicModes}
-      />
+      {isWeekendMode ? (
+        <>
+          <DiscoveryRail
+            kind="weekendGetaways"
+            destinations={discoveryRails.weekendGetaways}
+            partySize={resolvedApplied.partySize}
+            carMode={resolvedApplied.carMode}
+            publicModes={resolvedApplied.publicModes}
+            travelDate={travelDateIso}
+          />
+          <DiscoveryRail
+            kind="seasonal"
+            season={currentSeason}
+            destinations={discoveryRails.seasonal}
+            partySize={resolvedApplied.partySize}
+            carMode={resolvedApplied.carMode}
+            publicModes={resolvedApplied.publicModes}
+            travelDate={travelDateIso}
+          />
+          <DiscoveryRail
+            kind="longerJourney"
+            destinations={discoveryRails.longerJourney}
+            partySize={resolvedApplied.partySize}
+            carMode={resolvedApplied.carMode}
+            publicModes={resolvedApplied.publicModes}
+            travelDate={travelDateIso}
+          />
+        </>
+      ) : (
+        <>
+          <DiscoveryRail
+            kind="seasonal"
+            season={currentSeason}
+            destinations={discoveryRails.seasonal}
+            partySize={resolvedApplied.partySize}
+            carMode={resolvedApplied.carMode}
+            publicModes={resolvedApplied.publicModes}
+            travelDate={travelDateIso}
+          />
+          <DiscoveryRail
+            kind="under60"
+            destinations={discoveryRails.under60}
+            partySize={resolvedApplied.partySize}
+            carMode={resolvedApplied.carMode}
+            publicModes={resolvedApplied.publicModes}
+            travelDate={travelDateIso}
+          />
+          <UnexploredNearbyRail
+            destinations={allDestinations}
+            precomputedDestinations={discoveryRails.nearby}
+            homeStationCoords={homeStationCoords}
+            homeStationTransportZoneId={homeStationTransportZoneId}
+            isVisited={isVisited}
+            partySize={resolvedApplied.partySize}
+            carMode={resolvedApplied.carMode}
+            publicModes={resolvedApplied.publicModes}
+            travelDate={travelDateIso}
+          />
+        </>
+      )}
 
       {/* Curated Collections Rail */}
       <CollectionsRail />
@@ -539,6 +747,7 @@ export default function Home() {
           partySize={resolvedApplied.partySize}
           carMode={resolvedApplied.carMode}
           publicModes={resolvedApplied.publicModes}
+          travelDate={travelDateIso}
           isCompactPromptOnly
         />
       )}

@@ -38,6 +38,11 @@ import { formatTravelConditionParams } from "@/shared/services/recommendation/Tr
 import { getPrimaryDisplayReason } from "@/shared/services/recommendation/RecommendationExplainability";
 import { Sun, Cloud, CloudRain, CloudSnow, CloudLightning } from "lucide-react";
 import { localizeRecommendationReason } from "@/shared/utils/recommendationLabels";
+import {
+  formatBusyPeriodDateRange,
+  getBusyPeriodCues,
+  type BusyPeriodCueKind,
+} from "@/shared/data/busyPeriodCues";
 
 import { ALL_PUBLIC_MODES } from "../services/TransportResolver";
 
@@ -165,6 +170,46 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
 
   // Forecast/seasonal/unknown evaluation for the planned trip dates
   const condition = scoredDestination.condition;
+  const busyPeriodCue = getBusyPeriodCues(
+    destination.id,
+    travelDate ?? new Date(),
+  ).find(({ kind }) => kind === "peakSeason" || kind === "localEvent");
+  const translateRequired = (key: string) => {
+    const value = t(key, { defaultValue: "" }).trim();
+    return value === key ? "" : value;
+  };
+  const busyPeriodKindKey: Record<BusyPeriodCueKind, string> = {
+    nationalHoliday: "home.busyPeriod.nationalHoliday",
+    weekend: "home.busyPeriod.weekend",
+    peakSeason: "home.busyPeriod.peakSeason",
+    localEvent: "home.busyPeriod.localEvent",
+  };
+  const busyPeriodKindLabel = busyPeriodCue
+    ? translateRequired(busyPeriodKindKey[busyPeriodCue.kind])
+    : "";
+  const busyPeriodAdvisory = translateRequired("home.busyPeriod.advisory");
+  const busyPeriodEvidenceLabel = translateRequired(
+    "home.busyPeriod.evidenceLabel",
+  );
+  const busyPeriodSourceLabel = translateRequired(
+    "home.busyPeriod.sourceLabel",
+  );
+  const busyPeriodCueText = busyPeriodCue
+    ? busyPeriodAdvisory && busyPeriodKindLabel && busyPeriodCue.reason[locale]
+      ? `${busyPeriodAdvisory} — ${busyPeriodKindLabel}: ${busyPeriodCue.reason[locale]} (${formatBusyPeriodDateRange(busyPeriodCue.dateRange, locale)})`
+      : undefined
+    : undefined;
+  const busyPeriodCueLabel = busyPeriodCueText
+    ? busyPeriodCue &&
+      busyPeriodEvidenceLabel &&
+      busyPeriodSourceLabel &&
+      busyPeriodCue.evidence[locale] &&
+      busyPeriodCue.source[locale]
+      ? locale === "ja"
+        ? `${busyPeriodCueText}。${busyPeriodEvidenceLabel}：${busyPeriodCue.evidence[locale]}。${busyPeriodSourceLabel}：${busyPeriodCue.source[locale]}`
+        : `${busyPeriodCueText}. ${busyPeriodEvidenceLabel}: ${busyPeriodCue.evidence[locale]}. ${busyPeriodSourceLabel}: ${busyPeriodCue.source[locale]}`
+      : undefined
+    : undefined;
 
   const conditionLine = useMemo(() => {
     if (!condition || condition.reasons.length === 0) return undefined;
@@ -199,9 +244,12 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   const dayTripReason = !weekend
     ? getPrimaryDisplayReason(scoredDestination.match?.reasons ?? [])
     : undefined;
-  const dayTripReasonLabel = dayTripReason
-    ? localizeRecommendationReason(dayTripReason, locale).title
-    : undefined;
+  const dayTripReasonLabel =
+    dayTripReason &&
+    dayTripReason.code !== "generalHighlyRated" &&
+    dayTripReason.code !== "generalSolidMatch"
+      ? localizeRecommendationReason(dayTripReason, locale).title
+      : undefined;
   const transportCostWarning = scoredDestination.match?.reasons?.find(
     (reason) => reason.code === "weekendTransportExcluded",
   );
@@ -348,6 +396,17 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
               title={conditionLine}
             >
               {conditionLine}
+            </p>
+          )}
+
+          {busyPeriodCueText && (
+            <p
+              className="mt-1 flex min-w-0 items-center gap-1 text-[11px] font-semibold text-amber-700 dark:text-amber-300 sm:text-xs"
+              aria-label={busyPeriodCueLabel}
+              title={busyPeriodCueLabel}
+            >
+              <AlertTriangle className="size-3 shrink-0" aria-hidden="true" />
+              <span className="truncate">{busyPeriodCueText}</span>
             </p>
           )}
 
