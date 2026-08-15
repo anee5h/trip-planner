@@ -4,6 +4,8 @@ import { MemoryRouter } from "react-router-dom";
 import { afterEach, beforeEach, describe, it, expect, vi } from "vitest";
 import CompareModal from "../CompareModal";
 
+(globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
+
 const compareState = vi.hoisted(() => ({
   compareList: ["kyoto-city", "osaka-city"],
   toggleCompare: vi.fn(),
@@ -18,10 +20,15 @@ vi.mock("@/shared/hooks/useTripStore", () => ({
   }),
 }));
 
+vi.mock("@/shared/context/LocaleContext", () => ({
+  useLocale: () => ({ locale: "en", setLocale: vi.fn() }),
+}));
+
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string) => key,
   }),
+  initReactI18next: { type: "3rdParty", init: vi.fn() },
 }));
 
 let root: Root | undefined;

@@ -12,6 +12,12 @@ import {
 } from "@/shared/utils/walking";
 import { X, Trash2, Scale, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useLocale } from "@/shared/context/LocaleContext";
+import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
+import {
+  formatPrefecture,
+  localizePlaceLabel,
+} from "@/shared/utils/placeLabels";
 
 interface CompareModalProps {
   isOpen: boolean;
@@ -21,6 +27,7 @@ interface CompareModalProps {
 export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   const { compareList, toggleCompare, clearCompare } = useTripStore();
   const { t } = useTranslation();
+  const { locale } = useLocale();
   const allDestinations = getDestinationList() as Destination[];
 
   if (!isOpen) return null;
@@ -91,7 +98,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
             <button
               onClick={onClose}
               className="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-              aria-label="Close comparison modal"
+              aria-label={t("compare.closeModal")}
             >
               <X className="w-5 h-5" />
             </button>
@@ -115,12 +122,14 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
               className={`flex md:grid md:grid-cols-3 gap-3 sm:gap-4 pb-2 ${compareDestinations.length > 1 ? "overflow-x-auto snap-x snap-mandatory" : ""}`}
             >
               {compareDestinations.map((dest, idx) => {
+                const localized = getLocalizedPlace(dest, locale);
                 const cost = budgets[idx];
                 const isLowestBudget = cost === minBudget;
                 const time = travelTimes[idx];
                 const isFastest = time === minTravelTime && time !== 999;
                 const walkMeta = getWalkingIntensityMetadata(
                   getWalkingIntensity(dest),
+                  locale,
                 );
 
                 return (
@@ -134,25 +143,27 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                         onClick={() => toggleCompare(dest.id)}
                         className="absolute top-2 right-2 z-10 p-1.5 bg-black/50 hover:bg-red-600 text-white rounded-full backdrop-blur-md transition-colors"
                         title={t("compare.removeFromCompare")}
-                        aria-label={`${t("compare.removeFromCompare")} ${dest.name}`}
+                        aria-label={`${t("compare.removeFromCompare")} ${localized.name}`}
                       >
                         <X className="w-3.5 h-3.5" />
                       </button>
 
                       <div className="w-full h-32 sm:h-36 rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-700 relative shrink-0 mb-3">
                         <img
-                          src={dest.heroImage}
-                          alt={dest.name}
+                          src={localized.heroImage}
+                          alt={localized.name}
                           className="w-full h-full object-cover"
                         />
                       </div>
 
                       <h3 className="font-extrabold text-base text-slate-900 dark:text-white truncate">
-                        {dest.name}
+                        {localized.name}
                       </h3>
                       <p className="text-xs text-slate-500 dark:text-slate-400 mb-3 truncate">
-                        {dest.prefecture} •{" "}
-                        {dest.categories?.[0] || t("compare.attraction")}
+                        {formatPrefecture(dest.prefecture, locale)} •{" "}
+                        {dest.categories?.[0]
+                          ? localizePlaceLabel(dest.categories[0], locale)
+                          : t("compare.attraction")}
                       </p>
 
                       <Link
@@ -180,7 +191,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                         <div className="flex items-center gap-1.5">
                           <span className="font-bold text-slate-900 dark:text-white text-xs">
                             {cost === null
-                              ? "N/A"
+                              ? t("compare.unavailable")
                               : `¥${(cost / 1000).toFixed(0)}k`}
                           </span>
                           {cost !== null && isLowestBudget && (

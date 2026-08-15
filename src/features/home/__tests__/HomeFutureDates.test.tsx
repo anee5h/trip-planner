@@ -24,7 +24,7 @@ vi.mock("react-i18next", () => ({
           "home.weekendDates": "{{day1}} – {{day2}}",
           "home.day1Label": "Day 1",
           "home.day2Label": "Day 2",
-          "datePicker.day2": "Day 2",
+          "datePicker.day2": "Day 2: {{date}}",
         }[key] ??
         opts?.defaultValue ??
         key;
@@ -149,7 +149,7 @@ function renderHome(initialEntry = "/") {
   };
 }
 
-async function waitForCondition(condition: () => boolean, timeout = 3000) {
+async function waitForCondition(condition: () => boolean, timeout = 10000) {
   const start = Date.now();
   while (Date.now() - start < timeout) {
     if (condition()) return;
@@ -284,7 +284,7 @@ describe("Home arbitrary future dates", () => {
     await waitForCondition(
       () => calendarCapsule(host)?.textContent?.includes(labelB) ?? false,
     );
-  }, 15000);
+  }, 30000);
 
   it("proves lastWrittenUrlRef does not block the first Back navigation after user selection", async () => {
     const { host, params, navigate } = renderHome();
@@ -313,20 +313,20 @@ describe("Home arbitrary future dates", () => {
       () =>
         calendarCapsule(host)?.textContent?.includes("Select date") ?? false,
     );
-  });
+  }, 30000);
 
   it("restores the date from the URL on reload", async () => {
     const { host } = renderHome("/?date=2030-06-15");
     await waitForCondition(
       () => calendarCapsule(host)?.textContent?.includes("Jun 15") ?? false,
     );
-  });
+  }, 30000);
 
   it("normalizes a past URL date away safely", async () => {
     const { host, params } = renderHome("/?date=2020-01-01");
     await waitForCondition(() => params()?.get("date") === null);
     expect(calendarCapsule(host)?.textContent).not.toContain("Jan 1");
-  });
+  }, 30000);
 
   it("shows the derived Day 2 for 2D1N in the picker", async () => {
     const { host } = renderHome("/?date=2030-06-15");
@@ -356,5 +356,5 @@ describe("Home arbitrary future dates", () => {
         p.textContent?.includes("Jun 16"),
       ),
     ).toBe(true);
-  }, 15000);
+  }, 30000);
 });

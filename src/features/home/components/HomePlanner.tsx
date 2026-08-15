@@ -433,7 +433,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
           {/* Segment 1: Vibe (20%) */}
           <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-[hsl(var(--surface-raised))] transition-colors flex flex-col justify-center relative cursor-pointer">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
-              Vibe
+              {t("home.vibe")}
             </span>
             <Select
               value={vibe}

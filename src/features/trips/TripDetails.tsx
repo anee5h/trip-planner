@@ -48,7 +48,7 @@ export default function TripDetails({
   const handleShareTrip = () => {
     const tripLink = `${window.location.origin}/my-trips?tripId=${trip.id}`;
     navigator.clipboard.writeText(tripLink);
-    toast.success("Trip link copied to clipboard!");
+    toast.success(t("trips.linkCopied"));
   };
 
   return (
@@ -93,9 +93,9 @@ export default function TripDetails({
               </h1>
             )}
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-              Status:{" "}
+              {t("trips.status")}:{" "}
               <span className="font-bold capitalize text-emerald-600 dark:text-emerald-400">
-                {trip.status}
+                {t(`trips.statusLabels.${trip.status}`, trip.status)}
               </span>
             </p>
           </div>
@@ -107,8 +107,8 @@ export default function TripDetails({
             <Button
               variant="outline"
               size="icon"
-              aria-label="Export to calendar"
-              title="Export to calendar"
+              aria-label={t("trips.exportCalendar")}
+              title={t("trips.exportCalendar")}
               onClick={() => setIsCalendarOpen(!isCalendarOpen)}
               className="rounded-full border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900"
             >
@@ -152,8 +152,8 @@ export default function TripDetails({
           <Button
             variant="outline"
             size="icon"
-            aria-label="Print trip"
-            title="Print trip"
+            aria-label={t("trips.printTrip")}
+            title={t("trips.printTrip")}
             onClick={triggerPdfPrint}
             className="rounded-full border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900"
           >
@@ -164,8 +164,8 @@ export default function TripDetails({
           <Button
             variant="outline"
             size="icon"
-            aria-label="Copy trip link"
-            title="Copy trip link"
+            aria-label={t("trips.copyTripLink")}
+            title={t("trips.copyTripLink")}
             onClick={handleShareTrip}
             className="rounded-full border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900"
           >
@@ -189,17 +189,16 @@ export default function TripDetails({
         {/* Journal Right Area */}
         <div className="h-fit space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900 sm:p-5 order-2">
           <h4 className="text-md font-bold text-slate-950 dark:text-white">
-            Trip Journal Notes
+            {t("trips.journalNotes")}
           </h4>
           <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-            Record memories, list tickets, notes about dining places, or write
-            journal updates during your journey.
+            {t("trips.journalDescription")}
           </p>
 
           <textarea
             value={journal}
             onChange={(e) => setJournal(e.target.value)}
-            placeholder="Write details about reservation confirmations, train links, ticket info..."
+            placeholder={t("trips.journalPlaceholder")}
             className="w-full h-48 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500"
           />
 
@@ -207,7 +206,7 @@ export default function TripDetails({
             onClick={handleSaveJournal}
             className="w-full bg-slate-900 hover:bg-slate-850 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white rounded-full font-bold"
           >
-            Save Journal
+            {t("trips.saveJournal")}
           </Button>
         </div>
       </div>

@@ -1315,10 +1315,14 @@ export default function Destinations() {
         <div className="flex flex-col items-center justify-center py-20 text-slate-500">
           <Frown className="w-12 h-12 mb-4 text-slate-400" />
           <h3 className="text-xl font-bold text-slate-700 dark:text-slate-300">
-            No destinations match the selected filters.
+            {locale === "ja"
+              ? "選択した条件に一致する目的地は見つかりませんでした。"
+              : "No destinations match the selected filters."}
           </h3>
           <p className="text-sm mt-1">
-            Try adjusting your search terms or clearing some filters.
+            {locale === "ja"
+              ? "検索条件を変更するか、フィルターを解除してお試しください。"
+              : "Try adjusting your search terms or clearing some filters."}
           </p>
         </div>
       ) : viewMode === "map" ? (
