@@ -76,6 +76,12 @@ interface UseTripRecommendationsProps {
   forecastMap?: ReadonlyMap<string, DayForecastData>;
   tripMode: TripMode;
   accommodationAllowance: number;
+  /**
+   * Roulette is only needed after the modal opens. Keeping the expansion pool
+   * lazy prevents the homepage discovery rails from waiting on several full
+   * recommendation passes during the initial render.
+   */
+  rouletteEnabled?: boolean;
 }
 
 export function useTripRecommendations({
@@ -97,6 +103,7 @@ export function useTripRecommendations({
   accommodationAllowance,
   travelDates,
   forecastMap,
+  rouletteEnabled = true,
 }: UseTripRecommendationsProps) {
   const { destinationRatings } = useTripStore();
   const visitedIds = useMemo(
@@ -151,6 +158,13 @@ export function useTripRecommendations({
   ]);
 
   const roulette = useMemo(() => {
+    if (!rouletteEnabled) {
+      return {
+        candidates: [] as Destination[],
+        expansion: "exact" as const,
+      };
+    }
+
     const constraints = rouletteConstraints ?? {
       budget,
       carMode,
@@ -239,6 +253,7 @@ export function useTripRecommendations({
     travelDates,
     forecastMap,
     preferredWeather,
+    rouletteEnabled,
   ]);
 
   return {

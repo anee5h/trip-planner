@@ -327,6 +327,7 @@ export default function Home() {
         : undefined,
     [weatherContext],
   );
+  const [rouletteOpen, setRouletteOpen] = useState(false);
 
   // Recommendation engine consumes applied state + live weather context
   const { recommendedDestinations, rouletteCandidates, rouletteExpansion } =
@@ -350,6 +351,7 @@ export default function Home() {
       accommodationAllowance: resolvedApplied.accommodationAllowance,
       travelDates,
       forecastMap,
+      rouletteEnabled: rouletteOpen,
     });
 
   const railConfig = getHomepageRailConfig(
@@ -493,8 +495,6 @@ export default function Home() {
     isWeekendMode,
     seasonalReferenceDate,
   ]);
-
-  const [rouletteOpen, setRouletteOpen] = useState(false);
 
   const handleApplyAndScroll = useCallback(() => {
     applyPlannerState();
