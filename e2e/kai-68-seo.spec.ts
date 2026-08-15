@@ -84,6 +84,32 @@ test.describe("KAI-68 destination deep-link + title sync", () => {
     ).toBeVisible();
     await expect.poll(() => page.title()).toContain("Destination Not Found");
   });
+
+  test("navigating Home -> destination -> Home restores the shell title and description", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await expect
+      .poll(() => page.title())
+      .toBe("Meguruto: めぐると、見つかる。");
+
+    // Client-side navigation into a destination sets localized metadata.
+    await page.goto("/destinations/tokyo-station-chiyoda");
+    await expect.poll(() => page.title()).toContain("Tokyo Station");
+
+    // Client-side navigation away must restore the shell defaults (KAI-68
+    // ownership/cleanup): the destination title must not leak onto Home.
+    await page.goto("/");
+    await expect
+      .poll(() => page.title())
+      .toBe("Meguruto: めぐると、見つかる。");
+    const description = await page
+      .locator('meta[name="description"]')
+      .getAttribute("content");
+    expect(description).toBe(
+      "Find Japan day trips and weekend getaways that fit your time, budget, weather, and travel preferences.",
+    );
+  });
 });
 
 test.describe("KAI-68 JA locale deep link", () => {

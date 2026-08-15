@@ -51,6 +51,11 @@ const NOT_FOUND_BODY = `<!doctype html>
 </html>
 `;
 
+/** noindex directive for non-published destinations and unknown ids.
+ *  `follow` keeps links crawlable — these are valid public app pages, just
+ *  not part of the indexable/prerendered SEO set. */
+const NOINDEX_FOLLOW = "noindex, follow";
+
 export interface DestinationRouteResult {
   status: number;
   body?: string;
@@ -70,7 +75,7 @@ export async function routeDestinationRequest(
     return {
       status: 404,
       body: NOT_FOUND_BODY,
-      headers: { "X-Robots-Tag": "noindex" },
+      headers: { "X-Robots-Tag": "noindex, follow" },
     };
   }
   if (entry.status === PRERENDERED_STATUS) {
@@ -83,7 +88,14 @@ export async function routeDestinationRequest(
     // fall back to the SPA shell so valid destinations never 404.
     return { status: 200, assetPath: "/index.html", headers: {} };
   }
-  return { status: 200, assetPath: "/index.html", headers: {} };
+  // beta/verified: valid public app destinations that are not part of the
+  // published/prerendered SEO set. User-accessible (SPA hydrates normally)
+  // but explicitly excluded from search indexes.
+  return {
+    status: 200,
+    assetPath: "/index.html",
+    headers: { "X-Robots-Tag": NOINDEX_FOLLOW },
+  };
 }
 
 /** Validates a destination id path segment (matches the catalogue slug set:

@@ -13,6 +13,12 @@ export const SITE_URL = "https://meguruto.app";
 /** Title suffix used on every destination page. */
 export const TITLE_SUFFIX = ` | ${SITE_NAME}`;
 
+/** The app shell defaults (index.html) — restored when leaving a
+ *  destination so stale localized metadata never outlives the route. */
+export const DEFAULT_PAGE_TITLE = "Meguruto: めぐると、見つかる。";
+export const DEFAULT_PAGE_DESCRIPTION =
+  "Find Japan day trips and weekend getaways that fit your time, budget, weather, and travel preferences.";
+
 /** Google truncates meta descriptions around this length. */
 export const MAX_META_DESCRIPTION_LENGTH = 155;
 
@@ -64,4 +70,19 @@ export function setPageMeta(title: string, description?: string): void {
     document.head.appendChild(meta);
   }
   meta.content = truncateDescription(description);
+}
+
+/**
+ * Restores the shell defaults after the destination route unmounts.
+ * DestinationDetails owns document.title/meta while it is mounted and must
+ * hand them back when it leaves — navigating Home -> destination -> Home
+ * must not leave the destination title/description active.
+ */
+export function restorePageMeta(): void {
+  if (typeof document === "undefined") return;
+  document.title = DEFAULT_PAGE_TITLE;
+  const meta = document.querySelector<HTMLMetaElement>(
+    'meta[name="description"]',
+  );
+  if (meta) meta.content = DEFAULT_PAGE_DESCRIPTION;
 }

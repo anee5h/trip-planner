@@ -2,9 +2,10 @@
  * Cloudflare Pages Function: /destinations/[id]
  *
  * KAI-68: serves prerendered HTML for published destinations, the SPA shell
- * for other public destinations, and a real 404 (noindex) for unknown or
- * removed destination ids. Pages Functions take precedence over _redirects,
- * so the `/* /index.html 200` fallback never masks the 404.
+ * with `noindex, follow` for other public destinations, and a real 404
+ * (noindex) for unknown or removed destination ids. Pages Functions take
+ * precedence over _redirects, so the `/* /index.html 200` fallback never
+ * masks the 404.
  *
  * _routes.json include: ["/destinations/*"] — only this route invokes the
  * function; everything else stays static.
@@ -23,9 +24,15 @@ const MANIFEST_PATH = "/data/kai68-public-destinations.json";
 
 let manifestCache = null;
 
-async function loadManifest(env) {
+/** ASSETS.fetch requires an absolute URL (relative paths throw in the local
+ *  runtime); derive the origin from the incoming request. */
+function assetUrl(requestUrl, path) {
+  return new URL(path, requestUrl).toString();
+}
+
+async function loadManifest(env, requestUrl) {
   if (manifestCache) return manifestCache;
-  const response = await env.ASSETS.fetch(MANIFEST_PATH);
+  const response = await env.ASSETS.fetch(assetUrl(requestUrl, MANIFEST_PATH));
   if (!response.ok) return null;
   manifestCache = await response.json();
   return manifestCache;
@@ -33,6 +40,7 @@ async function loadManifest(env) {
 
 export async function onRequest(context) {
   const { id } = context.params;
+  const requestUrl = context.request.url;
   if (typeof id !== "string" || !/^[a-z0-9-]{1,128}$/.test(id)) {
     return new Response("Not Found", {
       status: 404,
@@ -40,11 +48,13 @@ export async function onRequest(context) {
     });
   }
 
-  const manifest = await loadManifest(context.env);
+  const manifest = await loadManifest(context.env, requestUrl);
   if (!manifest) {
     // Manifest missing: fail open to the SPA shell so valid destinations
     // keep working even if the build step was skipped.
-    const shell = await context.env.ASSETS.fetch("/index.html");
+    const shell = await context.env.ASSETS.fetch(
+      assetUrl(requestUrl, "/index.html"),
+    );
     return new Response(shell.body, {
       status: 200,
       headers: {
@@ -57,7 +67,7 @@ export async function onRequest(context) {
   const result = await routeDestinationRequest({
     id,
     manifest,
-    fetchAsset: (path) => context.env.ASSETS.fetch(path),
+    fetchAsset: (path) => context.env.ASSETS.fetch(assetUrl(requestUrl, path)),
   });
 
   const baseHeaders = {
@@ -75,7 +85,9 @@ export async function onRequest(context) {
     });
   }
 
-  const asset = await context.env.ASSETS.fetch(result.assetPath);
+  const asset = await context.env.ASSETS.fetch(
+    assetUrl(requestUrl, result.assetPath),
+  );
   return new Response(asset.body, {
     status: result.status,
     headers: {

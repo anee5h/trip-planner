@@ -5,7 +5,7 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { addRecentlyViewedDestination } from "@/shared/hooks/useRecentlyViewedDestinations";
 import { getDestination } from "@/shared/services/destination/DestinationService";
-import { setPageMeta, TITLE_SUFFIX } from "@/seo/meta";
+import { restorePageMeta, setPageMeta, TITLE_SUFFIX } from "@/seo/meta";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
 import DestinationCard from "./components/DestinationCard";
 import DestinationMap from "./components/DestinationMap";
@@ -340,18 +340,19 @@ export default function DestinationDetails() {
     : null;
 
   // KAI-68: keep document title/description in sync with the active locale
-  // after SPA hydration. Prerendered HTML carries the canonical EN metadata;
-  // this effect re-applies localized copy without touching the URL (locale is
-  // client state, so the canonical URL stays locale-neutral).
+  // while the details route is mounted, and restore the shell defaults on
+  // unmount. Without the cleanup, navigating Home -> destination -> Home
+  // leaves the destination title/description active on the Home page.
   useEffect(() => {
     if (!localizedDestination) {
       setPageMeta(`${copy.notFound}${TITLE_SUFFIX}`);
-      return;
+      return restorePageMeta;
     }
     setPageMeta(
       `${localizedDestination.name}${TITLE_SUFFIX}`,
       localizedDestination.description,
     );
+    return restorePageMeta;
   }, [localizedDestination, copy.notFound]);
 
   const handleAddToItinerary = () => {

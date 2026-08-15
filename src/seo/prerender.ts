@@ -53,7 +53,8 @@ function escapeXml(text: string): string {
 }
 
 /** Absolute URL for a destination page. No trailing slash — the app links to
- *  `/destinations/{id}` everywhere and _redirects canonicalizes the slash. */
+ *  `/destinations/{id}` everywhere; the canonical tag pins this form and
+ *  both URL variants serve the same prerendered HTML. */
 export function destinationUrl(id: string): string {
   return `${SITE_URL}/destinations/${id}`;
 }

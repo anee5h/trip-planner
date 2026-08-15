@@ -50,15 +50,38 @@ describe("KAI-68 router: non-published but public destination", () => {
   it.each([
     ["beta-place", "beta"],
     ["verified-place", "verified"],
-  ])("serves the SPA shell for %s — public, not prerendered", async (id) => {
-    const result = await routeDestinationRequest({
-      id,
+  ])(
+    "serves the SPA shell for %s with noindex, follow — public but not indexable",
+    async (id) => {
+      const result = await routeDestinationRequest({
+        id,
+        manifest: MANIFEST,
+        fetchAsset: okAsset("/index.html"),
+      });
+      // User-accessible: SPA shell hydrates normally.
+      expect(result.status).toBe(200);
+      expect(result.assetPath).toBe("/index.html");
+      // Not part of the published/prerendered SEO set: never indexable.
+      expect(result.headers?.["X-Robots-Tag"]).toBe("noindex, follow");
+    },
+  );
+
+  it("does NOT noindex published destinations (prerendered or shell-fallback)", async () => {
+    const prerendered = await routeDestinationRequest({
+      id: "tokyo-station-chiyoda",
+      manifest: MANIFEST,
+      fetchAsset: okAsset("/destinations/tokyo-station-chiyoda/index.html"),
+    });
+    expect(prerendered.status).toBe(200);
+    expect(prerendered.headers).toEqual({});
+
+    const fallback = await routeDestinationRequest({
+      id: "tokyo-station-chiyoda",
       manifest: MANIFEST,
       fetchAsset: okAsset("/index.html"),
     });
-    expect(result.status).toBe(200);
-    expect(result.assetPath).toBe("/index.html");
-    expect(result.headers).toEqual({});
+    expect(fallback.status).toBe(200);
+    expect(fallback.headers).toEqual({});
   });
 });
 
@@ -70,7 +93,7 @@ describe("KAI-68 router: invalid/removed destination", () => {
       fetchAsset: async () => new Response(null, { status: 404 }),
     });
     expect(result.status).toBe(404);
-    expect(result.headers?.["X-Robots-Tag"]).toBe("noindex");
+    expect(result.headers?.["X-Robots-Tag"]).toBe("noindex, follow");
     expect(result.body).toContain("noindex");
     // Never resolves to the generic SPA page.
     expect(result.assetPath).toBeUndefined();
@@ -83,7 +106,7 @@ describe("KAI-68 router: invalid/removed destination", () => {
       fetchAsset: async () => new Response(null, { status: 404 }),
     });
     expect(result.status).toBe(404);
-    expect(result.headers?.["X-Robots-Tag"]).toBe("noindex");
+    expect(result.headers?.["X-Robots-Tag"]).toBe("noindex, follow");
   });
 
   it("rejects malformed id path segments", () => {
