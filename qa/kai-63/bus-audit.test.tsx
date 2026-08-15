@@ -51,6 +51,12 @@ vi.mock("react-i18next", () => ({
         "destination.tripModes.any": "Any",
         "destination.tripModes.day_trip": "Day trip",
         "destination.tripModes.weekend_2d1n": "2D1N",
+        // KAI-49: Explore page i18n key — required for getResultCount to
+        // parse the leading digit and keep uiCount == eligible invariant.
+        "ui.destinationsMatching": "{{count}} destinations matching",
+        "ui.noDestinationsFound": "No destinations match the selected filters.",
+        "ui.noDestinationsFoundHint":
+          "Try adjusting your search terms or clearing some filters.",
       };
       const str = value[key] ?? key;
       return options

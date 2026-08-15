@@ -62,6 +62,12 @@ vi.mock("react-i18next", () => ({
         "home.transportModes.car": "Car",
         "search.label": "Search",
         "search.clear": "Clear search",
+        // KAI-49: Explore page i18n key — required for getResultCount to
+        // parse the leading digit correctly under the test mock.
+        "ui.destinationsMatching": "{{count}} destinations matching",
+        "ui.noDestinationsFound": "No destinations match the selected filters.",
+        "ui.noDestinationsFoundHint":
+          "Try adjusting your search terms or clearing some filters.",
       };
       const str = value[key] ?? key;
       return options
