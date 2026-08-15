@@ -61,6 +61,7 @@ import {
   getUnexploredNearbyDestinations,
   getWeekendGetawayDestinations,
   getWorthLongerJourneyDestinations,
+  orderRecentlyViewedDestinations,
   softDeduplicateRail,
 } from "../HomeRailService";
 
@@ -395,6 +396,43 @@ describe("soft homepage deduplication", () => {
         new Set(["used"]),
       ).map(({ id }) => id),
     ).toEqual(["used", "unused"]);
+  });
+
+  it("uses displayed Continue Exploring IDs before seasonal deduplication", () => {
+    const continueExploring = orderRecentlyViewedDestinations([
+      destination("A", 100),
+      destination("B", 99),
+      destination("C", 98),
+    ]);
+    expect(continueExploring.map(({ id }) => id)).toEqual(["A", "B", "C"]);
+
+    const usedIds = new Set(continueExploring.map(({ id }) => id));
+    const seasonalPool = [
+      destination("A", 100),
+      destination("B", 99),
+      destination("C", 98),
+      destination("D", 98),
+      destination("E", 97),
+      destination("F", 96),
+    ];
+    const selected = softDeduplicateRail(seasonalPool, usedIds);
+
+    expect(selected.map(({ id }) => id)).toEqual([
+      "D",
+      "E",
+      "F",
+      "A",
+      "B",
+      "C",
+    ]);
+    expect(selected).toHaveLength(6);
+
+    const materiallyStronger = softDeduplicateRail(
+      [destination("A", 100), destination("D", 80)],
+      new Set(["A"]),
+    );
+    expect(materiallyStronger.map(({ id }) => id)).toEqual(["A", "D"]);
+    expect(materiallyStronger).toHaveLength(2);
   });
 
   it("keeps a nearer used candidate over a farther unused nearby alternative", () => {

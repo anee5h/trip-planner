@@ -7,6 +7,7 @@ import type { Destination } from "@/shared/types/destination";
 import { getDistance } from "@/shared/utils/distance";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
+import { useRecentlyViewedDestinations } from "@/shared/hooks/useRecentlyViewedDestinations";
 import { getTabWeatherSummary } from "@/shared/services/weather/WeatherTabService";
 import {
   deriveTripDates,
@@ -31,6 +32,7 @@ import {
   getUnexploredNearbyDestinations,
   getWeekendGetawayDestinations,
   getWorthLongerJourneyDestinations,
+  orderRecentlyViewedDestinations,
   softDeduplicateRail,
   type OriginRailContext,
 } from "./services/HomeRailService";
@@ -367,6 +369,30 @@ export default function Home() {
         .map((destination) => destination.id),
     [allDestinations, isVisited],
   );
+  const recentDestinations = useRecentlyViewedDestinations();
+  const topMatchIds = useMemo(
+    () =>
+      recommendedDestinations.slice(0, 10).map((destination) => destination.id),
+    [recommendedDestinations],
+  );
+  const recentlyViewedDestinations = useMemo(
+    () => orderRecentlyViewedDestinations(recentDestinations, topMatchIds),
+    [recentDestinations, topMatchIds],
+  );
+  const bucketListDisplayedIds = useMemo(
+    () =>
+      favorites
+        .map((id) =>
+          allDestinations.find((destination) => destination.id === id),
+        )
+        .filter(
+          (destination): destination is Destination =>
+            destination !== undefined,
+        )
+        .slice(0, 10)
+        .map((destination) => destination.id),
+    [allDestinations, favorites],
+  );
   const discoveryRails = useMemo(() => {
     const originRailContext: OriginRailContext = {
       homeStationCoords,
@@ -378,10 +404,11 @@ export default function Home() {
       visitedIds,
       tripMode: resolvedApplied.tripMode,
     };
-    const usedIds = new Set(
-      recommendedDestinations.slice(0, 10).map((d) => d.id),
+    const usedIds = new Set(topMatchIds);
+    recentlyViewedDestinations.forEach((destination) =>
+      usedIds.add(destination.id),
     );
-    favorites.forEach((id) => usedIds.add(id));
+    bucketListDisplayedIds.forEach((id) => usedIds.add(id));
     const pick = (
       candidates: Destination[],
       qualityOf?: (candidate: Destination) => number,
@@ -451,7 +478,9 @@ export default function Home() {
     };
   }, [
     recommendedDestinations,
-    favorites,
+    topMatchIds,
+    recentlyViewedDestinations,
+    bucketListDisplayedIds,
     homeStationCoords,
     homeStationTransportZoneId,
     resolvedApplied.carMode,
@@ -631,11 +660,11 @@ export default function Home() {
 
       {/* Recently viewed remains conditional and sits directly below Top matches. */}
       <RecentlyViewedRail
+        destinations={recentlyViewedDestinations}
         partySize={resolvedApplied.partySize}
         carMode={resolvedApplied.carMode}
         publicModes={resolvedApplied.publicModes}
         travelDate={travelDateIso}
-        topMatchIds={recommendedDestinations.slice(0, 10).map((d) => d.id)}
       />
 
       {/* Bucket List remains conditional and keeps its existing user-data semantics. */}

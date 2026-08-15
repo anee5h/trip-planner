@@ -50,6 +50,23 @@ export function getHomepageRailConfig(
   return tripMode === "weekend_2d1n" ? WEEKEND_RAILS : DAY_TRIP_RAILS;
 }
 
+export function orderRecentlyViewedDestinations(
+  recentDestinations: readonly Destination[],
+  topMatchIds: readonly string[] = [],
+): Destination[] {
+  const topMatchIdSet = new Set(topMatchIds);
+  if (topMatchIdSet.size === 0) return [...recentDestinations];
+
+  return [
+    ...recentDestinations.filter(
+      (destination) => !topMatchIdSet.has(destination.id),
+    ),
+    ...recentDestinations.filter((destination) =>
+      topMatchIdSet.has(destination.id),
+    ),
+  ];
+}
+
 interface RankedDestination extends Destination {
   score?: number;
 }

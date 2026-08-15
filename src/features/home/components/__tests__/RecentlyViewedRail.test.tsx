@@ -6,15 +6,10 @@ import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { Destination } from "@/shared/types/destination";
+import { orderRecentlyViewedDestinations } from "../../services/HomeRailService";
 import RecentlyViewedRail from "../RecentlyViewedRail";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
-
-const { getRecent } = vi.hoisted(() => ({ getRecent: vi.fn() }));
-
-vi.mock("@/shared/hooks/useRecentlyViewedDestinations", () => ({
-  useRecentlyViewedDestinations: getRecent,
-}));
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
@@ -49,10 +44,9 @@ afterEach(() => {
   host?.remove();
   root = undefined;
   host = undefined;
-  getRecent.mockReset();
 });
 
-function renderRail(topMatchIds?: readonly string[]) {
+function renderRail(destinations: readonly Destination[]) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -61,10 +55,10 @@ function renderRail(topMatchIds?: readonly string[]) {
       <MemoryRouter>
         <section aria-label="Top matches">Top matches</section>
         <RecentlyViewedRail
+          destinations={destinations}
           partySize={2}
           carMode="none"
           publicModes={["train"]}
-          topMatchIds={topMatchIds}
         />
       </MemoryRouter>,
     );
@@ -78,8 +72,7 @@ const recent = [
 
 describe("RecentlyViewedRail", () => {
   it("renders directly after Top matches when recent history exists", () => {
-    getRecent.mockReturnValue(recent);
-    const container = renderRail();
+    const container = renderRail(recent);
     const sections = container.querySelectorAll("section");
 
     expect(sections).toHaveLength(2);
@@ -88,24 +81,43 @@ describe("RecentlyViewedRail", () => {
   });
 
   it("renders nothing when recent history is empty", () => {
-    getRecent.mockReturnValue([]);
-    const container = renderRail();
+    const container = renderRail([]);
 
     expect(container.querySelectorAll("section")).toHaveLength(1);
     expect(container.textContent).not.toContain("Continue exploring");
   });
 
   it("prefers recent destinations outside Top matches when alternatives exist", () => {
-    getRecent.mockReturnValue([
+    const recentDestinations = [
       { id: "top-match", name: "Top match" },
       { id: "alternative", name: "Alternative" },
-    ] as Destination[]);
-    const container = renderRail(["top-match"]);
+    ] as Destination[];
+    const container = renderRail(
+      orderRecentlyViewedDestinations(recentDestinations, ["top-match"]),
+    );
 
     expect(
       Array.from(container.querySelectorAll('a[href^="/destinations/"]')).map(
         (link) => link.textContent,
       ),
     ).toEqual(["Alternative", "Top match"]);
+  });
+
+  it("exposes Continue Exploring IDs for discovery-rail deduplication", () => {
+    const ordered = orderRecentlyViewedDestinations(
+      [
+        { id: "A", name: "A" },
+        { id: "B", name: "B" },
+        { id: "C", name: "C" },
+      ] as Destination[],
+      [],
+    );
+
+    const container = renderRail(ordered);
+    expect(
+      Array.from(container.querySelectorAll('a[href^="/destinations/"]')).map(
+        (link) => link.getAttribute("href")?.split("/").pop(),
+      ),
+    ).toEqual(["A", "B", "C"]);
   });
 });

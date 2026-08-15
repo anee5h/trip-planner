@@ -1,7 +1,7 @@
 import type React from "react";
 import { History } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useRecentlyViewedDestinations } from "@/shared/hooks/useRecentlyViewedDestinations";
+import type { Destination } from "@/shared/types/destination";
 import { ScrollContainer } from "@/shared/components/ui/ScrollContainer";
 import HomeMatchCard from "./HomeMatchCard";
 import { SectionViewAllLink } from "./SectionViewAllLink";
@@ -11,11 +11,11 @@ import {
 } from "./HomeRailLayout";
 
 interface RecentlyViewedRailProps {
+  destinations: readonly Destination[];
   partySize: number;
   carMode: string;
   publicModes: string[];
   travelDate?: string;
-  topMatchIds?: readonly string[];
 }
 
 function translateRequired(
@@ -27,30 +27,17 @@ function translateRequired(
 }
 
 export const RecentlyViewedRail: React.FC<RecentlyViewedRailProps> = ({
+  destinations,
   partySize,
   carMode,
   publicModes,
   travelDate,
-  topMatchIds,
 }) => {
   const { t } = useTranslation();
   const translate = t as (
     key: string,
     options?: Record<string, unknown>,
   ) => string;
-  const recentDestinations = useRecentlyViewedDestinations();
-  const topMatchIdSet = new Set(topMatchIds ?? []);
-  const destinations =
-    topMatchIdSet.size === 0
-      ? recentDestinations
-      : [
-          ...recentDestinations.filter(
-            (destination) => !topMatchIdSet.has(destination.id),
-          ),
-          ...recentDestinations.filter((destination) =>
-            topMatchIdSet.has(destination.id),
-          ),
-        ];
   if (destinations.length === 0) return null;
 
   const title = translateRequired(translate, "home.continueExploring");
