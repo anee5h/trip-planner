@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Tokugawa Garden",
-      "description": "Tokugawa Garden is a visitor destination in Nagoya City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Japanese stroll garden on the site of the Owari Tokugawa clan's Nagoya villa, with a waterfall, streams and azaleas. It adjoins the Tokugawa Art Museum, and plum and cherry blossoms color the garden in early spring.",
       "highlights": ["Nature"]
     },
     "ja": {
       "name": "徳川園",
-      "description": "徳川園はNagoya Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "尾張徳川家の別邸跡に整えられた日本庭園。滝やせせらぎ、ツツジが美しく、徳川美術館に隣接する。春先には梅や桜も楽しめる。",
       "highlights": ["自然"]
     }
   },
@@ -39,17 +39,8 @@
     "lat": 35.184444,
     "lng": 136.932583
   },
-  "description": "Tokugawa Garden is a visitor destination in Nagoya City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Japanese stroll garden on the site of the Owari Tokugawa clan's Nagoya villa, with a waterfall, streams and azaleas. It adjoins the Tokugawa Art Museum, and plum and cherry blossoms color the garden in early spring.",
   "highlights": ["Nature"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 195,
     "shinkansen": 85
@@ -57,17 +48,15 @@
   "totalTripHours": 6,
   "recommendedVisitHours": {
     "min": 1.5,
-    "max": 4
+    "max": 3
   },
-  "walkingMin": 6500,
-  "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
+  "walkingMin": 145,
+  "walkingIntensity": "high",
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 7,
+    "rainFriendly": 4,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 7.5,
@@ -84,11 +73,6 @@
     "accessibility": 8.2
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 8.3,
     "summer": 8.4,
@@ -99,7 +83,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Nagoya City.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -142,6 +125,30 @@
           "title": "Tokugawa Garden",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'garden'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='garden', walkingMin=145",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 80% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -165,5 +172,35 @@
     "confidence": "low"
   },
   "businessHours": "Open access",
-  "municipalityId": "Aichi:nagoya"
+  "municipalityId": "Aichi:nagoya",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'garden'"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='garden', walkingMin=145"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

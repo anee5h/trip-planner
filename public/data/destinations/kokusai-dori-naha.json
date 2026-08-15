@@ -46,7 +46,17 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'district'",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
@@ -117,13 +127,11 @@
   },
   "bestMonths": [3, 4, 5, 10, 11],
   "transportOptions": {
-    "train": 200
+    "train": 15
   },
   "notes": "Naha's main shopping street — great for Okinawan souvenirs and street food.",
   "totalTripHours": 3,
   "walkingMin": 60,
-  "walkingSunMin": 10,
-  "walkingShadeMin": 45,
   "indoorPercent": 30,
   "reservation": "None required",
   "parking": "Nearby paid parking available",
@@ -132,5 +140,23 @@
   },
   "notesJa": "那覇のメインストリート。沖縄土産やストリートフードが楽しめる国際通り。",
   "transportZoneId": "okinawa-main",
-  "description": "Naha's famous 'Miracle Mile' vibrant avenue lined with Okinawan souvenir shops, awamori distilleries, steak houses, and fresh tropical seafood dining upstairs at Makishi Market."
+  "description": "Naha's famous 'Miracle Mile' vibrant avenue lined with Okinawan souvenir shops, awamori distilleries, steak houses, and fresh tropical seafood dining upstairs at Makishi Market.",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'district'"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

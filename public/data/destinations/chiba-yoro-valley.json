@@ -28,8 +28,6 @@
   },
   "totalTripHours": 7,
   "walkingMin": 100,
-  "walkingSunMin": 50,
-  "walkingShadeMin": 50,
   "indoorPercent": 15,
   "coordinates": {
     "lat": 35.2539,
@@ -85,7 +83,7 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 6,
+    "min": 4,
     "max": 8
   },
   "officialWebsite": "https://www.town.otaki.chiba.jp/",
@@ -104,7 +102,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'nature' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "養老渓谷",
   "content": {
@@ -148,5 +156,23 @@
     "license": "Unsplash License",
     "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
     "sourceUrl": "https://unsplash.com"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature' + scale uplift"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

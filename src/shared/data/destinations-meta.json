@@ -9690,7 +9690,7 @@
     "prefecture": "Saitama",
     "region": "Kanto",
     "role": "poi",
-    "kind": "museum",
+    "kind": "nature",
     "status": "published",
     "relationships": {
       "parentDestinationId": "kawagoe-city"
@@ -10639,7 +10639,7 @@
     "prefecture": "Hokkaido",
     "region": "Hokkaido",
     "role": "poi",
-    "kind": "temple",
+    "kind": "street",
     "status": "beta",
     "relationships": {
       "parentDestinationId": "sapporo-city"

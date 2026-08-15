@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Sendai Umino-Mori Aquarium",
-      "description": "Sendai Umino-Mori Aquarium is a visitor destination in Sendai City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "Aquarium on Sendai's Miyagino seaside, featuring the huge 'Sendai Bay' tank and dolphin and seal shows built around Tohoku's marine life.",
       "highlights": ["Aquarium"]
     },
     "ja": {
@@ -41,15 +41,6 @@
   },
   "description": "Aquarium on Sendai's Miyagino seaside, featuring the huge 'Sendai Bay' tank and dolphin and seal shows built around Tohoku's marine life.",
   "highlights": ["Aquarium"],
-  "budgetMin": 3000,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
-  "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 1100,
-    "food": 1925,
-    "cafe": 550
-  },
   "transportOptions": {
     "train": 29,
     "bus": 39,
@@ -60,10 +51,8 @@
     "min": 2,
     "max": 4
   },
-  "walkingMin": 3000,
-  "walkingIntensity": "low",
-  "walkingSunMin": 500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 70,
+  "walkingIntensity": "medium",
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
@@ -85,11 +74,6 @@
     "accessibility": 6.4
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 7.5,
     "summer": 7,
@@ -146,7 +130,25 @@
         "summary": "KAI-57 existing-data audit correction",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 30% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'aquarium'",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -154,5 +156,36 @@
     "confidence": "low"
   },
   "businessHours": "09:00 - 17:30 (Last admission 17:00)",
-  "municipalityId": "Miyagi:sendai"
+  "municipalityId": "Miyagi:sendai",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'aquarium'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 30% of 4h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

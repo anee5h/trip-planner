@@ -27,22 +27,15 @@
   "budgetMin": 26000,
   "budgetMax": 34000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
+  "walkingMin": 270,
   "comfort": {
     "heatTolerance": 5,
-    "rainFriendly": 4,
-    "walkingIntensity": 5
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "train": 100,
     "shinkansen": 60
-  },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
   },
   "season": {
     "spring": 4,
@@ -92,5 +85,29 @@
     "license": "CC BY-SA 3.0",
     "attribution": "DAJF",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:F8_Tanigawa_79_Gala-Yuzawa_20060115.JPG"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=30, kind='', walkingMin=270"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

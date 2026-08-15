@@ -31,6 +31,7 @@ function makeDestination(overrides: Partial<Destination> = {}): Destination {
     budgetRecommended: 10000,
     budgetMin: 5000,
     budgetMax: 20000,
+    budgetBreakdown: { transport: 1500, tickets: 2000, food: 4000, cafe: 2500 },
     transportOptions: { train: 90 },
     recommendedVisitHours: { min: 4, max: 8 },
     totalTripHours: 8,

@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Maizuru Park",
-      "description": "Maizuru Park is a visitor destination in Fukuoka City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Spacious park on the site of Fukuoka Castle in central Fukuoka, where stone walls and moats survive amid lawns and groves. One of the city's best cherry-blossom spots in spring, it also contains the remains of the ancient Korokan guest house.",
       "highlights": ["Nature"],
       "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "舞鶴公園",
-      "description": "舞鶴公園はFukuoka Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "福岡城跡に広がる都心の公園。石垣や堀が残り、春は桜の名所として知られる。園内には古代の迎賓館・鴻臚館の遺構も残る。",
       "highlights": ["自然"],
       "openingHours": "24時間営業"
     }
@@ -41,35 +41,24 @@
     "lat": 33.586366,
     "lng": 130.385192
   },
-  "description": "Maizuru Park is a visitor destination in Fukuoka City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Spacious park on the site of Fukuoka Castle in central Fukuoka, where stone walls and moats survive amid lawns and groves. One of the city's best cherry-blossom spots in spring, it also contains the remains of the ancient Korokan guest house.",
   "highlights": ["Nature"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 204,
     "shinkansen": 304
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {
-    "min": 1.5,
+    "min": 2,
     "max": 4
   },
-  "walkingMin": 6500,
-  "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
+  "walkingMin": 190,
+  "walkingIntensity": "high",
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 6.3,
@@ -86,11 +75,6 @@
     "accessibility": 6.4
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 7.3,
     "summer": 6.4,
@@ -101,7 +85,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -144,6 +127,30 @@
           "title": "Fukuoka",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'park'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='park', walkingMin=190",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 80% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -174,5 +181,41 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'park'"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='park', walkingMin=190"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

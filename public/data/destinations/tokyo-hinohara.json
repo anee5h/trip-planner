@@ -28,8 +28,6 @@
   },
   "totalTripHours": 7,
   "walkingMin": 90,
-  "walkingSunMin": 40,
-  "walkingShadeMin": 50,
   "indoorPercent": 30,
   "coordinates": {
     "lat": 35.7225,
@@ -51,11 +49,6 @@
     "relaxation": 9.5,
     "value": 9,
     "uniqueness": 8
-  },
-  "crowd": {
-    "weekday": 2,
-    "weekend": 6,
-    "holiday": 7
   },
   "season": {
     "spring": 8,
@@ -89,7 +82,7 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 6,
+    "min": 4,
     "max": 8
   },
   "officialWebsite": "https://hinohara-kankou.jp/",
@@ -108,7 +101,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'nature' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "檜原村",
   "content": {
@@ -129,12 +132,7 @@
     "ja": {
       "name": "檜原村",
       "description": "檜原村は東京都の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
-      "highlights": [
-        "檜原村の名所",
-        "檜原村の名所",
-        "檜原村の名所",
-        "檜原村の名所"
-      ],
+      "highlights": ["檜原村の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -151,5 +149,29 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Tokyo:hinohara"
+  "municipalityId": "Tokyo:hinohara",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature' + scale uplift"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

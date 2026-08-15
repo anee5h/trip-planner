@@ -55,10 +55,8 @@
     "min": 1,
     "max": 2
   },
-  "walkingMin": 1500,
-  "walkingSunMin": 900,
-  "walkingShadeMin": 600,
-  "walkingIntensity": "low",
+  "walkingMin": 60,
+  "walkingIntensity": "medium",
   "indoorPercent": 40,
   "comfort": {
     "heatTolerance": 6,
@@ -85,11 +83,6 @@
     "autumn": 9.2
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 7
-  },
   "season": {
     "spring": 8.8,
     "summer": 8.6,
@@ -150,7 +143,17 @@
         "summary": "Added source-backed KAI-57 Tohoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 1500 replaced by walk-share estimate (FIX_UNIT): 50% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -160,5 +163,23 @@
   "relationships": {
     "parentDestinationId": "matsushima-town"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

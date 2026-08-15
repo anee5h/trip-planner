@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Osu Kannon",
-      "description": "Osu Kannon is a visitor destination in Nagoya City.  Visitors can experience historic architecture and local culture.",
+      "description": "Osu Kannon (formally Shinpukuji Hoshoin), a Shingon Chizan-sect temple in Nagoya's Osu district, moved to its present site in 1612. Its library, the Osu Bunko, holds about 15,000 volumes including a National Treasure manuscript of the Kojiki, and an antique market opens on the 18th and 28th of each month.",
       "highlights": ["History"]
     },
     "ja": {
-      "name": "真福寺 (羽島市)",
-      "description": "真福寺 (羽島市)はNagoya Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "大須観音",
+      "description": "大須観音（正式名称・北野山真福寺宝生院）。真言宗智山派の寺院で、1612年に現在地へ移転した。大須文庫には国宝の古事記写本など約15,000冊を収蔵し、毎月18日・28日の縁日には骨董市が立つ。",
       "highlights": ["歴史"]
     }
   },
@@ -38,17 +38,8 @@
     "lat": 35.1598,
     "lng": 136.9
   },
-  "description": "Osu Kannon is a visitor destination in Nagoya City.  Visitors can experience historic architecture and local culture.",
+  "description": "Osu Kannon (formally Shinpukuji Hoshoin), a Shingon Chizan-sect temple in Nagoya's Osu district, moved to its present site in 1612. Its library, the Osu Bunko, holds about 15,000 volumes including a National Treasure manuscript of the Kojiki, and an antique market opens on the 18th and 28th of each month.",
   "highlights": ["History"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 201,
     "shinkansen": 91
@@ -58,15 +49,13 @@
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 90,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 6.5,
@@ -83,11 +72,6 @@
     "accessibility": 9.2
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 8.7,
     "summer": 6.6,
@@ -98,7 +82,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Nagoya City.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -149,6 +132,22 @@
           "title": "Official website for Osu Kannon",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=90",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 50% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -173,5 +172,29 @@
   },
   "officialWebsite": "https://osu-kannon.jp/",
   "businessHours": "09:30 - 17:00 (Closed Mondays)",
-  "municipalityId": "Aichi:nagoya"
+  "municipalityId": "Aichi:nagoya",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='museum', walkingMin=90"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

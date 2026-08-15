@@ -8,6 +8,7 @@
   "prefecture": "Okinawa",
   "category": "Islands & Beaches",
   "description": "An enchanting island in northern Okinawa reached by a 2-kilometer sea bridge, famous for crystal emerald waters and Heart Rock beach.",
+  "notes": "Scenic island drive with emerald-water beaches and Heart Rock on northern Okinawa.",
   "coordinates": {
     "lat": 26.6966,
     "lng": 128.0245
@@ -57,11 +58,6 @@
   "totalTripHours": 4,
   "walkingMin": 35,
   "indoorPercent": 30,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 8
-  },
   "season": {
     "spring": 9,
     "summer": 8,
@@ -72,26 +68,23 @@
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
+    "heatTolerance": 5,
+    "rainFriendly": 5,
     "walkingIntensity": 3
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "notes": "Kouri Island & Heart Rock located in Okinawa Prefecture.",
   "status": "published",
   "relationships": {
     "parentDestinationId": "nago-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Heart-shaped_rocks_at_Kouri_Island_202006.jpg/1920px-Heart-shaped_rocks_at_Kouri_Island_202006.jpg",
   "walkingIntensity": "low",
-  "walkingSunMin": 25,
-  "walkingShadeMin": 5,
   "role": "destination",
   "placeType": "destination",
   "recommendedVisitHours": {
-    "min": 1.5,
-    "max": 3
+    "min": 4,
+    "max": 10
   },
   "officialWebsite": "https://www.nakijin-kankou.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
@@ -127,7 +120,25 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'island' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=30, kind='island', walkingMin=35",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
@@ -155,5 +166,35 @@
       "openingHours": "終日開放（タワー営業10:00〜17:00）。"
     }
   },
-  "municipalityId": "Okinawa:nago"
+  "municipalityId": "Okinawa:nago",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'island' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=30, kind='island', walkingMin=35"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.4,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.5,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-1\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Osaka Museum of Housing and Living",
-      "description": "Osaka Museum of Housing and Living is a visitor destination in Osaka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "A museum that recreates Osaka streetscapes from the late Edo period, letting visitors explore the city’s homes, shops, and daily life.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "大阪くらしの今昔館",
-      "description": "大阪くらしの今昔館はOsaka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "大阪くらしの今昔館は、江戸時代後期の大阪の町並みを再現し、住まいや商店、当時の暮らしを体験できる博物館です。",
       "highlights": ["博物館"]
     }
   },
@@ -23,7 +23,7 @@
   "relationships": {
     "parentDestinationId": "osaka-city"
   },
-  "officialWebsite": "http://konjyakukan.com/",
+  "officialWebsite": "https://www.osaka-angenet.jp/konjyakukan/",
   "officialWebsiteRequirement": "recommended",
   "categories": ["Museum"],
   "tags": ["Museum", "Osaka City"],
@@ -38,17 +38,8 @@
     "lat": 34.710306,
     "lng": 135.511694
   },
-  "description": "Osaka Museum of Housing and Living is a visitor destination in Osaka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "A museum that recreates Osaka streetscapes from the late Edo period, letting visitors explore the city’s homes, shops, and daily life.",
   "highlights": ["Museum"],
-  "budgetMin": 3000,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
-  "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 1100,
-    "food": 1925,
-    "cafe": 550
-  },
   "transportOptions": {
     "train": 186,
     "bus": 206,
@@ -56,13 +47,11 @@
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 4
+    "min": 1.5,
+    "max": 3
   },
-  "walkingMin": 3000,
-  "walkingIntensity": "low",
-  "walkingSunMin": 500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 55,
+  "walkingIntensity": "medium",
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
@@ -84,11 +73,6 @@
     "accessibility": 7.7
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 6.4,
     "summer": 8.5,
@@ -99,7 +83,6 @@
   "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Osaka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -110,7 +93,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Osaka Museum of Housing and Living is a visitor destination in Osaka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+    "editorialSummary": "A museum that recreates Osaka streetscapes from the late Edo period, letting visitors explore the city’s homes, shops, and daily life.",
     "lifecycle": "published",
     "sources": [
       {
@@ -121,14 +104,65 @@
       },
       {
         "type": "official",
-        "url": "http://konjyakukan.com/",
+        "url": "https://www.osaka-angenet.jp/konjyakukan/",
         "title": "Osaka Museum of Housing and Living official website",
         "accessedAt": "2026-07-29"
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.osaka-angenet.jp/konjyakukan/",
+          "title": "Osaka Museum of Housing and Living official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.osaka-angenet.jp/konjyakukan/",
+          "title": "Osaka Museum of Housing and Living official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.osaka-angenet.jp/konjyakukan/",
+          "title": "Osaka Museum of Housing and Living official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'museum'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 30% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -141,5 +175,35 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "municipalityId": "Osaka:osaka"
+  "municipalityId": "Osaka:osaka",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'museum'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

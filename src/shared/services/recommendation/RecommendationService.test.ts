@@ -22,6 +22,7 @@ const mockDestinations = [
     budgetMin: 15000,
     budgetRecommended: 20000,
     budgetMax: 30000,
+    budgetBreakdown: { transport: 2000, tickets: 2500, food: 5000, cafe: 2000 },
     ratings: {
       overall: 4.8,
       food: 4.7,
@@ -64,6 +65,7 @@ const mockDestinations = [
     budgetMin: 5000,
     budgetRecommended: 8000,
     budgetMax: 15000,
+    budgetBreakdown: { transport: 1500, tickets: 1500, food: 4000, cafe: 1500 },
     ratings: {
       overall: 4.6,
       food: 4.5,

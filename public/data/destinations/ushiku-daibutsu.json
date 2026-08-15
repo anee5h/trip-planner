@@ -28,27 +28,14 @@
   "budgetMax": 11500,
   "totalTripHours": 8,
   "walkingMin": 60,
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "comfort": {
-    "heatTolerance": 5,
-    "rainFriendly": 4,
+    "heatTolerance": 6,
+    "rainFriendly": 5,
     "walkingIntensity": 5
   },
   "transportOptions": {
     "train": 100,
     "car": 80
-  },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
   },
   "highlights": [
     "Explore top-rated shrine locations",
@@ -56,14 +43,12 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Ushiku Daibutsu, a prominent destination in Ibaraki. With its rich mix of giant statue, record breaking, it's a highly recommended spot for a 8-hour getaway.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 3000,
     "tickets": 1500,
     "food": 2250,
     "cafe": 750
   },
-  "notes": "A top recommended attraction in Ibaraki, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/en/6/62/Ushiku.jpg",
   "imageMetadata": {
@@ -78,7 +63,6 @@
   },
   "collections": [],
   "relationships": {},
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
@@ -106,7 +90,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=40, kind='', walkingMin=60",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "牛久大仏",
   "content": {
@@ -118,7 +112,6 @@
         "Enjoy regional specialties and local culture",
         "Perfect for a active day out"
       ],
-      "notes": "A top recommended attraction in Ibaraki, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
       "openingHours": "09:00 - 17:00"
@@ -127,7 +120,6 @@
       "name": "牛久大仏",
       "description": "Ushiku Daibutsuは茨城県にある人気の高い観光スポットです。固有の魅力と充実した見どころが揃い、充実した行程を彩ります。",
       "highlights": ["-神社散策", "牛久大仏の名所", "a散策"],
-      "notes": "牛久大仏は、Ibarakiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"
@@ -138,10 +130,39 @@
     "method": "manual",
     "confidence": "high"
   },
-  "notesJa": "牛久大仏は、Ibarakiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Ibaraki:ushiku"
+  "municipalityId": "Ibaraki:ushiku",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=40, kind='', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

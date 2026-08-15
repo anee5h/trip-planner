@@ -12,12 +12,10 @@
   "description": "Historic international port city featuring Glover Garden, Dejima Dutch trading post, and Peace Park.",
   "highlights": ["Explore Nagasaki City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
-  "budgetMin": 3500,
-  "budgetRecommended": 14250,
-  "budgetMax": 25000,
-  "walkingMin": 4000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 2500,
+  "budgetMin": 6600,
+  "budgetRecommended": 7600,
+  "budgetMax": 8600,
+  "walkingMin": 360,
   "indoorPercent": 50,
   "ratings": {
     "overall": 9.5,
@@ -31,19 +29,6 @@
     "value": 9.4,
     "uniqueness": 9.4
   },
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
   "weatherDependence": "low",
   "tags": ["Nagasaki City", "Nagasaki Travel", "Regional Hub"],
   "coordinates": {
@@ -51,16 +36,15 @@
     "lng": 129.8777
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 8,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 6,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "train": 200
   },
   "reservation": "None required",
   "parking": "Public parking available",
-  "notes": "Nagasaki City travel hub in Nagasaki Prefecture.",
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"
@@ -71,14 +55,14 @@
     "nearbyDestinationIds": ["fukuoka-city", "kitakyushu-city", "dazaifu-city"]
   },
   "budgetBreakdown": {
-    "transport": 3563,
-    "tickets": 1781,
-    "food": 5789,
-    "cafe": 3117
+    "transport": 3000,
+    "tickets": 0,
+    "food": 3000,
+    "cafe": 1600
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "recommendedVisitHours": {
-    "min": 6,
+    "min": 8,
     "max": 12
   },
   "ratingsSchemaVersion": 2,
@@ -98,12 +82,94 @@
         "title": "Nagasaki City",
         "accessedAt": "2026-08-04"
       }
-    ]
+    ],
+    "fieldSources": {
+      "budgetRecommended": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "budget-model-v1; peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 8 children, metro=false",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 50% of 12h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=50, kind='city', walkingMin=360",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "openingHours": "No fixed opening hours (city area)",
   "openingHoursJa": "営業時間の設定なし（市内エリア）",
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/nagasaki-city/"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "hub records span multiple microclimates; single vector would be fabricated"
+  },
+  "budgetMetadata": {
+    "method": "model",
+    "modelVersion": "budget-model-v1",
+    "confidence": "low",
+    "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance major, 8 children, metro=false"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=50, kind='city', walkingMin=360"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 1,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

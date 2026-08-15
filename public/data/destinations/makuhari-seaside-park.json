@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Makuhari Seaside Park",
-      "description": "Makuhari Seaside Park is a visitor destination in Chiba City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Seaside park on the Makuhari coast in Chiba City, with lawns, flower gardens and a promenade along Tokyo Bay. Adjacent to Makuhari Messe, it is popular for seasonal flowers, sea breezes and views of the bay.",
       "highlights": ["Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "幕張海浜公園",
-      "description": "幕張海浜公園はChiba Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "幕張の海沿いに広がる海浜公園。芝生広場や花壇、東京湾沿いの遊歩道が整備され、幕張メッセに隣接する。コスモスなど季節の花と湾の眺望が楽しめる。",
       "highlights": ["幕張海浜公園の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,35 +47,24 @@
     "lat": 35.64380556,
     "lng": 140.04025
   },
-  "description": "Makuhari Seaside Park is a visitor destination in Chiba City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Seaside park on the Makuhari coast in Chiba City, with lawns, flower gardens and a promenade along Tokyo Bay. Adjacent to Makuhari Messe, it is popular for seasonal flowers, sea breezes and views of the bay.",
   "highlights": ["Nature"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 70,
     "car": 60
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {
-    "min": 1.5,
+    "min": 2,
     "max": 4
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 6.3,
@@ -92,11 +81,6 @@
     "accessibility": 8.9
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 6.4,
     "summer": 9.1,
@@ -118,12 +102,6 @@
   "editorial": {
     "lifecycle": "published",
     "sources": [
-      {
-        "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Kaihimmakuhari_Station",
-        "title": "Kaihimmakuhari Station",
-        "accessedAt": "2026-07-29"
-      },
       {
         "type": "official",
         "url": "http://www.pref.chiba.lg.jp/kouen/toshikouen/guidemap/makuhari.html",
@@ -149,6 +127,22 @@
           "url": "https://en.wikipedia.org/wiki/Kaihimmakuhari_Station",
           "title": "Kaihimmakuhari Station",
           "accessedAt": "2026-07-29"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'park'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='park', walkingMin=60",
+          "accessedAt": "2026-08-14"
         }
       ]
     },
@@ -180,5 +174,41 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Chiba:chiba"
+  "municipalityId": "Chiba:chiba",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'park'"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='park', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

@@ -1,5 +1,6 @@
 import type { CollectionMembership } from "./collection";
 import type { TransportMode } from "../services/transport/types";
+import type { ScoreMetadata } from "../services/recommendation/scoreRubric";
 
 export interface ItineraryStep {
   time: string;
@@ -228,9 +229,16 @@ export interface Destination {
   heroImage: string;
   description: string;
   highlights: string[];
-  budgetRecommended: number;
-  budgetMin: number;
-  budgetMax: number;
+  /**
+   * Budget contract (KAI-89): values are PER-PERSON and OPTIONAL. Absence
+   * is the explicit unknown state (budgetMetadata.method "unknown" — never
+   * treat missing as free or zero; unknown must remain unknown in price
+   * comparisons, ranking, and rendering). Consumers must require finite
+   * known values before arithmetic.
+   */
+  budgetRecommended?: number;
+  budgetMin?: number;
+  budgetMax?: number;
   budgetBreakdown?: {
     transport: number;
     tickets: number;
@@ -299,34 +307,136 @@ export interface Destination {
     transferMinutes?: number;
     ferryMinutes?: number;
   };
-  walkingMin: number;
+  walkingMin?: number;
   walkingIntensity?: "low" | "medium" | "high";
-  walkingSunMin: number;
-  walkingShadeMin: number;
-  indoorPercent: number;
+  /** Sun/shade splits were batch-template artefacts and are removed as
+   *  unsourced (KAI-89): absent = explicit unknown, never a default label. */
+  walkingSunMin?: number;
+  walkingShadeMin?: number;
+  indoorPercent?: number;
   coordinates?: { lat: number; lng: number };
   comfort?: {
     heatTolerance: number;
     rainFriendly: number;
-    walkingIntensity: number;
+    /** Present only when a walking estimate exists (KAI-89: never
+     *  manufactured from a default when walkingMin is unknown). */
+    walkingIntensity?: number;
   };
   ratings: Ratings;
   ratingsSchemaVersion?: 2;
   matchScore?: number;
   matchReasons?: string[];
-  crowd: {
+  /**
+   * Crowd bands. OPTIONAL since KAI-89: zero runtime consumers exist, and a
+   * kind-derived band would be manufactured evidence. Absent value +
+   * crowdMetadata.method "unknown" is the explicit neutral state.
+   */
+  crowd?: {
     weekday: number;
     weekend: number;
     holiday: number;
   };
-  season: {
+  /**
+   * Experience-season suitability (0-10 per season). Optional since
+   * KAI-89 model pass: records without a defensible seasonal signal carry
+   * seasonMetadata.method "unknown" (an explicit neutral state, never a
+   * fabricated vector). Consumers fall back to the neutral mid-point 5.
+   */
+  season?: {
     spring: number;
     summer: number;
     autumn: number;
     winter: number;
   };
-  bestMonths: number[];
+  bestMonths?: number[];
   bestSeason?: string;
+  /**
+   * KAI-89 model provenance for derived season state (method "model") or the
+   * explicit neutral state (method "unknown").
+   */
+  seasonMetadata?: {
+    method: "manual" | "assisted" | "model" | "unknown";
+    modelVersion?: string;
+    confidence?: "high" | "medium" | "low" | "unknown";
+    basis?: string;
+  };
+  /**
+   * KAI-89 budget provenance: marks budgets derived by the model (method
+   * "model") and template budgets deliberately returned to unknown (method
+   * "unknown" — the explicit neutral state, not missing data; UNKNOWN IS
+   * AUTHORITATIVE: unknown metadata implies no usable numeric budget, so
+   * consumers treat it as unknown even if legacy numbers linger). method
+   * "manual" marks accepted-debt budgets (verified ticket preserved with
+   * legacy components — numbers remain usable, provenance states the fact).
+   */
+  budgetMetadata?: {
+    method: "model" | "manual" | "unknown";
+    modelVersion?: string;
+    confidence?: "high" | "medium" | "low" | "unknown";
+    basis?: string;
+  };
+  /**
+   * KAI-89 transport provenance: tags legacy static transportOptions minutes
+   * as low-confidence fallback (never verified journey facts).
+   */
+  transportMetadata?: {
+    method: "source-verified" | "calculated" | "legacy-fallback" | "unknown";
+    modelVersion?: string;
+    confidence?: "high" | "medium" | "low" | "unknown";
+    basis?: string;
+  };
+  /**
+   * KAI-89 walking provenance: method "model" marks model-derived minutes
+   * (pace-converted or walk-share fill; unit is always MINUTES), method
+   * "unknown" marks the explicit neutral state.
+   */
+  walkingMetadata?: {
+    method: "manual" | "model" | "unknown";
+    unit?: "minutes" | "metres";
+    modelVersion?: string;
+    confidence?: "high" | "medium" | "low" | "unknown";
+    basis?: string;
+  };
+  /**
+   * KAI-89 duration provenance: method "model" marks hub exploration
+   * windows / POI kind-band visits derived by the duration model.
+   */
+  durationMetadata?: {
+    method: "manual" | "model" | "unknown";
+    modelVersion?: string;
+    confidence?: "high" | "medium" | "low" | "unknown";
+    basis?: string;
+  };
+  /**
+   * KAI-89 comfort provenance: marks comfort vectors derived by the model
+   * (method "model") vs manually reviewed. UI renders model values as
+   * estimates, never facts.
+   */
+  comfortMetadata?: {
+    method: "manual" | "model" | "unknown";
+    modelVersion?: string;
+    confidence?: "high" | "medium" | "low" | "unknown";
+    basis?: string;
+    /**
+     * Field-level ownership (KAI-89): which comfort fields the model actually
+     * derived. Absent = the whole vector is model output. FIX_CONTRADICTION
+     * corrections derive ONLY walkingIntensity — heatTolerance/rainFriendly
+     * remain legacy values, and the UI must not mark them estimated.
+     */
+    derivedFields?: Array<
+      "heatTolerance" | "rainFriendly" | "walkingIntensity"
+    >;
+  };
+  /**
+   * KAI-89 crowd provenance: marks crowd band vectors derived by the model.
+   * No runtime consumer scores crowd, so derived bands are presentation-only.
+   */
+  crowdMetadata?: {
+    method: "manual" | "model" | "unknown";
+    modelVersion?: string;
+    confidence?: "high" | "medium" | "low" | "unknown";
+    basis?: string;
+  };
   weatherDependence?: "low" | "moderate" | "high";
   openingHoursMetadata?: {
     verifiedAt?: string;
@@ -340,6 +450,20 @@ export interface Destination {
     method: "assisted" | "manual" | "calculated";
     confidence: "low" | "medium" | "high";
   };
+  /**
+   * KAI-89 overall-destination score metadata (rubric v2). PERSISTED by the
+   * deterministic generator for every record; runtime getScorePresentation
+   * reads it (with a computed fallback that must agree — gated). ONE rubric
+   * computes the value for verified AND estimated; the state is a
+   * provenance/coverage label, never a different formula. States:
+   *  - verified  → rubric value with editorial score provenance (date +
+   *    authoritative sources, committed verification ledger);
+   *  - estimated → rubric value with model provenance (sourceClass "model");
+   *  - unavailable → evidence coverage below threshold; value null.
+   * Distinct from the legacy ratings vector (ratings.*) and its
+   * ratingMetadata confidence, which are a separate evidence family.
+   */
+  scoreMetadata?: ScoreMetadata;
   tags: string[];
   reservation: string;
   reservationJa?: string;

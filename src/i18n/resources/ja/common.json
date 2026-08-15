@@ -103,7 +103,8 @@
       "art": "アート",
       "sea": "海",
       "cool": "涼しさ",
-      "themepark": "テーマパーク"
+      "themepark": "テーマパーク",
+      "weather": "天気"
     },
     "reasons": {
       "budgetGreatValue": {
@@ -528,7 +529,6 @@
     "originForecastHint": "予報は出発地付近の天気です"
   },
   "destination": {
-    "megurutoScore": "メグルートスコア",
     "tokyoWardsGroup": "東京23区",
     "tokyoWardsCount": "{{count}}区",
     "tokyoWardsBadge": "23区",
@@ -558,7 +558,25 @@
       "forecastRange": "出発地の予報 {{day1}}〜{{day2}}",
       "seasonal": "{{month}}の平年並みの気候",
       "mixed": "{{day}}の出発地予報・{{month}}の平年並みの気候"
-    }
+    },
+    "scoreUnavailable": "スコアを表示できません",
+    "scoreVerifiedNote": "編集で検証済みのスコアです",
+    "scoreEstimatedNote": "総合目的地ルーブリックによる推定スコアです",
+    "ratings": {
+      "couple": "カップル",
+      "family": "家族",
+      "photography": "写真",
+      "food": "食事",
+      "value": "コスパ",
+      "accessibility": "アクセシビリティ",
+      "nature": "自然",
+      "historyCulture": "歴史・文化",
+      "relaxation": "リラックス"
+    },
+    "mapScoreUnavailable": "スコアを表示できません",
+    "mapExplore": "ガイドを見る",
+    "mapSave": "お気に入り",
+    "mapRemove": "お気に入りから削除"
   },
   "ui": {
     "back": "戻る",
@@ -681,7 +699,8 @@
     "defaultLanguage": "既定の言語",
     "baseLocation": "出発地",
     "failedSave": "設定の保存に失敗しました",
-    "settingsSaved": "設定を保存しました"
+    "settingsSaved": "設定を保存しました",
+    "estimated": "目安"
   },
   "settings": {
     "fullName": "名前",
@@ -727,6 +746,8 @@
     "today": "今日",
     "tomorrow": "明日",
     "chooseTravelDate": "旅行日を選択",
+    "anyDate": "指定なし",
+    "close": "日付選択を閉じる",
     "forecastNearOrigin": "{{origin}}付近の予報",
     "day2DerivedHint": "2日目（1泊2日の推測）"
   },
@@ -736,7 +757,6 @@
     "system": "システム"
   },
   "compare": {
-    "score": "スコア",
     "best": "最高",
     "budget": "予算",
     "lowest": "最安",
@@ -748,6 +768,17 @@
     "attraction": "観光スポット",
     "removeFromCompare": "比較から削除",
     "closeModal": "比較モーダルを閉じる",
-    "unavailable": "該当なし"
+    "unavailable": "該当なし",
+    "estimated": "目安",
+    "budgetRecommended": "予算（推奨）",
+    "travelTime": "移動時間",
+    "walkIntensity": "歩きやすさ",
+    "coupleScore": "カップルスコア",
+    "summerComfort": "夏の快適さ",
+    "vibeTags": "雰囲気タグ",
+    "features": "特徴",
+    "viewDetails": "詳細を見る",
+    "highest": "最高",
+    "removeFromCompareList": "比較リストから削除"
   }
 }

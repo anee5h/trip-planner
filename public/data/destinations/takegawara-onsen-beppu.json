@@ -71,10 +71,8 @@
     "min": 0.5,
     "max": 1.5
   },
-  "walkingMin": 1500,
+  "walkingMin": 25,
   "walkingIntensity": "low",
-  "walkingSunMin": 300,
-  "walkingShadeMin": 1200,
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 6,
@@ -94,11 +92,6 @@
     "uniqueness": 9
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 8
-  },
   "season": {
     "spring": 8,
     "summer": 7,
@@ -139,7 +132,17 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 1500 replaced by walk-share estimate (FIX_UNIT): 30% of 1.5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": null,
   "municipalityId": "Oita:beppu",
@@ -149,5 +152,30 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.city.beppu.oita.jp/sisetu/shieionsen/detail4.html"
   },
-  "notesJa": "明治期の青ガラス外観は外から見るだけでも印象的な写真スポットです。"
+  "notesJa": "明治期の青ガラス外観は外から見るだけでも印象的な写真スポットです。",
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 1500 replaced by walk-share estimate (FIX_UNIT): 30% of 1.5h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

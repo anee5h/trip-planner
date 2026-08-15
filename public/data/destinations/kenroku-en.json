@@ -37,10 +37,10 @@
     "car": 10
   },
   "recommendedVisitHours": {
-    "min": 1.5,
-    "max": 3
+    "min": 2.5,
+    "max": 5
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "ratings": {
     "overall": 9.5,
     "couple": 9.3,
@@ -130,11 +130,60 @@
     "freshness": "current",
     "changeSummary": "PR A fixed-set audit: new Kenroku-en record completing three-great-gardens",
     "reviewedAt": "2026-08-12",
-    "reviewedBy": "Meguruto editorial"
+    "reviewedBy": "Meguruto editorial",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'garden' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "assisted",
     "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 240,
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "verified ticket ¥320 preserved; peer cell 'garden|half|standalone' has 0 samples (< 5); components left as accepted debt"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'garden' + scale uplift"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

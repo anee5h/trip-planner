@@ -46,7 +46,8 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {}
   },
   "content": {
     "en": {
@@ -104,11 +105,6 @@
     "Gift from Fuzhou, Naha's sister city"
   ],
   "collections": [],
-  "crowd": {
-    "weekday": 2,
-    "weekend": 5,
-    "holiday": 6
-  },
   "season": {
     "spring": 9,
     "summer": 7,
@@ -117,13 +113,11 @@
   },
   "bestMonths": [1, 2, 3, 4, 10, 11, 12],
   "transportOptions": {
-    "train": 200
+    "train": 15
   },
   "notes": "A tranquil Chinese garden near the city centre — a quiet escape from busy Kokusai Dori.",
   "totalTripHours": 2,
   "walkingMin": 20,
-  "walkingSunMin": 5,
-  "walkingShadeMin": 10,
   "indoorPercent": 10,
   "reservation": "None required",
   "parking": "Nearby paid parking",
@@ -134,5 +128,23 @@
   "transportZoneId": "okinawa-main",
   "description": "A serene traditional Chinese landscape garden constructed in Naha's Kumemura district using granite and wood imported from Fuzhou, China.",
   "openingHours": "~08:30-17:30 (seasonal)",
-  "openingHoursJa": "〜08:30〜17:30（季節により変動）"
+  "openingHoursJa": "〜08:30〜17:30（季節により変動）",
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

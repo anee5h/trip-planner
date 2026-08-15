@@ -7,6 +7,14 @@ export function formatTransportTime(
   locale?: string,
 ): string {
   const isJa = locale === "ja";
+  if (
+    !Number.isFinite(range[0]) ||
+    !Number.isFinite(range[1]) ||
+    range[0] < 0 ||
+    range[0] > range[1]
+  ) {
+    return isJa ? "所要時間不明" : "Travel time unavailable";
+  }
 
   const formatSingle = (mins: number): string => {
     if (mins < 60) {
@@ -48,6 +56,14 @@ export function formatApproximateTransportTime(
   locale?: string,
 ): string {
   const isJa = locale === "ja";
+  if (
+    !Number.isFinite(range[0]) ||
+    !Number.isFinite(range[1]) ||
+    range[0] < 0 ||
+    range[0] > range[1]
+  ) {
+    return isJa ? "所要時間不明" : "Travel time unavailable";
+  }
   const prefix = isJa ? "約" : "~";
   const separator = isJa ? "〜" : "–";
   const min = Math.max(0, Math.round(range[0]));
@@ -86,6 +102,14 @@ export function formatApproximateTransportTime(
  * Example: [9000, 18000] => "¥9,000 – ¥18,000", [1200, 1200] => "¥1,200"
  */
 export function formatTransportCost(range: [number, number]): string {
+  if (
+    !Number.isFinite(range[0]) ||
+    !Number.isFinite(range[1]) ||
+    range[0] < 0 ||
+    range[0] > range[1]
+  ) {
+    return "Cost unavailable";
+  }
   const formatYen = (amount: number): string =>
     `¥${Math.round(amount).toLocaleString()}`;
 

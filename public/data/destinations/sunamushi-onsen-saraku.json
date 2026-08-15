@@ -78,10 +78,8 @@
     "min": 1,
     "max": 2
   },
-  "walkingMin": 1500,
-  "walkingIntensity": "low",
-  "walkingSunMin": 500,
-  "walkingShadeMin": 1000,
+  "walkingMin": 60,
+  "walkingIntensity": "medium",
   "indoorPercent": 60,
   "comfort": {
     "heatTolerance": 7,
@@ -101,11 +99,6 @@
     "uniqueness": 9.5
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 9
-  },
   "season": {
     "spring": 9,
     "summer": 7,
@@ -153,8 +146,43 @@
       }
     ],
     "reviewedAt": "2026-08-05",
-    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    "reviewedBy": "Kyushu-to-100 Editorial Batch",
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 1500 replaced by walk-share estimate (FIX_UNIT): 50% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.ibusuki.or.jp/en/spot/saraku/",
-  "municipalityId": "Kagoshima:ibusuki"
+  "municipalityId": "Kagoshima:ibusuki",
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 1500 replaced by walk-share estimate (FIX_UNIT): 50% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

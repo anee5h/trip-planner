@@ -29,11 +29,6 @@
     "value": 9.4,
     "uniqueness": 9.5
   },
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 9.8,
     "summer": 8.5,
@@ -65,25 +60,52 @@
     "train": 100,
     "shinkansen": 40
   },
-  "walkingSunMin": 72,
-  "walkingShadeMin": 48,
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "notes": "Nagoya Castle (Golden Shachihoko) located in Aichi Prefecture.",
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 4
+    "min": 2.5,
+    "max": 5
   },
   "placeType": "destination",
   "areaId": "central-nagoya",
   "officialWebsite": "https://www.nagoyacastle.jp/",
   "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-  "municipalityId": "Aichi:nagoya"
+  "municipalityId": "Aichi:nagoya",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'castle' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=40, kind='castle', walkingMin=120"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.6,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 1,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

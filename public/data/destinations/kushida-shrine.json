@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Kushida Shrine",
-      "description": "Kushida Shrine is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+      "description": "Hakata's guardian shrine, founded in 757 and known as the spiritual home of the Hakata Gion Yamakasa festival, whose towering decorated floats race through the streets every July. The colorful festival floats are displayed at the shrine year-round.",
       "highlights": ["History"],
       "openingHours": "04:00–22:00"
     },
     "ja": {
       "name": "櫛田神社 (福岡市)",
-      "description": "櫛田神社 (福岡市)はFukuoka Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "757年創建の博多の総鎮守。毎年7月に開かれる「博多祇園山笠」の聖地として知られ、勇壮な山笠が町を駆け抜ける祭りで有名。",
       "highlights": ["歴史"],
       "openingHours": "04:00～22:00"
     }
@@ -40,17 +40,8 @@
     "lat": 33.593111111111114,
     "lng": 130.41069444444443
   },
-  "description": "Kushida Shrine is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+  "description": "Hakata's guardian shrine, founded in 757 and known as the spiritual home of the Hakata Gion Yamakasa festival, whose towering decorated floats race through the streets every July. The colorful festival floats are displayed at the shrine year-round.",
   "highlights": ["History"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1300,
-    "tickets": 0,
-    "food": 2300,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 195,
     "shinkansen": 295
@@ -60,15 +51,13 @@
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
-  "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
+  "walkingMin": 110,
+  "walkingIntensity": "high",
   "indoorPercent": 25,
   "comfort": {
-    "heatTolerance": 3,
-    "rainFriendly": 3,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 9,
@@ -85,11 +74,6 @@
     "accessibility": 6.5
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 6.6,
     "summer": 6.7,
@@ -100,7 +84,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -151,6 +134,22 @@
           "title": "Official website for Kushida Shrine",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=25, kind='shrine', walkingMin=110",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 60% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -182,5 +181,35 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://yokanavi.com/en/spot/26906/"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=25, kind='shrine', walkingMin=110"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

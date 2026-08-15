@@ -72,7 +72,7 @@ export const SCORING_WEIGHTS = {
 /**
  * REC-001: Confidence multipliers for rating-derived score contributions.
  * high = reviewed and verified; medium = lightly reviewed; low = assisted/beta.
- * Destinations without ratingMetadata are pre-expansion curated records — full weight.
+ * Missing metadata is unverified evidence and receives the conservative low weight.
  */
 export const CONFIDENCE_MULTIPLIERS: Record<string, number> = {
   high: 1.0,
@@ -81,11 +81,49 @@ export const CONFIDENCE_MULTIPLIERS: Record<string, number> = {
 };
 
 export function ratingReliability(destination: Destination): number {
-  // No ratingMetadata field at all → curated pre-expansion record → full weight.
-  if (destination.ratingMetadata === undefined) return 1.0;
+  if (destination.ratingMetadata === undefined)
+    return CONFIDENCE_MULTIPLIERS.low;
   const confidence = destination.ratingMetadata.confidence;
   return CONFIDENCE_MULTIPLIERS[confidence] ?? 0.7;
 }
+
+/**
+ * REC-002: Whether a destination's legacy RATING VECTOR (ratings.overall,
+ * food, couple, …) may be presented as reviewed evidence in the UI ("Highly
+ * recommended" claims, experience-ratings grid, combination tie-break).
+ * Only high/medium-confidence ratingMetadata counts; low confidence or
+ * missing metadata means the raw numbers are unverified (template/assisted)
+ * and must not be shown as authoritative. This is a DIFFERENT concept from
+ * the overall-score state — see isRatingVerified.
+ *
+ * KAI-89 overall-score 3-state contract (rubric v2):
+ *  - "verified"    — ONE rubric value whose inputs were editorially
+ *                    verified against authoritative sources (score-specific
+ *                    provenance, date + source URLs, persisted by the
+ *                    generator); localized note;
+ *  - "estimated"   — the SAME rubric value (Overall-Destination Rubric v2)
+ *                    over trusted non-gated catalogue fields, visibly
+ *                    labeled estimated + a localized note; NEVER the gated
+ *                    raw ratings, NEVER a seasonal-suitability mean;
+ *  - "unavailable" — weighted evidence coverage below the documented
+ *                    threshold; a consistent localized "Score unavailable"
+ *                    note, never blank, never a neutral-5 estimate, never
+ *                    the generic "under editorial review" wording.
+ */
+export {
+  type ScoreState,
+  type ScoreMetadata,
+  type ScoreProvenance,
+  type RubricResult,
+  type RubricDimensions,
+  type EditorialScoreProvenance,
+  OVERALL_SCORE_RUBRIC_VERSION,
+  SCORE_EVIDENCE_THRESHOLD,
+  computeOverallScore,
+  isRatingVerified,
+  buildScoreMetadata,
+  getScorePresentation,
+} from "./scoreRubric";
 
 export function getValidModes(
   dest: Destination,
@@ -239,7 +277,8 @@ export function calculateScore(
   const { actual, preferred } = resolveRecommendationWeather(context);
 
   const ratingWeight = ratingReliability(dest);
-  const ratingScore = (value: number) => value * ratingWeight;
+  const ratingScore = (value: number) =>
+    Number.isFinite(value) ? value * ratingWeight : 0;
   let score =
     SCORING_WEIGHTS.BASE_SCORE +
     ratingScore(
@@ -271,8 +310,13 @@ export function calculateScore(
   for (const mode of validModesForDest) {
     let budgetScore = 0;
 
-    let adjustedBudget = 999999;
-    if (dest.budgetRecommended) {
+    let adjustedBudget = Number.POSITIVE_INFINITY;
+    const budgetRecommended = dest.budgetRecommended;
+    if (
+      typeof budgetRecommended === "number" &&
+      Number.isFinite(budgetRecommended) &&
+      budgetRecommended >= 0
+    ) {
       const estimatedResult = getEstimatedBudgetRange(
         dest,
         mode,
@@ -489,7 +533,11 @@ export function calculateScore(
   // Reads destination.season[currentSeason] (0-10 scale, fully populated on all destinations).
   // Falls back to 5 (neutral mid-point) if the field is missing.
   const currentSeason = getFixedSeason();
-  const seasonScore = dest.season?.[currentSeason] ?? 5;
+  const seasonScore =
+    typeof dest.season?.[currentSeason] === "number" &&
+    Number.isFinite(dest.season[currentSeason])
+      ? dest.season[currentSeason]
+      : 5;
   score += (seasonScore - 5) * SCORING_WEIGHTS.SEASON_MULTIPLIER;
 
   // User Rating Adjustments (Netflix-style Thumbs Up / Down)

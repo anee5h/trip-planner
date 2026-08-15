@@ -28,8 +28,6 @@
   },
   "totalTripHours": 9,
   "walkingMin": 240,
-  "walkingSunMin": 80,
-  "walkingShadeMin": 160,
   "indoorPercent": 2,
   "coordinates": {
     "lat": 35.8644,
@@ -83,8 +81,8 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 8,
-    "max": 10
+    "min": 4,
+    "max": 8
   },
   "officialWebsite": "https://www.city.yamanashi.yamanashi.jp/",
   "businessHours": "Open access",
@@ -94,5 +92,23 @@
     "license": "Unsplash License",
     "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
     "sourceUrl": "https://unsplash.com"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature' + scale uplift"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

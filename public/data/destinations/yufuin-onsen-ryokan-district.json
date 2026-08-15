@@ -71,10 +71,8 @@
     "min": 2,
     "max": 6
   },
-  "walkingMin": 5000,
-  "walkingIntensity": "medium",
-  "walkingSunMin": 2500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 180,
+  "walkingIntensity": "high",
   "indoorPercent": 50,
   "comfort": {
     "heatTolerance": 7,
@@ -94,18 +92,6 @@
     "uniqueness": 9
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 9
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "low",
   "reservation": "Recommended for ryokan stays",
   "parking": "Ryokan parking available",
@@ -139,7 +125,17 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 5000 replaced by walk-share estimate (FIX_UNIT): 50% of 6h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": null,
   "municipalityId": "Oita:yufu",
@@ -149,5 +145,35 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/yufuin-onsen-ryokan-district/"
   },
-  "notesJa": "入場無料の英国風ショッピング施設で家族連れに人気です。"
+  "notesJa": "入場無料の英国風ショッピング施設で家族連れに人気です。",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

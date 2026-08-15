@@ -103,7 +103,8 @@
       "art": "Art",
       "sea": "Sea",
       "cool": "Cool",
-      "themepark": "Theme park"
+      "themepark": "Theme park",
+      "weather": "Weather"
     },
     "reasons": {
       "budgetGreatValue": {
@@ -528,7 +529,6 @@
     "originForecastHint": "Forecast shows weather near your origin"
   },
   "destination": {
-    "megurutoScore": "Meguruto score",
     "tokyoWardsGroup": "Tokyo 23 Wards",
     "tokyoWardsCount": "{{count}} wards",
     "tokyoWardsBadge": "23 Wards",
@@ -558,7 +558,25 @@
       "forecastRange": "Origin forecast for {{day1}}–{{day2}}",
       "seasonal": "Typical conditions for {{month}}",
       "mixed": "Origin forecast for {{day}} · typical conditions for {{month}}"
-    }
+    },
+    "scoreUnavailable": "Score unavailable",
+    "scoreVerifiedNote": "Editorially reviewed score",
+    "scoreEstimatedNote": "Estimated score from the overall-destination rubric",
+    "ratings": {
+      "couple": "Couple",
+      "family": "Family",
+      "photography": "Photography",
+      "food": "Food",
+      "value": "Value",
+      "accessibility": "Accessibility",
+      "nature": "Nature",
+      "historyCulture": "History & Culture",
+      "relaxation": "Relaxation"
+    },
+    "mapScoreUnavailable": "Score unavailable",
+    "mapExplore": "Explore",
+    "mapSave": "Save",
+    "mapRemove": "Remove"
   },
   "ui": {
     "back": "Back",
@@ -681,7 +699,8 @@
     "defaultLanguage": "Default language",
     "baseLocation": "Base location",
     "failedSave": "Failed to save settings",
-    "settingsSaved": "Settings saved successfully!"
+    "settingsSaved": "Settings saved successfully!",
+    "estimated": "est."
   },
   "settings": {
     "fullName": "Full name",
@@ -727,6 +746,8 @@
     "today": "Today",
     "tomorrow": "Tomorrow",
     "chooseTravelDate": "Choose travel date",
+    "anyDate": "Any date",
+    "close": "Close date picker",
     "forecastNearOrigin": "Forecast near {{origin}}",
     "day2DerivedHint": "Day 2 (derived for 2D1N trip)"
   },
@@ -736,7 +757,6 @@
     "system": "System"
   },
   "compare": {
-    "score": "Score",
     "best": "Best",
     "budget": "Budget",
     "lowest": "Lowest",
@@ -748,6 +768,17 @@
     "attraction": "Attraction",
     "removeFromCompare": "Remove from comparison",
     "closeModal": "Close comparison modal",
-    "unavailable": "N/A"
+    "unavailable": "N/A",
+    "estimated": "est.",
+    "budgetRecommended": "Budget (Recommended)",
+    "travelTime": "Travel Time",
+    "walkIntensity": "Walk Intensity",
+    "coupleScore": "Couple Score",
+    "summerComfort": "Summer Comfort",
+    "vibeTags": "Vibe Tags",
+    "features": "Features",
+    "viewDetails": "View Details",
+    "highest": "Highest",
+    "removeFromCompareList": "Remove destination from comparison list"
   }
 }

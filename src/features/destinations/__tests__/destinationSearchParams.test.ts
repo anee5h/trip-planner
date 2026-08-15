@@ -7,6 +7,7 @@ import {
   serializePlannerSearchParams,
 } from "../destinationSearchParams";
 import { BUDGET_TIER_LIMITS } from "@/shared/types/planner";
+import { DEFAULT_PLANNER_BUDGET_TIER } from "@/features/home/hooks/useTripPlannerState";
 import destinations from "@/shared/data/destinations-index.json";
 
 describe("destinationSearchParams", () => {
@@ -247,8 +248,12 @@ describe("destinationSearchParams", () => {
   // PLN-004: Reset consistency — Home and Explorer use the same defaults
   // -------------------------------------------------------------------------
 
-  it("KAI-91: DEFAULT_DESTINATION_EXPLORER_STATE.budgetTier is any", () => {
+  it("PLN-004: Explorer filter default is 'any' (no restriction); planner scoring tier stays 'standard'", () => {
+    // Fourth-pass contract: the Explore budget FILTER default is 'any' — a
+    // real tier must not double as the unselected state. The planner's
+    // budgetTier (scoring tier for meal ranges) keeps its standard default.
     expect(DEFAULT_DESTINATION_EXPLORER_STATE.budgetTier).toBe("any");
+    expect(DEFAULT_PLANNER_BUDGET_TIER).toBe("standard");
   });
 
   it("omits weather parameter when manualWeatherPreference is undefined", () => {

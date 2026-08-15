@@ -5,7 +5,6 @@
   "region": "Chubu",
   "categories": ["City", "Museum", "Coast"],
   "tags": ["Dinosaurs", "Cliffs", "Crab"],
-  "budgetRecommended": 11000,
   "ratings": {
     "overall": 8.2,
     "photography": 8.5,
@@ -25,32 +24,17 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Skyline_of_Fukui_City02.jpg",
   "prefecture": "Fukui",
-  "budgetMin": 7000,
-  "budgetMax": 15000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
+  "walkingMin": 360,
   "comfort": {
-    "heatTolerance": 5,
-    "rainFriendly": 4,
-    "walkingIntensity": 5
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "car": 300,
     "train": 180,
     "shinkansen": 170
-  },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
   },
   "highlights": [
     "Explore top-rated city locations",
@@ -58,13 +42,6 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Fukui, a prominent destination in Fukui. With its rich mix of dinosaurs, cliffs, crab, it's a highly recommended spot for a 8-hour getaway.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "budgetBreakdown": {
-    "transport": 4400,
-    "tickets": 2200,
-    "food": 3300,
-    "cafe": 1100
-  },
   "notes": "A fantastic trip to Fukui. Known for its dinosaurs and cliffs vibes, it offers a great escape with an overall score of 8.2.",
   "schemaVersion": 2,
   "status": "verified",
@@ -74,7 +51,6 @@
   "collections": [],
   "relationships": {},
   "image": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Skyline_of_Fukui_City02.jpg",
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Available on site",
@@ -83,9 +59,52 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 5,
+    "max": 12
   },
   "officialWebsite": "https://www.fukuikankou.jp/",
-  "businessHours": "09:30 - 17:00 (Closed Mondays)"
+  "businessHours": "09:30 - 17:00 (Closed Mondays)",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "hub records span multiple microclimates; single vector would be fabricated"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance standard, 0 children, metro=false"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 360 replaced by walk-share estimate (FIX_UNIT): 50% of 12h visit"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=40, kind='city', walkingMin=360"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

@@ -1,0 +1,1712 @@
+{
+  "audit": "KAI-89 forensic data corrections",
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-13",
+  "sections": {
+    "ratingMetadataDowngrade": [
+      "adachi-city",
+      "arakawa-city",
+      "bunkyo-city",
+      "chichibu-city",
+      "chigasaki-city",
+      "chiyoda-city",
+      "chuo-city",
+      "edogawa-city",
+      "fujisawa-city",
+      "funabashi-city",
+      "itabashi-city",
+      "kamakura-city",
+      "katsushika-city",
+      "kawagoe-city",
+      "kawaguchi-city",
+      "kawasaki-city",
+      "kisarazu-city",
+      "kita-city",
+      "koto-city",
+      "kusatsu-town",
+      "matsudo-city",
+      "meguro-city",
+      "minakami-town",
+      "minato-city",
+      "mito-city",
+      "nakano-city",
+      "narita-city",
+      "nerima-city",
+      "nikko-city",
+      "odawara-city",
+      "ota-city",
+      "sagamihara-city",
+      "setagaya-city",
+      "shinagawa-city",
+      "shinjuku-city",
+      "suginami-city",
+      "sumida-city",
+      "taito-city",
+      "tokorozawa-city",
+      "toshima-city",
+      "tsukuba-city",
+      "urayasu-city",
+      "utsunomiya-city",
+      "yokosuka-city",
+      "ashikaga-flower-park-tochigi",
+      "ashikaga-city",
+      "choshi-city",
+      "hino-city",
+      "katori-city",
+      "national-museum-western-art-tokyo",
+      "ogasawara-islands-tokyo",
+      "tomioka-silk-mill-gunma",
+      "cup-noodles-museum-yokohama",
+      "kannai-yokohama",
+      "minato-mirai-yokohama",
+      "shin-yokohama-ramen-museum",
+      "soji-ji-yokohama",
+      "yamashita-park-yokohama",
+      "yokohama-chinatown",
+      "yokohama-cosmo-world",
+      "yokohama-marine-tower",
+      "yokohama-red-brick-warehouse",
+      "shiretoko-national-park-hokkaido",
+      "takeda-castle-ruins-hyogo",
+      "ontakesan"
+    ],
+    "budgetTicketCorrections": [
+      {
+        "id": "hamarikyu-gardens",
+        "field": "tickets",
+        "old": 0,
+        "value": 300,
+        "evidence": "official Tokyo Metropolitan Park page: general admission 300 yen",
+        "sources": ["https://www.tokyo-park.or.jp/park/hama-rikyu/"]
+      },
+      {
+        "id": "kiyosumi-gardens",
+        "field": "tickets",
+        "old": 0,
+        "value": 150,
+        "evidence": "paid garden - official Tokyo metro parks",
+        "sources": [
+          "https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html"
+        ]
+      },
+      {
+        "id": "hiroshima-castle",
+        "field": "tickets",
+        "old": 0,
+        "value": 370,
+        "evidence": "official Hiroshima Castle site: keep admission 370 yen",
+        "sources": ["https://hiroshimacastle.jp/"]
+      },
+      {
+        "id": "keio-rail-land",
+        "field": "tickets",
+        "old": 0,
+        "value": 310,
+        "evidence": "railway museum admission",
+        "sources": [
+          "https://www.japan.travel/en/au/news-blog/keio-rail-land-railway-museum/"
+        ]
+      },
+      {
+        "id": "ome-railway-park",
+        "field": "tickets",
+        "old": 0,
+        "value": 100,
+        "evidence": "official JR East Ome Railway Park page",
+        "sources": ["https://www.jreast.co.jp/ome-railway-park/"]
+      },
+      {
+        "id": "play-museum-tachikawa",
+        "field": "tickets",
+        "old": 0,
+        "value": 1800,
+        "evidence": "museum admission",
+        "sources": [
+          "https://play2020.jp/en/",
+          "https://www.tokyoartbeat.com/en/venues/-/B43A7496"
+        ]
+      },
+      {
+        "id": "jindai-botanical-gardens",
+        "field": "tickets",
+        "old": 0,
+        "value": 500,
+        "evidence": "botanical garden admission",
+        "sources": ["https://en.wikipedia.org/wiki/Jindai_Botanical_Garden"]
+      },
+      {
+        "id": "hijikata-toshizo-museum",
+        "field": "tickets",
+        "old": 0,
+        "value": 500,
+        "evidence": "museum admission - official Tokyo guide",
+        "sources": ["https://www.gotokyo.org/en/spot/882/index.html"]
+      },
+      {
+        "id": "gyokudo-art-museum",
+        "field": "tickets",
+        "old": 0,
+        "value": 600,
+        "evidence": "museum admission - official museum site",
+        "sources": ["http://www.gyokudo.jp/guide_english.html"]
+      },
+      {
+        "id": "keio-mogusaen",
+        "field": "tickets",
+        "old": 0,
+        "value": 500,
+        "evidence": "garden admission - official site",
+        "sources": ["https://www.keio-mogusaen.jp/en/"]
+      },
+      {
+        "id": "engakuji",
+        "field": "tickets",
+        "old": 800,
+        "value": 500,
+        "evidence": "temple admission - official temple site",
+        "sources": ["https://www.engakuji.or.jp/en/access/"]
+      },
+      {
+        "id": "boso-no-mura",
+        "field": "tickets",
+        "old": 800,
+        "value": 300,
+        "evidence": "open-air museum admission",
+        "sources": ["https://www.japan-guide.com/e/e6403.html"]
+      },
+      {
+        "id": "chiba-city-museum-of-art",
+        "field": "tickets",
+        "old": 1100,
+        "value": 300,
+        "evidence": "museum collection admission",
+        "sources": ["https://www.ccma-net.jp/"]
+      },
+      {
+        "id": "hakata-machiya-folk-museum",
+        "field": "tickets",
+        "old": 1100,
+        "value": 200,
+        "evidence": "official Hakata Machiya Folk Museum site",
+        "sources": ["http://www.hakatamachiya.com/"]
+      },
+      {
+        "id": "kawagoe-festival-museum",
+        "field": "tickets",
+        "old": 1100,
+        "value": 300,
+        "evidence": "festival museum admission - official",
+        "sources": ["https://www.kawagoematsuri.jp/English/museum.html"]
+      },
+      {
+        "id": "hokkaido-museum-of-modern-art",
+        "field": "tickets",
+        "old": 1100,
+        "value": 510,
+        "evidence": "museum admission - official",
+        "sources": [
+          "https://artmuseum.pref.hokkaido.lg.jp/knb/english/guide/about"
+        ]
+      },
+      {
+        "id": "cup-noodles-museum-yokohama",
+        "field": "tickets",
+        "old": 1300,
+        "value": 500,
+        "evidence": "museum admission - official",
+        "sources": [
+          "https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
+        ]
+      },
+      {
+        "id": "shin-yokohama-ramen-museum",
+        "field": "tickets",
+        "old": 1300,
+        "value": 450,
+        "evidence": "museum admission - official",
+        "sources": ["https://www.raumen.co.jp/english/"]
+      },
+      {
+        "id": "yomiuriland",
+        "field": "tickets",
+        "old": 8667,
+        "value": 5900,
+        "evidence": "one-day pass adult - official",
+        "sources": ["https://www.yomiuriland.com/charge/"]
+      },
+      {
+        "id": "ikebukuro-toshima",
+        "field": "tickets",
+        "old": 8667,
+        "value": 0,
+        "evidence": "free district - no admission product exists",
+        "sources": []
+      },
+      {
+        "id": "odaiba-minato",
+        "field": "tickets",
+        "old": 8667,
+        "value": 0,
+        "evidence": "free district - no admission product exists",
+        "sources": []
+      },
+      {
+        "id": "korakuen-okayama",
+        "field": "tickets",
+        "old": 2000,
+        "value": 500,
+        "evidence": "garden admission - official",
+        "sources": [
+          "https://okayama-korakuen.jp/section/english/info/index.html"
+        ]
+      }
+    ],
+    "budgetRebalanceOnly": [
+      {
+        "id": "amanoiwato-shrine",
+        "reason": "pr12c-kyushu-expansion.ts buildPoi() formula: breakdown = {35%, ticketCost, 40%, 10% of budgetMin} -> sum 850 != rec 3000 (formula bug: uses min not rec)"
+      },
+      {
+        "id": "daikanbo-viewpoint-aso",
+        "reason": "pr12c-kyushu-expansion.ts buildPoi() formula: breakdown = {35%, ticketCost, 40%, 10% of budgetMin} -> sum 850 != rec 3000 (formula bug: uses min not rec)"
+      },
+      {
+        "id": "heiwadai-park-miyazaki",
+        "reason": "pr12c-kyushu-expansion.ts buildPoi() formula: breakdown = {35%, ticketCost, 40%, 10% of budgetMin} -> sum 850 != rec 3000 (formula bug: uses min not rec)"
+      },
+      {
+        "id": "kinrin-lake-yufuin",
+        "reason": "pr12c-kyushu-expansion.ts buildPoi() formula: breakdown = {35%, ticketCost, 40%, 10% of budgetMin} -> sum 850 != rec 3000 (formula bug: uses min not rec)"
+      },
+      {
+        "id": "meganebashi-bridge-nagasaki",
+        "reason": "pr12c-kyushu-expansion.ts buildPoi() formula: breakdown = {35%, ticketCost, 40%, 10% of budgetMin} -> sum 850 != rec 3000 (formula bug: uses min not rec)"
+      },
+      {
+        "id": "miyazaki-jingu-shrine",
+        "reason": "pr12c-kyushu-expansion.ts buildPoi() formula: breakdown = {35%, ticketCost, 40%, 10% of budgetMin} -> sum 850 != rec 3000 (formula bug: uses min not rec)"
+      },
+      {
+        "id": "aoshima-island-miyazaki",
+        "reason": "pr12c formula with budgetMin=1500, ticketCost=0 -> {525,0,600,150}; sum 1275 != rec 4000"
+      },
+      {
+        "id": "dazaifu-tenmangu",
+        "reason": "pr12c formula with budgetMin=1500, ticketCost=0 -> {525,0,600,150}; sum 1275 != rec 4000"
+      },
+      {
+        "id": "kusasenri-meadow-aso",
+        "reason": "pr12c formula with budgetMin=1500, ticketCost=0 -> {525,0,600,150}; sum 1275 != rec 4000"
+      },
+      {
+        "id": "kawachi-wisteria-garden",
+        "reason": "template {2000,5000,8000, 700/500/800/200}; sum 2200 != rec 5000"
+      },
+      {
+        "id": "shiratani-unsuikyo-ravine",
+        "reason": "template {2000,5000,8000, 700/500/800/200}; sum 2200 != rec 5000"
+      },
+      {
+        "id": "yakusugi-land-yakushima",
+        "reason": "template {2000,5000,8000, 700/500/800/200}; sum 2200 != rec 5000"
+      },
+      {
+        "id": "ishidake-observatory",
+        "reason": "pr12c-era formula variant {300,0,450,100} (30/45/10% of min 1000); sum 850 != rec 3000"
+      },
+      {
+        "id": "lake-ikeda",
+        "reason": "pr12c-era formula variant {300,0,450,100} (30/45/10% of min 1000); sum 850 != rec 3000"
+      },
+      {
+        "id": "nijinomatsubara-pine-grove",
+        "reason": "pr12c-era formula variant {300,0,450,100} (30/45/10% of min 1000); sum 850 != rec 3000"
+      }
+    ],
+    "transportCorrections": [
+      {
+        "id": "kawagoe-kurazukuri",
+        "field": "train",
+        "current": 255,
+        "proposed": 45,
+        "evidence": "Tobu Tojo official access page: Ikebukuro→Kawagoe 25-38 min (tobu.co.jp/en/access/kawagoe); +10 min Tokyo→Ikebukuro ⇒ ~45 door-to-door. 255 is 5.7x real.",
+        "confidence": "high"
+      },
+      {
+        "id": "kawagoe-kurazukuri",
+        "field": "car",
+        "current": 325,
+        "proposed": 75,
+        "evidence": "Tokyo→Kawagoe by car ~60-90 min; 325 fabricated.",
+        "confidence": "medium"
+      },
+      {
+        "id": "chichibu-city",
+        "field": "train",
+        "current": 200,
+        "proposed": 85,
+        "evidence": "Seibu Laview Ikebukuro→Seibu-Chichibu 77-80 min (Seibu Chichibu Line / japan-guide); +10 min ⇒ ~85-90.",
+        "confidence": "high"
+      },
+      {
+        "id": "sapporo-city",
+        "field": "train",
+        "current": 200,
+        "proposed": 470,
+        "evidence": "Hokkaido Shinkansen Tokyo→Shin-Hakodate-Hokuto ~240 min + Ltd.Exp ~210 min ⇒ 450-480 (Wikipedia/operator).",
+        "confidence": "high"
+      },
+      {
+        "id": "sapporo-tv-tower",
+        "field": "train",
+        "current": 200,
+        "proposed": 470,
+        "evidence": "same corridor as sapporo-city",
+        "confidence": "high"
+      },
+      {
+        "id": "susukino",
+        "field": "train",
+        "current": 200,
+        "proposed": 470,
+        "evidence": "same corridor as sapporo-city",
+        "confidence": "high"
+      },
+      {
+        "id": "abashiri-city",
+        "field": "train",
+        "current": 200,
+        "proposed": null,
+        "evidence": "Tokyo→Abashiri rail ~900 min (Sapporo leg ~5h). Static Tokyo-origin value meaningless; recommend removal (origin-aware system handles routing) or ~900.",
+        "confidence": "high"
+      },
+      {
+        "id": "churaumi-aquarium-motobu",
+        "field": "bus",
+        "current": 400,
+        "proposed": 120,
+        "evidence": "Official Ocean Expo Park bus schedules: Naha→Churaumi Yaeyama Express 100-135 min (oki-park.jp/sp/kaiyohaku/en/acc/147).",
+        "confidence": "high"
+      },
+      {
+        "id": "nakijin-castle-ruins-motobu",
+        "field": "bus",
+        "current": 400,
+        "proposed": 130,
+        "evidence": "Same Naha→Motobu corridor; Nakijin ~10 min past Churaumi.",
+        "confidence": "medium"
+      },
+      {
+        "id": "shuri-castle-okinawa",
+        "field": "train",
+        "current": 45,
+        "proposed": 25,
+        "evidence": "Yui Rail airport→Shuri ~25 min (Shuri is the terminus); 45 ungrounded; no intercity rail.",
+        "confidence": "medium"
+      },
+      {
+        "id": "narita-airport-observation-decks",
+        "field": "train",
+        "current": 205,
+        "proposed": 70,
+        "evidence": "Tokyo→Narita by N'EX/JR ~60-80 min.",
+        "confidence": "high"
+      },
+      {
+        "id": "asakusa-taito",
+        "field": "train",
+        "current": 50,
+        "proposed": 20,
+        "evidence": "Tokyo Station→Asakusa Ginza line ~15-20 min.",
+        "confidence": "high"
+      },
+      {
+        "id": "ikebukuro-toshima",
+        "field": "train",
+        "current": 50,
+        "proposed": 15,
+        "evidence": "Tokyo Station→Ikebukuro Yamanote ~10-15 min.",
+        "confidence": "high"
+      },
+      {
+        "id": "akihabara-chiyoda",
+        "field": "train",
+        "current": 40,
+        "proposed": 10,
+        "evidence": "Tokyo Station→Akihabara ~5-10 min.",
+        "confidence": "high"
+      }
+    ],
+    "seasonBestMonths": [
+      {
+        "id": "abashiri-city",
+        "bestMonths": [1, 2, 3],
+        "reason": "All-12 'best months' contradicts the destination's defining winter draw: Okhotsk drift ice runs late Jan–early Mar (peak mid-Feb). All 12 months cannot be best for a drift-ice city; summer (season score 8) is not a best season here.",
+        "sources": [
+          "https://www.japan.travel/en/spot/469/",
+          "https://www.akanbus.co.jp/east-hokkaido-navi/en-US/featured/article-5/index.html",
+          "https://matcha-jp.com/en/23696"
+        ]
+      },
+      {
+        "id": "biei-town",
+        "bestMonths": [6, 7, 8],
+        "reason": "Biei's signature is summer flower/lavender fields (peak late Jun–early Aug per Hokkaido official tourism). All-12 'best' is indefensible; winter is not a best season.",
+        "sources": [
+          "https://www.visit-hokkaido.jp/en/feature/lavender",
+          "https://www.visit-hokkaido.jp/en/feature/lavender-fields-you-must-visit-in-hokkaido-during-summer",
+          "https://www.japan-guide.com/e/e6826.html"
+        ]
+      },
+      {
+        "id": "dazaifu-city",
+        "bestMonths": [2, 3],
+        "reason": "Dazaifu Tenmangu's defining event is plum blossom season, peak Feb–early Mar (official shrine site). All-12 claim wrong; autumn leaves secondary (may add [10,11] after review).",
+        "sources": [
+          "https://www.dazaifutenmangu.or.jp/en/discover-dazaifu-tenmangu/nature-and-seasons/",
+          "https://www.dazaifutenmangu.or.jp/en/art-and-events/events/plum-blossom-ceremony/"
+        ]
+      }
+    ],
+    "textReplacements": [
+      {
+        "id": "chiba-port-park",
+        "en": "Waterfront park on Tokyo Bay in Chiba City, site of the 125-meter Chiba Port Tower (1986), whose observation deck offers sweeping views of the bay and, on clear days, Tokyo Skytree and Mount Fuji. Open lawns and walking trails make it a popular spot for picnics, jogging and sunset strolls.",
+        "ja": "千葉市の東京湾沿いにある海浜公園。園内の千葉ポートタワー（1986年竣工、高さ125m）の展望台からは、晴れた日に東京スカイツリーや富士山まで望める。芝生広場や遊歩道が整備され、ピクニックや散策にぴったり。"
+      },
+      {
+        "id": "dotonbori",
+        "en": "Canal-side entertainment district in central Osaka, famous for the Glico running-man neon sign, Ebisubashi Bridge and the Dotonbori Canal. Known as Osaka's 'kuidaore' (eat-till-you-drop) quarter, it is packed with restaurants, takoyaki stalls and theaters.",
+        "ja": "大阪を代表する歓楽街。道頓堀川沿いにグリコのランナー看板や戎橋など名物が並ぶ。「食い倒れ」の街として知られ、たこ焼きやお好み焼きの店、劇場などがひしめく。"
+      },
+      {
+        "id": "enoshima-iwaya-caves",
+        "en": "Two wave-carved caves on Enoshima's southern shore, long connected to the island's Benzaiten worship and the Chigogafuchi abyss legend. Pilgrims have visited for centuries, and the caves form part of the scenic walk around the island.",
+        "ja": "江の島南岸の波で削られた洞窟。島の弁財天信仰や稚児ヶ淵の伝説と結びつき、古くから参拝者が訪れた霊場。江の島を巡る散策コースの見どころの一つ。"
+      },
+      {
+        "id": "former-hokkaido-government-office",
+        "en": "The 'Red Brick Office' (Akarenga), completed in 1888 in American neo-baroque style, served as Hokkaido's government headquarters. Now open to the public, it houses exhibition rooms and archives, and is one of Sapporo's signature Meiji-era landmarks.",
+        "ja": "明治21年（1888年）に完成したアメリカン・ネオバロック様式の「赤れんが庁舎」。北海道の行政の中心として使われ、現在は一般公開され、資料展示室などがある。札幌を代表する明治時代の歴史的建造物。"
+      },
+      {
+        "id": "fukuoka-castle-ruins",
+        "en": "Remains of Fukuoka Castle, begun in 1601 by the Kuroda clan, standing in Maizuru Park in central Fukuoka. Stone walls, moats and the keep base survive, and the grounds are a popular cherry-blossom spot in spring.",
+        "ja": "黒田氏が慶長6年（1601年）から築いた福岡城の遺構。舞鶴公園内に石垣や堀、天守台が残り、春は桜の名所としてにぎわう。"
+      },
+      {
+        "id": "hakata-machiya-folk-museum",
+        "en": "Museum housed in restored Hakata merchant townhouses (machiya), presenting the traditional architecture, crafts and daily life of old Hakata. Exhibits cover local crafts such as Hakata weaving and Hakata dolls, plus the townscape of the merchant quarter.",
+        "ja": "復元された博多の町家を活用した博物館。博多織や博多人形などの伝統工芸と、かつての博多の商家の暮らし・町並みを紹介する。"
+      },
+      {
+        "id": "hokkaido-museum-of-modern-art",
+        "en": "Hokkaido's leading modern art museum, opened in 1977 in central Sapporo. Its collection of more than 5,000 works focuses on Hokkaido-linked artists and includes an École de Paris section (Jules Pascin among others), with sculpture displayed on the grounds.",
+        "ja": "1977年開館の北海道を代表する近代美術館。道内ゆかりの作家を中心に5,000点以上を収蔵し、エコール・ド・パリ（パスキンなど）のコーナーもある。屋外には彫刻も展示されている。"
+      },
+      {
+        "id": "honmaru-palace",
+        "en": "The Honmaru Palace of Nagoya Castle, completed in 1615 as the residence of the Owari lords and destroyed in the 1945 air raids. The painstakingly reconstructed palace reopened in 2018 and is renowned for its gold-leaf wall paintings by the Kano school and intricate woodwork.",
+        "ja": "名古屋城の本丸御殿。1615年に完成し、1945年の空襲で焼失したが、狩野派の金箔の障壁画とともに復元され、2018年から公開されている。豪壮な建築と細部の木組みが見どころ。"
+      },
+      {
+        "id": "ikuta-ryokuchi",
+        "en": "Hillside green park in western Kawasaki with forest trails and a Japanese garden. The grounds also hold two major cultural facilities — the Nihon Minka-en open-air museum of traditional houses and the Taro Okamoto Museum of Art — making it a full-day destination.",
+        "ja": "川崎市西部の丘陵に広がる緑地公園。遊歩道や日本庭園が整備され、園内には日本民家園と岡本太郎美術館という二つの文化施設もある。"
+      },
+      {
+        "id": "inage-seaside-park",
+        "en": "Long coastal park on Tokyo Bay in Chiba City, with beaches, lawns, sports facilities and flower beds along the Inage coastline. The beach section is a popular summer swimming spot and the park is known for sunset views over the bay.",
+        "ja": "千葉市の東京湾岸に広がる細長い海浜公園。砂浜や芝生広場、運動施設、花壇が整備され、夏は海水浴場としてにぎわう。湾越しの夕日も美しい。"
+      },
+      {
+        "id": "inamuragasaki",
+        "en": "Headland on the Sagami Bay coast between Yuigahama and Shichirigahama beaches in Kamakura. A famous sunset point with views of Enoshima and, on clear days, Mount Fuji, and the historic spot where Nitta Yoshisada's forces are said to have crossed in 1333.",
+        "ja": "由比ヶ浜と七里ヶ浜の間にある岬。江の島と、晴れた日には富士山を望む夕日スポットとして知られる。1333年に新田義貞の軍勢が渡ったと伝わる史跡でもある。"
+      },
+      {
+        "id": "iwatsuki-ningyo-museum",
+        "en": "Museum of Japanese dolls opened in 2020 in Iwatsuki, Saitama — a district known as the 'town of dolls' since the Edo period. Exhibits trace the craft and culture of Japanese dolls, from hina and musha dolls to the local artisans who made Iwatsuki famous.",
+        "ja": "2020年開館の人形専門博物館。江戸時代から「人形のまち」として知られるさいたま市岩槻区にあり、ひな人形や武者人形など、日本の人形文化と製作技術を紹介する。"
+      },
+      {
+        "id": "jochi-ji",
+        "en": "Kinpozan Jochi-ji, a Rinzai Zen temple founded in 1281 in Kita-Kamakura and ranked fourth of the Kamakura Five Great Zen Temples. The precincts feature a rare Chinese-style two-story bell gate and weathered stone Buddhas, set in quiet hillside grounds.",
+        "ja": "金宝山浄智寺。1281年創建の臨済宗の寺院で、鎌倉五山の第四位。中国様式の鐘楼門や石仏群が有名で、北鎌倉の静かな山裾にたたずむ。"
+      },
+      {
+        "id": "kamakurakokomae-station",
+        "en": "Enoden railway station on Kamakura's western beach. The level crossing in front of the station became world-famous as a scene location for the manga 'Slam Dunk', and the platform opens onto wide views of the coast toward Enoshima.",
+        "ja": "江ノ島電鉄の駅。駅前の踏切は漫画『SLAM DUNK』の舞台として有名で、ホームからは海越しに江の島を望む景色が広がる。"
+      },
+      {
+        "id": "kanayama-shrine",
+        "en": "Shrine in Kawasaki dedicated to the deity Kanayama-hime, enshrined for fertility, safe childbirth and business prosperity. It is known worldwide for the Kanamara Matsuri ('Steel Phallus Festival') held every spring.",
+        "ja": "金山比売神を祀る神社。子宝・安産・商売繁盛の神として知られ、毎年春に開かれる「かなまら祭」は世界的に有名。"
+      },
+      {
+        "id": "kasori-shell-mounds",
+        "en": "Japan's largest shell midden, a Jomon-period archaeological site in Chiba City designated a national historic site. The on-site museum and the preserved mound cross-sections show how prehistoric communities lived along the coast.",
+        "ja": "縄文時代の日本最大級の貝塚で、国の史跡に指定されている。博物館と保存された貝塚の断面から、海辺で暮らした縄文人の生活をうかがい知ることができる。"
+      },
+      {
+        "id": "katase-higashihama-beach",
+        "en": "Sandy beach on the Fujisawa coast just east of Enoshima, one of the Shonan area's most popular summer swimming beaches. In July and August the shore fills with seasonal beach houses (uminoie) and swimmers, with views across to Enoshima.",
+        "ja": "江の島の東側に広がる砂浜。湘南エリアで最も人気のある海水浴場の一つで、夏は海の家が立ち並び、江の島を望む景観とともににぎわう。"
+      },
+      {
+        "id": "katori-jingu",
+        "en": "One of the Kanto region's oldest shrines, in Katori, Chiba, dedicated to Futsunushi, the deity of swords and martial arts. Linked to the historic Katori school of swordsmanship, it is set in deep, quiet forest with a long approach.",
+        "ja": "関東最古級の神社の一つで、刀剣・武芸の神である経津主神を祀る。剣道の聖地としても知られ、深い森に囲まれた静かな境内を持つ。"
+      },
+      {
+        "id": "kawagoe-festival-museum",
+        "en": "Museum devoted to the Kawagoe Festival (Kawagoe Matsuri), famous for its hikiyama float processions and lively festival music. Actual festival floats are exhibited in the hall, with video displays of the festival's atmosphere, near Toki no Kane.",
+        "ja": "川越まつりをテーマにした博物館。実際に祭りで使われる豪華な山車を間近で見学でき、祭りの囃子や熱気を映像で体感できる。時の鐘の近くに位置する。"
+      },
+      {
+        "id": "komachi-street",
+        "en": "Kamakura's liveliest shopping street, running from Kamakura Station toward Tsurugaoka Hachimangu. It is lined with souvenir shops, cafes and snack stalls selling local specialties, and is busy throughout the day.",
+        "ja": "鎌倉駅から鶴岡八幡宮方面へ延びる商店街。土産物店やカフェ、名物スイーツの店が軒を連ね、終日にぎわう。"
+      },
+      {
+        "id": "kotoku-in-great-buddha",
+        "en": "The Great Buddha (Daibutsu) of Kotoku-in, a 13.35-meter bronze statue cast around 1252 and designated a National Treasure, seated outdoors in Kamakura. The hall that once sheltered it was washed away by a tsunami in 1498.",
+        "ja": "高徳院の本尊・阿弥陀如来坐像。1252年頃に鋳造された高さ約13.35mの銅像で国宝に指定されている。かつては堂内にあったが、1498年の津波で堂が流され、現在は露座のまま鎮座する。"
+      },
+      {
+        "id": "kushida-shrine",
+        "en": "Hakata's guardian shrine, founded in 757 and known as the spiritual home of the Hakata Gion Yamakasa festival, whose towering decorated floats race through the streets every July. The colorful festival floats are displayed at the shrine year-round.",
+        "ja": "757年創建の博多の総鎮守。毎年7月に開かれる「博多祇園山笠」の聖地として知られ、勇壮な山笠が町を駆け抜ける祭りで有名。"
+      },
+      {
+        "id": "lazona-kawasaki-plaza",
+        "en": "Large shopping and entertainment complex directly connected to JR Kawasaki Station, opened in 2006. It houses scores of shops and restaurants, a cinema and seasonal event spaces, making it a convenient all-weather stop beside the station.",
+        "ja": "JR川崎駅直結の大型商業施設。2006年に開業し、ショップやレストラン、映画館、イベントスペースが入る。駅前で買い物や食事を楽しめる。"
+      },
+      {
+        "id": "maizuru-park",
+        "en": "Spacious park on the site of Fukuoka Castle in central Fukuoka, where stone walls and moats survive amid lawns and groves. One of the city's best cherry-blossom spots in spring, it also contains the remains of the ancient Korokan guest house.",
+        "ja": "福岡城跡に広がる都心の公園。石垣や堀が残り、春は桜の名所として知られる。園内には古代の迎賓館・鴻臚館の遺構も残る。"
+      },
+      {
+        "id": "makuhari-seaside-park",
+        "en": "Seaside park on the Makuhari coast in Chiba City, with lawns, flower gardens and a promenade along Tokyo Bay. Adjacent to Makuhari Messe, it is popular for seasonal flowers, sea breezes and views of the bay.",
+        "ja": "幕張の海沿いに広がる海浜公園。芝生広場や花壇、東京湾沿いの遊歩道が整備され、幕張メッセに隣接する。コスモスなど季節の花と湾の眺望が楽しめる。"
+      },
+      {
+        "id": "maruyama-park",
+        "en": "Forested park in western Sapporo whose virgin-forest zone is a designated natural treasure, adjacent to Hokkaido Shrine and Maruyama Zoo. One of Sapporo's best cherry-blossom spots, usually peaking in late April to early May.",
+        "ja": "札幌市西部の緑豊かな公園。天然記念物に指定された原始林を有し、北海道神宮や円山動物園に隣接する。4月下旬から5月上旬は桜の名所としてにぎわう。"
+      },
+      {
+        "id": "mount-moiwa",
+        "en": "A 531-meter peak southwest of central Sapporo, reached by ropeway and cable car. The summit observatory commands sweeping views over the city and is counted among Japan's finest night views.",
+        "ja": "札幌市南西部にそびえる標高531mの山。ロープウェイとケーブルカーで山頂へ登れる。山頂展望台からは札幌市街の眺望が広がり、夜景の名所としても知られる。"
+      },
+      {
+        "id": "musashi-ichinomiya-hikawa-shrine",
+        "en": "The chief shrine (ichinomiya) of Musashi province, standing in Omiya, Saitama, and one of the Kanto region's largest shrines. Its long tree-lined approach and broad precincts, dedicated to deities of marriage and childbirth, draw worshippers year-round.",
+        "ja": "武蔵国一宮として知られる大宮の大社。関東有数の規模を誇り、長い参道と緑豊かな境内を持つ。縁結びや安産の神として親しまれている。"
+      },
+      {
+        "id": "museum-of-aeronautical-sciences",
+        "en": "Aviation museum in Shibayama, Chiba, next to Narita Airport, displaying real aircraft including the YS-11 airliner alongside flight simulators and exhibits on the history of flight. A popular family stop for plane-spotting and hands-on aviation experiences.",
+        "ja": "成田空港に隣接する航空科学博物館。YS-11などの実機やフライトシミュレーターを展示・体験でき、航空の歴史と技術を楽しみながら学べる。"
+      },
+      {
+        "id": "nagoya-city-art-museum",
+        "en": "Art museum opened in 1988 in Shirakawa Park, Nagoya, in a building designed by Kisho Kurokawa. The collection spans 20th-century art, including works by Modigliani, alongside Japanese modern and contemporary artists.",
+        "ja": "白川公園内にある名古屋市の美術館。1988年開館で、建築は黒川紀章が設計。モディリアーニなど20世紀美術と日本の近現代美術を中心に収蔵・展示している。"
+      },
+      {
+        "id": "nagoya-city-science-museum",
+        "en": "Science museum in Shirakawa Park, Nagoya, famous for the world's largest planetarium with its 35-meter dome ('Brother Earth'), plus hands-on exhibits on space, physics and biology. It is very popular, so advance reservation is recommended.",
+        "ja": "白川公園内の科学館。直径35mの世界最大級のプラネタリウム「Brother Earth」で知られ、宇宙や科学の体験展示も充実している。人気のため事前予約がおすすめ。"
+      },
+      {
+        "id": "nakasu",
+        "en": "Nightlife and dining district on the island of Nakasu in the Naka River, in the heart of Fukuoka. Its narrow streets are packed with restaurants, bars and yatai food stalls, making it one of the city's liveliest areas after dark.",
+        "ja": "那珂川に囲まれた中洲の繁華街。屋台や居酒屋、バーが密集し、福岡で最も飲食店の選択肢が多いエリアの一つ。夜の屋台めぐりが人気。"
+      },
+      {
+        "id": "narita-airport-observation-decks",
+        "en": "Free observation decks at Narita Airport: the Terminal 1 deck on the fifth floor overlooks the 4,000-meter Runway A, one of Japan's best plane-spotting viewpoints, and Terminal 2 has its own deck. Both sit landside, so no boarding pass is needed.",
+        "ja": "成田空港の無料展望デッキ。第1ターミナル5階の展望デッキからは全長4,000mのA滑走路を一望でき、離着陸する飛行機を間近で見られる。第2ターミナルにも展望デッキがあり、搭乗券なしで利用可能。"
+      },
+      {
+        "id": "naritasan-park",
+        "en": "Wooded park behind Naritasan Shinsho-ji in Narita, with ponds, bridges and quiet walking paths among mature trees. A peaceful retreat from the temple crowds, with seasonal flowers and a small shrine on the grounds.",
+        "ja": "成田山新勝寺の裏手に広がる公園。池や橋、散策路が整備され、季節の花々が楽しめる。参拝の合間に立ち寄りたい静かな休憩スポット。"
+      },
+      {
+        "id": "national-museum-of-nature-and-science",
+        "en": "Japan's premier museum of natural history and science, in Ueno Park, Tokyo. Permanent exhibitions cover dinosaurs, whales and evolution as well as science and technology, including a 360-degree theater and interactive displays.",
+        "ja": "上野公園にある日本最大級の自然史・科学博物館。恐竜やクジラなど生物の進化の展示と、科学技術の体験展示、360度シアターなど見どころが多い。"
+      },
+      {
+        "id": "nihon-minka-en",
+        "en": "Open-air museum in Ikuta Ryokuchi, Kawasaki, displaying around 25 traditional Japanese houses from the Edo period, relocated from across the country and restored — thatched farmhouses, merchants' homes and storehouses. Many interiors can be viewed.",
+        "ja": "川崎市生田緑地内の野外博物館。日本各地から移築復元された江戸時代の民家約25棟が並び、茅葺きの農家や商家の内部も見学できる。"
+      },
+      {
+        "id": "nijo-market",
+        "en": "Covered market in central Sapporo known as 'Sapporo's kitchen', with stalls selling fresh seafood — crab, sea urchin and salmon roe — as well as fruit and souvenirs. Several shops serve seafood bowls (kaisen-don), making it a popular breakfast stop.",
+        "ja": "札幌中心部の市場。「札幌の台所」と呼ばれ、カニやウニ、イクラなどの海産物や果物を扱う店が並ぶ。海鮮丼を出す飲食店もあり、朝食やお土産選びに人気。"
+      },
+      {
+        "id": "odori-park",
+        "en": "Sapporo's central green belt, stretching about 1.5 kilometers across 13 blocks, with flower beds, fountains and sculptures. It is the main venue of the Sapporo Snow Festival each February.",
+        "ja": "札幌市中心部を東西に横断する全長約1.5kmの緑地帯。花壇や噴水、彫刻が並び、2月にはさっぽろ雪まつりのメイン会場となる。"
+      },
+      {
+        "id": "ohori-park",
+        "en": "Large park in Fukuoka built around a scenic pond created from part of the Fukuoka Castle moat. A walking and jogging loop of about two kilometers circles the water, with rowboats and a Japanese garden among the attractions.",
+        "ja": "福岡城の外堀の一部を利用した大池を中心に整備された公園。池の周囲は約2kmの遊歩道になっており、散策やランニング、ボート遊びが楽しめる。"
+      },
+      {
+        "id": "omiya-bonsai-art-museum",
+        "en": "The world's first publicly operated bonsai museum, opened in 2010 next to the Omiya Bonsai Village in Saitama. Around 120 masterwork bonsai and related artifacts — pots, stones and bonsai-themed art — are displayed in a calm, modern gallery.",
+        "ja": "2010年開館の世界初の公立盆栽美術館。大宮盆栽村に隣接し、名品の盆栽や鉢・水石などの関連資料を展示する。静かな空間で盆栽文化をじっくり鑑賞できる。"
+      },
+      {
+        "id": "omiya-bonsai-village",
+        "en": "Historic bonsai district in Omiya, Saitama, established in 1925 when bonsai growers relocated from Tokyo after the Great Kanto Earthquake. About ten nurseries still line the quiet streets, where visitors can admire bonsai and garden settings.",
+        "ja": "大正14年（1925年）、関東大震災後に東京から盆栽業者が移り住んで形成された盆栽の街。現在も約10軒の植木屋が軒を連ね、静かな路地で盆栽を鑑賞できる。"
+      },
+      {
+        "id": "omiya-park",
+        "en": "Spacious urban park in Omiya, Saitama, with ponds, lawns and one of the area's favorite cherry-blossom spots. The grounds also hold the Saitama Prefectural Museum of History and Folklore and sports facilities.",
+        "ja": "大宮の歴史ある都市公園。池や芝生広場、桜の名所として親しまれ、園内には県立歴史と民俗の博物館や運動施設もある。"
+      },
+      {
+        "id": "osaki-hachimangu",
+        "en": "Shrine founded in 1607 by Date Masamune as Sendai's guardian shrine. The main hall and worship hall, decorated with lavish Momoyama-style lacquer and gold, are designated National Treasures.",
+        "ja": "1607年に伊達政宗が創建した仙台の鎮守。桃山様式の豪華な漆塗りと金飾りで彩られた本殿と拝殿は国宝に指定されている。"
+      },
+      {
+        "id": "osu-kannon",
+        "en": "Osu Kannon (formally Shinpukuji Hoshoin), a Shingon Chizan-sect temple in Nagoya's Osu district, moved to its present site in 1612. Its library, the Osu Bunko, holds about 15,000 volumes including a National Treasure manuscript of the Kojiki, and an antique market opens on the 18th and 28th of each month.",
+        "ja": "大須観音（正式名称・北野山真福寺宝生院）。真言宗智山派の寺院で、1612年に現在地へ移転した。大須文庫には国宝の古事記写本など約15,000冊を収蔵し、毎月18日・28日の縁日には骨董市が立つ。"
+      },
+      {
+        "id": "osu-shopping-district",
+        "en": "Lively shopping quarter around Osu Kannon in Nagoya, where covered arcades are known for electronics, secondhand and vintage shops, character goods and quirky cafes. A favorite for bargain hunting, street food and a glimpse of the city's pop culture.",
+        "ja": "大須観音周辺に広がる商店街エリア。アーケード街には家電・中古品店、キャラクターグッズ店や個性派カフェが並び、掘り出し物探しやグルメが楽しめる。"
+      },
+      {
+        "id": "renkeiji",
+        "en": "Jodo-shu temple in Kawagoe's old town, founded in the mid-16th century under the patronage of the lords of Kawagoe Castle and dedicated to Amida Nyorai. Its quiet grounds sit close to Hon-Kawagoe Station, easy to include in a stroll of the historic district.",
+        "ja": "川越の市街地にある浄土宗の寺院。16世紀半ばに川越城ゆかりの人物によって創建され、阿弥陀如来を本尊とする。本川越駅から近く、歴史的な町並み散策の途中に立ち寄りやすい。"
+      },
+      {
+        "id": "saitama-shintoshin",
+        "en": "Modern urban district in Saitama City developed on former railway freight yards. It is home to the Saitama Super Arena, the Cocoon City shopping complex and the Keyaki Hiroba open plaza, with broad pedestrian spaces.",
+        "ja": "旧国鉄の操車場跡地に整備されたさいたま市の新都心。さいたまスーパーアリーナやショッピングモール「コクーンシティ」、けやき広場などがあり、広々とした歩行者空間が広がる。"
+      },
+      {
+        "id": "saitama-stadium-2002",
+        "en": "Stadium built for the 2002 FIFA World Cup in Midori-ku, Saitama, seating about 63,700. Home of the Urawa Red Diamonds, it is known for one of Japan's most passionate football atmospheres.",
+        "ja": "2002年FIFAワールドカップ開催のために建設された、約63,700人を収容するスタジアム。浦和レッズのホームスタジアムとして、日本屈指の熱気ある試合が繰り広げられる。"
+      },
+      {
+        "id": "saitama-super-arena",
+        "en": "One of Japan's largest multi-purpose arenas, in Saitama Shintoshin, holding up to about 37,000 people. Its movable stage and seating system lets the hall adapt to concerts, sports events and exhibitions.",
+        "ja": "さいたま新都心にある日本最大級の多目的アリーナ。最大約37,000人を収容し、可動式のステージと客席システムで、コンサートやスポーツイベントなどに対応する。"
+      },
+      {
+        "id": "samuel-cocking-garden",
+        "en": "Botanical garden on Enoshima, named after the British merchant Samuel Cocking who built a greenhouse here in the late 19th century. Today the garden displays seasonal flowers around the base of the Enoshima Sea Candle lighthouse, with evening illumination events.",
+        "ja": "江の島にある植物園。19世紀末に英国人実業家サミュエル・コッキングが温室を建てた場所で、現在は展望灯台「江の島シーキャンドル」がそびえる。季節の花と夜のライトアップが楽しめる。"
+      },
+      {
+        "id": "sapporo-beer-museum",
+        "en": "Japan's only beer museum, housed in an 1890 red-brick building that once served as a brewery. Exhibits trace the history of Sapporo Beer since the 1870s, and the complex includes a tasting lounge and beer garden.",
+        "ja": "日本唯一のビール博物館。1890年築の赤れんがの醸造所跡を活用し、サッポロビールの歴史を紹介する。試飲コーナーやビアガーデンも併設されている。"
+      },
+      {
+        "id": "sapporo-clock-tower",
+        "en": "Wooden clock tower built in 1878 as the drill hall of Sapporo Agricultural College (today's Hokkaido University), with its clock added in 1881. A symbol of Sapporo and Japan's oldest working clock tower, it now houses a small museum.",
+        "ja": "1878年に札幌農学校（現在の北海道大学）の演武場として建てられた木造の時計台。1881年から時を刻み、日本最古の時計台として札幌のシンボルになっている。内部は博物館として公開。"
+      },
+      {
+        "id": "sapporo-tv-tower",
+        "en": "A 147.2-meter tower completed in 1957 at the east end of Odori Park. The observation deck at about 90 meters offers panoramic views over the city toward the Ishikari plain and distant mountains.",
+        "ja": "1957年完成の高さ147.2mの電波塔。大通公園の東端に立ち、高さ約90mの展望台から札幌市街や石狩平野、遠くの山々を一望できる。"
+      },
+      {
+        "id": "sasuke-inari-shrine",
+        "en": "Small hillside Inari shrine in Kamakura reached through a tunnel of closely set red torii gates, with rows of fox statues guarding the precincts. Its quiet, atmospheric setting near Kencho-ji makes it a favorite for photographers.",
+        "ja": "鎌倉の山裾にひっそりとたたずむ稲荷神社。赤い鳥居のトンネルをくぐって参拝し、境内には多くの狐の像が並ぶ。建長寺近くの静かな佇まいが魅力。"
+      },
+      {
+        "id": "scmaglev-and-railway-park",
+        "en": "JR Central's railway museum near Kinjo Pier in Nagoya, opened in 2011. Real shinkansen trains, a maglev test vehicle and a huge diorama are on display, with train simulators and a Shinkansen driver experience among the attractions.",
+        "ja": "2011年開館のJR東海の鉄道博物館。実物の新幹線やリニアモーターカー試験車両、巨大ジオラマを展示し、運転シミュレーターなどの体験も人気。"
+      },
+      {
+        "id": "sendai-city-museum",
+        "en": "Museum near the Aoba Castle ruins in Sendai presenting the city's history, with a strong focus on Date Masamune and the Date clan. The collection includes armor, documents and works of art associated with the domain's rulers.",
+        "ja": "仙台城跡近くにある市立博物館。伊達政宗と伊達家を中心に仙台の歴史を紹介し、甲冑や古文書、美術品などを収蔵・展示している。"
+      },
+      {
+        "id": "shingashi-river",
+        "en": "River flowing through Kawagoe that in the Edo period carried goods and passengers between the town and Edo (modern Tokyo). Today its banks offer pleasant riverside walks, an easy addition to a tour of the historic merchant district.",
+        "ja": "川越の市街を流れる川。江戸時代には川越と江戸を結ぶ物資輸送の要路として栄え、現在は川沿いの散策が楽しめる。歴史ある町並みの散策とあわせて訪れたい。"
+      },
+      {
+        "id": "shinsho-ji",
+        "en": "Naritasan Shinsho-ji, head temple of the Shingon Chizan school, founded in 940 and among Japan's most visited temples. Its grand halls and five-story pagoda sit at the head of a lively approach street, and daily goma fire rituals draw crowds.",
+        "ja": "真言宗智山派の総本山・成田山新勝寺。940年の開山で、日本有数の参拝者を数える。荘厳な伽藍と五重塔のほか、毎日行われる護摩祈祷やにぎやかな参道も見どころ。"
+      },
+      {
+        "id": "shonan-kaigan-park",
+        "en": "Coastal park stretching along the Shonan shoreline in Fujisawa, with lawns, pine groves and sea views across Sagami Bay. Close to Katase Higashihama Beach, it is a pleasant spot for a stroll or a rest between swimming and sightseeing.",
+        "ja": "藤沢市の湘南海岸沿いに広がる公園。芝生広場と松林が続き、相模湾の海を望む。片瀬東浜海水浴場に近く、海水浴や散策の合間の休憩にもぴったり。"
+      },
+      {
+        "id": "susukino",
+        "en": "Sapporo's main entertainment district and one of Japan's largest, dense with restaurants, izakaya, ramen shops, bars and nightlife. Its neon-lit streets are busiest after dark.",
+        "ja": "札幌随一の繁華街で、日本有数の規模を誇る。居酒屋やバー、ラーメン店などが密集し、ネオンが輝く夜のにぎわいで知られる。"
+      },
+      {
+        "id": "taisho-roman-street",
+        "en": "Street in Kawagoe lined with buildings from the Taisho era (1912–1926), whose Western-influenced facades earned the area its 'Taisho Roman' name. Adjacent to the kurazukuri warehouse district, it holds cafes and shops in historic buildings.",
+        "ja": "大正時代（1912〜1926年）の洋風建築が並ぶ通り。川越の「大正浪漫」を感じさせる景観で、蔵造りの町並みに隣接する。歴史ある建物を生かしたカフェや雑貨店が並ぶ。"
+      },
+      {
+        "id": "tanukikoji-shopping-street",
+        "en": "Covered shopping arcade in central Sapporo stretching across seven blocks with about 200 shops — restaurants, souvenir stores and drugstores. Dating back over a century, it sits between Odori Park and Susukino, convenient for shopping and meals in any weather.",
+        "ja": "札幌中心部に広がるアーケード商店街。7ブロックに約200店舗が並び、食事や土産物、ドラッグストアまで揃う。大通公園とすすきのの間にあり、雨の日でも買い物を楽しめる。"
+      },
+      {
+        "id": "taro-okamoto-museum-of-art",
+        "en": "Museum in Ikuta Ryokuchi, Kawasaki, dedicated to the avant-garde artist Taro Okamoto (1911–1996), who was born in Kawasaki. His bold, colorful paintings, sculptures and design works fill the galleries.",
+        "ja": "川崎市生田緑地内にある岡本太郎の美術館。川崎生まれの芸術家・岡本太郎（1911〜1996年）の作品を展示し、力強くカラフルな絵画や彫刻が並ぶ。"
+      },
+      {
+        "id": "tenjin",
+        "en": "Fukuoka's central shopping and business district, packed with department stores, boutiques, restaurants and cafes around Tenjin Station. The area takes its name from the nearby Suikyo Tenmangu shrine, dedicated to Sugawara no Michizane (Tenjin).",
+        "ja": "福岡の中心市街地。百貨店やファッションビル、飲食店が集まり、ショッピングやグルメの拠点としてにぎわう。地区名は近くの水鏡天満宮（天神）に由来する。"
+      },
+      {
+        "id": "the-museum-of-modern-art-saitama",
+        "en": "MOMAS, opened in 1982 in Kita-Urawa Park and the first art museum designed by architect Kisho Kurokawa. The collection spans modern Japanese and Western art, including works by Monet, Chagall and Picasso.",
+        "ja": "北浦和公園内にある県立近代美術館。1982年開館で、建築家・黒川紀章が設計した初の美術館建築。モネやシャガール、ピカソなどの西洋近現代美術と日本の作家の作品を収蔵する。"
+      },
+      {
+        "id": "tochoji",
+        "en": "Temple in Hakata founded in 806 by the priest Kukai (Kobo Daishi), who brought Shingon Buddhism to Japan. The main hall enshrines a large wooden seated Buddha, the Fukuoka Daibutsu, one of Japan's biggest.",
+        "ja": "806年に弘法大師空海が開いた博多の寺院・東長寺。真言宗にゆかりが深く、本堂には日本有数の大きさを誇る木造の福岡大仏が安置されている。"
+      },
+      {
+        "id": "todoroki-ryokuchi",
+        "en": "Green space in Kawasaki spreading along the valley of the Todoroki River, with wooded walking paths, athletic fields and a baseball stadium. A calm pocket of nature close to the city center.",
+        "ja": "等々力川の谷沿いに広がる川崎市の緑地。木々に囲まれた遊歩道のほか、運動広場や球技場も整備され、都心近くで自然を楽しめる。"
+      },
+      {
+        "id": "toki-no-kane",
+        "en": "Kawagoe's iconic wooden bell tower, rebuilt in 1894 after a fire destroyed much of the town, and still ringing four times a day. It stands at the heart of the 'Little Edo' warehouse district and is the town's best-known landmark.",
+        "ja": "川越のシンボル・時の鐘。1893年の大火後に再建された木造の鐘楼で、現在も1日4回鐘が鳴る。蔵造りの町並みの中心に立ち、「小江戸」の風景に調和している。"
+      },
+      {
+        "id": "tokugawa-art-museum",
+        "en": "Museum opened in 1935 to preserve the treasures of the Owari Tokugawa clan in Nagoya. Its collection includes the National Treasure Tale of Genji handscrolls, swords, armor and Noh masks, displayed beside the adjoining Tokugawa Garden.",
+        "ja": "1935年開館。尾張徳川家に伝わる名品を収蔵する美術館で、国宝「源氏物語絵巻」や刀剣・甲冑・能面などを展示する。隣接する徳川園とあわせて訪れたい。"
+      },
+      {
+        "id": "tokugawa-garden",
+        "en": "Japanese stroll garden on the site of the Owari Tokugawa clan's Nagoya villa, with a waterfall, streams and azaleas. It adjoins the Tokugawa Art Museum, and plum and cherry blossoms color the garden in early spring.",
+        "ja": "尾張徳川家の別邸跡に整えられた日本庭園。滝やせせらぎ、ツツジが美しく、徳川美術館に隣接する。春先には梅や桜も楽しめる。"
+      },
+      {
+        "id": "toyota-commemorative-museum-of-industry-and-technology",
+        "en": "Museum on the site of the former Toyoda Automatic Loom Works factory in Nagoya, tracing Toyota's evolution from textile machinery to automobiles. Working machines and interactive exhibits bring the engineering history to life.",
+        "ja": "豊田自動織機製作所の旧工場跡に建つ産業技術記念館。繊維機械から自動車へと発展したトヨタグループの歴史を、動く実機と体験展示で紹介する。"
+      },
+      {
+        "id": "tsujido-seaside-park",
+        "en": "Beachside park in Tsujido, Fujisawa, with lawns, sports facilities, a pool complex and campsite. Its location near the Shonan coast makes it a relaxed spot for families and seaside walks.",
+        "ja": "辻堂の海岸近くに広がる公園。芝生広場やプール、キャンプ場などの施設が揃い、湘南の海辺でのんびり過ごせる。"
+      },
+      {
+        "id": "tsurugaoka-hachimangu",
+        "en": "Kamakura's most important shrine, founded in 1063 and brought to its present hillside site by Minamoto no Yoritomo in 1180. The long approach, cherry-lined paths, great torii and dance stage (maiden) make it the city's spiritual and visual heart.",
+        "ja": "鎌倉の総鎮守として知られる鶴岡八幡宮。1063年創建、1180年に源頼朝が現在地へ遷座した。長い参道や桜並木、大鳥居、舞殿など見どころが多い。"
+      },
+      {
+        "id": "yugyo-ji",
+        "en": "Yugyo-ji (formally Shojoko-ji) is the head temple of the Ji-shu (Time) school of Pure Land Buddhism, in Fujisawa. The temple associated with the wandering preacher Ippen features an imposing main hall and broad precincts within walking distance of the station.",
+        "ja": "藤沢にある時宗の総本山・清浄光寺（遊行寺）。時宗の開祖・一遍上人ゆかりの寺院で、立派な本堂と広い境内を持つ。藤沢駅から徒歩圏。"
+      },
+      {
+        "id": "yuigahama-beach",
+        "en": "Sandy beach along Kamakura's coast, one of the closest shorelines to central Tokyo. Popular for swimming in summer and surfing year-round, it is lined with cafes and shops and framed by views of Enoshima.",
+        "ja": "鎌倉の海岸に広がる砂浜。都心から近い海水浴場として夏はにぎわい、一年を通してサーフィンも楽しまれている。周辺にはカフェやショップが並び、江の島を望む景色が広がる。"
+      },
+      {
+        "id": "zeniarai-benten",
+        "en": "Shrine in a Kamakura ravine where visitors wash their money in the spring water, believing it will multiply. According to legend it was founded in 1185 after a dream of Minamoto no Yoritomo; the quiet precincts sit behind Kotoku-in.",
+        "ja": "湧き水でお金を洗うと増えるといわれる「銭洗い」の神社。1185年に源頼朝の夢のお告げで創建されたと伝わる。高徳院の裏手の谷間にひっそりと佇む。"
+      }
+    ],
+    "notesDelete": [
+      "karatsu-city",
+      "sasebo-city",
+      "ibusuki-city",
+      "nichinan-city",
+      "hita-city",
+      "narita-airport-observation-decks"
+    ],
+    "jaNameFixes": [
+      {
+        "id": "enoshima-iwaya-caves",
+        "value": "江の島岩屋"
+      },
+      {
+        "id": "fukuoka-castle-ruins",
+        "value": "福岡城跡（舞鶴公園）"
+      },
+      {
+        "id": "honmaru-palace",
+        "value": "本丸御殿"
+      },
+      {
+        "id": "jochi-ji",
+        "value": "浄智寺"
+      },
+      {
+        "id": "maruyama-park",
+        "value": "円山公園"
+      },
+      {
+        "id": "museum-of-aeronautical-sciences",
+        "value": "航空科学博物館"
+      },
+      {
+        "id": "narita-airport-observation-decks",
+        "value": "成田国際空港"
+      },
+      {
+        "id": "osu-kannon",
+        "value": "大須観音"
+      },
+      {
+        "id": "osu-shopping-district",
+        "value": "大須商店街"
+      },
+      {
+        "id": "renkeiji",
+        "value": "蓮馨寺"
+      },
+      {
+        "id": "saitama-shintoshin",
+        "value": "さいたま新都心"
+      }
+    ],
+    "sourceFixes": {
+      "inage-seaside-park": {
+        "remove": ["https://en.wikipedia.org/wiki/Inagekaigan_Station"]
+      },
+      "katase-higashihama-beach": {
+        "remove": ["https://en.wikipedia.org/wiki/Enoshima_Station"]
+      },
+      "makuhari-seaside-park": {
+        "remove": ["https://en.wikipedia.org/wiki/Kaihimmakuhari_Station"]
+      },
+      "museum-of-aeronautical-sciences": {
+        "remove": [
+          "https://en.wikipedia.org/wiki/Narita_International_Airport",
+          "https://www.narita-airport.jp/"
+        ],
+        "add": [
+          "https://www.aeromuseum.or.jp/",
+          "https://en.wikipedia.org/wiki/Museum_of_Aeronautical_Sciences"
+        ]
+      },
+      "narita-airport-observation-decks": {
+        "remove": [
+          "https://en.wikipedia.org/wiki/Haneda_Airport",
+          "http://www.haneda-airport.jp"
+        ],
+        "add": [
+          "https://www.narita-airport.jp/en/fun/view/",
+          "https://en.wikipedia.org/wiki/Narita_International_Airport"
+        ]
+      },
+      "nijo-market": {
+        "remove": ["https://en.wikipedia.org/wiki/%C5%8Cd%C5%8Dri_Station"],
+        "add": ["https://en.wikipedia.org/wiki/Nijo_Market"]
+      },
+      "renkeiji": {
+        "remove": [
+          "https://en.wikipedia.org/wiki/Hon-Kawagoe_Station",
+          "https://www.seiburailway.jp/railway/station/hon-kawagoe/"
+        ],
+        "add": [
+          "https://renkeiji.jp/",
+          "https://en.wikipedia.org/wiki/Renkei-ji"
+        ]
+      },
+      "shonan-kaigan-park": {
+        "remove": ["https://en.wikipedia.org/wiki/Shonan_Monorail"],
+        "add": ["https://en.wikipedia.org/wiki/Shonan_Kaigan_Park"]
+      }
+    },
+    "kindFixes": {
+      "tanukikoji-shopping-street": "street",
+      "shingashi-river": "nature"
+    },
+    "aliasFixes": [
+      {
+        "id": "narita-airport-observation-decks",
+        "remove": ["Haneda Airport", "東京国際空港"],
+        "reason": "Narita record carried Haneda aliases (import mix-up); aliases drive search"
+      },
+      {
+        "id": "renkeiji",
+        "remove": ["Hon-Kawagoe Station", "本川越駅"],
+        "reason": "Temple record carried station aliases (import mix-up); aliases drive search"
+      }
+    ],
+    "ratingMetadataDowngradeNote": "65 records on rating vectors shared by 10-114 unrelated records (template families: hub 114, nature 18, castle 23, POI staircase 14, etc.); 62 laundered manual/high stamps + 3 medium/assisted stamps; downgraded to assisted/low so scoring falls to 0.5 and display confidence-gates.",
+    "kindFixesNote": "tanukikoji-shopping-street (temple→street) and shingashi-river (museum→nature) fixed; scmaglev-and-railway-park reverted (paid museum with unverified Open access hours — needs editorial hours verification before kind change).",
+    "transportRestoreValues": {
+      "abashiri-city": {
+        "train": 200
+      },
+      "asahikawa-city": {
+        "train": 200
+      },
+      "aso-city": {
+        "train": 200
+      },
+      "beppu-city": {
+        "train": 200
+      },
+      "biei-town": {
+        "train": 200
+      },
+      "chichibu-city": {
+        "train": 200
+      },
+      "dazaifu-city": {
+        "train": 200
+      },
+      "fujinomiya-city": {
+        "train": 200
+      },
+      "fukushuen-garden-naha": {
+        "train": 15
+      },
+      "furano-city": {
+        "train": 200
+      },
+      "gifu-city": {
+        "train": 200
+      },
+      "gotemba-city": {
+        "train": 200
+      },
+      "hatsukaichi-city": {
+        "train": 200
+      },
+      "inuyama-city": {
+        "train": 200
+      },
+      "ito-city": {
+        "train": 200
+      },
+      "izumo-city": {
+        "train": 200
+      },
+      "kagoshima-city": {
+        "train": 200
+      },
+      "kitakyushu-city": {
+        "train": 200
+      },
+      "kochi-city": {
+        "train": 200
+      },
+      "kofu-city": {
+        "train": 200
+      },
+      "kokusai-dori-naha": {
+        "train": 15
+      },
+      "kumamoto-city": {
+        "train": 200
+      },
+      "kusatsu-town": {
+        "train": 200
+      },
+      "kushiro-city": {
+        "train": 200
+      },
+      "matsue-city": {
+        "train": 200
+      },
+      "matsuyama-city": {
+        "train": 200
+      },
+      "minakami-town": {
+        "train": 200
+      },
+      "mito-city": {
+        "train": 200
+      },
+      "miyazaki-city": {
+        "train": 200
+      },
+      "miyazu-city": {
+        "train": 200
+      },
+      "museum-of-aeronautical-sciences": {
+        "train": 200
+      },
+      "nagasaki-city": {
+        "train": 200
+      },
+      "naha-city": {
+        "train": 15
+      },
+      "naminoue-shrine-naha": {
+        "train": 20
+      },
+      "narita-city": {
+        "train": 200
+      },
+      "naruto-city": {
+        "train": 200
+      },
+      "niseko-town": {
+        "train": 200
+      },
+      "numazu-city": {
+        "train": 200
+      },
+      "okazaki-city": {
+        "train": 200
+      },
+      "onomichi-city": {
+        "train": 200
+      },
+      "otaru-city": {
+        "train": 200
+      },
+      "sapporo-city": {
+        "train": 200
+      },
+      "sapporo-tv-tower": {
+        "train": 200
+      },
+      "shimonoseki-city": {
+        "train": 200
+      },
+      "susukino": {
+        "train": 200
+      },
+      "takachiho-town": {
+        "train": 200
+      },
+      "takamatsu-city": {
+        "train": 200
+      },
+      "tokushima-city": {
+        "train": 200
+      },
+      "toto-museum-kitakyushu": {
+        "train": 200
+      },
+      "tottori-city": {
+        "train": 200
+      },
+      "toyota-city": {
+        "train": 200
+      },
+      "tsukuba-city": {
+        "train": 200
+      },
+      "yufu-city": {
+        "train": 200
+      },
+      "akiyoshido-cave-yamaguchi": {
+        "train": 180
+      },
+      "arakurayama-sengen-park-yamanashi": {
+        "train": 180
+      },
+      "ashikaga-flower-park-tochigi": {
+        "train": 180
+      },
+      "beppu-hells-oita": {
+        "train": 180
+      },
+      "dewa-sanzan-yamagata": {
+        "train": 180
+      },
+      "dogo-onsen-ehime": {
+        "train": 180
+      },
+      "ginzan-onsen-yamagata": {
+        "train": 180
+      },
+      "iya-valley-tokushima": {
+        "train": 180
+      },
+      "kakunodate-samurai-district-akita": {
+        "train": 180
+      },
+      "kintai-bridge-yamaguchi": {
+        "train": 180
+      },
+      "kiyotsu-gorge-niigata": {
+        "train": 180
+      },
+      "motonosumi-shrine-yamaguchi": {
+        "train": 180
+      },
+      "mount-aso-kumamoto": {
+        "train": 180
+      },
+      "oirase-gorge-aomori": {
+        "train": 180
+      },
+      "ryugado-cave-kochi": {
+        "train": 180
+      },
+      "tojinbo-cliffs-fukui": {
+        "train": 180
+      },
+      "tottori-sand-dunes": {
+        "train": 180
+      },
+      "asago-city": {
+        "train": 120,
+        "car": 120,
+        "bus": 150
+      },
+      "hirosaki-city": {
+        "train": 120,
+        "car": 120,
+        "bus": 150
+      },
+      "ise-city": {
+        "train": 120,
+        "car": 120,
+        "bus": 150
+      },
+      "iwakuni-city": {
+        "train": 120,
+        "car": 120,
+        "bus": 150
+      },
+      "marugame-city": {
+        "train": 120,
+        "car": 120,
+        "bus": 150
+      },
+      "mine-city": {
+        "train": 120,
+        "car": 120,
+        "bus": 150
+      },
+      "semboku-city": {
+        "train": 120,
+        "car": 120,
+        "bus": 150
+      },
+      "takahashi-city": {
+        "train": 120,
+        "car": 120,
+        "bus": 150
+      },
+      "toyooka-city": {
+        "train": 120,
+        "car": 120,
+        "bus": 150
+      },
+      "hiraizumi-chusonji-iwate": {
+        "train": 45,
+        "bus": 50,
+        "car": 60
+      },
+      "oura-church-nagasaki": {
+        "train": 45,
+        "bus": 50,
+        "car": 60
+      },
+      "sannai-maruyama-jomon-aomori": {
+        "train": 45,
+        "bus": 50,
+        "car": 60
+      },
+      "shuri-castle-okinawa": {
+        "train": 45,
+        "bus": 50,
+        "car": 60
+      },
+      "tomioka-silk-mill-gunma": {
+        "train": 45,
+        "bus": 50,
+        "car": 60
+      },
+      "asakusa-taito": {
+        "train": 50
+      },
+      "ikebukuro-toshima": {
+        "train": 50
+      },
+      "akihabara-chiyoda": {
+        "train": 40
+      },
+      "bise-fukugi-tree-road-motobu": {
+        "bus": 300
+      },
+      "higashi-hennazaki-cape-miyako": {
+        "bus": 300
+      },
+      "kabira-bay-ishigaki": {
+        "bus": 300
+      },
+      "mount-kaimon": {
+        "bus": 300
+      },
+      "nago-pineapple-park": {
+        "bus": 300
+      },
+      "yobuko-morning-market": {
+        "bus": 300
+      },
+      "yonaha-maehama-beach-miyako": {
+        "bus": 300
+      },
+      "yonehara-beach-coral-ishigaki": {
+        "bus": 300
+      },
+      "akita-city": {
+        "train": 120,
+        "car": 120,
+        "shinkansen": 120,
+        "bus": 150
+      },
+      "aomori-city": {
+        "train": 120,
+        "car": 120,
+        "shinkansen": 120,
+        "bus": 150
+      },
+      "hachinohe-city": {
+        "train": 120,
+        "car": 120,
+        "shinkansen": 120,
+        "bus": 150
+      },
+      "morioka-city": {
+        "train": 120,
+        "car": 120,
+        "shinkansen": 120,
+        "bus": 150
+      },
+      "yamagata-city": {
+        "train": 120,
+        "car": 120,
+        "shinkansen": 120,
+        "bus": 150
+      },
+      "gyokudo-art-museum": {
+        "train": 205
+      },
+      "maruyama-park": {
+        "train": 205
+      },
+      "musashi-mitake-shrine": {
+        "train": 205
+      },
+      "narita-airport-observation-decks": {
+        "train": 205
+      },
+      "cape-nagasakibana": {
+        "bus": 250
+      },
+      "irabu-bridge-irabujima-miyako": {
+        "bus": 250
+      },
+      "ishidake-observatory": {
+        "bus": 250
+      },
+      "kujukushima-pearl-sea-resort": {
+        "bus": 250
+      },
+      "lake-ikeda": {
+        "bus": 250
+      },
+      "umi-kirara-aquarium": {
+        "bus": 250
+      },
+      "former-hokkaido-government-office": {
+        "train": 203
+      },
+      "katori-jingu": {
+        "train": 203
+      },
+      "mount-moiwa": {
+        "train": 203
+      },
+      "nijo-market": {
+        "train": 203
+      },
+      "sapporo-beer-museum": {
+        "train": 203
+      },
+      "sapporo-clock-tower": {
+        "train": 203
+      },
+      "busena-marine-park-nago": {
+        "bus": 350
+      },
+      "sun-messe-nichinan": {
+        "bus": 350
+      },
+      "tamatorizaki-viewpoint-ishigaki": {
+        "bus": 350
+      },
+      "udo-jingu": {
+        "bus": 350
+      },
+      "churaumi-aquarium-motobu": {
+        "bus": 400
+      },
+      "nakijin-castle-ruins-motobu": {
+        "bus": 400
+      },
+      "nanatsugama-sea-caves": {
+        "bus": 400
+      },
+      "kawagoe-kurazukuri": {
+        "train": 255,
+        "bus": 295,
+        "car": 325
+      }
+    },
+    "transportNote": "The mode KEYS are access declarations consumed by runtime authorization and the published-record contract (MISSING_TRANSPORT_OPTIONS). Removing keys broke real rail/bus access, so removed keys are restored to their pre-KAI-89 values. The 18 source-verified corrections (TRANSPORT_CORRECTIONS) and the Naha Yui Rail values below are the evidence-driven fixes; the restored batch-default times remain dispositioned manual-review in kai-89-dispositions.json.",
+    "nahaYuiRailNote": "Naha records: train replaced with real Yui Rail (Okinawa Urban Monorail) local minutes. Official runtimes (https://www.yui-rail.co.jp/en/routemap/): Naha Airport → Shuri ≈ 27 min, → Kyozuka ≈ 32 min, → Urasoe-Maeda ≈ 34 min, → Tedako-Uranishi (full line) ≈ 37 min. Applied values 15-25 min are door-to-door minutes for city-centre stations with walk buffer; shuri-castle-okinawa train 25. The legacy batch train:200 was impossible (no intercity rail).",
+    "officialWebsiteFixes": [
+      {
+        "id": "narita-airport-observation-decks",
+        "from": "http://www.haneda-airport.jp",
+        "to": "https://www.narita-airport.jp/en/fun/view/",
+        "reason": "Haneda URL on Narita record (import mix-up); official Narita airport deck page"
+      },
+      {
+        "id": "renkeiji",
+        "from": "https://www.seiburailway.jp/railway/station/hon-kawagoe/",
+        "to": "https://renkeiji.jp/",
+        "reason": "Hon-Kawagoe Station page on temple record; official temple site"
+      },
+      {
+        "id": "maruyama-park",
+        "from": "https://kyoto.travel/en/destinations/maruyama-park/",
+        "to": "https://maruyamapark.jp/en/",
+        "reason": "Kyoto Maruyama Park URL on Sapporo record; official Sapporo park site"
+      }
+    ],
+    "bestSeasonFixes": [
+      {
+        "id": "abashiri-city",
+        "value": "Winter",
+        "reason": "drift ice Jan-Mar"
+      },
+      {
+        "id": "biei-town",
+        "value": "Summer",
+        "reason": "lavender Jun-Aug"
+      },
+      {
+        "id": "dazaifu-city",
+        "value": "Spring",
+        "reason": "plum blossom Feb-Mar"
+      }
+    ],
+    "transportSources": [
+      {
+        "field": "Okinawa Yui Rail runtimes",
+        "url": "https://www.yui-rail.co.jp/en/routemap/",
+        "accessedAt": "2026-08-13",
+        "note": "Official Okinawa Urban Monorail route map/timetables: full line Naha Airport → Tedako-Uranishi ≈ 37 min."
+      }
+    ],
+    "budgetSemanticsNote": "Correction-class semantics: (1) budgetBreakdown.tickets in budgetTicketCorrections = VERIFIED FACT (official operator/municipal price, source per record). (2) budgetRecommended in budgetRebalanceOnly = CALCULATED ESTIMATE via the documented midpoint model (round((min+max)/2), normalize-destination-budgets.ts). (3) transport/food/cafe components = LEGACY/TEMPLATE values, left byte-identical to pre-KAI-89 (never rescaled); they are MANUAL-REVIEW DEBT. sum(breakdown) == budgetRecommended is deliberately NOT enforced: a verified admission price is not evidence about food or transport costs, so arithmetic equality is never bought by inventing component precision (no synthetic precision).",
+    "budgetSources": [],
+    "crossFieldFixes": {
+      "note": "Cross-field consistency fixes from the KAI-89 final pass. Each entry synchronizes duplicated user-facing fields to the same verified fact.",
+      "hamarikyuGardens": {
+        "source": "https://www.tokyo-park.or.jp/park/hama-rikyu/ (Tokyo Metropolitan Park Association, accessed 2026-08-13)",
+        "facts": {
+          "hours": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
+          "admission": 300,
+          "parking": "no general on-site parking (limited spaces for wheelchair/disabled vehicles and tour buses); use nearest public parking (e.g. Shiodome)"
+        },
+        "contentEnOpeningHours": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
+        "contentJaOpeningHours": "午前9時〜午後5時（入園は午後4時30分まで）。年末年始休園（12月29日〜1月1日）",
+        "parkingEn": "No general on-site parking. Limited spaces across the main gate for wheelchair/disabled vehicles and tour buses only; other vehicles use the nearest public parking (e.g. Shiodome Parking).",
+        "parkingJa": "専用駐車場はありません（大手門橋を渡った所に障害者用・観光バス用の限られた駐車スペースのみ）。一般車両は最寄りの公共駐車場（汐留駐車場など）をご利用ください。",
+        "reservationEn": "No advance reservation required; admission ticket purchased at the gate.",
+        "reservationJa": "事前予約不要。入園券は入口でご購入いただけます。",
+        "officialWebsite": "https://www.tokyo-park.or.jp/park/hama-rikyu/",
+        "sourceReplace": [
+          {
+            "from": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
+            "to": "https://www.tokyo-park.or.jp/park/hama-rikyu/",
+            "type": "official",
+            "title": "浜離宮恩賜庭園｜公園へ行こう！"
+          }
+        ]
+      },
+      "engakujiParking": {
+        "source": "https://www.engakuji.or.jp/en/ (Engakuji official, accessed 2026-08-13)",
+        "parkingEn": "No on-site parking; use nearby paid coin parking.",
+        "note": "admission 500 yen confirmed current on the official site"
+      },
+      "honmaruPalaceNameJa": {
+        "value": "本丸御殿"
+      },
+      "ontakesanParkingAlign": {
+        "from": "Parking available at major visitor areas (fee varies)",
+        "to": "Parking available at major trailheads (Ontake Ropeway base, Nigorigo Onsen; fee varies)"
+      },
+      "paidKindOpenAccessBusinessHoursRemove": [
+        "keio-rail-land",
+        "ome-railway-park",
+        "play-museum-tachikawa",
+        "hijikata-toshizo-museum"
+      ]
+    },
+    "budgetComponentBaseline": {
+      "hamarikyu-gardens": {
+        "transport": 1400,
+        "food": 1400,
+        "cafe": 1200
+      },
+      "kiyosumi-gardens": {
+        "transport": 1400,
+        "food": 1400,
+        "cafe": 1200
+      },
+      "hiroshima-castle": {
+        "transport": 1400,
+        "food": 1400,
+        "cafe": 1200
+      },
+      "keio-rail-land": {
+        "transport": 1400,
+        "food": 1400,
+        "cafe": 1200
+      },
+      "ome-railway-park": {
+        "transport": 1400,
+        "food": 1400,
+        "cafe": 1200
+      },
+      "play-museum-tachikawa": {
+        "transport": 1400,
+        "food": 1400,
+        "cafe": 1200
+      },
+      "jindai-botanical-gardens": {
+        "transport": 1400,
+        "food": 1400,
+        "cafe": 1200
+      },
+      "hijikata-toshizo-museum": {
+        "transport": 1400,
+        "food": 1400,
+        "cafe": 1200
+      },
+      "gyokudo-art-museum": {
+        "transport": 1400,
+        "food": 1400,
+        "cafe": 1200
+      },
+      "keio-mogusaen": {
+        "transport": 1400,
+        "food": 1400,
+        "cafe": 1200
+      },
+      "engakuji": {
+        "transport": 1400,
+        "food": 1400,
+        "cafe": 400
+      },
+      "boso-no-mura": {
+        "transport": 1400,
+        "food": 1400,
+        "cafe": 400
+      },
+      "chiba-city-museum-of-art": {
+        "transport": 1925,
+        "food": 1925,
+        "cafe": 550
+      },
+      "hakata-machiya-folk-museum": {
+        "transport": 1925,
+        "food": 1925,
+        "cafe": 550
+      },
+      "kawagoe-festival-museum": {
+        "transport": 1925,
+        "food": 1925,
+        "cafe": 550
+      },
+      "hokkaido-museum-of-modern-art": {
+        "transport": 1925,
+        "food": 1925,
+        "cafe": 550
+      },
+      "cup-noodles-museum-yokohama": {
+        "transport": 650,
+        "food": 3250,
+        "cafe": 1300
+      },
+      "shin-yokohama-ramen-museum": {
+        "transport": 650,
+        "food": 3250,
+        "cafe": 1300
+      },
+      "yomiuriland": {
+        "transport": 1083,
+        "food": 2275,
+        "cafe": 975
+      },
+      "ikebukuro-toshima": {
+        "transport": 1083,
+        "food": 2275,
+        "cafe": 975
+      },
+      "odaiba-minato": {
+        "transport": 1083,
+        "food": 2275,
+        "cafe": 975
+      },
+      "korakuen-okayama": {
+        "transport": 3000,
+        "food": 1625,
+        "cafe": 875
+      },
+      "amanoiwato-shrine": {
+        "transport": 350,
+        "tickets": 0,
+        "food": 400,
+        "cafe": 100
+      },
+      "daikanbo-viewpoint-aso": {
+        "transport": 350,
+        "tickets": 0,
+        "food": 400,
+        "cafe": 100
+      },
+      "heiwadai-park-miyazaki": {
+        "transport": 350,
+        "tickets": 0,
+        "food": 400,
+        "cafe": 100
+      },
+      "kinrin-lake-yufuin": {
+        "transport": 350,
+        "tickets": 0,
+        "food": 400,
+        "cafe": 100
+      },
+      "meganebashi-bridge-nagasaki": {
+        "transport": 350,
+        "tickets": 0,
+        "food": 400,
+        "cafe": 100
+      },
+      "miyazaki-jingu-shrine": {
+        "transport": 350,
+        "tickets": 0,
+        "food": 400,
+        "cafe": 100
+      },
+      "aoshima-island-miyazaki": {
+        "transport": 525,
+        "tickets": 0,
+        "food": 600,
+        "cafe": 150
+      },
+      "dazaifu-tenmangu": {
+        "transport": 525,
+        "tickets": 0,
+        "food": 600,
+        "cafe": 150
+      },
+      "kusasenri-meadow-aso": {
+        "transport": 525,
+        "tickets": 0,
+        "food": 600,
+        "cafe": 150
+      },
+      "kawachi-wisteria-garden": {
+        "transport": 700,
+        "tickets": 500,
+        "food": 800,
+        "cafe": 200
+      },
+      "shiratani-unsuikyo-ravine": {
+        "transport": 700,
+        "tickets": 500,
+        "food": 800,
+        "cafe": 200
+      },
+      "yakusugi-land-yakushima": {
+        "transport": 700,
+        "tickets": 500,
+        "food": 800,
+        "cafe": 200
+      },
+      "ishidake-observatory": {
+        "transport": 300,
+        "tickets": 0,
+        "food": 450,
+        "cafe": 100
+      },
+      "lake-ikeda": {
+        "transport": 300,
+        "tickets": 0,
+        "food": 450,
+        "cafe": 100
+      },
+      "nijinomatsubara-pine-grove": {
+        "transport": 300,
+        "tickets": 0,
+        "food": 450,
+        "cafe": 100
+      }
+    },
+    "provenanceNote": "Source policy: official/primary sources were preferred and are used for all volatile facts (prices, hours, transport, parking, reservation). Where a primary source was unavailable at audit time, documented secondary sources (Wikipedia, Japan Guide, tourism/editorial sites) were used and are labelled per record in this ledger; they are NOT claimed as official evidence. Verified per record: Hamarikyu (tokyo-park.or.jp), Engakuji (engakuji.or.jp), Hiroshima Castle (hiroshimacastle.jp), Ome Railway Park (jreast.co.jp), Hakata Machiya (hakatamachiya.com), Chiba City Museum (ccma-net.jp), Kawagoe Festival Museum (kawagoematsuri.jp), Hokkaido Museum of Modern Art (artmuseum.pref.hokkaido.lg.jp).",
+    "provenanceFollowUp": [
+      {
+        "id": "maruyama-park",
+        "action": "remove editorial source",
+        "url": "https://kyoto.travel/en/destinations/maruyama-park/",
+        "reason": "Kyoto Maruyama Park source on Sapporo record (pre-existing; officialWebsite already fixed)"
+      },
+      {
+        "id": "museum-of-aeronautical-sciences",
+        "action": "set officialWebsite",
+        "from": "https://www.narita-airport.jp/",
+        "to": "https://www.aeromuseum.or.jp/",
+        "reason": "airport homepage on museum record; real site aeromuseum.or.jp"
+      },
+      {
+        "id": "hiroshima-castle",
+        "action": "set officialWebsite",
+        "from": "https://www.rijo-castle.jp/rijo/",
+        "to": "https://hiroshimacastle.jp/",
+        "reason": "rijo-castle.jp/rijo/ returns 404; current official site hiroshimacastle.jp (also the ledger ticket source)"
+      }
+    ]
+  }
+}

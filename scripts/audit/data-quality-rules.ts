@@ -27,6 +27,8 @@ export interface DataQualityIssue {
 export interface DestinationRuleContext {
   /** zoneId → local modes (from transport-topology.json). */
   zoneLocalModes: ReadonlyMap<string, readonly TransportMode[]>;
+  /** Catalogue-wide frequency of each rating vector (KAI-89 template detection). */
+  ratingVectorFrequency?: ReadonlyMap<string, number>;
 }
 
 export const VALID_KINDS = new Set([
@@ -134,6 +136,12 @@ export const PREVENTIVE_CODES = new Set([
   "ISLAND_RAIL_CLAIM",
   "LAM_TRANSPORT_CONTRADICTION",
   "QA_TEXT_LEAK",
+  "NONFINITE_USER_NUMBER",
+  "INVALID_BUDGET_RANGE",
+  "BUDGET_RECOMMENDED_OUTSIDE_RANGE",
+  "NONFINITE_TRANSPORT_VALUE",
+  "INVALID_VISIT_HOURS_RANGE",
+  "NONFINITE_RATING",
   "UNKNOWN_TRANSPORT_KEY",
   "HERO_LICENSE_HOST_MISMATCH",
   "MISSING_TRAVEL_ESTIMATE",
@@ -143,6 +151,11 @@ export const PREVENTIVE_CODES = new Set([
   "OFF_UNION_STATUS",
   "COLLECTION_SORTORDER_COLLISION",
   "COLLECTION_MEMBERSHIP_SHAPE",
+  // KAI-89: template rating vector stamped high/medium confidence, and rail
+  // access on islands whose zone has no rail. Both are provably wrong
+  // whenever they appear (catalogue is zero-debt on both after KAI-89).
+  "RATING_METADATA_UNSUPPORTED_HIGH",
+  "OKINAWA_RAIL_VALUE",
 ]);
 
 export function firstTimeRange(text: string | undefined): number | null {
@@ -156,6 +169,49 @@ function isCoarseGrid(v: number): boolean {
   return Math.abs(v * 10 - Math.round(v * 10)) < 1e-6;
 }
 
+const USER_VISIBLE_NUMERIC_FIELDS = [
+  "budgetMin",
+  "budgetRecommended",
+  "budgetMax",
+  "walkingMin",
+  "walkingSunMin",
+  "walkingShadeMin",
+  "indoorPercent",
+  "totalTripHours",
+] as const;
+
+const DETERMINISTIC_COPY_LEAK =
+  /Source-backed|v1\.9\.2|KAI-31|city expansion record|Municipal hub record reviewed|Municipal hub created in/i;
+const GENERIC_TEMPLATE_COPY =
+  /visitor destination in|visitor hub in|travel hub in|A top recommended attraction in|訪問者向けの観光地|curated destination within|popular tourist spot in|popular tourist destination in|art and culture hub|有名な観光スポット|アートとカルチャーの拠点/i;
+
+function destinationCopy(dest: Destination): string {
+  return JSON.stringify({
+    notes: dest.notes,
+    description: dest.description,
+    notesJa: dest.notesJa,
+    content: dest.content,
+  });
+}
+
+// Canonical 10-key rating vector (mirror of scripts/audit/rules.ts RULE-007).
+export const REQUIRED_RATING_KEYS = [
+  "overall",
+  "couple",
+  "summer",
+  "winter",
+  "rain",
+  "food",
+  "photography",
+  "relaxation",
+  "value",
+  "uniqueness",
+] as const;
+
+function finiteNonNegative(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value) && value >= 0;
+}
+
 export function collectDestinationIssues(
   dest: Destination,
   ctx: DestinationRuleContext,
@@ -165,6 +221,74 @@ export function collectDestinationIssues(
     issues.push({ code, message });
 
   // ---- G4: schema unions ----
+  for (const field of USER_VISIBLE_NUMERIC_FIELDS) {
+    const value = dest[field];
+    if (value !== undefined && !finiteNonNegative(value)) {
+      push(
+        "NONFINITE_USER_NUMBER",
+        `${field} must be a finite non-negative number`,
+      );
+    }
+  }
+  if (
+    dest.budgetMin !== undefined &&
+    dest.budgetMax !== undefined &&
+    finiteNonNegative(dest.budgetMin) &&
+    finiteNonNegative(dest.budgetMax) &&
+    dest.budgetMin > dest.budgetMax
+  ) {
+    push("INVALID_BUDGET_RANGE", "budgetMin must not exceed budgetMax");
+  }
+  if (
+    dest.budgetRecommended !== undefined &&
+    finiteNonNegative(dest.budgetRecommended) &&
+    dest.budgetMin !== undefined &&
+    dest.budgetMax !== undefined &&
+    finiteNonNegative(dest.budgetMin) &&
+    finiteNonNegative(dest.budgetMax) &&
+    (dest.budgetRecommended < dest.budgetMin ||
+      dest.budgetRecommended > dest.budgetMax)
+  ) {
+    push(
+      "BUDGET_RECOMMENDED_OUTSIDE_RANGE",
+      "budgetRecommended must fall within budgetMin and budgetMax",
+    );
+  }
+  for (const [mode, value] of Object.entries(dest.transportOptions ?? {})) {
+    if (!finiteNonNegative(value)) {
+      push(
+        "NONFINITE_TRANSPORT_VALUE",
+        `${mode} transport estimate must be finite and non-negative`,
+      );
+    }
+  }
+  if (dest.budgetBreakdown) {
+    for (const [field, value] of Object.entries(dest.budgetBreakdown)) {
+      if (!finiteNonNegative(value)) {
+        push(
+          "NONFINITE_USER_NUMBER",
+          `budgetBreakdown.${field} must be finite and non-negative`,
+        );
+      }
+    }
+  }
+  if (dest.recommendedVisitHours) {
+    const { min, max } = dest.recommendedVisitHours;
+    if (!finiteNonNegative(min) || !finiteNonNegative(max) || min > max) {
+      push(
+        "INVALID_VISIT_HOURS_RANGE",
+        "recommendedVisitHours must be a finite ascending range",
+      );
+    }
+  }
+  for (const [field, value] of Object.entries(dest.ratings ?? {})) {
+    if (value !== undefined && !finiteNonNegative(value)) {
+      push(
+        "NONFINITE_RATING",
+        `ratings.${field} must be finite and non-negative`,
+      );
+    }
+  }
   if (dest.kind && !VALID_KINDS.has(dest.kind)) {
     push(
       "OFF_UNION_KIND",
@@ -206,14 +330,16 @@ export function collectDestinationIssues(
       "editorial.sources contains a dangling placeholder (string or url-less entry)",
     );
   }
-  if (
-    /Source-backed|v1\.9\.2|KAI-31/.test(
-      `${dest.notes ?? ""} ${dest.description ?? ""}`,
-    )
-  ) {
+  if (DETERMINISTIC_COPY_LEAK.test(destinationCopy(dest))) {
     push(
       "QA_TEXT_LEAK",
       "notes/description contain QA/provenance template text",
+    );
+  }
+  if (GENERIC_TEMPLATE_COPY.test(destinationCopy(dest))) {
+    push(
+      "GENERIC_TEMPLATE_COPY",
+      "description contains a repeated destination-template phrase",
     );
   }
 
@@ -285,10 +411,61 @@ export function collectDestinationIssues(
     );
   }
 
+  // ---- KAI-89: template rating vectors ----
+  // NOTE: heuristic classes (repeated vectors, budget-sum mismatches, season
+  // contradictions, train/shinkansen inversion, walking sun+shade) are
+  // intentionally NOT warning-gated here: the warning baseline gate refuses
+  // growth, so broad heuristics over legacy debt would silently enshrine it.
+  // They are tracked per-cluster in the KAI-89 structured audit
+  // (scripts/audit/kai-89-structured-template-audit.json) with reviewed
+  // dispositions (scripts/audit/kai-89-dispositions.json).
+  const ratingVector = dest.ratings
+    ? JSON.stringify(REQUIRED_RATING_KEYS.map((key) => dest.ratings?.[key]))
+    : undefined;
+  const vectorFrequency = ratingVector
+    ? (ctx.ratingVectorFrequency?.get(ratingVector) ?? 1)
+    : 0;
+  if (
+    vectorFrequency >= 10 &&
+    dest.ratingMetadata &&
+    dest.ratingMetadata.confidence !== "low"
+  ) {
+    push(
+      "RATING_METADATA_UNSUPPORTED_HIGH",
+      `rating vector shared by ${vectorFrequency} records is stamped ${dest.ratingMetadata.confidence}/${dest.ratingMetadata.method} — template data cannot be high/medium-confidence reviewed evidence`,
+    );
+  }
+
+  // ---- KAI-89: transport value sanity (Okinawa Yui Rail) ----
+  // Okinawa's only rail is the Yui Rail (Okinawa Urban Monorail). Official
+  // runtimes (yui-rail.co.jp): Naha Airport → Shuri ≈ 27 min, → Kyozuka
+  // ≈ 32 min, → Urasoe-Maeda ≈ 34 min, → Tedako-Uranishi (full line) ≈
+  // 37 min. Door-to-door local access for ANY station is therefore well
+  // under 90 minutes. This rule targets the KNOWN corruption class — the
+  // v1.6.0 hub-batch `train: 200` default stamped on every Okinawa hub —
+  // not a blanket rejection of longer (but real) monorail journeys, so
+  // legitimate 32–37 min values pass.
+  if (
+    dest.transportZoneId === "okinawa-main" &&
+    dest.transportOptions?.train !== undefined &&
+    finiteNonNegative(dest.transportOptions.train) &&
+    dest.transportOptions.train > 90
+  ) {
+    push(
+      "OKINAWA_RAIL_VALUE",
+      `train ${dest.transportOptions.train} min is impossible for Okinawa Yui Rail local access (full line Naha Airport → Tedako-Uranishi ≈ 37 min; legacy batch default was 200)`,
+    );
+  }
+
   // ---- G9: seasonality ----
+  // An explicit neutral state (seasonMetadata.method "unknown", written by
+  // the KAI-89 season model when no defensible seasonal signal exists) is
+  // NOT missing data: it is a deliberate, marked absence.
+  const seasonExplicitlyNeutral = dest.seasonMetadata?.method === "unknown";
   if (
     dest.status === "published" &&
     dest.role !== "hub" &&
+    !seasonExplicitlyNeutral &&
     (!dest.season || !dest.bestMonths?.length)
   ) {
     push(
@@ -327,7 +504,13 @@ export function collectDestinationIssues(
   if (
     dest.status === "published" &&
     dest.role !== "hub" &&
-    dest.budgetRecommended === undefined
+    dest.budgetRecommended === undefined &&
+    // Explicit neutral state written by the KAI-89 budget model (template
+    // budget deliberately returned to unknown) is NOT missing data, and a
+    // "manual" state (verified ticket preserved, components accepted debt)
+    // is a reviewed budget decision, not a missing one.
+    dest.budgetMetadata?.method !== "unknown" &&
+    dest.budgetMetadata?.method !== "manual"
   ) {
     push("MISSING_BUDGET", "published non-hub record lacks budgetRecommended");
   }

@@ -8,3 +8,11 @@ node_modules
 docs
 reports
 *.html
+
+# KAI-89 generated catalogue artifacts: byte-canonical output of the
+# deterministic generators (derive-destination-models, classify-dispositions).
+# check:catalog-ci enforces byte-identity with a fresh generation, which is
+# the stronger invariant; prettier normalization would fight the generators.
+scripts/models/derive-report.json
+scripts/audit/kai-89-dispositions.json
+src/shared/data/destinations-index.json

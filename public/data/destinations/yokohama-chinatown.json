@@ -7,12 +7,7 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Yokohama_Chinatown_signage_2015.jpg/1920px-Yokohama_Chinatown_signage_2015.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
   "totalTripHours": 3,
-  "budgetMin": 3000,
-  "budgetRecommended": 6500,
-  "budgetMax": 10000,
   "walkingMin": 40,
-  "walkingSunMin": 24,
-  "walkingShadeMin": 16,
   "indoorPercent": 75,
   "ratings": {
     "overall": 8.8,
@@ -26,19 +21,14 @@
     "value": 8.5,
     "uniqueness": 8.7
   },
-  "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 8
-  },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "low",
   "tags": ["Food", "Culture", "Shopping"],
   "coordinates": {
@@ -54,13 +44,7 @@
     "train": 25
   },
   "highlights": ["Food", "Culture", "Shopping"],
-  "description": "Yokohama Chinatown is a curated destination within Yokohama City.",
-  "budgetBreakdown": {
-    "transport": 650,
-    "tickets": 1300,
-    "food": 3250,
-    "cafe": 1300
-  },
+  "description": "One of the world's largest Chinatowns, packed with Chinese restaurants, bakeries, and souvenir shops around the colorful gates of the Kanteibyo temple area.",
   "reservation": "No reservation required for street food; restaurant bookings recommended on weekends.",
   "parking": "Paid parking available at Yamashita Park underground structure.",
   "notes": "Sample xiaolongbao steamed buns and bubble tea along 500+ colorful Chinese restaurant streets.",
@@ -106,12 +90,38 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=75, kind='', walkingMin=40",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
       "name": "Yokohama Chinatown",
-      "description": "Yokohama Chinatown is a curated destination within Yokohama City.",
+      "description": "One of the world's largest Chinatowns, packed with Chinese restaurants, bakeries, and souvenir shops around the colorful gates of the Kanteibyo temple area.",
       "highlights": ["Food", "Culture", "Shopping"],
       "notes": "Sample xiaolongbao steamed buns and bubble tea along 500+ colorful Chinese restaurant streets.",
       "reservation": "No reservation required for street food; restaurant bookings recommended on weekends.",
@@ -120,12 +130,8 @@
     },
     "ja": {
       "name": "横浜中華街",
-      "description": "横浜中華街は神奈川県を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
-      "highlights": [
-        "横浜中華街の名所",
-        "横浜中華街の名所",
-        "横浜中華街の名所"
-      ],
+      "description": "世界最大級の中華街。色鮮やかな門や関帝廟を中心に、中華料理店や中華菓子店、土産物店が軒を連ねます。",
+      "highlights": ["横浜中華街の名所"],
       "notes": "500軒以上の店舗がひしめく日本最大のチャイナタウンで、小籠包や肉まんの食べ歩きが満喫できます。",
       "reservation": "散策や食べ歩きは予約不要。週末のコース料理レストランは予約推奨です。",
       "parking": "山下公園地下駐車場や Chinatown パーキングをご利用ください。",
@@ -134,13 +140,55 @@
   },
   "ratingMetadata": {
     "rubricVersion": 2,
-    "method": "manual",
-    "confidence": "high"
+    "method": "assisted",
+    "confidence": "low"
   },
   "notesJa": "500軒以上の店舗がひしめく日本最大のチャイナタウンで、小籠包や肉まんの食べ歩きが満喫できます。",
   "reservationJa": "散策や食べ歩きは予約不要。週末のコース料理レストランは予約推奨です。",
   "parkingJa": "山下公園地下駐車場や Chinatown パーキングをご利用ください。",
   "openingHours": "10:00 - 22:00 (Varies by shop)",
   "openingHoursJa": "10:00 - 22:00（店舗により異なる）",
-  "municipalityId": "Kanagawa:yokohama"
+  "municipalityId": "Kanagawa:yokohama",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=75, kind='', walkingMin=40"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

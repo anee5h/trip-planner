@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Nakasu",
-      "description": "Nakasu is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
+      "description": "Nightlife and dining district on the island of Nakasu in the Naka River, in the heart of Fukuoka. Its narrow streets are packed with restaurants, bars and yatai food stalls, making it one of the city's liveliest areas after dark.",
       "highlights": ["Culture"],
       "openingHours": "Open 24 hours"
     },
     "ja": {
       "name": "中洲",
-      "description": "中洲はFukuoka Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "那珂川に囲まれた中洲の繁華街。屋台や居酒屋、バーが密集し、福岡で最も飲食店の選択肢が多いエリアの一つ。夜の屋台めぐりが人気。",
       "highlights": ["文化"],
       "openingHours": "24時間営業"
     }
@@ -41,17 +41,8 @@
     "lat": 33.592194444444445,
     "lng": 130.40675
   },
-  "description": "Nakasu is a visitor destination in Fukuoka City.  Visitors can experience the area's character and main sights.",
+  "description": "Nightlife and dining district on the island of Nakasu in the Naka River, in the heart of Fukuoka. Its narrow streets are packed with restaurants, bars and yatai food stalls, making it one of the city's liveliest areas after dark.",
   "highlights": ["Culture"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1300,
-    "tickets": 0,
-    "food": 2300,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 198,
     "shinkansen": 298
@@ -61,15 +52,13 @@
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 90,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 4,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.3,
@@ -86,11 +75,6 @@
     "accessibility": 7.9
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 6.4,
     "summer": 8.3,
@@ -101,7 +85,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -144,6 +127,22 @@
           "title": "Nakasu",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='district', walkingMin=90",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 50% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -174,5 +173,41 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='district', walkingMin=90"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

@@ -12,16 +12,11 @@
     "Historic Landmark",
     "Cultural Preservation Area"
   ],
-  "budgetMin": 4000,
-  "budgetMax": 15000,
-  "budgetRecommended": 9500,
   "transportOptions": {
     "ferry": 780
   },
   "totalTripHours": 6,
   "walkingMin": 120,
-  "walkingSunMin": 70,
-  "walkingShadeMin": 50,
   "indoorPercent": 35,
   "ratings": {
     "overall": 9.2,
@@ -35,19 +30,6 @@
     "value": 9.2,
     "uniqueness": 9.5
   },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 5,
-    "summer": 4,
-    "autumn": 5,
-    "winter": 4
-  },
-  "bestMonths": [3, 4, 5, 10, 11],
-  "bestSeason": "Autumn",
   "weatherDependence": "moderate",
   "tags": [
     "UNESCO World Heritage",
@@ -88,17 +70,11 @@
   "relationships": {
     "gatewayHubId": "kagoshima-city"
   },
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 3000,
-    "cafe": 1500
-  },
   "nameJa": "奄美大島、徳之島、沖縄島北部及び西表島",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "walkingIntensity": "low",
   "role": "standalone",
@@ -134,7 +110,17 @@
         "title": "Amami-Ōshima Island, Tokunoshima Island, Northern Okinawa Island, and Iriomote Island",
         "accessedAt": "2026-08-04"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=35, kind='', walkingMin=120",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "openingHours": "No fixed opening hours (natural site)",
   "openingHoursJa": "営業時間の設定なし（自然エリア）",
@@ -142,5 +128,41 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/world-heritage/amami-oshima-island-tokunoshima-island-northern-part-of-okinawa-island-and-iriomote-island/"
   },
-  "notesJa": "島ごとにアクセスが異なるため事前の旅程確認が必須です。"
+  "notesJa": "島ごとにアクセスが異なるため事前の旅程確認が必須です。",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=35, kind='', walkingMin=120"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

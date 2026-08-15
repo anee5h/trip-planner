@@ -47,7 +47,17 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'viewpoint'",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
@@ -93,7 +103,7 @@
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 1,
-    "max": 1.5
+    "max": 2
   },
   "municipalityId": "Okinawa:ishigaki",
   "categories": ["Sightseeing", "Nature"],
@@ -103,26 +113,12 @@
     "Overlooks the coral-rich Hirakubo Peninsula"
   ],
   "collections": [],
-  "crowd": {
-    "weekday": 2,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "transportOptions": {
     "bus": 350
   },
   "notes": "Free observation point with views of the Hirakubo Peninsula — best in clear morning light.",
   "totalTripHours": 1,
   "walkingMin": 10,
-  "walkingSunMin": 8,
-  "walkingShadeMin": 1,
   "indoorPercent": 5,
   "reservation": "None required",
   "parking": "Free parking available",
@@ -130,5 +126,41 @@
     "confidence": "medium"
   },
   "notesJa": "無料の展望台から平久保半島の絶景パノラマ。晴れた午前中がおすすめ。",
-  "description": "A scenic hill observatory on northeastern Ishigaki Island lined with vibrant red hibiscus flowers, offering panoramic views of Ibaruma Bay and the Hirakubo Peninsula."
+  "description": "A scenic hill observatory on northeastern Ishigaki Island lined with vibrant red hibiscus flowers, offering panoramic views of Ibaruma Bay and the Hirakubo Peninsula.",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'viewpoint'"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

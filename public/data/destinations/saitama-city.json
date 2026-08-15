@@ -28,26 +28,13 @@
   "budgetMax": 11000,
   "totalTripHours": 8,
   "walkingMin": 60,
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "comfort": {
-    "heatTolerance": 9,
-    "rainFriendly": 9,
+    "heatTolerance": 6,
+    "rainFriendly": 6,
     "walkingIntensity": 5
   },
   "transportOptions": {
     "train": 60
-  },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
   },
   "highlights": [
     "Omiya Railway Museum",
@@ -55,14 +42,12 @@
     "Musashi Ichinomiya Hikawa Shrine"
   ],
   "description": "Saitama's capital city combining Omiya Railway Museum, Omiya Bonsai Village, Musashi Ichinomiya Hikawa Shrine, and Super Arena.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 2800,
     "tickets": 1400,
     "food": 2100,
     "cafe": 700
   },
-  "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Saitama_city_montage.jpg",
   "imageMetadata": {
@@ -100,7 +85,6 @@
     ],
     "nearbyDestinationIds": ["kawagoe-city", "chichibu-city"]
   },
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
@@ -108,7 +92,7 @@
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 8,
-    "max": 14
+    "max": 12
   },
   "businessHours": "Open access",
   "editorial": {
@@ -125,7 +109,25 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance notable, 10 children, metro=true",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=60, kind='city', walkingMin=60",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "さいたま市",
   "content": {
@@ -137,7 +139,6 @@
         "Omiya Bonsai Village",
         "Musashi Ichinomiya Hikawa Shrine"
       ],
-      "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
       "openingHours": "09:00 - 17:00"
@@ -146,7 +147,6 @@
       "name": "さいたま市",
       "description": "大宮・浦和を中心とする埼玉の県都。世界的な鉄道博物館、大宮盆栽村、武蔵一宮氷川神社、さいたまスーパーアリーナを擁します。",
       "highlights": ["美術館散策", "さいたま市の名所", "神社散策"],
-      "notes": "さいたま市は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"
@@ -157,10 +157,51 @@
     "method": "manual",
     "confidence": "high"
   },
-  "notesJa": "さいたま市は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Saitama:saitama"
+  "municipalityId": "Saitama:saitama",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "hub records span multiple microclimates; single vector would be fabricated"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance notable, 10 children, metro=true"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=60, kind='city', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 1,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

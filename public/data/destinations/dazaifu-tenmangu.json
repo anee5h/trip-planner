@@ -54,7 +54,7 @@
     "Prayers for academic success & exam luck"
   ],
   "budgetMin": 1500,
-  "budgetRecommended": 4000,
+  "budgetRecommended": 4250,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 525,
@@ -71,15 +71,13 @@
     "min": 1,
     "max": 3
   },
-  "walkingMin": 4000,
-  "walkingIntensity": "medium",
-  "walkingSunMin": 2000,
-  "walkingShadeMin": 2000,
+  "walkingMin": 110,
+  "walkingIntensity": "high",
   "indoorPercent": 10,
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 4
+    "heatTolerance": 5,
+    "rainFriendly": 2,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 9.3,
@@ -94,18 +92,6 @@
     "uniqueness": 9.3
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 6,
-    "weekend": 9,
-    "holiday": 10
-  },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 9
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Shrine parking available",
@@ -145,7 +131,25 @@
       }
     ],
     "reviewedAt": "2026-08-04",
-    "reviewedBy": "Kyushu Regional Editorial Batch"
+    "reviewedBy": "Kyushu Regional Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=10, kind='shrine', walkingMin=110",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 60% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.dazaifutenmangu.or.jp/",
   "municipalityId": "Fukuoka:dazaifu",
@@ -155,5 +159,41 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.dazaifutenmangu.or.jp/en/"
   },
-  "notesJa": "参道で焼きたての名物「梅ヶ枝餅」をぜひお試しください。"
+  "notesJa": "参道で焼きたての名物「梅ヶ枝餅」をぜひお試しください。",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=10, kind='shrine', walkingMin=110"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

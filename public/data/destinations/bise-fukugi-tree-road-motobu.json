@@ -46,7 +46,8 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {}
   },
   "content": {
     "en": {
@@ -104,11 +105,6 @@
     "Views across to Ie Island"
   ],
   "collections": [],
-  "crowd": {
-    "weekday": 2,
-    "weekend": 4,
-    "holiday": 5
-  },
   "season": {
     "spring": 9,
     "summer": 8,
@@ -122,8 +118,6 @@
   "notes": "A peaceful tree-lined lane near Churaumi — walk or rent a bicycle for the full experience.",
   "totalTripHours": 2,
   "walkingMin": 25,
-  "walkingSunMin": 10,
-  "walkingShadeMin": 15,
   "indoorPercent": 5,
   "reservation": "None required",
   "parking": "Nearby paid parking",
@@ -132,5 +126,29 @@
   },
   "notesJa": "古木のフクギ並木が続く静かな小道。レンタサイクルでの散策がおすすめ。",
   "transportZoneId": "okinawa-main",
-  "description": "A quiet coastal village surrounded by thousands of ancient Garcinia (Fukugi) windbreak trees forming green vaulted tunnels that filter sunlight down to sandy footpaths."
+  "description": "A quiet coastal village surrounded by thousands of ancient Garcinia (Fukugi) windbreak trees forming green vaulted tunnels that filter sunlight down to sandy footpaths.",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

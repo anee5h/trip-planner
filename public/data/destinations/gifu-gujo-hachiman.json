@@ -28,17 +28,15 @@
   },
   "totalTripHours": 10,
   "walkingMin": 90,
-  "walkingSunMin": 45,
-  "walkingShadeMin": 45,
   "indoorPercent": 30,
   "coordinates": {
     "lat": 35.7533,
     "lng": 136.9589
   },
   "comfort": {
-    "walkingIntensity": 2,
-    "heatTolerance": 8,
-    "rainFriendly": 5
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.6,
@@ -51,11 +49,6 @@
     "relaxation": 8.8,
     "value": 8.2,
     "uniqueness": 9
-  },
-  "crowd": {
-    "weekday": 2,
-    "weekend": 6,
-    "holiday": 7
   },
   "season": {
     "spring": 8,
@@ -96,5 +89,35 @@
   },
   "officialWebsite": "https://www.gujokankou.com/",
   "businessHours": "09:00 - 17:00 (Daily)",
-  "municipalityId": "Gifu:gujo"
+  "municipalityId": "Gifu:gujo",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=30, kind='historic_town', walkingMin=90"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

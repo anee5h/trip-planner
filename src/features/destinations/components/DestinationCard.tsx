@@ -21,7 +21,6 @@ import { Badge } from "@/shared/components/ui/badge";
 import { Button } from "@/shared/components/ui/button";
 import {
   MapPin,
-  Train,
   TrainFront,
   Bus,
   Car,
@@ -29,13 +28,15 @@ import {
   JapaneseYen,
   CheckCircle2,
   Scale,
-  Sun,
   Plus,
   Timer,
   AlertTriangle,
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
+import {
+  formatLocalizedJPYRange,
+  hasKnownBudgetRange,
+} from "@/shared/services/budget/BudgetService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import {
   formatApproximateTransportTime,
@@ -160,7 +161,6 @@ export default function DestinationCard({
           add: "旅程に追加",
           compare: "比較に追加",
           removeCompare: "比較から削除",
-          score: t("destination.megurutoScore"),
           travelUnavailable: t("home.transportModes.travelUnavailable"),
         }
       : {
@@ -169,9 +169,19 @@ export default function DestinationCard({
           add: "Add to Itinerary",
           compare: "Add to Compare",
           removeCompare: "Remove from Compare",
-          score: t("destination.megurutoScore"),
           travelUnavailable: t("home.transportModes.travelUnavailable"),
         };
+  // Beta product decision (KAI-89): the overall destination score is hidden
+  // from all user-facing surfaces; scoreMetadata stays internal (rubric,
+  // provenance, gates) and never affects ranking.
+  const visitHours = destination.recommendedVisitHours;
+  const hasValidVisitHours = Boolean(
+    visitHours &&
+    Number.isFinite(visitHours.min) &&
+    Number.isFinite(visitHours.max) &&
+    visitHours.min >= 0 &&
+    visitHours.min <= visitHours.max,
+  );
 
   const scoredDestination = destination as Partial<ScoredDestination>;
   const match = scoredDestination.match;
@@ -352,18 +362,6 @@ export default function DestinationCard({
             />
           </div>
         )}
-        {!isMultiPlaceGroup && (
-          <div className="absolute bottom-3 right-3 z-20 flex items-center rounded-lg border border-white/80 bg-white/90 px-2.5 py-1 shadow-sm backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-900/90">
-            <span
-              data-testid="meguruto-score"
-              title={`${cardCopy.score}: ${destination.ratings.overall}`}
-              aria-label={`${cardCopy.score}: ${destination.ratings.overall}`}
-              className="text-xs font-bold text-slate-700 dark:text-slate-200 md:text-sm"
-            >
-              {destination.ratings.overall}
-            </span>
-          </div>
-        )}
       </div>
 
       <CardHeader className="p-3 pb-1 md:p-3 md:pb-1">
@@ -465,10 +463,9 @@ export default function DestinationCard({
                     // The Tokyo wards group shows the fastest shared gateway
                     // estimate across its members, not legacy transport options.
                     const gateway = wardGroup?.gatewayEstimate;
-                    const mode =
-                      gateway?.mode ?? preferredTransport?.mode ?? "train";
+                    const mode = gateway?.mode ?? preferredTransport?.mode;
 
-                    let Icon = Train;
+                    let Icon = MapPin;
                     if (mode === "car" || mode === "my_car") Icon = Car;
                     if (mode === "bus") Icon = Bus;
                     if (mode === "shinkansen") Icon = TrainFront;
@@ -507,13 +504,19 @@ export default function DestinationCard({
                   <div className="flex min-w-0 items-center whitespace-nowrap">
                     <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
                     <span className="truncate">
-                      {formatLocalizedJPYRange(
-                        [
-                          destination.budgetMin * partySize,
-                          destination.budgetMax * partySize,
-                        ],
-                        locale,
-                      )}
+                      {(() => {
+                        // KAI-89: unknown budgets (absent values) render as
+                        // unavailable — never as zero or free.
+                        return hasKnownBudgetRange(destination)
+                          ? formatLocalizedJPYRange(
+                              [
+                                destination.budgetMin * partySize,
+                                destination.budgetMax * partySize,
+                              ],
+                              locale,
+                            )
+                          : formatLocalizedJPYRange(null, locale);
+                      })()}
                       {partySize > 1
                         ? locale === "ja"
                           ? `（${partySize}人分）`
@@ -529,10 +532,10 @@ export default function DestinationCard({
                     <span className="truncate">
                       {durationEst
                         ? formatTripDurationLabel(durationEst, locale)
-                        : destination.recommendedVisitHours
+                        : hasValidVisitHours
                           ? locale === "ja"
-                            ? `滞在 ${destination.recommendedVisitHours.min}–${destination.recommendedVisitHours.max}時間`
-                            : `${destination.recommendedVisitHours.min}–${destination.recommendedVisitHours.max}h visit`
+                            ? `滞在 ${visitHours!.min}–${visitHours!.max}時間`
+                            : `${visitHours!.min}–${visitHours!.max}h visit`
                           : locale === "ja"
                             ? "滞在時間目安なし"
                             : "Visit time unavailable"}
@@ -566,16 +569,10 @@ export default function DestinationCard({
                     data-testid="destination-card-sun"
                     className="hidden min-w-0 items-center whitespace-nowrap md:flex"
                   >
-                    <Sun className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
-                    <span className="truncate">
-                      {locale === "ja"
-                        ? destination.walkingSunMin < 3000
-                          ? "日差し少なめ"
-                          : "日差し多め"
-                        : destination.walkingSunMin < 3000
-                          ? "Low sun"
-                          : "High sun"}
-                    </span>
+                    {/* Sun/shade splits were batch-template artefacts, not
+                        source-verified; KAI-89 removes them as unsourced.
+                        No sun-exposure claim is shown without a sourced
+                        split. */}
                   </div>
                 </div>
 

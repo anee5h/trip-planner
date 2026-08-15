@@ -107,7 +107,12 @@ describe("transport truthfulness (KAI-63) — catalogue data", () => {
   it("okinawa-main keeps its Yui Rail train keys", () => {
     const naha = catalogue.find((r) => r.id === "naha-city")!;
     expect(naha.transportZoneId).toBe("okinawa-main");
-    expect(naha.transportOptions?.["train"]).toBe(200);
+    // KAI-89: the batch train:200 was impossible (no intercity rail); the
+    // Yui Rail monorail is real and its local time is a few minutes. The
+    // key must exist (rail access declaration), the value must be a sane
+    // local monorail time.
+    expect(naha.transportOptions?.["train"]).toBeDefined();
+    expect(naha.transportOptions?.["train"]).toBeLessThanOrEqual(30);
   });
 });
 

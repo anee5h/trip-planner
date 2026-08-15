@@ -9,12 +9,12 @@
   "content": {
     "en": {
       "name": "Toyota Commemorative Museum of Industry and Technology",
-      "description": "Toyota Commemorative Museum of Industry and Technology is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "Museum on the site of the former Toyoda Automatic Loom Works factory in Nagoya, tracing Toyota's evolution from textile machinery to automobiles. Working machines and interactive exhibits bring the engineering history to life.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "トヨタ産業技術記念館",
-      "description": "トヨタ産業技術記念館はNagoya Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "豊田自動織機製作所の旧工場跡に建つ産業技術記念館。繊維機械から自動車へと発展したトヨタグループの歴史を、動く実機と体験展示で紹介する。",
       "highlights": ["博物館"]
     }
   },
@@ -42,30 +42,19 @@
     "lat": 35.1832,
     "lng": 136.876
   },
-  "description": "Toyota Commemorative Museum of Industry and Technology is a visitor destination in Nagoya City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Museum on the site of the former Toyoda Automatic Loom Works factory in Nagoya, tracing Toyota's evolution from textile machinery to automobiles. Working machines and interactive exhibits bring the engineering history to life.",
   "highlights": ["Museum"],
-  "budgetMin": 3000,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
-  "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 1100,
-    "food": 1925,
-    "cafe": 550
-  },
   "transportOptions": {
     "train": 201,
     "shinkansen": 91
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 4
+    "min": 1.5,
+    "max": 3
   },
-  "walkingMin": 3000,
-  "walkingIntensity": "low",
-  "walkingSunMin": 500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 55,
+  "walkingIntensity": "medium",
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
@@ -87,11 +76,6 @@
     "accessibility": 7.7
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 8.6,
     "summer": 9.5,
@@ -102,7 +86,6 @@
   "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Nagoya City.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -145,6 +128,22 @@
           "title": "Toyota Commemorative Museum of Industry and Technology",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'museum'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 30% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -168,5 +167,29 @@
     "confidence": "low"
   },
   "businessHours": "09:30 - 17:00 (Closed Mondays)",
-  "municipalityId": "Aichi:nagoya"
+  "municipalityId": "Aichi:nagoya",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'museum'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.3,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

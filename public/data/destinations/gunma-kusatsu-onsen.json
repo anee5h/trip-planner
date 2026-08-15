@@ -29,8 +29,6 @@
   },
   "totalTripHours": 12,
   "walkingMin": 60,
-  "walkingSunMin": 30,
-  "walkingShadeMin": 30,
   "indoorPercent": 60,
   "coordinates": {
     "lat": 36.6225,
@@ -52,11 +50,6 @@
     "relaxation": 10,
     "value": 8.2,
     "uniqueness": 9.8
-  },
-  "crowd": {
-    "weekday": 5,
-    "weekend": 9,
-    "holiday": 10
   },
   "season": {
     "spring": 8,
@@ -98,8 +91,8 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 11,
-    "max": 13
+    "min": 4,
+    "max": 7
   },
   "officialWebsite": "https://www.kusatsu-onsen.ne.jp/",
   "businessHours": "Open access",
@@ -117,7 +110,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'onsen' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "草津温泉",
   "content": {
@@ -138,12 +141,7 @@
     "ja": {
       "name": "草津温泉",
       "description": "Kusatsu Onsenは群馬県の豊かな自然と美しい景観が広がる名所です。四季折々の花々や静かな散策路があり、心地よい休日を過ごせます。",
-      "highlights": [
-        "草津温泉の名所",
-        "草津温泉の名所",
-        "公園散策",
-        "草津温泉の名所"
-      ],
+      "highlights": ["草津温泉の名所", "公園散策"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
@@ -160,5 +158,29 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Gunma:kusatsu"
+  "municipalityId": "Gunma:kusatsu",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'onsen' + scale uplift"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

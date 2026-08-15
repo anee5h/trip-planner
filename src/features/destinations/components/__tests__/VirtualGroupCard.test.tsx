@@ -170,12 +170,11 @@ describe("virtual group inherited-metadata suppression", () => {
 
   it("keeps normal destination facts for a single-place group", () => {
     const host = render("unesco-property-661");
-    const himeji = getUNESCOPropertyGroupDestinations("en").find(
-      (group) => group.id === "unesco-property-661",
-    );
 
+    // himeji-castle carries no ratingMetadata: its raw score must not render
+    // as authoritative (REC-002), but non-rating facts remain.
     const score = host.querySelector('[data-testid="meguruto-score"]');
-    expect(score?.textContent).toBe(String(himeji?.ratings?.overall ?? ""));
+    expect(score).toBeNull();
     expect(
       host.querySelector('[data-testid="destination-card-travel-time"]'),
     ).not.toBeNull();

@@ -28,17 +28,15 @@
   },
   "totalTripHours": 10,
   "walkingMin": 100,
-  "walkingSunMin": 60,
-  "walkingShadeMin": 40,
   "indoorPercent": 30,
   "coordinates": {
     "lat": 35.5264,
     "lng": 137.5667
   },
   "comfort": {
-    "walkingIntensity": 3,
-    "heatTolerance": 8,
-    "rainFriendly": 5
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 9,
@@ -52,19 +50,6 @@
     "value": 8.4,
     "uniqueness": 9.5
   },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 7,
-    "holiday": 8
-  },
-  "season": {
-    "spring": 8,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [5, 6, 10, 11],
-  "bestSeason": "Autumn",
   "weatherDependence": "medium",
   "tags": ["Post Town", "Slopes", "Waterwheel", "Nakasendo"],
   "reservation": "Not required",
@@ -96,5 +81,41 @@
   },
   "officialWebsite": "https://kiso-magome.com/",
   "businessHours": "Open access",
-  "municipalityId": "Gifu:nakatsugawa"
+  "municipalityId": "Gifu:nakatsugawa",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=30, kind='historic_town', walkingMin=100"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

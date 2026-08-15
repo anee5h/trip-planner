@@ -32,7 +32,7 @@ describe("DestinationCombinationService", () => {
     expect(first.secondary.id).not.toBe(mockDest1.id);
     expect(first.interDistanceKm).toBeLessThanOrEqual(20);
     expect(first.combinedVisitHours[0]).toBeGreaterThan(0);
-    expect(first.combinedBudgetRange[0]).toBeGreaterThanOrEqual(0);
+    expect(first.combinedBudgetRange?.[0]).toBeGreaterThanOrEqual(0);
     expect(first.explanation.en).toBeTruthy();
     expect(first.explanation.ja).toBeTruthy();
   });
@@ -49,7 +49,7 @@ describe("DestinationCombinationService", () => {
 
       const expectedBudgetMin =
         (mockDest1.budgetMin ?? 0) + (combo.secondary.budgetMin ?? 0);
-      expect(combo.combinedBudgetRange[0]).toBe(expectedBudgetMin);
+      expect(combo.combinedBudgetRange?.[0]).toBe(expectedBudgetMin);
     }
   });
 

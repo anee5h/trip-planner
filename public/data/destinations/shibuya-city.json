@@ -21,8 +21,6 @@
   "budgetRecommended": 14000,
   "budgetMax": 25000,
   "walkingMin": 45,
-  "walkingSunMin": 27,
-  "walkingShadeMin": 18,
   "indoorPercent": 65,
   "ratings": {
     "overall": 9.8,
@@ -36,19 +34,6 @@
     "value": 9.3,
     "uniqueness": 9.9
   },
-  "crowd": {
-    "weekday": 7,
-    "weekend": 10,
-    "holiday": 10
-  },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
   "weatherDependence": "low",
   "tags": ["Shibuya Ward", "Scramble Crossing", "Harajuku", "Meiji Jingu"],
   "coordinates": {
@@ -56,8 +41,8 @@
     "lng": 139.7016
   },
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 9,
+    "heatTolerance": 6,
+    "rainFriendly": 6,
     "walkingIntensity": 3
   },
   "transportOptions": {
@@ -109,7 +94,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=65, kind='ward', walkingMin=45",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "渋谷区",
   "content": {
@@ -129,8 +124,7 @@
     "ja": {
       "name": "渋谷区",
       "description": "スクランブル交差点やSHIBUYA SKY、原宿竹下通り、静寂に包まれた明治神宮を擁し、世界的なトレンドを発信し続ける街です。",
-      "highlights": ["渋谷区の名所", "渋谷区の名所", "神社散策"],
-      "notes": "渋谷区は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "highlights": ["渋谷区の名所", "神社散策"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "10:00 - 20:00（店舗により異なる）"
@@ -141,7 +135,6 @@
     "method": "manual",
     "confidence": "high"
   },
-  "notesJa": "渋谷区は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "10:00 - 20:00",
@@ -152,5 +145,41 @@
     "license": "Unsplash License",
     "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
     "sourceUrl": "https://unsplash.com"
+  },
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "hub records span multiple microclimates; single vector would be fabricated"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=65, kind='ward', walkingMin=45"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.1,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 1,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

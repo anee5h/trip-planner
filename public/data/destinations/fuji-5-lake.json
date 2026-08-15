@@ -28,29 +28,16 @@
   "budgetMin": 8000,
   "budgetMax": 16000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
+  "walkingMin": 190,
   "comfort": {
-    "heatTolerance": 5,
+    "heatTolerance": 7,
     "rainFriendly": 4,
-    "walkingIntensity": 5
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "train": 130,
     "car": 110,
     "bus": 120
-  },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
   },
   "highlights": [
     "Explore top-rated lake locations",
@@ -58,7 +45,6 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Fuji Five Lakes, a prominent destination in Yamanashi. With its rich mix of fuji views, fuji-q, cycling, it's a highly recommended spot for a 8-hour getaway.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "budgetBreakdown": {
     "transport": 4800,
     "tickets": 2400,
@@ -82,7 +68,6 @@
   "relationships": {
     "parentDestinationId": "fujikawaguchiko-town"
   },
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Available on site",
@@ -91,10 +76,46 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 2,
+    "max": 4
   },
   "officialWebsite": "https://www.fujisan.ne.jp/",
   "businessHours": "Open access",
-  "municipalityId": "Yamanashi:fujikawaguchiko"
+  "municipalityId": "Yamanashi:fujikawaguchiko",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'lake'"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='lake', walkingMin=190"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

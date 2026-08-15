@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Omiya Bonsai Art Museum",
-      "description": "Omiya Bonsai Art Museum is a visitor destination in Saitama City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "The world's first publicly operated bonsai museum, opened in 2010 next to the Omiya Bonsai Village in Saitama. Around 120 masterwork bonsai and related artifacts — pots, stones and bonsai-themed art — are displayed in a calm, modern gallery.",
       "highlights": ["Museum"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,9 +15,8 @@
     },
     "ja": {
       "name": "さいたま市大宮盆栽美術館",
-      "description": "さいたま市大宮盆栽美術館はSaitama Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "2010年開館の世界初の公立盆栽美術館。大宮盆栽村に隣接し、名品の盆栽や鉢・水石などの関連資料を展示する。静かな空間で盆栽文化をじっくり鑑賞できる。",
       "highlights": ["さいたま市大宮盆栽美術館の名所"],
-      "notes": "さいたま市大宮盆栽美術館は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:30 - 17:00（最終入館 16:30）"
@@ -47,29 +46,18 @@
     "lat": 35.928778,
     "lng": 139.633333
   },
-  "description": "Omiya Bonsai Art Museum is a visitor destination in Saitama City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "The world's first publicly operated bonsai museum, opened in 2010 next to the Omiya Bonsai Village in Saitama. Around 120 masterwork bonsai and related artifacts — pots, stones and bonsai-themed art — are displayed in a calm, modern gallery.",
   "highlights": ["Museum"],
-  "budgetMin": 3000,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
-  "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 1100,
-    "food": 1925,
-    "cafe": 550
-  },
   "transportOptions": {
     "train": 64
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 4
+    "min": 1.5,
+    "max": 3
   },
   "walkingMin": 30,
   "walkingIntensity": "low",
-  "walkingSunMin": 18,
-  "walkingShadeMin": 12,
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
@@ -91,11 +79,6 @@
     "accessibility": 7.9
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 9.2,
     "summer": 8.7,
@@ -149,6 +132,14 @@
           "title": "Saitama (city)",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'museum'",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -174,10 +165,39 @@
     "confidence": "low"
   },
   "businessHours": "09:30 - 17:00 (Closed Mondays)",
-  "notesJa": "さいたま市大宮盆栽美術館は、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:30 - 17:00 (Last admission 16:30)",
   "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
-  "municipalityId": "Saitama:saitama"
+  "municipalityId": "Saitama:saitama",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'museum'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.3,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

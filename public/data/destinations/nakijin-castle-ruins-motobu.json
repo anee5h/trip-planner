@@ -49,7 +49,17 @@
         "type": "encyclopedia"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'castle' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
@@ -96,8 +106,8 @@
   },
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 1,
-    "max": 2.5
+    "min": 2.5,
+    "max": 5
   },
   "municipalityId": "Okinawa:nakijin",
   "categories": ["Historic", "Sightseeing"],
@@ -118,11 +128,6 @@
       "sortOrder": 41
     }
   ],
-  "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 7
-  },
   "season": {
     "spring": 9,
     "summer": 7,
@@ -131,13 +136,11 @@
   },
   "bestMonths": [1, 2, 3, 10, 11, 12],
   "transportOptions": {
-    "bus": 400
+    "bus": 130
   },
   "notes": "One of nine Gusuku sites — visit in late January for Okinawa's earliest cherry blossoms.",
   "totalTripHours": 3,
   "walkingMin": 45,
-  "walkingSunMin": 30,
-  "walkingShadeMin": 5,
   "indoorPercent": 5,
   "reservation": "None required",
   "parking": "Free parking available",
@@ -148,5 +151,29 @@
   "transportZoneId": "okinawa-main",
   "description": "A 14th-century World Heritage fortress of the Hokuzan Kingdom featuring undulating Ryukyu limestone walls snake-like along mountain ridges with sweeping East China Sea ocean views.",
   "openingHours": "08:30-17:30 (summer to 18:30, entry 30 min before close)",
-  "openingHoursJa": "08:30〜17:30（夏季 18:30まで、最終入場は閉園30分前）"
+  "openingHoursJa": "08:30〜17:30（夏季 18:30まで、最終入場は閉園30分前）",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'castle' + scale uplift"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

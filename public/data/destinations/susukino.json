@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Susukino",
-      "description": "Susukino is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
+      "description": "Sapporo's main entertainment district and one of Japan's largest, dense with restaurants, izakaya, ramen shops, bars and nightlife. Its neon-lit streets are busiest after dark.",
       "highlights": ["Culture"]
     },
     "ja": {
       "name": "すすきの",
-      "description": "すすきのはSapporo Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "札幌随一の繁華街で、日本有数の規模を誇る。居酒屋やバー、ラーメン店などが密集し、ネオンが輝く夜のにぎわいで知られる。",
       "highlights": ["文化"]
     }
   },
@@ -38,34 +38,23 @@
     "lat": 43.054904,
     "lng": 141.353383
   },
-  "description": "Susukino is a visitor destination in Sapporo City.  Visitors can experience the area's character and main sights.",
+  "description": "Sapporo's main entertainment district and one of Japan's largest, dense with restaurants, izakaya, ramen shops, bars and nightlife. Its neon-lit streets are busiest after dark.",
   "highlights": ["Culture"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1300,
-    "tickets": 0,
-    "food": 2300,
-    "cafe": 400
-  },
   "transportOptions": {
-    "train": 200
+    "train": 470
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 90,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 4,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 6.3,
@@ -82,11 +71,6 @@
     "accessibility": 8.3
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 9,
     "summer": 7.9,
@@ -97,7 +81,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Sapporo City.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -148,6 +131,22 @@
           "title": "Official website for Susukino",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='district', walkingMin=90",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 50% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -172,5 +171,29 @@
   },
   "officialWebsite": "https://www.susukino-ta.jp/",
   "businessHours": "Open access",
-  "municipalityId": "Hokkaido:sapporo"
+  "municipalityId": "Hokkaido:sapporo",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='district', walkingMin=90"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

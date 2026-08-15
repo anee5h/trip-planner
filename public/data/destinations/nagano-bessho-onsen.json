@@ -28,17 +28,15 @@
   },
   "totalTripHours": 10,
   "walkingMin": 70,
-  "walkingSunMin": 35,
-  "walkingShadeMin": 35,
   "indoorPercent": 50,
   "coordinates": {
     "lat": 36.3533,
     "lng": 138.1633
   },
   "comfort": {
-    "walkingIntensity": 2,
-    "heatTolerance": 9,
-    "rainFriendly": 6
+    "heatTolerance": 5,
+    "rainFriendly": 6,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.8,
@@ -51,11 +49,6 @@
     "relaxation": 9.6,
     "value": 8.5,
     "uniqueness": 9.2
-  },
-  "crowd": {
-    "weekday": 2,
-    "weekend": 6,
-    "holiday": 7
   },
   "season": {
     "spring": 8,
@@ -85,8 +78,8 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 9,
-    "max": 11
+    "min": 4,
+    "max": 7
   },
   "officialWebsite": "https://www.bessho-spa.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
@@ -96,5 +89,35 @@
     "license": "Unsplash License",
     "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
     "sourceUrl": "https://unsplash.com"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'onsen' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=50, kind='onsen', walkingMin=70"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

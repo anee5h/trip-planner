@@ -10,9 +10,7 @@
   "budgetMin": 2000,
   "budgetRecommended": 5000,
   "budgetMax": 8000,
-  "walkingMin": 3000,
-  "walkingSunMin": 1000,
-  "walkingShadeMin": 2000,
+  "walkingMin": 70,
   "indoorPercent": 90,
   "ratings": {
     "overall": 8.7,
@@ -101,7 +99,7 @@
   "relationships": {
     "parentDestinationId": "niigata-city"
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "medium",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 2,
@@ -109,5 +107,17 @@
   },
   "officialWebsite": "https://www.tokimesse.com/",
   "businessHours": "08:00 - 22:00 (Fridays until 17:00)",
-  "municipalityId": "Niigata:niigata"
+  "municipalityId": "Niigata:niigata",
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

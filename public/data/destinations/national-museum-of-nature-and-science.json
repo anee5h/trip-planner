@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "National Museum of Nature and Science",
-      "description": "National Museum of Nature and Science is a visitor destination in Taito City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "Japan's premier museum of natural history and science, in Ueno Park, Tokyo. Permanent exhibitions cover dinosaurs, whales and evolution as well as science and technology, including a 360-degree theater and interactive displays.",
       "highlights": ["Museum"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,9 +15,8 @@
     },
     "ja": {
       "name": "国立科学博物館",
-      "description": "国立科学博物館はTaito Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "上野公園にある日本最大級の自然史・科学博物館。恐竜やクジラなど生物の進化の展示と、科学技術の体験展示、360度シアターなど見どころが多い。",
       "highlights": ["国立科学博物館の名所"],
-      "notes": "国立科学博物館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:30 - 17:00（最終入館 16:30）"
@@ -47,29 +46,18 @@
     "lat": 35.716319,
     "lng": 139.776544
   },
-  "description": "National Museum of Nature and Science is a visitor destination in Taito City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Japan's premier museum of natural history and science, in Ueno Park, Tokyo. Permanent exhibitions cover dinosaurs, whales and evolution as well as science and technology, including a 360-degree theater and interactive displays.",
   "highlights": ["Museum"],
-  "budgetMin": 3000,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
-  "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 1100,
-    "food": 1925,
-    "cafe": 550
-  },
   "transportOptions": {
     "train": 16
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 4
+    "min": 1.5,
+    "max": 3
   },
   "walkingMin": 30,
   "walkingIntensity": "low",
-  "walkingSunMin": 18,
-  "walkingShadeMin": 12,
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
@@ -91,11 +79,6 @@
     "accessibility": 8.3
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 7.2,
     "summer": 9.5,
@@ -149,6 +132,14 @@
           "title": "National Museum of Nature and Science",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'museum'",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -174,10 +165,45 @@
     "confidence": "low"
   },
   "businessHours": "09:00 - 17:00 (Closed Mondays)",
-  "notesJa": "国立科学博物館は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:30 - 17:00 (Last admission 16:30)",
   "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
-  "municipalityId": "Tokyo:taito"
+  "municipalityId": "Tokyo:taito",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'museum'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.3,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

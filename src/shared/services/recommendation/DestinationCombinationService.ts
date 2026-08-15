@@ -3,6 +3,8 @@ import { getDestinationList } from "@/shared/services/destination/DestinationSer
 import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
 import { getEffectiveVisitDuration } from "./VisitDurationPolicy";
+import { isRatingVerified } from "./RecommendationScorer";
+import { hasKnownBudgetRange } from "@/shared/services/budget/BudgetService";
 import {
   estimateLocalTransitMinutes,
   hasCoordinates,
@@ -15,7 +17,7 @@ export interface DestinationCombo {
   estimatedInterTravelMinutes: number;
   combinedVisitHours: [number, number];
   combinedTotalHours: [number, number];
-  combinedBudgetRange: [number, number];
+  combinedBudgetRange: [number, number] | null;
   combinedMaxMinutes?: number;
   isWeatherMatched: boolean;
   reasonCode: string;
@@ -117,8 +119,15 @@ export function findNearbyCombinations(
     const tierB = getCandidateTier(primary, b.place);
     if (tierA !== tierB) return tierA - tierB;
 
-    const ratingA = a.place.ratings?.overall ?? 0;
-    const ratingB = b.place.ratings?.overall ?? 0;
+    // REC-002/KAI-89: rating tie-breaks must respect the rating-confidence
+    // policy. Only VERIFIED vectors (high/medium confidence metadata) may
+    // rank by their overall score; unverified (low-confidence/missing)
+    // vectors return -1 so they never outrank a verified neighbour on a
+    // number that is not a reviewed fact. Ties fall to distance.
+    const ratingKey = (p: Destination): number =>
+      isRatingVerified(p) ? (p.ratings?.overall ?? -1) : -1;
+    const ratingA = ratingKey(a.place);
+    const ratingB = ratingKey(b.place);
     if (ratingB !== ratingA) return ratingB - ratingA;
 
     if (a.distKm !== b.distKm) return a.distKm - b.distKm;
@@ -156,15 +165,15 @@ export function findNearbyCombinations(
 
     const clampedTotalMaxMins = Math.min(600, totalMaxMins);
 
-    const pMinCost = primary.budgetMin ?? 0;
-    const pMaxCost = primary.budgetMax ?? 0;
-    const sMinCost = secondary.budgetMin ?? 0;
-    const sMaxCost = secondary.budgetMax ?? 0;
-
-    const combinedBudgetRange: [number, number] = [
-      pMinCost + sMinCost,
-      pMaxCost + sMaxCost,
-    ];
+    // KAI-89: unknown budgets (absent) must not contribute a fabricated 0
+    // to the combined range — require finite known values on both sides.
+    const combinedBudgetRange: [number, number] | null =
+      hasKnownBudgetRange(primary) && hasKnownBudgetRange(secondary)
+        ? [
+            primary.budgetMin + secondary.budgetMin,
+            primary.budgetMax + secondary.budgetMax,
+          ]
+        : null;
 
     const primaryName = primary.name;
     const secondaryName = secondary.name;

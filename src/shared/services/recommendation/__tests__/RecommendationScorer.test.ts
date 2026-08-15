@@ -3,6 +3,12 @@ import {
   calculateConfidence,
   calculateScore,
   CONFIDENCE_MULTIPLIERS,
+  computeOverallScore,
+  isRatingVerified,
+  buildScoreMetadata,
+  getScorePresentation,
+  SCORE_EVIDENCE_THRESHOLD,
+  OVERALL_SCORE_RUBRIC_VERSION,
   getValidModes,
   ratingReliability,
 } from "../RecommendationScorer";
@@ -38,6 +44,11 @@ const mockDest = {
     photography: 8.0,
     relaxation: 8.0,
     uniqueness: 8.0,
+  },
+  ratingMetadata: {
+    rubricVersion: 1,
+    method: "manual",
+    confidence: "high",
   },
   bestSeason: "Spring",
   coordinates: { lat: 35.6812, lng: 139.7671 },
@@ -170,6 +181,46 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(result.score).toBeGreaterThan(-100);
   });
 
+  it("does not turn missing numeric evidence into a positive recommendation signal", () => {
+    const context = {
+      tripType: "any" as const,
+      budget: 20000,
+      carMode: "none",
+      publicModes: ["train"],
+      partySize: 1,
+      visitedIds: [],
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+    };
+    const complete = calculateScore(
+      {
+        ...mockDest,
+        ratings: {
+          ...mockDest.ratings,
+          overall: 5,
+          food: 5,
+          photography: 5,
+          summer: 5,
+          winter: 5,
+        },
+        season: { spring: 5, summer: 5, autumn: 5, winter: 5 },
+      },
+      context,
+    );
+    const incomplete = calculateScore(
+      {
+        ...mockDest,
+        budgetMin: undefined,
+        budgetRecommended: undefined,
+        budgetMax: undefined,
+        ratings: {} as Destination["ratings"],
+        season: undefined,
+      } as unknown as Destination,
+      context,
+    );
+
+    expect(incomplete.score).toBeLessThanOrEqual(complete.score);
+  });
+
   it("retains every authorized user-allowed mode regardless of budget tier", () => {
     const carDestination = {
       ...mockDest,
@@ -211,8 +262,12 @@ describe("RecommendationScorer Unit Tests", () => {
   });
 
   it("keeps day-trip efficiency on the selected usable transport mode", () => {
+    // KAI-89 model pass: karuizawa-town's template budget was honestly
+    // cleared (no verified ticket, insufficient peer samples), which would
+    // make this fare-semantics test vacuous. nagano-city retains its
+    // verified-fare corridor budget and exercises the same invariant.
     const destination = (getDestinationList("en") as Destination[]).find(
-      (candidate) => candidate.id === "karuizawa-town",
+      (candidate) => candidate.id === "nagano-city",
     )!;
     const context = {
       vibe: "any",
@@ -245,11 +300,10 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(shinkansen.usable).toBe(true);
     // KAI-12 verified-fare behavior: Tokyo→Nagano shinkansen carries a
     // verified reserved fare (¥8,250 one-way, FARE_POLICY §2) while the
-    // train corridor has none (heuristic only). For party 2 the verified
-    // shinkansen round trip is ¥33,000 vs the train heuristic ¥13,680, so
-    // the train's budget+transport score is higher — the budget-consistent
-    // selection is the train, and the day-trip efficiency must follow the
-    // selected mode, never a faster unselected one.
+    // train corridor has none (heuristic only). The KAI-89 model pass
+    // re-derived the destination's visit window, so the exact budget
+    // margin changed; the invariant is the ORDER (train cheaper than
+    // shinkansen for the verified-fare corridor), not a fixed margin.
     expect(train.budget + train.transport).toBeGreaterThan(
       shinkansen.budget + shinkansen.transport,
     );
@@ -429,10 +483,10 @@ describe("RecommendationScorer Unit Tests", () => {
     );
   });
 
-  it("treats absent ratingMetadata as full weight (1.0) — curated pre-expansion record", () => {
+  it("treats absent ratingMetadata as low-confidence evidence", () => {
     const noMetaDest = { ...mockDest } as Destination;
     delete (noMetaDest as unknown as Record<string, unknown>).ratingMetadata;
-    expect(ratingReliability(noMetaDest)).toBe(1.0);
+    expect(ratingReliability(noMetaDest)).toBe(0.5);
   });
 
   it("treats ratingMetadata.confidence=high as full weight (1.0)", () => {
@@ -445,6 +499,285 @@ describe("RecommendationScorer Unit Tests", () => {
       },
     };
     expect(ratingReliability(dest)).toBe(1.0);
+  });
+
+  it("isRatingVerified: legacy rating-vector trust from confidence only", () => {
+    expect(
+      isRatingVerified({
+        ...mockDest,
+        ratingMetadata: {
+          rubricVersion: 2,
+          method: "manual",
+          confidence: "high" as const,
+        },
+      }),
+    ).toBe(true);
+    expect(
+      isRatingVerified({
+        ...mockDest,
+        ratingMetadata: {
+          rubricVersion: 2,
+          method: "assisted",
+          confidence: "medium" as const,
+        },
+      }),
+    ).toBe(true);
+    expect(
+      isRatingVerified({
+        ...mockDest,
+        ratingMetadata: {
+          rubricVersion: 2,
+          method: "assisted",
+          confidence: "low" as const,
+        },
+      }),
+    ).toBe(false);
+    const noMeta = { ...mockDest } as Destination;
+    delete (noMeta as unknown as Record<string, unknown>).ratingMetadata;
+    expect(isRatingVerified(noMeta)).toBe(false);
+  });
+
+  it("computeOverallScore: sparse evidence yields unavailable, never a neutral 5", () => {
+    // A record with NO direct rubric evidence (no importance, no tags/
+    // collections, no categories/highlights/indoor, no transport) must be
+    // unavailable — a lack of evidence is not evidence of average quality.
+    const sparse = {
+      id: "sparse",
+      name: "Sparse",
+      prefecture: "Tokyo",
+      region: "Kanto",
+      categories: [],
+      tags: [],
+      collections: [],
+      highlights: [],
+      ratings: mockDest.ratings,
+      status: "published" as const,
+    } as unknown as Destination;
+    const r = computeOverallScore(sparse);
+    expect(r.value).toBeNull();
+    expect(r.coverage).toBeLessThan(SCORE_EVIDENCE_THRESHOLD);
+    expect(getScorePresentation(sparse).state).toBe("unavailable");
+    // Defaults/empty arrays must not manufacture evidence.
+    expect(getScorePresentation(sparse).value).toBeNull();
+  });
+
+  it("computeOverallScore: neutral/default values cannot manufacture evidence", () => {
+    // Only importance (0.40 weight) — below the 0.5 threshold. All other
+    // rubric-input fields are cleared (indoorPercent/visit hours/walking
+    // minutes are NOT importance evidence).
+    const importanceOnly = {
+      ...mockDest,
+      categories: [],
+      tags: [],
+      collections: [],
+      highlights: [],
+      transportOptions: {},
+      indoorPercent: undefined,
+      recommendedVisitHours: undefined,
+      walkingMin: undefined,
+      importance: "major" as const,
+    } as Destination;
+    expect(computeOverallScore(importanceOnly).value).toBeNull();
+    // importance + tags (0.40 + 0.30 = 0.70) crosses the threshold.
+    const importanceAndTags = {
+      ...importanceOnly,
+      tags: ["Hot Spring"],
+    } as Destination;
+    const scored = computeOverallScore(importanceAndTags);
+    expect(scored.coverage).toBeGreaterThanOrEqual(SCORE_EVIDENCE_THRESHOLD);
+    expect(scored.value).not.toBeNull();
+    // A single weak dimension is never enough: tags alone = 0.30.
+    const tagsOnly = {
+      ...importanceOnly,
+      importance: undefined,
+      tags: ["Hot Spring"],
+    } as Destination;
+    expect(computeOverallScore(tagsOnly).value).toBeNull();
+  });
+
+  it("computeOverallScore: designation credited once, never in SIGNIFICANCE", () => {
+    // Anti-double-counting: UNESCO appears in RECOGNITION only. Removing the
+    // designation must not change the SIGNIFICANCE dimension.
+    const base = {
+      ...mockDest,
+      importance: "major" as const,
+      tags: [],
+      categories: ["Shrine", "Garden"],
+    } as Destination;
+    const unesco = {
+      ...base,
+      collections: [{ collectionId: "unesco-japan" as never, confirmed: true }],
+    } as Destination;
+    const plain = {
+      ...base,
+      collections: [],
+    } as Destination;
+    const rUnesco = computeOverallScore(unesco);
+    const rPlain = computeOverallScore(plain);
+    expect(rUnesco.dimensions.significance).toBe(
+      rPlain.dimensions.significance,
+    );
+    expect(rUnesco.dimensions.recognition).toBeGreaterThan(
+      rPlain.dimensions.recognition,
+    );
+    // Stacked designations never exceed the tier: UNESCO + national park
+    // still credits tier 9 once.
+    const stacked = {
+      ...unesco,
+      tags: ["National Park"],
+    } as Destination;
+    expect(computeOverallScore(stacked).dimensions.recognition).toBe(
+      rUnesco.dimensions.recognition,
+    );
+  });
+
+  it("computeOverallScore: never season-dependent and range-bounded", () => {
+    const plain = {
+      ...mockDest,
+      importance: "standard" as const,
+    } as Destination;
+    const seasonal = {
+      ...plain,
+      season: { spring: 10, summer: 2, autumn: 9, winter: 1 },
+      seasonMetadata: { method: "unknown" as const },
+    } as Destination;
+    expect(computeOverallScore(seasonal).value).toBe(
+      computeOverallScore(plain).value,
+    );
+    const v = computeOverallScore(mockDest).value;
+    expect(v).not.toBeNull();
+    expect(v as number).toBeGreaterThanOrEqual(1);
+    expect(v as number).toBeLessThanOrEqual(10);
+  });
+
+  it("verified and estimated share ONE rubric scale (same formula)", () => {
+    // buildScoreMetadata with editorial provenance (verified) must produce
+    // the SAME value as the plain estimated build: the state is a
+    // provenance label, never a different formula.
+    const editorial = {
+      verifiedAt: "2026-08-14",
+      sources: ["https://example.com/official"],
+    };
+    const verified = buildScoreMetadata(mockDest, editorial);
+    const estimated = buildScoreMetadata(mockDest);
+    expect(verified.state).toBe("verified");
+    expect(estimated.state).toBe("estimated");
+    expect(verified.value).toBe(estimated.value);
+    expect(verified.value).toBe(computeOverallScore(mockDest).value);
+    expect(verified.rubricVersion).toBe(OVERALL_SCORE_RUBRIC_VERSION);
+    expect(verified.provenance.sourceClass).toBe("editorial-review");
+    expect(verified.provenance.sources).toEqual(editorial.sources);
+    expect(estimated.provenance.sourceClass).toBe("model");
+    // A verified label requires score-specific provenance: an editorial
+    // record below the evidence threshold must NOT become verified.
+    const sparse = {
+      ...mockDest,
+      categories: [],
+      tags: [],
+      collections: [],
+      highlights: [],
+      transportOptions: {},
+      importance: undefined,
+    } as Destination;
+    expect(buildScoreMetadata(sparse, editorial).state).toBe("unavailable");
+  });
+
+  it("getScorePresentation: persisted metadata is authoritative; fallback never verified", () => {
+    const withMeta = {
+      ...mockDest,
+      scoreMetadata: buildScoreMetadata(mockDest, {
+        verifiedAt: "2026-08-14",
+        sources: ["https://example.com/official"],
+      }),
+    } as Destination;
+    const sp = getScorePresentation(withMeta);
+    expect(sp.state).toBe("verified");
+    expect(sp.estimated).toBe(false);
+    // No persisted metadata → the computed fallback can be estimated or
+    // unavailable, but NEVER verified (verified requires persisted
+    // editorial provenance).
+    const fallback = getScorePresentation(mockDest);
+    expect(["estimated", "unavailable"]).toContain(fallback.state);
+    expect(fallback.state).not.toBe("verified");
+  });
+
+  it("scoreMetadata cannot alter the personalized recommendation score", () => {
+    const context = {
+      tripType: "any",
+      budget: 20000,
+      carMode: "none",
+      publicModes: ["train"],
+      partySize: 1,
+      currentWeatherCondition: "any",
+      visitedIds: [],
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+    };
+    const baseline = calculateScore(mockDest, context);
+    const mutated = (scoreMetadata: Destination["scoreMetadata"]) =>
+      calculateScore({ ...mockDest, scoreMetadata } as Destination, context);
+    for (const meta of [
+      {
+        state: "verified" as const,
+        value: 9.9,
+        rubricVersion: OVERALL_SCORE_RUBRIC_VERSION,
+        confidence: "high" as const,
+        coverage: 1,
+        provenance: {
+          sourceClass: "editorial-review" as const,
+          verifiedAt: "2026-08-14",
+          sources: ["https://example.com/official"],
+          basis: "test",
+        },
+        noteKey: "destination.scoreVerifiedNote",
+      },
+      {
+        state: "unavailable" as const,
+        value: null,
+        rubricVersion: OVERALL_SCORE_RUBRIC_VERSION,
+        confidence: "unknown" as const,
+        coverage: 0.2,
+        provenance: {
+          sourceClass: "model" as const,
+          basis: "test",
+        },
+        noteKey: "destination.scoreUnavailable",
+      },
+    ]) {
+      const res = mutated(meta);
+      expect(res.score).toBe(baseline.score);
+      expect(res.eligible).toBe(baseline.eligible);
+      expect(res.bestMode).toBe(baseline.bestMode);
+      expect(res.bestModeScore).toBe(baseline.bestModeScore);
+      expect(res.modeScoreBreakdown).toEqual(baseline.modeScoreBreakdown);
+    }
+    // Ranking order is likewise invariant: two destinations ranked by the
+    // personalized score keep their relative order when only the
+    // scoreMetadata (overall-score presentation) is mutated.
+    const second = {
+      ...mockDest,
+      id: "second-dest",
+      ratings: { ...mockDest.ratings, overall: 6 },
+    } as Destination;
+    const orderWith = (scoreMetadata: Destination["scoreMetadata"]) => {
+      const a = calculateScore(
+        { ...mockDest, scoreMetadata } as Destination,
+        context,
+      ).score;
+      const b = calculateScore(second, context).score;
+      return a >= b ? "a-first" : "b-first";
+    };
+    expect(orderWith(undefined)).toBe("a-first");
+    expect(
+      orderWith({
+        state: "unavailable",
+        value: null,
+        rubricVersion: OVERALL_SCORE_RUBRIC_VERSION,
+        confidence: "unknown",
+        coverage: 0.2,
+        provenance: { sourceClass: "model", basis: "test" },
+        noteKey: "destination.scoreUnavailable",
+      }),
+    ).toBe("a-first");
   });
 
   // ---------------------------------------------------------------------------

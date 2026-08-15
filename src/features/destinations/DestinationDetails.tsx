@@ -26,7 +26,10 @@ import {
   resolveOriginTransportZone,
 } from "@/shared/services/transport/TransportTopologyService";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
-import { calculateScore } from "@/shared/services/recommendation/RecommendationScorer";
+import {
+  calculateScore,
+  isRatingVerified,
+} from "@/shared/services/recommendation/RecommendationScorer";
 import { createRecommendationMatch } from "@/shared/services/recommendation/RecommendationExplainability";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import {
@@ -186,7 +189,6 @@ const DETAIL_COPY = {
     ratings: "Detailed Ratings",
     food: "Food & Drink",
     match: "Why This Matches You",
-    overall: "Overall Score",
     suggested: "Suggested Visit",
     bestSeason: "Best Season",
     nearby: "Nearby Attractions",
@@ -226,7 +228,6 @@ const DETAIL_COPY = {
     ratings: "詳細評価",
     food: "食事・カフェ",
     match: "おすすめの理由",
-    overall: "総合評価",
     suggested: "おすすめの滞在",
     bestSeason: "ベストシーズン",
     nearby: "近くの見どころ",
@@ -255,6 +256,24 @@ const DETAIL_COPY = {
     corridorFareOnly: "都市間交通の料金のみ（現地アクセス費は未算出）",
   },
 } as const;
+
+function comfortFieldIsDerived(
+  meta:
+    | {
+        derivedFields?: Array<
+          "heatTolerance" | "rainFriendly" | "walkingIntensity"
+        >;
+      }
+    | undefined,
+  field: "heatTolerance" | "rainFriendly" | "walkingIntensity",
+): boolean {
+  // Absent derivedFields = the WHOLE vector is model output (every field
+  // derived); present = only the listed fields are model output. Callers
+  // additionally require comfortMetadata.method === "model".
+  return meta?.derivedFields === undefined
+    ? true
+    : meta.derivedFields.includes(field);
+}
 
 export default function DestinationDetails() {
   const { t } = useTranslation();
@@ -504,7 +523,7 @@ export default function DestinationDetails() {
   const indoorChildren = useMemo(
     () =>
       childDestinations
-        .filter((place) => place.indoorPercent >= 70)
+        .filter((place) => (place.indoorPercent ?? 0) >= 70)
         .sort((a, b) => b.ratings.rain - a.ratings.rain)
         .slice(0, 3),
     [childDestinations],
@@ -716,7 +735,7 @@ export default function DestinationDetails() {
       partySize,
       homeStationCoords ?? undefined,
     );
-    if (cost === null) return copy.costUnavailable;
+    if (cost === null || !Number.isFinite(cost)) return copy.costUnavailable;
     const label =
       groundEstimateFor(mode)?.evidence === "estimated"
         ? copy.corridorFareOnly
@@ -840,6 +859,12 @@ export default function DestinationDetails() {
     );
   }
 
+  // Beta product decision (KAI-89): the overall destination score is hidden
+  // from all user-facing surfaces; scoreMetadata stays internal (rubric,
+  // provenance, gates) and never affects ranking. The Detailed Ratings tab
+  // is the LEGACY ratings evidence family, gated by rating-vector confidence
+  // (isRatingVerified), independent of the hidden overall-score state.
+  const showRatingsTab = isRatingVerified(destination);
   return (
     <div className="bg-slate-50 dark:bg-background min-h-screen pb-20">
       {/* Hero Image Header */}
@@ -1266,12 +1291,14 @@ export default function DestinationDetails() {
                 >
                   {copy.logistics}
                 </TabsTrigger>
-                <TabsTrigger
-                  value="ratings"
-                  className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-400 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
-                >
-                  {copy.ratings}
-                </TabsTrigger>
+                {showRatingsTab && (
+                  <TabsTrigger
+                    value="ratings"
+                    className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-400 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
+                  >
+                    {copy.ratings}
+                  </TabsTrigger>
+                )}
                 {matchDetails && (
                   <TabsTrigger
                     value="match"
@@ -1527,24 +1554,35 @@ export default function DestinationDetails() {
                                           budgetService.getEffectiveBudgetBreakdown(
                                             destination,
                                           );
+                                        if (!breakdown)
+                                          return copy.costUnavailable;
+                                        // KAI-89: breakdown components are
+                                        // per-person (incl. the on-site
+                                        // local-transit allowance); scale by
+                                        // partySize (legacy /2 couple-scale
+                                        // removed).
                                         return Math.round(
-                                          ((breakdown.tickets +
+                                          (breakdown.tickets +
                                             breakdown.food +
-                                            breakdown.cafe) /
-                                            2) *
+                                            breakdown.cafe +
+                                            breakdown.transport) *
                                             partySize,
                                         ).toLocaleString();
                                       })()
-                                    : budgetService
-                                        .getAdjustedBudget(
-                                          destination,
-                                          selectedTransport ?? "all",
-                                          partySize,
-                                          homeStationCoords ?? undefined,
-                                          homeStationTransportZoneId,
-                                          ferryTemporal,
-                                        )
-                                        .toLocaleString()}
+                                    : (() => {
+                                        const adjustedBudget =
+                                          budgetService.getAdjustedBudget(
+                                            destination,
+                                            selectedTransport ?? "all",
+                                            partySize,
+                                            homeStationCoords ?? undefined,
+                                            homeStationTransportZoneId,
+                                            ferryTemporal,
+                                          );
+                                        return adjustedBudget === null
+                                          ? copy.costUnavailable
+                                          : adjustedBudget.toLocaleString();
+                                      })()}
                                 </div>
                               </>
                             );
@@ -1590,6 +1628,13 @@ export default function DestinationDetails() {
                             budgetService.getEffectiveBudgetBreakdown(
                               destination,
                             );
+                          if (!breakdown) {
+                            return (
+                              <div className="text-sm text-slate-500">
+                                {copy.costUnavailable}
+                              </div>
+                            );
+                          }
                           return (
                             <div className="space-y-2 mt-auto">
                               <div className="flex justify-between text-sm border-b border-slate-100 dark:border-slate-800 pb-1.5 mt-1.5 first:mt-0">
@@ -1665,7 +1710,7 @@ export default function DestinationDetails() {
                                 <span className="font-semibold text-slate-700 dark:text-slate-300">
                                   <JapaneseYen className="inline w-3 h-3" />
                                   {Math.round(
-                                    (breakdown.tickets / 2) * partySize,
+                                    breakdown.tickets * partySize,
                                   ).toLocaleString()}
                                 </span>
                               </div>
@@ -1694,6 +1739,16 @@ export default function DestinationDetails() {
                             </span>
                             <span className="font-semibold text-slate-700 dark:text-slate-300">
                               {destination.comfort.heatTolerance}/10
+                              {destination.comfortMetadata?.method ===
+                                "model" &&
+                                comfortFieldIsDerived(
+                                  destination.comfortMetadata,
+                                  "heatTolerance",
+                                ) && (
+                                  <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
+                                    {copy.estimated}
+                                  </span>
+                                )}
                             </span>
                           </div>
                           <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
@@ -1703,13 +1758,32 @@ export default function DestinationDetails() {
                             </span>
                             <span className="font-semibold text-slate-700 dark:text-slate-300">
                               {destination.comfort.rainFriendly}/10
+                              {destination.comfortMetadata?.method ===
+                                "model" &&
+                                comfortFieldIsDerived(
+                                  destination.comfortMetadata,
+                                  "rainFriendly",
+                                ) && (
+                                  <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
+                                    {copy.estimated}
+                                  </span>
+                                )}
                             </span>
                           </div>
                           {(() => {
                             const walkScore =
                               destination.comfort?.walkingIntensity;
+                            const walkEstimated =
+                              destination.comfortMetadata?.method === "model" &&
+                              comfortFieldIsDerived(
+                                destination.comfortMetadata,
+                                "walkingIntensity",
+                              );
                             return (
-                              <WalkingIntensityRow intensity={walkScore} />
+                              <WalkingIntensityRow
+                                intensity={walkScore}
+                                estimated={walkEstimated}
+                              />
                             );
                           })()}
                         </div>
@@ -1720,112 +1794,121 @@ export default function DestinationDetails() {
               </TabsContent>
 
               <TabsContent value="ratings" className="mt-4 space-y-4">
-                {/* Experience Ratings */}
-                <Card>
-                  <CardContent className="p-6">
-                    <h4 className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-xs mb-4">
-                      {copy.experienceRatings}
-                    </h4>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      <RatingItem
-                        icon={Heart}
-                        label="Couple"
-                        value={destination.ratings.couple}
-                      />
-                      {destination.ratings.family !== undefined && (
-                        <RatingItem
-                          icon={Users}
-                          label="Family"
-                          value={destination.ratings.family}
-                        />
-                      )}
-                      <RatingItem
-                        icon={Camera}
-                        label="Photography"
-                        value={destination.ratings.photography}
-                      />
-                      <RatingItem
-                        icon={Utensils}
-                        label="Food"
-                        value={destination.ratings.food}
-                      />
-                      <RatingItem
-                        icon={JapaneseYen}
-                        label="Value"
-                        value={destination.ratings.value}
-                      />
-                      <WalkabilityRatingItem
-                        walkability={destination.ratings.walkability}
-                      />
-                      {destination.ratings.accessibility !== undefined && (
-                        <RatingItem
-                          icon={Train}
-                          label="Accessibility"
-                          value={destination.ratings.accessibility}
-                        />
-                      )}
-                      {destination.ratings.nature !== undefined && (
-                        <RatingItem
-                          icon={Leaf}
-                          label="Nature"
-                          value={destination.ratings.nature}
-                        />
-                      )}
-                      {destination.ratings.historyAndCulture !== undefined && (
-                        <RatingItem
-                          icon={Landmark}
-                          label="History & Culture"
-                          value={destination.ratings.historyAndCulture}
-                        />
-                      )}
-                      <RatingItem
-                        icon={Coffee}
-                        label="Relaxation"
-                        value={destination.ratings.relaxation}
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
+                {/* KAI-89 rubric v2: the legacy experience-ratings grid is a
+                    separate evidence family, gated by rating-vector
+                    confidence (isRatingVerified); otherwise the tab explains
+                    the overall-score state. */}
+                {showRatingsTab ? (
+                  <>
+                    {/* Experience Ratings */}
+                    <Card>
+                      <CardContent className="p-6">
+                        <h4 className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-xs mb-4">
+                          {copy.experienceRatings}
+                        </h4>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                          <RatingItem
+                            icon={Heart}
+                            label={t("destination.ratings.couple")}
+                            value={destination.ratings.couple}
+                          />
+                          {destination.ratings.family !== undefined && (
+                            <RatingItem
+                              icon={Users}
+                              label={t("destination.ratings.family")}
+                              value={destination.ratings.family}
+                            />
+                          )}
+                          <RatingItem
+                            icon={Camera}
+                            label={t("destination.ratings.photography")}
+                            value={destination.ratings.photography}
+                          />
+                          <RatingItem
+                            icon={Utensils}
+                            label={t("destination.ratings.food")}
+                            value={destination.ratings.food}
+                          />
+                          <RatingItem
+                            icon={JapaneseYen}
+                            label={t("destination.ratings.value")}
+                            value={destination.ratings.value}
+                          />
+                          <WalkabilityRatingItem
+                            walkability={destination.ratings.walkability}
+                          />
+                          {destination.ratings.accessibility !== undefined && (
+                            <RatingItem
+                              icon={Train}
+                              label={t("destination.ratings.accessibility")}
+                              value={destination.ratings.accessibility}
+                            />
+                          )}
+                          {destination.ratings.nature !== undefined && (
+                            <RatingItem
+                              icon={Leaf}
+                              label={t("destination.ratings.nature")}
+                              value={destination.ratings.nature}
+                            />
+                          )}
+                          {destination.ratings.historyAndCulture !==
+                            undefined && (
+                            <RatingItem
+                              icon={Landmark}
+                              label={t("destination.ratings.historyCulture")}
+                              value={destination.ratings.historyAndCulture}
+                            />
+                          )}
+                          <RatingItem
+                            icon={Coffee}
+                            label={t("destination.ratings.relaxation")}
+                            value={destination.ratings.relaxation}
+                          />
+                        </div>
+                      </CardContent>
+                    </Card>
 
-                {/* Seasonal Ratings */}
-                <Card>
-                  <CardContent className="p-6">
-                    <h4 className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-xs mb-4">
-                      {copy.seasonalRatings}
-                    </h4>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      {destination.ratings.spring !== undefined && (
-                        <RatingItem
-                          icon={Flower2}
-                          label="Spring"
-                          value={destination.ratings.spring}
-                        />
-                      )}
-                      <RatingItem
-                        icon={ThermometerSun}
-                        label="Summer"
-                        value={destination.ratings.summer}
-                      />
-                      {destination.ratings.autumn !== undefined && (
-                        <RatingItem
-                          icon={Leaf}
-                          label="Autumn"
-                          value={destination.ratings.autumn}
-                        />
-                      )}
-                      <RatingItem
-                        icon={Snowflake}
-                        label="Winter"
-                        value={destination.ratings.winter}
-                      />
-                      <RatingItem
-                        icon={Umbrella}
-                        label="Rainy Day"
-                        value={destination.ratings.rain}
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
+                    {/* Seasonal Ratings */}
+                    <Card>
+                      <CardContent className="p-6">
+                        <h4 className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-xs mb-4">
+                          {copy.seasonalRatings}
+                        </h4>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                          {destination.ratings.spring !== undefined && (
+                            <RatingItem
+                              icon={Flower2}
+                              label="Spring"
+                              value={destination.ratings.spring}
+                            />
+                          )}
+                          <RatingItem
+                            icon={ThermometerSun}
+                            label="Summer"
+                            value={destination.ratings.summer}
+                          />
+                          {destination.ratings.autumn !== undefined && (
+                            <RatingItem
+                              icon={Leaf}
+                              label="Autumn"
+                              value={destination.ratings.autumn}
+                            />
+                          )}
+                          <RatingItem
+                            icon={Snowflake}
+                            label="Winter"
+                            value={destination.ratings.winter}
+                          />
+                          <RatingItem
+                            icon={Umbrella}
+                            label="Rainy Day"
+                            value={destination.ratings.rain}
+                          />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </>
+                ) : null}
               </TabsContent>
 
               <TabsContent value="match" className="mt-4">
@@ -2002,13 +2085,17 @@ export default function DestinationDetails() {
                                   {locale === "ja"
                                     ? "概算合計: "
                                     : "Estimated total: "}
-                                  {formatLocalizedJPYRange(
-                                    [
-                                      combo.combinedBudgetRange[0] * partySize,
-                                      combo.combinedBudgetRange[1] * partySize,
-                                    ],
-                                    locale,
-                                  )}
+                                  {combo.combinedBudgetRange
+                                    ? formatLocalizedJPYRange(
+                                        [
+                                          combo.combinedBudgetRange[0] *
+                                            partySize,
+                                          combo.combinedBudgetRange[1] *
+                                            partySize,
+                                        ],
+                                        locale,
+                                      )
+                                    : copy.costUnavailable}
                                 </span>
                               </div>
                             </div>
@@ -2104,31 +2191,33 @@ export default function DestinationDetails() {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <Card className="bg-emerald-600 text-white border-none shadow-lg">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="text-5xl font-extrabold mb-2">
-                  {destination.ratings.overall}
-                </div>
-                <div className="text-emerald-100 font-medium tracking-widest uppercase text-sm mb-4">
-                  {copy.overall}
-                </div>
-                <div className="w-full h-px bg-white/20 mb-4"></div>
-                {(() => {
-                  const notesText =
-                    locale === "ja"
-                      ? destination.content?.ja?.notes ||
-                        destination.notesJa ||
-                        localizeEditorialValue(destination.notes, "ja")
-                      : destination.content?.en?.notes || destination.notes;
-                  return (
-                    notesText &&
-                    !notesText.startsWith("Source-backed") && (
-                      <p className="text-emerald-50 text-sm">{notesText}</p>
-                    )
-                  );
-                })()}
-              </CardContent>
-            </Card>
+            {(() => {
+              const notesText =
+                locale === "ja"
+                  ? destination.content?.ja?.notes ||
+                    destination.notesJa ||
+                    localizeEditorialValue(destination.notes, "ja")
+                  : destination.content?.en?.notes || destination.notes;
+              const visibleNotes =
+                notesText && !notesText.startsWith("Source-backed")
+                  ? notesText
+                  : null;
+              if (!visibleNotes) return null;
+              return (
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-3">
+                      <div className="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-slate-500 dark:text-slate-400 shrink-0">
+                        <Info className="w-4 h-4" />
+                      </div>
+                      <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                        {visibleNotes}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })()}
 
             {/* Suggested Visit Card */}
             <Card>
@@ -2152,25 +2241,36 @@ export default function DestinationDetails() {
                       </div>
                     </div>
                   )}
-                  {destination.recommendedVisitHours && (
-                    <div className="flex items-center gap-3">
-                      <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
-                        <Timer className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                          {locale === "ja"
-                            ? "おすすめ滞在時間"
-                            : "Recommended visit"}
+                  {(() => {
+                    const visitHours = destination.recommendedVisitHours;
+                    if (
+                      !visitHours ||
+                      !Number.isFinite(visitHours.min) ||
+                      !Number.isFinite(visitHours.max) ||
+                      visitHours.min < 0 ||
+                      visitHours.min > visitHours.max
+                    ) {
+                      return null;
+                    }
+                    return (
+                      <div className="flex items-center gap-3">
+                        <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
+                          <Timer className="w-4 h-4" />
                         </div>
-                        <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
-                          {destination.recommendedVisitHours.min}–
-                          {destination.recommendedVisitHours.max}{" "}
-                          {locale === "ja" ? "時間" : "hours"}
+                        <div>
+                          <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                            {locale === "ja"
+                              ? "おすすめ滞在時間"
+                              : "Recommended visit"}
+                          </div>
+                          <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+                            {visitHours.min}–{visitHours.max}{" "}
+                            {locale === "ja" ? "時間" : "hours"}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  )}
+                    );
+                  })()}
                   {destination.bestSeason && (
                     <div className="flex items-center gap-3">
                       <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
@@ -2184,6 +2284,11 @@ export default function DestinationDetails() {
                           {localizeEditorialValue(
                             destination.bestSeason,
                             locale,
+                          )}
+                          {destination.seasonMetadata?.method === "model" && (
+                            <span className="ml-1.5 text-[10px] font-normal uppercase text-slate-400">
+                              {copy.estimated}
+                            </span>
                           )}
                         </div>
                       </div>
@@ -2201,8 +2306,11 @@ export default function DestinationDetails() {
                     localizedDestination?.highlights ??
                     destination.highlights ??
                     []
-                  ).map((h) => (
-                    <li key={h} className="flex items-start">
+                  ).map((h, index) => (
+                    <li
+                      key={`${destination.id}-${index}`}
+                      className="flex items-start"
+                    >
                       <div className="min-w-6 min-h-6 bg-slate-100 dark:bg-slate-800 text-emerald-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </div>

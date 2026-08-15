@@ -2,6 +2,7 @@ import {
   BUDGET_TIER_LIMITS,
   partyProfileForSize,
   type BudgetTier,
+  type BudgetFilter,
   type PartyProfile,
 } from "@/shared/types/planner";
 import type {
@@ -11,7 +12,7 @@ import type {
 import { MAX_ACCOMMODATION_ALLOWANCE } from "@/shared/services/budget/BudgetService";
 import { normalizeTravelDateParam } from "@/shared/services/recommendation/TravelConditions";
 
-export type ExplorerBudgetTier = "any" | BudgetTier;
+/** "any" | BudgetTier, expressed via the canonical planner BudgetFilter. */
 
 export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   searchQuery: "",
@@ -31,7 +32,10 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   partySize: 2,
   partyProfile: "couple" as PartyProfile,
   weather: "any" as "any" | "rainy" | "hot" | "cold",
-  budgetTier: "any" as ExplorerBudgetTier,
+  /** "any" = no budget restriction; a tier = party-aware, transport-inclusive
+   *  trip-cost cap. The old "standard"-as-no-filter default is gone: a real
+   *  tier must not double as the unselected state. */
+  budgetTier: "any" as BudgetFilter,
   vibe: "any",
   tripDuration: "any" as TripDuration,
   walkingIntensity: "all",
@@ -120,7 +124,7 @@ export function parseDestinationSearchParams(
           : 2;
 
   const rawBudget = params.get("budget");
-  let budgetTier: ExplorerBudgetTier = defaults.budgetTier;
+  let budgetTier: BudgetFilter = defaults.budgetTier;
   if (rawBudgetTier === "any" || rawBudget === "any") {
     budgetTier = "any";
   } else if (

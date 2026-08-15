@@ -120,17 +120,13 @@
     ],
     "checkedAt": "2026-08-12",
     "freshness": "current",
-    "changeSummary": "PR B 100名城 audit: new record completing the official list"
+    "changeSummary": "PR B 100名城 audit: new record completing the official list",
+    "fieldSources": {}
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "assisted",
     "confidence": "low"
-  },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 7
   },
   "season": {
     "spring": 9,
@@ -140,7 +136,29 @@
   },
   "bestMonths": [10, 11, 12, 1, 2, 3, 4],
   "walkingMin": 90,
-  "walkingSunMin": 60,
-  "walkingShadeMin": 30,
-  "indoorPercent": 10
+  "indoorPercent": 10,
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

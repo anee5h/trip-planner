@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Philosopher's Walk",
-      "description": "Philosopher's Walk is a visitor destination in Kyoto City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "A canal-side Kyoto path between Ginkaku-ji and Nanzen-ji, especially popular for spring cherry blossoms and autumn color.",
       "highlights": ["Nature", "Culture"]
     },
     "ja": {
       "name": "哲学の道",
-      "description": "哲学の道はKyoto Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "哲学の道は銀閣寺と南禅寺を結ぶ疏水沿いの散策路で、春の桜や秋の紅葉を楽しめます。",
       "highlights": ["自然", "文化"]
     }
   },
@@ -38,17 +38,8 @@
     "lat": 35.025127777778,
     "lng": 135.79616666667
   },
-  "description": "Philosopher's Walk is a visitor destination in Kyoto City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "A canal-side Kyoto path between Ginkaku-ji and Nanzen-ji, especially popular for spring cherry blossoms and autumn color.",
   "highlights": ["Nature", "Culture"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1300,
-    "tickets": 0,
-    "food": 2300,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 227,
     "bus": 227,
@@ -59,15 +50,13 @@
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 90,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 9.2,
@@ -84,11 +73,6 @@
     "accessibility": 6.7
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 7,
     "summer": 7.3,
@@ -99,7 +83,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Kyoto City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -110,7 +93,7 @@
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
-    "editorialSummary": "Philosopher's Walk is a visitor destination in Kyoto City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+    "editorialSummary": "A canal-side Kyoto path between Ginkaku-ji and Nanzen-ji, especially popular for spring cherry blossoms and autumn color.",
     "lifecycle": "published",
     "sources": [
       {
@@ -127,8 +110,59 @@
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-07-29",
-    "freshness": "review_due"
+    "checkedAt": "2026-08-13",
+    "freshness": "current",
+    "fieldSources": {
+      "description": [
+        {
+          "type": "official",
+          "url": "https://tetsugakunomichi.jp/",
+          "title": "Philosopher's Walk official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://tetsugakunomichi.jp/",
+          "title": "Philosopher's Walk official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://tetsugakunomichi.jp/",
+          "title": "Philosopher's Walk official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=90",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 50% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changeSummary": "KAI-89 source-backed template-copy correction",
+    "changes": [
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -141,5 +175,35 @@
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
-  "municipalityId": "Kyoto:kyoto"
+  "municipalityId": "Kyoto:kyoto",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='museum', walkingMin=90"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

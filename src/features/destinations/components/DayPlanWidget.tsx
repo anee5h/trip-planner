@@ -322,11 +322,16 @@ export function DayPlanWidget({
       ? `${destination.nameJa || destination.name} 周辺モデルコース`
       : `Plan around ${destination.name}`;
 
+  const visitMinHours = destination.recommendedVisitHours?.min;
+  const visitMaxHours = destination.recommendedVisitHours?.max;
   const suitableDurationHours = Math.round(
-    ((destination.recommendedVisitHours?.min || 2) +
-      (destination.recommendedVisitHours?.max || 4)) /
-      2,
+    ((visitMinHours || 2) + (visitMaxHours || 4)) / 2,
   );
+  // Upper bound must come from the visit-hours data (not a hardcoded 8) so
+  // the range is always monotonic: 6–12h hubs render "~9–12 hours".
+  const suitableDurationMaxHours = visitMaxHours
+    ? Math.round(visitMaxHours)
+    : 8;
 
   return (
     <Card className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50">
@@ -400,8 +405,8 @@ export function DayPlanWidget({
                     <span className="flex items-center gap-1">
                       <Clock className="w-3.5 h-3.5 text-emerald-500" />
                       {locale === "ja"
-                        ? `推奨所要時間: 約${suitableDurationHours}〜8時間`
-                        : `Est. duration: ~${suitableDurationHours}–8 hours`}
+                        ? `推奨所要時間: 約${suitableDurationHours}〜${suitableDurationMaxHours}時間`
+                        : `Est. duration: ~${suitableDurationHours}–${suitableDurationMaxHours} hours`}
                     </span>
                   </div>
                 </>

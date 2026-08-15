@@ -60,7 +60,7 @@
     "sourceUrl": "https://www.ibusuki.or.jp/en/spot/lake-ikeda/"
   },
   "budgetMin": 1000,
-  "budgetRecommended": 3000,
+  "budgetRecommended": 3500,
   "budgetMax": 6000,
   "budgetBreakdown": {
     "transport": 300,
@@ -76,15 +76,13 @@
     "min": 1,
     "max": 2
   },
-  "walkingMin": 2500,
-  "walkingIntensity": "low",
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 500,
+  "walkingMin": 95,
+  "walkingIntensity": "medium",
   "indoorPercent": 10,
   "comfort": {
     "heatTolerance": 7,
-    "rainFriendly": 5,
-    "walkingIntensity": 2
+    "rainFriendly": 1,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 7.5,
@@ -99,11 +97,6 @@
     "uniqueness": 7
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 2,
-    "weekend": 5,
-    "holiday": 6
-  },
   "season": {
     "spring": 9,
     "summer": 8,
@@ -151,8 +144,63 @@
       }
     ],
     "reviewedAt": "2026-08-05",
-    "reviewedBy": "Kyushu-to-100 Editorial Batch"
+    "reviewedBy": "Kyushu-to-100 Editorial Batch",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=10, kind='natural', walkingMin=95",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 2500 replaced by walk-share estimate (FIX_UNIT): 80% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "officialWebsite": "https://www.ibusuki.or.jp/en/spot/lake-ikeda/",
-  "municipalityId": "Kagoshima:ibusuki"
+  "municipalityId": "Kagoshima:ibusuki",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=10, kind='natural', walkingMin=95"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 2500 replaced by walk-share estimate (FIX_UNIT): 80% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

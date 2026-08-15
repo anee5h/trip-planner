@@ -28,8 +28,6 @@
   },
   "totalTripHours": 8,
   "walkingMin": 120,
-  "walkingSunMin": 50,
-  "walkingShadeMin": 70,
   "indoorPercent": 10,
   "coordinates": {
     "lat": 35.7461,
@@ -90,8 +88,8 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 4,
+    "max": 8
   },
   "officialWebsite": "https://www.shosenkyo-kankoukyoukai.com/",
   "businessHours": "Open access",
@@ -101,5 +99,23 @@
     "license": "Unsplash License",
     "attribution": "Unverified — photographer lookup requires Unsplash API access (delivery URL is not provenance)",
     "sourceUrl": "https://unsplash.com"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature' + scale uplift"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

@@ -65,23 +65,9 @@
   "description": "Itsukushima Shrine on Miyajima Island is world-renowned for its iconic vermilion O-Torii gate that appears to float magically upon the Seto Inland Sea during high tide.",
   "notes": "Miyajima (Itsukushima) Island is in Hatsukaichi City, Hiroshima Prefecture. Reached by ferry from Miyajimaguchi (JR West Miyajima Ferry or Matsudai); no private cars on the island.",
   "budgetRecommended": 7500,
-  "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
-  },
-  "walkingMin": 8000,
-  "walkingSunMin": 4800,
-  "walkingShadeMin": 3200,
+  "walkingMin": 480,
   "indoorPercent": 20,
   "totalTripHours": 4,
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": [],
@@ -98,20 +84,18 @@
     "Explore Itsukushima Shrine (Miyajima Island)",
     "Local Culture & Scenery"
   ],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 4
   },
   "reservation": "None required",
   "parking": "No private cars on Miyajima; use JR West Miyajima Ferry or Matsudai ferry from Miyajimaguchi, then walk or ride the local shuttle.",
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 3,
-    "max": 5
+    "min": 4,
+    "max": 10
   },
   "officialWebsite": "https://www.itsukushimajinja.jp/",
   "businessHours": "Jan 1 00:00–18:30; Jan 2–3 06:30–18:30; Jan 4–Feb 06:30–17:30; Mar 1–Oct 14 06:30–18:00; Oct 15–Nov 30 06:30–17:30; Dec 06:30–17:00",
@@ -124,5 +108,48 @@
     "attribution": "redlegsfan21, CC BY-SA 2.0, via Wikimedia Commons",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Itsukushima_Shrine_Torii_Gate_(13890465459).jpg"
   },
-  "transportZoneId": "miyajima"
+  "transportZoneId": "miyajima",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'island' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='island', walkingMin=unknown"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 480 replaced by walk-share estimate (FIX_UNIT): 80% of 10h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

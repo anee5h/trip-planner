@@ -47,7 +47,8 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {}
   },
   "content": {
     "en": {
@@ -105,26 +106,12 @@
     "White lighthouse and coastal walking path"
   ],
   "collections": [],
-  "crowd": {
-    "weekday": 2,
-    "weekend": 5,
-    "holiday": 6
-  },
-  "season": {
-    "spring": 9,
-    "summer": 9,
-    "autumn": 9,
-    "winter": 8
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "transportOptions": {
     "bus": 300
   },
   "notes": "A dramatic cape where two seas meet — arrive early for sunrise at the easternmost point.",
   "totalTripHours": 2,
   "walkingMin": 20,
-  "walkingSunMin": 15,
-  "walkingShadeMin": 2,
   "indoorPercent": 5,
   "reservation": "None required",
   "parking": "Free parking available",
@@ -132,5 +119,35 @@
     "confidence": "medium"
   },
   "notesJa": "宮古島最東端の岬。太平洋と東シナ海が出会う景勝地。",
-  "description": "A narrow 2km long coral peninsula jutting into the ocean at Miyako Island's easternmost tip, crowned by a white climbable lighthouse with dramatic wave-crashing sea cliff views."
+  "description": "A narrow 2km long coral peninsula jutting into the ocean at Miyako Island's easternmost tip, crowned by a white climbable lighthouse with dramatic wave-crashing sea cliff views.",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

@@ -100,18 +100,18 @@ afterEach(() => {
 });
 
 describe("DestinationCard responsive content", () => {
-  it("keeps the score and core metadata while hiding duplicate mobile context", () => {
+  it("hides the unverified score and duplicate mobile context", () => {
     render();
 
     expect(host.textContent).not.toContain("⭐");
+    // hikone-castle-shiga has no ratingMetadata: raw score must not render
+    // as an authoritative number (REC-002).
     const score = host.querySelector('[data-testid="meguruto-score"]');
-    expect(score).not.toBeNull();
+    expect(score).toBeNull();
     expect(host.querySelector(".lucide-sparkles")).toBeNull();
-    expect(score?.textContent).toBe(String(destination.ratings.overall));
-    expect(score?.getAttribute("aria-label")).toContain(
-      "destination.megurutoScore",
-    );
-    expect(host.textContent).toContain("Low sun");
+    // KAI-89: sun/shade splits are unsourced and removed; the sun badge no
+    // longer renders (no fabricated sun-exposure claim).
+    expect(host.textContent).not.toContain("Low sun");
     expect(host.textContent).toContain("Explore");
 
     const mobileCost = Array.from(host.querySelectorAll("span")).find((node) =>
@@ -131,6 +131,32 @@ describe("DestinationCard responsive content", () => {
     expect(
       host.querySelector('[data-testid="destination-card-sun"]')?.className,
     ).toContain("hidden");
+  });
+
+  it("hides the overall destination score chip (beta product decision)", () => {
+    const verifiedDestination = destinations.find(
+      (candidate) => candidate.id === "yokohama-city",
+    ) as Destination;
+    expect(verifiedDestination.ratingMetadata?.confidence).toBe("high");
+
+    act(() =>
+      root.render(
+        <MemoryRouter>
+          <DestinationCard destination={verifiedDestination} />
+        </MemoryRouter>,
+      ),
+    );
+
+    // KAI-89 beta decision: the overall score is hidden from all surfaces;
+    // scoreMetadata stays internal (rubric, provenance, gates) and never
+    // affects ranking or card rendering.
+    expect(host.querySelector('[data-testid="meguruto-score"]')).toBeNull();
+    expect(
+      host.querySelector('[data-testid="meguruto-score-estimated"]'),
+    ).toBeNull();
+    expect(
+      host.querySelector('[data-testid="meguruto-score-unavailable"]'),
+    ).toBeNull();
   });
 
   it("renders the shared approximate estimate when Explore has no canonical route", () => {
@@ -455,5 +481,42 @@ describe("DestinationCard badges", () => {
     });
 
     expect(host.textContent).toContain("Transport Excluded");
+  });
+});
+
+describe("KAI-89 3-state score presentation on the card", () => {
+  function renderFor(id: string) {
+    const d = destinations.find((x) => x.id === id) as Destination;
+    act(() =>
+      root.render(
+        <MemoryRouter>
+          <DestinationCard destination={d} />
+        </MemoryRouter>,
+      ),
+    );
+    return host;
+  }
+
+  it("never renders the overall score chip, regardless of score state", () => {
+    // Beta product decision (KAI-89): the overall destination score is
+    // hidden from every surface — verified (yokohama-city), estimated
+    // (abashiri-city / otsu-city) and unavailable records render no chip
+    // at all; the raw template rating (9.5) is never shown.
+    for (const id of ["yokohama-city", "abashiri-city", "otsu-city"]) {
+      const h = renderFor(id);
+      expect(
+        h.querySelector('[data-testid="meguruto-score"]'),
+        `${id}: verified chip hidden`,
+      ).toBeNull();
+      expect(
+        h.querySelector('[data-testid="meguruto-score-estimated"]'),
+        `${id}: estimated chip hidden`,
+      ).toBeNull();
+      expect(
+        h.querySelector('[data-testid="meguruto-score-unavailable"]'),
+        `${id}: unavailable chip hidden`,
+      ).toBeNull();
+      expect(h.textContent).not.toContain("9.5");
+    }
   });
 });

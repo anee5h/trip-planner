@@ -55,18 +55,16 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Okayama_Castle,_November_2016_-02.jpg"
   },
   "recommendedVisitHours": {
-    "min": 1.5,
-    "max": 3
+    "min": 2.5,
+    "max": 5
   },
-  "walkingMin": 2500,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 1000,
-  "walkingIntensity": "medium",
+  "walkingMin": 150,
+  "walkingIntensity": "high",
   "indoorPercent": 60,
   "comfort": {
-    "heatTolerance": 7,
+    "heatTolerance": 6,
     "rainFriendly": 6,
-    "walkingIntensity": 5
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 8.4,
@@ -81,11 +79,6 @@
     "uniqueness": 8.2
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
   "season": {
     "spring": 8,
     "summer": 6,
@@ -158,7 +151,33 @@
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'castle' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=60, kind='castle', walkingMin=150",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 2500 replaced by walk-share estimate (FIX_UNIT): 50% of 5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -168,5 +187,35 @@
   "relationships": {
     "parentDestinationId": "okayama-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'castle' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=60, kind='castle', walkingMin=150"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.5,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

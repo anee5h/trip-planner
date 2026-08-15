@@ -6,18 +6,16 @@
   "content": {
     "en": {
       "name": "Komachi Street",
-      "description": "Komachi Street is a visitor destination in Kamakura City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+      "description": "Kamakura's liveliest shopping street, running from Kamakura Station toward Tsurugaoka Hachimangu. It is lined with souvenir shops, cafes and snack stalls selling local specialties, and is busy throughout the day.",
       "highlights": ["Shopping", "Food"],
-      "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
       "openingHours": "09:00 - 17:00"
     },
     "ja": {
       "name": "小町通り",
-      "description": "小町通りはKamakura Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["小町通りの名所", "小町通りの名所"],
-      "notes": "小町通りは、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "description": "鎌倉駅から鶴岡八幡宮方面へ延びる商店街。土産物店やカフェ、名物スイーツの店が軒を連ね、終日にぎわう。",
+      "highlights": ["小町通りの名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"
@@ -47,17 +45,8 @@
     "lat": 35.32153,
     "lng": 139.55232
   },
-  "description": "Komachi Street is a visitor destination in Kamakura City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+  "description": "Kamakura's liveliest shopping street, running from Kamakura Station toward Tsurugaoka Hachimangu. It is lined with souvenir shops, cafes and snack stalls selling local specialties, and is busy throughout the day.",
   "highlights": ["Shopping", "Food"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 46
   },
@@ -68,13 +57,11 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 55,
   "comfort": {
-    "heatTolerance": 6,
+    "heatTolerance": 5,
     "rainFriendly": 6,
-    "walkingIntensity": 6
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 7.2,
@@ -91,11 +78,6 @@
     "accessibility": 9.5
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 8.8,
     "summer": 6.5,
@@ -106,7 +88,6 @@
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
-  "notes": "A top recommended attraction in Kanagawa, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,6 +130,14 @@
           "title": "Kamakura",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=55, kind='district', walkingMin=60",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -174,10 +163,45 @@
     "confidence": "low"
   },
   "businessHours": "Open access",
-  "notesJa": "小町通りは、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Kanagawa:kamakura"
+  "municipalityId": "Kanagawa:kamakura",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=55, kind='district', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

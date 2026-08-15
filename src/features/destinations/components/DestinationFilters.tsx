@@ -12,7 +12,6 @@ import {
 import {
   Search,
   Clock,
-  Star,
   Footprints,
   Coins,
   Filter,
@@ -50,11 +49,10 @@ import {
   CircleDollarSign,
   Ticket,
   MapPin,
-  Sparkles,
 } from "lucide-react";
 
 import { getCollections } from "@/shared/data/collections";
-import type { ExplorerBudgetTier } from "../destinationSearchParams";
+import type { BudgetFilter } from "@/shared/types/planner";
 import type {
   TripDuration,
   TripMode,
@@ -97,8 +95,8 @@ interface DestinationFiltersProps {
   setPartySize: (val: number) => void;
   weather: "any" | "rainy" | "hot" | "cold";
   setWeather: (val: "any" | "rainy" | "hot" | "cold") => void;
-  budgetTier: ExplorerBudgetTier;
-  setBudgetTier: (val: ExplorerBudgetTier) => void;
+  budgetTier: BudgetFilter;
+  setBudgetTier: (val: BudgetFilter) => void;
   vibe: string;
   setVibe: (val: string) => void;
   tripDuration: TripDuration;
@@ -302,8 +300,8 @@ export default function DestinationFilters({
     });
   });
   if (budgetTier !== "any") {
-    const budgetMap: Record<ExplorerBudgetTier, string> = {
-      any: isJa ? "指定なし" : "Any",
+    const budgetMap: Record<BudgetFilter, string> = {
+      any: isJa ? "指定なし" : "Any budget",
       economy: isJa ? "エコノミー" : "Economy",
       standard: isJa ? "スタンダード" : "Standard",
       comfortable: isJa ? "コンフォート" : "Comfort",
@@ -627,12 +625,6 @@ export default function DestinationFilters({
                   {isJa ? "おすすめ順" : "Recommended"}
                 </div>
               )}
-              {sortBy === "overall" && (
-                <div className="flex items-center whitespace-nowrap">
-                  <Star className="w-3.5 h-3.5 mr-1.5 text-amber-500 shrink-0" />{" "}
-                  {isJa ? "評価が高い順" : "Top Rated"}
-                </div>
-              )}
               {sortBy === "travelTime" && (
                 <div className="flex items-center whitespace-nowrap">
                   <Clock className="w-3.5 h-3.5 mr-1.5 text-blue-500 shrink-0" />{" "}
@@ -666,15 +658,6 @@ export default function DestinationFilters({
                 <div className="flex items-center whitespace-nowrap">
                   <Compass className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
                   {isJa ? "おすすめ順" : "Recommended"}
-                </div>
-              </SelectItem>
-              <SelectItem
-                value="overall"
-                className="py-2 px-3 text-xs cursor-pointer"
-              >
-                <div className="flex items-center whitespace-nowrap">
-                  <Star className="w-3.5 h-3.5 mr-2 text-amber-500" />{" "}
-                  {isJa ? "評価が高い順" : "Highest Rated"}
                 </div>
               </SelectItem>
               <SelectItem
@@ -959,17 +942,19 @@ export default function DestinationFilters({
                       {isJa ? "予算の目安" : "Budget preference"}
                     </label>
                     <span className="text-[10px] text-slate-600 dark:text-slate-300 font-semibold">
-                      {isJa ? "交通費の概算を含む" : "Includes transport"}
+                      {isJa
+                        ? "交通費込み（推定可能な場合）"
+                        : "Incl. transport when known"}
                     </span>
                   </div>
                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
                     {[
                       {
                         val: "any",
-                        label: isJa ? "指定なし" : "Any",
+                        label: isJa ? "指定なし" : "Any budget",
                         desc: isJa ? "制限なし" : "All price ranges",
-                        icon: Sparkles,
-                        color: "text-emerald-600",
+                        icon: CircleDollarSign,
+                        color: "text-slate-500",
                       },
                       {
                         val: "economy",
@@ -1006,12 +991,12 @@ export default function DestinationFilters({
                         <button
                           key={opt.val}
                           type="button"
-                          onClick={() =>
-                            setBudgetTier(opt.val as ExplorerBudgetTier)
-                          }
+                          onClick={() => setBudgetTier(opt.val as BudgetFilter)}
                           className={`min-h-[52px] px-3 py-2 rounded-xl border text-left transition-all ${
                             isSelected
-                              ? "border-emerald-500 bg-emerald-50 text-emerald-700 shadow-sm dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
+                              ? opt.val === "any"
+                                ? "border-slate-300 bg-white text-slate-900 shadow-xs dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] dark:text-[hsl(var(--text-primary))] dark:ring-1 dark:ring-emerald-400/50"
+                                : "border-emerald-500 bg-emerald-50 text-emerald-700 shadow-sm dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
                               : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] dark:text-slate-400"
                           }`}
                         >

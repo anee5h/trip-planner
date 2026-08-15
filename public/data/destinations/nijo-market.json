@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Nijo Market",
-      "description": "Nijo Market is a visitor destination in Sapporo City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+      "description": "Covered market in central Sapporo known as 'Sapporo's kitchen', with stalls selling fresh seafood — crab, sea urchin and salmon roe — as well as fruit and souvenirs. Several shops serve seafood bowls (kaisen-don), making it a popular breakfast stop.",
       "highlights": ["Food", "Market"]
     },
     "ja": {
       "name": "二条市場",
-      "description": "二条市場はSapporo Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "札幌中心部の市場。「札幌の台所」と呼ばれ、カニやウニ、イクラなどの海産物や果物を扱う店が並ぶ。海鮮丼を出す飲食店もあり、朝食やお土産選びに人気。",
       "highlights": ["グルメ", "市場"]
     }
   },
@@ -38,17 +38,8 @@
     "lat": 43.058306,
     "lng": 141.358472
   },
-  "description": "Nijo Market is a visitor destination in Sapporo City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+  "description": "Covered market in central Sapporo known as 'Sapporo's kitchen', with stalls selling fresh seafood — crab, sea urchin and salmon roe — as well as fruit and souvenirs. Several shops serve seafood bowls (kaisen-don), making it a popular breakfast stop.",
   "highlights": ["Food", "Market"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 203
   },
@@ -57,15 +48,13 @@
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 90,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
   "indoorPercent": 55,
   "comfort": {
-    "heatTolerance": 6,
-    "rainFriendly": 6,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 7,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 7.6,
@@ -82,11 +71,6 @@
     "accessibility": 9.3
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 7,
     "summer": 8.1,
@@ -97,7 +81,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Sapporo City.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -109,16 +92,16 @@
     "lifecycle": "in_review",
     "sources": [
       {
-        "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/%C5%8Cd%C5%8Dri_Station",
-        "title": "Ōdōri Station",
-        "accessedAt": "2026-07-29"
-      },
-      {
         "type": "official",
         "url": "https://nijomarket.com/",
         "title": "Nijo Market official website",
         "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nijo_Market",
+        "title": "Wikipedia article",
+        "accessedAt": "2026-08-13"
       }
     ],
     "checkedAt": "2026-07-29",
@@ -139,6 +122,22 @@
           "url": "https://en.wikipedia.org/wiki/%C5%8Cd%C5%8Dri_Station",
           "title": "Ōdōri Station",
           "accessedAt": "2026-07-29"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=55, kind='market', walkingMin=90",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 50% of 3h visit",
+          "accessedAt": "2026-08-14"
         }
       ]
     },
@@ -164,5 +163,35 @@
     "confidence": "low"
   },
   "businessHours": "Open access",
-  "municipalityId": "Hokkaido:sapporo"
+  "municipalityId": "Hokkaido:sapporo",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=55, kind='market', walkingMin=90"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

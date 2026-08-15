@@ -21,7 +21,7 @@
     "ja": {
       "name": "新宿御苑",
       "description": "広さ58ヘクタールの皇室ゆかりの庭園。日本庭園、イギリス風景式庭園、フランス式整形庭園が融合し、四季の自然や桜を楽しめます。",
-      "highlights": ["庭園 &散策", "新宿御苑の名所", "新宿御苑の名所"],
+      "highlights": ["庭園 &散策", "新宿御苑の名所"],
       "notes": "日本庭園、イギリス風景式庭園、フランス式整形庭園の3つの庭園美と四季の花々を愉しめます。",
       "reservation": "春の特別開園（桜シーズン）の混雑期は事前予約が推奨されます。",
       "parking": "新宿門横に有料駐車場が完備されています。",
@@ -73,13 +73,11 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 6.3,
@@ -96,11 +94,6 @@
     "accessibility": 6.8
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 9.5,
     "summer": 7,
@@ -160,6 +153,14 @@
           "title": "Shinjuku",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='park', walkingMin=60",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -189,5 +190,45 @@
   "parkingJa": "新宿門横に有料駐車場が完備されています。",
   "openingHours": "09:00-17:30 (Mar-Oct), 09:00-16:30 (Nov-Feb); closed Mon",
   "openingHoursJa": "09:00 - 17:30（月曜休園）",
-  "municipalityId": "Tokyo:shinjuku"
+  "municipalityId": "Tokyo:shinjuku",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "budgetMetadata": {
+    "method": "manual",
+    "modelVersion": "budget-model-v1",
+    "confidence": "low",
+    "basis": "verified ticket ¥500 preserved; peer cell 'park|half|poi' has 0 samples (< 5); components left as accepted debt"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='park', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "verified",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "high",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "editorial-review",
+      "verifiedAt": "2026-08-14",
+      "sources": [
+        "https://policies.env.go.jp/national-garden/shinjukugyoen/english/"
+      ],
+      "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
+    },
+    "noteKey": "destination.scoreVerifiedNote"
+  }
 }

@@ -39,7 +39,17 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 1.5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "relationships": {
     "parentDestinationId": "otsu-city"
@@ -98,5 +108,31 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Drone_shot_of_Mount_Hiei_and_Kyoto.jpg/1920px-Drone_shot_of_Mount_Hiei_and_Kyoto.jpg",
   "travelEstimate": {
     "confidence": "beta"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 70,
+  "walkingIntensity": "medium",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "unavailable",
+    "value": null,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "unknown",
+    "coverage": 0.3,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "evidence coverage 0.30 below threshold 0.5"
+    },
+    "noteKey": "destination.scoreUnavailable"
   }
 }

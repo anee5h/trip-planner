@@ -102,7 +102,25 @@
     ],
     "checkedAt": "2026-08-12",
     "freshness": "current",
-    "changeSummary": "PR C parks audit: new quasi-national park record"
+    "changeSummary": "PR C parks audit: new quasi-national park record",
+    "fieldSources": {
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; tropical latitude band; calibrated 6/7 trusted summer peaks",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; tropical latitude band; calibrated 6/7 trusted summer peaks",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
@@ -113,18 +131,44 @@
     "min": 2,
     "max": 5
   },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 7
-  },
   "season": {
-    "spring": 8,
-    "summer": 9,
-    "autumn": 8,
-    "winter": 7
+    "spring": 9,
+    "summer": 10,
+    "autumn": 9,
+    "winter": 6
   },
-  "bestMonths": [10, 11, 12, 1, 2, 3, 4],
-  "walkingSunMin": 80,
-  "walkingShadeMin": 40
+  "bestMonths": [5, 6, 7, 8, 9, 10],
+  "bestSeason": "Summer",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "tropical latitude band; calibrated 6/7 trusted summer peaks"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "verified",
+    "value": 6.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "high",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "editorial-review",
+      "verifiedAt": "2026-08-14",
+      "sources": ["https://www.env.go.jp/en/nature/nps/parks_list.html"],
+      "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
+    },
+    "noteKey": "destination.scoreVerifiedNote"
+  }
 }

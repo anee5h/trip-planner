@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Kasori Shell Mounds",
-      "description": "Kasori Shell Mounds is a visitor destination in Chiba City.  Visitors can experience historic architecture and local culture.",
+      "description": "Japan's largest shell midden, a Jomon-period archaeological site in Chiba City designated a national historic site. The on-site museum and the preserved mound cross-sections show how prehistoric communities lived along the coast.",
       "highlights": ["History", "Museum"],
       "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
@@ -15,9 +15,8 @@
     },
     "ja": {
       "name": "加曽利貝塚",
-      "description": "加曽利貝塚はChiba Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["加曽利貝塚の名所", "加曽利貝塚の名所"],
-      "notes": "加曽利貝塚は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "description": "縄文時代の日本最大級の貝塚で、国の史跡に指定されている。博物館と保存された貝塚の断面から、海辺で暮らした縄文人の生活をうかがい知ることができる。",
+      "highlights": ["加曽利貝塚の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:30 - 17:00（最終入館 16:30）"
@@ -47,17 +46,8 @@
     "lat": 35.623333333333,
     "lng": 140.16472222222
   },
-  "description": "Kasori Shell Mounds is a visitor destination in Chiba City.  Visitors can experience historic architecture and local culture.",
+  "description": "Japan's largest shell midden, a Jomon-period archaeological site in Chiba City designated a national historic site. The on-site museum and the preserved mound cross-sections show how prehistoric communities lived along the coast.",
   "highlights": ["History", "Museum"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 68,
     "car": 58
@@ -69,13 +59,11 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.2,
@@ -92,11 +80,6 @@
     "accessibility": 7.6
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 8.1,
     "summer": 8.6,
@@ -150,6 +133,14 @@
           "title": "Kasori Shell Mound",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=60",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -175,10 +166,39 @@
     "confidence": "low"
   },
   "businessHours": "09:30 - 17:00 (Closed Mondays)",
-  "notesJa": "加曽利貝塚は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:30 - 17:00 (Last admission 16:30)",
   "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
-  "municipalityId": "Chiba:chiba"
+  "municipalityId": "Chiba:chiba",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='museum', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

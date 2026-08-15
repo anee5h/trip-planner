@@ -16,9 +16,7 @@
   "budgetMin": 3500,
   "budgetRecommended": 8750,
   "budgetMax": 14000,
-  "walkingMin": 3500,
-  "walkingSunMin": 1000,
-  "walkingShadeMin": 2500,
+  "walkingMin": 70,
   "indoorPercent": 90,
   "ratings": {
     "overall": 9.8,
@@ -32,19 +30,14 @@
     "value": 9.2,
     "uniqueness": 9.8
   },
-  "crowd": {
-    "weekday": 6,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
-    "spring": 9,
-    "summer": 9,
-    "autumn": 9,
-    "winter": 9
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "low",
   "tags": [
     "300m Skyscraper",
@@ -57,9 +50,9 @@
     "lng": 135.5133
   },
   "comfort": {
-    "heatTolerance": 9,
-    "rainFriendly": 10,
-    "walkingIntensity": 2
+    "heatTolerance": 8,
+    "rainFriendly": 9,
+    "walkingIntensity": 5
   },
   "transportOptions": {
     "train": 180,
@@ -104,7 +97,7 @@
       "sortOrder": 1
     }
   ],
-  "walkingIntensity": "low",
+  "walkingIntensity": "medium",
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -128,7 +121,49 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=90, kind='viewpoint', walkingMin=70",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 3500 replaced by walk-share estimate (FIX_UNIT): 30% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'viewpoint' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "notesJa": "【見どころ】Abeno Harukas 300 (Osaka Skyline)は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -152,5 +187,48 @@
       ]
     }
   },
-  "municipalityId": "Osaka:osaka"
+  "municipalityId": "Osaka:osaka",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'viewpoint' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=90, kind='viewpoint', walkingMin=70"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 3500 replaced by walk-share estimate (FIX_UNIT): 30% of 4h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.6,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 1,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

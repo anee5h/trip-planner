@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Sapporo Beer Museum",
-      "description": "Sapporo Beer Museum is a visitor destination in Sapporo City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "Japan's only beer museum, housed in an 1890 red-brick building that once served as a brewery. Exhibits trace the history of Sapporo Beer since the 1870s, and the complex includes a tasting lounge and beer garden.",
       "highlights": ["Museum"]
     },
     "ja": {
       "name": "サッポロビール博物館",
-      "description": "サッポロビール博物館はSapporo Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "日本唯一のビール博物館。1890年築の赤れんがの醸造所跡を活用し、サッポロビールの歴史を紹介する。試飲コーナーやビアガーデンも併設されている。",
       "highlights": ["博物館"]
     }
   },
@@ -39,29 +39,18 @@
     "lat": 43.071666666667,
     "lng": 141.36888888889
   },
-  "description": "Sapporo Beer Museum is a visitor destination in Sapporo City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "Japan's only beer museum, housed in an 1890 red-brick building that once served as a brewery. Exhibits trace the history of Sapporo Beer since the 1870s, and the complex includes a tasting lounge and beer garden.",
   "highlights": ["Museum"],
-  "budgetMin": 3000,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
-  "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 1100,
-    "food": 1925,
-    "cafe": 550
-  },
   "transportOptions": {
     "train": 203
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 4
+    "min": 1.5,
+    "max": 3
   },
-  "walkingMin": 3000,
-  "walkingIntensity": "low",
-  "walkingSunMin": 500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 55,
+  "walkingIntensity": "medium",
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
@@ -83,11 +72,6 @@
     "accessibility": 7.5
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 8.6,
     "summer": 6.3,
@@ -98,7 +82,6 @@
   "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Sapporo City.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -141,6 +124,22 @@
           "title": "Sapporo Beer Museum",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'museum'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 30% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -164,5 +163,35 @@
     "confidence": "low"
   },
   "businessHours": "11:00 - 18:00 (Closed Mondays)",
-  "municipalityId": "Hokkaido:sapporo"
+  "municipalityId": "Hokkaido:sapporo",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'museum'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.3,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

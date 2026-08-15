@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Shonan Kaigan Park",
-      "description": "Shonan Kaigan Park is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Coastal park stretching along the Shonan shoreline in Fujisawa, with lawns, pine groves and sea views across Sagami Bay. Close to Katase Higashihama Beach, it is a pleasant spot for a stroll or a rest between swimming and sightseeing.",
       "highlights": ["Nature"],
       "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
       "reservation": "Open access; no entrance reservation required.",
@@ -15,7 +15,7 @@
     },
     "ja": {
       "name": "湘南海岸公園",
-      "description": "湘南海岸公園 (藤沢市)はFujisawa Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "藤沢市の湘南海岸沿いに広がる公園。芝生広場と松林が続き、相模湾の海を望む。片瀬東浜海水浴場に近く、海水浴や散策の合間の休憩にもぴったり。",
       "highlights": ["湘南海岸公園の名所"],
       "notes": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,34 +47,23 @@
     "lat": 35.31611111,
     "lng": 139.47083333
   },
-  "description": "Shonan Kaigan Park is a visitor destination in Fujisawa City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Coastal park stretching along the Shonan shoreline in Fujisawa, with lawns, pine groves and sea views across Sagami Bay. Close to Katase Higashihama Beach, it is a pleasant spot for a stroll or a rest between swimming and sightseeing.",
   "highlights": ["Nature"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 49
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {
-    "min": 1.5,
+    "min": 2,
     "max": 4
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 9.4,
@@ -91,11 +80,6 @@
     "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 6.3,
     "summer": 7.2,
@@ -118,16 +102,16 @@
     "lifecycle": "published",
     "sources": [
       {
-        "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Shonan_Monorail",
-        "title": "Shonan Monorail",
-        "accessedAt": "2026-07-29"
-      },
-      {
         "type": "official",
         "url": "https://www.s-n-p.jp/shonankaigan_park/",
         "title": "Shonan Kaigan Park official website",
         "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Shonan_Kaigan_Park",
+        "title": "Wikipedia article",
+        "accessedAt": "2026-08-13"
       }
     ],
     "checkedAt": "2026-08-02",
@@ -148,6 +132,22 @@
           "url": "https://en.wikipedia.org/wiki/Shonan_Monorail",
           "title": "Shonan Monorail",
           "accessedAt": "2026-07-29"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'park'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='park', walkingMin=60",
+          "accessedAt": "2026-08-14"
         }
       ]
     },
@@ -179,5 +179,47 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
-  "municipalityId": "Kanagawa:fujisawa"
+  "municipalityId": "Kanagawa:fujisawa",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'park'"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='park', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

@@ -48,15 +48,8 @@
     "uniqueness": 9
   },
   "totalTripHours": 5,
-  "walkingMin": 4000,
-  "walkingSunMin": 2000,
-  "walkingShadeMin": 2000,
+  "walkingMin": 180,
   "indoorPercent": 10,
-  "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 8
-  },
   "season": {
     "spring": 8,
     "summer": 9,
@@ -67,11 +60,11 @@
   "bestSeason": "Autumn",
   "weatherDependence": "high",
   "comfort": {
-    "heatTolerance": 8,
-    "rainFriendly": 5,
-    "walkingIntensity": 2
+    "heatTolerance": 5,
+    "rainFriendly": 2,
+    "walkingIntensity": 8
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "reservation": "None required",
   "parking": "Available at Yasumiya",
   "notes": "Shared between Aomori and Akita prefectures. The trailhead for Oirase Gorge walk starts at Nenokuchi on the lake shore.",
@@ -110,12 +103,54 @@
         "summary": "KAI-57 existing-data audit correction",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=10, kind='', walkingMin=180",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 50% of 6h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "Public domain",
     "attribution": "Soica2001 (talk)",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Towada_from_Ohanabe_2008.jpg"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=10, kind='', walkingMin=180"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.3,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

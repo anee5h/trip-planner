@@ -27,17 +27,15 @@
   },
   "totalTripHours": 9,
   "walkingMin": 80,
-  "walkingSunMin": 55,
-  "walkingShadeMin": 25,
   "indoorPercent": 40,
   "coordinates": {
     "lat": 36.0469,
     "lng": 138.1189
   },
   "comfort": {
-    "walkingIntensity": 2,
-    "heatTolerance": 8,
-    "rainFriendly": 5
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.8,
@@ -50,11 +48,6 @@
     "relaxation": 9,
     "value": 8.2,
     "uniqueness": 9
-  },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 7,
-    "holiday": 8
   },
   "season": {
     "spring": 8,
@@ -94,5 +87,29 @@
     "max": 10
   },
   "officialWebsite": "https://www.suwakanko.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=40, kind='', walkingMin=80"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

@@ -3,6 +3,10 @@ export type Vibe =
 
 export type PartyProfile = "solo" | "couple" | "group";
 export type BudgetTier = "economy" | "standard" | "comfortable" | "luxury";
+/** Explore budget filter: "any" = no restriction (a REAL tier never doubles
+ *  as the unselected state); a tier caps the party-aware, transport-inclusive
+ *  trip cost at BUDGET_TIER_LIMITS[tier]. */
+export type BudgetFilter = "any" | BudgetTier;
 export type PriceRange = readonly [min: number, max: number];
 export type CatchmentScope = "nearby" | "wider";
 

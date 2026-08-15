@@ -51,18 +51,15 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsushima_Town-Hall.jpg"
   },
   "recommendedVisitHours": {
-    "min": 6,
-    "max": 8
+    "min": 8,
+    "max": 12
   },
-  "walkingMin": 6000,
-  "walkingSunMin": 3000,
-  "walkingShadeMin": 3000,
-  "walkingIntensity": "medium",
+  "walkingMin": 360,
+  "walkingIntensity": "high",
   "indoorPercent": 30,
   "comfort": {
-    "heatTolerance": 6,
-    "rainFriendly": 5,
-    "walkingIntensity": 5
+    "heatTolerance": 5,
+    "rainFriendly": 5
   },
   "ratings": {
     "overall": 8.8,
@@ -84,11 +81,6 @@
     "autumn": 9.4
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 7,
-    "holiday": 8
-  },
   "season": {
     "spring": 9,
     "summer": 8.4,
@@ -156,7 +148,33 @@
         "summary": "Added Matsushima Town hub",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 9 children, metro=false",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=30, kind='town', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6000 replaced by walk-share estimate (FIX_UNIT): 50% of 12h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -177,5 +195,42 @@
     ],
     "nearbyDestinationIds": ["sendai-city"]
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance major, 9 children, metro=false"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=30, kind='town', walkingMin=unknown"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 6000 replaced by walk-share estimate (FIX_UNIT): 50% of 12h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.9,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 1,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

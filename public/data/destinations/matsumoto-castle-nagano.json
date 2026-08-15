@@ -29,11 +29,6 @@
     "value": 9.5,
     "uniqueness": 9.8
   },
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 9.8,
     "summer": 8.5,
@@ -65,16 +60,13 @@
   "transportOptions": {
     "train": 160
   },
-  "walkingSunMin": 72,
-  "walkingShadeMin": 48,
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "reservation": "None required",
   "parking": "Available on site",
-  "notes": "Matsumoto Castle (Crow Castle) located in Nagano Prefecture.",
   "relationships": {
     "featuredDestinationIds": [],
     "nearbyDestinationIds": [],
@@ -83,8 +75,8 @@
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 4
+    "min": 2.5,
+    "max": 5
   },
   "officialWebsite": "https://www.matsumoto-castle.jp/",
   "businessHours": "09:00 - 17:00 (Last admission 16:30)",
@@ -94,5 +86,35 @@
     "license": "CC BY-SA 4.0",
     "attribution": "Lightning toothed whale (稲妻ノ歯鯨)\n\n This photo was taken with Canon EOS 500D",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Matsumoto_Castle_Keep_Tower.jpg"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'castle' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=40, kind='castle', walkingMin=120"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.6,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 1,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

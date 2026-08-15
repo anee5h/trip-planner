@@ -2,22 +2,20 @@
   "id": "narita-airport-observation-decks",
   "name": "Narita Airport Observation Decks",
   "nameJa": "成田国際空港",
-  "aliases": ["Haneda Airport", "東京国際空港"],
+  "aliases": [],
   "content": {
     "en": {
       "name": "Narita Airport Observation Decks",
-      "description": "Narita Airport Observation Decks is a visitor destination in Narita City.  Visitors can experience the area's character and main sights.",
+      "description": "Free observation decks at Narita Airport: the Terminal 1 deck on the fifth floor overlooks the 4,000-meter Runway A, one of Japan's best plane-spotting viewpoints, and Terminal 2 has its own deck. Both sit landside, so no boarding pass is needed.",
       "highlights": ["Viewpoint"],
-      "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
       "reservation": "Online advance ticket reservation recommended on weekends.",
       "parking": "Facility parking structure available.",
       "openingHours": "09:30 - 17:00 (Last admission 16:30)"
     },
     "ja": {
-      "name": "東京国際空港",
-      "description": "東京国際空港はNarita Cityにある観光スポットです。地域の雰囲気や見どころを気軽に楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "成田国際空港",
+      "description": "成田空港の無料展望デッキ。第1ターミナル5階の展望デッキからは全長4,000mのA滑走路を一望でき、離着陸する飛行機を間近で見られる。第2ターミナルにも展望デッキがあり、搭乗券なしで利用可能。",
       "highlights": ["東京国際空港の名所"],
-      "notes": "東京国際空港は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:30 - 17:00（最終入館 16:30）"
@@ -32,7 +30,7 @@
   "relationships": {
     "parentDestinationId": "narita-city"
   },
-  "officialWebsite": "http://www.haneda-airport.jp",
+  "officialWebsite": "https://www.narita-airport.jp/en/fun/view/",
   "officialWebsiteRequirement": "optional",
   "categories": ["Viewpoint"],
   "tags": ["Viewpoint", "Narita City"],
@@ -47,19 +45,10 @@
     "lat": 35.7647,
     "lng": 140.3863
   },
-  "description": "Narita Airport Observation Decks is a visitor destination in Narita City.  Visitors can experience the area's character and main sights.",
+  "description": "Free observation decks at Narita Airport: the Terminal 1 deck on the fifth floor overlooks the 4,000-meter Runway A, one of Japan's best plane-spotting viewpoints, and Terminal 2 has its own deck. Both sit landside, so no boarding pass is needed.",
   "highlights": ["Viewpoint"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1300,
-    "tickets": 0,
-    "food": 2300,
-    "cafe": 400
-  },
   "transportOptions": {
-    "train": 205
+    "train": 70
   },
   "totalTripHours": 5,
   "recommendedVisitHours": {
@@ -68,13 +57,11 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 9.5,
@@ -91,11 +78,6 @@
     "accessibility": 8.4
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 7.7,
     "summer": 8.8,
@@ -106,7 +88,6 @@
   "weatherDependence": "moderate",
   "reservation": "Online advance ticket reservation recommended on weekends.",
   "parking": "Facility parking structure available.",
-  "notes": "Check current special exhibition schedules and arrive 15 minutes before opening.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -119,15 +100,15 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Haneda_Airport",
-        "title": "Haneda Airport",
-        "accessedAt": "2026-07-29"
+        "url": "https://www.narita-airport.jp/en/fun/view/",
+        "title": "Wikipedia article",
+        "accessedAt": "2026-08-13"
       },
       {
-        "type": "official",
-        "url": "http://www.haneda-airport.jp",
-        "title": "Narita Airport Observation Decks official website",
-        "accessedAt": "2026-07-29"
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Narita_International_Airport",
+        "title": "Wikipedia article",
+        "accessedAt": "2026-08-13"
       }
     ],
     "checkedAt": "2026-08-02",
@@ -148,6 +129,14 @@
           "url": "https://en.wikipedia.org/wiki/Haneda_Airport",
           "title": "Haneda Airport",
           "accessedAt": "2026-07-29"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='museum', walkingMin=60",
+          "accessedAt": "2026-08-14"
         }
       ]
     },
@@ -174,10 +163,39 @@
     "confidence": "low"
   },
   "businessHours": "Open access",
-  "notesJa": "東京国際空港は、Chibaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:30 - 17:00 (Last admission 16:30)",
   "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
-  "municipalityId": "Chiba:narita"
+  "municipalityId": "Chiba:narita",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='museum', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

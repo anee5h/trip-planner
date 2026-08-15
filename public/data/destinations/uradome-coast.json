@@ -45,13 +45,11 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uradome_Kaigan_-01.jpg"
   },
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 4
+    "min": 3,
+    "max": 6
   },
-  "walkingMin": 5000,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 1000,
-  "walkingIntensity": "low",
+  "walkingMin": 290,
+  "walkingIntensity": "high",
   "indoorPercent": 5,
   "comfort": {
     "heatTolerance": 6,
@@ -71,11 +69,6 @@
     "uniqueness": 9.2
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 2,
-    "weekend": 5,
-    "holiday": 6
-  },
   "season": {
     "spring": 8,
     "summer": 9,
@@ -142,7 +135,25 @@
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'nature'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 5000 replaced by walk-share estimate (FIX_UNIT): 80% of 6h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -152,5 +163,36 @@
   "relationships": {
     "gatewayHubId": "tottori-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 5000 replaced by walk-share estimate (FIX_UNIT): 80% of 6h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.5,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

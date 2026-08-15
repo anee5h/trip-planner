@@ -52,8 +52,8 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 4,
+    "max": 8
   },
   "officialWebsite": "https://www.oze-fnd.or.jp/",
   "businessHours": "Open access",
@@ -71,7 +71,25 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'nature' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 8h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "尾瀬国立公園",
   "content": {
@@ -122,5 +140,33 @@
   "bestSeason": "Summer & Autumn",
   "travelEstimate": {
     "confidence": "beta"
+  },
+  "walkingMin": 385,
+  "walkingIntensity": "high",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature' + scale uplift"
+  },
+  "scoreMetadata": {
+    "state": "verified",
+    "value": 6.6,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "high",
+    "coverage": 0.5,
+    "provenance": {
+      "sourceClass": "editorial-review",
+      "verifiedAt": "2026-08-14",
+      "sources": ["https://www.env.go.jp/park/oze/index.html"],
+      "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
+    },
+    "noteKey": "destination.scoreVerifiedNote"
   }
 }

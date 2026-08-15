@@ -2,11 +2,11 @@
   "id": "renkeiji",
   "name": "Renkeiji",
   "nameJa": "蓮馨寺",
-  "aliases": ["Hon-Kawagoe Station", "本川越駅"],
+  "aliases": [],
   "content": {
     "en": {
       "name": "Renkeiji",
-      "description": "Renkeiji is a visitor destination in Kawagoe City.  Visitors can experience historic architecture and local culture.",
+      "description": "Jodo-shu temple in Kawagoe's old town, founded in the mid-16th century under the patronage of the lords of Kawagoe Castle and dedicated to Amida Nyorai. Its quiet grounds sit close to Hon-Kawagoe Station, easy to include in a stroll of the historic district.",
       "highlights": ["History"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -14,8 +14,8 @@
       "openingHours": "08:30 - 16:30"
     },
     "ja": {
-      "name": "本川越駅",
-      "description": "本川越駅はKawagoe Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "蓮馨寺",
+      "description": "川越の市街地にある浄土宗の寺院。16世紀半ばに川越城ゆかりの人物によって創建され、阿弥陀如来を本尊とする。本川越駅から近く、歴史的な町並み散策の途中に立ち寄りやすい。",
       "highlights": ["本川越駅の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -32,7 +32,7 @@
   "relationships": {
     "parentDestinationId": "kawagoe-city"
   },
-  "officialWebsite": "https://www.seiburailway.jp/railway/station/hon-kawagoe/",
+  "officialWebsite": "https://renkeiji.jp/",
   "officialWebsiteRequirement": "optional",
   "categories": ["History"],
   "tags": ["History", "Kawagoe City"],
@@ -47,17 +47,8 @@
     "lat": 35.91376389,
     "lng": 139.4811833
   },
-  "description": "Renkeiji is a visitor destination in Kawagoe City.  Visitors can experience historic architecture and local culture.",
+  "description": "Jodo-shu temple in Kawagoe's old town, founded in the mid-16th century under the patronage of the lords of Kawagoe Castle and dedicated to Amida Nyorai. Its quiet grounds sit close to Hon-Kawagoe Station, easy to include in a stroll of the historic district.",
   "highlights": ["History"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 40
   },
@@ -68,13 +59,11 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 25,
   "comfort": {
-    "heatTolerance": 3,
-    "rainFriendly": 3,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 6.6,
@@ -91,11 +80,6 @@
     "accessibility": 9
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 7.9,
     "summer": 6.8,
@@ -119,15 +103,15 @@
     "sources": [
       {
         "type": "wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Hon-Kawagoe_Station",
-        "title": "Hon-Kawagoe Station",
-        "accessedAt": "2026-07-29"
+        "url": "https://renkeiji.jp/",
+        "title": "Wikipedia article",
+        "accessedAt": "2026-08-13"
       },
       {
-        "type": "official",
-        "url": "https://www.seiburailway.jp/railway/station/hon-kawagoe/",
-        "title": "Renkeiji official website",
-        "accessedAt": "2026-07-29"
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Renkei-ji",
+        "title": "Wikipedia article",
+        "accessedAt": "2026-08-13"
       }
     ],
     "checkedAt": "2026-08-02",
@@ -148,6 +132,14 @@
           "url": "https://en.wikipedia.org/wiki/Hon-Kawagoe_Station",
           "title": "Hon-Kawagoe Station",
           "accessedAt": "2026-07-29"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=25, kind='temple', walkingMin=60",
+          "accessedAt": "2026-08-14"
         }
       ]
     },
@@ -179,5 +171,41 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "08:30 - 16:30",
   "openingHoursJa": "08:30 - 16:30（境内自由）",
-  "municipalityId": "Saitama:kawagoe"
+  "municipalityId": "Saitama:kawagoe",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=25, kind='temple', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

@@ -5,7 +5,6 @@
   "region": "Chubu",
   "categories": ["Lake", "Hot Spring"],
   "tags": ["Eel", "Cycling", "Onsen"],
-  "budgetRecommended": 11000,
   "ratings": {
     "overall": 8.2,
     "photography": 8.4,
@@ -25,32 +24,17 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg",
   "prefecture": "Shizuoka",
-  "budgetMin": 7000,
-  "budgetMax": 15000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
+  "walkingMin": 190,
   "comfort": {
-    "heatTolerance": 5,
-    "rainFriendly": 4,
-    "walkingIntensity": 5
+    "heatTolerance": 7,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "train": 130,
     "car": 160,
     "shinkansen": 78
-  },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
   },
   "highlights": [
     "Explore top-rated lake locations",
@@ -58,13 +42,6 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Lake Hamanako, a prominent destination in Shizuoka. With its rich mix of eel, cycling, onsen, it's a highly recommended spot for a 8-hour getaway.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "budgetBreakdown": {
-    "transport": 4400,
-    "tickets": 2200,
-    "food": 3300,
-    "cafe": 1100
-  },
   "notes": "A fantastic trip to Lake Hamanako. Known for its eel and cycling vibes, it offers a great escape with an overall score of 8.2.",
   "schemaVersion": 2,
   "status": "verified",
@@ -76,7 +53,6 @@
     "parentDestinationId": "hamamatsu-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lake_Hamana_Aerial_photograph.2006.jpg/1280px-Lake_Hamana_Aerial_photograph.2006.jpg",
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "reservation": "None required",
   "parking": "Available on site",
@@ -85,8 +61,8 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 2,
+    "max": 4
   },
   "officialWebsite": "https://www.hamanakako.or.jp/",
   "businessHours": "09:00 - 17:00 (Daily)",
@@ -96,5 +72,35 @@
     "license": "Attribution",
     "attribution": "国土地理院",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Hamana_Aerial_photograph.2006.jpg"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'lake'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

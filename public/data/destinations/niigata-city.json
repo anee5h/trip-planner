@@ -24,8 +24,6 @@
   },
   "totalTripHours": 8,
   "walkingMin": 90,
-  "walkingSunMin": 50,
-  "walkingShadeMin": 40,
   "indoorPercent": 40,
   "ratings": {
     "overall": 8.8,
@@ -39,19 +37,6 @@
     "value": 8.8,
     "uniqueness": 8.7
   },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 5,
-    "summer": 4,
-    "autumn": 5,
-    "winter": 4
-  },
-  "bestMonths": [3, 4, 5, 10, 11],
-  "bestSeason": "Spring",
   "weatherDependence": "moderate",
   "tags": ["Core Designated City", "Metropolis Hub", "Niigata"],
   "reservation": "Not required",
@@ -87,9 +72,9 @@
     "cafe": 2500
   },
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 6,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
@@ -98,5 +83,35 @@
     "max": 14
   },
   "businessHours": "Open access",
-  "municipalityId": "Niigata:niigata"
+  "municipalityId": "Niigata:niigata",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=40, kind='', walkingMin=90"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

@@ -6,16 +6,16 @@
   "content": {
     "en": {
       "name": "Engakuji",
-      "description": "Engakuji is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+      "description": "A major Rinzai Zen temple in Kamakura, ranked second among the city’s Five Mountains and known for lectures and zazen sessions.",
       "highlights": ["History"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
-      "parking": "Temple visitor parking available on site.",
+      "parking": "No on-site parking; use nearby paid coin parking.",
       "openingHours": "08:30 - 16:30"
     },
     "ja": {
       "name": "円覚寺",
-      "description": "円覚寺はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "円覚寺は鎌倉五山第二位に数えられる臨済宗の大本山で、法話会や坐禅会も開かれる禅寺です。",
       "highlights": ["円覚寺の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,14 +47,14 @@
     "lat": 35.33770445,
     "lng": 139.54749763
   },
-  "description": "Engakuji is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+  "description": "A major Rinzai Zen temple in Kamakura, ranked second among the city’s Five Mountains and known for lectures and zazen sessions.",
   "highlights": ["History"],
   "budgetMin": 1500,
   "budgetRecommended": 4000,
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 800,
+    "tickets": 500,
     "food": 1400,
     "cafe": 400
   },
@@ -68,13 +68,11 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 25,
   "comfort": {
-    "heatTolerance": 3,
-    "rainFriendly": 3,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.1,
@@ -91,11 +89,6 @@
     "accessibility": 7.1
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 8.4,
     "summer": 7.9,
@@ -105,7 +98,7 @@
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
   "reservation": "No reservation required for general temple ground visits.",
-  "parking": "Temple visitor parking available on site.",
+  "parking": "No on-site parking; use nearby paid coin parking.",
   "notes": "Early morning visits provide a serene experience before tour groups arrive.",
   "schemaVersion": 2,
   "status": "published",
@@ -130,9 +123,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-08-02",
+    "checkedAt": "2026-08-13",
     "freshness": "current",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "changeSummary": "KAI-89 source-backed template-copy correction",
     "fieldSources": {
       "ratings": [
         {
@@ -149,6 +142,46 @@
           "title": "Engaku-ji",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "http://www.engakuji.or.jp",
+          "title": "Engakuji official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "http://www.engakuji.or.jp",
+          "title": "Engakuji official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "http://www.engakuji.or.jp",
+          "title": "Engakuji official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "parking": [
+        {
+          "type": "official",
+          "url": "https://www.engakuji.or.jp/en/",
+          "title": "ENGAKUJI ZEN TEMPLE",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=25, kind='temple', walkingMin=60",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -163,6 +196,12 @@
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
+        "method": "assisted"
       }
     ],
     "reviewedAt": "2026-08-02",
@@ -173,11 +212,35 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "08:30 - 17:00 (Last admission 16:30)",
+  "businessHours": "08:30 - 16:30 (Last admission 16:00), Dec-Feb 08:30 - 16:00",
   "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "08:30 - 16:30",
   "openingHoursJa": "08:30 - 16:30（境内自由）",
-  "municipalityId": "Kanagawa:kamakura"
+  "municipalityId": "Kanagawa:kamakura",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=25, kind='temple', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

@@ -28,8 +28,6 @@
   },
   "totalTripHours": 12,
   "walkingMin": 180,
-  "walkingSunMin": 90,
-  "walkingShadeMin": 90,
   "indoorPercent": 5,
   "coordinates": {
     "lat": 36.2494,
@@ -91,10 +89,28 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 11,
-    "max": 13
+    "min": 5,
+    "max": 10
   },
   "officialWebsite": "https://www.kamikochi.or.jp/",
   "businessHours": "Open access",
-  "municipalityId": "Nagano:matsumoto"
+  "municipalityId": "Nagano:matsumoto",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'mountain' + scale uplift"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

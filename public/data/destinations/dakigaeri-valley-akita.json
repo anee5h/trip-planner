@@ -48,15 +48,8 @@
     "uniqueness": 8.7
   },
   "totalTripHours": 3,
-  "walkingMin": 5000,
-  "walkingSunMin": 1000,
-  "walkingShadeMin": 4000,
+  "walkingMin": 120,
   "indoorPercent": 5,
-  "crowd": {
-    "weekday": 2,
-    "weekend": 5,
-    "holiday": 7
-  },
   "season": {
     "spring": 10,
     "summer": 8,
@@ -67,11 +60,11 @@
   "bestSeason": "Spring & Autumn",
   "weatherDependence": "high",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 6,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 2,
+    "walkingIntensity": 8
   },
-  "walkingIntensity": "moderate",
+  "walkingIntensity": "high",
   "reservation": "None required",
   "parking": "Small car park at trailhead",
   "notes": "Name literally means \"embracing return valley\" — the narrow path forces walkers to embrace the cliff face to pass. Trail is about 4 km return to the waterfall.",
@@ -110,12 +103,61 @@
         "summary": "KAI-57 existing-data audit correction",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=5, kind='', walkingMin=120",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 5000 replaced by walk-share estimate (FIX_UNIT): 50% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "attribution": "掬茶",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dakigaeri_Gorge_and_Kamino-iwahashi_20201101.jpg"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=5, kind='', walkingMin=120"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 5000 replaced by walk-share estimate (FIX_UNIT): 50% of 4h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.3,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

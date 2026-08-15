@@ -3,6 +3,7 @@ import type { Destination } from "@/shared/types/destination";
 import {
   calculateItemizedTripCost,
   formatLocalizedJPYRange,
+  hasKnownBudgetRange,
 } from "@/shared/services/budget/BudgetService";
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
@@ -67,6 +68,7 @@ export function TripCostBreakdownWidget({
         transport:
           planCostBreakdown.originTransport.min +
           planCostBreakdown.localTransit.min,
+        localTransit: planCostBreakdown.localTransit.min,
         transportAvailable:
           planCostBreakdown.originTransport.applicable ||
           planCostBreakdown.localTransit.applicable,
@@ -84,6 +86,7 @@ export function TripCostBreakdownWidget({
         partyRange: planCostBreakdown.totalRange,
         perPersonRange: planCostBreakdown.totalRange,
         durationKnown: true,
+        budgetAvailable: true,
       };
     }
     return calculateItemizedTripCost(destination, {
@@ -105,6 +108,7 @@ export function TripCostBreakdownWidget({
     viewMode === "party"
       ? range
       : [Math.round(range[0] / partySize), Math.round(range[1] / partySize)];
+  const hasKnownCost = Boolean(planCostBreakdown || cost.budgetAvailable);
   const transportRange: [number, number] = planCostBreakdown
     ? [
         planCostBreakdown.originTransport.min +
@@ -112,7 +116,10 @@ export function TripCostBreakdownWidget({
         planCostBreakdown.originTransport.max +
           planCostBreakdown.localTransit.max,
       ]
-    : [cost.transport, cost.transport];
+    : [
+        cost.transport + (cost.localTransit ?? 0),
+        cost.transport + (cost.localTransit ?? 0),
+      ];
   const admissionRange: [number, number] = planCostBreakdown
     ? [planCostBreakdown.admission.min, planCostBreakdown.admission.max]
     : [cost.tickets, cost.tickets];
@@ -129,11 +136,15 @@ export function TripCostBreakdownWidget({
     : [cost.parking, cost.parking];
   const hasMeals = planCostBreakdown
     ? planCostBreakdown.meals.applicable
-    : cost.food !== null;
+    : hasKnownCost && cost.food !== null;
   const hasCafe = !planCostBreakdown && cafeRange[1] > 0;
-  const hasTransport = planCostBreakdown
-    ? planCostBreakdown.localTransit.applicable
-    : cost.transportAvailable && transportRange[1] > 0;
+  // Transport visibility follows the DISPLAYED ROW (origin + on-site/local
+  // transit combined), not origin availability alone: when origin transport
+  // is unavailable but the on-site allowance is known, the row must still
+  // show (its amount is part of the total) with an origin-excluded note.
+  const hasTransport = transportRange[1] > 0;
+  const originTransportExcluded =
+    !planCostBreakdown && hasTransport && !cost.transportAvailable;
   const hasParking = planCostBreakdown
     ? planCostBreakdown.parking.applicable
     : parkingRange[1] > 0;
@@ -181,9 +192,16 @@ export function TripCostBreakdownWidget({
 
   const lowerCostAlternatives = useMemo(() => {
     const combos = findNearbyCombinations(destination, undefined, 5);
+    // KAI-89: only FINITE known ranges may be compared — an unknown budget
+    // (budgetMetadata.method "unknown", value absent) must never qualify as
+    // "Lower-Cost" via a (?? 0) fallback. Both sides must be finite.
+    const destMin = destination.budgetMin;
+    if (!Number.isFinite(destMin)) return [];
     return combos
       .map((c) => c.secondary)
-      .filter((sec) => (sec.budgetMin ?? 0) <= (destination.budgetMin ?? 0))
+      .filter(
+        (sec) => Number.isFinite(sec.budgetMin) && sec.budgetMin! <= destMin!,
+      )
       .slice(0, 2);
   }, [destination]);
 
@@ -250,7 +268,11 @@ export function TripCostBreakdownWidget({
                 {locale === "ja" ? "概算合計" : "Est. Range"}
               </div>
               <div className="text-base font-extrabold text-slate-900 dark:text-white">
-                {formatLocalizedJPYRange(totalRange, locale)}
+                {hasKnownCost
+                  ? formatLocalizedJPYRange(totalRange, locale)
+                  : locale === "ja"
+                    ? "料金不明"
+                    : "Cost unavailable"}
               </div>
             </div>
 
@@ -325,7 +347,11 @@ export function TripCostBreakdownWidget({
                       : "Per Person Total"}
                 </span>
                 <div className="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">
-                  {formatLocalizedJPYRange(displayedTotalRange, locale)}
+                  {hasKnownCost
+                    ? formatLocalizedJPYRange(displayedTotalRange, locale)
+                    : locale === "ja"
+                      ? "料金不明"
+                      : "Cost unavailable"}
                 </div>
               </div>
 
@@ -348,7 +374,7 @@ export function TripCostBreakdownWidget({
                       ) : activeTransportMode ? (
                         <Train className="w-4 h-4 text-emerald-500 shrink-0" />
                       ) : null}
-                      {locale === "ja" ? "現地交通費" : "Local transport"}
+                      {locale === "ja" ? "交通費" : "Transport"}
                     </span>
                     <span className="text-slate-900 dark:text-white">
                       {formatLocalizedJPYRange(
@@ -359,6 +385,13 @@ export function TripCostBreakdownWidget({
                       )}
                     </span>
                   </div>
+                  {originTransportExcluded && (
+                    <div className="text-[10px] font-semibold text-slate-400 dark:text-slate-500">
+                      {locale === "ja"
+                        ? "往復の交通費は推定できません。現地の交通費のみを含みます。"
+                        : "Origin transport not estimated; on-site transit only."}
+                    </div>
+                  )}
                   <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-emerald-500 rounded-full transition-all"
@@ -379,20 +412,24 @@ export function TripCostBreakdownWidget({
                       : "Admission Tickets"}
                   </span>
                   <span className="text-slate-900 dark:text-white">
-                    {cost.isFreeTicket
+                    {!hasKnownCost
                       ? locale === "ja"
-                        ? "無料"
-                        : "Free"
-                      : planCostBreakdown?.admission.source === "unknown"
+                        ? "料金不明"
+                        : "Cost unavailable"
+                      : cost.isFreeTicket
                         ? locale === "ja"
-                          ? "変動・未確認"
-                          : "Variable / unknown admission"
-                        : formatLocalizedJPYRange(
-                            viewMode === "party"
-                              ? admissionRange
-                              : displayRange(admissionRange),
-                            locale,
-                          )}
+                          ? "無料"
+                          : "Free"
+                        : planCostBreakdown?.admission.source === "unknown"
+                          ? locale === "ja"
+                            ? "変動・未確認"
+                            : "Variable / unknown admission"
+                          : formatLocalizedJPYRange(
+                              viewMode === "party"
+                                ? admissionRange
+                                : displayRange(admissionRange),
+                              locale,
+                            )}
                   </span>
                 </div>
                 <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
@@ -558,14 +595,18 @@ export function TripCostBreakdownWidget({
                           </h5>
                           <div className="text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1 font-semibold">
                             <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
-                            {alt.budgetMin === 0
-                              ? locale === "ja"
-                                ? "無料"
-                                : "Free"
-                              : formatLocalizedJPYRange(
-                                  [alt.budgetMin, alt.budgetMax],
-                                  locale,
-                                )}
+                            {hasKnownBudgetRange(alt)
+                              ? alt.budgetMin === 0
+                                ? locale === "ja"
+                                  ? "無料"
+                                  : "Free"
+                                : formatLocalizedJPYRange(
+                                    [alt.budgetMin, alt.budgetMax],
+                                    locale,
+                                  )
+                              : locale === "ja"
+                                ? "料金不明"
+                                : "Cost unavailable"}
                           </div>
                         </div>
                       </Link>

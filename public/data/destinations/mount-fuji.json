@@ -28,23 +28,16 @@
   "budgetMin": 2000,
   "budgetMax": 10000,
   "totalTripHours": 8,
-  "walkingMin": 10000,
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 6000,
+  "walkingMin": 480,
   "comfort": {
-    "heatTolerance": 5,
-    "rainFriendly": 4,
-    "walkingIntensity": 5
+    "heatTolerance": 7,
+    "rainFriendly": 1,
+    "walkingIntensity": 8
   },
   "transportOptions": {
     "car": 120,
     "train": 110,
     "bus": 120
-  },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
   },
   "season": {
     "spring": 6,
@@ -101,9 +94,48 @@
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
-    "max": 9
+    "min": 5,
+    "max": 10
   },
   "officialWebsite": "https://www.fujisan-climb.jp/",
-  "businessHours": "Open access"
+  "businessHours": "Open access",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'mountain' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=0, kind='mountain', walkingMin=480"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 480 replaced by walk-share estimate (FIX_UNIT): 80% of 10h visit"
+  },
+  "scoreMetadata": {
+    "state": "verified",
+    "value": 7.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "high",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "editorial-review",
+      "verifiedAt": "2026-08-14",
+      "sources": ["https://whc.unesco.org/en/list/1418/"],
+      "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
+    },
+    "noteKey": "destination.scoreVerifiedNote"
+  }
 }

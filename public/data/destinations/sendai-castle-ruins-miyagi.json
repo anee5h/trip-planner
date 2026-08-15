@@ -53,15 +53,8 @@
     "uniqueness": 8.5
   },
   "totalTripHours": 2,
-  "walkingMin": 2000,
-  "walkingSunMin": 1200,
-  "walkingShadeMin": 800,
+  "walkingMin": 110,
   "indoorPercent": 30,
-  "crowd": {
-    "weekday": 3,
-    "weekend": 5,
-    "holiday": 7
-  },
   "season": {
     "spring": 9,
     "summer": 9,
@@ -72,11 +65,11 @@
   "bestSeason": "All Year",
   "weatherDependence": "moderate",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 2
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "high",
   "reservation": "None required",
   "parking": "Limited; use Loople Sendai bus from station",
   "notes": "The castle's buildings were lost to fires in the 17th century and 1882, and the grounds were damaged in WWII bombing. Today the stone walls, turret foundations and the equestrian statue remain. Free admission to grounds; the site museum charges admission.",
@@ -123,12 +116,54 @@
         "summary": "KAI-57 existing-data audit correction",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=30, kind='castle', walkingMin=110",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 2000 replaced by walk-share estimate (FIX_UNIT): 60% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "imageMetadata": {
     "source": "Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "attribution": "掬茶",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Waki-yagura_of_Sendai_Castle_20220910b.jpg"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=30, kind='castle', walkingMin=110"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

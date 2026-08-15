@@ -46,7 +46,25 @@
         "type": "official"
       }
     ],
-    "reviewedBy": "Okinawa Regional Editorial Batch"
+    "reviewedBy": "Okinawa Regional Editorial Batch",
+    "fieldSources": {
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; tropical latitude band; calibrated 6/7 trusted summer peaks",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; tropical latitude band; calibrated 6/7 trusted summer peaks",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
@@ -104,26 +122,19 @@
     "Kuroshio Sea tank viewing"
   ],
   "collections": [],
-  "crowd": {
-    "weekday": 6,
-    "weekend": 9,
-    "holiday": 10
-  },
   "season": {
     "spring": 9,
-    "summer": 9,
+    "summer": 10,
     "autumn": 9,
-    "winter": 8
+    "winter": 6
   },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestMonths": [5, 6, 7, 8, 9, 10],
   "transportOptions": {
-    "bus": 400
+    "bus": 120
   },
   "notes": "Home to whale sharks — arrive early to avoid the heaviest crowds at the Kuroshio tank.",
   "totalTripHours": 5,
   "walkingMin": 60,
-  "walkingSunMin": 5,
-  "walkingShadeMin": 50,
   "indoorPercent": 80,
   "reservation": "Online tickets recommended during peak season",
   "parking": "Free parking available",
@@ -134,5 +145,30 @@
   "transportZoneId": "okinawa-main",
   "description": "One of the world's largest aquariums located inside Ocean Expo Park, world-renowned for its colossal 7,500m³ 'Kuroshio Sea' tank holding multiple whale sharks and reef manta rays.",
   "openingHours": "08:30-18:30 (last entry 17:30; Jul 18-31 to 20:00, Aug to 21:00)",
-  "openingHoursJa": "08:30〜18:30（最終入場 17:30；7/18〜31 20:00、8月 21:00まで）"
+  "openingHoursJa": "08:30〜18:30（最終入場 17:30；7/18〜31 20:00、8月 21:00まで）",
+  "bestSeason": "Summer",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "tropical latitude band; calibrated 6/7 trusted summer peaks"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

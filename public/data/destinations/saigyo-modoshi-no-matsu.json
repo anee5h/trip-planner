@@ -32,15 +32,6 @@
     "bus": 50,
     "car": 45
   },
-  "budgetMin": 0,
-  "budgetRecommended": 1500,
-  "budgetMax": 3000,
-  "budgetBreakdown": {
-    "transport": 800,
-    "tickets": 0,
-    "food": 500,
-    "cafe": 200
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/211030_Saigyo_Modoshi_no_Matsu_Park_Matsushima_Miyagi_pref_Japan01n.jpg/1280px-211030_Saigyo_Modoshi_no_Matsu_Park_Matsushima_Miyagi_pref_Japan01n.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/211030_Saigyo_Modoshi_no_Matsu_Park_Matsushima_Miyagi_pref_Japan01n.jpg/1280px-211030_Saigyo_Modoshi_no_Matsu_Park_Matsushima_Miyagi_pref_Japan01n.jpg",
   "imageMetadata": {
@@ -53,18 +44,15 @@
     "verifiedAt": "2026-08-11"
   },
   "recommendedVisitHours": {
-    "min": 1,
-    "max": 1
+    "min": 3,
+    "max": 6
   },
   "walkingMin": 1200,
-  "walkingSunMin": 700,
-  "walkingShadeMin": 500,
   "walkingIntensity": "medium",
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 6,
-    "rainFriendly": 4,
-    "walkingIntensity": 4
+    "heatTolerance": 5,
+    "rainFriendly": 4
   },
   "ratings": {
     "overall": 8.4,
@@ -86,11 +74,6 @@
     "autumn": 9
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 3,
-    "weekend": 5,
-    "holiday": 6
-  },
   "season": {
     "spring": 9.2,
     "summer": 7.8,
@@ -146,7 +129,25 @@
         "summary": "Added source-backed KAI-57 Tohoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'park' + scale uplift",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='park', walkingMin=unknown",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -156,5 +157,35 @@
   "relationships": {
     "parentDestinationId": "matsushima-town"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'park' + scale uplift"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='park', walkingMin=unknown"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

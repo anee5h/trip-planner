@@ -31,9 +31,6 @@
   ],
   "region": "Shikoku",
   "categories": ["Art & Culture"],
-  "budgetMin": 1500,
-  "budgetMax": 6000,
-  "budgetRecommended": 3750,
   "transportOptions": {
     "ferry": 180
   },
@@ -51,26 +48,13 @@
   },
   "highlights": ["Explore Teshima Art Island", "Local Culture & Scenery"],
   "totalTripHours": 4,
-  "walkingMin": 3000,
+  "walkingMin": 150,
   "indoorPercent": 30,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 8
-  },
-  "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 7
-  },
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 8
   },
   "reservation": "None required",
   "parking": "Parking varies by port and individual art site; check the official access guide.",
@@ -80,9 +64,7 @@
     "gatewayHubId": "takamatsu-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Teshima_Art_Museum_exterior_view_201310.jpg/1920px-Teshima_Art_Museum_exterior_view_201310.jpg",
-  "walkingIntensity": "low",
-  "walkingSunMin": 1800,
-  "walkingShadeMin": 1200,
+  "walkingIntensity": "high",
   "role": "standalone",
   "placeType": "destination",
   "recommendedVisitHours": {
@@ -92,5 +74,35 @@
   "officialWebsite": "https://teshima-navi.jp/art/",
   "businessHours": "Island access; individual art sites follow their own opening calendars and hours",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Kagawa:tonosho"
+  "municipalityId": "Kagawa:tonosho",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=30, kind='', walkingMin=150"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

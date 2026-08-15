@@ -18,7 +18,11 @@ import {
   CalendarDays,
 } from "lucide-react";
 import { getPaginationItems } from "./pagination";
-import { getSortableVerifiedBudget } from "@/shared/services/budget/BudgetService";
+import {
+  getSortableVerifiedBudget,
+  getEstimatedBudgetRange,
+  hasKnownBudgetRange,
+} from "@/shared/services/budget/BudgetService";
 import StationInput from "@/shared/components/StationInput";
 import { useWeatherContext } from "@/features/home/hooks/useWeatherContext";
 import {
@@ -40,6 +44,7 @@ import {
   getValidModes,
   scoreForCatalog,
 } from "@/shared/services/recommendation/RecommendationService";
+
 import type {
   RecommendationContext,
   TripMode,
@@ -48,6 +53,8 @@ import type { TripDuration } from "@/shared/services/recommendation/Recommendati
 import {
   BUDGET_TIER_LIMITS,
   partyProfileForSize,
+  type BudgetTier,
+  type BudgetFilter,
 } from "@/shared/types/planner";
 import {
   getBestOneWayTravelMinutes,
@@ -100,7 +107,6 @@ import {
   hasRestrictedTransportSelection,
   parseDestinationSearchParams,
   serializeDestinationSearchParams,
-  type ExplorerBudgetTier,
 } from "./destinationSearchParams";
 import { ALL_PUBLIC_MODES } from "@/features/home/services/TransportResolver";
 
@@ -137,7 +143,7 @@ export default function Destinations() {
     initialExplorerState.publicModes,
   );
   const [partySize, setPartySize] = useState(initialExplorerState.partySize);
-  const [budgetTier, setBudgetTier] = useState<ExplorerBudgetTier>(
+  const [budgetTier, setBudgetTier] = useState<BudgetFilter>(
     initialExplorerState.budgetTier,
   );
   const [vibe, setVibe] = useState(initialExplorerState.vibe);
@@ -348,6 +354,7 @@ export default function Destinations() {
     return {
       vibe,
       weather: { preferred: weather },
+      // Explore 'any' (no filter) maps to the scorer default tier.
       budgetTier: budgetTier === "any" ? undefined : budgetTier,
       budget: maxBudget,
       partySize,
@@ -471,13 +478,15 @@ export default function Destinations() {
     }
 
     if (indoorMin > 0) {
-      result = result.filter((dest) => dest.indoorPercent >= indoorMin);
+      result = result.filter((dest) => (dest.indoorPercent ?? 0) >= indoorMin);
     }
 
     if (weather !== "any") {
       result = result.filter((dest) => {
         if (weather === "rainy") {
-          return dest.indoorPercent >= 50 || (dest.ratings?.rain ?? 0) >= 7;
+          return (
+            (dest.indoorPercent ?? 0) >= 50 || (dest.ratings?.rain ?? 0) >= 7
+          );
         }
         return (
           (dest.ratings?.[weather === "hot" ? "summer" : "winter"] ?? 0) >= 7
@@ -487,7 +496,8 @@ export default function Destinations() {
 
     if (season !== "any") {
       result = result.filter(
-        (dest) => dest.season?.[season as keyof Destination["season"]] >= 7,
+        (dest) =>
+          (dest.season?.[season as keyof Destination["season"]] ?? 0) >= 7,
       );
     }
 
@@ -497,14 +507,45 @@ export default function Destinations() {
       result = result.filter((dest) => matchesDestination(dest, tokens));
     }
 
-    // 1.5. Budget filters use a destination's upper estimate: a trip must be
-    // possible within the selected amount, not merely start below it.
+    // 1.5. Budget tier filter. 'any' = no restriction. A restricted tier
+    // caps the CANONICAL party-aware trip cost: origin transport (when an
+    // origin and a feasible public mode exist) + per-person on-site spend
+    // scaled by partySize (KAI-89 contract: catalogue budgets are per
+    // person; the old dest.budgetMax comparison compared a per-person
+    // number against a party budget and never included transport). When
+    // the origin-aware total cannot be estimated the destination falls
+    // back to the on-site party cost — the UI label says transport is
+    // included only when known, so no false claim is made. Unknown
+    // budgets never pass a restricted tier.
     if (budgetTier !== "any") {
+      const tierLimit = BUDGET_TIER_LIMITS[budgetTier as BudgetTier];
+      const filterModes =
+        publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
       result = result.filter((dest) => {
-        const estimatedCost = dest.budgetMax ?? dest.budgetMin ?? Infinity;
-        if (budgetTier === "economy") return estimatedCost < 10000;
-        if (budgetTier === "comfortable") return estimatedCost < 20000;
-        return budgetTier === "luxury" || estimatedCost < 40000;
+        if (!hasKnownBudgetRange(dest)) return false;
+        let costMax: number | undefined;
+        if (homeStationCoords) {
+          let best: number | undefined;
+          for (const mode of filterModes) {
+            const r = getEstimatedBudgetRange(
+              dest,
+              mode,
+              partySize,
+              budgetTier,
+              homeStationCoords,
+            );
+            if (r.range && r.transportIncluded && r.durationIncluded) {
+              best =
+                best === undefined ? r.range[1] : Math.min(best, r.range[1]);
+            }
+          }
+          costMax = best;
+        }
+        if (costMax === undefined) {
+          // On-site party cost (transport excluded — not claimed).
+          costMax = dest.budgetMax * partySize;
+        }
+        return costMax <= tierLimit;
       });
     }
 
@@ -947,11 +988,15 @@ export default function Destinations() {
     result = [...result].sort((a, b) => {
       switch (sortBy) {
         case "recommended":
-          // 2D1N uses the weekend-aware score so the explorer ranks
+        default:
+          // Beta product decision (KAI-89): the overall score is hidden and
+          // never drives list order — the legacy 'overall' URL value and any
+          // unknown sort fall back to the personalized recommendation
+          // ranking. 2D1N uses the weekend-aware score so the explorer ranks
           // consistently with the Home pipeline (and the Tokyo wards group
-          // ranks as its best member, not at a plain catalog position).
-          // The forecast/seasonal condition delta for the planned dates is
-          // added for both modes when a date is selected.
+          // ranks as its best member, not at a plain catalog position). The
+          // forecast/seasonal condition delta for the planned dates is added
+          // for both modes when a date is selected.
           return (
             (weekendRecommendedScoreById.get(b.id) ??
               recommendedScoreById.get(b.id) ??
@@ -980,7 +1025,7 @@ export default function Destinations() {
               partySize,
               homeStationCoords ?? undefined,
               ferryTemporal,
-              budgetTier === "any" ? "standard" : budgetTier,
+              budgetTier === "any" ? undefined : budgetTier,
             );
           return sortableBudget(a) - sortableBudget(b);
         }
@@ -1056,9 +1101,6 @@ export default function Destinations() {
           return (b.ratings?.summer ?? 0) - (a.ratings?.summer ?? 0);
         case "winter":
           return (b.ratings?.winter ?? 0) - (a.ratings?.winter ?? 0);
-        case "overall":
-        default:
-          return (b.ratings?.overall ?? 0) - (a.ratings?.overall ?? 0);
       }
     });
 
@@ -1211,6 +1253,8 @@ export default function Destinations() {
         budgetTier={budgetTier}
         setBudgetTier={(tier) => {
           setBudgetTier(tier);
+          // 'any' (no filter) keeps the numeric default; a tier syncs the
+          // numeric scorer budget to its shared limit.
           setMaxBudget(
             tier === "any"
               ? BUDGET_TIER_LIMITS.standard

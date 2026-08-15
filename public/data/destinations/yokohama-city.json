@@ -10,8 +10,6 @@
   "budgetRecommended": 12000,
   "budgetMax": 16000,
   "walkingMin": 60,
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 70,
   "ratings": {
     "overall": 9,
@@ -117,8 +115,8 @@
   "walkingIntensity": "medium",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 8,
-    "max": 14
+    "min": 9,
+    "max": 12
   },
   "businessHours": "Open access",
   "editorial": {
@@ -135,7 +133,17 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 14 children, metro=true",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "nameJa": "横浜",
   "content": {
@@ -155,8 +163,7 @@
     "ja": {
       "name": "横浜",
       "description": "開港の歴史を持つ日本を代表する港湾都市。みなとみらいのモダンな景観、横浜中華街、山下公園など多彩な魅力が詰まっています。",
-      "highlights": ["横浜の名所", "横浜の名所", "公園散策"],
-      "notes": "横浜は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "highlights": ["横浜の名所", "公園散策"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "10:00 - 20:00（店舗により異なる）"
@@ -167,10 +174,29 @@
     "method": "manual",
     "confidence": "high"
   },
-  "notesJa": "横浜は、Kanagawaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "10:00 - 20:00",
   "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
-  "municipalityId": "Kanagawa:yokohama"
+  "municipalityId": "Kanagawa:yokohama",
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance major, 14 children, metro=true"
+  },
+  "scoreMetadata": {
+    "state": "verified",
+    "value": 7.3,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "high",
+    "coverage": 1,
+    "provenance": {
+      "sourceClass": "editorial-review",
+      "verifiedAt": "2026-08-14",
+      "sources": ["https://www.city.yokohama.lg.jp/"],
+      "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
+    },
+    "noteKey": "destination.scoreVerifiedNote"
+  }
 }

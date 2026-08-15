@@ -42,7 +42,7 @@
     "uniqueness": 8.4
   },
   "reservation": "None required",
-  "parking": "Parking available at major visitor areas (fee varies)",
+  "parking": "Parking available at major trailheads (Ontake Ropeway base, Nigorigo Onsen; fee varies)",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mount_Ontake_%28Morgenrot_zoom%29.JPG/1920px-Mount_Ontake_%28Morgenrot_zoom%29.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mount_Ontake_%28Morgenrot_zoom%29.JPG/1920px-Mount_Ontake_%28Morgenrot_zoom%29.JPG",
   "imageMetadata": {
@@ -126,11 +126,47 @@
         "summary": "Added Ontakesan Quasi-National Park record; quasi-national-parks-japan expectedMembers 57 to 58",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 8h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "assisted",
-    "confidence": "medium"
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 385,
+  "walkingIntensity": "high",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

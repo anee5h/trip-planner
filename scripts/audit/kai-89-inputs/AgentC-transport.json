@@ -1,0 +1,4629 @@
+{
+  "agent": "AgentC_Transport",
+  "ticket": "KAI-89 forensic data audit — transport/access/geography (phase 1, read-only)",
+  "date": "2026-08-13",
+  "clusterSource": "/tmp/kai89-audit/clusters-transport.json (61 clusters, 625 records)",
+  "fieldSemantics": {
+    "conclusion": "transportOptions is LEGACY STATIC per-mode travel-time metadata, conventionally 'door-to-door one-way minutes from Tokyo (default home station)' — but with documented inconsistency: some records carry local-access minutes (station→attraction), and island records carry ferry-leg minutes (mainland port→island).",
+    "evidence": [
+      "scripts/repair-kansai-expansion-transport.ts header: 'Transport times are door-to-door minutes from Tokyo (default home station), consistent with the majority convention in destinations-index.json' and per-group derivations (e.g. 'Tokyo→Shin-Osaka(150)+Kuroshio to Wakayama(80)=230min base').",
+      "scripts/expand-major-city-catalog.ts createDestination(): children clone parent.transportOptions with jitter `Math.max(10, minutes + (id.length % 11) - 5)` → 195-205 clusters around train:200 (proven template generation).",
+      "scripts/fix-kanto-coordinates-and-transit.ts: recalculated Kanto train values as distance-based estimates from Tokyo/Yokohama Station (estimateBetween) → small 14-62 min clusters (estimator quantization).",
+      "src/shared/types/destination.ts: transportOptions type has NO doc comment (unlike totalTripHours which is marked @deprecated with 'Pre-KAI-50 imports used this with inconsistent semantics: sometimes on-site time, sometimes a whole trip from a fixed origin such as Tokyo/Yokohama').",
+      "MODE_SEMANTICS (qa/kai-12/MODE_SEMANTICS.md) defines mode meanings for the ORIGIN-AWARE registries; it does not govern static transportOptions."
+    ],
+    "separateFromOriginAware": "YES. Origin-aware routing is a separate canonical system: TransportTopologyService (zone localModes/edges) + ground-routes.json + bus-routes.json + flight-estimates.json + ferry-estimates.json + ferry-routes.json. OriginAwareTransportService reads ONLY those registries; transportOptions is never an input to origin-aware estimates.",
+    "runtimeReads": [
+      "src/features/destinations/DestinationDetails.tsx groundMinutesFor(): displays transportOptions[mode] as travel time when no homeStationCoords (neutral browsing); ignored when origin given.",
+      "src/features/destinations/Destinations.tsx travelTime sort: min(transportOptions) used only when no origin; 'never a legacy transportOptions fallback' with origin.",
+      "src/features/compare/Compare.tsx + CompareModal.tsx: min(transportOptions values) for comparison travel times.",
+      "src/shared/services/budget/BudgetService.ts getTransportCost (lines 517-578): `originAwareMinutes ?? dest.transportOptions?.[mode]` fallback for per-mode one-way minute heuristics.",
+      "src/shared/services/recommendation/RecommendationScorer.ts (153-179): transportOptions key presence = mode-authorization gate when no personalized origin; canonical-origin authoritative when origin exists.",
+      "src/features/qa/QaDashboard.tsx: counts records per mode key."
+    ],
+    "consequence": "Fabricated values (train:200 on Sapporo/Naha, bus:400 on Churaumi) ARE user-visible as travel times in neutral browsing, travelTime sort, and budget heuristics — high severity, not merely dead data."
+  },
+  "topologyChecks": {
+    "islandRailClaims": 0,
+    "note": "All structural island-rail claims already removed by KAI-87/KAI-63 (cbfa482a, 3f6ad5b5, a6db80b1). ishigaki-city/miyakojima-city/kouri-island/shoryu-cave carry empty transportOptions with explicit zones — correct.",
+    "remainingRailValueFabrications": [
+      {
+        "ids": [
+          "naha-city",
+          "kokusai-dori-naha",
+          "naminoue-shrine-naha",
+          "fukushuen-garden-naha"
+        ],
+        "zone": "okinawa-main",
+        "issue": "train:200 fabricated (Yui Rail max 17 min; no intercity rail) — passes validators because okinawa-main lists 'train' localMode (Yui Rail)."
+      },
+      {
+        "ids": ["shuri-castle-okinawa"],
+        "zone": "okinawa-main",
+        "issue": "train:45 fabricated/unverified."
+      }
+    ],
+    "ferryClaims": "29 records — all in ferry-served zones; values plausible except teshima-island-kagawa ferry:180 (manual review). Miyajima ferry:10 (verified JR West), Yakushima ferry:240 (verified), Taketomi ferry:10 (verified 10-15), Ogasawara ferry:1440 (24h, verified), Sado 150, Gunkanjima 40, Naoshima 20, Tomogashima 20, Amami 780 all plausible.",
+    "flightClaims": "2 records (yakushima-national-park 40, amami-gunto 120) — both island zones with airports; plausible.",
+    "shinkansenClaims": "164 records, all mainland (0 in Shikoku/Okinawa; hakodate-city 260 OK via honshu↔hokkaido edge). 0 zone violations. ~19 pr12c records have inverted train<shinkansen ordering (semantic defect, not topology)."
+  },
+  "perIdCounts": {
+    "A": 208,
+    "B": 69,
+    "C": 171,
+    "D": 124,
+    "E": 53
+  },
+  "clusterClassCounts": {
+    "A": 210,
+    "B": 202,
+    "C": 139,
+    "E": 53,
+    "D": 21
+  },
+  "clusters": [
+    {
+      "value": {},
+      "size": 190,
+      "class": "A",
+      "severity": "none",
+      "rootCause": "legit",
+      "rationale": "Legitimate absence of static transport metadata; origin-aware registries (ground-routes/bus-routes/flight-estimates/ferry-estimates) are the canonical routing path. No fabrication.",
+      "representativeIds": [
+        "abashiri",
+        "aichi-kogen",
+        "akan-mashu",
+        "akashi-castle",
+        "akashi-kaikyo-bridge",
+        "akiyoshidai",
+        "akiyoshidai-plateau",
+        "akkeshi-kiritappu-konbumori"
+      ],
+      "ids": [
+        {
+          "id": "abashiri",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "aichi-kogen",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "akan-mashu",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "akashi-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "akashi-kaikyo-bridge",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "akiyoshidai",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "akiyoshidai-plateau",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "akkeshi-kiritappu-konbumori",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "ako-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "ashikaga-shi-yakata",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "ashizuri-uwakai",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "aso-kuju",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "azuchi-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "bandai-asahi",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "bikan-historical-quarter",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "biwako",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "chichibu-tama-kai",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "chihaya-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "chokai",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "chubu-sangaku",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "chuo-alps",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "daisen-oki",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "daisetsuzan",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "echigo-sanzan-tadami",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "echizen-kaga-kaigan",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "farm-tomita",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "fuefukigawa-fruit-park",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "fuji-hakone-izu",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "fukiya-village",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "fukuyama-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "funai-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "gassantoda-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "genbaku-dome",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "genkai",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "gessho-ji-temple-matsue",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "goryokaku",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hachigata-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hagi-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hakone-open-air-museum",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hakusan",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hayachine",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hayashibara-museum-of-art",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hiba-dogo-taishaku",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hida-cave",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hida-kisogawa",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hidakasanmyaku-erimo-tokachi",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hinomisaki-lighthouse-izumo",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hirado-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hiroshima-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hiroshima-museum-art",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hiroshima-national-peace-memorial-hall",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hiroshima-peace-memorial",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hiroshima-peace-memorial-park",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hita-onsen",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hitoyoshi-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hizen-nagoya-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hondori",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "horikawa-canal-nichinan",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "horikawa-pleasure-boat",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "hyonosen-ushiro-yama-nagisan",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "ibi-sekigahara-yoro",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "ichijodani-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "iga-ueno-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "inasa-beach-izumo",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "inujima",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "ise-shima",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "ishigaki-city",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "iwakuni-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "iwamura-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "joshinetsu-kogen",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kagoshima-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kanayama-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kanazawa-21",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kannonji-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "karato-market-shimonoseki",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kasugayama-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kibitsu-shrine",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kinojo",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kirishima-kinkowan",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kita-nagato-kaigan",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kitakyushu",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kofu-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kojima-denim-street",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "komoro-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kouri-island-okinawa",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "koya-ryujin",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kubota-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kurashiki-museum-of-folkcraft",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kurikoma",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kushiro-shitsugen",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kyoto-tamba-kogen",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kyusendo-cave",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kyushu-chuo-sanchi",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "lafcadio-hearn-memorial-museum",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "matsue-vogel-park",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "matsumae-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "matsusaka-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "matsushiro-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "meiji-no-mori-mino",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "minami-alps",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "minami-boso",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "minowa-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "mitaki-dera",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "miyakojima-city",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "motobu-town",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "muro-akame-aoyama",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "muroto-anan-kaigan",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "myogi-arafune-saku-kogen",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "myoko-togakushi",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "nabana-no-sato",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "nagashino-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "nago-city",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "nanao-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "nanatsugama-cave",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "ne-castle-hachinohe",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "nemuro-peninsula-chashi-sites",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "nichinan-kaigan",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "nihonmatsu-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "nikko-national-park",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "nippara-cave",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "nippo-kaigan",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "niseko-shakotan-otaru-kaigan",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "nishi-chugoku-sanchi",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "odani-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "odawara-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "oga",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "ogijima",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "ohara-museum-of-art",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "oka-castle-oita",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "okayama-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "okazaki-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "okinoshima-munakata-fukuoka",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "okonomimura",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "ono-castle-dazaifu",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "onuma",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "orient-museum",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "orizuru-tower",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "raikyuji-temple",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "rainbow-bridge",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "saga-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "saigoku-33",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "saikai",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "sanin-kaigan",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "sanriku-fukko",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "sapporo-art-park",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "sarakurayama",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "saru-hashi",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "sasayama-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "setonaikai",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "shibata-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "shikisai-no-oka",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "shikotsu-toya",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "shimabara-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "shimokita-hanto",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "shiraito-falls",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "shirakawa-komine-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "shodoshima",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "shokanbetsu-teuri-yagishiri",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "shomyo-falls",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "shoryu-cave",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "shukkeien",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "sobo-katamuki",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "suigo-tsukuba",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "sunpu-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "suzuka",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "taga-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "takaoka-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "takatori-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "tanabe-museum-matsue",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "tango-amanohashidate-oeyama",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "tanzawa-oyama",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "tenryu-okumikawa",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "tottori-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "towada-hachimantai",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "tsugaru",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "tsuwano-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "tsuyama-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "unzen-amakusa",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "uradome-coast",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "wakakusayama",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "wakasa-wan",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "yaba-hita-hikosan",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "yamagata-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "yamanaka-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "yamato-aogaki",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "yatsugatake-chushin-kogen",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "yoshida-koriyama-castle",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "yoshino-kumano",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "yoshinogari",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "zao",
+          "class": "A",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 200
+      },
+      "size": 67,
+      "class": "B",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "v1.6.0 hub-catalog batch default (git 2d6c656d: 119 occurrences introduced). Value has no real referent: 200 min matches neither Tokyo-origin (Sapporo 450-480) nor local access (10-60) for most members.",
+      "representativeIds": [
+        "abashiri-city",
+        "asahikawa-city",
+        "aso-city",
+        "beppu-city",
+        "biei-town",
+        "chichibu-city",
+        "dazaifu-city",
+        "fujikawaguchiko-town"
+      ],
+      "ids": [
+        {
+          "id": "abashiri-city",
+          "class": "D",
+          "note": "train:200 impossible — Tokyo→Abashiri rail ~900 min via Sapporo (~5h Sapporo→Abashiri)"
+        },
+        {
+          "id": "asahikawa-city",
+          "class": "D",
+          "note": "Tokyo→Asahikawa rail ~8h; 200 impossible"
+        },
+        {
+          "id": "aso-city",
+          "class": "D",
+          "note": "Tokyo→Aso ~360-400 min; 200 impossible"
+        },
+        {
+          "id": "beppu-city",
+          "class": "D",
+          "note": "Tokyo→Beppu ~420 min; 200 impossible"
+        },
+        {
+          "id": "biei-town",
+          "class": "D",
+          "note": "Tokyo→Biei rail ~8h+; 200 impossible"
+        },
+        {
+          "id": "chichibu-city",
+          "class": "D",
+          "note": "Tokyo(Ikebukuro)→Seibu-Chichibu 77-90 min (Seibu Laview); 200 is 2.2x real"
+        },
+        {
+          "id": "dazaifu-city",
+          "class": "D",
+          "note": "Tokyo→Dazaifu ~330 min; 200 impossible"
+        },
+        {
+          "id": "fujikawaguchiko-town",
+          "class": "C",
+          "note": "Tokyo→Kawaguchiko ~150-180 min (bus/train); 200 high"
+        },
+        {
+          "id": "fujinomiya-city",
+          "class": "D",
+          "note": "Tokyo→Fujinomiya ~110-130 min; 200 overstates"
+        },
+        {
+          "id": "fukushuen-garden-naha",
+          "class": "D",
+          "note": "no rail link to Okinawa; train:200 fabricated"
+        },
+        {
+          "id": "furano-city",
+          "class": "D",
+          "note": "Tokyo→Furano rail ~8h+; 200 impossible"
+        },
+        {
+          "id": "gero-city",
+          "class": "C",
+          "note": "Tokyo→Gero ~170-180 min; 200 plausible"
+        },
+        {
+          "id": "gifu-city",
+          "class": "D",
+          "note": "Tokyo→Gifu ~110-120 min; 200 overstates"
+        },
+        {
+          "id": "gotemba-city",
+          "class": "D",
+          "note": "Tokyo→Gotemba ~100-120 min; 200 overstates"
+        },
+        {
+          "id": "hakuba-village",
+          "class": "C",
+          "note": "Tokyo→Hakuba ~210-240 min; 200 low"
+        },
+        {
+          "id": "hatsukaichi-city",
+          "class": "D",
+          "note": "Tokyo→Hiroshima ~240-260 min; 200 understates"
+        },
+        {
+          "id": "hikone-city",
+          "class": "C",
+          "note": "Tokyo→Hikone ~160 min; 200 high"
+        },
+        {
+          "id": "himeji-city",
+          "class": "C",
+          "note": "Tokyo→Himeji ~180 min (Nozomi); 200 plausible band"
+        },
+        {
+          "id": "ikaruga-town",
+          "class": "C",
+          "note": "Tokyo→Horyuji ~190 min; 200 plausible"
+        },
+        {
+          "id": "inuyama-city",
+          "class": "D",
+          "note": "Tokyo→Inuyama ~130 min; 200 overstates"
+        },
+        {
+          "id": "ito-city",
+          "class": "D",
+          "note": "Tokyo→Ito ~90-110 min; 200 overstates"
+        },
+        {
+          "id": "izumo-city",
+          "class": "D",
+          "note": "Tokyo→Izumo ~400 min; 200 impossible"
+        },
+        {
+          "id": "kagoshima-city",
+          "class": "D",
+          "note": "Tokyo→Kagoshima ~380-400 min (Kyushu Shinkansen); 200 impossible"
+        },
+        {
+          "id": "kitakyushu-city",
+          "class": "D",
+          "note": "Tokyo→Kokura ~330 min; 200 impossible"
+        },
+        {
+          "id": "kochi-city",
+          "class": "D",
+          "note": "Tokyo→Kochi ~420 min; 200 impossible"
+        },
+        {
+          "id": "kofu-city",
+          "class": "D",
+          "note": "Tokyo→Kofu ~100-120 min; 200 overstates"
+        },
+        {
+          "id": "kokusai-dori-naha",
+          "class": "D",
+          "note": "no rail link to Okinawa; train:200 fabricated"
+        },
+        {
+          "id": "koya-town",
+          "class": "C",
+          "note": "Tokyo→Koya 230 (150+80 Nankai); 200 close"
+        },
+        {
+          "id": "kumamoto-city",
+          "class": "D",
+          "note": "Tokyo→Kumamoto ~400 min; 200 impossible"
+        },
+        {
+          "id": "kusatsu-town",
+          "class": "D",
+          "note": "Tokyo→Kusatsu ~150-170 min; 200 overstates slightly"
+        },
+        {
+          "id": "kushiro-city",
+          "class": "D",
+          "note": "Tokyo→Kushiro rail ~10h+; 200 impossible"
+        },
+        {
+          "id": "matsue-city",
+          "class": "D",
+          "note": "Tokyo→Matsue ~380 min; 200 impossible"
+        },
+        {
+          "id": "matsumoto-city",
+          "class": "C",
+          "note": "Tokyo→Matsumoto ~150 min (Azusa); 200 high"
+        },
+        {
+          "id": "matsuyama-city",
+          "class": "D",
+          "note": "Tokyo→Matsuyama ~380 min; 200 impossible"
+        },
+        {
+          "id": "minakami-town",
+          "class": "D",
+          "note": "Tokyo→Minakami ~130-150 min; 200 overstates"
+        },
+        {
+          "id": "mito-city",
+          "class": "D",
+          "note": "Tokyo→Mito ~90-100 min; 200 overstates"
+        },
+        {
+          "id": "miyazaki-city",
+          "class": "D",
+          "note": "Tokyo→Miyazaki ~420 min; 200 impossible"
+        },
+        {
+          "id": "miyazu-city",
+          "class": "D",
+          "note": "Tokyo→Miyazu ~210-240 min; 200 understates"
+        },
+        {
+          "id": "museum-of-aeronautical-sciences",
+          "class": "D",
+          "note": "Kakamigahara (Gifu): Tokyo→Kakamigahara ~120-140 min; 200 overstates"
+        },
+        {
+          "id": "nagasaki-city",
+          "class": "D",
+          "note": "Tokyo→Nagasaki ~350-370 min; 200 impossible"
+        },
+        {
+          "id": "naha-city",
+          "class": "D",
+          "note": "no rail link to Okinawa; Yui Rail line is ~17 min end-to-end; train:200 fabricated"
+        },
+        {
+          "id": "naminoue-shrine-naha",
+          "class": "D",
+          "note": "no rail link to Okinawa; train:200 fabricated"
+        },
+        {
+          "id": "nara-city",
+          "class": "C",
+          "note": "Tokyo→Nara ~170-190 min (Nozomi 130 + local); 200 plausible band"
+        },
+        {
+          "id": "narita-city",
+          "class": "D",
+          "note": "Tokyo→Narita 60-80 min; 200 overstates"
+        },
+        {
+          "id": "naruto-city",
+          "class": "D",
+          "note": "Tokyo→Naruto ~270-300 min; 200 understates"
+        },
+        {
+          "id": "niseko-town",
+          "class": "D",
+          "note": "Tokyo→Niseko rail ~9h; 200 impossible"
+        },
+        {
+          "id": "numazu-city",
+          "class": "D",
+          "note": "Tokyo→Numazu ~100-110 min; 200 overstates"
+        },
+        {
+          "id": "okazaki-city",
+          "class": "D",
+          "note": "Tokyo→Okazaki ~120 min; 200 overstates"
+        },
+        {
+          "id": "onomichi-city",
+          "class": "D",
+          "note": "Tokyo→Onomichi ~280 min; 200 understates"
+        },
+        {
+          "id": "otaru-city",
+          "class": "D",
+          "note": "Tokyo→Otaru rail ~8h; 200 impossible"
+        },
+        {
+          "id": "otsu-city",
+          "class": "C",
+          "note": "Tokyo→Otsu ~145 min; 200 high"
+        },
+        {
+          "id": "sakai-city",
+          "class": "C",
+          "note": "Tokyo→Sakai ~170-175 min; 200 high"
+        },
+        {
+          "id": "sapporo-city",
+          "class": "D",
+          "note": "train:200 impossible — Tokyo→Sapporo rail is 450-480 min (Hokkaido Shinkansen 4h + Ltd.Exp 3.5h)"
+        },
+        {
+          "id": "sapporo-tv-tower",
+          "class": "D",
+          "note": "same as sapporo-city"
+        },
+        {
+          "id": "shimonoseki-city",
+          "class": "D",
+          "note": "Tokyo→Shimonoseki ~300 min; 200 understates"
+        },
+        {
+          "id": "shirahama-town",
+          "class": "C",
+          "note": "Tokyo→Shirahama ~260 min; 200 understates"
+        },
+        {
+          "id": "susukino",
+          "class": "D",
+          "note": "same as sapporo-city"
+        },
+        {
+          "id": "takachiho-town",
+          "class": "D",
+          "note": "Tokyo→Takachiho ~500 min; 200 impossible"
+        },
+        {
+          "id": "takamatsu-city",
+          "class": "D",
+          "note": "Tokyo→Takamatsu ~330 min; 200 impossible"
+        },
+        {
+          "id": "tokushima-city",
+          "class": "D",
+          "note": "Tokyo→Tokushima ~360 min; 200 impossible"
+        },
+        {
+          "id": "toto-museum-kitakyushu",
+          "class": "D",
+          "note": "Tokyo→Kokura ~330 min; 200 impossible"
+        },
+        {
+          "id": "tottori-city",
+          "class": "D",
+          "note": "Tokyo→Tottori ~300-330 min; 200 understates"
+        },
+        {
+          "id": "toyota-city",
+          "class": "D",
+          "note": "Tokyo→Toyota ~110 min; 200 overstates"
+        },
+        {
+          "id": "tsukuba-city",
+          "class": "D",
+          "note": "Tokyo→Tsukuba 45-60 min (Tsukuba Express); 200 overstates"
+        },
+        {
+          "id": "uji-city",
+          "class": "C",
+          "note": "Tokyo→Uji ~160 min; 200 high"
+        },
+        {
+          "id": "wakayama-city",
+          "class": "C",
+          "note": "repair-kansai calibration: Tokyo→Shin-Osaka 150 + Kuroshio 80 = 230; 200 close"
+        },
+        {
+          "id": "yufu-city",
+          "class": "D",
+          "note": "Tokyo→Yufuin ~430 min; 200 impossible"
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 180
+      },
+      "size": 19,
+      "class": "B",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "Recurring 3-hour default across expansion scripts/backfills (a5808fc2, KAI-31/57/32). 180 min plausible only for a few Kanto/Tohoku-adjacent sites; impossible for Kyushu/Shikoku/Chugoku members.",
+      "representativeIds": [
+        "abukuma-cave-fukushima",
+        "akiyoshido-cave-yamaguchi",
+        "arakurayama-sengen-park-yamanashi",
+        "ashikaga-flower-park-tochigi",
+        "beppu-hells-oita",
+        "dewa-sanzan-yamagata",
+        "dogo-onsen-ehime",
+        "ginzan-onsen-yamagata"
+      ],
+      "ids": [
+        {
+          "id": "abukuma-cave-fukushima",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "akiyoshido-cave-yamaguchi",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "arakurayama-sengen-park-yamanashi",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "ashikaga-flower-park-tochigi",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "beppu-hells-oita",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "dewa-sanzan-yamagata",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "dogo-onsen-ehime",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "ginzan-onsen-yamagata",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "iya-valley-tokushima",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "kakunodate-samurai-district-akita",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "kintai-bridge-yamaguchi",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "kiyotsu-gorge-niigata",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "motonosumi-shrine-yamaguchi",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "mount-aso-kumamoto",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "oirase-gorge-aomori",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "ryugado-cave-kochi",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "takeda-castle-ruins-hyogo",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "tojinbo-cliffs-fukui",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "tottori-sand-dunes",
+          "class": "D",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 18
+      },
+      "size": 18,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Distance-based estimator output from fix-kanto-coordinates-and-transit.ts (estimateBetween Tokyo/Yokohama station). Plausible band (10-30 min real); exact duplicates are estimator quantization, not content templates. Underestimates by ~15-30% (straight-line bias).",
+      "representativeIds": [
+        "arakawa-city",
+        "golden-gai",
+        "harajuku-takeshita-street",
+        "joypolis",
+        "kabukicho",
+        "kagurazaka",
+        "meiji-jingu",
+        "mukojima-hyakkaen"
+      ],
+      "ids": [
+        {
+          "id": "arakawa-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "golden-gai",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "harajuku-takeshita-street",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "joypolis",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kabukicho",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kagurazaka",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "meiji-jingu",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "mukojima-hyakkaen",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "omoide-yokocho",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "shibuya-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "shibuya-crossing-hachiko",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "shinjuku-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "shinjuku-gyo-en",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "sugamo-jizo-dori",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "sunshine-aquarium",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "toshima-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "yoyogi-park",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "zoshigaya-kishimojindo",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 125,
+        "car": 130,
+        "train": 115
+      },
+      "size": 15,
+      "class": "B",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "KAI-31 Shikoku expansion hardcoded triple (kai-31-shikoku-expansion.ts lines 548/613/1415/1476/1537/...). No plausible origin: Tokyo→Tokushima 6h+, Osaka→Tokushima 2.5h+. Value meaningless.",
+      "representativeIds": [
+        "miyoshi-city",
+        "mount-tsurugi-miyoshi",
+        "naruto-german-house",
+        "oboke-koboke-gorge",
+        "ochiai-folk-village",
+        "otsuka-museum-of-art-naruto",
+        "ryozen-ji-naruto",
+        "shikoku-mura"
+      ],
+      "ids": [
+        {
+          "id": "miyoshi-city",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "mount-tsurugi-miyoshi",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "naruto-german-house",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "oboke-koboke-gorge",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "ochiai-folk-village",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "otsuka-museum-of-art-naruto",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "ryozen-ji-naruto",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "shikoku-mura",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "tenshaen-garden-uwajima",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "uwajima-city",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "uwajima-date-museum",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "uzu-no-michi-naruto",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "uzushio-cruise-naruto",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "warei-taisha-shrine",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "yashima-takamatsu",
+          "class": "B",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 150,
+        "car": 120,
+        "train": 120
+      },
+      "size": 14,
+      "class": "B",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "Batch city-hub triple (120-min default). Plausible only for choshi/fujiyoshida (~2h from Tokyo); wrong for Hirosaki/Iwakuni/Marugame/Toyooka (3.5-5h).",
+      "representativeIds": [
+        "aizuwakamatsu-city",
+        "asago-city",
+        "ashikaga-city",
+        "choshi-city",
+        "fujiyoshida-city",
+        "hirosaki-city",
+        "ise-city",
+        "iwakuni-city"
+      ],
+      "ids": [
+        {
+          "id": "aizuwakamatsu-city",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "asago-city",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "ashikaga-city",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "choshi-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "fujiyoshida-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "hirosaki-city",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "ise-city",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "iwakuni-city",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "katori-city",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "marugame-city",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "mine-city",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "semboku-city",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "takahashi-city",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "toyooka-city",
+          "class": "D",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 50,
+        "car": 60,
+        "train": 45
+      },
+      "size": 13,
+      "class": "B",
+      "severity": "medium",
+      "rootCause": "template",
+      "rationale": "UNESCO-site batch (45-min triple). Plausible as local access for Kansai members (horyuji/asuka/mozu/nara ~10-45 min); impossible from Tokyo for Iwate/Shimane/Nagasaki/Aomori members; shuri-castle-okinawa train claim is fabricated (no intercity rail to Okinawa).",
+      "representativeIds": [
+        "asuka-fujiwara-nara",
+        "hiraizumi-chusonji-iwate",
+        "horyuji-temple-nara",
+        "iwami-ginzan-shimane",
+        "kumano-kodo-koya-wakayama",
+        "mozufuruichi-kofun-osaka",
+        "nara-historic",
+        "national-museum-western-art-tokyo"
+      ],
+      "ids": [
+        {
+          "id": "asuka-fujiwara-nara",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "hiraizumi-chusonji-iwate",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "horyuji-temple-nara",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "iwami-ginzan-shimane",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kumano-kodo-koya-wakayama",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "mozufuruichi-kofun-osaka",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "nara-historic",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "national-museum-western-art-tokyo",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "oura-church-nagasaki",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "sannai-maruyama-jomon-aomori",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "shirakami-sanchi-aomori",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "shuri-castle-okinawa",
+          "class": "D",
+          "note": "train:45 fabricated — Yui Rail Shuri terminus; airport→Shuri ~25 min; no intercity rail"
+        },
+        {
+          "id": "tomioka-silk-mill-gunma",
+          "class": "D",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 25
+      },
+      "size": 12,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Yokohama band: Tokyo→Yokohama 25-30 min ✓ plausible (Tokaido line). Skytree 25 vs real ~15 (slight overstate).",
+      "representativeIds": [
+        "cup-noodles-museum-yokohama",
+        "kannai-yokohama",
+        "kawasaki-daishi",
+        "minato-mirai-yokohama",
+        "shin-yokohama-ramen-museum",
+        "soji-ji-yokohama",
+        "tokyo-skytree-sumida",
+        "yamashita-park-yokohama"
+      ],
+      "ids": [
+        {
+          "id": "cup-noodles-museum-yokohama",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kannai-yokohama",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kawasaki-daishi",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "minato-mirai-yokohama",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "shin-yokohama-ramen-museum",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "soji-ji-yokohama",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "tokyo-skytree-sumida",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "yamashita-park-yokohama",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "yokohama-chinatown",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "yokohama-cosmo-world",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "yokohama-marine-tower",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "yokohama-red-brick-warehouse",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 50
+      },
+      "size": 12,
+      "class": "E",
+      "severity": "medium",
+      "rootCause": "mixed",
+      "rationale": "Mixed Kanto batch: Enoshima/Chigasaki 50 vs real 60-70 (under), Asakusa/Ikebukuro 50 vs real 10-20 (2.5-5x over).",
+      "representativeIds": [
+        "asakusa-taito",
+        "chigasaki-city",
+        "enoshima-iwaya-caves",
+        "enoshima-sea-candle",
+        "enoshima-shrine",
+        "ghibli-museum",
+        "ikebukuro-toshima",
+        "meiji-no-mori-takao"
+      ],
+      "ids": [
+        {
+          "id": "asakusa-taito",
+          "class": "D",
+          "note": "Tokyo Station→Asakusa ~15-20 min (Ginza line); 50 is 2.5-3x"
+        },
+        {
+          "id": "chigasaki-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "enoshima-iwaya-caves",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "enoshima-sea-candle",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "enoshima-shrine",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "ghibli-museum",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "ikebukuro-toshima",
+          "class": "D",
+          "note": "Tokyo→Ikebukuro ~10-15 min; 50 is 3-5x"
+        },
+        {
+          "id": "meiji-no-mori-takao",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "odaiba-minato",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "samuel-cocking-garden",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "teamlab-borderless-azabudai",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "teamlab-planets",
+          "class": "E",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 115,
+        "car": 120,
+        "train": 100
+      },
+      "size": 11,
+      "class": "B",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "KAI-31 hardcoded triple ({train:100,bus:115,car:120} at lines 674/801/922/981/...). No plausible origin for Shikoku sites.",
+      "representativeIds": [
+        "awa-odori-kaikan",
+        "bansuiso-matsuyama",
+        "bizan-ropeway-tokushima",
+        "botchan-train-matsuyama",
+        "dogo-haikara-dori",
+        "ehime-art-museum",
+        "harimaya-bridge-kochi",
+        "hirome-market-kochi"
+      ],
+      "ids": [
+        {
+          "id": "awa-odori-kaikan",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "bansuiso-matsuyama",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "bizan-ropeway-tokushima",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "botchan-train-matsuyama",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "dogo-haikara-dori",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "ehime-art-museum",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "harimaya-bridge-kochi",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "hirome-market-kochi",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "marugame-uchiwa-museum",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "nakazu-banshoen-marugame",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "takamatsu-art-museum",
+          "class": "B",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 46
+      },
+      "size": 10,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Kamakura band: real 53-60 min (JR Yokosuka) — value low by ~15-25% (straight-line estimator bias).",
+      "representativeIds": [
+        "jochi-ji",
+        "kamakura-city",
+        "komachi-street",
+        "kotoku-in-great-buddha",
+        "sasuke-inari-shrine",
+        "takao-599-museum",
+        "yokosuka-city",
+        "yugyo-ji"
+      ],
+      "ids": [
+        {
+          "id": "jochi-ji",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kamakura-city",
+          "class": "C",
+          "note": "Tokyo→Kamakura 53-60 min (JR Yokosuka); 46 low by ~20%"
+        },
+        {
+          "id": "komachi-street",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kotoku-in-great-buddha",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "sasuke-inari-shrine",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "takao-599-museum",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "yokosuka-city",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "yugyo-ji",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "yuigahama-beach",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "zeniarai-benten",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 15
+      },
+      "size": 10,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Central Tokyo, plausible (5-25 min real).",
+      "representativeIds": [
+        "edo-castle-tokyo",
+        "fukagawa-edo-museum",
+        "hamarikyu-gardens",
+        "kiyosumi-gardens",
+        "minato-city",
+        "roppongi-hills-tokyo-city-view",
+        "ryogoku-kokugikan-sumo-museum",
+        "sunshine-60-observatory-ikebukuro"
+      ],
+      "ids": [
+        {
+          "id": "edo-castle-tokyo",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "fukagawa-edo-museum",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "hamarikyu-gardens",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kiyosumi-gardens",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "minato-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "roppongi-hills-tokyo-city-view",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "ryogoku-kokugikan-sumo-museum",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "sunshine-60-observatory-ikebukuro",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "takanawa-gateway-minato",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "ueno-zoo",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 50,
+        "car": 45,
+        "train": 40
+      },
+      "size": 9,
+      "class": "A",
+      "severity": "none",
+      "rootCause": "legit",
+      "rationale": "Matsushima cluster (kai-57 triple): all 9 share the Matsushima access point; Sendai→Matsushima-Kaigan ~25 min + walk ≈ 40 ✓. Oshima/Fukuurajima islands need a local ferry leg — E note.",
+      "representativeIds": [
+        "entsuin",
+        "fukuurajima",
+        "godaido",
+        "kanrantei",
+        "matsushima-bay-cruise",
+        "matsushima-town",
+        "oshima",
+        "saigyo-modoshi-no-matsu"
+      ],
+      "ids": [
+        {
+          "id": "entsuin",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "fukuurajima",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "godaido",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "kanrantei",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "matsushima-bay-cruise",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "matsushima-town",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "oshima",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "saigyo-modoshi-no-matsu",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "zuigan-ji",
+          "class": "A",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 16
+      },
+      "size": 9,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Central Tokyo (Ueno/Ginza/Ryogoku), plausible.",
+      "representativeIds": [
+        "ameya-yokocho",
+        "bunkyo-city",
+        "ginza-itoya",
+        "museum-contemporary-art-tokyo",
+        "national-museum-of-nature-and-science",
+        "sumida-hokusai-museum",
+        "taito-city",
+        "tokyo-national-museum"
+      ],
+      "ids": [
+        {
+          "id": "ameya-yokocho",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "bunkyo-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "ginza-itoya",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "museum-contemporary-art-tokyo",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "national-museum-of-nature-and-science",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "sumida-hokusai-museum",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "taito-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "tokyo-national-museum",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "ueno-park",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 45
+      },
+      "size": 8,
+      "class": "E",
+      "severity": "medium",
+      "rootCause": "mixed",
+      "rationale": "Kanto editorial batch (92982480): plausible for Kawagoe/Hachioji (~40-50), under for Kamakura (real ~57-60), over for Ueno/Akasaka (real 10-30).",
+      "representativeIds": [
+        "akasaka-minato",
+        "disneyland",
+        "harry-potter-studio",
+        "hokokuji",
+        "kawagoe-castle-saitama",
+        "tama-forest-science-garden",
+        "tsurugaoka-hachimangu",
+        "ueno-taito"
+      ],
+      "ids": [
+        {
+          "id": "akasaka-minato",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "disneyland",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "harry-potter-studio",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "hokokuji",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "kawagoe-castle-saitama",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "tama-forest-science-garden",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "tsurugaoka-hachimangu",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "ueno-taito",
+          "class": "E",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 28
+      },
+      "size": 8,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Chofu/Kawasaki/Funabashi band, plausible (20-35 real).",
+      "representativeIds": [
+        "chofu-historic-jindaiji-district",
+        "fudaten-shrine",
+        "funabashi-city",
+        "ikuta-ryokuchi",
+        "jindai-botanical-gardens",
+        "jindaiji",
+        "kitaro-chaya",
+        "nihon-minka-en"
+      ],
+      "ids": [
+        {
+          "id": "chofu-historic-jindaiji-district",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "fudaten-shrine",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "funabashi-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "ikuta-ryokuchi",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "jindai-botanical-gardens",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "jindaiji",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kitaro-chaya",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "nihon-minka-en",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 40
+      },
+      "size": 8,
+      "class": "E",
+      "severity": "medium",
+      "rootCause": "mixed",
+      "rationale": "Mixed: Kawagoe/Kongo-Ikoma plausible; akihabara-chiyoda 40 vs real ~10 (4x over); kisarazu-city 40 vs real 60-70 (under).",
+      "representativeIds": [
+        "akihabara-chiyoda",
+        "ginza-urban",
+        "imperial-palace-chiyoda",
+        "kisarazu-city",
+        "kita-in",
+        "kongo-ikoma-kisen",
+        "renkeiji",
+        "taisho-roman-street"
+      ],
+      "ids": [
+        {
+          "id": "akihabara-chiyoda",
+          "class": "D",
+          "note": "Tokyo→Akihabara ~5-10 min; 40 is 4-8x"
+        },
+        {
+          "id": "ginza-urban",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "imperial-palace-chiyoda",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "kisarazu-city",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "kita-in",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kongo-ikoma-kisen",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "renkeiji",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "taisho-roman-street",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 300
+      },
+      "size": 8,
+      "class": "D",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "Fabricated 5-hour bus default on Okinawa/Miyako/Ishigaki/Kagoshima/Saga records. Real: Naha→Motobu bus ~120; Ishigaki airport→Kabira ~40; Kagoshima→Kaimon ~90.",
+      "representativeIds": [
+        "bise-fukugi-tree-road-motobu",
+        "higashi-hennazaki-cape-miyako",
+        "kabira-bay-ishigaki",
+        "mount-kaimon",
+        "nago-pineapple-park",
+        "yobuko-morning-market",
+        "yonaha-maehama-beach-miyako",
+        "yonehara-beach-coral-ishigaki"
+      ],
+      "ids": [
+        {
+          "id": "bise-fukugi-tree-road-motobu",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "higashi-hennazaki-cape-miyako",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "kabira-bay-ishigaki",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "mount-kaimon",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "nago-pineapple-park",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "yobuko-morning-market",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "yonaha-maehama-beach-miyako",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "yonehara-beach-coral-ishigaki",
+          "class": "D",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 37
+      },
+      "size": 7,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Tachikawa-area cluster — consistent and plausible (35-40 real).",
+      "representativeIds": [
+        "keio-rail-land",
+        "machida-graphic-arts-museum",
+        "play-museum-tachikawa",
+        "polar-science-museum",
+        "serigaya-park",
+        "suwa-shrine-tachikawa",
+        "takahata-fudoson"
+      ],
+      "ids": [
+        {
+          "id": "keio-rail-land",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "machida-graphic-arts-museum",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "play-museum-tachikawa",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "polar-science-museum",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "serigaya-park",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "suwa-shrine-tachikawa",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "takahata-fudoson",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 150,
+        "car": 120,
+        "shinkansen": 120,
+        "train": 120
+      },
+      "size": 7,
+      "class": "B",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "add-reviewed-city-hubs.ts:407 exact template. shinkansen:120 understates Aomori/Akita/Hachinohe (real 180-210); plausible only for Fukushima/Koriyama (~75-85 real, slight over).",
+      "representativeIds": [
+        "akita-city",
+        "aomori-city",
+        "fukushima-city",
+        "hachinohe-city",
+        "koriyama-city",
+        "morioka-city",
+        "yamagata-city"
+      ],
+      "ids": [
+        {
+          "id": "akita-city",
+          "class": "D",
+          "note": "Tokyo→Akita ~210 min; 120 understates"
+        },
+        {
+          "id": "aomori-city",
+          "class": "D",
+          "note": "Tokyo→Aomori ~180-200 min shinkansen; 120 understates"
+        },
+        {
+          "id": "fukushima-city",
+          "class": "E",
+          "note": "Tokyo→Fukushima ~85 min shinkansen; 120 overstates"
+        },
+        {
+          "id": "hachinohe-city",
+          "class": "D",
+          "note": "Tokyo→Hachinohe ~200 min; 120 understates"
+        },
+        {
+          "id": "koriyama-city",
+          "class": "E",
+          "note": "Tokyo→Koriyama ~75-80 min; 120 overstates"
+        },
+        {
+          "id": "morioka-city",
+          "class": "D",
+          "note": "Tokyo→Morioka ~150 min; 120 understates"
+        },
+        {
+          "id": "yamagata-city",
+          "class": "D",
+          "note": "Tokyo→Yamagata ~170 min; 120 understates"
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 41
+      },
+      "size": 7,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Kawagoe band (real 25-45) — plausible; sagamihara-city 41 vs real ~60 (under).",
+      "representativeIds": [
+        "kashiya-yokocho",
+        "kawagoe-city",
+        "kawagoe-festival-museum",
+        "kawagoe-hikawa-shrine",
+        "sagamihara-city",
+        "shingashi-river",
+        "toki-no-kane"
+      ],
+      "ids": [
+        {
+          "id": "kashiya-yokocho",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kawagoe-city",
+          "class": "C",
+          "note": "Tokyo→Kawagoe 25-45 min ✓ plausible (Tobu Tojo)"
+        },
+        {
+          "id": "kawagoe-festival-museum",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kawagoe-hikawa-shrine",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "sagamihara-city",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "shingashi-river",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "toki-no-kane",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 205
+      },
+      "size": 7,
+      "class": "B",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "Jitter artifact of train:200 template (expand-major-city-catalog.ts: id.length%11→205). Overstates real times for all members (Osaka ~160, Ome/Mitake ~60-100, Narita ~70).",
+      "representativeIds": [
+        "gyokudo-art-museum",
+        "maruyama-park",
+        "musashi-mitake-shrine",
+        "nakanoshima-museum-art-osaka",
+        "narita-airport-observation-decks",
+        "osaka-central-public-hall",
+        "shitennoji"
+      ],
+      "ids": [
+        {
+          "id": "gyokudo-art-museum",
+          "class": "D",
+          "note": "Tokyo→Ome ~70-80 min; 205 overstates"
+        },
+        {
+          "id": "maruyama-park",
+          "class": "D",
+          "note": "Sapporo park — Tokyo→Sapporo 450-480; 205 impossible"
+        },
+        {
+          "id": "musashi-mitake-shrine",
+          "class": "D",
+          "note": "Tokyo→Mitake ~100-120 min; 205 overstates"
+        },
+        {
+          "id": "nakanoshima-museum-art-osaka",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "narita-airport-observation-decks",
+          "class": "D",
+          "note": "Tokyo→Narita 60-80 min; 205 is ~3x"
+        },
+        {
+          "id": "osaka-central-public-hall",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "shitennoji",
+          "class": "E",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "ferry": 10
+      },
+      "size": 7,
+      "class": "A",
+      "severity": "none",
+      "rootCause": "legit",
+      "rationale": "Verified ferry crossings: Miyajimaguchi→Miyajima 10 min (JR West official); Ishigaki→Taketomi 10-15 min (Yaeyama Kanko). All 7 records share the same crossing.",
+      "representativeIds": [
+        "daisho-in",
+        "miyajima-gojunoto",
+        "miyajima-itsukushima",
+        "miyajima-omotesando",
+        "momijidani-park",
+        "senjokaku",
+        "taketomi-island"
+      ],
+      "ids": [
+        {
+          "id": "daisho-in",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "miyajima-gojunoto",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "miyajima-itsukushima",
+          "class": "A",
+          "note": "ferry:10 verified — JR West Miyajima Ferry 10 min (jr-miyajimaferry.co.jp)"
+        },
+        {
+          "id": "miyajima-omotesando",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "momijidani-park",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "senjokaku",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "taketomi-island",
+          "class": "A",
+          "note": "Ishigaki→Taketomi ferry 10-15 min ✓ verified (Yaeyama Kanko)"
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 20
+      },
+      "size": 6,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Tokyo wards, plausible (10-30 real); tokiwaso-manga-museum (Tokorozawa) 20 vs real ~35 (under).",
+      "representativeIds": [
+        "edogawa-city",
+        "itabashi-city",
+        "kita-city",
+        "shinagawa-city",
+        "tokiwaso-manga-museum",
+        "tokyo-tower-minato"
+      ],
+      "ids": [
+        {
+          "id": "edogawa-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "itabashi-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kita-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "shinagawa-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "tokiwaso-manga-museum",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "tokyo-tower-minato",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 49
+      },
+      "size": 6,
+      "class": "E",
+      "severity": "medium",
+      "rootCause": "mixed",
+      "rationale": "Shonan/Enoshima cluster: real 60-70 (Yokosuka/Tokaido) — value understates by ~20-30%.",
+      "representativeIds": [
+        "boso-no-mura",
+        "enoshima-aquarium",
+        "kamakurakokomae-station",
+        "katase-higashihama-beach",
+        "shonan-kaigan-park",
+        "tsujido-seaside-park"
+      ],
+      "ids": [
+        {
+          "id": "boso-no-mura",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "enoshima-aquarium",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "kamakurakokomae-station",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "katase-higashihama-beach",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "shonan-kaigan-park",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "tsujido-seaside-park",
+          "class": "E",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 250
+      },
+      "size": 6,
+      "class": "D",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "Fabricated 250-min bus default (Kyushu expansion 26a88398/Okinawa repair). Real local times 30-90 min.",
+      "representativeIds": [
+        "cape-nagasakibana",
+        "irabu-bridge-irabujima-miyako",
+        "ishidake-observatory",
+        "kujukushima-pearl-sea-resort",
+        "lake-ikeda",
+        "umi-kirara-aquarium"
+      ],
+      "ids": [
+        {
+          "id": "cape-nagasakibana",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "irabu-bridge-irabujima-miyako",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "ishidake-observatory",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "kujukushima-pearl-sea-resort",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "lake-ikeda",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "umi-kirara-aquarium",
+          "class": "D",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 14
+      },
+      "size": 6,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Central Tokyo (Chuo/Chiyoda/Nihonbashi/Ginza/Tsukiji), plausible.",
+      "representativeIds": [
+        "chiyoda-city",
+        "chuo-city",
+        "kabukiza",
+        "nihonbashi",
+        "seiko-museum-ginza",
+        "tsukiji-outer-market"
+      ],
+      "ids": [
+        {
+          "id": "chiyoda-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "chuo-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kabukiza",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "nihonbashi",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "seiko-museum-ginza",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "tsukiji-outer-market",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 115,
+        "car": 120,
+        "train": 105
+      },
+      "size": 6,
+      "class": "B",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "KAI-31 hardcoded triple ({train:105,bus:115,car:120}, lines 487/741/862/1043/1232/1353/1914/1975/2098/2165). No plausible origin.",
+      "representativeIds": [
+        "chikurin-ji-kochi",
+        "dogo-onsen-annex-asuka-no-yu",
+        "ishite-ji-ehime",
+        "makino-botanical-garden",
+        "tokushima-modern-art-museum",
+        "yuzuki-castle-ruins-matsuyama"
+      ],
+      "ids": [
+        {
+          "id": "chikurin-ji-kochi",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "dogo-onsen-annex-asuka-no-yu",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "ishite-ji-ehime",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "makino-botanical-garden",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "tokushima-modern-art-museum",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "yuzuki-castle-ruins-matsuyama",
+          "class": "B",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 203
+      },
+      "size": 6,
+      "class": "B",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "Jitter of train:200 (203=200+3). Sapporo sites real 450-480; katori-jingu real ~90. All wrong.",
+      "representativeIds": [
+        "former-hokkaido-government-office",
+        "katori-jingu",
+        "mount-moiwa",
+        "nijo-market",
+        "sapporo-beer-museum",
+        "sapporo-clock-tower"
+      ],
+      "ids": [
+        {
+          "id": "former-hokkaido-government-office",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "katori-jingu",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "mount-moiwa",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "nijo-market",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "sapporo-beer-museum",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "sapporo-clock-tower",
+          "class": "D",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 48
+      },
+      "size": 5,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Takao/Ome band: Takao ~50 ✓; Ome ~60-70 (slight under).",
+      "representativeIds": [
+        "inamuragasaki",
+        "mount-takao",
+        "ome-railway-park",
+        "ome-retro-town",
+        "takaosan-yakuoin"
+      ],
+      "ids": [
+        {
+          "id": "inamuragasaki",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "mount-takao",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "ome-railway-park",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "ome-retro-town",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "takaosan-yakuoin",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 35
+      },
+      "size": 5,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Tama/Tokorozawa/Omiya band, plausible.",
+      "representativeIds": [
+        "keio-mogusaen",
+        "omiya-railway",
+        "tama-zoological-park",
+        "tokorozawa-city",
+        "yakushi-ike-park"
+      ],
+      "ids": [
+        {
+          "id": "keio-mogusaen",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "omiya-railway",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "tama-zoological-park",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "tokorozawa-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "yakushi-ike-park",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 23
+      },
+      "size": 5,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Tokyo wards/Maihama, plausible.",
+      "representativeIds": [
+        "disneysea",
+        "nerima-city",
+        "ota-city",
+        "suginami-city",
+        "urayasu-city"
+      ],
+      "ids": [
+        {
+          "id": "disneysea",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "nerima-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "ota-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "suginami-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "urayasu-city",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 17
+      },
+      "size": 5,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Tokyo wards/Toyosu, plausible.",
+      "representativeIds": [
+        "koto-city",
+        "sumida-city",
+        "sumida-river-walk",
+        "toyosu-market",
+        "yanaka"
+      ],
+      "ids": [
+        {
+          "id": "koto-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "sumida-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "sumida-river-walk",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "toyosu-market",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "yanaka",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "shinkansen": 320,
+        "train": 220
+      },
+      "size": 4,
+      "class": "B",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "pr12c-kyushu-expansion.ts template (train:N, shinkansen:N+100). shinkansen 320 ≈ Tokyo→Hakata + Dazaifu access (plausible); train 220 impossible (conventional rail Tokyo→Kyushu 6h+). Internally inconsistent ordering (train < shinkansen).",
+      "representativeIds": [
+        "dazaifu-tenmangu",
+        "kitakyushu-manga-museum",
+        "komyozenji-temple-dazaifu",
+        "kyushu-national-museum"
+      ],
+      "ids": [
+        {
+          "id": "dazaifu-tenmangu",
+          "class": "B",
+          "note": "shinkansen:320 ≈ Tokyo→Hakata 300 + access ✓; train:220 fabricated (conventional rail 6h+); ordering train<shinkansen inverted"
+        },
+        {
+          "id": "kitakyushu-manga-museum",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "komyozenji-temple-dazaifu",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "kyushu-national-museum",
+          "class": "B",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 40,
+        "car": 35,
+        "train": 30
+      },
+      "size": 4,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Local-access band for Aizu-Wakamatsu/Hirosaki regional sites, plausible (10-30 real).",
+      "representativeIds": [
+        "aizu-bukeyashiki",
+        "fujita-memorial-garden",
+        "hirosaki-neputa-mura",
+        "saisho-in"
+      ],
+      "ids": [
+        {
+          "id": "aizu-bukeyashiki",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "fujita-memorial-garden",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "hirosaki-neputa-mura",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "saisho-in",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "ferry": 240
+      },
+      "size": 4,
+      "class": "A",
+      "severity": "none",
+      "rootCause": "legit",
+      "rationale": "Verified: Kagoshima→Yakushima car ferry ~240 min. All 4 Yakushima records share the crossing. NOTE: this is the mainland→island ferry leg, not door-to-door from Tokyo — semantic mismatch with the majority convention, but the fact itself is accurate.",
+      "representativeIds": [
+        "jomon-sugi-yakushima",
+        "shiratani-unsuikyo-ravine",
+        "yakushima-town",
+        "yakusugi-land-yakushima"
+      ],
+      "ids": [
+        {
+          "id": "jomon-sugi-yakushima",
+          "class": "A",
+          "note": "ferry:240 verified — Kagoshima→Yakushima car ferry ~4h (yesyakushima.com)"
+        },
+        {
+          "id": "shiratani-unsuikyo-ravine",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "yakushima-town",
+          "class": "A",
+          "note": null
+        },
+        {
+          "id": "yakusugi-land-yakushima",
+          "class": "A",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 212,
+        "shinkansen": 152,
+        "train": 192
+      },
+      "size": 4,
+      "class": "B",
+      "severity": "medium",
+      "rootCause": "template",
+      "rationale": "Kansai batch (v1.9.2/8b3f1272). shinkansen 152 ≈ Nozomi Tokyo→Osaka ✓; train 192 plausible band; bus 212 wrong for Tokyo→Osaka highway coach (~450-480).",
+      "representativeIds": [
+        "osaka-station-city",
+        "shinsaibashi",
+        "tennoji-park",
+        "universal-studios-japan"
+      ],
+      "ids": [
+        {
+          "id": "osaka-station-city",
+          "class": "B",
+          "note": "shinkansen:152 ≈ Nozomi Tokyo→Osaka ✓; bus:212 not a Tokyo→Osaka coach time (~450-480)"
+        },
+        {
+          "id": "shinsaibashi",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "tennoji-park",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "universal-studios-japan",
+          "class": "B",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 235,
+        "shinkansen": 135,
+        "train": 235
+      },
+      "size": 4,
+      "class": "B",
+      "severity": "medium",
+      "rootCause": "template",
+      "rationale": "Kansai batch. shinkansen 135 ≈ Tokyo→Kyoto ✓; train 235 plausible for Hikari band; bus 235 wrong (Tokyo→Kyoto coach ~420+).",
+      "representativeIds": [
+        "kinkaku-ji",
+        "kyoto-imperial-palace",
+        "kyoto-international-manga-museum",
+        "kyoto-national-museum"
+      ],
+      "ids": [
+        {
+          "id": "kinkaku-ji",
+          "class": "B",
+          "note": "shinkansen:135 ≈ Tokyo→Kyoto ✓; bus:235 not a coach time (~420+)"
+        },
+        {
+          "id": "kyoto-imperial-palace",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "kyoto-international-manga-museum",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "kyoto-national-museum",
+          "class": "B",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "shinkansen": 370,
+        "train": 270
+      },
+      "size": 4,
+      "class": "B",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "pr12c template. shinkansen 370 ≈ Tokyo→Nagasaki via Hakata (plausible); train 270 impossible by conventional rail (~420+); ordering inverted.",
+      "representativeIds": [
+        "chinatown-nagasaki",
+        "dejima-nagasaki",
+        "meganebashi-bridge-nagasaki",
+        "nagasaki-peace-park"
+      ],
+      "ids": [
+        {
+          "id": "chinatown-nagasaki",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "dejima-nagasaki",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "meganebashi-bridge-nagasaki",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "nagasaki-peace-park",
+          "class": "B",
+          "note": "shinkansen:370 ≈ Tokyo→Nagasaki via Hakata ✓; train:270 fabricated"
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 350
+      },
+      "size": 4,
+      "class": "D",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "Fabricated 350-min bus default. Real: Naha→Busena ~90; Ishigaki→Tamatorizaki ~40; Miyazaki→Udo Jingu ~60.",
+      "representativeIds": [
+        "busena-marine-park-nago",
+        "sun-messe-nichinan",
+        "tamatorizaki-viewpoint-ishigaki",
+        "udo-jingu"
+      ],
+      "ids": [
+        {
+          "id": "busena-marine-park-nago",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "sun-messe-nichinan",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "tamatorizaki-viewpoint-ishigaki",
+          "class": "D",
+          "note": null
+        },
+        {
+          "id": "udo-jingu",
+          "class": "D",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "shinkansen": 169,
+        "train": 199
+      },
+      "size": 4,
+      "class": "E",
+      "severity": "medium",
+      "rootCause": "mixed",
+      "rationale": "Kobe batch. shinkansen 169 ≈ Nozomi Tokyo→Shin-Kobe ✓ plausible; train 199 has no clear referent (conventional rail 5h+; if limited-express ~4h still under).",
+      "representativeIds": [
+        "kobe-harborland",
+        "kobe-port-tower",
+        "nankinmachi-chinatown",
+        "nunobiki-herb-gardens"
+      ],
+      "ids": [
+        {
+          "id": "kobe-harborland",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "kobe-port-tower",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "nankinmachi-chinatown",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "nunobiki-herb-gardens",
+          "class": "E",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 26
+      },
+      "size": 4,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Kawasaki/Matsudo band, plausible.",
+      "representativeIds": [
+        "kanayama-shrine",
+        "kawasaki-city",
+        "lazona-kawasaki-plaza",
+        "matsudo-city"
+      ],
+      "ids": [
+        {
+          "id": "kanayama-shrine",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kawasaki-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "lazona-kawasaki-plaza",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "matsudo-city",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 400
+      },
+      "size": 3,
+      "class": "D",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "Fabricated 400-min bus default. Naha→Churaumi real 100-135 (official oki-park.jp); Nagasaki→Nanatsugama ~60-90.",
+      "representativeIds": [
+        "churaumi-aquarium-motobu",
+        "nakijin-castle-ruins-motobu",
+        "nanatsugama-sea-caves"
+      ],
+      "ids": [
+        {
+          "id": "churaumi-aquarium-motobu",
+          "class": "D",
+          "note": "Naha→Churaumi bus 100-135 min (Yaeyama Express, official oki-park.jp); bus:400 fabricated"
+        },
+        {
+          "id": "nakijin-castle-ruins-motobu",
+          "class": "D",
+          "note": "Naha→Nakijin ~120-140 min; bus:400 fabricated"
+        },
+        {
+          "id": "nanatsugama-sea-caves",
+          "class": "D",
+          "note": "Nagasaki→Nanatsugama ~60-90 min; bus:400 fabricated"
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 295,
+        "car": 325,
+        "train": 255
+      },
+      "size": 3,
+      "class": "E",
+      "severity": "high",
+      "rootCause": "mixed",
+      "rationale": "izushi-castle-town value is the repair-kansai calibration (Toyooka 240 + 30 bus = 255 ✓); takayama-sanmachi 255 ≈ real 270 (plausible); kawagoe-kurazukuri 255 vs real ~40 (D — demonstrably wrong).",
+      "representativeIds": [
+        "izushi-castle-town",
+        "kawagoe-kurazukuri",
+        "takayama-sanmachi"
+      ],
+      "ids": [
+        {
+          "id": "izushi-castle-town",
+          "class": "C",
+          "note": "value = repair-kansai calibration (Toyooka 240 + 30 bus) — keep"
+        },
+        {
+          "id": "kawagoe-kurazukuri",
+          "class": "D",
+          "note": "Ikebukuro→Kawagoe 25-38 min (Tobu Tojo official); train:255 is 5.7x real; car:325 also wrong (~60-90)"
+        },
+        {
+          "id": "takayama-sanmachi",
+          "class": "C",
+          "note": "Tokyo→Takayama ~270 min; 255 plausible band"
+        }
+      ]
+    },
+    {
+      "value": {
+        "shinkansen": 298,
+        "train": 198
+      },
+      "size": 3,
+      "class": "B",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "pr12c-style pair. shinkansen 298 ≈ Tokyo→Hakata ✓; train 198 impossible by conventional rail (~360+); ordering inverted.",
+      "representativeIds": ["canal-city-hakata", "nakasu", "tenjin"],
+      "ids": [
+        {
+          "id": "canal-city-hakata",
+          "class": "B",
+          "note": "shinkansen:298 ≈ Tokyo→Hakata ✓; train:198 fabricated"
+        },
+        {
+          "id": "nakasu",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "tenjin",
+          "class": "B",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 19
+      },
+      "size": 3,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Tokyo wards/Ikebukuro/Odaiba, plausible band (miraikan 19 vs real ~30, slight under).",
+      "representativeIds": ["meguro-city", "miraikan", "sunshine-city"],
+      "ids": [
+        {
+          "id": "meguro-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "miraikan",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "sunshine-city",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "car": 65,
+        "train": 75
+      },
+      "size": 3,
+      "class": "E",
+      "severity": "medium",
+      "rootCause": "mixed",
+      "rationale": "Mito 75 ≈ real ~90 (under); Chiba 75 vs real ~40 (over).",
+      "representativeIds": [
+        "art-tower-mito",
+        "chiba-park",
+        "chiba-zoological-park"
+      ],
+      "ids": [
+        {
+          "id": "art-tower-mito",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "chiba-park",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "chiba-zoological-park",
+          "class": "E",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 234,
+        "shinkansen": 134,
+        "train": 234
+      },
+      "size": 3,
+      "class": "B",
+      "severity": "medium",
+      "rootCause": "template",
+      "rationale": "Kansai batch. shinkansen 134 ≈ Tokyo→Kyoto ✓; bus 234 wrong for Tokyo→Kyoto coach.",
+      "representativeIds": [
+        "kyoto-railway-museum",
+        "nishiki-market",
+        "sanjusangen-do"
+      ],
+      "ids": [
+        {
+          "id": "kyoto-railway-museum",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "nishiki-market",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "sanjusangen-do",
+          "class": "B",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 210,
+        "shinkansen": 150,
+        "train": 190
+      },
+      "size": 3,
+      "class": "B",
+      "severity": "medium",
+      "rootCause": "template",
+      "rationale": "Kansai batch. shinkansen 150 ✓; bus 210 wrong for Tokyo→Osaka coach.",
+      "representativeIds": [
+        "osaka-city",
+        "tempozan-ferris-wheel",
+        "tsutenkaku"
+      ],
+      "ids": [
+        {
+          "id": "osaka-city",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "tempozan-ferris-wheel",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "tsutenkaku",
+          "class": "B",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 36
+      },
+      "size": 3,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Tachikawa area, plausible.",
+      "representativeIds": [
+        "hijikata-toshizo-museum",
+        "nozuta-park",
+        "tachikawa-manga-park"
+      ],
+      "ids": [
+        {
+          "id": "hijikata-toshizo-museum",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "nozuta-park",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "tachikawa-manga-park",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 120,
+        "car": 130,
+        "train": 110
+      },
+      "size": 3,
+      "class": "B",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "KAI-31 hardcoded triple ({train:110,bus:120,car:130}, lines 417/1731/1853). No plausible origin for Kochi/Takamatsu sites (Tokyo→Kochi 6h+).",
+      "representativeIds": [
+        "katsurahama-beach",
+        "ritsurin-garden",
+        "sakamoto-ryoma-memorial-museum"
+      ],
+      "ids": [
+        {
+          "id": "katsurahama-beach",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "ritsurin-garden",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "sakamoto-ryoma-memorial-museum",
+          "class": "B",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "shinkansen": 430,
+        "train": 320
+      },
+      "size": 3,
+      "class": "B",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "pr12c template. shinkansen 430 ≈ Tokyo→Kumamoto 400 + Aso access (plausible); train 320 impossible (~540+); ordering inverted.",
+      "representativeIds": [
+        "aso-volcanic-museum",
+        "kusasenri-meadow-aso",
+        "nakadake-crater-aso"
+      ],
+      "ids": [
+        {
+          "id": "aso-volcanic-museum",
+          "class": "B",
+          "note": "shinkansen:430 ≈ Tokyo→Kumamoto 400 + access ✓; train:320 fabricated"
+        },
+        {
+          "id": "kusasenri-meadow-aso",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "nakadake-crater-aso",
+          "class": "B",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 30,
+        "car": 25,
+        "train": 20
+      },
+      "size": 3,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Local-access band Fukushima/Kaminoyama/Tatehana, plausible.",
+      "representativeIds": [
+        "fukushima-prefectural-museum-of-art",
+        "kaminoyama-castle-town",
+        "tatehana-wharf-morning-market"
+      ],
+      "ids": [
+        {
+          "id": "fukushima-prefectural-museum-of-art",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "kaminoyama-castle-town",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "tatehana-wharf-morning-market",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "shinkansen": 173,
+        "train": 203
+      },
+      "size": 3,
+      "class": "E",
+      "severity": "medium",
+      "rootCause": "mixed",
+      "rationale": "Kobe batch. shinkansen 173 ≈ Nozomi Tokyo→Shin-Kobe ✓; train 203 no clear referent.",
+      "representativeIds": [
+        "kitano-ijinkan",
+        "kobe-animal-kingdom",
+        "nunobiki-falls"
+      ],
+      "ids": [
+        {
+          "id": "kitano-ijinkan",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "kobe-animal-kingdom",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "nunobiki-falls",
+          "class": "E",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 60
+      },
+      "size": 3,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Enoshima ~65 ✓, Hachioji ~50, Saitama/Omiya ~30 (over) — plausible band.",
+      "representativeIds": [
+        "enoshima-island",
+        "hachioji-castle-tokyo",
+        "saitama-city"
+      ],
+      "ids": [
+        {
+          "id": "enoshima-island",
+          "class": "C",
+          "note": "Tokyo→Enoshima ~65 min; 60 plausible band"
+        },
+        {
+          "id": "hachioji-castle-tokyo",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "saitama-city",
+          "class": "E",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "car": 160,
+        "train": 150
+      },
+      "size": 3,
+      "class": "E",
+      "severity": "medium",
+      "rootCause": "mixed",
+      "rationale": "Nakasendo towns: Tokyo→Nakatsugawa ~160-180 by Nozomi+Chuo (plausible); Gujo-Hachiman ~210-240 (under); car 160 understates driving (~240+).",
+      "representativeIds": [
+        "gifu-gujo-hachiman",
+        "gifu-magome-juku",
+        "nagano-tsumago-juku"
+      ],
+      "ids": [
+        {
+          "id": "gifu-gujo-hachiman",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "gifu-magome-juku",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "nagano-tsumago-juku",
+          "class": "E",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 229,
+        "shinkansen": 129,
+        "train": 229
+      },
+      "size": 3,
+      "class": "B",
+      "severity": "medium",
+      "rootCause": "template",
+      "rationale": "Kansai batch. shinkansen 129 ≈ Tokyo→Kyoto ✓; bus 229 wrong for Tokyo→Kyoto coach.",
+      "representativeIds": ["fushimi-inari-taisha", "kennin-ji", "nanzen-ji"],
+      "ids": [
+        {
+          "id": "fushimi-inari-taisha",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "kennin-ji",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "nanzen-ji",
+          "class": "B",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 62
+      },
+      "size": 3,
+      "class": "E",
+      "severity": "low",
+      "rootCause": "mixed",
+      "rationale": "Omiya-area: real 30-40; 62 overstates ~1.8x (walking/transfer buffer?) — manual review.",
+      "representativeIds": [
+        "musashi-ichinomiya-hikawa-shrine",
+        "omiya-park",
+        "saitama-shintoshin"
+      ],
+      "ids": [
+        {
+          "id": "musashi-ichinomiya-hikawa-shrine",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "omiya-park",
+          "class": "E",
+          "note": null
+        },
+        {
+          "id": "saitama-shintoshin",
+          "class": "E",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "train": 22
+      },
+      "size": 3,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Adachi/Setagaya, plausible.",
+      "representativeIds": ["adachi-city", "gotoku-ji", "setagaya-city"],
+      "ids": [
+        {
+          "id": "adachi-city",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "gotoku-ji",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "setagaya-city",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "bus": 42,
+        "car": 47,
+        "train": 32
+      },
+      "size": 3,
+      "class": "C",
+      "severity": "low",
+      "rootCause": "estimated",
+      "rationale": "Sendai city sites, plausible local access (station→site ~10-20; 32 with buffer).",
+      "representativeIds": [
+        "sendai-asaichi-morning-market",
+        "sendai-city-museum",
+        "sendai-mediatheque"
+      ],
+      "ids": [
+        {
+          "id": "sendai-asaichi-morning-market",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "sendai-city-museum",
+          "class": "C",
+          "note": null
+        },
+        {
+          "id": "sendai-mediatheque",
+          "class": "C",
+          "note": null
+        }
+      ]
+    },
+    {
+      "value": {
+        "shinkansen": 410,
+        "train": 300
+      },
+      "size": 3,
+      "class": "B",
+      "severity": "high",
+      "rootCause": "template",
+      "rationale": "pr12c template. shinkansen 410 ≈ Tokyo→Hakata 300 + Yufuin access (plausible); train 300 impossible (~480+); ordering inverted.",
+      "representativeIds": [
+        "kinrin-lake-yufuin",
+        "yufuin-floral-village",
+        "yufuin-onsen-ryokan-district"
+      ],
+      "ids": [
+        {
+          "id": "kinrin-lake-yufuin",
+          "class": "B",
+          "note": "shinkansen:410 ≈ Tokyo→Hakata 300 + Yufuin ✓; train:300 fabricated"
+        },
+        {
+          "id": "yufuin-floral-village",
+          "class": "B",
+          "note": null
+        },
+        {
+          "id": "yufuin-onsen-ryokan-district",
+          "class": "B",
+          "note": null
+        }
+      ]
+    }
+  ],
+  "corrections": [
+    {
+      "id": "kawagoe-kurazukuri",
+      "field": "transportOptions.train",
+      "current": 255,
+      "proposed": 45,
+      "confidence": "high",
+      "evidence": "Tobu Tojo official access page: Ikebukuro→Kawagoe 25-38 min (tobu.co.jp/en/access/kawagoe); +10 min Tokyo→Ikebukuro ⇒ ~45 door-to-door. 255 is 5.7x real.",
+      "action": "correct"
+    },
+    {
+      "id": "kawagoe-kurazukuri",
+      "field": "transportOptions.car",
+      "current": 325,
+      "proposed": 75,
+      "confidence": "medium",
+      "evidence": "Tokyo→Kawagoe by car ~60-90 min; 325 fabricated.",
+      "action": "correct"
+    },
+    {
+      "id": "chichibu-city",
+      "field": "transportOptions.train",
+      "current": 200,
+      "proposed": 85,
+      "confidence": "high",
+      "evidence": "Seibu Laview Ikebukuro→Seibu-Chichibu 77-80 min (Seibu Chichibu Line / japan-guide); +10 min ⇒ ~85-90.",
+      "action": "correct"
+    },
+    {
+      "id": "sapporo-city",
+      "field": "transportOptions.train",
+      "current": 200,
+      "proposed": 470,
+      "confidence": "high",
+      "evidence": "Hokkaido Shinkansen Tokyo→Shin-Hakodate-Hokuto ~240 min + Ltd.Exp ~210 min ⇒ 450-480 (Wikipedia/operator).",
+      "action": "correct-or-remove"
+    },
+    {
+      "id": "sapporo-tv-tower",
+      "field": "transportOptions.train",
+      "current": 200,
+      "proposed": 470,
+      "confidence": "high",
+      "evidence": "same corridor as sapporo-city",
+      "action": "correct-or-remove"
+    },
+    {
+      "id": "susukino",
+      "field": "transportOptions.train",
+      "current": 200,
+      "proposed": 470,
+      "confidence": "high",
+      "evidence": "same corridor as sapporo-city",
+      "action": "correct-or-remove"
+    },
+    {
+      "id": "abashiri-city",
+      "field": "transportOptions.train",
+      "current": 200,
+      "proposed": null,
+      "confidence": "high",
+      "evidence": "Tokyo→Abashiri rail ~900 min (Sapporo leg ~5h). Static Tokyo-origin value meaningless; recommend removal (origin-aware system handles routing) or ~900.",
+      "action": "remove-or-correct"
+    },
+    {
+      "id": "churaumi-aquarium-motobu",
+      "field": "transportOptions.bus",
+      "current": 400,
+      "proposed": 120,
+      "confidence": "high",
+      "evidence": "Official Ocean Expo Park bus schedules: Naha→Churaumi Yaeyama Express 100-135 min (oki-park.jp/sp/kaiyohaku/en/acc/147).",
+      "action": "correct"
+    },
+    {
+      "id": "nakijin-castle-ruins-motobu",
+      "field": "transportOptions.bus",
+      "current": 400,
+      "proposed": 130,
+      "confidence": "medium",
+      "evidence": "Same Naha→Motobu corridor; Nakijin ~10 min past Churaumi.",
+      "action": "correct"
+    },
+    {
+      "id": "naha-city",
+      "field": "transportOptions.train",
+      "current": 200,
+      "proposed": null,
+      "confidence": "high",
+      "evidence": "No rail link to Okinawa; Yui Rail line total ~17 min end-to-end. train:200 fabricated.",
+      "action": "remove"
+    },
+    {
+      "id": "kokusai-dori-naha",
+      "field": "transportOptions.train",
+      "current": 200,
+      "proposed": null,
+      "confidence": "high",
+      "evidence": "same as naha-city",
+      "action": "remove"
+    },
+    {
+      "id": "naminoue-shrine-naha",
+      "field": "transportOptions.train",
+      "current": 200,
+      "proposed": null,
+      "confidence": "high",
+      "evidence": "same as naha-city",
+      "action": "remove"
+    },
+    {
+      "id": "fukushuen-garden-naha",
+      "field": "transportOptions.train",
+      "current": 200,
+      "proposed": null,
+      "confidence": "high",
+      "evidence": "same as naha-city",
+      "action": "remove"
+    },
+    {
+      "id": "shuri-castle-okinawa",
+      "field": "transportOptions.train",
+      "current": 45,
+      "proposed": 25,
+      "confidence": "medium",
+      "evidence": "Yui Rail airport→Shuri ~25 min (Shuri is the terminus); 45 ungrounded; no intercity rail.",
+      "action": "correct-or-remove"
+    },
+    {
+      "id": "narita-airport-observation-decks",
+      "field": "transportOptions.train",
+      "current": 205,
+      "proposed": 70,
+      "confidence": "high",
+      "evidence": "Tokyo→Narita by N'EX/JR ~60-80 min.",
+      "action": "correct"
+    },
+    {
+      "id": "asakusa-taito",
+      "field": "transportOptions.train",
+      "current": 50,
+      "proposed": 20,
+      "confidence": "high",
+      "evidence": "Tokyo Station→Asakusa Ginza line ~15-20 min.",
+      "action": "correct"
+    },
+    {
+      "id": "ikebukuro-toshima",
+      "field": "transportOptions.train",
+      "current": 50,
+      "proposed": 15,
+      "confidence": "high",
+      "evidence": "Tokyo Station→Ikebukuro Yamanote ~10-15 min.",
+      "action": "correct"
+    },
+    {
+      "id": "akihabara-chiyoda",
+      "field": "transportOptions.train",
+      "current": 40,
+      "proposed": 10,
+      "confidence": "high",
+      "evidence": "Tokyo Station→Akihabara ~5-10 min.",
+      "action": "correct"
+    }
+  ],
+  "unresolved": [
+    "All C-class records (171): values are plausible but estimator-derived (fix-kanto-coordinates-and-transit.ts estimateBetween straight-line). Underestimate rail by ~15-30% (circuity). No route-timetable verification.",
+    "E-class records (53): mixed plausibility; require per-record editorial review against route planners.",
+    "Semantic inconsistency: transportOptions mixes Tokyo-origin minutes (majority; repair-kansai header) with local-access minutes (horyuji-temple-nara train:45, Matsushima cluster train:40) and island ferry-leg minutes (yakushima ferry:240, miyajima ferry:10). No single documented convention in the type contract (destination.ts transportOptions has no doc comment).",
+    "teshima-island-kagawa ferry:180 (outside 61 clusters): real Takamatsu→Teshima ferry ~40-60 min; 180 questionable — manual review.",
+    "yufu/yufuin shinkansen:410 vs actual Tokyo→Yufuin ~430 (borderline).",
+    "190 empty-transportOptions records: no static claim by design; product decision whether major hubs should carry neutral-browsing display values.",
+    "okinawa-main zone 'train' localMode (Yui Rail) makes validators blind to fabricated train VALUES (train:200 on naha-city passes ISLAND_RAIL_CLAIM/V-ISLAND-RAIL) — needs value-bound check.",
+    "The {train:200}/{train:180} template defaults remain the single largest source of misleading neutral-browsing travel times."
+  ],
+  "validators": [
+    {
+      "code": "TEMPLATE_TRANSPORT_CLUSTER",
+      "severity": "error",
+      "status": "exists",
+      "desc": "≥3 records with identical transportOptions object — already implemented (data-quality-rules.ts collectTransportClusters); 61 clusters currently violate; recommend keeping as ERROR after data cleanup, or baselining."
+    },
+    {
+      "code": "V-ISLAND-RAIL",
+      "severity": "error",
+      "status": "exists",
+      "desc": "rail claim in rail-less island zone — already implemented; currently 0 violations (KAI-87 cleaned)."
+    },
+    {
+      "code": "OKINAWA_RAIL_VALUE",
+      "severity": "warning",
+      "status": "new",
+      "desc": "okinawa-main zone records with transportOptions.train > 30 (Yui Rail max ~17 min end-to-end) — flags naha-city, kokusai-dori-naha, naminoue-shrine-naha, fukushuen-garden-naha (200), shuri-castle-okinawa (45)."
+    },
+    {
+      "code": "TRAIN_SLOWER_THAN_SHINKANSEN",
+      "severity": "warning",
+      "status": "new",
+      "desc": "transportOptions.train < transportOptions.shinkansen (ordering inverted for same-origin minutes) — currently ~19 records (pr12c Kyushu pairs: train:N, shinkansen:N+100/110). Deterministic; promote to ERROR after data fix."
+    },
+    {
+      "code": "TRANSPORT_VALUE_BOUNDS",
+      "severity": "warning",
+      "status": "new",
+      "desc": "train/bus > 400 min on non-island records, or train/bus > 300 on Hokkaido/Okinawa/Kyushu/Shikoku prefecture records — flags template defaults (200-400 range) without a plausible referent."
+    },
+    {
+      "code": "BUS_CORRIDOR_EVIDENCE",
+      "severity": "warning",
+      "status": "new",
+      "desc": "bus value present without a verified highway-bus corridor (MODE_SEMANTICS §3: local/limousine/shuttle buses never count) — all bus-claim records lack corridor rows; flags bus:210-400 fabrications."
+    },
+    {
+      "code": "MANUAL_REVIEW_TRANSPORT",
+      "severity": "manual",
+      "status": "new",
+      "desc": "E-class list (53 records) and C-class sample (estimator-derived values) reviewed against route planners before promotion."
+    }
+  ],
+  "sources": [
+    "https://jr-miyajimaferry.co.jp/en/ (JR West Miyajima Ferry — crossing ~10 min)",
+    "https://www.miyajima.or.jp/english/access/access.html (Miyajima Tourist Association)",
+    "https://yesyakushima.com/yakushima-travel-guide/access/by-sea/ (Yakushima car ferry 4h)",
+    "https://www.tobu.co.jp/en/access/kawagoe/ (Tobu Tojo: Ikebukuro→Kawagoe 25-38 min)",
+    "https://www.japan-guide.com/e/e6551.html (Chichibu access: Seibu Laview 77-80 min)",
+    "https://oki-park.jp/sp/kaiyohaku/en/acc/147 (Ocean Expo Park bus schedules: Naha→Churaumi 100-135 min)",
+    "https://en.wikipedia.org/wiki/Hokkaido_Shinkansen (Tokyo→Shin-Hakodate-Hokuto ~4h; +3.5h to Sapporo)",
+    "https://japantravel.navitime.com/en/area/jp/depArrTimeList/00001289/00006668/00000123?direction=up (Tokyo↔Kamakura JR Yokosuka 53-60 min)",
+    "https://ishigaki-tours.com/en/column/ferry-taketomijima (Ishigaki→Taketomi ferry ~15 min)",
+    "In-repo: scripts/repair-kansai-expansion-transport.ts (Tokyo-origin calibration), scripts/expand-major-city-catalog.ts (jitter template), scripts/fix-kanto-coordinates-and-transit.ts (estimator), scripts/kai-31-shikoku-expansion.ts (hardcoded triples), scripts/pr12c-kyushu-expansion.ts (train:N/shinkansen:N+100 pairs), scripts/add-reviewed-city-hubs.ts (120/150 template), qa/kai-12/MODE_SEMANTICS.md, qa/kai-63/KAI63_NONBUS_TRANSPORT_AUDIT.md (D12 fabricated legacy values)"
+  ]
+}

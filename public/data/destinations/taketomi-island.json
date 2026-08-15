@@ -44,14 +44,12 @@
     "max": 3.5
   },
   "walkingMin": 150,
-  "walkingSunMin": 90,
-  "walkingShadeMin": 60,
   "walkingIntensity": "medium",
   "indoorPercent": 15,
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 6,
-    "walkingIntensity": 5
+    "heatTolerance": 5,
+    "rainFriendly": 2,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 8.7,
@@ -65,11 +63,6 @@
     "value": 8.6,
     "uniqueness": 8.9,
     "walkability": 6
-  },
-  "crowd": {
-    "weekday": 4,
-    "weekend": 6,
-    "holiday": 7
   },
   "season": {
     "spring": 8,
@@ -144,12 +137,46 @@
     ],
     "checkedAt": "2026-08-12",
     "freshness": "current",
-    "changeSummary": "PR E thematic audit: new curated member record"
+    "changeSummary": "PR E thematic audit: new curated member record",
+    "fieldSources": {
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=15, kind='island', walkingMin=150",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "transportZoneId": "ishigaki",
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "assisted",
     "confidence": "low"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=15, kind='island', walkingMin=150"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

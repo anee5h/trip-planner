@@ -5,6 +5,7 @@ import type { Destination } from "@/shared/types/destination";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
 import { getAdjustedBudget } from "@/shared/utils/utils";
+import { isRatingVerified } from "@/shared/services/recommendation/RecommendationScorer";
 import {
   getWalkingIntensity,
   getWalkingIntensityMetadata,
@@ -32,10 +33,12 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
 
   // Best value helpers
   const getMin = (arr: number[]) => (arr.length > 0 ? Math.min(...arr) : 0);
-  const getMax = (arr: number[]) => (arr.length > 0 ? Math.max(...arr) : 0);
 
   const budgets = compareDestinations.map((d) => getAdjustedBudget(d, "all"));
-  const minBudget = getMin(budgets);
+  const knownBudgets = budgets.filter(
+    (budget): budget is number => budget !== null,
+  );
+  const minBudget = knownBudgets.length > 0 ? getMin(knownBudgets) : null;
 
   const travelTimes = compareDestinations.map((d) => {
     const times = Object.values(d.transportOptions || {}).filter(
@@ -45,11 +48,10 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   });
   const minTravelTime = getMin(travelTimes);
 
-  const coupleScores = compareDestinations.map((d) => d.ratings.couple);
-  const maxCoupleScore = getMax(coupleScores);
-
-  const overallScores = compareDestinations.map((d) => d.ratings.overall);
-  const maxOverall = getMax(overallScores);
+  // Beta product decision (KAI-89): the overall destination score is hidden
+  // from CompareModal too. The couple row remains the legacy ratings
+  // family, gated by rating-vector confidence.
+  const ratingVerified = compareDestinations.map((d) => isRatingVerified(d));
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200">
@@ -113,7 +115,6 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
               className={`flex md:grid md:grid-cols-3 gap-3 sm:gap-4 pb-2 ${compareDestinations.length > 1 ? "overflow-x-auto snap-x snap-mandatory" : ""}`}
             >
               {compareDestinations.map((dest, idx) => {
-                const isBestOverall = dest.ratings.overall === maxOverall;
                 const cost = budgets[idx];
                 const isLowestBudget = cost === minBudget;
                 const time = travelTimes[idx];
@@ -121,7 +122,6 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                 const walkMeta = getWalkingIntensityMetadata(
                   getWalkingIntensity(dest),
                 );
-                const isMaxCouple = dest.ratings.couple === maxCoupleScore;
 
                 return (
                   <div
@@ -172,23 +172,6 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
 
                     {/* Metrics Stack for this Destination */}
                     <div className="space-y-2.5 pt-2 border-t border-slate-200/80 dark:border-slate-800/80">
-                      {/* Overall Score */}
-                      <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
-                          {t("compare.score")}
-                        </span>
-                        <div className="flex items-center gap-1.5">
-                          <span className="font-extrabold text-slate-900 dark:text-white text-xs">
-                            {dest.ratings.overall}/10
-                          </span>
-                          {isBestOverall && (
-                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
-                              {t("compare.best")}
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-
                       {/* Est. Budget */}
                       <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
                         <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
@@ -196,9 +179,11 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                         </span>
                         <div className="flex items-center gap-1.5">
                           <span className="font-bold text-slate-900 dark:text-white text-xs">
-                            ¥{(cost / 1000).toFixed(0)}k
+                            {cost === null
+                              ? "N/A"
+                              : `¥${(cost / 1000).toFixed(0)}k`}
                           </span>
-                          {isLowestBudget && (
+                          {cost !== null && isLowestBudget && (
                             <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
                               {t("compare.lowest")}
                             </Badge>
@@ -244,13 +229,10 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                         </span>
                         <div className="flex items-center gap-1.5">
                           <span className="font-semibold text-slate-800 dark:text-slate-200 text-xs">
-                            {dest.ratings.couple}/10
+                            {ratingVerified[idx]
+                              ? `${dest.ratings.couple}/10`
+                              : "—"}
                           </span>
-                          {isMaxCouple && (
-                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
-                              {t("compare.top")}
-                            </Badge>
-                          )}
                         </div>
                       </div>
                     </div>

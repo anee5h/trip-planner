@@ -129,9 +129,9 @@ export default function DestinationMap({
                   <h3 className="font-bold text-base text-slate-900 dark:text-white mb-0.5 truncate">
                     {placeName}
                   </h3>
-                  <div className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-1.5">
-                    ★ {dest.ratings?.overall ?? 4.5}/10
-                  </div>
+                  {/* Beta product decision (KAI-89): the overall destination
+                      score is hidden from all surfaces; the popup shows only
+                      factual info (description + actions). */}
                   <p className="text-xs text-slate-500 line-clamp-2 mb-3">
                     {dest.description
                       ? `${dest.description.slice(0, 60)}...`

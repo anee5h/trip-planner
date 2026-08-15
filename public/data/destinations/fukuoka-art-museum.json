@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Fukuoka Art Museum",
-      "description": "Fukuoka Art Museum is a visitor destination in Fukuoka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+      "description": "An art museum in Ohori Park designed by Kunio Maekawa, reopened after renovation in 2019 with Western, Asian, and modern art collections.",
       "highlights": ["Museum"],
       "openingHours": "09:30–17:30 (Jul-Oct Fri/Sat until 20:00)"
     },
     "ja": {
       "name": "福岡市美術館",
-      "description": "福岡市美術館はFukuoka Cityにある観光スポットです。展示を通して地域の文化やテーマを学べます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "福岡市美術館は大濠公園の中にある前川國男設計の美術館で、2019年のリニューアル後も西洋・東洋美術や現代美術を紹介しています。",
       "highlights": ["博物館"],
       "openingHours": "09:30～17:30（7～10月の金・土は20:00まで）"
     }
@@ -41,30 +41,19 @@
     "lat": 33.58383,
     "lng": 130.37951
   },
-  "description": "Fukuoka Art Museum is a visitor destination in Fukuoka City.  Visitors can explore focused exhibits and learn about the venue's subject.",
+  "description": "An art museum in Ohori Park designed by Kunio Maekawa, reopened after renovation in 2019 with Western, Asian, and modern art collections.",
   "highlights": ["Museum"],
-  "budgetMin": 3000,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
-  "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 1100,
-    "food": 1925,
-    "cafe": 550
-  },
   "transportOptions": {
     "train": 202,
     "shinkansen": 302
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {
-    "min": 2,
-    "max": 4
+    "min": 1.5,
+    "max": 3
   },
-  "walkingMin": 3000,
-  "walkingIntensity": "low",
-  "walkingSunMin": 500,
-  "walkingShadeMin": 2500,
+  "walkingMin": 55,
+  "walkingIntensity": "medium",
   "indoorPercent": 90,
   "comfort": {
     "heatTolerance": 9,
@@ -86,11 +75,6 @@
     "accessibility": 6.6
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 6.3,
     "summer": 9.4,
@@ -101,7 +85,6 @@
   "weatherDependence": "low",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -125,9 +108,9 @@
         "accessedAt": "2026-07-29"
       }
     ],
-    "checkedAt": "2026-08-04",
+    "checkedAt": "2026-08-13",
     "freshness": "current",
-    "changeSummary": "v1.9.3 semantic audit; awaiting individual editorial review",
+    "changeSummary": "KAI-89 source-backed template-copy correction",
     "fieldSources": {
       "ratings": [
         {
@@ -144,6 +127,46 @@
           "title": "Fukuoka Art Museum",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.fukuoka-art-museum.jp/",
+          "title": "Fukuoka Art Museum official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.en.description": [
+        {
+          "type": "official",
+          "url": "https://www.fukuoka-art-museum.jp/",
+          "title": "Fukuoka Art Museum official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "content.ja.description": [
+        {
+          "type": "official",
+          "url": "https://www.fukuoka-art-museum.jp/",
+          "title": "Fukuoka Art Museum official website",
+          "accessedAt": "2026-08-13"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'museum'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 30% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -157,6 +180,12 @@
         "changedAt": "2026-07-29",
         "changedBy": "TabiMap data audit",
         "summary": "Canonicalized type, localized categories, budgets, ratings, and transport semantics",
+        "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-13",
+        "changedBy": "Meguruto editorial",
+        "summary": "Replaced repeated template description with source-backed destination copy",
         "method": "assisted"
       }
     ],
@@ -174,5 +203,35 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.fukuoka-art-museum.jp/en/"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'museum'"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.3,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

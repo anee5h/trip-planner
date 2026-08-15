@@ -10,8 +10,6 @@
   "budgetRecommended": 13600,
   "budgetMax": 17600,
   "walkingMin": 50,
-  "walkingSunMin": 30,
-  "walkingShadeMin": 20,
   "indoorPercent": 80,
   "ratings": {
     "overall": 9.2,
@@ -24,11 +22,6 @@
     "relaxation": 7,
     "value": 9.5,
     "uniqueness": 9.5
-  },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 7,
-    "holiday": 8
   },
   "season": {
     "spring": 8,
@@ -66,7 +59,6 @@
   },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
-  "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -100,7 +92,8 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {}
   },
   "nameJa": "宇都宮・大谷エリア",
   "content": {
@@ -112,7 +105,6 @@
         "Oya Kannon Carved Cliff Buddha",
         "Utsunomiya Gyoza Dining"
       ],
-      "notes": "A top recommended attraction in Tochigi, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
       "openingHours": "09:00 - 17:00"
@@ -125,7 +117,6 @@
         "大谷観音の崖彫り仏像",
         "宇都宮餃子食べ歩き"
       ],
-      "notes": "宇都宮・大谷エリアは、Tochigiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"
@@ -136,10 +127,27 @@
     "method": "manual",
     "confidence": "high"
   },
-  "notesJa": "宇都宮・大谷エリアは、Tochigiを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Tochigi:utsunomiya"
+  "municipalityId": "Tochigi:utsunomiya",
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

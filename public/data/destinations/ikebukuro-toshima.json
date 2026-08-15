@@ -10,8 +10,6 @@
   "budgetRecommended": 13000,
   "budgetMax": 17000,
   "walkingMin": 60,
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 80,
   "ratings": {
     "overall": 8.5,
@@ -24,11 +22,6 @@
     "relaxation": 7,
     "value": 8.5,
     "uniqueness": 8
-  },
-  "crowd": {
-    "weekday": 8,
-    "weekend": 10,
-    "holiday": 10
   },
   "season": {
     "spring": 8,
@@ -49,7 +42,7 @@
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg/3840px-Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg",
   "transportOptions": {
-    "train": 50
+    "train": 15
   },
   "highlights": [
     "Sunshine City Aquarium",
@@ -59,7 +52,7 @@
   "description": "Ikebukuro (Toshima) is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
   "budgetBreakdown": {
     "transport": 1083,
-    "tickets": 8667,
+    "tickets": 0,
     "food": 2275,
     "cafe": 975
   },
@@ -105,7 +98,8 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {}
   },
   "nameJa": "池袋",
   "content": {
@@ -125,8 +119,7 @@
     "ja": {
       "name": "池袋",
       "description": "Ikebukuroは東京都を代表するショッピングと散策のスポットです。多種多様なショップやグルメが集まり、地元の活気と魅力溢れる時間を楽しめます。",
-      "highlights": ["市散策", "池袋の名所", "池袋の名所"],
-      "notes": "池袋は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "highlights": ["市散策", "池袋の名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "10:00 - 20:00（店舗により異なる）"
@@ -137,10 +130,27 @@
     "method": "manual",
     "confidence": "high"
   },
-  "notesJa": "池袋は、Tokyoを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "10:00 - 20:00",
   "openingHoursJa": "10:00 - 20:00（店舗により異なる）",
-  "municipalityId": "Tokyo:toshima"
+  "municipalityId": "Tokyo:toshima",
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

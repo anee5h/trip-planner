@@ -48,10 +48,8 @@
     "min": 1,
     "max": 2
   },
-  "walkingMin": 2000,
-  "walkingSunMin": 1500,
-  "walkingShadeMin": 500,
-  "walkingIntensity": "low",
+  "walkingMin": 60,
+  "walkingIntensity": "medium",
   "indoorPercent": 60,
   "comfort": {
     "heatTolerance": 7,
@@ -142,7 +140,17 @@
         "summary": "Added source-backed KAI-32 Chugoku POI",
         "method": "assisted"
       }
-    ]
+    ],
+    "fieldSources": {
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 2000 replaced by walk-share estimate (FIX_UNIT): 50% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "ratingMetadata": {
     "rubricVersion": 1,
@@ -152,5 +160,24 @@
   "relationships": {
     "parentDestinationId": "shimonoseki-city"
   },
-  "schemaVersion": 2
+  "schemaVersion": 2,
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 2000 replaced by walk-share estimate (FIX_UNIT): 50% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.5,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

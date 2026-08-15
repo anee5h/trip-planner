@@ -10,9 +10,7 @@
   "budgetMin": 2500,
   "budgetRecommended": 5500,
   "budgetMax": 8500,
-  "walkingMin": 3500,
-  "walkingSunMin": 1200,
-  "walkingShadeMin": 2300,
+  "walkingMin": 70,
   "indoorPercent": 85,
   "ratings": {
     "overall": 8.5,
@@ -25,11 +23,6 @@
     "relaxation": 8.6,
     "value": 9,
     "uniqueness": 8.6
-  },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 7
   },
   "season": {
     "spring": 8,
@@ -52,8 +45,8 @@
   },
   "comfort": {
     "heatTolerance": 8,
-    "rainFriendly": 9,
-    "walkingIntensity": 3
+    "rainFriendly": 8,
+    "walkingIntensity": 5
   },
   "transportOptions": {
     "train": 100,
@@ -96,7 +89,7 @@
   "relationships": {
     "parentDestinationId": "nagoya-city"
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "medium",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
     "min": 2,
@@ -104,5 +97,29 @@
   },
   "officialWebsite": "https://nagoya-port-building.jp/",
   "businessHours": "Closed for renewal 2026-08-01 to 2026-11-30",
-  "municipalityId": "Aichi:nagoya"
+  "municipalityId": "Aichi:nagoya",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=85, kind='', walkingMin=70"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

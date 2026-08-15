@@ -6,13 +6,13 @@
   "content": {
     "en": {
       "name": "Fukuoka Castle Ruins",
-      "description": "Fukuoka Castle Ruins is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+      "description": "Remains of Fukuoka Castle, begun in 1601 by the Kuroda clan, standing in Maizuru Park in central Fukuoka. Stone walls, moats and the keep base survive, and the grounds are a popular cherry-blossom spot in spring.",
       "highlights": ["History"],
       "openingHours": "Open 24 hours"
     },
     "ja": {
-      "name": "福岡市",
-      "description": "福岡市はFukuoka Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "福岡城跡（舞鶴公園）",
+      "description": "黒田氏が慶長6年（1601年）から築いた福岡城の遺構。舞鶴公園内に石垣や堀、天守台が残り、春は桜の名所としてにぎわう。",
       "highlights": ["歴史"],
       "openingHours": "24時間営業"
     }
@@ -41,17 +41,8 @@
     "lat": 33.585,
     "lng": 130.3831
   },
-  "description": "Fukuoka Castle Ruins is a visitor destination in Fukuoka City.  Visitors can experience historic architecture and local culture.",
+  "description": "Remains of Fukuoka Castle, begun in 1601 by the Kuroda clan, standing in Maizuru Park in central Fukuoka. Stone walls, moats and the keep base survive, and the grounds are a popular cherry-blossom spot in spring.",
   "highlights": ["History"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 204,
     "shinkansen": 304
@@ -61,15 +52,13 @@
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 90,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
   "indoorPercent": 25,
   "comfort": {
-    "heatTolerance": 3,
-    "rainFriendly": 3,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 5,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.5,
@@ -86,11 +75,6 @@
     "accessibility": 7.8
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 8.7,
     "summer": 7.8,
@@ -101,7 +85,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Fukuoka City.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,6 +132,22 @@
           "title": "Fukuoka",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=25, kind='museum', walkingMin=90",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 50% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -179,5 +178,35 @@
   "openingHoursMetadata": {
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.japan.travel/en/destinations/kyushu/"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=25, kind='museum', walkingMin=90"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   }
 }

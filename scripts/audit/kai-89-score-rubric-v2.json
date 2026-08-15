@@ -1,0 +1,58 @@
+{
+  "rubricVersion": "kai-89-overall-v2",
+  "purpose": "ONE deterministic 0-10 overall-destination score for every published record with enough evidence. verified and estimated are PROVENANCE/confidence states over this SAME formula — never different formulas on one scale. Measures overall destination VALUE, not seasonal suitability (a highly seasonal destination must not be penalized for having one ideal season).",
+  "states": {
+    "verified": "rubric value whose inputs were editorially verified against authoritative sources (score-specific provenance: verification date + source URLs, committed in kai-89-score-verification-ledger.json). NEVER derived from generic ratingMetadata.confidence.",
+    "estimated": "rubric value over catalogue fields with model provenance (sourceClass model). Visibly labeled estimated; never presented as editorial.",
+    "unavailable": "weighted evidence coverage below the threshold. Localized unavailable state, value null; never a neutral-5 estimate, never a legacy rating, never another field."
+  },
+  "evidenceThreshold": 0.5,
+  "evidenceThresholdRationale": "coverage = sum of weights of dimensions with DIRECT evidence. 0.5 = at least half of the rubric weight backed by evidence — equivalently SIGNIFICANCE plus any secondary dimension, or RECOGNITION plus RICHNESS. A single sparse dimension (e.g. importance alone = 0.40) is not enough: a lack of evidence is not evidence of average quality.",
+  "modelVersion": "kai-89-overall-v2",
+  "computedAt": "runtime (computeOverallScore in src/shared/services/recommendation/scoreRubric.ts); persisted per record by the generator",
+  "neverUses": [
+    "legacy ratings vector (ratings.*) — a separate evidence family with its own confidence gating (ratingMetadata)",
+    "season vector (seasonal suitability is a separate dimension, never an overall score)",
+    "officialWebsite / status / fieldSources / highlight count / visit-window presence / walking-data presence (catalogue-completeness proxies; evidence maturity belongs to confidence/provenance, not the numeric value)",
+    "popularity rankings or user-review averages"
+  ],
+  "dimensions": [
+    {
+      "component": "SIGNIFICANCE",
+      "weight": 0.4,
+      "catalogueFields": ["importance"],
+      "scoring": "importance tier: major 9 / notable 7 / standard 5 / minor 3. No designation bonuses — external designations are credited ONLY in RECOGNITION (anti-double-counting).",
+      "rationale": "A destination's national/international standing is the primary driver of overall value for a traveller deciding what to see.",
+      "evidence": "importance present and in the tier map"
+    },
+    {
+      "component": "RECOGNITION",
+      "weight": 0.3,
+      "catalogueFields": ["collections[].collectionId", "tags"],
+      "scoring": "highest designation tier wins (single credit, never stacked): UNESCO (collection unesco-japan or unesco/world-heritage tag) 9; national park / quasi-national park / Japan heritage / national treasure / top-100 castle / three-great (collections national-parks-japan, quasi-national-parks-japan, japan-top-castles, original-12-castles or matching tags) 7; any other collection membership or prefectural/registered/historic-site tag 6; tags present without designation 4 (absence of designation is evidence of absence).",
+      "rationale": "Third-party designations (UNESCO, national parks, heritage programmes) are independent recognition of quality.",
+      "evidence": "collections non-empty OR tags non-empty"
+    },
+    {
+      "component": "RICHNESS",
+      "weight": 0.2,
+      "catalogueFields": ["categories", "indoorPercent"],
+      "scoring": "distinct category count >=4 -> 8, 2-3 -> 6, 1 -> 4; +0.5 when indoorPercent 20-80 (balanced indoor/outdoor). Highlight count NEVER changes the value (evidence maturity only).",
+      "rationale": "Depth and variety of things to see/do is a core value dimension; extreme single-focus or single-environment places are lower.",
+      "evidence": "categories non-empty OR highlights non-empty OR indoorPercent present"
+    },
+    {
+      "component": "ACCESSIBILITY",
+      "weight": 0.1,
+      "catalogueFields": ["transportOptions"],
+      "scoring": "finite transport-mode count >=3 -> 8, 1-2 -> 6. visit-window and walking data NEVER change the value (provenance signals only).",
+      "rationale": "A destination a traveller can actually reach is worth more; pure accessibility, low weight.",
+      "evidence": "at least one finite transport mode"
+    }
+  ],
+  "composite": "value = round( sum(covered_dimension_value * weight) / sum(covered_weights) ) to 1 decimal; clamp 1-10. Uncovered dimensions contribute NEITHER numerator NOR denominator — a missing input never manufactures a neutral 5.",
+  "missingCompositeBehavior": "if weighted evidence coverage < 0.5 the record is unavailable (value null). No neutral-5 fallback, no automatic estimate.",
+  "antiDoubleCounting": "a designation is credited in exactly ONE dimension (RECOGNITION). SIGNIFICANCE reads ONLY the catalogue importance field; importance and external designations are disjoint inputs. Multiple designations within RECOGNITION credit the highest tier once (never stacked).",
+  "catalogueCompletenessGuard": "officialWebsite, status, fieldSources, highlight count, recommendedVisitHours presence and walkingMin presence are evidence-maturity signals: they may affect confidence/provenance reporting but NEVER the numeric value.",
+  "versioning": "bump rubricVersion on any input/weight/scoring/threshold change; the basis note in persisted scoreMetadata and the score-state audit must reference this version."
+}

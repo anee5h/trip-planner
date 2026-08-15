@@ -6,18 +6,16 @@
   "content": {
     "en": {
       "name": "Taisho Roman Street",
-      "description": "Taisho Roman Street is a visitor destination in Kawagoe City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+      "description": "Street in Kawagoe lined with buildings from the Taisho era (1912–1926), whose Western-influenced facades earned the area its 'Taisho Roman' name. Adjacent to the kurazukuri warehouse district, it holds cafes and shops in historic buildings.",
       "highlights": ["Shopping", "Food"],
-      "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
       "reservation": "No advance reservation required; tickets available on arrival.",
       "parking": "Paid public parking options available nearby.",
       "openingHours": "09:00 - 17:00"
     },
     "ja": {
       "name": "大正浪漫夢通り",
-      "description": "大正浪漫夢通りはKawagoe Cityにある観光スポットです。食事や買い物、街歩きを楽しめます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
-      "highlights": ["大正浪漫夢通りの名所", "大正浪漫夢通りの名所"],
-      "notes": "大正浪漫夢通りは、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
+      "description": "大正時代（1912〜1926年）の洋風建築が並ぶ通り。川越の「大正浪漫」を感じさせる景観で、蔵造りの町並みに隣接する。歴史ある建物を生かしたカフェや雑貨店が並ぶ。",
+      "highlights": ["大正浪漫夢通りの名所"],
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
       "parking": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
       "openingHours": "09:00 - 17:00"
@@ -47,17 +45,8 @@
     "lat": 35.91986111,
     "lng": 139.48355556
   },
-  "description": "Taisho Roman Street is a visitor destination in Kawagoe City.  Visitors can enjoy local food, shopping, and an easy walk through the area.",
+  "description": "Street in Kawagoe lined with buildings from the Taisho era (1912–1926), whose Western-influenced facades earned the area its 'Taisho Roman' name. Adjacent to the kurazukuri warehouse district, it holds cafes and shops in historic buildings.",
   "highlights": ["Shopping", "Food"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1300,
-    "tickets": 0,
-    "food": 2300,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 40
   },
@@ -68,13 +57,11 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 55,
   "comfort": {
-    "heatTolerance": 6,
+    "heatTolerance": 5,
     "rainFriendly": 6,
-    "walkingIntensity": 6
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 8.3,
@@ -91,11 +78,6 @@
     "accessibility": 8.3
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 7.6,
     "summer": 6.9,
@@ -106,7 +88,6 @@
   "weatherDependence": "moderate",
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
-  "notes": "A top recommended attraction in Saitama, offering excellent photo opportunities and local cultural experiences.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -149,6 +130,14 @@
           "title": "Taisho-roman Street",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=55, kind='district', walkingMin=60",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -174,10 +163,45 @@
     "confidence": "low"
   },
   "businessHours": "Open access",
-  "notesJa": "大正浪漫夢通りは、Saitamaを代表するおすすめスポットで、素晴らしい写真撮影や文化体験を楽しめます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
-  "municipalityId": "Saitama:kawagoe"
+  "municipalityId": "Saitama:kawagoe",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=55, kind='district', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

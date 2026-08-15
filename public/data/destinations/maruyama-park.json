@@ -6,12 +6,12 @@
   "content": {
     "en": {
       "name": "Maruyama Park",
-      "description": "Maruyama Park is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+      "description": "Forested park in western Sapporo whose virgin-forest zone is a designated natural treasure, adjacent to Hokkaido Shrine and Maruyama Zoo. One of Sapporo's best cherry-blossom spots, usually peaking in late April to early May.",
       "highlights": ["Nature"]
     },
     "ja": {
-      "name": "円山公園 (京都府)",
-      "description": "円山公園 (京都府)はSapporo Cityにある観光スポットです。景観や自然を楽しみながら散策できます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "円山公園",
+      "description": "札幌市西部の緑豊かな公園。天然記念物に指定された原始林を有し、北海道神宮や円山動物園に隣接する。4月下旬から5月上旬は桜の名所としてにぎわう。",
       "highlights": ["自然"]
     }
   },
@@ -24,7 +24,7 @@
   "relationships": {
     "parentDestinationId": "sapporo-city"
   },
-  "officialWebsite": "https://kyoto.travel/en/destinations/maruyama-park/",
+  "officialWebsite": "https://maruyamapark.jp/en/",
   "officialWebsiteRequirement": "none",
   "categories": ["Nature"],
   "tags": ["Nature", "Sapporo City"],
@@ -39,34 +39,23 @@
     "lat": 43.0542,
     "lng": 141.3175
   },
-  "description": "Maruyama Park is a visitor destination in Sapporo City.  Visitors can enjoy the scenery and explore at a relaxed walking pace.",
+  "description": "Forested park in western Sapporo whose virgin-forest zone is a designated natural treasure, adjacent to Hokkaido Shrine and Maruyama Zoo. One of Sapporo's best cherry-blossom spots, usually peaking in late April to early May.",
   "highlights": ["Nature"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 205
   },
   "totalTripHours": 6,
   "recommendedVisitHours": {
-    "min": 1.5,
+    "min": 2,
     "max": 4
   },
-  "walkingMin": 6500,
-  "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
+  "walkingMin": 190,
+  "walkingIntensity": "high",
   "indoorPercent": 20,
   "comfort": {
-    "heatTolerance": 2,
-    "rainFriendly": 2,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 8
   },
   "ratings": {
     "overall": 8.5,
@@ -83,11 +72,6 @@
     "accessibility": 9.4
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 7.7,
     "summer": 9.4,
@@ -98,7 +82,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Sapporo City.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -113,12 +96,6 @@
         "type": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/Maruyama_Park",
         "title": "Maruyama Park",
-        "accessedAt": "2026-07-29"
-      },
-      {
-        "type": "official",
-        "url": "https://kyoto.travel/en/destinations/maruyama-park/",
-        "title": "Maruyama Park official website",
         "accessedAt": "2026-07-29"
       }
     ],
@@ -140,6 +117,30 @@
           "url": "https://en.wikipedia.org/wiki/Maruyama_Park",
           "title": "Maruyama Park",
           "accessedAt": "2026-07-29"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'park'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=20, kind='park', walkingMin=190",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 80% of 4h visit",
+          "accessedAt": "2026-08-14"
         }
       ]
     },
@@ -164,5 +165,41 @@
     "confidence": "low"
   },
   "businessHours": "Open access",
-  "municipalityId": "Hokkaido:sapporo"
+  "municipalityId": "Hokkaido:sapporo",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'park'"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='park', walkingMin=190"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

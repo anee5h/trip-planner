@@ -11,8 +11,6 @@
   "budgetRecommended": 5500,
   "budgetMax": 8500,
   "walkingMin": 45,
-  "walkingSunMin": 27,
-  "walkingShadeMin": 18,
   "indoorPercent": 50,
   "ratings": {
     "overall": 8.8,
@@ -25,11 +23,6 @@
     "relaxation": 9.1,
     "value": 9.5,
     "uniqueness": 8.8
-  },
-  "crowd": {
-    "weekday": 3,
-    "weekend": 6,
-    "holiday": 7
   },
   "season": {
     "spring": 10,
@@ -118,7 +111,8 @@
     "checkedAt": "2026-08-02",
     "reviewedAt": "2026-08-02",
     "reviewedBy": "Meguruto Editorial Reviewer",
-    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration"
+    "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
+    "fieldSources": {}
   },
   "nameJa": "佐倉城址公園",
   "content": {
@@ -159,5 +153,23 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "Park grounds open; castle museum 09:00-16:30 (closed year-end)",
   "openingHoursJa": "Park grounds open; castle museum 09:00-16:30 (closed year-end)",
-  "municipalityId": "Chiba:sakura"
+  "municipalityId": "Chiba:sakura",
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.3,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

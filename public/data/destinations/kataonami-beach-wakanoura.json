@@ -39,7 +39,41 @@
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
     "checkedAt": "2026-08-03T00:00:00Z",
-    "freshness": "current"
+    "freshness": "current",
+    "fieldSources": {
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'beach'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; temperate latitude band; calibrated beach peaks",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; temperate latitude band; calibrated beach peaks",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
   },
   "content": {
     "en": {
@@ -79,8 +113,8 @@
   },
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 0.8,
-    "max": 1.8
+    "min": 2,
+    "max": 4
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Wakanoura_viewed_from_Mount_Takozushi.jpg/1920px-Wakanoura_viewed_from_Mount_Takozushi.jpg",
   "imageMetadata": {
@@ -98,5 +132,45 @@
   "collections": [],
   "travelEstimate": {
     "confidence": "beta"
+  },
+  "season": {
+    "spring": 7,
+    "summer": 10,
+    "autumn": 6,
+    "winter": 3
+  },
+  "bestMonths": [7, 8],
+  "bestSeason": "Summer",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "medium",
+    "basis": "temperate latitude band; calibrated beach peaks"
+  },
+  "walkingMin": 190,
+  "walkingIntensity": "high",
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'beach'"
+  },
+  "scoreMetadata": {
+    "state": "unavailable",
+    "value": null,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "unknown",
+    "coverage": 0.3,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "evidence coverage 0.30 below threshold 0.5"
+    },
+    "noteKey": "destination.scoreUnavailable"
   }
 }

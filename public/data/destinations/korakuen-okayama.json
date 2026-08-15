@@ -52,23 +52,9 @@
   "budgetMin": 3000,
   "budgetMax": 12000,
   "budgetRecommended": 7500,
-  "crowd": {
-    "weekday": 3,
-    "weekend": 4,
-    "holiday": 5
-  },
-  "season": {
-    "spring": 4,
-    "summer": 4,
-    "autumn": 4,
-    "winter": 4
-  },
-  "walkingMin": 8000,
-  "walkingSunMin": 4800,
-  "walkingShadeMin": 3200,
+  "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
-  "bestMonths": [3, 4, 5, 9, 10, 11],
   "relationships": {
     "featuredDestinationIds": [],
     "parentDestinationId": "okayama-city"
@@ -76,17 +62,16 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/250505_Korakuen_Okayama_Japan06s3.jpg/1280px-250505_Korakuen_Okayama_Japan06s3.jpg",
   "budgetBreakdown": {
     "transport": 3000,
-    "tickets": 2000,
+    "tickets": 500,
     "food": 1625,
     "cafe": 875
   },
   "highlights": ["Explore Korakuen Garden", "Local Culture & Scenery"],
-  "bestSeason": "Spring & Autumn",
   "weatherDependence": "moderate",
   "comfort": {
-    "heatTolerance": 7,
-    "rainFriendly": 7,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 8
   },
   "reservation": "None required",
   "parking": "Available on site",
@@ -109,5 +94,36 @@
     "attribution": "663highland, CC BY-SA 4.0, via Wikimedia Commons",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:250505_Korakuen_Okayama_Japan06s3.jpg"
   },
-  "openingHoursJa": "3月20日〜9月30日 7:30〜18:00（最終入園17:45）、10月1日〜3月19日 8:00〜17:00（最終入園16:45）。年中無休。8月1日〜23日は夜間開園 7:30〜21:30（入園21:00まで）。"
+  "openingHoursJa": "3月20日〜9月30日 7:30〜18:00（最終入園17:45）、10月1日〜3月19日 8:00〜17:00（最終入園16:45）。年中無休。8月1日〜23日は夜間開園 7:30〜21:30（入園21:00まで）。",
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingIntensity": "high",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='', walkingMin=150"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

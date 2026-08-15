@@ -6,7 +6,7 @@
   "content": {
     "en": {
       "name": "Jochi-ji",
-      "description": "Jochi-ji is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+      "description": "Kinpozan Jochi-ji, a Rinzai Zen temple founded in 1281 in Kita-Kamakura and ranked fourth of the Kamakura Five Great Zen Temples. The precincts feature a rare Chinese-style two-story bell gate and weathered stone Buddhas, set in quiet hillside grounds.",
       "highlights": ["History"],
       "notes": "Early morning visits provide a serene experience before tour groups arrive.",
       "reservation": "No reservation required for general temple ground visits.",
@@ -14,8 +14,8 @@
       "openingHours": "08:30 - 16:30"
     },
     "ja": {
-      "name": "鎌倉市",
-      "description": "鎌倉市はKamakura Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "name": "浄智寺",
+      "description": "金宝山浄智寺。1281年創建の臨済宗の寺院で、鎌倉五山の第四位。中国様式の鐘楼門や石仏群が有名で、北鎌倉の静かな山裾にたたずむ。",
       "highlights": ["鎌倉市の名所"],
       "notes": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
       "reservation": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -47,17 +47,8 @@
     "lat": 35.3334,
     "lng": 139.5464
   },
-  "description": "Jochi-ji is a visitor destination in Kamakura City.  Visitors can experience historic architecture and local culture.",
+  "description": "Kinpozan Jochi-ji, a Rinzai Zen temple founded in 1281 in Kita-Kamakura and ranked fourth of the Kamakura Five Great Zen Temples. The precincts feature a rare Chinese-style two-story bell gate and weathered stone Buddhas, set in quiet hillside grounds.",
   "highlights": ["History"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 800,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 46
   },
@@ -68,13 +59,11 @@
   },
   "walkingMin": 60,
   "walkingIntensity": "medium",
-  "walkingSunMin": 36,
-  "walkingShadeMin": 24,
   "indoorPercent": 25,
   "comfort": {
-    "heatTolerance": 3,
-    "rainFriendly": 3,
-    "walkingIntensity": 6
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 7,
@@ -91,11 +80,6 @@
     "accessibility": 7
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 8.3,
     "summer": 7.8,
@@ -149,6 +133,14 @@
           "title": "Kamakura",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=25, kind='temple', walkingMin=60",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -179,5 +171,41 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "08:30 - 16:30",
   "openingHoursJa": "08:30 - 16:30（境内自由）",
-  "municipalityId": "Kanagawa:kamakura"
+  "municipalityId": "Kanagawa:kamakura",
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "modelVersion": "transport-access-v1",
+    "confidence": "low",
+    "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=25, kind='temple', walkingMin=60"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

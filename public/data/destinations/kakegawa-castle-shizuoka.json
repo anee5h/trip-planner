@@ -15,9 +15,7 @@
   "budgetMin": 3000,
   "budgetRecommended": 6250,
   "budgetMax": 9500,
-  "walkingMin": 3500,
-  "walkingSunMin": 1200,
-  "walkingShadeMin": 2300,
+  "walkingMin": 70,
   "indoorPercent": 80,
   "ratings": {
     "overall": 9.2,
@@ -31,19 +29,14 @@
     "value": 9.3,
     "uniqueness": 9.4
   },
-  "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 7
-  },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 9
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year",
+  "bestSeason": "All Year (indoor)",
   "weatherDependence": "low",
   "tags": [
     "Authentic Wooden Keep",
@@ -58,7 +51,7 @@
   "comfort": {
     "heatTolerance": 8,
     "rainFriendly": 8,
-    "walkingIntensity": 3
+    "walkingIntensity": 5
   },
   "transportOptions": {
     "train": 75,
@@ -100,7 +93,7 @@
   "relationships": {
     "gatewayHubId": "hamamatsu-city"
   },
-  "walkingIntensity": "low",
+  "walkingIntensity": "medium",
   "role": "standalone",
   "placeType": "destination",
   "ratingsSchemaVersion": 2,
@@ -110,5 +103,35 @@
   },
   "officialWebsite": "https://kakegawajo.com/",
   "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-  "municipalityId": "Shizuoka:kakegawa"
+  "municipalityId": "Shizuoka:kakegawa",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=80, kind='', walkingMin=70"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.3,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

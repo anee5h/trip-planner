@@ -6,18 +6,18 @@
   "content": {
     "en": {
       "name": "Tanukikoji Shopping Street",
-      "description": "Tanukikoji Shopping Street is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
+      "description": "Covered shopping arcade in central Sapporo stretching across seven blocks with about 200 shops — restaurants, souvenir stores and drugstores. Dating back over a century, it sits between Odori Park and Susukino, convenient for shopping and meals in any weather.",
       "highlights": ["History"]
     },
     "ja": {
       "name": "狸小路商店街",
-      "description": "狸小路商店街はSapporo Cityにある観光スポットです。歴史的な建築や地域文化に触れられます。所要時間、営業状況、料金は訪問前に公式情報をご確認ください。",
+      "description": "札幌中心部に広がるアーケード商店街。7ブロックに約200店舗が並び、食事や土産物、ドラッグストアまで揃う。大通公園とすすきのの間にあり、雨の日でも買い物を楽しめる。",
       "highlights": ["歴史"]
     }
   },
   "prefecture": "Hokkaido",
   "region": "Hokkaido",
-  "kind": "temple",
+  "kind": "street",
   "role": "poi",
   "placeType": "destination",
   "areaId": "central-sapporo",
@@ -39,17 +39,8 @@
     "lat": 43.058333,
     "lng": 141.35463
   },
-  "description": "Tanukikoji Shopping Street is a visitor destination in Sapporo City.  Visitors can experience historic architecture and local culture.",
+  "description": "Covered shopping arcade in central Sapporo stretching across seven blocks with about 200 shops — restaurants, souvenir stores and drugstores. Dating back over a century, it sits between Odori Park and Susukino, convenient for shopping and meals in any weather.",
   "highlights": ["History"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1300,
-    "tickets": 0,
-    "food": 2300,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 196
   },
@@ -58,15 +49,13 @@
     "min": 1,
     "max": 3
   },
-  "walkingMin": 6500,
+  "walkingMin": 90,
   "walkingIntensity": "medium",
-  "walkingSunMin": 4000,
-  "walkingShadeMin": 2500,
   "indoorPercent": 55,
   "comfort": {
-    "heatTolerance": 6,
+    "heatTolerance": 5,
     "rainFriendly": 6,
-    "walkingIntensity": 6
+    "walkingIntensity": 5
   },
   "ratings": {
     "overall": 9.2,
@@ -83,11 +72,6 @@
     "accessibility": 6.2
   },
   "ratingsSchemaVersion": 2,
-  "crowd": {
-    "weekday": 5,
-    "weekend": 8,
-    "holiday": 9
-  },
   "season": {
     "spring": 8.3,
     "summer": 7,
@@ -98,7 +82,6 @@
   "weatherDependence": "moderate",
   "reservation": "Usually not required; check current visitor guidance.",
   "parking": "Check local parking and public transport guidance.",
-  "notes": "9.2 city expansion record for Sapporo City.",
   "schemaVersion": 2,
   "status": "beta",
   "travelEstimate": {
@@ -141,6 +124,22 @@
           "title": "Chūō-ku, Sapporo",
           "accessedAt": "2026-07-29"
         }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=55, kind='street', walkingMin=90",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 50% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -164,5 +163,29 @@
     "confidence": "low"
   },
   "businessHours": "08:30 - 17:00 (Last admission 16:30)",
-  "municipalityId": "Hokkaido:sapporo"
+  "municipalityId": "Hokkaido:sapporo",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=55, kind='street', walkingMin=90"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

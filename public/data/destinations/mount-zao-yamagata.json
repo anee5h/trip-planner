@@ -55,15 +55,8 @@
     "uniqueness": 9.7
   },
   "totalTripHours": 5,
-  "walkingMin": 3000,
-  "walkingSunMin": 2000,
-  "walkingShadeMin": 1000,
+  "walkingMin": 180,
   "indoorPercent": 20,
-  "crowd": {
-    "weekday": 4,
-    "weekend": 7,
-    "holiday": 9
-  },
   "season": {
     "spring": 9,
     "summer": 9,
@@ -74,11 +67,11 @@
   "bestSeason": "Winter",
   "weatherDependence": "high",
   "comfort": {
-    "heatTolerance": 6,
-    "rainFriendly": 5,
-    "walkingIntensity": 3
+    "heatTolerance": 5,
+    "rainFriendly": 4,
+    "walkingIntensity": 8
   },
-  "walkingIntensity": "moderate",
+  "walkingIntensity": "high",
   "reservation": "Ropeway: none. Ski area: lift ticket required.",
   "parking": "Large ski resort parking",
   "notes": "The Juhyo (snow monsters) are formed when supercooled water droplets from clouds freeze instantly on fir trees, building thick ice cocoons. Best viewed Jan 15–Feb 20. Zao Onsen village at the base has excellent hot springs.",
@@ -102,5 +95,36 @@
   "officialWebsite": "https://www.zao-spa.or.jp/",
   "businessHours": "Mountain; ropeway hours and winter access vary",
   "ratingsSchemaVersion": 2,
-  "municipalityId": "Yamagata:yamagata"
+  "municipalityId": "Yamagata:yamagata",
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=20, kind='', walkingMin=180"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 3000 replaced by walk-share estimate (FIX_UNIT): 50% of 6h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

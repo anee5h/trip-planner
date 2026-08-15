@@ -82,6 +82,16 @@ describe("TransportEstimator", () => {
   it("formats transport cost ranges cleanly", () => {
     expect(formatTransportCost([9000, 18000])).toBe("¥9,000 – ¥18,000");
     expect(formatTransportCost([1500, 1500])).toBe("¥1,500");
+    expect(formatTransportCost([Number.NaN, Number.NaN])).toBe(
+      "Cost unavailable",
+    );
+  });
+
+  it("does not render malformed transport times", () => {
+    expect(formatTransportTime([Number.NaN, 30])).toBe(
+      "Travel time unavailable",
+    );
+    expect(formatApproximateTransportTime([60, 30], "ja")).toBe("所要時間不明");
   });
 
   it("finds nearest candidate departure airports within the catchment for Tokyo Station", () => {
