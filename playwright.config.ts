@@ -3,7 +3,11 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: false,
-  workers: 1,
+  // workers: 2 — files run in parallel across workers (tests within a file
+  // stay serial via fullyParallel:false). Cuts the ~34 min serial suite to
+  // roughly half on GH shared runners; per-test timeout (120s) is generous
+  // enough for 2-way resource contention. See pr-checks.yml E2E history.
+  workers: 2,
   timeout: 120_000,
   expect: {
     timeout: 10_000,
