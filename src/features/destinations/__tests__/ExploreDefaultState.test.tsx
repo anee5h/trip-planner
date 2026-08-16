@@ -49,6 +49,8 @@ const authMock = vi.hoisted(() => ({
   loading: false,
 }));
 
+const localeMock = vi.hoisted(() => ({ language: "en" }));
+
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string, options?: Record<string, number | string>) => {
@@ -58,6 +60,26 @@ vi.mock("react-i18next", () => ({
         "destination.tripModes.any": "Any",
         "destination.tripModes.day_trip": "Day trip",
         "destination.tripModes.weekend_2d1n": "2D1N",
+        "ui.destinations":
+          localeMock.language === "ja" ? "目的地" : "Destinations",
+        "ui.destinationsDescription":
+          localeMock.language === "ja"
+            ? "日本全国の旅先を探してみましょう。地域・都道府県・コレクション・予算・雰囲気でフィルタリングできます。"
+            : "Find the perfect adventure across Japan.",
+        "ui.gridView":
+          localeMock.language === "ja"
+            ? "グリッド表示に切り替え"
+            : "Switch to grid view",
+        "ui.mapView":
+          localeMock.language === "ja"
+            ? "マップ表示に切り替え"
+            : "Switch to map view",
+        "ui.grid": localeMock.language === "ja" ? "グリッド" : "Grid",
+        "ui.map": localeMock.language === "ja" ? "マップ" : "Map",
+        "ui.destinationsMatching":
+          localeMock.language === "ja"
+            ? "該当する目的地：{{count}}件"
+            : "{{count}} destinations matching",
       };
       const str = value[key] ?? key;
       return options
@@ -66,7 +88,7 @@ vi.mock("react-i18next", () => ({
           )
         : str;
     },
-    i18n: { language: "en" },
+    i18n: { language: localeMock.language },
   }),
   initReactI18next: { type: "3rdParty", init: vi.fn() },
 }));
@@ -84,7 +106,7 @@ vi.mock("@/shared/hooks/useAuth", () => ({
 }));
 
 vi.mock("@/shared/context/LocaleContext", () => ({
-  useLocale: () => ({ locale: "en", setLocale: vi.fn() }),
+  useLocale: () => ({ locale: localeMock.language, setLocale: vi.fn() }),
 }));
 
 vi.mock("@/shared/context/AuthModalContext", () => ({
@@ -111,6 +133,7 @@ beforeEach(() => {
   tripStoreMock.homeStationCoords = null;
   tripStoreMock.homeStationTransportZoneId = undefined;
   authMock.user = null;
+  localeMock.language = "en";
 });
 
 afterEach(() => {
@@ -187,6 +210,27 @@ describe("DEFAULT_DESTINATION_EXPLORER_STATE transport invariants", () => {
 // ---------------------------------------------------------------------------
 
 describe("Fresh Explore — no origin, no URL params", () => {
+  it("renders the Japanese Explore chrome without keys or English leakage", () => {
+    localeMock.language = "ja";
+    const container = renderDestinations("/destinations");
+    const text = container.textContent ?? "";
+
+    expect(text).toContain("目的地");
+    expect(text).toContain("日本全国の旅先を探してみましょう。");
+    expect(text).toContain("グリッド");
+    expect(text).toContain("マップ");
+    expect(text).toMatch(/該当する目的地：\d+件/);
+    expect(text).not.toMatch(
+      /ui\.(?:destinations|destinationsDescription|grid|map)|Destinations|Find the perfect adventure|Switch to (?:grid|map) view|destinations matching|Top Rated|Highest Rated/i,
+    );
+    expect(
+      container.querySelector('[aria-label="グリッド表示に切り替え"]'),
+    ).not.toBeNull();
+    expect(
+      container.querySelector('[aria-label="マップ表示に切り替え"]'),
+    ).not.toBeNull();
+  });
+
   it("shows the full eligible catalogue without a transport filter", () => {
     const container = renderDestinations("/destinations");
     const count = getResultCount(container);

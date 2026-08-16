@@ -161,6 +161,9 @@ export default function DestinationCard({
           add: "旅程に追加",
           compare: "比較に追加",
           removeCompare: "比較から削除",
+          alreadyVisited: "訪問済み",
+          markVisited: "訪問済みにする",
+          markUnvisited: "未訪問に戻す",
           travelUnavailable: t("home.transportModes.travelUnavailable"),
         }
       : {
@@ -169,6 +172,9 @@ export default function DestinationCard({
           add: "Add to Itinerary",
           compare: "Add to Compare",
           removeCompare: "Remove from Compare",
+          alreadyVisited: "Already Visited",
+          markVisited: "Mark destination as visited",
+          markUnvisited: "Mark destination as unvisited",
           travelUnavailable: t("home.transportModes.travelUnavailable"),
         };
   // Beta product decision (KAI-89): the overall destination score is hidden
@@ -294,7 +300,7 @@ export default function DestinationCard({
           <div className="absolute inset-0 bg-slate-900/40 flex items-center justify-center">
             <Badge className="bg-emerald-500/90 text-white text-sm py-1.5 px-3 border-none shadow-lg">
               <CheckCircle2 className="w-4 h-4 mr-1.5" />
-              Already Visited
+              {cardCopy.alreadyVisited}
             </Badge>
           </div>
         )}
@@ -496,7 +502,9 @@ export default function DestinationCard({
                         <Icon className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
                         <span className="truncate">
                           {formattedTime || cardCopy.travelUnavailable}
-                          {formattedTime && isDriving ? " · Driving" : ""}
+                          {formattedTime && isDriving
+                            ? t("compare.driving")
+                            : ""}
                         </span>
                       </div>
                     );
@@ -642,12 +650,10 @@ export default function DestinationCard({
               disabled={!canMutateProfile}
               aria-pressed={visited}
               aria-label={
-                visited
-                  ? "Mark destination as unvisited"
-                  : "Mark destination as visited"
+                visited ? cardCopy.markUnvisited : cardCopy.markVisited
               }
               className="flex size-11 shrink-0 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
-              title={locale === "ja" ? "訪問済みにする" : "Mark as Visited"}
+              title={visited ? cardCopy.markUnvisited : cardCopy.markVisited}
             >
               <CheckCircle2
                 className={`size-5 ${visited ? "fill-emerald-500 text-emerald-500" : ""}`}
@@ -669,8 +675,8 @@ export default function DestinationCard({
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                if (!comparing && compareList.length >= 4) {
-                  alert("You can only compare up to 4 destinations at a time.");
+                if (!comparing && compareList.length >= 3) {
+                  alert(t("compare.maxLimitAlert"));
                   return;
                 }
                 toggleCompare(destination.id);

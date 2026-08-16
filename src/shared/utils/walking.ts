@@ -25,14 +25,20 @@ export function getWalkingIntensity(
   return "high";
 }
 
-export function getWalkingIntensityMetadata(level: WalkingIntensityLevel) {
+export function getWalkingIntensityMetadata(
+  level: WalkingIntensityLevel,
+  locale?: string,
+) {
+  const isJa = locale === "ja";
   switch (level) {
     case "low":
       return {
         level: "low" as const,
-        label: "Low",
-        fullLabel: "Low Walking",
-        description: "Easy, minimal walking (~4k steps or less)",
+        label: isJa ? "少なめ" : "Low",
+        fullLabel: isJa ? "歩行量少なめ" : "Low Walking",
+        description: isJa
+          ? "平坦で歩行が少ない（約4,000歩以下）"
+          : "Easy, minimal walking (~4k steps or less)",
         badgeClass:
           "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800",
         indicatorColor: "bg-emerald-500",
@@ -41,9 +47,11 @@ export function getWalkingIntensityMetadata(level: WalkingIntensityLevel) {
     case "medium":
       return {
         level: "medium" as const,
-        label: "Moderate",
-        fullLabel: "Moderate Walking",
-        description: "Standard walking (~4k–8k steps)",
+        label: isJa ? "普通" : "Moderate",
+        fullLabel: isJa ? "標準的な歩行量" : "Moderate Walking",
+        description: isJa
+          ? "標準的な街歩き（約4,000〜8,000歩）"
+          : "Standard walking (~4k–8k steps)",
         badgeClass:
           "bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-400 border-amber-200 dark:border-amber-800",
         indicatorColor: "bg-amber-500",
@@ -52,9 +60,11 @@ export function getWalkingIntensityMetadata(level: WalkingIntensityLevel) {
     case "high":
       return {
         level: "high" as const,
-        label: "High",
-        fullLabel: "High Walking",
-        description: "Active, heavy walking (> 8k steps / slopes / stairs)",
+        label: isJa ? "多め" : "High",
+        fullLabel: isJa ? "歩行量多め" : "High Walking",
+        description: isJa
+          ? "坂道・階段・長距離移動（8,000歩以上）"
+          : "Active, heavy walking (> 8k steps / slopes / stairs)",
         badgeClass:
           "bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-400 border-rose-200 dark:border-rose-800",
         indicatorColor: "bg-rose-500",

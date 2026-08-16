@@ -222,7 +222,10 @@ test.describe("KAI-74 homepage rails", () => {
     await page.goto("/");
 
     const section = railSection(page, "Unexplored places near you");
-    await expect(section).toBeVisible();
+    // Origin-aware recommendations perform a cold transport/topology pass on
+    // first load. Give that runtime work time to settle before asserting the
+    // rail, while retaining the exact destination and geography checks below.
+    await expect(section).toBeVisible({ timeout: 30_000 });
     const cardNames = await section
       .locator('a[href^="/destinations/"] h3')
       .allTextContents();

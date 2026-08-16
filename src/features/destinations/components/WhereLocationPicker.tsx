@@ -1,5 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import { MapPin, ChevronDown, ChevronRight, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { useLocale } from "@/shared/context/LocaleContext";
+import {
+  formatPrefecture,
+  localizePlaceLabel,
+} from "@/shared/utils/placeLabels";
 
 export const REGION_PREFECTURES_MAP: Record<string, string[]> = {
   Hokkaido: ["Hokkaido"],
@@ -54,6 +60,8 @@ export default function WhereLocationPicker({
   selectedPrefectures,
   setSelectedPrefectures,
 }: WhereLocationPickerProps) {
+  const { t } = useTranslation();
+  const { locale } = useLocale();
   const [open, setOpen] = useState(false);
   const [expandedRegions, setExpandedRegions] = useState<
     Record<string, boolean>
@@ -113,22 +121,36 @@ export default function WhereLocationPicker({
     if (totalSelections === 0 && selectedRegions.length === 0) {
       return (
         <>
-          <span className="sm:hidden">Anywhere</span>
-          <span className="hidden sm:inline">All Regions & Prefectures</span>
+          <span className="sm:hidden">{t("ui.anywhere")}</span>
+          <span className="hidden sm:inline">
+            {t("ui.allRegionsAndPrefectures")}
+          </span>
         </>
       );
     }
     if (selectedPrefectures.length === 1) {
-      return selectedPrefectures[0];
+      return formatPrefecture(selectedPrefectures[0], locale);
     }
     if (
       selectedRegions.length === 1 &&
       totalSelections ===
         (REGION_PREFECTURES_MAP[selectedRegions[0]]?.length || 0)
     ) {
+      const localizedRegion = localizePlaceLabel(selectedRegions[0], locale);
+      if (locale === "ja") {
+        if (
+          selectedRegions[0] === "Hokkaido" ||
+          selectedRegions[0] === "Okinawa"
+        ) {
+          return localizedRegion;
+        }
+        return localizedRegion.endsWith("地方")
+          ? localizedRegion
+          : `${localizedRegion}地方`;
+      }
       return `${selectedRegions[0]} Region`;
     }
-    return `Location (${totalSelections})`;
+    return t("ui.locationCount", { count: totalSelections });
   };
 
   return (
@@ -153,7 +175,7 @@ export default function WhereLocationPicker({
         <div className="absolute left-0 mt-2 w-72 sm:w-80 max-h-[420px] overflow-y-auto bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-50 p-3.5 space-y-3">
           <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
             <span className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
-              Regions & Prefectures
+              {t("ui.regionsAndPrefectures")}
             </span>
             {(totalSelections > 0 || selectedRegions.length > 0) && (
               <button
@@ -163,7 +185,10 @@ export default function WhereLocationPicker({
                 }}
                 className="text-[11px] font-semibold text-rose-500 hover:underline flex items-center gap-1"
               >
-                <X className="w-3 h-3" /> Clear
+                <X className="w-3 h-3" />{" "}
+                {t("actions.clear", {
+                  defaultValue: locale === "ja" ? "クリア" : "Clear",
+                })}
               </button>
             )}
           </div>
@@ -184,7 +209,7 @@ export default function WhereLocationPicker({
                           onChange={() => toggleRegion(region)}
                           className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 w-3.5 h-3.5"
                         />
-                        <span>{region}</span>
+                        <span>{localizePlaceLabel(region, locale)}</span>
                       </label>
                       <button
                         type="button"
@@ -227,7 +252,7 @@ export default function WhereLocationPicker({
                                     : ""
                                 }
                               >
-                                {pref}
+                                {formatPrefecture(pref, locale)}
                               </span>
                             </label>
                           );
