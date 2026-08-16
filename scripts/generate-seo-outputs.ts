@@ -3,8 +3,12 @@
  * KAI-68 SEO output generator.
  *
  * Runs after `vite build`. Writes into dist/:
- *   - destinations/<id>/index.html   prerendered page per PUBLISHED destination
- *   - sitemap.xml                    public hub paths + published destinations
+ *   - destinations/<id>/index.html   prerendered page per canonical
+ *                                    destination, EN + JA (KAI-97: status is
+ *                                    a quality signal, not an indexability
+ *                                    gate — the full catalogue is indexed)
+ *   - sitemap.xml                    public hub paths + all canonical
+ *                                    destinations
  *   - data/kai68-public-destinations.json  manifest for the Pages Function
  *
  * Determinism (GEN-002 pattern, mirrors scripts/catalog/generate-outputs.ts):
@@ -45,7 +49,6 @@ function fail(message: string): never {
 
 interface Generated {
   outputs: Map<string, string>;
-  publishedCount: number;
   totalCount: number;
 }
 
@@ -60,14 +63,8 @@ function generate(): Generated {
   if (destinations.length === 0) {
     fail("catalogue is empty; refusing to generate an empty prerender set.");
   }
-  const publishedCount = destinations.filter(
-    (d) => d.status === "published",
-  ).length;
-  if (publishedCount === 0) {
-    fail("no published destinations; refusing to generate an empty sitemap.");
-  }
   const outputs = buildPrerenderOutputs(shell, destinations);
-  return { outputs, publishedCount, totalCount: destinations.length };
+  return { outputs, totalCount: destinations.length };
 }
 
 function writeOutputs(generated: Generated): void {
@@ -78,7 +75,7 @@ function writeOutputs(generated: Generated): void {
   }
   log(
     `wrote ${generated.outputs.size} outputs ` +
-      `(${generated.publishedCount} published / ${generated.totalCount} total destinations).`,
+      `(${generated.totalCount} canonical destinations indexed).`,
   );
 }
 
@@ -115,7 +112,7 @@ function check(generated: Generated): void {
   }
   log(
     `check passed: ${generated.outputs.size} outputs byte-identical ` +
-      `(${generated.publishedCount} published / ${generated.totalCount} total destinations).`,
+      `(${generated.totalCount} canonical destinations indexed).`,
   );
 }
 

@@ -8,7 +8,9 @@
  * exactly as the edge will, then asserts the full routing contract:
  *
  *   published destination        -> 200, prerendered HTML, no noindex
- *   beta/verified destination    -> 200, SPA shell, X-Robots-Tag: noindex, follow
+ *   beta/verified destination    -> 200, prerendered HTML, no noindex (KAI-97:
+ *                                  status is a quality signal, not an
+ *                                  indexability gate)
  *   unknown slug                 -> 404, X-Robots-Tag: noindex
  *   malformed id                 -> 404
  *   private SPA route (/settings)-> 200 + noindex (from public/_headers)
@@ -212,8 +214,8 @@ try {
   for (const id of ["abashiri-city", "fuji-5-lake"]) {
     const res = await fetchStatusAndRobots(`/destinations/${id}`);
     assert(
-      res.status === 200 && res.robots === "noindex, follow",
-      `non-published public destination ${id} -> 200 + noindex, follow (got ${res.status} ${res.robots})`,
+      res.status === 200 && res.robots === null,
+      `canonical destination ${id} (non-published quality status) -> 200 prerendered without noindex (got ${res.status} ${res.robots})`,
     );
   }
 
