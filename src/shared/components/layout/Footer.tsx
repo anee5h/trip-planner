@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { MegurutoMark } from "@/shared/components/brand/MegurutoMark";
+import { formatAppVersion } from "@/shared/utils/version";
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -12,7 +13,7 @@ export default function Footer() {
             <MegurutoMark className="size-6" />
             <span>Meguruto</span>
             <span className="text-xs px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-500">
-              v{__APP_VERSION__}
+              {formatAppVersion(__APP_VERSION__)}
             </span>
           </p>
           <p className="text-sm text-slate-500 mt-1">
@@ -46,7 +47,7 @@ export default function Footer() {
           </Link>
           <span>•</span>
           <a
-            href="mailto:kaihatsu.studio@gmail.com"
+            href="mailto:info@meguruto.app"
             className="hover:text-emerald-500 transition-colors"
           >
             {t("legal.feedback")}

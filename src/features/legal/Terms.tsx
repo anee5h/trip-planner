@@ -34,7 +34,7 @@ export default function Terms() {
           information.
         </p>
         <p className="mb-4">
-          Questions about these Terms can be sent to kaihatsu.studio@gmail.com.
+          Questions about these Terms can be sent to info@meguruto.app.
         </p>
       </div>
     </div>

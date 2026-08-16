@@ -27,6 +27,7 @@ import { useLocale } from "@/shared/context/LocaleContext";
 import { useTheme } from "@/shared/context/ThemeContext";
 import { MegurutoMark } from "@/shared/components/brand/MegurutoMark";
 import { useTranslation } from "react-i18next";
+import { formatAppVersion } from "@/shared/utils/version";
 
 export default function Navbar() {
   const location = useLocation();
@@ -645,7 +646,7 @@ export default function Navbar() {
             {/* Mobile Drawer Footer */}
             <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-2 pb-1">
               <span className="text-slate-400 dark:text-slate-500">
-                Meguruto v{__APP_VERSION__}
+                Meguruto {formatAppVersion(__APP_VERSION__)}
               </span>
             </div>
           </nav>
