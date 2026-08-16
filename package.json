@@ -19,6 +19,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "validate-all": "tsx scripts/validate-all.ts",
+    "check:bundle-budget": "node scripts/check-bundle-budget.mjs",
     "audit:catalog-integrity": "tsx scripts/audit-catalog-integrity.ts",
     "check:catalog-warnings": "tsx scripts/check-catalog-warnings.ts",
     "check:catalog-warnings:update": "tsx scripts/check-catalog-warnings.ts --update",

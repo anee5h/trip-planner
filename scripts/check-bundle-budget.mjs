@@ -1,0 +1,190 @@
+#!/usr/bin/env node
+/**
+ * KAI-82: initial-load JS bundle budget gate.
+ *
+ * Measures the real cold-load graph for the homepage:
+ *   1. bootstrap  — entry script + <link rel="modulepreload"> set from
+ *                   dist/index.html (parsed order-independently; FAILS CLOSED
+ *                   if no assets can be identified).
+ *   2. home route — the Home route chunk's FULL static-import closure,
+ *      resolved deterministically from the Vite build manifest
+ *      (dist/.vite/manifest.json, build.manifest: true): entry → Home
+ *      dynamic import → every statically-imported chunk the route pulls
+ *      in at render (React.lazy routes are not in the static preload set,
+ *      so a preload-only parse would miss route weight).
+ *
+ * Budgets:
+ *   - total home cold-load gzip: catches re-importing a heavy library into
+ *     the home graph (e.g. Leaflet re-add ≈ +44 KB gzip → fails).
+ *   - largest single preloaded chunk gzip: catches a dependency ballooning
+ *     the shared chunk that all routes pay for.
+ *
+ * Run after `npm run build`. Exits 1 on any violation or measurement failure.
+ */
+import { readFileSync } from "node:fs";
+import { gzipSync } from "node:zlib";
+import path from "node:path";
+
+const ROOT = process.cwd();
+const DIST = path.join(ROOT, "dist");
+const ASSETS = path.join(DIST, "assets");
+const MANIFEST_PATH = path.join(DIST, ".vite", "manifest.json");
+
+// Budgets are recalibrated from the deduplicated clean build output below.
+// HTML references use /assets/foo.js while manifest values use assets/foo.js;
+// both forms must identify one physical asset, not two Set entries.
+// TODO(kai-82 phase 2): remove destinations-index.json from the initial load
+// and LOWER these budgets — the 6.5 MB index is the primary root cause.
+const BUDGETS = {
+  homeTotalGzipKb: 1120, // 1090 clean baseline; Leaflet negative = 1132
+  largestChunkGzipKb: 765, // 746 clean baseline; Leaflet negative = 789
+};
+
+function readAssetsIndex() {
+  const html = readFileSync(path.join(DIST, "index.html"), "utf8");
+  const urls = [];
+  // Parse each <link>/<script> tag as a unit and extract attributes
+  // independently — attribute ORDER must not matter.
+  for (const tag of html.matchAll(/<script\b[^>]*>/g)) {
+    const src = tag[0].match(/\bsrc="([^"]+)"/);
+    if (src) urls.push(src[1]);
+  }
+  for (const tag of html.matchAll(/<link\b[^>]*>/g)) {
+    const attrs = tag[0];
+    if (/\brel="modulepreload"/.test(attrs)) {
+      const href = attrs.match(/\bhref="([^"]+)"/);
+      if (href && !urls.includes(href[1])) urls.push(href[1]);
+    }
+  }
+  if (urls.length === 0) {
+    console.error(
+      "FAIL: no entry script or modulepreload assets found in dist/index.html",
+    );
+    process.exit(1);
+  }
+  return urls;
+}
+
+/** The Vite build manifest (dist/.vite/manifest.json): the deterministic
+ *  source→chunk graph. `imports` = static imports, `dynamicImports` = lazy
+ *  routes. Required — fail closed when missing. */
+function loadManifest() {
+  try {
+    return JSON.parse(readFileSync(MANIFEST_PATH, "utf8"));
+  } catch {
+    console.error(
+      "FAIL: dist/.vite/manifest.json missing — the budget gate needs " +
+        "build.manifest (see vite.config.ts)",
+    );
+    process.exit(1);
+  }
+}
+
+/** The homepage route chunk: the entry's dynamic import of features/home. */
+function homeChunkFile(manifest) {
+  const entry = manifest["index.html"];
+  if (!entry?.dynamicImports?.length) {
+    console.error("FAIL: manifest entry has no dynamic imports (lazy routes)");
+    process.exit(1);
+  }
+  const homeSrc = entry.dynamicImports.find(
+    (src) => src.includes("/features/home/") && /Home(\.tsx)?$/.test(src),
+  );
+  if (!homeSrc || !manifest[homeSrc]) {
+    console.error(
+      "FAIL: could not resolve the Home route chunk in the Vite manifest",
+    );
+    process.exit(1);
+  }
+  return { src: homeSrc, file: manifest[homeSrc].file };
+}
+
+/** Static-import closure of a route source from the manifest: the exact
+ *  chunk set the route pulls in at load time (lazy route children excluded —
+ *  they are not part of the initial render). */
+function staticClosure(manifest, startSrc) {
+  const seenSrcs = new Set();
+  const queue = [startSrc];
+  while (queue.length > 0) {
+    const src = queue.shift();
+    if (seenSrcs.has(src) || !manifest[src]) continue;
+    seenSrcs.add(src);
+    queue.push(...(manifest[src].imports ?? []));
+  }
+  return [...seenSrcs].map((s) => manifest[s].file);
+}
+
+/** Convert HTML/manifest references to one safe physical asset identity. */
+function normalizeAssetPath(ref) {
+  const normalized = ref.replace(/^\/+/, "");
+  if (!normalized.startsWith("assets/") || normalized.includes("..")) {
+    throw new Error(`invalid non-assets reference: ${ref}`);
+  }
+  return normalized;
+}
+
+function sizeOf(assetPath) {
+  const buf = readFileSync(path.join(ASSETS, path.basename(assetPath)));
+  return { raw: buf.length, gzip: gzipSync(buf).length };
+}
+
+function main() {
+  const bootstrap = readAssetsIndex();
+  const manifest = loadManifest();
+  const home = homeChunkFile(manifest);
+  // Home's static-import closure from the manifest = the exact chunk set
+  // pulled in when the homepage route renders (bootstrap + Home + deps).
+  const homeClosure = [home.file, ...staticClosure(manifest, home.src)];
+
+  // Canonicalize before Set insertion: /assets/foo.js and assets/foo.js are
+  // the same physical file and must contribute exactly once.
+  const allHome = new Set(
+    [...bootstrap, ...homeClosure].map(normalizeAssetPath),
+  );
+  let homeRaw = 0;
+  let homeGzip = 0;
+  let largestChunkGzip = 0;
+  let largestChunkName = "";
+  for (const url of allHome) {
+    const { raw, gzip } = sizeOf(url);
+    homeRaw += raw;
+    homeGzip += gzip;
+    if (gzip > largestChunkGzip) {
+      largestChunkGzip = gzip;
+      largestChunkName = path.basename(url);
+    }
+  }
+
+  const fmt = (kb) => `${(kb / 1024).toFixed(0)} KB`;
+  console.log(`bootstrap (preload set): ${bootstrap.length} files`);
+  console.log(
+    `home cold-load: ${allHome.size} files, ${fmt(homeRaw)} raw, ${fmt(homeGzip)} gzip`,
+  );
+  console.log(
+    `largest home chunk: ${largestChunkName} ${fmt(largestChunkGzip)} gzip`,
+  );
+  console.log(
+    `budgets: home gzip <= ${BUDGETS.homeTotalGzipKb} KB, ` +
+      `largest chunk gzip <= ${BUDGETS.largestChunkGzipKb} KB`,
+  );
+
+  let fail = false;
+  const homeGzipKb = homeGzip / 1024;
+  const largestKb = largestChunkGzip / 1024;
+  if (homeGzipKb > BUDGETS.homeTotalGzipKb) {
+    console.error(
+      `FAIL: home cold-load gzip ${fmt(homeGzip)} > budget ${BUDGETS.homeTotalGzipKb} KB`,
+    );
+    fail = true;
+  }
+  if (largestKb > BUDGETS.largestChunkGzipKb) {
+    console.error(
+      `FAIL: largest chunk gzip ${fmt(largestChunkGzip)} > budget ${BUDGETS.largestChunkGzipKb} KB`,
+    );
+    fail = true;
+  }
+  console.log(fail ? "❌ bundle budget exceeded" : "✅ bundle budget OK");
+  process.exit(fail ? 1 : 0);
+}
+
+main();

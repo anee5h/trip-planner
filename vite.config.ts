@@ -12,6 +12,12 @@ const pkg = JSON.parse(
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  // build.manifest: emit dist/.vite/manifest.json — the deterministic
+  // source→chunk graph (static imports vs lazy routes) consumed by the
+  // KAI-82 bundle-budget gate (scripts/check-bundle-budget.mjs).
+  build: {
+    manifest: true,
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
