@@ -629,8 +629,8 @@
     "removeThumbsUp": "Remove thumbs up",
     "thumbsDown": "Thumbs down",
     "removeThumbsDown": "Remove thumbs down",
-    "heatTolerance": "Heat tolerance",
-    "rainFriendly": "Rain friendly",
+    "heatTolerance": "Heat Comfort",
+    "rainFriendly": "Rainy Day Friendly",
     "walkability": "Walkability",
     "walkingIntensity": "Walking intensity",
     "share": "Share",
@@ -716,9 +716,6 @@
     "errorDescription": "We encountered an unexpected error while trying to load this content. Please try refreshing the page.",
     "reloadPage": "Reload Page",
     "tryAgain": "Try Again",
-    "heatTolerance": "Heat Comfort",
-    "rainFriendly": "Rainy Day Friendly",
-    "linkCopied": "Link copied to clipboard!",
     "itineraries": "Travel itineraries",
     "travelPlanner": "Travel planner",
     "savedDestinations": "Saved destinations",
@@ -942,11 +939,11 @@
     "cancel": "Cancel",
     "submit": "Submit Feedback",
     "submitting": "Sending...",
-    "successToast": "Feedback submitted! Thank you for helping improve Meguruto.",
     "errorGeneric": "Failed to submit feedback. Please try again.",
     "successTitle": "Thank you for your feedback!",
-    "successMessage": "Your feedback has been saved locally.",
+    "successMessage": "Your feedback has been sent.",
     "sendEmail": "Also Send via Email",
-    "done": "Done"
+    "done": "Done",
+    "retry": "Try Again"
   }
 }

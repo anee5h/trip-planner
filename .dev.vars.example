@@ -1,0 +1,4 @@
+# Local env for `wrangler pages dev` (KAI-96 feedback function).
+# Copy to `.dev.vars` and fill in real values — never commit `.dev.vars`.
+SUPABASE_URL=https://<project-ref>.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=<service-role-key>

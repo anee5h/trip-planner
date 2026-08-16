@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import {
@@ -12,16 +12,23 @@ import {
   AlertCircle,
   Mail,
 } from "lucide-react";
-import { toast } from "sonner";
 import { Button } from "@/shared/components/ui/button";
+import { supabase } from "@/lib/supabase";
+import { APP_VERSION } from "@/shared/utils/version";
 
 interface FeedbackModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+const browserClass = () =>
+  typeof window.matchMedia === "function" &&
+  window.matchMedia("(pointer: coarse)").matches
+    ? "mobile"
+    : "desktop";
+
 export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [feedbackType, setFeedbackType] = useState<
     "general" | "bug" | "feature"
   >("general");
@@ -29,44 +36,50 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  // Ref guard against duplicate submissions (covers same-tick double events,
+  // where React state has not flushed yet between the two dispatches).
+  const submittingRef = useRef(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!message.trim() || isSubmitting) return;
+    if (!message.trim() || submittingRef.current) return;
 
+    submittingRef.current = true;
     setIsSubmitting(true);
     setSubmitError(null);
 
     try {
-      setTimeout(() => {
-        // Persist feedback to localStorage history
-        try {
-          const prev = JSON.parse(
-            localStorage.getItem("tabimap_feedback_history") || "[]",
-          );
-          const newEntry = {
-            id: Date.now(),
-            type: feedbackType,
-            message: message.trim(),
-            date: new Date().toISOString(),
-          };
-          localStorage.setItem(
-            "tabimap_feedback_history",
-            JSON.stringify([newEntry, ...prev]),
-          );
-        } catch (err) {
-          console.warn("Failed to write feedback to localStorage", err);
-        }
+      // KAI-96: deliver through the backend (Pages Function -> Supabase) and
+      // only report success after the backend confirms capture.
+      const session = await supabase?.auth.getSession();
+      const payload = {
+        type: feedbackType,
+        message: message.trim(),
+        route: window.location.pathname,
+        locale: i18n.language,
+        app_version: APP_VERSION,
+        browser_class: browserClass(),
+        user_id: session?.data.session?.user.id ?? null,
+      };
 
-        toast.success(t("feedbackModal.successToast"));
-        setIsSubmitting(false);
-        setSubmitted(true);
-      }, 600);
+      const res = await fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        throw new Error(`feedback submission failed: ${res.status}`);
+      }
+
+      setSubmitted(true);
     } catch {
-      setIsSubmitting(false);
       setSubmitError(t("feedbackModal.errorGeneric"));
+    } finally {
+      setIsSubmitting(false);
+      submittingRef.current = false;
     }
   };
 
@@ -234,7 +247,11 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
                   ) : (
                     <>
                       <Send className="w-3.5 h-3.5" />
-                      <span>{t("feedbackModal.submit")}</span>
+                      <span>
+                        {submitError
+                          ? t("feedbackModal.retry")
+                          : t("feedbackModal.submit")}
+                      </span>
                     </>
                   )}
                 </Button>
