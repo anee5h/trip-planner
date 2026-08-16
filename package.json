@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && npm run seo:generate",
+    "seo:generate": "tsx scripts/generate-seo-outputs.ts",
+    "seo:check": "tsx scripts/generate-seo-outputs.ts --check",
+    "verify:pages-functions": "node scripts/verify-pages-functions.mjs",
     "pipeline": "node scripts/pipeline.cjs",
     "lint": "oxlint",
     "preview": "vite preview",
@@ -53,7 +56,7 @@
     "normalize-municipality-names": "tsx scripts/normalize-municipality-names.ts",
     "add-yokohama-places": "tsx scripts/add-yokohama-places.ts",
     "validate:catalog-fast": "tsx scripts/validate-all.ts --profile fast --no-report",
-    "verify:pr": "npm run test:run && npx tsc -b --noEmit && npm run lint && npm run format:check && npm run validate:i18n && npm run check:branding && npm run validate:catalog-fast && npm run check:catalog-ci && npm run build",
+    "verify:pr": "npm run test:run && npx tsc -b --noEmit && npm run lint && npm run format:check && npm run validate:i18n && npm run check:branding && npm run validate:catalog-fast && npm run check:catalog-ci && npm run build && npm run seo:check && npm run verify:pages-functions",
     "release:verify": "npm run test:run && npm run pipeline -- --dry-run && npm run validate-all && npm run validate:i18n && npm run check:branding && npx tsc -b --noEmit && npm run lint && npm run build && npm run format:check",
     "derive:destination-models": "tsx scripts/derive-destination-models.ts",
     "derive:destination-models:apply": "tsx scripts/derive-destination-models.ts --apply",
@@ -97,11 +100,15 @@
     "tsx": "^4.23.1",
     "typescript": "~7.0.2",
     "vite": "^8.2.0",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.10",
+    "wrangler": "^4.123.0"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,json,css,md}": [
       "prettier --write"
     ]
+  },
+  "allowScripts": {
+    "wrangler@4.123.0": true
   }
 }

@@ -1,0 +1,18 @@
+# KAI-68: Meguruto crawl policy.
+#
+# Public discovery surfaces are fully allowed. Private/personalized surfaces
+# (account, trips, saved data, QA/editorial tools) are excluded from
+# indexing via sitemap omission + HTTP `X-Robots-Tag: noindex` (see
+# public/_headers). We deliberately do NOT Disallow them in robots.txt:
+# crawlers must be able to fetch those pages to see the noindex directive,
+# and robots.txt is not an auth/security boundary — it only suppresses
+# fetching.
+#
+# Individual destination pages are public catalogue content served at
+# /destinations/<id>/; the sitemap lists only published destinations,
+# non-published ones return `noindex, follow`, and unknown ids return 404.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://meguruto.app/sitemap.xml

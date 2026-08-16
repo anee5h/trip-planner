@@ -5,6 +5,7 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { addRecentlyViewedDestination } from "@/shared/hooks/useRecentlyViewedDestinations";
 import { getDestination } from "@/shared/services/destination/DestinationService";
+import { restorePageMeta, setPageMeta, TITLE_SUFFIX } from "@/seo/meta";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
 import DestinationCard from "./components/DestinationCard";
 import DestinationMap from "./components/DestinationMap";
@@ -337,6 +338,22 @@ export default function DestinationDetails() {
   const localizedDestination = destination
     ? getLocalizedPlace(destination, locale)
     : null;
+
+  // KAI-68: keep document title/description in sync with the active locale
+  // while the details route is mounted, and restore the shell defaults on
+  // unmount. Without the cleanup, navigating Home -> destination -> Home
+  // leaves the destination title/description active on the Home page.
+  useEffect(() => {
+    if (!localizedDestination) {
+      setPageMeta(`${copy.notFound}${TITLE_SUFFIX}`);
+      return restorePageMeta;
+    }
+    setPageMeta(
+      `${localizedDestination.name}${TITLE_SUFFIX}`,
+      localizedDestination.description,
+    );
+    return restorePageMeta;
+  }, [localizedDestination, copy.notFound]);
 
   const handleAddToItinerary = () => {
     if (!destination) return;
