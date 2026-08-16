@@ -24,8 +24,7 @@ vi.mock("react-i18next", () => ({
         "feedbackModal.cancel": "キャンセル",
         "feedbackModal.submit": "送信する",
         "feedbackModal.submitting": "送信中...",
-        "feedbackModal.successToast":
-          "フィードバックを送信しました。ご協力ありがとうございます。",
+        "feedbackModal.retry": "もう一度試す",
         "feedbackModal.errorGeneric":
           "フィードバックの送信に失敗しました。もう一度お試しください。",
         "feedbackModal.successTitle": "ご意見ありがとうございます！",
@@ -37,6 +36,7 @@ vi.mock("react-i18next", () => ({
       };
       return jaMap[key] ?? opts?.defaultValue ?? key;
     },
+    i18n: { language: "ja" },
   }),
   initReactI18next: { type: "3rdParty", init: vi.fn() },
 }));
@@ -53,8 +53,11 @@ afterEach(() => {
 });
 
 describe("FeedbackModal — Japanese Localization", () => {
-  it("targets the configured beta feedback mailbox", async () => {
-    vi.useFakeTimers();
+  it("targets the configured beta feedback mailbox after a confirmed submission", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue(new Response(null, { status: 201 })),
+    );
     host = document.createElement("div");
     document.body.appendChild(host);
     root = createRoot(host);
@@ -78,14 +81,13 @@ describe("FeedbackModal — Japanese Localization", () => {
         ?.dispatchEvent(
           new Event("submit", { bubbles: true, cancelable: true }),
         );
-      await vi.advanceTimersByTimeAsync(600);
     });
 
     const emailLink =
       document.body.querySelector<HTMLAnchorElement>('a[href^="mailto:"]');
     expect(emailLink?.href).toMatch(/^mailto:info@meguruto\.app\?/);
     expect(emailLink?.href).not.toContain("@meguruto.jp");
-    vi.useRealTimers();
+    vi.unstubAllGlobals();
   });
 
   it("renders Japanese title, feedback categories, placeholders, and buttons", () => {
