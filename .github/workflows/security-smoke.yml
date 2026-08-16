@@ -1,0 +1,37 @@
+name: Security smoke
+
+on:
+  schedule:
+    # Daily 15:00 JST — verifies production still serves the required
+    # security policies and no secrets leaked into the built bundle.
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  security-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (for bundle-secret scan)
+        run: npm run build
+
+      - name: Secrets in bundle
+        run: npm run check:bundle-secrets
+
+      - name: Production security headers
+        run: npm run check:security-headers

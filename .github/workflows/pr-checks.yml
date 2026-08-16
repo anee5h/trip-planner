@@ -143,6 +143,9 @@ jobs:
       - name: Bundle budget
         run: npm run check:bundle-budget
 
+      - name: Secrets in bundle
+        run: npm run check:bundle-secrets
+
   changed-external:
     name: changed-external
     runs-on: ubuntu-latest

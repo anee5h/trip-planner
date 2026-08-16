@@ -63,6 +63,7 @@ function fetchStatusAndRobots(path) {
           robots: res.headers.get("x-robots-tag") ?? null,
           csp: res.headers.get("content-security-policy") ?? null,
           frame: res.headers.get("x-frame-options") ?? null,
+          permissionsPolicy: res.headers.get("permissions-policy") ?? null,
           lang: body.match(/<html[^>]+lang="([^"]+)"/)?.[1] ?? null,
           location: res.headers.get("location") ?? null,
           body,
@@ -100,6 +101,20 @@ function assertSecureHtml(result, label) {
     result.csp?.includes("default-src 'self'") && result.frame === "DENY",
     `${label} preserves CSP + X-Frame-Options`,
   );
+  // KAI-81: Function-served HTML must carry the same least-privilege
+  // Permissions-Policy as the static layer (_headers). notifications= is
+  // deliberately absent — it is not a Permissions-Policy-controlled feature.
+  assert(
+    result.permissionsPolicy?.includes("camera=()") &&
+      result.permissionsPolicy?.includes("geolocation=(self)") &&
+      result.permissionsPolicy?.includes("clipboard-write=(self)") &&
+      !result.permissionsPolicy?.includes("notifications="),
+    `${label} serves the least-privilege Permissions-Policy`,
+  );
+}
+
+function normalizePolicy(value) {
+  return value.replace(/\s+/g, " ").trim();
 }
 
 const server = spawn(
@@ -402,6 +417,21 @@ try {
   assert(
     !excludedRules.has("/destinations/*"),
     "_routes.json does not exclude /destinations/* (destination Functions keep precedence)",
+  );
+
+  // KAI-81: the static layer (public/_headers) and Function responses
+  // (SECURITY_HEADERS in src/seo/meta.ts) must serve the SAME
+  // Permissions-Policy so the browser policy does not silently diverge
+  // depending on which layer answered the request.
+  const staticPolicy = (await fetchStatusAndRobots(builtAsset))
+    .permissionsPolicy;
+  const functionPolicy = (await fetchStatusAndRobots("/settings"))
+    .permissionsPolicy;
+  assert(
+    staticPolicy !== null &&
+      functionPolicy !== null &&
+      normalizePolicy(staticPolicy) === normalizePolicy(functionPolicy),
+    `static (_headers) and Function (SECURITY_HEADERS) Permissions-Policy agree (static: ${staticPolicy ?? "MISSING"}, function: ${functionPolicy ?? "MISSING"})`,
   );
 
   console.log("Pages Function runtime verification complete.");
