@@ -30,19 +30,14 @@ const DIST = path.join(ROOT, "dist");
 const ASSETS = path.join(DIST, "assets");
 const MANIFEST_PATH = path.join(DIST, ".vite", "manifest.json");
 
-// Budgets (KB), measured with node zlib level 6 on 2026-08-16 (KAI-82 head):
-//   home cold-load 12,428 KB raw / 2,081 KB gzip (44 files: bootstrap
-//   preload set + Home route chunk + its full static-import closure from
-//   dist/.vite/manifest.json — the earlier "16 files / 1,011 KB" figure
-//   omitted route-specific static chunks, which the reviewer caught)
-//   largest chunk  utils 746 KB gzip
-// Margins are ~2% so that reintroducing Leaflet into the shared graph
-// (+~43 KB gzip: utils → 789, home → 2,124) FAILS both budgets.
+// Budgets are recalibrated from the deduplicated clean build output below.
+// HTML references use /assets/foo.js while manifest values use assets/foo.js;
+// both forms must identify one physical asset, not two Set entries.
 // TODO(kai-82 phase 2): remove destinations-index.json from the initial load
 // and LOWER these budgets — the 6.5 MB index is the primary root cause.
 const BUDGETS = {
-  homeTotalGzipKb: 2120, // 2081 baseline; +43 KB leaflet → 2124 → FAIL
-  largestChunkGzipKb: 765, // 746 baseline; +43 KB leaflet → 789 → FAIL
+  homeTotalGzipKb: 1120, // 1090 clean baseline; Leaflet negative = 1132
+  largestChunkGzipKb: 765, // 746 clean baseline; Leaflet negative = 789
 };
 
 function readAssetsIndex() {
@@ -119,8 +114,17 @@ function staticClosure(manifest, startSrc) {
   return [...seenSrcs].map((s) => manifest[s].file);
 }
 
-function sizeOf(url) {
-  const buf = readFileSync(path.join(ASSETS, path.basename(url)));
+/** Convert HTML/manifest references to one safe physical asset identity. */
+function normalizeAssetPath(ref) {
+  const normalized = ref.replace(/^\/+/, "");
+  if (!normalized.startsWith("assets/") || normalized.includes("..")) {
+    throw new Error(`invalid non-assets reference: ${ref}`);
+  }
+  return normalized;
+}
+
+function sizeOf(assetPath) {
+  const buf = readFileSync(path.join(ASSETS, path.basename(assetPath)));
   return { raw: buf.length, gzip: gzipSync(buf).length };
 }
 
@@ -132,7 +136,11 @@ function main() {
   // pulled in when the homepage route renders (bootstrap + Home + deps).
   const homeClosure = [home.file, ...staticClosure(manifest, home.src)];
 
-  const allHome = new Set([...bootstrap, ...homeClosure]);
+  // Canonicalize before Set insertion: /assets/foo.js and assets/foo.js are
+  // the same physical file and must contribute exactly once.
+  const allHome = new Set(
+    [...bootstrap, ...homeClosure].map(normalizeAssetPath),
+  );
   let homeRaw = 0;
   let homeGzip = 0;
   let largestChunkGzip = 0;
