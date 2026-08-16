@@ -6,9 +6,12 @@
  *   1. bootstrap  — entry script + <link rel="modulepreload"> set from
  *                   dist/index.html (parsed order-independently; FAILS CLOSED
  *                   if no assets can be identified).
- *   2. home route — the transitive dynamic-import closure of the Home route
- *                   chunk (React.lazy routes are NOT in the static preload
- *                   set, so the static parser alone would miss route weight).
+ *   2. home route — the Home route chunk's FULL static-import closure,
+ *      resolved deterministically from the Vite build manifest
+ *      (dist/.vite/manifest.json, build.manifest: true): entry → Home
+ *      dynamic import → every statically-imported chunk the route pulls
+ *      in at render (React.lazy routes are not in the static preload set,
+ *      so a preload-only parse would miss route weight).
  *
  * Budgets:
  *   - total home cold-load gzip: catches re-importing a heavy library into
