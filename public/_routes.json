@@ -11,6 +11,9 @@
     "/favicon.ico",
     "/favicon.svg",
     "/apple-touch-icon.png",
-    "/icons.svg"
+    "/icons.svg",
+    "/sw.js",
+    "/manifest.webmanifest",
+    "/icons/*"
   ]
 }

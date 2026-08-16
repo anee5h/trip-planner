@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && npm run seo:generate",
+    "build": "tsc -b && vite build && npm run seo:generate && node scripts/inject-pwa-assets.cjs",
     "seo:generate": "tsx scripts/generate-seo-outputs.ts",
     "og:render": "node scripts/render-og-images.mjs",
     "seo:check": "tsx scripts/generate-seo-outputs.ts --check",
@@ -64,7 +64,9 @@
     "derive:destination-models:apply": "tsx scripts/derive-destination-models.ts --apply",
     "check:destination-models": "tsx scripts/derive-destination-models.ts --check && tsx scripts/models/validate-models.ts",
     "check:security-headers": "node scripts/check-security-headers.mjs",
-    "check:bundle-secrets": "node scripts/check-bundle-secrets.mjs"
+    "check:bundle-secrets": "node scripts/check-bundle-secrets.mjs",
+    "test:pwa": "PWA_E2E=1 playwright test --workers=1 e2e/kai-64-pwa.spec.ts e2e/kai-64-upgrade.spec.ts",
+    "check:pwa": "node scripts/check-pwa.cjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
