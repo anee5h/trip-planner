@@ -5,4 +5,7 @@ SUPABASE_SERVICE_ROLE_KEY=<service-role-key>
 # Optional owner notification via Resend (free tier). Domain must be verified
 # in Resend; RESEND_FROM defaults to Meguruto <feedback@meguruto.app>.
 RESEND_API_KEY=<resend-api-key>
+# KAI-44: publishable (anon) key used for user-authentication calls (the
+# password grant in the account-deletion function). Never the service key.
+SUPABASE_PUBLISHABLE_KEY=<anon-key>
 # RESEND_FROM=Meguruto <feedback@meguruto.app>

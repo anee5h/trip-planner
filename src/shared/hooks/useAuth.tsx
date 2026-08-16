@@ -11,6 +11,7 @@ import { supabase } from "@/lib/supabase";
 import { executeClearProfile } from "./clearProfileOrchestration";
 import type { ClearProfileResult } from "./clearProfileResult";
 import { reportAuthFailureIfOperational } from "@/shared/utils/errorReporter";
+import { executePendingAccountDeletionIfRequested } from "@/shared/utils/pendingAccountDeletion";
 
 export interface UserPreferencesPayload {
   partySize?: number;
@@ -67,11 +68,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     // Get initial session. KAI-46: a failing session bootstrap is an
     // operational auth failure — report it (best-effort, feature auth).
+    // KAI-44: a session arriving with a pending-deletion flag (OAuth
+    // reauthentication redirect) completes the deletion.
     supabase.auth
       .getSession()
       .then(({ data }) => {
         setUser(data.session?.user ?? null);
         setLoading(false);
+        if (data.session?.access_token) {
+          void executePendingAccountDeletionIfRequested();
+        }
       })
       .catch((err) => {
         reportAuthFailureIfOperational(err, "session");
@@ -84,6 +90,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
       setLoading(false);
+      if (session?.access_token) {
+        void executePendingAccountDeletionIfRequested();
+      }
     });
 
     return () => subscription.unsubscribe();

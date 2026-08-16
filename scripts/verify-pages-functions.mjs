@@ -25,6 +25,7 @@
  */
 
 import { spawn } from "node:child_process";
+import { createServer } from "node:http";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -117,6 +118,45 @@ function normalizePolicy(value) {
   return value.replace(/\s+/g, " ").trim();
 }
 
+/** Synthetic JWT for the runtime endpoint tests (amr in UNIX SECONDS). */
+function makeRuntimeJwt(amrSeconds) {
+  const enc = (obj) => Buffer.from(JSON.stringify(obj)).toString("base64url");
+  return `${enc({ alg: "HS256", typ: "JWT" })}.${enc({
+    sub: "runtime-test-user",
+    role: "authenticated",
+    amr: [{ method: "oauth", timestamp: amrSeconds, provider: "google" }],
+  })}.ZmFrZS1zaWduYXR1cmU`;
+}
+
+// KAI-44: a local mock Supabase so the account-deletion endpoint can run
+// END-TO-END in the real workerd runtime (binding SUPABASE_URL to it).
+// This proves the Function's web-runtime-only JWT decoding (atob /
+// TextDecoder) executes — a Node-only API like Buffer would crash here.
+const mockSupabase = await new Promise((resolve) => {
+  const s = createServer((req, res) => {
+    const url = new URL(req.url ?? "/", "http://mock");
+    const send = (status, body) => {
+      res.writeHead(status, { "Content-Type": "application/json" });
+      res.end(body ? JSON.stringify(body) : "");
+    };
+    if (url.pathname === "/auth/v1/user")
+      return send(200, { id: "runtime-test-user" });
+    if (url.pathname === "/auth/v1/token")
+      return send(200, { user: { id: "runtime-test-user" } });
+    if (
+      /\/rest\/v1\/(trips|user_data|feedback)\?/.test(
+        `${url.pathname}${url.search}`,
+      )
+    ) {
+      return send(204);
+    }
+    if (url.pathname.startsWith("/auth/v1/admin/users/")) return send(204);
+    return send(404, {});
+  });
+  s.listen(0, "127.0.0.1", () => resolve(s));
+});
+const MOCK_SUPABASE_URL = `http://127.0.0.1:${mockSupabase.address().port}`;
+
 const server = spawn(
   "npx",
   [
@@ -128,6 +168,12 @@ const server = spawn(
     String(PORT),
     "--ip",
     "127.0.0.1",
+    "--binding",
+    `SUPABASE_URL=${MOCK_SUPABASE_URL}`,
+    "--binding",
+    "SUPABASE_SERVICE_ROLE_KEY=fake-service-key",
+    "--binding",
+    "SUPABASE_PUBLISHABLE_KEY=fake-publishable-key",
   ],
   { stdio: ["ignore", "pipe", "pipe"], detached: true },
 );
@@ -143,6 +189,11 @@ const exit = (code) => {
     process.kill(-server.pid, "SIGKILL");
   } catch {
     // already gone
+  }
+  try {
+    mockSupabase.close();
+  } catch {
+    // already closed
   }
   // Prefer the explicit code; otherwise respect exitCode recorded by any
   // failed assert(). Never force 0 over a failed assertion.
@@ -442,6 +493,48 @@ try {
   assert(
     sourceMaps.length === 0,
     `production build publishes no source maps (found: ${sourceMaps.join(", ") || "none"})`,
+  );
+
+  // KAI-44: real-runtime account-deletion contract against the mock
+  // Supabase binding. The Function must decode the JWT with web
+  // primitives only (atob/TextDecoder) — a Node-only API like Buffer
+  // would crash the isolate here, which is exactly what this catches.
+  const freshRuntimeToken = makeRuntimeJwt(Math.floor(Date.now() / 1000) - 60);
+  const staleRuntimeToken = makeRuntimeJwt(
+    Math.floor(Date.now() / 1000) - 3600,
+  );
+  const deletion = async (token, body) => {
+    const res = await fetch(`${BASE}/api/account/delete`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(body),
+    });
+    return { status: res.status, json: await res.json().catch(() => ({})) };
+  };
+  const runtimeOtpOk = await deletion(freshRuntimeToken, { reauthMode: "otp" });
+  assert(
+    runtimeOtpOk.status === 200 && runtimeOtpOk.json.ok === true,
+    `runtime /api/account/delete otp fresh-amr -> 200 ok (got ${runtimeOtpOk.status} ${JSON.stringify(runtimeOtpOk.json)})`,
+  );
+  const runtimeOtpStale = await deletion(staleRuntimeToken, {
+    reauthMode: "otp",
+  });
+  assert(
+    runtimeOtpStale.status === 401 &&
+      runtimeOtpStale.json.error === "reauth_required",
+    `runtime /api/account/delete otp stale-amr -> 401 reauth_required before any DELETE (got ${runtimeOtpStale.status})`,
+  );
+  const runtimePw = await deletion(freshRuntimeToken, {
+    reauthMode: "password",
+    email: "u@example.com",
+    password: "correct",
+  });
+  assert(
+    runtimePw.status === 200 && runtimePw.json.ok === true,
+    `runtime /api/account/delete password grant -> 200 ok (got ${runtimePw.status} ${JSON.stringify(runtimePw.json)})`,
   );
 
   console.log("Pages Function runtime verification complete.");
