@@ -1,11 +1,16 @@
 import fs from "fs";
 import path from "path";
 import { generateCatalogueOutputs } from "./catalog/generate-outputs";
+import { assertClassified, buildClientIndex } from "./catalog/client-index";
 
 const detailsDirectory = path.join(process.cwd(), "public/data/destinations");
 const metaPath = path.join(
   process.cwd(),
   "src/shared/data/destinations-meta.json",
+);
+const clientIndexPath = path.join(
+  process.cwd(),
+  "src/shared/data/destinations-index.lite.json",
 );
 
 async function main() {
@@ -14,7 +19,7 @@ async function main() {
   // Generation logic lives in scripts/catalog/generate-outputs.ts (also used
   // by scripts/check-catalog-sync.ts) so the writer and the CI check can
   // never drift apart.
-  const { detailFiles, meta } = await generateCatalogueOutputs();
+  const { detailFiles, meta, fullIndex } = await generateCatalogueOutputs();
 
   for (const [id, content] of detailFiles) {
     fs.writeFileSync(path.join(detailsDirectory, `${id}.json`), content);
@@ -27,8 +32,14 @@ async function main() {
   // fields), which is why the sync step also emits the file.
   fs.writeFileSync(metaPath, meta);
 
+  // KAI-82 phase 2: the client index (summary fields only) keeps ~2.3 MB of
+  // detail/audit data out of the initial-load bundle. Detail surfaces
+  // hydrate from the per-destination files above.
+  assertClassified(fullIndex);
+  fs.writeFileSync(clientIndexPath, buildClientIndex(fullIndex));
+
   console.log(
-    `Synced ${detailFiles.size} destination detail files and destinations-meta.json.`,
+    `Synced ${detailFiles.size} destination detail files, destinations-meta.json and destinations-index.lite.json.`,
   );
 }
 

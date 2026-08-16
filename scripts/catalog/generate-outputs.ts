@@ -25,6 +25,8 @@ export interface GeneratedCatalogueOutputs {
   detailFiles: Map<string, string>;
   /** Formatted destinations-meta.json content. */
   meta: string;
+  /** The full canonical catalogue (source of truth for derived outputs). */
+  fullIndex: Destination[];
 }
 
 export interface GenerateOptions {
@@ -62,5 +64,5 @@ export async function generateCatalogueOutputs(
     `${JSON.stringify(buildDestinationsMeta(destinations), null, 2)}\n`,
     rootDir,
   );
-  return { detailFiles, meta };
+  return { detailFiles, meta, fullIndex: destinations };
 }

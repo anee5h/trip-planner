@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import destinationsIndex from "@/shared/data/destinations-index.json";
+import destinationsIndex from "@/shared/data/destinations-index.lite.json";
 import { formatVisitedDate } from "@/shared/utils/date";
 import type { Destination } from "@/shared/types/destination";
 import {
