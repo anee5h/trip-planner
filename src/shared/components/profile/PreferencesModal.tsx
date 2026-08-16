@@ -308,7 +308,7 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                   onChange={(e) =>
                     setPartySize(Math.max(1, parseInt(e.target.value) || 1))
                   }
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 />
               </div>
             </div>

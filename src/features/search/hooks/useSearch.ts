@@ -59,6 +59,13 @@ export function useSearch() {
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
+      // Ignore Escape during IME composition (JA input): cancelling a
+      // kana-kanji conversion must not close the overlay.
+      if (e.key === "Escape" && !e.nativeEvent.isComposing) {
+        setIsOpen(false);
+        return;
+      }
+
       if (flatItems.length === 0) return;
 
       if (e.key === "ArrowDown") {
@@ -74,8 +81,6 @@ export function useSearch() {
         if (flatItems[selectedIndex]) {
           selectItem(flatItems[selectedIndex]);
         }
-      } else if (e.key === "Escape") {
-        setIsOpen(false);
       }
     },
     [flatItems, selectedIndex, selectItem],

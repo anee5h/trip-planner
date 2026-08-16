@@ -207,7 +207,7 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder={t("feedbackModal.placeholder")}
-                  className="w-full p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl text-xs placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 resize-none transition-all"
+                  className="w-full p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl text-base sm:text-xs placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 resize-none transition-all"
                 />
               </div>
 

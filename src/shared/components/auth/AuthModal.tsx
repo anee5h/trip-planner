@@ -217,7 +217,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full rounded-xl border px-4 py-3 text-sm outline-none border-slate-300 bg-white text-slate-900 placeholder:text-slate-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/25 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white dark:placeholder:text-slate-400"
+              className="w-full rounded-xl border px-4 py-3 text-base sm:text-sm outline-none border-slate-300 bg-white text-slate-900 placeholder:text-slate-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/25 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white dark:placeholder:text-slate-400"
             />
             <div className="relative">
               <input
@@ -226,7 +226,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full rounded-xl border px-4 py-3 pr-14 text-sm outline-none border-slate-300 bg-white text-slate-900 placeholder:text-slate-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/25 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white dark:placeholder:text-slate-400"
+                className="w-full rounded-xl border px-4 py-3 pr-14 text-base sm:text-sm outline-none border-slate-300 bg-white text-slate-900 placeholder:text-slate-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/25 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white dark:placeholder:text-slate-400"
               />
               <button
                 type="button"

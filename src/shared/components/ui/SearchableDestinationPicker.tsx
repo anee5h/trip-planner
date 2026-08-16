@@ -301,7 +301,7 @@ export function SearchableDestinationPicker({
                     ? "都市・スポット名で検索..."
                     : "Type to search..."
                 }
-                className="w-full bg-transparent text-sm font-medium text-slate-900 dark:text-white focus:outline-none placeholder:text-slate-400"
+                className="w-full bg-transparent text-base sm:text-sm font-medium text-slate-900 dark:text-white focus:outline-none placeholder:text-slate-400"
               />
               {query && (
                 <button

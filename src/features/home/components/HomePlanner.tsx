@@ -413,7 +413,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                 }}
                 onBlur={handleCustomAllowanceBlur}
                 aria-label={t("home.customStayAllowance")}
-                className="h-8 w-28 rounded-lg border border-slate-200 px-2 text-xs font-bold dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))]"
+                className="h-8 w-28 rounded-lg border border-slate-200 px-2 text-base sm:text-xs font-bold dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))]"
               />
             )}
             <span

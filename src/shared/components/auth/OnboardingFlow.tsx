@@ -255,7 +255,7 @@ export function OnboardingFlow() {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder={t("settings.fullNamePlaceholder")}
-                    className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-800 dark:text-white"
+                    className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-base sm:text-sm text-slate-800 dark:text-white"
                   />
                 </label>
                 <label className="block text-xs font-bold uppercase text-slate-500">

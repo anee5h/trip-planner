@@ -335,7 +335,7 @@ export default function StationInput({
               <select
                 value={selectedPref}
                 onChange={handlePrefChange}
-                className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-2 text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-36"
+                className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-2 text-base sm:text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-36"
               >
                 {PREFECTURES.map((p) => (
                   <option key={p} value={p}>
@@ -347,7 +347,7 @@ export default function StationInput({
               <select
                 value={selectedStation}
                 onChange={handleStationChange}
-                className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-2 text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-64"
+                className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-2 text-base sm:text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-64"
                 disabled={stations.length === 0}
               >
                 <option value="">{t("origin.selectStation")}</option>
@@ -366,7 +366,7 @@ export default function StationInput({
                 value={zipCode}
                 onChange={handleZipChange}
                 onKeyDown={(e) => e.key === "Enter" && handleSet()}
-                className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-64"
+                className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-base sm:text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-64"
               />
               {zipError && (
                 <span className="text-xs text-red-500">{zipError}</span>

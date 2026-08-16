@@ -258,7 +258,7 @@ export default function ItineraryPlanner({
             max="2035-12-31"
             onChange={(e) => handleDateChange(e.target.value)}
             onBlur={(e) => handleDateChange(e.target.value)}
-            className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl text-sm w-full"
+            className="bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl text-base sm:text-sm w-full"
           />
         </div>
 
