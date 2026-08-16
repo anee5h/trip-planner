@@ -31,9 +31,7 @@ export default function Cookies() {
           website, though your access to some functionality (like logging in)
           may be restricted.
         </p>
-        <p className="mb-4">
-          For cookie questions, contact kaihatsu.studio@gmail.com.
-        </p>
+        <p className="mb-4">For cookie questions, contact info@meguruto.app.</p>
       </div>
     </div>
   );

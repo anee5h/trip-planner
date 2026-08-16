@@ -35,7 +35,7 @@ export default function Privacy() {
           not sell your personal data to third parties.
         </p>
         <p className="mb-4">
-          For privacy questions, contact kaihatsu.studio@gmail.com.
+          For privacy questions, contact info@meguruto.app.
         </p>
       </div>
     </div>
