@@ -13,7 +13,7 @@ import {
   Calendar,
 } from "lucide-react";
 import collectionsIndex from "@/shared/data/collections-index.json";
-import destinationsIndex from "@/shared/data/destinations-index.json";
+import destinationsIndex from "@/shared/data/destinations-index.lite.json";
 import type { Collection } from "@/shared/types/collection";
 import type { PassportTab } from "../types";
 import { useLocale } from "@/shared/context/LocaleContext";

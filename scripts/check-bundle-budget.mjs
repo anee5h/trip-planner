@@ -31,18 +31,19 @@ const ASSETS = path.join(DIST, "assets");
 const MANIFEST_PATH = path.join(DIST, ".vite", "manifest.json");
 
 // Budgets (KB), measured with node zlib level 6 on 2026-08-16 (KAI-82 head):
-//   home cold-load 12,428 KB raw / 2,081 KB gzip (44 files: bootstrap
-//   preload set + Home route chunk + its full static-import closure from
-//   dist/.vite/manifest.json — the earlier "16 files / 1,011 KB" figure
-//   omitted route-specific static chunks, which the reviewer caught)
-//   largest chunk  utils 746 KB gzip
-// Margins are ~2% so that reintroducing Leaflet into the shared graph
-// (+~43 KB gzip: utils → 789, home → 2,124) FAILS both budgets.
-// TODO(kai-82 phase 2): remove destinations-index.json from the initial load
-// and LOWER these budgets — the 6.5 MB index is the primary root cause.
+//   home cold-load 6,369 KB raw / 1,090 KB gzip (29 files: bootstrap preload
+//   set + Home route chunk + its full static-import closure from
+//   dist/.vite/manifest.json; basenames deduped — bootstrap URLs and
+//   manifest files previously double-counted shared chunks)
+//   largest chunk  utils 746 KB gzip (the destination index lives here by
+//   design: KAI-82 phase 2 measured that splitting it out (lite index)
+//   makes rolldown drag i18n/other heavy modules into the home closure,
+//   1,090 -> 1,391 KB gzip. The next step is a RUNTIME-lazy index load.)
+// Margins are ~3% so that reintroducing Leaflet into the shared graph
+// (+~43 KB gzip: utils → 789, home → 1,133) FAILS both budgets.
 const BUDGETS = {
-  homeTotalGzipKb: 2120, // 2081 baseline; +43 KB leaflet → 2124 → FAIL
-  largestChunkGzipKb: 765, // 746 baseline; +43 KB leaflet → 789 → FAIL
+  homeTotalGzipKb: 1120, // 1090 baseline; +43 KB leaflet → 1133 → FAIL
+  largestChunkGzipKb: 770, // 746 baseline; +43 KB leaflet → 789 → FAIL
 };
 
 function readAssetsIndex() {
@@ -132,7 +133,11 @@ function main() {
   // pulled in when the homepage route renders (bootstrap + Home + deps).
   const homeClosure = [home.file, ...staticClosure(manifest, home.src)];
 
-  const allHome = new Set([...bootstrap, ...homeClosure]);
+  // Normalize to basenames: bootstrap URLs (/assets/x.js) and manifest
+  // files (assets/x.js) must dedupe — shared chunks appear in both sets.
+  const allHome = new Set(
+    [...bootstrap, ...homeClosure].map((u) => path.basename(u)),
+  );
   let homeRaw = 0;
   let homeGzip = 0;
   let largestChunkGzip = 0;
