@@ -10,7 +10,10 @@ export default defineConfig({
   workers: 2,
   timeout: 120_000,
   expect: {
-    timeout: 10_000,
+    // 30s: with 2 workers sharing one runner the vite dev server can lag
+    // behind single-worker timings; 10s produced contention flakes
+    // (kai-49 html lang switch, kai-85 date selection) on slow runners.
+    timeout: 30_000,
   },
   reporter: "list",
   use: {
