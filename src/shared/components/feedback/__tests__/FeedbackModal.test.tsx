@@ -105,6 +105,7 @@ describe("FeedbackModal — KAI-96 delivery semantics", () => {
     expect(url).toBe("/api/feedback");
     expect(init.method).toBe("POST");
     expect(init.headers["Content-Type"]).toBe("application/json");
+    expect(init.headers.Authorization).toBeUndefined();
     const payload = JSON.parse(init.body);
     expect(payload.message).toBe("Great app, loved the Kyoto guide");
     expect(payload.type).toBe("general");
@@ -112,7 +113,7 @@ describe("FeedbackModal — KAI-96 delivery semantics", () => {
     expect(payload.route).toBe("/");
     expect(payload.app_version).toBeTruthy();
     expect(payload.browser_class).toBe("desktop");
-    expect(payload.user_id).toBeNull();
+    expect(payload.user_id).toBeUndefined();
 
     expect(document.body.textContent).toContain("Thank you for your feedback!");
   });
@@ -186,11 +187,12 @@ describe("FeedbackModal — KAI-96 delivery semantics", () => {
     expect(document.body.textContent).toContain("Thank you for your feedback!");
   });
 
-  it("includes the authenticated user id when signed in", async () => {
+  it("sends the Supabase session token for server-side identity verification when signed in", async () => {
     const { supabase } = await import("@/lib/supabase");
     (supabase!.auth.getSession as ReturnType<typeof vi.fn>).mockResolvedValue({
       data: {
         session: {
+          access_token: "test-access-token",
           user: { id: "4c6e379c-eaa4-4ff0-80fa-bcf6b8118b8b" },
         },
       },
@@ -200,9 +202,11 @@ describe("FeedbackModal — KAI-96 delivery semantics", () => {
 
     await submit();
 
-    const payload = JSON.parse(
-      (fetch as ReturnType<typeof vi.fn>).mock.calls[0][1].body,
-    );
-    expect(payload.user_id).toBe("4c6e379c-eaa4-4ff0-80fa-bcf6b8118b8b");
+    const [, init] = (fetch as ReturnType<typeof vi.fn>).mock.calls[0];
+    expect(init.headers.Authorization).toBe("Bearer test-access-token");
+    // The client must never send a user id of its own — identity is
+    // derived server-side from the verified token.
+    const payload = JSON.parse(init.body);
+    expect(payload.user_id).toBeUndefined();
   });
 });

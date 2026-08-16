@@ -21,10 +21,6 @@ const MAX_FIELD = 200;
 const cap = (value, limit) =>
   typeof value === "string" ? value.slice(0, limit) : null;
 
-const validUuid = (value) =>
-  typeof value === "string" &&
-  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
-
 const badRequest = (error) =>
   Response.json({ ok: false, error }, { status: 400 });
 
@@ -109,6 +105,28 @@ export const onRequest = async (context) => {
     );
   }
 
+  // user_id is NEVER taken from the client body — it is derived server-side
+  // by verifying the caller's Supabase session token (GoTrue /auth/v1/user).
+  // Unverified/unauthenticated callers get null.
+  const authHeader = request.headers.get("Authorization");
+  let user_id = null;
+  if (authHeader && authHeader.startsWith("Bearer ")) {
+    try {
+      const userRes = await fetch(`${env.SUPABASE_URL}/auth/v1/user`, {
+        headers: {
+          Authorization: authHeader,
+          apikey: env.SUPABASE_SERVICE_ROLE_KEY,
+        },
+      });
+      if (userRes.ok) {
+        const user = await userRes.json();
+        user_id = user?.id ?? null;
+      }
+    } catch (err) {
+      console.error("feedback: user verification failed", err);
+    }
+  }
+
   const row = {
     type,
     message,
@@ -116,7 +134,7 @@ export const onRequest = async (context) => {
     locale: cap(body.locale, 16),
     app_version: cap(body.app_version, 32),
     browser_class: cap(body.browser_class, 32),
-    user_id: validUuid(body.user_id) ? body.user_id : null,
+    user_id,
   };
 
   const res = await fetch(`${env.SUPABASE_URL}/rest/v1/feedback`, {

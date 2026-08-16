@@ -52,8 +52,11 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
 
     try {
       // KAI-96: deliver through the backend (Pages Function -> Supabase) and
-      // only report success after the backend confirms capture.
+      // only report success after the backend confirms capture. The session
+      // token (when signed in) lets the function verify identity server-side;
+      // the client never sends a user id of its own.
       const session = await supabase?.auth.getSession();
+      const accessToken = session?.data.session?.access_token ?? null;
       const payload = {
         type: feedbackType,
         message: message.trim(),
@@ -61,12 +64,18 @@ export function FeedbackModal({ isOpen, onClose }: FeedbackModalProps) {
         locale: i18n.language,
         app_version: APP_VERSION,
         browser_class: browserClass(),
-        user_id: session?.data.session?.user.id ?? null,
       };
+
+      const headers: Record<string, string> = {
+        "Content-Type": "application/json",
+      };
+      if (accessToken) {
+        headers.Authorization = `Bearer ${accessToken}`;
+      }
 
       const res = await fetch("/api/feedback", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers,
         body: JSON.stringify(payload),
       });
 
