@@ -30,20 +30,13 @@ const DIST = path.join(ROOT, "dist");
 const ASSETS = path.join(DIST, "assets");
 const MANIFEST_PATH = path.join(DIST, ".vite", "manifest.json");
 
-// Budgets (KB), measured with node zlib level 6 on 2026-08-16 (KAI-82 head):
-//   home cold-load 6,369 KB raw / 1,090 KB gzip (29 files: bootstrap preload
-//   set + Home route chunk + its full static-import closure from
-//   dist/.vite/manifest.json; basenames deduped — bootstrap URLs and
-//   manifest files previously double-counted shared chunks)
-//   largest chunk  utils 746 KB gzip (the destination index lives here by
-//   design: KAI-82 phase 2 measured that splitting it out (lite index)
-//   makes rolldown drag i18n/other heavy modules into the home closure,
-//   1,090 -> 1,391 KB gzip. The next step is a RUNTIME-lazy index load.)
-// Margins are ~3% so that reintroducing Leaflet into the shared graph
-// (+~43 KB gzip: utils → 789, home → 1,133) FAILS both budgets.
+// Budgets are recalibrated from the deduplicated clean build output.
+// The phase-2 static-lite experiment is intentionally retained as measured
+// evidence: it increases the Home closure under Rolldown, so the real phase-2
+// win requires a runtime-lazy index load rather than this static split.
 const BUDGETS = {
-  homeTotalGzipKb: 1120, // 1090 baseline; +43 KB leaflet → 1133 → FAIL
-  largestChunkGzipKb: 770, // 746 baseline; +43 KB leaflet → 789 → FAIL
+  homeTotalGzipKb: 1120, // 1090 clean baseline; Leaflet negative = 1132
+  largestChunkGzipKb: 765, // 746 clean baseline; Leaflet negative = 789
 };
 
 function readAssetsIndex() {
@@ -120,8 +113,17 @@ function staticClosure(manifest, startSrc) {
   return [...seenSrcs].map((s) => manifest[s].file);
 }
 
-function sizeOf(url) {
-  const buf = readFileSync(path.join(ASSETS, path.basename(url)));
+/** Convert HTML/manifest references to one safe physical asset identity. */
+function normalizeAssetPath(ref) {
+  const normalized = ref.replace(/^\/+/, "");
+  if (!normalized.startsWith("assets/") || normalized.includes("..")) {
+    throw new Error(`invalid non-assets reference: ${ref}`);
+  }
+  return normalized;
+}
+
+function sizeOf(assetPath) {
+  const buf = readFileSync(path.join(ASSETS, path.basename(assetPath)));
   return { raw: buf.length, gzip: gzipSync(buf).length };
 }
 
@@ -133,10 +135,10 @@ function main() {
   // pulled in when the homepage route renders (bootstrap + Home + deps).
   const homeClosure = [home.file, ...staticClosure(manifest, home.src)];
 
-  // Normalize to basenames: bootstrap URLs (/assets/x.js) and manifest
-  // files (assets/x.js) must dedupe — shared chunks appear in both sets.
+  // Canonicalize before Set insertion: /assets/foo.js and assets/foo.js are
+  // the same physical file and must contribute exactly once.
   const allHome = new Set(
-    [...bootstrap, ...homeClosure].map((u) => path.basename(u)),
+    [...bootstrap, ...homeClosure].map(normalizeAssetPath),
   );
   let homeRaw = 0;
   let homeGzip = 0;
