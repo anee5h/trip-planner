@@ -18,37 +18,45 @@
  *
  * Run after `npm run build`. Exits 1 on any violation or measurement failure.
  */
-import { readFileSync, readdirSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { gzipSync } from "node:zlib";
 import path from "node:path";
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, "dist");
 const ASSETS = path.join(DIST, "assets");
+const MANIFEST_PATH = path.join(DIST, ".vite", "manifest.json");
 
 // Budgets (KB), measured with node zlib level 6 on 2026-08-16 (KAI-82 head):
-//   home cold-load 6,137 KB raw / 1,011 KB gzip (16 files, incl. Home route)
+//   home cold-load 12,428 KB raw / 2,081 KB gzip (44 files: bootstrap
+//   preload set + Home route chunk + its full static-import closure from
+//   dist/.vite/manifest.json — the earlier "16 files / 1,011 KB" figure
+//   omitted route-specific static chunks, which the reviewer caught)
 //   largest chunk  utils 746 KB gzip
-// Margins are ~2.5% so that reintroducing Leaflet into the shared graph
-// (+~43 KB gzip: utils → 789, home → 1,054) FAILS both budgets.
+// Margins are ~2% so that reintroducing Leaflet into the shared graph
+// (+~43 KB gzip: utils → 789, home → 2,124) FAILS both budgets.
 // TODO(kai-82 phase 2): remove destinations-index.json from the initial load
 // and LOWER these budgets — the 6.5 MB index is the primary root cause.
 const BUDGETS = {
-  homeTotalGzipKb: 1030, // 1011 baseline; +43 KB leaflet → 1054 → FAIL
+  homeTotalGzipKb: 2120, // 2081 baseline; +43 KB leaflet → 2124 → FAIL
   largestChunkGzipKb: 765, // 746 baseline; +43 KB leaflet → 789 → FAIL
 };
 
 function readAssetsIndex() {
   const html = readFileSync(path.join(DIST, "index.html"), "utf8");
   const urls = [];
-  // Order-independent attribute parsing; fails closed if nothing matches.
-  for (const m of html.matchAll(/<script[^>]*\bsrc="([^"]+)"/g)) {
-    urls.push(m[1]);
+  // Parse each <link>/<script> tag as a unit and extract attributes
+  // independently — attribute ORDER must not matter.
+  for (const tag of html.matchAll(/<script\b[^>]*>/g)) {
+    const src = tag[0].match(/\bsrc="([^"]+)"/);
+    if (src) urls.push(src[1]);
   }
-  for (const m of html.matchAll(
-    /<link[^>]*\brel="modulepreload"[^>]*\bhref="([^"]+)"/g,
-  )) {
-    if (!urls.includes(m[1])) urls.push(m[1]);
+  for (const tag of html.matchAll(/<link\b[^>]*>/g)) {
+    const attrs = tag[0];
+    if (/\brel="modulepreload"/.test(attrs)) {
+      const href = attrs.match(/\bhref="([^"]+)"/);
+      if (href && !urls.includes(href[1])) urls.push(href[1]);
+    }
   }
   if (urls.length === 0) {
     console.error(
@@ -59,30 +67,53 @@ function readAssetsIndex() {
   return urls;
 }
 
-const chunkFiles = new Set(
-  readdirSync(ASSETS).filter((f) => f.endsWith(".js")),
-);
-
-function loadChunk(url) {
-  return readFileSync(path.join(ASSETS, path.basename(url)), "utf8");
+/** The Vite build manifest (dist/.vite/manifest.json): the deterministic
+ *  source→chunk graph. `imports` = static imports, `dynamicImports` = lazy
+ *  routes. Required — fail closed when missing. */
+function loadManifest() {
+  try {
+    return JSON.parse(readFileSync(MANIFEST_PATH, "utf8"));
+  } catch {
+    console.error(
+      "FAIL: dist/.vite/manifest.json missing — the budget gate needs " +
+        "build.manifest (see vite.config.ts)",
+    );
+    process.exit(1);
+  }
 }
 
-/** Dynamic-import closure of a chunk (vite emits import("./x.js") /
- *  import(`./x.js`) for React.lazy routes). */
-function routeClosure(entryUrl) {
-  const seen = new Set();
-  const queue = [path.basename(entryUrl)];
-  while (queue.length > 0) {
-    const name = queue.shift();
-    if (seen.has(name) || !chunkFiles.has(name)) continue;
-    seen.add(name);
-    const content = loadChunk(name);
-    for (const m of content.matchAll(/import\([`'"]([^`'"]+\.js)[`'"]\)/g)) {
-      const ref = path.basename(m[1]);
-      if (chunkFiles.has(ref)) queue.push(ref);
-    }
+/** The homepage route chunk: the entry's dynamic import of features/home. */
+function homeChunkFile(manifest) {
+  const entry = manifest["index.html"];
+  if (!entry?.dynamicImports?.length) {
+    console.error("FAIL: manifest entry has no dynamic imports (lazy routes)");
+    process.exit(1);
   }
-  return [...seen];
+  const homeSrc = entry.dynamicImports.find(
+    (src) => src.includes("/features/home/") && /Home(\.tsx)?$/.test(src),
+  );
+  if (!homeSrc || !manifest[homeSrc]) {
+    console.error(
+      "FAIL: could not resolve the Home route chunk in the Vite manifest",
+    );
+    process.exit(1);
+  }
+  return { src: homeSrc, file: manifest[homeSrc].file };
+}
+
+/** Static-import closure of a route source from the manifest: the exact
+ *  chunk set the route pulls in at load time (lazy route children excluded —
+ *  they are not part of the initial render). */
+function staticClosure(manifest, startSrc) {
+  const seenSrcs = new Set();
+  const queue = [startSrc];
+  while (queue.length > 0) {
+    const src = queue.shift();
+    if (seenSrcs.has(src) || !manifest[src]) continue;
+    seenSrcs.add(src);
+    queue.push(...(manifest[src].imports ?? []));
+  }
+  return [...seenSrcs].map((s) => manifest[s].file);
 }
 
 function sizeOf(url) {
@@ -92,15 +123,11 @@ function sizeOf(url) {
 
 function main() {
   const bootstrap = readAssetsIndex();
-  const homeChunks =
-    chunkFiles.size > 0
-      ? [...chunkFiles].find((f) => /^Home-/.test(f))
-      : undefined;
-  if (!homeChunks) {
-    console.error("FAIL: could not locate the Home route chunk in dist/assets");
-    process.exit(1);
-  }
-  const homeClosure = routeClosure(homeChunks);
+  const manifest = loadManifest();
+  const home = homeChunkFile(manifest);
+  // Home's static-import closure from the manifest = the exact chunk set
+  // pulled in when the homepage route renders (bootstrap + Home + deps).
+  const homeClosure = [home.file, ...staticClosure(manifest, home.src)];
 
   const allHome = new Set([...bootstrap, ...homeClosure]);
   let homeRaw = 0;
