@@ -50,18 +50,33 @@ export function SearchDialog({
     if (!isOpen) return;
 
     const viewport = window.visualViewport;
-    if (!viewport) return;
+    if (viewport) {
+      const updateHeight = () => setViewportHeight(viewport.height);
+      updateHeight();
+      viewport.addEventListener("resize", updateHeight);
+      viewport.addEventListener("scroll", updateHeight);
 
-    const updateHeight = () => setViewportHeight(viewport.height);
-    updateHeight();
-    viewport.addEventListener("resize", updateHeight);
-    viewport.addEventListener("scroll", updateHeight);
-
-    return () => {
-      viewport.removeEventListener("resize", updateHeight);
-      viewport.removeEventListener("scroll", updateHeight);
-    };
+      return () => {
+        viewport.removeEventListener("resize", updateHeight);
+        viewport.removeEventListener("scroll", updateHeight);
+      };
+    }
   }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    function handleKeyDown(e: KeyboardEvent) {
+      // Ignore Escape during IME composition (JA input): it cancels the
+      // kana-kanji conversion, it must not close the dialog.
+      if (e.key === "Escape" && !e.isComposing) {
+        onClose();
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 

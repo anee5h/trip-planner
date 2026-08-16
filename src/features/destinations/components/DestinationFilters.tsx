@@ -475,7 +475,7 @@ export default function DestinationFilters({
   return (
     <div className="mb-6 rounded-2xl border border-slate-200 bg-white px-3.5 pb-2.5 pt-3.5 shadow-sm transition-all duration-200 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-card))] sm:p-4">
       {/* 1-Row Primary Filter Toolbar */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-2.5">
         {/* Search Input Bar */}
         <div className="relative flex-1 min-w-[200px]">
           <Search className="absolute left-3.5 top-2.5 h-4 w-4 text-slate-400" />
@@ -510,7 +510,7 @@ export default function DestinationFilters({
         </div>
 
         {/* Filter Controls Row */}
-        <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-2 sm:flex sm:shrink-0 sm:flex-wrap sm:items-center">
+        <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-2 sm:flex sm:flex-wrap sm:items-center">
           {/* 1. All Regions & Prefectures Dropdown */}
           <WhereLocationPicker
             selectedRegions={selectedRegions}
@@ -781,7 +781,10 @@ export default function DestinationFilters({
 
       {/* Mobile-Friendly & Desktop-Wide "Trip preferences" Bottom Sheet / Floating Modal Window */}
       {modalOpen && (
-        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-200">
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-200"
+          onClick={(e) => e.target === e.currentTarget && setModalOpen(false)}
+        >
           <div className="w-full max-w-3xl max-h-[92vh] sm:max-h-[85vh] bg-white dark:bg-[hsl(var(--surface-overlay))] border border-slate-200 dark:border-[hsl(var(--border-subtle))] rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
             {/* Modal Fixed Header */}
             <div className="flex-none px-4 sm:px-6 py-3 border-b border-slate-100 dark:border-[hsl(var(--border-subtle))] bg-white dark:bg-[hsl(var(--surface-overlay))] z-20 space-y-1 shadow-sm">

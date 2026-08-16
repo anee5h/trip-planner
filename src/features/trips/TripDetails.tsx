@@ -199,7 +199,7 @@ export default function TripDetails({
             value={journal}
             onChange={(e) => setJournal(e.target.value)}
             placeholder={t("trips.journalPlaceholder")}
-            className="w-full h-48 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            className="w-full h-48 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 text-base sm:text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500"
           />
 
           <Button

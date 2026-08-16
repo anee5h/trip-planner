@@ -120,7 +120,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-950/85 backdrop-blur-xl shadow-xs shadow-slate-900/5 dark:shadow-slate-950/20">
       {/* Desktop Header */}
-      <div className="hidden md:flex container mx-auto px-4 h-[68px] items-center justify-between gap-4">
+      <div className="hidden md:flex container mx-auto px-2 lg:px-4 h-[68px] items-center justify-between gap-1.5 lg:gap-4">
         {/* Logo */}
         <Link
           to="/"
@@ -148,12 +148,12 @@ export default function Navbar() {
         {/* Global Search Bar (Desktop Center) */}
         <GlobalSearch />
 
-        <div className="flex items-center gap-3 shrink-0">
-          <nav className="hidden md:flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5 lg:gap-3 shrink-0">
+          <nav className="hidden md:flex items-center gap-1 lg:gap-1.5">
             {/* Explore */}
             <Link
               to="/destinations"
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
+              className={`flex items-center gap-1.5 px-2 lg:px-3 py-1.5 text-xs lg:text-sm font-semibold transition-all rounded-lg ${
                 isDestinationsActive
                   ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
                   : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
@@ -179,7 +179,7 @@ export default function Navbar() {
             {/* Trips */}
             <Link
               to="/my-trips"
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
+              className={`flex items-center gap-1.5 px-2 lg:px-3 py-1.5 text-xs lg:text-sm font-semibold transition-all rounded-lg ${
                 isTripsActive
                   ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
                   : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
@@ -192,7 +192,7 @@ export default function Navbar() {
             {/* Passport */}
             <Link
               to="/passport"
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
+              className={`flex items-center gap-1.5 px-2 lg:px-3 py-1.5 text-xs lg:text-sm font-semibold transition-all rounded-lg ${
                 isPassportActive
                   ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
                   : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
@@ -344,7 +344,7 @@ export default function Navbar() {
           ) : (
             <Button
               onClick={openAuthModal}
-              className="group bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-full font-bold shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 px-6"
+              className="group bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-full font-bold shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 px-3 lg:px-6 text-xs lg:text-sm"
             >
               <LogIn className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
               {t("navigation.signIn")}

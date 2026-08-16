@@ -231,7 +231,7 @@ export function VisitedDateModal({
                     }}
                     onChange={(e) => setExactDate(e.target.value)}
                     max={getTodayStr()}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium"
                   />
                   <CalendarIcon className="w-5 h-5 text-slate-400 absolute right-4 top-3 pointer-events-none" />
                 </div>
@@ -245,7 +245,7 @@ export function VisitedDateModal({
                     onChange={(e) => setMonthYear(e.target.value)}
                     required
                     max={getCurrentMonthStr()}
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium"
                   />
                   <CalendarIcon className="w-5 h-5 text-slate-400 absolute right-4 top-3 pointer-events-none" />
                 </div>
@@ -257,7 +257,7 @@ export function VisitedDateModal({
                     value={yearVal}
                     onChange={(e) => setYearVal(e.target.value)}
                     required
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium appearance-none"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium appearance-none"
                   >
                     {yearOptions.map((y) => (
                       <option key={y} value={y}>

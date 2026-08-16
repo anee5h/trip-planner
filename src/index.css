@@ -111,6 +111,21 @@
       "rlig" 1,
       "calt" 1;
   }
+
+  /* KAI-95: prevent iOS Safari auto-zoom on mobile form control focus.
+     When computed font-size is < 16px, iOS Safari auto-zooms the viewport in
+     and retains the zoomed scale (>1.0) after overlay/modal dismissal.
+     Enforcing >=16px on mobile viewports (<768px) prevents optical focus-zoom
+     app-wide without restricting accessibility pinch-zoom. */
+  @media (max-width: 767px) {
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not(
+        [type="hidden"]
+      ):not([type="color"]):not([type="file"]),
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
 }
 
 /* Custom Leaflet Map Styles */
