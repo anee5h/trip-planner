@@ -13,11 +13,51 @@ export const SITE_URL = "https://meguruto.app";
 /** Title suffix used on every destination page. */
 export const TITLE_SUFFIX = ` | ${SITE_NAME}`;
 
+export type PageLocale = "en" | "ja";
+
+/** Locale prefix used in crawler-visible share URLs ("" for English — the
+ *  canonical locale — "/ja" for Japanese). */
+export function localePathPrefix(locale: PageLocale): string {
+  return locale === "ja" ? "/ja" : "";
+}
+
 /** The app shell defaults (index.html) — restored when leaving a
  *  destination so stale localized metadata never outlives the route. */
 export const DEFAULT_PAGE_TITLE = "Meguruto: めぐると、見つかる。";
 export const DEFAULT_PAGE_DESCRIPTION =
-  "Find Japan day trips and weekend getaways that fit your time, budget, weather, and travel preferences.";
+  "Discover day trips and weekend getaways that fit your time, budget, weather, and travel style.";
+
+/** Share-preview (OG/Twitter) copy per locale. This is what messaging apps
+ *  render — it is intentionally broader than the day-trip positioning and
+ *  is localized for the Japanese version. */
+export const SHARE_COPY: Record<
+  PageLocale,
+  { title: string; description: string }
+> = {
+  en: {
+    title: "Meguruto — Find Your Next Trip in Japan",
+    description:
+      "Discover day trips and weekend getaways that fit your time, budget, weather, and travel style.",
+  },
+  ja: {
+    title: "Meguruto — 次の週末、日本のどこへ行く？",
+    description:
+      "時間・予算・天気・好みに合わせて、あなたにぴったりの日帰り・週末旅行先を見つけよう。",
+  },
+};
+
+/** Social card images. They contain localized tagline text, so each locale
+ *  must reference its own image. */
+export const OG_IMAGE: Record<PageLocale, string> = {
+  en: `${SITE_URL}/og/og-en.png`,
+  ja: `${SITE_URL}/og/og-ja.png`,
+};
+
+/** og:locale values per locale. */
+export const OG_LOCALE: Record<PageLocale, string> = {
+  en: "en_US",
+  ja: "ja_JP",
+};
 
 /** Google truncates meta descriptions around this length. */
 export const MAX_META_DESCRIPTION_LENGTH = 155;

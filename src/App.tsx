@@ -4,7 +4,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { AuthProvider } from "./shared/hooks/useAuth";
 import { TripStoreProvider } from "./shared/hooks/useTripStore";
 import Navbar from "./shared/components/layout/Navbar";
@@ -43,12 +43,46 @@ function PageLoader() {
   );
 }
 
+/**
+ * Locale-boundary sync (KAI-101): Back/Forward crossing the /ja boundary
+ * would otherwise blank the app (React Router renders nothing for URLs
+ * outside its basename) or leave the rendered locale mismatched with the
+ * URL — share previews are crawler-fetched from the URL. This listener lives
+ * outside the Router on purpose (the Router tree is unmounted at that
+ * point) and navigates the boundary entry onto the locale version of the
+ * same page. Only fires on POP — the locale-switch flow (replaceState +
+ * reload) emits no popstate.
+ */
+function LocaleUrlSync() {
+  const { locale } = useLocale();
+  useEffect(() => {
+    const onPop = () => {
+      const rawPath = window.location.pathname;
+      if (locale === "ja" && !rawPath.startsWith("/ja")) {
+        const target = `/ja${rawPath}${window.location.search}${window.location.hash}`;
+        // replaceState keeps the popped entry (including React Router's
+        // usr/key/idx) and only changes its URL; the reload then renders
+        // that entry — same safe pattern as the language switch.
+        window.history.replaceState(window.history.state, "", target);
+        window.location.reload();
+      } else if (locale === "en" && rawPath.startsWith("/ja")) {
+        const target = `${rawPath.slice(3) || "/"}${window.location.search}${window.location.hash}`;
+        window.history.replaceState(window.history.state, "", target);
+        window.location.reload();
+      }
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, [locale]);
+  return null;
+}
+
 import { useState } from "react";
 import CompareModal from "./features/compare/components/CompareModal";
 import CompareFloatingBar from "./features/compare/components/CompareFloatingBar";
 
 import { ThemeProvider } from "./shared/context/ThemeContext";
-import { LocaleProvider } from "./shared/context/LocaleContext";
+import { LocaleProvider, useLocale } from "./shared/context/LocaleContext";
 import { AuthModalProvider } from "./shared/context/AuthModalContext";
 import { useIdlePrefetch } from "./shared/hooks/useIdlePrefetch";
 import { OnboardingFlow } from "./shared/components/auth/OnboardingFlow";
@@ -59,9 +93,17 @@ function AppInner() {
   const [compareModalOpen, setCompareModalOpen] = useState(false);
   useIdlePrefetch();
 
+  // Locale-prefixed URLs (/ja/...) keep the locale visible to share-preview
+  // crawlers; the basename makes every internal link stay on the locale
+  // version once the user is on it.
+  const basename = window.location.pathname.startsWith("/ja")
+    ? "/ja"
+    : undefined;
+
   return (
     <>
-      <Router>
+      <LocaleUrlSync />
+      <Router basename={basename}>
         <div className="flex flex-col min-h-screen bg-background text-foreground">
           <Navbar />
           <main className="flex-grow pb-[calc(4.25rem+env(safe-area-inset-bottom))] md:pb-0">

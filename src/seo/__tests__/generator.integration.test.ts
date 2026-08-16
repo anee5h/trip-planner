@@ -5,7 +5,7 @@ import {
   renderSitemap,
 } from "@/seo/prerender";
 import { loadPrerenderDestinations } from "@/seo/prerender";
-import { SITE_URL } from "@/seo/meta";
+import { SITE_URL, TITLE_SUFFIX } from "@/seo/meta";
 import type { Destination } from "@/shared/types/destination";
 
 /**
@@ -103,6 +103,35 @@ describe("KAI-68 generator: real catalogue", () => {
       `<link rel="canonical" href="${SITE_URL}/destinations/tokyo-station-chiyoda" />`,
     );
   });
+
+  it("generates the localized /ja pages with Japanese share metadata", () => {
+    const outputs = buildPrerenderOutputs(SHELL, destinations);
+    const tokyo = destinations.find((d) => d.id === "tokyo-station-chiyoda")!;
+    const jaHtml = outputs.get(
+      "/ja/destinations/tokyo-station-chiyoda/index.html",
+    )!;
+    expect(jaHtml).toBeDefined();
+    expect(jaHtml).toContain('<html lang="ja">');
+    expect(jaHtml).toContain(
+      `<link rel="canonical" href="${SITE_URL}/ja/destinations/tokyo-station-chiyoda" />`,
+    );
+    expect(jaHtml).toContain(`<meta property="og:locale" content="ja_JP" />`);
+    expect(jaHtml).toContain(
+      `<meta name="twitter:title" content="東京駅（丸の内赤れんが駅舎）${TITLE_SUFFIX}" />`,
+    );
+    // The JA home shell carries the localized social card image.
+    const jaHome = outputs.get("/ja/index.html")!;
+    expect(jaHome).toContain(
+      `<meta property="og:image" content="${SITE_URL}/og/og-ja.png" />`,
+    );
+    // EN destination page must never carry the JA card.
+    const enHtml = outputs.get(
+      "/destinations/tokyo-station-chiyoda/index.html",
+    )!;
+    expect(enHtml).not.toContain("/og/og-ja.png");
+    expect(jaHtml).not.toContain("/og/og-en.png");
+    expect(tokyo).toBeDefined();
+  });
 });
 
 describe("KAI-68 generator: eligibility rules", () => {
@@ -123,8 +152,9 @@ describe("KAI-68 generator: eligibility rules", () => {
       dest("beta-x", "beta"),
       dest("verified-y", "verified"),
     ]);
-    expect(outputs.size).toBe(2); // sitemap + manifest only
+    expect(outputs.size).toBe(3); // sitemap + manifest + JA home shell
     expect(outputs.has("/sitemap.xml")).toBe(true);
     expect(outputs.has("/data/kai68-public-destinations.json")).toBe(true);
+    expect(outputs.has("/ja/index.html")).toBe(true);
   });
 });

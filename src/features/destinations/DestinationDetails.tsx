@@ -1131,10 +1131,18 @@ export default function DestinationDetails() {
                 {/* Symbol-Only Share Button */}
                 <button
                   onClick={async () => {
-                    const cleanUrl = `${window.location.origin}/destinations/${destination.id}`;
+                    // Share the current URL — on the /ja version this is
+                    // /ja/destinations/<id>, whose prerendered page carries
+                    // Japanese OG/Twitter metadata for crawlers.
+                    const cleanUrl = `${window.location.origin}${window.location.pathname}`;
+                    const shareName =
+                      localizedDestination?.name ?? destination.name;
                     const shareData = {
-                      title: destination.name,
-                      text: `Check out ${destination.name} in ${destination.prefecture}, Japan on Meguruto!`,
+                      title: shareName,
+                      text:
+                        locale === "ja"
+                          ? `${shareName}をMegurutoで見つけよう！`
+                          : `Check out ${shareName} in ${destination.prefecture}, Japan on Meguruto!`,
                       url: cleanUrl,
                     };
                     if (navigator.share) {

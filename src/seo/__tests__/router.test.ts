@@ -119,3 +119,64 @@ describe("KAI-68 router: invalid/removed destination", () => {
     expect(isValidDestinationId("a".repeat(129))).toBe(false);
   });
 });
+
+describe("KAI-101 router: Japanese locale (/ja/destinations/:id)", () => {
+  it("serves the JA prerendered HTML asset for published destinations", async () => {
+    const result = await routeDestinationRequest({
+      id: "tokyo-station-chiyoda",
+      manifest: MANIFEST,
+      locale: "ja",
+      fetchAsset: okAsset("/ja/destinations/tokyo-station-chiyoda/index.html"),
+    });
+    expect(result.status).toBe(200);
+    expect(result.assetPath).toBe(
+      "/ja/destinations/tokyo-station-chiyoda/index.html",
+    );
+    expect(result.headers).toEqual({});
+  });
+
+  it("falls back to the /ja SPA shell if the JA prerendered asset is missing", async () => {
+    const result = await routeDestinationRequest({
+      id: "tokyo-station-chiyoda",
+      manifest: MANIFEST,
+      locale: "ja",
+      fetchAsset: okAsset("/ja/index.html"),
+    });
+    expect(result.status).toBe(200);
+    expect(result.assetPath).toBe("/ja/index.html");
+  });
+
+  it("serves the /ja SPA shell with noindex for non-published destinations", async () => {
+    const result = await routeDestinationRequest({
+      id: "beta-place",
+      manifest: MANIFEST,
+      locale: "ja",
+      fetchAsset: okAsset("/ja/index.html"),
+    });
+    expect(result.status).toBe(200);
+    expect(result.assetPath).toBe("/ja/index.html");
+    expect(result.headers?.["X-Robots-Tag"]).toBe("noindex, follow");
+  });
+
+  it("404s unknown ids under /ja with noindex", async () => {
+    const result = await routeDestinationRequest({
+      id: "no-such-destination",
+      manifest: MANIFEST,
+      locale: "ja",
+      fetchAsset: async () => new Response(null, { status: 404 }),
+    });
+    expect(result.status).toBe(404);
+    expect(result.headers?.["X-Robots-Tag"]).toBe("noindex, follow");
+  });
+
+  it("keeps the EN default when no locale is given", async () => {
+    const result = await routeDestinationRequest({
+      id: "tokyo-station-chiyoda",
+      manifest: MANIFEST,
+      fetchAsset: okAsset("/destinations/tokyo-station-chiyoda/index.html"),
+    });
+    expect(result.assetPath).toBe(
+      "/destinations/tokyo-station-chiyoda/index.html",
+    );
+  });
+});

@@ -3,7 +3,10 @@
  *
  * Pure functions (no fs, no network, no timestamps) that turn the built SPA
  * shell plus the destination catalogue into:
- *   - one prerendered HTML page per PUBLISHED destination
+ *   - one prerendered HTML page per PUBLISHED destination, in BOTH locales
+ *     (/destinations/<id> English, /ja/destinations/<id> Japanese)
+ *   - the localized Japanese home shell (/ja/index.html) whose OG/Twitter
+ *     metadata carries Japanese share-preview copy
  *   - sitemap.xml (published destinations + public hub surfaces only)
  *   - the public-destination manifest consumed by the Pages Function
  *
@@ -11,12 +14,13 @@
  * CLI (scripts/generate-seo-outputs.ts) and its --check mode enforce this by
  * regenerating in memory and diffing against dist/.
  *
- * Locale contract (KAI-68): there is exactly one URL per destination and no
- * URL-based locale strategy, so no hreflang/alternate links are emitted.
- * Prerendered HTML carries canonical English content; the SPA localizes to
- * Japanese after hydration via the existing LocaleContext/i18next path
- * (KAI-93 fallback behavior preserved). All copy comes exclusively from the
- * canonical catalogue fields — nothing is invented for SEO.
+ * Locale contract: share previews are crawler-fetched, so locale cannot live
+ * only in client state. English is canonical at /destinations/<id>; Japanese
+ * is served at /ja/destinations/<id> with Japanese OG/Twitter metadata and a
+ * Japanese prerendered body. Sitemap lists the canonical (English) URLs
+ * only; the /ja mirror is not listed there (no hreflang alternates — full
+ * SEO metadata redesign is out of scope). All copy comes exclusively
+ * from the canonical catalogue fields — nothing is invented for SEO.
  */
 
 import {
@@ -26,11 +30,17 @@ import {
 } from "../shared/services/place/PlaceCatalog";
 import type { Destination } from "../shared/types/destination";
 import {
+  DEFAULT_PAGE_TITLE,
   MAX_META_DESCRIPTION_LENGTH,
+  OG_IMAGE,
+  OG_LOCALE,
   SITE_NAME,
   SITE_URL,
+  SHARE_COPY,
   TITLE_SUFFIX,
+  localePathPrefix,
   truncateDescription,
+  type PageLocale,
 } from "./meta";
 
 /** Destinations eligible for prerendering + sitemap inclusion. */
@@ -52,17 +62,22 @@ function escapeXml(text: string): string {
   return escapeHtml(text);
 }
 
-/** Absolute URL for a destination page. No trailing slash — the app links to
- *  `/destinations/{id}` everywhere; the canonical tag pins this form and
- *  both URL variants serve the same prerendered HTML. */
-export function destinationUrl(id: string): string {
-  return `${SITE_URL}/destinations/${id}`;
+/** Absolute URL for a destination page in a locale. No trailing slash — the
+ *  app links to /destinations/{id} everywhere; the canonical tag pins this
+ *  form and both URL variants serve the same prerendered HTML. */
+export function destinationUrl(id: string, locale: PageLocale = "en"): string {
+  return `${SITE_URL}${localePathPrefix(locale)}/destinations/${id}`;
 }
 
-/** Truncated EN description used in meta description / OG description. */
-export function destinationMetaDescription(destination: Destination): string {
+/** Truncated localized description used in meta description / OG
+ *  description. Falls back to canonical English when the locale has no
+ *  catalogue copy (KAI-93 fallback preserved). */
+export function destinationMetaDescription(
+  destination: Destination,
+  locale: PageLocale = "en",
+): string {
   return truncateDescription(
-    getLocalizedPlace(destination, "en").description,
+    getLocalizedPlace(destination, locale).description,
     MAX_META_DESCRIPTION_LENGTH,
   );
 }
@@ -73,7 +88,8 @@ function absoluteImage(image: string): string {
 
 /** schema.org TouristDestination JSON-LD. Ratings/reviews/prices are never
  *  emitted: the visible page has no rating UI (KAI-89 hides the overall
- *  score), so no aggregateRating is invented. */
+ *  score), so no aggregateRating is invented. Canonical English copy is used
+ *  even on /ja pages — structured data is out of the share-preview scope. */
 function structuredData(destination: Destination): string {
   const canonical = toCanonicalPlace(destination);
   const en = getLocalizedPlace(canonical, "en");
@@ -104,30 +120,35 @@ function structuredData(destination: Destination): string {
 /** Prerendered body content inside #root. Mirrors the DestinationDetails
  *  hero/name/description/highlights block with the app's own classes so the
  *  no-JS page looks like the product. Plain content only — no interactive
- *  controls, no scripts. */
-function prerenderedBody(destination: Destination): string {
+ *  controls, no scripts. Localized when the locale has catalogue copy,
+ *  otherwise falls back to canonical English. */
+function prerenderedBody(destination: Destination, locale: PageLocale): string {
   const canonical = toCanonicalPlace(destination);
-  const en = getLocalizedPlace(canonical, "en");
-  const highlights = (en.highlights ?? []).slice(0, 6);
+  const localized = getLocalizedPlace(canonical, locale);
+  const highlights = (localized.highlights ?? []).slice(0, 6);
   return [
     `<div class="bg-slate-50 dark:bg-background min-h-screen pb-20">`,
     `<div class="relative min-h-[380px] sm:min-h-[400px] md:min-h-[440px] w-full overflow-hidden flex flex-col justify-between">`,
-    `<img src="${escapeHtml(absoluteImage(canonical.heroImage))}" alt="${escapeHtml(en.name)}" decoding="async" class="absolute inset-0 w-full h-full object-cover" />`,
+    `<img src="${escapeHtml(absoluteImage(canonical.heroImage))}" alt="${escapeHtml(localized.name)}" decoding="async" class="absolute inset-0 w-full h-full object-cover" />`,
     `<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-transparent/20"></div>`,
     `<div class="relative w-full container mx-auto px-4 pt-16 sm:pt-20 pb-6 md:pb-8 text-white z-10 mt-auto">`,
-    `<h1 class="text-2xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-2 flex flex-wrap items-baseline gap-2.5 [text-shadow:_0_2px_8px_rgba(0,0,0,0.85)] drop-shadow-md"><span>${escapeHtml(en.name)}</span></h1>`,
+    `<h1 class="text-2xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-2 flex flex-wrap items-baseline gap-2.5 [text-shadow:_0_2px_8px_rgba(0,0,0,0.85)] drop-shadow-md"><span>${escapeHtml(localized.name)}</span></h1>`,
     `<div class="flex flex-wrap items-center gap-3 text-sm text-slate-200/85 mb-3">`,
     `<div class="flex items-center font-medium">${escapeHtml(
-      destination.prefecture ? `${destination.prefecture}, Japan` : "",
+      locale === "ja"
+        ? destination.prefecture || ""
+        : destination.prefecture
+          ? `${destination.prefecture}, Japan`
+          : "",
     )}</div>`,
     `</div>`,
     `</div>`,
     `</div>`,
     `<main class="container mx-auto px-4 py-6">`,
-    `<p class="text-slate-700 dark:text-slate-200 text-base sm:text-lg leading-relaxed mb-8">${escapeHtml(en.description)}</p>`,
+    `<p class="text-slate-700 dark:text-slate-200 text-base sm:text-lg leading-relaxed mb-8">${escapeHtml(localized.description)}</p>`,
     ...(highlights.length > 0
       ? [
-          `<h2 class="text-xl font-bold mb-4">Highlights</h2>`,
+          `<h2 class="text-xl font-bold mb-4">${locale === "ja" ? "見どころ" : "Highlights"}</h2>`,
           `<ul class="space-y-3 mb-8">`,
           ...highlights.map(
             (h) =>
@@ -141,41 +162,98 @@ function prerenderedBody(destination: Destination): string {
   ].join("\n");
 }
 
-interface PrerenderHead {
+/** The crawler-visible metadata contract for one rendered page. */
+export interface PageHead {
+  /** document <title> (og:title for destination pages equals the title). */
   title: string;
-  description: string;
+  metaDescription: string;
   canonical: string;
   ogUrl: string;
+  ogTitle: string;
+  ogDescription: string;
   ogImage: string;
-  jsonLd: string;
+  ogLocale: string;
+  jsonLd?: string;
 }
 
-function buildHead(destination: Destination): PrerenderHead {
-  const en = getLocalizedPlace(destination, "en");
-  const description = destinationMetaDescription(destination);
-  const canonical = destinationUrl(destination.id);
+function renderHeadTags(head: PageHead): string[] {
+  return [
+    `<title>${escapeHtml(head.title)}</title>`,
+    `<meta name="description" content="${escapeHtml(head.metaDescription)}" />`,
+    `<link rel="canonical" href="${head.canonical}" />`,
+    `<meta property="og:site_name" content="${SITE_NAME}" />`,
+    `<meta property="og:title" content="${escapeHtml(head.ogTitle)}" />`,
+    `<meta property="og:description" content="${escapeHtml(head.ogDescription)}" />`,
+    `<meta property="og:url" content="${head.ogUrl}" />`,
+    `<meta property="og:type" content="website" />`,
+    `<meta property="og:locale" content="${head.ogLocale}" />`,
+    `<meta property="og:image" content="${head.ogImage}" />`,
+    `<meta property="og:image:alt" content="${escapeHtml(head.ogTitle)}" />`,
+    `<meta name="twitter:card" content="summary_large_image" />`,
+    `<meta name="twitter:title" content="${escapeHtml(head.ogTitle)}" />`,
+    `<meta name="twitter:description" content="${escapeHtml(head.ogDescription)}" />`,
+    `<meta name="twitter:image" content="${head.ogImage}" />`,
+    ...(head.jsonLd
+      ? [`<script type="application/ld+json">${head.jsonLd}</script>`]
+      : []),
+  ];
+}
+
+/** Crawler-visible head for a destination page in the given locale. The
+ *  share image is the hero photograph — it carries no localized text, so the
+ *  same image serves both locales. */
+export function destinationHead(
+  destination: Destination,
+  locale: PageLocale,
+): PageHead {
+  const localized = getLocalizedPlace(destination, locale);
+  const description = destinationMetaDescription(destination, locale);
+  const canonical = destinationUrl(destination.id, locale);
+  const title = `${localized.name}${TITLE_SUFFIX}`;
   return {
-    title: `${en.name}${TITLE_SUFFIX}`,
-    description,
+    title,
+    metaDescription: description,
     canonical,
     ogUrl: canonical,
+    ogTitle: title,
+    ogDescription: description,
     ogImage: absoluteImage(toCanonicalPlace(destination).heroImage),
+    ogLocale: OG_LOCALE[locale],
     jsonLd: structuredData(destination),
   };
 }
 
+/** Crawler-visible head for the home page in the given locale: the
+ *  share-preview copy from the ticket, with the localized social card. */
+export function homeHead(locale: PageLocale): PageHead {
+  const prefix = localePathPrefix(locale);
+  const share = SHARE_COPY[locale];
+  const canonical = `${SITE_URL}${prefix}/`;
+  return {
+    title: DEFAULT_PAGE_TITLE,
+    metaDescription: share.description,
+    canonical,
+    ogUrl: canonical,
+    ogTitle: share.title,
+    ogDescription: share.description,
+    ogImage: OG_IMAGE[locale],
+    ogLocale: OG_LOCALE[locale],
+  };
+}
+
 /**
- * Replaces the SPA shell's <head> metadata with destination-specific tags.
- * Preserves every other shell head element (favicon, theme-color, font
- * links, Vite module scripts) and swaps only title, description, canonical,
- * OG and Twitter tags. Scripts survive so the prerendered page still
- * hydrates into the existing SPA.
+ * Replaces the SPA shell's <head> metadata with the given page's tags and
+ * fixes <html lang>. Preserves every other shell head element (favicon,
+ * theme-color, font links, Vite module scripts) and swaps only title,
+ * description, canonical, OG and Twitter tags. Scripts survive so the
+ * prerendered page still hydrates into the existing SPA.
  */
-export function injectHead(
+export function swapShellMetadata(
   shell: string,
-  destination: Destination,
-): { html: string; head: PrerenderHead } {
-  const head = buildHead(destination);
+  head: PageHead,
+  lang: string,
+  body?: string,
+): string {
   const headMatch = shell.match(/<head>([\s\S]*?)<\/head>/);
   if (!headMatch) {
     throw new Error(`SPA shell has no <head>: ${shell.slice(0, 120)}`);
@@ -193,37 +271,52 @@ export function injectHead(
       return true;
     })
     .join("\n    ");
-  const headTags = [
-    `<title>${escapeHtml(head.title)}</title>`,
-    `<meta name="description" content="${escapeHtml(head.description)}" />`,
-    `<link rel="canonical" href="${head.canonical}" />`,
-    `<meta property="og:site_name" content="${SITE_NAME}" />`,
-    `<meta property="og:title" content="${escapeHtml(head.title)}" />`,
-    `<meta property="og:description" content="${escapeHtml(head.description)}" />`,
-    `<meta property="og:url" content="${head.ogUrl}" />`,
-    `<meta property="og:type" content="website" />`,
-    `<meta property="og:image" content="${head.ogImage}" />`,
-    `<meta property="og:image:alt" content="${escapeHtml(head.title)}" />`,
-    `<meta name="twitter:card" content="summary_large_image" />`,
-    `<meta name="twitter:title" content="${escapeHtml(head.title)}" />`,
-    `<meta name="twitter:description" content="${escapeHtml(head.description)}" />`,
-    `<meta name="twitter:image" content="${head.ogImage}" />`,
-    `<script type="application/ld+json">${head.jsonLd}</script>`,
-  ];
-  const html = shell
+  const headTags = [...renderHeadTags(head), preserved];
+  const rootReplacement =
+    body === undefined
+      ? `<div id="root"></div>`
+      : `<div id="root">\n${body}\n</div>`;
+  return shell
+    .replace(/<html lang="[^"]*"/, `<html lang="${lang}"`)
     .replace(
       /<head>[\s\S]*?<\/head>/,
-      `<head>\n    ${[...headTags, preserved].join("\n    ")}\n  </head>`,
+      `<head>\n    ${headTags.join("\n    ")}\n  </head>`,
     )
-    .replace(
-      /<div id="root"><\/div>/,
-      `<div id="root">\n${prerenderedBody(destination)}\n</div>`,
-    );
+    .replace(/<div id="root"><\/div>/, rootReplacement);
+}
+
+/**
+ * Destination page from the SPA shell (KAI-68 entry point, kept for
+ * compatibility with the generator and tests).
+ */
+export function injectHead(
+  shell: string,
+  destination: Destination,
+  locale: PageLocale = "en",
+): { html: string; head: PageHead } {
+  const head = destinationHead(destination, locale);
+  const html = swapShellMetadata(
+    shell,
+    head,
+    locale,
+    prerenderedBody(destination, locale),
+  );
   return { html, head };
 }
 
+/**
+ * Home page for a locale from the SPA shell. For English this is the built
+ * shell itself (dist/index.html, already carries the EN metadata); for
+ * Japanese it produces /ja/index.html with Japanese share-preview metadata
+ * and a Japanese <html lang>.
+ */
+export function buildShellPage(shell: string, locale: PageLocale): string {
+  return swapShellMetadata(shell, homeHead(locale), locale);
+}
+
 /** Renders sitemap.xml for the public/indexable URL set. Deterministic:
- *  fixed order (hub paths, then destinations sorted by id), no lastmod. */
+ *  fixed order (hub paths, then destinations sorted by id), no lastmod.
+ *  Canonical English URLs only — the /ja mirror is not separately indexed. */
 export function renderSitemap(destinations: Destination[]): string {
   const published = destinations
     .filter((d) => d.status === PRERENDER_STATUS)
@@ -268,9 +361,12 @@ export function buildPrerenderOutputs(
   const published = destinations
     .filter((d) => d.status === PRERENDER_STATUS)
     .sort((a, b) => a.id.localeCompare(b.id));
+  outputs.set("/ja/index.html", buildShellPage(shell, "ja"));
   for (const destination of published) {
-    const { html } = injectHead(shell, destination);
+    const { html } = injectHead(shell, destination, "en");
     outputs.set(`/destinations/${destination.id}/index.html`, html);
+    const jaHtml = injectHead(shell, destination, "ja").html;
+    outputs.set(`/ja/destinations/${destination.id}/index.html`, jaHtml);
   }
   outputs.set("/sitemap.xml", renderSitemap(destinations));
   outputs.set(

@@ -2,6 +2,22 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
+import { resolveInitialLanguage } from "./i18n";
+
+// Localized share previews require the locale to be visible in the URL (social
+// platforms fetch metadata from the shared URL). Whenever the resolved
+// language is Japanese — browser locale OR a stored Japanese preference — an
+// unprefixed URL is redirected to the /ja version so shares carry Japanese
+// preview metadata; an explicit English preference is respected. Full page
+// load keeps crawler output intact (no client-only locale switching).
+if (
+  !window.location.pathname.startsWith("/ja") &&
+  resolveInitialLanguage() === "ja"
+) {
+  window.location.replace(
+    `/ja${window.location.pathname}${window.location.search}${window.location.hash}`,
+  );
+}
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

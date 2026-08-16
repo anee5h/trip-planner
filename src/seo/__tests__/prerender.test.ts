@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   buildPrerenderOutputs,
+  buildShellPage,
   destinationMetaDescription,
   destinationUrl,
   injectHead,
@@ -293,7 +294,7 @@ describe("KAI-68 prerender: full output set", () => {
     }
   });
 
-  it("prerenders only published destinations and always emits sitemap + manifest", () => {
+  it("prerenders only published destinations and always emits sitemap, manifest and the JA shell", () => {
     const outputs = buildPrerenderOutputs(SHELL, [
       makeDestination({ id: "pub", status: "published" }),
       makeDestination({ id: "beta", status: "beta" }),
@@ -302,19 +303,90 @@ describe("KAI-68 prerender: full output set", () => {
     expect(outputs.has("/destinations/pub/index.html")).toBe(true);
     expect(outputs.has("/destinations/beta/index.html")).toBe(false);
     expect(outputs.has("/destinations/verified/index.html")).toBe(false);
+    expect(outputs.has("/ja/index.html")).toBe(true);
+    expect(outputs.has("/ja/destinations/pub/index.html")).toBe(true);
+    expect(outputs.has("/ja/destinations/beta/index.html")).toBe(false);
     expect(outputs.has("/sitemap.xml")).toBe(true);
     expect(outputs.has("/data/kai68-public-destinations.json")).toBe(true);
   });
 });
 
 describe("KAI-68 prerender: URL strategy", () => {
-  it("uses a single locale-neutral canonical URL per destination", () => {
+  it("uses a locale-distinct canonical URL per locale", () => {
     expect(destinationUrl("abashiri-city")).toBe(
       `${SITE_URL}/destinations/abashiri-city`,
     );
-    // No separate EN/JA URLs exist (locale is client state), so no hreflang
-    // alternates are emitted.
+    expect(destinationUrl("abashiri-city", "ja")).toBe(
+      `${SITE_URL}/ja/destinations/abashiri-city`,
+    );
+    // No hreflang alternates: full multilingual SEO is out of scope, only
+    // the locale-correct share-preview metadata is emitted.
     const { html } = injectHead(SHELL, makeDestination({}));
     expect(html).not.toContain("hreflang");
+  });
+
+  it("localizes head, canonical, lang and body for the JA version", () => {
+    const { html, head } = injectHead(SHELL, makeDestination({}), "ja");
+    expect(html).toContain(`<html lang="ja">`);
+    expect(html).toContain(`<title>テスト目的地${TITLE_SUFFIX}</title>`);
+    expect(html).toContain(
+      `<link rel="canonical" href="${SITE_URL}/ja/destinations/test-destination" />`,
+    );
+    expect(html).toContain(
+      `<meta property="og:title" content="テスト目的地${TITLE_SUFFIX}" />`,
+    );
+    expect(html).toContain(`<meta property="og:locale" content="ja_JP" />`);
+    expect(html).toContain(
+      `<meta name="twitter:title" content="テスト目的地${TITLE_SUFFIX}" />`,
+    );
+    expect(head.canonical).toBe(`${SITE_URL}/ja/destinations/test-destination`);
+    // Prerendered body copy is localized too (name/description).
+    expect(html).toContain(`<span>テスト目的地</span></h1>`);
+  });
+
+  it("keeps the EN head on the canonical URL", () => {
+    const { html } = injectHead(SHELL, makeDestination({}));
+    expect(html).toContain(`<html lang="en">`);
+    expect(html).toContain(`<meta property="og:locale" content="en_US" />`);
+    expect(html).not.toContain(`<meta property="og:locale" content="ja_JP" />`);
+  });
+});
+
+describe("KAI-68 prerender: localized home shell", () => {
+  it("builds the JA home page with Japanese share-preview metadata", () => {
+    const html = buildShellPage(SHELL, "ja");
+    expect(html).toContain('<html lang="ja">');
+    expect(html).toContain(
+      `<meta property="og:title" content="Meguruto — 次の週末、日本のどこへ行く？" />`,
+    );
+    expect(html).toContain(
+      `<meta property="og:description" content="時間・予算・天気・好みに合わせて、あなたにぴったりの日帰り・週末旅行先を見つけよう。" />`,
+    );
+    expect(html).toContain(
+      `<meta property="og:image" content="${SITE_URL}/og/og-ja.png" />`,
+    );
+    expect(html).toContain(
+      `<meta name="twitter:title" content="Meguruto — 次の週末、日本のどこへ行く？" />`,
+    );
+    expect(html).toContain(
+      `<meta name="twitter:image" content="${SITE_URL}/og/og-ja.png" />`,
+    );
+    expect(html).toContain(`<link rel="canonical" href="${SITE_URL}/ja/" />`);
+    expect(html).toContain(`<meta property="og:locale" content="ja_JP" />`);
+    // The empty shell mount survives for SPA hydration.
+    expect(html).toContain(`<div id="root"></div>`);
+  });
+
+  it("builds the EN home page with English share-preview metadata", () => {
+    const html = buildShellPage(SHELL, "en");
+    expect(html).toContain('<html lang="en">');
+    expect(html).toContain(
+      `<meta property="og:title" content="Meguruto — Find Your Next Trip in Japan" />`,
+    );
+    expect(html).toContain(
+      `<meta property="og:image" content="${SITE_URL}/og/og-en.png" />`,
+    );
+    expect(html).toContain(`<link rel="canonical" href="${SITE_URL}/" />`);
+    expect(html).toContain(`<meta property="og:locale" content="en_US" />`);
   });
 });

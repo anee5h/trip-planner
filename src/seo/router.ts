@@ -23,6 +23,7 @@
  */
 
 import type { Destination } from "../shared/types/destination";
+import { localePathPrefix, type PageLocale } from "./meta";
 
 export type DestinationManifestEntry = Pick<Destination, "id" | "status">;
 
@@ -32,6 +33,10 @@ export interface DestinationRequestContext {
   id: string;
   manifest: DestinationManifestEntry[];
   fetchAsset: AssetFetcher;
+  /** Locale of the request URL: "en" for /destinations/:id, "ja" for
+   *  /ja/destinations/:id. Each locale resolves its own prerendered page
+   *  and shell so share-preview crawlers see localized metadata. */
+  locale?: PageLocale;
 }
 
 const PRERENDERED_STATUS = "published" as const;
@@ -70,6 +75,8 @@ export interface DestinationRouteResult {
 export async function routeDestinationRequest(
   ctx: DestinationRequestContext,
 ): Promise<DestinationRouteResult> {
+  const locale = ctx.locale ?? "en";
+  const prefix = localePathPrefix(locale);
   const entry = ctx.manifest.find((e) => e.id === ctx.id);
   if (!entry) {
     return {
@@ -79,21 +86,21 @@ export async function routeDestinationRequest(
     };
   }
   if (entry.status === PRERENDERED_STATUS) {
-    const assetPath = `/destinations/${ctx.id}/index.html`;
+    const assetPath = `${prefix}/destinations/${ctx.id}/index.html`;
     const asset = await ctx.fetchAsset(assetPath);
     if (asset?.ok) {
       return { status: 200, assetPath, headers: {} };
     }
     // Prerendered page missing (e.g. stale function vs fresh catalogue):
-    // fall back to the SPA shell so valid destinations never 404.
-    return { status: 200, assetPath: "/index.html", headers: {} };
+    // fall back to the locale's SPA shell so valid destinations never 404.
+    return { status: 200, assetPath: `${prefix}/index.html`, headers: {} };
   }
   // beta/verified: valid public app destinations that are not part of the
   // published/prerendered SEO set. User-accessible (SPA hydrates normally)
   // but explicitly excluded from search indexes.
   return {
     status: 200,
-    assetPath: "/index.html",
+    assetPath: `${prefix}/index.html`,
     headers: { "X-Robots-Tag": NOINDEX_FOLLOW },
   };
 }
