@@ -28,6 +28,51 @@ const validUuid = (value) =>
 const badRequest = (error) =>
   Response.json({ ok: false, error }, { status: 400 });
 
+/**
+ * Best-effort owner notification (Resend, free tier: 3k/mo, 100/day).
+ * Never fails the submission — feedback is already durably captured in
+ * Supabase; the email is a convenience notification to info@meguruto.app.
+ * Requires RESEND_API_KEY (and a domain verified in Resend); RESEND_FROM
+ * defaults to feedback@meguruto.app.
+ */
+const notifyOwner = async (env, row) => {
+  if (!env.RESEND_API_KEY) return;
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: env.RESEND_FROM || "Meguruto <feedback@meguruto.app>",
+        to: ["info@meguruto.app"],
+        subject: `[Meguruto feedback:${row.type}] ${row.message.slice(0, 60)}`,
+        text: [
+          `Type: ${row.type}`,
+          "Message:",
+          row.message,
+          "---",
+          `Route: ${row.route ?? "-"}`,
+          `Locale: ${row.locale ?? "-"}`,
+          `App version: ${row.app_version ?? "-"}`,
+          `Browser: ${row.browser_class ?? "-"}`,
+          `User: ${row.user_id ?? "anonymous"}`,
+          `Received: ${new Date().toISOString()}`,
+        ].join("\n"),
+      }),
+    });
+    if (!res.ok) {
+      console.error(
+        `feedback: resend failed ${res.status}`,
+        await res.text().catch(() => ""),
+      );
+    }
+  } catch (err) {
+    console.error("feedback: owner email notification failed", err);
+  }
+};
+
 export const onRequest = async (context) => {
   const { request, env } = context;
 
@@ -93,6 +138,9 @@ export const onRequest = async (context) => {
       { status: 502 },
     );
   }
+
+  // Background owner notification — does not block or fail the submission.
+  context.waitUntil(notifyOwner(env, row));
 
   return Response.json({ ok: true }, { status: 201 });
 };
