@@ -127,6 +127,9 @@ jobs:
       - name: SEO outputs current & deterministic
         run: npm run seo:check
 
+      - name: Bundle budget
+        run: npm run check:bundle-budget
+
   changed-external:
     name: changed-external
     runs-on: ubuntu-latest
