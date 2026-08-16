@@ -27,6 +27,38 @@
 /favorites*
   X-Robots-Tag: noindex
 
+# KAI-101: /ja mirrors every app route (locale-prefixed share URLs); the
+# same private/personalized surfaces must stay noindexed under /ja.
+/ja/settings*
+  X-Robots-Tag: noindex
+
+/ja/my-trips*
+  X-Robots-Tag: noindex
+
+/ja/bucket-list*
+  X-Robots-Tag: noindex
+
+/ja/passport*
+  X-Robots-Tag: noindex
+
+/ja/profile*
+  X-Robots-Tag: noindex
+
+/ja/favorites*
+  X-Robots-Tag: noindex
+
+/ja/visited-map*
+  X-Robots-Tag: noindex
+
+/ja/qa*
+  X-Robots-Tag: noindex
+
+/ja/editorial*
+  X-Robots-Tag: noindex
+
+/ja/compare*
+  X-Robots-Tag: noindex
+
 /visited-map*
   X-Robots-Tag: noindex
 

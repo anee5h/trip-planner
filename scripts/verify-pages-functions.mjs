@@ -155,6 +155,60 @@ try {
     `trailing-slash destination URL -> 200 (got ${trailingSlash.status})`,
   );
 
+  // KAI-101: the Japanese locale version (/ja/...) serves localized
+  // prerendered metadata for share-preview crawlers.
+  const jaPublished = await fetchStatusAndRobots(
+    "/ja/destinations/tokyo-station-chiyoda",
+  );
+  assert(
+    jaPublished.status === 200 && jaPublished.robots === null,
+    `JA published destination -> 200 prerendered without noindex (got ${jaPublished.status} ${jaPublished.robots})`,
+  );
+  assert(
+    jaPublished.body.includes("東京駅") &&
+      jaPublished.body.includes('rel="canonical"') &&
+      jaPublished.body.includes('content="ja_JP"') &&
+      jaPublished.body.includes("/ja/destinations/tokyo-station-chiyoda"),
+    "JA destination body carries Japanese metadata and canonical",
+  );
+
+  const jaPublishedSlash = await fetchStatusAndRobots(
+    "/ja/destinations/tokyo-station-chiyoda/",
+  );
+  assert(
+    jaPublishedSlash.status === 200 &&
+      jaPublishedSlash.body.includes('content="ja_JP"'),
+    `JA trailing-slash destination URL -> 200 with JA metadata (got ${jaPublishedSlash.status})`,
+  );
+
+  const jaBare = await fetchStatusAndRobots("/ja");
+  assert(
+    // Platform directory canonicalization: /ja -> /ja/ (308), which
+    // browsers and share-preview crawlers follow to the JA metadata.
+    jaBare.status === 308,
+    `JA bare home URL -> 308 redirect to /ja/ (got ${jaBare.status})`,
+  );
+
+  const jaHome = await fetchStatusAndRobots("/ja/");
+  assert(
+    jaHome.status === 200 && jaHome.body.includes("og-ja.png"),
+    `JA home shell -> 200 with the Japanese social card (got ${jaHome.status})`,
+  );
+
+  const jaUnknown = await fetchStatusAndRobots(
+    "/ja/destinations/this-destination-does-not-exist",
+  );
+  assert(
+    jaUnknown.status === 404 && jaUnknown.robots === "noindex, follow",
+    `JA unknown destination slug -> 404 + noindex (got ${jaUnknown.status})`,
+  );
+
+  const jaPrivate = await fetchStatusAndRobots("/ja/settings");
+  assert(
+    jaPrivate.status === 200 && jaPrivate.robots === "noindex",
+    `JA private SPA route /ja/settings -> 200 + noindex (got ${jaPrivate.status} ${jaPrivate.robots})`,
+  );
+
   for (const id of ["abashiri-city", "fuji-5-lake"]) {
     const res = await fetchStatusAndRobots(`/destinations/${id}`);
     assert(

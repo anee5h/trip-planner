@@ -107,7 +107,7 @@ test.describe("KAI-68 destination deep-link + title sync", () => {
       .locator('meta[name="description"]')
       .getAttribute("content");
     expect(destinationDescription).not.toBe(
-      "Find Japan day trips and weekend getaways that fit your time, budget, weather, and travel preferences.",
+      "Discover day trips and weekend getaways that fit your time, budget, weather, and travel style.",
     );
 
     // Client-side navigation back home must restore the shell defaults
@@ -121,7 +121,7 @@ test.describe("KAI-68 destination deep-link + title sync", () => {
       .locator('meta[name="description"]')
       .getAttribute("content");
     expect(description).toBe(
-      "Find Japan day trips and weekend getaways that fit your time, budget, weather, and travel preferences.",
+      "Discover day trips and weekend getaways that fit your time, budget, weather, and travel style.",
     );
   });
 });
@@ -147,5 +147,124 @@ test.describe("KAI-68 JA locale deep link", () => {
     // Title sync uses the localized name in JA.
     await expect.poll(() => page.title()).toContain("東京駅");
     await expect.poll(() => page.title()).toContain("Meguruto");
+  });
+});
+
+test.describe("KAI-101 localized share URLs", () => {
+  test.use({ locale: "en-US" });
+
+  async function switchToJapanese(page: Page) {
+    const desktopLanguage = page.getByRole("button", {
+      name: "Select language",
+    });
+    if (await desktopLanguage.isVisible()) {
+      await desktopLanguage.click();
+      await page.getByRole("button", { name: "日本語", exact: true }).click();
+    } else {
+      await page.getByRole("button", { name: "Toggle menu" }).click();
+      await page
+        .locator("#mobile-menu-drawer button")
+        .filter({ hasText: "English" })
+        .click();
+      await page.keyboard.press("Escape");
+    }
+    await expect(page.locator("html")).toHaveAttribute("lang", "ja");
+  }
+
+  test("the /ja URL version renders Japanese even for an English browser", async ({
+    page,
+  }) => {
+    await mockForecast(page);
+    await page.goto("/ja/destinations/tokyo-station-chiyoda");
+
+    // The URL prefix, not browser state, drives the locale.
+    const heading = page.getByRole("heading", { level: 1 });
+    await expect(heading).toContainText("東京駅");
+
+    // Internal navigation keeps the /ja prefix so every shared URL stays
+    // locale-resolvable for crawlers.
+    await page.getByRole("link", { name: "Meguruto home" }).first().click();
+    await expect(page).toHaveURL(/\/ja$/);
+    await expect(page.locator("html")).toHaveAttribute("lang", "ja");
+  });
+
+  test("the canonical (English) URL stays unprefixed and English", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await expect(page).toHaveURL(/\/$/);
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  });
+
+  test("a stored Japanese preference redirects unprefixed URLs to /ja even for an English browser", async ({
+    page,
+  }) => {
+    // Simulates a returning user who chose Japanese (stored preference) and
+    // lands on a canonical English URL: the UI must not stay Japanese at an
+    // unprefixed URL whose crawler metadata is English.
+    await page.addInitScript(() => localStorage.setItem("meguruto-lang", "ja"));
+    await mockForecast(page);
+    await page.goto("/destinations/tokyo-station-chiyoda");
+
+    await expect(page).toHaveURL(/\/ja\/destinations\/tokyo-station-chiyoda/);
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(
+      "東京駅",
+    );
+  });
+
+  test("locale switch preserves router state without adding a history entry", async ({
+    page,
+  }) => {
+    await mockForecast(page);
+    await page.goto("/");
+
+    // Real React Router navigation: click a Home destination card. The
+    // router maintains its internal key/idx on the entry.
+    const destinationLink = page.locator('a[href^="/destinations/"]').first();
+    await expect(destinationLink).toBeVisible();
+    await destinationLink.click();
+    await expect(page).toHaveURL(/\/destinations\//);
+
+    // Attach the planning payload to the current entry the way the
+    // recommendation flow does, keeping React Router's own key/idx intact.
+    const planningState = {
+      carMode: "driving",
+      publicModes: ["car"],
+      partySize: 4,
+      tripMode: "weekend_2d1n",
+    };
+    const { key: entryKey, idx: entryIdx } = await page.evaluate((state) => {
+      const current = window.history.state || {};
+      window.history.replaceState(
+        { ...current, usr: state },
+        "",
+        window.location.pathname,
+      );
+      return { key: current.key, idx: current.idx };
+    }, planningState);
+    expect(entryKey).toBeTruthy();
+    const lengthBefore = await page.evaluate(() => window.history.length);
+
+    await switchToJapanese(page);
+
+    // The locale switch replaced the current entry (no new Back-stack
+    // entry) and landed on the /ja version with the router state intact.
+    await expect(page).toHaveURL(/\/ja\/destinations\//);
+    expect(await page.evaluate(() => window.history.length)).toBe(lengthBefore);
+    const preserved = await page.evaluate(() => window.history.state);
+    expect(preserved.usr).toEqual(planningState);
+    expect(preserved.key).toBe(entryKey);
+    expect(preserved.idx).toBe(entryIdx);
+    // The destination page consumed the preserved state: the plan reflects
+    // partySize 4 from the router state instead of the default (2).
+    await expect(page.getByText(/グループ.*4名/)).toBeVisible();
+
+    // Back returns to the actual previous route (Home) — not a ghost
+    // "destination in English" entry — and the boundary sync lands it on
+    // the locale version of that route.
+    await page.goBack().catch(() => {});
+    await expect(page).not.toHaveURL(/destinations/);
+    await expect(page).toHaveURL(/\/ja\/?$/);
+    await expect(page.locator("html")).toHaveAttribute("lang", "ja");
   });
 });

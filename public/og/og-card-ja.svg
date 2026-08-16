@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8F3EA"/>
+      <stop offset="1" stop-color="#E7EDF5"/>
+    </linearGradient>
+    
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- sun -->
+  <circle cx="900" cy="200" r="104" fill="#E4572E"/>
+
+  <!-- ground line -->
+  <line x1="0" y1="452" x2="1200" y2="452" stroke="#CBD6E4" stroke-width="2"/>
+
+  <!-- Mt Fuji -->
+  <path d="M700 452 L812 268 L844 214 L876 268 L988 452 Z" fill="#2B4668"/>
+  <path d="M812 268 L844 214 L876 268 L866 282 L852 272 L844 277 L836 272 L822 282 Z" fill="#F4EFE4"/>
+
+  <!-- torii gate -->
+  <path d="M798 352 Q844 334 890 352 L890 366 Q844 350 798 366 Z" fill="#1E2B42"/>
+  <rect x="806" y="368" width="76" height="12" rx="3" fill="#1E2B42"/>
+  <rect x="812" y="352" width="16" height="100" rx="4" fill="#1E2B42"/>
+  <rect x="860" y="352" width="16" height="100" rx="4" fill="#1E2B42"/>
+
+  <!-- route path (dotted) ending at the pin -->
+  <path d="M96 434 C 250 418, 400 446, 556 452" fill="none" stroke="#10B981" stroke-width="6" stroke-dasharray="1 13" stroke-linecap="round"/>
+
+  <!-- location pin -->
+  <path d="M556 344 c-22 0 -40 18 -40 40 c0 28 40 68 40 68 c0 0 40 -40 40 -68 c0 -22 -18 -40 -40 -40 Z" fill="#10B981"/>
+  <circle cx="556" cy="386" r="13" fill="#F8F3EA"/>
+
+  <!-- wordmark -->
+  <rect x="64" y="52" width="46" height="46" rx="10" fill="#243C58"/>
+  <!-- The favicon M glyph redrawn as strokes: Chromium mis-rasterizes the
+       favicon's huge path at its extreme transform scale (ghost pixels). -->
+  <path d="M74.5 88 L74.5 64 L82 81 L87 62 L92 81 L99.5 64 L99.5 88"
+    fill="none" stroke="#FFFFFF" stroke-width="5.5"
+    stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="128" y="86" font-family="Noto Sans CJK JP" font-size="34" font-weight="600" fill="#243C58">Meguruto</text>
+
+  <!-- tagline -->
+  <text x="64" y="506" font-family="Noto Sans CJK JP" font-size="40" font-weight="600" fill="#243C58">次は、どこへ行く？</text>
+</svg>

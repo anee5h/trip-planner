@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build && npm run seo:generate",
     "seo:generate": "tsx scripts/generate-seo-outputs.ts",
+    "og:render": "node scripts/render-og-images.mjs",
     "seo:check": "tsx scripts/generate-seo-outputs.ts --check",
     "verify:pages-functions": "node scripts/verify-pages-functions.mjs",
     "pipeline": "node scripts/pipeline.cjs",

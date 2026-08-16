@@ -17,13 +17,75 @@ declare module "i18next" {
   }
 }
 
-void i18n.use(initReactI18next).init({
-  resources,
-  lng:
+/** Language preference key — written by the locale switcher so the
+ *  navigator-based redirect (main.tsx) never fights an explicit choice. */
+export const LANGUAGE_PREF_KEY = "meguruto-lang";
+const LANGUAGE_PREF_COOKIE = `${LANGUAGE_PREF_KEY}=`;
+
+/** Cookie fallback for browsers where localStorage throws (private mode) —
+ *  without it, switching to English while a ja navigator is active would be
+ *  bounced back to /ja on the next load. */
+function readLanguagePreferenceCookie(): "en" | "ja" | null {
+  try {
+    const match = document.cookie
+      .split("; ")
+      .find((c) => c.startsWith(LANGUAGE_PREF_COOKIE));
+    const value = match?.slice(LANGUAGE_PREF_COOKIE.length);
+    if (value === "ja" || value === "en") return value;
+  } catch {
+    // cookie access unavailable
+  }
+  return null;
+}
+
+export function readLanguagePreference(): "en" | "ja" | null {
+  try {
+    const pref = localStorage.getItem(LANGUAGE_PREF_KEY);
+    if (pref === "ja" || pref === "en") return pref;
+  } catch {
+    // localStorage unavailable (privacy mode, non-DOM contexts)
+  }
+  return readLanguagePreferenceCookie();
+}
+
+export function writeLanguagePreference(locale: "en" | "ja"): void {
+  try {
+    localStorage.setItem(LANGUAGE_PREF_KEY, locale);
+    return;
+  } catch {
+    // fall through to the cookie so the choice survives reloads
+  }
+  try {
+    document.cookie = `${LANGUAGE_PREF_COOKIE}${locale}; path=/; max-age=31536000; SameSite=Lax`;
+  } catch {
+    // neither storage nor cookies available: the URL prefix still carries
+    // the locale for this session
+  }
+}
+
+/** Initial language: the URL locale prefix wins (share URLs are the source
+ *  of truth for crawlers), then an explicit preference, then the browser. */
+export function resolveInitialLanguage(): string {
+  if (
+    typeof window !== "undefined" &&
+    window.location.pathname.startsWith("/ja")
+  ) {
+    return "ja";
+  }
+  const pref = readLanguagePreference();
+  if (pref) return pref;
+  if (
     typeof navigator !== "undefined" &&
     navigator.language.toLowerCase().startsWith("ja")
-      ? "ja"
-      : "en",
+  ) {
+    return "ja";
+  }
+  return "en";
+}
+
+void i18n.use(initReactI18next).init({
+  resources,
+  lng: resolveInitialLanguage(),
   fallbackLng: "en",
   defaultNS: "common",
   interpolation: { escapeValue: false },
