@@ -220,8 +220,8 @@ describe("KAI-68 prerender: meta description", () => {
   });
 });
 
-describe("KAI-68 prerender: sitemap", () => {
-  it("lists hub surfaces + published destinations only, sorted and absolute", () => {
+describe("KAI-68/KAI-97 prerender: sitemap", () => {
+  it("lists hub surfaces + ALL canonical destinations, sorted and absolute", () => {
     const sitemap = renderSitemap([
       makeDestination({ id: "zzz-destination", status: "published" }),
       makeDestination({ id: "aaa-destination", status: "published" }),
@@ -238,9 +238,14 @@ describe("KAI-68 prerender: sitemap", () => {
     expect(sitemap).toContain(
       `<loc>${SITE_URL}/destinations/zzz-destination</loc>`,
     );
-    // Non-published and private paths never appear.
-    expect(sitemap).not.toContain("beta-destination");
-    expect(sitemap).not.toContain("verified-destination");
+    // KAI-97: every canonical destination is indexable regardless of quality
+    // status; private SPA surfaces never appear.
+    expect(sitemap).toContain(
+      `<loc>${SITE_URL}/destinations/beta-destination</loc>`,
+    );
+    expect(sitemap).toContain(
+      `<loc>${SITE_URL}/destinations/verified-destination</loc>`,
+    );
     expect(sitemap).not.toContain("/settings");
     expect(sitemap).not.toContain("/my-trips");
     expect(sitemap).not.toContain("/bucket-list");
@@ -294,18 +299,20 @@ describe("KAI-68 prerender: full output set", () => {
     }
   });
 
-  it("prerenders only published destinations and always emits sitemap, manifest and the JA shell", () => {
+  it("prerenders every canonical destination regardless of quality status, plus sitemap, manifest and the JA shell", () => {
     const outputs = buildPrerenderOutputs(SHELL, [
       makeDestination({ id: "pub", status: "published" }),
       makeDestination({ id: "beta", status: "beta" }),
       makeDestination({ id: "verified", status: "verified" }),
     ]);
+    // KAI-97: status is a quality signal, not an indexability gate.
     expect(outputs.has("/destinations/pub/index.html")).toBe(true);
-    expect(outputs.has("/destinations/beta/index.html")).toBe(false);
-    expect(outputs.has("/destinations/verified/index.html")).toBe(false);
+    expect(outputs.has("/destinations/beta/index.html")).toBe(true);
+    expect(outputs.has("/destinations/verified/index.html")).toBe(true);
     expect(outputs.has("/ja/index.html")).toBe(true);
     expect(outputs.has("/ja/destinations/pub/index.html")).toBe(true);
-    expect(outputs.has("/ja/destinations/beta/index.html")).toBe(false);
+    expect(outputs.has("/ja/destinations/beta/index.html")).toBe(true);
+    expect(outputs.has("/ja/destinations/verified/index.html")).toBe(true);
     expect(outputs.has("/sitemap.xml")).toBe(true);
     expect(outputs.has("/data/kai68-public-destinations.json")).toBe(true);
   });

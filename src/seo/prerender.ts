@@ -3,11 +3,13 @@
  *
  * Pure functions (no fs, no network, no timestamps) that turn the built SPA
  * shell plus the destination catalogue into:
- *   - one prerendered HTML page per PUBLISHED destination, in BOTH locales
- *     (/destinations/<id> English, /ja/destinations/<id> Japanese)
+ *   - one prerendered HTML page per canonical destination, in BOTH locales
+ *     (/destinations/<id> English, /ja/destinations/<id> Japanese). KAI-97:
+ *     the full canonical catalogue is public and indexable — `status` is a
+ *     content-quality signal, not an indexability gate.
  *   - the localized Japanese home shell (/ja/index.html) whose OG/Twitter
  *     metadata carries Japanese share-preview copy
- *   - sitemap.xml (published destinations + public hub surfaces only)
+ *   - sitemap.xml (all canonical destinations + public hub surfaces)
  *   - the public-destination manifest consumed by the Pages Function
  *
  * Determinism contract: same inputs -> byte-identical outputs. The generator
@@ -42,9 +44,6 @@ import {
   truncateDescription,
   type PageLocale,
 } from "./meta";
-
-/** Destinations eligible for prerendering + sitemap inclusion. */
-export const PRERENDER_STATUS = "published" as const;
 
 /** Routes that are always sitemap candidates (public discovery surfaces). */
 const SITEMAP_HUB_PATHS = ["/", "/destinations", "/collections"] as const;
@@ -316,15 +315,14 @@ export function buildShellPage(shell: string, locale: PageLocale): string {
 
 /** Renders sitemap.xml for the public/indexable URL set. Deterministic:
  *  fixed order (hub paths, then destinations sorted by id), no lastmod.
- *  Canonical English URLs only — the /ja mirror is not separately indexed. */
+ *  KAI-97: the ENTIRE canonical catalogue is indexable (status is a quality
+ *  signal, not an indexability gate). Canonical English URLs only — the
+ *  /ja mirror is not separately indexed. */
 export function renderSitemap(destinations: Destination[]): string {
-  const published = destinations
-    .filter((d) => d.status === PRERENDER_STATUS)
-    .map((d) => d.id)
-    .sort();
+  const ids = destinations.map((d) => d.id).sort();
   const urls = [
     ...SITEMAP_HUB_PATHS,
-    ...published.map((id) => `/destinations/${id}`),
+    ...ids.map((id) => `/destinations/${id}`),
   ];
   const body = urls
     .map(
@@ -358,11 +356,9 @@ export function buildPrerenderOutputs(
   destinations: Destination[],
 ): Map<string, string> {
   const outputs = new Map<string, string>();
-  const published = destinations
-    .filter((d) => d.status === PRERENDER_STATUS)
-    .sort((a, b) => a.id.localeCompare(b.id));
+  const sorted = destinations.sort((a, b) => a.id.localeCompare(b.id));
   outputs.set("/ja/index.html", buildShellPage(shell, "ja"));
-  for (const destination of published) {
+  for (const destination of sorted) {
     const { html } = injectHead(shell, destination, "en");
     outputs.set(`/destinations/${destination.id}/index.html`, html);
     const jaHtml = injectHead(shell, destination, "ja").html;

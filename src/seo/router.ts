@@ -39,8 +39,6 @@ export interface DestinationRequestContext {
   locale?: PageLocale;
 }
 
-const PRERENDERED_STATUS = "published" as const;
-
 const NOT_FOUND_BODY = `<!doctype html>
 <html lang="en">
   <head>
@@ -55,11 +53,6 @@ const NOT_FOUND_BODY = `<!doctype html>
   </body>
 </html>
 `;
-
-/** noindex directive for non-published destinations and unknown ids.
- *  `follow` keeps links crawlable — these are valid public app pages, just
- *  not part of the indexable/prerendered SEO set. */
-const NOINDEX_FOLLOW = "noindex, follow";
 
 export interface DestinationRouteResult {
   status: number;
@@ -85,24 +78,17 @@ export async function routeDestinationRequest(
       headers: { "X-Robots-Tag": "noindex, follow" },
     };
   }
-  if (entry.status === PRERENDERED_STATUS) {
-    const assetPath = `${prefix}/destinations/${ctx.id}/index.html`;
-    const asset = await ctx.fetchAsset(assetPath);
-    if (asset?.ok) {
-      return { status: 200, assetPath, headers: {} };
-    }
-    // Prerendered page missing (e.g. stale function vs fresh catalogue):
-    // fall back to the locale's SPA shell so valid destinations never 404.
-    return { status: 200, assetPath: `${prefix}/index.html`, headers: {} };
+  // KAI-97: every canonical destination in the manifest is public,
+  // prerendered and indexable. `status` is a content-quality signal, not an
+  // indexability gate — the full catalogue converges on the public set.
+  const assetPath = `${prefix}/destinations/${ctx.id}/index.html`;
+  const asset = await ctx.fetchAsset(assetPath);
+  if (asset?.ok) {
+    return { status: 200, assetPath, headers: {} };
   }
-  // beta/verified: valid public app destinations that are not part of the
-  // published/prerendered SEO set. User-accessible (SPA hydrates normally)
-  // but explicitly excluded from search indexes.
-  return {
-    status: 200,
-    assetPath: `${prefix}/index.html`,
-    headers: { "X-Robots-Tag": NOINDEX_FOLLOW },
-  };
+  // Prerendered page missing (e.g. stale function vs fresh catalogue):
+  // fall back to the locale's SPA shell so valid destinations never 404.
+  return { status: 200, assetPath: `${prefix}/index.html`, headers: {} };
 }
 
 /** Validates a destination id path segment (matches the catalogue slug set:

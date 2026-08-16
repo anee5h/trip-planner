@@ -46,23 +46,24 @@ describe("KAI-68 router: published destination", () => {
   });
 });
 
-describe("KAI-68 router: non-published but public destination", () => {
+describe("KAI-97 router: every canonical destination is indexable", () => {
   it.each([
+    ["tokyo-station-chiyoda", "published"],
     ["beta-place", "beta"],
     ["verified-place", "verified"],
   ])(
-    "serves the SPA shell for %s with noindex, follow — public but not indexable",
+    "serves the prerendered HTML asset for %s regardless of quality status",
     async (id) => {
       const result = await routeDestinationRequest({
         id,
         manifest: MANIFEST,
-        fetchAsset: okAsset("/index.html"),
+        fetchAsset: okAsset(`/destinations/${id}/index.html`),
       });
-      // User-accessible: SPA shell hydrates normally.
       expect(result.status).toBe(200);
-      expect(result.assetPath).toBe("/index.html");
-      // Not part of the published/prerendered SEO set: never indexable.
-      expect(result.headers?.["X-Robots-Tag"]).toBe("noindex, follow");
+      expect(result.assetPath).toBe(`/destinations/${id}/index.html`);
+      // KAI-97: status is a quality signal, never an indexability gate —
+      // no noindex directive for any canonical destination.
+      expect(result.headers).toEqual({});
     },
   );
 
@@ -146,16 +147,17 @@ describe("KAI-101 router: Japanese locale (/ja/destinations/:id)", () => {
     expect(result.assetPath).toBe("/ja/index.html");
   });
 
-  it("serves the /ja SPA shell with noindex for non-published destinations", async () => {
+  it("serves the JA prerendered HTML asset for non-published destinations", async () => {
     const result = await routeDestinationRequest({
       id: "beta-place",
       manifest: MANIFEST,
       locale: "ja",
-      fetchAsset: okAsset("/ja/index.html"),
+      fetchAsset: okAsset("/ja/destinations/beta-place/index.html"),
     });
     expect(result.status).toBe(200);
-    expect(result.assetPath).toBe("/ja/index.html");
-    expect(result.headers?.["X-Robots-Tag"]).toBe("noindex, follow");
+    expect(result.assetPath).toBe("/ja/destinations/beta-place/index.html");
+    // KAI-97: no noindex for any canonical destination.
+    expect(result.headers).toEqual({});
   });
 
   it("404s unknown ids under /ja with noindex", async () => {

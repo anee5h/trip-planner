@@ -32,19 +32,21 @@ describe("KAI-68 generator: real catalogue", () => {
     expect(destinations.length).toBeGreaterThan(500);
   });
 
-  it("prerenders exactly the published set, nothing else", () => {
+  it("prerenders exactly the canonical destination set, nothing else", () => {
     const outputs = buildPrerenderOutputs(SHELL, destinations);
-    const published = destinations.filter((d) => d.status === "published");
     const prerenderedIds = [...outputs.keys()]
       .filter(
         (p) => p.startsWith("/destinations/") && p.endsWith("/index.html"),
       )
       .map((p) => p.slice("/destinations/".length, -"/index.html".length));
-    expect(prerenderedIds.length).toBe(published.length);
+    // KAI-97: every canonical destination is prerendered (both locales).
+    expect(prerenderedIds.length).toBe(destinations.length);
     for (const id of prerenderedIds) {
       const dest = destinations.find((d) => d.id === id);
-      expect(dest?.status).toBe("published");
+      expect(dest).toBeDefined();
     }
+    // No non-destination extras under /destinations/.
+    expect(prerenderedIds.length).toBe(new Set(prerenderedIds).size);
   });
 
   it("every published destination has canonical content for title/meta", () => {
@@ -63,13 +65,12 @@ describe("KAI-68 generator: real catalogue", () => {
     }
   });
 
-  it("sitemap lists every published destination with absolute URLs", () => {
+  it("sitemap lists every canonical destination with absolute URLs", () => {
     const sitemap = renderSitemap(destinations);
-    const published = destinations.filter((d) => d.status === "published");
     const urlCount = (sitemap.match(/<loc>/g) ?? []).length;
-    // 3 hub paths + one per published destination.
-    expect(urlCount).toBe(3 + published.length);
-    for (const dest of published) {
+    // 3 hub paths + one per canonical destination (KAI-97).
+    expect(urlCount).toBe(3 + destinations.length);
+    for (const dest of destinations) {
       expect(sitemap).toContain(
         `<loc>${SITE_URL}/destinations/${dest.id}</loc>`,
       );
@@ -134,8 +135,8 @@ describe("KAI-68 generator: real catalogue", () => {
   });
 });
 
-describe("KAI-68 generator: eligibility rules", () => {
-  it("beta/verified destinations are public but never prerendered", () => {
+describe("KAI-97 generator: eligibility rules", () => {
+  it("prerenders every canonical destination regardless of quality status", () => {
     const dest = (id: string, status: string) =>
       ({
         id,
@@ -152,7 +153,14 @@ describe("KAI-68 generator: eligibility rules", () => {
       dest("beta-x", "beta"),
       dest("verified-y", "verified"),
     ]);
-    expect(outputs.size).toBe(3); // sitemap + manifest + JA home shell
+    // KAI-97: status is a quality signal, not an indexability gate — both
+    // destinations get EN + JA prerendered pages (2 × 2 + JA home + sitemap
+    // + manifest).
+    expect(outputs.size).toBe(7);
+    expect(outputs.has("/destinations/beta-x/index.html")).toBe(true);
+    expect(outputs.has("/ja/destinations/beta-x/index.html")).toBe(true);
+    expect(outputs.has("/destinations/verified-y/index.html")).toBe(true);
+    expect(outputs.has("/ja/destinations/verified-y/index.html")).toBe(true);
     expect(outputs.has("/sitemap.xml")).toBe(true);
     expect(outputs.has("/data/kai68-public-destinations.json")).toBe(true);
     expect(outputs.has("/ja/index.html")).toBe(true);

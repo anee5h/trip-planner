@@ -60,14 +60,8 @@ function generate(): Generated {
   if (destinations.length === 0) {
     fail("catalogue is empty; refusing to generate an empty prerender set.");
   }
-  const publishedCount = destinations.filter(
-    (d) => d.status === "published",
-  ).length;
-  if (publishedCount === 0) {
-    fail("no published destinations; refusing to generate an empty sitemap.");
-  }
   const outputs = buildPrerenderOutputs(shell, destinations);
-  return { outputs, publishedCount, totalCount: destinations.length };
+  return { outputs, publishedCount: 0, totalCount: destinations.length };
 }
 
 function writeOutputs(generated: Generated): void {
@@ -78,7 +72,7 @@ function writeOutputs(generated: Generated): void {
   }
   log(
     `wrote ${generated.outputs.size} outputs ` +
-      `(${generated.publishedCount} published / ${generated.totalCount} total destinations).`,
+      `(${generated.totalCount} canonical destinations indexed).`,
   );
 }
 
@@ -115,7 +109,7 @@ function check(generated: Generated): void {
   }
   log(
     `check passed: ${generated.outputs.size} outputs byte-identical ` +
-      `(${generated.publishedCount} published / ${generated.totalCount} total destinations).`,
+      `(${generated.totalCount} canonical destinations indexed).`,
   );
 }
 
