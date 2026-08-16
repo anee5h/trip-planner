@@ -212,10 +212,38 @@ try {
   for (const id of ["abashiri-city", "fuji-5-lake"]) {
     const res = await fetchStatusAndRobots(`/destinations/${id}`);
     assert(
-      res.status === 200 && res.robots === "noindex, follow",
-      `non-published public destination ${id} -> 200 + noindex, follow (got ${res.status} ${res.robots})`,
+      res.status === 200 && res.robots === null,
+      `canonical destination ${id} (non-published quality status) -> 200 prerendered without noindex (got ${res.status} ${res.robots})`,
     );
   }
+
+  // KAI-111: unknown public routes return REAL 404s, not soft-200 shells.
+  for (const path of [
+    "/random-garbage-path",
+    "/foo/bar/baz",
+    "/ja/not-a-real-route",
+    "/destinations/this-destination-does-not-exist",
+  ]) {
+    const res = await fetchStatusAndRobots(path);
+    assert(
+      res.status === 404 && res.robots === "noindex, follow",
+      `unknown route ${path} -> real 404 + noindex (got ${res.status} ${res.robots})`,
+    );
+  }
+
+  // Known SPA deep links still get the shell (client routing keeps working).
+  for (const path of ["/settings", "/my-trips/123"]) {
+    const res = await fetchStatusAndRobots(path);
+    assert(
+      res.status === 200 && res.robots === "noindex",
+      `known SPA route ${path} -> 200 shell + noindex (got ${res.status} ${res.robots})`,
+    );
+  }
+  const jaSettings = await fetchStatusAndRobots("/ja/settings");
+  assert(
+    jaSettings.status === 200,
+    `known JA SPA route /ja/settings -> 200 shell (got ${jaSettings.status})`,
+  );
 
   const unknown = await fetchStatusAndRobots(
     "/destinations/this-destination-does-not-exist",

@@ -1,3 +1,3 @@
-# SPA fallback: everything else loads the app shell (routes without
-# prerendered HTML resolve client-side).
-/* /index.html 200
+# KAI-111: the soft-200 catch-all was replaced by functions/[[path]].js,
+# which serves the SPA shell for known routes and returns a REAL 404 for
+# unknown paths. Keep this file for explicit rules only (none currently).
