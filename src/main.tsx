@@ -3,6 +3,11 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 import { resolveInitialLanguage } from "./i18n";
+import { installGlobalErrorHandlers } from "./shared/utils/errorReporter";
+
+// KAI-46: capture unhandled errors and unhandled rejections before the app
+// boots so no first-paint crash is lost.
+installGlobalErrorHandlers();
 
 // Localized share previews require the locale to be visible in the URL (social
 // platforms fetch metadata from the shared URL). Whenever the resolved

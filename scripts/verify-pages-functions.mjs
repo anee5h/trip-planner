@@ -434,6 +434,16 @@ try {
     `static (_headers) and Function (SECURITY_HEADERS) Permissions-Policy agree (static: ${staticPolicy ?? "MISSING"}, function: ${functionPolicy ?? "MISSING"})`,
   );
 
+  // KAI-46: source maps must not ship (vite default) — stack heads in
+  // error_events reference minified frames by design.
+  const sourceMaps = fs
+    .readdirSync(DIST, { recursive: true })
+    .filter((entry) => String(entry).endsWith(".map"));
+  assert(
+    sourceMaps.length === 0,
+    `production build publishes no source maps (found: ${sourceMaps.join(", ") || "none"})`,
+  );
+
   console.log("Pages Function runtime verification complete.");
   // Respect exitCode recorded by any failed assert().
   exit();

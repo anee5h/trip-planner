@@ -10,6 +10,7 @@ import type {
 import { supabase } from "@/lib/supabase";
 import { executeClearProfile } from "./clearProfileOrchestration";
 import type { ClearProfileResult } from "./clearProfileResult";
+import { reportAuthFailureIfOperational } from "@/shared/utils/errorReporter";
 
 export interface UserPreferencesPayload {
   partySize?: number;
@@ -64,11 +65,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return;
     }
 
-    // Get initial session
-    supabase.auth.getSession().then(({ data }) => {
-      setUser(data.session?.user ?? null);
-      setLoading(false);
-    });
+    // Get initial session. KAI-46: a failing session bootstrap is an
+    // operational auth failure — report it (best-effort, feature auth).
+    supabase.auth
+      .getSession()
+      .then(({ data }) => {
+        setUser(data.session?.user ?? null);
+        setLoading(false);
+      })
+      .catch((err) => {
+        reportAuthFailureIfOperational(err, "session");
+        setLoading(false);
+      });
 
     // Listen for changes
     const {
@@ -99,21 +107,41 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       options: { redirectTo: window.location.origin },
     });
 
-  const signInWithEmail = (email: string, password: string) =>
-    supabase!.auth.signInWithPassword({ email, password });
+  const signInWithEmail = async (email: string, password: string) => {
+    const result = await supabase!.auth.signInWithPassword({ email, password });
+    if (result.error) reportAuthFailureIfOperational(result.error, "sign-in");
+    return result;
+  };
 
-  const signUpWithEmail = (email: string, password: string) =>
-    supabase!.auth.signUp({ email, password });
+  const signUpWithEmail = async (email: string, password: string) => {
+    const result = await supabase!.auth.signUp({ email, password });
+    if (result.error) reportAuthFailureIfOperational(result.error, "sign-up");
+    return result;
+  };
 
-  const resetPasswordForEmail = (email: string) =>
-    supabase!.auth.resetPasswordForEmail(email, {
+  const resetPasswordForEmail = async (email: string) => {
+    const result = await supabase!.auth.resetPasswordForEmail(email, {
       redirectTo: window.location.origin,
     });
+    if (result.error) {
+      reportAuthFailureIfOperational(result.error, "reset-password");
+    }
+    return result;
+  };
 
-  const signOut = () => supabase?.auth.signOut();
+  const signOut = (): Promise<{ error: AuthError | null }> | undefined =>
+    supabase?.auth.signOut().then((result) => {
+      if (result.error) {
+        reportAuthFailureIfOperational(result.error, "sign-out");
+      }
+      return result;
+    });
 
   const updateUserProfile = async (data: UserProfileUpdateData) => {
     const result = await supabase!.auth.updateUser({ data });
+    if (result.error) {
+      reportAuthFailureIfOperational(result.error, "update-profile");
+    }
     if (result.data.user) setUser(result.data.user);
     return result;
   };
