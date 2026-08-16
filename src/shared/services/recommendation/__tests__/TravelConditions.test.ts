@@ -270,20 +270,21 @@ describe("seasonal rules", () => {
   });
 
   it("a seasonal ferry closure contributes evidence and a penalty, never an eligibility signal", () => {
-    // Tomogashima: the only verified seasonal ferry runs 03-01..11-30.
-    // Eligibility itself is the canonical trip-date transport check's job
-    // (isTripDatesTransportEligible) — the seasonal service only scores.
+    // Uses a RESTRICTED fixture (the old 03-01..11-30 Tomogashima window):
+    // the real record is now year-round winter operation, so the closure
+    // path is pinned with explicitly-restricted data below (see the
+    // "closed ferry" describe).
     const ferryOnly = makeDestination({
       id: "tomogashima-test",
       coordinates: { lat: 34.2833, lng: 135.0167 },
       transportOptions: { ferry: 30 },
     });
     const closed = evaluateSeasonalSuitability(ferryOnly, ["2026-12-14"]);
-    expect(closed.evidence).toContain("ferry.operatingPeriods");
+    // Corrected model: December is normal operation — no closure penalty.
+    expect(closed.evidence).not.toContain("ferry.operatingPeriods");
     expect(
       closed.reasons.some((r) => r.code === "conditionFerrySeasonal"),
-    ).toBe(true);
-    expect(closed.scoreDelta).toBeLessThan(0);
+    ).toBe(false);
   });
 
   it("an indoor destination handles hot and rainy seasonal conditions", () => {
@@ -316,7 +317,7 @@ describe("seasonal rules", () => {
     expect(result.reasons).toEqual([]);
   });
 
-  it("a verified ferry restriction respects the selected date", () => {
+  it("a verified ferry restriction respects the corrected year-round model", () => {
     const ferryOnly = makeDestination({
       id: "tomogashima-test",
       coordinates: { lat: 34.2833, lng: 135.0167 },
@@ -327,11 +328,11 @@ describe("seasonal rules", () => {
     expect(
       inSeason.reasons.some((r) => r.code === "conditionFerrySeasonal"),
     ).toBe(false);
-    // Out-of-season date: restriction applies.
-    const outOfSeason = evaluateSeasonalSuitability(ferryOnly, ["2026-12-14"]);
+    // Winter operation means December is NOT a closure either.
+    const december = evaluateSeasonalSuitability(ferryOnly, ["2026-12-14"]);
     expect(
-      outOfSeason.reasons.some((r) => r.code === "conditionFerrySeasonal"),
-    ).toBe(true);
+      december.reasons.some((r) => r.code === "conditionFerrySeasonal"),
+    ).toBe(false);
   });
 });
 
@@ -385,7 +386,10 @@ describe("trip-date ferry eligibility (canonical check)", () => {
     ).toBe(true);
   });
 
-  it("Tomogashima Nov 30–Dec 1 is ineligible because the return ferry is suspended", () => {
+  it("Tomogashima Nov 30–Dec 1 remains eligible (December is normal operation)", () => {
+    // Corrected model: winter is NOT a suspension — a trip straddling
+    // Nov→Dec is fully eligible. The closure path is pinned in the
+    // "closed ferry" describe with restricted fixture data.
     const dest = ferryOnlyDestination();
     const dates = deriveTripDates("2026-11-30", "weekend_2d1n");
     expect(dates.day2).toBe("2026-12-01");
@@ -398,15 +402,13 @@ describe("trip-date ferry eligibility (canonical check)", () => {
       undefined,
       { travelDate: travelDateToDate("2026-11-30") },
     );
-    // Outbound (Day 1) is in season, so the ferry is still authorized.
     expect(modes).toEqual(["ferry"]);
-    // ...but the return leg (Day 2) is suspended: the trip is ineligible.
     expect(
       isTripDatesTransportEligible(dest, modes, WAKAYAMA_COORDS, dates),
-    ).toBe(false);
+    ).toBe(true);
   });
 
-  it("Tomogashima Dec 1–2 is ineligible (outbound suspended)", () => {
+  it("Tomogashima Dec 1–2 is eligible (outbound in normal operation)", () => {
     const dest = ferryOnlyDestination();
     const modes = getValidModes(
       dest,
@@ -417,9 +419,7 @@ describe("trip-date ferry eligibility (canonical check)", () => {
       undefined,
       { travelDate: travelDateToDate("2026-12-01") },
     );
-    // No authorized mode at all on Day 1: the trip cannot be covered.
-    expect(modes).toEqual([]);
-    expect(modes.length > 0).toBe(false);
+    expect(modes).toEqual(["ferry"]);
   });
 
   it("a genuinely verified non-ferry route keeps the destination eligible without the ferry", () => {
@@ -442,12 +442,13 @@ describe("trip-date ferry eligibility (canonical check)", () => {
     ).toBe(true);
   });
 
-  it("static train support without a verified route does not rescue a ferry-only trip", () => {
+  it("static train support without a verified route does not rescue a ferry-only trip — but the ferry itself stays eligible across Nov→Dec", () => {
     // Tomogashima advertises static train minutes, and the mode list here
     // simulates topology/static train authorization — but no verified
     // origin-aware train route exists, so the ferry remains the only
-    // usable mode and the suspended return leg (Dec 1) makes the trip
-    // ineligible.
+    // usable mode. With the corrected year-round model the Nov 30–Dec 1
+    // trip IS eligible (winter operation, not a suspension); the closure
+    // variant lives in FerryClosureConditions.test.ts.
     const dest = ferryOnlyDestination({
       transportOptions: { ferry: 30, train: 260 },
     });
@@ -460,7 +461,7 @@ describe("trip-date ferry eligibility (canonical check)", () => {
         WAKAYAMA_COORDS,
         dates,
       ),
-    ).toBe(false);
+    ).toBe(true);
     // In season with both legs running, the same destination is eligible.
     const openDates = deriveTripDates("2026-11-29", "weekend_2d1n");
     expect(
@@ -488,7 +489,8 @@ describe("trip-date ferry eligibility (canonical check)", () => {
     expect(
       isTripDatesTransportEligible(dest, modes, WAKAYAMA_COORDS, inSeason),
     ).toBe(true);
-    const outOfSeason = deriveTripDates("2026-12-15", "day_trip");
+    // Winter operation: a December day trip is eligible too (not suspended).
+    const winter = deriveTripDates("2026-12-15", "day_trip");
     const winterModes = getValidModes(
       dest,
       "none",
@@ -498,15 +500,10 @@ describe("trip-date ferry eligibility (canonical check)", () => {
       undefined,
       { travelDate: travelDateToDate("2026-12-15") },
     );
-    expect(winterModes).toEqual([]);
+    expect(winterModes).toEqual(["ferry"]);
     expect(
-      isTripDatesTransportEligible(
-        dest,
-        ["ferry"],
-        WAKAYAMA_COORDS,
-        outOfSeason,
-      ),
-    ).toBe(false);
+      isTripDatesTransportEligible(dest, ["ferry"], WAKAYAMA_COORDS, winter),
+    ).toBe(true);
   });
 });
 
@@ -531,14 +528,14 @@ describe("trip-date ferry eligibility (pipeline enforcement)", () => {
     });
   }
 
-  it("a 2D1N ferry-only trip is rejected when Day 2 suspends the return ferry", () => {
+  it("a 2D1N ferry-only trip stays eligible across the Nov→Dec boundary (winter operation)", () => {
     const dest = ferryOnlyDestination();
     const eligible = runWeekend(dest, "2026-11-29");
     expect(eligible.some((r) => r.id === dest.id)).toBe(true);
-    const ineligible = runWeekend(dest, "2026-11-30");
-    expect(ineligible.some((r) => r.id === dest.id)).toBe(false);
-    const winter = runWeekend(dest, "2026-12-01");
-    expect(winter.some((r) => r.id === dest.id)).toBe(false);
+    const acrossBoundary = runWeekend(dest, "2026-11-30");
+    expect(acrossBoundary.some((r) => r.id === dest.id)).toBe(true);
+    const winter = runWeekend(dest, "2026-12-05");
+    expect(winter.some((r) => r.id === dest.id)).toBe(true);
   });
 });
 
@@ -578,6 +575,8 @@ describe("mode agreement across eligibility, travel-time, budget and card", () =
       )?.mode,
     ).toBe("ferry");
 
+    // December (winter operation) — the ferry is visible on every surface
+    // too, not suspended.
     const december = { travelDate: travelDateToDate("2026-12-15") };
     expect(
       getValidModes(
@@ -589,14 +588,14 @@ describe("mode agreement across eligibility, travel-time, budget and card", () =
         undefined,
         december,
       ),
-    ).toEqual([]);
+    ).toEqual(["ferry"]);
     expect(
       getBestOneWayTravelMinutes(
         dest,
         { homeStationCoords: WAKAYAMA_COORDS, ferryTemporal: december },
-        [],
+        ["ferry"],
       ),
-    ).toBeUndefined();
+    ).toBeDefined();
     expect(
       getFastestPreferredTransport(
         dest,
@@ -607,7 +606,7 @@ describe("mode agreement across eligibility, travel-time, budget and card", () =
         undefined,
         december,
       ),
-    ).toBeNull();
+    ).not.toBeNull();
   });
 
   it("expired or unverified fares never rank cheaper in a budget sort", () => {

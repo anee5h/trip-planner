@@ -122,7 +122,7 @@ function goToPage(container: HTMLElement, page: string) {
 }
 
 describe("Destinations travel-time sort with a selected date", () => {
-  it("ranks the ferry-only destination fast in season and unknown-last out of season", () => {
+  it("ranks the ferry-only destination fast in season and in winter operation", () => {
     // In season (Nov 15): the Kada ferry runs — Tomogashima ranks early
     // (within the first two pages).
     const inSeason = renderDestinations(
@@ -131,12 +131,12 @@ describe("Destinations travel-time sort with a selected date", () => {
     goToPage(inSeason, "2");
     expect(hasTomogashimaCard(inSeason)).toBe(true);
 
-    // Out of season (Dec 15): no authorized mode and no legacy
-    // transportOptions fallback — unknown sorts last, far beyond page 2.
-    const outOfSeason = renderDestinations(
+    // Winter operation (Dec 15) is NOT a suspension — Tomogashima still
+    // ranks early rather than sinking to the unknown-last bucket.
+    const winter = renderDestinations(
       "/destinations?sort=travelTime&date=2026-12-15",
     );
-    goToPage(outOfSeason, "2");
-    expect(hasTomogashimaCard(outOfSeason)).toBe(false);
+    goToPage(winter, "2");
+    expect(hasTomogashimaCard(winter)).toBe(true);
   }, 30000);
 });

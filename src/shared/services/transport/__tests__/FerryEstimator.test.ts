@@ -31,16 +31,21 @@ const WAKAYAMA = { lat: 34.2261, lng: 135.1675 };
 const NIIGATA = { lat: 37.9022, lng: 139.0236 };
 const TAKAMATSU = { lat: 34.3515, lng: 134.0485 };
 
-/** Reference date inside every registered operating period. */
+/** Reference date inside every registered operating period (summer). */
 const SUMMER: FerryTemporalContext = {
   travelDate: new Date("2026-08-06T12:00:00+09:00"),
 };
-/** Reference date outside every restricted operating period. */
+/** Reference WINTER WEEKEND date (Sat) — winter operation is weekends-only. */
 const WINTER: FerryTemporalContext = {
-  travelDate: new Date("2026-01-15T12:00:00+09:00"),
+  travelDate: new Date("2026-01-17T12:00:00+09:00"),
 };
+/** January WEEKDAY (Tue) — winter operation does NOT run weekdays. */
 const JANUARY_TRIP: FerryTemporalContext = {
   travelDate: new Date("2026-01-20T12:00:00+09:00"),
+};
+/** January WEEKEND (Sat) — winter operation DOES run weekends. */
+const JANUARY_WEEKEND_TRIP: FerryTemporalContext = {
+  travelDate: new Date("2026-01-17T12:00:00+09:00"),
 };
 const AUGUST_TRIP: FerryTemporalContext = {
   travelDate: new Date("2026-08-20T12:00:00+09:00"),
@@ -146,8 +151,8 @@ describe("fare basis", () => {
       Math.round((estimate!.costRange[0] + estimate!.costRange[1]) / 2) * 2,
     );
     expect(cost).toBe(expected);
-    // The published fare alone (¥2,000) for two people is ~¥4,000; doubling
-    // it twice would exceed ¥16,000.
+    // The published fare alone (¥2,800 since 2026-07-01) for two people is
+    // ~¥5,600; doubling it twice would exceed ¥22,400.
     expect(cost!).toBeLessThan(4000 * 2 * 2);
     expect(cost!).toBeGreaterThan(4000);
   });
@@ -165,14 +170,22 @@ describe("fare basis", () => {
 });
 
 describe("seasonal availability", () => {
-  it("winter Tomogashima is unavailable", () => {
+  it("winter Tomogashima is available (winter operation, Jan–Feb weekends/holidays)", () => {
     const dest = byId.get("tomogashima-islands")!;
-    expect(getFerryTransportEstimate(dest, WAKAYAMA, WINTER)).toBeNull();
+    const estimate = getFerryTransportEstimate(dest, WAKAYAMA, WINTER);
+    expect(estimate).not.toBeNull();
+    expect(estimate?.available).toBe(true);
+    // The ¥2,800 fare window starts 2026-07-01 — before that the cost is
+    // honestly unavailable, not fabricated.
+    expect(estimate?.costUnavailable).toBe(true);
   });
 
-  it("summer Tomogashima is available", () => {
+  it("summer Tomogashima is available with the current fare", () => {
     const dest = byId.get("tomogashima-islands")!;
-    expect(getFerryTransportEstimate(dest, WAKAYAMA, SUMMER)).not.toBeNull();
+    const estimate = getFerryTransportEstimate(dest, WAKAYAMA, SUMMER);
+    expect(estimate).not.toBeNull();
+    expect(estimate?.available).toBe(true);
+    expect(estimate?.costUnavailable).toBe(false);
   });
 
   it("year-round routes stay available in winter", () => {
@@ -285,11 +298,14 @@ describe("directionality", () => {
 });
 
 describe("planned date drives availability, never the clock", () => {
-  it("January-planned trip does not authorize Tomogashima even when executed in August", () => {
+  it("planned date drives availability: January WEEKDAY has no ferry, January weekend does", () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date("2026-08-15T12:00:00+09:00"));
     const dest = byId.get("tomogashima-islands")!;
-    const modes = getValidModes(
+    // Winter operation runs Saturdays/Sundays/holidays only — a Tuesday
+    // (2026-01-20) has NO ferry. This is a weekday rule, not a blanket
+    // suspension.
+    const weekdayModes = getValidModes(
       dest,
       "none",
       PUBLIC_MODES,
@@ -298,20 +314,38 @@ describe("planned date drives availability, never the clock", () => {
       "mainland-honshu",
       JANUARY_TRIP,
     );
-    expect(modes).not.toContain("ferry");
+    expect(weekdayModes).not.toContain("ferry");
     expect(getFerryTransportEstimate(dest, WAKAYAMA, JANUARY_TRIP)).toBeNull();
+    // A Saturday (2026-01-17) does run: ferry authorized; the ¥2,800 fare
+    // window starts 2026-07-01, so cost is honestly unavailable.
+    const weekendModes = getValidModes(
+      dest,
+      "none",
+      PUBLIC_MODES,
+      WAKAYAMA,
+      undefined,
+      "mainland-honshu",
+      JANUARY_WEEKEND_TRIP,
+    );
+    expect(weekendModes).toContain("ferry");
+    const estimate = getFerryTransportEstimate(
+      dest,
+      WAKAYAMA,
+      JANUARY_WEEKEND_TRIP,
+    );
+    expect(estimate).not.toBeNull();
+    expect(estimate?.available).toBe(true);
+    expect(estimate?.costUnavailable).toBe(true);
     expect(
-      getTransportCost(dest, "ferry", 2, WAKAYAMA, JANUARY_TRIP),
+      getTransportCost(dest, "ferry", 2, WAKAYAMA, JANUARY_WEEKEND_TRIP),
     ).toBeNull();
     const recommendations = runRecommendationPipeline(
       [dest],
-      pipelineContext(JANUARY_TRIP, WAKAYAMA),
+      pipelineContext(JANUARY_WEEKEND_TRIP, WAKAYAMA),
     );
     expect(
-      recommendations.some(
-        (r) => r.id === dest.id && r.bestTransportMode === "ferry",
-      ),
-    ).toBe(false);
+      recommendations.find((r) => r.id === dest.id)?.bestTransportMode,
+    ).toBe("ferry");
     vi.useRealTimers();
   });
 
@@ -347,7 +381,8 @@ describe("planned date drives availability, never the clock", () => {
 
   it("recommendation, duration, and budget share the same availability result", () => {
     const dest = byId.get("tomogashima-islands")!;
-    // January: no ferry anywhere in the stack.
+    // January WEEKDAY (Tue): winter operation does not run — no ferry
+    // anywhere in the stack.
     const janModes = getValidModes(
       dest,
       "none",
@@ -375,7 +410,7 @@ describe("planned date drives availability, never the clock", () => {
         JANUARY_TRIP,
       ).transportIncluded,
     ).toBe(false);
-    // August: ferry everywhere in the stack.
+    // August: ferry everywhere in the stack, with the current fare.
     const augModes = getValidModes(
       dest,
       "none",
@@ -407,14 +442,18 @@ describe("planned date drives availability, never the clock", () => {
 
   it("season-only context evaluates conservatively", () => {
     const dest = byId.get("tomogashima-islands")!;
-    // Winter season is fully outside the Mar–Nov operating period.
+    // Winter season: the interval (12-01..02-28) straddles the year-end
+    // closure AND the winter period is weekend-constrained — a season span
+    // cannot be confirmed, so it fails closed (date contexts are precise:
+    // a winter Saturday is active).
     expect(
       getFerryTransportEstimate(dest, WAKAYAMA, { season: "winter" }),
     ).toBeNull();
-    // Summer season is fully inside it.
+    // Summer season: the normal period carries the Wednesday-closed rule —
+    // also unconfirmable for a season span, conservative null.
     expect(
       getFerryTransportEstimate(dest, WAKAYAMA, { season: "summer" }),
-    ).not.toBeNull();
+    ).toBeNull();
   });
 });
 
