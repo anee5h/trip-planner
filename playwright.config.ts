@@ -16,6 +16,10 @@ export default defineConfig({
     timeout: 30_000,
   },
   reporter: "list",
+  // KAI-99: one CI retry absorbs residual runner-contention flakes so a PR
+  // does not need a manual rerun for nondeterministic failures. Local runs
+  // keep retries off. Unstable tests should still be redesigned, not hidden.
+  retries: process.env.CI ? 1 : 0,
   use: {
     baseURL: "http://127.0.0.1:4173",
     locale: "en-US",

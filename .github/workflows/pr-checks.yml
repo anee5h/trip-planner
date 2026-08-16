@@ -60,13 +60,18 @@ jobs:
         run: npm run test:run -- --maxWorkers=2
 
   e2e:
-    name: E2E
+    name: E2E (${{ matrix.shard }}/4)
     runs-on: ubuntu-latest
-    # Full suite (kai-63 + kai-85 + kai-89, mobile + desktop) runs 23-25 min
-    # on shared runners; 25 was still tight and cancelled a passing job, and
-    # 30 has done the same twice on slow runners (suite passed, 121/134
-    # reached before cancellation). 45 keeps a real margin.
-    timeout-minutes: 45
+    # KAI-99: the ~21 min suite is sharded 4 ways (Playwright --shard
+    # balances files across shards; each shard still runs 2 workers
+    # internally). Wall clock drops to ~6-8 min incl. per-shard server boot,
+    # under the ≤10 min target. fail-fast: false keeps one flaky shard from
+    # cancelling the others' evidence.
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -83,8 +88,8 @@ jobs:
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
-      - name: Playwright E2E
-        run: npm run test:e2e
+      - name: Playwright E2E (shard ${{ matrix.shard }}/4)
+        run: npx playwright test --shard=${{ matrix.shard }}/4
 
   catalogue-fast:
     runs-on: ubuntu-latest
