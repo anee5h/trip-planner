@@ -7,12 +7,12 @@
  * deploying.
  *
  * Routing contract:
- *   - id in manifest with status "published" -> prerendered HTML
- *     (dist/destinations/<id>/index.html). If the asset is missing the
- *     function falls back to the SPA shell rather than 404ing a valid
- *     destination.
- *   - id in manifest with any other status (beta/verified) -> SPA shell 200.
- *     These are public destinations, just not prerendered/sitemapped yet.
+ *   - id in manifest (ANY quality status) -> prerendered HTML
+ *     (dist/destinations/<id>/index.html). KAI-97: `status` is a
+ *     content-quality signal, not an indexability gate — every canonical
+ *     destination is prerendered, sitemapped and indexable. If the asset
+ *     is missing the function falls back to the SPA shell rather than
+ *     404ing a valid destination.
  *   - unknown id -> real 404 with X-Robots-Tag: noindex, so removed or
  *     invalid destination URLs are never indexable soft-200s.
  *

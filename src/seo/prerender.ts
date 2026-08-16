@@ -342,7 +342,8 @@ export function renderSitemap(destinations: Destination[]): string {
 /** Public-destination manifest for the Pages Function: every destination that
  *  is served publicly (all catalogue records — the app has no private
  *  destinations), with its status so the function can distinguish
- *  prerendered (published), shell-served (beta/verified) and unknown. */
+ *  prerendered (all canonical destinations — status is a quality signal,
+ *  not an indexability gate) and unknown. */
 export function renderPublicManifest(destinations: Destination[]): string {
   const entries = destinations
     .map((d) => ({ id: d.id, status: d.status }))
