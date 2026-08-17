@@ -287,6 +287,14 @@ describe("KAI-98 Japanese taxonomy coverage", () => {
     expect(localizePlaceLabel("Castle", "ja")).toBe("城");
     expect(localizePlaceLabel("Park", "ja")).toBe("公園");
     expect(localizePlaceLabel("Museum", "ja")).toBe("博物館");
+    expect(localizePlaceLabel("Crab", "ja")).toBe("カニ");
+    expect(localizePlaceLabel("Green Tea", "ja")).toBe("緑茶");
+    expect(localizePlaceLabel("Oysters", "ja")).toBe("牡蠣");
+    expect(localizePlaceLabel("Plum", "ja")).toBe("梅");
+    expect(localizePlaceLabel("Concert Hall", "ja")).toBe("コンサートホール");
+    expect(localizePlaceLabel("Ropeway Observatory", "ja")).toBe(
+      "ロープウェイ展望台",
+    );
     // English mode stays untouched.
     expect(localizePlaceLabel("Castle", "en")).toBe("Castle");
   });
