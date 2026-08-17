@@ -1,5 +1,6 @@
 import { supabase } from "@/lib/supabase";
 import type { Trip } from "@/shared/types/trip";
+import { reportError } from "@/shared/utils/errorReporter";
 
 export interface ITripRepository {
   fetchTrips(userId: string): Promise<Trip[]>;
@@ -18,6 +19,7 @@ export class SupabaseTripRepository implements ITripRepository {
 
     if (error) {
       console.error("Failed to fetch trips from database", error);
+      reportError(error, "trips-sync");
       throw error;
     }
 
@@ -58,6 +60,7 @@ export class SupabaseTripRepository implements ITripRepository {
     const { error } = await supabase.from("trips").upsert(payload);
     if (error) {
       console.error("Failed to upsert trip in database", error);
+      reportError(error, "trips-sync");
       throw error;
     }
   }
@@ -67,6 +70,7 @@ export class SupabaseTripRepository implements ITripRepository {
     const { error } = await supabase.from("trips").delete().eq("id", tripId);
     if (error) {
       console.error("Failed to delete trip from database", error);
+      reportError(error, "trips-sync");
       throw error;
     }
   }
