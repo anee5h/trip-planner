@@ -1,5 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const pwaE2e = process.env.PWA_E2E === "1";
+
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: false,
@@ -46,7 +48,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "npm run dev -- --host 127.0.0.1 --port 4173",
+    command: pwaE2e
+      ? "npm run build && npm run preview -- --host 127.0.0.1 --port 4173"
+      : "npm run dev -- --host 127.0.0.1 --port 4173",
     url: "http://127.0.0.1:4173",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

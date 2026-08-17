@@ -537,6 +537,65 @@ try {
     `runtime /api/account/delete password grant -> 200 ok (got ${runtimePw.status} ${JSON.stringify(runtimePw.json)})`,
   );
 
+  // KAI-64: the PWA endpoints must be served as REAL static resources
+  // (public/_routes.json excludes /sw.js, /manifest.webmanifest and
+  // /icons/* from Functions — a Function-served response would break the
+  // worker's MIME/scope contract or return the SPA shell).
+  {
+    const sw = await fetch(`${BASE}/sw.js`);
+    assert(sw.status === 200, `runtime /sw.js -> 200 (got ${sw.status})`);
+    assert(
+      (sw.headers.get("content-type") ?? "").includes("javascript"),
+      `runtime /sw.js content-type is javascript (got ${sw.headers.get("content-type")})`,
+    );
+    const swBody = await sw.text();
+    assert(
+      swBody.includes("meguruto-shell-") &&
+        !swBody.includes("meguruto-shell-dev"),
+      "runtime /sw.js is the fingerprint-injected production worker",
+    );
+    assert(
+      swBody.includes("skipWaiting") && !swBody.includes("clients.claim"),
+      "runtime /sw.js uses the open-tab-safe upgrade sequence (no clients.claim)",
+    );
+  }
+  {
+    const manifest = await fetch(`${BASE}/manifest.webmanifest`);
+    assert(
+      manifest.status === 200,
+      `runtime /manifest.webmanifest -> 200 (got ${manifest.status})`,
+    );
+    assert(
+      (manifest.headers.get("content-type") ?? "").includes("manifest"),
+      `runtime /manifest.webmanifest content-type (got ${manifest.headers.get("content-type")})`,
+    );
+    const parsed = await manifest.json();
+    assert(
+      parsed.name === "Meguruto" && parsed.display === "standalone",
+      "runtime /manifest.webmanifest is the real Meguruto manifest",
+    );
+  }
+  for (const icon of [
+    "/icons/meguruto-192.png",
+    "/icons/meguruto-512.png",
+    "/icons/meguruto-maskable-192.png",
+    "/icons/meguruto-maskable-512.png",
+  ]) {
+    const res = await fetch(`${BASE}${icon}`);
+    assert(res.status === 200, `runtime ${icon} -> 200 (got ${res.status})`);
+    assert(
+      (res.headers.get("content-type") ?? "").includes("image/png"),
+      `runtime ${icon} content-type is image/png`,
+    );
+    const bytes = new Uint8Array(await res.arrayBuffer());
+    const isPng =
+      bytes[0] === 0x89 &&
+      bytes[1] === 0x50 &&
+      bytes[2] === 0x4e &&
+      bytes[3] === 0x47;
+    assert(isPng, `runtime ${icon} is a real PNG (signature check)`);
+  }
+
   console.log("Pages Function runtime verification complete.");
   // Respect exitCode recorded by any failed assert().
   exit();

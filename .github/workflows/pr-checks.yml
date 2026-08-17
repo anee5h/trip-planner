@@ -99,6 +99,37 @@ jobs:
           path: test-results/
           if-no-files-found: ignore
 
+  pwa-e2e:
+    name: PWA E2E (production build)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: PWA E2E against the production build
+        run: npm run test:pwa
+
+      - name: Upload Playwright failure artifacts
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-pwa
+          path: test-results/
+          if-no-files-found: ignore
+
   catalogue-fast:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -145,6 +176,9 @@ jobs:
 
       - name: Secrets in bundle
         run: npm run check:bundle-secrets
+
+      - name: PWA manifest & worker policy
+        run: npm run check:pwa
 
   changed-external:
     name: changed-external
