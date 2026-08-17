@@ -312,13 +312,16 @@ describe("DestinationDetails transport rows", () => {
   it("Tomogashima ferry row follows the planned travel date (January)", async () => {
     storeState.homeStationCoords = { lat: 34.2261, lng: 135.1675 };
     storeState.homeStationTransportZoneId = "mainland-honshu";
-    // January-planned trip: no estimable ferry; route-known fallback only.
-    render("/destinations/tomogashima-islands", { travelDate: "2026-01-20" });
+    // Winter operation (Jan–Feb weekends/holidays) exists; a January 2027
+    // trip is within the ¥2,800 fare window, so a full ferry estimate row
+    // renders — not the route-known fallback.
+    render("/destinations/tomogashima-islands", { travelDate: "2027-01-17" });
     await act(async () => {
       await flush(80);
     });
     const text = host.textContent ?? "";
-    expect(text).toContain("Ferry route available — time and cost unavailable");
+    expect(text).toContain("Ferry");
+    expect(text).not.toContain("time and cost unavailable");
   });
 
   it("Kouri from Naha shows the verified highway-bus route, never Train", async () => {

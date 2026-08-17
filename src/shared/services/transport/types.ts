@@ -75,6 +75,18 @@ export interface FerryOperatingPeriod {
   /** Month-day (MM-DD) inclusive; may wrap a year boundary. */
   from: string;
   to: string;
+  /**
+   * Optional allowed weekdays within the period (0=Sunday .. 6=Saturday,
+   * JavaScript getDay() convention). Absent means every day of the week.
+   * Periods with weekday constraints are date-precise: a season-only
+   * context cannot confirm them and fails conservatively.
+   */
+  weekdays?: number[];
+  /**
+   * Optional explicit MM-DD exclusions within the period (e.g. a published
+   * closure like the year-end break).
+   */
+  excludeDates?: string[];
 }
 
 export interface FerryService {

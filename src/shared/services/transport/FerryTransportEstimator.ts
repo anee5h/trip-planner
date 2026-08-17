@@ -91,6 +91,26 @@ function periodContains(period: FerryOperatingPeriod, md: number): boolean {
 }
 
 /**
+ * A single date inside a period, honoring weekday and exclusion
+ * constraints. A constrained period can never be confirmed for a
+ * season-only context, so the caller fails conservatively.
+ */
+function periodDateActive(period: FerryOperatingPeriod, date: Date): boolean {
+  const md = monthDay(date);
+  if (!periodContains(period, md)) return false;
+  if (
+    period.excludeDates &&
+    period.excludeDates.some((excluded) => parseMonthDay(excluded) === md)
+  ) {
+    return false;
+  }
+  if (period.weekdays && !period.weekdays.includes(date.getDay())) {
+    return false;
+  }
+  return true;
+}
+
+/**
  * Operating availability against the canonical temporal input. Never reads
  * the system clock: no travelDate/season means a seasonally restricted
  * service cannot be verified and is treated as unavailable.
@@ -104,16 +124,19 @@ export function isServiceActive(
     return true;
   }
   if (temporal.travelDate) {
-    const md = monthDay(temporal.travelDate);
     return service.operatingPeriods.some((period) =>
-      periodContains(period, md),
+      periodDateActive(period, temporal.travelDate!),
     );
   }
   if (temporal.season) {
     const { from, to } = SEASON_INTERVALS[temporal.season];
-    // Conservative: the entire season must fall inside one operating period.
+    // Conservative: the entire season must fall inside ONE operating
+    // period with no weekday/exclusion constraints — a constrained period
+    // cannot be confirmed for a season span.
     return service.operatingPeriods.some(
       (period) =>
+        !period.weekdays &&
+        !period.excludeDates &&
         periodContains(period, parseMonthDay(from)) &&
         periodContains(period, parseMonthDay(to)),
     );
@@ -153,7 +176,23 @@ export function isFareValid(
   temporal: FerryTemporalContext = {},
 ): boolean {
   if (service.fare === null) return false;
-  if (!service.fareValidFrom || !service.fareValidTo) return true;
+  if (!service.fareValidFrom || !service.fareValidTo) {
+    // Open-ended "valid since" window (e.g. a fare revision): a from-only
+    // window applies from that date onward; a to-only or absent window
+    // keeps the fare always valid.
+    if (service.fareValidFrom && !service.fareValidTo) {
+      const from = parseIsoDate(service.fareValidFrom);
+      if (temporal.travelDate) {
+        return temporal.travelDate >= from;
+      }
+      if (temporal.season) {
+        // Conservative: the whole season must start after the revision.
+        return seasonStartDate(temporal.season, from.getFullYear()) >= from;
+      }
+      return false;
+    }
+    return true;
+  }
   const from = parseIsoDate(service.fareValidFrom);
   const to = parseIsoDate(service.fareValidTo);
   if (temporal.travelDate) {

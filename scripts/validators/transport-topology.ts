@@ -923,28 +923,66 @@ export const transportTopologyValidator: ValidatorModule = {
           message: `Ferry service '${service.id}' has future checkedAt '${service.checkedAt}' (today is ${REFERENCE_TODAY})`,
         });
       }
+      for (const [index, period] of (
+        service.operatingPeriods ?? []
+      ).entries()) {
+        if (period.weekdays !== undefined) {
+          const invalid = period.weekdays.filter(
+            (d) => !Number.isInteger(d) || d < 0 || d > 6,
+          );
+          if (invalid.length > 0) {
+            issues.push({
+              severity: "error",
+              code: "invalid_period_weekdays",
+              message: `Ferry service '${service.id}' period ${index} has invalid weekdays ${JSON.stringify(invalid)} (expected integers 0=Sun..6=Sat)`,
+            });
+          }
+        }
+        if (period.excludeDates !== undefined) {
+          const invalid = period.excludeDates.filter(
+            (d) => !MONTH_DAY_RE.test(d),
+          );
+          if (invalid.length > 0) {
+            issues.push({
+              severity: "error",
+              code: "invalid_period_exclude_date",
+              message: `Ferry service '${service.id}' period ${index} has non-MM-DD excludeDates ${JSON.stringify(invalid)}`,
+            });
+          }
+        }
+      }
+      for (const period of service.operatingPeriods ?? []) {
+        if (!MONTH_DAY_RE.test(period.from) || !MONTH_DAY_RE.test(period.to)) {
+          issues.push({
+            severity: "error",
+            code: "invalid_ferry_operating_period",
+            message: `Ferry service '${service.id}' has invalid operatingPeriod '${period.from}–${period.to}'`,
+          });
+        }
+      }
       const hasFareFrom =
         "fareValidFrom" in service && service.fareValidFrom !== undefined;
       const hasFareTo =
         "fareValidTo" in service && service.fareValidTo !== undefined;
-      if (hasFareFrom !== hasFareTo) {
+      if (hasFareTo && !hasFareFrom) {
+        // A to-only window has no start — not representable.
         issues.push({
           severity: "error",
           code: "partial_fare_validity",
-          message: `Ferry service '${service.id}' must set both fareValidFrom and fareValidTo or neither`,
+          message: `Ferry service '${service.id}' must set fareValidFrom when setting fareValidTo (a from-only window is an open-ended "valid since" window)`,
         });
       }
       if (hasFareFrom) {
         if (
           !ISO_DATE_RE.test(service.fareValidFrom!) ||
-          !ISO_DATE_RE.test(service.fareValidTo!)
+          (hasFareTo && !ISO_DATE_RE.test(service.fareValidTo!))
         ) {
           issues.push({
             severity: "error",
             code: "invalid_fare_validity_date",
             message: `Ferry service '${service.id}' has non-ISO fare validity dates`,
           });
-        } else if (service.fareValidFrom! > service.fareValidTo!) {
+        } else if (hasFareTo && service.fareValidFrom! > service.fareValidTo!) {
           issues.push({
             severity: "error",
             code: "fare_validity_reversed",
@@ -956,15 +994,6 @@ export const transportTopologyValidator: ValidatorModule = {
             severity: "error",
             code: "null_fare_with_validity",
             message: `Ferry service '${service.id}' declares a fare validity window but has no verified fare`,
-          });
-        }
-      }
-      for (const period of service.operatingPeriods ?? []) {
-        if (!MONTH_DAY_RE.test(period.from) || !MONTH_DAY_RE.test(period.to)) {
-          issues.push({
-            severity: "error",
-            code: "invalid_ferry_operating_period",
-            message: `Ferry service '${service.id}' has invalid operatingPeriod '${period.from}–${period.to}'`,
           });
         }
       }

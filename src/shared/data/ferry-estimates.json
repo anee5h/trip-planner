@@ -366,15 +366,33 @@
       "passengerService": true,
       "bidirectional": true,
       "durationMinutes": [20, 25],
-      "fare": [2000, 2000],
+      "fare": [2800, 2800],
       "fareBasis": "round-trip",
-      "sourceUrl": "https://www.city.wakayama.wakayama.jp/kankou/kankouspot/1027585/1027593.html",
-      "checkedAt": "2026-08-05",
-      "notes": "Adult round-trip ¥2,000 (one-way ¥1,000). Service suspended December–February and during rough weather.",
+      "fareValidFrom": "2026-07-01",
+      "sourceUrl": "https://tomogashimakisen.com/main/%e6%97%85%e5%ae%a2%e9%81%8b%e8%b3%83",
+      "checkedAt": "2026-08-17",
+      "notes": "Current adult round-trip ¥2,800 (one-way ¥1,400) from 2026-07-01; the Meguruto dataset previously carried a stale ¥2,000 value — the immediately preceding operator fare was ¥2,500 (2025-04-01). Normal operation Mar 1–Dec 28 with Wednesdays closed, EXCEPT Golden Week (4/28–5/6) and summer (7/20–8/31) which run every day; winter operation Jan 4–Feb 29 on Saturdays, Sundays and holidays only (holidays themselves unmodeled — conservative), weather permitting; year-end 12/29–1/3 closed (年末年始休業).",
       "operatingPeriods": [
         {
+          "from": "01-04",
+          "to": "02-29",
+          "weekdays": [6, 0],
+          "excludeDates": ["01-01", "01-02", "01-03"]
+        },
+        {
           "from": "03-01",
-          "to": "11-30"
+          "to": "12-28",
+          "weekdays": [0, 1, 2, 4, 5, 6]
+        },
+        {
+          "from": "04-28",
+          "to": "05-06",
+          "weekdays": [0, 1, 2, 3, 4, 5, 6]
+        },
+        {
+          "from": "07-20",
+          "to": "08-31",
+          "weekdays": [0, 1, 2, 3, 4, 5, 6]
         }
       ]
     },
