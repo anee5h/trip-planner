@@ -601,6 +601,16 @@ export default function Home() {
             <h1 className="text-[27px] leading-[1.08] sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
               {t("home.headline")}
             </h1>
+            {/* KAI-114: understated Katakana brand association under the
+                Japanese hero — visible on every screen size, JA-only. */}
+            {locale === "ja" && (
+              <p
+                data-testid="home-brand-association"
+                className="mt-1.5 text-xs font-semibold tracking-wide text-slate-400 dark:text-slate-500"
+              >
+                {t("home.brandAssociation")}
+              </p>
+            )}
             <p className="mt-2 hidden text-sm font-medium leading-relaxed text-slate-500 dark:text-slate-400 sm:block md:text-base">
               {t(
                 resolvedApplied.tripMode === "weekend_2d1n"

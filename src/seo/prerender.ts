@@ -32,7 +32,7 @@ import {
 } from "../shared/services/place/PlaceCatalog";
 import type { Destination } from "../shared/types/destination";
 import {
-  DEFAULT_PAGE_TITLE,
+  HOME_TITLE,
   MAX_META_DESCRIPTION_LENGTH,
   OG_IMAGE,
   OG_LOCALE,
@@ -42,6 +42,7 @@ import {
   TITLE_SUFFIX,
   localePathPrefix,
   truncateDescription,
+  websiteJsonLd,
   type PageLocale,
 } from "./meta";
 
@@ -223,13 +224,16 @@ export function destinationHead(
 }
 
 /** Crawler-visible head for the home page in the given locale: the
- *  share-preview copy from the ticket, with the localized social card. */
+ *  share-preview copy from the ticket, with the localized social card and
+ *  the site-level WebSite structured-data entity (KAI-114 — the home
+ *  shells carry the canonical site entity; destination pages never
+ *  duplicate it). */
 export function homeHead(locale: PageLocale): PageHead {
   const prefix = localePathPrefix(locale);
   const share = SHARE_COPY[locale];
   const canonical = `${SITE_URL}${prefix}/`;
   return {
-    title: DEFAULT_PAGE_TITLE,
+    title: HOME_TITLE[locale],
     metaDescription: share.description,
     canonical,
     ogUrl: canonical,
@@ -237,6 +241,7 @@ export function homeHead(locale: PageLocale): PageHead {
     ogDescription: share.description,
     ogImage: OG_IMAGE[locale],
     ogLocale: OG_LOCALE[locale],
+    jsonLd: websiteJsonLd(),
   };
 }
 
