@@ -61,6 +61,10 @@ function fetchStatusAndRobots(path) {
         resolve({
           status: res.status,
           robots: res.headers.get("x-robots-tag") ?? null,
+          csp: res.headers.get("content-security-policy") ?? null,
+          frame: res.headers.get("x-frame-options") ?? null,
+          lang: body.match(/<html[^>]+lang="([^"]+)"/)?.[1] ?? null,
+          location: res.headers.get("location") ?? null,
           body,
         });
       })
@@ -89,6 +93,13 @@ function assert(condition, message) {
   } else {
     console.log(`✓ ${message}`);
   }
+}
+
+function assertSecureHtml(result, label) {
+  assert(
+    result.csp?.includes("default-src 'self'") && result.frame === "DENY",
+    `${label} preserves CSP + X-Frame-Options`,
+  );
 }
 
 const server = spawn(
@@ -148,6 +159,7 @@ try {
       published.body.includes('rel="canonical"'),
     "published destination body contains destination-specific HTML",
   );
+  assertSecureHtml(published, "published destination");
 
   const trailingSlash = await fetchStatusAndRobots(
     "/destinations/tokyo-station-chiyoda/",
@@ -219,6 +231,92 @@ try {
     );
   }
 
+  // KAI-111: unknown public routes return REAL 404s, not soft-200 shells.
+  for (const path of [
+    "/random-garbage-path",
+    "/foo/bar/baz",
+    "/ja/not-a-real-route",
+    "/destinations/this-destination-does-not-exist",
+    "/settings/nope",
+    "/my-trips/123",
+    "/terms/foo",
+    "/collections/foo/bar",
+    "/ja/settings/nope",
+    "/ja/terms/foo",
+  ]) {
+    const res = await fetchStatusAndRobots(path);
+    assert(
+      res.status === 404 && res.robots === "noindex, follow",
+      `unknown route ${path} -> real 404 + noindex (got ${res.status})`,
+    );
+    assertSecureHtml(res, `404 ${path}`);
+    if (path.startsWith("/ja/")) {
+      assert(
+        res.lang === "ja" &&
+          res.body.includes('href="/ja/"') &&
+          res.body.includes("ページが見つかりません"),
+        `JA 404 ${path} is locale-aware`,
+      );
+    }
+  }
+
+  for (const path of [
+    "/",
+    "/destinations",
+    "/collections/example",
+    "/compare",
+    "/favorites",
+    "/bucket-list",
+    "/my-trips",
+    "/passport",
+    "/visited-map",
+    "/profile",
+    "/settings",
+    "/help",
+    "/qa",
+    "/editorial",
+    "/terms",
+    "/privacy",
+    "/cookies",
+    "/ja/",
+    "/ja/collections/example",
+  ]) {
+    const res = await fetchStatusAndRobots(path);
+    assert(
+      res.status === 200,
+      `known SPA route ${path} -> 200 shell (got ${res.status})`,
+    );
+    assertSecureHtml(res, `SPA ${path}`);
+  }
+
+  for (const path of [
+    "/settings",
+    "/my-trips",
+    "/bucket-list",
+    "/passport",
+    "/profile",
+    "/favorites",
+    "/visited-map",
+    "/qa",
+    "/editorial",
+    "/compare",
+    "/ja/settings",
+    "/ja/my-trips",
+    "/ja/favorites",
+    "/ja/qa",
+    "/ja/editorial",
+    "/ja/compare",
+  ]) {
+    const res = await fetchStatusAndRobots(path);
+    assert(
+      res.robots === "noindex",
+      `private SPA route ${path} -> noindex (got ${res.robots})`,
+    );
+  }
+
+  const jaSettings = await fetchStatusAndRobots("/ja/settings");
+  assertSecureHtml(jaSettings, "JA private SPA");
+
   const unknown = await fetchStatusAndRobots(
     "/destinations/this-destination-does-not-exist",
   );
@@ -249,6 +347,62 @@ try {
     const res = await fetchStatusAndRobots(path);
     assert(res.status === 200, `${path} -> 200 (got ${res.status})`);
   }
+
+  // KAI-111: the `/* /index.html 200` SPA wildcard was removed from
+  // public/_redirects so missing static/asset-like URLs 404 at the edge
+  // instead of soft-200ing to the app shell. wrangler pages dev has a
+  // built-in index.html fallback for static misses, so the excluded
+  // families are asserted from the built output config below, while a
+  // non-excluded asset-like URL is asserted end-to-end through the
+  // catch-all Function.
+  const missingAsset = await fetchStatusAndRobots("/random-garbage.png");
+  assert(
+    missingAsset.status === 404,
+    `unknown asset-like URL /random-garbage.png -> real 404 (got ${missingAsset.status})`,
+  );
+  assertSecureHtml(missingAsset, "404 /random-garbage.png");
+
+  const redirectsText = fs.readFileSync(path.join(DIST, "_redirects"), "utf8");
+  const activeRedirectRules = redirectsText
+    .split("\n")
+    .map((l) => l.trim())
+    .filter((l) => l && !l.startsWith("#"));
+  assert(
+    !activeRedirectRules.some(
+      (l) =>
+        l.startsWith("/* ") && l.includes("/index.html") && l.endsWith("200"),
+    ),
+    "public/_redirects contains no `/* /index.html 200` SPA wildcard",
+  );
+
+  const routesConfig = JSON.parse(
+    fs.readFileSync(path.join(DIST, "_routes.json"), "utf8"),
+  );
+  const excludedRules = new Set(routesConfig.exclude ?? []);
+  // Function-owned or config entries are intentionally not excluded.
+  const functionOwnedEntries = new Set([
+    "_headers",
+    "_redirects",
+    "_routes.json",
+    "index.html",
+    "ja",
+    "destinations",
+  ]);
+  const staticFamilies = fs
+    .readdirSync(DIST)
+    .filter((entry) => !functionOwnedEntries.has(entry));
+  const uncoveredFamilies = staticFamilies.filter(
+    (entry) =>
+      !excludedRules.has(`/${entry}`) && !excludedRules.has(`/${entry}/*`),
+  );
+  assert(
+    uncoveredFamilies.length === 0,
+    `_routes.json excludes every static family in the built output (uncovered: ${uncoveredFamilies.join(", ") || "none"})`,
+  );
+  assert(
+    !excludedRules.has("/destinations/*"),
+    "_routes.json does not exclude /destinations/* (destination Functions keep precedence)",
+  );
 
   console.log("Pages Function runtime verification complete.");
   // Respect exitCode recorded by any failed assert().
