@@ -67,7 +67,7 @@
     "check:bundle-secrets": "node scripts/check-bundle-secrets.mjs"
   },
   "dependencies": {
-    "@base-ui/react": "^1.6.0",
+    "@base-ui/react": "^1.7.0",
     "@react-map/japan": "^1.0.10",
     "@supabase/supabase-js": "^2.111.0",
     "class-variance-authority": "^0.7.1",
