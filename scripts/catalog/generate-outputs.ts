@@ -19,6 +19,7 @@ import path from "path";
 import { format, resolveConfig } from "prettier";
 import type { Destination } from "../../src/shared/types/destination.js";
 import { buildDestinationsMeta } from "./meta.mjs";
+import { assertClassified, buildClientIndex } from "./client-index.js";
 
 export interface GeneratedCatalogueOutputs {
   /** Destination id → formatted detail file content. */
@@ -27,6 +28,8 @@ export interface GeneratedCatalogueOutputs {
   meta: string;
   /** The full canonical catalogue (source of truth for derived outputs). */
   fullIndex: Destination[];
+  /** Formatted client-only index content. */
+  clientIndex: string;
 }
 
 export interface GenerateOptions {
@@ -64,5 +67,7 @@ export async function generateCatalogueOutputs(
     `${JSON.stringify(buildDestinationsMeta(destinations), null, 2)}\n`,
     rootDir,
   );
-  return { detailFiles, meta, fullIndex: destinations };
+  assertClassified(destinations);
+  const clientIndex = await formatJson(buildClientIndex(destinations), rootDir);
+  return { detailFiles, meta, fullIndex: destinations, clientIndex };
 }

@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import destinationsIndex from "@/shared/data/destinations-index.lite.json";
+import destinationsIndex from "@/shared/data/destinations-index.json";
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 import { toCanonicalPlace } from "@/shared/services/place/PlaceCatalog";
 import type {

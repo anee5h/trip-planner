@@ -25,6 +25,16 @@ describe("KAI-82 client index parity", () => {
     }
   });
 
+  it("preserves every whitelisted field value from the canonical index", () => {
+    for (let i = 0; i < full.length; i += 1) {
+      for (const field of CLIENT_INDEX_FIELDS) {
+        expect(lite[i][field], `${full[i].id}.${field}`).toEqual(
+          full[i][field],
+        );
+      }
+    }
+  });
+
   it("drops the heavy detail/audit fields from the client bundle", () => {
     for (const record of lite) {
       expect(record.content).toBeUndefined();

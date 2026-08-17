@@ -11,7 +11,7 @@ import type { Destination } from "../../src/shared/types/destination";
  * recommendations and planning.
  *
  * Dropping the detail/editorial/audit fields (content, editorial, the
- * *Metadata audit blobs, relationships, businessHours, …) removes ~2.3 MB
+ * *Metadata audit blobs, and other detail-only fields) removes ~2.3 MB
  * from the initial-load bundle while preserving every summary field.
  */
 export const CLIENT_INDEX_FIELDS = [
@@ -67,6 +67,7 @@ export const CLIENT_INDEX_FIELDS = [
 ] as const;
 
 export type ClientIndexField = (typeof CLIENT_INDEX_FIELDS)[number];
+export type ClientDestination = Pick<Destination, ClientIndexField>;
 
 /** Fields intentionally NOT shipped to the client: detail surfaces hydrate
  *  from the per-destination JSON files (public/data/destinations/*.json),
@@ -82,6 +83,8 @@ const DROPPED_FIELDS: ReadonlySet<string> = new Set([
   "seasonMetadata",
   "durationMetadata",
   "walkingMetadata",
+  "walkingSunMin",
+  "walkingShadeMin",
   "comfortMetadata",
   "crowdMetadata",
   "notes",
@@ -116,13 +119,13 @@ const CLIENT_INDEX_FIELD_SET: ReadonlySet<string> = new Set(
 );
 
 /** The subset of a destination the client bundle needs. */
-export function toClientRecord(destination: Destination): Destination {
+export function toClientRecord(destination: Destination): ClientDestination {
   const record: Record<string, unknown> = {};
   for (const field of CLIENT_INDEX_FIELDS) {
     const value = (destination as Record<string, unknown>)[field];
     if (value !== undefined) record[field] = value;
   }
-  return record as Destination;
+  return record as ClientDestination;
 }
 
 /**

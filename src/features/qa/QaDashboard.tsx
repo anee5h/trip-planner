@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import destinationsIndex from "@/shared/data/destinations-index.lite.json";
+import destinationsIndex from "@/shared/data/destinations-index.json";
 import collectionsIndex from "@/shared/data/collections-index.json";
 import { PHASE_ONE_COHORT_IDS } from "@/shared/data/editorialPilot";
 import { PageHeader } from "@/shared/components/ui/PageHeader";
