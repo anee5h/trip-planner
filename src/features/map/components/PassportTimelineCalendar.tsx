@@ -1,9 +1,9 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import destinationsIndex from "@/shared/data/destinations-index.json";
+import destinationsIndex from "@/shared/data/destinations-index.lite.json";
 import { formatVisitedDate } from "@/shared/utils/date";
-import type { Destination } from "@/shared/types/destination";
+
 import {
   Calendar as CalendarIcon,
   ChevronDown,
@@ -48,9 +48,7 @@ export function PassportTimelineCalendar() {
 
     // Visited destinations (supports multiple visit dates per sight)
     visited.forEach((vId) => {
-      const dest = (destinationsIndex as Destination[]).find(
-        (d) => d.id === vId,
-      );
+      const dest = destinationsIndex.find((d) => d.id === vId);
       if (dest) {
         const dates = getVisitedDates(vId);
         const fallbackDate = lastSyncedDate || "";

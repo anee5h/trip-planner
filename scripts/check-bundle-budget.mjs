@@ -30,11 +30,10 @@ const DIST = path.join(ROOT, "dist");
 const ASSETS = path.join(DIST, "assets");
 const MANIFEST_PATH = path.join(DIST, ".vite", "manifest.json");
 
-// Budgets are recalibrated from the deduplicated clean build output below.
-// HTML references use /assets/foo.js while manifest values use assets/foo.js;
-// both forms must identify one physical asset, not two Set entries.
-// TODO(kai-82 phase 2): remove destinations-index.json from the initial load
-// and LOWER these budgets — the 6.5 MB index is the primary root cause.
+// Budgets are recalibrated from the deduplicated clean build output.
+// The phase-2 static-lite experiment is intentionally retained as measured
+// evidence: it increases the Home closure under Rolldown, so the real phase-2
+// win requires a runtime-lazy index load rather than this static split.
 const BUDGETS = {
   homeTotalGzipKb: 1120, // 1090 clean baseline; Leaflet negative = 1132
   largestChunkGzipKb: 765, // 746 clean baseline; Leaflet negative = 789

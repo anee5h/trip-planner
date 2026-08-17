@@ -1,6 +1,6 @@
 import { BADGES_CATALOG } from "../data/badges";
 import type { Badge, BadgeContext } from "../types/badge";
-import destinationsIndex from "@/shared/data/destinations-index.json";
+import destinationsIndex from "@/shared/data/destinations-index.lite.json";
 
 export class BadgeEngine {
   static isUnlocked(badge: Badge, ctx: BadgeContext): boolean {
