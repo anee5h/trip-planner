@@ -1,5 +1,16 @@
 {
   "version": 1,
-  "include": ["/destinations/*", "/ja/destinations/*"],
-  "exclude": []
+  "include": ["/*"],
+  "exclude": [
+    "/assets/*",
+    "/data/*",
+    "/og/*",
+    "/.vite/*",
+    "/sitemap.xml",
+    "/robots.txt",
+    "/favicon.ico",
+    "/favicon.svg",
+    "/apple-touch-icon.png",
+    "/icons.svg"
+  ]
 }

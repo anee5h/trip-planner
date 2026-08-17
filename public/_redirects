@@ -1,3 +1,5 @@
-# SPA fallback: everything else loads the app shell (routes without
-# prerendered HTML resolve client-side).
-/* /index.html 200
+# KAI-111: SPA routing is owned by the catch-all Pages Function
+# (functions/[[path]].js), which serves the app shell only for known
+# routes and returns real 404s for everything else. A `/* /index.html 200`
+# fallback here would re-introduce soft-200s for missing static and
+# asset-like URLs, so there is intentionally no catch-all rule.
