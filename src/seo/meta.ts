@@ -86,6 +86,8 @@ export function truncateDescription(
 export const SECURITY_HEADERS: Record<string, string> = {
   "Content-Security-Policy":
     "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.bunny.net; font-src 'self' https://fonts.bunny.net; img-src 'self' data: blob: https:; connect-src 'self' https://nkrfuowqzuvzgqnudchx.supabase.co wss://nkrfuowqzuvzgqnudchx.supabase.co https://api.open-meteo.com https://nominatim.openstreetmap.org https://cloudflareinsights.com https://en.wikipedia.org https://ja.wikipedia.org; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests",
+  "Permissions-Policy":
+    "camera=(), microphone=(), payment=(), usb=(), battery=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=(), autoplay=(), display-capture=(), fullscreen=(), picture-in-picture=(), screen-wake-lock=(), serial=(), sync-xhr=(), xr-spatial-tracking=(), geolocation=(self), clipboard-read=(self), clipboard-write=(self)",
   "X-Content-Type-Options": "nosniff",
   "Referrer-Policy": "strict-origin-when-cross-origin",
   "X-Frame-Options": "DENY",

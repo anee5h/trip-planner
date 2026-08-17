@@ -62,7 +62,9 @@
     "release:verify": "npm run test:run && npm run pipeline -- --dry-run && npm run validate-all && npm run validate:i18n && npm run check:branding && npx tsc -b --noEmit && npm run lint && npm run build && npm run format:check",
     "derive:destination-models": "tsx scripts/derive-destination-models.ts",
     "derive:destination-models:apply": "tsx scripts/derive-destination-models.ts --apply",
-    "check:destination-models": "tsx scripts/derive-destination-models.ts --check && tsx scripts/models/validate-models.ts"
+    "check:destination-models": "tsx scripts/derive-destination-models.ts --check && tsx scripts/models/validate-models.ts",
+    "check:security-headers": "node scripts/check-security-headers.mjs",
+    "check:bundle-secrets": "node scripts/check-bundle-secrets.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
