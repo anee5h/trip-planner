@@ -27,9 +27,18 @@ export const DEFAULT_PAGE_TITLE = "Meguruto: めぐると、見つかる。";
 export const DEFAULT_PAGE_DESCRIPTION =
   "Discover day trips and weekend getaways that fit your time, budget, weather, and travel style.";
 
+/** Home-page <title> per locale (KAI-114: the Japanese home declares the
+ *  Katakana brand — メグルト — alongside the Latin brand so users who hear
+ *  the product name and search in Katakana can find the site). */
+export const HOME_TITLE: Record<PageLocale, string> = {
+  en: DEFAULT_PAGE_TITLE,
+  ja: "メグルト（Meguruto）｜日帰り・週末旅行をもっと簡単に",
+};
+
 /** Share-preview (OG/Twitter) copy per locale. This is what messaging apps
  *  render — it is intentionally broader than the day-trip positioning and
- *  is localized for the Japanese version. */
+ *  is localized for the Japanese version. The Japanese copy carries the
+ *  Katakana brand naturally (KAI-114). */
 export const SHARE_COPY: Record<
   PageLocale,
   { title: string; description: string }
@@ -40,9 +49,9 @@ export const SHARE_COPY: Record<
       "Discover day trips and weekend getaways that fit your time, budget, weather, and travel style.",
   },
   ja: {
-    title: "Meguruto — 次の週末、日本のどこへ行く？",
+    title: "メグルト（Meguruto）— 次の週末、日本のどこへ行く？",
     description:
-      "時間・予算・天気・好みに合わせて、あなたにぴったりの日帰り・週末旅行先を見つけよう。",
+      "メグルト（Meguruto）は、時間・予算・天気・好みに合わせて、あなたにぴったりの日帰り・週末旅行先を見つける日本旅行プランナー。",
   },
 };
 
@@ -61,6 +70,27 @@ export const OG_LOCALE: Record<PageLocale, string> = {
 
 /** Google truncates meta descriptions around this length. */
 export const MAX_META_DESCRIPTION_LENGTH = 155;
+
+/**
+ * The canonical site-level WebSite structured-data entity (KAI-114): the
+ * Latin brand as `name` with the Japanese Katakana form and the bare
+ * domain as `alternateName`, so search engines can associate the product
+ * name in both scripts with meguruto.app. Emitted on the home shells only
+ * (/ and /ja/) — never duplicated on destination pages, which carry their
+ * own TouristDestination entities.
+ */
+export function websiteJsonLd(): string {
+  const ld: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    alternateName: ["メグルト", "meguruto.app"],
+    url: SITE_URL,
+  };
+  // Same escaping convention as the prerenderer: `<` can never terminate
+  // the enclosing <script> tag.
+  return JSON.stringify(ld).replaceAll("<", "\\u003c");
+}
 
 /**
  * Truncates canonical destination copy for <meta name="description">.

@@ -34,6 +34,11 @@
       content="Discover day trips and weekend getaways that fit your time, budget, weather, and travel style."
     />
     <meta name="twitter:image" content="https://meguruto.app/og/og-en.png" />
+    <!-- KAI-114: canonical site-level WebSite entity (name + Japanese
+         alternateName). Kept byte-identical to websiteJsonLd() in
+         src/seo/meta.ts so the /ja shell (prerendered) and this shell
+         declare the same site entity. -->
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Meguruto","alternateName":["メグルト","meguruto.app"],"url":"https://meguruto.app"}</script>
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link
       href="https://fonts.bunny.net/css?family=geist:100,200,300,400,500,600,700,800,900&display=swap"

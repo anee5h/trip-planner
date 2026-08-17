@@ -45,6 +45,7 @@
     "tagline": "Discover and plan better trips across Japan."
   },
   "brand": {
+    "displayName": "Meguruto",
     "tagline": "めぐると、見つかる。"
   },
   "search": {
@@ -332,6 +333,7 @@
   },
   "home": {
     "headline": "Where will you go next?",
+    "brandAssociation": "Meguruto",
     "subtitle": "Personalized day-trip ideas based on your time, budget, and travel style.",
     "subtitleWeekend": "Personalized 2-day / 1-night weekend ideas based on your time, budget, and travel style.",
     "change": "Change",

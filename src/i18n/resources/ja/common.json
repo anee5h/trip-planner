@@ -45,6 +45,7 @@
     "tagline": "日本の旅を、もっと楽しく、もっとスマートに。"
   },
   "brand": {
+    "displayName": "Meguruto（メグルト）",
     "tagline": "めぐると、見つかる。"
   },
   "search": {
@@ -332,6 +333,7 @@
   },
   "home": {
     "headline": "次はどこへ行きますか？",
+    "brandAssociation": "Meguruto（メグルト）",
     "subtitle": "時間、予算、旅のスタイルに合わせた日帰り旅の提案です。",
     "subtitleWeekend": "時間、予算、旅のスタイルに合わせた週末2日間1泊の提案です。",
     "change": "変更",

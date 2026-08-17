@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="hidden md:block">
           <p className="text-sm font-medium text-slate-900 dark:text-slate-100 flex items-center justify-center gap-2">
             <MegurutoMark className="size-6" />
-            <span>Meguruto</span>
+            <span>{t("brand.displayName")}</span>
             <span className="text-xs px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-500">
               {formatAppVersion(__APP_VERSION__)}
             </span>

@@ -91,9 +91,11 @@ vi.mock("@/shared/hooks/useAuth", () => ({
   }),
 }));
 
+const localeState = { value: "en" as "en" | "ja" };
+
 vi.mock("@/shared/context/LocaleContext", () => ({
   useLocale: () => ({
-    locale: "en",
+    locale: localeState.value,
     setLocale: vi.fn(),
   }),
 }));
@@ -108,6 +110,7 @@ vi.mock("react-i18next", () => ({
       const map: Record<string, string> = {
         "home.dateTabs.today": "Today",
         "home.dateTabs.tomorrow": "Tomorrow",
+        "home.brandAssociation": "Meguruto（メグルト）",
         "datePicker.today": "Today",
         "datePicker.tomorrow": "Tomorrow",
         "datePicker.anyDate": "Any date",
@@ -373,5 +376,32 @@ describe("weekend date capsule", () => {
 
     const capsuleAfter = rangeBtn();
     expect(capsuleAfter?.textContent).toBeTruthy();
+  });
+});
+
+describe("KAI-114 Japanese brand association (visible DOM)", () => {
+  it("renders Meguruto（メグルト） visibly under the JA hero on all screen sizes", () => {
+    localeState.value = "ja";
+    const container = renderHome();
+    const association = container.querySelector<HTMLElement>(
+      '[data-testid="home-brand-association"]',
+    );
+    expect(association).not.toBeNull();
+    expect(association?.textContent).toContain("メグルト");
+    expect(association?.textContent).toContain("Meguruto");
+    // Visible on mobile AND desktop: no responsive-hide class, and the
+    // element is actually laid out (display != none).
+    expect(association?.className).not.toContain("hidden");
+    expect(getComputedStyle(association as HTMLElement).display).not.toBe(
+      "none",
+    );
+  });
+
+  it("does not render the Katakana association on the EN home", () => {
+    localeState.value = "en";
+    const container = renderHome();
+    expect(
+      container.querySelector('[data-testid="home-brand-association"]'),
+    ).toBeNull();
   });
 });

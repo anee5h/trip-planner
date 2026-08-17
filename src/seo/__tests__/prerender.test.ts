@@ -364,16 +364,19 @@ describe("KAI-68 prerender: localized home shell", () => {
     const html = buildShellPage(SHELL, "ja");
     expect(html).toContain('<html lang="ja">');
     expect(html).toContain(
-      `<meta property="og:title" content="Meguruto — 次の週末、日本のどこへ行く？" />`,
+      `<title>メグルト（Meguruto）｜日帰り・週末旅行をもっと簡単に</title>`,
     );
     expect(html).toContain(
-      `<meta property="og:description" content="時間・予算・天気・好みに合わせて、あなたにぴったりの日帰り・週末旅行先を見つけよう。" />`,
+      `<meta property="og:title" content="メグルト（Meguruto）— 次の週末、日本のどこへ行く？" />`,
+    );
+    expect(html).toContain(
+      `<meta property="og:description" content="メグルト（Meguruto）は、時間・予算・天気・好みに合わせて、あなたにぴったりの日帰り・週末旅行先を見つける日本旅行プランナー。" />`,
     );
     expect(html).toContain(
       `<meta property="og:image" content="${SITE_URL}/og/og-ja.png" />`,
     );
     expect(html).toContain(
-      `<meta name="twitter:title" content="Meguruto — 次の週末、日本のどこへ行く？" />`,
+      `<meta name="twitter:title" content="メグルト（Meguruto）— 次の週末、日本のどこへ行く？" />`,
     );
     expect(html).toContain(
       `<meta name="twitter:image" content="${SITE_URL}/og/og-ja.png" />`,
@@ -395,5 +398,25 @@ describe("KAI-68 prerender: localized home shell", () => {
     );
     expect(html).toContain(`<link rel="canonical" href="${SITE_URL}/" />`);
     expect(html).toContain(`<meta property="og:locale" content="en_US" />`);
+  });
+
+  it("renders the site-level WebSite entity on the JA home shell (KAI-114)", () => {
+    const html = buildShellPage(SHELL, "ja");
+    expect(html).toContain(`<script type="application/ld+json">`);
+    expect(html).toContain(`"@type":"WebSite"`);
+    expect(html).toContain(`"name":"Meguruto"`);
+    expect(html).toContain(`"alternateName":["メグルト","meguruto.app"]`);
+  });
+
+  it("renders the site-level WebSite entity on the EN home shell (KAI-114)", () => {
+    const html = buildShellPage(SHELL, "en");
+    expect(html).toContain(`"@type":"WebSite"`);
+    expect(html).toContain(`"alternateName":["メグルト","meguruto.app"]`);
+  });
+
+  it("never duplicates the WebSite entity on destination pages (KAI-114)", () => {
+    const { html } = injectHead(SHELL, makeDestination({}));
+    expect(html).not.toContain(`"@type":"WebSite"`);
+    expect(html).toContain(`"@type":"TouristDestination"`);
   });
 });

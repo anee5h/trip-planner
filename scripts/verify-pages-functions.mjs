@@ -274,6 +274,25 @@ try {
     jaHome.status === 200 && jaHome.body.includes("og-ja.png"),
     `JA home shell -> 200 with the Japanese social card (got ${jaHome.status})`,
   );
+  // KAI-114: the RENDERED Japanese home carries the Katakana brand in the
+  // title and the site-level WebSite entity — not just source constants.
+  assert(
+    jaHome.body.includes("メグルト"),
+    "JA home shell renders the Katakana brand メグルト",
+  );
+  assert(
+    jaHome.body.includes('"@type":"WebSite"') &&
+      jaHome.body.includes('"alternateName":["メグルト","meguruto.app"]'),
+    "JA home shell renders the WebSite entity with the Japanese alternateName",
+  );
+
+  const enHome = await fetchStatusAndRobots("/");
+  assert(
+    enHome.status === 200 &&
+      enHome.body.includes('"@type":"WebSite"') &&
+      enHome.body.includes('"name":"Meguruto"'),
+    `EN home shell renders the WebSite entity (got ${enHome.status})`,
+  );
 
   const jaUnknown = await fetchStatusAndRobots(
     "/ja/destinations/this-destination-does-not-exist",
