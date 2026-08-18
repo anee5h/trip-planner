@@ -91,7 +91,9 @@ export async function onRequest(context) {
     const key = url.pathname.replace(/^\/e2e\/?/, "") || "index.html";
     const obj = await bucket.get(key);
     if (!obj) return json({ error: "not found" }, 404);
-    const headers = new Headers();
+    // Successful R2-backed responses carry the SAME security headers as
+    // denied responses (X-Robots-Tag + the app's SECURITY_HEADERS set).
+    const headers = new Headers(SECURITY_HEADERS);
     const contentType =
       obj.httpMetadata?.contentType ?? "application/octet-stream";
     headers.set("Content-Type", contentType);

@@ -72,6 +72,9 @@ jobs:
 
       - name: Playwright E2E (bin ${{ matrix.bin }}/4 · ${{ matrix.project }})
         shell: bash
+        env:
+          PLAYWRIGHT_PROJECT: ${{ matrix.project }}
+          CI_BIN: ${{ matrix.bin }}
         run: |
           set -o pipefail
           npx playwright test --project=${{ matrix.project }} $(node scripts/e2e-shards.mjs --bin ${{ matrix.bin }}) 2>&1 | tee /tmp/e2e-output.log
@@ -125,6 +128,11 @@ jobs:
     name: Aggregate + publish to R2
     runs-on: ubuntu-latest
     needs: [e2e, pwa-e2e]
+    # Privacy gate (KAI-126): the FIRST production report must be manually
+    # inspected before automatic publishing. Set the repository variable
+    # ALLURE_PUBLISH_READY=1 once a representative report has been checked
+    # for email/JWT/Supabase-token leakage. Until then this job scans and
+    # stages but does NOT upload.
     if: ${{ !cancelled() }}
     timeout-minutes: 20
     steps:
@@ -152,18 +160,21 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          mkdir -p previous-report
-          npx wrangler r2 object get "$E2E_REPORT_BUCKET" "history/history.json" --remote \
-            -o previous-report/history.json 2>/dev/null || echo "no previous history (first run)"
-          # Allure 2 history: copy previous report's history/ into the NEW
-          # result set BEFORE generation (documented Allure mechanism).
-          if [ -f previous-report/history.json ]; then
-            mkdir -p allure-download/history
-            cp previous-report/history.json allure-download/history/
-            echo "restored previous history"
+          # Allure 2 history: the ENTIRE history/ directory (history.json,
+          # history-trend.json, duration-trend.json, categories-trend.json,
+          # retry-trend.json) must be copied into the NEW result set BEFORE
+          # generation. R2 object get uses the single bucket/key path.
+          mkdir -p previous-report allure-download/history
+          for hf in history.json history-trend.json duration-trend.json categories-trend.json retry-trend.json; do
+            npx wrangler r2 object get "$E2E_REPORT_BUCKET/history/$hf" --remote \
+              -o "previous-report/$hf" 2>/dev/null || echo "  (no previous $hf — first run)"
+          done
+          if ls previous-report/*.json >/dev/null 2>&1; then
+            cp previous-report/*.json allure-download/history/
+            echo "restored previous history: $(ls previous-report | wc -l) file(s)"
           fi
 
-      - name: Write executor.json (CI metadata)
+      - name: Write executor.json (CI metadata with monotonic buildOrder)
         run: |
           cat > allure-download/executor.json <<EOF
           {
@@ -173,24 +184,51 @@ jobs:
             "buildName": "${{ github.ref_name }} @ ${{ github.sha }}",
             "buildUrl": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
             "reportName": "Meguruto E2E Dashboard",
-            "reportUrl": "https://meguruto.app/e2e"
+            "reportUrl": "https://meguruto.app/e2e",
+            "buildOrder": ${{ github.run_number }}
           }
           EOF
-          echo "executor.json written"
+          echo "executor.json written (buildOrder=${{ github.run_number }})"
 
       - name: Generate Allure report
         run: |
           npx allure generate allure-download -o allure-report --clean
           echo "Allure report generated."
 
+      - name: Privacy/secrets scan of generated report
+        run: node scripts/check-allure-privacy.mjs allure-report
+
       - name: Upload report to R2 (private, not the repo)
+        if: ${{ vars.ALLURE_PUBLISH_READY == '1' }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          # Upload the full report tree to the private bucket.
-          for f in $(find allure-report -type f); do
-            key="${f#allure-report/}"
-            npx wrangler r2 object put "$E2E_REPORT_BUCKET" "$key" --file "$f" --remote
+          # Upload the full report tree to the private bucket. Wrangler R2
+          # uses a single bucket/key object path; --content-type preserves
+          # correct MIME so the Function serves CSS/JS/JSON/HTML properly.
+          cd allure-report
+          for f in $(find . -type f); do
+            key="${f#./}"
+            ct="application/octet-stream"
+            case "$key" in
+              *.html) ct="text/html; charset=utf-8" ;;
+              *.js)   ct="application/javascript" ;;
+              *.css)  ct="text/css" ;;
+              *.json) ct="application/json" ;;
+              *.svg)  ct="image/svg+xml" ;;
+              *.png)  ct="image/png" ;;
+              *.jpg|*.jpeg) ct="image/jpeg" ;;
+              *.gif)  ct="image/gif" ;;
+              *.woff2) ct="font/woff2" ;;
+              *.woff) ct="font/woff" ;;
+              *.webp) ct="image/webp" ;;
+            esac
+            npx wrangler r2 object put "$E2E_REPORT_BUCKET/$key" --file "$f" --content-type "$ct" --remote
           done
-          echo "Uploaded $(find allure-report -type f | wc -l) files to R2 bucket $E2E_REPORT_BUCKET"
+          echo "Uploaded $(find . -type f | wc -l) files to R2 bucket $E2E_REPORT_BUCKET"
+
+      - name: Privacy gate not ready — report staged, not published
+        if: ${{ vars.ALLURE_PUBLISH_READY != '1' }}
+        run: |
+          echo "::warning::ALLURE_PUBLISH_READY is not set to 1. The report was generated and privacy-scanned but NOT uploaded to R2. Set the repository variable ALLURE_PUBLISH_READY=1 after inspecting a representative report (see docs/search-console-workflow or the PR body)."

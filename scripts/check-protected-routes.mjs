@@ -30,6 +30,7 @@ import { execSync, spawn } from "node:child_process";
 import { generateKeyPair, SignJWT, exportJWK } from "jose";
 import http from "node:http";
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -84,8 +85,49 @@ async function main() {
   // way it does in production (team domain from the URL host).
   ISSUER = jwks.url;
 
+  // Seed a LOCAL R2 bucket (wrangler.jsonc binding) with a fake dashboard
+  // so the /e2e serve path is proven end-to-end: HTML + JS + correct MIME.
+  // Local R2 auto-creates the bucket on first put (wrangler 4).
+  const seedR2 = async (key, content, ct) => {
+    const tmp = path.join(os.tmpdir(), `kai126-${key}`);
+    fs.writeFileSync(tmp, content);
+    // Local R2 state can be briefly locked by a previous killed wrangler;
+    // retry with backoff (transient, not a real failure).
+    let lastErr;
+    for (let attempt = 0; attempt < 5; attempt++) {
+      try {
+        execSync(
+          `npx wrangler r2 object put kai126-test-report/${key} --file "${tmp}" --content-type "${ct}" --local`,
+          {
+            cwd: path.join(__dirname, ".."),
+            stdio: ["ignore", "ignore", "pipe"],
+          },
+        );
+        lastErr = null;
+        break;
+      } catch (e) {
+        lastErr = e;
+        await new Promise((r) => setTimeout(r, 800 * (attempt + 1)));
+      }
+    }
+    fs.rmSync(tmp, { force: true });
+    if (lastErr) {
+      console.error(
+        `seedR2 ${key} stderr:`,
+        lastErr.stderr?.toString() ?? String(lastErr),
+      );
+      throw lastErr;
+    }
+  };
+  await seedR2(
+    "index.html",
+    "<!doctype html><html><head><title>Test</title></head><body>OK</body></html>",
+    "text/html; charset=utf-8",
+  );
+  await seedR2("app.js", "console.log('kai126');", "application/javascript");
+
   // Boot wrangler pages dev with the test env pointing at the local JWKS
-  // (same invocation the repo's verify-pages-functions.mjs uses).
+  // and the LOCAL R2 binding (wrangler.test.toml).
   const wrangler = spawn(
     "npx",
     [
@@ -140,6 +182,7 @@ async function main() {
     return {
       status: res.status,
       robots: res.headers.get("X-Robots-Tag"),
+      ct: res.headers.get("content-type"),
       body: await res.text(),
     };
   };
@@ -196,24 +239,51 @@ async function main() {
     assert(r.status === 401, "bad-signature token should be 401");
     console.log("  ✓ /e2e invalid signature -> 401");
 
-    // 7. Valid token -> /e2e ALLOWED (auth passes; the R2 store is absent
-    //    locally so we get 503 "report store not configured" — NOT 401.
-    //    The security property is: a valid token is NOT denied at the
-    //    auth boundary. The R2 serve path is covered by deploy QA.)
+    // 7. Valid token -> /e2e serves REAL HTML from R2 with MIME + robots
     const valid = await signToken(privateKey, {
       exp: Math.floor(Date.now() / 1000) + 300,
     });
     r = await probe("/e2e", valid);
-    assert(
-      r.status !== 401,
-      `valid token must NOT be denied at the auth boundary (got ${r.status})`,
-    );
+    assert(r.status === 200, `valid token should serve /e2e (got ${r.status})`);
     assert(
       r.robots === "noindex, nofollow",
       "allowed /e2e must carry robots tag",
     );
+    assert(
+      r.body.includes("<title>Test</title>"),
+      "served HTML must be the R2 index.html (got: " +
+        r.body.slice(0, 60) +
+        ")",
+    );
+    assert(
+      r.body.includes('<meta name="robots" content="noindex,nofollow">'),
+      "served HTML must carry robots meta",
+    );
+    assert(
+      r.ct === "text/html; charset=utf-8",
+      `HTML content-type must be text/html (got ${r.ct})`,
+    );
     console.log(
-      "  ✓ /e2e valid token -> authorized (not 401; R2 serve = deploy QA)",
+      "  ✓ /e2e valid token -> 200, serves R2 HTML, text/html, robots meta",
+    );
+
+    // 7b. JS asset served with correct MIME + robots
+    r = await probe("/e2e/app.js", valid);
+    assert(
+      r.status === 200,
+      `valid token should serve /e2e/app.js (got ${r.status})`,
+    );
+    assert(
+      r.ct === "application/javascript",
+      `JS content-type must be application/javascript (got ${r.ct})`,
+    );
+    assert(r.body.includes("kai126"), "JS body must be the seeded content");
+    assert(
+      r.robots === "noindex, nofollow",
+      "JS response must carry robots tag",
+    );
+    console.log(
+      "  ✓ /e2e/app.js valid token -> 200, application/javascript, robots",
     );
 
     // 8. Valid token -> /qa allow
@@ -225,23 +295,22 @@ async function main() {
     r = await probe("/e2e/unknown-asset.js", null);
     assert(r.status === 401, "sub-asset without auth should be 401");
     r = await probe("/e2e/unknown-asset.js", valid);
-    // With the real R2 store absent locally, a valid token may get 503/404
-    // for a missing store/key — but NOT 401. That's the security property.
+    // A missing key in R2 returns 404 for an authorized caller — but NOT
+    // 401. That's the security property.
     assert(r.status !== 401, "sub-asset with valid token must not be 401");
     console.log("  ✓ protected sub-asset: 401 without auth, not-401 with auth");
 
     console.log("\n✅ KAI-126 protected-route boundary checks ALL PASSED");
   } finally {
-    // Kill the whole process group (npx + wrangler + workerd children) with
-    // SIGKILL so no stray server outlives the check — SIGTERM lets workerd
-    // linger during graceful shutdown (same pattern as verify-pages-functions).
+    // Cleanup ONLY — must NOT swallow failures. If an assertion threw,
+    // the exception propagates to main().catch() below, which exits 1.
+    // (A process.exit(0) here would mask failed assertions as green.)
     try {
       process.kill(-wrangler.pid, "SIGKILL");
     } catch {
       /* already gone */
     }
     jwks.server.close();
-    process.exit(0);
   }
 }
 

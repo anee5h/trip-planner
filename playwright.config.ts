@@ -2,6 +2,11 @@ import { defineConfig, devices } from "@playwright/test";
 
 const pwaE2e = process.env.PWA_E2E === "1";
 
+// KAI-126: CI context attached to every Allure result (project + shard bin
+// + commit + workflow run) so the dashboard is self-describing.
+const project = process.env.PLAYWRIGHT_PROJECT ?? "";
+const bin = process.env.CI_BIN ?? "";
+
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: false,
@@ -19,7 +24,22 @@ export default defineConfig({
   },
   reporter: [
     ["list"],
-    ["allure-playwright", { outputFolder: "allure-results" }],
+    [
+      "allure-playwright",
+      {
+        outputFolder: "allure-results",
+        environmentInfo: {
+          project: project || "local",
+          ...(bin ? { "shard bin": bin } : {}),
+          ...(process.env.GITHUB_SHA
+            ? { commit: process.env.GITHUB_SHA.slice(0, 8) }
+            : {}),
+          ...(process.env.GITHUB_RUN_ID
+            ? { "workflow run": process.env.GITHUB_RUN_ID }
+            : {}),
+        },
+      },
+    ],
   ],
   // KAI-99: one CI retry absorbs residual runner-contention flakes so a PR
   // does not need a manual rerun for nondeterministic failures. Local runs
@@ -28,8 +48,6 @@ export default defineConfig({
   use: {
     baseURL: "http://127.0.0.1:4173",
     locale: "en-US",
-    timezoneId: "Asia/Tokyo",
-    trace: "retain-on-failure",
     screenshot: "only-on-failure",
   },
   projects: [
@@ -38,6 +56,9 @@ export default defineConfig({
       use: {
         ...devices["iPhone 13"],
         browserName: "chromium",
+        // KAI-80: force light for deterministic a11y scanning (the iPhone
+        // preset defaults to dark; dark-mode contrast is a documented gap).
+        colorScheme: "light",
       },
     },
     {
@@ -47,6 +68,7 @@ export default defineConfig({
         viewport: { width: 1440, height: 900 },
         isMobile: false,
         hasTouch: false,
+        colorScheme: "light",
       },
     },
   ],
