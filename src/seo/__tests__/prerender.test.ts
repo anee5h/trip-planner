@@ -326,10 +326,18 @@ describe("KAI-68 prerender: URL strategy", () => {
     expect(destinationUrl("abashiri-city", "ja")).toBe(
       `${SITE_URL}/ja/destinations/abashiri-city`,
     );
-    // No hreflang alternates: full multilingual SEO is out of scope, only
-    // the locale-correct share-preview metadata is emitted.
+    // KAI-108: hreflang alternates now exist; the canonical still pins the
+    // page's own locale (no self-alternate, no canonical conflict).
     const { html } = injectHead(SHELL, makeDestination({}));
-    expect(html).not.toContain("hreflang");
+    expect(html).toContain(
+      `<link rel="canonical" href="${SITE_URL}/destinations/test-destination" />`,
+    );
+    expect(html).toContain(
+      `<link rel="alternate" hreflang="ja" href="${SITE_URL}/ja/destinations/test-destination" />`,
+    );
+    expect(html).not.toContain(
+      `hreflang="en" href="${SITE_URL}/destinations/test-destination"`,
+    );
   });
 
   it("localizes head, canonical, lang and body for the JA version", () => {
@@ -418,5 +426,93 @@ describe("KAI-68 prerender: localized home shell", () => {
     const { html } = injectHead(SHELL, makeDestination({}));
     expect(html).not.toContain(`"@type":"WebSite"`);
     expect(html).toContain(`"@type":"TouristDestination"`);
+  });
+});
+
+describe("KAI-108 hreflang alternates", () => {
+  it("homepage pair: EN declares JA alternate + x-default, JA declares EN", () => {
+    const en = buildShellPage(SHELL, "en");
+    const ja = buildShellPage(SHELL, "ja");
+    // EN home -> JA alternate + x-default EN
+    expect(en).toContain(
+      `<link rel="alternate" hreflang="ja" href="${SITE_URL}/ja/" />`,
+    );
+    expect(en).toContain(
+      `<link rel="alternate" hreflang="x-default" href="${SITE_URL}/" />`,
+    );
+    // JA home -> EN alternate (reciprocal)
+    expect(ja).toContain(
+      `<link rel="alternate" hreflang="en" href="${SITE_URL}/" />`,
+    );
+    expect(ja).toContain(
+      `<link rel="alternate" hreflang="x-default" href="${SITE_URL}/" />`,
+    );
+    // no self-referencing alternates
+    expect(en).not.toContain('hreflang="en" href="https://meguruto.app/"');
+    expect(ja).not.toContain('hreflang="ja" href="https://meguruto.app/ja/"');
+  });
+
+  it("destination pair: reciprocal alternates in raw prerendered HTML", () => {
+    const en = injectHead(
+      SHELL,
+      makeDestination({ id: "kamakura" }),
+      "en",
+    ).html;
+    const ja = injectHead(
+      SHELL,
+      makeDestination({ id: "kamakura" }),
+      "ja",
+    ).html;
+    const enUrl = `${SITE_URL}/destinations/kamakura`;
+    const jaUrl = `${SITE_URL}/ja/destinations/kamakura`;
+    expect(en).toContain(
+      `<link rel="alternate" hreflang="ja" href="${jaUrl}" />`,
+    );
+    expect(ja).toContain(
+      `<link rel="alternate" hreflang="en" href="${enUrl}" />`,
+    );
+    // alternates are present BEFORE hydration (raw HTML, not JS)
+    expect(en.indexOf("hreflang")).toBeLessThan(
+      en.indexOf('<script type="module"'),
+    );
+    expect(ja.indexOf("hreflang")).toBeLessThan(
+      ja.indexOf('<script type="module"'),
+    );
+    // canonical stays self-locale
+    expect(en).toContain(`<link rel="canonical" href="${enUrl}" />`);
+    expect(ja).toContain(`<link rel="canonical" href="${jaUrl}" />`);
+  });
+
+  it("sitemap carries xhtml:link alternates for home + destinations", () => {
+    const sitemap = renderSitemap([
+      makeDestination({ id: "aaa", status: "published" }),
+    ]);
+    expect(sitemap).toContain(`xmlns:xhtml="http://www.w3.org/1999/xhtml"`);
+    expect(sitemap).toContain(
+      `<xhtml:link rel="alternate" hreflang="ja" href="${SITE_URL}/ja/" />`,
+    );
+    expect(sitemap).toContain(
+      `<xhtml:link rel="alternate" hreflang="ja" href="${SITE_URL}/ja/destinations/aaa" />`,
+    );
+    // hub surfaces without JA mirrors get no alternates
+    const hubBlock = sitemap
+      .split("</url>")
+      .find((b) => b.includes("/collections"));
+    expect(hubBlock).not.toContain("xhtml:link");
+  });
+
+  it("invalid/unpublished routes emit no misleading alternates", () => {
+    // The generator only prerenders catalogue destinations; unknown ids are
+    // 404/noindex via the Pages Function and never enter prerender. Verify
+    // buildPrerenderOutputs contains no phantom alternates for non-existent ids.
+    const outputs = buildPrerenderOutputs(SHELL, [
+      makeDestination({ id: "real", status: "published" }),
+    ]);
+    for (const html of outputs.values()) {
+      expect(html).not.toContain(
+        'hreflang="ja" href="https://meguruto.app/ja/destinations/ghost',
+      );
+      expect(html).not.toContain("/destinations/ghost");
+    }
   });
 });

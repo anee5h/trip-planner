@@ -174,6 +174,49 @@ export interface PageHead {
   ogImage: string;
   ogLocale: string;
   jsonLd?: string;
+  /** Reciprocal EN/JA alternate-locale link tags (KAI-108). */
+  alternates?: string[];
+}
+
+/** Alternate-locale link tags for an indexable EN/JA page pair (KAI-108).
+ *  Each page emits its COUNTERPART locale alternate plus x-default (the EN
+ *  root — the canonical locale; the JA mirror is a localized copy, so the
+ *  neutral default is English). The page's own locale is NOT emitted as an
+ *  alternate — the canonical tag pins it, and a self-alternate would be a
+ *  conflicting signal. The pair is reciprocal: the EN page's ja alternate
+ *  is the URL the JA page's canonical pins, and vice versa. */
+export function hreflangTags(
+  locale: PageLocale,
+  enUrl: string,
+  jaUrl: string,
+): string[] {
+  if (locale === "ja") {
+    return [
+      `<link rel="alternate" hreflang="en" href="${enUrl}" />`,
+      `<link rel="alternate" hreflang="x-default" href="${enUrl}" />`,
+    ];
+  }
+  return [
+    `<link rel="alternate" hreflang="ja" href="${jaUrl}" />`,
+    `<link rel="alternate" hreflang="x-default" href="${enUrl}" />`,
+  ];
+}
+
+/** The canonical locale-URL pair for a destination page (EN canonical at
+ *  /destinations/<id>, JA mirror at /ja/destinations/<id>). */
+export function destinationLocaleUrls(id: string): { en: string; ja: string } {
+  return {
+    en: destinationUrl(id, "en"),
+    ja: destinationUrl(id, "ja"),
+  };
+}
+
+/** The canonical locale-URL pair for the home page. */
+export function homeLocaleUrls(): { en: string; ja: string } {
+  return {
+    en: `${SITE_URL}/`,
+    ja: `${SITE_URL}/ja/`,
+  };
 }
 
 function renderHeadTags(head: PageHead): string[] {
@@ -193,6 +236,7 @@ function renderHeadTags(head: PageHead): string[] {
     `<meta name="twitter:title" content="${escapeHtml(head.ogTitle)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(head.ogDescription)}" />`,
     `<meta name="twitter:image" content="${head.ogImage}" />`,
+    ...(head.alternates ?? []),
     ...(head.jsonLd
       ? [`<script type="application/ld+json">${head.jsonLd}</script>`]
       : []),
@@ -201,7 +245,8 @@ function renderHeadTags(head: PageHead): string[] {
 
 /** Crawler-visible head for a destination page in the given locale. The
  *  share image is the hero photograph — it carries no localized text, so the
- *  same image serves both locales. */
+ *  same image serves both locales. Emits reciprocal hreflang alternates
+ *  (KAI-108) for the published destination's EN/JA pair. */
 export function destinationHead(
   destination: Destination,
   locale: PageLocale,
@@ -210,6 +255,8 @@ export function destinationHead(
   const description = destinationMetaDescription(destination, locale);
   const canonical = destinationUrl(destination.id, locale);
   const title = `${localized.name}${TITLE_SUFFIX}`;
+  const pair = destinationLocaleUrls(destination.id);
+  const alternates = hreflangTags(locale, pair.en, pair.ja);
   return {
     title,
     metaDescription: description,
@@ -220,6 +267,7 @@ export function destinationHead(
     ogImage: absoluteImage(toCanonicalPlace(destination).heroImage),
     ogLocale: OG_LOCALE[locale],
     jsonLd: structuredData(destination),
+    alternates,
   };
 }
 
@@ -227,11 +275,12 @@ export function destinationHead(
  *  share-preview copy from the ticket, with the localized social card and
  *  the site-level WebSite structured-data entity (KAI-114 — the home
  *  shells carry the canonical site entity; destination pages never
- *  duplicate it). */
+ *  duplicate it). Emits reciprocal hreflang alternates (KAI-108). */
 export function homeHead(locale: PageLocale): PageHead {
   const prefix = localePathPrefix(locale);
   const share = SHARE_COPY[locale];
   const canonical = `${SITE_URL}${prefix}/`;
+  const pair = homeLocaleUrls();
   return {
     title: HOME_TITLE[locale],
     metaDescription: share.description,
@@ -242,6 +291,7 @@ export function homeHead(locale: PageLocale): PageHead {
     ogImage: OG_IMAGE[locale],
     ogLocale: OG_LOCALE[locale],
     jsonLd: websiteJsonLd(),
+    alternates: hreflangTags(locale, pair.en, pair.ja),
   };
 }
 
@@ -322,7 +372,9 @@ export function buildShellPage(shell: string, locale: PageLocale): string {
  *  fixed order (hub paths, then destinations sorted by id), no lastmod.
  *  KAI-97: the ENTIRE canonical catalogue is indexable (status is a quality
  *  signal, not an indexability gate). Canonical English URLs only — the
- *  /ja mirror is not separately indexed. */
+ *  /ja mirror is not separately indexed. Each destination URL carries
+ *  xhtml:link alternates for its JA mirror (KAI-108), so the sitemap stays
+ *  the single SEO source of truth alongside the per-page hreflang tags. */
 export function renderSitemap(destinations: Destination[]): string {
   const ids = destinations.map((d) => d.id).sort();
   const urls = [
@@ -330,14 +382,32 @@ export function renderSitemap(destinations: Destination[]): string {
     ...ids.map((id) => `/destinations/${id}`),
   ];
   const body = urls
-    .map(
-      (path) =>
-        `  <url>\n    <loc>${escapeXml(SITE_URL + path)}</loc>\n  </url>`,
-    )
+    .map((path) => {
+      if (path === "/destinations" || path === "/collections") {
+        // Hub surfaces have no JA mirror — no alternates.
+        return `  <url>\n    <loc>${escapeXml(SITE_URL + path)}</loc>\n  </url>`;
+      }
+      if (path === "/") {
+        return (
+          `  <url>\n    <loc>${escapeXml(SITE_URL + path)}</loc>\n` +
+          `    <xhtml:link rel="alternate" hreflang="ja" href="${escapeXml(
+            `${SITE_URL}/ja/`,
+          )}" />\n` +
+          `  </url>`
+        );
+      }
+      const id = path.replace("/destinations/", "");
+      const ja = `${SITE_URL}/ja/destinations/${id}`;
+      return (
+        `  <url>\n    <loc>${escapeXml(SITE_URL + path)}</loc>\n` +
+        `    <xhtml:link rel="alternate" hreflang="ja" href="${escapeXml(ja)}" />\n` +
+        `  </url>`
+      );
+    })
     .join("\n");
   return [
     `<?xml version="1.0" encoding="UTF-8"?>`,
-    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">`,
     body,
     `</urlset>`,
     ``,
