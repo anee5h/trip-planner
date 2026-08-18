@@ -368,6 +368,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               <SelectTrigger
                 className="h-8 min-w-[160px] rounded-lg border-slate-200 text-xs font-bold"
                 aria-describedby="accommodation-help"
+                aria-label={t("home.accommodation")}
               >
                 {(() => {
                   const presetKey = accommodationPresetValue as
@@ -441,7 +442,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                 if (val) onVibeChange(val);
               }}
             >
-              <SelectTrigger className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between">
+              <SelectTrigger className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between" aria-label={t("home.vibe")}>
                 <div className="flex items-center gap-2 truncate">
                   <VibeIcon
                     className={`w-4 h-4 shrink-0 ${currentVibe.color}`}
@@ -490,7 +491,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                   if (val) onTripDurationChange(val as HomepageTripDuration);
                 }}
               >
-                <SelectTrigger className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between">
+                <SelectTrigger className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between" aria-label={t("home.duration")}>
                   <div className="flex items-center gap-2 truncate">
                     <Clock className="w-4 h-4 text-emerald-500 shrink-0" />
                     <span className="truncate">
@@ -566,7 +567,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                 if (val) onBudgetTierChange(val as BudgetTier);
               }}
             >
-              <SelectTrigger className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between">
+              <SelectTrigger className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between" aria-label={t("home.budget")}>
                 <div className="flex items-center gap-2 truncate">
                   <Wallet className="w-4 h-4 text-emerald-500 shrink-0" />
                   <span className="truncate">
@@ -607,7 +608,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                   onTransportPreferenceChange(val as TransportPreference);
               }}
             >
-              <SelectTrigger className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between">
+              <SelectTrigger className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between" aria-label={t("home.transport")}>
                 <div className="flex items-center gap-2 truncate">
                   <TransportIcon className="w-4 h-4 text-emerald-500 shrink-0" />
                   <span className="truncate">

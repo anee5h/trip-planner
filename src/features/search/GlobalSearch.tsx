@@ -88,7 +88,7 @@ export function GlobalSearch() {
             ) : (
               <button
                 onClick={() => setIsOpen(true)}
-                className="px-1.5 py-0.5 rounded-lg bg-slate-200/80 dark:bg-slate-700/80 text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 border border-slate-300/60 dark:border-slate-600/60"
+                className="px-1.5 py-0.5 min-h-6 min-w-6 rounded-lg bg-slate-200/80 dark:bg-slate-700/80 text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 border border-slate-300/60 dark:border-slate-600/60"
               >
                 {shortcutLabel}
               </button>

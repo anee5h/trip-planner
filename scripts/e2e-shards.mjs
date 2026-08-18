@@ -44,6 +44,7 @@ const WEIGHTS = {
   "kai-121-lazy-catalogue": 30, // runtime-lazy network checks (4 quick tests)
   "kai-64-pwa": 0, // skips without PWA_E2E=1 (owned by the PWA job)
   "kai-64-upgrade": 0, // same
+  "kai-80-a11y": 0, // skips without A11Y_E2E=1 (owned by the a11y run)
 };
 
 const BINS = {
@@ -66,12 +67,14 @@ const BINS = {
     "kai-121-lazy-catalogue",
     "kai-64-pwa",
     "kai-64-upgrade",
+    "kai-80-a11y",
   ],
 };
 
 /** PWA-only specs are owned by the dedicated production-build PWA E2E job;
- *  they sit in bin 4 as no-ops so the coverage invariant stays total. */
-const PWA_ONLY = new Set(["kai-64-pwa", "kai-64-upgrade"]);
+ *  they sit in bin 4 as no-ops so the coverage invariant stays total.
+ *  The a11y spec is gated the same way (A11Y_E2E=1). */
+const PWA_ONLY = new Set(["kai-64-pwa", "kai-64-upgrade", "kai-80-a11y"]);
 
 function specPath(name) {
   return path.join(E2E_DIR, `${name}.spec.ts`);

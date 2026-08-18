@@ -70,6 +70,9 @@ export default defineConfig({
       use: {
         ...devices["iPhone 13"],
         browserName: "chromium",
+        // KAI-80: force light for deterministic a11y scanning (the iPhone
+        // preset defaults to dark; dark-mode contrast is a documented gap).
+        colorScheme: "light",
       },
     },
     {
@@ -79,6 +82,7 @@ export default defineConfig({
         viewport: { width: 1440, height: 900 },
         isMobile: false,
         hasTouch: false,
+        colorScheme: "light",
       },
     },
   ],
