@@ -5,42 +5,91 @@ import type {
 import { EDITORIAL_PILOT } from "../../data/editorialPilot";
 
 /**
- * KAI-121: runtime-lazy catalogue boundary.
+ * KAI-121: runtime-lazy catalogue boundary (rework).
  *
- * The full destinations index (~6.2 MB raw) is NOT statically imported
- * here anymore — a static import drags the entire catalogue into every
- * route that touches PlaceCatalog (Home included, via the recommendation
- * path). Instead the full index is fetched once via a dynamic import,
- * shared across callers by a module-level promise singleton.
+ * TWO EXPLICIT CONTRACTS — never a silently-changing "lite now, full
+ * later" accessor:
  *
- * getCanonicalPlaces() stays SYNCHRONOUS for compatibility (it returns
- * the lite summary until the full index has loaded, then the full data);
- * loadDestinationsIndex() is the async entry that triggers the lazy
- * fetch. Routes that need the full catalogue call loadDestinationsIndex()
- * on mount (e.g. Home) so the 6.2 MB loads as a fetched chunk, not in the
- * initial JS bundle.
+ * 1. SUMMARY catalogue (synchronous, ESM-safe): the lite index is a
+ *    formally complete summary — the fields every first-paint / search /
+ *    list surface needs (id, name, prefecture, region, categories, tags,
+ *    kind, role, coordinates). Imported as ESM (Vite JSON import) so it is
+ *    bundled normally; NO CommonJS `require()` anywhere in browser code.
+ *
+ * 2. FULL catalogue (asynchronous): consumers that genuinely require the
+ *    complete destination records MUST await loadDestinationsIndex() and
+ *    read via getFullPlaces(). The full index is a runtime-lazy chunk
+ *    (~682 KB gzip) fetched exactly once, with a retryable error path —
+ *    a rejected import does NOT poison the singleton.
+ *
+ * getCanonicalPlaces() (the old sync accessor) is GONE from browser use:
+ * it silently meant "lite now, full later", which made correctness
+ * timing-dependent. Callers that need full data await; callers that need
+ * only summary data use getLitePlaces().
  */
 
 export type CanonicalPlace = Destination &
   Required<Pick<Destination, "placeType" | "content" | "editorial">>;
 
 let fullIndexPromise: Promise<Destination[]> | null = null;
-/** The settled full index, once loaded. */
 let loadedFullIndex: Destination[] | null = null;
+let fullPlacesCache: CanonicalPlace[] | null = null;
+
+// KAI-121 (rework): the full index is a PLAIN static asset in
+// public/data/destinations-index.json (copied at build time by
+// scripts/copy-catalogue-assets.cjs). It is fetched at runtime by URL —
+// NOT imported as a module, so Vite never emits a chunk for it, never
+// preloads it, and it never enters any bundle closure. The browser only
+// fetches the ~682 KB gzip payload when a consumer that genuinely needs
+// the full catalogue calls loadDestinationsIndex().
+const FULL_INDEX_URL = "/data/destinations-index.json";
 
 /** Loads the full destination index exactly once per session, sharing the
  *  in-flight promise between concurrent callers (no duplicate fetches, no
- *  hydration races). The full catalogue is fetched as a lazy chunk. */
+ *  hydration races). FAILURE HANDLING: a rejected fetch clears the
+ *  singleton so the next caller can retry; the rejection is caught and
+ *  re-thrown as a normal error (never an unhandled promise rejection).
+ *  Retryable: after a failure, call loadDestinationsIndex() again.
+ *
+ *  (vitest: tests stub fetch for this URL via vitest.setup.ts, returning
+ *  the imported JSON — see vite.config.ts test.setupFiles.)
+ */
 export function loadDestinationsIndex(): Promise<Destination[]> {
   if (!fullIndexPromise) {
-    fullIndexPromise = import("../../data/destinations-index.json").then(
-      (mod) => {
-        loadedFullIndex = mod.default as Destination[];
+    fullIndexPromise = fetch(FULL_INDEX_URL)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            `HTTP ${response.status} fetching destinations index`,
+          );
+        }
+        return response.json() as Promise<Destination[]>;
+      })
+      .then((index) => {
+        loadedFullIndex = index;
+        fullPlacesCache = null; // invalidate the mapped cache
         return loadedFullIndex;
-      },
-    );
+      })
+      .catch((error) => {
+        // Do not poison the singleton: clear so the next call retries.
+        fullIndexPromise = null;
+        throw new Error(`failed to load destinations index: ${String(error)}`);
+      });
   }
   return fullIndexPromise;
+}
+
+/** Synchronous accessor for the FULL catalogue. Only valid AFTER
+ *  `await loadDestinationsIndex()` (or after the promise resolved).
+ *  Returns [] before the full index has loaded — callers must await.
+ *  The map is memoized: 978 toCanonicalPlace() calls run once per load,
+ *  not once per render (prevents GC churn on async-arrival re-renders). */
+export function getFullPlaces(): CanonicalPlace[] {
+  if (!loadedFullIndex) return [];
+  if (!fullPlacesCache) {
+    fullPlacesCache = loadedFullIndex.map(toCanonicalPlace);
+  }
+  return fullPlacesCache;
 }
 
 function englishContent(destination: Destination): LocalizedPlaceContent {
@@ -92,45 +141,51 @@ export function toCanonicalPlace(destination: Destination): CanonicalPlace {
   };
 }
 
-/** Synchronous accessor for the canonical catalogue (KAI-121). Returns
- *  the full data once the lazy index has loaded, else the lite summary —
- *  existing sync consumers keep working unchanged; Home preloads the full
- *  index via loadDestinationsIndex() so the 6.2 MB arrives as a fetched
- *  chunk, not in the initial bundle. */
-export function getCanonicalPlaces(): CanonicalPlace[] {
-  const source = loadedFullIndex ?? getLiteIndex();
-  return source.map(toCanonicalPlace);
-}
-
-/** Synchronous accessor for the canonical catalogue when the full index
- *  has already been loaded (or for callers that only need summary data).
- *  Falls back to the lite index if the full one is not yet loaded. */
-export function getCanonicalPlacesSync(): CanonicalPlace[] {
-  const source = loadedFullIndex ?? getLiteIndex();
-  return source.map(toCanonicalPlace);
-}
-
-// --- KAI-121: lite (summary) catalogue for first-paint routes ---
-// The lite index (id/name/prefecture/region/categories/kind/role) stays in
-// the initial bundle for synchronous summary access; the full index loads
-// lazily only for routes that truly need it.
+// --- KAI-121: lite (summary) catalogue — synchronous, ESM-safe ---
+// The lite index (id/name/prefecture/region/categories/kind/role/etc.) is
+// a formally complete SUMMARY. It is imported as ESM (Vite JSON import —
+// NO CommonJS require), stays in the initial bundle, and is the ONLY
+// catalogue data first-paint/search/list surfaces depend on.
 
 let liteIndex: Destination[] | null = null;
 
 function getLiteIndex(): Destination[] {
   if (!liteIndex) {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    liteIndex =
-      require("../../data/destinations-index.lite.json") as Destination[];
+    // ESM import of the JSON module — Vite bundles this statically.
+    // (The full index is NOT imported here; it stays a lazy chunk.)
+    liteIndex = importSummaryData();
   }
   return liteIndex;
 }
 
-/** Synchronous summary accessor (KAI-121). Returns the lite catalogue for
- *  first-paint rails. Callers that need full destination content must
- *  await getCanonicalPlaces() instead. */
+import summaryData from "../../data/destinations-index.lite.json";
+
+function importSummaryData(): Destination[] {
+  return summaryData as Destination[];
+}
+
+/** Synchronous summary accessor (KAI-121). Returns the formally complete
+ *  lite catalogue for first-paint / search / list surfaces. Callers that
+ *  need FULL destination content must await loadDestinationsIndex() and
+ *  use getFullPlaces(). */
 export function getLitePlaces(): CanonicalPlace[] {
   return getLiteIndex().map(toCanonicalPlace);
+}
+
+// --- Backward-compat shim for tests/build scripts that read the full
+// index synchronously in a Node context (vitest). In the browser, the full
+// index is ONLY reachable via the async loader. ---
+
+/** True when the full index has been loaded (async loader resolved). */
+export function hasLoadedFullIndex(): boolean {
+  return loadedFullIndex !== null;
+}
+
+/** Test-only: force-reset the singleton (failure-retry tests). */
+export function resetDestinationsIndexForTests(): void {
+  fullIndexPromise = null;
+  loadedFullIndex = null;
+  fullPlacesCache = null;
 }
 
 /**
@@ -148,7 +203,9 @@ export function isPlaceAvailableInLocale(
 export function getAvailablePlaces(
   locale: "en" | "ja" = "en",
 ): CanonicalPlace[] {
-  return getCanonicalPlaces().filter((place) =>
+  // KAI-121 contract: summary availability for list surfaces. Full-data
+  // consumers await loadDestinationsIndex() + getFullPlaces().
+  return getLitePlaces().filter((place) =>
     isPlaceAvailableInLocale(place, locale),
   );
 }

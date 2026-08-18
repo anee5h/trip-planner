@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from "react";
+import { useFullCatalogue } from "@/shared/hooks/useFullCatalogue";
 import { Link } from "react-router-dom";
 import type { Destination } from "@/shared/types/destination";
 import {
@@ -68,6 +69,10 @@ export function DayPlanWidget({
   defaultPlanType,
   fullDayDisabled = false,
 }: DayPlanWidgetProps) {
+  // KAI-121: generateDayPlan reads the FULL catalogue (nearby candidates,
+  // budget/transport fields). Load it on mount — this widget only lives on
+  // full-data surfaces (destination details / planning).
+  useFullCatalogue();
   const isHubOrCity = isHubPrimary(destination);
 
   const [hasGenerated, setHasGenerated] = useState(false);

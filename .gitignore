@@ -37,7 +37,9 @@ docs/*
 !docs/trip-duration-model.md
 !docs/KAI-55_RECOMMENDATION_QA.md
 !docs/kai-126-allure-dashboard.md
-/docs/Roadmapv2.0.md
+# Generated catalogue asset (copied from src/shared/data at build/dev time
+# by scripts/copy-catalogue-assets.mjs — KAI-121 runtime-lazy fetch).
+public/data/destinations-index.json
 
 # Python scratch artifacts
 __pycache__/

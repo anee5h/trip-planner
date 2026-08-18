@@ -1,6 +1,10 @@
 import { useState, useMemo, useRef, useEffect, useId } from "react";
 import type { Destination } from "@/shared/types/destination";
-import { getCanonicalPlaces } from "@/shared/services/place/PlaceCatalog";
+import {
+  getFullPlaces,
+  hasLoadedFullIndex,
+  loadDestinationsIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import {
   Search,
@@ -65,9 +69,26 @@ export function SearchableDestinationPicker({
     }
   }, [activeIndex, isOpen]);
 
+  // KAI-121: the picker needs full destination data (ratings for the
+  // "popular" filter). Load the full index on mount — this is a
+  // full-data surface (trip planning), so awaiting is the explicit
+  // contract. Safe to call repeatedly: the loader shares one promise.
+  // Init from the shared loaded-state so preloaded sessions (tests,
+  // already-navigated apps) render full data synchronously.
+  const [fullLoaded, setFullLoaded] = useState(() => hasLoadedFullIndex());
+  useEffect(() => {
+    let alive = true;
+    void loadDestinationsIndex().then(() => {
+      if (alive) setFullLoaded(true);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
+
   const allDestinations = useMemo(
-    () => customDestinations ?? getCanonicalPlaces(),
-    [customDestinations],
+    () => customDestinations ?? (fullLoaded ? getFullPlaces() : []),
+    [customDestinations, fullLoaded],
   );
 
   const selectedDestination = useMemo(() => {

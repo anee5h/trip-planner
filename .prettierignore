@@ -16,3 +16,4 @@ reports
 scripts/models/derive-report.json
 scripts/audit/kai-89-dispositions.json
 src/shared/data/destinations-index.json
+public/data

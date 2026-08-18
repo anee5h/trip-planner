@@ -10,7 +10,16 @@
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
-import { afterEach, beforeEach, describe, it, expect, vi } from "vitest";
+import {
+  beforeAll,
+  afterEach,
+  beforeEach,
+  describe,
+  it,
+  expect,
+  vi,
+} from "vitest";
+import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 import Destinations from "../Destinations";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
@@ -80,6 +89,12 @@ vi.mock("@/shared/context/AuthModalContext", () => ({
 
 let root: Root | undefined;
 let host: HTMLDivElement | undefined;
+
+// KAI-121: full catalogue is runtime-lazy; preload so
+// useFullCatalogue renders full data synchronously in tests.
+beforeAll(async () => {
+  await loadDestinationsIndex();
+});
 
 beforeEach(() => {
   weatherMock.forecastMap = undefined;

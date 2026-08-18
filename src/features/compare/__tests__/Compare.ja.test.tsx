@@ -4,7 +4,16 @@
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
-import { afterEach, beforeEach, describe, it, expect, vi } from "vitest";
+import {
+  beforeAll,
+  afterEach,
+  beforeEach,
+  describe,
+  it,
+  expect,
+  vi,
+} from "vitest";
+import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 import Compare from "../Compare";
 import CompareModal from "../components/CompareModal";
 
@@ -74,6 +83,12 @@ vi.mock("react-i18next", () => ({
 
 let root: Root | undefined;
 let host: HTMLDivElement | undefined;
+
+// KAI-121: full catalogue is runtime-lazy; preload so
+// useFullCatalogue renders full data synchronously in tests.
+beforeAll(async () => {
+  await loadDestinationsIndex();
+});
 
 beforeEach(() => {
   compareState.compareList = ["kyoto-city", "osaka-city"];

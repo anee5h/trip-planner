@@ -17,7 +17,7 @@ import { diversifyRecommendations } from "../RecommendationPipeline";
 import type { Destination } from "@/shared/types/destination";
 import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 import type { PipelineRecommendation } from "../RecommendationTypes";
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
+import { getDestinationListAsync } from "@/shared/services/destination/DestinationService";
 import { getDayTripTravelEfficiency } from "../TripDurationService";
 
 // KAI-121: the full catalogue is runtime-lazy; tests that need full
@@ -268,14 +268,14 @@ describe("RecommendationScorer Unit Tests", () => {
     ).toEqual(["train", "car"]);
   });
 
-  it("keeps day-trip efficiency on the selected usable transport mode", () => {
+  it("keeps day-trip efficiency on the selected usable transport mode", async () => {
     // KAI-89 model pass: karuizawa-town's template budget was honestly
     // cleared (no verified ticket, insufficient peer samples), which would
     // make this fare-semantics test vacuous. nagano-city retains its
     // verified-fare corridor budget and exercises the same invariant.
-    const destination = (getDestinationList("en") as Destination[]).find(
-      (candidate) => candidate.id === "nagano-city",
-    )!;
+    const destination = (
+      (await getDestinationListAsync("en")) as Destination[]
+    ).find((candidate) => candidate.id === "nagano-city")!;
     const context = {
       vibe: "any",
       budget: 40000,

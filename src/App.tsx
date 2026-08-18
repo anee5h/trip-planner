@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
 import { AuthProvider } from "./shared/hooks/useAuth";
-import { loadDestinationsIndex } from "./shared/services/place/PlaceCatalog";
 import { TripStoreProvider } from "./shared/hooks/useTripStore";
 import Navbar from "./shared/components/layout/Navbar";
 import Footer from "./shared/components/layout/Footer";
@@ -173,16 +172,11 @@ function AppInner() {
 }
 
 function App() {
-  // KAI-121: preload the lazy full catalogue once at app root so EVERY
-  // route (Home, /destinations, Compare, search, recommendation) reads
-  // complete data as soon as it arrives. The 6.2 MB index is still a
-  // fetched on-demand chunk (not in the initial bundle); this just starts
-  // the fetch immediately after first paint instead of waiting for a
-  // per-route trigger.
-  useEffect(() => {
-    void loadDestinationsIndex();
-  }, []);
-
+  // KAI-121 (rework): NO app-root catalogue preload. Legal/settings/
+  // account/etc. must not fetch the full index. Only routes/features that
+  // genuinely require the complete catalogue trigger
+  // loadDestinationsIndex() themselves (Home, /destinations, Compare,
+  // search-on-demand, recommendation paths).
   return (
     <AuthProvider>
       <ThemeProvider>

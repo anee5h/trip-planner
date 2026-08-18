@@ -2,8 +2,11 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
-import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
+import { useFullCatalogue } from "@/shared/hooks/useFullCatalogue";
+import {
+  getLitePlaces,
+  getLocalizedPlace,
+} from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
 import { useAuth } from "@/shared/hooks/useAuth";
 import DestinationCard from "@/features/destinations/components/DestinationCard";
@@ -129,7 +132,14 @@ export default function Destinations() {
   } = useTripStore();
   const { locale } = useLocale();
   const { t } = useTranslation();
-  const allDestinations = (getDestinationList("en") as Destination[]).map(
+  // KAI-121: the explorer is a list/filter surface. First paint renders the
+  // SYNCHRONOUS summary (id/name/ratings/budget/transportOptions/coordinates
+  // — all in the lite index), then upgrades to full records when the lazy
+  // catalogue arrives. Filters that need full-only fields (budget breakdown,
+  // editorial) resolve after the upgrade; the summary never silently stands
+  // in for missing data (it is formally complete for the listed fields).
+  const { places, loading } = useFullCatalogue();
+  const allDestinations = (loading ? getLitePlaces() : places).map(
     (destination) => getLocalizedPlace(destination, locale),
   );
   const [searchQuery, setSearchQuery] = useState(

@@ -1,11 +1,16 @@
 import type { Destination } from "@/shared/types/destination";
 import {
-  getCanonicalPlaces,
   getAvailablePlaces,
+  getFullPlaces,
+  hasLoadedFullIndex,
   isPlaceAvailableInLocale,
+  loadDestinationsIndex,
   toCanonicalPlace,
 } from "@/shared/services/place/PlaceCatalog";
 
+/** Summary list (KAI-121 contract): synchronous, formally complete for
+ *  first-paint / search / list surfaces. Full-data consumers must use
+ *  getDestinationListAsync() or await the full index. */
 export function getDestinationList(
   locale: "en" | "ja" = "en",
 ): Partial<Destination>[] {
@@ -22,6 +27,22 @@ export function getDestinationList(
     }
     return dest;
   });
+}
+
+/**
+ * KAI-121 async full-catalogue list: awaits the full index, then returns
+ * the complete destination records. Routes/features that genuinely need
+ * full data (budget fields, transport metadata, editorial content) call
+ * this. Safe to call repeatedly — the loader shares one promise.
+ */
+export async function getDestinationListAsync(
+  locale: "en" | "ja" = "en",
+): Promise<Partial<Destination>[]> {
+  await loadDestinationsIndex();
+  const full = getFullPlaces() as Partial<Destination>[];
+  return full.filter((dest) =>
+    isPlaceAvailableInLocale(dest as Destination, locale),
+  );
 }
 
 /**
@@ -68,22 +89,41 @@ async function loadDestination(id: string): Promise<Destination | null> {
     // Fallback to index below
   }
 
-  // Fallback to in-memory destinationsIndex
-  const indexMatch = getCanonicalPlaces().find((d) => d.id === id);
-  if (indexMatch) {
+  // Fallback: summary index first (always available), then the full index
+  // if it has already been loaded (or after awaiting it).
+  const summaryMatch = getAvailablePlaces().find((d) => d.id === id);
+  if (summaryMatch && hasLoadedFullIndex()) {
+    const fullMatch = getFullPlaces().find((d) => d.id === id);
+    if (fullMatch) {
+      if (
+        fullMatch.transportOptions?.car &&
+        !fullMatch.transportOptions.my_car
+      ) {
+        return {
+          ...fullMatch,
+          transportOptions: {
+            ...fullMatch.transportOptions,
+            my_car: fullMatch.transportOptions.car,
+          },
+        };
+      }
+      return fullMatch;
+    }
+  }
+  if (summaryMatch) {
     if (
-      indexMatch.transportOptions?.car &&
-      !indexMatch.transportOptions.my_car
+      summaryMatch.transportOptions?.car &&
+      !summaryMatch.transportOptions.my_car
     ) {
       return {
-        ...indexMatch,
+        ...summaryMatch,
         transportOptions: {
-          ...indexMatch.transportOptions,
-          my_car: indexMatch.transportOptions.car,
+          ...summaryMatch.transportOptions,
+          my_car: summaryMatch.transportOptions.car,
         },
       };
     }
-    return indexMatch;
+    return summaryMatch as Destination;
   }
 
   return null;

@@ -3,7 +3,7 @@ import type { CatchmentScope } from "@/shared/types/planner";
 import { findNearbyCombinations } from "./DestinationCombinationService";
 import {
   getLocalizedPlace,
-  getCanonicalPlaces,
+  getFullPlaces,
 } from "@/shared/services/place/PlaceCatalog";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import type { RecommendationContext } from "./RecommendationContext";
@@ -340,7 +340,7 @@ export function resolveReturnEndpoint(
   if (mode === "anchor") return anchor;
   if (mode === "none") return null;
 
-  const catsToUse = catalogue.length ? catalogue : getCanonicalPlaces();
+  const catsToUse = catalogue.length ? catalogue : getFullPlaces();
 
   const rels = finalStop.relationships as Record<string, unknown> | undefined;
   const nearestStationId = rels?.nearestStationId as string | undefined;
@@ -410,7 +410,7 @@ export function generateDayPlan(
   const catalogue =
     options?.catalogue && options.catalogue.length
       ? options.catalogue
-      : getCanonicalPlaces();
+      : getFullPlaces();
 
   const startMinsFromMidnight = parseTimeToMinutes(
     options?.startTime || "09:00",
@@ -1100,7 +1100,7 @@ export function rebuildPlanFromEditedStops(
     startMins,
     scope,
     returnMode,
-    getCanonicalPlaces(),
+    getFullPlaces(),
     preserveOrder,
   );
 

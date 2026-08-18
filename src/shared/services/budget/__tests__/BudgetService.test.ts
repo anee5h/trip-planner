@@ -16,13 +16,23 @@ import {
 import * as BudgetServiceModule from "../BudgetService";
 import type { Destination } from "@/shared/types/destination";
 import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
+import { getDestinationListAsync } from "@/shared/services/destination/DestinationService";
 
 // KAI-121: the full catalogue is runtime-lazy; tests that need full
 // destination fields must preload it before the sync accessors read it.
 beforeAll(async () => {
   await loadDestinationsIndex();
 });
+
+// KAI-121: full-data accessor for tests. The loader is already awaited in
+// beforeAll, so this resolves immediately with the FULL records (the sync
+// getDestinationList now returns the SUMMARY catalogue).
+let fullListCache:
+  Partial<import("@/shared/types/destination").Destination>[] | null = null;
+async function fullList() {
+  if (!fullListCache) fullListCache = await getDestinationListAsync("en");
+  return fullListCache;
+}
 
 const mockPaidDest = {
   id: "shibuya-sky",
@@ -464,8 +474,8 @@ describe("KAI-89 per-person budget contract", () => {
   // resolution would read the lite summary and miss budget fields).
   let perPersonDest: Destination;
 
-  beforeAll(() => {
-    perPersonDest = getDestinationList("en").find(
+  beforeAll(async () => {
+    perPersonDest = (await fullList()).find(
       (d) => d.id === "nagano-city",
     ) as unknown as Destination;
   });
@@ -550,8 +560,8 @@ describe("KAI-89 per-person budget contract", () => {
 });
 
 describe("KAI-89 unknown-budget contract (missing ≠ 0/free)", () => {
-  it("a record with no budget fields has no known range and no breakdown", () => {
-    const unknown = getDestinationList("en").find(
+  it("a record with no budget fields has no known range and no breakdown", async () => {
+    const unknown = (await fullList()).find(
       (d) => d.id === "amami-iriomote-natural-site",
     ) as unknown as Destination;
     expect(unknown.budgetMetadata?.method).toBe("unknown");
@@ -562,8 +572,8 @@ describe("KAI-89 unknown-budget contract (missing ≠ 0/free)", () => {
     expect(getEffectiveBudgetBreakdown(unknown)).toBeNull();
   });
 
-  it("unknown budget never yields a zero/positive estimate range", () => {
-    const unknown = getDestinationList("en").find(
+  it("unknown budget never yields a zero/positive estimate range", async () => {
+    const unknown = (await fullList()).find(
       (d) => d.id === "amami-iriomote-natural-site",
     ) as unknown as Destination;
     const r = getEstimatedBudgetRange(unknown, "train", 2, "standard", {
@@ -573,8 +583,8 @@ describe("KAI-89 unknown-budget contract (missing ≠ 0/free)", () => {
     expect(r.range).toBeNull();
   });
 
-  it("getAdjustedBudget returns null for an unknown budget", () => {
-    const unknown = getDestinationList("en").find(
+  it("getAdjustedBudget returns null for an unknown budget", async () => {
+    const unknown = (await fullList()).find(
       (d) => d.id === "amami-iriomote-natural-site",
     ) as unknown as Destination;
     expect(
@@ -588,8 +598,8 @@ describe("KAI-89 unknown-budget contract (missing ≠ 0/free)", () => {
     ).toBeNull();
   });
 
-  it("known per-person budgets still scale correctly for parties 1/2/3/4", () => {
-    const d = getDestinationList("en").find(
+  it("known per-person budgets still scale correctly for parties 1/2/3/4", async () => {
+    const d = (await fullList()).find(
       (x) => x.id === "nagano-city",
     ) as unknown as Destination;
     const coords = { lat: 35.6812, lng: 139.7671 };
@@ -629,13 +639,13 @@ describe("KAI-89 no-synthetic-breakdown contract", () => {
 describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", () => {
   const TOKYO = { lat: 35.6812, lng: 139.7671 };
 
-  it("getEstimatedBudgetRange includes the per-person on-site transit allowance", () => {
+  it("getEstimatedBudgetRange includes the per-person on-site transit allowance", async () => {
     // boso-peninsula: breakdown {transport:7467, tickets:0, food:6400,
     // cafe:2133}. Without on-site transport the party-2 economy max was
     // ~17,667 (PASSED economy ≤ 20,000); with 7467×2 it is ~32,718 and must
     // be EXCLUDED from the economy tier. Removing budgetBreakdown.transport
     // from the origin-aware calculation fails this test.
-    const boso = getDestinationList("en").find(
+    const boso = (await fullList()).find(
       (d) => d.id === "boso-peninsula",
     ) as unknown as Destination;
     const r = getEstimatedBudgetRange(boso, "train", 2, "economy", TOKYO);
