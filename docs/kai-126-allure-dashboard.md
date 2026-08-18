@@ -81,10 +81,18 @@ Pages binding name stays `E2E_REPORT` regardless of the bucket name.
   framework assets) for emails, JWTs, Supabase secrets, auth headers,
   cookies, private keys. ZIP/trace contents are inspected in memory.
 - Known public values (e.g. `info@meguruto.app`) are allowlisted.
-- The scan runs BLOCKING in every E2E job **before** `allure-results-*`
-  artifacts are uploaded, and again on the aggregated report before
-  `allure-report-preview` — because this repository is public and Actions
-  artifacts are readable by anyone with repo read access.
+- **Public Actions artifacts contain TEXT/TRACE DIAGNOSTICS ONLY.**
+  Binary screenshot/video attachments (PNG/JPG/WebP/WebM/MP4…) cannot be
+  declared safe by a regex scanner and are REMOVED (`--sanitize`) before
+  any public upload — for `test-results/`, `allure-results/` (normal +
+  PWA), and the aggregated report preview. A future verified-safe
+  private-only mechanism could restore binaries; until then they are
+  excluded. (The private authenticated R2 store retains report data, which
+  is itself sanitized by the trusted-main re-scan.)
+- The scans run BLOCKING before every artifact upload, and the upload
+  conditions are `!cancelled() && scan-outcome == 'success'` — a failed
+  test run still uploads its diagnostics when the privacy scan passed,
+  and a failed scan NEVER uploads.
 - JWT/auth/cookie/private-key detection stays strict.
 
 ## CSP & analytics

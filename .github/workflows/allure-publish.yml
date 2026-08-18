@@ -96,20 +96,19 @@ jobs:
           fi
 
       - name: Write executor.json (CI metadata with monotonic buildOrder)
-        run: |
-          cat > allure-download/executor.json <<EOF
-          {
-            "name": "GitHub Actions",
-            "type": "github",
-            "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}",
-            "buildName": "${{ github.event.workflow_run.display_title }} @ ${{ github.event.workflow_run.head_sha }}",
-            "buildUrl": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}",
-            "reportName": "Meguruto E2E Dashboard",
-            "reportUrl": "https://meguruto.app/e2e",
-            "buildOrder": ${{ github.run_number }}
-          }
-          EOF
-          echo "executor.json written (buildOrder=${{ github.run_number }})"
+        # SECURITY: display_title (PR-controlled on a public repo) is NEVER
+        # interpolated into shell source. It arrives via env and is
+        # serialized with JSON.stringify in write-allure-executor.mjs — a
+        # value can never become executable code.
+        env:
+          EXECUTOR_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          EXECUTOR_BUILD_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          # Fixed prefix + head SHA (SHA is a hex hash, not attacker-controlled
+          # text); display_title is deliberately NOT included in the shell.
+          EXECUTOR_BUILD_NAME: build ${{ github.event.workflow_run.head_sha }}
+          EXECUTOR_BUILD_ORDER: ${{ github.run_number }}
+          OUTPUT_DIR: allure-download
+        run: node scripts/write-allure-executor.mjs
 
       - name: Generate Allure report (analytics off)
         run: |

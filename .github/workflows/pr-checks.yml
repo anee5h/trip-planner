@@ -138,7 +138,9 @@ jobs:
         run: node scripts/check-allure-privacy.mjs test-results --sanitize
 
       - name: Upload Playwright failure artifacts
-        if: ${{ steps.scan-test-results.outcome == 'success' }}
+        # Explicit status function bypasses the implicit success() gate so a
+        # FAILED test run still uploads diagnostics (privacy-passing only).
+        if: ${{ !cancelled() && steps.scan-test-results.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: playwright-${{ matrix.project }}-bin${{ matrix.bin }}
@@ -151,10 +153,12 @@ jobs:
         # The repo is public; Actions artifacts are readable by anyone with
         # read access. BLOCKING: fail the job if allure-results contain
         # unallowlisted emails/JWTs/secrets BEFORE they are uploaded.
-        run: node scripts/check-allure-privacy.mjs allure-results
+        # --sanitize removes binary screenshots/videos (uninspectable) so
+        # public artifacts carry text/trace diagnostics only.
+        run: node scripts/check-allure-privacy.mjs allure-results --sanitize
 
       - name: Upload Allure results
-        if: ${{ steps.scan-allure.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.scan-allure.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: allure-results-${{ matrix.project }}-bin${{ matrix.bin }}
@@ -218,7 +222,9 @@ jobs:
         run: node scripts/check-allure-privacy.mjs test-results --sanitize
 
       - name: Upload Playwright failure artifacts
-        if: ${{ steps.scan-pwa-test-results.outcome == 'success' }}
+        # Explicit status function bypasses the implicit success() gate so a
+        # FAILED test run still uploads diagnostics (privacy-passing only).
+        if: ${{ !cancelled() && steps.scan-pwa-test-results.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: playwright-pwa
@@ -228,10 +234,10 @@ jobs:
       - name: Privacy scan Allure results (PWA — public repo artifacts)
         id: scan-pwa-allure
         if: ${{ !cancelled() }}
-        run: node scripts/check-allure-privacy.mjs allure-results
+        run: node scripts/check-allure-privacy.mjs allure-results --sanitize
 
       - name: Upload Allure results (PWA)
-        if: ${{ steps.scan-pwa-allure.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.scan-pwa-allure.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: allure-results-pwa
@@ -281,7 +287,7 @@ jobs:
         run: node scripts/check-allure-privacy.mjs allure-report
 
       - name: Upload Allure report artifact
-        if: ${{ steps.scan-report-preview.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.scan-report-preview.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: allure-report-preview
