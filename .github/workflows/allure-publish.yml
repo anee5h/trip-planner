@@ -1,0 +1,54 @@
+# KAI-126: publish the aggregated Allure E2E dashboard to public/e2e.
+#
+# Runs AFTER a PR merges to main (the PR workflow cannot push — GITHUB_REF
+# is refs/pull/N/merge there, and GitHub denies updating that hidden ref).
+# On main, the generated report is committed to public/e2e so Cloudflare
+# Pages serves it at /e2e, protected by the Access-guard Pages Function.
+#
+# History: successive main runs regenerate public/e2e with --clean; Allure
+# writes history.json from the previous report dir when present, so trends
+# survive across runs (no fabricated history — each run uses real results
+# from its own E2E jobs, which must all pass to reach main).
+
+name: Allure Publish
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  allure-publish:
+    name: Generate + publish Allure dashboard
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run E2E (all projects) to collect fresh Allure results
+        run: npx playwright test
+
+      - name: Generate Allure report into public/e2e
+        run: |
+          npx allure generate allure-results -o public/e2e --clean
+          echo "Allure report generated."
+
+      - name: Commit + push generated report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/e2e
+          git commit -m "chore(allure): update E2E dashboard [skip ci]" || echo "no changes"
+          git push origin main

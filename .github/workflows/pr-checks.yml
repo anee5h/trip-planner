@@ -201,15 +201,11 @@ jobs:
           if-no-files-found: ignore
 
   allure-report:
-    name: Allure report (aggregate + publish)
+    name: Allure report (aggregate + preview)
     runs-on: ubuntu-latest
     needs: [e2e, pwa-e2e]
     if: ${{ always() }}
     timeout-minutes: 15
-    # Overrides the workflow-level contents: read — this job commits the
-    # generated report back to the branch.
-    permissions:
-      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -230,18 +226,21 @@ jobs:
           pattern: allure-results-*
           merge-multiple: true
 
-      - name: Generate Allure report into public/e2e
+      - name: Generate Allure report
         run: |
-          npx allure generate allure-download -o public/e2e --clean
+          npx allure generate allure-download -o allure-report --clean
           echo "Allure report generated."
 
-      - name: Commit + push generated report
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/e2e
-          git commit -m "chore(allure): update E2E dashboard [skip ci]" || echo "no changes"
-          git push origin HEAD:$(echo ${GITHUB_REF#refs/heads/})
+      # PR context cannot push (GITHUB_REF is refs/pull/N/merge, and GitHub
+      # denies updating that hidden ref). The report is uploaded as an
+      # artifact for inspection; publishing to public/e2e happens on main
+      # push via .github/workflows/allure-publish.yml (post-merge).
+      - name: Upload Allure report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-preview
+          path: allure-report/
+          retention-days: 14
 
   catalogue-fast:
     runs-on: ubuntu-latest
