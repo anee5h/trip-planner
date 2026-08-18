@@ -130,45 +130,6 @@ jobs:
       - name: Validate shard manifest coverage
         run: node scripts/e2e-shards.mjs --check
 
-  # TEMPORARY KAI-99 evidence job: worker-count benchmark. Bin 3 has
-  # three substantial INDEPENDENT files (kai-63, kai-74, kai-94, ~329s/
-  # project) — with fullyParallel:false, 2 workers schedule at most two
-  # files concurrently while 3 workers can schedule all three, so this is
-  # a real worker-contention comparison (bin 1 would be a single serial
-  # file and thus worker-count-agnostic). Removed after the numbers are
-  # recorded in the PR; no production config change is intended.
-  e2e-benchmark:
-    name: E2E worker benchmark (bin 3 · ${{ matrix.workers }} workers)
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    strategy:
-      fail-fast: false
-      matrix:
-        workers: [2, 3]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install Chromium
-        run: npx playwright install --with-deps chromium
-
-      - name: Benchmark test phase (${{ matrix.workers }} workers)
-        shell: bash
-        run: |
-          start=$(date +%s)
-          npx playwright test --project=chromium-desktop --workers=${{ matrix.workers }} $(node scripts/e2e-shards.mjs --bin 3)
-          end=$(date +%s)
-          echo "BENCHMARK workers=${{ matrix.workers }} test_phase_seconds=$((end - start))"
-
   pwa-e2e:
     name: PWA E2E (production build)
     runs-on: ubuntu-latest
