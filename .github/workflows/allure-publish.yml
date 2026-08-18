@@ -1,0 +1,173 @@
+# KAI-126: publish the aggregated Allure E2E dashboard to PRIVATE R2 storage.
+#
+# TRUSTED-MAIN INGESTION workflow. Trigger: `workflow_run` — fires when the
+# "PR Checks" workflow COMPLETES (success OR failure). Because workflow_run
+# workflows always execute the workflow file FROM THE DEFAULT BRANCH (main),
+# this publisher's code is always trusted main code — it never checks out or
+# executes PR code. It downloads only the allure-results-* DATA artifacts
+# (never code), RE-SCANS them with main's privacy scanner, and writes to the
+# private R2 bucket.
+#
+# Ingesting FAILED runs is intentional: KAI-126 requires real pass/fail CI
+# history (failed tests, recurring failures, trends), which a success-only
+# pipeline can never show. Failures are part of the dashboard's job.
+#
+# Pipeline (no browser/test execution):
+#   1. locate the completed PR Checks run + its head/branch metadata
+#   2. download the sanitized allure-results-* artifacts from that run
+#   3. RE-SCAN with trusted-main privacy code (public repo — artifacts are
+#      readable; the R2 store must get a second, main-branch scan)
+#   4. restore the previous report's history/ from R2 (Allure 2 mechanism)
+#   5. write executor.json (buildOrder + full CI metadata)
+#   6. generate (ALLURE_NO_ANALYTICS + GTM strip), privacy-scan again
+#   7. upload to R2 atomically: assets/data FIRST, index.html LAST
+#
+# Serialization: `concurrency` WITHOUT cancel-in-progress — an arriving run
+# waits for the previous history update to finish (never cancels it, so
+# history is never lost/raced).
+
+name: Allure Publish (R2)
+
+on:
+  workflow_run:
+    workflows: ["PR Checks"]
+    types: [completed]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: allure-publish
+  cancel-in-progress: false
+
+env:
+  E2E_REPORT_BUCKET: ${{ vars.E2E_REPORT_R2_BUCKET || 'meguruto-e2e-report' }}
+
+jobs:
+  aggregate-and-publish:
+    name: Aggregate + publish to R2
+    runs-on: ubuntu-latest
+    # TRUST GUARD: this privileged workflow_run job can access Cloudflare
+    # secrets. GitHub warns that workflow_run is privileged and that
+    # artifacts from FORK PRs must be treated as untrusted. Meguruto has no
+    # reason to let an arbitrary fork update the private engineering
+    # dashboard — only SAME-REPOSITORY pull_request runs are ingested.
+    if: >
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.head_repository.full_name == github.repository &&
+      (github.event.workflow_run.pull_requests[0] == null ||
+       github.event.workflow_run.pull_requests[0].base.repo.full_name == github.repository)
+    timeout-minutes: 20
+    steps:
+      - name: Checkout (default branch — trusted main code only)
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download Allure results from the completed PR Checks run
+        uses: actions/download-artifact@v4
+        with:
+          path: allure-download
+          pattern: allure-results-*
+          merge-multiple: true
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Re-scan downloaded results with trusted-main privacy code
+        # Second, main-branch scan: the artifacts came from PR-runnable
+        # jobs; the R2 store must only ever receive main-approved data.
+        run: node scripts/check-allure-privacy.mjs allure-download --sanitize
+
+      - name: Restore previous report history from R2
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          # Allure 2 history: the ENTIRE history/ directory must be copied
+          # into the new result set BEFORE generation. R2 uses the single
+          # bucket/key path.
+          mkdir -p previous-report allure-download/history
+          for hf in history.json history-trend.json duration-trend.json categories-trend.json retry-trend.json; do
+            npx wrangler r2 object get "$E2E_REPORT_BUCKET/history/$hf" --remote \
+              -o "previous-report/$hf" 2>/dev/null || echo "  (no previous $hf — first run)"
+          done
+          if ls previous-report/*.json >/dev/null 2>&1; then
+            cp previous-report/*.json allure-download/history/
+            echo "restored previous history: $(ls previous-report | wc -l) file(s)"
+          fi
+
+      - name: Write executor.json (CI metadata with monotonic buildOrder)
+        # SECURITY: display_title (PR-controlled on a public repo) is NEVER
+        # interpolated into shell source. It arrives via env and is
+        # serialized with JSON.stringify in write-allure-executor.mjs — a
+        # value can never become executable code.
+        env:
+          EXECUTOR_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          EXECUTOR_BUILD_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          # Fixed prefix + head SHA (SHA is a hex hash, not attacker-controlled
+          # text); display_title is deliberately NOT included in the shell.
+          EXECUTOR_BUILD_NAME: build ${{ github.event.workflow_run.head_sha }}
+          EXECUTOR_BUILD_ORDER: ${{ github.run_number }}
+          OUTPUT_DIR: allure-download
+        run: node scripts/write-allure-executor.mjs
+
+      - name: Generate Allure report (analytics off)
+        run: |
+          ALLURE_NO_ANALYTICS=1 npx allure generate allure-download -o allure-report --clean
+          echo "Allure report generated (ALLURE_NO_ANALYTICS=1)."
+
+      - name: Strip GTM analytics from generated HTML (defense in depth)
+        # Allure 2.43 still embeds a GTM snippet despite the env opt-out;
+        # remove it deterministically so the private dashboard never phones
+        # home (the /e2e CSP also excludes external origins).
+        run: node scripts/strip-allure-analytics.mjs allure-report
+
+      - name: Privacy/secrets scan of generated report
+        run: node scripts/check-allure-privacy.mjs allure-report
+
+      - name: Upload report to R2 (private, not the repo) — index.html LAST
+        if: ${{ vars.ALLURE_PUBLISH_READY == '1' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          # Wrangler R2 single bucket/key path; --content-type preserves MIME.
+          # ATOMIC-ish: upload assets/data first, index.html LAST so a reader
+          # never sees a half-written dashboard (R2 objects are individually
+          # atomic; ordering assets-first minimizes the partial window).
+          cd allure-report
+          INDEX_KEY="index.html"
+          for f in $(find . -type f ! -name "$INDEX_KEY" | sort); do
+            key="${f#./}"
+            ct="application/octet-stream"
+            case "$key" in
+              *.html) ct="text/html; charset=utf-8" ;;
+              *.js)   ct="application/javascript" ;;
+              *.css)  ct="text/css" ;;
+              *.json) ct="application/json" ;;
+              *.svg)  ct="image/svg+xml" ;;
+              *.png)  ct="image/png" ;;
+              *.jpg|*.jpeg) ct="image/jpeg" ;;
+              *.gif)  ct="image/gif" ;;
+              *.woff2) ct="font/woff2" ;;
+              *.woff) ct="font/woff" ;;
+              *.webp) ct="image/webp" ;;
+            esac
+            npx wrangler r2 object put "$E2E_REPORT_BUCKET/$key" --file "$f" --content-type "$ct" --remote
+          done
+          # index.html last.
+          npx wrangler r2 object put "$E2E_REPORT_BUCKET/$INDEX_KEY" --file "$INDEX_KEY" --content-type "text/html; charset=utf-8" --remote
+          echo "Uploaded $(find . -type f | wc -l) files to R2 bucket $E2E_REPORT_BUCKET (index.html last)"
+
+      - name: Privacy gate not ready — report staged, not published
+        if: ${{ vars.ALLURE_PUBLISH_READY != '1' }}
+        run: |
+          echo "::warning::ALLURE_PUBLISH_READY is not set to 1. The report was generated and privacy-scanned but NOT uploaded to R2. Set the repository variable ALLURE_PUBLISH_READY=1 after inspecting a representative report."

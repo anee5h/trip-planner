@@ -2,6 +2,11 @@ import { defineConfig, devices } from "@playwright/test";
 
 const pwaE2e = process.env.PWA_E2E === "1";
 
+// KAI-126: CI context attached to every Allure result (project + shard bin
+// + commit + workflow run) so the dashboard is self-describing.
+const project = process.env.PLAYWRIGHT_PROJECT ?? "";
+const bin = process.env.CI_BIN ?? "";
+
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: false,
@@ -17,7 +22,35 @@ export default defineConfig({
     // (kai-49 html lang switch, kai-85 date selection) on slow runners.
     timeout: 30_000,
   },
-  reporter: "list",
+  reporter: [
+    ["list"],
+    [
+      "allure-playwright",
+      {
+        outputFolder: "allure-results",
+        // KAI-126: per-test globalLabels (NOT environmentInfo — that is
+        // report-level and the LAST run wins when shards are aggregated;
+        // globalLabels attach to each test result so every shard/project
+        // combination keeps its identity in the merged dashboard).
+        globalLabels: {
+          playwrightProject: project || "local",
+          ...(bin ? { ciBin: bin } : {}),
+          // Use the PR HEAD sha (not GITHUB_SHA, which on PR workflows is
+          // the temporary merge ref). Same convention for normal + PWA.
+          ...(process.env.PR_HEAD_SHA
+            ? { commit: process.env.PR_HEAD_SHA.slice(0, 8) }
+            : {}),
+          ...(process.env.PR_NUMBER ? { prNumber: process.env.PR_NUMBER } : {}),
+          ...(process.env.PR_HEAD_REF
+            ? { branch: process.env.PR_HEAD_REF }
+            : {}),
+          ...(process.env.GITHUB_RUN_ID
+            ? { workflowRun: process.env.GITHUB_RUN_ID }
+            : {}),
+        },
+      },
+    ],
+  ],
   // KAI-99: one CI retry absorbs residual runner-contention flakes so a PR
   // does not need a manual rerun for nondeterministic failures. Local runs
   // keep retries off. Unstable tests should still be redesigned, not hidden.
@@ -26,8 +59,10 @@ export default defineConfig({
     baseURL: "http://127.0.0.1:4173",
     locale: "en-US",
     timezoneId: "Asia/Tokyo",
-    trace: "retain-on-failure",
     screenshot: "only-on-failure",
+    // KAI-126: keep traces for Allure diagnostics (retain-on-failure
+    // preserves the last run's trace for failure analysis).
+    trace: "retain-on-failure",
   },
   projects: [
     {

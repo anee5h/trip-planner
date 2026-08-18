@@ -110,6 +110,12 @@ jobs:
 
       - name: Playwright E2E (bin ${{ matrix.bin }}/4 · ${{ matrix.project }})
         shell: bash
+        env:
+          PLAYWRIGHT_PROJECT: ${{ matrix.project }}
+          CI_BIN: ${{ matrix.bin }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
         run: |
           set -o pipefail
           npx playwright test --project=${{ matrix.project }} $(node scripts/e2e-shards.mjs --bin ${{ matrix.bin }}) 2>&1 | tee /tmp/e2e-output.log
@@ -122,12 +128,41 @@ jobs:
           grep -oE "\[[a-z-]+\] › [^(]*\([0-9.]+s\)" /tmp/e2e-output.log 2>/dev/null \
             | sed -E 's/.*\(([0-9.]+)s\)$/\1s  &/' | sort -rn | head -5 || true
 
-      - name: Upload Playwright failure artifacts
+      - name: Privacy scan Playwright test-results (public repo artifacts)
+        id: scan-test-results
         if: ${{ !cancelled() }}
+        # test-results/ holds screenshots + traces (may embed network/auth
+        # context). BLOCKING scan before upload; also removes binary
+        # attachments (screenshots/videos) that a regex scanner cannot
+        # declare safe from the public artifact set.
+        run: node scripts/check-allure-privacy.mjs test-results --sanitize
+
+      - name: Upload Playwright failure artifacts
+        # Explicit status function bypasses the implicit success() gate so a
+        # FAILED test run still uploads diagnostics (privacy-passing only).
+        if: ${{ !cancelled() && steps.scan-test-results.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: playwright-${{ matrix.project }}-bin${{ matrix.bin }}
           path: test-results/
+          if-no-files-found: ignore
+
+      - name: Privacy scan Allure results (public repo artifacts)
+        id: scan-allure
+        if: ${{ !cancelled() }}
+        # The repo is public; Actions artifacts are readable by anyone with
+        # read access. BLOCKING: fail the job if allure-results contain
+        # unallowlisted emails/JWTs/secrets BEFORE they are uploaded.
+        # --sanitize removes binary screenshots/videos (uninspectable) so
+        # public artifacts carry text/trace diagnostics only.
+        run: node scripts/check-allure-privacy.mjs allure-results --sanitize
+
+      - name: Upload Allure results
+        if: ${{ !cancelled() && steps.scan-allure.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-${{ matrix.project }}-bin${{ matrix.bin }}
+          path: allure-results/
           if-no-files-found: ignore
 
   e2e-coverage:
@@ -174,15 +209,137 @@ jobs:
         run: npx playwright install chromium
 
       - name: PWA E2E against the production build
+        env:
+          PLAYWRIGHT_PROJECT: pwa
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
         run: npm run test:pwa
 
-      - name: Upload Playwright failure artifacts
+      - name: Privacy scan Playwright test-results (PWA — public repo artifacts)
+        id: scan-pwa-test-results
         if: ${{ !cancelled() }}
+        run: node scripts/check-allure-privacy.mjs test-results --sanitize
+
+      - name: Upload Playwright failure artifacts
+        # Explicit status function bypasses the implicit success() gate so a
+        # FAILED test run still uploads diagnostics (privacy-passing only).
+        if: ${{ !cancelled() && steps.scan-pwa-test-results.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: playwright-pwa
           path: test-results/
           if-no-files-found: ignore
+
+      - name: Privacy scan Allure results (PWA — public repo artifacts)
+        id: scan-pwa-allure
+        if: ${{ !cancelled() }}
+        run: node scripts/check-allure-privacy.mjs allure-results --sanitize
+
+      - name: Upload Allure results (PWA)
+        if: ${{ !cancelled() && steps.scan-pwa-allure.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-pwa
+          path: allure-results/
+          if-no-files-found: ignore
+
+  allure-report:
+    name: Allure report (aggregate + preview)
+    runs-on: ubuntu-latest
+    needs: [e2e, pwa-e2e]
+    if: ${{ always() }}
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download Allure results from all E2E jobs
+        uses: actions/download-artifact@v4
+        with:
+          path: allure-download
+          pattern: allure-results-*
+          merge-multiple: true
+
+      - name: Generate Allure report
+        run: |
+          npx allure generate allure-download -o allure-report --clean
+          echo "Allure report generated."
+
+      - name: Strip GTM analytics from generated HTML
+        run: node scripts/strip-allure-analytics.mjs allure-report
+
+      # PR context cannot push (GITHUB_REF is refs/pull/N/merge, and GitHub
+      # denies updating that hidden ref). The report is uploaded as an
+      # artifact for inspection; publishing to the private R2 store happens
+      # post-merge via .github/workflows/allure-publish.yml (push to main).
+      - name: Privacy scan generated report (public repo artifacts)
+        id: scan-report-preview
+        run: node scripts/check-allure-privacy.mjs allure-report
+
+      - name: Upload Allure report artifact
+        if: ${{ !cancelled() && steps.scan-report-preview.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-preview
+          path: allure-report/
+          retention-days: 14
+
+  protected-routes:
+    name: Protected-route boundary checks (KAI-126)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-browsers-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Chromium
+        # Same no--with-deps policy as the KAI-99 E2E jobs (the browser
+        # smoke step boots the real Allure report in Chromium).
+        run: npx playwright install chromium
+
+      - name: Build Pages assets (hermetic — wrangler pages dev needs dist/)
+        # The boundary test boots `wrangler pages dev dist`; dist/ must
+        # exist and contain index.html for the /qa ASSETS fetch to work.
+        run: npm run build
+
+      - name: Deterministic auth boundary tests (real JWKS + signed JWTs)
+        # Generates a throwaway RSA keypair, runs a local JWKS server, and
+        # exercises no-token/malformed/expired/wrong-aud/wrong-issuer/bad-sig
+        # deny paths plus the valid-token allow path against the real Pages
+        # Function via wrangler dev, and boots the real Allure report in
+        # Chromium (browser smoke).
+        run: node scripts/check-protected-routes.mjs
+
+      - name: Allure history + failure-fixture checks (deterministic)
+        # Controlled failing-report fixture (failure + attachment) and a
+        # two-run history-continuity test (run A -> history -> run B),
+        # exercising the exact restore mechanism the publisher uses.
+        run: node scripts/check-allure-history.mjs
 
   catalogue-fast:
     runs-on: ubuntu-latest

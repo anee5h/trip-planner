@@ -1,0 +1,14 @@
+// KAI-126 test-only wrangler config: binds a LOCAL R2 bucket so the
+// deterministic boundary test can prove the /e2e Function serves real
+// HTML/JS assets with correct MIME + robots headers through the auth gate.
+// This file is NOT used in production (Pages uses the dashboard config).
+{
+  "name": "meguruto-kai126-test",
+  "compatibility_date": "2024-11-01",
+  "r2_buckets": [
+    {
+      "binding": "E2E_REPORT",
+      "bucket_name": "kai126-test-report",
+    },
+  ],
+}
