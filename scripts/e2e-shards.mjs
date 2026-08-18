@@ -115,6 +115,37 @@ function check() {
     }
   }
 
+  // Weight membership: every NORMAL binned spec must carry a finite
+  // positive weight (a missing weight silently degenerates to 0 and
+  // recreates the imbalance this manifest exists to prevent). PWA-only
+  // specs may be exactly 0. Stale WEIGHTS entries (weights for specs that
+  // are no longer binned anywhere) must also fail.
+  for (const [bin, names] of Object.entries(BINS)) {
+    for (const name of names) {
+      const weight = WEIGHTS[name];
+      if (PWA_ONLY.has(name)) {
+        if (weight !== 0) {
+          errors.push(
+            `bin ${bin}: PWA-only spec ${name} must have weight exactly 0 (got ${String(weight)})`,
+          );
+        }
+      } else if (
+        typeof weight !== "number" ||
+        !Number.isFinite(weight) ||
+        weight <= 0
+      ) {
+        errors.push(
+          `bin ${bin}: spec ${name} is missing a positive weight (WEIGHTS[${JSON.stringify(name)}] = ${String(weight)})`,
+        );
+      }
+    }
+  }
+  for (const name of Object.keys(WEIGHTS)) {
+    if (!seen.has(name)) {
+      errors.push(`stale WEIGHTS entry: ${name} is not assigned to any bin`);
+    }
+  }
+
   // Coverage: every discovered normal E2E spec is assigned exactly once.
   for (const name of discovered) {
     if (!union.has(name)) {

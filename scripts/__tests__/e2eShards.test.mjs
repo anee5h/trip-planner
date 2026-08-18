@@ -77,4 +77,69 @@ describe("KAI-99 E2E shard manifest guard", () => {
       fs.rmSync(tmpGuard, { force: true });
     }
   });
+
+  it("fails when an assigned spec is missing its weight (degenerates to 0)", () => {
+    const guardSource = fs.readFileSync(GUARD, "utf8");
+    // Delete a real spec's weight: the guard must reject it instead of
+    // silently treating the spec as 0s.
+    const patched = guardSource.replace('"kai-98-ja-labels": 13,', "");
+    const tmpGuard = path.join(
+      process.cwd(),
+      "scripts",
+      "e2e-shards-noweight.mjs",
+    );
+    fs.writeFileSync(tmpGuard, patched);
+    try {
+      const result = (() => {
+        try {
+          execFileSync("node", [tmpGuard, "--check"], {
+            encoding: "utf8",
+            stdio: "pipe",
+          });
+          return { ok: true, out: "" };
+        } catch (error) {
+          const e = /** @type {{ stdout?: string; stderr?: string }} */ (error);
+          return { ok: false, out: `${e.stdout ?? ""}${e.stderr ?? ""}` };
+        }
+      })();
+      expect(result.ok).toBe(false);
+      expect(result.out).toContain("kai-98-ja-labels");
+      expect(result.out).toContain("missing a positive weight");
+    } finally {
+      fs.rmSync(tmpGuard, { force: true });
+    }
+  });
+
+  it("fails on a stale WEIGHTS entry for a spec that is no longer binned", () => {
+    const guardSource = fs.readFileSync(GUARD, "utf8");
+    // Drop the spec from its bin but keep the weight entry: the guard
+    // must flag the orphaned weight.
+    const patched = guardSource
+      .replace('    "kai-98-ja-labels",\n', "")
+      .replace('"kai-98-ja-labels": 13,', '"kai-98-ja-labels": 13,');
+    const tmpGuard = path.join(
+      process.cwd(),
+      "scripts",
+      "e2e-shards-stale.mjs",
+    );
+    fs.writeFileSync(tmpGuard, patched);
+    try {
+      const result = (() => {
+        try {
+          execFileSync("node", [tmpGuard, "--check"], {
+            encoding: "utf8",
+            stdio: "pipe",
+          });
+          return { ok: true, out: "" };
+        } catch (error) {
+          const e = /** @type {{ stdout?: string; stderr?: string }} */ (error);
+          return { ok: false, out: `${e.stdout ?? ""}${e.stderr ?? ""}` };
+        }
+      })();
+      expect(result.ok).toBe(false);
+      expect(result.out).toContain("stale WEIGHTS entry");
+    } finally {
+      fs.rmSync(tmpGuard, { force: true });
+    }
+  });
 });
