@@ -30,6 +30,11 @@ const NEVER_CACHE_PATHS = [
   "/storage/v1/",
   "/api/",
   "/functions/",
+  // KAI-126: protected engineering surfaces must never enter the app-shell
+  // cache (an offline user should not be able to read the dashboard shell
+  // from the cache, and the guarded routes must always hit the edge).
+  "/e2e/",
+  "/qa/",
 ];
 
 const isSupabaseHost = (url) =>

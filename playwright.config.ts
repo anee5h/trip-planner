@@ -17,7 +17,10 @@ export default defineConfig({
     // (kai-49 html lang switch, kai-85 date selection) on slow runners.
     timeout: 30_000,
   },
-  reporter: "list",
+  reporter: [
+    ["list"],
+    ["allure-playwright", { outputFolder: "allure-results" }],
+  ],
   // KAI-99: one CI retry absorbs residual runner-contention flakes so a PR
   // does not need a manual rerun for nondeterministic failures. Local runs
   // keep retries off. Unstable tests should still be redesigned, not hidden.
