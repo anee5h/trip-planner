@@ -2,7 +2,6 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { useFullCatalogue } from "@/shared/hooks/useFullCatalogue";
 import {
   getLitePlaces,
   getLocalizedPlace,
@@ -132,17 +131,13 @@ export default function Destinations() {
   } = useTripStore();
   const { locale } = useLocale();
   const { t } = useTranslation();
-  // KAI-121: the explorer is a list/filter surface. First paint renders the
-  // SYNCHRONOUS summary (id/name/ratings/budget/transportOptions/coordinates
-  // — all in the lite index), then upgrades to full records when the lazy
-  // catalogue arrives. FAILURE SEMANTICS: a failed load must NOT switch
-  // this summary-capable surface to an empty list — retain the summary and
-  // expose the error (non-destructive). Only when the full catalogue is
-  // actually loaded (not loading, no error) do we use full places.
-  const { places, loading, error } = useFullCatalogue();
-  const fullAvailable = !loading && !error;
-  const allDestinations = (fullAvailable ? places : getLitePlaces()).map(
-    (destination) => getLocalizedPlace(destination, locale),
+  // KAI-121: the explorer is a list/filter surface — SUMMARY-ONLY. Every
+  // field it reads (id, name, ratings, budget, transportOptions,
+  // coordinates, categories, prefecture) lives in the lite index, so it
+  // does NOT fetch the full catalogue on mount (no eager full-data
+  // upgrade).
+  const allDestinations = getLitePlaces().map((destination) =>
+    getLocalizedPlace(destination, locale),
   );
   const [searchQuery, setSearchQuery] = useState(
     initialExplorerState.searchQuery,

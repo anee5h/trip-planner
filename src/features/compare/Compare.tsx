@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import type { Destination } from "@/shared/types/destination";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { useFullCatalogue } from "@/shared/hooks/useFullCatalogue";
 import { getLitePlaces } from "@/shared/services/place/PlaceCatalog";
 import { Button } from "@/shared/components/ui/button";
 import {
@@ -33,15 +32,9 @@ export default function Compare() {
   const { t } = useTranslation();
   const { locale } = useLocale();
   const { compareList, toggleCompare, clearCompare } = useTripStore();
-  // KAI-121: Compare needs full records (ratings, walking, budget, transport
-  // metadata). First paint uses the synchronous summary; upgrade to full
-  // records when the lazy catalogue arrives. FAILURE SEMANTICS: a failed
-  // load retains the summary (never an empty list).
-  const { places, loading, error } = useFullCatalogue();
-  const fullAvailable = !loading && !error;
-  const allDestinations = (
-    fullAvailable ? places : getLitePlaces()
-  ) as Destination[];
+  // KAI-121: Compare reads ratings/walking/budget/transport — all lite
+  // fields. SUMMARY-ONLY: no eager full-catalogue fetch on mount.
+  const allDestinations = getLitePlaces() as Destination[];
 
   const compareDestinations = compareList
     .map((id) => allDestinations.find((d) => d.id === id))

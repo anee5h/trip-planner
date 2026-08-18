@@ -1,7 +1,6 @@
 import { useState, useMemo, useRef, useEffect, useId } from "react";
 import type { Destination } from "@/shared/types/destination";
 import { getLitePlaces } from "@/shared/services/place/PlaceCatalog";
-import { useFullCatalogue } from "@/shared/hooks/useFullCatalogue";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import {
   Search,
@@ -66,21 +65,12 @@ export function SearchableDestinationPicker({
     }
   }, [activeIndex, isOpen]);
 
-  // KAI-121: the picker prefers full destination data (ratings for the
-  // "popular" filter) but is SUMMARY-CAPABLE: on load failure it keeps the
-  // summary list (non-destructive) instead of unhandled-rejecting or
-  // showing an empty list. Init from the shared loaded-state so preloaded
-  // sessions (tests, already-navigated apps) render full data synchronously.
-  const {
-    places: fullPlaces,
-    loading: fullLoading,
-    error: fullError,
-  } = useFullCatalogue();
-  const fullLoaded = !fullLoading && !fullError;
-
+  // KAI-121: the picker is SUMMARY-ONLY — its "popular" filter reads
+  // ratings (present in the lite index) and its options render from
+  // summary-synthesized records. No eager full-catalogue fetch on mount.
   const allDestinations = useMemo(
-    () => customDestinations ?? (fullLoaded ? fullPlaces : getLitePlaces()),
-    [customDestinations, fullLoaded, fullPlaces],
+    () => customDestinations ?? getLitePlaces(),
+    [customDestinations],
   );
 
   const selectedDestination = useMemo(() => {

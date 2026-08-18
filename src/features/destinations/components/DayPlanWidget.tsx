@@ -1,5 +1,4 @@
 import { useState, useMemo, useRef, useEffect } from "react";
-import { useFullCatalogue } from "@/shared/hooks/useFullCatalogue";
 import { Link } from "react-router-dom";
 import type { Destination } from "@/shared/types/destination";
 import {
@@ -55,6 +54,11 @@ interface DayPlanWidgetProps {
   defaultPlanType?: DayPlanType;
   /** When true, full-day plans are hidden because there are not enough stops. */
   fullDayDisabled?: boolean;
+  /** KAI-121: full-catalogue loader state (provided by the parent so
+   *  eligibility and Generate share one verdict). */
+  catalogueLoading?: boolean;
+  catalogueError?: string | null;
+  onRetryCatalogue?: () => void;
 }
 
 export function DayPlanWidget({
@@ -68,17 +72,10 @@ export function DayPlanWidget({
   eligible = true,
   defaultPlanType,
   fullDayDisabled = false,
+  catalogueLoading = false,
+  catalogueError = null,
+  onRetryCatalogue,
 }: DayPlanWidgetProps) {
-  // KAI-121: generateDayPlan reads the FULL catalogue (nearby candidates,
-  // budget/transport fields). Load it on mount — this widget only lives on
-  // full-data surfaces (destination details / planning). Generate is
-  // GUARDED until the full catalogue is loaded (no race against an empty
-  // full list); on load failure the widget shows a retryable error state.
-  const {
-    loading: catalogueLoading,
-    error: catalogueError,
-    retry: retryCatalogue,
-  } = useFullCatalogue();
   const isHubOrCity = isHubPrimary(destination);
 
   const [hasGenerated, setHasGenerated] = useState(false);
@@ -408,7 +405,28 @@ export function DayPlanWidget({
         {!hasGenerated && !showConfig && (
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="space-y-1.5 max-w-xl text-xs text-slate-600 dark:text-slate-300">
-              {eligible ? (
+              {catalogueError ? (
+                <p className="leading-relaxed flex items-center gap-1">
+                  {locale === "ja"
+                    ? "目的地データを読み込めませんでした。"
+                    : "Could not load destination data."}
+                  {onRetryCatalogue && (
+                    <button
+                      type="button"
+                      className="underline font-bold"
+                      onClick={onRetryCatalogue}
+                    >
+                      {locale === "ja" ? "再試行" : "Retry"}
+                    </button>
+                  )}
+                </p>
+              ) : catalogueLoading ? (
+                <p className="leading-relaxed">
+                  {locale === "ja"
+                    ? "目的地データを読み込み中…"
+                    : "Loading destination data…"}
+                </p>
+              ) : eligible ? (
                 <>
                   <p className="leading-relaxed">
                     {isHubOrCity
@@ -690,7 +708,7 @@ export function DayPlanWidget({
                   <button
                     type="button"
                     className="underline font-bold"
-                    onClick={retryCatalogue}
+                    onClick={onRetryCatalogue}
                   >
                     {locale === "ja" ? "再試行" : "Retry"}
                   </button>
@@ -707,7 +725,8 @@ export function DayPlanWidget({
                 </Button>
                 <Button
                   type="submit"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl min-h-[44px] text-xs font-bold px-5"
+                  disabled={catalogueLoading || Boolean(catalogueError)}
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl min-h-[44px] text-xs font-bold px-5 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {locale === "ja"
                     ? hasGenerated

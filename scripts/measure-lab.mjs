@@ -83,21 +83,35 @@ async function measure(page, route) {
     requests: 0,
     largestChunk: { url: "", bytes: 0, decoded: 0 },
     longTasks: [],
+    taskDurationMs: 0,
+    scriptDurationMs: 0,
     cls: 0,
     lcpMs: 0,
     jsParseMs: 0,
     fcpMs: 0,
   };
-  const scriptTimes = new Map();
+  // Real CPU metrics via CDP tracing (ScriptDuration/TaskDuration), not a
+  // transferSize approximation.
+  const cdp = await page.context().newCDPSession(page);
+  const collected = [];
+  cdp.on("Tracing.dataCollected", (e) => collected.push(...(e.value ?? [])));
+  await cdp.send("Tracing.start", {
+    transferMode: "ReportEvents",
+    traceConfig: {
+      included_categories: [
+        "devtools.timeline",
+        "disabled-by-default-devtools.timeline",
+      ],
+      recordScreenshots: false,
+      enableSystrace: false,
+    },
+  });
   page.on("response", (res) => {
     const url = res.url();
     if (url.includes("/assets/") || url.includes("/data/")) {
       const ct = res.headers()["content-type"] || "";
       const bodyLen = res.headers()["content-length"];
       const isJs = ct.includes("javascript");
-      // transferred bytes (gzip-level)
-      const enc = res.headers()["content-encoding"];
-      // count decoded size for JS via script timing below
       metrics.requests++;
       if (isJs) {
         const decoded = Number(bodyLen) || 0;
@@ -137,19 +151,30 @@ async function measure(page, route) {
     timeout: 60000,
   });
   await page.waitForTimeout(3000); // let lazy fetch + paint settle
+  // Stop the trace.
+  await cdp.send("Tracing.end");
+  await new Promise((r) => setTimeout(r, 1200)); // let remaining events flush
+  // Aggregate main-thread task duration (RunTask family) and script
+  // execution (HTMLParserScriptRunner + v8 compile/evaluate).
+  for (const ev of collected) {
+    if (!ev?.dur) continue;
+    if (ev.name === "ThreadControllerImpl::RunTask" || ev.name === "RunTask") {
+      metrics.taskDurationMs += ev.dur / 1000;
+    }
+    if (
+      ev.name === "EvaluateScript" ||
+      ev.name === "HTMLParserScriptRunner::executeScriptsWaitingForParsing" ||
+      ev.name === "v8.evaluateScript" ||
+      ev.name === "v8.compile"
+    ) {
+      metrics.scriptDurationMs += ev.dur / 1000;
+    }
+  }
   const nav = await page.evaluate(() => {
     const n = performance.getEntriesByType("navigation")[0];
-    const scripts = performance
-      .getEntriesByType("resource")
-      .filter((r) => r.name.includes(".js"));
-    const parseMs = scripts.reduce(
-      (a, r) => a + (r.transferSize ? r.transferSize / 500 : 0),
-      0,
-    ); // ~500 B/ms proxy
     const w = window.__kai121;
     return {
       fcp: n?.responseEnd || 0,
-      jsParseProxyMs: Math.round(parseMs),
       longTasks: w.longTasks,
       cls: w.cls,
       lcp: w.lcp,
@@ -158,13 +183,14 @@ async function measure(page, route) {
   metrics.longTasks = nav.longTasks;
   metrics.cls = nav.cls;
   metrics.lcpMs = Math.round(nav.lcp);
-  metrics.jsParseMs = nav.jsParseProxyMs;
+  metrics.jsParseMs = Math.round(metrics.scriptDurationMs);
   metrics.fcpMs = Math.round(nav.fcp);
   // largest JS decoded: read from dist
   const largestFile = path.join(DIST, "assets", metrics.largestChunk.url);
   if (existsSync(largestFile)) {
     metrics.largestChunk.decoded = statSync(largestFile).size;
   }
+  await cdp.detach().catch(() => {});
   return metrics;
 }
 
@@ -205,7 +231,8 @@ async function main() {
             `largestJS=${(r.largestChunk.decoded / 1024).toFixed(0)} KB decoded, ` +
             `LCP≈${r.lcpMs}ms, CLS=${r.cls.toFixed(3)}, ` +
             `longTasks=${r.longTasks.length} (${r.longTasks.reduce((a, b) => a + b, 0).toFixed(0)}ms), ` +
-            `jsParseProxy=${r.jsParseMs}ms`,
+            `taskDuration=${r.taskDurationMs.toFixed(0)}ms, ` +
+            `scriptDuration=${r.scriptDurationMs.toFixed(0)}ms`,
         );
       }
     }

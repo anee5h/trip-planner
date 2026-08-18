@@ -92,27 +92,19 @@ test("dist/index.html never references the full index (module graph clean)", asy
   expect(html).not.toContain("destinations-index");
 });
 
-test("Home (full-data surface) loads the full index exactly once", async ({
+test("Home (summary-only surface) never requests the full index", async ({
   page,
 }) => {
   const hits = await collectRequests(page);
-  // domcontentloaded (not networkidle — the 6.5 MB lazy fetch would hold
-  // networkidle open and can stall the renderer).
+  // Home is SUMMARY-ONLY: every rail-required field lives in the lite
+  // summary, so the full catalogue must NOT be fetched on initial Home
+  // load (zero full-index requests).
   await page.goto("/", { waitUntil: "domcontentloaded", timeout: 60000 });
   await page.waitForSelector("main", { timeout: 20000 });
-  // Home genuinely needs the full catalogue (rails score on budget/ratings).
-  await page.waitForFunction(
-    () => {
-      // Give the lazy loader a chance; check via performance entries.
-      const entries = performance
-        .getEntriesByType("resource")
-        .map((e) => e.name);
-      return entries.some((n) => n.includes("destinations-index"));
-    },
-    { timeout: 20000 },
-  );
+  // Give any mis-fired lazy loader a chance to appear.
+  await page.waitForTimeout(1500);
   const fullHits = hits.filter((u) => u.includes(FULL_INDEX_URL));
-  expect(fullHits.length).toBe(1); // exactly once, shared promise
+  expect(fullHits).toEqual([]);
 });
 
 test("settings (summary surface) never loads the full index", async ({
