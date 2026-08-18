@@ -102,7 +102,11 @@ jobs:
           key: playwright-browsers-${{ hashFiles('package-lock.json') }}
 
       - name: Install Chromium
-        run: npx playwright install --with-deps chromium
+        # No --with-deps: the apt phase hung 20-30 min on hosted runners
+        # (observed 2026-08-18, killed inside apt-get before any browser
+        # download). ubuntu-latest ships Chromium's system libraries; the
+        # browser download itself is covered by the cache step above.
+        run: npx playwright install chromium
 
       - name: Playwright E2E (bin ${{ matrix.bin }}/4 · ${{ matrix.project }})
         shell: bash
@@ -163,7 +167,11 @@ jobs:
           key: playwright-browsers-${{ hashFiles('package-lock.json') }}
 
       - name: Install Chromium
-        run: npx playwright install --with-deps chromium
+        # No --with-deps: the apt phase hung 20-30 min on hosted runners
+        # (observed 2026-08-18, killed inside apt-get before any browser
+        # download). ubuntu-latest ships Chromium's system libraries; the
+        # browser download itself is covered by the cache step above.
+        run: npx playwright install chromium
 
       - name: PWA E2E against the production build
         run: npm run test:pwa
