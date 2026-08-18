@@ -60,18 +60,25 @@ jobs:
         run: npm run test:run -- --maxWorkers=2
 
   e2e:
-    name: E2E (${{ matrix.shard }}/4)
+    name: E2E (${{ matrix.project }} bin ${{ matrix.bin }}/4)
     runs-on: ubuntu-latest
-    # KAI-99 phase 1: partition the ~21 min suite across four independent
-    # runners. Each shard still runs 2 workers internally. Measure the actual
-    # shard and wall-clock times in CI; do not infer balance from file counts.
-    # fail-fast: false keeps one flaky shard from cancelling the others'
-    # evidence.
+    # KAI-99 phase 2: deterministic weighted file bins instead of
+    # --shard round-robin. With fullyParallel:false, Playwright shards at
+    # FILE granularity (not per-test round-robin), and Meguruto's spec
+    # files have highly unequal execution weights across two projects —
+    # the old 4-shard walls were ~14 min for bins 1/4 and 3/4 vs ~3.5 min
+    # for bins 2/4 and 4/4, and the heavy shard exceeded the 20-min job
+    # ceiling on contended runners. Bin contents are the single source of
+    # truth in scripts/e2e-shards.mjs (measured per-spec CI weights; the
+    # e2e-coverage job below fails CI if a spec is ever left unassigned).
+    # Each job runs ONE project over ONE bin: ~4-9 min per job, all 8
+    # jobs parallel, so a slow runner stays far below the 20-min ceiling.
     timeout-minutes: 20
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2, 3, 4]
+        project: [chromium-mobile, chromium-desktop]
+        bin: [1, 2, 3, 4]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -88,16 +95,40 @@ jobs:
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
-      - name: Playwright E2E (shard ${{ matrix.shard }}/4)
-        run: npx playwright test --shard=${{ matrix.shard }}/4
+      - name: Playwright E2E (bin ${{ matrix.bin }}/4 · ${{ matrix.project }})
+        shell: bash
+        run: |
+          set -o pipefail
+          npx playwright test --project=${{ matrix.project }} $(node scripts/e2e-shards.mjs --bin ${{ matrix.bin }}) 2>&1 | tee /tmp/e2e-output.log
+
+      - name: E2E timing summary (runtime visibility)
+        if: ${{ !cancelled() }}
+        shell: bash
+        run: |
+          echo "Slowest tests in this bin/project:"
+          grep -oE "\[[a-z-]+\] › [^(]*\([0-9.]+s\)" /tmp/e2e-output.log 2>/dev/null \
+            | sed -E 's/.*\(([0-9.]+)s\)$/\1s  &/' | sort -rn | head -5 || true
 
       - name: Upload Playwright failure artifacts
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-shard-${{ matrix.shard }}
+          name: playwright-${{ matrix.project }}-bin${{ matrix.bin }}
           path: test-results/
           if-no-files-found: ignore
+
+  e2e-coverage:
+    name: E2E shard coverage guard
+    runs-on: ubuntu-latest
+    # Fails the PR if scripts/e2e-shards.mjs no longer assigns every
+    # discovered e2e spec to exactly one bin (a newly added spec would
+    # otherwise silently never run).
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate shard manifest coverage
+        run: node scripts/e2e-shards.mjs --check
 
   pwa-e2e:
     name: PWA E2E (production build)
