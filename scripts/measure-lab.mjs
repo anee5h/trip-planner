@@ -2,18 +2,29 @@
 /**
  * KAI-121: lab-style performance evidence (deterministic, reproducible).
  *
- * Measures REAL runtime metrics against a built site (vite preview):
+ * Measures REAL runtime metrics against the built dist/ via a hardened
+ * static server (vite-preview semantics):
  *   - total transferred bytes (network, gzip-level)
  *   - largest JS chunk (transferred + decoded)
- *   - JS parse/eval time (PerformanceNavigationTiming + script duration)
- *   - long-task count/duration (Long Tasks API) — INP proxy
- *   - LCP proxy: time to largest contentful element (PerformanceObserver)
- *   - CLS proxy: layout-shift cumulative score (PerformanceObserver)
+ *   - main-thread task duration + script duration (CDP Tracing, renderer
+ *     main thread only) and long-task count/duration (INP proxy)
+ *   - LCP + CLS + FCP via PerformanceObserver (real paint timings)
+ *
+ * TRUST CHECKS (fail loudly rather than report garbage):
+ *   - SPA fallback ONLY for document/navigation requests; missing
+ *     JS/CSS/data/image/font assets return 404 (never index.html).
+ *   - At least one application JS asset must load with JavaScript MIME.
+ *   - pageerror / console error / requestfailed fail the measurement.
+ *   - An application DOM marker must exist after navigation (not just
+ *     <title>).
+ *   - CDP tracing: awaits Tracing.tracingComplete (no fixed sleep),
+ *     fails on zero collected events, filters the renderer main thread
+ *     by thread metadata (name === "CrRendererMain").
  *
  * Runs Home + a representative destination route, on mobile + desktop
  * viewports. Output is a JSON evidence record for the PR body.
  *
- * Usage: PWA_E2E=1 node scripts/measure-lab.mjs [--json]
+ * Usage: node scripts/measure-lab.mjs [--json]
  */
 import { chromium, devices } from "@playwright/test";
 import { createServer } from "node:http";
@@ -30,46 +41,61 @@ const DIST = path.join(ROOT, "dist");
 const MIME = {
   ".html": "text/html; charset=utf-8",
   ".js": "application/javascript",
+  ".mjs": "application/javascript",
   ".css": "text/css",
   ".json": "application/json",
   ".svg": "image/svg+xml",
   ".png": "image/png",
   ".webp": "image/webp",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".gif": "image/gif",
   ".woff2": "font/woff2",
+  ".woff": "font/woff",
+  ".ttf": "font/ttf",
   ".ico": "image/x-icon",
 };
+
+// SPA fallback ONLY for document/navigation requests (no extension, "/",
+// or .html). Missing JS/CSS/data/image/font assets MUST 404.
+function isDocumentRequest(urlPath) {
+  const ext = path.extname(urlPath).toLowerCase();
+  return urlPath === "/" || urlPath.endsWith("/") || !ext || ext === ".html";
+}
 
 function serve() {
   const server = createServer((req, res) => {
     const urlPath = decodeURIComponent(new URL(req.url, "http://x").pathname);
+    const isDocument = isDocumentRequest(urlPath);
     let file = path.join(DIST, urlPath === "/" ? "index.html" : urlPath);
-    if (
+    const missing =
       !file.startsWith(DIST) ||
       !existsSync(file) ||
-      statSync(file).isDirectory()
-    ) {
-      // SPA fallback
-      file = path.join(DIST, "index.html");
+      statSync(file).isDirectory();
+    if (missing) {
+      if (isDocument) {
+        file = path.join(DIST, "index.html");
+      } else {
+        res.writeHead(404, { "Content-Type": "text/plain" });
+        res.end("Not Found");
+        return;
+      }
     }
-    const ext = path.extname(file);
-    const raw = createReadStream(file);
-    // Serve gzip when the client asks (matches Cloudflare behavior).
+    const fileExt = path.extname(file).toLowerCase();
+    const mime = MIME[fileExt] || "application/octet-stream";
     const acceptsGzip = (req.headers["accept-encoding"] || "").includes("gzip");
     if (acceptsGzip) {
-      const stat = statSync(file);
       const gz = gzipSync(readFileSync(file));
       res.writeHead(200, {
-        "Content-Type": MIME[ext] || "application/octet-stream",
+        "Content-Type": mime,
         "Content-Encoding": "gzip",
         "Content-Length": gz.length,
       });
       res.end(gz);
       return;
     }
-    res.writeHead(200, {
-      "Content-Type": MIME[ext] || "application/octet-stream",
-    });
-    raw.pipe(res);
+    res.writeHead(200, { "Content-Type": mime });
+    createReadStream(file).pipe(res);
   });
   return new Promise((resolve) =>
     server.listen(PORT, "127.0.0.1", () => resolve(server)),
@@ -87,24 +113,30 @@ async function measure(page, route) {
     scriptDurationMs: 0,
     cls: 0,
     lcpMs: 0,
-    jsParseMs: 0,
     fcpMs: 0,
+    failures: [],
   };
-  // Real CPU metrics via CDP tracing (ScriptDuration/TaskDuration), not a
-  // transferSize approximation.
-  const cdp = await page.context().newCDPSession(page);
-  const collected = [];
-  cdp.on("Tracing.dataCollected", (e) => collected.push(...(e.value ?? [])));
-  await cdp.send("Tracing.start", {
-    transferMode: "ReportEvents",
-    traceConfig: {
-      included_categories: [
-        "devtools.timeline",
-        "disabled-by-default-devtools.timeline",
-      ],
-      recordScreenshots: false,
-      enableSystrace: false,
-    },
+  let jsLoaded = false;
+
+  const fail = (msg) => {
+    metrics.failures.push(msg);
+  };
+
+  page.on("pageerror", (err) =>
+    fail(`pageerror: ${String(err).slice(0, 200)}`),
+  );
+  page.on("requestfailed", (req) => {
+    const u = req.url();
+    if (u.startsWith(`http://127.0.0.1:${PORT}`)) {
+      fail(
+        `requestfailed: ${req.method()} ${u.split("/").pop()} (${req.failure()?.errorText})`,
+      );
+    }
+  });
+  page.on("console", (msg) => {
+    if (msg.type() === "error") {
+      fail(`console.error: ${msg.text().slice(0, 200)}`);
+    }
   });
   page.on("response", (res) => {
     const url = res.url();
@@ -112,8 +144,8 @@ async function measure(page, route) {
       const ct = res.headers()["content-type"] || "";
       const bodyLen = res.headers()["content-length"];
       const isJs = ct.includes("javascript");
-      metrics.requests++;
-      if (isJs) {
+      if (isJs && res.status() === 200) {
+        jsLoaded = true;
         const decoded = Number(bodyLen) || 0;
         if (decoded > metrics.largestChunk.decoded) {
           metrics.largestChunk = {
@@ -123,12 +155,12 @@ async function measure(page, route) {
           };
         }
       }
+      metrics.requests++;
       metrics.transferred += Number(bodyLen) || 0;
     }
   });
   await page.addInitScript(() => {
-    // Long tasks + CLS + LCP observers
-    window.__kai121 = { longTasks: [], cls: 0, lcp: 0 };
+    window.__kai121 = { longTasks: [], cls: 0, lcp: 0, fcp: 0 };
     try {
       new PerformanceObserver((list) => {
         for (const e of list.getEntries())
@@ -144,48 +176,125 @@ async function measure(page, route) {
         if (entries.length)
           window.__kai121.lcp = entries[entries.length - 1].startTime;
       }).observe({ type: "largest-contentful-paint", buffered: true });
+      new PerformanceObserver((list) => {
+        const entries = list.getEntries();
+        if (entries.length)
+          window.__kai121.fcp = entries[entries.length - 1].startTime;
+      }).observe({ type: "paint", buffered: true });
     } catch {}
   });
-  await page.goto(`http://127.0.0.1:${PORT}${route}`, {
+
+  // CDP tracing for real renderer-main-thread CPU metrics.
+  const cdp = await page.context().newCDPSession(page);
+  const collected = [];
+  cdp.on("Tracing.dataCollected", (e) => collected.push(...(e.value ?? [])));
+  await cdp.send("Tracing.start", {
+    transferMode: "ReportEvents",
+    traceConfig: {
+      included_categories: [
+        "devtools.timeline",
+        "disabled-by-default-devtools.timeline",
+      ],
+      recordScreenshots: false,
+      enableSystrace: false,
+    },
+  });
+
+  const resp = await page.goto(`http://127.0.0.1:${PORT}${route}`, {
     waitUntil: "load",
     timeout: 60000,
   });
+  if (!resp || resp.status() !== 200) {
+    fail(`navigation failed: status ${resp?.status()}`);
+  }
   await page.waitForTimeout(3000); // let lazy fetch + paint settle
-  // Stop the trace.
+
+  // App DOM marker (not just <title>): the app mounts into #root with
+  // real content.
+  try {
+    await page.waitForFunction(
+      () => {
+        const root = document.querySelector("#root");
+        return root && root.textContent && root.textContent.trim().length > 50;
+      },
+      { timeout: 10000 },
+    );
+  } catch {
+    fail("app DOM marker (#root with content) not found after navigation");
+  }
+
+  // Stop tracing and WAIT for Tracing.tracingComplete (no fixed sleep).
   await cdp.send("Tracing.end");
-  await new Promise((r) => setTimeout(r, 1200)); // let remaining events flush
-  // Aggregate main-thread task duration (RunTask family) and script
-  // execution (HTMLParserScriptRunner + v8 compile/evaluate).
-  for (const ev of collected) {
-    if (!ev?.dur) continue;
-    if (ev.name === "ThreadControllerImpl::RunTask" || ev.name === "RunTask") {
-      metrics.taskDurationMs += ev.dur / 1000;
+  await new Promise((resolve) => {
+    const onComplete = () => resolve();
+    cdp.on("Tracing.tracingComplete", onComplete);
+    setTimeout(resolve, 5000); // safety timeout
+  });
+
+  if (collected.length === 0) {
+    fail("trace collected 0 events");
+  } else {
+    // Filter the RENDERER MAIN THREAD by thread metadata.
+    const threads = new Map();
+    for (const ev of collected) {
+      if (ev.ph === "M" && ev.name === "thread_name" && ev.args?.name) {
+        threads.set(ev.tid, ev.args.name);
+      }
     }
-    if (
-      ev.name === "EvaluateScript" ||
-      ev.name === "HTMLParserScriptRunner::executeScriptsWaitingForParsing" ||
-      ev.name === "v8.evaluateScript" ||
-      ev.name === "v8.compile"
-    ) {
-      metrics.scriptDurationMs += ev.dur / 1000;
+    const mainTid = [...threads.entries()].find(
+      ([, name]) => name === "CrRendererMain",
+    )?.[0];
+    let taskEvents = 0;
+    let scriptEvents = 0;
+    for (const ev of collected) {
+      if (!ev?.dur || !ev.tid) continue;
+      if (mainTid !== undefined && ev.tid !== mainTid) continue;
+      if (
+        ev.name === "ThreadControllerImpl::RunTask" ||
+        ev.name === "RunTask"
+      ) {
+        metrics.taskDurationMs += ev.dur / 1000;
+        taskEvents++;
+      }
+      if (
+        ev.name === "EvaluateScript" ||
+        ev.name === "HTMLParserScriptRunner::executeScriptsWaitingForParsing" ||
+        ev.name === "v8.evaluateScript" ||
+        ev.name === "v8.compile"
+      ) {
+        metrics.scriptDurationMs += ev.dur / 1000;
+        scriptEvents++;
+      }
+    }
+    if (taskEvents === 0 && scriptEvents === 0) {
+      fail("trace has events but no renderer-main-thread task/script events");
     }
   }
+
   const nav = await page.evaluate(() => {
-    const n = performance.getEntriesByType("navigation")[0];
     const w = window.__kai121;
     return {
-      fcp: n?.responseEnd || 0,
       longTasks: w.longTasks,
       cls: w.cls,
       lcp: w.lcp,
+      fcp: w.fcp,
     };
   });
   metrics.longTasks = nav.longTasks;
   metrics.cls = nav.cls;
   metrics.lcpMs = Math.round(nav.lcp);
-  metrics.jsParseMs = Math.round(metrics.scriptDurationMs);
   metrics.fcpMs = Math.round(nav.fcp);
-  // largest JS decoded: read from dist
+  if (!(nav.fcp > 0)) fail("no first-contentful-paint observed");
+
+  // Trust gates.
+  if (!jsLoaded) fail("no application JS asset loaded with JavaScript MIME");
+  if (metrics.failures.length > 0) {
+    throw new Error(
+      `measurement failed for ${route}: ${metrics.failures.join("; ")}`,
+    );
+  }
+
+  // Largest JS decoded: read from dist.
   const largestFile = path.join(DIST, "assets", metrics.largestChunk.url);
   if (existsSync(largestFile)) {
     metrics.largestChunk.decoded = statSync(largestFile).size;
@@ -199,8 +308,7 @@ async function main() {
   const results = { home: {}, destination: {} };
   // FRESH browser context per route × viewport: a context that already
   // visited Home has the full catalogue cached/warmed, which would
-  // contaminate the destination-route measurement. Each measurement gets a
-  // brand-new context (cold cache).
+  // contaminate the destination-route measurement.
   for (const [surface, route] of [
     ["home", "/"],
     ["destination", "/destinations/kyoto-city"],
@@ -215,7 +323,12 @@ async function main() {
         viewport: device.viewport,
       });
       const page = await ctx.newPage();
-      results[surface][name] = await measure(page, route);
+      try {
+        results[surface][name] = await measure(page, route);
+      } catch (e) {
+        results[surface][name] = { error: String(e.message ?? e) };
+        console.error(`FAILED ${surface}/${name}:`, e.message);
+      }
       await browser.close();
     }
   }
@@ -226,10 +339,14 @@ async function main() {
     for (const [surface, m] of Object.entries(results)) {
       console.log(`\n=== ${surface} ===`);
       for (const [viewport, r] of Object.entries(m)) {
+        if (r.error) {
+          console.log(`  ${viewport}: ERROR ${r.error}`);
+          continue;
+        }
         console.log(
           `  ${viewport}: transferred=${(r.transferred / 1024).toFixed(0)} KB, ` +
             `largestJS=${(r.largestChunk.decoded / 1024).toFixed(0)} KB decoded, ` +
-            `LCP≈${r.lcpMs}ms, CLS=${r.cls.toFixed(3)}, ` +
+            `FCP≈${r.fcpMs}ms, LCP≈${r.lcpMs}ms, CLS=${r.cls.toFixed(3)}, ` +
             `longTasks=${r.longTasks.length} (${r.longTasks.reduce((a, b) => a + b, 0).toFixed(0)}ms), ` +
             `taskDuration=${r.taskDurationMs.toFixed(0)}ms, ` +
             `scriptDuration=${r.scriptDurationMs.toFixed(0)}ms`,
