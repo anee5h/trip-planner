@@ -2,6 +2,7 @@ import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Cloud, CloudLightning, Snowflake, Sun } from "lucide-react";
 
+import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import type { Destination } from "@/shared/types/destination";
 import { getDistance } from "@/shared/utils/distance";
@@ -87,9 +88,25 @@ export function formatCompactDateRange(
 
 export default function Home() {
   const { t } = useTranslation();
+  // KAI-121: the full catalogue loads via a lazy chunk (not the initial
+  // JS bundle). Home renders immediately with the lite summary, then
+  // re-renders with the full data once the lazy index arrives.
+  const [catalogueLoaded, setCatalogueLoaded] = useState(false);
+  useEffect(() => {
+    let alive = true;
+    void loadDestinationsIndex().then(() => {
+      if (alive) setCatalogueLoaded(true);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
   const allDestinations = useMemo(
     () => getDestinationList() as Destination[],
-    [],
+    // Re-derive when the lazy catalogue arrives (getDestinationList reads
+    // the loaded full index synchronously after loadDestinationsIndex).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [catalogueLoaded],
   );
 
   const [searchParams, setSearchParams] = useSearchParams();

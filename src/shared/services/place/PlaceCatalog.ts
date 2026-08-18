@@ -1,12 +1,47 @@
-import destinationsIndex from "../../data/destinations-index.json";
-import { EDITORIAL_PILOT } from "../../data/editorialPilot";
 import type {
   Destination,
   LocalizedPlaceContent,
 } from "../../types/destination";
+import { EDITORIAL_PILOT } from "../../data/editorialPilot";
+
+/**
+ * KAI-121: runtime-lazy catalogue boundary.
+ *
+ * The full destinations index (~6.2 MB raw) is NOT statically imported
+ * here anymore — a static import drags the entire catalogue into every
+ * route that touches PlaceCatalog (Home included, via the recommendation
+ * path). Instead the full index is fetched once via a dynamic import,
+ * shared across callers by a module-level promise singleton.
+ *
+ * getCanonicalPlaces() stays SYNCHRONOUS for compatibility (it returns
+ * the lite summary until the full index has loaded, then the full data);
+ * loadDestinationsIndex() is the async entry that triggers the lazy
+ * fetch. Routes that need the full catalogue call loadDestinationsIndex()
+ * on mount (e.g. Home) so the 6.2 MB loads as a fetched chunk, not in the
+ * initial JS bundle.
+ */
 
 export type CanonicalPlace = Destination &
   Required<Pick<Destination, "placeType" | "content" | "editorial">>;
+
+let fullIndexPromise: Promise<Destination[]> | null = null;
+/** The settled full index, once loaded. */
+let loadedFullIndex: Destination[] | null = null;
+
+/** Loads the full destination index exactly once per session, sharing the
+ *  in-flight promise between concurrent callers (no duplicate fetches, no
+ *  hydration races). The full catalogue is fetched as a lazy chunk. */
+export function loadDestinationsIndex(): Promise<Destination[]> {
+  if (!fullIndexPromise) {
+    fullIndexPromise = import("../../data/destinations-index.json").then(
+      (mod) => {
+        loadedFullIndex = mod.default as Destination[];
+        return loadedFullIndex;
+      },
+    );
+  }
+  return fullIndexPromise;
+}
 
 function englishContent(destination: Destination): LocalizedPlaceContent {
   return {
@@ -57,8 +92,45 @@ export function toCanonicalPlace(destination: Destination): CanonicalPlace {
   };
 }
 
+/** Synchronous accessor for the canonical catalogue (KAI-121). Returns
+ *  the full data once the lazy index has loaded, else the lite summary —
+ *  existing sync consumers keep working unchanged; Home preloads the full
+ *  index via loadDestinationsIndex() so the 6.2 MB arrives as a fetched
+ *  chunk, not in the initial bundle. */
 export function getCanonicalPlaces(): CanonicalPlace[] {
-  return (destinationsIndex as Destination[]).map(toCanonicalPlace);
+  const source = loadedFullIndex ?? getLiteIndex();
+  return source.map(toCanonicalPlace);
+}
+
+/** Synchronous accessor for the canonical catalogue when the full index
+ *  has already been loaded (or for callers that only need summary data).
+ *  Falls back to the lite index if the full one is not yet loaded. */
+export function getCanonicalPlacesSync(): CanonicalPlace[] {
+  const source = loadedFullIndex ?? getLiteIndex();
+  return source.map(toCanonicalPlace);
+}
+
+// --- KAI-121: lite (summary) catalogue for first-paint routes ---
+// The lite index (id/name/prefecture/region/categories/kind/role) stays in
+// the initial bundle for synchronous summary access; the full index loads
+// lazily only for routes that truly need it.
+
+let liteIndex: Destination[] | null = null;
+
+function getLiteIndex(): Destination[] {
+  if (!liteIndex) {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    liteIndex =
+      require("../../data/destinations-index.lite.json") as Destination[];
+  }
+  return liteIndex;
+}
+
+/** Synchronous summary accessor (KAI-121). Returns the lite catalogue for
+ *  first-paint rails. Callers that need full destination content must
+ *  await getCanonicalPlaces() instead. */
+export function getLitePlaces(): CanonicalPlace[] {
+  return getLiteIndex().map(toCanonicalPlace);
 }
 
 /**

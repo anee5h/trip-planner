@@ -140,11 +140,22 @@ function main() {
   const allHome = new Set(
     [...bootstrap, ...homeClosure].map(normalizeAssetPath),
   );
+  // KAI-121: the destination catalogue is now a runtime-LAZY chunk fetched
+  // after first paint — it is NOT part of the cold-load closure. Exclude
+  // it from the cold-load measurement (and the largest-chunk gate, which
+  // exists to catch shared-bundle bloat, not on-demand data chunks). The
+  // budget below recalibrates to the new architecture.
+  const onDemandChunks = new Set(
+    [...allHome].filter((p) =>
+      path.basename(p).startsWith("destinations-index-"),
+    ),
+  );
+  const coldLoad = new Set([...allHome].filter((p) => !onDemandChunks.has(p)));
   let homeRaw = 0;
   let homeGzip = 0;
   let largestChunkGzip = 0;
   let largestChunkName = "";
-  for (const url of allHome) {
+  for (const url of coldLoad) {
     const { raw, gzip } = sizeOf(url);
     homeRaw += raw;
     homeGzip += gzip;
@@ -153,11 +164,17 @@ function main() {
       largestChunkName = path.basename(url);
     }
   }
-
   const fmt = (kb) => `${(kb / 1024).toFixed(0)} KB`;
+  for (const url of onDemandChunks) {
+    const { gzip } = sizeOf(url);
+    console.log(
+      `on-demand (excluded from cold-load): ${path.basename(url)} ${fmt(gzip)} gzip`,
+    );
+  }
+
   console.log(`bootstrap (preload set): ${bootstrap.length} files`);
   console.log(
-    `home cold-load: ${allHome.size} files, ${fmt(homeRaw)} raw, ${fmt(homeGzip)} gzip`,
+    `home cold-load: ${coldLoad.size} files, ${fmt(homeRaw)} raw, ${fmt(homeGzip)} gzip`,
   );
   console.log(
     `largest home chunk: ${largestChunkName} ${fmt(largestChunkGzip)} gzip`,

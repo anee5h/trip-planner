@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, beforeAll } from "vitest";
 import {
   ACCOMMODATION_ALLOWANCE_PRESETS,
   MAX_ACCOMMODATION_ALLOWANCE,
@@ -15,7 +15,14 @@ import {
 } from "../BudgetService";
 import * as BudgetServiceModule from "../BudgetService";
 import type { Destination } from "@/shared/types/destination";
+import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
+
+// KAI-121: the full catalogue is runtime-lazy; tests that need full
+// destination fields must preload it before the sync accessors read it.
+beforeAll(async () => {
+  await loadDestinationsIndex();
+});
 
 const mockPaidDest = {
   id: "shibuya-sky",
@@ -453,9 +460,15 @@ describe("BudgetService", () => {
 describe("KAI-89 per-person budget contract", () => {
   // Real catalogue destination with an intact per-person budget and a
   // train corridor from Tokyo: nagano-city (tickets 2000 per person).
-  const perPersonDest = getDestinationList("en").find(
-    (d) => d.id === "nagano-city",
-  ) as unknown as Destination;
+  // KAI-121: resolved AFTER the lazy catalogue preload (module-level
+  // resolution would read the lite summary and miss budget fields).
+  let perPersonDest: Destination;
+
+  beforeAll(() => {
+    perPersonDest = getDestinationList("en").find(
+      (d) => d.id === "nagano-city",
+    ) as unknown as Destination;
+  });
 
   it("scales tickets/cafe linearly with party size (per-person catalogue values)", () => {
     // Legacy couple-scale math used partySize/2, which was correct ONLY at

@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeAll } from "vitest";
 import {
   calculateConfidence,
   calculateScore,
@@ -15,9 +15,16 @@ import {
 import { normalizeWeatherDescription } from "../RecommendationContext";
 import { diversifyRecommendations } from "../RecommendationPipeline";
 import type { Destination } from "@/shared/types/destination";
+import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 import type { PipelineRecommendation } from "../RecommendationTypes";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import { getDayTripTravelEfficiency } from "../TripDurationService";
+
+// KAI-121: the full catalogue is runtime-lazy; tests that need full
+// destination fields must preload it before the sync accessors read it.
+beforeAll(async () => {
+  await loadDestinationsIndex();
+});
 
 const mockDest = {
   id: "test-dest",
