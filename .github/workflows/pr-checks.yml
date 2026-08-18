@@ -133,6 +133,13 @@ jobs:
           path: test-results/
           if-no-files-found: ignore
 
+      - name: Privacy scan Allure results (public repo artifacts)
+        if: ${{ !cancelled() }}
+        # The repo is public; Actions artifacts are readable by anyone with
+        # read access. BLOCKING: fail the job if allure-results contain
+        # unallowlisted emails/JWTs/secrets BEFORE they are uploaded.
+        run: node scripts/check-allure-privacy.mjs allure-results
+
       - name: Upload Allure results
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
@@ -195,6 +202,10 @@ jobs:
           path: test-results/
           if-no-files-found: ignore
 
+      - name: Privacy scan Allure results (PWA — public repo artifacts)
+        if: ${{ !cancelled() }}
+        run: node scripts/check-allure-privacy.mjs allure-results
+
       - name: Upload Allure results (PWA)
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
@@ -234,10 +245,16 @@ jobs:
           npx allure generate allure-download -o allure-report --clean
           echo "Allure report generated."
 
+      - name: Strip GTM analytics from generated HTML
+        run: node scripts/strip-allure-analytics.mjs allure-report
+
       # PR context cannot push (GITHUB_REF is refs/pull/N/merge, and GitHub
       # denies updating that hidden ref). The report is uploaded as an
       # artifact for inspection; publishing to the private R2 store happens
-      # on main push via .github/workflows/allure-publish.yml (post-merge).
+      # on the PR-CI completion via .github/workflows/allure-publish.yml.
+      - name: Privacy scan generated report (public repo artifacts)
+        run: node scripts/check-allure-privacy.mjs allure-report
+
       - name: Upload Allure report artifact
         uses: actions/upload-artifact@v4
         with:

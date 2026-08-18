@@ -1,35 +1,30 @@
 # KAI-126: publish the aggregated Allure E2E dashboard to PRIVATE R2 storage.
 #
-# Runs on push to main (post-merge). It re-runs the FULL KAI-99 topology —
-# the same 4 weighted bins x 2 projects plus the dedicated PWA production
-# E2E job — then aggregates all allure-results and uploads the generated
-# report to a private Cloudflare R2 bucket. The dashboard is served at
-# /e2e ONLY through the Access-guarded Pages Function (functions/e2e/[[path]].js);
-# the R2 bucket has no public access, and NOTHING is committed to this repo.
+# Lightweight publisher — NO browser/test execution happens here.
 #
-# History (KAI-126): Allure 2 requires the previous report's history/
-# directory to be copied into the result set BEFORE generation. We download
-# the previous report from R2, extract history/ into allure-results/, then
-# generate. Bounded retention: 30 days (older history is dropped by R2
-# lifecycle rules; the code also prunes history entries beyond 90 runs).
+# Trigger: `workflow_run` — fires when the "PR Checks" workflow completes on
+# a PR that just merged. The event carries the PR-CI run ID, so we download
+# the SANITIZED allure-results artifacts that the PR workflow already
+# produced (each E2E job runs privacy validation BEFORE uploading them),
+# then:
+#   1. restore the previous report's history/ from R2 (Allure 2 mechanism)
+#   2. write executor.json with buildOrder + CI metadata
+#   3. generate the report
+#   4. privacy-scan the generated report
+#   5. upload to the private R2 bucket (no repo commit; correct MIME)
 #
-# Requires owner-provided secrets:
-#   CLOUDFLARE_API_TOKEN  (wrangler:edit on the R2 bucket)
-#   CLOUDFLARE_ACCOUNT_ID
-#   E2E_REPORT_BUCKET     (R2 bucket name; default E2E_REPORT)
-#
-# Metadata: an executor.json is written into the result set before
-# generation, carrying commit SHA, branch, PR and workflow-run links, so
-# the dashboard shows which CI build produced it.
+# This saves ~9 redundant E2E jobs per merge (no double execution).
 
 name: Allure Publish (R2)
 
 on:
-  push:
-    branches: [main]
+  workflow_run:
+    workflows: ["PR Checks"]
+    types: [completed]
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: allure-publish
@@ -39,101 +34,10 @@ env:
   E2E_REPORT_BUCKET: ${{ vars.E2E_REPORT_BUCKET || 'E2E_REPORT' }}
 
 jobs:
-  e2e:
-    name: E2E (${{ matrix.project }} bin ${{ matrix.bin }}/4)
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    strategy:
-      fail-fast: false
-      matrix:
-        project: [chromium-mobile, chromium-desktop]
-        bin: [1, 2, 3, 4]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Cache Playwright browsers
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-browsers-${{ hashFiles('package-lock.json') }}
-
-      - name: Install Chromium
-        run: npx playwright install chromium
-
-      - name: Playwright E2E (bin ${{ matrix.bin }}/4 · ${{ matrix.project }})
-        shell: bash
-        env:
-          PLAYWRIGHT_PROJECT: ${{ matrix.project }}
-          CI_BIN: ${{ matrix.bin }}
-        run: |
-          set -o pipefail
-          npx playwright test --project=${{ matrix.project }} $(node scripts/e2e-shards.mjs --bin ${{ matrix.bin }}) 2>&1 | tee /tmp/e2e-output.log
-
-      - name: Upload Allure results
-        if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results-${{ matrix.project }}-bin${{ matrix.bin }}
-          path: allure-results/
-          if-no-files-found: ignore
-
-  pwa-e2e:
-    name: PWA E2E (production build)
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Cache Playwright browsers
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-browsers-${{ hashFiles('package-lock.json') }}
-
-      - name: Install Chromium
-        run: npx playwright install chromium
-
-      - name: PWA E2E against the production build
-        run: npm run test:pwa
-
-      - name: Upload Allure results (PWA)
-        if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results-pwa
-          path: allure-results/
-          if-no-files-found: ignore
-
   aggregate-and-publish:
     name: Aggregate + publish to R2
     runs-on: ubuntu-latest
-    needs: [e2e, pwa-e2e]
-    # Privacy gate (KAI-126): the FIRST production report must be manually
-    # inspected before automatic publishing. Set the repository variable
-    # ALLURE_PUBLISH_READY=1 once a representative report has been checked
-    # for email/JWT/Supabase-token leakage. Until then this job scans and
-    # stages but does NOT upload.
-    if: ${{ !cancelled() }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     timeout-minutes: 20
     steps:
       - name: Checkout
@@ -148,22 +52,25 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Download Allure results from all E2E jobs
+      - name: Download sanitized Allure results from the PR CI run
         uses: actions/download-artifact@v4
         with:
           path: allure-download
           pattern: allure-results-*
           merge-multiple: true
+          # The PR Checks run that just completed (its artifacts were
+          # privacy-scanned in each E2E job before upload).
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Restore previous report history from R2
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          # Allure 2 history: the ENTIRE history/ directory (history.json,
-          # history-trend.json, duration-trend.json, categories-trend.json,
-          # retry-trend.json) must be copied into the NEW result set BEFORE
-          # generation. R2 object get uses the single bucket/key path.
+          # Allure 2 history: the ENTIRE history/ directory must be copied
+          # into the new result set BEFORE generation. R2 uses the single
+          # bucket/key path.
           mkdir -p previous-report allure-download/history
           for hf in history.json history-trend.json duration-trend.json categories-trend.json retry-trend.json; do
             npx wrangler r2 object get "$E2E_REPORT_BUCKET/history/$hf" --remote \
@@ -180,9 +87,9 @@ jobs:
           {
             "name": "GitHub Actions",
             "type": "github",
-            "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
-            "buildName": "${{ github.ref_name }} @ ${{ github.sha }}",
-            "buildUrl": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+            "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}",
+            "buildName": "${{ github.event.workflow_run.head_branch }} @ ${{ github.event.workflow_run.head_sha }}",
+            "buildUrl": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}",
             "reportName": "Meguruto E2E Dashboard",
             "reportUrl": "https://meguruto.app/e2e",
             "buildOrder": ${{ github.run_number }}
@@ -190,10 +97,16 @@ jobs:
           EOF
           echo "executor.json written (buildOrder=${{ github.run_number }})"
 
-      - name: Generate Allure report
+      - name: Generate Allure report (analytics off)
         run: |
-          npx allure generate allure-download -o allure-report --clean
-          echo "Allure report generated."
+          ALLURE_NO_ANALYTICS=1 npx allure generate allure-download -o allure-report --clean
+          echo "Allure report generated (ALLURE_NO_ANALYTICS=1)."
+
+      - name: Strip GTM analytics from generated HTML (defense in depth)
+        # Allure 2.43 still embeds a GTM snippet despite the env opt-out;
+        # remove it deterministically so the private dashboard never phones
+        # home (the /e2e CSP also excludes external origins).
+        run: node scripts/strip-allure-analytics.mjs allure-report
 
       - name: Privacy/secrets scan of generated report
         run: node scripts/check-allure-privacy.mjs allure-report
@@ -204,9 +117,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          # Upload the full report tree to the private bucket. Wrangler R2
-          # uses a single bucket/key object path; --content-type preserves
-          # correct MIME so the Function serves CSS/JS/JSON/HTML properly.
+          # Wrangler R2 single bucket/key path; --content-type preserves MIME.
           cd allure-report
           for f in $(find . -type f); do
             key="${f#./}"
@@ -231,4 +142,4 @@ jobs:
       - name: Privacy gate not ready — report staged, not published
         if: ${{ vars.ALLURE_PUBLISH_READY != '1' }}
         run: |
-          echo "::warning::ALLURE_PUBLISH_READY is not set to 1. The report was generated and privacy-scanned but NOT uploaded to R2. Set the repository variable ALLURE_PUBLISH_READY=1 after inspecting a representative report (see docs/search-console-workflow or the PR body)."
+          echo "::warning::ALLURE_PUBLISH_READY is not set to 1. The report was generated and privacy-scanned but NOT uploaded to R2. Set the repository variable ALLURE_PUBLISH_READY=1 after inspecting a representative report."

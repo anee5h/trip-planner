@@ -33,16 +33,23 @@ const NEVER_CACHE_PATHS = [
   // KAI-126: protected engineering surfaces must never enter the app-shell
   // cache (an offline user should not be able to read the dashboard shell
   // from the cache, and the guarded routes must always hit the edge).
+  // Exact path AND subtree both excluded (startsWith alone misses /e2e).
   "/e2e/",
   "/qa/",
 ];
+
+/** True when pathname equals the prefix or starts with prefix + "/". */
+const isPathOrSubtree = (pathname, prefix) =>
+  pathname === prefix || pathname.startsWith(`${prefix}/`);
 
 const isSupabaseHost = (url) =>
   url.hostname === "supabase.co" || url.hostname.endsWith(".supabase.co");
 
 const isNeverCacheRequest = (request, url) =>
   isSupabaseHost(url) ||
-  NEVER_CACHE_PATHS.some((path) => url.pathname.startsWith(path)) ||
+  // Protected engineering surfaces: exact /e2e and /qa AND their subtrees.
+  isPathOrSubtree(url.pathname, "/e2e") ||
+  isPathOrSubtree(url.pathname, "/qa") ||
   request.headers.has("authorization") ||
   url.searchParams.has("access_token");
 

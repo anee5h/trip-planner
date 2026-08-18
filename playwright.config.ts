@@ -28,14 +28,18 @@ export default defineConfig({
       "allure-playwright",
       {
         outputFolder: "allure-results",
-        environmentInfo: {
-          project: project || "local",
-          ...(bin ? { "shard bin": bin } : {}),
+        // KAI-126: per-test globalLabels (NOT environmentInfo — that is
+        // report-level and the LAST run wins when shards are aggregated;
+        // globalLabels attach to each test result so every shard/project
+        // combination keeps its identity in the merged dashboard).
+        globalLabels: {
+          playwrightProject: project || "local",
+          ...(bin ? { ciBin: bin } : {}),
           ...(process.env.GITHUB_SHA
             ? { commit: process.env.GITHUB_SHA.slice(0, 8) }
             : {}),
           ...(process.env.GITHUB_RUN_ID
-            ? { "workflow run": process.env.GITHUB_RUN_ID }
+            ? { workflowRun: process.env.GITHUB_RUN_ID }
             : {}),
         },
       },
@@ -48,7 +52,11 @@ export default defineConfig({
   use: {
     baseURL: "http://127.0.0.1:4173",
     locale: "en-US",
+    timezoneId: "Asia/Tokyo",
     screenshot: "only-on-failure",
+    // KAI-126: keep traces for Allure diagnostics (retain-on-failure
+    // preserves the last run's trace for failure analysis).
+    trace: "retain-on-failure",
   },
   projects: [
     {
@@ -56,9 +64,6 @@ export default defineConfig({
       use: {
         ...devices["iPhone 13"],
         browserName: "chromium",
-        // KAI-80: force light for deterministic a11y scanning (the iPhone
-        // preset defaults to dark; dark-mode contrast is a documented gap).
-        colorScheme: "light",
       },
     },
     {
@@ -68,7 +73,6 @@ export default defineConfig({
         viewport: { width: 1440, height: 900 },
         isMobile: false,
         hasTouch: false,
-        colorScheme: "light",
       },
     },
   ],

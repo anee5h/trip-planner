@@ -85,46 +85,107 @@ async function main() {
   // way it does in production (team domain from the URL host).
   ISSUER = jwks.url;
 
-  // Seed a LOCAL R2 bucket (wrangler.jsonc binding) with a fake dashboard
-  // so the /e2e serve path is proven end-to-end: HTML + JS + correct MIME.
-  // Local R2 auto-creates the bucket on first put (wrangler 4).
-  const seedR2 = async (key, content, ct) => {
-    const tmp = path.join(os.tmpdir(), `kai126-${key}`);
-    fs.writeFileSync(tmp, content);
-    // Local R2 state can be briefly locked by a previous killed wrangler;
-    // retry with backoff (transient, not a real failure).
-    let lastErr;
+  // Seed a LOCAL R2 bucket (wrangler.jsonc binding) with a REAL generated
+  // Allure report (ALLURE_NO_ANALYTICS=1) so the /e2e serve path is proven
+  // end-to-end: real HTML/JS/CSS, correct MIME, and the browser check
+  // below proves the dashboard boots under the /e2e CSP.
+  const resultsDir = path.join(os.tmpdir(), "kai126-allure-results");
+  const reportDir = path.join(os.tmpdir(), "kai126-allure-report");
+  fs.rmSync(resultsDir, { force: true, recursive: true });
+  fs.rmSync(reportDir, { force: true, recursive: true });
+  fs.mkdirSync(resultsDir, { recursive: true });
+  const uuid = crypto.randomUUID();
+  const now = Date.now();
+  fs.writeFileSync(
+    path.join(resultsDir, `${uuid}-result.json`),
+    JSON.stringify({
+      uuid,
+      historyId: uuid,
+      name: "smoke: dashboard boots",
+      fullName: "kai126.smoke.dashboard-boots",
+      status: "passed",
+      stage: "finished",
+      start: now - 1000,
+      stop: now,
+      labels: [
+        { name: "playwrightProject", value: "chromium-desktop" },
+        { name: "ciBin", value: "1" },
+        { name: "suite", value: "KAI-126 smoke" },
+      ],
+    }),
+  );
+  fs.writeFileSync(
+    path.join(resultsDir, "executor.json"),
+    JSON.stringify({
+      name: "GitHub Actions",
+      type: "github",
+      buildName: "kai126-test",
+      buildOrder: 1,
+      reportName: "Meguruto E2E Dashboard",
+      reportUrl: "https://meguruto.app/e2e",
+    }),
+  );
+  execSync(
+    `ALLURE_NO_ANALYTICS=1 npx allure generate "${resultsDir}" -o "${reportDir}" --clean`,
+    { cwd: path.join(__dirname, ".."), stdio: ["ignore", "ignore", "ignore"] },
+  );
+  // Strip the GTM snippet Allure 2.43 embeds despite the opt-out (same
+  // deterministic sanitizer the publish workflow uses).
+  execSync(`node scripts/strip-allure-analytics.mjs "${reportDir}"`, {
+    cwd: path.join(__dirname, ".."),
+    stdio: ["ignore", "ignore", "pipe"],
+  });
+
+  const mimeFor = (key) => {
+    if (key.endsWith(".html")) return "text/html; charset=utf-8";
+    if (key.endsWith(".js")) return "application/javascript";
+    if (key.endsWith(".css")) return "text/css";
+    if (key.endsWith(".json")) return "application/json";
+    if (key.endsWith(".svg")) return "image/svg+xml";
+    if (key.endsWith(".png")) return "image/png";
+    if (key.endsWith(".woff2")) return "font/woff2";
+    return "application/octet-stream";
+  };
+  // Upload the REAL report tree to local R2 (retry on transient lock).
+  const putR2 = (key, file) => {
     for (let attempt = 0; attempt < 5; attempt++) {
       try {
         execSync(
-          `npx wrangler r2 object put kai126-test-report/${key} --file "${tmp}" --content-type "${ct}" --local`,
+          `npx wrangler r2 object put kai126-test-report/${key} --file "${file}" --content-type "${mimeFor(key)}" --local`,
           {
             cwd: path.join(__dirname, ".."),
             stdio: ["ignore", "ignore", "pipe"],
           },
         );
-        lastErr = null;
-        break;
-      } catch (e) {
-        lastErr = e;
-        await new Promise((r) => setTimeout(r, 800 * (attempt + 1)));
+        return;
+      } catch {
+        if (attempt === 4) throw new Error(`r2 put failed for ${key}`);
+        // transient local-state lock; back off and retry
+        // (no await in sync loop — small sleep via Atomics.wait)
+        Atomics.wait(
+          new Int32Array(new SharedArrayBuffer(4)),
+          0,
+          0,
+          500 * (attempt + 1),
+        );
       }
     }
-    fs.rmSync(tmp, { force: true });
-    if (lastErr) {
-      console.error(
-        `seedR2 ${key} stderr:`,
-        lastErr.stderr?.toString() ?? String(lastErr),
-      );
-      throw lastErr;
-    }
   };
-  await seedR2(
-    "index.html",
-    "<!doctype html><html><head><title>Test</title></head><body>OK</body></html>",
-    "text/html; charset=utf-8",
-  );
-  await seedR2("app.js", "console.log('kai126');", "application/javascript");
+  const walkDir = (dir) => {
+    const out = [];
+    const rec = (d) => {
+      for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+        const full = path.join(d, e.name);
+        if (e.isDirectory()) rec(full);
+        else out.push({ rel: path.relative(dir, full), full });
+      }
+    };
+    rec(dir);
+    return out;
+  };
+  for (const { rel, full } of walkDir(reportDir)) {
+    putR2(rel, full);
+  }
 
   // Boot wrangler pages dev with the test env pointing at the local JWKS
   // and the LOCAL R2 binding (wrangler.test.toml).
@@ -239,20 +300,22 @@ async function main() {
     assert(r.status === 401, "bad-signature token should be 401");
     console.log("  ✓ /e2e invalid signature -> 401");
 
-    // 7. Valid token -> /e2e serves REAL HTML from R2 with MIME + robots
+    // 7. Valid token -> /e2e/ serves the REAL generated Allure HTML
+    //    (the Function 308-redirects /e2e -> /e2e/ so relative assets
+    //    resolve under /e2e/; the probe uses the canonical path).
     const valid = await signToken(privateKey, {
       exp: Math.floor(Date.now() / 1000) + 300,
     });
-    r = await probe("/e2e", valid);
+    r = await probe("/e2e/", valid);
     assert(r.status === 200, `valid token should serve /e2e (got ${r.status})`);
     assert(
       r.robots === "noindex, nofollow",
       "allowed /e2e must carry robots tag",
     );
     assert(
-      r.body.includes("<title>Test</title>"),
-      "served HTML must be the R2 index.html (got: " +
-        r.body.slice(0, 60) +
+      r.body.includes("Allure") || r.body.includes('<div id="root">'),
+      "served HTML must be the REAL Allure report (got: " +
+        r.body.slice(0, 80) +
         ")",
     );
     assert(
@@ -263,8 +326,13 @@ async function main() {
       r.ct === "text/html; charset=utf-8",
       `HTML content-type must be text/html (got ${r.ct})`,
     );
+    assert(
+      r.body.includes("GOOGLE") === false &&
+        !r.body.includes("googletagmanager"),
+      "generated report must NOT contain Google Tag Manager (ALLURE_NO_ANALYTICS)",
+    );
     console.log(
-      "  ✓ /e2e valid token -> 200, serves R2 HTML, text/html, robots meta",
+      "  ✓ /e2e valid token -> 200, serves REAL Allure HTML, text/html, robots meta, no GTM",
     );
 
     // 7b. JS asset served with correct MIME + robots
@@ -299,6 +367,72 @@ async function main() {
     // 401. That's the security property.
     assert(r.status !== 401, "sub-asset with valid token must not be 401");
     console.log("  ✓ protected sub-asset: 401 without auth, not-401 with auth");
+
+    // 10. Browser smoke: the REAL Allure report boots and renders in a real
+    // browser through the Function (auth + CSP + MIME all exercised).
+    const { chromium } = await import("playwright-core");
+    const browser = await chromium.launch();
+    const page = await browser.newPage({ colorScheme: "light" });
+    await page.setExtraHTTPHeaders({
+      "Cf-Access-Jwt-Assertion": valid,
+    });
+    const errors = [];
+    page.on("pageerror", (e) => errors.push(String(e)));
+    page.on("console", (m) => {
+      if (m.type() === "error") errors.push(`console: ${m.text()}`);
+    });
+    const resp = await page.goto(`${BASE}/e2e`, {
+      waitUntil: "networkidle",
+      timeout: 60_000,
+    });
+    console.error("  (debug) browser status:", resp?.status());
+    console.error("  (debug) browser url:", page.url());
+    const htmlHead = await page.evaluate(
+      () => document.documentElement?.outerHTML?.slice(0, 400) ?? "",
+    );
+    console.error("  (debug) html head:", htmlHead.slice(0, 300));
+    console.error(
+      "  (debug) captured errors:",
+      JSON.stringify(errors.slice(0, 3)),
+    );
+    // Allure renders into the app container; assert the dashboard actually
+    // mounted with meaningful content (not a blank page). Allure 2.43 uses
+    // an app root with the report title visible once booted.
+    try {
+      await page.waitForFunction(
+        () => {
+          const t = document.body?.innerText ?? "";
+          return (
+            t.length > 20 &&
+            (t.includes("Allure") ||
+              t.includes("Suites") ||
+              t.includes("Overview"))
+          );
+        },
+        { timeout: 20_000 },
+      );
+    } catch {
+      const bodyText = await page.evaluate(
+        () => document.body?.innerText?.slice(0, 300) ?? "",
+      );
+      console.error("  (debug) body text:", bodyText.slice(0, 200));
+      throw new Error("Allure dashboard did not render content in the browser");
+    }
+    const rootText = await page.evaluate(
+      () => document.body?.innerText?.slice(0, 200) ?? "",
+    );
+    assert(
+      rootText.length > 20,
+      `Allure dashboard must render content (got: "${rootText.slice(0, 60)}")`,
+    );
+    assert(
+      errors.length === 0,
+      `browser console errors while loading /e2e: ${errors.slice(0, 3).join(" | ")}`,
+    );
+    await browser.close();
+    console.log(
+      "  ✓ browser smoke: real Allure report boots + renders under /e2e CSP (no console errors)",
+    );
 
     console.log("\n✅ KAI-126 protected-route boundary checks ALL PASSED");
   } finally {
