@@ -26,12 +26,12 @@ function assert(cond, msg) {
   if (!cond) throw new Error(msg);
 }
 
-function genResult(dir, { name, status, uuid, attachment }) {
+function genResult(dir, { name, status, uuid, attachment, historyId }) {
   fs.mkdirSync(dir, { recursive: true });
   const id = uuid ?? crypto.randomUUID();
   const result = {
     uuid: id,
-    historyId: id,
+    historyId: historyId ?? id,
     name,
     fullName: `kai126.${name.replace(/\s+/g, "-")}`,
     status,
@@ -112,12 +112,17 @@ function main() {
     "  ✓ controlled failed-test fixture: failed case + attachment file + summary count present",
   );
 
-  // ---- 2. Two-run history continuity ----
+  // ---- 2. Two-run history continuity (SAME test/historyId across runs) ----
+  // Run A and run B both contain the SAME test (same historyId), so the
+  // test-level history must accumulate two entries and duration-trend must
+  // survive — proving the restore mechanism carries per-test history.
+  const SHARED_HISTORY_ID = "shared-test-history-0007";
   const runA = path.join(TMP, "runA-results");
   genResult(runA, {
-    name: "run A test",
+    name: "continuity test",
     status: "passed",
     uuid: "ccc-runA-0003",
+    historyId: SHARED_HISTORY_ID,
   });
   const reportA = path.join(TMP, "reportA");
   generate(runA, reportA);
@@ -129,13 +134,19 @@ function main() {
     fs.existsSync(path.join(reportA, "history", "history-trend.json")),
     "run A report must produce history/history-trend.json",
   );
+  assert(
+    fs.existsSync(path.join(reportA, "history", "duration-trend.json")),
+    "run A report must produce history/duration-trend.json",
+  );
 
-  // Run B: restore run A's ENTIRE history/ into the new result set, then generate.
+  // Run B: restore run A's ENTIRE history/ into the new result set, with
+  // the SAME test/historyId, then generate.
   const runB = path.join(TMP, "runB-results");
   genResult(runB, {
-    name: "run B test",
+    name: "continuity test",
     status: "passed",
     uuid: "ddd-runB-0004",
+    historyId: SHARED_HISTORY_ID,
   });
   fs.mkdirSync(path.join(runB, "history"), { recursive: true });
   for (const hf of fs.readdirSync(path.join(reportA, "history"))) {
@@ -147,6 +158,36 @@ function main() {
   const reportB = path.join(TMP, "reportB");
   generate(runB, reportB);
 
+  // Test-level history: the shared test must have TWO history entries
+  // (run A + run B) in history.json.
+  const historyB = JSON.parse(
+    fs.readFileSync(path.join(reportB, "history", "history.json"), "utf8"),
+  );
+  // Allure writes history.json as { [historyId]: { statistic, items } }.
+  const sharedHistory = historyB?.[SHARED_HISTORY_ID];
+  assert(
+    sharedHistory,
+    "history.json must contain the shared test's history entry",
+  );
+  const runCount = sharedHistory?.statistic?.total ?? sharedHistory?.total ?? 0;
+  assert(
+    runCount >= 2,
+    `shared test must have >= 2 history runs (got ${runCount})`,
+  );
+
+  // Duration trend must also survive (2 entries).
+  const durationTrendB = JSON.parse(
+    fs.readFileSync(
+      path.join(reportB, "history", "duration-trend.json"),
+      "utf8",
+    ),
+  );
+  assert(
+    Array.isArray(durationTrendB) && durationTrendB.length >= 2,
+    `duration-trend after run B must contain >= 2 entries (got ${durationTrendB?.length})`,
+  );
+
+  // History trend must contain >= 2 entries.
   const trendB = JSON.parse(
     fs.readFileSync(
       path.join(reportB, "history", "history-trend.json"),
@@ -158,7 +199,7 @@ function main() {
     `history-trend after run B must contain >= 2 entries (got ${trendB?.length})`,
   );
   console.log(
-    `  ✓ two-run history continuity: run A + run B -> ${trendB.length} trend entries`,
+    `  ✓ two-run history continuity: shared test history runs=${runCount}, history-trend=${trendB.length}, duration-trend=${durationTrendB.length}`,
   );
 
   console.log("\n✅ KAI-126 history + failure-fixture checks ALL PASSED");

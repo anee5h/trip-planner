@@ -17,7 +17,11 @@
  *   public contact address) so a legitimate report does not false-fail.
  * - Keeps JWT/auth/cookie/private-key detection strict.
  *
- * Usage: node scripts/check-allure-privacy.mjs <dir> [--allow <value>]...
+ * Usage: node scripts/check-allure-privacy.mjs <dir> [--allow <value>]... [--sanitize]
+ *   --sanitize: delete binary attachments (screenshots/videos) from the
+ *   scanned directory BEFORE upload — a regex scanner cannot declare
+ *   uninspectable binaries safe, so they are excluded from public
+ *   Actions artifacts by default.
  * Exit 0 = clean; exit 1 = matches found (list them).
  */
 import fs from "node:fs";
@@ -27,10 +31,14 @@ import zlib from "node:zlib";
 const dir = process.argv[2];
 if (!dir || !fs.existsSync(dir)) {
   console.error(
-    "usage: node scripts/check-allure-privacy.mjs <dir> [--allow <value>]...",
+    "usage: node scripts/check-allure-privacy.mjs <dir> [--allow <value>]... [--sanitize]",
   );
   process.exit(2);
 }
+const SANITIZE = process.argv.includes("--sanitize");
+
+// Binary attachment extensions that cannot be inspected by regex.
+const BINARY_EXT = /\.(png|jpe?g|gif|webp|mp4|webm|ico|woff2?|ttf|eot)$/i;
 
 // Known intentionally-public values (app contact, etc.). Additive.
 const ALLOWLIST = ["info@meguruto.app"];
@@ -135,19 +143,37 @@ function decompressZip(buf) {
   }
   if (eocd < 0) throw new Error("no EOCD");
   const count = buf.readUInt16LE(eocd + 10);
+  // Validate entry count against buffer bounds (fail closed on garbage).
+  const maxPossible = Math.floor(buf.length / 30);
+  if (count > maxPossible) throw new Error(`implausible entry count ${count}`);
   let offset = buf.readUInt32LE(eocd + 16);
   for (let i = 0; i < count; i++) {
-    if (buf[offset] !== 0x50 || buf[offset + 1] !== 0x4b) break;
+    // Central-directory entry signature + bounds check.
+    if (offset + 46 > buf.length)
+      throw new Error(`central dir entry ${i} out of bounds`);
+    if (buf[offset] !== 0x50 || buf[offset + 1] !== 0x4b) {
+      throw new Error(`central dir entry ${i} missing signature`);
+    }
     const method = buf.readUInt16LE(offset + 10);
+    // Only store (0) and deflate (8) are accepted; anything else fails
+    // closed (unsupported compression = content we cannot verify).
+    if (method !== 0 && method !== 8) {
+      throw new Error(`unsupported ZIP compression method ${method}`);
+    }
     const compSize = buf.readUInt32LE(offset + 20);
     const nameLen = buf.readUInt16LE(offset + 28);
     const extraLen = buf.readUInt16LE(offset + 30);
     const name = buf.toString("utf8", offset + 46, offset + 46 + nameLen);
     const localOffset = buf.readUInt32LE(offset + 42);
-    // Local header
+    // Local header + bounds.
+    if (localOffset + 30 > buf.length)
+      throw new Error(`local header ${i} out of bounds`);
     const lNameLen = buf.readUInt16LE(localOffset + 26);
     const lExtraLen = buf.readUInt16LE(localOffset + 28);
     const dataStart = localOffset + 30 + lNameLen + lExtraLen;
+    if (dataStart + compSize > buf.length) {
+      throw new Error(`entry ${i} data out of bounds`);
+    }
     let data = buf.subarray(dataStart, dataStart + compSize);
     if (method === 8) data = zlib.inflateRawSync(data);
     out.push({ name, data });
@@ -197,6 +223,25 @@ for (const rel of walk(dir, dir)) {
       if (isAllowed(val)) continue;
       findings.push(`${rel} :: ${name} :: ${val.slice(0, 80)}`);
     }
+  }
+}
+
+// --sanitize: remove binary attachments (screenshots/videos) that a regex
+// scanner cannot declare safe. They are excluded from public Actions
+// artifacts by default; the private authenticated R2 store may retain
+// verified-safe diagnostics (report data) separately.
+if (SANITIZE) {
+  let removed = 0;
+  for (const rel of walk(dir, dir)) {
+    if (BINARY_EXT.test(rel)) {
+      fs.rmSync(path.join(dir, rel), { force: true });
+      removed++;
+    }
+  }
+  if (removed > 0) {
+    console.log(
+      `  (--sanitize) removed ${removed} binary attachment(s) from public artifact set`,
+    );
   }
 }
 

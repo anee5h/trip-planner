@@ -36,9 +36,13 @@ export default defineConfig({
           playwrightProject: project || "local",
           ...(bin ? { ciBin: bin } : {}),
           // Use the PR HEAD sha (not GITHUB_SHA, which on PR workflows is
-          // the temporary merge ref).
+          // the temporary merge ref). Same convention for normal + PWA.
           ...(process.env.PR_HEAD_SHA
             ? { commit: process.env.PR_HEAD_SHA.slice(0, 8) }
+            : {}),
+          ...(process.env.PR_NUMBER ? { prNumber: process.env.PR_NUMBER } : {}),
+          ...(process.env.PR_HEAD_REF
+            ? { branch: process.env.PR_HEAD_REF }
             : {}),
           ...(process.env.GITHUB_RUN_ID
             ? { workflowRun: process.env.GITHUB_RUN_ID }

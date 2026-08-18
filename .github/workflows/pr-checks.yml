@@ -114,6 +114,8 @@ jobs:
           PLAYWRIGHT_PROJECT: ${{ matrix.project }}
           CI_BIN: ${{ matrix.bin }}
           PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
         run: |
           set -o pipefail
           npx playwright test --project=${{ matrix.project }} $(node scripts/e2e-shards.mjs --bin ${{ matrix.bin }}) 2>&1 | tee /tmp/e2e-output.log
@@ -127,13 +129,16 @@ jobs:
             | sed -E 's/.*\(([0-9.]+)s\)$/\1s  &/' | sort -rn | head -5 || true
 
       - name: Privacy scan Playwright test-results (public repo artifacts)
+        id: scan-test-results
         if: ${{ !cancelled() }}
         # test-results/ holds screenshots + traces (may embed network/auth
-        # context). Scan BEFORE upload; blocking (public repo).
-        run: node scripts/check-allure-privacy.mjs test-results || echo "::warning::test-results privacy scan — review findings"
+        # context). BLOCKING scan before upload; also removes binary
+        # attachments (screenshots/videos) that a regex scanner cannot
+        # declare safe from the public artifact set.
+        run: node scripts/check-allure-privacy.mjs test-results --sanitize
 
       - name: Upload Playwright failure artifacts
-        if: ${{ !cancelled() }}
+        if: ${{ steps.scan-test-results.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: playwright-${{ matrix.project }}-bin${{ matrix.bin }}
@@ -141,6 +146,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Privacy scan Allure results (public repo artifacts)
+        id: scan-allure
         if: ${{ !cancelled() }}
         # The repo is public; Actions artifacts are readable by anyone with
         # read access. BLOCKING: fail the job if allure-results contain
@@ -148,7 +154,7 @@ jobs:
         run: node scripts/check-allure-privacy.mjs allure-results
 
       - name: Upload Allure results
-        if: ${{ !cancelled() }}
+        if: ${{ steps.scan-allure.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: allure-results-${{ matrix.project }}-bin${{ matrix.bin }}
@@ -199,14 +205,20 @@ jobs:
         run: npx playwright install chromium
 
       - name: PWA E2E against the production build
+        env:
+          PLAYWRIGHT_PROJECT: pwa
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
         run: npm run test:pwa
 
       - name: Privacy scan Playwright test-results (PWA — public repo artifacts)
+        id: scan-pwa-test-results
         if: ${{ !cancelled() }}
-        run: node scripts/check-allure-privacy.mjs test-results || echo "::warning::test-results privacy scan — review findings"
+        run: node scripts/check-allure-privacy.mjs test-results --sanitize
 
       - name: Upload Playwright failure artifacts
-        if: ${{ !cancelled() }}
+        if: ${{ steps.scan-pwa-test-results.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: playwright-pwa
@@ -214,11 +226,12 @@ jobs:
           if-no-files-found: ignore
 
       - name: Privacy scan Allure results (PWA — public repo artifacts)
+        id: scan-pwa-allure
         if: ${{ !cancelled() }}
         run: node scripts/check-allure-privacy.mjs allure-results
 
       - name: Upload Allure results (PWA)
-        if: ${{ !cancelled() }}
+        if: ${{ steps.scan-pwa-allure.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: allure-results-pwa
@@ -264,9 +277,11 @@ jobs:
       # artifact for inspection; publishing to the private R2 store happens
       # post-merge via .github/workflows/allure-publish.yml (push to main).
       - name: Privacy scan generated report (public repo artifacts)
+        id: scan-report-preview
         run: node scripts/check-allure-privacy.mjs allure-report
 
       - name: Upload Allure report artifact
+        if: ${{ steps.scan-report-preview.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: allure-report-preview
@@ -300,6 +315,11 @@ jobs:
         # Same no--with-deps policy as the KAI-99 E2E jobs (the browser
         # smoke step boots the real Allure report in Chromium).
         run: npx playwright install chromium
+
+      - name: Build Pages assets (hermetic — wrangler pages dev needs dist/)
+        # The boundary test boots `wrangler pages dev dist`; dist/ must
+        # exist and contain index.html for the /qa ASSETS fetch to work.
+        run: npm run build
 
       - name: Deterministic auth boundary tests (real JWKS + signed JWTs)
         # Generates a throwaway RSA keypair, runs a local JWKS server, and

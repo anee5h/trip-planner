@@ -36,16 +36,24 @@ nothing is served.
 | `CF_ACCESS_CERTS_URL` | `https://<team>.cloudflareaccess.com/cdn-cgi/access/certs` |
 | `E2E_REPORT` (R2 binding) | Private bucket holding the generated dashboard |
 
+The **actual R2 bucket** must be named valid lowercase, e.g.
+`meguruto-e2e-report` (configure via the `E2E_REPORT_R2_BUCKET` repository
+variable in the publisher workflow; default `meguruto-e2e-report`). The
+Pages binding name stays `E2E_REPORT` regardless of the bucket name.
+
 ## Storage & publishing (private R2 — never the public repo)
 
 - The generated report lives in a **private R2 bucket**. The bucket must have
   **no public access**; the only read path is the authenticated Function.
-- `.github/workflows/allure-publish.yml` is a **lightweight publisher**
-  triggered by `push` to main (genuinely post-merge). It locates the merged
-  PR by its head SHA, finds that PR's SUCCESSFUL "PR Checks" run, downloads
-  the sanitized `allure-results-*` artifacts from that exact run (never
-  re-runs E2E), restores history, writes `executor.json`, generates
+- `.github/workflows/allure-publish.yml` is a **trusted-main ingestion
+  publisher** triggered by `workflow_run` (PR Checks completed — success AND
+  failure, so the dashboard shows real pass/fail history). The workflow file
+  always comes from main (never checks out or executes PR code); it downloads
+  only the `allure-results-*` DATA artifacts, **re-scans them with main's
+  privacy code**, restores history, writes `executor.json`, generates
   (`ALLURE_NO_ANALYTICS=1` + GTM strip), privacy-scans, and uploads to R2.
+  Uploads are serialized (`cancel-in-progress: false`) and atomic-ish
+  (assets/data first, `index.html` last).
 - **CI overhead**: the PR workflow adds per-E2E-job artifact uploads
   (~seconds) + one `allure-report` aggregation job (~1–2 min) + the
   `protected-routes` security job (~2–4 min, includes browser install via
@@ -126,8 +134,9 @@ nothing is served.
 
 ## Owner-side setup checklist (post-merge)
 
-1. Create the R2 bucket (no public access).
-2. Add `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID` + bucket-name GitHub secrets.
+1. Create the R2 bucket `meguruto-e2e-report` (no public access); set
+   `E2E_REPORT_R2_BUCKET` repo variable (default matches).
+2. Add `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID` GitHub secrets.
 3. Create the Cloudflare Access application for `/e2e` + `/qa`; set the Pages env vars + R2 binding.
 4. Let the first publish run; it stages + scans but does not upload. Inspect a
    representative report, then set `ALLURE_PUBLISH_READY=1`.
