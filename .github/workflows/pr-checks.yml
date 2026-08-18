@@ -206,6 +206,10 @@ jobs:
     needs: [e2e, pwa-e2e]
     if: ${{ always() }}
     timeout-minutes: 15
+    # Overrides the workflow-level contents: read — this job commits the
+    # generated report back to the branch.
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
