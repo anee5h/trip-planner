@@ -1,6 +1,6 @@
 import { useState, useMemo, useRef, useEffect, useId } from "react";
 import type { Destination } from "@/shared/types/destination";
-import { getCanonicalPlaces } from "@/shared/services/place/PlaceCatalog";
+import { getLitePlaces } from "@/shared/services/place/PlaceCatalog";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import {
   Search,
@@ -65,8 +65,11 @@ export function SearchableDestinationPicker({
     }
   }, [activeIndex, isOpen]);
 
+  // KAI-121: the picker is SUMMARY-ONLY — its "popular" filter reads
+  // ratings (present in the lite index) and its options render from
+  // summary-synthesized records. No eager full-catalogue fetch on mount.
   const allDestinations = useMemo(
-    () => customDestinations ?? getCanonicalPlaces(),
+    () => customDestinations ?? getLitePlaces(),
     [customDestinations],
   );
 

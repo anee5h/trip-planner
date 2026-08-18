@@ -1,5 +1,5 @@
 import type { Destination } from "@/shared/types/destination";
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
+import { getFullPlaces } from "@/shared/services/place/PlaceCatalog";
 import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
 import { getEffectiveVisitDuration } from "./VisitDurationPolicy";
@@ -55,7 +55,7 @@ export function findNearbyCombinations(
   const all = (
     catalogue && catalogue.length
       ? catalogue
-      : (getDestinationList() as Destination[])
+      : (getFullPlaces() as Destination[])
   ) as Destination[];
   const primaryParentId = primary.relationships?.parentDestinationId;
   const isPrimaryHub = primary.role === "hub" || primary.kind === "city";

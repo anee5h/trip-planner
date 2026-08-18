@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import type { Destination } from "@/shared/types/destination";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { getLitePlaces } from "@/shared/services/place/PlaceCatalog";
 import { Button } from "@/shared/components/ui/button";
 import {
   Table,
@@ -32,7 +32,9 @@ export default function Compare() {
   const { t } = useTranslation();
   const { locale } = useLocale();
   const { compareList, toggleCompare, clearCompare } = useTripStore();
-  const allDestinations = getDestinationList() as Destination[];
+  // KAI-121: Compare reads ratings/walking/budget/transport — all lite
+  // fields. SUMMARY-ONLY: no eager full-catalogue fetch on mount.
+  const allDestinations = getLitePlaces() as Destination[];
 
   const compareDestinations = compareList
     .map((id) => allDestinations.find((d) => d.id === id))

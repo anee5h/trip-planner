@@ -1,11 +1,7 @@
 import { useState, useMemo } from "react";
-import destinationsIndex from "@/shared/data/destinations-index.json";
 import { PageHeader } from "@/shared/components/ui/PageHeader";
-import { toCanonicalPlace } from "@/shared/services/place/PlaceCatalog";
-import type {
-  Destination,
-  EditorialLifecycle,
-} from "@/shared/types/destination";
+import { useFullCatalogue } from "@/shared/hooks/useFullCatalogue";
+import type { EditorialLifecycle } from "@/shared/types/destination";
 import {
   ShieldCheck,
   AlertTriangle,
@@ -49,10 +45,10 @@ interface QueueItem {
 }
 
 export default function EditorialDashboard() {
-  const allDestinations = useMemo(
-    () => (destinationsIndex as Destination[]).map(toCanonicalPlace),
-    [],
-  );
+  // KAI-121: full-data admin surface — shared lazy loader instead of a
+  // static 6.5 MB bundle in the route chunk.
+  const { places } = useFullCatalogue();
+  const allDestinations = useMemo(() => places, [places]);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedRegion, setSelectedRegion] = useState<string>("ALL");

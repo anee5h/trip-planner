@@ -2,7 +2,7 @@ import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Cloud, CloudLightning, Snowflake, Sun } from "lucide-react";
 
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
+import { getLitePlaces } from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
 import { getDistance } from "@/shared/utils/distance";
 import { useTripStore } from "@/shared/hooks/useTripStore";
@@ -87,8 +87,12 @@ export function formatCompactDateRange(
 
 export default function Home() {
   const { t } = useTranslation();
+  // KAI-121: Home is SUMMARY-ONLY. Every rail-required field (id, name,
+  // ratings, budget, coordinates, transportOptions, categories) is present
+  // in the lite summary — Home does NOT fetch the full catalogue on mount.
   const allDestinations = useMemo(
-    () => getDestinationList() as Destination[],
+    () => getLitePlaces() as Destination[],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   );
 

@@ -2,8 +2,10 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
-import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
+import {
+  getLitePlaces,
+  getLocalizedPlace,
+} from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
 import { useAuth } from "@/shared/hooks/useAuth";
 import DestinationCard from "@/features/destinations/components/DestinationCard";
@@ -129,8 +131,13 @@ export default function Destinations() {
   } = useTripStore();
   const { locale } = useLocale();
   const { t } = useTranslation();
-  const allDestinations = (getDestinationList("en") as Destination[]).map(
-    (destination) => getLocalizedPlace(destination, locale),
+  // KAI-121: the explorer is a list/filter surface — SUMMARY-ONLY. Every
+  // field it reads (id, name, ratings, budget, transportOptions,
+  // coordinates, categories, prefecture) lives in the lite index, so it
+  // does NOT fetch the full catalogue on mount (no eager full-data
+  // upgrade).
+  const allDestinations = getLitePlaces().map((destination) =>
+    getLocalizedPlace(destination, locale),
   );
   const [searchQuery, setSearchQuery] = useState(
     initialExplorerState.searchQuery,

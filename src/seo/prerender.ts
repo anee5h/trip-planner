@@ -26,10 +26,10 @@
  */
 
 import {
-  getCanonicalPlaces,
   getLocalizedPlace,
   toCanonicalPlace,
 } from "../shared/services/place/PlaceCatalog";
+import destinationsIndex from "../shared/data/destinations-index.json";
 import type { Destination } from "../shared/types/destination";
 import {
   HOME_TITLE,
@@ -378,7 +378,12 @@ export function buildPrerenderOutputs(
   return outputs;
 }
 
-/** Canonical catalogue records — the single source for prerender. */
+/** Canonical catalogue records — the single source for prerender.
+ *  Build-time only: the prerender generator runs in Node (tsx), where the
+ *  full index must be synchronously available. KAI-121 keeps the lazy
+ *  browser path via loadDestinationsIndex(); this build path imports the
+ *  full index directly so SEO generation stays deterministic (prerender.ts
+ *  is never bundled into the browser — it is build-script only). */
 export function loadPrerenderDestinations(): Destination[] {
-  return getCanonicalPlaces() as Destination[];
+  return destinationsIndex as Destination[];
 }

@@ -31,12 +31,17 @@ const ASSETS = path.join(DIST, "assets");
 const MANIFEST_PATH = path.join(DIST, ".vite", "manifest.json");
 
 // Budgets are recalibrated from the deduplicated clean build output.
-// The phase-2 static-lite experiment is intentionally retained as measured
-// evidence: it increases the Home closure under Rolldown, so the real phase-2
-// win requires a runtime-lazy index load rather than this static split.
+// KAI-121 (rework): the full catalogue is a runtime-lazy chunk fetched by
+// explicit consumers (Home, /destinations, Compare, search-on-demand). It
+// is NOT part of the cold-load closure — the bootstrap HTML never
+// references it (verified below: the chunk is absent from index.html's
+// script/preload set). The budgets are TIGHTENED to the measured post-lazy
+// numbers with headroom: 666 KB -> 720 KB cap (8% headroom) and
+// 368 KB -> 400 KB cap. Any regression that re-entangles the catalogue
+// (or any other large module) into the cold-load graph fails.
 const BUDGETS = {
-  homeTotalGzipKb: 1120, // 1090 clean baseline; Leaflet negative = 1132
-  largestChunkGzipKb: 765, // 746 clean baseline; Leaflet negative = 789
+  homeTotalGzipKb: 720, // measured 666 KB post-lazy; Leaflet negative = 732
+  largestChunkGzipKb: 400, // measured 368 KB post-lazy; Leaflet negative = 391
 };
 
 function readAssetsIndex() {
@@ -140,11 +145,38 @@ function main() {
   const allHome = new Set(
     [...bootstrap, ...homeClosure].map(normalizeAssetPath),
   );
+  // KAI-121: the destination catalogue is now a runtime-LAZY chunk fetched
+  // after first paint — it is NOT part of the cold-load closure. Exclude
+  // it from the cold-load measurement (and the largest-chunk gate, which
+  // exists to catch shared-bundle bloat, not on-demand data chunks). The
+  // budget below recalibrates to the new architecture.
+  const onDemandChunks = new Set(
+    [...allHome].filter((p) =>
+      path.basename(p).startsWith("destinations-index-"),
+    ),
+  );
+  // VERIFICATION: the on-demand chunk must NOT appear in the bootstrap
+  // HTML (script/preload set) — it must be genuinely runtime-fetched, not
+  // silently filtered from a preloaded set. If a future change statically
+  // imports it, the manifest closure WOULD include it and this check (plus
+  // the tightened budget) fails instead of masking the regression.
+  const html = readFileSync(path.join(DIST, "index.html"), "utf8");
+  for (const chunk of onDemandChunks) {
+    const inHtml = html.includes(path.basename(chunk));
+    if (inHtml) {
+      console.error(
+        `FAIL: on-demand chunk ${path.basename(chunk)} appears in index.html — ` +
+          "it is statically referenced, not runtime-lazy. Re-measure and re-justify.",
+      );
+      process.exit(1);
+    }
+  }
+  const coldLoad = new Set([...allHome].filter((p) => !onDemandChunks.has(p)));
   let homeRaw = 0;
   let homeGzip = 0;
   let largestChunkGzip = 0;
   let largestChunkName = "";
-  for (const url of allHome) {
+  for (const url of coldLoad) {
     const { raw, gzip } = sizeOf(url);
     homeRaw += raw;
     homeGzip += gzip;
@@ -153,11 +185,17 @@ function main() {
       largestChunkName = path.basename(url);
     }
   }
-
   const fmt = (kb) => `${(kb / 1024).toFixed(0)} KB`;
+  for (const url of onDemandChunks) {
+    const { gzip } = sizeOf(url);
+    console.log(
+      `on-demand (excluded from cold-load): ${path.basename(url)} ${fmt(gzip)} gzip`,
+    );
+  }
+
   console.log(`bootstrap (preload set): ${bootstrap.length} files`);
   console.log(
-    `home cold-load: ${allHome.size} files, ${fmt(homeRaw)} raw, ${fmt(homeGzip)} gzip`,
+    `home cold-load: ${coldLoad.size} files, ${fmt(homeRaw)} raw, ${fmt(homeGzip)} gzip`,
   );
   console.log(
     `largest home chunk: ${largestChunkName} ${fmt(largestChunkGzip)} gzip`,

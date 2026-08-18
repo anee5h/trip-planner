@@ -1,9 +1,8 @@
 import { useState, useMemo, useEffect } from "react";
-import destinationsIndex from "@/shared/data/destinations-index.json";
+import { useFullCatalogue } from "@/shared/hooks/useFullCatalogue";
 import collectionsIndex from "@/shared/data/collections-index.json";
 import { PHASE_ONE_COHORT_IDS } from "@/shared/data/editorialPilot";
 import { PageHeader } from "@/shared/components/ui/PageHeader";
-import { toCanonicalPlace } from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
 import type { Collection } from "@/shared/types/collection";
 import WebsiteQaStudio from "./components/WebsiteQaStudio";
@@ -77,10 +76,11 @@ function getImageQaStatus(
 }
 
 export default function QaDashboard() {
-  const allDestinations = useMemo(
-    () => (destinationsIndex as Destination[]).map(toCanonicalPlace),
-    [],
-  );
+  // KAI-121: QaDashboard is a full-data admin surface. Use the shared
+  // lazy loader (runtime-fetched /data/destinations-index.json) instead of
+  // statically bundling the 6.5 MB index into the route chunk.
+  const { places } = useFullCatalogue();
+  const allDestinations = useMemo(() => places, [places]);
   const allCollections = collectionsIndex as Collection[];
   const totalDestinations = allDestinations.length;
   const totalCollections = allCollections.length;

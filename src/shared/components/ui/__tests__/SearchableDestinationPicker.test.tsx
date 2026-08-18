@@ -1,6 +1,7 @@
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { beforeAll, afterEach, describe, expect, it, vi } from "vitest";
+import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 import { SearchableDestinationPicker } from "../SearchableDestinationPicker";
 
 let root: Root | undefined;
@@ -33,6 +34,12 @@ afterEach(() => {
 });
 
 describe("SearchableDestinationPicker", () => {
+  // KAI-121: the picker uses the full catalogue (via useFullCatalogue);
+  // preload so it renders full data synchronously in tests.
+  beforeAll(async () => {
+    await loadDestinationsIndex();
+  });
+
   it("keeps the desktop combobox separate from its controlled listbox", () => {
     setViewport(1024);
     renderPicker();

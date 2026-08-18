@@ -3,14 +3,35 @@ import {
   getDestination,
   getDestinationForEditorialReview,
 } from "../DestinationService";
+import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import fullIndex from "@/shared/data/destinations-index.json";
 
 describe("getDestination locale availability", () => {
-  beforeEach(() => {
-    // Force the in-memory index fallback path (fetch is not available in
-    // the test environment and would otherwise fail silently).
+  beforeEach(async () => {
+    // Preload the full catalogue so the index fallback has real data
+    // (KAI-121: the per-destination fetch failing falls back to the FULL
+    // index, never to the lite summary).
+    await loadDestinationsIndex();
+    // Force the in-memory index fallback path: reject only the per-
+    // destination detail fetch; the destinations-index fetch must still
+    // resolve (replicating vitest.setup.ts after the stub replaces it).
     vi.stubGlobal(
       "fetch",
-      vi.fn(() => Promise.reject(new Error("no network in tests"))),
+      vi.fn((input: RequestInfo | URL) => {
+        const url = String(input);
+        if (url.includes("/data/destinations/")) {
+          return Promise.reject(new Error("no network in tests"));
+        }
+        if (url.includes("destinations-index.json")) {
+          return Promise.resolve(
+            new Response(JSON.stringify(fullIndex), {
+              status: 200,
+              headers: { "Content-Type": "application/json" },
+            }),
+          );
+        }
+        return Promise.reject(new Error(`unexpected fetch: ${url}`));
+      }),
     );
   });
 

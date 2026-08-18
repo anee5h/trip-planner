@@ -1,14 +1,21 @@
-import { describe, it, expect } from "vitest";
+import { beforeAll, describe, it, expect } from "vitest";
 import {
   generateDayPlan,
   isRealDestinationStop,
   resolveReturnEndpoint,
 } from "../DayPlanGeneratorService";
-import { getCanonicalPlaces } from "@/shared/services/place/PlaceCatalog";
+import {
+  getFullPlaces,
+  loadDestinationsIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
 
 describe("DayPlanGeneratorRouting", () => {
-  const canonicalPlaces = getCanonicalPlaces();
+  let canonicalPlaces: Destination[];
+  beforeAll(async () => {
+    await loadDestinationsIndex();
+    canonicalPlaces = getFullPlaces() as Destination[];
+  });
 
   it("populates routeLegs, rejects unusable transit, and respects anchor POI protection", () => {
     const primary = {

@@ -172,6 +172,11 @@ function AppInner() {
 }
 
 function App() {
+  // KAI-121 (rework): NO app-root catalogue preload. Legal/settings/
+  // account/etc. must not fetch the full index. Only routes/features that
+  // genuinely require the complete catalogue trigger
+  // loadDestinationsIndex() themselves (Home, /destinations, Compare,
+  // search-on-demand, recommendation paths).
   return (
     <AuthProvider>
       <ThemeProvider>

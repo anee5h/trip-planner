@@ -1,10 +1,16 @@
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
-import { afterEach, describe, it, expect } from "vitest";
+import { afterEach, beforeAll, describe, it, expect } from "vitest";
 import { generateDayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import type { Destination } from "@/shared/types/destination";
+import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 import { DayPlanWidget } from "../DayPlanWidget";
+
+// KAI-121: generateDayPlan needs the FULL catalogue (nearby candidates).
+beforeAll(async () => {
+  await loadDestinationsIndex();
+});
 
 let root: Root | undefined;
 let host: HTMLDivElement | undefined;

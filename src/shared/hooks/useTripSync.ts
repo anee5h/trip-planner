@@ -5,7 +5,11 @@ import { toast } from "sonner";
 import type { Trip } from "@/shared/types/trip";
 import { SupabaseTripRepository } from "@/shared/services/trips/TripRepository";
 import { generateUUID, isValidUUID } from "@/shared/utils/uuid";
-import destinationsIndex from "@/shared/data/destinations-index.json";
+// KAI-121: useTripSync runs inside the app ROOT (TripStore). It must NOT
+// pull the full catalogue (6.5 MB) into the entry closure — it only needs
+// prefecture lookups, which the SUMMARY (lite) index provides. The full
+// index stays a runtime-lazy fetch for full-data surfaces only.
+import destinationsIndex from "@/shared/data/destinations-index.lite.json";
 import type { Destination } from "@/shared/types/destination";
 import { formatPrefectureId } from "@/shared/hooks/useTripStore";
 import type { OriginLocation } from "@/shared/hooks/useTripStore";

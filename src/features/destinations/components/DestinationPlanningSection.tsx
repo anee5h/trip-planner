@@ -6,6 +6,7 @@ import type { DayPlan } from "@/shared/services/recommendation/DayPlanGeneratorS
 import { getPlanEligibility } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import { calculateGeneratedPlanCost } from "@/shared/services/budget/GeneratedPlanCostService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
+import { useFullCatalogue } from "@/shared/hooks/useFullCatalogue";
 
 interface DestinationPlanningSectionProps {
   destination: Destination;
@@ -35,13 +36,33 @@ export function DestinationPlanningSection({
 
   useEffect(() => setActivePartySize(partySize), [partySize]);
 
-  const { halfDay, fullDay } = useMemo(
-    () => ({
+  // KAI-121: eligibility REQUIRES the full catalogue (nearby candidates).
+  // "Catalogue not loaded yet" must never be interpreted as "destination
+  // is ineligible" — while pending, the widget mounts in a loading state;
+  // eligibility is recomputed once the full catalogue arrives. On failure
+  // the widget shows the explicit retryable error state.
+  const {
+    loading: catalogueLoading,
+    error: catalogueError,
+    retry: retryCatalogue,
+  } = useFullCatalogue();
+
+  const { halfDay, fullDay } = useMemo(() => {
+    // When the full catalogue is pending or failed, we cannot compute a
+    // truthful eligibility verdict. Report pending (eligible=false with
+    // a pending flag) so the widget renders its loading/error UI instead
+    // of being hidden as "ineligible".
+    if (catalogueLoading || catalogueError) {
+      return {
+        halfDay: { eligible: false, pending: true },
+        fullDay: { eligible: false, pending: true },
+      };
+    }
+    return {
       halfDay: getPlanEligibility(destination, { planType: "half_day" }),
       fullDay: getPlanEligibility(destination, { planType: "full_day" }),
-    }),
-    [destination],
-  );
+    };
+  }, [destination, catalogueLoading, catalogueError]);
 
   const eligible = halfDay.eligible || fullDay.eligible;
   const fullDayDisabled = !fullDay.eligible;
@@ -86,6 +107,9 @@ export function DestinationPlanningSection({
         onPartySizeChange={setActivePartySize}
         generatedCostRange={costBreakdown?.totalRange}
         eligible={eligible}
+        catalogueLoading={catalogueLoading}
+        catalogueError={catalogueError}
+        onRetryCatalogue={retryCatalogue}
         defaultPlanType={fullDayDisabled ? "half_day" : "full_day"}
         fullDayDisabled={fullDayDisabled}
         onSaveToItinerary={() =>

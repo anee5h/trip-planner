@@ -164,6 +164,13 @@ function buildTokyoWardsDocument(locale: "en" | "ja"): SearchDocument {
 
 const cachedDocuments = new Map<"en" | "ja", SearchDocument[]>();
 
+// KAI-121 contract: search depends ONLY on the formally complete SUMMARY
+// catalogue (getDestinationList -> getAvailablePlaces -> getLitePlaces).
+// The summary carries every field search needs (id, name, prefecture,
+// region, categories, tags, kind, role). The cache is therefore STABLE —
+// it never needs to be invalidated when the full dataset loads, and it
+// never permanently holds a partial lite result: the summary is complete
+// by definition.
 export function buildSearchIndex(locale: "en" | "ja" = "en"): SearchDocument[] {
   const cached = cachedDocuments.get(locale);
   if (cached) return cached;

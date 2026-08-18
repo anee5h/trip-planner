@@ -1,11 +1,15 @@
 import type { Destination } from "@/shared/types/destination";
 import {
-  getCanonicalPlaces,
   getAvailablePlaces,
+  getFullPlaces,
   isPlaceAvailableInLocale,
+  loadDestinationsIndex,
   toCanonicalPlace,
 } from "@/shared/services/place/PlaceCatalog";
 
+/** Summary list (KAI-121 contract): synchronous, formally complete for
+ *  first-paint / search / list surfaces. Full-data consumers must use
+ *  getDestinationListAsync() or await the full index. */
 export function getDestinationList(
   locale: "en" | "ja" = "en",
 ): Partial<Destination>[] {
@@ -22,6 +26,22 @@ export function getDestinationList(
     }
     return dest;
   });
+}
+
+/**
+ * KAI-121 async full-catalogue list: awaits the full index, then returns
+ * the complete destination records. Routes/features that genuinely need
+ * full data (budget fields, transport metadata, editorial content) call
+ * this. Safe to call repeatedly — the loader shares one promise.
+ */
+export async function getDestinationListAsync(
+  locale: "en" | "ja" = "en",
+): Promise<Partial<Destination>[]> {
+  await loadDestinationsIndex();
+  const full = getFullPlaces() as Partial<Destination>[];
+  return full.filter((dest) =>
+    isPlaceAvailableInLocale(dest as Destination, locale),
+  );
 }
 
 /**
@@ -65,25 +85,35 @@ async function loadDestination(id: string): Promise<Destination | null> {
       return dest;
     }
   } catch (error) {
-    // Fallback to index below
+    // Fallback to the full index below.
   }
 
-  // Fallback to in-memory destinationsIndex
-  const indexMatch = getCanonicalPlaces().find((d) => d.id === id);
-  if (indexMatch) {
-    if (
-      indexMatch.transportOptions?.car &&
-      !indexMatch.transportOptions.my_car
-    ) {
-      return {
-        ...indexMatch,
-        transportOptions: {
-          ...indexMatch.transportOptions,
-          my_car: indexMatch.transportOptions.car,
-        },
-      };
+  // KAI-121 contract: NEVER return a lite-summary record pretending to be
+  // a full Destination. If the per-destination fetch fails, await the FULL
+  // catalogue and find the record there. If the full load also fails,
+  // return null — callers handle the absence explicitly.
+  try {
+    await loadDestinationsIndex();
+    const fullMatch = getFullPlaces().find((d) => d.id === id);
+    if (fullMatch) {
+      if (
+        fullMatch.transportOptions?.car &&
+        !fullMatch.transportOptions.my_car
+      ) {
+        return {
+          ...fullMatch,
+          transportOptions: {
+            ...fullMatch.transportOptions,
+            my_car: fullMatch.transportOptions.car,
+          },
+        };
+      }
+      return fullMatch;
     }
-    return indexMatch;
+  } catch (error) {
+    // Full index unavailable — do NOT fall back to summary (it is not a
+    // complete Destination). Callers see null.
+    return null;
   }
 
   return null;

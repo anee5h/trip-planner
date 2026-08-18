@@ -139,6 +139,12 @@ self.addEventListener("fetch", (event) => {
   }
 
   if (!isStaticAsset(request, url)) return;
+  // NOTE (KAI-121): the lazy full catalogue (/data/destinations-index.json)
+  // is deliberately NOT cached here — it is not part of the app shell and
+  // is only fetched on demand by full-data consumers. It is never
+  // precached at install time (APP_SHELL is just "/") and never enters the
+  // offline shell. If caching it after request ever becomes useful, scope
+  // it to a dedicated cache — never the shell cache.
 
   event.respondWith(
     caches.match(url.href, { ignoreSearch: true }).then((cached) => {

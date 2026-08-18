@@ -54,6 +54,11 @@ interface DayPlanWidgetProps {
   defaultPlanType?: DayPlanType;
   /** When true, full-day plans are hidden because there are not enough stops. */
   fullDayDisabled?: boolean;
+  /** KAI-121: full-catalogue loader state (provided by the parent so
+   *  eligibility and Generate share one verdict). */
+  catalogueLoading?: boolean;
+  catalogueError?: string | null;
+  onRetryCatalogue?: () => void;
 }
 
 export function DayPlanWidget({
@@ -67,6 +72,9 @@ export function DayPlanWidget({
   eligible = true,
   defaultPlanType,
   fullDayDisabled = false,
+  catalogueLoading = false,
+  catalogueError = null,
+  onRetryCatalogue,
 }: DayPlanWidgetProps) {
   const isHubOrCity = isHubPrimary(destination);
 
@@ -145,6 +153,13 @@ export function DayPlanWidget({
     forcePlanType?: DayPlanType,
   ) => {
     if (e) e.preventDefault();
+    // KAI-121: never generate against an empty full catalogue — the full
+    // index must be loaded first (no race). On failure, the error state
+    // with Retry is shown instead.
+    if (catalogueLoading || catalogueError) {
+      setShowConfig(false);
+      return;
+    }
     const activePlanType = forcePlanType || planType;
     if (forcePlanType) setPlanType(forcePlanType);
 
@@ -390,7 +405,28 @@ export function DayPlanWidget({
         {!hasGenerated && !showConfig && (
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="space-y-1.5 max-w-xl text-xs text-slate-600 dark:text-slate-300">
-              {eligible ? (
+              {catalogueError ? (
+                <p className="leading-relaxed flex items-center gap-1">
+                  {locale === "ja"
+                    ? "目的地データを読み込めませんでした。"
+                    : "Could not load destination data."}
+                  {onRetryCatalogue && (
+                    <button
+                      type="button"
+                      className="underline font-bold"
+                      onClick={onRetryCatalogue}
+                    >
+                      {locale === "ja" ? "再試行" : "Retry"}
+                    </button>
+                  )}
+                </p>
+              ) : catalogueLoading ? (
+                <p className="leading-relaxed">
+                  {locale === "ja"
+                    ? "目的地データを読み込み中…"
+                    : "Loading destination data…"}
+                </p>
+              ) : eligible ? (
                 <>
                   <p className="leading-relaxed">
                     {isHubOrCity
@@ -656,27 +692,51 @@ export function DayPlanWidget({
               </span>
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-2">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => setShowConfig(false)}
-                className="rounded-xl min-h-[44px] text-xs font-bold border-slate-300 dark:border-slate-700"
-              >
-                {locale === "ja" ? "キャンセル" : "Cancel"}
-              </Button>
-              <Button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl min-h-[44px] text-xs font-bold px-5"
-              >
-                {locale === "ja"
-                  ? hasGenerated
-                    ? "再生成"
-                    : "プランを生成"
-                  : hasGenerated
-                    ? "Regenerate Plan"
-                    : "Generate Plan"}
-              </Button>
+            <div className="flex flex-col items-end gap-2 pt-2">
+              {catalogueLoading && (
+                <span className="text-[11px] font-medium text-slate-400">
+                  {locale === "ja"
+                    ? "目的地データを読み込み中…"
+                    : "Loading destination data…"}
+                </span>
+              )}
+              {catalogueError && (
+                <span className="text-[11px] font-medium text-amber-600 dark:text-amber-400 flex items-center gap-1">
+                  {locale === "ja"
+                    ? "目的地データを読み込めませんでした。"
+                    : "Could not load destination data."}
+                  <button
+                    type="button"
+                    className="underline font-bold"
+                    onClick={onRetryCatalogue}
+                  >
+                    {locale === "ja" ? "再試行" : "Retry"}
+                  </button>
+                </span>
+              )}
+              <div className="flex items-center gap-3">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setShowConfig(false)}
+                  className="rounded-xl min-h-[44px] text-xs font-bold border-slate-300 dark:border-slate-700"
+                >
+                  {locale === "ja" ? "キャンセル" : "Cancel"}
+                </Button>
+                <Button
+                  type="submit"
+                  disabled={catalogueLoading || Boolean(catalogueError)}
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl min-h-[44px] text-xs font-bold px-5 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {locale === "ja"
+                    ? hasGenerated
+                      ? "再生成"
+                      : "プランを生成"
+                    : hasGenerated
+                      ? "Regenerate Plan"
+                      : "Generate Plan"}
+                </Button>
+              </div>
             </div>
           </form>
         )}

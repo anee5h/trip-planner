@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeAll } from "vitest";
 import {
   generateDayPlan,
   removeStepFromPlan,
@@ -7,6 +7,13 @@ import {
   getPlanEligibility,
 } from "../DayPlanGeneratorService";
 import type { Destination } from "@/shared/types/destination";
+import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+
+// KAI-121: the full catalogue is runtime-lazy; tests that need full
+// destination fields must preload it before the sync accessors read it.
+beforeAll(async () => {
+  await loadDestinationsIndex();
+});
 
 const mockDestPrimary = {
   id: "roppongi-hills",
