@@ -242,6 +242,30 @@ jobs:
           path: allure-report/
           retention-days: 14
 
+  protected-routes:
+    name: Protected-route boundary checks (KAI-126)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Deterministic auth boundary tests (real JWKS + signed JWTs)
+        # Generates a throwaway RSA keypair, runs a local JWKS server, and
+        # exercises no-token/malformed/expired/wrong-aud/wrong-issuer/bad-sig
+        # deny paths plus the valid-token allow path against the real Pages
+        # Function via wrangler dev.
+        run: node scripts/check-protected-routes.mjs
+
   catalogue-fast:
     runs-on: ubuntu-latest
     timeout-minutes: 10
