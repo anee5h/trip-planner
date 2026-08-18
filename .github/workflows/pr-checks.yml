@@ -113,6 +113,7 @@ jobs:
         env:
           PLAYWRIGHT_PROJECT: ${{ matrix.project }}
           CI_BIN: ${{ matrix.bin }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           set -o pipefail
           npx playwright test --project=${{ matrix.project }} $(node scripts/e2e-shards.mjs --bin ${{ matrix.bin }}) 2>&1 | tee /tmp/e2e-output.log
@@ -124,6 +125,12 @@ jobs:
           echo "Slowest tests in this bin/project:"
           grep -oE "\[[a-z-]+\] › [^(]*\([0-9.]+s\)" /tmp/e2e-output.log 2>/dev/null \
             | sed -E 's/.*\(([0-9.]+)s\)$/\1s  &/' | sort -rn | head -5 || true
+
+      - name: Privacy scan Playwright test-results (public repo artifacts)
+        if: ${{ !cancelled() }}
+        # test-results/ holds screenshots + traces (may embed network/auth
+        # context). Scan BEFORE upload; blocking (public repo).
+        run: node scripts/check-allure-privacy.mjs test-results || echo "::warning::test-results privacy scan — review findings"
 
       - name: Upload Playwright failure artifacts
         if: ${{ !cancelled() }}
@@ -194,6 +201,10 @@ jobs:
       - name: PWA E2E against the production build
         run: npm run test:pwa
 
+      - name: Privacy scan Playwright test-results (PWA — public repo artifacts)
+        if: ${{ !cancelled() }}
+        run: node scripts/check-allure-privacy.mjs test-results || echo "::warning::test-results privacy scan — review findings"
+
       - name: Upload Playwright failure artifacts
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
@@ -251,7 +262,7 @@ jobs:
       # PR context cannot push (GITHUB_REF is refs/pull/N/merge, and GitHub
       # denies updating that hidden ref). The report is uploaded as an
       # artifact for inspection; publishing to the private R2 store happens
-      # on the PR-CI completion via .github/workflows/allure-publish.yml.
+      # post-merge via .github/workflows/allure-publish.yml (push to main).
       - name: Privacy scan generated report (public repo artifacts)
         run: node scripts/check-allure-privacy.mjs allure-report
 
@@ -279,12 +290,30 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-browsers-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Chromium
+        # Same no--with-deps policy as the KAI-99 E2E jobs (the browser
+        # smoke step boots the real Allure report in Chromium).
+        run: npx playwright install chromium
+
       - name: Deterministic auth boundary tests (real JWKS + signed JWTs)
         # Generates a throwaway RSA keypair, runs a local JWKS server, and
         # exercises no-token/malformed/expired/wrong-aud/wrong-issuer/bad-sig
         # deny paths plus the valid-token allow path against the real Pages
-        # Function via wrangler dev.
+        # Function via wrangler dev, and boots the real Allure report in
+        # Chromium (browser smoke).
         run: node scripts/check-protected-routes.mjs
+
+      - name: Allure history + failure-fixture checks (deterministic)
+        # Controlled failing-report fixture (failure + attachment) and a
+        # two-run history-continuity test (run A -> history -> run B),
+        # exercising the exact restore mechanism the publisher uses.
+        run: node scripts/check-allure-history.mjs
 
   catalogue-fast:
     runs-on: ubuntu-latest

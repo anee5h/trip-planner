@@ -87,32 +87,32 @@ function isScannable(rel) {
   return true;
 }
 
-/** Read a file as text; if it's a ZIP (trace), decompress entries in memory. */
+/** Read a file as text; if it's a ZIP (trace), decompress entries in memory.
+ *  FAILS CLOSED: an unparseable ZIP is surfaced as a finding (content we
+ *  could not inspect), and network/trace entry text is NOT truncated — a
+ *  secret could live in the tail of a long payload. */
 function readText(fullPath, rel) {
   const buf = fs.readFileSync(fullPath);
   if (/\.(zip|trace)$/i.test(rel)) {
-    // Peek for ZIP magic; if present, walk entries (store entry names +
-    // a bounded sample of each entry's text for pattern matching).
     if (buf[0] === 0x50 && buf[1] === 0x4b) {
-      // Minimal ZIP central-directory reader: find EOCD and list entries.
+      // decompressZip throws on malformed central directory.
+      const chunks = decompressZip(buf);
       const texts = [];
-      try {
-        const chunks = decompressZip(buf);
-        for (const c of chunks) {
-          if (
-            c.name.includes("network") ||
-            c.name.includes("console") ||
-            c.name.endsWith(".json")
-          ) {
-            const s = c.data.toString("utf8").slice(0, 20_000);
-            texts.push(`--- ${c.name} ---\n${s}`);
-          }
+      for (const c of chunks) {
+        if (
+          c.name.includes("network") ||
+          c.name.includes("console") ||
+          c.name.endsWith(".json") ||
+          c.name.endsWith(".txt")
+        ) {
+          // Full entry text — no truncation.
+          texts.push(`--- ${c.name} ---\n${c.data.toString("utf8")}`);
         }
-      } catch {
-        texts.push(buf.toString("utf8").slice(0, 20_000));
       }
       return texts.join("\n");
     }
+    // A .zip/.trace that is NOT actually a ZIP: fail closed.
+    return `UNPARSEABLE_TRACE ${rel}`;
   }
   return buf.toString("utf8");
 }
@@ -179,7 +179,16 @@ for (const rel of walk(dir, dir)) {
   try {
     text = readText(path.join(dir, rel), rel);
   } catch {
-    continue; // unreadable binary — skip
+    // Unreadable/decompression failure — FAIL CLOSED: we could not
+    // inspect this file, so treat it as a finding.
+    findings.push(`${rel} :: unreadable :: could not decompress/inspect`);
+    continue;
+  }
+  if (text.startsWith("UNPARSEABLE_TRACE")) {
+    findings.push(
+      `${rel} :: unparseable-trace :: not a valid ZIP, content uninspected`,
+    );
+    continue;
   }
   scannedFiles++;
   for (const { name, re } of PATTERNS) {

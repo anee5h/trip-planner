@@ -107,8 +107,12 @@ export async function onRequest(context) {
     // Redirect /e2e -> /e2e/ so Allure's relative asset paths (assets/...)
     // resolve under /e2e/ instead of the site root (where /assets/* is a
     // static-family route that would serve the SPA shell as text/html).
+    // The redirect itself carries noindex + security headers.
     if (url.pathname === "/e2e") {
-      return Response.redirect(new URL("/e2e/", url), 308);
+      const redirectHeaders = new Headers(SECURITY_HEADERS);
+      redirectHeaders.set("Location", new URL("/e2e/", url).toString());
+      redirectHeaders.set("X-Robots-Tag", "noindex, nofollow");
+      return new Response(null, { status: 308, headers: redirectHeaders });
     }
     const bucketName = env.E2E_REPORT_BUCKET ?? "E2E_REPORT";
     const bucket = env[bucketName];

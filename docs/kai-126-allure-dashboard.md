@@ -41,10 +41,17 @@ nothing is served.
 - The generated report lives in a **private R2 bucket**. The bucket must have
   **no public access**; the only read path is the authenticated Function.
 - `.github/workflows/allure-publish.yml` is a **lightweight publisher**
-  triggered by `workflow_run` on PR Checks completion (post-merge). It does
-  **not** re-run E2E — it downloads the sanitized `allure-results-*`
-  artifacts from the PR CI run, restores history, writes `executor.json`,
-  generates (`ALLURE_NO_ANALYTICS=1`), privacy-scans, and uploads to R2.
+  triggered by `push` to main (genuinely post-merge). It locates the merged
+  PR by its head SHA, finds that PR's SUCCESSFUL "PR Checks" run, downloads
+  the sanitized `allure-results-*` artifacts from that exact run (never
+  re-runs E2E), restores history, writes `executor.json`, generates
+  (`ALLURE_NO_ANALYTICS=1` + GTM strip), privacy-scans, and uploads to R2.
+- **CI overhead**: the PR workflow adds per-E2E-job artifact uploads
+  (~seconds) + one `allure-report` aggregation job (~1–2 min) + the
+  `protected-routes` security job (~2–4 min, includes browser install via
+  cache). The post-merge publisher adds ~3–5 min of pure aggregation —
+  **no duplicate E2E execution** (the KAI-99 E2E runs happen exactly once,
+  in the PR workflow).
 - **Privacy gate**: the first publish is manually gated on the repository
   variable `ALLURE_PUBLISH_READY=1`. Until set, the workflow stages + scans
   but does not upload. Set it only after inspecting a representative report.
@@ -93,12 +100,17 @@ nothing is served.
 
 - throwaway RSA keypair + local JWKS server + jose-signed JWTs
 - no token / malformed / expired / wrong AUD / wrong issuer / bad signature → 401
-- valid token → `/e2e` serves the **real generated Allure report** with
+- valid token → `/e2e/` serves the **real generated Allure report** with
   correct MIME + robots headers + no GTM
 - valid token → `/qa` serves the SPA shell (ASSETS fetch, not `next()`)
 - protected sub-assets → 401 unauth, not-401 auth'd
+- **real hashed asset**: parses the generated index.html and tests an actual
+  `assets/*.js`/`.css` (200 + MIME + security headers — no hard-coded paths)
 - **browser smoke**: Playwright loads `/e2e` with a valid token and asserts
-  the Allure app boots (`#root` renders, no console errors) under the /e2e CSP
+  the Allure app boots (renders content, no console errors) under the /e2e CSP
+- **history + failure fixture** (`scripts/check-allure-history.mjs`):
+  controlled failed-test + attachment materialization, and a two-run
+  history-continuity test (run A → restore history → run B → trend ≥ 2)
 - assertion failures propagate (no `process.exit(0)` in cleanup) → CI fails
 
 ## Troubleshooting
@@ -110,7 +122,7 @@ nothing is served.
 | Report downloads instead of rendering | MIME metadata missing on upload | Uploads set `--content-type`; re-run the publish workflow |
 | Dashboard has no history | First run (no prior R2 history) | Expected; appears from the second run on |
 | Privacy scan fails | Unallowlisted email/secrets in output | Inspect findings; redact or add to allowlist deliberately |
-| Publisher did not run | PR Checks conclusion ≠ success | The publish only runs on successful PR CI |
+| Publisher did not run | No merged-PR association or no successful PR Checks run for the merged head | The publisher only runs for PR merges with green PR Checks (direct pushes skip) |
 
 ## Owner-side setup checklist (post-merge)
 

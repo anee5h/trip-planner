@@ -335,23 +335,33 @@ async function main() {
       "  ✓ /e2e valid token -> 200, serves REAL Allure HTML, text/html, robots meta, no GTM",
     );
 
-    // 7b. JS asset served with correct MIME + robots
-    r = await probe("/e2e/app.js", valid);
+    // 7b. Real hashed asset from the generated index.html: parse the served
+    // HTML for an actual <script src="assets/...js"> (or stylesheet) and
+    // test THAT asset's 200 + MIME + security headers — no hard-coded paths.
+    const assetMatch =
+      r.body.match(/<script[^>]+src="(assets\/[^"]+\.js)"/i) ||
+      r.body.match(/<link[^>]+href="(assets\/[^"]+\.css)"/i);
     assert(
-      r.status === 200,
-      `valid token should serve /e2e/app.js (got ${r.status})`,
+      assetMatch,
+      "generated index.html must reference an assets/*.js or *.css",
+    );
+    const assetPath = `/e2e/${assetMatch[1]}`;
+    const isJs = assetMatch[1].endsWith(".js");
+    const asset = await probe(assetPath, valid);
+    assert(
+      asset.status === 200,
+      `${assetPath} must be 200 (got ${asset.status})`,
     );
     assert(
-      r.ct === "application/javascript",
-      `JS content-type must be application/javascript (got ${r.ct})`,
+      asset.ct === (isJs ? "application/javascript" : "text/css"),
+      `${assetPath} content-type must be ${isJs ? "application/javascript" : "text/css"} (got ${asset.ct})`,
     );
-    assert(r.body.includes("kai126"), "JS body must be the seeded content");
     assert(
-      r.robots === "noindex, nofollow",
-      "JS response must carry robots tag",
+      asset.robots === "noindex, nofollow",
+      `${assetPath} must carry robots tag`,
     );
     console.log(
-      "  ✓ /e2e/app.js valid token -> 200, application/javascript, robots",
+      `  ✓ real asset ${assetPath} -> 200, ${isJs ? "application/javascript" : "text/css"}, robots`,
     );
 
     // 8. Valid token -> /qa allow

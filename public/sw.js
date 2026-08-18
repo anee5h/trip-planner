@@ -47,7 +47,10 @@ const isSupabaseHost = (url) =>
 
 const isNeverCacheRequest = (request, url) =>
   isSupabaseHost(url) ||
-  // Protected engineering surfaces: exact /e2e and /qa AND their subtrees.
+  // Supabase / API / functions traffic is never cached (KAI-64).
+  NEVER_CACHE_PATHS.some((path) => url.pathname.startsWith(path)) ||
+  // KAI-126: protected engineering surfaces — exact path AND subtree
+  // (startsWith alone misses /e2e, /qa).
   isPathOrSubtree(url.pathname, "/e2e") ||
   isPathOrSubtree(url.pathname, "/qa") ||
   request.headers.has("authorization") ||

@@ -2,11 +2,12 @@
 #
 # Lightweight publisher — NO browser/test execution happens here.
 #
-# Trigger: `workflow_run` — fires when the "PR Checks" workflow completes on
-# a PR that just merged. The event carries the PR-CI run ID, so we download
-# the SANITIZED allure-results artifacts that the PR workflow already
-# produced (each E2E job runs privacy validation BEFORE uploading them),
-# then:
+# Trigger: `push` to main (GENUINELY post-merge — not workflow_run, which
+# fires after every successful PR Checks run whether or not the PR merged).
+# On a main push (a merge), we locate the PR whose head matches the merged
+# commit, find its SUCCESSFUL "PR Checks" run, and download the sanitized
+# allure-results-* artifacts from that exact run (matching the merged head
+# SHA). Then:
 #   1. restore the previous report's history/ from R2 (Allure 2 mechanism)
 #   2. write executor.json with buildOrder + CI metadata
 #   3. generate the report
@@ -18,9 +19,8 @@
 name: Allure Publish (R2)
 
 on:
-  workflow_run:
-    workflows: ["PR Checks"]
-    types: [completed]
+  push:
+    branches: [main]
 
 permissions:
   contents: read
@@ -37,7 +37,6 @@ jobs:
   aggregate-and-publish:
     name: Aggregate + publish to R2
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     timeout-minutes: 20
     steps:
       - name: Checkout
@@ -52,18 +51,44 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Download sanitized Allure results from the PR CI run
+      - name: Find merged PR + its successful PR Checks run
+        id: find-pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_SHA: ${{ github.sha }}
+        run: |
+          # The pushed commit is the merge commit; its first parent is the
+          # pre-merge main, and the PR head is the commit merged in.
+          PR_HEAD=$(gh api "repos/${{ github.repository }}/commits/${{ github.sha }}/pulls" --jq '.[0].head.sha // empty' 2>/dev/null || true)
+          if [ -z "$PR_HEAD" ]; then
+            echo "::warning::No associated PR found for $MERGE_SHA — skipping publish (direct push or no PR)."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # Find the latest SUCCESSFUL "PR Checks" workflow run for that head.
+          RUN_ID=$(gh api "repos/${{ github.repository }}/actions/runs?head_sha=$PR_HEAD&event=pull_request&status=success&per_page=100" \
+            --jq '[.workflow_runs[] | select(.name == "PR Checks") | .id][0] // empty' 2>/dev/null || true)
+          if [ -z "$RUN_ID" ]; then
+            echo "::warning::No successful PR Checks run for merged head $PR_HEAD — skipping publish."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "pr_head=$PR_HEAD" >> "$GITHUB_OUTPUT"
+          echo "Found PR Checks run $RUN_ID for merged head $PR_HEAD"
+
+      - name: Download sanitized Allure results from the merged PR's run
+        if: ${{ steps.find-pr.outputs.skip != 'true' }}
         uses: actions/download-artifact@v4
         with:
           path: allure-download
           pattern: allure-results-*
           merge-multiple: true
-          # The PR Checks run that just completed (its artifacts were
-          # privacy-scanned in each E2E job before upload).
-          run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ steps.find-pr.outputs.run_id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Restore previous report history from R2
+        if: ${{ steps.find-pr.outputs.skip != 'true' }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -82,14 +107,15 @@ jobs:
           fi
 
       - name: Write executor.json (CI metadata with monotonic buildOrder)
+        if: ${{ steps.find-pr.outputs.skip != 'true' }}
         run: |
           cat > allure-download/executor.json <<EOF
           {
             "name": "GitHub Actions",
             "type": "github",
-            "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}",
-            "buildName": "${{ github.event.workflow_run.head_branch }} @ ${{ github.event.workflow_run.head_sha }}",
-            "buildUrl": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}",
+            "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ steps.find-pr.outputs.run_id }}",
+            "buildName": "main @ ${{ github.sha }}",
+            "buildUrl": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ steps.find-pr.outputs.run_id }}",
             "reportName": "Meguruto E2E Dashboard",
             "reportUrl": "https://meguruto.app/e2e",
             "buildOrder": ${{ github.run_number }}
@@ -98,21 +124,24 @@ jobs:
           echo "executor.json written (buildOrder=${{ github.run_number }})"
 
       - name: Generate Allure report (analytics off)
+        if: ${{ steps.find-pr.outputs.skip != 'true' }}
         run: |
           ALLURE_NO_ANALYTICS=1 npx allure generate allure-download -o allure-report --clean
           echo "Allure report generated (ALLURE_NO_ANALYTICS=1)."
 
       - name: Strip GTM analytics from generated HTML (defense in depth)
+        if: ${{ steps.find-pr.outputs.skip != 'true' }}
         # Allure 2.43 still embeds a GTM snippet despite the env opt-out;
         # remove it deterministically so the private dashboard never phones
         # home (the /e2e CSP also excludes external origins).
         run: node scripts/strip-allure-analytics.mjs allure-report
 
       - name: Privacy/secrets scan of generated report
+        if: ${{ steps.find-pr.outputs.skip != 'true' }}
         run: node scripts/check-allure-privacy.mjs allure-report
 
       - name: Upload report to R2 (private, not the repo)
-        if: ${{ vars.ALLURE_PUBLISH_READY == '1' }}
+        if: ${{ steps.find-pr.outputs.skip != 'true' && vars.ALLURE_PUBLISH_READY == '1' }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -140,6 +169,6 @@ jobs:
           echo "Uploaded $(find . -type f | wc -l) files to R2 bucket $E2E_REPORT_BUCKET"
 
       - name: Privacy gate not ready — report staged, not published
-        if: ${{ vars.ALLURE_PUBLISH_READY != '1' }}
+        if: ${{ steps.find-pr.outputs.skip != 'true' && vars.ALLURE_PUBLISH_READY != '1' }}
         run: |
           echo "::warning::ALLURE_PUBLISH_READY is not set to 1. The report was generated and privacy-scanned but NOT uploaded to R2. Set the repository variable ALLURE_PUBLISH_READY=1 after inspecting a representative report."

@@ -35,8 +35,10 @@ export default defineConfig({
         globalLabels: {
           playwrightProject: project || "local",
           ...(bin ? { ciBin: bin } : {}),
-          ...(process.env.GITHUB_SHA
-            ? { commit: process.env.GITHUB_SHA.slice(0, 8) }
+          // Use the PR HEAD sha (not GITHUB_SHA, which on PR workflows is
+          // the temporary merge ref).
+          ...(process.env.PR_HEAD_SHA
+            ? { commit: process.env.PR_HEAD_SHA.slice(0, 8) }
             : {}),
           ...(process.env.GITHUB_RUN_ID
             ? { workflowRun: process.env.GITHUB_RUN_ID }
