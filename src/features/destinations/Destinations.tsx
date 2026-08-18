@@ -135,11 +135,13 @@ export default function Destinations() {
   // KAI-121: the explorer is a list/filter surface. First paint renders the
   // SYNCHRONOUS summary (id/name/ratings/budget/transportOptions/coordinates
   // — all in the lite index), then upgrades to full records when the lazy
-  // catalogue arrives. Filters that need full-only fields (budget breakdown,
-  // editorial) resolve after the upgrade; the summary never silently stands
-  // in for missing data (it is formally complete for the listed fields).
-  const { places, loading } = useFullCatalogue();
-  const allDestinations = (loading ? getLitePlaces() : places).map(
+  // catalogue arrives. FAILURE SEMANTICS: a failed load must NOT switch
+  // this summary-capable surface to an empty list — retain the summary and
+  // expose the error (non-destructive). Only when the full catalogue is
+  // actually loaded (not loading, no error) do we use full places.
+  const { places, loading, error } = useFullCatalogue();
+  const fullAvailable = !loading && !error;
+  const allDestinations = (fullAvailable ? places : getLitePlaces()).map(
     (destination) => getLocalizedPlace(destination, locale),
   );
   const [searchQuery, setSearchQuery] = useState(

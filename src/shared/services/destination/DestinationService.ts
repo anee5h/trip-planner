@@ -2,7 +2,6 @@ import type { Destination } from "@/shared/types/destination";
 import {
   getAvailablePlaces,
   getFullPlaces,
-  hasLoadedFullIndex,
   isPlaceAvailableInLocale,
   loadDestinationsIndex,
   toCanonicalPlace,
@@ -86,13 +85,15 @@ async function loadDestination(id: string): Promise<Destination | null> {
       return dest;
     }
   } catch (error) {
-    // Fallback to index below
+    // Fallback to the full index below.
   }
 
-  // Fallback: summary index first (always available), then the full index
-  // if it has already been loaded (or after awaiting it).
-  const summaryMatch = getAvailablePlaces().find((d) => d.id === id);
-  if (summaryMatch && hasLoadedFullIndex()) {
+  // KAI-121 contract: NEVER return a lite-summary record pretending to be
+  // a full Destination. If the per-destination fetch fails, await the FULL
+  // catalogue and find the record there. If the full load also fails,
+  // return null — callers handle the absence explicitly.
+  try {
+    await loadDestinationsIndex();
     const fullMatch = getFullPlaces().find((d) => d.id === id);
     if (fullMatch) {
       if (
@@ -109,21 +110,10 @@ async function loadDestination(id: string): Promise<Destination | null> {
       }
       return fullMatch;
     }
-  }
-  if (summaryMatch) {
-    if (
-      summaryMatch.transportOptions?.car &&
-      !summaryMatch.transportOptions.my_car
-    ) {
-      return {
-        ...summaryMatch,
-        transportOptions: {
-          ...summaryMatch.transportOptions,
-          my_car: summaryMatch.transportOptions.car,
-        },
-      };
-    }
-    return summaryMatch as Destination;
+  } catch (error) {
+    // Full index unavailable — do NOT fall back to summary (it is not a
+    // complete Destination). Callers see null.
+    return null;
   }
 
   return null;

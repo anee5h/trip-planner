@@ -2,11 +2,8 @@ import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Cloud, CloudLightning, Snowflake, Sun } from "lucide-react";
 
-import {
-  loadDestinationsIndex,
-  getFullPlaces,
-  getLitePlaces,
-} from "@/shared/services/place/PlaceCatalog";
+import { getLitePlaces } from "@/shared/services/place/PlaceCatalog";
+import { useFullCatalogue } from "@/shared/hooks/useFullCatalogue";
 import type { Destination } from "@/shared/types/destination";
 import { getDistance } from "@/shared/utils/distance";
 import { useTripStore } from "@/shared/hooks/useTripStore";
@@ -91,27 +88,21 @@ export function formatCompactDateRange(
 
 export default function Home() {
   const { t } = useTranslation();
-  // KAI-121: the full catalogue loads via a lazy chunk (not the initial
-  // JS bundle). Home renders immediately with the lite summary, then
-  // re-renders with the full data once the lazy index arrives.
-  const [catalogueLoaded, setCatalogueLoaded] = useState(false);
-  useEffect(() => {
-    let alive = true;
-    void loadDestinationsIndex().then(() => {
-      if (alive) setCatalogueLoaded(true);
-    });
-    return () => {
-      alive = false;
-    };
-  }, []);
+  // KAI-121: the full catalogue loads lazily (not in the initial bundle).
+  // Home renders immediately with the SYNCHRONOUS summary, then upgrades
+  // to the full records when the lazy index arrives. On load failure Home
+  // KEEPS the summary (rails are summary-capable) and exposes a
+  // non-destructive error/retry state — never an unhandled rejection,
+  // never an empty list.
+  const { places, loading, error, retry: retryCatalogue } = useFullCatalogue();
+  const catalogueLoaded = !loading && !error;
   const allDestinations = useMemo(
-    () =>
-      (catalogueLoaded ? getFullPlaces() : getLitePlaces()) as Destination[],
+    () => (catalogueLoaded ? places : getLitePlaces()) as Destination[],
     // First paint renders the SYNCHRONOUS summary (rails need id/name/
     // ratings/budget/coordinates — all present in the lite index), then
     // upgrades to the full records when the lazy catalogue arrives.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [catalogueLoaded],
+    [catalogueLoaded, places],
   );
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -531,6 +522,24 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      {error && (
+        <div
+          role="alert"
+          className="bg-amber-50 dark:bg-amber-900/30 border-b border-amber-200 dark:border-amber-800 px-4 py-2 text-xs font-medium text-amber-800 dark:text-amber-200"
+        >
+          {t(
+            "home.catalogueError",
+            "Some destination details are unavailable — showing summary data.",
+          )}{" "}
+          <button
+            type="button"
+            className="underline font-bold"
+            onClick={retryCatalogue}
+          >
+            {t("home.retryCatalogue", "Retry")}
+          </button>
+        </div>
+      )}
       {/* Hero & Full-Width Planner Section */}
       <section className="relative overflow-x-clip bg-slate-50 pb-6 pt-6 sm:pb-8 sm:pt-8 lg:pb-8 lg:pt-10 dark:bg-slate-950">
         <div className="absolute inset-0 bg-grid-slate-200/50 dark:bg-grid-slate-800/50 [mask-image:linear-gradient(0deg,transparent,black)] -z-10" />

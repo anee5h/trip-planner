@@ -35,9 +35,13 @@ export default function Compare() {
   const { compareList, toggleCompare, clearCompare } = useTripStore();
   // KAI-121: Compare needs full records (ratings, walking, budget, transport
   // metadata). First paint uses the synchronous summary; upgrade to full
-  // records when the lazy catalogue arrives.
-  const { places, loading } = useFullCatalogue();
-  const allDestinations = (loading ? getLitePlaces() : places) as Destination[];
+  // records when the lazy catalogue arrives. FAILURE SEMANTICS: a failed
+  // load retains the summary (never an empty list).
+  const { places, loading, error } = useFullCatalogue();
+  const fullAvailable = !loading && !error;
+  const allDestinations = (
+    fullAvailable ? places : getLitePlaces()
+  ) as Destination[];
 
   const compareDestinations = compareList
     .map((id) => allDestinations.find((d) => d.id === id))

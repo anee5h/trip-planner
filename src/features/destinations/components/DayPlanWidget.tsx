@@ -71,8 +71,14 @@ export function DayPlanWidget({
 }: DayPlanWidgetProps) {
   // KAI-121: generateDayPlan reads the FULL catalogue (nearby candidates,
   // budget/transport fields). Load it on mount — this widget only lives on
-  // full-data surfaces (destination details / planning).
-  useFullCatalogue();
+  // full-data surfaces (destination details / planning). Generate is
+  // GUARDED until the full catalogue is loaded (no race against an empty
+  // full list); on load failure the widget shows a retryable error state.
+  const {
+    loading: catalogueLoading,
+    error: catalogueError,
+    retry: retryCatalogue,
+  } = useFullCatalogue();
   const isHubOrCity = isHubPrimary(destination);
 
   const [hasGenerated, setHasGenerated] = useState(false);
@@ -150,6 +156,13 @@ export function DayPlanWidget({
     forcePlanType?: DayPlanType,
   ) => {
     if (e) e.preventDefault();
+    // KAI-121: never generate against an empty full catalogue — the full
+    // index must be loaded first (no race). On failure, the error state
+    // with Retry is shown instead.
+    if (catalogueLoading || catalogueError) {
+      setShowConfig(false);
+      return;
+    }
     const activePlanType = forcePlanType || planType;
     if (forcePlanType) setPlanType(forcePlanType);
 
@@ -661,27 +674,50 @@ export function DayPlanWidget({
               </span>
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-2">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => setShowConfig(false)}
-                className="rounded-xl min-h-[44px] text-xs font-bold border-slate-300 dark:border-slate-700"
-              >
-                {locale === "ja" ? "キャンセル" : "Cancel"}
-              </Button>
-              <Button
-                type="submit"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl min-h-[44px] text-xs font-bold px-5"
-              >
-                {locale === "ja"
-                  ? hasGenerated
-                    ? "再生成"
-                    : "プランを生成"
-                  : hasGenerated
-                    ? "Regenerate Plan"
-                    : "Generate Plan"}
-              </Button>
+            <div className="flex flex-col items-end gap-2 pt-2">
+              {catalogueLoading && (
+                <span className="text-[11px] font-medium text-slate-400">
+                  {locale === "ja"
+                    ? "目的地データを読み込み中…"
+                    : "Loading destination data…"}
+                </span>
+              )}
+              {catalogueError && (
+                <span className="text-[11px] font-medium text-amber-600 dark:text-amber-400 flex items-center gap-1">
+                  {locale === "ja"
+                    ? "目的地データを読み込めませんでした。"
+                    : "Could not load destination data."}
+                  <button
+                    type="button"
+                    className="underline font-bold"
+                    onClick={retryCatalogue}
+                  >
+                    {locale === "ja" ? "再試行" : "Retry"}
+                  </button>
+                </span>
+              )}
+              <div className="flex items-center gap-3">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setShowConfig(false)}
+                  className="rounded-xl min-h-[44px] text-xs font-bold border-slate-300 dark:border-slate-700"
+                >
+                  {locale === "ja" ? "キャンセル" : "Cancel"}
+                </Button>
+                <Button
+                  type="submit"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl min-h-[44px] text-xs font-bold px-5"
+                >
+                  {locale === "ja"
+                    ? hasGenerated
+                      ? "再生成"
+                      : "プランを生成"
+                    : hasGenerated
+                      ? "Regenerate Plan"
+                      : "Generate Plan"}
+                </Button>
+              </div>
             </div>
           </form>
         )}

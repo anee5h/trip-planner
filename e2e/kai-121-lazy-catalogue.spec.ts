@@ -34,7 +34,8 @@ test("cold non-catalogue route never requests the full index", async ({
   page,
 }) => {
   const hits = await collectRequests(page);
-  await page.goto("/legal", { waitUntil: "networkidle" });
+  // /privacy is a real cold route (no full-data consumers mounted).
+  await page.goto("/privacy", { waitUntil: "networkidle" });
   // Give any mis-fired lazy loader a chance to appear.
   await page.waitForTimeout(1500);
   expect(hits.filter((u) => u.includes(FULL_INDEX_URL))).toEqual([]);
@@ -45,7 +46,10 @@ test("service-worker install does not precache the full index", async ({
 }) => {
   // Navigate to a non-catalogue route so Home's lazy fetch does not run
   // (isolating the SW's own install-time fetches).
-  await page.goto("/legal", { waitUntil: "domcontentloaded", timeout: 60000 });
+  await page.goto("/privacy", {
+    waitUntil: "domcontentloaded",
+    timeout: 60000,
+  });
   const hits = await collectRequests(page);
   // Force the SW install path to run (fresh context has no SW).
   await page.evaluate(async () => {
@@ -71,6 +75,21 @@ test("service-worker install does not precache the full index", async ({
     return keys;
   });
   expect(cacheKeys.some((u) => u.includes("destinations-index"))).toBe(false);
+});
+
+test("dist/index.html never references the full index (module graph clean)", async ({
+  page,
+}) => {
+  // The full JSON exists at dist/data/destinations-index.json as a plain
+  // runtime asset, but it must be ABSENT from the JS/module-preload graph:
+  // the served index.html must not reference it in any script/link/
+  // modulepreload.
+  const response = await page.goto("/", {
+    waitUntil: "domcontentloaded",
+    timeout: 60000,
+  });
+  const html = (await response?.text()) ?? "";
+  expect(html).not.toContain("destinations-index");
 });
 
 test("Home (full-data surface) loads the full index exactly once", async ({

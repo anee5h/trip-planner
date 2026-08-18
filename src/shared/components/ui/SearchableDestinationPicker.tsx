@@ -1,10 +1,7 @@
 import { useState, useMemo, useRef, useEffect, useId } from "react";
 import type { Destination } from "@/shared/types/destination";
-import {
-  getFullPlaces,
-  hasLoadedFullIndex,
-  loadDestinationsIndex,
-} from "@/shared/services/place/PlaceCatalog";
+import { getLitePlaces } from "@/shared/services/place/PlaceCatalog";
+import { useFullCatalogue } from "@/shared/hooks/useFullCatalogue";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import {
   Search,
@@ -69,26 +66,21 @@ export function SearchableDestinationPicker({
     }
   }, [activeIndex, isOpen]);
 
-  // KAI-121: the picker needs full destination data (ratings for the
-  // "popular" filter). Load the full index on mount — this is a
-  // full-data surface (trip planning), so awaiting is the explicit
-  // contract. Safe to call repeatedly: the loader shares one promise.
-  // Init from the shared loaded-state so preloaded sessions (tests,
-  // already-navigated apps) render full data synchronously.
-  const [fullLoaded, setFullLoaded] = useState(() => hasLoadedFullIndex());
-  useEffect(() => {
-    let alive = true;
-    void loadDestinationsIndex().then(() => {
-      if (alive) setFullLoaded(true);
-    });
-    return () => {
-      alive = false;
-    };
-  }, []);
+  // KAI-121: the picker prefers full destination data (ratings for the
+  // "popular" filter) but is SUMMARY-CAPABLE: on load failure it keeps the
+  // summary list (non-destructive) instead of unhandled-rejecting or
+  // showing an empty list. Init from the shared loaded-state so preloaded
+  // sessions (tests, already-navigated apps) render full data synchronously.
+  const {
+    places: fullPlaces,
+    loading: fullLoading,
+    error: fullError,
+  } = useFullCatalogue();
+  const fullLoaded = !fullLoading && !fullError;
 
   const allDestinations = useMemo(
-    () => customDestinations ?? (fullLoaded ? getFullPlaces() : []),
-    [customDestinations, fullLoaded],
+    () => customDestinations ?? (fullLoaded ? fullPlaces : getLitePlaces()),
+    [customDestinations, fullLoaded, fullPlaces],
   );
 
   const selectedDestination = useMemo(() => {

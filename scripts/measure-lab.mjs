@@ -171,19 +171,27 @@ async function measure(page, route) {
 async function main() {
   const server = await serve();
   const results = { home: {}, destination: {} };
-  for (const [name, device] of [
-    ["mobile", devices["iPhone 13"]],
-    ["desktop", devices["Desktop Chrome"]],
+  // FRESH browser context per route × viewport: a context that already
+  // visited Home has the full catalogue cached/warmed, which would
+  // contaminate the destination-route measurement. Each measurement gets a
+  // brand-new context (cold cache).
+  for (const [surface, route] of [
+    ["home", "/"],
+    ["destination", "/destinations/kyoto-city"],
   ]) {
-    const browser = await chromium.launch();
-    const ctx = await browser.newContext({
-      ...device,
-      viewport: device.viewport,
-    });
-    const page = await ctx.newPage();
-    results.home[name] = await measure(page, "/");
-    results.destination[name] = await measure(page, "/destinations/kyoto-city");
-    await browser.close();
+    for (const [name, device] of [
+      ["mobile", devices["iPhone 13"]],
+      ["desktop", devices["Desktop Chrome"]],
+    ]) {
+      const browser = await chromium.launch();
+      const ctx = await browser.newContext({
+        ...device,
+        viewport: device.viewport,
+      });
+      const page = await ctx.newPage();
+      results[surface][name] = await measure(page, route);
+      await browser.close();
+    }
   }
   server.close();
   if (JSON_OUT) {

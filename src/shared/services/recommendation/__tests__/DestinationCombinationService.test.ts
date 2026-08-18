@@ -1,7 +1,13 @@
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import { findNearbyCombinations } from "../DestinationCombinationService";
 import { getEffectiveVisitDuration } from "../DayPlanGeneratorService";
+import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
+
+// KAI-121: the combination service reads the FULL catalogue.
+beforeAll(async () => {
+  await loadDestinationsIndex();
+});
 
 const mockDest1 = {
   id: "shibuya-sky",
