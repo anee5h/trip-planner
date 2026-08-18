@@ -177,9 +177,11 @@ async function measure(page, route) {
           window.__kai121.lcp = entries[entries.length - 1].startTime;
       }).observe({ type: "largest-contentful-paint", buffered: true });
       new PerformanceObserver((list) => {
-        const entries = list.getEntries();
-        if (entries.length)
-          window.__kai121.fcp = entries[entries.length - 1].startTime;
+        for (const e of list.getEntries()) {
+          if (e.name === "first-contentful-paint") {
+            window.__kai121.fcp = e.startTime;
+          }
+        }
       }).observe({ type: "paint", buffered: true });
     } catch {}
   });
@@ -223,13 +225,20 @@ async function measure(page, route) {
     fail("app DOM marker (#root with content) not found after navigation");
   }
 
-  // Stop tracing and WAIT for Tracing.tracingComplete (no fixed sleep).
-  await cdp.send("Tracing.end");
-  await new Promise((resolve) => {
-    const onComplete = () => resolve();
-    cdp.on("Tracing.tracingComplete", onComplete);
-    setTimeout(resolve, 5000); // safety timeout
+  // Stop tracing. The tracingComplete listener is installed BEFORE
+  // Tracing.end (no race); the safety timeout REJECTS (fail closed).
+  const traceComplete = new Promise((resolve, reject) => {
+    const timer = setTimeout(
+      () => reject(new Error("Tracing.tracingComplete timeout")),
+      5000,
+    );
+    cdp.once("Tracing.tracingComplete", () => {
+      clearTimeout(timer);
+      resolve();
+    });
   });
+  await cdp.send("Tracing.end");
+  await traceComplete;
 
   if (collected.length === 0) {
     fail("trace collected 0 events");
@@ -244,30 +253,34 @@ async function measure(page, route) {
     const mainTid = [...threads.entries()].find(
       ([, name]) => name === "CrRendererMain",
     )?.[0];
-    let taskEvents = 0;
-    let scriptEvents = 0;
-    for (const ev of collected) {
-      if (!ev?.dur || !ev.tid) continue;
-      if (mainTid !== undefined && ev.tid !== mainTid) continue;
-      if (
-        ev.name === "ThreadControllerImpl::RunTask" ||
-        ev.name === "RunTask"
-      ) {
-        metrics.taskDurationMs += ev.dur / 1000;
-        taskEvents++;
+    if (mainTid === undefined) {
+      fail("CrRendererMain thread metadata not found — cannot filter");
+    } else {
+      let taskEvents = 0;
+      let scriptEvents = 0;
+      for (const ev of collected) {
+        if (!ev?.dur || !ev.tid || ev.tid !== mainTid) continue;
+        if (
+          ev.name === "ThreadControllerImpl::RunTask" ||
+          ev.name === "RunTask"
+        ) {
+          metrics.taskDurationMs += ev.dur / 1000;
+          taskEvents++;
+        }
+        if (
+          ev.name === "EvaluateScript" ||
+          ev.name ===
+            "HTMLParserScriptRunner::executeScriptsWaitingForParsing" ||
+          ev.name === "v8.evaluateScript" ||
+          ev.name === "v8.compile"
+        ) {
+          metrics.scriptDurationMs += ev.dur / 1000;
+          scriptEvents++;
+        }
       }
-      if (
-        ev.name === "EvaluateScript" ||
-        ev.name === "HTMLParserScriptRunner::executeScriptsWaitingForParsing" ||
-        ev.name === "v8.evaluateScript" ||
-        ev.name === "v8.compile"
-      ) {
-        metrics.scriptDurationMs += ev.dur / 1000;
-        scriptEvents++;
+      if (taskEvents === 0 && scriptEvents === 0) {
+        fail("trace has events but no renderer-main-thread task/script events");
       }
-    }
-    if (taskEvents === 0 && scriptEvents === 0) {
-      fail("trace has events but no renderer-main-thread task/script events");
     }
   }
 
@@ -333,6 +346,14 @@ async function main() {
     }
   }
   server.close();
+  // Fail closed: any route/viewport measurement failure must yield a
+  // non-zero exit — never a clean exit with ERROR rows printed.
+  const hadFailure = Object.values(results).some((m) =>
+    Object.values(m).some((r) => r?.error),
+  );
+  if (hadFailure) {
+    throw new Error("one or more KAI-121 measurements failed");
+  }
   if (JSON_OUT) {
     console.log(JSON.stringify(results, null, 2));
   } else {
