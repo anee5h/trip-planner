@@ -71,9 +71,12 @@ jobs:
     # ceiling on contended runners. Bin contents are the single source of
     # truth in scripts/e2e-shards.mjs (measured per-spec CI weights; the
     # e2e-coverage job below fails CI if a spec is ever left unassigned).
-    # Each job runs ONE project over ONE bin: ~4-9 min per job, all 8
-    # jobs parallel, so a slow runner stays far below the 20-min ceiling.
-    timeout-minutes: 20
+    # Each job runs ONE project over ONE bin: ~4-8 min of tests per job,
+    # all 8 jobs parallel. 30m = hung-job guard: the ceiling is dominated
+    # by SETUP variance (npm ci on shared runners occasionally takes 20+
+    # min cold-cache/contended — observed 2026-08-18, 3 jobs killed inside
+    # npm ci before any test ran), not by the balanced test phase.
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
