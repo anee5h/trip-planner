@@ -179,24 +179,16 @@ export interface PageHead {
 }
 
 /** Alternate-locale link tags for an indexable EN/JA page pair (KAI-108).
- *  Each page emits its COUNTERPART locale alternate plus x-default (the EN
- *  root — the canonical locale; the JA mirror is a localized copy, so the
- *  neutral default is English). The page's own locale is NOT emitted as an
- *  alternate — the canonical tag pins it, and a self-alternate would be a
- *  conflicting signal. The pair is reciprocal: the EN page's ja alternate
- *  is the URL the JA page's canonical pins, and vice versa. */
-export function hreflangTags(
-  locale: PageLocale,
-  enUrl: string,
-  jaUrl: string,
-): string[] {
-  if (locale === "ja") {
-    return [
-      `<link rel="alternate" hreflang="en" href="${enUrl}" />`,
-      `<link rel="alternate" hreflang="x-default" href="${enUrl}" />`,
-    ];
-  }
+ *  Every equivalent EN/JA page emits the SAME complete set — the EN
+ *  alternate, the JA alternate, and x-default (the EN root — the canonical
+ *  locale; the JA mirror is a localized copy, so the neutral default is
+ *  English). The page's own locale is NOT emitted as an alternate — the
+ *  canonical tag pins it (self-alternates are redundant with the
+ *  canonical and add no crawler signal). The set is identical on both
+ *  pages, so the pairing is reciprocal. */
+export function hreflangTags(enUrl: string, jaUrl: string): string[] {
   return [
+    `<link rel="alternate" hreflang="en" href="${enUrl}" />`,
     `<link rel="alternate" hreflang="ja" href="${jaUrl}" />`,
     `<link rel="alternate" hreflang="x-default" href="${enUrl}" />`,
   ];
@@ -246,7 +238,9 @@ function renderHeadTags(head: PageHead): string[] {
 /** Crawler-visible head for a destination page in the given locale. The
  *  share image is the hero photograph — it carries no localized text, so the
  *  same image serves both locales. Emits reciprocal hreflang alternates
- *  (KAI-108) for the published destination's EN/JA pair. */
+ *  (KAI-108) for the destination's EN/JA pair — every canonical
+ *  destination emits the same complete en/ja/x-default set on both
+ *  locales (status is a quality signal, not an hreflang gate). */
 export function destinationHead(
   destination: Destination,
   locale: PageLocale,
@@ -256,7 +250,7 @@ export function destinationHead(
   const canonical = destinationUrl(destination.id, locale);
   const title = `${localized.name}${TITLE_SUFFIX}`;
   const pair = destinationLocaleUrls(destination.id);
-  const alternates = hreflangTags(locale, pair.en, pair.ja);
+  const alternates = hreflangTags(pair.en, pair.ja);
   return {
     title,
     metaDescription: description,
@@ -291,7 +285,7 @@ export function homeHead(locale: PageLocale): PageHead {
     ogImage: OG_IMAGE[locale],
     ogLocale: OG_LOCALE[locale],
     jsonLd: websiteJsonLd(),
-    alternates: hreflangTags(locale, pair.en, pair.ja),
+    alternates: hreflangTags(pair.en, pair.ja),
   };
 }
 
@@ -372,9 +366,8 @@ export function buildShellPage(shell: string, locale: PageLocale): string {
  *  fixed order (hub paths, then destinations sorted by id), no lastmod.
  *  KAI-97: the ENTIRE canonical catalogue is indexable (status is a quality
  *  signal, not an indexability gate). Canonical English URLs only — the
- *  /ja mirror is not separately indexed. Each destination URL carries
- *  xhtml:link alternates for its JA mirror (KAI-108), so the sitemap stays
- *  the single SEO source of truth alongside the per-page hreflang tags. */
+ *  /ja mirror is not separately indexed. Hreflang lives in the prerendered
+ *  HTML heads (KAI-108), not in the sitemap. */
 export function renderSitemap(destinations: Destination[]): string {
   const ids = destinations.map((d) => d.id).sort();
   const urls = [
@@ -382,32 +375,14 @@ export function renderSitemap(destinations: Destination[]): string {
     ...ids.map((id) => `/destinations/${id}`),
   ];
   const body = urls
-    .map((path) => {
-      if (path === "/destinations" || path === "/collections") {
-        // Hub surfaces have no JA mirror — no alternates.
-        return `  <url>\n    <loc>${escapeXml(SITE_URL + path)}</loc>\n  </url>`;
-      }
-      if (path === "/") {
-        return (
-          `  <url>\n    <loc>${escapeXml(SITE_URL + path)}</loc>\n` +
-          `    <xhtml:link rel="alternate" hreflang="ja" href="${escapeXml(
-            `${SITE_URL}/ja/`,
-          )}" />\n` +
-          `  </url>`
-        );
-      }
-      const id = path.replace("/destinations/", "");
-      const ja = `${SITE_URL}/ja/destinations/${id}`;
-      return (
-        `  <url>\n    <loc>${escapeXml(SITE_URL + path)}</loc>\n` +
-        `    <xhtml:link rel="alternate" hreflang="ja" href="${escapeXml(ja)}" />\n` +
-        `  </url>`
-      );
-    })
+    .map(
+      (path) =>
+        `  <url>\n    <loc>${escapeXml(SITE_URL + path)}</loc>\n  </url>`,
+    )
     .join("\n");
   return [
     `<?xml version="1.0" encoding="UTF-8"?>`,
-    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">`,
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
     body,
     `</urlset>`,
     ``,

@@ -326,8 +326,8 @@ describe("KAI-68 prerender: URL strategy", () => {
     expect(destinationUrl("abashiri-city", "ja")).toBe(
       `${SITE_URL}/ja/destinations/abashiri-city`,
     );
-    // KAI-108: hreflang alternates now exist; the canonical still pins the
-    // page's own locale (no self-alternate, no canonical conflict).
+    // KAI-108: the complete en/ja/x-default set is present; the canonical
+    // still pins the page's own locale.
     const { html } = injectHead(SHELL, makeDestination({}));
     expect(html).toContain(
       `<link rel="canonical" href="${SITE_URL}/destinations/test-destination" />`,
@@ -335,8 +335,11 @@ describe("KAI-68 prerender: URL strategy", () => {
     expect(html).toContain(
       `<link rel="alternate" hreflang="ja" href="${SITE_URL}/ja/destinations/test-destination" />`,
     );
-    expect(html).not.toContain(
-      `hreflang="en" href="${SITE_URL}/destinations/test-destination"`,
+    expect(html).toContain(
+      `<link rel="alternate" hreflang="en" href="${SITE_URL}/destinations/test-destination" />`,
+    );
+    expect(html).toContain(
+      `<link rel="alternate" hreflang="x-default" href="${SITE_URL}/destinations/test-destination" />`,
     );
   });
 
@@ -430,29 +433,26 @@ describe("KAI-68 prerender: localized home shell", () => {
 });
 
 describe("KAI-108 hreflang alternates", () => {
-  it("homepage pair: EN declares JA alternate + x-default, JA declares EN", () => {
+  it("homepage pair: both EN and JA emit the IDENTICAL complete set (en/ja/x-default)", () => {
     const en = buildShellPage(SHELL, "en");
     const ja = buildShellPage(SHELL, "ja");
-    // EN home -> JA alternate + x-default EN
-    expect(en).toContain(
-      `<link rel="alternate" hreflang="ja" href="${SITE_URL}/ja/" />`,
-    );
-    expect(en).toContain(
-      `<link rel="alternate" hreflang="x-default" href="${SITE_URL}/" />`,
-    );
-    // JA home -> EN alternate (reciprocal)
-    expect(ja).toContain(
+    const expectedSet = [
       `<link rel="alternate" hreflang="en" href="${SITE_URL}/" />`,
-    );
-    expect(ja).toContain(
+      `<link rel="alternate" hreflang="ja" href="${SITE_URL}/ja/" />`,
       `<link rel="alternate" hreflang="x-default" href="${SITE_URL}/" />`,
-    );
-    // no self-referencing alternates
-    expect(en).not.toContain('hreflang="en" href="https://meguruto.app/"');
-    expect(ja).not.toContain('hreflang="ja" href="https://meguruto.app/ja/"');
+    ];
+    for (const tag of expectedSet) {
+      expect(en).toContain(tag);
+      expect(ja).toContain(tag);
+    }
+    // Identical three-link set on both pages (same count, same tags).
+    const countTags = (html: string) =>
+      (html.match(/rel="alternate" hreflang=/g) ?? []).length;
+    expect(countTags(en)).toBe(3);
+    expect(countTags(ja)).toBe(3);
   });
 
-  it("destination pair: reciprocal alternates in raw prerendered HTML", () => {
+  it("destination pair: identical complete set in raw prerendered HTML, canonical stays locale-specific", () => {
     const en = injectHead(
       SHELL,
       makeDestination({ id: "kamakura" }),
@@ -465,12 +465,19 @@ describe("KAI-108 hreflang alternates", () => {
     ).html;
     const enUrl = `${SITE_URL}/destinations/kamakura`;
     const jaUrl = `${SITE_URL}/ja/destinations/kamakura`;
-    expect(en).toContain(
-      `<link rel="alternate" hreflang="ja" href="${jaUrl}" />`,
-    );
-    expect(ja).toContain(
+    const expectedSet = [
       `<link rel="alternate" hreflang="en" href="${enUrl}" />`,
-    );
+      `<link rel="alternate" hreflang="ja" href="${jaUrl}" />`,
+      `<link rel="alternate" hreflang="x-default" href="${enUrl}" />`,
+    ];
+    for (const tag of expectedSet) {
+      expect(en).toContain(tag);
+      expect(ja).toContain(tag);
+    }
+    const countTags = (html: string) =>
+      (html.match(/rel="alternate" hreflang=/g) ?? []).length;
+    expect(countTags(en)).toBe(3);
+    expect(countTags(ja)).toBe(3);
     // alternates are present BEFORE hydration (raw HTML, not JS)
     expect(en.indexOf("hreflang")).toBeLessThan(
       en.indexOf('<script type="module"'),
@@ -478,41 +485,84 @@ describe("KAI-108 hreflang alternates", () => {
     expect(ja.indexOf("hreflang")).toBeLessThan(
       ja.indexOf('<script type="module"'),
     );
-    // canonical stays self-locale
+    // canonical stays self-locale (unchanged by KAI-108)
     expect(en).toContain(`<link rel="canonical" href="${enUrl}" />`);
     expect(ja).toContain(`<link rel="canonical" href="${jaUrl}" />`);
   });
 
-  it("sitemap carries xhtml:link alternates for home + destinations", () => {
-    const sitemap = renderSitemap([
-      makeDestination({ id: "aaa", status: "published" }),
-    ]);
-    expect(sitemap).toContain(`xmlns:xhtml="http://www.w3.org/1999/xhtml"`);
-    expect(sitemap).toContain(
-      `<xhtml:link rel="alternate" hreflang="ja" href="${SITE_URL}/ja/" />`,
-    );
-    expect(sitemap).toContain(
-      `<xhtml:link rel="alternate" hreflang="ja" href="${SITE_URL}/ja/destinations/aaa" />`,
-    );
-    // hub surfaces without JA mirrors get no alternates
-    const hubBlock = sitemap
-      .split("</url>")
-      .find((b) => b.includes("/collections"));
-    expect(hubBlock).not.toContain("xhtml:link");
+  it("non-published canonical status still emits the same valid pair (status is not an hreflang gate)", () => {
+    // KAI-97: status is a quality signal, not an indexability/hreflang gate.
+    for (const status of ["beta", "verified", "planned"] as const) {
+      const en = injectHead(
+        SHELL,
+        makeDestination({ id: "kamakura", status }),
+        "en",
+      ).html;
+      const ja = injectHead(
+        SHELL,
+        makeDestination({ id: "kamakura", status }),
+        "ja",
+      ).html;
+      const enUrl = `${SITE_URL}/destinations/kamakura`;
+      const jaUrl = `${SITE_URL}/ja/destinations/kamakura`;
+      expect(en).toContain(`hreflang="en" href="${enUrl}"`);
+      expect(en).toContain(`hreflang="ja" href="${jaUrl}"`);
+      expect(en).toContain(`hreflang="x-default" href="${enUrl}"`);
+      expect(ja).toContain(`hreflang="en" href="${enUrl}"`);
+      expect(ja).toContain(`hreflang="ja" href="${jaUrl}"`);
+      expect(ja).toContain(`hreflang="x-default" href="${enUrl}"`);
+    }
   });
 
-  it("invalid/unpublished routes emit no misleading alternates", () => {
-    // The generator only prerenders catalogue destinations; unknown ids are
-    // 404/noindex via the Pages Function and never enter prerender. Verify
-    // buildPrerenderOutputs contains no phantom alternates for non-existent ids.
+  it("unknown/non-canonical destinations create no prerender output", () => {
+    // The generator only prerenders catalogue destinations; an id outside
+    // the catalogue produces no HTML output and therefore no hreflang.
     const outputs = buildPrerenderOutputs(SHELL, [
       makeDestination({ id: "real", status: "published" }),
     ]);
-    for (const html of outputs.values()) {
-      expect(html).not.toContain(
-        'hreflang="ja" href="https://meguruto.app/ja/destinations/ghost',
-      );
+    for (const [path, html] of outputs) {
       expect(html).not.toContain("/destinations/ghost");
+      if (path.includes("ghost")) {
+        throw new Error("unknown destination must not be prerendered");
+      }
     }
+    expect([...outputs.keys()]).not.toContain("/destinations/ghost/index.html");
+    expect([...outputs.keys()]).not.toContain(
+      "/ja/destinations/ghost/index.html",
+    );
+  });
+
+  it("private/noindex surfaces never receive destination hreflang", () => {
+    // Private SPA surfaces (account/settings/bucket-list) are not
+    // prerendered at all; the public prerender output never references
+    // them. Verify the full output set stays confined to the canonical
+    // catalogue + public hubs.
+    const outputs = buildPrerenderOutputs(SHELL, [
+      makeDestination({ id: "aaa", status: "published" }),
+      makeDestination({ id: "bbb", status: "beta" }),
+    ]);
+    const paths = [...outputs.keys()];
+    for (const p of paths) {
+      expect(p).not.toMatch(
+        /^\/(account|settings|bucket-list|my-trips|passport|collections\/[^/]+)/,
+      );
+    }
+    // KAI-97 cardinality: every canonical destination (published or not)
+    // gets an EN + JA prerender.
+    for (const id of ["aaa", "bbb"]) {
+      expect(paths).toContain(`/destinations/${id}/index.html`);
+      expect(paths).toContain(`/ja/destinations/${id}/index.html`);
+    }
+  });
+
+  it("sitemap stays KAI-97 (no hreflang extension, no xhtml namespace)", () => {
+    const sitemap = renderSitemap([
+      makeDestination({ id: "aaa", status: "published" }),
+    ]);
+    expect(sitemap).not.toContain("xhtml");
+    expect(sitemap).not.toContain("hreflang");
+    expect(sitemap).toContain(
+      `<url>\n    <loc>${SITE_URL}/destinations/aaa</loc>\n  </url>`,
+    );
   });
 });
