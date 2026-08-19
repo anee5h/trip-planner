@@ -115,7 +115,7 @@ describe("KAI-68 prerender: destination HTML", () => {
     expect(html).toContain(`<meta charset="UTF-8" />`);
   });
 
-  it("preserves shell head assets (favicon, theme-color, preconnect) while swapping metadata", () => {
+  it("preserves shell head assets (favicon, theme-color, preconnect, multi-line Bunny Fonts) while swapping metadata", () => {
     const shellWithHeadAssets = `<!doctype html>
 <html lang="en">
   <head>
@@ -124,6 +124,10 @@ describe("KAI-68 prerender: destination HTML", () => {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <meta name="theme-color" content="#243C58" />
     <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link
+      href="https://fonts.bunny.net/css?family=geist:100,200,300,400,500,600,700,800,900&display=swap"
+      rel="stylesheet"
+    />
     <title>Meguruto: めぐると、見つかる。</title>
   </head>
   <body>
@@ -139,6 +143,10 @@ describe("KAI-68 prerender: destination HTML", () => {
     expect(html).toContain(`href="/favicon.svg?v=2"`);
     expect(html).toContain(`name="theme-color" content="#243C58"`);
     expect(html).toContain(`href="https://fonts.bunny.net"`);
+    // The multi-line Bunny Fonts stylesheet must survive VERBATIM — the
+    // element-aware filter must not destroy legitimate multi-line <link>.
+    expect(html).toContain("https://fonts.bunny.net/css?family=");
+    expect(html).toContain('rel="stylesheet"');
     expect(html).not.toContain(`めぐると、見つかる。`);
   });
 
@@ -297,6 +305,42 @@ describe("KAI-68 prerender: full output set", () => {
     for (const [path, content] of first) {
       expect(second.get(path)).toBe(content);
     }
+  });
+
+  it("emits the EN home shell (/index.html) with the complete hreflang set, and is idempotent when re-injected", () => {
+    const destinations = [makeDestination({ id: "a-dest" })];
+    const outputs = buildPrerenderOutputs(SHELL, destinations);
+    const enHome = outputs.get("/index.html") ?? "";
+    expect(enHome).toContain('<html lang="en"');
+    expect(enHome).toContain(
+      '<link rel="alternate" hreflang="en" href="https://meguruto.app/" />',
+    );
+    expect(enHome).toContain(
+      '<link rel="alternate" hreflang="ja" href="https://meguruto.app/ja/" />',
+    );
+    expect(enHome).toContain(
+      '<link rel="alternate" hreflang="x-default" href="https://meguruto.app/" />',
+    );
+    // Re-injecting into the already-generated EN home must not duplicate
+    // hreflang/json-ld (swapShellMetadata removes the previous SEO
+    // elements before writing the new ones).
+    const reInjected = buildShellPage(enHome, "en");
+    const count = (reInjected.match(/<link rel="alternate" hreflang=/g) ?? [])
+      .length;
+    expect(count).toBe(3);
+    expect(
+      (reInjected.match(/<script type="application\/ld\+json"/g) ?? []).length,
+    ).toBe(1);
+    // A multi-line <meta name="description"> (as in the real source shell)
+    // must not leak into a destination page — exactly one description.
+    const multiLineHome = enHome.replace(
+      '<meta name="description" content="Homepage description" />',
+      '<meta\n    name="description"\n    content="Homepage description"\n    />',
+    );
+    const destFromMulti = buildShellPage(multiLineHome, "en");
+    expect(
+      (destFromMulti.match(/name="description"[^>]*>/g) ?? []).length,
+    ).toBe(1);
   });
 
   it("prerenders every canonical destination regardless of quality status, plus sitemap, manifest and the JA shell", () => {

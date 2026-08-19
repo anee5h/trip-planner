@@ -154,9 +154,9 @@ describe("KAI-97 generator: eligibility rules", () => {
       dest("verified-y", "verified"),
     ]);
     // KAI-97: status is a quality signal, not an indexability gate — both
-    // destinations get EN + JA prerendered pages (2 × 2 + JA home + sitemap
-    // + manifest).
-    expect(outputs.size).toBe(7);
+    // destinations get EN + JA prerendered pages (2 × 2 + EN/JA homes +
+    // sitemap + manifest).
+    expect(outputs.size).toBe(8);
     expect(outputs.has("/destinations/beta-x/index.html")).toBe(true);
     expect(outputs.has("/ja/destinations/beta-x/index.html")).toBe(true);
     expect(outputs.has("/destinations/verified-y/index.html")).toBe(true);

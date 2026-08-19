@@ -29,8 +29,8 @@ describe("KAI-97 catalogue publication parity", () => {
       expect(outputs.has(`/destinations/${id}/index.html`), id).toBe(true);
       expect(outputs.has(`/ja/destinations/${id}/index.html`), id).toBe(true);
     }
-    // Exactly: EN+JA pages + JA home + sitemap + manifest — no extras.
-    expect(outputs.size).toBe(ids.length * 2 + 3);
+    // Exactly: EN+JA pages + EN/JA homes + sitemap + manifest — no extras.
+    expect(outputs.size).toBe(ids.length * 2 + 4);
   });
 
   it("sitemap covers exactly the canonical destination set", () => {
