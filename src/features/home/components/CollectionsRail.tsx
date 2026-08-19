@@ -220,6 +220,9 @@ export const CollectionsRail: React.FC = () => {
                 <LazyImage
                   src={item.cover.heroImage}
                   alt={title}
+                  responsive
+                  deferUntilVisible
+                  sizes="(min-width: 1024px) 400px, (min-width: 640px) 320px, 240px"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out opacity-90"
                 />
 

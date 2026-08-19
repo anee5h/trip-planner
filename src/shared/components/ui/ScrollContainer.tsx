@@ -95,6 +95,7 @@ export function ScrollContainer({
         tabIndex={0}
         role="region"
         aria-label={ariaLabel}
+        data-rail
         className={cn(
           "max-w-full overflow-x-auto rounded-lg scrollbar-hide snap-x snap-mandatory focus:outline-none focus:ring-1 focus:ring-emerald-500/50",
           className,
