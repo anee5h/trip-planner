@@ -306,25 +306,44 @@ export function swapShellMetadata(
   if (!headMatch) {
     throw new Error(`SPA shell has no <head>: ${shell.slice(0, 120)}`);
   }
+  // Remove COMPLETE SEO elements (one-line or multi-line) and preserve the
+  // remainder of <head> verbatim. Matching full elements (not per-line
+  // fragments) keeps legitimate multi-line <link>/<meta> tags intact —
+  // e.g. the Bunny Fonts stylesheet — while dropping any reformatted
+  // (multi-line) variant of the SEO tags.
   const preserved = headMatch[1]
-    .split(/\n\s*/)
-    .filter((line) => {
-      const trimmed = line.trim();
-      if (!trimmed) return false;
-      if (/<title>/i.test(trimmed)) return false;
-      if (/name="description"/i.test(trimmed)) return false;
-      if (/rel="canonical"/i.test(trimmed)) return false;
-      if (/rel="alternate"/i.test(trimmed)) return false;
-      if (/property="og:/i.test(trimmed)) return false;
-      if (/name="twitter:/i.test(trimmed)) return false;
-      if (/<script type="application\/ld\+json"/i.test(trimmed)) return false;
-      // Multi-line <meta> continuation lines (e.g. after html-minifier
-      // reformats an injected head) carry no <meta> prefix but belong to a
-      // dropped SEO tag: content="/property="/name=" line fragments.
-      if (/^(content|property|name|href|rel)="/i.test(trimmed)) return false;
-      return true;
+    .replace(/<title>[\s\S]*?<\/title>/gi, "")
+    .replace(/<meta[^>]*>/gi, (meta) =>
+      /name="description"/i.test(meta) ||
+      /property="og:/i.test(meta) ||
+      /name="twitter:/i.test(meta)
+        ? ""
+        : meta,
+    )
+    .replace(/<link[^>]*>/gi, (link) =>
+      /rel="canonical"/i.test(link) || /rel="alternate"/i.test(link)
+        ? ""
+        : link,
+    )
+    .replace(/<script type="application\/ld\+json"[\s\S]*?<\/script>/gi, "")
+    .split("\n")
+    .map((line) => line.trimEnd())
+    .filter((line, i, arr) => {
+      // Drop blank lines (and collapses runs of blanks to one newline
+      // boundary) deterministically: keep the line if it has content OR
+      // it separates two content lines.
+      if (line.trim() !== "") return true;
+      const prev = arr[i - 1];
+      const next = arr[i + 1];
+      return (
+        prev !== undefined &&
+        prev.trim() !== "" &&
+        next !== undefined &&
+        next.trim() !== ""
+      );
     })
-    .join("\n    ");
+    .join("\n")
+    .trim();
   const headTags = [...renderHeadTags(head), preserved];
   const rootReplacement =
     body === undefined
