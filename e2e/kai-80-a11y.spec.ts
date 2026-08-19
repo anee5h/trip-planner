@@ -389,16 +389,19 @@ test.describe("KAI-80 Home planner controls (light)", () => {
 
   test("date picker dialog is accessible and traps focus", async ({ page }) => {
     await page.goto("/");
-    // Deterministic: wait for the planner to settle (main + a known
-    // planner control) BEFORE hunting the date trigger — the planner
-    // renders after the catalogue loads, and the trigger wait alone can
-    // flake on a cold CI runner.
+    // Deterministic: wait for the planner to settle (main visible + the
+    // date trigger to APPEAR) — the planner renders after the catalogue
+    // loads. Use a poll on the trigger count so the wait is genuinely
+    // gated on the trigger's presence, not on an unrelated button whose
+    // label varies by layout/locale.
     await expect(page.locator("main")).toBeVisible();
-    await page
-      .locator("button", { hasText: /Find|探す|View|表示/ })
-      .first()
-      .waitFor({ state: "visible", timeout: 20000 })
-      .catch(() => {});
+    await expect
+      .poll(
+        () =>
+          page.locator('button[aria-label*="Choose travel date" i]').count(),
+        { timeout: 45000 },
+      )
+      .toBeGreaterThan(0);
     const dateTriggers = page.locator(
       'button[aria-label*="Choose travel date" i], [aria-label*="travel date" i]',
     );
