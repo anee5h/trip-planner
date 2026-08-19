@@ -9,8 +9,9 @@
 # fetching.
 #
 # Individual destination pages are public catalogue content served at
-# /destinations/<id>/; the sitemap lists only published destinations,
-# non-published ones return `noindex, follow`, and unknown ids return 404.
+# /destinations/<id>/. The sitemap lists EVERY canonical destination URL
+# (all 978 — status is quality metadata only, never an indexability gate);
+# non-canonical/unknown ids return 404.
 
 User-agent: *
 Allow: /
