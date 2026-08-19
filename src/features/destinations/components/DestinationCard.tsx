@@ -293,6 +293,7 @@ export default function DestinationCard({
         <LazyImage
           src={localizedDestination.heroImage}
           alt={localizedDestination.name}
+          responsive
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ${visited ? "grayscale opacity-80" : ""}`}
         />

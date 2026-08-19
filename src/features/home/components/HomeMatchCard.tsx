@@ -301,6 +301,14 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
         <LazyImage
           src={destination.heroImage}
           alt={title}
+          responsive
+          deferUntilVisible
+          // KAI-129: card image renders ~177-201px (mobile) / 248-308px
+          // (desktop). Give the browser an accurate sizes hint so it picks
+          // the 320/480/640 variant, never the multi-megapixel original.
+          // deferUntilVisible: rail-aware — don't fetch horizontally
+          // off-screen rail cards on cold load.
+          sizes="(min-width: 1024px) 308px, (min-width: 640px) 248px, 190px"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
 
