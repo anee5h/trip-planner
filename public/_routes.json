@@ -6,7 +6,7 @@
     "/data/*",
     "/og/*",
     "/.vite/*",
-    "/sitemap.xml",
+    "/sitemap.xml*",
     "/robots.txt",
     "/favicon.ico",
     "/favicon.svg",
