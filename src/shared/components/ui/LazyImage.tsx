@@ -13,7 +13,10 @@ interface LazyImageProps extends ImgHTMLAttributes<HTMLImageElement> {
    * original large image unless they opt in with explicit widths.
    */
   responsive?: boolean;
-  /** Optional override: explicit pixel widths for the srcSet (default [320, 480, 640, 960]) */
+  /**
+   * Optional override: explicit pixel widths for the srcSet.
+   * Default [250, 330, 500, 960] (Wikimedia-valid thumb widths).
+   */
   responsiveWidths?: number[];
   /**
    * KAI-129: rail-aware lazy loading. When true, the image is NOT
@@ -21,7 +24,12 @@ interface LazyImageProps extends ImgHTMLAttributes<HTMLImageElement> {
    * [data-rail] scroll container) plus a lookahead margin. Native
    * loading="lazy" only defers by the VERTICAL viewport, so horizontally
    * off-screen rail cards would otherwise all download on cold load.
-   * Client-only: SSR/prerender still renders the real src (SEO intact).
+   *
+   * Note: on a real server render (React SSR) the src is OMITTED while
+   * deferUntilVisible is true (initial state gates it). Meguruto's SEO
+   * prerender does NOT React-render this component — it emits its own
+   * crawler-visible <img> — so the omission only affects client-side
+   * mount, where the observer restores src when the card enters the rail.
    */
   deferUntilVisible?: boolean;
   /** Lookahead margin beyond the rail viewport (default "0px 200px" ≈ one card) */
@@ -78,10 +86,18 @@ export function LazyImage({
     const railRect = rail.getBoundingClientRect();
     const hasRealLayout =
       rect.width > 0 || rect.height > 0 || railRect.width > 0;
+    // Parse the horizontal lookahead from the same margin string the
+    // IntersectionObserver uses (e.g. "0px 200px" -> right/left 200px),
+    // so a custom railLookahead stays consistent in the fast-path.
+    const marginParts = railLookahead.trim().split(/\s+/);
+    const hLookahead = Number.parseFloat(
+      marginParts[1] ?? marginParts[0] ?? "200px",
+    );
+    const lookahead = Number.isFinite(hLookahead) ? hLookahead : 200;
     if (
       hasRealLayout &&
-      rect.left < railRect.right + 200 &&
-      rect.right > railRect.left - 200
+      rect.left < railRect.right + lookahead &&
+      rect.right > railRect.left - lookahead
     ) {
       setInRailView(true);
       return;
