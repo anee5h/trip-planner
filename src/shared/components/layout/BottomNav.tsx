@@ -28,10 +28,10 @@ export default function BottomNav() {
         <Link
           to="/"
           aria-current={isHomeActive ? "page" : undefined}
-          className={`flex flex-col items-center justify-center gap-1 py-1 transition-all ${
+          className={`flex flex-col items-center justify-center gap-1 py-1 rounded-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/70 ${
             isHomeActive
               ? "text-emerald-700 dark:text-emerald-300 font-bold"
-              : "text-slate-500 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400"
+              : "text-slate-600 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400"
           }`}
         >
           <Home
@@ -46,10 +46,10 @@ export default function BottomNav() {
         <Link
           to="/destinations"
           aria-current={isExploreActive ? "page" : undefined}
-          className={`flex flex-col items-center justify-center gap-1 py-1 transition-all ${
+          className={`flex flex-col items-center justify-center gap-1 py-1 rounded-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/70 ${
             isExploreActive
               ? "text-emerald-700 dark:text-emerald-300 font-bold"
-              : "text-slate-500 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400"
+              : "text-slate-600 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400"
           }`}
         >
           <Map
@@ -66,7 +66,7 @@ export default function BottomNav() {
             type="button"
             onClick={handleOpenSearch}
             aria-label={t("search.label")}
-            className="group relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-600 text-white shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 hover:scale-105 active:scale-95 transition-all duration-200 ring-4 ring-white dark:ring-slate-950 focus:outline-none"
+            className="group relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-600 text-white shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 hover:scale-105 active:scale-95 transition-all duration-200 ring-4 ring-white dark:ring-slate-950 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950"
           >
             <Search className="w-5 h-5 transition-transform group-hover:rotate-12" />
           </button>
@@ -79,10 +79,10 @@ export default function BottomNav() {
         <Link
           to="/my-trips"
           aria-current={isTripsActive ? "page" : undefined}
-          className={`flex flex-col items-center justify-center gap-1 py-1 transition-all ${
+          className={`flex flex-col items-center justify-center gap-1 py-1 rounded-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/70 ${
             isTripsActive
               ? "text-emerald-700 dark:text-emerald-300 font-bold"
-              : "text-slate-500 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400"
+              : "text-slate-600 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400"
           }`}
         >
           <Calendar
@@ -97,10 +97,10 @@ export default function BottomNav() {
         <Link
           to="/passport"
           aria-current={isPassportActive ? "page" : undefined}
-          className={`flex flex-col items-center justify-center gap-1 py-1 transition-all ${
+          className={`flex flex-col items-center justify-center gap-1 py-1 rounded-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/70 ${
             isPassportActive
               ? "text-emerald-700 dark:text-emerald-300 font-bold"
-              : "text-slate-500 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400"
+              : "text-slate-600 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400"
           }`}
         >
           <Compass

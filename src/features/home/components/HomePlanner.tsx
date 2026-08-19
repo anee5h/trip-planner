@@ -274,6 +274,21 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
   const [mobileField, setMobileField] = React.useState<
     "vibe" | "duration" | "budget" | "transport" | null
   >(null);
+  // KAI-80: remember which planner control opened the mobile sheet so
+  // focus can be restored to it when the sheet closes.
+  const mobileFieldOpenerRef = React.useRef<HTMLElement | null>(null);
+
+  const openMobileField = (
+    field: "vibe" | "duration" | "budget" | "transport",
+  ) => {
+    mobileFieldOpenerRef.current = document.activeElement as HTMLElement | null;
+    setMobileField(field);
+  };
+  const closeMobileField = () => {
+    setMobileField(null);
+    mobileFieldOpenerRef.current?.focus();
+    mobileFieldOpenerRef.current = null;
+  };
   const translate = (key: string) => t(key as never);
   const primaryButtonLabel = !hasUserApplied
     ? t("home.find")
@@ -728,7 +743,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             {/* Vibe row — always clickable */}
             <button
               type="button"
-              onClick={() => setMobileField("vibe")}
+              onClick={() => openMobileField("vibe")}
               className="flex h-14 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 text-left dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]"
             >
               <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
@@ -757,7 +772,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             ) : (
               <button
                 type="button"
-                onClick={() => setMobileField("duration")}
+                onClick={() => openMobileField("duration")}
                 className="flex h-14 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 text-left dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]"
               >
                 <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
@@ -819,7 +834,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               <button
                 key={field}
                 type="button"
-                onClick={() => setMobileField(field)}
+                onClick={() => openMobileField(field)}
                 className="flex h-14 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 text-left dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]"
               >
                 <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
@@ -867,7 +882,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                     ? budgetTier
                     : transportPreference
             }
-            onClose={() => setMobileField(null)}
+            onClose={closeMobileField}
             onChange={(value) => {
               if (mobileField === "vibe") onVibeChange(value);
               else if (mobileField === "duration")

@@ -2,15 +2,21 @@
 
 Status: automated gate + documented manual/AT evidence.
 
-## Automated gate (CI, A11Y_E2E job)
+## Automated gate (CI, A11Y E2E job)
 
-- Runs against the **production build** (`npm run build && npm run preview`;
-  never the dev server — see `playwright.config.ts` `A11Y_E2E` condition).
+- Runs against the **production build** (built once; `vite preview` —
+  never the dev server; see `playwright.config.ts` `A11Y_E2E` condition).
+- Two-project matrix: `chromium-mobile` + `chromium-desktop`, one project
+  per CI job, unique privacy-scanned artifact names.
 - `@axe-core/playwright` with the WCAG 2.2 AA union
   (wcag2a/wcag21a/wcag22a/wcag2aa/wcag21aa/wcag22aa).
 - **color-contrast is NOT suppressed** — light and dark are both gated.
 - Element-specific documented node exclusions only (see `e2e/a11y.ts`
   `DOCUMENTED_NODE_EXCLUSIONS`); no rule-wide waiver.
+- Authenticated-state coverage uses a **deterministic non-production
+  fixture** (fake `a11y-test.supabase.co` project + injected session +
+  route interception). No production Supabase is touched; no production
+  users/data are created, updated, or deleted.
 
 ## Coverage matrix (documented representative set — no Cartesian explosion)
 
@@ -22,6 +28,9 @@ Status: automated gate + documented manual/AT evidence.
 | Home filters + date picker | ✅ | — | ✅ | — | ✅ | ✅ |
 | Primary navigation | ✅ | — | — | — | ✅ | ✅ |
 | Guest auth modal | ✅ | — | ✅ | — | ✅ | ✅ |
+| **Authenticated: user menu / Signed in as** | ✅ | — | ✅ | — | ✅ | ✅ |
+| **Authenticated: Settings account** | ✅ | — | ✅ | — | ✅ | ✅ |
+| **Authenticated: Bucket List / My Trips / Passport** | ✅ | — | ✅ | — | ✅ | ✅ |
 | `/settings` | ✅ | — | ✅ | ✅ | ✅ | ✅ |
 | `/bucket-list` | ✅ | — | ✅ | — | ✅ | ✅ |
 | `/passport` | ✅ | — | ✅ | — | ✅ | ✅ |
@@ -58,26 +67,32 @@ Plus (see `e2e/kai-80-a11y.spec.ts`):
 - **Destinations pagination**: prev/next icon-only buttons got
   `aria-label`s; sort SelectTrigger got `aria-label` (axe `button-name`).
 
-## Findings (before → after)
+## Findings (baseline → current)
 
-Recorded by route/theme with real axe counts (light + dark, desktop,
-production preview):
+Baseline recorded by route/theme with real axe counts (light + dark,
+desktop, production preview) from the pre-fix build:
 
-| Route | theme | Before (color-contrast) | After | Other violations |
-|---|---|---|---|---|
-| `/` | light | 94 | **0** | none |
-| `/destinations` | light | 27 | **0** | button-name 3 → 0 |
-| `/destinations/kamakura` | light | 4 | **0** | none |
-| `/settings` | light | 12 | **0** | label 3 → 0 |
-| `/bucket-list` | light | 6 | **0** | none |
-| `/passport` | light | 5 | **0** | none |
-| `/my-trips` | light | 6 | **0** | none |
-| `/collections` | light | 76 | **0** | none |
-| `/` | dark | 29 | **0** | none |
-| `/destinations` | dark | 28 | **0** | none |
-| `/destinations/kamakura` | dark | 7 | **0** | none |
-| `/settings` | dark | 16 | **0** | none |
-| **Total** | | **310** | **0** | **6 → 0** |
+| Route | theme | Baseline (color-contrast) | Current (CI) |
+|---|---|---|---|
+| `/` | light | 94 | 0 |
+| `/destinations` | light | 27 | 0 |
+| `/destinations/kamakura` | light | 4 | 0 |
+| `/settings` | light | 12 | 0 |
+| `/bucket-list` | light | 6 | 0 |
+| `/passport` | light | 5 | 0 |
+| `/my-trips` | light | 6 | 0 |
+| `/collections` | light | 76 | 0 |
+| `/` | dark | 29 | 0 |
+| `/destinations` | dark | 28 | 0 |
+| `/destinations/kamakura` | dark | 7 | 0 |
+| `/settings` | dark | 16 | 0 |
+| **Total** | | **310** | **0 (local)** |
+
+> The "Current (CI)" column reflects the local full-matrix runs against
+> the production preview. The exact CI run on the PR head is the
+> authoritative gate — until it is green across the claimed matrix, the
+> automated claim is "CI gate configured and locally green", not
+> "zero violations in CI".
 
 Root causes fixed systemically (shared tokens/components):
 - `--primary-foreground` light token: emerald fill + near-white text
@@ -107,13 +122,17 @@ listed (`DOCUMENTED_NODE_EXCLUSIONS` is empty).
   (390×844), headless.
 - EN-US + ja-JP locales; Asia/Tokyo timezone.
 
-## Keyboard-only findings
+## Keyboard-only findings (automated evidence actually performed)
 
-- Automated (see spec): primary nav links reachable via Tab and activate
-  via Enter; planner select controls operable via keyboard (Enter opens,
-  ArrowDown/Enter selects); dialog focus enters, Tab/Shift+Tab stays
-  trapped, Escape closes and focus returns to the trigger; guest auth
-  modal opens/closes via keyboard.
+- Primary nav links reachable via Tab + activate via Enter (desktop and
+  mobile-drawer layouts).
+- Auth modal: initial focus enters the dialog, Tab/Shift+Tab contained,
+  Escape closes, focus returns to the opener (dedicated E2E).
+- SearchDialog + mobile planner sheet: focus trap + Escape + focus return.
+- HomePlanner desktop selects: keyboard-open (Enter), ArrowDown highlights
+  an option, selection completes (value changes).
+- Mobile planner sheet: Space opens the per-field sheet, focus enters and
+  is trapped, Escape closes, focus returns to the opener row.
 - Manual keyboard pass: TBD (human QA).
 
 ## Accessibility-tree / supported AT equivalent
@@ -124,8 +143,8 @@ listed (`DOCUMENTED_NODE_EXCLUSIONS` is empty).
 - Manual screen-reader pass: **NOT performed in this environment** —
   VoiceOver/TalkBack/NVDA cannot be driven from the agent environment.
   This is stated explicitly; no claim of screen-reader testing is made.
-  A human QA pass with VoiceOver (macOS) / TalkBack (Android) is required
-  before public launch.
+  **Owner-side before public launch**: a human QA pass with VoiceOver
+  (macOS) / TalkBack (Android) is required (screenshare or device).
 
 ## Reduced-motion result
 
@@ -143,9 +162,10 @@ listed (`DOCUMENTED_NODE_EXCLUSIONS` is empty).
 - Screen-reader narration/announcements (aria-live, focus announcements)
   are not covered by axe — manual AT pass required.
 - Touch-target ergonomics on real devices (not just emulation).
-- Real-session authenticated flows (supabase is null in E2E by design —
-  no production mutation). Account/settings surfaces are covered in their
-  deterministic guest/client-state form; the authenticated variants are
+- Real-session authenticated flows against a live Supabase project are
+  NOT exercised by CI (by design — the E2E auth fixture is a deterministic
+  in-browser session, no production mutation). The authenticated UI
+  surfaces are covered via the fixture; real OAuth/email flows are
   documented manual QA.
 - **Known finding (pre-existing, not blocking):** the HomePlanner desktop
   Base UI Selects (Vibe/Duration/Budget/Transport) do not dismiss their

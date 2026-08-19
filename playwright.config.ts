@@ -89,7 +89,11 @@ export default defineConfig({
   webServer: {
     command:
       pwaE2e || a11yE2e
-        ? "npm run build && npm run preview -- --host 127.0.0.1 --port 4173"
+        ? // KAI-80: the a11y build runs with a NON-PRODUCTION fake
+          // Supabase project so the auth context is non-null and the
+          // authenticated-state fixture can populate useAuth().user via
+          // page.route interception (no production Supabase is touched).
+          "VITE_SUPABASE_URL=https://a11y-test.supabase.co VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.a11y-test-anon-key npm run build && npm run preview -- --host 127.0.0.1 --port 4173"
         : "npm run dev -- --host 127.0.0.1 --port 4173",
     url: "http://127.0.0.1:4173",
     reuseExistingServer: !process.env.CI,

@@ -37,17 +37,6 @@ export function GlobalSearch() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // KAI-80: open the search dialog from the mobile header (there is no
-  // visible desktop search input on small screens).
-  useEffect(() => {
-    function handleOpenSearch() {
-      setIsOpen(true);
-    }
-    window.addEventListener("meguruto:open-search", handleOpenSearch);
-    return () =>
-      window.removeEventListener("meguruto:open-search", handleOpenSearch);
-  }, []);
-
   const [shortcutLabel, setShortcutLabel] = useState("⌘K");
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { MegurutoMark } from "@/shared/components/brand/MegurutoMark";
@@ -23,15 +23,68 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  const dialogRef = useRef<HTMLDivElement>(null);
 
-  // KAI-80: Escape closes the auth dialog (WCAG dialog pattern).
+  // KAI-80: complete modal focus semantics — initial focus inside,
+  // Tab/Shift+Tab containment, Escape closes, focus returns to the opener.
   useEffect(() => {
     if (!isOpen) return;
-    function handleKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") onClose();
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+
+    // Initial focus: the first focusable control inside the dialog.
+    const dialog = dialogRef.current;
+    if (dialog) {
+      const first = dialog.querySelector<HTMLElement>(
+        "input:not([disabled]), button:not([disabled]), a[href]",
+      );
+      first?.focus();
     }
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        onClose();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const el = dialogRef.current;
+      if (!el) return;
+      const focusables = Array.from(
+        el.querySelectorAll<HTMLElement>(
+          'input:not([disabled]), button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((f) => f.offsetParent !== null);
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      const validOpener =
+        previouslyFocused &&
+        previouslyFocused !== document.body &&
+        previouslyFocused.isConnected;
+      if (validOpener) {
+        previouslyFocused.focus();
+      } else {
+        // The opener (e.g. a mobile drawer button) unmounted while the
+        // modal was open (or focus was already on <body>) — restore focus
+        // to the stable hamburger instead of losing it to <body>.
+        const fallback = document.querySelector<HTMLElement>(
+          'button[aria-label="Toggle menu"]',
+        );
+        (fallback ?? document.body).focus();
+      }
+    };
   }, [isOpen, onClose]);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
@@ -117,6 +170,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
   return createPortal(
     <div
+      ref={dialogRef}
       role="dialog"
       aria-modal="true"
       aria-label={t("auth.title", "Sign in")}

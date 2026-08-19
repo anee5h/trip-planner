@@ -335,6 +335,7 @@ export default function StationInput({
               <select
                 value={selectedPref}
                 onChange={handlePrefChange}
+                aria-label={t("origin.prefecture", "Prefecture")}
                 className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-2 text-base sm:text-sm font-semibold focus:outline-none focus:border-emerald-700 w-full sm:w-36"
               >
                 {PREFECTURES.map((p) => (
@@ -347,6 +348,7 @@ export default function StationInput({
               <select
                 value={selectedStation}
                 onChange={handleStationChange}
+                aria-label={t("origin.station", "Station")}
                 className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-2 text-base sm:text-sm font-semibold focus:outline-none focus:border-emerald-700 w-full sm:w-64"
                 disabled={stations.length === 0}
               >

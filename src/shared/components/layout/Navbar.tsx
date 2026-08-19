@@ -17,7 +17,6 @@ import {
   Moon,
   ArrowLeft,
   Layers,
-  Search as SearchIcon,
 } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -402,20 +401,10 @@ export default function Navbar() {
         {/* Right Hamburger Button */}
         <div className="flex items-center justify-end w-10 shrink-0 z-20">
           <button
-            type="button"
-            onClick={() =>
-              window.dispatchEvent(new CustomEvent("meguruto:open-search"))
-            }
-            className="p-2 text-slate-700 dark:text-slate-300 hover:text-emerald-700 focus:outline-hidden min-h-[44px] min-w-[44px] flex items-center justify-center"
-            aria-label="Search"
-          >
-            <SearchIcon className="w-5 h-5" />
-          </button>
-          <button
             ref={hamburgerBtnRef}
             type="button"
             onClick={() => setMenuOpen((o) => !o)}
-            className="p-2 text-slate-700 dark:text-slate-300 hover:text-emerald-700 focus:outline-hidden min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className="p-2 text-slate-700 dark:text-slate-300 hover:text-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-expanded={menuOpen}
             aria-controls="mobile-menu-drawer"
             aria-label="Toggle menu"

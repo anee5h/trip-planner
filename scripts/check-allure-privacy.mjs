@@ -27,13 +27,19 @@
 import fs from "node:fs";
 import path from "node:path";
 import zlib from "node:zlib";
+import { fileURLToPath } from "node:url";
 
-const dir = process.argv[2];
+// CLI-only flag: importing this module for tests must not run the CLI.
+const IS_MAIN = process.argv[1] === fileURLToPath(import.meta.url);
+
+let dir = process.argv[2];
 if (!dir || !fs.existsSync(dir)) {
   console.error(
     "usage: node scripts/check-allure-privacy.mjs <dir> [--allow <value>]... [--sanitize]",
   );
-  process.exit(2);
+  if (IS_MAIN) process.exit(2);
+  // Imported for tests: no CLI run.
+  dir = "";
 }
 const SANITIZE = process.argv.includes("--sanitize");
 
@@ -71,6 +77,40 @@ const PATTERNS = [
   },
   { name: "set-cookie", re: /set-cookie\s*[:=]\s*[^;\s]+/gi },
 ];
+
+/**
+ * Playwright trace ZIPs contain source entries named exactly
+ * `src@<40-hex>.txt`. The generic email regex would read `src@<hex>` +
+ * `.txt` as an email — this narrow rule recognizes ONLY that trusted
+ * filename shape and declares it a non-finding. It does NOT weaken email
+ * detection: a real email like `user@example.com` never matches this
+ * (the local part is not exactly `src` + 40 hex chars), and the entry
+ * body is still scanned for real secrets.
+ */
+const PLAYWRIGHT_SRC_FILENAME = /^src@[0-9a-f]{40}\.txt$/;
+
+function isPlaywrightSrcFilename(value) {
+  return PLAYWRIGHT_SRC_FILENAME.test(value);
+}
+
+/**
+ * Scan one text blob against all PATTERNS. Exported for regression tests;
+ * returns the array of finding strings (empty = clean).
+ */
+export function scanText(text) {
+  const out = [];
+  for (const { name, re } of PATTERNS) {
+    for (const m of text.matchAll(re)) {
+      const val = String(m[0]);
+      if (isAllowed(val)) continue;
+      // Narrowly exclude the trusted Playwright trace-source filename
+      // shape (src@<40-hex>.txt) — it is a filename, not an email.
+      if (name === "email" && isPlaywrightSrcFilename(val)) continue;
+      out.push(`${name} :: ${val.slice(0, 80)}`);
+    }
+  }
+  return out;
+}
 
 /**
  * Decide whether a file is SCANNABLE:
@@ -196,64 +236,64 @@ function isAllowed(value) {
   return ALLOWLIST.some((a) => value.includes(a));
 }
 
-const findings = [];
-let scannedFiles = 0;
+if (IS_MAIN) {
+  const findings = [];
+  let scannedFiles = 0;
 
-for (const rel of walk(dir, dir)) {
-  if (!isScannable(rel)) continue;
-  let text;
-  try {
-    text = readText(path.join(dir, rel), rel);
-  } catch {
-    // Unreadable/decompression failure — FAIL CLOSED: we could not
-    // inspect this file, so treat it as a finding.
-    findings.push(`${rel} :: unreadable :: could not decompress/inspect`);
-    continue;
-  }
-  if (text.startsWith("UNPARSEABLE_TRACE")) {
-    findings.push(
-      `${rel} :: unparseable-trace :: not a valid ZIP, content uninspected`,
-    );
-    continue;
-  }
-  scannedFiles++;
-  for (const { name, re } of PATTERNS) {
-    for (const m of text.matchAll(re)) {
-      const val = String(m[0]);
-      if (isAllowed(val)) continue;
-      findings.push(`${rel} :: ${name} :: ${val.slice(0, 80)}`);
-    }
-  }
-}
-
-// --sanitize: remove binary attachments (screenshots/videos) that a regex
-// scanner cannot declare safe. They are excluded from public Actions
-// artifacts by default; the private authenticated R2 store may retain
-// verified-safe diagnostics (report data) separately.
-if (SANITIZE) {
-  let removed = 0;
   for (const rel of walk(dir, dir)) {
-    if (BINARY_EXT.test(rel)) {
-      fs.rmSync(path.join(dir, rel), { force: true });
-      removed++;
+    if (!isScannable(rel)) continue;
+    let text;
+    try {
+      text = readText(path.join(dir, rel), rel);
+    } catch {
+      // Unreadable/decompression failure — FAIL CLOSED: we could not
+      // inspect this file, so treat it as a finding.
+      findings.push(`${rel} :: unreadable :: could not decompress/inspect`);
+      continue;
+    }
+    if (text.startsWith("UNPARSEABLE_TRACE")) {
+      findings.push(
+        `${rel} :: unparseable-trace :: not a valid ZIP, content uninspected`,
+      );
+      continue;
+    }
+    scannedFiles++;
+    for (const finding of scanText(text)) {
+      findings.push(`${rel} :: ${finding}`);
     }
   }
-  if (removed > 0) {
-    console.log(
-      `  (--sanitize) removed ${removed} binary attachment(s) from public artifact set`,
-    );
+
+  // --sanitize: remove binary attachments (screenshots/videos) that a regex
+  // scanner cannot declare safe. They are excluded from public Actions
+  // artifacts by default; the private authenticated R2 store may retain
+  // verified-safe diagnostics (report data) separately.
+  if (SANITIZE) {
+    let removed = 0;
+    for (const rel of walk(dir, dir)) {
+      if (BINARY_EXT.test(rel)) {
+        fs.rmSync(path.join(dir, rel), { force: true });
+        removed++;
+      }
+    }
+    if (removed > 0) {
+      console.log(
+        `  (--sanitize) removed ${removed} binary attachment(s) from public artifact set`,
+      );
+    }
   }
-}
 
-if (findings.length > 0) {
-  console.error(`❌ Privacy scan FAILED — ${findings.length} match(es):`);
-  for (const f of findings.slice(0, 50)) console.error(`   ${f}`);
-  if (findings.length > 50)
-    console.error(`   ... and ${findings.length - 50} more`);
-  console.error(
-    "Review the output; redact or regenerate before setting ALLURE_PUBLISH_READY=1.",
+  if (findings.length > 0) {
+    console.error(`❌ Privacy scan FAILED — ${findings.length} match(es):`);
+    for (const f of findings.slice(0, 50)) console.error(`   ${f}`);
+    if (findings.length > 50)
+      console.error(`   ... and ${findings.length - 50} more`);
+    console.error(
+      "Review the output; redact or regenerate before setting ALLURE_PUBLISH_READY=1.",
+    );
+    process.exit(1);
+  }
+
+  console.log(
+    `✅ Privacy scan clean (${scannedFiles} files scanned, 0 matches)`,
   );
-  process.exit(1);
 }
-
-console.log(`✅ Privacy scan clean (${scannedFiles} files scanned, 0 matches)`);

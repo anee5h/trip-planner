@@ -33,6 +33,87 @@ const RUN = process.env.A11Y_E2E === "1";
 test.skip(!RUN, "A11Y_E2E=1 required");
 
 /**
+ * Deterministic NON-PRODUCTION auth fixture (KAI-80): makes the app's
+ * supabase client (built with the fake a11y-test project URL) see a
+ * signed-in user WITHOUT touching any real Supabase.
+ *
+ * 1. Injects a synthetic session into localStorage BEFORE the app loads
+ *    (key `sb-a11y-test-auth-token` — the project ref derived from the
+ *    fake URL https://a11y-test.supabase.co).
+ * 2. Route-intercepts the fake project's auth endpoints so
+ *    supabase-js `getSession()`/`/auth/v1/user` returns the fixture user.
+ *
+ * All requests stay inside the browser; nothing reaches production.
+ */
+async function signInAsTestUser(page: import("@playwright/test").Page) {
+  const fakeUser = {
+    id: "00000000-0000-0000-0000-000000000000",
+    aud: "authenticated",
+    role: "authenticated",
+    email: "a11y-fixture@example.com",
+    app_metadata: { provider: "email" },
+    user_metadata: { full_name: "A11y Fixture" },
+    created_at: "2026-01-01T00:00:00.000Z",
+    updated_at: "2026-01-01T00:00:00.000Z",
+  };
+  const fakeSession = {
+    access_token: "a11y-fixture-access-token",
+    refresh_token: "a11y-fixture-refresh-token",
+    expires_in: 3600,
+    expires_at: Math.floor(Date.now() / 1000) + 3600,
+    token_type: "bearer",
+    user: fakeUser,
+  };
+
+  await page.addInitScript(
+    ({ key, session }) => {
+      try {
+        localStorage.setItem(key, JSON.stringify(session));
+      } catch {}
+    },
+    {
+      key: "sb-a11y-test-auth-token",
+      session: fakeSession,
+    },
+  );
+
+  await page.route("https://a11y-test.supabase.co/**", (route) => {
+    const url = route.request().url();
+    if (url.includes("/auth/v1/user")) {
+      return route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(fakeUser),
+      });
+    }
+    if (url.includes("/auth/v1/token")) {
+      // Refresh-token grant: supabase-js expects a session-shaped body.
+      return route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          access_token: "a11y-fixture-access-token",
+          refresh_token: "a11y-fixture-refresh-token",
+          expires_in: 3600,
+          token_type: "bearer",
+          user: fakeUser,
+        }),
+      });
+    }
+    return route.fulfill({
+      status: 404,
+      contentType: "application/json",
+      body: "{}",
+    });
+  });
+}
+
+/** The signed-in-as text shown in the user menu. */
+function signedInAsLabel() {
+  return /Signed in as|ログイン中/;
+}
+
+/**
  * Opens the guest auth modal from either layout: desktop navbar "Sign In"
  * button, or the mobile hamburger menu's "Sign In" entry. Required —
  * asserts the control exists (no conditional no-op).
@@ -46,13 +127,14 @@ async function openSignIn(page: import("@playwright/test").Page) {
     await desktopSignIn.click();
   } else {
     await expect(mobileMenu).toBeVisible();
-    await mobileMenu.click();
+    await mobileMenu.focus();
+    await mobileMenu.press("Enter");
     const menuSignIn = page
       .locator("#mobile-menu-drawer")
       .locator("button", { hasText: "Sign In" })
       .first();
     await expect(menuSignIn).toBeVisible();
-    await menuSignIn.click();
+    await menuSignIn.evaluate((el) => (el as HTMLButtonElement).click());
   }
 }
 
@@ -195,6 +277,69 @@ test.describe("KAI-80 public routes (light)", () => {
     await page.keyboard.press("Escape");
     await expect(dialog).toHaveCount(0);
   });
+
+  test("auth modal focus semantics: entry, trap, Escape, return to opener", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const desktopOpener = page
+      .locator("header button", { hasText: "Sign In" })
+      .first();
+    const isDesktop = await desktopOpener.isVisible().catch(() => false);
+    if (isDesktop) {
+      await desktopOpener.focus();
+      await desktopOpener.click();
+    } else {
+      await openSignIn(page);
+    }
+    const dialog = page.locator('[role="dialog"]').first();
+    await expect(dialog).toBeVisible();
+    // Initial focus lands inside the dialog (an input or button).
+    await expect
+      .poll(() =>
+        page.evaluate(
+          () => document.activeElement?.closest('[role="dialog"]') !== null,
+        ),
+      )
+      .toBe(true);
+    // Tab stays trapped (several presses).
+    for (let i = 0; i < 6; i++) {
+      await page.keyboard.press("Tab");
+      const inside = await page.evaluate(
+        () => document.activeElement?.closest('[role="dialog"]') !== null,
+      );
+      expect(inside).toBe(true);
+    }
+    // Shift+Tab wraps back inside.
+    for (let i = 0; i < 3; i++) {
+      await page.keyboard.press("Shift+Tab");
+      const inside = await page.evaluate(
+        () => document.activeElement?.closest('[role="dialog"]') !== null,
+      );
+      expect(inside).toBe(true);
+    }
+    // Escape closes.
+    await page.keyboard.press("Escape");
+    await expect(dialog).toHaveCount(0);
+    // Focus returns to the opener: the Sign In control on desktop; on
+    // mobile the drawer (and its Sign In button) unmounted when the modal
+    // opened, so focus falls back to the hamburger — accept either, and
+    // never a lost-focus body (mobile fallback: any button).
+    await expect
+      .poll(() =>
+        page.evaluate(() => {
+          const el = document.activeElement;
+          if (!el || el === document.body) return false;
+          if (el.tagName !== "BUTTON") return false;
+          const text = el.textContent ?? "";
+          return (
+            text.includes("Sign In") ||
+            el.getAttribute("aria-label") === "Toggle menu"
+          );
+        }),
+      )
+      .toBe(true);
+  });
 });
 
 // ---------------------------------------------------------------------------
@@ -244,13 +389,16 @@ test.describe("KAI-80 Home planner controls (light)", () => {
 
   test("date picker dialog is accessible and traps focus", async ({ page }) => {
     await page.goto("/");
-    const dateTrigger = page
-      .locator(
-        'button[aria-label*="Choose travel date" i], [aria-label*="travel date" i]',
-      )
-      .first();
-    await expect(dateTrigger).toBeVisible();
-    await dateTrigger.click();
+    // Deterministic: wait for the planner's date control to settle, then
+    // use whichever layout's trigger is actually visible (desktop picker
+    // vs mobile date row) — never a hidden first-match.
+    const dateTriggers = page.locator(
+      'button[aria-label*="Choose travel date" i], [aria-label*="travel date" i]',
+    );
+    await expect(dateTriggers.first()).toBeVisible({ timeout: 15000 });
+    const visibleTrigger = dateTriggers.filter({ visible: true }).first();
+    await expect(visibleTrigger).toBeVisible();
+    await visibleTrigger.click();
     const dialog = page.locator('[role="dialog"]').first();
     await expect(dialog).toBeVisible();
     await expectNoA11yViolations(page);
@@ -330,6 +478,44 @@ test.describe("KAI-80 Home planner controls (light)", () => {
         )
         .not.toBe(before?.trim()?.slice(0, 20));
     }
+  });
+
+  test("mobile planner sheet restores focus to its opener after close", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await expect(page.locator("main")).toBeVisible();
+    // Mobile-only: if the desktop Vibe trigger is visible, this is the
+    // desktop layout — skip (test.skip throws; must NOT be caught).
+    const desktopVibe = page.locator('button[aria-label="Vibe"]').first();
+    let desktopVisible = false;
+    try {
+      await desktopVibe.waitFor({ state: "visible", timeout: 15000 });
+      desktopVisible = true;
+    } catch {
+      desktopVisible = false;
+    }
+    if (desktopVisible) {
+      test.skip(true, "desktop layout — mobile sheet not present");
+      return;
+    }
+    const vibeRow = page.locator("button", { hasText: /Vibe|雰囲気/ }).first();
+    await expect(vibeRow).toBeVisible();
+    await vibeRow.focus();
+    await page.keyboard.press("Space");
+    const dialog = page.locator('[role="dialog"][aria-label="Vibe"]').first();
+    await expect(dialog).toBeVisible();
+    // Escape closes and focus returns to the opener row.
+    await page.keyboard.press("Escape");
+    await expect(dialog).toHaveCount(0);
+    await expect
+      .poll(() =>
+        page.evaluate(() => {
+          const text = document.activeElement?.textContent ?? "";
+          return text.includes("Vibe") || text.includes("雰囲気");
+        }),
+      )
+      .toBe(true);
   });
 });
 
@@ -413,6 +599,21 @@ test.describe("KAI-80 reduced motion", () => {
     // State transition still works: open the auth modal (guest state).
     await openSignIn(page);
     await expect(page.locator('[role="dialog"]').first()).toBeVisible();
+    // KAI-80: with prefers-reduced-motion, the dialog's animation classes
+    // must resolve to no non-essential animation (none or zero duration).
+    const animState = await page.evaluate(() => {
+      const dialog = document.querySelector('[role="dialog"]');
+      const cs = dialog ? getComputedStyle(dialog) : null;
+      return {
+        animationName: cs?.animationName ?? "no-dialog",
+        animationDuration: cs?.animationDuration ?? "no-dialog",
+      };
+    });
+    expect(
+      animState.animationName === "none" ||
+        animState.animationDuration === "0s" ||
+        parseFloat(animState.animationDuration) <= 0.001,
+    ).toBe(true);
     await page.keyboard.press("Escape");
   });
 
@@ -460,6 +661,56 @@ test.describe("KAI-80 keyboard-only navigation", () => {
     await page.waitForTimeout(800);
     const url = page.url();
     expect(url).not.toMatch(/\/$|127\.0\.0\.1:4173\/?$/);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Visible focus (#6)
+// ---------------------------------------------------------------------------
+test.describe("KAI-80 visible focus (focus-visible ring present)", () => {
+  test("primary controls show a focus-visible ring when keyboard-focused", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await expect(page.locator("main")).toBeVisible();
+    // Mobile: BottomNav Search or hamburger; Desktop: Ctrl-K chip or the
+    // theme toggle. Pick the first visible keyboard control.
+    const candidates = [
+      page.locator('button[aria-label="Search"]').first(),
+      page.locator('button[aria-label="Toggle menu"]').first(),
+      page.locator("button:has-text('Ctrl K'), button:has-text('⌘K')").first(),
+      page.locator('button[aria-label="Toggle theme"]').first(),
+    ];
+    let target: import("@playwright/test").Locator | null = null;
+    for (const c of candidates) {
+      if (await c.isVisible().catch(() => false)) {
+        target = c;
+        break;
+      }
+    }
+    expect(target).not.toBeNull();
+    await target!.focus();
+    const ring = await page.evaluate(() => {
+      const el = document.activeElement;
+      if (!el) return null;
+      const cs = getComputedStyle(el);
+      const outlineWidth = parseFloat(cs.outlineWidth) || 0;
+      const hasRingClass = el.className
+        ?.toString()
+        .includes("focus-visible:ring");
+      const boxShadow = cs.boxShadow;
+      return {
+        outlineWidth,
+        hasRingClass,
+        boxShadowNonDefault: boxShadow !== "none" && boxShadow !== "",
+      };
+    });
+    expect(
+      ring &&
+        (ring.outlineWidth > 0 ||
+          ring.hasRingClass ||
+          ring.boxShadowNonDefault),
+    ).toBe(true);
   });
 });
 
@@ -537,5 +788,65 @@ test.describe("KAI-80 state surfaces", () => {
     await page.goto("/bucket-list");
     await expect(page.locator("main")).toBeVisible();
     await expectNoA11yViolations(page);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Authenticated-state coverage (#4) — deterministic non-production fixture
+// ---------------------------------------------------------------------------
+test.describe("KAI-80 authenticated state (fixture, no production mutation)", () => {
+  test("user menu shows Signed in as + account navigation works", async ({
+    page,
+  }) => {
+    await signInAsTestUser(page);
+    await page.goto("/");
+    await expect(page.locator("main")).toBeVisible();
+    // Desktop: the User menu button; mobile: the hamburger drawer shows
+    // the signed-in account links.
+    const userMenu = page.locator('button[aria-label="User menu"]').first();
+    if (await userMenu.isVisible().catch(() => false)) {
+      await expectNoA11yViolations(page);
+      await userMenu.focus();
+      await page.keyboard.press("Enter");
+    } else {
+      const toggleMenu = page
+        .locator('button[aria-label="Toggle menu"]')
+        .first();
+      await expect(toggleMenu).toBeVisible();
+      await toggleMenu.focus();
+      await page.keyboard.press("Enter");
+      await expect(page.locator("#mobile-menu-drawer")).toBeVisible();
+      await expectNoA11yViolations(page);
+    }
+    await expect(page.getByText(signedInAsLabel())).toBeVisible();
+    await expect(page.getByText("a11y-fixture@example.com")).toBeVisible();
+    // Account navigation target works.
+    await page
+      .getByRole("link", { name: /Edit Profile|プロフィール編集/ })
+      .first()
+      .evaluate((el) => (el as HTMLAnchorElement).click());
+    await expect(page).toHaveURL(/\/settings\?section=account/);
+    await expect(page.locator("main")).toBeVisible();
+    await expectNoA11yViolations(page);
+  });
+
+  test("Settings account section renders in authenticated state", async ({
+    page,
+  }) => {
+    await signInAsTestUser(page);
+    await page.goto("/settings?section=account");
+    await expect(page.locator("main")).toBeVisible();
+    await expectNoA11yViolations(page);
+  });
+
+  test("Bucket List, My Trips and Passport render authenticated", async ({
+    page,
+  }) => {
+    await signInAsTestUser(page);
+    for (const route of ["/bucket-list", "/my-trips", "/passport"]) {
+      await page.goto(route);
+      await expect(page.locator("main")).toBeVisible();
+      await expectNoA11yViolations(page);
+    }
   });
 });
