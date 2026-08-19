@@ -97,18 +97,18 @@ export default function Help() {
 
       {/* Live Search Input */}
       <div className="relative max-w-2xl">
-        <Search className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
+        <Search className="absolute left-4 top-3.5 w-5 h-5 text-slate-500" />
         <input
           type="text"
           placeholder={t("help.searchPlaceholder")}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full pl-11 pr-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl text-base sm:text-sm placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all shadow-xs"
+          className="w-full pl-11 pr-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl text-base sm:text-sm placeholder:text-slate-500 focus:outline-hidden focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-700 transition-all shadow-xs"
         />
         {searchQuery && (
           <button
             onClick={() => setSearchQuery("")}
-            className="absolute right-3.5 top-3.5 text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 font-medium px-2 py-0.5 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="absolute right-3.5 top-3.5 text-xs text-slate-500 hover:text-slate-600 dark:hover:text-slate-200 font-medium px-2 py-0.5 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
           >
             {t("help.clearSearch")}
           </button>
@@ -122,8 +122,8 @@ export default function Help() {
             onClick={() => setActiveSection("getting-started")}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-bold transition-all text-left ${
               activeSection === "getting-started"
-                ? "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shadow-xs"
-                : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:text-slate-900 dark:hover:text-slate-200"
+                ? "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-700/20 shadow-xs"
+                : "text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:text-slate-900 dark:hover:text-slate-200"
             }`}
           >
             <GettingStartedIcon className="w-4 h-4 shrink-0" />
@@ -134,8 +134,8 @@ export default function Help() {
             onClick={() => setActiveSection("faq")}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-bold transition-all text-left ${
               activeSection === "faq"
-                ? "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shadow-xs"
-                : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:text-slate-900 dark:hover:text-slate-200"
+                ? "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-700/20 shadow-xs"
+                : "text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:text-slate-900 dark:hover:text-slate-200"
             }`}
           >
             <FaqIcon className="w-4 h-4 shrink-0" />
@@ -146,8 +146,8 @@ export default function Help() {
             onClick={() => setActiveSection("shortcuts")}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-bold transition-all text-left ${
               activeSection === "shortcuts"
-                ? "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shadow-xs"
-                : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:text-slate-900 dark:hover:text-slate-200"
+                ? "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-700/20 shadow-xs"
+                : "text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:text-slate-900 dark:hover:text-slate-200"
             }`}
           >
             <ShortcutsIcon className="w-4 h-4 shrink-0" />
@@ -158,8 +158,8 @@ export default function Help() {
             onClick={() => setActiveSection("changelog")}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-bold transition-all text-left ${
               activeSection === "changelog"
-                ? "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shadow-xs"
-                : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:text-slate-900 dark:hover:text-slate-200"
+                ? "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-700/20 shadow-xs"
+                : "text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:text-slate-900 dark:hover:text-slate-200"
             }`}
           >
             <ChangelogIcon className="w-4 h-4 shrink-0" />
@@ -178,31 +178,31 @@ export default function Help() {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-black text-sm">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-black text-sm">
                     1
                   </div>
                   <CardTitle>{t("help.gettingStarted.step1Title")}</CardTitle>
-                  <BodyText className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  <BodyText className="text-xs text-slate-500 dark:text-slate-300 leading-relaxed">
                     {t("help.gettingStarted.step1Description")}
                   </BodyText>
                 </div>
 
                 <div className="p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-black text-sm">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-black text-sm">
                     2
                   </div>
                   <CardTitle>{t("help.gettingStarted.step2Title")}</CardTitle>
-                  <BodyText className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  <BodyText className="text-xs text-slate-500 dark:text-slate-300 leading-relaxed">
                     {t("help.gettingStarted.step2Description")}
                   </BodyText>
                 </div>
 
                 <div className="p-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-black text-sm">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-black text-sm">
                     3
                   </div>
                   <CardTitle>{t("help.gettingStarted.step3Title")}</CardTitle>
-                  <BodyText className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  <BodyText className="text-xs text-slate-500 dark:text-slate-300 leading-relaxed">
                     {t("help.gettingStarted.step3Description")}
                   </BodyText>
                 </div>
@@ -231,7 +231,7 @@ export default function Help() {
                       >
                         <span>{faq.question}</span>
                         <ChevronIcon
-                          className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${
+                          className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${
                             isOpen ? "rotate-180 text-emerald-500" : ""
                           }`}
                         />
@@ -286,11 +286,11 @@ export default function Help() {
                     <span className="font-bold text-sm text-slate-900 dark:text-slate-100">
                       {t("help.changelog.version152Title")}
                     </span>
-                    <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60">
+                    <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60">
                       {t("help.changelog.version152Date")}
                     </span>
                   </div>
-                  <ul className="text-xs text-slate-500 dark:text-slate-400 space-y-1.5 list-disc list-inside">
+                  <ul className="text-xs text-slate-500 dark:text-slate-300 space-y-1.5 list-disc list-inside">
                     <li>{t("help.changelog.item1")}</li>
                     <li>{t("help.changelog.item2")}</li>
                     <li>{t("help.changelog.item3")}</li>

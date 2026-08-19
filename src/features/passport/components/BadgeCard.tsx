@@ -66,7 +66,7 @@ export function BadgeCard({
           className={`absolute top-2.5 right-2.5 p-1.5 rounded-full transition-all ${
             isFavorite
               ? "bg-amber-100 text-amber-600 dark:bg-amber-950 dark:text-amber-400"
-              : "bg-slate-100 dark:bg-slate-800 text-slate-400 opacity-0 group-hover:opacity-100"
+              : "bg-slate-100 dark:bg-slate-800 text-slate-500 opacity-0 group-hover:opacity-100"
           }`}
           title={isFavorite ? "Remove from Showcase" : "Add to Showcase"}
         >
@@ -92,7 +92,7 @@ export function BadgeCard({
       </h4>
 
       {/* Description Snippet */}
-      <p className="mb-3 line-clamp-2 text-xs leading-snug text-slate-500 dark:text-slate-400">
+      <p className="mb-3 line-clamp-2 text-xs leading-snug text-slate-500 dark:text-slate-300">
         {badge.description}
       </p>
 
@@ -104,11 +104,11 @@ export function BadgeCard({
           {rarityConfig.label}
         </span>
         {isUnlocked ? (
-          <span className="inline-flex items-center gap-1 text-xs font-extrabold text-emerald-600 dark:text-emerald-400">
+          <span className="inline-flex items-center gap-1 text-xs font-extrabold text-emerald-700 dark:text-emerald-300">
             <CheckCircle2 className="w-3 h-3" /> Unlocked
           </span>
         ) : (
-          <span className="inline-flex items-center gap-1 text-xs font-medium text-slate-400">
+          <span className="inline-flex items-center gap-1 text-xs font-medium text-slate-500">
             <Lock className="w-3 h-3" /> Locked
           </span>
         )}

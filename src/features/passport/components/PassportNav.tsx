@@ -33,7 +33,7 @@ export function PassportNav({ activeTab, onSelectTab }: PassportNavProps) {
               aria-label={label}
               className={`flex items-center justify-center gap-1.5 px-3.5 py-2.5 sm:py-2 min-h-[44px] sm:min-h-[36px] rounded-xl font-bold text-xs sm:text-sm shrink-0 transition-all ${
                 isActive
-                  ? "bg-emerald-600 dark:bg-emerald-500 text-white shadow-sm"
+                  ? "bg-emerald-700 dark:bg-emerald-500 text-white shadow-sm"
                   : "bg-slate-100/80 dark:bg-slate-800/60 text-slate-700 dark:text-slate-200 hover:bg-slate-200/80 dark:hover:bg-slate-700/80"
               }`}
             >

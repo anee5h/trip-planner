@@ -34,7 +34,7 @@ export function BadgeDetailModal({
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          className="absolute top-4 right-4 p-2 rounded-full text-slate-500 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
         >
           <X className="w-4 h-4" />
         </button>
@@ -74,7 +74,7 @@ export function BadgeDetailModal({
             </span>
           </div>
         ) : (
-          <div className="p-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 text-xs font-semibold flex items-center justify-center gap-2">
+          <div className="p-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-300 text-xs font-semibold flex items-center justify-center gap-2">
             <Lock className="w-4 h-4" />
             <span>Locked — Complete criteria to earn</span>
           </div>
@@ -83,7 +83,7 @@ export function BadgeDetailModal({
         {/* Description & How to Earn */}
         <div className="space-y-3 text-left p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
           <div>
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-0.5">
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-0.5">
               Description
             </span>
             <p className="text-xs text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
@@ -92,10 +92,10 @@ export function BadgeDetailModal({
           </div>
 
           <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60">
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-0.5">
+            <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-0.5">
               How to Earn
             </span>
-            <p className="text-xs text-emerald-600 dark:text-emerald-400 font-bold">
+            <p className="text-xs text-emerald-700 dark:text-emerald-300 font-bold">
               {badge.howToEarn}
             </p>
           </div>

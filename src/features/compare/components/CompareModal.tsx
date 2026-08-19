@@ -69,14 +69,14 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
         {/* Modal Header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+            <div className="p-2.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
               <Scale className="w-5 h-5" />
             </div>
             <div>
               <h2 className="text-xl font-extrabold text-slate-900 dark:text-white">
                 {t("ui.compare")}
               </h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
+              <p className="text-xs text-slate-500 dark:text-slate-300">
                 {compareDestinations.length} {t("ui.of")} 3{" "}
                 {t("ui.destinations").toLowerCase()}
               </p>
@@ -97,7 +97,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
             )}
             <button
               onClick={onClose}
-              className="p-2 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="p-2 text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               aria-label={t("compare.closeModal")}
             >
               <X className="w-5 h-5" />
@@ -113,7 +113,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
               <p className="text-slate-700 dark:text-slate-300 font-bold text-base">
                 {t("ui.nothingToCompare")}
               </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
+              <p className="text-xs text-slate-500 dark:text-slate-300 mt-1 max-w-sm mx-auto">
                 {t("ui.compareHint")}
               </p>
             </div>
@@ -159,7 +159,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                       <h3 className="font-extrabold text-base text-slate-900 dark:text-white truncate">
                         {localized.name}
                       </h3>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 mb-3 truncate">
+                      <p className="text-xs text-slate-500 dark:text-slate-300 mb-3 truncate">
                         {formatPrefecture(dest.prefecture, locale)} •{" "}
                         {dest.categories?.[0]
                           ? localizePlaceLabel(dest.categories[0], locale)
@@ -173,7 +173,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                       >
                         <Button
                           size="sm"
-                          className="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-sm"
+                          className="w-full bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold shadow-sm"
                         >
                           <ExternalLink className="w-3.5 h-3.5 mr-1" />{" "}
                           {t("ui.view")}
@@ -185,7 +185,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                     <div className="space-y-2.5 pt-2 border-t border-slate-200/80 dark:border-slate-800/80">
                       {/* Est. Budget */}
                       <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
+                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-300 uppercase">
                           {t("compare.budget")}
                         </span>
                         <div className="flex items-center gap-1.5">
@@ -195,7 +195,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                               : `¥${(cost / 1000).toFixed(0)}k`}
                           </span>
                           {cost !== null && isLowestBudget && (
-                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
+                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 text-[10px] font-extrabold px-1.5 py-0">
                               {t("compare.lowest")}
                             </Badge>
                           )}
@@ -204,7 +204,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
 
                       {/* Travel Time */}
                       <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
+                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-300 uppercase">
                           {t("compare.travel")}
                         </span>
                         <div className="flex items-center gap-1.5">
@@ -216,7 +216,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                               : t("compare.unavailable")}
                           </span>
                           {isFastest && (
-                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-[10px] font-extrabold px-1.5 py-0">
+                            <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 text-[10px] font-extrabold px-1.5 py-0">
                               {t("compare.fastest")}
                             </Badge>
                           )}
@@ -225,7 +225,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
 
                       {/* Walking */}
                       <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
+                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-300 uppercase">
                           {t("compare.walk")}
                         </span>
                         <span
@@ -237,7 +237,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
 
                       {/* Couple Rating */}
                       <div className="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
-                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">
+                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-300 uppercase">
                           {t("compare.couple")}
                         </span>
                         <div className="flex items-center gap-1.5">

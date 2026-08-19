@@ -53,7 +53,7 @@ export const RecommendationFeedbackControl: React.FC<
 
   if (feedbackState !== "none") {
     return (
-      <div className="flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-medium py-1 px-2 rounded bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/50 dark:border-emerald-800/40">
+      <div className="flex items-center gap-1.5 text-xs text-emerald-700 dark:text-emerald-300 font-medium py-1 px-2 rounded bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/50 dark:border-emerald-800/40">
         <CheckCircle2 className="w-3.5 h-3.5" />
         <span>{t("recommendation.feedback.thankYou")}</span>
       </div>
@@ -62,14 +62,14 @@ export const RecommendationFeedbackControl: React.FC<
 
   return (
     <div
-      className={`flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 ${
+      className={`flex items-center justify-between text-xs text-slate-500 dark:text-slate-300 ${
         compact
           ? "gap-1"
           : "gap-2 pt-2 border-t border-slate-100 dark:border-slate-800/60 mt-2"
       }`}
       onClick={(e) => e.stopPropagation()}
     >
-      <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400">
+      <span className="text-[11px] font-medium text-slate-500 dark:text-slate-300">
         {t("recommendation.feedback.title")}
       </span>
       <div className="flex items-center gap-1">
@@ -78,7 +78,7 @@ export const RecommendationFeedbackControl: React.FC<
           onClick={(e) => handleFeedback(true, e)}
           title={t("recommendation.feedback.helpful")}
           aria-label={t("recommendation.feedback.helpful")}
-          className="p-1 rounded hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+          className="p-1 rounded hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors"
         >
           <ThumbsUp className="w-3.5 h-3.5" />
         </button>
@@ -97,7 +97,7 @@ export const RecommendationFeedbackControl: React.FC<
             onClick={handleDismiss}
             title={t("recommendation.feedback.dismiss")}
             aria-label={t("recommendation.feedback.dismiss")}
-            className="p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+            className="p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
           >
             <X className="w-3.5 h-3.5" />
           </button>

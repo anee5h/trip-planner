@@ -172,10 +172,10 @@ export function PassportTimelineCalendar() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-slate-800">
         <div>
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
-            <Clock className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+            <Clock className="w-6 h-6 text-emerald-700 dark:text-emerald-300" />
             Travel Activity Log
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">
+          <p className="text-slate-600 dark:text-slate-300 text-sm mt-1">
             Expand any year to view monthly visits & itinerary activities across
             Japan
           </p>
@@ -188,7 +188,7 @@ export function PassportTimelineCalendar() {
             className={`px-3 py-1.5 text-xs font-bold rounded-xl transition-all ${
               filterType === "all"
                 ? "bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm"
-                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                : "text-slate-500 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
             }`}
           >
             All ({allEvents.length})
@@ -197,8 +197,8 @@ export function PassportTimelineCalendar() {
             onClick={() => setFilterType("visited")}
             className={`px-3 py-1.5 text-xs font-bold rounded-xl transition-all ${
               filterType === "visited"
-                ? "bg-emerald-500 text-white shadow-sm"
-                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                ? "bg-emerald-700 text-white shadow-sm"
+                : "text-slate-500 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
             }`}
           >
             Visited ({visited.length})
@@ -208,7 +208,7 @@ export function PassportTimelineCalendar() {
             className={`px-3 py-1.5 text-xs font-bold rounded-xl transition-all ${
               filterType === "trips"
                 ? "bg-blue-500 text-white shadow-sm"
-                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                : "text-slate-500 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
             }`}
           >
             Trips ({trips.length})
@@ -223,7 +223,7 @@ export function PassportTimelineCalendar() {
           <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">
             No activities recorded yet
           </p>
-          <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">
+          <p className="text-xs text-slate-500 dark:text-slate-300 mt-1">
             Mark destinations as visited or create a trip itinerary to start
             building your travel log!
           </p>
@@ -263,7 +263,7 @@ export function PassportTimelineCalendar() {
                   className="w-full flex items-center justify-between p-4 bg-white dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 font-extrabold text-base shadow-sm">
+                    <div className="p-2 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 font-extrabold text-base shadow-sm">
                       <CalendarIcon className="w-5 h-5 inline mr-1" />
                       {yearStr}
                     </div>
@@ -273,7 +273,7 @@ export function PassportTimelineCalendar() {
                           ? "Undated Memories"
                           : `${yearStr} Travel Activity`}
                       </h3>
-                      <p className="text-xs text-slate-500 dark:text-slate-400">
+                      <p className="text-xs text-slate-500 dark:text-slate-300">
                         {yearEventsCount} entry
                         {yearEventsCount === 1 ? "" : "ies"} recorded
                       </p>
@@ -285,9 +285,9 @@ export function PassportTimelineCalendar() {
                       {yearEventsCount}
                     </span>
                     {isYearExpanded ? (
-                      <ChevronDown className="w-5 h-5 text-slate-400" />
+                      <ChevronDown className="w-5 h-5 text-slate-500" />
                     ) : (
-                      <ChevronRight className="w-5 h-5 text-slate-400" />
+                      <ChevronRight className="w-5 h-5 text-slate-500" />
                     )}
                   </div>
                 </button>
@@ -307,7 +307,7 @@ export function PassportTimelineCalendar() {
                           }
                           className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 transition-all ${
                             selectedMonthKey[yearStr] == null
-                              ? "bg-emerald-600 text-white shadow-sm"
+                              ? "bg-emerald-700 text-white shadow-sm"
                               : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
                           }`}
                         >
@@ -328,7 +328,7 @@ export function PassportTimelineCalendar() {
                               }
                               className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 transition-all flex items-center gap-1.5 ${
                                 isSelected
-                                  ? "bg-emerald-600 text-white shadow-sm"
+                                  ? "bg-emerald-700 text-white shadow-sm"
                                   : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
                               }`}
                             >
@@ -337,7 +337,7 @@ export function PassportTimelineCalendar() {
                                 className={`text-[10px] px-1.5 py-0.2 rounded-full ${
                                   isSelected
                                     ? "bg-emerald-700 text-white"
-                                    : "bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400"
+                                    : "bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-300"
                                 }`}
                               >
                                 {mCount}
@@ -372,14 +372,14 @@ export function PassportTimelineCalendar() {
                               <Badge
                                 className={`text-[9px] px-1.5 py-0 border-none ${
                                   ev.type === "visited"
-                                    ? "bg-emerald-500 text-white"
+                                    ? "bg-emerald-700 text-white"
                                     : "bg-blue-500 text-white"
                                 }`}
                               >
                                 {ev.type === "visited" ? "Visited" : "Trip"}
                               </Badge>
                               {ev.dateStr && (
-                                <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 truncate">
+                                <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-300 truncate">
                                   {formatVisitedDate(ev.dateStr)}
                                 </span>
                               )}
@@ -390,7 +390,7 @@ export function PassportTimelineCalendar() {
                             </div>
 
                             {ev.subtitle && (
-                              <div className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">
+                              <div className="text-xs text-slate-500 dark:text-slate-300 truncate mt-0.5">
                                 {ev.subtitle}
                               </div>
                             )}
@@ -399,7 +399,7 @@ export function PassportTimelineCalendar() {
                           {ev.destinationId && (
                             <Link
                               to={`/destinations/${ev.destinationId}`}
-                              className="p-1.5 text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors shrink-0"
+                              className="p-1.5 text-slate-500 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors shrink-0"
                               title="View Details"
                             >
                               <ArrowRight className="w-4 h-4" />

@@ -151,7 +151,7 @@ import { RecommendationFeedbackControl } from "@/features/recommendations/compon
 
 function WeatherIcon({ type }: { type: string }) {
   if (type === "sun") return <Sun className="w-6 h-6 text-amber-500" />;
-  if (type === "cloud") return <Cloud className="w-6 h-6 text-slate-400" />;
+  if (type === "cloud") return <Cloud className="w-6 h-6 text-slate-500" />;
   if (type === "rain") return <CloudRain className="w-6 h-6 text-blue-500" />;
   if (type === "snow") return <CloudSnow className="w-6 h-6 text-sky-300" />;
   if (type === "storm")
@@ -926,7 +926,7 @@ export default function DestinationDetails() {
           {/* 2. Location & Parent Container Badge */}
           <div className="flex flex-wrap items-center gap-3 text-sm text-slate-200/85 mb-3">
             {user?.user_metadata?.home_city === destination.id && (
-              <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500 px-3 py-1.5 font-extrabold text-white border border-emerald-200 shadow-lg shadow-emerald-950/40">
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-700 px-3 py-1.5 font-extrabold text-white border border-emerald-200 shadow-lg shadow-emerald-950/40">
                 <House className="w-4 h-4" />{" "}
                 {locale === "ja" ? "ホームシティ" : "Home City"}
               </div>
@@ -953,7 +953,7 @@ export default function DestinationDetails() {
 
           {/* 3. Badges & Category Tags Row */}
           <div className="flex flex-wrap items-center gap-2 mb-4">
-            <Badge className="bg-emerald-600 hover:bg-emerald-500 border-none shrink-0 px-2.5 py-0.5 text-xs font-semibold">
+            <Badge className="bg-emerald-700 hover:bg-emerald-700 border-none shrink-0 px-2.5 py-0.5 text-xs font-semibold">
               {localizePlaceLabel(destination.region, locale)}
             </Badge>
             {/* Curated Collection Badges */}
@@ -991,7 +991,7 @@ export default function DestinationDetails() {
                   return (
                     <Badge
                       key={tag}
-                      className="hidden bg-emerald-600 hover:bg-emerald-700 text-white font-bold border-emerald-300 shadow-md shrink-0 px-2.5 py-0.5 text-xs items-center gap-1 md:inline-flex"
+                      className="hidden bg-emerald-700 hover:bg-emerald-800 text-white font-bold border-emerald-300 shadow-md shrink-0 px-2.5 py-0.5 text-xs items-center gap-1 md:inline-flex"
                     >
                       <Building2 className="w-3 h-3" />{" "}
                       {locale === "ja" ? "無料展望台" : "Free Observatory"}
@@ -1024,7 +1024,7 @@ export default function DestinationDetails() {
             {/* Primary CTA: Add to Itinerary */}
             <button
               onClick={handleAddToItinerary}
-              className="inline-flex w-full sm:w-auto justify-center items-center text-sm font-semibold bg-emerald-600 hover:bg-emerald-500 text-white h-10 px-4 rounded-xl transition-all active:scale-95 shadow-md"
+              className="inline-flex w-full sm:w-auto justify-center items-center text-sm font-semibold bg-emerald-700 hover:bg-emerald-700 text-white h-10 px-4 rounded-xl transition-all active:scale-95 shadow-md"
             >
               <Plus className="w-4 h-4 mr-1.5" />
               {copy.addToItinerary}
@@ -1059,7 +1059,7 @@ export default function DestinationDetails() {
                 }
                 className={`w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
                   isVisited(destination.id)
-                    ? "bg-emerald-500 text-white border-emerald-400 shadow-md"
+                    ? "bg-emerald-700 text-white border-emerald-400 shadow-md"
                     : "bg-white/15 hover:bg-white/25 text-slate-100 border-white/20"
                 }`}
               >
@@ -1189,7 +1189,7 @@ export default function DestinationDetails() {
                     href={wikiSummary.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full font-medium"
+                    className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-emerald-700 dark:text-slate-300 dark:hover:text-emerald-400 transition-colors bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full font-medium"
                     title={t("destination.wikipediaAttributionTooltip", {
                       source: "Wikipedia",
                       license: "CC BY-SA 4.0",
@@ -1211,7 +1211,7 @@ export default function DestinationDetails() {
                 <button
                   type="button"
                   onClick={handleToggleWikipedia}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 transition-colors border border-slate-200 dark:border-slate-700"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 transition-colors border border-slate-200 dark:border-slate-700"
                 >
                   <BookOpen className="w-3.5 h-3.5" />
                   <span>
@@ -1258,13 +1258,13 @@ export default function DestinationDetails() {
               >
                 <div className="min-h-0 overflow-hidden">
                   {isWikiLoading ? (
-                    <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2 animate-in fade-in duration-150 motion-reduce:animate-none">
+                    <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-300 flex items-center gap-2 animate-in fade-in duration-150 motion-reduce:animate-none">
                       <BookOpen className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                       <span>{t("destination.wikipediaLoading")}</span>
                     </div>
                   ) : wikiSummary ? (
                     <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 space-y-2 animate-in fade-in duration-150">
-                      <div className="flex items-center justify-between font-semibold text-xs text-slate-500 dark:text-slate-400 border-b border-slate-200/60 dark:border-slate-700/60 pb-2">
+                      <div className="flex items-center justify-between font-semibold text-xs text-slate-500 dark:text-slate-300 border-b border-slate-200/60 dark:border-slate-700/60 pb-2">
                         <div className="flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-300">
                           <BookOpen className="w-3.5 h-3.5 text-emerald-500" />
                           <span>{t("destination.wikipediaSummary")}</span>
@@ -1273,7 +1273,7 @@ export default function DestinationDetails() {
                           href={wikiSummary.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-[11px] text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                          className="inline-flex items-center gap-1 text-[11px] text-slate-500 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors"
                           title={t("destination.wikipediaAttributionTooltip", {
                             source: "Wikipedia",
                             license: "CC BY-SA 4.0",
@@ -1288,7 +1288,7 @@ export default function DestinationDetails() {
                       </p>
                     </div>
                   ) : wikiFetched ? (
-                    <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400 italic">
+                    <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-300 italic">
                       {t("destination.wikipediaUnavailable")}
                     </div>
                   ) : null}
@@ -1314,14 +1314,14 @@ export default function DestinationDetails() {
               <TabsList className="w-full justify-start h-auto p-1.5 bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 rounded-2xl overflow-x-auto gap-1">
                 <TabsTrigger
                   value="logistics"
-                  className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-400 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
+                  className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-300 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-700 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
                 >
                   {copy.logistics}
                 </TabsTrigger>
                 {showRatingsTab && (
                   <TabsTrigger
                     value="ratings"
-                    className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-400 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
+                    className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-300 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-700 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
                   >
                     {copy.ratings}
                   </TabsTrigger>
@@ -1329,7 +1329,7 @@ export default function DestinationDetails() {
                 {matchDetails && (
                   <TabsTrigger
                     value="match"
-                    className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-400 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-600 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
+                    className="rounded-xl py-2.5 px-5 font-bold text-xs transition-all text-slate-600 dark:text-slate-300 aria-selected:bg-white dark:aria-selected:bg-slate-900 aria-selected:text-emerald-700 dark:aria-selected:text-emerald-400 aria-selected:shadow-sm"
                   >
                     {copy.match}
                   </TabsTrigger>
@@ -1341,7 +1341,7 @@ export default function DestinationDetails() {
                   <Card>
                     <CardContent className="p-5 flex flex-col h-full">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="bg-emerald-100 dark:bg-emerald-900/30 p-2.5 rounded-full text-emerald-600">
+                        <div className="bg-emerald-100 dark:bg-emerald-900/30 p-2.5 rounded-full text-emerald-700">
                           <Clock className="w-5 h-5" />
                         </div>
                         <h4 className="font-bold text-slate-900 dark:text-white">
@@ -1351,19 +1351,19 @@ export default function DestinationDetails() {
                       <div className="space-y-2 flex-grow">
                         {availableModes.length === 0 &&
                           (localDisplayEstimate ? (
-                            <div className="py-2 text-sm text-slate-500 dark:text-slate-400">
+                            <div className="py-2 text-sm text-slate-500 dark:text-slate-300">
                               <div className="font-semibold text-slate-700 dark:text-slate-300">
                                 {formatApproximateTransportTime(
                                   localDisplayEstimate.timeRange,
                                   locale,
                                 )}
                               </div>
-                              <div className="text-xs text-slate-400 dark:text-slate-500">
+                              <div className="text-xs text-slate-500 dark:text-slate-300">
                                 {copy.localRouteUnverified}
                               </div>
                             </div>
                           ) : (
-                            <div className="py-2 text-sm text-slate-400 dark:text-slate-500">
+                            <div className="py-2 text-sm text-slate-500 dark:text-slate-300">
                               {ferryRouteKnown
                                 ? copy.ferryRouteUnestimated
                                 : localAccessKnown
@@ -1382,7 +1382,7 @@ export default function DestinationDetails() {
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
                                   {formatGroundTime("train")}
                                 </div>
-                                <div className="text-xs text-slate-400">
+                                <div className="text-xs text-slate-500">
                                   {formatGroundCost("train")}
                                 </div>
                               </div>
@@ -1399,7 +1399,7 @@ export default function DestinationDetails() {
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
                                   {formatGroundTime("shinkansen")}
                                 </div>
-                                <div className="text-xs text-slate-400">
+                                <div className="text-xs text-slate-500">
                                   {formatGroundCost("shinkansen")}
                                 </div>
                               </div>
@@ -1416,7 +1416,7 @@ export default function DestinationDetails() {
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
                                   {formatGroundTime("bus")}
                                 </div>
-                                <div className="text-xs text-slate-400">
+                                <div className="text-xs text-slate-500">
                                   {formatGroundCost("bus")}
                                 </div>
                               </div>
@@ -1433,7 +1433,7 @@ export default function DestinationDetails() {
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
                                   {formatGroundTime("car")}
                                 </div>
-                                <div className="text-xs text-slate-400">
+                                <div className="text-xs text-slate-500">
                                   {formatGroundCost("car")}
                                 </div>
                               </div>
@@ -1450,7 +1450,7 @@ export default function DestinationDetails() {
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
                                   {formatGroundTime("my_car")}
                                 </div>
-                                <div className="text-xs text-slate-400">
+                                <div className="text-xs text-slate-500">
                                   {formatGroundCost("my_car")}
                                 </div>
                               </div>
@@ -1471,7 +1471,7 @@ export default function DestinationDetails() {
                                   )}
                                 </span>
                               </div>
-                              <div className="text-xs text-slate-400">
+                              <div className="text-xs text-slate-500">
                                 {ferryEstimate.costUnavailable ||
                                 budgetService.getTransportCost(
                                   destination,
@@ -1514,7 +1514,7 @@ export default function DestinationDetails() {
                                   locale,
                                 )}
                               </div>
-                              <div className="text-xs text-slate-400">
+                              <div className="text-xs text-slate-500">
                                 {flightEstimate.costUnavailable ||
                                 budgetService.getTransportCost(
                                   destination,
@@ -1549,7 +1549,7 @@ export default function DestinationDetails() {
                   <Card>
                     <CardContent className="p-5 flex flex-col h-full">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="bg-emerald-100 dark:bg-emerald-900/30 p-2.5 rounded-full text-emerald-600">
+                        <div className="bg-emerald-100 dark:bg-emerald-900/30 p-2.5 rounded-full text-emerald-700">
                           <JapaneseYen className="w-5 h-5" />
                         </div>
                         <div>
@@ -1573,7 +1573,7 @@ export default function DestinationDetails() {
                                     ? copy.onsiteBudget
                                     : budgetLabel}
                                 </h4>
-                                <div className="text-emerald-600 font-extrabold text-lg">
+                                <div className="text-emerald-700 font-extrabold text-lg">
                                   <JapaneseYen className="inline w-4 h-4" />
                                   {isTransportExcluded
                                     ? (() => {
@@ -1639,7 +1639,7 @@ export default function DestinationDetails() {
                                 className={`px-2.5 py-1 text-xs font-medium rounded-full transition-colors ${
                                   isSelected
                                     ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300"
-                                    : "bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700"
+                                    : "bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                                 }`}
                               >
                                 {names[mode] || mode}
@@ -1760,7 +1760,7 @@ export default function DestinationDetails() {
                     <Card>
                       <CardContent className="p-5 flex flex-col h-full">
                         <div className="flex items-center gap-3 mb-4">
-                          <div className="bg-emerald-100 dark:bg-emerald-900/30 p-2.5 rounded-full text-emerald-600">
+                          <div className="bg-emerald-100 dark:bg-emerald-900/30 p-2.5 rounded-full text-emerald-700">
                             <ThermometerSun className="w-5 h-5" />
                           </div>
                           <h4 className="font-bold text-slate-900 dark:text-white">
@@ -1781,7 +1781,7 @@ export default function DestinationDetails() {
                                   destination.comfortMetadata,
                                   "heatTolerance",
                                 ) && (
-                                  <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
+                                  <span className="ml-1 text-[10px] font-normal uppercase text-slate-500">
                                     {copy.estimated}
                                   </span>
                                 )}
@@ -1800,7 +1800,7 @@ export default function DestinationDetails() {
                                   destination.comfortMetadata,
                                   "rainFriendly",
                                 ) && (
-                                  <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
+                                  <span className="ml-1 text-[10px] font-normal uppercase text-slate-500">
                                     {copy.estimated}
                                   </span>
                                 )}
@@ -1963,7 +1963,7 @@ export default function DestinationDetails() {
                             <h4 className="text-xl font-bold mb-1">
                               {t("recommendation.matchConfidence")}
                             </h4>
-                            <p className="text-slate-500 dark:text-slate-400 text-sm">
+                            <p className="text-slate-500 dark:text-slate-300 text-sm">
                               {locale === "ja"
                                 ? "現在の旅行プラン条件との適合度です。"
                                 : "How well this destination fits your active planner criteria."}
@@ -1975,7 +1975,7 @@ export default function DestinationDetails() {
                             </span>
                             <div className="w-24 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden shrink-0">
                               <div
-                                className="h-full bg-emerald-500 rounded-full"
+                                className="h-full bg-emerald-700 rounded-full"
                                 style={{ width: `${matchDetails.confidence}%` }}
                               />
                             </div>
@@ -2001,7 +2001,7 @@ export default function DestinationDetails() {
                                     }
                                   </span>
                                   {r.description && (
-                                    <span className="text-xs text-slate-500 dark:text-slate-400">
+                                    <span className="text-xs text-slate-500 dark:text-slate-300">
                                       {
                                         localizeRecommendationReason(r, locale)
                                           .description
@@ -2016,7 +2016,7 @@ export default function DestinationDetails() {
 
                         {matchDetails.matchedPreferences.length > 0 && (
                           <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
-                            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">
+                            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">
                               {t("recommendation.matchedPreferences")}
                             </span>
                             <div className="flex flex-wrap gap-2">
@@ -2053,7 +2053,7 @@ export default function DestinationDetails() {
                       ? "あわせて訪れたい周辺スポット"
                       : "Perfect Pairs & Nearby Combinations"}
                   </h3>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                  <p className="text-sm text-slate-500 dark:text-slate-300 mt-1">
                     {locale === "ja"
                       ? `「${localizedDestination ? formatPlaceName(localizedDestination, locale) : destination.name}」とセットで楽しめる周辺のおすすめコース`
                       : `Pair ${localizedDestination ? formatPlaceName(localizedDestination, locale) : destination.name} with nearby highlights for a complete outing.`}
@@ -2069,7 +2069,7 @@ export default function DestinationDetails() {
                     return (
                       <Card
                         key={combo.secondary.id}
-                        className="overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 transition-all shadow-sm"
+                        className="overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-emerald-700/50 transition-all shadow-sm"
                       >
                         <CardContent className="p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                           <div className="flex items-start gap-4 flex-1 min-w-0">
@@ -2080,7 +2080,7 @@ export default function DestinationDetails() {
                             />
                             <div className="space-y-1 min-w-0">
                               <div className="flex items-center gap-2 flex-wrap">
-                                <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 px-2 py-0.5 rounded-md">
+                                <span className="text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 px-2 py-0.5 rounded-md">
                                   + {combo.secondary.categories?.[0]}
                                 </span>
                                 {isGroupSavedInAnyTrip(
@@ -2096,7 +2096,7 @@ export default function DestinationDetails() {
                                   </span>
                                 )}
                                 <span className="inline-flex items-center gap-1 text-xs text-slate-500 font-medium">
-                                  <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                                  <MapPin className="w-3.5 h-3.5 text-slate-500 shrink-0" />
                                   {combo.interDistanceKm} km (
                                   {combo.estimatedInterTravelMinutes} min)
                                 </span>
@@ -2104,12 +2104,12 @@ export default function DestinationDetails() {
                               <h4 className="font-bold text-base text-slate-900 dark:text-white truncate">
                                 {formatPlaceName(secLocalized, locale)}
                               </h4>
-                              <p className="text-xs text-slate-600 dark:text-slate-400">
+                              <p className="text-xs text-slate-600 dark:text-slate-300">
                                 {combo.explanation[locale]}
                               </p>
                               <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-700 dark:text-slate-300 pt-1">
                                 <span className="inline-flex items-center gap-1">
-                                  <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                                  <Clock className="w-3.5 h-3.5 text-slate-500 shrink-0" />
                                   {locale === "ja"
                                     ? "合計所要時間: "
                                     : "Combined time: "}
@@ -2145,7 +2145,7 @@ export default function DestinationDetails() {
                               }}
                               className="flex-1 sm:flex-none"
                             >
-                              <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl min-h-[40px] px-4">
+                              <Button className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs rounded-xl min-h-[40px] px-4">
                                 {locale === "ja" ? "詳細を見る" : "Explore"}
                               </Button>
                             </Link>
@@ -2196,7 +2196,7 @@ export default function DestinationDetails() {
             <div className="mt-12 space-y-6 pt-8 border-t border-slate-200 dark:border-slate-800">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div>
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
                     {locale === "ja" ? "旅行計画ツール" : "Planning Tools"}
                   </span>
                   <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">
@@ -2243,7 +2243,7 @@ export default function DestinationDetails() {
                 <Card>
                   <CardContent className="p-6">
                     <div className="flex items-start gap-3">
-                      <div className="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-slate-500 dark:text-slate-400 shrink-0">
+                      <div className="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-slate-500 dark:text-slate-300 shrink-0">
                         <Info className="w-4 h-4" />
                       </div>
                       <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
@@ -2264,11 +2264,11 @@ export default function DestinationDetails() {
                 <div className="space-y-3">
                   {destination.recommendedDuration && (
                     <div className="flex items-center gap-3">
-                      <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
+                      <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-300 shrink-0">
                         <Timer className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                        <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                           {copy.recommendedDuration}
                         </div>
                         <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
@@ -2290,11 +2290,11 @@ export default function DestinationDetails() {
                     }
                     return (
                       <div className="flex items-center gap-3">
-                        <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
+                        <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-300 shrink-0">
                           <Timer className="w-4 h-4" />
                         </div>
                         <div>
-                          <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                          <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                             {locale === "ja"
                               ? "おすすめ滞在時間"
                               : "Recommended visit"}
@@ -2309,11 +2309,11 @@ export default function DestinationDetails() {
                   })()}
                   {destination.bestSeason && (
                     <div className="flex items-center gap-3">
-                      <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-400 shrink-0">
+                      <div className="bg-slate-100 dark:bg-slate-800 p-1.5 rounded-md text-slate-500 dark:text-slate-300 shrink-0">
                         <CalendarDays className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                        <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                           {copy.bestSeason}
                         </div>
                         <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">
@@ -2322,7 +2322,7 @@ export default function DestinationDetails() {
                             locale,
                           )}
                           {destination.seasonMetadata?.method === "model" && (
-                            <span className="ml-1.5 text-[10px] font-normal uppercase text-slate-400">
+                            <span className="ml-1.5 text-[10px] font-normal uppercase text-slate-500">
                               {copy.estimated}
                             </span>
                           )}
@@ -2347,7 +2347,7 @@ export default function DestinationDetails() {
                       key={`${destination.id}-${index}`}
                       className="flex items-start"
                     >
-                      <div className="min-w-6 min-h-6 bg-slate-100 dark:bg-slate-800 text-emerald-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                      <div className="min-w-6 min-h-6 bg-slate-100 dark:bg-slate-800 text-emerald-700 rounded-full flex items-center justify-center mr-3 mt-0.5">
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </div>
                       <span className="text-slate-600 dark:text-slate-300 text-sm leading-tight">
@@ -2406,7 +2406,7 @@ export default function DestinationDetails() {
                             <div className="text-sm font-bold text-slate-900 dark:text-slate-100">
                               {day.maxTemp}°
                             </div>
-                            <div className="text-xs font-medium text-slate-400">
+                            <div className="text-xs font-medium text-slate-500">
                               {day.minTemp}°
                             </div>
                           </div>
@@ -2430,7 +2430,7 @@ export default function DestinationDetails() {
                 {requiresOpeningHours(destination) && (
                   <div>
                     <div className="flex items-center justify-between mb-1">
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                      <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                         {locale === "ja" ? "営業時間" : "Opening hours"}
                       </h4>
                       {(() => {
@@ -2461,7 +2461,7 @@ export default function DestinationDetails() {
                             labelJa: "営業時間未確認",
                           },
                           not_required: {
-                            bg: "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-700",
+                            bg: "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-300 dark:border-slate-700",
                             labelEn: "Open access",
                             labelJa: "散策自由",
                           },
@@ -2509,10 +2509,10 @@ export default function DestinationDetails() {
                 {!requiresOpeningHours(destination) && (
                   <div>
                     <div className="flex items-center justify-between mb-1">
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                      <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                         {locale === "ja" ? "アクセス状態" : "Access"}
                       </h4>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-700">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-300 dark:border-slate-700">
                         {locale === "ja" ? "散策自由" : "Open access"}
                       </span>
                     </div>
@@ -2526,7 +2526,7 @@ export default function DestinationDetails() {
 
                 {destination.reservation && (
                   <div>
-                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">
                       {copy.reservation}
                     </h4>
                     <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
@@ -2542,14 +2542,14 @@ export default function DestinationDetails() {
                 {destination.placeType === "destination" &&
                   destination.officialWebsite && (
                     <div>
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                      <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">
                         {copy.officialWebsite}
                       </h4>
                       <a
                         href={destination.officialWebsite}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 break-all"
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:text-emerald-700 dark:text-emerald-300 dark:hover:text-emerald-300 break-all"
                       >
                         {destination.officialWebsite}
                         <ExternalLink className="w-3.5 h-3.5 shrink-0" />
@@ -2558,7 +2558,7 @@ export default function DestinationDetails() {
                   )}
                 {destination.parking && (
                   <div>
-                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">
                       {copy.parkingLabel}
                     </h4>
                     <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
@@ -2581,13 +2581,13 @@ export default function DestinationDetails() {
           <div className="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800 space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
                   {locale === "ja"
                     ? "おすすめの見どころ"
                     : "Featured Sights & Highlights"}
                 </span>
                 <h3 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-2 mt-1">
-                  <MapPin className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                  <MapPin className="w-6 h-6 text-emerald-700 dark:text-emerald-300" />
                   {locale === "ja"
                     ? `${localizedDestination?.name || destination.name}の見どころ`
                     : `Top Sights in ${localizedDestination?.name || destination.name}`}
@@ -2704,7 +2704,7 @@ export default function DestinationDetails() {
                   <Link
                     key={duration}
                     to={`/destinations?city=${destination.id}&duration=${duration}`}
-                    className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-bold text-slate-700 hover:border-emerald-500 dark:border-slate-700 dark:text-slate-200"
+                    className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-bold text-slate-700 hover:border-emerald-700 dark:border-slate-700 dark:text-slate-200"
                   >
                     {label}
                   </Link>
@@ -2727,10 +2727,10 @@ export default function DestinationDetails() {
             <div className="flex items-center justify-between mb-8">
               <div>
                 <h3 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
-                  <MapPin className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                  <MapPin className="w-6 h-6 text-emerald-700 dark:text-emerald-300" />
                   {locale === "ja" ? "近くの都市ハブ" : "Nearby Hubs"}
                 </h3>
-                <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
+                <p className="text-slate-500 dark:text-slate-300 text-sm mt-1">
                   {locale === "ja"
                     ? "50km圏内の都市ハブ"
                     : "City hubs within 50 km."}
@@ -2774,12 +2774,12 @@ export default function DestinationDetails() {
             <div className="flex items-center justify-between mb-8">
               <div>
                 <h3 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
-                  <MapPin className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                  <MapPin className="w-6 h-6 text-emerald-700 dark:text-emerald-300" />
                   {locale === "ja"
                     ? "近くの場所と都市ハブ"
                     : "Nearby Places & Hubs"}
                 </h3>
-                <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
+                <p className="text-slate-500 dark:text-slate-300 text-sm mt-1">
                   {locale === "ja"
                     ? `${localizedDestination?.name || destination.name}に関連する場所`
                     : `Related places for ${localizedDestination?.name || destination.name}.`}
@@ -2860,8 +2860,8 @@ function RatingItem({
   const { locale } = useLocale();
   return (
     <div className="flex flex-col items-center text-center p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50">
-      <Icon className="w-6 h-6 text-emerald-600 mb-2" />
-      <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
+      <Icon className="w-6 h-6 text-emerald-700 mb-2" />
+      <span className="text-sm font-medium text-slate-500 dark:text-slate-300">
         {localizePlaceLabel(label, locale)}
       </span>
       <span className="text-xl font-bold text-slate-900 dark:text-white mt-1">

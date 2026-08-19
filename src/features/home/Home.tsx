@@ -545,8 +545,8 @@ export default function Home() {
                       }}
                       className={`inline-flex h-9 min-w-0 w-full items-center justify-center overflow-hidden whitespace-nowrap rounded-full px-1 py-1 text-[10px] font-bold transition-all focus:outline-none sm:px-1.5 sm:text-[11px] ${
                         activeTabId === tab.id
-                          ? "bg-emerald-600 text-white shadow-sm"
-                          : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800"
+                          ? "bg-emerald-700 text-white shadow-sm"
+                          : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800"
                       }`}
                     >
                       {t(`home.dateTabs.${tab.id}`, {
@@ -610,12 +610,12 @@ export default function Home() {
             {locale === "ja" && (
               <p
                 data-testid="home-brand-association"
-                className="mt-1.5 text-xs font-semibold tracking-wide text-slate-400 dark:text-slate-500"
+                className="mt-1.5 text-xs font-semibold tracking-wide text-slate-500 dark:text-slate-300"
               >
                 {t("home.brandAssociation")}
               </p>
             )}
-            <p className="mt-2 hidden text-sm font-medium leading-relaxed text-slate-500 dark:text-slate-400 sm:block md:text-base">
+            <p className="mt-2 hidden text-sm font-medium leading-relaxed text-slate-500 dark:text-slate-300 sm:block md:text-base">
               {t(
                 resolvedApplied.tripMode === "weekend_2d1n"
                   ? "home.subtitleWeekend"

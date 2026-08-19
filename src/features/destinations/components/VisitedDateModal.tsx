@@ -108,10 +108,10 @@ export function VisitedDateModal({
               id="visited-history-modal-title"
               className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2"
             >
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+              <CheckCircle2 className="w-5 h-5 text-emerald-700 dark:text-emerald-300" />
               Visit History & Multi-Date Log
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate max-w-xs sm:max-w-md">
+            <p className="text-xs text-slate-500 dark:text-slate-300 mt-0.5 truncate max-w-xs sm:max-w-md">
               Manage visits for{" "}
               <span className="font-semibold text-slate-700 dark:text-slate-200">
                 {destination.name}
@@ -120,7 +120,7 @@ export function VisitedDateModal({
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="p-2 text-slate-500 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -139,7 +139,7 @@ export function VisitedDateModal({
             </div>
 
             {existingDates.length === 0 ? (
-              <div className="text-center py-4 px-3 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 text-xs text-slate-400">
+              <div className="text-center py-4 px-3 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 text-xs text-slate-500">
                 No visit entries remaining.
               </div>
             ) : (
@@ -150,14 +150,14 @@ export function VisitedDateModal({
                     className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/60 dark:border-slate-700/60 text-xs font-semibold text-slate-700 dark:text-slate-300"
                   >
                     <div className="flex items-center gap-2">
-                      <CalendarIcon className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                      <CalendarIcon className="w-4 h-4 text-emerald-700 dark:text-emerald-300" />
                       <span>{formatVisitedDate(d)}</span>
                     </div>
                     <button
                       type="button"
                       disabled={!canMutateProfile}
                       onClick={() => removeVisitedDate(destination.id, d)}
-                      className="p-1 text-slate-400 hover:text-red-500 dark:hover:text-red-400 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                      className="p-1 text-slate-500 hover:text-red-500 dark:hover:text-red-400 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
                       title="Delete this visit entry"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
@@ -185,8 +185,8 @@ export function VisitedDateModal({
                   onClick={() => setPrecision("exact")}
                   className={`py-1.5 text-xs font-bold rounded-lg transition-all ${
                     precision === "exact"
-                      ? "bg-white dark:bg-slate-700 text-emerald-700 dark:text-emerald-400 shadow-sm"
-                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      ? "bg-white dark:bg-slate-700 text-emerald-700 dark:text-emerald-300 shadow-sm"
+                      : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
                   }`}
                 >
                   Exact Date
@@ -196,8 +196,8 @@ export function VisitedDateModal({
                   onClick={() => setPrecision("month")}
                   className={`py-1.5 text-xs font-bold rounded-lg transition-all ${
                     precision === "month"
-                      ? "bg-white dark:bg-slate-700 text-emerald-700 dark:text-emerald-400 shadow-sm"
-                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      ? "bg-white dark:bg-slate-700 text-emerald-700 dark:text-emerald-300 shadow-sm"
+                      : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
                   }`}
                 >
                   Month & Year
@@ -207,8 +207,8 @@ export function VisitedDateModal({
                   onClick={() => setPrecision("year")}
                   className={`py-1.5 text-xs font-bold rounded-lg transition-all ${
                     precision === "year"
-                      ? "bg-white dark:bg-slate-700 text-emerald-700 dark:text-emerald-400 shadow-sm"
-                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      ? "bg-white dark:bg-slate-700 text-emerald-700 dark:text-emerald-300 shadow-sm"
+                      : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
                   }`}
                 >
                   Year Only
@@ -233,7 +233,7 @@ export function VisitedDateModal({
                     max={getTodayStr()}
                     className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium"
                   />
-                  <CalendarIcon className="w-5 h-5 text-slate-400 absolute right-4 top-3 pointer-events-none" />
+                  <CalendarIcon className="w-5 h-5 text-slate-500 absolute right-4 top-3 pointer-events-none" />
                 </div>
               )}
 
@@ -247,7 +247,7 @@ export function VisitedDateModal({
                     max={getCurrentMonthStr()}
                     className="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium"
                   />
-                  <CalendarIcon className="w-5 h-5 text-slate-400 absolute right-4 top-3 pointer-events-none" />
+                  <CalendarIcon className="w-5 h-5 text-slate-500 absolute right-4 top-3 pointer-events-none" />
                 </div>
               )}
 
@@ -265,7 +265,7 @@ export function VisitedDateModal({
                       </option>
                     ))}
                   </select>
-                  <CalendarIcon className="w-5 h-5 text-slate-400 absolute right-4 top-3 pointer-events-none" />
+                  <CalendarIcon className="w-5 h-5 text-slate-500 absolute right-4 top-3 pointer-events-none" />
                 </div>
               )}
             </div>
@@ -279,7 +279,7 @@ export function VisitedDateModal({
                   className={`px-3 py-1 rounded-lg text-xs font-semibold border transition-all ${
                     exactDate === getTodayStr()
                       ? "bg-emerald-100 text-emerald-800 border-emerald-300 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800"
-                      : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-transparent hover:bg-slate-200 dark:hover:bg-slate-700"
+                      : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-transparent hover:bg-slate-200 dark:hover:bg-slate-700"
                   }`}
                 >
                   Today
@@ -287,14 +287,14 @@ export function VisitedDateModal({
                 <button
                   type="button"
                   onClick={() => setPresetDate(1)}
-                  className="px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-transparent hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"
+                  className="px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-transparent hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"
                 >
                   Yesterday
                 </button>
                 <button
                   type="button"
                   onClick={() => setPresetDate(7)}
-                  className="px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-transparent hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"
+                  className="px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-transparent hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"
                 >
                   1 Week Ago
                 </button>
@@ -304,7 +304,7 @@ export function VisitedDateModal({
             <Button
               type="submit"
               disabled={!canMutateProfile}
-              className="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold py-2.5"
+              className="w-full bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold py-2.5"
             >
               + Add Visit Entry
             </Button>

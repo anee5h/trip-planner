@@ -108,7 +108,7 @@ export function BadgeIllustration({
                   : rarity === "rare"
                     ? "bg-gradient-to-tr from-blue-600 to-sky-400 text-white"
                     : "bg-gradient-to-tr from-emerald-600 to-teal-400 text-white"
-              : "bg-slate-200 dark:bg-slate-800 text-slate-400"
+              : "bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
           }`}
         >
           <IconComponent className={iconSizeClass} />

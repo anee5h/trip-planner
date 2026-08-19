@@ -28,7 +28,7 @@ const SUBTLE_COLOR_CLASSES: Record<string, string> = {
   sky: "bg-sky-500/15 text-sky-900 dark:text-sky-200 border-sky-500/40 hover:bg-sky-500/25",
   rose: "bg-rose-500/15 text-rose-900 dark:text-rose-200 border-rose-500/40 hover:bg-rose-500/25",
   emerald:
-    "bg-emerald-500/15 text-emerald-900 dark:text-emerald-200 border-emerald-500/40 hover:bg-emerald-500/25",
+    "bg-emerald-700/15 text-emerald-900 dark:text-emerald-200 border-emerald-700/40 hover:bg-emerald-700/25",
   purple:
     "bg-purple-500/15 text-purple-900 dark:text-purple-200 border-purple-500/40 hover:bg-purple-500/25",
 };
@@ -39,7 +39,7 @@ const SOLID_COLOR_CLASSES: Record<string, string> = {
   sky: "bg-sky-600 hover:bg-sky-700 text-white font-extrabold border-sky-300 shadow-md",
   rose: "bg-rose-600 hover:bg-rose-700 text-white font-extrabold border-rose-300 shadow-md",
   emerald:
-    "bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold border-emerald-300 shadow-md",
+    "bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold border-emerald-300 shadow-md",
   purple:
     "bg-purple-600 hover:bg-purple-700 text-white font-extrabold border-purple-300 shadow-md",
 };

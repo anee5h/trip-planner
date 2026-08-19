@@ -40,8 +40,8 @@ export function getWalkingIntensityMetadata(
           ? "平坦で歩行が少ない（約4,000歩以下）"
           : "Easy, minimal walking (~4k steps or less)",
         badgeClass:
-          "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800",
-        indicatorColor: "bg-emerald-500",
+          "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800",
+        indicatorColor: "bg-emerald-700",
         icon: "🟢",
       };
     case "medium":

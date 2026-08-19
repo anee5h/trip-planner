@@ -45,7 +45,7 @@ export default function TripEditor({
         </div>
       )}
       <div>
-        <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">
+        <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300 mb-1.5">
           {t("ui.tripTitle")} *
         </label>
         <Input
@@ -59,7 +59,7 @@ export default function TripEditor({
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">
+          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300 mb-1.5">
             {t("ui.startDate")}
           </label>
           <Input
@@ -70,7 +70,7 @@ export default function TripEditor({
           />
         </div>
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">
+          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300 mb-1.5">
             {t("ui.endDate")}
           </label>
           <Input
@@ -93,7 +93,7 @@ export default function TripEditor({
         </Button>
         <Button
           type="submit"
-          className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold px-6"
+          className="bg-emerald-700 hover:bg-emerald-800 text-white rounded-full font-bold px-6"
         >
           {t("ui.saveTrip")}
         </Button>

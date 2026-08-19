@@ -76,7 +76,7 @@ export default function TripDetails({
                 />
                 <Button
                   onClick={handleSaveTitle}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-semibold px-4 text-xs h-8"
+                  className="bg-emerald-700 hover:bg-emerald-800 text-white rounded-full font-semibold px-4 text-xs h-8"
                 >
                   {t("ui.save")}
                 </Button>
@@ -86,15 +86,15 @@ export default function TripDetails({
                 <span>{trip.title}</span>
                 <button
                   onClick={() => setIsEditingTitle(true)}
-                  className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+                  className="text-slate-500 hover:text-slate-600 dark:hover:text-slate-200"
                 >
                   <Edit3 className="w-4 h-4" />
                 </button>
               </h1>
             )}
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-sm text-slate-500 dark:text-slate-300 mt-1">
               {t("trips.status")}:{" "}
-              <span className="font-bold capitalize text-emerald-600 dark:text-emerald-400">
+              <span className="font-bold capitalize text-emerald-700 dark:text-emerald-300">
                 {t(`trips.statusLabels.${trip.status}`, trip.status)}
               </span>
             </p>
@@ -112,7 +112,7 @@ export default function TripDetails({
               onClick={() => setIsCalendarOpen(!isCalendarOpen)}
               className="rounded-full border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900"
             >
-              <Calendar className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+              <Calendar className="w-5 h-5 text-emerald-700 dark:text-emerald-300" />
             </Button>
 
             {isCalendarOpen && (
@@ -157,7 +157,7 @@ export default function TripDetails({
             onClick={triggerPdfPrint}
             className="rounded-full border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900"
           >
-            <Printer className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+            <Printer className="w-5 h-5 text-slate-600 dark:text-slate-300" />
           </Button>
 
           {/* Share Button */}
@@ -169,7 +169,7 @@ export default function TripDetails({
             onClick={handleShareTrip}
             className="rounded-full border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900"
           >
-            <Share2 className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+            <Share2 className="w-5 h-5 text-slate-600 dark:text-slate-300" />
           </Button>
         </div>
       </div>
@@ -191,7 +191,7 @@ export default function TripDetails({
           <h4 className="text-md font-bold text-slate-950 dark:text-white">
             {t("trips.journalNotes")}
           </h4>
-          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+          <p className="text-xs text-slate-500 dark:text-slate-300 leading-relaxed">
             {t("trips.journalDescription")}
           </p>
 

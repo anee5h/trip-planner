@@ -298,7 +298,7 @@ export default function DestinationCard({
         />
         {visited && (
           <div className="absolute inset-0 bg-slate-900/40 flex items-center justify-center">
-            <Badge className="bg-emerald-500/90 text-white text-sm py-1.5 px-3 border-none shadow-lg">
+            <Badge className="bg-emerald-700/90 text-white text-sm py-1.5 px-3 border-none shadow-lg">
               <CheckCircle2 className="w-4 h-4 mr-1.5" />
               {cardCopy.alreadyVisited}
             </Badge>
@@ -314,17 +314,17 @@ export default function DestinationCard({
             </Badge>
           )}
           {virtualGroup ? (
-            <Badge className="bg-emerald-600/90 px-2 py-0.5 text-[10px] font-extrabold text-white shadow-md backdrop-blur-md md:text-xs">
+            <Badge className="bg-emerald-700/90 px-2 py-0.5 text-[10px] font-extrabold text-white shadow-md backdrop-blur-md md:text-xs">
               {t(virtualGroup.badgeKey)}
             </Badge>
           ) : wardGroup ? (
-            <Badge className="bg-emerald-600/90 px-2 py-0.5 text-[10px] font-extrabold text-white shadow-md backdrop-blur-md md:text-xs">
+            <Badge className="bg-emerald-700/90 px-2 py-0.5 text-[10px] font-extrabold text-white shadow-md backdrop-blur-md md:text-xs">
               {t("destination.tokyoWardsBadge")}
             </Badge>
           ) : (
             <>
               {destination.kind && (
-                <Badge className="bg-emerald-600/90 px-2 py-0.5 text-[10px] font-extrabold capitalize text-white shadow-md backdrop-blur-md md:text-xs">
+                <Badge className="bg-emerald-700/90 px-2 py-0.5 text-[10px] font-extrabold capitalize text-white shadow-md backdrop-blur-md md:text-xs">
                   {localizePlaceLabel(destination.kind, locale)}
                 </Badge>
               )}
@@ -344,7 +344,7 @@ export default function DestinationCard({
                       "bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold border-amber-300 shadow-md";
                   } else if (tag === "Free Observatory") {
                     badgeStyle =
-                      "bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-300 font-bold shadow-md";
+                      "bg-emerald-700 hover:bg-emerald-800 text-white border-emerald-300 font-bold shadow-md";
                   }
 
                   return (
@@ -389,7 +389,7 @@ export default function DestinationCard({
         </h3>
 
         {!isMultiPlaceGroup && (
-          <div className="mt-0.5 flex h-5 min-w-0 items-center text-xs font-medium text-slate-500 dark:text-slate-400 md:mt-1 md:text-sm">
+          <div className="mt-0.5 flex h-5 min-w-0 items-center text-xs font-medium text-slate-500 dark:text-slate-300 md:mt-1 md:text-sm">
             <MapPin className="mr-1 size-3.5 shrink-0 text-emerald-500" />
             <span className="truncate">{locationLabel}</span>
           </div>
@@ -408,7 +408,7 @@ export default function DestinationCard({
               </Link>
             ))}
             {desktopCollectionOverflow > 0 && (
-              <span className="inline-flex rounded-full border border-slate-200 bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400">
+              <span className="inline-flex rounded-full border border-slate-200 bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
                 +{desktopCollectionOverflow}
               </span>
             )}
@@ -460,7 +460,7 @@ export default function DestinationCard({
                 {/* Forecast/seasonal condition label for the planned date: clearly
                 labelled evidence, never a fake forecast icon. */}
                 {conditionLabel && (
-                  <p className="mb-1.5 line-clamp-1 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
+                  <p className="mb-1.5 line-clamp-1 text-[10px] font-semibold text-emerald-700 dark:text-emerald-300">
                     {conditionLabel}
                   </p>
                 )}
@@ -499,7 +499,7 @@ export default function DestinationCard({
                         data-testid="destination-card-travel-time"
                         className="flex min-w-0 items-center whitespace-nowrap"
                       >
-                        <Icon className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
+                        <Icon className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
                         <span className="truncate">
                           {formattedTime || cardCopy.travelUnavailable}
                           {formattedTime && isDriving
@@ -510,7 +510,7 @@ export default function DestinationCard({
                     );
                   })()}
                   <div className="flex min-w-0 items-center whitespace-nowrap">
-                    <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
+                    <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
                     <span className="truncate">
                       {(() => {
                         // KAI-89: unknown budgets (absent values) render as
@@ -536,7 +536,7 @@ export default function DestinationCard({
                     data-testid="destination-card-visit-duration"
                     className="hidden min-w-0 items-center whitespace-nowrap md:flex"
                   >
-                    <Timer className="mr-1.5 size-3.5 shrink-0 text-slate-400 md:size-4" />
+                    <Timer className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
                     <span className="truncate">
                       {durationEst
                         ? formatTripDurationLabel(durationEst, locale)
@@ -585,7 +585,7 @@ export default function DestinationCard({
                 </div>
 
                 {weekendSummary && (
-                  <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                  <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs font-bold text-emerald-700 dark:text-emerald-300">
                     {weekendSummary.placeCount > 0 && (
                       <span>
                         {t("destination.tripAreas.places", {
@@ -625,11 +625,11 @@ export default function DestinationCard({
 
       <CardFooter className="flex items-center gap-1.5 p-3 pt-0 md:p-3 md:pt-0">
         {virtualGroup ? (
-          <span className="text-xs font-bold text-slate-500 dark:text-slate-400 px-1">
+          <span className="text-xs font-bold text-slate-500 dark:text-slate-300 px-1">
             {t("ui.places", { count: virtualGroup.placeCount })}
           </span>
         ) : wardGroup ? (
-          <span className="text-xs font-bold text-slate-500 dark:text-slate-400 px-1">
+          <span className="text-xs font-bold text-slate-500 dark:text-slate-300 px-1">
             {t("destination.tokyoWardsCount", {
               count: wardGroup.wardCount,
             })}
@@ -640,7 +640,7 @@ export default function DestinationCard({
             <button
               onClick={handleAddToItinerary}
               aria-label={cardCopy.add}
-              className="flex size-11 shrink-0 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-100 hover:text-emerald-600 dark:text-slate-300 dark:hover:bg-slate-800"
+              className="flex size-11 shrink-0 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-100 hover:text-emerald-700 dark:text-slate-300 dark:hover:bg-slate-800"
               title={cardCopy.add}
             >
               <Plus className="size-5" />
@@ -718,7 +718,7 @@ export default function DestinationCard({
           <Button
             variant="default"
             size="sm"
-            className="min-h-11 bg-emerald-600 px-4 font-semibold text-white shadow-sm hover:bg-emerald-700"
+            className="min-h-11 bg-emerald-700 px-4 font-semibold text-white shadow-sm hover:bg-emerald-800"
           >
             {cardCopy.explore}
           </Button>

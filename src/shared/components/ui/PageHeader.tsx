@@ -64,7 +64,7 @@ export function PageHeader({
       >
         <div className="space-y-xs">
           {subtitle && (
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
               {subtitle}
             </div>
           )}

@@ -21,7 +21,7 @@ export function WalkingIntensityRow({
       <span className="font-semibold text-slate-700 dark:text-slate-300">
         {`${intensity}/10`}
         {estimated && (
-          <span className="ml-1 text-[10px] font-normal uppercase text-slate-400">
+          <span className="ml-1 text-[10px] font-normal uppercase text-slate-500">
             {t("ui.estimated")}
           </span>
         )}
@@ -44,11 +44,11 @@ export function WalkabilityRatingItem({
   if (!isValidWalkability(walkability)) return null;
   return (
     <div className="flex flex-col items-center text-center p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50">
-      <Footprints className="w-6 h-6 text-emerald-600 mb-2" />
+      <Footprints className="w-6 h-6 text-emerald-700 mb-2" />
       <span className="text-xs text-slate-500">{t("ui.walkability")}</span>
       <span className="text-lg font-bold text-slate-700 dark:text-slate-300">
         {walkability}
-        <span className="text-sm font-normal text-slate-400">/10</span>
+        <span className="text-sm font-normal text-slate-500">/10</span>
       </span>
     </div>
   );

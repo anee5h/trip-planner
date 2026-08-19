@@ -315,7 +315,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
           )}
           {weekend && (
             <div
-              className="rounded-full bg-emerald-600/90 px-2 py-0.5 text-[9px] font-bold text-white shadow-md sm:text-[10px]"
+              className="rounded-full bg-emerald-700/90 px-2 py-0.5 text-[9px] font-bold text-white shadow-md sm:text-[10px]"
               aria-label={t("home.weekendBadge")}
             >
               {t("home.weekendBadge")}
@@ -345,11 +345,11 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
         <div
           className={`flex flex-col ${weekend ? "min-h-0" : "min-h-[2.5rem] sm:min-h-[3.25rem]"}`}
         >
-          <h3 className="text-xs sm:text-base font-extrabold text-slate-900 dark:text-white line-clamp-2 leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+          <h3 className="text-xs sm:text-base font-extrabold text-slate-900 dark:text-white line-clamp-2 leading-tight group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
             {title}
           </h3>
           {subtitle && (
-            <span className="mt-0.5 hidden truncate text-[10px] font-semibold text-slate-400 dark:text-slate-500 sm:block sm:text-xs">
+            <span className="mt-0.5 hidden truncate text-[10px] font-semibold text-slate-500 dark:text-slate-300 sm:block sm:text-xs">
               {subtitle}
             </span>
           )}
@@ -358,7 +358,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
         <div className="pt-2">
           {/* Trip-area line: wards · places · capacity */}
           {(weekend || wardGroup) && (
-            <p className="mt-1 line-clamp-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 sm:text-xs">
+            <p className="mt-1 line-clamp-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-300 sm:text-xs">
               {[
                 wardGroup &&
                   t("destination.tokyoWardsCount", {
@@ -381,7 +381,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
           {/* A travel reason repeats the detailed row below, so keep only
               distinct weekend explanations such as weather guidance. */}
           {showWeekendReason && weekendReason && (
-            <p className="mt-1 line-clamp-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 sm:text-xs">
+            <p className="mt-1 line-clamp-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-300 sm:text-xs">
               {t(`recommendation.reasons.${weekendReason.code}.title`, {
                 ...(weekendReason.params ?? {}),
               })}
@@ -392,7 +392,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
               planned dates — never shown as a forecast when seasonal. */}
           {conditionLine && (
             <p
-              className={`mt-1 line-clamp-1 text-[11px] font-semibold text-slate-500 dark:text-slate-400 sm:text-xs ${hasCriticalCondition ? "" : "hidden sm:block"}`}
+              className={`mt-1 line-clamp-1 text-[11px] font-semibold text-slate-500 dark:text-slate-300 sm:text-xs ${hasCriticalCondition ? "" : "hidden sm:block"}`}
               title={conditionLine}
             >
               {conditionLine}
@@ -410,13 +410,13 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
             </p>
           )}
 
-          <p className="line-clamp-1 text-[11px] font-semibold text-slate-500 dark:text-slate-400 sm:text-xs">
+          <p className="line-clamp-1 text-[11px] font-semibold text-slate-500 dark:text-slate-300 sm:text-xs">
             {areaAndCategory}
           </p>
 
           {dayTripReasonLabel && (
             <p
-              className="mt-1 flex min-w-0 items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 sm:text-xs"
+              className="mt-1 flex min-w-0 items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-300 sm:text-xs"
               title={dayTripReasonLabel}
             >
               <CheckCircle2 className="size-3 shrink-0" aria-hidden="true" />
@@ -432,7 +432,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
                 return (
                   <span
                     key={idx}
-                    className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-slate-500 dark:text-slate-400 sm:text-xs"
+                    className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-slate-500 dark:text-slate-300 sm:text-xs"
                     aria-label={t(
                       idx === 0 ? "home.day1Label" : "home.day2Label",
                     )}
@@ -459,9 +459,9 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
             </p>
           )}
 
-          <div className="mt-1.5 flex flex-wrap items-center gap-1 text-[11px] font-semibold text-slate-500 dark:text-slate-400 sm:gap-1.5 sm:text-xs">
+          <div className="mt-1.5 flex flex-wrap items-center gap-1 text-[11px] font-semibold text-slate-500 dark:text-slate-300 sm:gap-1.5 sm:text-xs">
             <span className="flex items-center gap-1 truncate">
-              <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400 shrink-0" />
+              <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-500 shrink-0" />
               <span className="truncate">{travelTimeText}</span>
             </span>
             {transportDisplay && (
@@ -471,7 +471,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
                 </span>
                 <span
                   title={transportDisplay.label}
-                  className="flex shrink-0 items-center gap-1 text-[11px] font-bold uppercase tracking-wide text-emerald-600 dark:text-emerald-400 sm:text-xs"
+                  className="flex shrink-0 items-center gap-1 text-[11px] font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-300 sm:text-xs"
                 >
                   <transportDisplay.Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   <span className="hidden sm:inline">
@@ -494,7 +494,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
                       : undefined
                   }
                 >
-                  <JapaneseYen className="h-3 w-3 shrink-0 text-slate-400 sm:h-3.5 sm:w-3.5" />
+                  <JapaneseYen className="h-3 w-3 shrink-0 text-slate-500 sm:h-3.5 sm:w-3.5" />
                   <span className="truncate">
                     {formatLocalizedJPYRange(
                       scoredDestination.estimatedCostRange,

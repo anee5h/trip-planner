@@ -12,8 +12,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 142.1 76.2% 36.3%; /* Emerald 600 */
-    --primary-foreground: 355.7 100% 97.3%;
+    --primary: 142.1 76.2% 36.3%; /* Emerald 600 (brand) */
+    /* KAI-80: emerald-500/white text fails contrast (2.9:1). Dark-green
+     * foreground on the emerald fill passes (~6:1) and matches the dark
+     * theme's existing primary treatment. */
+    --primary-foreground: 144.9 80.4% 10%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;

@@ -17,6 +17,7 @@ import {
   Moon,
   ArrowLeft,
   Layers,
+  Search as SearchIcon,
 } from "lucide-react";
 import { Button } from "@/shared/components/ui/button";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -138,7 +139,7 @@ export default function Navbar() {
             data-testid="navbar-brand-wordmark"
             className="inline text-lg min-[390px]:text-xl font-extrabold"
           >
-            <span className="text-emerald-600 dark:text-emerald-300">
+            <span className="text-emerald-700 dark:text-emerald-300">
               Meguru
             </span>
             <span className="text-slate-900 dark:text-white">to</span>
@@ -155,8 +156,8 @@ export default function Navbar() {
               to="/destinations"
               className={`flex items-center gap-1.5 px-2 lg:px-3 py-1.5 text-xs lg:text-sm font-semibold transition-all rounded-lg ${
                 isDestinationsActive
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
-                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
+                  ? "text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-700/25 shadow-2xs font-bold"
+                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
               }`}
             >
               <Map className="w-4 h-4" />
@@ -168,8 +169,8 @@ export default function Navbar() {
               to="/collections"
               className={`hidden lg:flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold transition-all rounded-lg ${
                 isCollectionsActive
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
-                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
+                  ? "text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-700/25 shadow-2xs font-bold"
+                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
               }`}
             >
               <Layers className="w-4 h-4" />
@@ -181,8 +182,8 @@ export default function Navbar() {
               to="/my-trips"
               className={`flex items-center gap-1.5 px-2 lg:px-3 py-1.5 text-xs lg:text-sm font-semibold transition-all rounded-lg ${
                 isTripsActive
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
-                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
+                  ? "text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-700/25 shadow-2xs font-bold"
+                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
               }`}
             >
               <Calendar className="w-4 h-4" />
@@ -194,8 +195,8 @@ export default function Navbar() {
               to="/passport"
               className={`flex items-center gap-1.5 px-2 lg:px-3 py-1.5 text-xs lg:text-sm font-semibold transition-all rounded-lg ${
                 isPassportActive
-                  ? "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-500/25 shadow-2xs font-bold"
-                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
+                  ? "text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-700/25 shadow-2xs font-bold"
+                  : "text-slate-600 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/50 border border-transparent"
               }`}
             >
               <Compass className="w-4 h-4" />
@@ -207,7 +208,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setLanguageMenuOpen((open) => !open)}
-              className="rounded-lg p-2 text-slate-600 dark:text-slate-300 hover:text-emerald-600"
+              className="rounded-lg p-2 text-slate-600 dark:text-slate-300 hover:text-emerald-700"
               aria-label="Select language"
             >
               <Languages className="h-5 w-5" />
@@ -227,7 +228,7 @@ export default function Navbar() {
                     }}
                     className={`w-full rounded-lg px-3 py-1.5 text-left text-xs font-semibold ${
                       locale === value
-                        ? "bg-emerald-50 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-400"
+                        ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"
                         : "text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
                     }`}
                   >
@@ -243,7 +244,7 @@ export default function Navbar() {
             onClick={() =>
               setTheme(resolvedTheme === "dark" ? "light" : "dark")
             }
-            className="rounded-lg p-2 text-slate-600 dark:text-slate-300 hover:text-emerald-600"
+            className="rounded-lg p-2 text-slate-600 dark:text-slate-300 hover:text-emerald-700"
             aria-label="Toggle theme"
           >
             {resolvedTheme === "dark" ? (
@@ -254,7 +255,7 @@ export default function Navbar() {
           </button>
 
           {loading ? (
-            <div className="w-8 h-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
+            <div className="w-8 h-8 rounded-full border-2 border-emerald-700 border-t-transparent animate-spin" />
           ) : user ? (
             <div className="relative" ref={userMenuRef}>
               <button
@@ -264,7 +265,7 @@ export default function Navbar() {
                 aria-expanded={userMenuOpen}
                 aria-label="User menu"
               >
-                <div className="w-8 h-8 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center shadow-xs">
+                <div className="w-8 h-8 rounded-full bg-emerald-700 text-white font-bold text-xs flex items-center justify-center shadow-xs">
                   {(
                     user.email?.[0] ??
                     (user.user_metadata?.full_name as string)?.[0] ??
@@ -276,7 +277,7 @@ export default function Navbar() {
               {userMenuOpen && (
                 <div className="absolute right-0 mt-2 w-56 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
                   <div className="px-4 py-2 border-b border-slate-100 dark:border-slate-800">
-                    <p className="text-xs text-slate-400 font-medium">
+                    <p className="text-xs text-slate-500 font-medium">
                       {t("navigation.signedInAs")}
                     </p>
                     <p className="text-xs font-bold text-slate-800 dark:text-slate-200 truncate mt-0.5">
@@ -367,7 +368,7 @@ export default function Navbar() {
               }
               aria-label={t("navigation.back")}
               title={t("navigation.back")}
-              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-emerald-600 transition-colors"
+              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-emerald-700 transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
@@ -391,7 +392,7 @@ export default function Navbar() {
             data-testid="navbar-brand-wordmark"
             className="inline text-base min-[390px]:text-lg font-extrabold"
           >
-            <span className="text-emerald-600 dark:text-emerald-300">
+            <span className="text-emerald-700 dark:text-emerald-300">
               Meguru
             </span>
             <span className="text-slate-900 dark:text-white">to</span>
@@ -401,10 +402,20 @@ export default function Navbar() {
         {/* Right Hamburger Button */}
         <div className="flex items-center justify-end w-10 shrink-0 z-20">
           <button
+            type="button"
+            onClick={() =>
+              window.dispatchEvent(new CustomEvent("meguruto:open-search"))
+            }
+            className="p-2 text-slate-700 dark:text-slate-300 hover:text-emerald-700 focus:outline-hidden min-h-[44px] min-w-[44px] flex items-center justify-center"
+            aria-label="Search"
+          >
+            <SearchIcon className="w-5 h-5" />
+          </button>
+          <button
             ref={hamburgerBtnRef}
             type="button"
             onClick={() => setMenuOpen((o) => !o)}
-            className="p-2 text-slate-700 dark:text-slate-300 hover:text-emerald-600 focus:outline-hidden min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className="p-2 text-slate-700 dark:text-slate-300 hover:text-emerald-700 focus:outline-hidden min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-expanded={menuOpen}
             aria-controls="mobile-menu-drawer"
             aria-label="Toggle menu"
@@ -444,11 +455,11 @@ export default function Navbar() {
         >
           <nav className="container mx-auto px-4 py-3 flex flex-col gap-1">
             {loading ? (
-              <div className="w-8 h-8 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin self-center my-4" />
+              <div className="w-8 h-8 rounded-full border-2 border-emerald-700 border-t-transparent animate-spin self-center my-4" />
             ) : user ? (
               <div className="flex flex-col gap-1">
                 <div className="px-4 py-2 mb-1 border-b border-slate-100 dark:border-slate-800/80">
-                  <p className="text-xs text-slate-400 font-medium">
+                  <p className="text-xs text-slate-500 font-medium">
                     {t("navigation.signedInAs")}
                   </p>
                   <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 truncate mt-0.5">
@@ -478,7 +489,7 @@ export default function Navbar() {
 
                 {/* Discover section — visually separate from account/preferences */}
                 <div className="border-t border-slate-100 dark:border-slate-800/80 mt-1 pt-2">
-                  <p className="px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                  <p className="px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-300">
                     {t("navigation.discover")}
                   </p>
                   <Link
@@ -562,7 +573,7 @@ export default function Navbar() {
               <div className="flex flex-col gap-1">
                 {/* Discover section — visible without an account */}
                 <div className="border-b border-slate-100 dark:border-slate-800/80 pb-1 mb-1">
-                  <p className="px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                  <p className="px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-300">
                     {t("navigation.discover")}
                   </p>
                   <Link
@@ -644,8 +655,8 @@ export default function Navbar() {
             )}
 
             {/* Mobile Drawer Footer */}
-            <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-2 pb-1">
-              <span className="text-slate-400 dark:text-slate-500">
+            <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-300 px-2 pb-1">
+              <span className="text-slate-500 dark:text-slate-300">
                 Meguruto {formatAppVersion(__APP_VERSION__)}
               </span>
             </div>

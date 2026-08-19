@@ -44,7 +44,45 @@ export function SearchDialog({
   const [viewportHeight, setViewportHeight] = useState<number | null>(null);
   const isMobile = useIsMobile();
   const inputRef = useRef<HTMLInputElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
+
+  // KAI-80: focus trap + Escape handling while open (WCAG dialog pattern).
+  // Restores focus to the previously focused element on close.
+  useEffect(() => {
+    if (!isOpen) return;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+
+    function handleTab(e: KeyboardEvent) {
+      const container = containerRef.current;
+      if (!container) return;
+      const focusables = Array.from(
+        container.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((el) => el.offsetParent !== null);
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Tab") handleTab(e);
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      previouslyFocused?.focus();
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -94,6 +132,10 @@ export function SearchDialog({
 
       {/* Command Palette Card */}
       <div
+        ref={containerRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={t("search.title", "Search destinations")}
         className="relative w-full max-w-2xl max-h-[calc(100dvh-1rem)] sm:max-h-[calc(100dvh-2rem)] bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden animate-in fade-in zoom-in-95 duration-150 z-10 flex flex-col"
         style={
           viewportHeight
@@ -105,7 +147,7 @@ export function SearchDialog({
         <div className="grid grid-cols-[44px_minmax(0,1fr)_auto] items-center border-b border-slate-100 dark:border-slate-800 h-14 sm:h-16 px-1">
           {/* Col 1: Centered Search Icon in 44px tap target */}
           <div className="flex items-center justify-center w-11 h-11">
-            <Search className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+            <Search className="w-5 h-5 text-emerald-700 dark:text-emerald-300 shrink-0" />
           </div>
 
           {/* Col 2: Shrinkable Input */}
@@ -129,7 +171,7 @@ export function SearchDialog({
                   inputRef.current?.focus();
                 }}
                 aria-label={t("search.clear")}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0"
+                className="p-1.5 rounded-lg text-slate-500 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -143,7 +185,7 @@ export function SearchDialog({
               type="button"
               onClick={onClose}
               aria-label={t("search.close")}
-              className="sm:hidden flex items-center h-9 px-3 rounded-full bg-slate-100 dark:bg-slate-800 text-sm font-semibold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              className="sm:hidden flex items-center h-9 px-3 rounded-full bg-slate-100 dark:bg-slate-800 text-sm font-semibold text-slate-500 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
             >
               {t("search.cancel")}
             </button>
@@ -151,7 +193,7 @@ export function SearchDialog({
               type="button"
               onClick={onClose}
               aria-label={t("search.close")}
-              className="hidden sm:flex text-xs font-bold px-2.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shrink-0"
+              className="hidden sm:flex text-xs font-bold px-2.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shrink-0"
             >
               ESC
             </button>
@@ -171,7 +213,7 @@ export function SearchDialog({
         </div>
 
         {/* Footer Shortcut Hints - Hidden on Mobile */}
-        <div className="hidden sm:flex px-5 py-2.5 bg-slate-50 dark:bg-slate-950/60 border-t border-slate-100 dark:border-slate-800 items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
+        <div className="hidden sm:flex px-5 py-2.5 bg-slate-50 dark:bg-slate-950/60 border-t border-slate-100 dark:border-slate-800 items-center justify-between text-[11px] text-slate-500 dark:text-slate-300">
           <div className="flex items-center gap-3">
             <span>
               <kbd className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 font-mono text-[10px]">
@@ -192,7 +234,7 @@ export function SearchDialog({
               Close
             </span>
           </div>
-          <span className="font-semibold text-emerald-600 dark:text-emerald-400">
+          <span className="font-semibold text-emerald-700 dark:text-emerald-300">
             Meguruto Command Palette
           </span>
         </div>

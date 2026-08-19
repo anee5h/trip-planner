@@ -67,7 +67,7 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
               <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-500 shrink-0" />
               <span>{headingText}</span>
             </h2>
-            <p className="text-[13px] sm:text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+            <p className="text-[13px] sm:text-sm text-slate-500 dark:text-slate-300 mt-1 leading-relaxed">
               {t("home.matchesDescription")}
             </p>
           </div>
@@ -84,7 +84,7 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
             <h3 className="text-lg font-extrabold text-slate-700 dark:text-slate-300 mb-2">
               {t("home.weekendNoResultsTitle")}
             </h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-md">
+            <p className="text-sm text-slate-500 dark:text-slate-300 max-w-md">
               {t("home.weekendNoResultsBody")}
             </p>
           </div>

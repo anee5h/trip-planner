@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { MegurutoMark } from "@/shared/components/brand/MegurutoMark";
@@ -23,6 +23,16 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+
+  // KAI-80: Escape closes the auth dialog (WCAG dialog pattern).
+  useEffect(() => {
+    if (!isOpen) return;
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose();
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
 
@@ -107,6 +117,9 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
   return createPortal(
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={t("auth.title", "Sign in")}
       className="fixed inset-0 z-[100] p-4 flex items-center justify-center bg-slate-950/50 dark:bg-slate-950/75 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
@@ -118,7 +131,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         <button
           onClick={onClose}
           aria-label={t("actions.close")}
-          className="absolute top-4 right-4 z-10 flex size-9 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-white"
+          className="absolute top-4 right-4 z-10 flex size-9 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
         >
           <svg
             width="18"
@@ -143,7 +156,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 <MegurutoMark className="size-7" />
               </span>
               <span className="text-[21px] font-bold leading-none tracking-tight">
-                <span className="text-emerald-600 dark:text-emerald-300">
+                <span className="text-emerald-700 dark:text-emerald-300">
                   Meguru
                 </span>
                 <span className="text-slate-950 dark:text-white">to</span>
@@ -154,7 +167,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 ? t("auth.signInTitle")
                 : t("auth.signUpTitle")}
             </h2>
-            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+            <p className="mt-1 text-sm text-slate-500 dark:text-slate-300">
               {mode === "signin"
                 ? t("auth.signInPrompt")
                 : t("auth.signUpPrompt")}
@@ -193,7 +206,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
           {/* Divider */}
           <div className="flex items-center gap-3 mb-6">
             <div className="flex-1 h-px bg-slate-200 dark:bg-white/10" />
-            <span className="text-slate-500 dark:text-slate-500 text-xs">
+            <span className="text-slate-500 dark:text-slate-300 text-xs">
               {t("auth.orContinueWithEmail")}
             </span>
             <div className="flex-1 h-px bg-slate-200 dark:bg-white/10" />
@@ -207,7 +220,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               </div>
             )}
             {success && (
-              <div className="text-emerald-700 dark:text-emerald-400 text-sm bg-emerald-50 dark:bg-emerald-400/10 rounded-lg px-3 py-2">
+              <div className="text-emerald-700 dark:text-emerald-300 text-sm bg-emerald-50 dark:bg-emerald-400/10 rounded-lg px-3 py-2">
                 {success}
               </div>
             )}
@@ -217,7 +230,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full rounded-xl border px-4 py-3 text-base sm:text-sm outline-none border-slate-300 bg-white text-slate-900 placeholder:text-slate-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/25 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white dark:placeholder:text-slate-400"
+              className="w-full rounded-xl border px-4 py-3 text-base sm:text-sm outline-none border-slate-300 bg-white text-slate-900 placeholder:text-slate-500 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-500/25 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white dark:placeholder:text-slate-500"
             />
             <div className="relative">
               <input
@@ -226,7 +239,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full rounded-xl border px-4 py-3 pr-14 text-base sm:text-sm outline-none border-slate-300 bg-white text-slate-900 placeholder:text-slate-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/25 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white dark:placeholder:text-slate-400"
+                className="w-full rounded-xl border px-4 py-3 pr-14 text-base sm:text-sm outline-none border-slate-300 bg-white text-slate-900 placeholder:text-slate-500 focus:border-emerald-700 focus:ring-2 focus:ring-emerald-500/25 dark:border-slate-700 dark:bg-slate-950/60 dark:text-white dark:placeholder:text-slate-500"
               />
               <button
                 type="button"
@@ -241,7 +254,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 type="button"
                 onClick={handlePasswordReset}
                 disabled={loading}
-                className="self-start text-sm font-medium text-emerald-700 hover:text-emerald-600 disabled:opacity-50 dark:text-emerald-400 dark:hover:text-emerald-300"
+                className="self-start text-sm font-medium text-emerald-700 hover:text-emerald-700 disabled:opacity-50 dark:text-emerald-300 dark:hover:text-emerald-300"
               >
                 {t("auth.forgotPassword")}
               </button>
@@ -249,7 +262,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all duration-200 hover:scale-[1.01] disabled:opacity-50"
+              className="w-full py-3 rounded-xl bg-emerald-700 hover:bg-emerald-700 text-white font-semibold text-sm transition-all duration-200 hover:scale-[1.01] disabled:opacity-50"
             >
               {loading
                 ? t("actions.pleaseWait")
@@ -281,7 +294,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
           </form>
 
           {/* Toggle */}
-          <p className="text-center text-slate-500 dark:text-slate-400 text-sm mt-4">
+          <p className="text-center text-slate-500 dark:text-slate-300 text-sm mt-4">
             {mode === "signin" ? t("auth.noAccount") : t("auth.hasAccount")}{" "}
             <button
               onClick={() => {
@@ -289,7 +302,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 setError("");
                 setSuccess("");
               }}
-              className="text-emerald-700 hover:text-emerald-600 dark:text-emerald-400 dark:hover:text-emerald-300 font-medium"
+              className="text-emerald-700 hover:text-emerald-700 dark:text-emerald-300 dark:hover:text-emerald-300 font-medium"
             >
               {mode === "signin" ? t("actions.signUp") : t("actions.signIn")}
             </button>

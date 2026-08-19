@@ -62,10 +62,10 @@ export default function CollectionsDirectory() {
               >
                 {collection.category}
               </Badge>
-              <h2 className="mt-3 text-2xl font-extrabold text-slate-900 transition-colors group-hover:text-emerald-600 dark:text-white dark:group-hover:text-emerald-400">
+              <h2 className="mt-3 text-2xl font-extrabold text-slate-900 transition-colors group-hover:text-emerald-700 dark:text-white dark:group-hover:text-emerald-400">
                 {content.name}
               </h2>
-              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                 {content.description}
               </p>
 
@@ -78,17 +78,17 @@ export default function CollectionsDirectory() {
                       ? t("ui.unescoVisited").toLowerCase()
                       : t("ui.visited").toLowerCase()}
                   </span>
-                  <span className="text-emerald-600 dark:text-emerald-400">
+                  <span className="text-emerald-700 dark:text-emerald-300">
                     {progress.percent}%
                   </span>
                 </div>
                 <div className="h-1.5 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
                   <div
-                    className="h-full rounded-full bg-emerald-500 transition-all duration-500"
+                    className="h-full rounded-full bg-emerald-700 transition-all duration-500"
                     style={{ width: `${progress.percent}%` }}
                   />
                 </div>
-                <div className="mt-4 flex items-center justify-between text-xs font-bold text-emerald-600 dark:text-emerald-400 md:text-[13px]">
+                <div className="mt-4 flex items-center justify-between text-xs font-bold text-emerald-700 dark:text-emerald-300 md:text-[13px]">
                   <span>
                     {isUNESCOCollection
                       ? t("ui.unescoSummary", {

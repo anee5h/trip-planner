@@ -1,100 +1,541 @@
 /**
- * KAI-80: automated WCAG 2.2 AA (automated subset) gate for critical
- * public journeys. These run against the production build (same
- * webServer as the rest of E2E). The goal is a REGRESSION GATE on the
- * most important deterministic journeys — not a claim of certification
- * (focus order, screen-reader narration and reduced-motion verification
- * remain manual QA, documented in the ticket).
+ * KAI-80: automated WCAG 2.2 AA (automated subset) gate — representative
+ * major-route matrix.
  *
- * Skipped unless A11Y_E2E=1 (axe adds ~1-2s/page; these are gated into
- * the E2E matrix as their own bin so they do not slow normal PRs).
+ * Runs against the PRODUCTION build (A11Y_E2E=1 switches the webServer to
+ * build + preview; never the dev server, never PWA semantics).
+ *
+ * COVERAGE MATRIX (documented, no Cartesian explosion):
+ *   Routes:        Home, /destinations, destination detail, Home filters
+ *                  + date picker, navigation, guest auth modal,
+ *                  /settings, /bucket-list, /passport, /my-trips,
+ *                  collections, loading/empty/error, dialogs/sheets
+ *   Locales:       EN + JA on primary content routes
+ *   Projects:      mobile + desktop (both projects run this file)
+ *   Themes:        light + dark on high-risk surfaces (contrast is gated)
+ *   Focus:         dialog focus entry, Tab/Shift+Tab trap, Escape, focus
+ *                  return to trigger; keyboard-only nav + planner checks
+ *   Reduced motion: representative animated surfaces
+ *   Reflow:        narrow/zoom-equivalent layouts — no horizontal
+ *                  overflow, no clipped primary controls
+ *   Locale contract: html.lang en/ja, refresh retention, EN<->JA switch
+ *   Auth:          deterministic guest/client-state surfaces (supabase is
+ *                  null in E2E — no production mutation by construction).
+ *                  Real-session flows are documented manual QA.
+ *
+ * No conditional no-op tests: required controls are ASSERTED visible.
  */
 import { test, expect } from "@playwright/test";
 import { expectNoA11yViolations } from "./a11y";
 
 const RUN = process.env.A11Y_E2E === "1";
 
-// Force light theme: the iPhone device preset defaults to dark, and the
-// app resolves "system" to the emulated scheme. KAI-80 baseline scope is
-// light-mode critical journeys (dark-mode contrast is a documented gap —
-// see the describe block below). Clearing the persisted theme key at
-// context creation guarantees the app reads a clean light default.
-test.use({
-  colorScheme: "light",
-});
+test.skip(!RUN, "A11Y_E2E=1 required");
+
+/**
+ * Opens the guest auth modal from either layout: desktop navbar "Sign In"
+ * button, or the mobile hamburger menu's "Sign In" entry. Required —
+ * asserts the control exists (no conditional no-op).
+ */
+async function openSignIn(page: import("@playwright/test").Page) {
+  const desktopSignIn = page
+    .locator("header button", { hasText: "Sign In" })
+    .first();
+  const mobileMenu = page.locator('button[aria-label="Toggle menu"]');
+  if (await desktopSignIn.isVisible().catch(() => false)) {
+    await desktopSignIn.click();
+  } else {
+    await expect(mobileMenu).toBeVisible();
+    await mobileMenu.click();
+    const menuSignIn = page
+      .locator("#mobile-menu-drawer")
+      .locator("button", { hasText: "Sign In" })
+      .first();
+    await expect(menuSignIn).toBeVisible();
+    await menuSignIn.click();
+  }
+}
+
+/**
+ * Switches the UI language to `target` ("en" | "ja") from either layout:
+ * desktop uses the "Select language" dropdown's explicit option; mobile
+ * uses the hamburger menu's single language toggle (switches en<->ja).
+ */
+async function switchLocale(
+  page: import("@playwright/test").Page,
+  target: "en" | "ja",
+) {
+  const desktopLang = page.locator('button[aria-label="Select language"]');
+  if (await desktopLang.isVisible().catch(() => false)) {
+    await desktopLang.click();
+    const option = page.getByRole("button", {
+      name: target === "ja" ? "日本語" : "English",
+    });
+    await expect(option).toBeVisible();
+    await option.click();
+    return;
+  }
+  // Mobile: hamburger -> language toggle (switches to the other locale).
+  const mobileMenu = page.locator('button[aria-label="Toggle menu"]');
+  await expect(mobileMenu).toBeVisible();
+  await mobileMenu.click();
+  const toggle = page
+    .locator("#mobile-menu-drawer")
+    .locator("button", { hasText: /Language|言語/ })
+    .first();
+  await expect(toggle).toBeVisible();
+  await toggle.click();
+  // The toggle switches en<->ja; if already at target, toggle again.
+  const currentLang = await page.evaluate(() => document.documentElement.lang);
+  if (currentLang !== target) {
+    await mobileMenu.click();
+    const toggle2 = page
+      .locator("#mobile-menu-drawer")
+      .locator("button", { hasText: /Language|言語/ })
+      .first();
+    await expect(toggle2).toBeVisible();
+    await toggle2.click();
+  }
+}
+
+// Clear persisted theme so each test starts from the OS-scheme default.
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
     try {
       localStorage.removeItem("tabimap_theme");
-      localStorage.removeItem("meguruto-theme");
-      localStorage.removeItem("theme");
     } catch {
       /* ignore */
     }
   });
 });
 
-test.describe("KAI-80 accessibility baseline", () => {
-  test.skip(!RUN, "A11Y_E2E=1 required");
+// Theme-scoped helper describes. `test.use` must live at describe level.
+const routes: Array<[string, string]> = [
+  ["home", "/"],
+  ["destinations", "/destinations"],
+  ["destination detail", "/destinations/kamakura"],
+  ["settings", "/settings"],
+  ["bucket-list", "/bucket-list"],
+  ["passport", "/passport"],
+  ["my-trips", "/my-trips"],
+  ["collections", "/collections"],
+];
+const highRisk = new Set([
+  "home",
+  "destinations",
+  "destination detail",
+  "settings",
+]);
+const primary = new Set(["home", "destinations", "destination detail"]);
 
-  // KAI-80 baseline scope: light theme (the app default) on the critical
-  // public journeys. DARK-MODE CONTRAST is a measured, documented gap:
-  // axe reports ~95 color-contrast nodes on the home page in dark mode —
-  // a design-system-level fix tracked as a follow-up, NOT silently hidden
-  // here. The gate covers light-mode journeys now and will extend to dark
-  // once the contrast pass lands.
-
-  test("home page (EN) has no WCAG 2.2 AA automated violations", async ({
-    page,
-  }) => {
+// ---------------------------------------------------------------------------
+// Locale contract (#6)
+// ---------------------------------------------------------------------------
+test.describe("KAI-80 locale contract", () => {
+  test("/ has html.lang=en and /ja/ has html.lang=ja", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator("main")).toBeVisible();
-    await expectNoA11yViolations(page);
-  });
-
-  test("home page (JA) has no WCAG 2.2 AA automated violations", async ({
-    page,
-  }) => {
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
     await page.goto("/ja/");
-    await expect(page.locator("main")).toBeVisible();
-    await expectNoA11yViolations(page);
+    await expect(page.locator("html")).toHaveAttribute("lang", "ja");
   });
 
-  test("destination page (EN) has no WCAG 2.2 AA automated violations", async ({
+  test("refresh retains the correct lang", async ({ page }) => {
+    await page.goto("/ja/");
+    await expect(page.locator("html")).toHaveAttribute("lang", "ja");
+    await page.reload();
+    await expect(page.locator("html")).toHaveAttribute("lang", "ja");
+  });
+
+  test("EN→JA switch gives JA URL + root lang; JA→EN is inverse", async ({
     page,
   }) => {
-    await page.goto("/destinations/kamakura");
-    await expect(page.locator("main")).toBeVisible();
-    await expectNoA11yViolations(page);
-  });
-
-  test("search has no WCAG 2.2 AA automated violations", async ({ page }) => {
     await page.goto("/");
-    const searchTrigger = page
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+    await switchLocale(page, "ja");
+    await expect(page.locator("html")).toHaveAttribute("lang", "ja");
+    await expect
+      .poll(async () => page.url(), { timeout: 15000 })
+      .toMatch(/\/ja\//);
+
+    await switchLocale(page, "en");
+    // The URL may take a moment; assert the root lang first, then the URL.
+    await expect(page.locator("html")).toHaveAttribute("lang", "en", {
+      timeout: 15000,
+    });
+    await expect
+      .poll(async () => page.url(), { timeout: 15000 })
+      .not.toMatch(/\/ja\//);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Public content routes — light theme (axe) (#3)
+// ---------------------------------------------------------------------------
+test.describe("KAI-80 public routes (light)", () => {
+  test.use({ colorScheme: "light" });
+
+  for (const [label, route] of routes) {
+    test(`${label} ${route} (EN) has no WCAG 2.2 AA violations`, async ({
+      page,
+    }) => {
+      await page.goto(route);
+      await expect(page.locator("main")).toBeVisible();
+      await expectNoA11yViolations(page);
+    });
+  }
+
+  test("guest auth modal (EN) has no WCAG 2.2 AA violations", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await openSignIn(page);
+    const dialog = page.locator('[role="dialog"]').first();
+    await expect(dialog).toBeVisible();
+    await expectNoA11yViolations(page);
+    await page.keyboard.press("Escape");
+    await expect(dialog).toHaveCount(0);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Public content routes — JA (primary routes) (#3)
+// ---------------------------------------------------------------------------
+test.describe("KAI-80 public routes (JA)", () => {
+  test.use({ colorScheme: "light", locale: "ja-JP" });
+
+  for (const [label, route] of routes) {
+    if (!primary.has(label)) continue;
+    test(`${label} ${route} (JA) has no WCAG 2.2 AA violations`, async ({
+      page,
+    }) => {
+      await page.goto(`/ja${route === "/" ? "/" : route}`);
+      await expect(page.locator("main")).toBeVisible();
+      await expectNoA11yViolations(page);
+    });
+  }
+});
+
+// ---------------------------------------------------------------------------
+// Public content routes — dark theme (contrast gated, high-risk) (#3)
+// ---------------------------------------------------------------------------
+test.describe("KAI-80 public routes (dark)", () => {
+  test.use({ colorScheme: "dark" });
+
+  for (const [label, route] of routes) {
+    if (!highRisk.has(label)) continue;
+    test(`${label} ${route} (EN, dark) has no WCAG 2.2 AA violations`, async ({
+      page,
+    }) => {
+      await page.goto(route);
+      await expect(page.locator("main")).toBeVisible();
+      await page.waitForFunction(() =>
+        document.documentElement.classList.contains("dark"),
+      );
+      await expectNoA11yViolations(page);
+    });
+  }
+});
+
+// ---------------------------------------------------------------------------
+// Home planner: date picker + filters (#3, #5)
+// ---------------------------------------------------------------------------
+test.describe("KAI-80 Home planner controls (light)", () => {
+  test.use({ colorScheme: "light" });
+
+  test("date picker dialog is accessible and traps focus", async ({ page }) => {
+    await page.goto("/");
+    const dateTrigger = page
       .locator(
-        "button[aria-label*='search' i], [data-slot='search-trigger'], button:has(svg.lucide-search)",
+        'button[aria-label*="Choose travel date" i], [aria-label*="travel date" i]',
       )
       .first();
-    if (await searchTrigger.isVisible()) {
-      await searchTrigger.click();
+    await expect(dateTrigger).toBeVisible();
+    await dateTrigger.click();
+    const dialog = page.locator('[role="dialog"]').first();
+    await expect(dialog).toBeVisible();
+    await expectNoA11yViolations(page);
+    const focusedInside = await page.evaluate(
+      () => document.activeElement?.closest('[role="dialog"]') !== null,
+    );
+    expect(focusedInside).toBe(true);
+    await page.keyboard.press("Escape");
+    await expect(dialog).toHaveCount(0);
+  });
+
+  test("planner select controls are keyboard-operable", async ({ page }) => {
+    await page.goto("/");
+    const desktopVibe = page.locator('button[aria-label="Vibe"]').first();
+    let vibeTrigger: import("@playwright/test").Locator;
+    let isMobile = false;
+    try {
+      await desktopVibe.waitFor({ state: "visible", timeout: 8000 });
+      vibeTrigger = desktopVibe;
+    } catch {
+      // Mobile: the planner rows open per-field bottom-sheet dialogs.
+      isMobile = true;
+      vibeTrigger = page.locator("button", { hasText: /Vibe|雰囲気/ }).first();
     }
+    await expect(vibeTrigger).toBeVisible();
+    await vibeTrigger.focus();
+    await page.keyboard.press(isMobile ? "Space" : "Enter");
+    if (isMobile) {
+      const dialog = page.locator('[role="dialog"][aria-label="Vibe"]').first();
+      await expect(dialog).toBeVisible();
+      // Focus enters the sheet (KAI-80 fix) and stays trapped.
+      await expect
+        .poll(() =>
+          page.evaluate(
+            () => document.activeElement?.closest('[role="dialog"]') !== null,
+          ),
+        )
+        .toBe(true);
+      for (let i = 0; i < 4; i++) {
+        await page.keyboard.press("Tab");
+        const inside = await page.evaluate(
+          () => document.activeElement?.closest('[role="dialog"]') !== null,
+        );
+        expect(inside).toBe(true);
+      }
+      await page.keyboard.press("Escape");
+      await expect(dialog).toHaveCount(0);
+    } else {
+      const listbox = page.locator('[role="listbox"]').first();
+      await expect(listbox).toBeVisible();
+      await page.keyboard.press("ArrowDown");
+      // The highlighted option is keyboard-reachable.
+      const highlighted = await page.evaluate(
+        () =>
+          !!document.querySelector(
+            '[role="option"][data-highlighted="true"], [role="option"][aria-selected="true"], [role="option"]:focus',
+          ),
+      );
+      expect(highlighted).toBe(true);
+      await expectNoA11yViolations(page);
+      // Selecting completes the choice (value changes).
+      const before = await page
+        .locator('button[aria-label="Vibe"]')
+        .first()
+        .textContent();
+      await page.locator('[role="option"]').nth(1).click();
+      await expect
+        .poll(async () =>
+          (
+            await page
+              .locator('button[aria-label="Vibe"]')
+              .first()
+              .textContent()
+          )
+            ?.trim()
+            ?.slice(0, 20),
+        )
+        .not.toBe(before?.trim()?.slice(0, 20));
+    }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Real focus behavior (#5)
+// ---------------------------------------------------------------------------
+test.describe("KAI-80 focus management", () => {
+  test("dialog: focus enters, Tab stays trapped, Escape returns to trigger", async ({
+    page,
+  }) => {
+    await page.goto("/destinations/kamakura");
+    // Desktop: Ctrl-K chip opens GlobalSearch; mobile: header Search button.
+    const desktopTrigger = page
+      .locator("button:has-text('Ctrl K'), button:has-text('⌘K')")
+      .first();
+    const mobileTrigger = page.locator('button[aria-label="Search"]').first();
+    let trigger: import("@playwright/test").Locator;
+    try {
+      await desktopTrigger.waitFor({ state: "visible", timeout: 8000 });
+      trigger = desktopTrigger;
+    } catch {
+      trigger = mobileTrigger;
+    }
+    await expect(trigger).toBeVisible();
+    await trigger.focus();
+    await trigger.click();
+    const dialog = page.locator('[role="dialog"]').first();
+    await expect(dialog).toBeVisible();
+    await expect
+      .poll(() =>
+        page.evaluate(
+          () => document.activeElement?.closest('[role="dialog"]') !== null,
+        ),
+      )
+      .toBe(true);
+    for (let i = 0; i < 6; i++) {
+      await page.keyboard.press("Tab");
+      const inside = await page.evaluate(
+        () => document.activeElement?.closest('[role="dialog"]') !== null,
+      );
+      expect(inside).toBe(true);
+    }
+    await page.keyboard.press("Shift+Tab");
+    await page.keyboard.press("Shift+Tab");
+    const stillInside = await page.evaluate(
+      () => document.activeElement?.closest('[role="dialog"]') !== null,
+    );
+    expect(stillInside).toBe(true);
+    await page.keyboard.press("Escape");
+    await expect(dialog).toHaveCount(0);
+    // Focus returns to the trigger (Ctrl-K chip or Search button) after close.
+    await expect
+      .poll(() =>
+        page.evaluate(() => {
+          const el = document.activeElement;
+          if (!el) return false;
+          const text = el.textContent ?? "";
+          return (
+            text.includes("Ctrl K") ||
+            text.includes("⌘K") ||
+            el.getAttribute("aria-label") === "Search"
+          );
+        }),
+      )
+      .toBe(true);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Reduced motion (#7)
+// ---------------------------------------------------------------------------
+test.describe("KAI-80 reduced motion", () => {
+  test.use({ reducedMotion: "reduce" });
+
+  test("Home renders and controls work with animations reduced", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await expect(page.locator("main")).toBeVisible();
+    await expectNoA11yViolations(page);
+    // State transition still works: open the auth modal (guest state).
+    await openSignIn(page);
+    await expect(page.locator('[role="dialog"]').first()).toBeVisible();
+    await page.keyboard.press("Escape");
+  });
+
+  test("destination page interactive elements work with animations reduced", async ({
+    page,
+  }) => {
+    await page.goto("/destinations/kamakura");
+    await expect(page.locator("main")).toBeVisible();
+    await expectNoA11yViolations(page);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Keyboard-only primary navigation (#5)
+// ---------------------------------------------------------------------------
+test.describe("KAI-80 keyboard-only navigation", () => {
+  test("primary nav links are reachable via Tab and activate", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    let nav = page.locator("header nav").first();
+    const mobileMenu = page.locator('button[aria-label="Toggle menu"]');
+    if (!(await nav.isVisible().catch(() => false))) {
+      await expect(mobileMenu).toBeVisible();
+      await mobileMenu.click();
+      nav = page.locator("#mobile-menu-drawer nav").first();
+    }
+    await expect(nav).toBeVisible();
+    const firstLink = nav.locator("a").first();
+    await expect(firstLink).toBeVisible();
+    await firstLink.focus();
+    // Tab until focus lands on a nav link (bounded), then activate it.
+    let active = "";
+    for (let i = 0; i < 8; i++) {
+      await page.keyboard.press("Tab");
+      active =
+        (await page.evaluate(() => {
+          const el = document.activeElement;
+          return el?.tagName === "A" ? (el.getAttribute("href") ?? "") : "";
+        })) ?? "";
+      if (active) break;
+    }
+    expect(active).toBeTruthy();
+    await page.keyboard.press("Enter");
+    await page.waitForTimeout(800);
+    const url = page.url();
+    expect(url).not.toMatch(/\/$|127\.0\.0\.1:4173\/?$/);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Reflow (#9)
+// ---------------------------------------------------------------------------
+test.describe("KAI-80 reflow (narrow)", () => {
+  test.use({ viewport: { width: 320, height: 800 } });
+
+  test("Home at narrow width: no horizontal overflow, controls not clipped", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await expect(page.locator("main")).toBeVisible();
+    const overflow = await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth >
+        document.documentElement.clientWidth,
+    );
+    expect(overflow).toBe(false);
+    // Primary control still present in guest state (mobile header).
+    await expect(
+      page.locator('button[aria-label="Toggle menu"]'),
+    ).toBeVisible();
+  });
+
+  test("destination detail at narrow width: no horizontal overflow", async ({
+    page,
+  }) => {
+    await page.goto("/destinations/kamakura");
+    await expect(page.locator("main")).toBeVisible();
+    const overflow = await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth >
+        document.documentElement.clientWidth,
+    );
+    expect(overflow).toBe(false);
+  });
+
+  test("Search dialog at narrow width: dialog usable, no overflow", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    // Mobile-header Search button (KAI-80 addition) — visible at 320px;
+    // opens the same GlobalSearch dialog.
+    const searchTrigger = page.locator('button[aria-label="Search"]').first();
+    await expect(searchTrigger).toBeVisible();
+    await searchTrigger.click();
+    const dialog = page.locator('[role="dialog"]').first();
+    await expect(dialog).toBeVisible();
+    const overflow = await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth >
+        document.documentElement.clientWidth,
+    );
+    expect(overflow).toBe(false);
+    await page.keyboard.press("Escape");
+    await expect(dialog).toHaveCount(0);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Loading / empty / error states (#3)
+// ---------------------------------------------------------------------------
+test.describe("KAI-80 state surfaces", () => {
+  test("unknown destination route shows the error state accessibly", async ({
+    page,
+  }) => {
+    await page.goto("/destinations/this-route-does-not-exist");
     await expect(page.locator("main")).toBeVisible();
     await expectNoA11yViolations(page);
   });
 
-  test("modal/drawer opens with focus management (no violations, focus inside)", async ({
-    page,
-  }) => {
-    await page.goto("/destinations/kamakura");
-    // Trigger the first interactive modal/drawer on the destination page.
-    const dialogTrigger = page.locator('[aria-haspopup="dialog"]').first();
-    if (await dialogTrigger.isVisible()) {
-      await dialogTrigger.click();
-      await expect(page.locator('[role="dialog"]').first()).toBeVisible();
-      await expectNoA11yViolations(page);
-      // Escape closes and returns focus.
-      await page.keyboard.press("Escape");
-      await expect(page.locator('[role="dialog"]').first()).toHaveCount(0);
-    }
+  test("bucket-list empty state is accessible", async ({ page }) => {
+    await page.goto("/bucket-list");
+    await expect(page.locator("main")).toBeVisible();
+    await expectNoA11yViolations(page);
   });
 });

@@ -47,7 +47,7 @@ export default function Compare() {
           {t("ui.compare")} {t("ui.destinations")}
         </h1>
         <div className="flex flex-col items-center justify-center py-20 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
-          <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4">
+          <div className="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mb-4">
             <Map className="w-8 h-8" />
           </div>
           <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
@@ -57,7 +57,7 @@ export default function Compare() {
             {t("ui.compareHint")}
           </p>
           <Link to="/destinations">
-            <Button className="bg-emerald-600 hover:bg-emerald-700">
+            <Button className="bg-emerald-700 hover:bg-emerald-800">
               <PlusSquare className="w-4 h-4 mr-2" />{" "}
               {t("ui.exploreDestinations")}
             </Button>
@@ -104,7 +104,7 @@ export default function Compare() {
             <Link to="/destinations">
               <Button
                 variant="outline"
-                className="border-emerald-200 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-900 dark:text-emerald-400 dark:hover:bg-emerald-900/30"
+                className="border-emerald-200 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-900 dark:text-emerald-300 dark:hover:bg-emerald-900/30"
               >
                 <PlusSquare className="w-4 h-4 mr-2" /> {t("ui.addMore")}
               </Button>
@@ -137,7 +137,7 @@ export default function Compare() {
                     <button
                       onClick={() => toggleCompare(dest.id)}
                       aria-label={t("compare.removeFromCompareList")}
-                      className="absolute top-2 right-2 p-1 text-slate-400 hover:text-red-500 rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute top-2 right-2 p-1 text-slate-500 hover:text-red-500 rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
                       title={t("compare.removeFromCompareList")}
                     >
                       <Trash2 className="w-4 h-4" />
@@ -177,7 +177,7 @@ export default function Compare() {
                     <span
                       className={
                         budget !== null && budget === minBudget
-                          ? "font-bold text-emerald-600 dark:text-emerald-400"
+                          ? "font-bold text-emerald-700 dark:text-emerald-300"
                           : ""
                       }
                     >
@@ -186,7 +186,7 @@ export default function Compare() {
                         : `¥${(budget / 1000).toFixed(0)}k`}
                     </span>
                     {budget !== null && budget === minBudget && (
-                      <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
+                      <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-300 dark:border-emerald-800">
                         {t("compare.lowest")}
                       </Badge>
                     )}
@@ -222,14 +222,14 @@ export default function Compare() {
                     <span
                       className={
                         time === minTravelTime
-                          ? "font-bold text-emerald-600 dark:text-emerald-400"
+                          ? "font-bold text-emerald-700 dark:text-emerald-300"
                           : ""
                       }
                     >
                       {time !== 999 ? formattedTime : t("compare.unavailable")}
                     </span>
                     {time === minTravelTime && time !== 999 && (
-                      <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800">
+                      <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-300 dark:border-emerald-800">
                         {t("compare.fastest")}
                       </Badge>
                     )}
@@ -341,7 +341,7 @@ export default function Compare() {
                   <h3 className="font-bold text-lg text-slate-950 dark:text-white">
                     {localized.name}
                   </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-xs text-slate-500 dark:text-slate-300">
                     {formatPrefecture(dest.prefecture, locale)}
                   </p>
                   <Link
@@ -361,7 +361,7 @@ export default function Compare() {
 
               <div className="border-t border-slate-100 dark:border-slate-800 pt-4 grid grid-cols-2 gap-3 text-xs">
                 <div>
-                  <p className="text-slate-400 font-semibold mb-0.5">
+                  <p className="text-slate-500 font-semibold mb-0.5">
                     {t("compare.budgetRecommended")}
                   </p>
                   <p className="font-bold text-slate-900 dark:text-white">
@@ -369,14 +369,14 @@ export default function Compare() {
                       ? t("compare.unavailable")
                       : `¥${(budgetVal / 1000).toFixed(0)}k`}
                     {budgetVal !== null && budgetVal === minBudget && (
-                      <span className="ml-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
+                      <span className="ml-1 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
                         {t("compare.lowest")}
                       </span>
                     )}
                   </p>
                 </div>
                 <div>
-                  <p className="text-slate-400 font-semibold mb-0.5">
+                  <p className="text-slate-500 font-semibold mb-0.5">
                     {t("compare.travelTime")}
                   </p>
                   <p className="font-bold text-slate-900 dark:text-white">
@@ -386,14 +386,14 @@ export default function Compare() {
                         ? `${travelTime}分`
                         : `${travelTime} min`}
                     {travelTime === minTravelTime && travelTime !== 999 && (
-                      <span className="ml-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
+                      <span className="ml-1 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
                         {t("compare.fastest")}
                       </span>
                     )}
                   </p>
                 </div>
                 <div>
-                  <p className="text-slate-400 font-semibold mb-0.5">
+                  <p className="text-slate-500 font-semibold mb-0.5">
                     {t("compare.walkIntensity")}
                   </p>
                   <p className="font-bold text-slate-900 dark:text-white">

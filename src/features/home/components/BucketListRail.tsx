@@ -49,14 +49,14 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl px-5 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm">
             <div className="flex items-center gap-3.5">
-              <div className="w-9 h-9 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 flex items-center justify-center shrink-0">
                 <Bookmark className="w-4 h-4" />
               </div>
               <div className="flex flex-col">
                 <span className="text-sm font-extrabold text-slate-900 dark:text-white">
                   {user ? t("home.startBucketList") : t("home.savePlaces")}
                 </span>
-                <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                <span className="text-xs text-slate-500 dark:text-slate-300 font-medium">
                   {user
                     ? t("home.startBucketListDescription")
                     : t("home.savePlacesDescription")}
@@ -67,7 +67,7 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
             {user ? (
               <Link
                 to="/destinations"
-                className="inline-flex items-center gap-1.5 text-xs font-extrabold px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white shadow-sm transition-colors whitespace-nowrap self-start sm:self-auto"
+                className="inline-flex items-center gap-1.5 text-xs font-extrabold px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-700 text-white shadow-sm transition-colors whitespace-nowrap self-start sm:self-auto"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>{t("home.exploreDestinations")}</span>
@@ -101,7 +101,7 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
               <Bookmark className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-500 fill-emerald-500/20 shrink-0" />
               <span>{t("home.bucketList")}</span>
             </h2>
-            <p className="text-[13px] sm:text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+            <p className="text-[13px] sm:text-sm text-slate-500 dark:text-slate-300 mt-1 leading-relaxed">
               {t("home.bucketDescription")}
             </p>
           </div>

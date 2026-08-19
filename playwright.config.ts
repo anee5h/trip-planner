@@ -1,6 +1,10 @@
 import { defineConfig, devices } from "@playwright/test";
 
 const pwaE2e = process.env.PWA_E2E === "1";
+// KAI-80: the a11y gate runs against the production preview build (never
+// the dev server) so theme/reduced-motion/reflow results reflect what
+// ships. Scoped to the a11y job only — normal E2E keeps the dev server.
+const a11yE2e = process.env.A11Y_E2E === "1";
 
 // KAI-126: CI context attached to every Allure result (project + shard bin
 // + commit + workflow run) so the dashboard is self-describing.
@@ -70,9 +74,6 @@ export default defineConfig({
       use: {
         ...devices["iPhone 13"],
         browserName: "chromium",
-        // KAI-80: force light for deterministic a11y scanning (the iPhone
-        // preset defaults to dark; dark-mode contrast is a documented gap).
-        colorScheme: "light",
       },
     },
     {
@@ -82,14 +83,14 @@ export default defineConfig({
         viewport: { width: 1440, height: 900 },
         isMobile: false,
         hasTouch: false,
-        colorScheme: "light",
       },
     },
   ],
   webServer: {
-    command: pwaE2e
-      ? "npm run build && npm run preview -- --host 127.0.0.1 --port 4173"
-      : "npm run dev -- --host 127.0.0.1 --port 4173",
+    command:
+      pwaE2e || a11yE2e
+        ? "npm run build && npm run preview -- --host 127.0.0.1 --port 4173"
+        : "npm run dev -- --host 127.0.0.1 --port 4173",
     url: "http://127.0.0.1:4173",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

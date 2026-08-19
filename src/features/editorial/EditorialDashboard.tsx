@@ -304,7 +304,7 @@ export default function EditorialDashboard() {
           </div>
           <div className="mt-2 text-3xl font-bold">{metrics.total}</div>
           <div className="mt-1 text-xs text-muted-foreground flex gap-2">
-            <span className="text-emerald-600 dark:text-emerald-400 font-medium">
+            <span className="text-emerald-700 dark:text-emerald-300 font-medium">
               {metrics.lifecycleCounts.published || 0} published
             </span>
             <span>•</span>
@@ -540,7 +540,7 @@ export default function EditorialDashboard() {
                       </td>
                       <td className="px-4 py-3">
                         {item.sourcesCount > 0 ? (
-                          <span className="text-emerald-600 dark:text-emerald-400 font-medium">
+                          <span className="text-emerald-700 dark:text-emerald-300 font-medium">
                             {item.sourcesCount} sources
                           </span>
                         ) : (
@@ -650,7 +650,7 @@ export default function EditorialDashboard() {
                         </div>
                         <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-emerald-500 rounded-full transition-all"
+                            className="h-full bg-emerald-700 rounded-full transition-all"
                             style={{ width: `${pct}%` }}
                           />
                         </div>

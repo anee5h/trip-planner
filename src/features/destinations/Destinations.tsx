@@ -1194,8 +1194,8 @@ export default function Destinations() {
               aria-label={t("ui.gridView")}
               className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                 viewMode === "grid"
-                  ? "bg-white dark:bg-slate-900 shadow-sm text-emerald-600"
-                  : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
+                  ? "bg-white dark:bg-slate-900 shadow-sm text-emerald-700 dark:text-emerald-400"
+                  : "text-slate-600 hover:text-slate-700 dark:text-slate-300 dark:hover:text-slate-200"
               }`}
             >
               <Grid className="w-4 h-4 mr-2" />
@@ -1206,8 +1206,8 @@ export default function Destinations() {
               aria-label={t("ui.mapView")}
               className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                 viewMode === "map"
-                  ? "bg-white dark:bg-slate-900 shadow-sm text-emerald-600"
-                  : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
+                  ? "bg-white dark:bg-slate-900 shadow-sm text-emerald-700 dark:text-emerald-400"
+                  : "text-slate-600 hover:text-slate-700 dark:text-slate-300 dark:hover:text-slate-200"
               }`}
             >
               <MapIcon className="w-4 h-4 mr-2" />
@@ -1288,7 +1288,7 @@ export default function Destinations() {
 
       <div
         id="results-grid"
-        className="mb-6 flex flex-wrap items-center justify-between gap-4 text-slate-600 dark:text-slate-400 font-medium scroll-mt-24"
+        className="mb-6 flex flex-wrap items-center justify-between gap-4 text-slate-600 dark:text-slate-300 font-medium scroll-mt-24"
       >
         <div className="flex items-center gap-2">
           <span className="text-sm font-bold text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-800">
@@ -1320,7 +1320,7 @@ export default function Destinations() {
 
       {filteredAndSortedDestinations.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-20 text-slate-500">
-          <Frown className="w-12 h-12 mb-4 text-slate-400" />
+          <Frown className="w-12 h-12 mb-4 text-slate-500" />
           <h3 className="text-xl font-bold text-slate-700 dark:text-slate-300">
             {t("ui.noDestinationsFound")}
           </h3>
@@ -1385,7 +1385,8 @@ export default function Destinations() {
               <button
                 onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                 disabled={currentPage === 1}
-                className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 disabled:opacity-50 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-colors"
+                aria-label={t("ui.previousPage", "Previous page")}
+                className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 disabled:opacity-50 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -1408,8 +1409,8 @@ export default function Destinations() {
                         aria-current={currentPage === item ? "page" : undefined}
                         className={`size-10 rounded-lg font-semibold transition-colors ${
                           currentPage === item
-                            ? "bg-emerald-600 text-white"
-                            : "border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800"
+                            ? "bg-emerald-700 text-white"
+                            : "border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
                         }`}
                       >
                         {item}
@@ -1423,7 +1424,8 @@ export default function Destinations() {
                   setCurrentPage((p) => Math.min(totalPages, p + 1))
                 }
                 disabled={currentPage === totalPages}
-                className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 disabled:opacity-50 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-colors"
+                aria-label={t("ui.nextPage", "Next page")}
+                className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 disabled:opacity-50 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>

@@ -12,11 +12,11 @@ export default function Footer() {
           <p className="text-sm font-medium text-slate-900 dark:text-slate-100 flex items-center justify-center gap-2">
             <MegurutoMark className="size-6" />
             <span>{t("brand.displayName")}</span>
-            <span className="text-xs px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-500">
+            <span className="text-xs px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
               {formatAppVersion(__APP_VERSION__)}
             </span>
           </p>
-          <p className="text-sm text-slate-500 mt-1">
+          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
             {t(
               "footer.tagline",
               "Discover and plan better trips across Japan.",
@@ -24,7 +24,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="flex items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-slate-500">
+        <div className="flex items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
           <Link
             to="/terms"
             className="hover:text-emerald-500 transition-colors"

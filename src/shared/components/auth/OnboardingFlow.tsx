@@ -227,10 +227,10 @@ export function OnboardingFlow() {
             {/* Step indicator */}
             <div className="flex items-center gap-2">
               <div
-                className={`w-2.5 h-2.5 rounded-full ${step === "account" ? "bg-emerald-500" : "bg-slate-300 dark:bg-slate-700"}`}
+                className={`w-2.5 h-2.5 rounded-full ${step === "account" ? "bg-emerald-700" : "bg-slate-300 dark:bg-slate-700"}`}
               />
               <div
-                className={`w-2.5 h-2.5 rounded-full ${step === "preferences" ? "bg-emerald-500" : "bg-slate-300 dark:bg-slate-700"}`}
+                className={`w-2.5 h-2.5 rounded-full ${step === "preferences" ? "bg-emerald-700" : "bg-slate-300 dark:bg-slate-700"}`}
               />
             </div>
 
@@ -271,7 +271,7 @@ export function OnboardingFlow() {
                         onClick={() => setDefaultLocale(opt.id as "en" | "ja")}
                         className={`${btn} ${
                           defaultLocale === opt.id
-                            ? "bg-emerald-500 text-white border-emerald-500"
+                            ? "bg-emerald-700 text-white border-emerald-700"
                             : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
                         }`}
                       >
@@ -313,7 +313,7 @@ export function OnboardingFlow() {
                     type="button"
                     onClick={handleSaveAccount}
                     disabled={saving}
-                    className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold"
+                    className="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold"
                   >
                     {t("onboarding.continue")}
                   </Button>
@@ -357,7 +357,7 @@ export function OnboardingFlow() {
                         onClick={() => setBudget(b.id)}
                         className={`${btn} ${
                           budget === b.id
-                            ? "bg-emerald-500 text-white border-emerald-500"
+                            ? "bg-emerald-700 text-white border-emerald-700"
                             : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
                         }`}
                       >
@@ -386,7 +386,7 @@ export function OnboardingFlow() {
                         onClick={() => setCarMode(m.id)}
                         className={`${btn} ${
                           carMode === m.id
-                            ? "bg-emerald-500 text-white border-emerald-500"
+                            ? "bg-emerald-700 text-white border-emerald-700"
                             : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
                         }`}
                       >
@@ -417,7 +417,7 @@ export function OnboardingFlow() {
                         onClick={() => togglePublicMode(tm.id)}
                         className={`${btn} ${
                           publicModes.includes(tm.id)
-                            ? "bg-emerald-500 text-white border-emerald-500"
+                            ? "bg-emerald-700 text-white border-emerald-700"
                             : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
                         }`}
                       >
@@ -456,7 +456,7 @@ export function OnboardingFlow() {
                     type="button"
                     onClick={handleSavePreferences}
                     disabled={saving}
-                    className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold"
+                    className="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold"
                   >
                     {t("ui.save")}
                   </Button>

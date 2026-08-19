@@ -30,8 +30,8 @@ export default function BottomNav() {
           aria-current={isHomeActive ? "page" : undefined}
           className={`flex flex-col items-center justify-center gap-1 py-1 transition-all ${
             isHomeActive
-              ? "text-emerald-600 dark:text-emerald-400 font-bold"
-              : "text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400"
+              ? "text-emerald-700 dark:text-emerald-300 font-bold"
+              : "text-slate-500 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400"
           }`}
         >
           <Home
@@ -48,8 +48,8 @@ export default function BottomNav() {
           aria-current={isExploreActive ? "page" : undefined}
           className={`flex flex-col items-center justify-center gap-1 py-1 transition-all ${
             isExploreActive
-              ? "text-emerald-600 dark:text-emerald-400 font-bold"
-              : "text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400"
+              ? "text-emerald-700 dark:text-emerald-300 font-bold"
+              : "text-slate-500 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400"
           }`}
         >
           <Map
@@ -70,7 +70,7 @@ export default function BottomNav() {
           >
             <Search className="w-5 h-5 transition-transform group-hover:rotate-12" />
           </button>
-          <span className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold mt-0.5 truncate max-w-[68px] text-center">
+          <span className="text-[11px] text-slate-600 dark:text-slate-300 font-semibold mt-0.5 truncate max-w-[68px] text-center">
             {t("search.label")}
           </span>
         </div>
@@ -81,8 +81,8 @@ export default function BottomNav() {
           aria-current={isTripsActive ? "page" : undefined}
           className={`flex flex-col items-center justify-center gap-1 py-1 transition-all ${
             isTripsActive
-              ? "text-emerald-600 dark:text-emerald-400 font-bold"
-              : "text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400"
+              ? "text-emerald-700 dark:text-emerald-300 font-bold"
+              : "text-slate-500 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400"
           }`}
         >
           <Calendar
@@ -99,8 +99,8 @@ export default function BottomNav() {
           aria-current={isPassportActive ? "page" : undefined}
           className={`flex flex-col items-center justify-center gap-1 py-1 transition-all ${
             isPassportActive
-              ? "text-emerald-600 dark:text-emerald-400 font-bold"
-              : "text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400"
+              ? "text-emerald-700 dark:text-emerald-300 font-bold"
+              : "text-slate-500 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400"
           }`}
         >
           <Compass
