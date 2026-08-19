@@ -53,11 +53,14 @@ jobs:
     # artifacts from FORK PRs must be treated as untrusted. Meguruto has no
     # reason to let an arbitrary fork update the private engineering
     # dashboard — only SAME-REPOSITORY pull_request runs are ingested.
-    if: >
+    # The pull_requests[] array is unreliable in workflow_run events
+    # (empty for fork PRs and intermittently in the event payload), so the
+    # same-repo guard relies on head_repository.full_name alone — the
+    # documented canonical check; fork PRs have a different head repo and
+    # are rejected by it.
+    if: >-
       github.event.workflow_run.event == 'pull_request' &&
-      github.event.workflow_run.head_repository.full_name == github.repository &&
-      (github.event.workflow_run.pull_requests[0] == null ||
-       github.event.workflow_run.pull_requests[0].base.repo.full_name == github.repository)
+      github.event.workflow_run.head_repository.full_name == github.repository
     timeout-minutes: 20
     steps:
       - name: Checkout (default branch — trusted main code only)
