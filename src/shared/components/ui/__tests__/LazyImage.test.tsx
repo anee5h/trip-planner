@@ -95,7 +95,7 @@ describe("LazyImage responsive", () => {
 });
 
 describe("LazyImage rail gating (deferUntilVisible)", () => {
-  it("renders the real src when there is no rail ancestor (SSR-like)", () => {
+  it("renders the real src when there is no rail ancestor (no gating)", () => {
     const img = renderLazy({
       src: `${W}/wikipedia/commons/a/ae/Lake_Saroma.jpg`,
       alt: "Lake Saroma",
