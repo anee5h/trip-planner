@@ -314,6 +314,8 @@ export function swapShellMetadata(
       if (/<title>/i.test(trimmed)) return false;
       if (/<meta name="description"/i.test(trimmed)) return false;
       if (/<link rel="canonical"/i.test(trimmed)) return false;
+      if (/<link rel="alternate"/i.test(trimmed)) return false;
+      if (/<script type="application\/ld\+json"/i.test(trimmed)) return false;
       if (/<meta property="og:/i.test(trimmed)) return false;
       if (/<meta name="twitter:/i.test(trimmed)) return false;
       return true;
@@ -408,6 +410,7 @@ export function buildPrerenderOutputs(
 ): Map<string, string> {
   const outputs = new Map<string, string>();
   const sorted = destinations.sort((a, b) => a.id.localeCompare(b.id));
+  outputs.set("/index.html", buildShellPage(shell, "en"));
   outputs.set("/ja/index.html", buildShellPage(shell, "ja"));
   for (const destination of sorted) {
     const { html } = injectHead(shell, destination, "en");

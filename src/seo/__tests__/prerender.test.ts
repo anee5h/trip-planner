@@ -299,6 +299,31 @@ describe("KAI-68 prerender: full output set", () => {
     }
   });
 
+  it("emits the EN home shell (/index.html) with the complete hreflang set, and is idempotent when re-injected", () => {
+    const destinations = [makeDestination({ id: "a-dest" })];
+    const outputs = buildPrerenderOutputs(SHELL, destinations);
+    const enHome = outputs.get("/index.html") ?? "";
+    expect(enHome).toContain('<html lang="en"');
+    expect(enHome).toContain(
+      '<link rel="alternate" hreflang="en" href="https://meguruto.app/" />',
+    );
+    expect(enHome).toContain(
+      '<link rel="alternate" hreflang="ja" href="https://meguruto.app/ja/" />',
+    );
+    expect(enHome).toContain(
+      '<link rel="alternate" hreflang="x-default" href="https://meguruto.app/" />',
+    );
+    // Re-injecting into the already-generated EN home must not duplicate
+    // hreflang/json-ld (swapShellMetadata filters them out).
+    const reInjected = buildShellPage(enHome, "en");
+    const count = (reInjected.match(/<link rel="alternate" hreflang=/g) ?? [])
+      .length;
+    expect(count).toBe(3);
+    expect(
+      (reInjected.match(/<script type="application\/ld\+json"/g) ?? []).length,
+    ).toBe(1);
+  });
+
   it("prerenders every canonical destination regardless of quality status, plus sitemap, manifest and the JA shell", () => {
     const outputs = buildPrerenderOutputs(SHELL, [
       makeDestination({ id: "pub", status: "published" }),
