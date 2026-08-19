@@ -322,6 +322,16 @@ describe("KAI-68 prerender: full output set", () => {
     expect(
       (reInjected.match(/<script type="application\/ld\+json"/g) ?? []).length,
     ).toBe(1);
+    // A REFORMATTED (multi-line meta) injected shell must not leak the home
+    // description into a destination page either (html-minifier case).
+    const multiLineHome = enHome.replace(
+      '<meta name="description" content="Homepage description" />',
+      '<meta\n    name="description"\n    content="Homepage description"\n    />',
+    );
+    const destFromMulti = buildShellPage(multiLineHome, "en");
+    expect(
+      (destFromMulti.match(/name="description"[^>]*>/g) ?? []).length,
+    ).toBe(1);
   });
 
   it("prerenders every canonical destination regardless of quality status, plus sitemap, manifest and the JA shell", () => {

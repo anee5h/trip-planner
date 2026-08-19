@@ -312,12 +312,16 @@ export function swapShellMetadata(
       const trimmed = line.trim();
       if (!trimmed) return false;
       if (/<title>/i.test(trimmed)) return false;
-      if (/<meta name="description"/i.test(trimmed)) return false;
-      if (/<link rel="canonical"/i.test(trimmed)) return false;
-      if (/<link rel="alternate"/i.test(trimmed)) return false;
+      if (/name="description"/i.test(trimmed)) return false;
+      if (/rel="canonical"/i.test(trimmed)) return false;
+      if (/rel="alternate"/i.test(trimmed)) return false;
+      if (/property="og:/i.test(trimmed)) return false;
+      if (/name="twitter:/i.test(trimmed)) return false;
       if (/<script type="application\/ld\+json"/i.test(trimmed)) return false;
-      if (/<meta property="og:/i.test(trimmed)) return false;
-      if (/<meta name="twitter:/i.test(trimmed)) return false;
+      // Multi-line <meta> continuation lines (e.g. after html-minifier
+      // reformats an injected head) carry no <meta> prefix but belong to a
+      // dropped SEO tag: content="/property="/name=" line fragments.
+      if (/^(content|property|name|href|rel)="/i.test(trimmed)) return false;
       return true;
     })
     .join("\n    ");
