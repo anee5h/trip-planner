@@ -6,6 +6,12 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    # Match Meguruto's PR-title convention (feat|fix|...|chore): Dependabot
+    # PRs/commits get prefix "chore" and "scope" appends deps (production)
+    # or deps-dev (development) automatically.
+    commit-message:
+      prefix: "chore"
+      include: "scope"
     groups:
       development-dependencies:
         dependency-type: development
